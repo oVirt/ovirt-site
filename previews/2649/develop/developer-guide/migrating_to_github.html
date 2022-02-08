@@ -139,6 +139,8 @@
 
 <p>Starting in December 2021, the oVirt project started decommissioning self-hosted infrastructure in favor of more widely used services. This guide is meant to help project maintainers with migrating from Gerrit to GitHub as main repository.</p>
 
+<p><em>Note:</em> For a quick setup, you can use the <a href="https://github.com/oVirt/gerrit-to-gh">template repository</a> that includes a README notice, GitHub Actions as well as PR and Issue templates, and more.</p>
+
 <h1 id="decide-how-to-handle-open-reviews">Decide how to handle open reviews</h1>
 
 <p>Please check the open reviews for your project at <code class="language-plaintext highlighter-rouge">https://gerrit.ovirt.org/q/project:&lt;your_project&gt;+status:open</code>. If you have no open reviews you can just continue. If you do have open reviews, you need to decide how to handle them:</p>
@@ -206,7 +208,8 @@ Thanks
 <p>Within the <code class="language-plaintext highlighter-rouge">Manage access</code> section:</p>
 <ul>
   <li>Ensure <code class="language-plaintext highlighter-rouge">oVirt/Admins</code> team has Administrator role for the project</li>
-  <li>Setup additional roles as needed</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">oVirt/Developers</code> with Triage role</li>
+  <li>Setup additional roles as needed, e.g. Maintain or Write for maintainers</li>
 </ul>
 
 <p>Within the <code class="language-plaintext highlighter-rouge">Security &amp; Analysis</code> section:</p>
@@ -263,7 +266,7 @@ Thanks
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">prepare env</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
            <span class="s">mkdir -p ${PWD}/tmp.repos/BUILD</span>
-           <span class="s">yum install -y --setopt=tsflags=nodocs autoconf automake gettext-devel git systemd make git rpm-build</span>
+           <span class="s">yum install -y --setopt=tsflags=nodocs autoconf automake createrepo_c gettext-devel git systemd make git rpm-build</span>
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
       <span class="na">with</span><span class="pi">:</span>
         <span class="na">fetch-depth</span><span class="pi">:</span> <span class="m">0</span>
@@ -285,6 +288,10 @@ Thanks
           <span class="s">mkdir -p exported-artifacts</span>
           <span class="s">find tmp.repos -iname \*rpm -exec mv "{}" exported-artifacts/ \;</span>
           <span class="s">mv ./*tar.gz exported-artifacts/</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Create DNF repository</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">createrepo_c exported-artifacts/</span>
+
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">test install</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
           <span class="s">yum install -y exported-artifacts/ovirt-release-master-4*noarch.rpm</span>
@@ -295,10 +302,9 @@ Thanks
           <span class="s">yum --downloadonly install -y exported-artifacts/*noarch.rpm</span>
           <span class="s">yum --downloadonly install -y ovirt-engine ovirt-engine-setup-plugin-websocket-proxy</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upload artifacts</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ovirt/upload-rpms-action@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">artifacts</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">exported-artifacts/</span>
+        <span class="na">directory</span><span class="pi">:</span> <span class="s">test-artifacts</span>
 
 
   <span class="na">build-el9</span><span class="pi">:</span>
@@ -311,7 +317,7 @@ Thanks
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">prepare env</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
            <span class="s">mkdir -p ${PWD}/tmp.repos/BUILD</span>
-           <span class="s">yum install -y --setopt=tsflags=nodocs autoconf automake gettext-devel git systemd make git rpm-build</span>
+           <span class="s">yum install -y --setopt=tsflags=nodocs autoconf automake createrepo_c gettext-devel git systemd make git rpm-build</span>
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
       <span class="na">with</span><span class="pi">:</span>
         <span class="na">fetch-depth</span><span class="pi">:</span> <span class="m">0</span>
@@ -333,15 +339,19 @@ Thanks
           <span class="s">mkdir -p exported-artifacts</span>
           <span class="s">find tmp.repos -iname \*rpm -exec mv "{}" exported-artifacts/ \;</span>
           <span class="s">mv ./*tar.gz exported-artifacts/</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Create DNF repository</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">createrepo_c exported-artifacts/</span>
+
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">test install</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
           <span class="s">yum install -y exported-artifacts/ovirt-release-master-4*noarch.rpm</span>
           <span class="s">yum --downloadonly install -y exported-artifacts/*noarch.rpm</span>
+
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upload artifacts</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ovirt/upload-rpms-action@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">artifacts</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">exported-artifacts/</span>
+        <span class="na">directory</span><span class="pi">:</span> <span class="s">test-artifacts</span>
 </code></pre></div></div>
 
 <h1 id="require-ci-1-for-merging">Require “CI +1” for merging</h1>
@@ -359,6 +369,80 @@ Thanks
   </li>
 </ul>
 
+<h1 id="clean-up-redundant-files-and-folders">Clean up redundant files and folders</h1>
+
+<p>If you were previously and are now no longer using <a href="https://ovirt-infra-docs.readthedocs.io/en/latest/CI/STDCI-Configuration/index.html">STDCI</a>, you should clean up your project repository to avoid outdated content. This means deleting the <code class="language-plaintext highlighter-rouge">stdci.yaml</code> file as well as the <code class="language-plaintext highlighter-rouge">automation</code> folder, assuming that your automation folder does not contain additional files that you would like to keep.</p>
+
+<h1 id="set-up-codeowners-to-automatically-assign-reviewers">Set up CODEOWNERS to automatically assign reviewers</h1>
+
+<p><code class="language-plaintext highlighter-rouge">CODEOWNERS</code> is a file within each repository that should include only people with write permissions to the repository who will automatically get assigned as reviewers for any incoming pull requests. You can place this file either in the repository root or your <code class="language-plaintext highlighter-rouge">.github</code> repository. An example <code class="language-plaintext highlighter-rouge">CODEOWNERS</code> file that automatically assigns <code class="language-plaintext highlighter-rouge">username</code> and a team called <code class="language-plaintext highlighter-rouge">team-name</code> within the oVirt organization to all PRs could look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* @username @ovirt/team-name
+</code></pre></div></div>
+
+<p>For more information on syntax and options, check out <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">GitHub’s documentation on code owners</a>.</p>
+
+<h1 id="add-pr-and-issue-templates">Add PR and issue templates</h1>
+
+<p>You can create PR and issue templates to make sure contributions follow a certain pattern. Like the code owners, PR and issue templates can be placed either in the repository root or in the <code class="language-plaintext highlighter-rouge">.github</code> folder. You can create different templates for different types of PRs and issues. GitHub’s documentation offers more information on <a href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository">issue templates</a> and <a href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository">PR templates</a>. As a quick solution for all PRs, we could create a <code class="language-plaintext highlighter-rouge">pull_request_template.md</code> with the following contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fixes issue # (delete if not relevant)
+
+## Changes introduced with this PR
+
+*
+
+*
+
+*
+
+## Are you the owner of the code you are sending in, or do you have permission of the owner?
+
+[y/n]
+</code></pre></div></div>
+
+<p>Issue templates are saved in an additional folder within the <code class="language-plaintext highlighter-rouge">.github</code> repository. There is a corresponding <code class="language-plaintext highlighter-rouge">.md</code> file for each type of issue you would like contributors to be able to create. A recommended directory structure for the <code class="language-plaintext highlighter-rouge">.github</code> folder including issue templates looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── .github/
+
+│   ├── pull-request.md
+
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   ├── feature_request.md
+
+│   ├── workflows/
+│   │   ├── &lt;youraction1&gt;.yml
+│   │   ├── &lt;youraction2&gt;.yml
+</code></pre></div></div>
+
+<p>If you choose to add the <code class="language-plaintext highlighter-rouge">config.yml</code> within the <code class="language-plaintext highlighter-rouge">ISSUE_TEMPLATE</code> folder, you can fill it with additional links that show up when someone is creating a new issue, for example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blank_issues_enabled: true
+contact_links:
+  - name: oVirt Mailing Lists
+    url: https://lists.ovirt.org/archives/
+    about: Join us on the mailing list for more conversations and community support
+  - name: oVirt User Documentation
+    url: https://ovirt.org/documentation/
+    about: Documentation for oVirt users
+  - name: oVirt Developer Documentation
+    url: https://ovirt.org/develop/devdocs.html
+    about: Documentation for oVirt developers
+
+</code></pre></div></div>
+
+<h1 id="use-labels">Use labels</h1>
+
+<p>For each repository, you can assign <a href="https://github.com/actions/labeler">labels</a> to easily label things such as good first issues, bugs, documentation, tested labels, and more. Your repository labels can be found at: <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;/labels</code></p>
+
+<p>There is also a GitHub Action you can use in your repository to <a href="https://github.com/actions/labeler">automatically label PRs</a>.</p>
+
+<h1 id="developing-code-on-github">Developing code on GitHub</h1>
+
+<p>You can find the best practices for developing an oVirt project on GitHub in <a href="https://www.ovirt.org/develop/dev-process/working-with-github.html">Working with oVirt on GitHub</a>.</p>
+
 
 
 
@@ -366,6 +450,6 @@ Thanks
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/migrating_to_github.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/migrating_to_github.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/migrating_to_github.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/migrating_to_github.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

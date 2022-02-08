@@ -188,7 +188,7 @@
 <li><a href="#removing-a-module-temporarily">Removing a module temporarily</a></li>
 </ul>
 </li>
-<li><a href="#legal-notice">Legal notice</a></li>
+<li><a href="#legal-notice">Appendix E: Legal notice</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -699,7 +699,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 5 GB.</p>
+<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 8 GB.</p>
 </div>
 <div class="paragraph">
 <p>If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See <a href="https://ovirt.org/documentation/administration_guide/index#Memory_Optimization">Memory Optimization</a>.</p>
@@ -846,21 +846,6 @@
 <div class="paragraph">
 <p>The firewall configuration documented here assumes a default configuration.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>A diagram of these firewall requirements is available at <a href="https://access.redhat.com/articles/3932211" class="bare">https://access.redhat.com/articles/3932211</a>.
-You can use the IDs in the table to look up connections in the diagram.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 4. oVirt Engine Firewall Requirements</caption>
 <colgroup>
@@ -952,8 +937,8 @@ You can use the IDs in the table to look up connections in the diagram.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">54323</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Administration Portal clients</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Engine (ImageIO Proxy server)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Required for communication with the ImageIO Proxy (<code>ovirt-imageio-proxy</code>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Engine (<code>ovirt-imageio</code> service)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for communication with the <code>ovirt-imageo</code> service.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
@@ -1033,24 +1018,6 @@ You can use the IDs in the table to look up connections in the diagram.</p>
 </div>
 <div class="paragraph">
 <p>To disable automatic firewall configuration when adding a new host, clear the <strong>Automatically configure host firewall</strong> check box under <strong>Advanced Parameters</strong>.</p>
-</div>
-<div class="paragraph">
-<p>To customize the host firewall rules, see <a href="https://access.redhat.com/solutions/2772331" class="bare">https://access.redhat.com/solutions/2772331</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>A diagram of these firewall requirements is available at <a href="https://access.redhat.com/articles/3932211" class="bare">https://access.redhat.com/articles/3932211</a>.
-You can use the IDs in the table to look up connections in the diagram.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 5. Virtualization Host Firewall Requirements</caption>
@@ -1189,10 +1156,10 @@ You can use the IDs in the table to look up connections in the diagram.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">H11</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">54322</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Engine (ImageIO Proxy server)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Engine <code>ovirt-imageio</code> service</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p>
 <p class="tableblock">Enterprise Linux hosts</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Required for communication with the ImageIO daemon (<strong>ovirt-imageio-daemon</strong>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for communication with the <code>ovirt-imageo</code> service.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
@@ -1253,21 +1220,6 @@ You can use the IDs in the table to look up connections in the diagram.</p>
 <td class="content">
 <div class="paragraph">
 <p>Accessing the Engine database from external systems is not supported.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>A diagram of these firewall requirements is available at <a href="https://access.redhat.com/articles/3932211" class="bare">https://access.redhat.com/articles/3932211</a>.
-You can use the IDs in the table to look up connections in the diagram.</p>
 </div>
 </td>
 </tr>
@@ -1498,9 +1450,6 @@ You can use the IDs in the table to look up connections in the diagram.</p>
 (Yes, No) [No]:</pre>
 </div>
 </div>
-</li>
-</ol>
-</div>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -1518,8 +1467,7 @@ You can use the IDs in the table to look up connections in the diagram.</p>
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Press <code>Enter</code> to configure the Engine on this machine:</p>
 <div class="listingblock">
@@ -1770,8 +1718,18 @@ Confirm engine admin password:</pre>
 <pre class="nowrap">Application mode (Both, Virt, Gluster) [Both]:</pre>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Both</strong> offers the greatest flexibility. In most cases, select <code>Both</code>. <strong>Virt</strong> allows you to run virtual machines in the environment; <strong>Gluster</strong> only allows you to manage GlusterFS from the Administration Portal.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Both</strong> - offers the greatest flexibility. In most cases, select <strong>Both</strong>.</p>
+</li>
+<li>
+<p><strong>Virt</strong> - allows you to run virtual machines in the environment.</p>
+</li>
+<li>
+<p><strong>Gluster</strong> - only allows you to manage GlusterFS from the Administration Portal.</p>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -1850,17 +1808,25 @@ Do you wish Setup to configure that, or prefer to perform that manually? (Automa
 <pre class="nowrap">Please confirm installation settings (OK, Cancel) [OK]:</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>When your environment has been configured, <code>engine-setup</code> displays details about how to access your environment. If you chose to manually configure the firewall, <code>engine-setup</code> provides a custom list of ports that need to be opened, based on the options selected during setup. <code>engine-setup</code> also saves your answers to a file that can be used to reconfigure the Engine using the same values, and outputs the location of the log file for the oVirt Engine configuration process.</p>
-</div>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When your environment has been configured, <code>engine-setup</code> displays details about how to access your environment.</p>
+</div>
+<div class="paragraph">
+<div class="title">Next steps</div>
+<p>If you chose to manually configure the firewall, <code>engine-setup</code> provides a custom list of ports that need to be opened, based on the options selected during setup. <code>engine-setup</code> also saves your answers to a file that can be used to reconfigure the Engine using the same values, and outputs the location of the log file for the oVirt Engine configuration process.</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>If you intend to link your oVirt environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP">Synchronizing the System Clock with a Remote Server</a> in the <em>Enterprise Linux System Administrator&#8217;s Guide</em> for more information.</p>
 </li>
 <li>
-<p>Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority&#8217;s certificate by navigating to <code>http://<em>manager-fqdn</em>/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA</code>, replacing <em>manager-fqdn</em> with the FQDN that you provided during the installation.</p>
+<p>Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority&#8217;s certificate by navigating to <code><a href="http://&lt;manager-fqdn&gt;/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA" class="bare">http://&lt;manager-fqdn&gt;/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA</a></code>, replacing &lt;manager-fqdn&gt; with the FQDN that you provided during the installation.</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
 <p>Log in to the Administration Portal, where you can add hosts and storage to the environment:</p>
@@ -4792,10 +4758,10 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="legal-notice">Legal notice</h2>
+<h2 id="legal-notice">Appendix E: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a standalone Manager with local databases</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a standalone Manager with local databases</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>
@@ -4806,6 +4772,6 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

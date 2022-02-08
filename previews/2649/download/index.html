@@ -122,27 +122,28 @@
 
 <p><img class="screenshot" src="download_1.png" /></p>
 
-<p>oVirt 4.4.9 is intended for production use and is available for the following platforms:</p>
+<p>oVirt 4.4.10 is intended for production use and is available for the following platforms:</p>
 
 <p>Engine:</p>
 <ul>
-  <li>Red Hat Enterprise Linux 8.4</li>
-  <li>CentOS Linux 8.4</li>
+  <li>Red Hat Enterprise Linux 8.5 (or similar)</li>
   <li>CentOS Stream</li>
 </ul>
 
 <p>Hosts:</p>
 <ul>
-  <li>Red Hat Enterprise Linux 8.5 beta (or similar)</li>
+  <li>Red Hat Enterprise Linux 8.5 (or similar)</li>
   <li>oVirt Node (based on CentOS Stream)</li>
   <li>CentOS Stream</li>
 </ul>
 
-<p>See the <a href="/ovirt-site/previews/2649/release/4.4.9/">Release Notes for oVirt 4.4.9</a>.</p>
+<p>See the <a href="/ovirt-site/previews/2649/release/4.4.10/">Release Notes for oVirt 4.4.10</a>.</p>
 
-<h2 id="install-ovirt-with-cockpit">Install oVirt with Cockpit</h2>
+<h2 id="install-ovirt-using-the-command-line">Install oVirt using the command line</h2>
 
-<p>oVirt is installed using a graphical installer in Cockpit.</p>
+<p>oVirt is installed using the command line.</p>
+
+<p>See <a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line">Installing oVirt as a self-hosted engine using the command line</a></p>
 
 <p>oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host.
 Once you install a second Host, the Engine Virtual Machine will be highly available. See the
@@ -150,11 +151,11 @@ Once you install a second Host, the Engine Virtual Machine will be highly availa
 
 <p><a href="/ovirt-site/previews/2649/download/alternate_downloads.html">Alternate download options</a></p>
 
-<p>oVirt supports two types of <a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Installing_Hosts_for_RHV_SHE_cockpit_deploy">Hosts</a>:</p>
+<p>oVirt supports two types of <a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_Hosts_for_RHV_SHE_cli_deploy">Hosts</a>:</p>
 
 <ul>
   <li><a href="/ovirt-site/previews/2649/download/node.html">oVirt Node</a>, a minimal hypervisor operating system based on CentOS</li>
-  <li><a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy">Enterprise Linux (such as CentOS or RHEL)</a></li>
+  <li><a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy">Enterprise Linux (such as CentOS or RHEL)</a></li>
 </ul>
 
 <p>Depending on your environment requirements, you may want to use only oVirt Nodes, only EL Hosts, or both.</p>
@@ -193,64 +194,17 @@ Once you install a second Host, the Engine Virtual Machine will be highly availa
   </li>
 </ol>
 
-<h2 id="install-ovirt-using-the-cockpit-wizard">Install oVirt using the Cockpit wizard</h2>
+<h2 id="install-ovirt-using-the-command-line-1">Install oVirt using the command line</h2>
 
-<ol class="instructions">
+<p>See the instructions in:</p>
+<ul>
   <li>
-    <p>Enable the Base, Appstream, and Ansible repositories (Red Hat Enterprise Linux only):</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># RHEL only -- they are enabled by default on CentOS and oVirt Node
-sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-rpms"
-sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-rpms"
-sudo subscription-manager repos --enable="ansible-2-for-rhel-8-x86_64-rpms"
-
-# RHEL beta releases only
-sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-beta-rpms"
-sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-beta-rpms"
-</code></pre></div>    </div>
+    <p><a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy">Installing the self-hosted engine deployment host</a></p>
   </li>
   <li>
-    <p>Install Cockpit and the cockpit-ovirt-dashboard plugin:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install cockpit cockpit-ovirt-dashboard -y
-</code></pre></div>    </div>
+    <p><a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy">Installing the oVirt Engine</a></p>
   </li>
-  <li>
-    <p>Enable Cockpit:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable --now cockpit.socket
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Open the firewall:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo firewall-cmd --add-service=cockpit
-sudo firewall-cmd --add-service=cockpit --permanent
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Log in to Cockpit as root at https://[Host IP or FQDN]:9090 and click Virtualization → Hosted Engine.</p>
-  </li>
-  <li>
-    <p>Click Start under the Hosted Engine option.</p>
-
-    <p><img class="install-start" src="download_2.png" /></p>
-  </li>
-  <li>
-    <p>Complete the setup wizard. As part of the setup, you will enter the Hosted Engine’s name.</p>
-  </li>
-  <li>
-    <p>As part of the setup wizard, you will need to provide the location of your storage. oVirt requires a central
-shared storage system for Virtual Machine disk images, ISO files, and snapshots.</p>
-  </li>
-  <li>
-    <p>Once the installation completes, oVirt’s web UI management interface will start. Browse to
- https://[Hosted Engine’s name]/ to begin using oVirt!</p>
-
-    <p>See <a href="/ovirt-site/previews/2649/download/browsers_and_mobile.html">Browsers and Mobile Clients</a> for supported browsers and
- mobile client information.</p>
-  </li>
-</ol>
+</ul>
 
 <h2 id="setup-additional-hosts">Setup Additional Hosts</h2>
 
@@ -259,11 +213,11 @@ and high-availability.</p>
 
 <p>Once you have installed additional oVirt Nodes or EL Hosts, use the oVirt Administration Portal to add them to the Engine.
 Navigate to Compute → Hosts → New and enter the Host details. See
-<a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy">Adding a Host to the oVirt Engine</a> for detailed instructions.</p>
+<a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_standard_hosts_to_the_Manager_SHE_cli_deploy">Adding a Host to the oVirt Engine</a> for detailed instructions.</p>
 
 <h2 id="install-virtual-machines">Install Virtual Machines</h2>
 
-<p>Once oVirt Engine is installed and you have added Hosts and <a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_Storage_Domains_to_RHV_SHE_cockpit_deploy">configured storage</a>,
+<p>Once oVirt Engine is installed and you have added Hosts and <a href="/ovirt-site/previews/2649/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy">configured storage</a>,
 you can now install Virtual Machines! See the <a href="/ovirt-site/previews/2649/documentation/virtual_machine_management_guide/">Virtual Machine Management Guide</a>
 for complete instructions.</p>
 
@@ -362,7 +316,7 @@ In oVirt, you can use a web-based console viewer or a desktop application (we re
 <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/getting-started-with-virtualization-in-rhel-8_configuring-and-managing-virtualization#proc_opening-a-virtual-machine-graphical-console-using-virt-viewer_assembly_connecting-to-virtual-machines">Virt Viewer</a>).
 For Windows virtual machines, Remote Desktop Protocol is also available. See <a href="/ovirt-site/previews/2649/documentation/virtual_machine_management_guide/#sect-Installing_Console_Components">Installing Console Components</a>,
 <a href="/ovirt-site/previews/2649/documentation/virtual_machine_management_guide/#VNC_Console_Options">VNC Console Options</a>, and
-and <a href="/ovirt-site/previews/2649/download/browsers_and_mobile.html">Browser Support and Mobile Clients</a> for more information.</p>
+and <a href="/ovirt-site/previews/2649/download/browsers_and_mobile.html">Browser Support</a> for more information.</p>
 
 <hr />
 
@@ -379,6 +333,6 @@ and <a href="/ovirt-site/previews/2649/download/browsers_and_mobile.html">Browse
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/download/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/download/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/download/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/download/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

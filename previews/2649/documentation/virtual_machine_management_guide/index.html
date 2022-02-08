@@ -310,14 +310,13 @@
 <li><a href="#Live_migration_prerequisites">6.14.1. Live Migration Prerequisites</a></li>
 <li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs">6.14.2. Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration</a></li>
 <li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime.</a></li>
-<li><a href="#Optimizing_Live_Migration">6.14.4. Optimizing Live Migration</a></li>
-<li><a href="#Guest_Agent_Hooks">6.14.5. Guest Agent Hooks</a></li>
-<li><a href="#Automatic_virtual_machine_migration">6.14.6. Automatic Virtual Machine Migration</a></li>
-<li><a href="#Preventing_automatic_migration_of_a_virtual_machine">6.14.7. Preventing Automatic Migration of a Virtual Machine</a></li>
-<li><a href="#Manually_migrating_virtual_machines">6.14.8. Manually Migrating Virtual Machines</a></li>
-<li><a href="#Setting_migration_priority">6.14.9. Setting Migration Priority</a></li>
-<li><a href="#Canceling_ongoing_virtual_machine_migrations">6.14.10. Canceling Ongoing Virtual Machine Migrations</a></li>
-<li><a href="#Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.11. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</a></li>
+<li><a href="#Guest_Agent_Hooks">6.14.4. Guest Agent Hooks</a></li>
+<li><a href="#Automatic_virtual_machine_migration">6.14.5. Automatic Virtual Machine Migration</a></li>
+<li><a href="#Preventing_automatic_migration_of_a_virtual_machine">6.14.6. Preventing Automatic Migration of a Virtual Machine</a></li>
+<li><a href="#Manually_migrating_virtual_machines">6.14.7. Manually Migrating Virtual Machines</a></li>
+<li><a href="#Setting_migration_priority">6.14.8. Setting Migration Priority</a></li>
+<li><a href="#Canceling_ongoing_virtual_machine_migrations">6.14.9. Canceling Ongoing Virtual Machine Migrations</a></li>
+<li><a href="#Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.10. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</a></li>
 </ul>
 </li>
 <li><a href="#sect-Improving_Uptime_with_Virtual_Machine_High_Availability">6.15. Improving Uptime with Virtual Machine High Availability</a>
@@ -615,7 +614,7 @@
 <p>Enterprise Linux 7: <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Installation_Guide/index.html" class="bare">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Installation_Guide/index.html</a></p>
 </li>
 <li>
-<p>Enterprise Linux Atomic Host 7: <a href="https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux-atomic-host/7/html-single/installation-and-configuration-guide/" class="bare">https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux-atomic-host/7/html-single/installation-and-configuration-guide/</a></p>
+<p>Enterprise Linux Atomic Host 7: <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/installation_and_configuration_guide/index" class="bare">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/installation_and_configuration_guide/index</a></p>
 </li>
 <li>
 <p>Enterprise Linux 8: <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index" class="bare">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index</a></p>
@@ -729,7 +728,7 @@
 <p>In the <strong>Boot Options</strong> tab, choose the <strong>First Device</strong> that the virtual machine will use to boot.</p>
 </li>
 <li>
-<p>You can accept the default settings for all other fields, or change them if required. For more details on all fields in the <strong>New Virtual Machine</strong> window, see <a href="https://ovirt.org/documentation//index#sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows">Explanation of settings in the New Virtual Machine and Edit Virtual Machine Windows</a>.</p>
+<p>You can accept the default settings for all other fields, or change them if required. For more details on all fields in the <strong>New Virtual Machine</strong> window, see <a href="https://ovirt.org/documentation//virtual_machine_management_guide/index#sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows">Explanation of settings in the New Virtual Machine and Edit Virtual Machine Windows</a>.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -1522,7 +1521,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>In the <strong>Boot Options</strong> tab, choose the <strong>First Device</strong> that the virtual machine will use to boot.</p>
 </li>
 <li>
-<p>You can accept the default settings for all other fields, or change them if required. For more details on all fields in the <strong>New Virtual Machine</strong> window, see <a href="https://ovirt.org/documentation//index#sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows">Explanation of settings in the New Virtual Machine and Edit Virtual Machine Windows</a>.</p>
+<p>You can accept the default settings for all other fields, or change them if required. For more details on all fields in the <strong>New Virtual Machine</strong> window, see <a href="https://ovirt.org/documentation//virtual_machine_management_guide/index#sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows">Explanation of settings in the New Virtual Machine and Edit Virtual Machine Windows</a>.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -4235,6 +4234,14 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </dl>
 </div>
 </li>
+<li>
+<p>Restart the <code>ovirt-engine</code> service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># systemctl restart ovirt-engine</pre>
+</div>
+</div>
+</li>
 </ol>
 </div>
 </div>
@@ -4306,9 +4313,6 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </li>
 <li>
 <p><strong>Virtual Sockets</strong> (Edit this field to hot plug CPUs. See <a href="#CPU_hot_plug">Hot Plugging vCPUs</a>.)</p>
-</li>
-<li>
-<p><strong>Use custom migration downtime</strong></p>
 </li>
 <li>
 <p><strong>Highly Available</strong></p>
@@ -6187,31 +6191,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <div class="sect3">
 <h4 id="Deleting_a_snapshot">6.9.4. Deleting a Snapshot</h4>
 <div class="paragraph">
-<p>You can delete a virtual machine snapshot and permanently remove it from your oVirt environment. This operation is only supported on a running virtual machine.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>When you delete a snapshot from an image chain, there must be enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots. This is due to the data from the two volumes being merged in the resized volume and the resized volume growing to accommodate the total size of the two merged images.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If the snapshot being deleted is contained in a base image, the volume subsequent to the volume containing the snapshot being deleted is extended to include the base volume.</p>
-</li>
-<li>
-<p>If the snapshot being deleted is contained in a QCOW2 (thin provisioned), non-base image hosted on internal storage, the successor volume is extended to include the volume containing the snapshot being deleted.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
+<p>You can delete a virtual machine snapshot and permanently remove it from your oVirt environment.</p>
 </div>
 <div class="paragraph">
 <p><strong>Deleting a Snapshot</strong></p>
@@ -6246,7 +6226,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or even a temporary network issue) and try again.</p>
+<p>If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or a temporary network issue) and try again.</p>
 </div>
 </td>
 </tr>
@@ -8549,110 +8529,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Optimizing_Live_Migration">6.14.4. Optimizing Live Migration</h4>
-<div class="paragraph">
-<p>Live virtual machine migration can be a resource-intensive operation. To optimize live migration, you can set the following two options globally for every virtual machine in an environment, for every virtual machine in a cluster, or for an individual virtual machine.</p>
-</div>
-<div class="paragraph">
-<p>The <strong>Auto Converge migrations</strong> option allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine.</p>
-</div>
-<div class="paragraph">
-<p>The <strong>Enable migration compression</strong> option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern.</p>
-</div>
-<div class="paragraph">
-<p>Both options are disabled globally by default.</p>
-</div>
-<div class="paragraph">
-<p><strong>Configuring Auto-convergence and Migration Compression for Virtual Machine Migration</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Configure the optimization settings at the global level:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Enable auto-convergence at the global level:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># engine-config -s DefaultAutoConvergence=True</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Enable migration compression at the global level:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># engine-config -s DefaultMigrationCompression=True</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Restart the <strong>ovirt-engine</strong> service to apply the changes:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Configure the optimization settings for a cluster:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span> and select a cluster.</p>
-</li>
-<li>
-<p>Click <b class="button">Edit</b>.</p>
-</li>
-<li>
-<p>Click the <strong>Migration Policy</strong> tab.</p>
-</li>
-<li>
-<p>From the <strong>Auto Converge migrations</strong> list, select <strong>Inherit from global setting</strong>, <strong>Auto Converge</strong>, or <strong>Don&#8217;t Auto Converge</strong>.</p>
-</li>
-<li>
-<p>From the <strong>Enable migration compression</strong> list, select <strong>Inherit from global setting</strong>, <strong>Compress</strong>, or <strong>Don&#8217;t Compress</strong>.</p>
-</li>
-<li>
-<p>Click <b class="button">OK</b>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Configure the optimization settings at the virtual machine level:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a virtual machine.</p>
-</li>
-<li>
-<p>Click <b class="button">Edit</b>.</p>
-</li>
-<li>
-<p>Click the <strong>Host</strong> tab.</p>
-</li>
-<li>
-<p>From the <strong>Auto Converge migrations</strong> list, select <strong>Inherit from cluster setting</strong>, <strong>Auto Converge</strong>, or <strong>Don&#8217;t Auto Converge</strong>.</p>
-</li>
-<li>
-<p>From the <strong>Enable migration compression</strong> list, select <strong>Inherit from cluster setting</strong>, <strong>Compress</strong>, or <strong>Don&#8217;t Compress</strong>.</p>
-</li>
-<li>
-<p>Click <b class="button">OK</b>.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="Guest_Agent_Hooks">6.14.5. Guest Agent Hooks</h4>
+<h4 id="Guest_Agent_Hooks">6.14.4. Guest Agent Hooks</h4>
 <div class="paragraph">
 <p>Hooks are scripts that trigger activity within a virtual machine when key events occur:</p>
 </div>
@@ -8683,7 +8560,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Automatic_virtual_machine_migration">6.14.6. Automatic Virtual Machine Migration</h4>
+<h4 id="Automatic_virtual_machine_migration">6.14.5. Automatic Virtual Machine Migration</h4>
 <div class="paragraph">
 <p>oVirt Engine automatically initiates live migration of all virtual machines running on a host when the host is moved into maintenance mode. The destination host for each virtual machine is assessed as the virtual machine is migrated, in order to spread the load across the cluster.</p>
 </div>
@@ -8698,7 +8575,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Preventing_automatic_migration_of_a_virtual_machine">6.14.7. Preventing Automatic Migration of a Virtual Machine</h4>
+<h4 id="Preventing_automatic_migration_of_a_virtual_machine">6.14.6. Preventing Automatic Migration of a Virtual Machine</h4>
 <div class="paragraph">
 <p>oVirt Engine allows you to disable automatic migration of virtual machines. You can also disable manual migration of virtual machines by setting the virtual machine to run only on a specific host.</p>
 </div>
@@ -8754,16 +8631,13 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <p>Select <strong>Allow manual migration only</strong> or <strong>Do not allow migration</strong> from the <strong>Migration Options</strong> drop-down list.</p>
 </li>
 <li>
-<p>Optionally, select the <strong>Use custom migration downtime</strong> check box and specify a value in milliseconds.</p>
-</li>
-<li>
 <p>Click <b class="button">OK</b>.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Manually_migrating_virtual_machines">6.14.8. Manually Migrating Virtual Machines</h4>
+<h4 id="Manually_migrating_virtual_machines">6.14.7. Manually Migrating Virtual Machines</h4>
 <div class="paragraph">
 <p>A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see <a href="#Live_migration_prerequisites">Live Migration Prerequisites</a>.</p>
 </div>
@@ -8792,7 +8666,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at <a href="https://access.redhat.com/articles/1390733" class="bare">https://access.redhat.com/articles/1390733</a>.</p>
+<p>Live migrating virtual machines between different clusters is generally not recommended. The only supported use case is documented at <a href="https://access.redhat.com/articles/1390733" class="bare">https://access.redhat.com/articles/1390733</a>.</p>
 </div>
 </td>
 </tr>
@@ -8834,7 +8708,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Setting_migration_priority">6.14.9. Setting Migration Priority</h4>
+<h4 id="Setting_migration_priority">6.14.8. Setting Migration Priority</h4>
 <div class="paragraph">
 <p>oVirt Engine queues concurrent requests for migration of virtual machines off of a given host. The load balancing process runs every minute. Hosts already involved in a migration event are not included in the migration cycle until their migration event has completed. When there is a migration request in the queue and available hosts in the cluster to action it, a migration event is triggered in line with the load balancing policy for the cluster.</p>
 </div>
@@ -8865,7 +8739,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Canceling_ongoing_virtual_machine_migrations">6.14.10. Canceling Ongoing Virtual Machine Migrations</h4>
+<h4 id="Canceling_ongoing_virtual_machine_migrations">6.14.9. Canceling Ongoing Virtual Machine Migrations</h4>
 <div class="paragraph">
 <p>A virtual machine migration is taking longer than you expected. You&#8217;d like to be sure where all virtual machines are running before you make any changes to your environment.</p>
 </div>
@@ -8887,7 +8761,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.11. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</h4>
+<h4 id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.10. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</h4>
 <div class="paragraph">
 <p>When a virtual server is automatically migrated because of the high availability function, the details of an automatic migration are documented in the <strong>Events</strong> tab and in the engine log to aid in troubleshooting, as illustrated in the following examples:</p>
 </div>
@@ -9532,7 +9406,7 @@ EndSection</pre>
 </div>
 </li>
 <li>
-<p>TPM devices can only be enabled for VMs running RHEL 7 or newer and Windows 8.1 and newer.</p>
+<p>TPM devices can only be enabled for virtual machines running RHEL 7 or later and Windows 8.1 or later.</p>
 </li>
 <li>
 <p>Virtual machines and templates with TPM data can not be exported or imported.</p>
@@ -11483,6 +11357,19 @@ This table does not include information on whether a power cycle is required bec
 <td class="tableblock halign-left valign-top"><p class="tableblock">No. The virtual machine can migrate to that host while running.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU options</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pass-Through Host CPU</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When selected, allows virtual machines to use the host&#8217;s CPU flags.
+When selected, <strong>Migration Options</strong> is set to <strong>Allow manual migration only</strong>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migrate only to hosts with the same TSC frequency</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When selected, this virtual machine can only be migrated to a host with the same TSC frequency. This option is only valid for High Performance virtual machines.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration Options</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration mode</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -11505,17 +11392,43 @@ This table does not include information on whether a power cycle is required bec
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use custom migration policy</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration policy</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Legacy</strong> - Legacy behavior of 3.6 version. Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
+<p><strong>Cluster default (Minimal downtime)</strong> - Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
 </li>
 <li>
 <p><strong>Minimal downtime</strong> - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.</p>
+</li>
+<li>
+<p><strong>Post-copy migration</strong> - When used, post-copy migration pauses the migrating virtual machine vCPUs on the source host, transfers only a minimum of memory pages, activates the virtual machine vCPUs on the destination host, and transfers the remaining memory pages while the virtual machine is running on the destination.</p>
+<div class="paragraph">
+<p>The post-copy policy first tries pre-copy to verify whether convergence can occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time.</p>
+</div>
+<div class="paragraph">
+<p>This significantly reduces the downtime of the migrated virtual machine, and also guarantees that the migration finishes regardless of how rapidly the memory pages of the source virtual machine change. It is optimal for migrating virtual machines in heavy continuous use, which would not be possible to migrate with standard pre-copy migration.</p>
+</div>
+<div class="paragraph">
+<p>The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the network connection breaks prior to the completion of the post-copy process, the Engine pauses and then kills the running virtual machine. Do not use post-copy migration if the virtual machine availability is critical or if the migration network is unstable.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><strong>Suspend workload if needed</strong> - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.</p>
@@ -11526,58 +11439,24 @@ This table does not include information on whether a power cycle is required bec
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use custom migration downtime</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This check box allows you to specify the maximum number of milliseconds the virtual machine can be down during live migration. Configure different maximum downtimes for each virtual machine according to its workload and SLA requirements. Enter <code>0</code> to use the VDSM default value.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Auto Converge migrations</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable migration encryption</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Only activated with the <strong>Legacy</strong> migration policy. Allows you to set whether auto-convergence is used during live migration of the virtual machine. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.</p>
+<p>Allows the virtual machine to be encrypted during migration.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Select <strong>Inherit from cluster setting</strong> to use the auto-convergence setting of the cluster. This option is selected by default.</p>
+<p><strong>Cluster default (Don&#8217;t encrypt)</strong></p>
 </li>
 <li>
-<p>Select <strong>Auto Converge</strong> to override the cluster setting or global setting and allow auto-convergence for the virtual machine.</p>
+<p><strong>Encrypt</strong></p>
 </li>
 <li>
-<p>Select <strong>Don&#8217;t Auto Converge</strong> to override the cluster setting or global setting and prevent auto-convergence for the virtual machine.</p>
+<p><strong>Don&#8217;t encrypt</strong></p>
 </li>
 </ul>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable migration compression</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Only activated with the <strong>Legacy</strong> migration policy. The option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select <strong>Inherit from cluster setting</strong> to use the compression setting of the cluster. This option is selected by default.</p>
-</li>
-<li>
-<p>Select <strong>Compress</strong> to override the cluster setting or global setting and allow compression for the virtual machine.</p>
-</li>
-<li>
-<p>Select <strong>Don&#8217;t compress</strong> to override the cluster setting or global setting and prevent compression for the virtual machine.</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pass-Through Host CPU</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This check box allows virtual machines to use the host&#8217;s CPU flags.
-When selected, <strong>Migration Options</strong> is set to <strong>Allow manual migration only</strong>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>
@@ -13130,7 +13009,7 @@ yum-uuid * Remove the yum UUID</pre>
 <h2 id="legal-notice">Appendix C: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4 Virtual Machine Management Guide</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4 Virtual Machine Management Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>
@@ -13150,6 +13029,6 @@ yum-uuid * Remove the yum UUID</pre>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/virtual_machine_management_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/virtual_machine_management_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/virtual_machine_management_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/virtual_machine_management_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

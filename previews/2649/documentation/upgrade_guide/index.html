@@ -99,13 +99,14 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel0">
-<li><a href="#upgrading-a-standalone-engine-local-database-environment">Upgrading a standalone Engine, local database environment</a>
+<li><a href="#Red_Hat_Virtualization_Upgrade_Overview">oVirt Upgrade Overview</a></li>
+<li><a href="#upgrading-a-standalone-engine-local-database-environment">Upgrading a standalone Engine local database environment</a>
 <ul class="sectlevel1">
-<li><a href="#Upgrading_from_4-2">1. Upgrading from 4.2 to oVirt 4.3</a>
+<li><a href="#Upgrading_from_4-2">1. Upgrading from oVirt 4.2 to 4.3</a>
 <ul class="sectlevel2">
 <li><a href="#Upgrade_Prerequisites_4-2_local_db">1.1. Prerequisites</a></li>
 <li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-2_local_db">1.2. Updating the oVirt Engine</a></li>
-<li><a href="#Upgrading_the_Manager_to_4-3_4-2_local_db">1.3. Upgrading the Engine from 4.2 to 4.3</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-3_4-2_local_db">1.3. Upgrading the oVirt Engine from 4.2 to 4.3</a></li>
 <li><a href="#Updating_all_hosts_in_a_cluster_4-2_local_db">1.4. Updating All Hosts in a Cluster</a></li>
 <li><a href="#Changing_the_Cluster_Compatibility_Version_4-2_local_db">1.5. Changing the Cluster Compatibility Version</a></li>
 <li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-2_local_db">1.6. Changing Virtual Machine Cluster Compatibility</a></li>
@@ -113,7 +114,7 @@
 <li><a href="#Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_local_db">1.8. Replacing SHA-1 Certificates with SHA-256 Certificates</a></li>
 </ul>
 </li>
-<li><a href="#Upgrading_from_4-3">2. Upgrading from 4.3 to oVirt 4.4</a>
+<li><a href="#Upgrading_from_4-3">2. Upgrading from oVirt 4.3 to 4.4</a>
 <ul class="sectlevel2">
 <li><a href="#Upgrade_Prerequisites_4-3_local_db">2.1. Prerequisites</a></li>
 <li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-3_local_db">2.2. Updating the oVirt Engine</a></li>
@@ -130,12 +131,12 @@
 </li>
 <li><a href="#upgrading-a-standalone-engine-remote-database-environment">Upgrading a standalone Engine remote database environment</a>
 <ul class="sectlevel1">
-<li><a href="#Remote_Upgrading_from_4-2">3. Upgrading a Remote Database Environment from 4.2 to oVirt 4.3</a>
+<li><a href="#Remote_Upgrading_from_4-2">3. Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</a>
 <ul class="sectlevel2">
 <li><a href="#Upgrade_Prerequisites_4-2_remote_db">3.1. Prerequisites</a></li>
 <li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-2_remote_db">3.2. Updating the oVirt Engine</a></li>
 <li><a href="#Upgrading_Remote_Databases_from_PG95_to_PG10_4-2_remote_db">3.3. Upgrading remote databases from PostgreSQL 9.5 to 10</a></li>
-<li><a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">3.4. Upgrading the Engine from 4.2 to 4.3</a>
+<li><a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">3.4. Upgrading the oVirt Engine from 4.2 to 4.3</a>
 <ul class="sectlevel3">
 <li><a href="#completing-the-remote-data-warehouse-database-upgrade">3.4.1. Completing the remote Data Warehouse database upgrade</a></li>
 </ul>
@@ -147,7 +148,7 @@
 <li><a href="#Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_remote_db">3.9. Replacing SHA-1 Certificates with SHA-256 Certificates</a></li>
 </ul>
 </li>
-<li><a href="#Remote_Upgrading_from_4-3">4. Upgrading a Remote Database Environment from 4.3 to oVirt 4.4</a>
+<li><a href="#Remote_Upgrading_from_4-3">4. Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</a>
 <ul class="sectlevel2">
 <li><a href="#Upgrade_Prerequisites_4-3_remote_db">4.1. Prerequisites</a></li>
 <li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-3_remote_db">4.2. Updating the oVirt Engine</a></li>
@@ -164,12 +165,12 @@
 </li>
 <li><a href="#upgrading-a-self-hosted-engine-environment">Upgrading a self-hosted engine environment</a>
 <ul class="sectlevel1">
-<li><a href="#SHE_Upgrading_from_4-2">5. Upgrading a Self-Hosted Engine from 4.2 to oVirt 4.3</a>
+<li><a href="#SHE_Upgrading_from_4-2">5. Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</a>
 <ul class="sectlevel2">
 <li><a href="#Upgrade_Prerequisites_4-2_SHE">5.1. Prerequisites</a></li>
 <li><a href="#Enabling_Global_Maintenance_Mode_4-2_SHE">5.2. Enabling global maintenance mode</a></li>
 <li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-2_SHE">5.3. Updating the oVirt Engine</a></li>
-<li><a href="#Upgrading_the_Manager_to_4-3_4-2_SHE">5.4. Upgrading the Engine from 4.2 to 4.3</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-3_4-2_SHE">5.4. Upgrading the oVirt Engine from 4.2 to 4.3</a></li>
 <li><a href="#Disabling_Global_Maintenance_Mode_4-2_SHE">5.5. Disabling global maintenance mode</a></li>
 <li><a href="#Updating_all_hosts_in_a_cluster_4-2_SHE">5.6. Updating All Hosts in a Cluster</a></li>
 <li><a href="#Changing_the_Cluster_Compatibility_Version_4-2_SHE">5.7. Changing the Cluster Compatibility Version</a></li>
@@ -178,7 +179,7 @@
 <li><a href="#Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_SHE">5.10. Replacing SHA-1 Certificates with SHA-256 Certificates</a></li>
 </ul>
 </li>
-<li><a href="#SHE_Upgrading_from_4-3">6. Upgrading a self-Hosted engine from 4.3 to oVirt 4.4</a>
+<li><a href="#SHE_Upgrading_from_4-3">6. Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</a>
 <ul class="sectlevel2">
 <li><a href="#Upgrade_Prerequisites_4-3_SHE">6.1. Prerequisites</a></li>
 <li><a href="#Migrating_VMs_from_SHE_host">6.2. Migrating virtual machines from the self-hosted engine host</a></li>
@@ -228,9 +229,90 @@
 <h1 id="upgrade-guide" class="discrete">Upgrade Guide</h1>
 </div>
 </div>
-<h1 id="upgrading-a-standalone-engine-local-database-environment" class="sect0">Upgrading a standalone Engine, local database environment</h1>
+<h1 id="Red_Hat_Virtualization_Upgrade_Overview" class="sect0">oVirt Upgrade Overview</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>This guide explains how to upgrade the following environments to oVirt 4.3 or 4.4 :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Standalone manager, local database</strong>: Both the Data Warehouse database and the Engine database are installed on the Engine.</p>
+</li>
+<li>
+<p><strong>Standalone manager, remote database</strong>: Either the Data Warehouse database or the Engine database, or both, are on a separate machine.</p>
+</li>
+<li>
+<p><strong>Self-hosted engine, local database</strong>: Both the Data Warehouse database and the Engine database are installed on the Engine.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Plan any necessary downtime in advance. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended VMs as soon as possible to apply the configuration changes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Select the appropriate instructions for your environment from the following table. If your Engine and host versions differ (if you have previously upgraded the Engine but not the hosts), follow the instructions that match the Engine&#8217;s version.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Supported Upgrade Paths</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Current Engine version</th>
+<th class="tableblock halign-left valign-top">Target Engine version</th>
+<th class="tableblock halign-left valign-top">Relevant section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Local database environment -</strong> <a href="#Upgrading_from_4-2">Upgrading from oVirt 4.2 to 4.3</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-2">Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-2">Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.4</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Local database environment:</strong> <a href="#Upgrading_from_4-3">Upgrading from oVirt 4.3 to 4.4</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-3">Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-3">Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="upgrading-a-standalone-engine-local-database-environment" class="sect0">Upgrading a standalone Engine local database environment</h1>
 <div class="sect1">
-<h2 id="Upgrading_from_4-2">1. Upgrading from 4.2 to oVirt 4.3</h2>
+<h2 id="Upgrading_from_4-2">1. Upgrading from oVirt 4.2 to 4.3</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading your environment from 4.2 to 4.3 involves the following steps:</p>
@@ -289,7 +371,7 @@
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -396,7 +478,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_the_Manager_to_4-3_4-2_local_db">1.3. Upgrading the Engine from 4.2 to 4.3</h3>
+<h3 id="Upgrading_the_Manager_to_4-3_4-2_local_db">1.3. Upgrading the oVirt Engine from 4.2 to 4.3</h3>
 <div class="paragraph">
 <p>You need to be logged into the machine that you are upgrading.</p>
 </div>
@@ -938,7 +1020,7 @@ done</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Upgrading_from_4-3">2. Upgrading from 4.3 to oVirt 4.4</h2>
+<h2 id="Upgrading_from_4-3">2. Upgrading from oVirt 4.3 to 4.4</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading your environment from 4.3 to 4.4 involves the following steps:</p>
@@ -1000,7 +1082,7 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -1121,7 +1203,10 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.</p>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3.</p>
 </li>
 <li>
 <p>If you use an external CA to sign HTTPS certificates, follow the steps in <a href="https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a> in the <em>Administration Guide</em>. The backup and restore include the 3rd-party certificate, so you should be able to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1313379">BZ#1313379</a> for more information.</p>
@@ -1691,9 +1776,9 @@ Try to keep workloads on all virtual machines using Gluster storage as light as 
 <div class="listingblock">
 <div class="content">
 <pre>  Common variables
-  backup_dir ->  Absolute path to directory that contains the extracted contents of the backup archive
-  nbde_setup -> Set to ‘false’ as the oVirt 4.3 setup doesn’t support NBDE
-  upgrade -> Default value ‘true’ . This value will make no effect with backup</pre>
+  backup_dir -&gt;  Absolute path to directory that contains the extracted contents of the backup archive
+  nbde_setup -&gt; Set to ‘false’ as the {virt-product-fullname} 4.3 setup doesn’t support NBDE
+  upgrade -&gt; Default value ‘true’ . This value will make no effect with backup</pre>
 </div>
 </div>
 </li>
@@ -2395,7 +2480,7 @@ In the Create Volume window, do the following:</p>
 </div>
 <h1 id="upgrading-a-standalone-engine-remote-database-environment" class="sect0">Upgrading a standalone Engine remote database environment</h1>
 <div class="sect1">
-<h2 id="Remote_Upgrading_from_4-2">3. Upgrading a Remote Database Environment from 4.2 to oVirt 4.3</h2>
+<h2 id="Remote_Upgrading_from_4-2">3. Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading your environment from 4.2 to 4.3 involves the following steps:</p>
@@ -2460,7 +2545,7 @@ In the Create Volume window, do the following:</p>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -2695,7 +2780,7 @@ work_mem = 8192</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_the_Manager_to_4-3_4-2_remote_db">3.4. Upgrading the Engine from 4.2 to 4.3</h3>
+<h3 id="Upgrading_the_Manager_to_4-3_4-2_remote_db">3.4. Upgrading the oVirt Engine from 4.2 to 4.3</h3>
 <div class="paragraph">
 <p>Follow these same steps when upgrading any of the following:</p>
 </div>
@@ -2839,7 +2924,7 @@ the oVirt Engine, the remote database or remote service:</p>
 </div>
 </li>
 <li>
-<p>Repeat the steps in <a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">Upgrading the Engine from 4.2 to 4.3</a> on the machine hosting the <code>ovirt-engine-dwhd</code> service.</p>
+<p>Repeat the steps in <a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">Upgrading the oVirt Engine from 4.2 to 4.3</a> on the machine hosting the <code>ovirt-engine-dwhd</code> service.</p>
 </li>
 </ol>
 </div>
@@ -3288,7 +3373,7 @@ done</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Remote_Upgrading_from_4-3">4. Upgrading a Remote Database Environment from 4.3 to oVirt 4.4</h2>
+<h2 id="Remote_Upgrading_from_4-3">4. Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading your environment from 4.3 to 4.4 involves the following steps:</p>
@@ -3353,7 +3438,7 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -3474,7 +3559,10 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.</p>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3.</p>
 </li>
 <li>
 <p>If you use an external CA to sign HTTPS certificates, follow the steps in <a href="https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a> in the <em>Administration Guide</em>. The backup and restore include the 3rd-party certificate, so you should be able to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1313379">BZ#1313379</a> for more information.</p>
@@ -4159,7 +4247,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 <h1 id="upgrading-a-self-hosted-engine-environment" class="sect0">Upgrading a self-hosted engine environment</h1>
 <div class="sect1">
-<h2 id="SHE_Upgrading_from_4-2">5. Upgrading a Self-Hosted Engine from 4.2 to oVirt 4.3</h2>
+<h2 id="SHE_Upgrading_from_4-2">5. Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading a self-hosted engine environment from version 4.2 to 4.3 involves the following steps:</p>
@@ -4254,7 +4342,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -4361,7 +4449,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_the_Manager_to_4-3_4-2_SHE">5.4. Upgrading the Engine from 4.2 to 4.3</h3>
+<h3 id="Upgrading_the_Manager_to_4-3_4-2_SHE">5.4. Upgrading the oVirt Engine from 4.2 to 4.3</h3>
 <div class="paragraph">
 <p>You need to be logged into the machine that you are upgrading.</p>
 </div>
@@ -4999,7 +5087,7 @@ done</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="SHE_Upgrading_from_4-3">6. Upgrading a self-Hosted engine from 4.3 to oVirt 4.4</h2>
+<h2 id="SHE_Upgrading_from_4-3">6. Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading a self-hosted engine environment from version 4.3 to 4.4 involves the following steps:</p>
@@ -5107,7 +5195,7 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -5228,13 +5316,19 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.</p>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3.</p>
 </li>
 <li>
 <p>Make note of the MAC address of the self-hosted engine if you are using DHCP and want to use the same IP address. The deploy script prompts you for this information.</p>
 </li>
 <li>
 <p>During the deployment you need to provide a new storage domain for the Engine machine. The deployment script renames the 4.3 storage domain and retains its data to enable disaster recovery.</p>
+</li>
+<li>
+<p>Set the cluster scheduling policy to <code>cluster_maintenance</code> in order to prevent automatic virtual machine migration during the upgrade.</p>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -5290,6 +5384,50 @@ done</pre>
 </li>
 <li>
 <p>Copy the backup file to a storage device outside of the oVirt environment.</p>
+</li>
+<li>
+<p>Shut down the self-hosted engine.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># shutdown</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you want to reuse the self-hosted engine virtual machine to deploy the oVirt Engine 4.4, note the MAC address of the self-hosted engine network interface before you shut it down.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Make sure that the self-hosted engine is shut down.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># hosted-engine --vm-status | grep 'Engine status|Hostname'</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If any of the hosts report the <code>detail</code> field as <code>Up</code>, log in to that specific host and shut it down with the <code>hosted-engine --vm-shutdown</code> command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Install oVirt Node 4.4 or Enterprise Linux 8.2 or later on the existing node currently running the Engine virtual machine to use it as the self-hosted engine deployment host. See <a href="https://ovirt.org/documentation//installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy">Installing the Self-hosted Engine Deployment Host</a> for more information.</p>
@@ -5854,7 +5992,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -5998,7 +6136,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -6476,7 +6614,12 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed.</p>
+<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+</div>
+</div>
 </li>
 <li>
 <p>For Enterprise Linux hosts:</p>
@@ -6596,7 +6739,12 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed.</p>
+<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+</div>
+</div>
 </li>
 <li>
 <p>For Enterprise Linux hosts:</p>
@@ -6949,6 +7097,9 @@ Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                            
 <li>
 <p>See <a href="#Updating_the_Red_Hat_Virtualization_Manager_minor_updates">Updating the oVirt Engine</a> for information on updating the Engine between minor versions.</p>
 </li>
+<li>
+<p>See <a href="#Red_Hat_Virtualization_Upgrade_Overview">oVirt Upgrade Overview</a> for information on upgrading between major versions.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -6958,7 +7109,7 @@ Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                            
 <h2 id="legal-notice">Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/upgrade_guide/index">Red Hat Virtualization 4.4 Upgrade Guide</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/upgrade_guide/index">Red Hat Virtualization 4.4 Upgrade Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>
@@ -6969,6 +7120,6 @@ Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                            
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/upgrade_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/upgrade_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2649/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2649/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2649/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2649/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/upgrade_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/upgrade_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

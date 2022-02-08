@@ -17,7 +17,6 @@ The *Enable migration compression* option allows you to set whether migration co
 Both options are disabled globally by default.
 
 .Procedure
-. Configure the optimization settings at the global level:
 . Enable auto-convergence at the global level:
 +
 [options="nowrap" subs="normal"]

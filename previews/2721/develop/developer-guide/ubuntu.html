@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>ubuntu | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="ubuntu" />
+<meta name="author" content="Dave Neary" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2721/develop/developer-guide/ubuntu.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2721/develop/developer-guide/ubuntu.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ubuntu" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dave Neary" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dave Neary"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2721/images/logo.svg"},"name":"Dave Neary"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"ubuntu","url":"https://ovirt.github.io/ovirt-site/previews/2721/develop/developer-guide/ubuntu.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2721/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2721/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2721/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2721/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2721/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2721/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2721/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2721/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2721/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2721/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2721/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2721/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2721/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2721/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2721/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2721/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2721/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2721/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2721/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2721/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2721/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2721/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dave Neary</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Laszlo Hornyak</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/469b83a72384b6c5feffe3f7ebc1e853?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/469b83a72384b6c5feffe3f7ebc1e853?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vinzenz Feenstra</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ubuntu">ubuntu</h1>
+
+<h3 id="building-ovirt-on-debianubuntu">Building ovirt on debian/ubuntu</h3>
+
+<p>If you have questions about these notes ask xTs_w in #ovirt on OFTC (irc.oftc.net)</p>
+
+<p>Depends:</p>
+
+<ul>
+  <li>postgresql-9.1</li>
+  <li>openjdk-6-jre</li>
+  <li>postgresql-contrib-9.1</li>
+</ul>
+
+<p>Build-Depends: maven2, openjdk6-jdk It looks like postgres-8.4 is too old, so I’m increasing it to 9.1</p>
+
+<h3 id="building-ovirt-engine-for-debian">Building ovirt-engine (for Debian)</h3>
+
+<p>Following: <a href="/ovirt-site/previews/2721/develop/developer-guide/engine/engine-development-environment.html">Building oVirt engine</a> (changes to make are documented below) Changes: Installing JBoss AS Get JBoss from jboss.org or build the package. wget <a href="http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download">http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download</a> Building JBoss 5.1.0GA with Debian Squeeze: <a href="http://wiki.debian.org/JBossPackaging#Building_the_packages_from_vcs">http://wiki.debian.org/JBossPackaging#Building_the_packages_from_vcs</a> Build the package (but be aware that the package is n ot fully debian policy conform and no security patches get applied!)</p>
+
+<p>Creating the database</p>
+
+<ul>
+  <li>create a different user (for packaging: do this) or</li>
+  <li>add in /etc/postgresql/9.1/main/pg_hba.conf: host all postgres 127.0.0.1/32 trust</li>
+</ul>
+
+<p>when executing ./create_db_devel.sh you’ll get some error about uuid-ossp because the script searches in the wrong path. Use ./create_db_devel.sh -f /usr/share/postgresql/8.4/contrib/uuid-ossp.sql With Postgres 9.1 this is done automatically</p>
+
+<h2 id="packaging">Packaging</h2>
+
+<p>There is a Makefile now which should make packaging pretty easy. Notes: In the fedora package there are several scripts executed after copying the files. This is done by the program “engine-setup”. This has to be done for debian somehow, too. It enables the SSL support and the support for the keystore file that you need to save passwords (for the power management). VDSM Building vdsm Depends: python, libvirt-bin, open-iscsi(&gt;= 2.0.872), multipath-tools, python-ethtool, python-libvirt (&gt;= 0.9.6-1), policycoreutils, sudo, bridge-utils, e2fsprogs (&gt;=1.42), lvm2, python-apt (&gt;=0.7.9), ifenslave-2.6, cman Build-Depends: automake, pyflakes Notes</p>
+
+<ul>
+  <li>requires python-ethtool, which is not in debian. Can be easily built from the ubuntu sources</li>
+  <li>Debian/Squeeze is too old. Try at least Wheezy(testing).</li>
+  <li>vdsm will run without cgroups but it’ll throw an exception.</li>
+</ul>
+
+<h3 id="packaging-notes">Packaging notes</h3>
+
+<p>Multibinary-Package?</p>
+
+<ul>
+  <li>vdsmd</li>
+  <li>vdms-client</li>
+  <li>vdms-bootstrap</li>
+  <li>vdms-reg</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>init-Script: needs cleanup for packaging (or rewriting. Shouldn’t be too hard)</li>
+  <li>cron.d/vdsm-libvirt-logrotate really needed? Normally not -&gt; Not needed, but vdsm creates a lot of debug output and therefore big log files)</li>
+  <li>cron.hourly/vdsm-*: same as above</li>
+  <li>logrotate.d/vdsm: cleanup needed (cores?!)</li>
+  <li>change xz to gzip</li>
+  <li>ovirt-commandline.d: ?</li>
+  <li>ovirt-config-boot.d: ?</li>
+  <li>pki: Debian just knows /etc/ssl/</li>
+  <li>rc.d/: No rc.d in debian. What’s its function in RH?</li>
+  <li>like init.d</li>
+  <li>rwtab.d: Really needed? -&gt; just for the node (makes part of the read-only root-fs writeable)</li>
+  <li>sudoers.d/ -&gt; changes are needed in the sudoers file (see below)</li>
+  <li>udev/rules.d/12-vdsm-lvm.rules: What’s the function of this? Looks like a workaround</li>
+  <li>it is kind of a workaround. It sets the correct permissions of the lvm-volumes that get created for the storage of the VMs. It is needed to set the permissions correctly after a reboot. But the priority is too high. Set it to 95 and it will work correctly</li>
+  <li>vdsm/: provide an example vdsm.conf that is installed in /etc/vdsm/</li>
+  <li>vdsm-reg/: belongs to vdsm-reg and the question is, if this is really needed.</li>
+</ul>
+
+<p>vdsm wont run as root. You need to start it as user (name it “vdsm”) and copy the sudoers config file to /etc/sudoers.d to run it. Or edit METADATA_USER in vdsm/constants.py (for testing purpose only!)</p>
+
+<ul>
+  <li>vdsm creates a directory /rhev/data-center. Would fit better in /var/lib/vdsm/ (is configurable!)</li>
+  <li>vdsm listens on the IP of “default_bridge” (in vdsm.conf). Default is engine. Needs to be configured by preinst-Scripts somehow (or in /etc/default a script that disables vdsm by default, so the user can add the bridge and enable vdsm afterwards)</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>needs module “cpuid” loaded</li>
+  <li>User vdsm must be in group libvirt supervdsmServer.pyc doesn’t exist and wont get created.</li>
+  <li>in order to run vdsm the following changes are needed:</li>
+  <li>change in supervdsm.py: supervdsmServer.pyc to supervdsmServer.py</li>
+  <li>change the sudoers file accordingly</li>
+  <li>/etc/iscsi/initiatorname.iscsi has normally rights 600, but needs to be readable by vdsm. sudo might be a solution here</li>
+  <li>seems to be fixed in wheezy</li>
+  <li>not fixed. Right after installation of open-iscsi file has 644, but after a reboot 600</li>
+  <li>vdsm needs to run with uid 36 currently or something that maps to uid 36 on a nfs share (afaik this is not hard coded. Any uid will do, but has to be used on all systems then)</li>
+  <li>this is not hardcoded, but has something to do with nfs shares. So if you use nfs somewhere, be sure that vdsm runs as the same user everywhere or map the uids</li>
+  <li>in vdsm/constants.py: DISKIMAGE_GROUP and QEMU_PROCESS_USER need to be set to kvm and user libvirt-qemu (or whatever users exist)</li>
+  <li>the sudoers file has to be changed accordingly. (chown!)</li>
+  <li>libvirtd needs some config (if ssl=false):</li>
+  <li>listen_tcp=1</li>
+  <li>auth_tcp=”none”</li>
+  <li>spice_tls=0</li>
+  <li>init-Script should check this</li>
+</ul>
+
+<p>For the record: vdsm runs without any options, with a proper config file, started by hand without an init script. (don’t forget to load the cpuid and the kvm module!) A few things need fixes:</p>
+
+<ul>
+  <li>vdsm looks in /etc/default/version for the version. Patch needed for upstream.</li>
+  <li>Upstream Debian support needs discussion but is in the works</li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=768919">https://bugzilla.redhat.com/show_bug.cgi?id=768919</a></li>
+  <li>in constants.py change EXT_SERVICE to ‘/usr/sbin/invoke-rc.d’</li>
+  <li>in sudoers file: replace “/usr/sbin/service” with “/usr/sbin/invoke-rc.d”m</li>
+  <li>utils::595::Storage.Misc.excCmd::(execCmd) ‘/bin/rpm -q –qf “%{NAME}\t%{VERSION}\t%{RELEASE}\t%{BUILDTIME}\n” qemu-kvm’ (cwd None)</li>
+</ul>
+
+<p>wont work, because we’re using dpkg</p>
+
+<ul>
+  <li>in vdsm/storage/multipath.py change multipathd to multipath-tools change sudoers file accordingly</li>
+</ul>
+
+<h3 id="spice">SPICE</h3>
+
+<p>A spice-xpi package for debian/ubuntu would be nice, too. See here: <a href="http://www.spice-space.org/">http://www.spice-space.org/</a> <a href="http://www.spice-space.org/download.html">http://www.spice-space.org/download.html</a> -&gt; spice-xpi</p>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2721/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2721/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2721/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2721/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/ubuntu.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/ubuntu.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>AsyncTaskManagerChanges | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="AsyncTaskManagerChanges" />
+<meta name="author" content="Ravi Nori" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2721/develop/release-management/features/infra/asynctaskmanagerchanges.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2721/develop/release-management/features/infra/asynctaskmanagerchanges.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AsyncTaskManagerChanges" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Ravi Nori" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ravi Nori"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2721/images/logo.svg"},"name":"Ravi Nori"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"AsyncTaskManagerChanges","url":"https://ovirt.github.io/ovirt-site/previews/2721/develop/release-management/features/infra/asynctaskmanagerchanges.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2721/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2721/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2721/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2721/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2721/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2721/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2721/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2721/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2721/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2721/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2721/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2721/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2721/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2721/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2721/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2721/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2721/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2721/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2721/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2721/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2721/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2721/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2721/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2721/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2721//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2721/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6d7f4ac22f372f92ed91dd5c062148e1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6d7f4ac22f372f92ed91dd5c062148e1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ravi Nori</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yair Zaslavsky</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2721/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="async-tasks-improvements">Async Tasks improvements</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This Wiki page is going to summarize required changes for Async Task mechanism.</p>
+
+<p>The current design is still a <strong>draft</strong>. There are other ideas for design for the task manager. The motivations should guide us via the changes process.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Yair Zaslavsky (Yair Zaslavsky)</li>
+</ul>
+
+<h2 id="current-status--motivation">Current status &amp; Motivation</h2>
+
+<p>We should invest an ongoing effort to improve our Async Tasks mechanism at engine side.
+The following bullets present topics we should handle, based on current status + what we would like to obtain.</p>
+
+<ul>
+  <li>Modularization - all of Async Tasks code is located at BLL package. We should extract this to a different module/jar</li>
+  <li>Separation of the Async Tasks monitoring (i.e - job/step framework) from the Async Task Management part (AsyncTaskManager class and the VDSM tasks monitoring) - this should be revisited.</li>
+  <li>Task parameters - task parameters are actually parameters of parent commands that invoke the child commands that create the tasks. Upon endAction, there is a calculation at the parent command on the persisted parameters that re-creates the child command parameters and ends them as well.</li>
+</ul>
+
+<p>This mechanism is too complex and is error prone. We should instead persist the commands and their parameters - have a commands table, and for each command keep its parameters.</p>
+
+<ul>
+  <li>Command objects are re-created at endAction stage - the commands are created using Reflection and the parameters that are associate with the task - once again, this is error prone.</li>
+</ul>
+
+<p>We should reuse command objects, and consider having Commands repository (hold in memory structure to hold ) - commands should be retrieved and re-used from this in memory data structure using their identifier (i.e - command ID)</p>
+
+<ul>
+  <li>Simultaneous command group vs sequential execution - Currently we have the live storage migration feature which uses the serial execution mechanism - the code of this mechanism should be modified according to other improvements that are suggested in this page.</li>
+  <li>Provide a mechanism for a command to know the number of tasks it is supposed to create - see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=873546">this bug</a> in order to not have a “premature end” of commands.</li>
+  <li>Handling compensation issues with Async Tasks - for example - <a href="https://bugzilla.redhat.com/show_bug.cgi?id=873697">https://bugzilla.redhat.com/show_bug.cgi?id=873697</a> (although marked as closed wontfix we should revisit this issue - and make sure that endCommand does not rely on information which may reside at compensation table)</li>
+  <li>Support backwards compatibility of command parameters - currently, due to the fact that Java is strongly typed + we have a hierarchy of command parameters. Changes to parameters classes may yield problems when performing system upgrade in cases where parameters information is persisted based on old parameters class structure, and needs to be deserialized in newer version with newer code of the class.</li>
+</ul>
+
+<h2 id="details">Details</h2>
+
+<p>This section will provide more details on the highlights explained above.</p>
+
+<h3 id="modularization-and-interfaces">Modularization and interfaces</h3>
+
+<p>oVirt Engine is dividing into modules. The Async Task Manager code is concentrated mainly in the following modules:</p>
+
+<ol>
+  <li>Common - holds the AsyncTasks entity</li>
+  <li>VdsBroker - holds the communication broker to VDSM + the types of VDS verbs that create tasks.</li>
+  <li>DAL - holds the DAOs (AsyncTaskManagerDao, JobDao, StepDao)</li>
+  <li>BLL - the Business logic module that holds the Task Manager code and logic (Adding tasks, Polling, Command completion based on task completion logic and more)</li>
+</ol>
+
+<p>The current module dependency is described by the following diagram: <img src="/ovirt-site/previews/2721/images/wiki/Async_tasks_original_module_diagram.png" alt="" /></p>
+
+<p>At first, we should separate Async Task manager logic from bll, and create a new module for it. To create the new module the following steps should be taken care of:</p>
+
+<ol>
+  <li>Create a new maven project (the compilation result should be jar)</li>
+  <li>Create a new package - org.ovirt.engine.core.bll.tasks</li>
+  <li>Create a new JBoss module - (read about JBoss modules <a href="https://docs.jboss.org/author/display/MODULES/Introduction?focusedCommentId=23036152#comment-23036152">here</a>)</li>
+</ol>
+
+<p>At this point, the modularization diagram should look like: <img src="/ovirt-site/previews/2721/images/wiki/Async_task_modules_diagram_alternative_a.png" alt="" /></p>
+
+<p>However, This can be improved by having AsyncTaskManager depends on interfaces , as presented at the following diagram - <img src="/ovirt-site/previews/2721/images/wiki/Async_tasks_modules_diagram_with_interfaces.png" alt="" /></p>
+
+<p>At this point , it is the responsibility of BLL to inject/pass Vds Broker and DAO objects to Async TaskManager module.</p>
+
+<p>The last step would be to work with a service locator module that will be responsible for producing VdsBroker and DAO objects both for Bll and AsyncTaskManager. The service locator will also provide an Async Task Manager object to the BLL (hence AsyncTaskManager would require to have an interface as well).</p>
+
+<p><img src="/ovirt-site/previews/2721/images/wiki/Async_tasks_modules_diagram_with_interfaces_and_service_locator.png" alt="" /></p>
+
+<h2 id="detailed-design">Detailed design</h2>
+
+<h3 id="command-coordinator-and-interaction-with-async-task-manager">Command Coordinator and interaction with Async Task Manager</h3>
+
+<p>Command Coordinator is a new class that is responsible for creating tasks, caching command entities, recieving callbacks from taskmgr and returning status of tasks. The work on the command coordinator will be iterative as well, and this WIKI page will change accordingly. Currently Command Coordinator will accomplish it roles the following way:</p>
+
+<ol>
+  <li>Creating new tasks : Most of the code from AsyncTaskManager will be moved to command manager. A new interface Task is passed into the taskmgr from the CommandManager.</li>
+  <li>Caching commands : Command Entities which contain the parameters, command id and parent command id are cached using CommandEntityDAO. CommandEntityDAOImpl uses ehcache to cache command entities.</li>
+  <li>DecoratedCommand : We use the decorator pattern to intercept endAction on the command and call handleEndActionResult which was previously called from EntityAsyncTask</li>
+  <li>CallBack : A new interface with one method endAction. The Command Manager implements this interface and registers itself with the taskmgr. When the command ends the taskmgr calls the endAction method on the callback.</li>
+  <li>Poller : A new interface Poller with methods for returning the status of tasks. SPMPoller implements this interface and returns statuses by calling RunVdsCommand.</li>
+</ol>
+
+<p>Phase 1 changes “end of command coordination” from “coordination by entity” to “coordination by flow command ID”.#</p>
+
+<ol>
+  <li>Coordination by entity - this means that all tasks that are related to a given entity (VM, TEMPLATE, DISK) should be ended before the command that initiated the flow that created the tasks (will be addressed as the “flow command”) is ended.</li>
+</ol>
+
+<p>The coordination by entity principal is used from previous version, and was introduced prior to the introduction of Command ID (during the development of the compensation feature at 3.0).</p>
+
+<ol>
+  <li>Coordination by flow command - this means that all tasks will have access to information on the command that initiated the flow that created them.</li>
+</ol>
+
+<p>End of the flow command will be executed when all tasks that were initiated by the flow are complete (of course, failure or success of tasks affects failure of success of the end of the flow command).</p>
+
+<p>Phase 1 will have to support the two “end of command coordination” approaches (to allow gradual moves). Due to the gradual move, it may be that a child command creating tasks (i.e - RemoveImageCommand) will be used by more than one flow (i.e - RemoveVm, RemoveDisk). Each flow command that uses “coordination by flow command” should be marked (either by annotation or by a method at CommandBase that will be overriden at concrete commands). Indicating that a Command Entity should be created for the command and persisted for it using CommandEntityDAO. For example - for a flow of RemoveVM, the commands table (see further explanations) will have the records for the following commands - RemoveVM, RemoveAllVMImages (child of RemoveVM), N instances of RemoveImage (children of RemoveVM, one per image). The decision on which “end of command coordination” policy should be used can be passed to the child commands using the CommandContext of the command.</p>
+
+<p>For each command that participates in a flow that used “coordination by flow command” the command entity will be kept in the command cache of the Command Coordinator. For each command that participates in a flow that uses “coordination by entity” - the SPM task will be kept at multiTasksByEnitites structure (as in the existing code).</p>
+
+<p>When a task ends , either “SPMASyncTask.onTaskEndSuccess” or “SPMAsyncTask.onTaskEndFailure” will be invoked. These methods will check if there is an entry for the child command that created the task at the commands cache - if the check is positive, “coordination by flow” will be used, otherwise “coordination by entity” will be used.</p>
+
+<p><img src="/ovirt-site/previews/2721/images/wiki/Async_task_manager_command_mamanger_phase1.png" alt="" /></p>
+
+<h3 id="changed-entities">Changed entities</h3>
+
+<p>Introduction of CommandEntity which contains the fields:</p>
+
+<ul>
+  <li>Guid commandId - ID of the command</li>
+  <li>Guid flowCommandId - ID of the command that started the flow that created the command.</li>
+  <li>Serializable data - data associated with the command. This can hold any serializable object (will be stored as JSON at the database). For example - for Phase 1 this can store the command parameters. For storage live migration and other sequential flows it can hold the sequence state.</li>
+</ul>
+
+<h3 id="database-changes">Database Changes</h3>
+
+<p>Introduction of commands table that will include the following records:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>field name</th>
+      <th>field type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>commandId</td>
+      <td>uuid</td>
+    </tr>
+    <tr>
+      <td>flowCommandId</td>
+      <td>uuid</td>
+    </tr>
+    <tr>
+      <td>data</td>
+      <td>text</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="working-on-the-changes">Working on the changes</h2>
+
+<ul>
+  <li>Working on the changes of this mechanism should be done in stages in such a way that we can graduately move commands , and not apply the changes to all commands at once.</li>
+</ul>
+
+<h2 id="feature-tracking">Feature tracking</h2>
+
+<ul>
+  <li>Last updated date: Feb 17, 2013</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2721/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2721/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2721/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2721/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/asynctaskmanagerchanges.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/asynctaskmanagerchanges.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

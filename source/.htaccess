@@ -353,8 +353,8 @@ RewriteCond %{REQUEST_URI} /documentation/self-hosted.*
 RewriteRule ^(.*)$ /documentation/ [R=301,L]
 
 # upgrade-guide -> upgrade_guide
-RewriteCond %{REQUEST_URI} /documentation/upgrade-guide.*
-RewriteRule ^(.*)$ /documentation/upgrade_guide/ [R=301,L]
+RewriteCond %{REQUEST_URI} /documentation/upgrade_guide/
+RewriteRule ^(.*)$ /documentation/doc-Upgrade_Guide/ [R=301,L]
 
 # how-to -> develop
 RewriteCond %{REQUEST_URI} /documentation/how-to.*
@@ -379,6 +379,29 @@ RewriteRule ^(.*)$ /privacy-policy.html [R=301,L]
 # /documentation/introduction/about-ovirt/ -> /community/about.html
 RewriteCond %{REQUEST_URI} /documentation/introduction/about-ovirt/$
 RewriteRule ^(.*)$ /community/about.html [R=301,L]
+
+# redirects for renamed folders (aligning upstream/downstream)
+
+RewriteCond %{REQUEST_URI} /documentation/installing_ovirt*
+RewriteRule ^(.*)$ /documentation/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} /documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/
+RewriteRule ^(.*)$ /documentation/assembly-Migrating_from_a_Standalone_Manager_to_a_Self-Hosted_Engine/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} /documentation/administration_guide/
+RewriteRule ^(.*)$ /documentation/doc-Administration_Guide/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} /documentation/virtual_machine_management_guide/
+RewriteRule ^(.*)$ /documentation/doc-Virtual_Machine_Management_Guide/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} /documentation/introduction_to_the_vm_portal/
+RewriteRule ^(.*)$ /documentation/doc-Introduction_to_the_VM_Portal/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} /documentation/data_warehouse_guide/
+RewriteRule ^(.*)$ /documentation/doc-Data_Warehouse_Guide/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} /documentation/disaster_recovery_guide/
+RewriteRule ^(.*)$ /documentation/doc-Disaster_Recovery_Guide/ [R=301,L]
 
 ##
 
@@ -590,4 +613,3 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 <IfModule php5_module>
   php_value session.cookie_httponly true
 </IfModule>
-

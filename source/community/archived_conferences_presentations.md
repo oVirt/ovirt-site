@@ -11,54 +11,77 @@ oVirt community presented at several conferences in the past years. In this page
 Please note that presentation may refer to obsoleted or deprecated features and shouldn't be considered valid for latest oVirt release.
 Templates and resources for creating new presentations can be found in [oVirt Slide Decks](/community/get-involved/resources/slide-decks.html) page
 
+## 2022-02 - FOSDEM
+* Milan Zamazal - The story of adding TPM support to oVirt
+  [[Slides]](https://fosdem.org/2022/schedule/event/vai_story_tpm/attachments/slides/5065/export/events/attachments/vai_story_tpm/slides/5065/tpm_fosdem.pdf)
+  
+* Liran Rotenberg - Automatic CPU and NUMA pinning
+  [[Slides]](https://fosdem.org/2022/schedule/event/vai_automatic_cpu/attachments/slides/4877/export/events/attachments/vai_automatic_cpu/slides/4877/Automatic_CPU_and_NUMA_pinning)
+  [[Video recording(WebM/VP9)]](https://video.fosdem.org/2022/D.virtualization/vai_automatic_cpu.webm)
+  [[Video recording(mp4)]](https://video.fosdem.org/2022/D.virtualization/vai_automatic_cpu.mp4)
+
 ## 2021-09 - oVirt 2021 Online conference
 
 * Conference opening keynote [[Recordings]](https://youtu.be/MNLXPsTUBXA)
 
 * Sandro Bonazzola - oVirt community updates
   [[Recordings]](https://youtu.be/6gvRJvNBQOA)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/02-oVirt-community-updates-%E2%80%93-Sandro-Bonazzola.pdf)
 
 * Gal Zaidman - Exploring OKD on oVirt &#8211; What, Why and How
   [[Recordings]](https://youtu.be/JSG44y-bUCY)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/03-Exploring-OKD-on-oVirt-%E2%80%93-What-Why-and-How-%E2%80%93-Gal-Zaidman.pdf)
 
 * Marcos Sungiala - Prerequisites and Troubleshooting an oVirt External Authentication Provider
   [[Recordings]](https://youtu.be/wKDqzQygj_E)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/04-Prerequisites-and-Troubleshooting-an-oVirt-External-Authentication-Provider-%E2%80%93-Marcos-Sungiala.pdf)
 
 * Milan Zamazal, Tomáš Golembiovský - TPM support in oVirt
-  [[Recordings]](https://youtu.be/1eciby2NiSM)
+  [[Recordings]](https://www.youtube.com/watch?v=SmHBDEe1FP4)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/05-TPM-support-in-oVirt-Milan-Zamazal-Tomas-Golembiovsky.pdf)
 
 * Janos Bonic - Testing the Terraform Provider
   [[Recordings]](https://youtu.be/1eciby2NiSM)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/06-Testing-the-oVirt-Terraform-Provider-Janos-Bonic.pdf)
 
 * Luwen Zhang - Strengthen Your oVirt Data Resiliency and Protection
   [[Recordings]](https://youtu.be/4EcgwJ4U3MI)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/07-Strengthen-Your-oVirt-Data-Resiliency-and-Protection-%E2%80%93-Luwen-Zhang.pdf)
 
 * Lev Veyde - Contributing to oVirt
   [[Recordings]](https://youtu.be/v6sXL5H_XLw)
 
 * Steve Goodman - Putting oVirt Documentation first: oVirt Documentation Process Changes
   [[Recordings]](https://youtu.be/vfgB9OJNBsE)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/09-Putting-oVirt-Documentation-first-oVirt-Documentation-Process-Changes-%E2%80%93-Steve-Goodman.pdf)
 
 * Marcin Kubacki - oVirt Changed-Block Tracking API &#8211; developer&#8217;s perspective
   [[Recordings]](https://youtu.be/0TjBRNjPFJY)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/10-oVirt-Changed-Block-Tracking-API-%E2%80%93-developers-perspective-%E2%80%93-Marcin-Kubacki.pdf)
 
 * John Priest - Oracle&#8217;s shift to the open source oVirt project for server virtualization
   [[Recordings]](https://youtu.be/aBziYWPG_0o)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/11-Oracles-shift-to-the-open-source-oVirt-project-for-server-virtualization-%E2%80%93-John-Priest.pdf)
 
 * Tomáš Golembiovský - Policies for Automatically Dedicating CPUs to Workloads
   [[Recordings]](https://youtu.be/FEcswv5DE4A)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/12-Policies-for-Automatically-Dedicating-CPUs-to-Workloads-%E2%80%93-Tomas-Golembiovsky.pdf)
 
 * Paul Staniforth - Running oVirt in a Home Lab and Laptop
   [[Recordings]](https://youtu.be/pRlUEd-lidg)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/13-Running-oVirt-in-a-Home-Lab-and-Laptop-%E2%80%93-Paul-Staniforth.pdf)
 
 * Mitch Dsouza - Creating Oracle Databases on KVM using the deploycluster tool with oVirt API
   [[Recordings]](https://youtu.be/WiAg43USs4I)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/14-Creating-Oracle-Databases-on-KVM-using-the-deploycluster-tool-with-oVirt-API-%E2%80%93-Mitch-Dsouza.pdf)
 
 * Luca Andrea Fusè, Stefano Stagnaro - Discovering the oVirt Ansible Collection for VMs and infrastructure automation
   [[Recordings]](https://youtu.be/5NUT1mGU5Dk)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/15-Discovering-the-oVirt-Ansible-Collection-for-VMs-and-infrastructure-automation-%E2%80%93-Luca-Andrea-Fuse-Stefano-Stagnaro.pdf)
 
 * Andrea Perotti, Antonio Romito - Divide et Impera: how a fintech customer rearchitected their virtualization infrastructure while preserving workloads uptime
   [[Recordings]](https://youtu.be/SUGoCqbpUH8)
+  [[Slides]](https://blogs.ovirt.org/wp-content/uploads/2021/09/16-Divide-et-Impera-how-a-fintech-customer-rearchitected-their-virtualization-infrastructure-while-preserving-workloads-uptime-%E2%80%93-Andrea-Perotti-Antonio-Romito.pdf)
 
 ## 2021-02 - FOSDEM 2021
 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="oVirt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2723/documentation/doc-Technical_Reference/topics/Templates_and_Pools.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2723/documentation/doc-Technical_Reference/topics/Templates_and_Pools.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2723/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2723/documentation/doc-Technical_Reference/topics/Templates_and_Pools.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2723/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2723/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2723/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2723/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2723/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2723/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2723/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2723/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2723/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2723/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2723/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2723/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2723/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2723/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2723/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2723/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2723/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2723/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2723/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2723/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2723/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2723/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2723/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2723/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2723/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2723/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2723/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2723/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2723/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2723/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2723/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2723/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2723/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2723/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2723/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2723//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2723//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2723/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2723/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2723/documentation/doc-Technical_Reference/">
+              <span property="name">Technical Reference</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2723/documentation/doc-Technical_Reference/topics/">
+              <span property="name">Topics</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div class="sect2">
+<h3 id="Templates_and_Pools">Templates and Pools</h3>
+<div class="paragraph">
+<p>The {virt-product-fullname} environment provides administrators with tools to simplify the provisioning of virtual machines to users. These are templates and pools. A template is a shortcut that allows an administrator to quickly create a new virtual machine based on an existing, pre-configured virtual machine, bypassing operating system installation and configuration. This is especially helpful for virtual machines that will be used like appliances, for example web server virtual machines. If an organization uses many instances of a particular web server, an administrator can create a virtual machine that will be used as a template, installing an operating system, the web server, any supporting packages, and applying unique configuration changes. The administrator can then create a template based on the working virtual machine that will be used to create new, identical virtual machines as they are required.</p>
+</div>
+<div class="paragraph">
+<p>Virtual machine pools are groups of virtual machines based on a given template that can be rapidly provisioned to users. Permission to use virtual machines in a pool is granted at the pool level; a user who is granted permission to use the pool will be assigned any virtual machine from the pool. Inherent in a virtual machine pool is the transitory nature of the virtual machines within it. Because users are assigned virtual machines without regard for which virtual machine in the pool they have used in the past, pools are not suited for purposes which require data persistence. Virtual machine pools are best suited for scenarios where either user data is stored in a central location and the virtual machine is a means to accessing and using that data, or data persistence is not important. The creation of a pool results in the creation of the virtual machines that populate the pool, in a stopped state. These are then started on user request.</p>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2723/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2723/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2723/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2723/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Technical_Reference/topics/Templates_and_Pools.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Technical_Reference/topics/Templates_and_Pools.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

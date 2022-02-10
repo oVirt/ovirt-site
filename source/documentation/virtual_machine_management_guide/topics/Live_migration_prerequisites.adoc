@@ -51,7 +51,7 @@ Disable the VirtIO vNIC profile's MAC-spoofing filter to ensure that traffic pas
 This failover policy ensures that the MAC address of the bond is always the MAC address of the active slave. During failover, the virtual machine's MAC address changes, with a slight disruption in traffic.
 
 [[Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime]]
-==== Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime.
+==== Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime
 To configure virtual machines for migration with SR-IOV enabled vNICs and minimal downtime follow the procedure described below.
 [NOTE]
 ====
@@ -66,7 +66,7 @@ See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.
 +
 [NOTE]
 ====
-The virtual machine will have three interfaces available, in order for migration to work properly, the main interface should be activated and used for connection. The main interface acts as a master for the remaining two interfaces.
+The virtual machine has three network interfaces: a controller interface and two secondary interfaces. The controller interface must be active and connected in order for migration to succeed.
 ====
 +
 . For automatic deployment of virtual machines with this configuration, use the following `udev` rule:

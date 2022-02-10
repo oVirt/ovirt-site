@@ -309,7 +309,7 @@
 <ul class="sectlevel3">
 <li><a href="#Live_migration_prerequisites">6.14.1. Live Migration Prerequisites</a></li>
 <li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs">6.14.2. Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration</a></li>
-<li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime.</a></li>
+<li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime</a></li>
 <li><a href="#Optimizing_Live_Migration">6.14.4. Optimizing Live Migration</a></li>
 <li><a href="#Guest_Agent_Hooks">6.14.5. Guest Agent Hooks</a></li>
 <li><a href="#Automatic_virtual_machine_migration">6.14.6. Automatic Virtual Machine Migration</a></li>
@@ -8464,7 +8464,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime.</h4>
+<h4 id="Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime</h4>
 <div class="paragraph">
 <p>To configure virtual machines for migration with SR-IOV enabled vNICs and minimal downtime follow the procedure described below.</p>
 </div>
@@ -8504,7 +8504,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The virtual machine will have three interfaces available: a main interface and two secondary interfaces controlled by it. In order for migration to succeed, activate the main interface and use it for connection.</p>
+<p>The virtual machine has three network interfaces: a primary interface and two secondary interfaces. The primary interface must be active and connected in order for migration to succeed.</p>
 </div>
 </td>
 </tr>

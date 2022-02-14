@@ -7,18 +7,18 @@
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [46](https://github.com/ovirt/ovirt-ansible-collection/issues) | 44 | 63 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [28](https://github.com/ovirt/ovirt-site/issues) | 71 | 297 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [26](https://github.com/ovirt/terraform-provider-ovirt/issues) | 126 | 60 |
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | For issues use http://bugzilla.redhat.com | [24](https://github.com/ovirt/ovirt-engine/issues) | 330 | 209 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | For issues use http://bugzilla.redhat.com | [24](https://github.com/ovirt/ovirt-engine/issues) | 330 | 210 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 32 | 16 |
 | [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [15](https://github.com/ovirt/go-ovirt-client/issues) | 6 | 6 |
+| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [14](https://github.com/ovirt/ovirt-imageio/issues) | 12 | 12 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 1 | 2 |
 | [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [14](https://github.com/ovirt/vdsm/issues) | 104 | 128 |
-| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [13](https://github.com/ovirt/ovirt-imageio/issues) | 12 | 12 |
+| [ovirt-engine-ui-extensions](https://github.com/oVirt/ovirt-engine-ui-extensions) | UI Plugins that provides various extensions to the oVirt Administration Portal. | [6](https://github.com/ovirt/ovirt-engine-ui-extensions/issues) | 4 | 12 |
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 1 | 2 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |
-| [ovirt-engine-ui-extensions](https://github.com/oVirt/ovirt-engine-ui-extensions) | UI Plugins that provides various extensions to the oVirt Administration Portal. | [6](https://github.com/ovirt/ovirt-engine-ui-extensions/issues) | 4 | 12 |
+| [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | cockpit-ovirt: oVirt plugin for Cockpit Project | [5](https://github.com/ovirt/cockpit-ovirt/issues) | 9 | 13 |
 | [ovirt-engine-keycloak](https://github.com/oVirt/ovirt-engine-keycloak) | Package that provides Keycloak overlay configuration to be run on oVirt Engine&#39;s Widlfly/EAP instance | [5](https://github.com/ovirt/ovirt-engine-keycloak/issues) | 1 | 2 |
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine-sdk/issues) | 78 | 77 |
-| [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | cockpit-ovirt: oVirt plugin for Cockpit Project | [5](https://github.com/ovirt/cockpit-ovirt/issues) | 9 | 13 |
 | [ovirt-node-ng-image](https://github.com/oVirt/ovirt-node-ng-image) | The source for oVirt Node NG installer ISO and RPM image | [4](https://github.com/ovirt/ovirt-node-ng-image/issues) | 6 | 7 |
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 20 | 25 |
 | [ovirt-system-tests](https://github.com/oVirt/ovirt-system-tests) | This is a mirror for http://gerrit.ovirt.org, for issues use http://jira.ovirt.org, and choose OST project | [3](https://github.com/ovirt/ovirt-system-tests/issues) | 15 | 24 |

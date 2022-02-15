@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>vmfex | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="vmfex" />
+<meta name="author" content="Antoni Puimedon" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2725/develop/developer-guide/vdsm/hook/vmfex.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2725/develop/developer-guide/vdsm/hook/vmfex.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="vmfex" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Antoni Puimedon" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Antoni Puimedon"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2725/images/logo.svg"},"name":"Antoni Puimedon"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"vmfex","url":"https://ovirt.github.io/ovirt-site/previews/2725/develop/developer-guide/vdsm/hook/vmfex.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2725/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2725/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2725/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2725/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2725/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2725/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2725/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2725/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2725/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2725/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2725/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2725/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2725/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2725/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2725/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2725/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2725/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2725/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2725/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2725/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2725/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2725/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2725/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2725/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2725/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2725/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2725/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2725/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2725/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2725/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2725/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2725/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2725/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2725/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2725/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2725//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2725//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2725/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2725/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2725/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2725/develop/developer-guide/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2725/develop/developer-guide/vdsm/hook/">
+              <span property="name">Hook</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Antoni Puimedon</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/96683d5c86aced90f8fbb458c5d11a6b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/96683d5c86aced90f8fbb458c5d11a6b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Yasny</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="vmfex">vmfex</h1>
+
+<p><strong>NOTE: There is a new hook with better integration to vNic profile management</strong> <a href="/ovirt-site/previews/2725/develop/release-management/features/network/ucs-integration.html">UCS Integration</a><em>**</em></p>
+
+<p>This hook enables the use of Cisco VM Fabric Extender (VM-FEX) in oVirt.</p>
+
+<p>The hook receives a VM’s virtual NIC’s MAC adress as it is defined in the engine and a FEX Port Profile name, and reattaches that NIC to the FEX Port instead of the logical network it is assigned to in the Engine. This way the NIC MACs can be controlled in the Engine, but the NIC is actually running on FEX.</p>
+
+<p>Since the only unique parameter passed from the engine to the VM is the MAC, a dictionary-like mapping of MAC to port profile will be used Sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> vmfex={'00:11:22:33:44:55:66':'Profile1',
+       '00:11:22:33:44:55:67':'Profile2',...} (one line)
+</code></pre></div></div>
+
+<p>Will add 2 virtual nics attached to profile1 and profile2 using the vnic MAC addresses specified, replacing the actual NICs assigned to the VM.</p>
+
+<p>A VM NIC with a MAC that is not mentioned in this dictionary will not be altered, and will remain attached to the bridge/logical network defined for it in the engine.</p>
+
+<p>Libvirt internals (what the hook will do): Replace the existing interface xml:</p>
+
+<p>with the following interface xml:</p>
+
+<p>Note how <mac></mac> is preserved</p>
+
+<p>The hook also defines a dynamic pool of VM-FEX dynamic NICs on every host. Libvirt internals: dynamic network with libvirt (define a NIC pool, so libvirt can assign VMs to NICs dynamically):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      &lt;network&gt;
+        &lt;name&gt;direct-pool&lt;/name&gt;
+        &lt;forward mode="passthrough"&gt;
+          &lt;interface dev="eth3"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth4"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth5"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth6"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth7"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth8"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth9"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth10"&gt;&lt;/interface&gt;
+          &lt;interface dev="eth11"&gt;&lt;/interface&gt;
+        &lt;/forward&gt;
+      &lt;/network&gt;
+</code></pre></div></div>
+
+<p>Using libvirt, the network is defined like this (the hook uses libvirt python API for the same purpose, and does this automatically):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   virsh net-define /tmp/direct-pool.xml
+   virsh net-start direct-pool
+   virsh net-autostart direct-pool
+</code></pre></div></div>
+
+<p>(where /tmp/direct-pool.xml contains the xml above)</p>
+
+<p>Note that these interface definitions are completely static - you never need to modify them due to migration, or starting up/shutting down the guest.</p>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2725/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2725/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2725/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2725/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/hook/vmfex.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/vdsm/hook/vmfex.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -12,6 +12,5 @@ You can use a host with a compatible graphics processing unit (GPU) to run virtu
 include::assembly_managing-nvidia-vgpu-devices.adoc[]
 //include::common/assemblies/assembly_managing-intel-vgpu-devices.adoc[leveloffset=+1]
 
-
 :GPU_setup_on_vm_standalone_doc!:
 :context!: GPU_setup_on_vm_standalone_doc

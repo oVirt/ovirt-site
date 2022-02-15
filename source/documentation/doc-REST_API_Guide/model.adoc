@@ -2233,7 +2233,7 @@ This section enumerates all the requests that are available in the API.
 * <<services-affinity_group_host_label-methods-remove,DELETE>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_host_labels,hostlabels>>/<<services-affinity_group_host_label,{label:id}>>
 * <<services-affinity_group_hosts-methods-add,POST>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>
 * <<services-affinity_group_hosts-methods-list,GET>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>
-* <<services-affinity_group_host-methods-remove,DELETE>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>/<<services-affinity_group_host,{host:id}>>
+* <<services-affinity_group_host-methods-remove,DELETE>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>/<<services-affinity_group_host,{host:idorname}>>
 * <<services-affinity_group_vm_labels-methods-add,POST>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_vm_labels,vmlabels>>
 * <<services-affinity_group_vm_labels-methods-list,GET>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_vm_labels,vmlabels>>
 * <<services-affinity_group_vm_label-methods-remove,DELETE>> /<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_vm_labels,vmlabels>>/<<services-affinity_group_vm_label,{label:id}>>
@@ -2327,7 +2327,7 @@ This section enumerates all the requests that are available in the API.
 * <<services-affinity_group_host_label-methods-remove,DELETE>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_host_labels,hostlabels>>/<<services-affinity_group_host_label,{label:id}>>
 * <<services-affinity_group_hosts-methods-add,POST>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>
 * <<services-affinity_group_hosts-methods-list,GET>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>
-* <<services-affinity_group_host-methods-remove,DELETE>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>/<<services-affinity_group_host,{host:id}>>
+* <<services-affinity_group_host-methods-remove,DELETE>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_hosts,hosts>>/<<services-affinity_group_host,{host:idorname}>>
 * <<services-affinity_group_vm_labels-methods-add,POST>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_vm_labels,vmlabels>>
 * <<services-affinity_group_vm_labels-methods-list,GET>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_vm_labels,vmlabels>>
 * <<services-affinity_group_vm_label-methods-remove,DELETE>> /<<services-data_centers,datacenters>>/<<services-data_center,{datacenter:id}>>/<<services-clusters,clusters>>/<<services-cluster,{cluster:id}>>/<<services-affinity_groups,affinitygroups>>/<<services-affinity_group,{group:id}>>/<<services-affinity_group_vm_labels,vmlabels>>/<<services-affinity_group_vm_label,{label:id}>>
@@ -2490,6 +2490,7 @@ This section enumerates all the requests that are available in the API.
 * <<services-disk-methods-update,PUT>> /<<services-disks,disks>>/<<services-disk,{disk:id}>>
 * <<services-disk-methods-get,GET>> /<<services-disks,disks>>/<<services-disk,{disk:id}>>
 * <<services-disk-methods-remove,DELETE>> /<<services-disks,disks>>/<<services-disk,{disk:id}>>
+* <<services-disk-methods-convert,POST>> /<<services-disks,disks>>/<<services-disk,{disk:id}>>/<<services-disk,convert>>
 * <<services-disk-methods-copy,POST>> /<<services-disks,disks>>/<<services-disk,{disk:id}>>/<<services-disk,copy>>
 * <<services-disk_snapshots-methods-list,GET>> /<<services-disks,disks>>/<<services-disk,{disk:id}>>/<<services-disk_snapshots,disksnapshots>>
 * <<services-disk_snapshot-methods-get,GET>> /<<services-disks,disks>>/<<services-disk,{disk:id}>>/<<services-disk_snapshots,disksnapshots>>/<<services-disk_snapshot,{snapshot:id}>>
@@ -3035,6 +3036,7 @@ This section enumerates all the requests that are available in the API.
 * <<services-vm_reported_devices-methods-list,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_reported_devices,reporteddevices>>
 * <<services-vm_reported_device-methods-get,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_reported_devices,reporteddevices>>/<<services-vm_reported_device,{reporteddevice:id}>>
 * <<services-vm-methods-reset,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm,reset>>
+* <<services-vm-methods-screenshot,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm,screenshot>>
 * <<services-vm_sessions-methods-list,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_sessions,sessions>>
 * <<services-vm_session-methods-get,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_sessions,sessions>>/<<services-vm_session,{session:id}>>
 * <<services-vm-methods-shutdown,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm,shutdown>>
@@ -7872,6 +7874,9 @@ Manages a single disk.
 |===
 |Name |Summary
 
+|`convert`
+|Converts disk format and/or preallocation mode.
+
 |`copy`
 |This operation copies a disk to the specified storage domain.
 
@@ -7900,6 +7905,54 @@ Manages a single disk.
 |Updates the parameters of the specified disk.
 
 |===
+
+[id="services-disk-methods-convert"]
+==== convert [small]#POST#
+
+Converts disk format and/or preallocation mode.
+
+For example, to convert the disk format from preallocated-cow to a sparse-raw image, 
+send a request like the following:
+
+[source]
+----
+POST /ovirt-engine/api/disks/123/convert
+----
+
+With the following request body:
+
+[source,xml]
+----
+ <action>
+   <disk>
+     <sparse>true</sparse>
+     <format>raw</format>
+   </disk>
+ </action>
+----
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`disk`
+|<<types-disk,Disk>>
+|In
+|The description of the disk.
+
+|`follow`
+|<<types-string,String>>
+|In
+|Indicates which inner links should be _followed_.
+
+|===
+
+[id="services-disk-methods-convert-parameters-follow"]
+===== follow
+
+Indicates which inner links should be _followed_. The objects referenced by these links will be fetched as part
+of the current request. See <<documents-003_common_concepts-follow, here>> for details.
 
 [id="services-disk-methods-copy"]
 ==== copy [small]#POST#
@@ -8887,7 +8940,7 @@ FCP) don't support the combination of the raw `format` with `sparse=true`, so `s
 explicitly.
 
 To create a new floating image disk with specified `provisioned_size`, `format` and `name` on a storage domain
-with an id `123`, send a request as follows:
+with an id `123` and enabled for incremental backup, send a request as follows:
 
 [source]
 ----
@@ -8905,6 +8958,7 @@ With a request body as follows:
   <name>mydisk</name>
   <provisioned_size>1048576</provisioned_size>
   <format>cow</format>
+  <backup>incremental</backup>
 </disk>
 ----
 
@@ -28459,6 +28513,9 @@ Sets the maximum number of networks to return. If not specified all the networks
 |`reset`
 |Sends a reset request to a virtual machine.
 
+|`screenshot`
+|Captures screenshot of the current state of the VM.
+
 |`shutdown`
 |This operation sends a shutdown request to a virtual machine.
 
@@ -28489,6 +28546,9 @@ Sets the maximum number of networks to return. If not specified all the networks
 ==== autopincpuandnumanodes [small]#POST#
 
 Apply an automatic CPU and NUMA configuration on the VM.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It will be removed in the future. Instead please use PUT followed by <<services-vm-methods-update, update operation>>.
 
 An example for a request:
 [source]
@@ -29252,6 +29312,28 @@ empty `action`:
 
 |===
 
+[id="services-vm-methods-screenshot"]
+==== screenshot [small]#POST#
+
+Captures screenshot of the current state of the VM.
+
+For example:
+
+[source]
+----
+POST /ovirt-engine/api/vms/123/screenshot
+----
+
+The screenshot action does not take any action specific parameters; therefore, the request body should contain an
+empty `action`:
+
+[source,xml]
+----
+<action/>
+
+
+----
+
 [id="services-vm-methods-shutdown"]
 ==== shutdown [small]#POST#
 
@@ -29892,6 +29974,20 @@ A service managing a backup of a virtual machines.
 Finalize the virtual machine backup entity.
 
 End backup, unlock resources, and perform cleanups.
+To finalize a virtual machine with an id '123' and a backup with an id '456'
+send a request as follows:
+
+[source]
+----
+POST /ovirt-engine/api/vms/123/backups/456/finalize
+----
+
+With a request body as follows:
+
+[source,xml]
+----
+<action />
+----
 
 [id="services-vm_backup-methods-get"]
 ==== get [small]#GET#
@@ -29925,11 +30021,7 @@ The information about the virtual machine backup entities.
 <backups>
   <backup id="backup-uuid">
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
-    <disks>
-      <disk id="disk-uuid" />
-      ...
-      ...
-    </disks>
+    <link href="/ovirt-engine/api/vms/vm-uuid/backups/backup-uuid/disks" rel="disks"/>
     <status>initializing</status>
     <creation_date>
  </backup>
@@ -30092,6 +30184,26 @@ The response body:
     </disks>
     <status>initializing</status>
     <creation_date>
+</backup>
+----
+
+To provide the ID of the created backup, send a request like this:
+
+[source]
+----
+POST /ovirt-engine/api/vms/123/backups
+----
+
+With a request body like this:
+
+[source,xml]
+----
+<backup id="backup-uuid">
+  <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
+  <disks>
+      <disk id="disk-uuid" />
+      ...
+  </disks>
 </backup>
 ----
 
@@ -30622,6 +30734,13 @@ Lists the checkpoints of a virtual machine.
 
 The list of virtual machine checkpoints.
 
+To get a list of checkpoints for a virtual machine with an id '123', send a request as follows:
+
+[source]
+----
+GET /ovirt-engine/api/vms/123/checkpoints
+----
+
 .Parameters summary
 [cols="15,15,20,50"]
 |===
@@ -30656,7 +30775,7 @@ The information about the virtual machine checkpoint entities.
     <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/>
     <parent_id>parent-checkpoint-uuid</parent_id>
     <creation_date>xxx</creation_date>
-    <vm href="/ovirt-engine/api/vmsvm-uuid" id="vm-uuid"/>
+    <vm href="/ovirt-engine/api/vm-uuid" id="vm-uuid"/>
  </checkpoint>
 </checkpoints>
 ----
@@ -33006,7 +33125,12 @@ In all cases the name or identifier of the cluster where the virtual machine wil
 [id="services-vms-methods-add-parameters-auto_pinning_policy"]
 ===== auto_pinning_policy
 
-Specifies if and how the auto CPU and NUMA configuration is applied. An example for a request:
+Specifies if and how the auto CPU and NUMA configuration is applied.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It will be removed in the future. Instead please use POST followed by <<services-vms-methods-add, add operation>>.
+
+An example for a request:
 
 [source]
 ----
@@ -33747,6 +33871,10 @@ Represents the access protocols supported by Gluster volumes.
 
 |`fix_layout`
 |<<types-boolean,Boolean>>
+|
+
+|`follow`
+|<<types-string,String>>
 |
 
 |`force`
@@ -34578,6 +34706,9 @@ The result will be like this:
 |===
 |Name |Summary
 
+|`aarch64`
+|AARCH64 CPU architecture.
+
 |`ppc64`
 |
 
@@ -34670,6 +34801,9 @@ in line with the other architectures, like X86_64 or PPC64.
 === AutoPinningPolicy [small]#enum#
 
 Type representing what the CPU and NUMA pinning policy is.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It will be removed in the future. Instead please use CpuPinningPolicy.
 
 .Values summary
 [cols="20,80"]
@@ -36391,6 +36525,53 @@ Representation for serial console device.
 
 |===
 
+[id="types-cpu_pinning_policy"]
+=== CpuPinningPolicy [small]#enum#
+
+Type representing the CPU and NUMA pinning policy.
+
+.Values summary
+[cols="20,80"]
+|===
+|Name |Summary
+
+|`manual`
+|The CPU pinning will be manually configured.
+
+|`none`
+|The CPU pinning won't be configured.
+
+|`resize_and_pin_numa`
+|The CPU and NUMA pinning will be configured by the dedicated host.
+
+|===
+
+[id="types-cpu_pinning_policy-values-manual"]
+==== manual
+
+The CPU pinning will be manually configured.
+
+Currently, this means that the CPU pinning will be manually configured to the current virtual
+machine configuration. The VM needs to be pinned to at least one host. The Pinning is provided within
+the CPU configuration, using CpuTune.
+
+[id="types-cpu_pinning_policy-values-none"]
+==== none
+
+The CPU pinning won't be configured.
+
+Currently, this means that the CPU pinning won't be configured to the current virtual
+machine configuration. By default, the VM topology is set with 1 Socket, 1 Core and 1 Thread.
+
+[id="types-cpu_pinning_policy-values-resize_and_pin_numa"]
+==== resize_and_pin_numa
+
+The CPU and NUMA pinning will be configured by the dedicated host.
+
+The CPU and NUMA pinning will use the dedicated host CPU topology.
+The virtual machine configuration will automatically be set to fit the host to get the highest possible
+performance.
+
 [id="types-cpu_profile"]
 === CpuProfile [small]#struct#
 
@@ -36794,7 +36975,8 @@ Represents a virtual disk device.
 
 |`backup_mode`
 |<<types-disk_backup_mode,DiskBackupMode>>
-|The backup type that was taken for the disk (full/incremental).
+|The type of the disk backup (full/incremental),
+visible only when the disk backup is in progress.
 
 |`bootable`
 |<<types-boolean,Boolean>>
@@ -37504,7 +37686,8 @@ address, using the SCSI protocol.
 
 |`backup_mode`
 |<<types-disk_backup_mode,DiskBackupMode>>
-|The backup type that was taken for the disk (full/incremental).
+|The type of the disk backup (full/incremental),
+visible only when the disk backup is in progress.
 
 |`bootable`
 |<<types-boolean,Boolean>>
@@ -38217,6 +38400,26 @@ This type represents a directory service domain.
 
 A reference to a list of all users in the directory service.
 This information is used to add new users to the {product-name} environment.
+
+[id="types-dynamic_cpu"]
+=== DynamicCpu [small]#struct#
+
+Configuration of the Dynamic CPUs of a virtual machine.
+
+.Attributes summary
+[cols="20,20,60"]
+|===
+|Name |Type |Summary
+
+|`cpu_tune`
+|<<types-cpu_tune,CpuTune>>
+|
+
+|`topology`
+|<<types-cpu_topology,CpuTopology>>
+|
+
+|===
 
 [id="types-entity_external_status"]
 === EntityExternalStatus [small]#enum#
@@ -39167,7 +39370,7 @@ Describes the parameters for the virtual machine import operation from an extern
 
 |`sparse`
 |<<types-boolean,Boolean>>
-|Specifies the disk allocation policy of the resulting virtual machine: `true` for sparse, `false` for preallocated.
+|Optional.
 
 |`url`
 |<<types-string,String>>
@@ -39178,6 +39381,17 @@ Describes the parameters for the virtual machine import operation from an extern
 |The username to authenticate against the external hypervisor system.
 
 |===
+
+[id="types-external_vm_import-attributes-sparse"]
+==== sparse
+
+Optional. Specifies the disk allocation policy of the resulting virtual machine: `true` for sparse, `false` for
+preallocated.
+
+If not specified:
+- When importing an OVA that was produced by oVirt, it will be determined according to the configuration of the
+  disk within the OVF.
+- Otherwise, it will be set to true.
 
 [id="types-external_vm_import-attributes-url"]
 ==== url
@@ -42984,6 +43198,10 @@ attributes are not used in instance types.
 |<<types-cpu,Cpu>>
 |The configuration of the virtual machine CPU.
 
+|`cpu_pinning_policy`
+|<<types-cpu_pinning_policy,CpuPinningPolicy>>
+|Specifies if and how the CPU and NUMA configuration is applied.
+
 |`cpu_shares`
 |<<types-integer,Integer>>
 |
@@ -43165,6 +43383,14 @@ the available virtual Cpus and disks, or according to the specified virtioScsiMu
 
 |===
 
+[id="types-instance_type-attributes-auto_pinning_policy"]
+==== auto_pinning_policy
+
+Specifies if and how the auto CPU and NUMA configuration is applied.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It might be removed in the future. Please use CpuPinningPolicy instead.
+
 [id="types-instance_type-attributes-cpu"]
 ==== cpu
 
@@ -43195,6 +43421,13 @@ With a request body:
   </cpu>
 </vm>
 ----
+
+[id="types-instance_type-attributes-cpu_pinning_policy"]
+==== cpu_pinning_policy
+
+Specifies if and how the CPU and NUMA configuration is applied.
+When not specified the previous behavior of CPU pinning string will determine
+CpuPinningPolicy to None or Manual.
 
 [id="types-instance_type-attributes-custom_compatibility_version"]
 ==== custom_compatibility_version
@@ -45626,6 +45859,9 @@ Defines the options for an emulated virtual network interface device model.
 
 |`e1000`
 |e1000.
+
+|`e1000e`
+|e1000e.
 
 |`pci_passthrough`
 |PCI Passthrough.
@@ -49696,6 +49932,10 @@ Example XML representation:
 |<<types-cpu,Cpu>>
 |The configuration of the virtual machine CPU.
 
+|`cpu_pinning_policy`
+|<<types-cpu_pinning_policy,CpuPinningPolicy>>
+|Specifies if and how the CPU and NUMA configuration is applied.
+
 |`cpu_shares`
 |<<types-integer,Integer>>
 |
@@ -49938,6 +50178,14 @@ the available virtual Cpus and disks, or according to the specified virtioScsiMu
 
 |===
 
+[id="types-snapshot-attributes-auto_pinning_policy"]
+==== auto_pinning_policy
+
+Specifies if and how the auto CPU and NUMA configuration is applied.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It might be removed in the future. Please use CpuPinningPolicy instead.
+
 [id="types-snapshot-attributes-cpu"]
 ==== cpu
 
@@ -49968,6 +50216,13 @@ With a request body:
   </cpu>
 </vm>
 ----
+
+[id="types-snapshot-attributes-cpu_pinning_policy"]
+==== cpu_pinning_policy
+
+Specifies if and how the CPU and NUMA configuration is applied.
+When not specified the previous behavior of CPU pinning string will determine
+CpuPinningPolicy to None or Manual.
 
 [id="types-snapshot-attributes-custom_compatibility_version"]
 ==== custom_compatibility_version
@@ -50208,6 +50463,10 @@ This property is only visible when fetching if "All-Content=true" header is set.
 |`disks`
 |<<types-disk,Disk[]>>
 |List of disks linked to the snapshot.
+
+|`dynamic_cpu`
+|<<types-dynamic_cpu,DynamicCpu>>
+|The dynamic configuration of the virtual machine CPU.
 
 |`external_host_provider`
 |<<types-external_host_provider,ExternalHostProvider>>
@@ -51853,6 +52112,10 @@ Templates allow for a rapid instantiation of virtual machines with common config
 |<<types-cpu,Cpu>>
 |The configuration of the virtual machine CPU.
 
+|`cpu_pinning_policy`
+|<<types-cpu_pinning_policy,CpuPinningPolicy>>
+|Specifies if and how the CPU and NUMA configuration is applied.
+
 |`cpu_shares`
 |<<types-integer,Integer>>
 |
@@ -52034,6 +52297,14 @@ the available virtual Cpus and disks, or according to the specified virtioScsiMu
 
 |===
 
+[id="types-template-attributes-auto_pinning_policy"]
+==== auto_pinning_policy
+
+Specifies if and how the auto CPU and NUMA configuration is applied.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It might be removed in the future. Please use CpuPinningPolicy instead.
+
 [id="types-template-attributes-cpu"]
 ==== cpu
 
@@ -52064,6 +52335,13 @@ With a request body:
   </cpu>
 </vm>
 ----
+
+[id="types-template-attributes-cpu_pinning_policy"]
+==== cpu_pinning_policy
+
+Specifies if and how the CPU and NUMA configuration is applied.
+When not specified the previous behavior of CPU pinning string will determine
+CpuPinningPolicy to None or Manual.
 
 [id="types-template-attributes-custom_compatibility_version"]
 ==== custom_compatibility_version
@@ -53101,6 +53379,10 @@ Represents a virtual machine.
 |<<types-cpu,Cpu>>
 |The configuration of the virtual machine CPU.
 
+|`cpu_pinning_policy`
+|<<types-cpu_pinning_policy,CpuPinningPolicy>>
+|Specifies if and how the CPU and NUMA configuration is applied.
+
 |`cpu_shares`
 |<<types-integer,Integer>>
 |
@@ -53327,6 +53609,14 @@ the available virtual Cpus and disks, or according to the specified virtioScsiMu
 
 |===
 
+[id="types-vm-attributes-auto_pinning_policy"]
+==== auto_pinning_policy
+
+Specifies if and how the auto CPU and NUMA configuration is applied.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It might be removed in the future. Please use CpuPinningPolicy instead.
+
 [id="types-vm-attributes-cpu"]
 ==== cpu
 
@@ -53357,6 +53647,13 @@ With a request body:
   </cpu>
 </vm>
 ----
+
+[id="types-vm-attributes-cpu_pinning_policy"]
+==== cpu_pinning_policy
+
+Specifies if and how the CPU and NUMA configuration is applied.
+When not specified the previous behavior of CPU pinning string will determine
+CpuPinningPolicy to None or Manual.
 
 [id="types-vm-attributes-custom_compatibility_version"]
 ==== custom_compatibility_version
@@ -53587,6 +53884,10 @@ This property is only visible when fetching if "All-Content=true" header is set.
 |<<types-disk_attachment,DiskAttachment[]>>
 |References the disks attached to the virtual machine.
 
+|`dynamic_cpu`
+|<<types-dynamic_cpu,DynamicCpu>>
+|The dynamic configuration of the virtual machine CPU.
+
 |`external_host_provider`
 |<<types-external_host_provider,ExternalHostProvider>>
 |
@@ -53782,6 +54083,10 @@ This is used by virtual machines, templates and instance types.
 |<<types-cpu,Cpu>>
 |The configuration of the virtual machine CPU.
 
+|`cpu_pinning_policy`
+|<<types-cpu_pinning_policy,CpuPinningPolicy>>
+|Specifies if and how the CPU and NUMA configuration is applied.
+
 |`cpu_shares`
 |<<types-integer,Integer>>
 |
@@ -53951,6 +54256,14 @@ the available virtual Cpus and disks, or according to the specified virtioScsiMu
 
 |===
 
+[id="types-vm_base-attributes-auto_pinning_policy"]
+==== auto_pinning_policy
+
+Specifies if and how the auto CPU and NUMA configuration is applied.
+
+IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
+compatibility. It might be removed in the future. Please use CpuPinningPolicy instead.
+
 [id="types-vm_base-attributes-cpu"]
 ==== cpu
 
@@ -53981,6 +54294,13 @@ With a request body:
   </cpu>
 </vm>
 ----
+
+[id="types-vm_base-attributes-cpu_pinning_policy"]
+==== cpu_pinning_policy
+
+Specifies if and how the CPU and NUMA configuration is applied.
+When not specified the previous behavior of CPU pinning string will determine
+CpuPinningPolicy to None or Manual.
 
 [id="types-vm_base-attributes-custom_compatibility_version"]
 ==== custom_compatibility_version

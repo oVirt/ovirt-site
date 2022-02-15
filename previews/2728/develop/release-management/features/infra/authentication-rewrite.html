@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Authentication-Rewrite | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Authentication-Rewrite" />
+<meta name="author" content="Alon Bar-Lev" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2728/develop/release-management/features/infra/authentication-rewrite.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2728/develop/release-management/features/infra/authentication-rewrite.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Authentication-Rewrite" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alon Bar-Lev" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Alon Bar-Lev"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2728/images/logo.svg"},"name":"Alon Bar-Lev"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Authentication-Rewrite","url":"https://ovirt.github.io/ovirt-site/previews/2728/develop/release-management/features/infra/authentication-rewrite.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2728/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2728/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2728/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2728/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2728/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2728/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2728/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2728/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2728/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2728/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2728/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2728/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2728/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2728/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2728/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2728/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2728/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2728/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2728/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2728/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2728/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2728/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2728/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2728/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2728/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2728/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2728/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2728/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2728/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2728/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2728/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2728/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2728/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2728/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2728/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2728//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2728//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2728/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2728/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2728/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2728/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2728/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alon Bar-Lev</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Allon Mureinik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/8872455242aae9492e0581a0e074c9c5?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/8872455242aae9492e0581a0e074c9c5?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Will Dennis</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yair Zaslavsky</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2728/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="authentication--directory-rewrite">Authentication &amp; Directory rewrite</h1>
+
+<p><span class="label label-warning"><big>ATTENTION: This page is obsoleted for &gt;=ovirt-engine-3.5 by <a href="/ovirt-site/previews/2728/develop/release-management/features/infra/aaa.html">Features/AAA</a></big></span></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>The feature deals with reimplementation of the Authentication and Directory support at oVirt, which is currently based on Kerberos and “internal” user for authentication, and on LDAP and the DB (for internal domain). The work is dividied into two phases -</p>
+
+<ul>
+  <li>Phase 1 - Redesign the implementation, introducing support for Authenticators and Directories, and implementation of Internal Authenticator and Directory to support the internal domain, and the Provisional Authenticator and Directory to support external. The Provisional directory gets the required configuration from the oVirt database, as it serves as a “bridge” to the existing implementation.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Phase 2 - Implementing Kerberos Authenticator and a new LDAP Directory. Supporting developing of new modules that contain authentication and directory code , not necessarily Kerberos and LDAP based. The configuration for the Authenticators and Directories will be read from a configuration file and will include query structure.</li>
+</ul>
+
+<h3 id="owners">Owners</h3>
+
+<ul>
+  <li>Name: Yair Zaslavsky (Yair Zaslavsky)</li>
+  <li>Name: Juan Hernandez (Juan Hernandez)</li>
+  <li>Email: <a href="mailto:jhernand@redhat.com">jhernand@redhat.com</a></li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>status: Phase 1 - done. Phase 2 - in progress</li>
+  <li>Last updated: January 19, 2014</li>
+</ul>
+
+<h2 id="benefits-to-ovirt">Benefits to oVirt</h2>
+
+<ul>
+  <li>Allows to introduce new types of Authenticators(not just password based) and Directories - not necessarily Kerberos based and LDAP based - this can be done in external modules(using JBoss modules) and does not require recompilation of ovirt Engine and delivery of a new RPM for it.</li>
+  <li>Allows change of configuration to support new LDAP prvoiders or changes in LDAP schema (no code change is required).</li>
+</ul>
+
+<h3 id="terminology">Terminology</h3>
+
+<ul>
+  <li>Authenticator - Responsible for performing the authentication (given a set of credentials, the Authenticator performs authentication and returns a result object indicating whether authentication has succeeded or not) to oVirt engine.</li>
+  <li>AuthenticatorFactory - Responsible for creating an Authenticator. Each type of Authenticator should have its own factory.</li>
+  <li>Directory - responsible for querying information on users and groups.</li>
+  <li>DirectoryFactory - Responsible for creating a Directory. Each type of Directory should have its own factory.</li>
+  <li>Profile - a combination of Authenticator and Directory. Each profile has a name that identifies it uniquely. At Phase 2 - each configuration file must contain configuration for a profile (configuration for Authenticator and a Directory). Webadmin and UserPortal present the list of available profiles at the login screen under the domains list.</li>
+  <li>ExternalId - Not all Directories my contain users and groups that have a UUID identifier. ExternalId is an abstraction representing an ID of an external entity.</li>
+</ul>
+
+<h2 id="detailed-description-of-flows">Detailed description of flows</h2>
+
+<ol>
+  <li>Engine restart</li>
+</ol>
+
+<p>At oVirt Engine restart engine gets the list of domains from DB, and creates for each one of them a profile based on Provisional Directory and Authenticator. The profiles are then registered to later usage (the profile will be identified by the domain name). Engine scans a directory that holds configuration files, and for each one of them the configuration file is loaded and creates a profile for them. At Phase 1 the directory is empty and it’s still under a debate the location under the filesystem that will hold the directory.</p>
+
+<ol>
+  <li>Login</li>
+</ol>
+
+<p>The login commands get the the profile by the domain name supplied by the parameters. The associated Authenticator is used to authenticate. The Authenticators have a mechanism to resolve error messages to allow oVirt Engine return the UI detailed information on why the authentication failed (for example - for a password based Authenticator such message may be that the password of the user has expired). The associated Directory will be used to query the user by its name. The returned user information will be used to get the user information from the database, and run the MLA check if the login action is authorized.</p>
+
+<ol>
+  <li>Search users &amp; groups</li>
+</ol>
+
+<p>Each Directory should contain in its configuration the required information in order to perform a search of users. For example, an LDAP directory may need to define the user (currently known as “domain user”) to perform the search queries with, the authentication method for the user (may be SIMPLE, SASL or others). Bare in mind that this configuration, even if contains authentication details (for example -user, encrypted password, usage of SASL with GSSAPI as mechanism) is unrelated to the configuration of the Authenticator. The search queries for users and groups will be run against query methods at the Directory object.</p>
+
+<ol>
+  <li>Support different LDAP vendors via configuration (Phase-2)</li>
+</ol>
+
+<p>In order to achieve support for different LDAP vendors, the configuration should include the following information:</p>
+
+<ul>
+  <li>Root DSE handling -</li>
+</ul>
+
+<p>As ROOT DSE queries are used to collect information on the directory (“metadata”) some vendors might hold different attributes in the ROOT DSE which may later on be utilized for further directory queries. It is required to add an ability to provide a custom handler if needed, and a default implementation. As the base DN under which the users and the groups will be queried for is also provided by the Root DSE, it is required to provide a mapping between an abstracted name of the attribute (for example - “namingContexts”) to a vendor-specific name of the attribute (for example “defaultNamingContexts” in Active Directory.)</p>
+
+<ul>
+  <li>Queries templates - Each query (i.e - “GetUserByName”) should have a “template” that defines the query structure and allows to include parameters in it.</li>
+</ul>
+
+<p>Before a query is executed, the proper template should be resolved into a query string, by substituting the parameter place holders to parameter values. Such a template may be - ((objectClass=Person)(uid=%1$s)) the parameter place holder in this example is the “%1$s” sub string.</p>
+
+<ul>
+  <li>Users and groups returning attributes mapping -</li>
+</ul>
+
+<p>Users and groups attributes may be defined differently in different LDAP vendors. A mapping between the vendor attribute name (for example - “sn” in Active Directory) to an abstracted attribute name used by the code (for example - “lastName” ) should be included.</p>
+
+<ul>
+  <li>Search attributes mapping -</li>
+</ul>
+
+<p>The generated query by the search mechanism is an abstract LDAP query in a sense it does not contain vendor specific attributes, but placeholders , for example - $ACCOUNTTYPE these attributes should be replaced to vendor specific ones.</p>
+
+<p>The following is an example (still work in progress) for the mapping part in configuration file for IPA - <a href="http://resources.ovirt.org/old-site-files/wiki/Ipa_configuration.odt">ODT</a></p>
+
+<h2 id="open-issues">Open issues</h2>
+
+<ol>
+  <li>
+    <p>Phase 2 - location of directory to hold configuration files - See BZ1049876</p>
+  </li>
+  <li>
+    <p>Phase-2 - Configuration structure for LDAP - patches are still under review, configuration structure may change</p>
+  </li>
+</ol>
+
+<h2 id="testing">Testing</h2>
+
+<p>As currently only Phase-1 is implemented , the tests should be done to see no regression were introduced -</p>
+
+<ol>
+  <li>Use manage-domains, add a domain with addPermissions option and perform a login</li>
+  <li>Use-manage-domain, add another domain with addPermissioons option and perform login (positive fow - check support for multiple domains)</li>
+  <li>Give permissions to a group to perform a login, login using a user from that group</li>
+  <li>Give permissions to a user , and login with that user</li>
+  <li>Try to login with a user that does not exist in the domain</li>
+  <li>Try to login with a user that does not have permissions to login</li>
+  <li>Try to login with an account that is either locked/disabled or that the user has expired password - see that a proper message appears at UI</li>
+  <li>Remove a domain , check that you cannot log in with users from that domain.</li>
+</ol>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2728/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2728/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2728/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2728/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/authentication-rewrite.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/authentication-rewrite.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

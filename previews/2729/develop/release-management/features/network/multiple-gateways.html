@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Multiple Gateways | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Multiple Gateways" />
+<meta name="author" content="Assaf Muller" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2729/develop/release-management/features/network/multiple-gateways.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2729/develop/release-management/features/network/multiple-gateways.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Multiple Gateways" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Assaf Muller" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Assaf Muller"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2729/images/logo.svg"},"name":"Assaf Muller"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Multiple Gateways","url":"https://ovirt.github.io/ovirt-site/previews/2729/develop/release-management/features/network/multiple-gateways.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2729/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2729/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2729/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2729/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2729/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2729/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2729/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2729/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2729/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2729/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2729/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2729/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2729/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2729/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2729/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2729/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2729/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2729/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2729/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2729/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2729/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2729/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2729/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2729/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2729/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2729/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2729/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2729/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2729/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2729/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2729/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2729/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2729/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2729/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2729/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2729//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2729//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2729/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2729/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2729/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2729/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2729/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Assaf Muller</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Livnat Peer</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2729/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="multiple-gateways">Multiple Gateways</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Currently it is assumed that the host-wide default gateway is the gateway defined on the ovirtmgmt logical network. This feature will enable the user to define a gateway per logical network.</p>
+
+<p>The feature is only relevant for deployments with hosts with more than one network device. Without the feature, any traffic going in the device that needs to be returned to a network not directly on the host will be routed out through the default gateway regardless of the device which the traffic came in. With the feature, any traffic going in that needs to be returned to a network outside of the host’s own subnets will be routed back via the device that the traffic came in through.</p>
+
+<p>The motivation is to ensure that if outside traffic was routed through a firewall to the host, then it will be returned the way it came in through the same firewall. Additionally, if a special administrative network (Mainly display network) was placed on a device then this feature ensures that return traffic will remain on the same display network and not router back from the host’s default gateway, which may be a different network.</p>
+
+<p>Previously users solved the issue with source routing manually, this feature simply automates the process.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Assaf Muller (amuller)</li>
+  <li>Email: <a href="mailto:amuller@redhat.com">amuller@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current Status</h2>
+
+<ul>
+  <li>oVirt-3.3</li>
+  <li>Merged, bug fix stage</li>
+</ul>
+
+<h2 id="why-do-we-need-multiple-gateways">Why do we need multiple gateways?</h2>
+
+<p>The need for a gateway per network has emerged from the need to support other host networks (not VM networks) beside the management one.</p>
+
+<p>As an example, migration and storage networks can be defined, each passing dedicated traffic (one for storage communication and another for VM migration traffic), they may need to pass through different gateways.  So the management network can be accessed using gateway A, storage using B and migration using C. A will usually be set on a host level as the host default gateway, and the others will be set for the individual networks.  Otherwise, there would be no way for your storage to use a different router (than the management one) in the network.</p>
+
+<p>oVirt assumes that the host’s default gateway is the gateway defined on the ovirtmgmt network. With that in mind: Multiple oVirt users use this network topology:</p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Multiple_Gateways_Topology.png" alt="" /></p>
+
+<p>The administrator created a new network and set it as the display network. The oVirt host is connected to two networks: ovirtmgmt (10.0.0.0) via eth0, and the display network (20.0.0.0) via eth1. A user on a different subnet than the host then connected to the engine, selected a VM on the host and then opened a new Spice console. Network data can reach the host, but all return traffic will route to the host’s default gateway, which is the gateway defined on ovirtmgmt, reached via eth0. The return traffic will reach R1, but R1 doesn’t have a route to the user’s laptop and thus the packets will be dropped at R1. In other words, Spice won’t work.</p>
+
+<p>More simply put, pings won’t work from the user’s laptop to the oVirt host, assuming they are not located on the same network. The traffic will reach the host successfully, but all return traffic will be routed through the host’s default gateway via eth0. The packets will reach R1 and will then be dropped as R1 cannot route to the user’s laptop.</p>
+
+<p>Currently, clients manually edit the host’s init scripts and set a different gateway for the display network. This can become problematic to maintain with a large amount of hosts. The multiple gateways feature will automate this process.</p>
+
+<h2 id="user-experience">User Experience</h2>
+
+<p>The only change needed in the GUI is in the setup networks dialog. When editing an IP configuration, we need to enable the gateway field for all networks, not only ovirtmgmt. If the user chose static IP, then the gateway field should be added and be editable. If DHCP was chosen then the gateway field should be visible and display the gateway configured via DHCP.</p>
+
+<h2 id="proposed-solution">Proposed Solution</h2>
+
+<h3 id="the-manual-solution">The Manual Solution</h3>
+
+<p>The manual solution, or how Linux system admins setup multiple gateways on a host is to create a routing table for each IP subnet configured on the host, and source routing rules to use each table as appropriate. Meaning, if a packet is destined towards the IP configured on the host’s eth0 (For example: 10.0.0.1), then when creating a return packet, the source IP will be 10.0.0.1. The host will then go over his configured rules and see that when routing <strong>from</strong> 10.0.0.1, he must use a specific routing table, which holds the gateway for the 10.0.0.0 network. In other words, all traffic to 10.0.0.1 will return via 10.0.0.1’s NIC, and all traffic to another IP of the host, will return via that IP’s NIC instead. That way, traffic goes out the same way it came in.</p>
+
+<p>More information about iproute2 source routing may be found at: <a href="http://www.policyrouting.org/iproute2-toc.html">http://www.policyrouting.org/iproute2-toc.html</a></p>
+
+<h3 id="manual-configuration-example">Manual Configuration Example</h3>
+
+<p>The zeus02 host is connected via eth0 to one router, and via eth1 (bridged over ovirtmgmt) to another router. We configured the display network on the eth0 NIC.</p>
+
+<p><strong>The ip address on eth0:</strong></p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Eth0_ip.png" alt="" /></p>
+
+<p><strong>The ip address on ovirtmgmt:</strong></p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Ovirtmgmt_ip.png" alt="" /></p>
+
+<p><strong>A list of the host’s routing tables:</strong></p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Rt_tables.png" alt="" /></p>
+
+<p><strong>The routing table setup for eth0:</strong></p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Eth0_table.png" alt="" /></p>
+
+<p><strong>The routing table setup for ovirtmgmt:</strong></p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Ovirtmgmt_table.png" alt="" /></p>
+
+<p><strong>The rules which tell the host when to use each routing table:</strong></p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Ip_rule.png" alt="" /></p>
+
+<p>And finally, here’s the host’s main routing table. Any traffic coming <strong>in</strong> to the host will use the ip rules and an interface’s routing table. The main routing table is only used for traffic originating <strong>from</strong> the host.</p>
+
+<p><img src="/ovirt-site/previews/2729/images/wiki/Ip_route.png" alt="" /></p>
+
+<h3 id="automatic-solution">Automatic Solution</h3>
+
+<p>The proposed solution is to create a python script that expects an interface’s new IP address, subnet mask, network name and gateway. The script will then use the appropriate commands to generate a new routing table, populate it with two rows: One to link the network ip range with the NIC, and another that defines the gateway. Finally, the script will add two new rules that define when to use the new routing table. Of course, the rules define to use the new routing table whenever traffic is destined to or from the new ip network range. For an example, see the previous section. Another script will be created that reverses the aforementioned effects.</p>
+
+<p><strong>DHCP:</strong> During VDSM installation, an additional script will be created under /etc/dhcp/dhclient.d/, called sourceRouting.sh. We will use DHCP hooks to call our new scripts whenever a DHCP interface is brought up or down.</p>
+
+<p><strong>Static IP:</strong> We’ll call the aforementioned script for statically configured interfaces during addNetwork and delNetwork. Two files will be created during addNetwork. delNetwork will delete the same files. The files are route-<interface> and rule-<interface>, placed in /etc/sysconfig/network-scripts. New routing rules will be placed in the route file, and new rules in the rule file. Both of these files are called during the ifup init script.</interface></interface></p>
+
+<p><strong>Summary:</strong> Multiple gateways code will be called whenever a DHCP interface goes up or down (Via our DHCP hook), and will create and delete the needed rules every time it is called. For statically configured interfaces, it will be called once during addNetwork, and once during delNetwork. These runs will place init scripts, that in turn will be called during ifup and ifdown.</p>
+
+<h3 id="upgrading">Upgrading</h3>
+
+<p>When a host upgrades to a VDSM that supports multiple gateways all of its interfaces will have no source routing configured. Any new setup networks will configure source routing on the affected networks / interfaces. Since the current implementation keeps the management network as the host’s default gateway, connectivity should never be lost and no actual upgrade script is offered.</p>
+
+<h3 id="api">API</h3>
+
+<h4 id="vdsm">Vdsm</h4>
+
+<p>A significant advantage of the currently proposed implementation is that no API change between the Engine and VDSM is needed. VDSM is capable of distilling the gateways from the current setupNetworks verb.</p>
+
+<h4 id="rest-and-engine">REST and Engine</h4>
+
+<p>Currently, only when setting the management network, a gateway may be specified. With this feature, each network with static address may have a gateway, that would control source routing for that address.</p>
+
+<h2 id="testing">Testing</h2>
+
+<ul>
+  <li>Set up networking as described <a href="#why-do-we-need-multiple-gateways">above</a>. Most importantly, place your spice client outside of the hosts’ own subnet.</li>
+  <li>Verify that spice traffic travels through the designated host.</li>
+  <li>Test the above both with static addresses and with DHCP.</li>
+</ul>
+
+<h2 id="external-references">External References</h2>
+
+<ul>
+  <li>On the arch@ovirt.org mailing list.</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2729/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2729/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2729/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2729/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/multiple-gateways.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/multiple-gateways.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

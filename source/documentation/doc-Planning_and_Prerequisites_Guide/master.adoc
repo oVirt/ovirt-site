@@ -21,3 +21,5 @@ include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 include::asm-Considerations.adoc[]
 
 include::asm-Recommendations.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

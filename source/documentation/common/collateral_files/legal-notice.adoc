@@ -4,7 +4,7 @@
 include::attributes.adoc[]
 
 [.lead]
-Copyright © 2021 Red Hat, Inc.
+Copyright © 2022 Red Hat, Inc.
 
 Licensed under the (link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution–ShareAlike 4.0 International License]). Derived from documentation for the (link:https://ovirt.org[oVirt Project]). If you distribute this document or an adaptation of it, you must provide the URL for the original version.
 

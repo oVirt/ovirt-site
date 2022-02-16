@@ -87,4 +87,4 @@ include::topics/installing_virtual_product_hypervisors_from_local_repository.ado
 
 == Legal notice
 
-Certain portions of this text first appeared in the link:{URL_downstream_virt_product_docs}upgrade_guide/index[Red Hat Virtualization {vernum_rhv} Upgrade Guide]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].
+Certain portions of this text first appeared in the link:{URL_downstream_virt_product_docs}upgrade_guide/index[Red Hat Virtualization {vernum_rhv} Upgrade Guide]. Copyright © 2022 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].

@@ -9,3 +9,5 @@ include::asm-Components.adoc[]
 include::asm-Installation.adoc[leveloffset=+1]
 
 include::asm-AccessingRHV.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

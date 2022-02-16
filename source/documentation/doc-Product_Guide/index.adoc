@@ -9,3 +9,8 @@ include::asm-Components.adoc[]
 include::asm-Installation.adoc[leveloffset=+1]
 
 include::asm-AccessingRHV.adoc[]
+
+[appendix]
+== Legal notice
+
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}disaster_recovery_guide/index[Red Hat Virtualization {vernum_rhv} Disaster Recovery Guide]. Copyright © 2022 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].

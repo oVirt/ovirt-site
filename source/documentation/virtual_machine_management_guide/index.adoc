@@ -27,4 +27,4 @@ include::appe-virt_sysprep_operations.adoc[]
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}virtual_machine_management_guide/index[Red Hat Virtualization {vernum_rhv} Virtual Machine Management Guide]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}virtual_machine_management_guide/index[Red Hat Virtualization {vernum_rhv} Virtual Machine Management Guide]. Copyright © 2022 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].

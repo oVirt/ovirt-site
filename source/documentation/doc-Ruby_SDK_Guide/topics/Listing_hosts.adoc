@@ -1,0 +1,27 @@
+=== Listing Hosts
+
+This Ruby example lists the hosts.
+
+[source, Ruby, options="nowrap"]
+----
+# Get the reference to the root of the services tree:
+system_service = connection.system_service
+
+# Get the reference to the service that manages the
+# collection of hosts:
+host_service = system_service.hosts_service
+
+# Retrieve the list of hosts and for each one
+# print its name:
+host = host_service.list
+host.each do |host|
+  puts host.name
+end
+----
+
+In an environment with only one attached host (`Atlantic`) the example outputs:
+----
+Atlantic
+----
+
+For more information, see link:https://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/HostsService#list-instance_method[].

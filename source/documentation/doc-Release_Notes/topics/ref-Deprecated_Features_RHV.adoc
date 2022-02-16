@@ -18,6 +18,8 @@ The following table describes deprecated features to be removed in a future vers
 |===
 |Deprecated Feature |Details
 
+|Ruby software development kit (SDK) |The Ruby SDK is now deprecated. This functionality will be removed in a future release.
+
 |Remote engine database |A remote engine database is now deprecated, whether implemented during deployment or by migrating after deployment. This functionality will be removed from the deployment script in a future release.
 
 | Cisco Virtual Machine Fabric Extender (VM-FEX) | Support for the Cisco Virtual Machine Fabric Extender (VM-FEX) is now deprecated. This functionality will be removed in a future release.

@@ -27,6 +27,11 @@ See: link:{URL_downstream_virt_product_docs}rest_api_guide/index[_REST API Guide
 
 *Software Development Kit (SDK)*:: The Python, Java, and Ruby SDKs are fully supported interfaces for interacting with the {virt-product-fullname} {engine-name}.
 +
+[NOTE]
+====
+The Ruby SDK is deprecated. Support for Ruby SDK will be removed in a later release.
+====
++
 See:
 
 * link:{URL_virt_product_docs}{URL_format}python_sdk_guide/index#[_Python SDK Guide_]

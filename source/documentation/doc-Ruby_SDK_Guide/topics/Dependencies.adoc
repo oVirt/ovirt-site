@@ -1,0 +1,29 @@
+[[Dependencies]]
+=== Dependencies
+
+The Ruby Software Development Kit has the following dependencies, which you must install manually if you are using `gem`:
+
+* `libxml2` for parsing and rendering XML 
+* `libcurl` for HTTP transfers
+* C compiler 
+* Required header and library files
+
+[NOTE]
+====
+You do not need to install the dependency files if you installed the RPM.
+====
+
+Install the dependency files:
+
+----
+# dnf install gcc libcurl-devel libxml2-devel ruby-devel
+----
+
+[NOTE]
+====
+If you are using Debian or Ubuntu, use `apt-get`:
+
+----
+# apt-get install gcc libxml2-dev libcurl-dev ruby-dev
+----
+====

@@ -1,0 +1,27 @@
+=== Listing Logical Networks
+
+This Ruby example lists the logical networks.
+
+[source, Ruby, options="nowrap"]
+----
+# Get the reference to the root of the services tree:
+system_service = connection.system_service
+
+# Get the reference to the service that manages the
+# collection of networks:
+nws_service = system_service.networks_service
+
+# Retrieve the list of clusters and for each one
+# print its name:
+nws = nws_service.list
+nws.each do |nw|
+  puts nw.name
+end
+----
+
+In an environment with only the default management network, the example outputs:
+----
+ovirtmgmt
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/NetworksService:list[].

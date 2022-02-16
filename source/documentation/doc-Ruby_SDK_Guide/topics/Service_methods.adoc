@@ -1,0 +1,288 @@
+[[Service_methods]]
+==== Service Methods
+
+After you have located the service you want, you can call its service methods. These methods send requests to the server and do the real work.
+
+Services that manage collections of objects usually have the `list` and `add` methods.
+
+Services that manage a single object usually have the `get`, `update`, and `remove` methods.
+
+Services may have additional action methods, which perform actions other than retrieving, creating, updating, or removing. These methods are most commonly found in services that manage a single object.
+
+==== `Get`
+
+The `get` method retrieves the representation of a single object.
+
+The following example locates and retrieves the representation of the virtual machine with identifier `123`:
+
+[source, Ruby]
+----
+# Find the service that manages the virtual machine:
+vms_service = system_service.vms_service
+vm_service = vms_service.vm_service('123')
+
+# Retrieve the representation of the virtual machine:
+vm = vm_service.get
+----
+
+The result will be an instance of the corresponding type. In this case, the result is an instance of the Ruby class link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Vm[Vm].
+
+The `get` method of some services supports additional parameters that control how to retrieve the representation of the object, or which representation to retrieve, if there is more than one.
+
+For example, you may want to retrieve a virtual machine's future state, after boot-up. The `get` method of the service that manages a virtual machine supports a link:http://ovirt.github.io/ovirt-engine-api-model/master/#services/vm/methods/get/parameters/next_run[next_run] Boolean parameter:
+
+.Retrieving a Virtual Machine's `next_run` State
+[source, Ruby]
+----
+# Retrieve the representation of the virtual machine; not the
+# current one, but the one that will be used after the next
+# boot:
+vm = vm_service.get(next_run: true)
+----
+
+See the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4[reference] documentation of the software development kit for details.
+
+If the object cannot be retrieved, the software development kit will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception, containing details of the failure. This will occur if you try to retrieve a non-existent object.
+
+[NOTE]
+====
+The call to the `service locator` method never fails, even if the object does not exist, because the `service locator` method does not send a request to the server.
+====
+
+In the following examples, the `service locator` method will succeed, while the `get` method will raise an exception:
+
+.Locating the Service of Non-existent Virtual Machine: No Error
+[source, Ruby]
+----
+# Find the service that manages a virtual machine that does
+# not exist. This will succeed.
+vm_service = vms_service.vm_service('non_existent_VM')
+----
+
+.Retrieving a Non-existent Virtual Machine Service: Error
+[source, Ruby]
+----
+# Retrieve the virtual machine. This will raise an exception.
+vm = vm_service.get
+----
+
+==== `List`
+
+The `list` method retrieves the representations of multiple objects in a collection.
+
+.Listing a Collection of Virtual Machines
+[source, Ruby]
+----
+# Find the service that manages the collection of virtual
+# machines:
+vms_service = system_service.vms_service
+vms = vms_service.list
+----
+
+The result is a Ruby array containing the instances of the corresponding types. In the above example, the response is a list of instances of the Ruby class link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Vm[Vm].
+
+The `list` method of some services supports additional parameters.
+
+For example, almost all of the top-level collections support a `search` parameter to filter the results, and a `max` parameter to limit the number of results returned by the server.
+
+.Listing Ten Virtual Machines Called "my*"
+[source, Ruby]
+----
+vms = vms_service.list(search: 'name=my*', max: 10)
+----
+
+[NOTE]
+====
+Not all the list methods support the `search` or `max` parameters. Some list methods may support other parameters. See the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4[reference] documentation for details.
+====
+
+If the list of results is empty, the returned value will be an empty Ruby array. It will never be `nil`.
+
+If the list of results cannot be retrieved, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure.
+
+==== `Add`
+
+`Add` methods add new elements to collections. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.
+
+.Adding a New Virtual Machine
+[source, Ruby]
+----
+# Add the virtual machine:
+vm = vms_service.add(
+  OvirtSDK4::Vm.new(
+    name: 'myvm',
+    cluster: {
+      name: 'mycluster'
+    },
+    template: {
+      name: 'mytemplate'
+    }
+  )
+)
+----
+
+[IMPORTANT]
+====
+The Ruby object returned by the `add` method is an instance of the relevant type. It is not a service, just a container of data. In the above example, the returned object is an instance of the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Vm[Vm] class.
+====
+
+If you need to perform an action on the virtual machine you just added, you must locate the service that manages it and call the service locator:
+
+.Starting a New Virtual Machine
+[source, Ruby]
+----
+# Add the virtual machine:
+vm = vms_service.add(
+  ...
+)
+
+# Find the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Start the virtual machine:
+vm_service.start
+----
+
+The creation of most objects is an asynchronous task. For example, if you create a new virtual machine, the `add` method will return the virtual machine before the virtual machine is completely created and ready to be used. You should poll the status of the object until it is completely created. For a virtual machine that means checking until the status is `DOWN`.
+
+The recommended approach is to create a virtual machine, locate the service that manages the new virtual machine, and retrieve the status repeatedly until the virtual machine status is `DOWN`, indicating that all the disks have been created.
+
+[[Adding_Virtual_Machine_Locating_Its_Service_and_Retrieving_Status]]
+.Adding a Virtual Machine, Locating Its Service, and Retrieving Its Status
+[source, Ruby]
+----
+# Add the virtual machine:
+vm = vms_service.add(
+  ...
+)
+
+# Find the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Wait until the virtual machine is DOWN, indicating that all the
+# disks have been created:
+loop do
+  sleep(5)
+  vm = vm_service.get
+  break if vm.status == OvirtSDK4::VmStatus::DOWN
+end
+----
+
+If the object cannot be created, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure. It will never return `nil`.
+
+==== `Update`
+
+`Update` methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.
+
+[NOTE]
+====
+The Ruby object returned by this update method is an instance of the relevant type. It is not a service, just a container of data. In this particular example the returned object will be an instance of the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Vm[Vm] class.
+====
+
+In the following example, the `service locator` method locates the service managing the virtual machine and the `update` method updates its name:
+
+.Updating a Virtual Machine Name
+[source, Ruby]
+----
+# Find the virtual machine and the service that
+# manages it:
+vm = vms_service.list(search: 'name=myvm').first
+vm_service = vms_service.vm_service(vm.id)
+
+# Update the name:
+updated_vm = vms_service.update(
+  OvirtSDK4::Vm.new(
+    name: 'newvm'
+  )
+)
+----
+
+When you update an object, update only the attributes you want to update:
+
+.Updating a Selected Attribute of a Virtual Machine (Recommended)
+[source, Ruby]
+----
+vm = vm_service.get
+vm.name = 'newvm'
+----
+
+Do not update the entire object:
+
+.Updating All Attributes of a Virtual Machine (Not Recommended)
+[source, Ruby]
+----
+# Retrieve the current representation:
+vms_service.update(vm)
+----
+
+Updating all attributes of the virtual machine is a waste of resources and can introduce unexpected bugs on the server side.
+
+`Update` methods of some services support additional parameters that can be used to control how or what to update. For example, you may want to update the memory of a virtual machine, not in its current state, but the next time it is started. The `update` method of the service that manages a virtual machine supports a link:http://ovirt.github.io/ovirt-engine-api-model/master/#services/vm/methods/update/parameters/next_run[next_run] Boolean parameter:
+
+.Updating the Memory of a Virtual Machine at Next Run
+[source, Ruby]
+----
+vm = vm_service.update(
+  OvirtSDK4::Vm.new(
+    memory: 1073741824
+  ),
+  next_run: true
+)
+----
+
+If the update cannot be performed, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure. It will never return `nil`.
+
+==== `Remove`
+
+`Remove` methods remove existing objects. They normally do not support parameters because they are methods of services that manage single objects, and the service already knows what object to remove.
+
+.Removing a Virtual Machine with Identifier `123`
+[source, Ruby]
+----
+vm_service = vms_service.vm_service('123')
+vms_service.remove
+----
+
+Some `remove` methods support parameters that control how or what to remove. For example, it is possible to remove a virtual machine while preserving its disks, using the link:http://ovirt.github.io/ovirt-engine-api-model/master/#services/vm/methods/remove[detach_only] Boolean parameter:
+
+.Removing a Virtual Machine while Preserving Disks
+[source, Ruby]
+----
+vm_service.remove(detach_only: true)
+----
+
+The `remove` method returns `nil` if the object is removed successfully. It does not return the removed object.
+
+If the object cannot be removed, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure.
+
+==== Additional Actions
+
+There are additional action methods, apart from the methods described above. The service that manages a virtual machine has methods to start and stop it.
+
+.Starting a Virtual Machine
+[source, Ruby]
+----
+vm_service.start
+----
+
+Some action methods include parameters that modify the operation. For example, the `start` method supports a link:http://ovirt.github.io/ovirt-engine-api-model/master/#services/vm/methods/start/parameters/use_cloud_init[use_cloud_init] parameter.
+
+.Starting a Virtual Machine with Cloud-Init
+[source, Ruby]
+----
+vm_service.start(use_cloud_init: true)
+----
+
+Most action methods return `nil` when they succeed, and raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] when they fail. Some action methods, however, return values. For example, the service that manages storage domains has an *is_attached* action method that checks whether the storage domain is already attached to a data center. The *is_attached* action method returns a Boolean value:
+
+.Checking for Attached Storage Domain
+[source, Ruby]
+----
+sds_service = system_service.storage_domains_service
+sd_service = sds_service.storage_domain_service('123')
+if sd_service.is_attached
+  ...
+end
+----
+
+See the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4[reference documentation] of the software development kit to see the action methods supported by each service, their parameters, and return values.

@@ -1,0 +1,39 @@
+=== Starting a Virtual Machine with Specific Boot Devices and Boot Order
+
+This Ruby example starts a virtual machine specifying the boot devices and boot order.
+
+[source, Ruby, options="nowrap"]
+----
+# Find the root of the tree of services:
+system_service = connection.system_service
+
+# Find the virtual machine:
+vms_service = system_service.vms_service
+vm = vms_service.list(search: 'name=myvm').first
+
+# Find the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Start the virtual machine explicitly indicating the boot devices and order:
+vm_service.start(
+  vm: {
+    os: {
+      boot: {
+        devices: [
+          OvirtSDK4::BootDevice::NETWORK,
+          OvirtSDK4::BootDevice::CDROM
+        ]
+      }
+    }
+  }
+)
+
+# Wait until the virtual machine is up:
+loop do
+  sleep(5)
+  vm = vm_service.get
+  break if vm.status == OvirtSDK4::VmStatus::UP
+end
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/BootDevice[].

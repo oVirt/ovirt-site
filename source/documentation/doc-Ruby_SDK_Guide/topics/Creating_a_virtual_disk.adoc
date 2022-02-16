@@ -1,0 +1,49 @@
+=== Creating a Virtual Disk
+
+To ensure that a newly created virtual machine has access to persistent storage you must create and attach a disk.
+
+This Ruby example creates and attaches a virtual storage disk to a virtual machine.
+
+[source, Ruby, options="nowrap"]
+----
+# Locate the virtual machines service and use it to find the virtual
+# machine:
+vms_service = connection.system_service.vms_service
+vm = vms_service.list(search: 'name=myvm')[0]
+
+# Locate the service that manages the disk attachments of the virtual
+# machine:
+disk_attachments_service = vms_service.vm_service(vm.id).disk_attachments_service
+
+# Use the "add" method of the disk attachments service to add the disk.
+# Note that the size of the disk, the `provisioned_size` attribute, is
+# specified in bytes, so to create a disk of 10 GiB the value should
+# be 10 * 2^30.
+disk_attachment = disk_attachments_service.add(
+  OvirtSDK4::DiskAttachment.new(
+    disk: {
+      name: 'mydisk',
+      description: 'My disk',
+      format: OvirtSDK4::DiskFormat::COW,
+      provisioned_size: 10 * 2**30,
+      storage_domains: [{
+        name: 'mydata'
+      }]
+    },
+    interface: OvirtSDK4::DiskInterface::VIRTIO,
+    bootable: false,
+    active: true
+  )
+)
+
+# Wait until the disk status is OK:
+disks_service = connection.system_service.disks_service
+disk_service = disks_service.disk_service(disk_attachment.disk.id)
+loop do
+  sleep(5)
+  disk = disk_service.get
+  break if disk.status == OvirtSDK4::DiskStatus::OK
+end
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DiskAttachmentsService:add[].

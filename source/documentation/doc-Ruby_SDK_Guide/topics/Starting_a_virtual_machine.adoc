@@ -1,0 +1,28 @@
+=== Starting a Virtual Machine
+
+This Ruby example starts a virtual machine.
+
+[source, Ruby, options="nowrap"]
+----
+# Get the reference to the "vms" service:
+vms_service = connection.system_service.vms_service
+
+# Find the virtual machine:
+vm = vms_service.list(search: 'name=myvm')[0]
+
+# Locate the service that manages the virtual machine, as that is where
+# the action methods are defined:
+vm_service = vms_service.vm_service(vm.id)
+
+# Call the "start" method of the service to start it:
+vm_service.start
+
+# Wait until the virtual machine status is UP:
+loop do
+  sleep(5)
+  vm = vm_service.get
+  break if vm.status == OvirtSDK4::VmStatus::UP
+end
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start[].

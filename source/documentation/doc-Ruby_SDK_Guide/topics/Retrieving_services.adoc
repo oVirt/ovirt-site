@@ -1,0 +1,35 @@
+[[Retrieving_services]]
+==== Retrieving Services
+
+The API provides a set of services, each associated with a server path. For example, the service that manages the collection of virtual machines in the system is located in `/vms`, and the service that manages the virtual machine with identifier `123` is located in `/vms/123`.
+
+In the Ruby software development kit, the root of that tree of services is implemented by the `system service`. It is retrieved by calling the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection#system_service-instance_method[system_service] method of the connection:
+
+.Retrieving System Service
+[source, Ruby, options="nowrap"]
+----
+system_service = connection.system_service
+----
+
+Once you have the reference to the `system service`, you can use it to retrieve references to other services, using the `*_service` methods (called `service locators`).
+
+For example, to retrieve a reference to the service that manages the collection of virtual machines in the system, you can use the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/SystemService#vms_service-instance_method[vms_service] service locator:
+
+.Retrieving Other Services
+[source, Ruby, options="nowrap"]
+----
+vms_service = system_service.vms_service
+----
+
+To retrieve a reference to the service that manages the virtual machine with identifier `123`, use the service locator of the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/SystemService#vms_service-instance_method[vm_service] service. The service locator uses the virtual machine identifier as a parameter:
+
+.Retrieving Virtual Machine Service Using Identifier
+[source, Ruby, options="nowrap"]
+----
+vm_service = vms_service.vms_service('123')
+----
+
+[IMPORTANT]
+====
+The objects returned by the service locator calls are pure services, and do not contain data. For example, the `vm_service` Ruby object retrieved in the previous example is not the representation of a virtual machine. It is the service that is used to retrieve, update, delete, start, and stop a virtual machine.
+====

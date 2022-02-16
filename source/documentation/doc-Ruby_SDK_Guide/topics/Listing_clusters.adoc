@@ -1,0 +1,27 @@
+=== Listing Clusters
+
+This Ruby example lists the clusters.
+
+[source, Ruby, options="nowrap"]
+----
+# Get the reference to the root of the services tree:
+system_service = connection.system_service
+
+# Get the reference to the service that manages the
+# collection of clusters:
+cls_service = system_service.clusters_service
+
+# Retrieve the list of clusters and for each one
+# print its name:
+cls = cls_service.list
+cls.each do |cl|
+  puts cl.name
+end
+----
+
+In an environment with only the Default cluster, the example outputs:
+----
+Default
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/ClustersService:list[].

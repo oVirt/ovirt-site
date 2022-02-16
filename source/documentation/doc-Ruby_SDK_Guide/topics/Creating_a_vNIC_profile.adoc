@@ -1,0 +1,35 @@
+=== Creating a vNIC Profile
+
+This Ruby example creates a vNIC profile.
+
+[source, Ruby, options="nowrap"]
+----
+# Find the root of the tree of services:
+system_service = connection.system_service
+
+# Find the network where you want to add the profile. There may be multiple 
+# networks with the same name (in different data centers, for example). 
+# Therefore, you must look up a specific network by name, in a specific data center.
+dcs_service = system_service.data_centers_service
+dc = dcs_service.list(search: 'name=mydc').first
+networks = connection.follow_link(dc.networks)
+network = networks.detect { |n| n.name == 'mynetwork' }
+
+# Create the vNIC profile, with passthrough and port mirroring disabled:
+profiles_service = system_service.vnic_profiles_service
+profiles_service.add(
+  OvirtSDK4::VnicProfile.new(
+    name: 'myprofile',
+    pass_through: {
+      mode: OvirtSDK4::VnicPassThroughMode::DISABLED,
+    },
+    port_mirroring: false,
+    network: {
+      id: network.id
+    }
+  )
+)
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VnicProfilesService:add[].
+

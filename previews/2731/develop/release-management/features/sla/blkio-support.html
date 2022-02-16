@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>blkio-support | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="blkio-support" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2731/develop/release-management/features/sla/blkio-support.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2731/develop/release-management/features/sla/blkio-support.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blkio-support" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2731/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"blkio-support","url":"https://ovirt.github.io/ovirt-site/previews/2731/develop/release-management/features/sla/blkio-support.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2731/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2731/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2731/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2731/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2731/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2731/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2731/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2731/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2731/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2731/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2731/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2731/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2731/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2731/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2731/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2731/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2731/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2731/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2731/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2731/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2731/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2731/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2731/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2731/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2731/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2731/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2731/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2731/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2731/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2731/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2731/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2731/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2731/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2731/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2731/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2731//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2731//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2731/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2731/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2731/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2731/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2731/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Gilad Chaplik</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2731/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="blkio-support">blkio-support</h1>
+
+<h2 id="support-blkio-sla-features">Support blkio SLA features</h2>
+
+<h3 id="overview">Overview</h3>
+
+<p>In a highly consolidated and shared environment found in the virtual datacenter, storage bandwidth often comes up as a significant root cause of performance problems. In order to help users mitigate these bottlenecks, they have requested the ability to have finer grained controls over an individual VM’s ability to consume storage bandwidth. This will allow them to set maximum thresholds on individual VMs and Disk files so as to prevent misbehaving VMs from impacting the performance of other VMs sharing the same hosts, storage pools, or even same storage array. There are two key metrics that libvirt can enable users to set limits on: Throughput (in Bytes/Second) and IO Operations (Input/Output Operations/Second). There is a typical dynamic is storage I/O that is often seen in which a smaller number of large files being read or written often consume fewer IOps, but operate at a higher throughput. Conversely, when a large number of small files are being read or written, there are typically a higher number of IOps but noticeably slower total throughput. It is strongly suggested that users thoroughly understand their workload characteristics in order to properly set limits on I/O at various levels, as a misconfiguration could cause potential downtime and outages to running workloads.</p>
+
+<h3 id="owner">Owner</h3>
+
+<p>Name: Gilad Chaplik (gchaplik)</p>
+
+<h3 id="current-status">Current status</h3>
+
+<p>Status: implementation</p>
+
+<p>Last updated: ,</p>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1085049">RFE Reference</a></p>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<h3 id="qos-object">QoS object</h3>
+
+<p>There are two key metrics that libvirt can enable users to set limits on: Throughput (in Bytes/Second) and IO Operations (Input/Output Operations/Second).  There is a typical dynamic  is storage I/O that is often seen in which a smaller number of large files being read or written often consume fewer IOps, but operate at a higher throughput.  Conversely, when a large number of small files are being read or written, there are typically a higher number of IOps but noticeably slower total throughput.  It is strongly suggested that users thoroughly understand their workload characteristics in order to properly set limits on I/O at various levels, as a misconfiguration could cause potential downtime and outages to running workloads.</p>
+
+<p>For more details refer to:</p>
+
+<ul>
+  <li><a href="http://libvirt.org/formatdomain.html#elementsDisks">libvirt docs</a></li>
+  <li><a href="/ovirt-site/previews/2731/develop/release-management/features/sla/aggregate-qos.html">aggregate QoS objects</a></li>
+</ul>
+
+<h3 id="storage-domain-qos-limits">Storage Domain QoS limits</h3>
+
+<p>1) Ability to set a total maximum throughput in terms of bytes/second of each individual disk file of a virtual machine.  There shall also be an ability to set the throughput to unlimited in a simple fashion.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   a. The reason that individual disk level is important, is it could allow an OS partition to have access to unlimited resources, as it’s normally not disk intensive, while still providing limits to I/O intensive Data disks on the same system.
+   b. If a user sets a value for total maximum throughput, they may not also set values for read or write bytes/second
+</code></pre></div></div>
+
+<p>2) Ability to set a maximum read throughput in terms of bytes/second of each individual disk file of a virtual machine. there shall also be ability to set the throughput to unlimited in a simple fashion.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   a. The reason separating read and write maximums is important, as certain applications may require a higher level of service of one over the other.  Certain database applications may have a higher priority for read throughput than for write  throughput, so the user may want to ensure more bandwidth is dedicated to the more critical operation.
+   b. If a user sets a value for maximum read throughput, they may also be able to set applications may require a higher level of service of one over the other.  Certain database applications may
+</code></pre></div></div>
+
+<p>have a higher priority for read throughput than for write throughput, so the user may want to ensure more bandwidth is dedicated to the more critical operation. 3) Ability to set a maximum write throughput in terms of bytes/second of each individual disk file of a virtual machine.  There shall also be an ability to set the throughput to unlimited in a simple fashion.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   a. The reason separating read and write maximums is important, as certain applications may require a higher level of service of one over the other.  Certain database applications may have a higher priority for write throughput than for read throughput, so the user may want to ensure more bandwidth is dedicated to the more critical operation.
+   b. If a user sets a value for maximum write throughput, they may also be able to set a maximum value for read throughput, but will not be able to set a value for total throughput.
+</code></pre></div></div>
+
+<p>4) Ability to set a total maximum I/O Operations in terms of IOps of each individual disk file of a virtual machine.  There shall also be an ability to set the throughput to unlimited in a simple fashion.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   a. The reason that individual disk level is important, is it could allow an OS partition to have access to unlimited resources, as it’s normally not disk intensive, while still providing limits to I/O intensive Data disks on the same system.
+   b. If a user sets a value for total maximum IOps, they may not also set values for to have access to unlimited resources, as it’s normally not disk intensive, while still providing limits to I/O intensive Data disks on the same system.
+</code></pre></div></div>
+
+<p>5) Ability to set a maximum read Operations in terms of IOps of each individual disk file of a virtual machine.  There shall also be an ability to set the throughput to unlimited in a simple fashion.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   a. The reason separating read and write maximums is important, as certain applications may require a higher level of service of one over the other.  Certain database applications may have a higher priority for read operations than for write operations, so the user may want to ensure more bandwidth is dedicated to the more critical operation.
+   b. If a user sets a value for maximum read IOps, they may also be able to set a maximum value for write IOps, but will not be able to set a value for total IOps.
+</code></pre></div></div>
+
+<p>6) Ability to set a maximum write Operations in terms of IOps of each individual disk file of a virtual machine.  There shall also be an ability to set the throughput to unlimited in a simple fashion.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   a. The reason separating read and write maximums is important, as certain applications may require a higher level of service of one over the other.  Certain database applications may have a higher priority for write operations than for read operations, so the user may want to ensure more bandwidth is dedicated to the more critical operation.
+   b. If a user sets a value for maximum write Ops, they may also be able to set a a maximum value for read IOps, but will not be able to set a value for total IOps.
+</code></pre></div></div>
+
+<h3 id="profiles">Profiles</h3>
+
+<p>A new entity Disk Profile will be created by the same vnic profiles concepts [1]. For now Disk Profile will hold a Storage Domain and QoS object. When introducing the feature a default Disk Profile will be created for each Storage Domain, and all disks will be attached to its relevant default profile.</p>
+
+<ul>
+  <li>[1] <a href="/ovirt-site/previews/2731/develop/release-management/features/sla/vnic-profiles.html">Vnic Profiles feature</a>.</li>
+</ul>
+
+<p>(Note: aggregate all profiles feature pages like for QoS).</p>
+
+<h4 id="mla">MLA</h4>
+
+<p>Vnic Profiles is used to “hide” infra resource (network) from the user. Currently we will hold same roles and behavior for Disk Profiles as well (Disk Operator and Creator), this would be handled as a bug for 3.5 (not a big deal just need to decide).</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<h3 id="vdsm">VDSM</h3>
+
+<p>merged: <a href="http://gerrit.ovirt.org/#/c/14636">http://gerrit.ovirt.org/#/c/14636</a></p>
+
+<ul>
+  <li>need verification.</li>
+</ul>
+
+<h3 id="engine-core">Engine Core</h3>
+
+<h4 id="db">DB</h4>
+
+<p>qos: added limit fields to qos table:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   max_throughput
+   max_read_throughput
+   max_write_throughput
+   max_iops
+   max_read_iops
+   max_write_iops
+</code></pre></div></div>
+
+<h4 id="mla-permissions">MLA Permissions</h4>
+
+<h3 id="restful-api">RESTful API</h3>
+
+<p>Under discussion.</p>
+
+<ul>
+  <li>Basically in all places when setting a SD, a profile will be selected. neats like setting implicitly default profile will be added to ease user’s life.</li>
+</ul>
+
+<h3 id="gui">GUI</h3>
+
+<p>Under discussion.</p>
+
+<ul>
+  <li>basically in all places when selecting SD, a profile will be selected. neats like selecting implicitly default profile (and hide and disable it) will be added to ease user’s life.</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2731/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2731/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2731/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2731/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/blkio-support.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/blkio-support.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

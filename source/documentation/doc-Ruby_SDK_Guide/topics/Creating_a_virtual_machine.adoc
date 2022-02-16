@@ -1,0 +1,26 @@
+=== Creating a Virtual Machine
+
+This Ruby example creates a virtual machine. This example uses a hash with symbols and nested hashes as their values. Another method, more verbose, is to use the constructors of the corresponding objects directly. See xref:Creating_a_Virtual_Machine_Instance_with_Attributes[Creating a Virtual Machine Instance with Attributes] for more information.
+
+[source, Ruby, options="nowrap"]
+----
+# Get the reference to the "vms" service:
+vms_service = connection.system_service.vms_service
+
+# Use the "add" method to create a new virtual machine:
+vms_service.add(
+  OvirtSDK4::Vm.new(
+    name: 'myvm',
+    cluster: {
+      name: 'mycluster'
+    },
+    template: {
+      name: 'Blank'
+    }
+  )
+)
+----
+
+After creating a virtual machine, it is recommended to xref:Adding_Virtual_Machine_Locating_Its_Service_and_Retrieving_Status[poll the virtual machine's status], to ensure that all the disks have been created.
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add[].

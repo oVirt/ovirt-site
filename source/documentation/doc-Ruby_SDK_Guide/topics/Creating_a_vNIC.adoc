@@ -1,0 +1,50 @@
+=== Creating a vNIC
+
+To ensure that a newly created virtual machine has network access you must create and attach a vNIC. 
+
+This Ruby example creates a vNIC and attaches it to an existing virtual machine, `myvm`.
+
+[source, Ruby, options="nowrap"]
+----
+# Find the root of the tree of services:
+system_service = connection.system_service
+
+# Find the virtual machine:
+vms_service = system_service.vms_service
+vm = vms_service.list(search: 'name=myvm').first
+
+# In order to specify the network that the new NIC will be connected to, you must 
+# specify the identifier of the vNIC profile. However, there may be multiple 
+# profiles with the same name (for different data centers, for example), so first
+# you must find the networks that are available in the cluster that the
+# virtual machine belongs to.
+cluster = connection.follow_link(vm.cluster)
+networks = connection.follow_link(cluster.networks)
+network_ids = networks.map(&:id)
+
+# Now that you know what networks are available in the cluster, you can select a
+# vNIC profile that corresponds to one of those networks, and has the
+# name that you want to use. The system automatically creates a vNIC
+# profile for each network, with the same name as the network.
+profiles_service = system_service.vnic_profiles_service
+profiles = profiles_service.list
+profile = profiles.detect { |p| network_ids.include?(p.network.id) && p.name == 'myprofile' }
+
+# Locate the service that manages the network interface cards collection of the
+# virtual machine:
+nics_service = vms_service.vm_service(vm.id).nics_service
+
+# Add the new network interface card:
+nics_service.add(
+  OvirtSDK4::Nic.new(
+    name: 'mynic',
+    description: 'My network interface card',
+    vnic_profile: {
+      id: profile.id
+    }
+  )
+)
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add[].
+

@@ -1,0 +1,10 @@
+include::common/collateral_files/attributes.adoc[]
+= Ruby SDK Guide
+:imagesdir: images
+:toclevels: 4
+
+include::chap-Overview.adoc[]
+
+include::chap-Using_the_Software_Development_Kit.adoc[]
+
+include::chap-Ruby_Examples.adoc[]

@@ -1,0 +1,15 @@
+[[chap-Overview]]
+== Overview
+
+[NOTE]
+====
+The Ruby software development kit (SDK) is deprecated. Support for Ruby SDK will be removed in a later release.
+====
+
+The Ruby software development kit is a Ruby gem that allows you to interact with the {virt-product-fullname} {engine-name} in Ruby projects. By downloading these classes and adding them to your project, you can access a range of functionality for high-level automation of administrative tasks.
+
+include::topics/Prerequisites.adoc[]
+
+include::topics/Installing_the_Ruby_SDK.adoc[]
+
+include::topics/Dependencies.adoc[]

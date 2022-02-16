@@ -1,0 +1,39 @@
+=== Creating an NFS Storage Domain
+
+This Ruby example adds an NFS storage domain.
+
+[source, Ruby, options="nowrap"]
+----
+# Get the reference to the root of the services tree:
+system_service = connection.system_service
+
+# Get the reference to the storage domains service:
+sds_service = connection.system_service.storage_domains_service
+
+# Create a new NFS data storage domain:
+sd = sds_service.add(
+  OvirtSDK4::StorageDomain.new(
+    name: 'mydata',
+    description: 'My data',
+    type: OvirtSDK4::StorageDomainType::DATA,
+    host: {
+      name: 'myhost'
+    },
+    storage: {
+      type: OvirtSDK4::StorageType::NFS,
+      address: 'server0.example.com',
+      path: '/nfs/ovirt/40/mydata'
+    }
+  )
+)
+
+# Wait until the storage domain is unattached:
+sd_service = sds_service.storage_domain_service(sd.id)
+loop do
+  sleep(5)
+  sd = sd_service.get
+  break if sd.status == OvirtSDK4::StorageDomainStatus::UNATTACHED
+end
+----
+
+For more information, see http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add[].

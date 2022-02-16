@@ -1,0 +1,36 @@
+[[Connecting_to_the_server]]
+=== Connecting to the {virt-product-fullname} {engine-name}
+
+The `Connection` class is the entry point of the software development kit. It provides access to the services of the {virt-product-fullname} {engine-name}'s REST API.
+
+The parameters of the `Connection` class are:
+
+* `url` - Base URL of the {virt-product-fullname} {engine-name} API
+* `username`
+* `password`
+* `ca_file` - PEM file containing the trusted CA certificates. The `ca.pem` file is required when connecting to a server protected by TLS. If you do not specify the `ca_file`, the system-wide CA certificate store is used.
+
+.Connecting to the {virt-product-fullname} {engine-name}
+[source, ruby]
+----
+connection = OvirtSDK4::Connection.new(
+  url: 'https://engine.example.com/ovirt-engine/api',
+  username: 'admin@internal',
+  password: '...',
+  ca_file: 'ca.pem',
+)
+----
+
+[IMPORTANT]
+====
+The connection holds critical resources, including a pool of HTTP connections to the server and an authentication token. You must free these resources when they are no longer in use:
+----
+connection.close
+----
+====
+
+The connection, and all the services obtained from it, cannot be used after the connection has been closed.
+
+If the connection fails, the software development kit will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception, containing details of the failure.
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection:initialize[].

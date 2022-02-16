@@ -1,0 +1,38 @@
+[[Classes]]
+=== Classes
+
+The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4[OvirtSDK4] module contains the following software development kit classes:
+
+Connection:: The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection[Connection] class is the mechanism for connecting to the server and obtaining the reference to the root of the services tree. See xref:Connecting_to_the_server[] for details.
+
+Types:: The Type classes implement the types supported by the API. For example, the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Vm[Vm] class is the implementation of the virtual machine type. The classes are data containers and do not contain any logic. You will be working with instances of types.
++
+Instances of these classes are used as parameters and return values of service methods. The conversion to or from the underlying representation is handled transparently by the software development kit.
+
+Services:: The Service classes implement the services supported by the API. For example, the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService[VmsService] class is the implementation of the service that manages the collection of virtual machines in the system.
++
+Instances of these classes are automatically created by the SDK when a service is referenced. For example, a new instance of the `VmsService` class is created automatically by the SDK when you call the `vms_service` method of the `SystemService` class:
++
+[source, Ruby, options="nowrap"]
+----
+vms_service = connection.system_service.vms_service
+----
+
+[WARNING]
+====
+Do not create instances of these classes manually. The constructor parameters and methods may change in the future.
+====
+
+Error:: The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] class is the base exception class that the software development kit raises when it reports an error. 
++
+Certain specific error classes extend the base error class:
+
+** AuthError - Authentication or authorization failure
+
+** ConnectionError - Server name cannot be resolved or server is unreachable
+
+** NotFoundError - Requested object does not exist
+
+** TimeoutError - Operation time-out
+
+Other Classes:: Other classes (for example, HTTP client classes, readers, and writers) are used for HTTP communication and for XML parsing and rendering. Using these classes is not recommended, because they comprise internal implementation details that may change in the future. Their backwards-compatibility cannot be relied upon.

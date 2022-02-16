@@ -1,0 +1,40 @@
+=== Listing ISO Files in the ISO Storage Domain
+
+This Ruby example lists the ISO files in the ISO storage domain, `myiso`.
+
+[source, Ruby, options="nowrap"]
+----
+# Get the reference to the root of the services tree:
+system_service = connection.system_service
+
+# Find the service that manages the collection of storage domains:
+sds_service = system_service.storage_domains_service
+
+# Find the ISO storage domain:
+sd = sds_service.list(search: 'name=myiso').first
+
+# Find the service that manages the ISO storage domain:
+sd_service = sds_service.storage_domain_service(sd.id)
+
+# Find the service that manages the collection of files available in the storage domain:
+files_service = sd_service.files_service
+
+# List the names of the files. Note that the name of the .iso file is contained 
+# in the `id` attribute.
+files = files_service.list
+files.each do |file|
+  puts file.id
+end
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FFilesService:list[].
+
+If you do not know the name of the ISO storage domain, this Ruby example retrieves all the ISO storage domains.
+
+[source, Ruby, options="nowrap"]
+----
+# Find the ISO storage domain:
+iso_sds = sds_service.list.select { |sd| sd.type == OvirtSDK4::StorageDomainType::ISO }
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:list[].

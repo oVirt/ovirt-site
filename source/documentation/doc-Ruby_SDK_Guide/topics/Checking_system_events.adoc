@@ -1,0 +1,60 @@
+=== Checking System Events
+
+This Ruby example retrieves logged system events.
+
+[source, Ruby, options="nowrap"]
+----
+# In order to ensure that no events are lost, it is recommended to write
+# the index of the last processed event, in persistent storage.
+# Here, it is stored in a file called `index.txt`. In a production environment,
+# it will likely be stored in a database.
+INDEX_TXT = 'index.txt'.freeze
+
+def write_index(index)
+  File.open(INDEX_TXT, 'w') { |f| f.write(index.to_s) }
+end
+
+def read_index
+  return File.read(INDEX_TXT).to_i if File.exist?(INDEX_TXT)
+  nil
+end
+
+# This is the function that is called to process the events. It prints
+# the identifier and description of each event.
+def process_event(event)
+  puts("#{event.id} - #{event.description}")
+end
+
+# Find the root of the tree of services:
+system_service = connection.system_service
+
+# Find the service that manages the collection of events:
+events_service = system_service.events_service
+
+# If no index is stored yet, retrieve the last event and start with it.
+# Events are ordered by index, in ascending order. `max=1` retrieves only one event,
+# the last event.
+unless read_index
+  events = events_service.list(max: 1)
+  unless events.empty?
+    first = events.first
+    process_event(first)
+    write_index(first.id.to_i)
+  end
+end
+
+# This loop retrieves the events, always starting from the last index. It waits
+# before repeating. The `from` parameter specifies that you want to retrieve
+# events that are newer than the last index that was processed. Note: the `max`
+# parameter is not used, so that all pending events will be retrieved.
+loop do
+  sleep(5)
+  events = events_service.list(from: read_index)
+  events.each do |event|
+    process_event(event)
+    write_index(event.id.to_i)
+  end
+end
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FEventsService:list[].

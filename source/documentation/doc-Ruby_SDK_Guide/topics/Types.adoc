@@ -1,0 +1,143 @@
+[[Using_Types]]
+=== Types
+
+==== Creating and Modifying Instances of Types
+
+Creating or modifying an instance of a type does not have any effect on the server side, unless the changes are explicitly sent to the server calling a service method, as described below. Changes on the server side are not automatically reflected in instances that already exist in memory.
+
+The constructors of these classes have multiple optional arguments, one for each attribute of the type. This simplifies the creation of objects, by using nested calls to multiple constructors.
+
+In the following example, an instance of a virtual machine is created and its attributes (cluster, template, and memory) are set:
+
+[[Creating_a_Virtual_Machine_Instance_with_Attributes]]
+.Creating a Virtual Machine Instance with Attributes
+[source, Ruby, options="nowrap"]
+----
+vm = OvirtSDK4::Vm.new(
+  name: 'myvm',
+  cluster: OvirtSDK4::Cluster.new(
+    name: 'mycluster'
+  ),
+  template: OvirtSDK4::Template.new(
+    name: 'mytemplate'
+  ),
+  memory: 1073741824
+)
+----
+
+The hashes (for example, `cluster: OvirtSDK4::Cluster.new`) passed to these constructors are processed recursively.
+
+In the following example, plain hashes are used instead of explicitly calling the constructors for the Cluster and Template classes. The SDK internally converts the hashes to the required classes.
+
+.Creating a Virtual Machine Instance with Attributes Expressed as Plain Hashes
+[source, Ruby, options="nowrap"]
+----
+vm = OvirtSDK4::Vm.new(
+  name: 'myvm',
+  cluster: {
+    name: 'mycluster'
+  },
+  template: {
+    name: 'mytemplate'
+  },
+  memory: 1073741824
+)
+----
+
+Using constructors in this way is recommended, but not mandatory.
+
+In the following example, a virtual machine instance is created with no arguments in the call to the constructor. You can add the virtual machine instance's attributes one by one, using setters, or by using a combination of setters and constructors.
+
+.Creating a Virtual Machine Instance and Adding Attributes Individually
+[source, Ruby, options="nowrap"]
+----
+vm = OvirtSDK4::Vm.new
+vm.name = 'myvm'
+vm.cluster = OvirtSDK4::Cluster.new(name: 'mycluster')
+vm.template = OvirtSDK4::Template.new(name: 'mytemplate')
+vm.memory = 1073741824
+----
+
+Attributes that are defined as lists of objects in the API specification are implemented as Ruby arrays. For example, the `custom_properties` attributes of the `Vm` type are defined as a list of objects of type `CustomProperty`.
+
+.Adding a List of Attributes as an Array
+[source, Ruby, options="nowrap"]
+----
+vm = OvirtSDK4::Vm.new(
+  name: 'myvm',
+  custom_properties: [
+    OvirtSDK4::CustomProperty.new(...),
+    OvirtSDK4::CustomProperty.new(...),
+    ...
+  ]
+)
+----
+
+Attributes that are defined as enumerated values in the API are implemented as constants in a module with the same name as the enumerated type.
+
+The following example shows how the status attribute of the `Vm` type is defined using the `VmStatus` enumerated value.
+
+[source, Ruby, options="nowrap"]
+----
+case vm.status
+when OvirtSDK4::VmStatus::DOWN
+  ...
+when OvirtSDK4::VmStatus::IMAGE_LOCKED
+  ...
+end
+----
+
+[IMPORTANT]
+====
+In the API specification, the values of `enum` types are lower case, because that is the convention for XML and JSON. In Ruby, however, the convention is to use *upper case* for these constants.
+====
+
+==== Retrieving Instance Attributes
+
+You can retrieve instance attributes using the corresponding attribute readers.
+
+The following example retrieves the name and memory of the virtual machine instance:
+
+.Retrieving Virtual Machine Instance Attributes
+[source, Ruby, options="nowrap"]
+----
+puts "vm.name: #{vm.name}"
+puts "vm.memory: #{vm.memory}"
+vm.custom_properties.each do |custom_property|
+  ...
+end
+----
+
+**Retrieving Instance Attributes as Links**
+
+Some instance attributes are returned as links and require the `follow_link` method to retrieve the data. In the following example, the response to a request for a virtual machine's attributes is formatted as XML with a link:
+
+.Retrieving Virtual Machine Attributes as a Link
+[source, Ruby, options="nowrap"]
+----
+<vm id="123" href="/ovirt-engine/api/vms/123">
+  <name>myvm</name>
+  <link rel="diskattachments" href="/ovirt-engine/api/vms/123/diskattachments/">
+  ...
+</vm>
+----
+
+The link, `vm.disk_attachments`, does not contain the actual disk attachments. To retrieve the data, the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection[Connection] class provides a link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection#follow_link-instance_method[follow_link] method that uses the value of the `href` XML attribute to retrieve the actual data.
+
+In the following example, `follow_link` enables you to go to the disk attachments, and then to each disk, to retrieve the `alias`:
+
+.Retrieving Virtual Machine Service
+[source, Ruby, options="nowrap"]
+----
+vm = vm_service.get
+----
+
+.Using `follow_link` to Retrieve Disk Attachment and Disk Alias
+[source, Ruby, options="nowrap"]
+----
+attachments = connection.follow_link(vm.disk_attachments)
+attachments.each do |attachment|
+  disk = connection.follow_link(attachment.disk)
+  puts "disk.alias: #{disk.alias}"
+end
+----

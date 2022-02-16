@@ -1,0 +1,55 @@
+=== Starting a Virtual Machine with Cloud-Init
+
+This Ruby example starts a virtual machine using the Cloud-Init tool to set the `root` password and network configuration.
+
+[source, Ruby, options="nowrap"]
+----
+# Find the virtual machine:
+vms_service = connection.system_service.vms_service
+vm = vms_service.list(search: 'name=myvm')[0]
+
+# Find the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Create a cloud-init script to execute in the
+# deployed virtual machine. The script must be correctly
+# formatted and indented because it uses YAML.
+my_script = "
+write_files:
+  - content: |
+      Hello, world!
+    path: /tmp/greeting.txt
+    permissions: '0644'
+"
+
+# Start the virtual machine, enabling cloud-init and providing the
+# password for the `root` user and the network configuration:
+vm_service.start(
+  use_cloud_init: true,
+  vm: {
+    initialization: {
+      user_name: 'root',
+      root_password: 'redhat123',
+      host_name: 'myvm.example.com',
+      nic_configurations: [
+        {
+          name: 'eth0',
+          on_boot: true,
+          boot_protocol: OvirtSDK4::BootProtocol::STATIC,
+          ip: {
+            version: OvirtSDK4::IpVersion::V4,
+            address: '192.168.0.100',
+            netmask: '255.255.255.0',
+            gateway: '192.168.0.1'
+          }
+        }
+      ],
+      dns_servers: '192.168.0.1 192.168.0.2 192.168.0.3',
+      dns_search: 'example.com',
+      custom_script: my_script
+    }
+  }
+)
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start[].

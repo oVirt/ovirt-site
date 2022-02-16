@@ -1,0 +1,7 @@
+[[Prerequisites]]
+=== Prerequisites
+To install the Ruby software development kit, you must have:
+
+* A system with {enterprise-linux} 8 installed. Both the Server and Workstation variants are supported.
+
+* A subscription to {virt-product-fullname} entitlements.

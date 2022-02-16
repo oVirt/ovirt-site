@@ -1,0 +1,21 @@
+=== Detaching a Virtual Disk
+
+This Ruby example detaches a disk from a virtual machine.
+
+[source, Ruby, options="nowrap"]
+----
+# Find the virtual machine:
+vm = vms_service.list(search: 'name=myvm').first
+
+# Detach the first disk from the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+attachments_service = vm_service.disk_attachments_service
+attachment = attachments_service.list.first
+
+# Remove the attachment. The default behavior is that the disk is detached
+# from the virtual machine, but not deleted from the system. If you wish to
+# delete the disk, change the `detach_only` parameter to `false`.
+attachment.remove(detach_only: true)
+----
+
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:disk_attachments_service[].

@@ -1,0 +1,26 @@
+[[Installing_the_Ruby_SDK]]
+=== Installing the Ruby Software Development Kit
+
+. Enable the required repositories:
++
+[options="nowrap"]
+----
+# subscription-manager repos \
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms
+----
+
+. Install the Ruby Software Development Kit:
++
+[options="nowrap"]
+----
+# dnf install rubygem-ovirt-engine-sdk4
+----
++
+Alternatively, you can install with `gem`:
++
+[options="nowrap"]
+----
+# gem install ovirt-engine-sdk
+----

@@ -31,7 +31,7 @@
 | [ovirt-dwh](https://github.com/oVirt/ovirt-dwh) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-dwh/issues) | 5 | 20 |
 | [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [2](https://github.com/ovirt/java-client-kubevirt/issues) | 6 | 3 |
 | [ovirt-engine-api-metamodel](https://github.com/oVirt/ovirt-engine-api-metamodel) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-engine-api-metamodel/issues) | 4 | 3 |
-| [v2v-conversion-host](https://github.com/oVirt/v2v-conversion-host) |  | [1](https://github.com/ovirt/v2v-conversion-host/issues) | 9 | 21 |
+| [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [2](https://github.com/ovirt/ovirt-release/issues) | 8 | 11 |
 | [ovirt-ansible-remote-db](https://github.com/oVirt/ovirt-ansible-remote-db) | Ansible role to install oVirt engine and dwh database on remote machine. | [1](https://github.com/ovirt/ovirt-ansible-remote-db/issues) | 2 | 1 |
 | [infra-docs](https://github.com/oVirt/infra-docs) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-docs/issues) | 5 | 5 |
 | [infra-puppet](https://github.com/oVirt/infra-puppet) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-puppet/issues) | 1 | 1 |
@@ -40,7 +40,7 @@
 | [ovirt-engine-sdk-ruby](https://github.com/oVirt/ovirt-engine-sdk-ruby) | This is a mirror from gerrit.ovirt.org ; for issues use http://bugzilla.redhat.com. See https://gerrit.ovirt.org/#/admin/projects/ovirt-engine-sdk-ruby | [1](https://github.com/ovirt/ovirt-engine-sdk-ruby/issues) | 17 | 9 |
 | [infra-ansible](https://github.com/oVirt/infra-ansible) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-ansible/issues) | 1 | 2 |
 | [repoman](https://github.com/oVirt/repoman) | Manage artifact repositories | [1](https://github.com/ovirt/repoman/issues) | 4 | 2 |
-| [512-byte-vm](https://github.com/oVirt/512-byte-vm) | A VM image in 512 bytes. Yes, you read it right. | [1](https://github.com/ovirt/512-byte-vm/issues) | 27 | 5 |
+| [512-byte-vm](https://github.com/oVirt/512-byte-vm) | A VM image in 512 bytes. Yes, you read it right. | [1](https://github.com/ovirt/512-byte-vm/issues) | 28 | 5 |
 | [jenkins](https://github.com/oVirt/jenkins) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/jenkins/issues) | 16 | 9 |
 | [ovirt-engine-kerbldap-migration](https://github.com/oVirt/ovirt-engine-kerbldap-migration) | A package to ease migration from oVirt engine legacy LDAP provider into the new ovirt-engine-extension-aaa-ldap provider. | [1](https://github.com/ovirt/ovirt-engine-kerbldap-migration/issues) | 4 | 1 |
 | [vdsm-jsonrpc-java](https://github.com/oVirt/vdsm-jsonrpc-java) | JSON RPC Java client for oVirt | [1](https://github.com/ovirt/vdsm-jsonrpc-java/issues) | 5 | 9 |
@@ -48,4 +48,4 @@
 | [ovirt-node-ng](https://github.com/oVirt/ovirt-node-ng) | This repository contains the code of the nodectl tool used within oVirt Node NG. The repository which contains the code for building oVirt Node NG is at https://github.com/oVirt/ovirt-node-ng-image. | [1](https://github.com/ovirt/ovirt-node-ng/issues) | 14 | 12 |
 | [ovirt-engine-extension-aaa-ldap](https://github.com/oVirt/ovirt-engine-extension-aaa-ldap) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-engine-extension-aaa-ldap/issues) | 10 | 11 |
 | [ovirt-engine-extension-aaa-misc](https://github.com/oVirt/ovirt-engine-extension-aaa-misc) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-engine-extension-aaa-misc/issues) | 2 | 6 |
-| [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [1](https://github.com/ovirt/ovirt-release/issues) | 8 | 11 |
+| [v2v-conversion-host](https://github.com/oVirt/v2v-conversion-host) |  | [1](https://github.com/ovirt/v2v-conversion-host/issues) | 9 | 21 |

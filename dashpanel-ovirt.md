@@ -12,7 +12,7 @@
 | [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [17](https://github.com/ovirt/go-ovirt-client/issues) | 6 | 6 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 1 | 2 |
 | [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [13](https://github.com/ovirt/vdsm/issues) | 104 | 128 |
-| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [11](https://github.com/ovirt/ovirt-imageio/issues) | 12 | 12 |
+| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [12](https://github.com/ovirt/ovirt-imageio/issues) | 12 | 12 |
 | [ovirt-system-tests](https://github.com/oVirt/ovirt-system-tests) | This is a mirror for http://gerrit.ovirt.org, for issues use http://jira.ovirt.org, and choose OST project | [7](https://github.com/ovirt/ovirt-system-tests/issues) | 14 | 28 |
 | [ovirt-engine-ui-extensions](https://github.com/oVirt/ovirt-engine-ui-extensions) | UI Plugins that provides various extensions to the oVirt Administration Portal. | [7](https://github.com/ovirt/ovirt-engine-ui-extensions/issues) | 4 | 13 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |

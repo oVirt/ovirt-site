@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Gdeploy Cockpit Integration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Gdeploy Cockpit Integration" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2733/develop/release-management/features/gluster/gdeploy-cockpit-integration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2733/develop/release-management/features/gluster/gdeploy-cockpit-integration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gdeploy Cockpit Integration" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2733/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Gdeploy Cockpit Integration","url":"https://ovirt.github.io/ovirt-site/previews/2733/develop/release-management/features/gluster/gdeploy-cockpit-integration.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2733/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2733/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2733/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2733/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2733/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2733/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2733/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2733/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2733/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2733/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2733/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2733/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2733/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2733/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2733/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2733/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2733/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2733/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2733/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2733/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2733/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2733/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/release-management/features/gluster/">
+              <span property="name">Gluster</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c375d2a16de823ba0f5ca7e4e11ad929?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c375d2a16de823ba0f5ca7e4e11ad929?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ramesh N</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2733/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="gdeploy-integration-with-cockpit-ovirt-plugin">Gdeploy integration with Cockpit-oVirt Plugin</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p><strong>Note</strong>: this feature is now obsolete: gdeploy is not used anymore; gluster-ansible is used instead.</p>
+
+<p>With the introduction of Cockpit-oVirt Plugin in oVirt Node NG, it is possible to deploy hosted-engine using cockpit.
+But in a Hyper-Converged environment with Gluster, we still need to configure Glusterfs storage manually before deploying hosted engine.
+Gdeploy is an ansible based tool to deploy GlusterFS Servers. It can be used to deploy Glusterfs over multiple nodes.</p>
+
+<p>This feature describes a mechanism to integrate gdeploy and Cockpit-oVirt Plugin to facilitate the easy deployment of Hyper-Converged Ovirt-Gluster environment.</p>
+
+<h3 id="cockpit-ovirt-plugin">Cockpit-oVirt Plugin</h3>
+<p>The <a href="/ovirt-site/previews/2733/develop/release-management/features/node/cockpit.html">Cockpit-oVirt plugin</a> is a <a href="http://cockpit-project.org">Cockpit</a> plugin which provides VM-centric monitoring and management of a host machine while taking advantage of already built-in admin functionality in the Cockpit.
+This also has a provision to deploy oVirt Hosted-Engine through Cockpit UI.</p>
+
+<h3 id="gdeploy">Gdeploy</h3>
+<p><a href="https://github.com/gluster/gdeploy">gdeploy</a> is a tool to set-up and deploy GlusterFS using ansible over multiple hosts. gdeploy is written to be modular, it can be used to deploy any software depending on how the configuration file is written.
+gdeploy can be used to set-up bricks for GlusterFS, create a GlusterFS volume and mount it on one or more clients from an ansible installed machine. The framework reads a configuration file and applies on the hosts listed in the configuration file.</p>
+
+<h3 id="owner">Owner</h3>
+<ul>
+  <li>Name: Ramesh Nachimuthu</li>
+  <li>Email: rnachimu@redhat.com</li>
+</ul>
+
+<h3 id="current-status">Current Status</h3>
+<ul>
+  <li>Status: Design</li>
+  <li>Last updated date: 20th Sep 2016</li>
+</ul>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<p>This feature will greatly improve the user experience of deploying oVirt and Gluster hyperconverged solution using oVirt Node NG. oVirt users will be benefited in following ways.</p>
+
+<ul>
+  <li>Easy deployment using Cockpit UI</li>
+  <li>Well integrated deployment of HCI solution</li>
+  <li>Consistent Gluster deployment using gdeploy</li>
+</ul>
+
+<h3 id="dependencies">Dependencies</h3>
+<p>gdeploy package should be installed and running. gdeploy requires password less ssh from the gdeploy host to other hosts where we want to deploy gluster. This needs to be done manually before starting deployment flow.</p>
+
+<p><strong>TBD:</strong> explore a way to configure password less ssh using Cockpit itself.</p>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>Existing Cockpit-Plugin can be extended to support this feature and following will be the user flow for deploying a HCI environment using Cockpit.</p>
+
+<h3 id="ui-flow">UI Flow</h3>
+
+<p>HCI Deployment flow can be triggered by the option ‘HCI Deployment with Gluster’ in HE section of Ovirt plugin. This will open the following wizard which
+ help to provide all the required information about the gluster deployment.</p>
+
+<p><img src="/ovirt-site/previews/2733/images/wiki/Deploy-With-Gluster.png" alt="Deploy-With-Glusterfs" /></p>
+
+<p>This wizard will have following five steps.</p>
+
+<ul>
+  <li>Hosts:
+This will help to capture all host information like IP address in the gluster cluster.</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2733/images/wiki/gdeploy-hosts.png" alt="gdeploy-Hosts" /></p>
+
+<ul>
+  <li>
+    <p>Packages:
+This is used for capturing the packages which needs to be installed. This can also take care of additional repos which needs to enabled to install those packages.
+In case of RHEL systems, this can also takes care of registering the system with CDN and enabling the required repos.</p>
+
+    <p><img src="/ovirt-site/previews/2733/images/wiki/gdeploy-packages.png" alt="gdeploy-Packages" /></p>
+  </li>
+  <li>
+    <p>Volumes:
+This step is used to capture the all the gluster volume details which needs to be created by gdeploy</p>
+
+    <p><img src="/ovirt-site/previews/2733/images/wiki/gdeploy-volumes.png" alt="gdeploy-Volumes" /></p>
+  </li>
+  <li>
+    <p>Bricks:
+This step will be used to define the bricks for the glusterfs Volumes defined in previous step.</p>
+
+    <p><img src="/ovirt-site/previews/2733/images/wiki/gdeploy-bricks.png" alt="gdeploy-bricks" /></p>
+  </li>
+  <li>
+    <p>Summary:
+This will be the final step in the gdeploy flow and it will show a summary of all the inputs captured in the previous steps.
+This will generate a gdeploy config file with all the inputs captured in previous step. This step will also create an answer file for Hosted-Engine deployment with default answers for HCI deployment and gluster volume information for hosted-engine storage domain.
+User can review the answer files and click ‘Finish’ to start executing the gluster deployment using gdeploy. Progress of gdeploy execution will be shown as it executes different steps in the deployment.</p>
+
+    <p><img src="/ovirt-site/previews/2733/images/wiki/gdeploy-summary.png" alt="gdeploy-summary" /></p>
+
+    <p><img src="/ovirt-site/previews/2733/images/wiki/gdeploy-log.png" alt="gdeploy-log" /></p>
+  </li>
+  <li>
+    <p>Hosted-Engine Setup:
+After completing the gluster deployment, gdeploy wizard should start the hosted-engine deployment flow similar to how it works currently with an additional answer file generated in the previous step. Standard HE deployment work flow will start from this step. Since the answer file contains the values for hosted-engine storage domain configuration, these questions will not be asked in the hosted-engine deployment flow.</p>
+
+    <p><img src="/ovirt-site/previews/2733/images/wiki/he-deploy.png" alt="he-deploy" /></p>
+  </li>
+</ul>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>We need following changes to implement this feature.</p>
+
+<h3 id="ui-changes">UI Changes:</h3>
+
+<ul>
+  <li>
+    <p>Provide a option in ‘Hosted-Engine’ section to start the Hosted-Engine deployment with Gluster. This should invoke the gdeploy
+wizard.</p>
+  </li>
+  <li>
+    <p>Gdeploy wizard shown in previous section needs to implemented using react-js. At the final step, this wizard should call a script(python?) using cockpit.spawn() to generate the config files for ‘gdeploy’ and
+‘hosted-engine’. Once user reviews and confirms the generated config files then execute the ‘gdeploy’ command using cockpit.spawn(‘gdeploy -c gluster.conf’). UI should track the execution and report the results as and when different steps are being executed by gdeploy.</p>
+  </li>
+  <li>
+    <p>After the gluster deployment, Gdeploy wizard should start the hosted-engine deployment flow similar to how it works currently with an additional answer file generated in the previous step. This answer file should have all the default answers for HCI deployement with gluster volume information for hosted-engine storage domain.</p>
+  </li>
+</ul>
+
+<h3 id="config-generation-utility">Config generation utility</h3>
+
+<p>We need to implement a config generation tool in java-script to create the answer files for ‘gdeploy’ and ‘hosted-engine’ deployment. This will be invoked from Cockpit UI plug-in with the gluster deployment details. This should generate following two answer files. <a href="http://cockpit-project.org/guide/latest/cockpit-file.html">cockpit.file</a> module in Cockpit can be used to read/write/modify the config files.</p>
+
+<ul>
+  <li>
+    <p><strong>gluster.conf:</strong> This will have the gdeploy configurations for HCI deployment likes gluster server details, brick details, packages needs to be installed, ports needs to be opened, volume needs to created, volume configurations, etc</p>
+  </li>
+  <li>
+    <p><strong>hosted-engine.conf:</strong> answer file used to seed hosted-engine deployment</p>
+  </li>
+</ul>
+
+<h3 id="hostedenginesetup">HostedEngineSetup</h3>
+
+<p>HostedEngineSetup in current Cockpit-oVirt plugin doesn’t support passing arguments. We need to enhance this component to accept arguments so that we can pass the answer file to ‘hosted-engine –deploy’ command.</p>
+
+<h2 id="external-links">External links</h2>
+<ul>
+  <li><a href="http://cockpit-project.org">The Cockpit project</a></li>
+  <li><a href="https://github.com/gluster/gdeploy">gdeploy</a></li>
+  <li><a href="https://blogs.ovirt.org/2016/08/up-and-running-with-ovirt-4-0-and-gluster-storage/">HCI deployment using oVirt and Gluster</a></li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2733/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2733/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2733/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2733/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/gluster/gdeploy-cockpit-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/gluster/gdeploy-cockpit-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

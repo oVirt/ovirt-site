@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Copy Host Networking | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Copy Host Networking" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2733/develop/release-management/features/network/copy-host-networking.html.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2733/develop/release-management/features/network/copy-host-networking.html.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Copy Host Networking" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2733/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Copy Host Networking","url":"https://ovirt.github.io/ovirt-site/previews/2733/develop/release-management/features/network/copy-host-networking.html.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2733/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2733/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2733/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2733/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2733/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2733/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2733/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2733/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2733/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2733/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2733/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2733/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2733/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2733/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2733/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2733/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2733/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2733/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2733/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2733/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2733/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2733/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2733/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2733/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2733//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2733/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6536e276265bfa4de65dbaf52bc396e1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6536e276265bfa4de65dbaf52bc396e1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ales Musil</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2733/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="copy-host-networking">Copy Host Networking</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Ordinarily, adding hosts in oVirt in the UI is tedious because you, as an administrator, have to set up the host 
+network on each new host.</p>
+
+<p>The Copy Host Networking feature makes adding new hosts easier because you can configure the network on a single host
+and then copy that configuration to any new host that has the same layout of network interfaces.</p>
+
+<p>You can use this feature to perform initial deployments and to update running environments. It is available as a button
+in the Administration Portal UI, and as a REST API method.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Feature Owner: Ales Musil (amusil)</li>
+  <li>E-mail: <a href="mailto:amusil@redhat.com">amusil@redhat.com</a></li>
+</ul>
+
+<h3 id="example-flow">Example flow</h3>
+
+<p>After creating a cluster, you add several hosts (<code class="language-plaintext highlighter-rouge">Host0, Host1, Host2</code>). 
+You configure the network settings for <code class="language-plaintext highlighter-rouge">Host0</code>. The two other hosts have the same network 
+interface layout as <code class="language-plaintext highlighter-rouge">Host0</code>, so you copy the network configuration from <code class="language-plaintext highlighter-rouge">Host0</code> to <code class="language-plaintext highlighter-rouge">Host1</code> and <code class="language-plaintext highlighter-rouge">Host2</code>.</p>
+
+<p>In the Admin Portal, you go to the <code class="language-plaintext highlighter-rouge">Host1</code> and <code class="language-plaintext highlighter-rouge">Host2</code> network interfaces and click
+the <code class="language-plaintext highlighter-rouge">Copy Host Networking</code> button. In the popup window that appears,
+you select the host, <code class="language-plaintext highlighter-rouge">Host0</code>, from which to copy the configuration.</p>
+
+<p>Alternatively, with the REST API, you can use the <code class="language-plaintext highlighter-rouge">copynetworks</code> method for <code class="language-plaintext highlighter-rouge">Host1</code> and <code class="language-plaintext highlighter-rouge">Host2</code>. 
+This method takes a single parameter, the host ID from which to copy the configuration (<code class="language-plaintext highlighter-rouge">Host0</code>).</p>
+
+<h3 id="procedure">Procedure</h3>
+
+<h4 id="copy-a-network-configuration-using-the-web-administration-portal">Copy a network configuration using the Web Administration portal</h4>
+
+<ol>
+  <li>In the Administration portal main Hosts page, identify the “source host” whose configuration is to be copied.</li>
+  <li>Identify a “destination host” to which you are copying the configuration.</li>
+  <li>
+    <p>On the destination host, verify that the number of physical connections is equal to, or greater than, those on the
+source host.</p>
+
+    <ul>
+      <li>If the destination host has more interfaces than the source host, ignore the surplus interfaces.</li>
+    </ul>
+  </li>
+  <li>When the source host is selected in the hosts list, click the <code class="language-plaintext highlighter-rouge">Copy Host Networks</code> button or right-click the host
+and select the <code class="language-plaintext highlighter-rouge">Copy Host Networks</code> option from the context menu.
+    <ul>
+      <li>Note: only one host must be selected for this action to be available.</li>
+    </ul>
+  </li>
+  <li>In the popup window that appears, select the destination host to which the configuration is to be copied.
+    <ul>
+      <li>Note: only hosts in the same cluster as the source host will be listed as potential destinations.</li>
+    </ul>
+  </li>
+  <li>Click the <code class="language-plaintext highlighter-rouge">Copy Host Networks</code> button.</li>
+  <li>Engine applies the configuration and posts a notification when done.</li>
+</ol>
+
+<p><img src="../../../../images/wiki/copy_host_networks.png" alt="copy host networks image" /></p>
+
+<h4 id="copy-a-network-configuration-using-the-rest-api">Copy a network configuration using the REST API</h4>
+
+<p>Send POST method</p>
+
+<p><code class="language-plaintext highlighter-rouge">api/hosts/{destinaton_host_id}/copyhostnetworks</code></p>
+
+<p>with body:</p>
+
+<h5 id="xml">XML</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;action&gt;
+    &lt;source_host id="{source_host_id}" /&gt;
+&lt;/action&gt;
+</code></pre></div></div>
+
+<h5 id="json">JSON</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "source_host" : {
+      "id" : "{source_host_id}"
+    }
+}
+</code></pre></div></div>
+
+<h3 id="limitations">Limitations</h3>
+
+<ul>
+  <li>
+    <p>You can copy host configurations only within the same cluster.</p>
+  </li>
+  <li>
+    <p>You cannot copy network configurations that contain static IP addresses: 
+This sets the boot protocol in the resulting network to <code class="language-plaintext highlighter-rouge">none</code>.</p>
+  </li>
+  <li>
+    <p>Copying a configuration to a host with the same interface names but different physical network connections will
+produce a bad configuration.</p>
+  </li>
+  <li>
+    <p>The destination host has to have an equal or greater number of interfaces as the original host. Otherwise,
+the feature cannot determine what to do and the operation will fail.</p>
+  </li>
+  <li>
+    <p>The cluster’s management network stays on the original interface which is excluded from the operation.</p>
+  </li>
+  <li>
+    <p>Copying QoS, DNS and custom_properties is not supported.</p>
+  </li>
+  <li>
+    <p>Copying labels (i.e., label attached to network interface on source host, will not be copied to network
+interface on target host).</p>
+  </li>
+</ul>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>The engine has a new method, CopyNetworks, that copies the network configuration of the source host (SourceHost)
+and uses it to overwrite the network configuration of the destination host (DestinationHost).</p>
+
+<p>This method takes two parameters, the IDs of the SourceHost and DestinationHost.</p>
+
+<p>Given the parameters, the method validates that the following items are correct:</p>
+
+<ul>
+  <li>Both hosts are in the same cluster.</li>
+  <li>The destination host has an equal or higher number of interfaces than the source host.</li>
+</ul>
+
+<p>(NOTE: These interface names and physical connections to the datacenter are recommended to be identical. Otherwise, 
+this sorting process might produce a bad network configuration on the destination host.)</p>
+
+<p>The method prepares a set of network attachment definitions for the DestinationHost by doing the following:</p>
+
+<ul>
+  <li>Lists the interfaces on the SourceHost that don’t have bonds.</li>
+  <li>Lists all of the interfaces on the DestinationHost.</li>
+  <li>Sorts both lists by name.</li>
+  <li>Excludes interface/bonds connected to the ovirtmgmt network.</li>
+  <li>Pairs all of the bond slaves from the SourceHost with their corresponding partners on the DestinationHost.</li>
+  <li>Creates bond definitions in a configuration for the DestinationHost.</li>
+  <li>Retrieves a list of all interfaces with bonds from SourceHost.</li>
+  <li>Excludes bond slaves from both lists.</li>
+  <li>Shortens the DestinationHost list to match the same length as SourceHost list.</li>
+  <li>Copies the network attachments for all interfaces in SourceHost list.</li>
+  <li>Walks through the new network attachments list and updates any static IP address configurations.</li>
+  <li>Sends HostSetupNetworks with new attachments and bonds for DestinationHost to complete everything in a single
+ transaction.</li>
+  <li>If there is an error, it reverts the configuration changes.</li>
+</ul>
+
+<p>The Admin Portal has a new button called Copy Host Networking. Clicking the button opens a dialog window. There, 
+you can select the source host from which to copy the configuration.</p>
+
+<h3 id="future-work">Future work</h3>
+
+<p>The biggest limitation is network mapping of interfaces with different name. 
+This can be overcome by enabling custom mapping which would let the administrator to map certain
+or all interfaces to their corresponding equivalents on the destination host. This way the limitation
+of interface count on destination host could be removed assuming that the administrator would provide
+specific mapping for this setups. This functionality could be enabled via UI and REST API.</p>
+
+<p>Static IP configuration could be improved by letting the administrator to set the increment value
+or provide mapping some or all of the static addresses.</p>
+
+<h2 id="testing">Testing</h2>
+
+<ul>
+  <li>
+    <p>Copy network for hosts in different cluster should fail</p>
+  </li>
+  <li>
+    <p>Copy network for destination host with less interfaces than source should fail</p>
+  </li>
+  <li>
+    <p>Copy network for destination and source with equal interface count should pass</p>
+  </li>
+  <li>
+    <p>Copy network for destination with more interfaces than source should pass, interfaces that are
+excessive should be left without any configuration change</p>
+  </li>
+  <li>
+    <p>Configuration that should be tested for successful run, all settings should be copied except the
+static IP configuration which should be set as none:</p>
+
+    <ul>
+      <li>Interface with single network</li>
+      <li>Bond with two interfaces with single non-VLAN and VLAN network attached</li>
+      <li>Interface with multiple VLANs</li>
+      <li>Interface with a label</li>
+      <li>Network with DHCP configuration IPv4 and IPv6</li>
+      <li>Network with static IP configuration IPv4 and IPv6</li>
+      <li>Network with stateless IPv6 configuration</li>
+      <li>Network with no boot protocol</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2733/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2733/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2733/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2733/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/copy-host-networking.html.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/copy-host-networking.html.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

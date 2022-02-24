@@ -8,3 +8,5 @@ include::chap-Overview.adoc[]
 include::chap-Using_the_Software_Development_Kit.adoc[]
 
 include::chap-Python_Examples.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

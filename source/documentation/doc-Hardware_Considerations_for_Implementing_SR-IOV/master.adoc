@@ -10,3 +10,5 @@ include::common/sriov/conc-Hardware_Considerations.adoc[]
 [id='Additional_Considerations']
 == Additional Hardware Considerations for Using Device Assignment
 include::common/sriov/conc-Additional_Considerations_Device_Assignment.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

@@ -14,3 +14,5 @@ include::chap-Tech_Preview_and_Deprecated_Features.adoc[leveloffset=+1]
 include::chap-Compatibility_levels.adoc[]
 
 include::chap-Release_Notes.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

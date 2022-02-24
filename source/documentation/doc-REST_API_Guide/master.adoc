@@ -6,3 +6,5 @@ include::common/collateral_files/attributes.adoc[]
 :product-name: Red Hat Virtualization
 
 include::model.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

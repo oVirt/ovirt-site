@@ -26,3 +26,5 @@ include::appe-Enumerated_Value_Translation.adoc[]
 include::appe-Event_Codes.adoc[]
 
 include::appe-Timezones.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

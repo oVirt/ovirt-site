@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Planning and Prerequisites Guide | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Planning and Prerequisites Guide" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2735/documentation/doc-Planning_and_Prerequisites_Guide/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2735/documentation/doc-Planning_and_Prerequisites_Guide/" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Planning and Prerequisites Guide" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Planning and Prerequisites Guide","url":"https://ovirt.github.io/ovirt-site/previews/2735/documentation/doc-Planning_and_Prerequisites_Guide/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2735/images/logo.svg"}},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2735/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2735/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2735/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2735/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2735/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2735/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2735/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2735/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2735/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2735/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2735/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2735/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2735/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2735/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2735/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2735/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2735/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2735/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2735/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2735/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2735/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2735/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2735/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2735/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2735/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2735/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2735/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2735/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2735/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2735/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2735/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2735/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2735/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2735/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2735/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2735//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2735//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2735/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2735/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#RHV_Architecture">1. {virt-product-fullname} Architecture</a>
+<ul class="sectlevel2">
+<li><a href="#Self-hosted_Engine_Architecture_RHV_planning">1.1. Self-Hosted Engine Architecture</a></li>
+<li><a href="#Standalone_Manager_Architecture_RHV_planning">1.2. Standalone {engine-name} Architecture</a></li>
+</ul>
+</li>
+<li><a href="#RHV_requirements">2. Requirements</a>
+<ul class="sectlevel2">
+<li><a href="#RHV-manager-requirements">2.1. {virt-product-fullname} {engine-name} Requirements</a>
+<ul class="sectlevel3">
+<li><a href="#hardware-requirements_RHV_planning">2.1.1. Hardware Requirements</a></li>
+<li><a href="#browser-requirements_RHV_planning">2.1.2. Browser Requirements</a></li>
+<li><a href="#client-requirements_RHV_planning">2.1.3. Client Requirements</a></li>
+<li><a href="#operating-system-requirements_RHV_planning">2.1.4. Operating System Requirements</a></li>
+</ul>
+</li>
+<li><a href="#host-requirements">2.2. Host Requirements</a>
+<ul class="sectlevel3">
+<li><a href="#CPU_Requirements_RHV_planning">2.2.1. CPU Requirements</a></li>
+<li><a href="#Memory_Requirements_RHV_planning">2.2.2. Memory Requirements</a></li>
+<li><a href="#Storage_Requirements_RHV_planning">2.2.3. Storage Requirements</a></li>
+<li><a href="#PCI_Device_Requirements_RHV_planning">2.2.4. PCI Device Requirements</a></li>
+<li><a href="#Device_Assignment_Requirements_RHV_planning">2.2.5. Device Assignment Requirements</a></li>
+<li><a href="#vGPU_Requirements_RHV_planning">2.2.6. vGPU Requirements</a></li>
+</ul>
+</li>
+<li><a href="#networking-requirements">2.3. Networking requirements</a>
+<ul class="sectlevel3">
+<li><a href="#general-requirements">2.3.1. General requirements</a></li>
+<li><a href="#Network-range-for-SHE-deployment_RHV_planning">2.3.2. Network range for self-hosted engine deployment</a></li>
+<li><a href="#dns-requirements_RHV_planning">2.3.3. Firewall Requirements for DNS, NTP, and IPMI Fencing</a></li>
+<li><a href="#RHV-manager-firewall-requirements_RHV_planning">2.3.4. {virt-product-fullname} {engine-name} Firewall Requirements</a></li>
+<li><a href="#host-firewall-requirements_RHV_planning">2.3.5. Host Firewall Requirements</a></li>
+<li><a href="#database-server-firewall-requirements_RHV_planning">2.3.6. Database Server Firewall Requirements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#considerations">3. Considerations</a>
+<ul class="sectlevel2">
+<li><a href="#host-types">3.1. Host Types</a>
+<ul class="sectlevel3">
+<li><a href="#hypervisor-fullnames">3.1.1. {hypervisor-fullname}s</a></li>
+<li><a href="#enterprise-linux-host-fullnames">3.1.2. {enterprise-linux-host-fullname}s</a></li>
+</ul>
+</li>
+<li><a href="#storage-types">3.2. Storage Types</a>
+<ul class="sectlevel3">
+<li><a href="#nfs">3.2.1. NFS</a></li>
+<li><a href="#iscsi">3.2.2. iSCSI</a></li>
+<li><a href="#fibre-channel">3.2.3. Fibre Channel</a></li>
+<li><a href="#fcoe">3.2.4. Fibre Channel over Ethernet</a></li>
+<li><a href="#gluster">3.2.5. {gluster-storage-fullname}</a></li>
+<li><a href="#rhhi">3.2.6. Red Hat Hyperconverged Infrastructure</a></li>
+<li><a href="#posix">3.2.7. POSIX-Compliant FS</a></li>
+<li><a href="#local-storage">3.2.8. Local Storage</a></li>
+</ul>
+</li>
+<li><a href="#networking-considerations">3.3. Networking Considerations</a></li>
+<li><a href="#directory-server-support">3.4. Directory Server Support</a></li>
+<li><a href="#infrastructure-considerations">3.5. Infrastructure Considerations</a>
+<ul class="sectlevel3">
+<li><a href="#local-or-remote-hosting">3.5.1. Local or Remote Hosting</a></li>
+<li><a href="#remote-hosting-only">3.5.2. Remote Hosting Only</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#recommendations">4. Recommendations</a>
+<ul class="sectlevel2">
+<li><a href="#general-recommendations">4.1. General Recommendations</a></li>
+<li><a href="#security-recommendations">4.2. Security Recommendations</a></li>
+<li><a href="#host-recommendations">4.3. Host Recommendations</a></li>
+<li><a href="#networking-recommendations">4.4. Networking Recommendations</a></li>
+<li><a href="#self-hosted-engine-recommendations">4.5. Self-Hosted Engine Recommendations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-fullname} is made up of connected components that each play different roles in the environment. Planning and preparing for their requirements in advance helps these components communicate and run efficiently.</p>
+</div>
+<div class="paragraph">
+<p>This guide covers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hardware and security requirements</p>
+</li>
+<li>
+<p>The options available for various components</p>
+</li>
+<li>
+<p>Recommendations for optimizing your environment</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="RHV_Architecture">1. {virt-product-fullname} Architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-fullname} can be deployed as a self-hosted engine, or as a standalone {engine-name}. A self-hosted engine is the recommended deployment option.</p>
+</div>
+<div class="sect2">
+<h3 id="Self-hosted_Engine_Architecture_RHV_planning">1.1. Self-Hosted Engine Architecture</h3>
+<div class="paragraph">
+<p>The {virt-product-fullname} {engine-name} runs as a virtual machine on self-hosted engine nodes (specialized hosts) in the same environment it manages. A self-hosted engine environment requires one less physical server, but requires more administrative overhead to deploy and manage. The {engine-name} is highly available without external HA management.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup of a self-hosted engine environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One {virt-product-fullname} {engine-name} virtual machine that is hosted on the self-hosted engine nodes. The {engine-appliance-name} is used to automate the installation of a {enterprise-linux} 8 virtual machine, and the {engine-name} on that virtual machine.</p>
+</li>
+<li>
+<p>A minimum of two self-hosted engine nodes for virtual machine high availability. You can use {enterprise-linux-host-fullname}s or {hypervisor-fullname}s ({hypervisor-shortname}). VDSM (the host agent) runs on all hosts to facilitate communication with the {virt-product-fullname} {engine-name}. The HA services run on all self-hosted engine nodes to manage the high availability of the {engine-name} virtual machine.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine {virt-product-fullname} Architecture">
+</div>
+<div class="title">Figure 1. Self-Hosted Engine {virt-product-fullname} Architecture</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Standalone_Manager_Architecture_RHV_planning">1.2. Standalone {engine-name} Architecture</h3>
+<div class="paragraph">
+<p>The {virt-product-fullname} {engine-name} runs on a physical server, or a virtual machine hosted in a separate virtualization environment. A standalone {engine-name} is easier to deploy and manage, but requires an additional physical server. The {engine-name} is only highly available when managed externally with a product such as Red Hat&#8217;s High Availability Add-On.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup for a standalone {engine-name} environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One {virt-product-fullname} {engine-name} machine. The {engine-name} is typically deployed on a physical server. However, it can also be deployed on a virtual machine, as long as that virtual machine is hosted in a separate environment. The {engine-name} must run on {enterprise-linux} 8.</p>
+</li>
+<li>
+<p>A minimum of two hosts for virtual machine high availability. You can use {enterprise-linux-host-fullname}s or {hypervisor-fullname}s ({hypervisor-shortname}). VDSM (the host agent) runs on all hosts to facilitate communication with the {virt-product-fullname} {engine-name}.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone {engine-name} {virt-product-fullname} Architecture">
+</div>
+<div class="title">Figure 2. Standalone {engine-name} {virt-product-fullname} Architecture</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="RHV_requirements">2. Requirements</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="RHV-manager-requirements">2.1. {virt-product-fullname} {engine-name} Requirements</h3>
+<div class="sect3">
+<h4 id="hardware-requirements_RHV_planning">2.1.1. Hardware Requirements</h4>
+<div class="paragraph">
+<p>The minimum and recommended hardware requirements outlined here are based on a typical small to medium-sized installation. The exact requirements vary between deployments based on sizing and load.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. {virt-product-fullname} {engine-name} Hardware Requirements</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Resource</th>
+<th class="tableblock halign-left valign-top">Minimum</th>
+<th class="tableblock halign-left valign-top">Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CPU</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A dual core x86_64 CPU.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A quad core x86_64 CPU or multiple dual core x86_64 CPUs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 GB of available system RAM if Data Warehouse is not installed and if memory is not being consumed by existing processes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 GB of system RAM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard Disk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25 GB of locally accessible, writable disk space.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50 GB of locally accessible, writable disk space.</p>
+<p class="tableblock">You can use the <a href="https://access.redhat.com/labs/rhevmhdsc/">RHV {engine-name} History Database Size Calculator</a> to calculate the appropriate disk space for the {engine-name} history database size.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Network Interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 Network Interface Card (NIC) with bandwidth of at least 1 Gbps.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 Network Interface Card (NIC) with bandwidth of at least 1 Gbps.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="browser-requirements_RHV_planning">2.1.2. Browser Requirements</h4>
+<div class="paragraph">
+<p>The following browser versions and operating systems can be used to access the Administration Portal and the VM Portal.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Browser Requirements</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Support Tier</th>
+<th class="tableblock halign-left valign-top">Operating System Family</th>
+<th class="tableblock halign-left valign-top">Browser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tier 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{enterprise-linux}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mozilla Firefox Extended Support Release (ESR) version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Most recent version of Google Chrome, Mozilla Firefox, or Microsoft Edge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tier 2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tier 3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Earlier versions of Google Chrome or Mozilla Firefox</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Other browsers</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="client-requirements_RHV_planning">2.1.3. Client Requirements</h4>
+<div class="paragraph">
+<p>Virtual machine consoles can only be accessed using supported Remote Viewer (<code>virt-viewer</code>) clients on {enterprise-linux} and Windows. To install <code>virt-viewer</code>, see <a href="{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-installing_supporting_components">Installing Supporting Components on Client Machines</a> in the <em>Virtual Machine Management Guide</em>. Installing <code>virt-viewer</code> requires Administrator privileges.</p>
+</div>
+<div class="paragraph">
+<p>You can access virtual machine consoles using the SPICE, VNC, or RDP (Windows only) protocols. You can install the QXLDOD graphical driver in the guest operating system to improve the functionality of SPICE. SPICE currently supports a maximum resolution of 2560x1600 pixels.</p>
+</div>
+<div class="paragraph">
+<div class="title">Client Operating System SPICE Support</div>
+<p>Supported QXLDOD drivers are available on {enterprise-linux} 7.2 and later, and Windows 10.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>SPICE may work with Windows 8 or 8.1 using QXLDOD drivers, but it is neither certified nor tested.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="operating-system-requirements_RHV_planning">2.1.4. Operating System Requirements</h4>
+<div class="paragraph">
+<p>The {virt-product-fullname} {engine-name} must be installed on a base installation of {enterprise-linux} 8 that has been updated to the latest minor release.</p>
+</div>
+<div class="paragraph">
+<p>Do not install any additional packages after the base installation, as they may cause dependency issues when attempting to install the packages required by the {engine-name}.</p>
+</div>
+<div class="paragraph">
+<p>Do not enable additional repositories other than those required for the {engine-name} installation.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="host-requirements">2.2. Host Requirements</h3>
+<div class="sect3">
+<h4 id="CPU_Requirements_RHV_planning">2.2.1. CPU Requirements</h4>
+<div class="paragraph">
+<p>All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the AMD-V™ or Intel VT® hardware virtualization extensions enabled. Support for the No eXecute flag (NX) is also required.</p>
+</div>
+<div class="paragraph">
+<p>The following CPU models are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AMD</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Opteron G4</p>
+</li>
+<li>
+<p>Opteron G5</p>
+</li>
+<li>
+<p>EPYC</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Intel</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Nehalem</p>
+</li>
+<li>
+<p>Westmere</p>
+</li>
+<li>
+<p>SandyBridge</p>
+</li>
+<li>
+<p>IvyBridge</p>
+</li>
+<li>
+<p>Haswell</p>
+</li>
+<li>
+<p>Broadwell</p>
+</li>
+<li>
+<p>Skylake Client</p>
+</li>
+<li>
+<p>Skylake Server</p>
+</li>
+<li>
+<p>Cascadelake Server</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>IBM</p>
+<div class="ulist">
+<ul>
+<li>
+<p>POWER8</p>
+</li>
+<li>
+<p>POWER9</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For each CPU model with security updates, the <strong>CPU Type</strong> lists a basic type and a secure type. For example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Intel Cascadelake Server Family</strong></p>
+</li>
+<li>
+<p><strong>Secure Intel Cascadelake Server Family</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Secure CPU type contains the latest updates. For details, see BZ#<a href="https://bugzilla.redhat.com/1731395">1731395</a></p>
+</div>
+<div class="sect4">
+<h5 id="Checking_Processor_Flag_Support_RHV_planning">Checking if a Processor Supports the Required Flags</h5>
+<div class="paragraph">
+<p>You must enable virtualization in the BIOS. Power off and reboot the host after this change to ensure that the change is applied.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>At the {enterprise-linux} or {hypervisor-fullname} boot screen, press any key and select the <strong>Boot</strong> or <strong>Boot with serial console</strong> entry from the list.</p>
+</li>
+<li>
+<p>Press <code>Tab</code> to edit the kernel parameters for the selected option.</p>
+</li>
+<li>
+<p>Ensure there is a space after the last kernel parameter listed, and append the parameter <code>rescue</code>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to boot into rescue mode.</p>
+</li>
+<li>
+<p>At the prompt, determine that your processor has the required extensions and that they are enabled by running this command:</p>
+<div class="listingblock">
+<div class="content">
+<pre># grep -E 'svm|vmx' /proc/cpuinfo | grep nx</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If any output is shown, the processor is hardware virtualization capable. If no output is shown, your processor may still support hardware virtualization; in some circumstances manufacturers disable the virtualization extensions in the BIOS. If you believe this to be the case, consult the system&#8217;s BIOS and the motherboard manual provided by the manufacturer.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Memory_Requirements_RHV_planning">2.2.2. Memory Requirements</h4>
+<div class="paragraph">
+<p>The minimum required RAM is 2 GB. The maximum supported RAM per VM in {hypervisor-fullname} is 4 TB.</p>
+</div>
+<div class="paragraph">
+<p>However, the amount of RAM required varies depending on guest operating system requirements, guest application requirements, and guest memory activity and usage. KVM can also overcommit physical RAM for virtualized guests, allowing you to provision guests with RAM requirements greater than what is physically present, on the assumption that the guests are not all working concurrently at peak load. KVM does this by only allocating RAM for guests as required and shifting underutilized guests into swap.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Storage_Requirements_RHV_planning">2.2.3. Storage Requirements</h4>
+<div class="paragraph">
+<p>Hosts require storage to store configuration, logs, kernel dumps, and for use as swap space. Storage can be local or network-based. {hypervisor-fullname} ({hypervisor-shortname}) can boot with one, some, or all of its default allocations  in network storage. Booting from network storage can result in a freeze if there is a network disconnect. Adding a drop-in multipath configuration file can help address losses in network connectivity. If {hypervisor-shortname} boots from SAN storage and loses connectivity, the files become read-only until network connectivity restores. Using network storage might result in a performance downgrade.</p>
+</div>
+<div class="paragraph">
+<p>The minimum storage requirements of {hypervisor-shortname} are documented in this section. The storage requirements for {enterprise-linux-host-fullname}s vary based on the amount of disk space used by their existing configuration but are expected to be greater than those of {hypervisor-shortname}.</p>
+</div>
+<div class="paragraph">
+<p>The minimum storage requirements for host installation are listed below. However, use the default allocations, which use more storage space.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>/ (root) - 6 GB</p>
+</li>
+<li>
+<p>/home - 1 GB</p>
+</li>
+<li>
+<p>/tmp - 1 GB</p>
+</li>
+<li>
+<p>/boot - 1 GB</p>
+</li>
+<li>
+<p>/var - 15 GB</p>
+</li>
+<li>
+<p>/var/crash - 10 GB</p>
+</li>
+<li>
+<p>/var/log - 8 GB</p>
+</li>
+<li>
+<p>/var/log/audit - 2 GB</p>
+</li>
+<li>
+<p>swap - 1 GB (for the recommended swap size, see <a href="https://access.redhat.com/solutions/15244" class="bare">https://access.redhat.com/solutions/15244</a>)</p>
+</li>
+<li>
+<p>Anaconda reserves 20% of the thin pool size within the volume group for future metadata expansion. This is to prevent an out-of-the-box configuration from running out of space under normal usage conditions. Overprovisioning of thin pools during installation is also not supported.</p>
+</li>
+<li>
+<p><strong>Minimum Total - 64 GiB</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you are also installing the {engine-appliance-name} for self-hosted engine installation, <code>/var/tmp</code> must be at least 8 GB.</p>
+</div>
+<div class="paragraph">
+<p>If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Memory_Optimization">Memory Optimization</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="PCI_Device_Requirements_RHV_planning">2.2.4. PCI Device Requirements</h4>
+<div class="paragraph">
+<p>Hosts must have at least one network interface with a minimum bandwidth of 1 Gbps. Each host should have two network interfaces, with one dedicated to supporting network-intensive activities, such as virtual machine migration. The performance of such operations is limited by the bandwidth available.</p>
+</div>
+<div class="paragraph">
+<p>For information about how to use PCI Express and conventional PCI devices with Intel Q35-based virtual machines, see <a href="https://access.redhat.com/articles/3201152"><em>Using PCI Express and Conventional PCI Devices with the Q35 Virtual Machine</em></a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Device_Assignment_Requirements_RHV_planning">2.2.5. Device Assignment Requirements</h4>
+<div class="paragraph">
+<p>If you plan to implement device assignment and PCI passthrough so that a virtual machine can use a specific PCIe device from a host, ensure the following requirements are met:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CPU must support IOMMU (for example, VT-d or AMD-Vi). IBM POWER8 supports IOMMU by default.</p>
+</li>
+<li>
+<p>Firmware must support IOMMU.</p>
+</li>
+<li>
+<p>CPU root ports used must support ACS or ACS-equivalent capability.</p>
+</li>
+<li>
+<p>PCIe devices must support ACS or ACS-equivalent capability.</p>
+</li>
+<li>
+<p>All PCIe switches and bridges between the PCIe device and the root port should support ACS. For example, if a switch does not support ACS, all devices behind that switch share the same IOMMU group, and can only be assigned to the same virtual machine.</p>
+</li>
+<li>
+<p>For GPU support, {enterprise-linux} 8 supports PCI device assignment of PCIe-based NVIDIA K-Series Quadro (model 2000 series or higher), GRID, and Tesla as non-VGA graphics devices. Currently up to two GPUs may be attached to a virtual machine in addition to one of the standard, emulated VGA interfaces. The emulated VGA is used for pre-boot and installation and the NVIDIA GPU takes over when the NVIDIA graphics drivers are loaded. Note that the NVIDIA Quadro 2000 is not supported, nor is the Quadro K420 card.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Check vendor specification and datasheets to confirm that your hardware meets these requirements. The <code>lspci -v</code> command can be used to print information for PCI devices already installed on a system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="vGPU_Requirements_RHV_planning">2.2.6. vGPU Requirements</h4>
+<div class="paragraph">
+<p>A host must meet the following requirements in order for virtual machines on that host to use a vGPU:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>vGPU-compatible GPU</p>
+</li>
+<li>
+<p>GPU-enabled host kernel</p>
+</li>
+<li>
+<p>Installed GPU with correct drivers</p>
+</li>
+<li>
+<p>Predefined <strong>mdev_type</strong> set to correspond with one of the mdev types supported by the device</p>
+</li>
+<li>
+<p>vGPU-capable drivers installed on each host in the cluster</p>
+</li>
+<li>
+<p>vGPU-supported virtual machine operating system with vGPU drivers installed</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="networking-requirements">2.3. Networking requirements</h3>
+<div class="sect3">
+<h4 id="general-requirements">2.3.1. General requirements</h4>
+<div class="paragraph">
+<p>{virt-product-fullname} requires IPv6 to remain enabled on the physical or virtual machine running the {engine-name}. <a href="https://access.redhat.com/solutions/8709">Do not disable IPv6</a> on the {engine-name} machine, even if your systems do not use it.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Network-range-for-SHE-deployment_RHV_planning">2.3.2. Network range for self-hosted engine deployment</h4>
+<div class="paragraph">
+<p>The self-hosted engine deployment process temporarily uses a <code>/24</code> network address under <code>192.168</code>. It defaults to <code>192.168.222.0/24</code>, and if this address is in use, it tries other <code>/24</code> addresses under <code>192.168</code> until it finds one that is not in use. If it does not find an unused network address in this range, deployment fails.</p>
+</div>
+<div class="paragraph">
+<p>When installing the self-hosted engine using the command line, you can set the deployment script to use an alternate <code>/24</code> network range with the option <code>--ansible-extra-vars=he_ipv4_subnet_prefix=<em>PREFIX</em></code>, where <code><em>PREFIX</em></code> is the prefix for the default range. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># hosted-engine --deploy --ansible-extra-vars=he_ipv4_subnet_prefix=192.168.222</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can only set another range by installing {virt-product-fullname} as a self-hosted engine using the command line.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="dns-requirements_RHV_planning">2.3.3. Firewall Requirements for DNS, NTP, and IPMI Fencing</h4>
+<div class="paragraph">
+<p>The firewall requirements for all of the following topics are special cases that require individual consideration.</p>
+</div>
+<div class="paragraph">
+<div class="title">DNS and NTP</div>
+<p>{virt-product-fullname} does not create a DNS or NTP server, so the firewall does not need to have open ports for incoming traffic.</p>
+</div>
+<div class="paragraph">
+<p>By default, {enterprise-linux} allows outbound traffic to DNS and NTP on any destination address. If you disable outgoing traffic, define exceptions for requests that are sent to DNS and NTP servers.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The {virt-product-fullname} {engine-name} and all hosts ({hypervisor-fullname} and {enterprise-linux-host-fullname}) must have a fully qualified domain name and full, perfectly-aligned forward and reverse name resolution.</p>
+</li>
+<li>
+<p>Running a DNS service as a virtual machine in the {virt-product-fullname} environment is not supported. All DNS services the {virt-product-fullname} environment uses must be hosted outside of the environment.</p>
+</li>
+<li>
+<p>Use DNS instead of the <code>/etc/hosts</code> file for name resolution. Using a hosts file typically requires more work and has a greater chance for errors.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">IPMI and Other Fencing Mechanisms (optional)</div>
+<p>For IPMI (Intelligent Platform Management Interface) and other fencing mechanisms, the firewall does not need to have open ports for incoming traffic.</p>
+</div>
+<div class="paragraph">
+<p>By default, {enterprise-linux} allows outbound IPMI traffic to ports on any destination address. If you disable outgoing traffic, make exceptions for requests being sent to your IPMI or fencing servers.</p>
+</div>
+<div class="paragraph">
+<p>Each {hypervisor-fullname} and {enterprise-linux-host-fullname} in the cluster must be able to connect to the fencing devices of all other hosts in the cluster. If the cluster hosts are experiencing an error (network error, storage error&#8230;&#8203;) and cannot function as hosts, they must be able to connect to other hosts in the data center.</p>
+</div>
+<div class="paragraph">
+<p>The specific port number depends on the type of the fence agent you are using and how it is configured.</p>
+</div>
+<div class="paragraph">
+<p>The firewall requirement tables in the following sections do not represent this option.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="RHV-manager-firewall-requirements_RHV_planning">2.3.4. {virt-product-fullname} {engine-name} Firewall Requirements</h4>
+<div class="paragraph">
+<p>The {virt-product-fullname} {engine-name} requires that a number of ports be opened to allow network traffic through the system&#8217;s firewall.</p>
+</div>
+<div class="paragraph">
+<p>The <code>engine-setup</code> script can configure the firewall automatically.</p>
+</div>
+<div class="paragraph">
+<p>The firewall configuration documented here assumes a default configuration.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. {virt-product-fullname} {engine-name} Firewall Requirements</caption>
+<colgroup>
+<col style="width: 12%;">
+<col style="width: 12%;">
+<col style="width: 12%;">
+<col style="width: 16%;">
+<col style="width: 16%;">
+<col style="width: 16%;">
+<col style="width: 16%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Port(s)</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Encrypted by default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICMP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional.</p>
+<p class="tableblock">May help in diagnosis.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System(s) used for maintenance of the {engine-name} including backend configuration, and software upgrades.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secure Shell (SSH) access.</p>
+<p class="tableblock">Optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2222</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clients accessing virtual machine serial consoles.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secure Shell (SSH) access to enable connection to virtual machine serial consoles.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80, 443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administration Portal clients</p>
+<p class="tableblock">VM Portal clients</p>
+<p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p>
+<p class="tableblock">REST API clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides HTTP (port 80, not encrypted) and HTTPS (port 443, encrypted) access to the {engine-name}. HTTP redirects connections to HTTPS.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administration Portal clients</p>
+<p class="tableblock">VM Portal clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides websocket proxy access for a web-based console client, <code>noVNC</code>, when the websocket proxy is running on the {engine-name}.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7410</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If Kdump is enabled on the hosts, open this port for the fence_kdump listener on the {engine-name}. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-fence_kdump_Advanced_Configuration">fence_kdump Advanced Configuration</a>. <code>fence_kdump</code> doesn&#8217;t provide a way to encrypt the connection. However, you can manually configure this port to block access from hosts that are not eligible.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54323</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administration Portal clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name} (<code>ovirt-imageio</code> service)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for communication with the <code>ovirt-imageo</code> service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6442</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open Virtual Network (OVN) southbound database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connect to Open Virtual Network (OVN) database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9696</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clients of external network provider for OVN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External network provider for OVN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenStack Networking API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, with configuration generated by engine-setup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">35357</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clients of external network provider for OVN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External network provider for OVN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenStack Identity API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes, with configuration generated by engine-setup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS lookup requests from ports above 1023 to port 53, and responses. Open by default.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NTP Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NTP requests from ports above 1023 to port 123, and responses.  Open by default.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A port for the OVN northbound database (6641) is not listed because, in the default configuration, the only client for the OVN northbound database (6641) is <code>ovirt-provider-ovn</code>. Because they both run on the same host, their communication is not visible to the network.</p>
+</li>
+<li>
+<p>By default, {enterprise-linux} allows outbound traffic to DNS and NTP on any destination address. If you disable outgoing traffic, make exceptions for the {engine-name} to send requests to DNS and NTP servers. Other nodes may also require DNS and NTP. In that case, consult the requirements for those nodes and configure the firewall accordingly.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="host-firewall-requirements_RHV_planning">2.3.5. Host Firewall Requirements</h4>
+<div class="paragraph">
+<p>{enterprise-linux-host-fullname}s and {hypervisor-fullname}s ({hypervisor-shortname}) require a number of ports to be opened to allow network traffic through the system&#8217;s firewall. The firewall rules are automatically configured by default when adding a new host to the {engine-name}, overwriting any pre-existing firewall configuration.</p>
+</div>
+<div class="paragraph">
+<p>To disable automatic firewall configuration when adding a new host, clear the <strong>Automatically configure host firewall</strong> check box under <strong>Advanced Parameters</strong>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Virtualization Host Firewall Requirements</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Port(s)</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Encrypted by default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secure Shell (SSH) access.</p>
+<p class="tableblock">Optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2223</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secure Shell (SSH) access to enable connection to virtual machine serial consoles.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">161</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple network management protocol (SNMP). Only required if you want Simple Network Management Protocol traps sent from the host to one or more external SNMP managers.</p>
+<p class="tableblock">Optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS storage server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS connections.</p>
+<p class="tableblock">Optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5900 - 6923</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administration Portal clients</p>
+<p class="tableblock">VM Portal clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote guest console access via VNC and SPICE. These ports must be open to facilitate client access to virtual machines.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes (optional)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5989</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common Information Model Object Manager (CIMOM)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by Common Information Model Object Managers (CIMOM) to monitor virtual machines running on the host. Only required if you want to use a CIMOM to monitor the virtual machines in your virtualization environment.</p>
+<p class="tableblock">Optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9090</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p>
+<p class="tableblock">Client machines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required to access the Cockpit web interface, if installed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16514</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual machine migration using <strong>libvirt</strong>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">49152 - 49215</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual machine migration and fencing using VDSM. These ports must be open to facilitate both automated and manual migration of virtual machines.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes. Depending on agent for fencing, migration is done through libvirt.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54321</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p>
+<p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VDSM communications with the {engine-name} and other virtualization hosts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54322</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name} <code>ovirt-imageio</code> service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for communication with the <code>ovirt-imageo</code> service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6081</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required, when Open Virtual Network (OVN) is used as a network provider, to allow OVN to create tunnels between hosts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-fullname}s</p>
+<p class="tableblock">{enterprise-linux-host-fullname}s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS lookup requests from ports above 1023 to port 53, and responses. This port is required and open by default.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, {enterprise-linux} allows outbound traffic to DNS and NTP on any destination address. If you disable outgoing traffic, make exceptions for the {hypervisor-fullname}s</p>
+</div>
+<div class="paragraph">
+<p>{enterprise-linux-host-fullname}s to send requests to DNS and NTP servers. Other nodes may also require DNS and NTP. In that case, consult the requirements for those nodes and configure the firewall accordingly.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="database-server-firewall-requirements_RHV_planning">2.3.6. Database Server Firewall Requirements</h4>
+<div class="paragraph">
+<p>{virt-product-fullname} supports the use of a remote database server for the {engine-name} database (<code>engine</code>) and the Data Warehouse database (<code>ovirt-engine-history</code>). If you plan to use a remote database server, it must allow connections from the {engine-name} and the Data Warehouse service (which can be separate from the {engine-name}).</p>
+</div>
+<div class="paragraph">
+<p>Similarly, if you plan to access a local or remote Data Warehouse database from an external system, the database must allow connections from that system.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Accessing the {engine-name} database from external systems is not supported.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Database Server Firewall Requirements</caption>
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 20.8333%;">
+<col style="width: 20.8333%;">
+<col style="width: 20.8333%;">
+<col style="width: 12.5002%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Port(s)</th>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Encrypted by default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5432</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p>
+<p class="tableblock">Data Warehouse service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{engine-name} (<code>engine</code>) database server</p>
+<p class="tableblock">Data Warehouse (<code>ovirt-engine-history</code>) database server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default port for PostgreSQL database connections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">No, but can be enabled</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5432</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External systems</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Warehouse (<code>ovirt-engine-history</code>) database server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default port for PostgreSQL database connections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled by default. <a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">No, but can be enabled</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="considerations">3. Considerations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes the advantages, limitations, and available options for various {virt-product-fullname} components.</p>
+</div>
+<div class="sect2">
+<h3 id="host-types">3.1. Host Types</h3>
+<div class="paragraph">
+<p>Use the host type that best suits your environment. You can also use both types of host in the same cluster if required.</p>
+</div>
+<div class="paragraph">
+<p>All managed hosts within a cluster must have the same CPU type. Intel and AMD CPUs cannot co-exist within the same cluster.</p>
+</div>
+<div class="sect3">
+<h4 id="hypervisor-fullnames">3.1.1. {hypervisor-fullname}s</h4>
+<div class="paragraph">
+<p>{hypervisor-fullname}s ({hypervisor-shortname}) have the following advantages over {enterprise-linux-host-fullname}s:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>{hypervisor-shortname} is included in the subscription for {virt-product-fullname}. {enterprise-linux-host-fullname}s may require additional subscriptions.</p>
+</li>
+<li>
+<p>{hypervisor-shortname} is deployed as a single image. This results in a streamlined update process; the entire image is updated as a whole, as opposed to packages being updated individually.</p>
+</li>
+<li>
+<p>Only the packages and services needed to host virtual machines or manage the host itself are included. This streamlines operations and reduces the overall attack vector; unnecessary packages and services are not deployed and, therefore, cannot be exploited.</p>
+</li>
+<li>
+<p>The Cockpit web interface is available by default and includes extensions specific to {virt-product-fullname}, including virtual machine monitoring tools and a GUI installer for the self-hosted engine. Cockpit is supported on {enterprise-linux-host-fullname}s, but must be manually installed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="enterprise-linux-host-fullnames">3.1.2. {enterprise-linux-host-fullname}s</h4>
+<div class="paragraph">
+<p>{enterprise-linux-host-fullname}s have the following advantages over {hypervisor-fullname}s:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>{enterprise-linux-host-fullname}s are highly customizable, so may be preferable if, for example, your hosts require a specific file system layout.</p>
+</li>
+<li>
+<p>{enterprise-linux-host-fullname}s are better suited for frequent updates, especially if additional packages are installed. Individual packages can be updated, rather than a whole image.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="storage-types">3.2. Storage Types</h3>
+<div class="paragraph">
+<p>Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.</p>
+</div>
+<div class="paragraph">
+<p>A storage domain can be made of either block devices (iSCSI or Fibre Channel) or a file system.</p>
+</div>
+<div class="paragraph">
+<p>By default, GlusterFS domains and local storage domains support 4K block size. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>{virt-product-fullname} currently does not support block storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The storage types described in the following sections are supported for use as data storage domains. ISO and export storage domains only support file-based storage types. The ISO domain supports local storage when used in a local storage data center.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/Storage_Administration_Guide/index#"><em>{enterprise-linux} Storage Administration Guide</em></a></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="nfs">3.2.1. NFS</h4>
+<div class="paragraph">
+<p>NFS versions 3 and 4 are supported by {virt-product-fullname} 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.</p>
+</div>
+<div class="paragraph">
+<p>As NFS exports are grown to accommodate more storage needs, {virt-product-fullname} recognizes the larger data store immediately. No additional configuration is necessary on the hosts or from within {virt-product-fullname}. This provides NFS a slight edge over block storage from a scale and operational perspective.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/Storage_Administration_Guide/index.html#ch-nfs">Network File System (NFS)</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-preparing_and_adding_nfs_storage">Preparing and Adding NFS Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="iscsi">3.2.2. iSCSI</h4>
+<div class="paragraph">
+<p>Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/online-storage-management">Online Storage Management</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_iSCSI_Storage_storage_admin">Adding iSCSI Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fibre-channel">3.2.3. Fibre Channel</h4>
+<div class="paragraph">
+<p>Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/online-storage-management">Online Storage Management</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_FCP_Storage_storage_admin">Adding FCP Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fcoe">3.2.4. Fibre Channel over Ethernet</h4>
+<div class="paragraph">
+<p>To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must enable the <strong>fcoe</strong> key on the {engine-name}, and install the <em>vdsm-hook-fcoe</em> package on the hosts.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/online-storage-management">Online Storage Management</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#how_to_set_up_rhvm_to_use_fcoe">How to Set Up {virt-product-fullname} {engine-name} to Use FCoE</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gluster">3.2.5. {gluster-storage-fullname}</h4>
+<div class="paragraph">
+<p>{gluster-storage-fullname} (RHGS) is a POSIX-compliant and open source file system. Three or more servers are configured as a {gluster-storage-fullname} cluster, instead of network-attached storage (NAS) appliances or a storage area network (SAN) array.</p>
+</div>
+<div class="paragraph">
+<p>{gluster-storage-fullname} should be utilized over 10GbE and segregated with VLANs.</p>
+</div>
+<div class="paragraph">
+<p>Check the compatibility matrix in <a href="https://access.redhat.com/articles/2356261" class="bare">https://access.redhat.com/articles/2356261</a> before using RHGS with {virt-product-fullname}.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red-hat-gluster-storage/">{gluster-storage-fullname} Documentation</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.2/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/"><em>Configuring {virt-product-fullname} with {gluster-storage-fullname}</em></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rhhi">3.2.6. Red Hat Hyperconverged Infrastructure</h4>
+<div class="paragraph">
+<p>Red Hat Hyperconverged Infrastructure (RHHI) combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization/"><em>Deploying Red Hat Hyperconverged Infrastructure for Virtualization</em></a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization_on_a_single_node/"><em>Deploying Red Hat Hyperconverged Infrastructure for Virtualization On A Single Node</em></a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/automating_rhhi_for_virtualization_deployment/"><em>Automating RHHI for Virtualization Deployment</em></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="posix">3.2.7. POSIX-Compliant FS</h4>
+<div class="paragraph">
+<p>Other POSIX-compliant file systems can be used as storage domains in {virt-product-fullname}, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with {virt-product-fullname}.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Global_File_System_2/index.html"><em>{enterprise-linux} Global File System 2</em></a></p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage">Adding POSIX Compliant File System Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="local-storage">3.2.8. Local Storage</h4>
+<div class="paragraph">
+<p>Local storage is set up on an individual host, using the host&#8217;s own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.</p>
+</div>
+<div class="paragraph">
+<p>For {hypervisor-fullname}s, local storage should always be defined on a file system that is separate from / (root). Use a separate logical volume or disk.</p>
+</div>
+<div class="paragraph">
+<p>See: <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_Local_Storage">Preparing and Adding Local Storage</a> in the <em>Administration Guide</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="networking-considerations">3.3. Networking Considerations</h3>
+<div class="paragraph">
+<p>Familiarity with network concepts and their use is highly recommended when planning and setting up networking in a {virt-product-fullname} environment. Read your network hardware vendor&#8217;s guides for more information on managing networking.</p>
+</div>
+<div class="paragraph">
+<p>Logical networks may be supported using physical devices such as NICs, or logical devices such as network bonds. Bonding improves high availability, and provides increased fault tolerance, because all network interface cards in the bond must fail for the bond itself to fail. Bonding modes 1, 2, 3, and 4 support both virtual machine and non-virtual machine network types. Modes 0, 5, and 6 only support non-virtual machine networks. {virt-product-fullname} uses Mode 4 by default.</p>
+</div>
+<div class="paragraph">
+<p>It is not necessary to have one device for each logical network, as multiple logical networks can share a single device by using Virtual LAN (VLAN) tagging to isolate network traffic. To make use of this feature, VLAN tagging must also be supported at the switch level.</p>
+</div>
+<div class="paragraph">
+<p>The limits that apply to the number of logical networks that you may define in a {virt-product-fullname} environment are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The number of logical networks attached to a host is limited to the number of available network devices combined with the maximum number of Virtual LANs (VLANs), which is 4096.</p>
+</li>
+<li>
+<p>The number of networks that can be attached to a host in a single operation is currently limited to 50.</p>
+</li>
+<li>
+<p>The number of logical networks in a cluster is limited to the number of logical networks that can be attached to a host as networking must be the same for all hosts in a cluster.</p>
+</li>
+<li>
+<p>The number of logical networks in a data center is limited only by the number of clusters it contains in combination with the number of logical networks permitted per cluster.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Take additional care when modifying the properties of the Management network (<code>ovirtmgmt</code>). Incorrect changes to the properties of the <code>ovirtmgmt</code> network may cause hosts to become unreachable.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you plan to use {virt-product-fullname} to provide services for other environments, remember that the services will stop if the {virt-product-fullname} environment stops operating.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} is fully integrated with Cisco Application Centric Infrastructure (ACI), which provides comprehensive network management capabilities, thus mitigating the need to manually configure the {virt-product-fullname} networking infrastructure. The integration is performed by configuring {virt-product-fullname} on Cisco’s Application Policy Infrastructure Controller (APIC) version 3.1(1) and later, according to the <a href="https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b_Cisco_ACI_Red_Hat_Virtualization.html">Cisco&#8217;s documentation</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="directory-server-support">3.4. Directory Server Support</h3>
+<div class="paragraph">
+<p>During installation, {virt-product-fullname} {engine-name} creates a default <strong>admin</strong> user in a default <strong>internal</strong> domain. This account is intended for use when initially configuring the environment, and for troubleshooting. You can create additional users on the <strong>internal</strong> domain using <code>ovirt-aaa-jdbc-tool</code>. User accounts created on local domains are known as local users. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-administering_user_tasks_from_the_commandline">Administering User Tasks From the Command Line</a> in the <em>Administration Guide</em>.</p>
+</div>
+<div class="paragraph">
+<p>You can also attach an external directory server to your {virt-product-fullname} environment and use it as an external domain. User accounts created on external domains are known as directory users. Attachment of more than one directory server to the {engine-name} is also supported.</p>
+</div>
+<div class="paragraph">
+<p>The following directory servers are supported for use with {virt-product-fullname}. For more detailed information on installing and configuring a supported directory server, see the vendor&#8217;s documentation.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Active Directory</strong></dt>
+<dd>
+<p><a href="https://docs.microsoft.com/en-us/windows-server/identity/identity-and-access" class="bare">https://docs.microsoft.com/en-us/windows-server/identity/identity-and-access</a></p>
+</dd>
+<dt class="hdlist1"><strong>Identity Management (IdM - based on IPA)</strong></dt>
+<dd>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/planning_identity_management/index#intro-to-ipa-overview-of-planning-idm-and-access-control" class="bare">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/planning_identity_management/index#intro-to-ipa-overview-of-planning-idm-and-access-control</a></p>
+</dd>
+<dt class="hdlist1"><strong>Red Hat Directory Server 9 (RHDS 9 - based on 389DS)</strong></dt>
+<dd>
+<p><a href="https://access.redhat.com/documentation/en-us/red-hat-directory-server/" class="bare">https://access.redhat.com/documentation/en-us/red-hat-directory-server/</a></p>
+</dd>
+<dt class="hdlist1"><strong>OpenLDAP</strong></dt>
+<dd>
+<p><a href="http://www.openldap.org/doc/" class="bare">http://www.openldap.org/doc/</a></p>
+</dd>
+<dt class="hdlist1"><strong>IBM Security (Tivoli) Directory Server</strong></dt>
+<dd>
+<p><a href="https://www.ibm.com/support/knowledgecenter/SSVJJU_6.4.0/com.ibm.IBMDS.doc_6.4/welcome.html" class="bare">https://www.ibm.com/support/knowledgecenter/SSVJJU_6.4.0/com.ibm.IBMDS.doc_6.4/welcome.html</a></p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A user with permissions to read all users and groups must be created in the directory server specifically for use as the {virt-product-fullname} administrative user. Do <strong>not</strong> use the administrative user for the directory server as the {virt-product-fullname} administrative user.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>See: <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Users_and_Roles">Users and Roles</a> in the <em>Administration Guide</em>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="infrastructure-considerations">3.5. Infrastructure Considerations</h3>
+<div class="sect3">
+<h4 id="local-or-remote-hosting">3.5.1. Local or Remote Hosting</h4>
+<div class="paragraph">
+<p>The following components can be hosted on either the {engine-name} or a remote machine. Keeping all components on the {engine-name} machine is easier and requires less maintenance, so is preferable when performance is not an issue. Moving components to a remote machine requires more maintenance, but can improve the performance of both the {engine-name} and Data Warehouse.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Data Warehouse database and service</strong></dt>
+<dd>
+<p>To host Data Warehouse on the {engine-name}, select <code>Yes</code> when prompted by <code>engine-setup</code>.</p>
+<div class="paragraph">
+<p>To host Data Warehouse on a remote machine, select <code>No</code> when prompted by <code>engine-setup</code>, and see <a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">Installing and Configuring Data Warehouse on a Separate Machine</a> in <em>Installing {virt-product-fullname} as a standalone {engine-name} with remote databases</em>.</p>
+</div>
+<div class="paragraph">
+<p>To migrate Data Warehouse post-installation, see <a href="{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#migrating_data_warehouse_to_a_separate_machine_dwh_admin">Migrating Data Warehouse to a Separate Machine</a> in the <em>Data Warehouse Guide</em>.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>You can also host the Data Warehouse service and the Data Warehouse database separately from one another.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>{engine-name} database</strong></dt>
+<dd>
+<p>To host the {engine-name} database on the {engine-name}, select <code>Local</code> when prompted by <code>engine-setup</code>.</p>
+<div class="paragraph">
+<p>To host the {engine-name} database on a remote machine, see <a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">Preparing a Remote PostgreSQL Database</a> in <em>Installing {virt-product-fullname} as a standalone {engine-name} with remote databases</em> before running <code>engine-setup</code> on the {engine-name}.</p>
+</div>
+<div class="paragraph">
+<p>To migrate the {engine-name} database post-installation, see <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Migrating_the_Engine_Database_to_a_Remote_Server_Database">Migrating the Engine Database to a Remote Server Database</a> in the <em>Administration Guide</em>.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Websocket proxy</strong></dt>
+<dd>
+<p>To host the websocket proxy on the {engine-name}, select <code>Yes</code> when prompted by <code>engine-setup</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Self-hosted engine environments use an appliance to install and configure the {engine-name} virtual machine, so Data Warehouse, the {engine-name} database, and the websocket proxy can only be made external post-installation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remote-hosting-only">3.5.2. Remote Hosting Only</h4>
+<div class="paragraph">
+<p>The following components must be hosted on a remote machine:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>DNS</strong></dt>
+<dd>
+<p>Due to the extensive use of DNS in a {virt-product-fullname} environment, running the environment’s DNS service as a virtual machine hosted in the environment is not supported.</p>
+</dd>
+<dt class="hdlist1"><strong>Storage</strong></dt>
+<dd>
+<p>With the exception of <a href="#local-storage">local storage</a>, the storage service must not be on the same machine as the {engine-name} or any host.</p>
+</dd>
+<dt class="hdlist1"><strong>Identity Management</strong></dt>
+<dd>
+<p>IdM (<code>ipa-server</code>) is incompatible with the <code>mod_ssl</code> package, which is required by the {engine-name}.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="recommendations">4. Recommendations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes configuration that is not strictly required, but may improve the performance or stability of your environment.</p>
+</div>
+<div class="sect2">
+<h3 id="general-recommendations">4.1. General Recommendations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Take a full backup as soon as the deployment is complete, and store it in a separate location. Take regular backups thereafter. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Backups_and_Migration">Backups and Migration</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p>Avoid running any service that {virt-product-fullname} depends on as a virtual machine in the same environment. If this is done, it must be planned carefully to minimize downtime, if the virtual machine containing that service incurs downtime.</p>
+</li>
+<li>
+<p>Ensure the bare-metal host or virtual machine that the {virt-product-fullname} {engine-name} will be installed on has enough entropy. Values below 200 can cause the {engine-name} setup to fail. To check the entropy value, run <code>cat /proc/sys/kernel/random/entropy_avail</code>. To increase entropy, install the <code>rng-tools</code> package and follow the steps in <a href="https://access.redhat.com/solutions/1395493" class="bare">https://access.redhat.com/solutions/1395493</a>.</p>
+</li>
+<li>
+<p>You can automate the deployment of hosts and virtual machines using PXE, Kickstart, Satellite, CloudForms, Ansible, or a combination thereof. However, installing a self-hosted engine using PXE is not supported. See:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Automating_RHVH_Deployment">Automating {hypervisor-fullname} Deployment</a> for the additional requirements for automated {hypervisor-shortname} deployment using PXE and Kickstart.</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/preparing-for-your-rhel-installation">Preparing for your installation</a> in  <em>Performing a Standard RHEL Installation</em>.</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/performing_an_automated_installation_using_kickstart">Performing an Automated Installation Using Kickstart</a> in  <em>Performing an Advanced RHEL Installation</em>.</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.2/html/provisioning_guide/"><em>Red Hat Satellite 6.2 Provisioning Guide</em></a>.</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html/provisioning_virtual_machines_and_instances/index"><em>Red Hat CloudForms 5.0 Provisioning Virtual Machines and Hosts</em></a>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Automating_RHV_Configuration_using_Ansible">Automating Configuration Tasks using Ansible</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Set the system time zone for all machines in your deployment to UTC. This ensures that data collection and connectivity are not interrupted by variations in your local time zone, such as daylight savings time.</p>
+</li>
+<li>
+<p>Use Network Time Protocol (NTP) on all hosts and virtual machines in the environment in order to synchronize time. Authentication and certificates are particularly sensitive to time skew. Previously, NTP could be implemented using <strong>chrony</strong> (<code>chronyd</code>) or <strong>ntp</strong> (<code>ntpd</code>) but in {enterprise-linux} 8, only <strong>chrony</strong> is supported.</p>
+<div class="paragraph">
+<p>For information about migrating from <strong>ntp</strong> to <strong>chrony</strong>, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp_configuring-basic-system-settings#proc_migrating-to-chrony_using-chrony-to-configure-ntp">Migrating to <strong>chrony</strong></a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information on <strong>chrony</strong>, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp_configuring-basic-system-settings">Using the Chrony Suite to configure NTP</a>.</p>
+</div>
+</li>
+<li>
+<p>Document everything, so that anyone who works with the environment is aware of its current state and required procedures.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="security-recommendations">4.2. Security Recommendations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Do not disable any security features (such as HTTPS, SELinux, and the firewall) on the hosts or virtual machines.</p>
+</li>
+<li>
+<p>Register all hosts and {enterprise-linux} virtual machines to either the Red Hat Content Delivery Network or Red Hat Satellite in order to receive the latest security updates and errata.</p>
+</li>
+<li>
+<p>Create individual administrator accounts, instead of allowing many people to use the default <code>admin</code> account, for proper activity tracking.</p>
+</li>
+<li>
+<p>Limit access to the hosts and create separate logins. Do not create a single <code>root</code> login for everyone to use. For specific information about managing users, groups, and root permissions, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/"><em>Configuring Basic System Settings</em></a>.</p>
+</li>
+<li>
+<p>Do not create untrusted users on hosts.</p>
+</li>
+<li>
+<p>When deploying the {enterprise-linux-host-fullname}s, only install packages and services required to satisfy virtualization, performance, security, and monitoring requirements. Production hosts should not have additional packages such as analyzers, compilers, or other components that add unnecessary security risk.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="host-recommendations">4.3. Host Recommendations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Standardize the hosts in the same cluster. This includes having consistent hardware models and firmware versions. Mixing different server hardware within the same cluster can result in inconsistent performance from host to host.</p>
+</li>
+<li>
+<p>Although you can use both {enterprise-linux-host-fullname} and {hypervisor-fullname} in the same cluster, this configuration should only be used when it serves a specific business or technical requirement.</p>
+</li>
+<li>
+<p>Configure fencing devices at deployment time. Fencing devices are required for high availability.</p>
+</li>
+<li>
+<p>Use separate hardware switches for fencing traffic. If monitoring and fencing go over the same switch, that switch becomes a single point of failure for high availability.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="networking-recommendations">4.4. Networking Recommendations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bond network interfaces, especially on production hosts. Bonding improves the overall availability of service, as well as network bandwidth. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-network_bonding">Network Bonding</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p>A stable network infrastructure configured with DNS and DHCP records.</p>
+</li>
+<li>
+<p>If bonds will be shared with other network traffic, proper quality of service (QoS) is required for storage and other network traffic.</p>
+</li>
+<li>
+<p>For optimal performance and simplified troubleshooting, use VLANs to separate different traffic types and make the best use of 10 GbE or 40 GbE networks.</p>
+</li>
+<li>
+<p>If the underlying switches support jumbo frames, set the MTU to the maximum size (for example, <code>9000</code>) that the underlying switches support. This setting enables optimal throughput, with higher bandwidth and reduced CPU usage, for most applications. The default MTU is determined by the minimum size supported by the underlying switches. If you have LLDP enabled, you can see the MTU supported by the peer of each host in the NIC&#8217;s tool tip in the <strong>Setup Host Networks</strong> window.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you change the network’s <strong>MTU</strong> settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see <a href="https://access.redhat.com/solutions/4540631" class="bare">https://access.redhat.com/solutions/4540631</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1766414">BZ#1766414</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>1 GbE networks should only be used for management traffic. Use 10 GbE or 40 GbE for virtual machines and Ethernet-based storage.</p>
+</li>
+<li>
+<p>If additional physical interfaces are added to a host for storage use, clear <strong>VM network</strong> so that the VLAN is assigned directly to the physical interface.</p>
+</li>
+</ul>
+</div>
+<h3 id="Recommended_practices_for_configuring_host_networks_RHV_planning" class="discrete">Recommended Practices for Configuring Host Networks</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Always use the {virt-product-shortname} {engine-name} to modify the network configuration of hosts in your clusters. Otherwise, you might create an unsupported configuration. For details, see <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate">Network Manager Stateful Configuration (nmstate)</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your network environment is complex, you may need to configure a host network manually before adding the host to the {virt-product-fullname} {engine-name}.</p>
+</div>
+<div class="paragraph">
+<p>Consider the following practices for configuring a host network:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configure the network with Cockpit. Alternatively, you can use <code>nmtui</code> or <code>nmcli</code>.</p>
+</li>
+<li>
+<p>If a network is not required for a self-hosted engine deployment or for adding a host to the {engine-name}, configure the network in the Administration Portal after adding the host to the {engine-name}. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a New Logical Network in a Data Center or Cluster</a>.</p>
+</li>
+<li>
+<p>Use the following naming conventions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>VLAN devices: <code><em>VLAN_NAME_TYPE_RAW_PLUS_VID_NO_PAD</em></code></p>
+</li>
+<li>
+<p>VLAN interfaces: <code><em>physical_device</em>.<em>VLAN_ID</em></code> (for example, <code>eth0.23</code>, <code>eth1.128</code>, <code>enp3s0.50</code>)</p>
+</li>
+<li>
+<p>Bond interfaces: <code>bond<em>number</em></code> (for example, <code>bond0</code>, <code>bond1</code>)</p>
+</li>
+<li>
+<p>VLANs on bond interfaces: <code>bond<em>number</em>.<em>VLAN_ID</em></code> (for example, <code>bond0.50</code>, <code>bond1.128</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Network_Bonding">network bonding</a>. Network teaming is not supported in {virt-product-fullname} and will cause errors if the host is used to deploy a self-hosted engine or added to the {engine-name}.</p>
+</li>
+<li>
+<p>Use recommended bonding modes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>ovirtmgmt</code> network is not used by virtual machines, the network may use any supported bonding mode.</p>
+</li>
+<li>
+<p>If the <code>ovirtmgmt</code> network is used by virtual machines, see <a href="https://access.redhat.com/solutions/67546"><em>Which bonding modes work when used with a bridge that virtual machine guests or containers connect to?</em></a>.</p>
+</li>
+<li>
+<p>{virt-product-fullname}'s default bonding mode is <code>(Mode 4) Dynamic Link Aggregation</code>. If your switch does not support Link Aggregation Control Protocol (LACP), use <code>(Mode 1) Active-Backup</code>. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Bonding_Modes">Bonding Modes</a> for details.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configure a VLAN on a physical NIC as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>eth0.50</em> dev <em>eth0</em> id <em>50</em>
+# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure a VLAN on a bond as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># nmcli connection add type bond con-name <em>bond0</em> ifname <em>bond0</em> bond.options "mode=active-backup,miimon=100" ipv4.method disabled ipv6.method ignore
+# nmcli connection add type ethernet con-name <em>eth0</em> ifname <em>eth0</em> master <em>bond0</em> slave-type bond
+# nmcli connection add type ethernet con-name <em>eth1</em> ifname <em>eth1</em> master <em>bond0</em> slave-type bond
+# nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>bond0.50</em> dev <em>bond0</em> id <em>50</em>
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Do not disable <code>firewalld</code>.</p>
+</li>
+<li>
+<p>Customize the firewall rules in the Administration Portal after adding the host to the {engine-name}. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Host_Firewall_Rules">Configuring Host Firewall Rules</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="self-hosted-engine-recommendations">4.5. Self-Hosted Engine Recommendations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a separate data center and cluster for the {virt-product-fullname} {engine-name} and other infrastructure-level services, if the environment is large enough to allow it. Although the {engine-name} virtual machine can run on hosts in a regular cluster, separation from production virtual machines helps facilitate backup schedules, performance, availability, and security.</p>
+</li>
+<li>
+<p>A storage domain dedicated to the {engine-name} virtual machine is created during self-hosted engine deployment. Do not use this storage domain for any other virtual machines.</p>
+</li>
+<li>
+<p>If you are anticipating heavy storage workloads, separate the migration, management, and storage networks to reduce the impact on the {engine-name} virtual machine&#8217;s health.</p>
+</li>
+<li>
+<p>Although there is technically no hard limit on the number of hosts per cluster, limit self-hosted engine nodes to 7 nodes per cluster. Distribute the servers in a way that allows better resilience (such as in different racks).</p>
+</li>
+<li>
+<p>All self-hosted engine nodes should have an equal CPU family so that the {engine-name} virtual machine can safely migrate between them. If you intend to have various families, begin the installation with the lowest one.</p>
+</li>
+<li>
+<p>If the {engine-name} virtual machine shuts down or needs to be migrated, there must be enough memory on a self-hosted engine node for the {engine-name} virtual machine to restart on or migrate to it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2735/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2735/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2735/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2735/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Planning_and_Prerequisites_Guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Planning_and_Prerequisites_Guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

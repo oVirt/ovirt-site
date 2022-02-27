@@ -4,7 +4,7 @@
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
 | [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [56](https://github.com/ovirt/ovirt-web-ui/issues) | 83 | 65 |
-| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [44](https://github.com/ovirt/ovirt-ansible-collection/issues) | 45 | 63 |
+| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [45](https://github.com/ovirt/ovirt-ansible-collection/issues) | 45 | 64 |
 | [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [29](https://github.com/ovirt/ovirt-engine/issues) | 333 | 212 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [29](https://github.com/ovirt/ovirt-site/issues) | 71 | 297 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [25](https://github.com/ovirt/terraform-provider-ovirt/issues) | 126 | 62 |

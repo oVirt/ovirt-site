@@ -2,6 +2,9 @@
 include::common/collateral_files/attributes.adoc[]
 = Administration Guide
 
+:context: admin_guide
+:admin_guide:
+
 // Make sure Jekyll displays a guide title
 [discrete]
 = Administration Guide
@@ -26,7 +29,5 @@ include::appe-Branding.adoc[]
 
 include::appe-System_Accounts.adoc[]
 
-[appendix]
-== Legal notice
-
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}administration_guide/[Red Hat Virtualization {vernum_rhv} Administration Guide]. Copyright © 2022 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].
+:admin_guide:
+include::common/collateral_files/legal-notice_ovirt.adoc[]

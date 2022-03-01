@@ -1,0 +1,51 @@
+[appendix]
+[id="legal-notice"]
+= Legal notice
+include::attributes.adoc[]
+
+ifdef::admin_guide[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}administration_guide/[Red Hat Virtualization {vernum_rhv} Administration Guide].
+endif::admin_guide[]
+ifdef::DWH[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}data_warehouse_guide/index[Red Hat Virtualization {vernum_rhv} Data Warehouse Guide].
+endif::DWH[]
+ifdef::disaster_recovery[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}disaster_recovery_guide/index[Red Hat Virtualization {vernum_rhv} Disaster Recovery Guide].
+endif::
+ifdef::VM_portal[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}introduction_to_the_vm_portal/index[Red Hat Virtualization {vernum_rhv} Introduction to the VM Portal].
+endif::VM_portal[]
+ifdef::RHV_planning[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index[Red Hat Virtualization {vernum_rhv} Planning and Prerequisites].
+endif::RHV_planning[]
+ifdef::product_guide[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}product_guide/index[Red Hat Virtualization {vernum_rhv} Product Guide].
+endif::product_guide[]
+ifdef::pythonSDK[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}python_sdk_guide/index[Red Hat Virtualization {vernum_rhv} Python SDK Guide].
+endif::pythonSDK[]
+ifdef::restAPI[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}rest_api_guide/index[Red Hat Virtualization {vernum_rhv} REST API  Guide].
+endif::restAPI[]
+ifdef::techref[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}technical_reference/index[Red Hat Virtualization {vernum_rhv} Technical Reference].
+endif::techref[]
+ifdef::SHE_cli_deploy[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the command line].
+endif::SHE_cli_deploy[]
+ifdef::SM_localDB_deploy[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with local databases].
+endif::SM_localDB_deploy[]
+ifdef::SM_remoteDB_deploy[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with remote databases].
+endif::SM_remoteDB_deploy[]
+ifdef::migrating_to_SHE[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}migrating_from_a_standalone_manager_to_a_self-hosted_engine/[Red Hat Virtualization {vernum_rhv} Migrating from a standalone Manager to a self-hosted engine].
+endif::migrating_to_SHE[]
+ifdef::upgrade[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}upgrade_guide/index[Red Hat Virtualization {vernum_rhv} Upgrade Guide].
+endif::upgrade[]
+ifdef::vmm[]
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}virtual_machine_management_guide/index[Red Hat Virtualization {vernum_rhv} Virtual Machine Management Guide].
+endif::vmm[]
+Copyright © 2022 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].

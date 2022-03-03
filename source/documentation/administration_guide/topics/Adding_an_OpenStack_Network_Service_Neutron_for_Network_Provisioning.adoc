@@ -7,7 +7,7 @@
 OpenStack Networking (Neutron) requires {enterprise-linux} 7 hosts. {enterprise-linux} 8 hosts are not compatible with Red Hat OpenStack Platform versions 10, 13, and 14.
 ====
 
-Add an OpenStack Networking (neutron) instance for network provisioning to the {virt-product-fullname} {engine-name}. To add other third-party network providers that implement the OpenStack Neutron REST API, see xref:Adding_an_External_Network_Provider[].
+Add an OpenStack Networking (neutron) instance for network provisioning to the {virt-product-fullname} {engine-name}. To add other third-party network providers that implement the OpenStack Neutron REST API.
 
 [IMPORTANT]
 ====

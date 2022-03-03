@@ -2,7 +2,7 @@
 [id="Importing_Networks"]
 = Importing Networks From External Providers
 
-To use networks from an Open Virtual Network (OVN), register the provider with the {engine-name}. See xref:Adding_an_External_Network_Provider[Adding an External Network Provider] for more information. Then, use the following procedure to import the networks provided by that provider into the {engine-name} so the networks can be used by virtual machines.
+Use the following procedure to import the networks provided by that provider into the {engine-name} so the networks can be used by virtual machines.
 
 .Procedure
 

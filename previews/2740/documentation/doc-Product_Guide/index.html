@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Product Guide | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Product Guide" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2740/documentation/doc-Product_Guide/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2740/documentation/doc-Product_Guide/" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Product Guide" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Product Guide","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/doc-Product_Guide/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2740/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2740/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2740/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2740/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2740/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2740/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2740/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2740/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2740/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2740/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2740/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2740/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2740/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2740/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2740/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2740/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2740/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2740/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2740/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2740/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2740/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2740/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction to oVirt</a>
+<ul class="sectlevel2">
+<li><a href="#RHV_Architecture">1.1. oVirt Architecture</a>
+<ul class="sectlevel3">
+<li><a href="#Self-hosted_Engine_Architecture_RHV_intro">1.1.1. Self-Hosted Engine Architecture</a></li>
+<li><a href="#Standalone_Manager_Architecture_RHV_intro">1.1.2. Standalone Engine Architecture</a></li>
+</ul>
+</li>
+<li><a href="#RHV_terminology">1.2. oVirt Terminology</a></li>
+</ul>
+</li>
+<li><a href="#RHV-components">2. oVirt Components</a>
+<ul class="sectlevel2">
+<li><a href="#ovirt-engine">2.1. oVirt Engine</a></li>
+<li><a href="#hosts">2.2. Hosts</a></li>
+<li><a href="#storage">2.3. Storage</a></li>
+<li><a href="#data-warehouse">2.4. Data Warehouse</a></li>
+<li><a href="#networking-in-ovirt">2.5. Networking in oVirt</a></li>
+</ul>
+</li>
+<li><a href="#installation">3. Installing oVirt</a>
+<ul class="sectlevel2">
+<li><a href="#RHV_installation-overview">3.1. oVirt Installation Overview</a></li>
+<li><a href="#RHV_Installation_Options_RHV_intro">3.2. oVirt Installation Options</a>
+<ul class="sectlevel3">
+<li><a href="#SHE_install_options">3.2.1. Self-hosted engine (recommended)</a></li>
+<li><a href="#SM_install_options">3.2.2. Standalone Engine (manual)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#accessing-rhv">4. Accessing oVirt</a>
+<ul class="sectlevel2">
+<li><a href="#supported-interfaces-for-read-and-write-access">4.1. Supported Interfaces for Read and Write Access</a></li>
+<li><a href="#supported-interfaces-for-read-access">4.2. Supported Interfaces for Read Access</a></li>
+<li><a href="#unsupported-interfaces">4.3. Unsupported Interfaces</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="introduction">1. Introduction to oVirt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>oVirt is an enterprise-grade virtualization platform built on Enterprise Linux. Virtualization allows users to easily provision new virtual servers and workstations, and provides more efficient use of physical server resources. With oVirt, you can manage your entire virtual infrastructure - including hosts, virtual machines, networks, storage, and users - from a centralized graphical user interface or REST API.</p>
+</div>
+<table id="RHV_key_components_RHV_intro" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. oVirt Key Components</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Engine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A service that provides a graphical user interface and a REST API to manage the resources in the environment. The Engine is installed on a physical or virtual machine running Enterprise Linux.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hosts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Linux hosts (Enterprise Linux hosts) and oVirt Nodes (image-based hypervisors) are the two supported types of host. Hosts use Kernel-based Virtual Machine (KVM) technology and provide resources used to run virtual machines.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared Storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A storage service is used to store the data associated with virtual machines.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Warehouse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A service that collects configuration information and statistical data from the Engine.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For detailed technical information about oVirt, see the <a href="https://ovirt.org/documentation/technical_reference/index#"><em>Technical Reference</em></a>.</p>
+</div>
+<div class="sect2">
+<h3 id="RHV_Architecture">1.1. oVirt Architecture</h3>
+<div class="paragraph">
+<p>oVirt can be deployed as a self-hosted engine, or as a standalone Engine. A self-hosted engine is the recommended deployment option.</p>
+</div>
+<div class="sect3">
+<h4 id="Self-hosted_Engine_Architecture_RHV_intro">1.1.1. Self-Hosted Engine Architecture</h4>
+<div class="paragraph">
+<p>The oVirt Engine runs as a virtual machine on self-hosted engine nodes (specialized hosts) in the same environment it manages. A self-hosted engine environment requires one less physical server, but requires more administrative overhead to deploy and manage. The Engine is highly available without external HA management.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup of a self-hosted engine environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One oVirt Engine virtual machine that is hosted on the self-hosted engine nodes. The Engine Appliance is used to automate the installation of a Enterprise Linux 8 virtual machine, and the Engine on that virtual machine.</p>
+</li>
+<li>
+<p>A minimum of two self-hosted engine nodes for virtual machine high availability. You can use Enterprise Linux hosts or oVirt Nodes (oVirt Node). VDSM (the host agent) runs on all hosts to facilitate communication with the oVirt Engine. The HA services run on all self-hosted engine nodes to manage the high availability of the Engine virtual machine.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine oVirt Architecture">
+</div>
+<div class="title">Figure 1. Self-Hosted Engine oVirt Architecture</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Standalone_Manager_Architecture_RHV_intro">1.1.2. Standalone Engine Architecture</h4>
+<div class="paragraph">
+<p>The oVirt Engine runs on a physical server, or a virtual machine hosted in a separate virtualization environment. A standalone Engine is easier to deploy and manage, but requires an additional physical server. The Engine is only highly available when managed externally with a product such as Red Hat&#8217;s High Availability Add-On.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup for a standalone Engine environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One oVirt Engine machine. The Engine is typically deployed on a physical server. However, it can also be deployed on a virtual machine, as long as that virtual machine is hosted in a separate environment. The Engine must run on Enterprise Linux 8.</p>
+</li>
+<li>
+<p>A minimum of two hosts for virtual machine high availability. You can use Enterprise Linux hosts or oVirt Nodes (oVirt Node). VDSM (the host agent) runs on all hosts to facilitate communication with the oVirt Engine.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Engine oVirt Architecture">
+</div>
+<div class="title">Figure 2. Standalone Engine oVirt Architecture</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="RHV_terminology">1.2. oVirt Terminology</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cluster</strong> - A cluster is a set of physical hosts that are treated as a resource pool for virtual machines. Hosts in a cluster share the same network infrastructure and storage. They form a migration domain within which virtual machines can be moved from host to host.</p>
+</li>
+<li>
+<p><strong>Data Center</strong> - A data center is the highest level container for all physical and logical resources within a managed virtual environment. It is a collection of clusters, virtual machines, storage domains, and networks.</p>
+</li>
+<li>
+<p><strong>Events</strong> - Alerts, warnings, and other notices about activities help the administrator to monitor the performance and status of resources.</p>
+</li>
+<li>
+<p><strong>HA Services</strong> - The HA services include the <code>ovirt-ha-agent</code> service and the <code>ovirt-ha-broker</code> service. The HA services run on self-hosted engine nodes and manage the high availability of the Engine virtual machine.</p>
+</li>
+<li>
+<p><strong>High Availability</strong> - High availability means that a virtual machine is automatically restarted if its process is interrupted, either on its original host or another host in the cluster. Highly available environments involve a small amount of downtime, but have a much lower cost than fault tolerance, which maintains two copies of each resource so that one can replace the other immediately in the event of a failure.</p>
+</li>
+<li>
+<p><strong>Host</strong> - A host, or hypervisor, is a physical server that runs one or more virtual machines. Hosts are grouped into clusters. Virtual machines can be migrated from one host to another within a cluster.</p>
+</li>
+<li>
+<p><strong>Host Storage Manager (HSM)</strong> - Any non-SPM host in the data center that can be used for data operations, such as moving a disk between storage domains. This prevents a bottleneck at the SPM host, which should be used for shorter metadata operations.</p>
+</li>
+<li>
+<p><strong>Logical Network</strong> - A logical network is a logical representation of a physical network. Logical networks group network traffic and communication between the Engine, hosts, storage, and virtual machines.</p>
+</li>
+<li>
+<p><strong>Remote Viewer</strong> - A graphical interface to connect to virtual machines over a network connection.</p>
+</li>
+<li>
+<p><strong>Self-Hosted Engine Node</strong> - A self-hosted engine node is a host that has self-hosted engine packages installed so that it can host the Engine virtual machine. Regular hosts can also be attached to a self-hosted engine environment, but cannot host the Engine virtual machine.</p>
+</li>
+<li>
+<p><strong>Snapshot</strong> - A snapshot is a view of a virtual machine&#8217;s operating system and all its applications at a point in time. It can be used to save the settings of a virtual machine before an upgrade or before installing new applications. In case of problems, a snapshot can be used to restore the virtual machine to its original state.</p>
+</li>
+<li>
+<p><strong>Storage Domain</strong> - A storage domain is a logical entity that contains a standalone image repository. Each storage domain is used to store virtual disks or ISO images, and for the import and export of virtual machine images.</p>
+</li>
+<li>
+<p><strong>Storage Pool Manager (SPM)</strong> - The Storage Pool Manager (SPM) is a role assigned to one host in a data center. The SPM host has sole authority to make all metadata changes for the data center, such as the creation and removal of virtual disks.</p>
+</li>
+<li>
+<p><strong>Template</strong> - A template is a model virtual machine with predefined settings. A virtual machine that is based on a particular template acquires the settings of the template. Using templates is the quickest way of creating a large number of virtual machines in a single step.</p>
+</li>
+<li>
+<p><strong>VDSM</strong> - The host agent service running on the hosts, which communicates with the oVirt Engine. The service listens on TCP port 54321.</p>
+</li>
+<li>
+<p><strong>Virtual Machine</strong> - A virtual machine is a virtual workstation or virtual server containing an operating system and a set of applications. Multiple identical virtual machines can be created in a <strong>Pool</strong>. Virtual machines are created, managed, or deleted by power users and accessed by users.</p>
+</li>
+<li>
+<p><strong>Virtual Machine Pool</strong> - A virtual machine pool is a group of identical virtual machines that are available on demand by each group member. Virtual machine pools can be set up for different purposes. For example, one pool can be for the Marketing department, another for Research and Development, and so on.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="RHV-components">2. oVirt Components</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="ovirt-engine">2.1. oVirt Engine</h3>
+<div class="paragraph">
+<p>The oVirt Engine provides a graphical user interface and a RESTful API to manage the resources of the oVirt environment. In a standalone Engine environment, the Engine is installed on a Enterprise Linux 8 physical machine, or a virtual machine hosted in a separate environment. In a self-hosted engine environment, the Engine is installed as a virtual machine hosted on self-hosted engine nodes in the same environment it manages.</p>
+</div>
+<div class="paragraph">
+<p>Native high availability for the Engine is only available in a self-hosted engine environment. At least two self-hosted engine nodes are required for high availability.</p>
+</div>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#"><em>Administration Guide</em></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="hosts">2.2. Hosts</h3>
+<div class="paragraph">
+<p>Hosts, also known as hypervisors, are the physical servers on which virtual machines run. Full virtualization is provided by using a loadable Linux kernel module called Kernel-based Virtual Machine (KVM). KVM can concurrently host multiple virtual machines running either Windows or Linux operating systems. Virtual machines run on the host machine and are managed remotely by the oVirt Engine.</p>
+</div>
+<div class="paragraph">
+<p>oVirt supports two types of host: oVirt Node and Enterprise Linux. You can use either or both in your oVirt environment, depending on your requirements.</p>
+</div>
+<div class="paragraph">
+<p>You should install at least two hosts and attach them to the oVirt environment. If you attach only one host, you cannot access features such as migration and high availability.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>oVirt Node (oVirt Node)</strong></dt>
+<dd>
+<p>oVirt Node is a minimal operating system based on Enterprise Linux, built for easy management, easy maintenance, and simple deployment. It is distributed as an ISO file from the Customer Portal and contains only the packages required for the machine to act as a host.</p>
+</dd>
+<dt class="hdlist1"><strong>Enterprise Linux</strong></dt>
+<dd>
+<p>Enterprise Linux servers with the appropriate subscriptions attached can be used as hosts. These hosts are more customizable than oVirt Node.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#chap-Hosts">Hosts</a> in the <em>Administration Guide</em>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="storage">2.3. Storage</h3>
+<div class="paragraph">
+<p>Setting up storage and attaching it to your oVirt environment is a prerequisite before you can start creating end-user virtual machines. oVirt has three types of storage domains; however, only the data domain is now fully supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The data domain contains all the data associated with virtual machines. The data domain supports all storage types that are supported for use with oVirt. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#storage-types">Storage Types</a> in the <em>Planning and Prerequisites Guide</em>. For information on uploading to a data domain, see <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p>The ISO domain is a deprecated storage domain type that was used to store ISO files for installing a virtual machine operating system or additional applications, such as the Windows guest agents and drivers. Virtual machine images can now be uploaded to data domains instead. For information on uploading to an ISO domain, see <a href="https://ovirt.org/documentation/administration_guide/index#sect-The_ISO_Uploader_Tool">The ISO Uploader Tool</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p>The export domain is a deprecated storage domain type that was used as a temporary storage repository for moving images between data centers and oVirt environments. This is now done by importing data storage domains.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The ISO and export domains only support file-based storage types (NFS, POSIX, or GlusterFS). The ISO domain supports local storage when used in a local storage data center.</p>
+</div>
+<div class="paragraph">
+<p>See:  <a href="https://ovirt.org/documentation/administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-warehouse">2.4. Data Warehouse</h3>
+<div class="paragraph">
+<p>The oVirt Engine includes a data warehouse that collects monitoring data about hosts, virtual machines, and storage. Data Warehouse, which includes a database and a service, must be installed and configured along with the Engine setup, either on the same machine or on a separate server.</p>
+</div>
+<div class="paragraph">
+<p>The oVirt installation creates two databases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Engine database (<code>engine</code>) is the primary data store used by the oVirt Engine. Information about the virtualization environment like its state, configuration, and performance are stored in this database.</p>
+</li>
+<li>
+<p>The Data Warehouse database (<code>ovirt_engine_history</code>) contains configuration information and statistical data which is collated over time from the Engine database. The configuration data in the Engine database is examined every minute, and changes are replicated to the Data Warehouse database. Tracking the changes to the database provides information on the objects in the database. This enables you to analyze and enhance the performance of your oVirt environment and resolve difficulties.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To calculate an estimate of the space and resources the <code>ovirt_engine_history</code> database will use, use the <a href="https://access.redhat.com/labs/rhevmhdsc/">RHV Engine History Database Size Calculator</a> tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.</p>
+</div>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/data_warehouse_guide/index#"><em>Data Warehouse Guide</em></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="networking-in-ovirt">2.5. Networking in oVirt</h3>
+<div class="paragraph">
+<p>Operations such as storage, host management, user connections, and virtual machine connectivity all rely on a well-planned and well-configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a oVirt environment. Planning for your projected networking requirements and implementing your network accordingly is much simpler than discovering your networking requirements through use and altering your network configuration retroactively.</p>
+</div>
+<div class="paragraph">
+<p>oVirt separates network traffic by defining logical networks. Logical networks define the path that a selected network traffic type must take through the network. They are created to isolate network traffic by functionality or to virtualize a physical topology.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>ovirtmgmt</strong> logical network is created by default and labeled as the <strong>Management</strong> network. The <strong>ovirtmgmt</strong> logical network is intended for management traffic between the oVirt Engine and hosts. You can define additional logical networks to segregate:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>General virtual machine traffic</p>
+</li>
+<li>
+<p>Storage-related traffic (such as NFS or iSCSI)</p>
+</li>
+<li>
+<p>Virtual machine migration traffic</p>
+</li>
+<li>
+<p>Virtual machine display traffic</p>
+</li>
+<li>
+<p>Gluster storage traffic</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#chap-Logical_Networks">Logical Networks</a> in the <em>Administration Guide</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation">3. Installing oVirt</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="RHV_installation-overview">3.1. oVirt Installation Overview</h3>
+<div class="paragraph">
+<p>The following diagram outlines the setup procedure for a standalone Engine deployment and a self-hosted engine deployment.</p>
+</div>
+<div id="img-installation_overview" class="imageblock">
+<div class="content">
+<img src="images/RHEV_SHE_454569_0717_JCS_deployment_02.png" alt="Setup Overview of oVirt">
+</div>
+<div class="title">Figure 3. Setup Overview of oVirt</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="RHV_Installation_Options_RHV_intro">3.2. oVirt Installation Options</h3>
+<div class="sect3">
+<h4 id="SHE_install_options">3.2.1. Self-hosted engine (recommended)</h4>
+<div class="paragraph">
+<p>You can install oVirt as a self-hosted engine using the command line.</p>
+</div>
+<div class="paragraph">
+<p>Because the Engine installation is automated, the Engine database (<code>engine</code>) and Data Warehouse service and database (<code>ovirt-engine-history</code>) can only be installed locally. If you want to host any databases or services on remote machines, you must migrate them after the installation is complete. Instructions for this are included in both of the following guides.</p>
+</div>
+<div class="paragraph">
+<p>To install a self-hosted engine using the command line, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#"><em>Installing oVirt as a self-hosted engine using the command line</em></a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="SM_install_options">3.2.2. Standalone Engine (manual)</h4>
+<div class="paragraph">
+<p>You can only install a standalone Engine using the command line.</p>
+</div>
+<div class="paragraph">
+<p>During installation, you can specify whether to install the Engine database (<code>engine</code>) and Data Warehouse service and database (<code>ovirt-engine-history</code>) locally or remotely. You do not have to choose the same option for both; one database can be hosted on a remote machine, while the other is hosted on the Engine machine.</p>
+</div>
+<div class="paragraph">
+<p>Local databases can be manually configured, or automatically configured by the installation script. A remote Engine database must be manually configured. A remote Data Warehouse database can be configured automatically only if the Data Warehouse service is installed on the same machine (if not, the database must be configured manually).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To install a standalone Engine with local databases, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#"><em>Installing oVirt as a standalone Engine with local databases</em></a>. This guide assumes that all databases and services will be installed on the same machine as the Engine.</p>
+</li>
+<li>
+<p>To install a standalone Engine with remote databases, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/index#"><em>Installing oVirt as a standalone Engine with remote databases</em></a>. This guide assumes that all databases and services will be installed on one additional machine separate from the Engine.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Mixing local and remote databases</div>
+<p>Installing one database on the Engine machine and the other database remotely, and the various combinations thereof, is not specifically documented. For example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Engine and Engine database are installed on the <em>Manager machine</em>, and the Data Warehouse service and database are installed on <em>Server 1</em>. In this case, you must configure the Engine locally, then install Data Warehouse separately.</p>
+</li>
+<li>
+<p>The Engine and the Data Warehouse service are installed on the <em>Manager machine</em>, and the Engine database and Data Warehouse database are installed on <em>Server 1</em>. In this case, you must manually configure the Engine and Data Warehouse databases, then configure the Engine and the Data Warehouse service.</p>
+</li>
+<li>
+<p>The Engine, Engine database, and Data Warehouse database are installed on the <em>Manager machine</em>, and the Data Warehouse service is installed on <em>Server 1</em>. In this case, you must manually configure the Data Warehouse database, then configure the Engine, then install the Data Warehouse service.</p>
+</li>
+<li>
+<p>The Engine and the Data Warehouse service are installed on the <em>Manager machine</em>, the Engine database is installed on <em>Server 1</em>, and the Data Warehouse database is installed on <em>Server 2</em>. In this case, you must manually configure the Engine and Data Warehouse databases, then configure the Engine and the Data Warehouse service.</p>
+</li>
+<li>
+<p>The Engine is installed on the <em>Manager machine</em>, the Engine database is installed on <em>Server 1</em>, and the Data Warehouse service and database are installed on <em>Server 2</em>. In this case, you must manually configure the Engine database, then configure the Engine, then install Data Warehouse.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="accessing-rhv">4. Accessing oVirt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>oVirt exposes a number of interfaces for interacting with the components of the virtualization environment. Many of these interfaces are fully supported.</p>
+</div>
+<div class="sect2">
+<h3 id="supported-interfaces-for-read-and-write-access">4.1. Supported Interfaces for Read and Write Access</h3>
+<div class="paragraph">
+<p>Direct interaction with these interfaces is supported and encouraged for both read and write access:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Administration Portal</strong></dt>
+<dd>
+<p>The Administration Portal is a graphical user interface provided by the oVirt Engine. It can be used to manage all the administrative resources in the environment and can be accessed by any supported web browsers.</p>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#"><em>Administration Guide</em></a></p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>VM Portal</strong></dt>
+<dd>
+<p>The VM Portal is a graphical user interface provided by the oVirt Engine. It has limited permissions for managing virtual machine resources and is targeted at end users.</p>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/introduction_to_the_vm_portal/index#"><em>Introduction to the VM Portal</em></a></p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Cockpit</strong></dt>
+<dd>
+<p>In oVirt, the Cockpit web interface can be used to perform administrative tasks on a host. It is available by default on oVirt Nodes, and can be installed on Enterprise Linux hosts.</p>
+</dd>
+<dt class="hdlist1"><strong>REST API</strong></dt>
+<dd>
+<p>The oVirt REST API provides a software interface for querying and modifying the oVirt environment. The REST API can be used by any programming language that supports HTTP actions.</p>
+<div class="paragraph">
+<p>See: <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index"><em>REST API Guide</em></a></p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Software Development Kit (SDK)</strong></dt>
+<dd>
+<p>The Python, Java, and Ruby SDKs are fully supported interfaces for interacting with the oVirt Engine.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Ruby SDK is deprecated. Support for Ruby SDK will be removed in a later release.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ovirt.org/documentation/python_sdk_guide/index#"><em>Python SDK Guide</em></a></p>
+</li>
+<li>
+<p><a href="https://ovirt.org/documentation/java_sdk_guide/index#"><em>Java SDK Guide</em></a></p>
+</li>
+<li>
+<p><a href="https://ovirt.org/documentation/ruby_sdk_guide/index#"><em>Ruby SDK Guide</em></a></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Ansible</strong></dt>
+<dd>
+<p>Ansible provides modules to automate post-installation tasks on oVirt.</p>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#chap-Automating_RHV_Configuration_using_Ansible">Automating Configuration Tasks using Ansible</a> in the <em>Administration Guide</em>.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Self-Hosted Engine Command Line Utility</strong></dt>
+<dd>
+<p>The <code>hosted-engine</code> command is used to perform administrative tasks on the Engine virtual machine in self-hosted engine environments.</p>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#administering_the_manager_virtual_machine">Administering the Engine Virtual Machine</a> in the <em>Administration Guide</em>.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>VDSM Hooks</strong></dt>
+<dd>
+<p>VDSM hooks trigger modifications to virtual machines, based on custom properties specified in the Administration Portal.</p>
+<div class="paragraph">
+<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#appe-VDSM_and_Hooks">VDSM and Hooks</a> in the <em>Administration Guide</em>.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="supported-interfaces-for-read-access">4.2. Supported Interfaces for Read Access</h3>
+<div class="paragraph">
+<p>Direct interaction with these interfaces is supported and encouraged only for read access.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>oVirt Engine History Database</strong></dt>
+<dd>
+<p>Read access to the oVirt Engine history (<code>ovirt_engine_history</code>) database using the database views specified in the <em>Data Warehouse Guide</em> is supported. Write access is <strong>not</strong> supported.</p>
+</dd>
+<dt class="hdlist1"><strong>Libvirt on Hosts</strong></dt>
+<dd>
+<p>Read access to <strong>libvirt</strong> using the <code>virsh -r</code> command is a supported method of interacting with virtualization hosts. Write access is <strong>not</strong> supported.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unsupported-interfaces">4.3. Unsupported Interfaces</h3>
+<div class="paragraph">
+<p>Direct interaction with these interfaces is <strong>not</strong> supported
+:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>The <code>vdsm-client</code> Command</strong></dt>
+<dd>
+<p>Use of the <code>vdsm-client</code> command to interact with virtualization hosts is <strong>not</strong> supported
+.</p>
+</dd>
+<dt class="hdlist1"><strong>oVirt Engine Database</strong></dt>
+<dd>
+<p>Direct access to, and manipulation of, the oVirt Engine (<code>engine</code>) database is <strong>not</strong> supported
+.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2740/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2740/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2740/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2740/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Product_Guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Product_Guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

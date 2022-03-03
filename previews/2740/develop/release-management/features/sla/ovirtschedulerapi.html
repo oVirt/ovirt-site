@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>oVirtSchedulerAPI | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="oVirtSchedulerAPI" />
+<meta name="author" content="Doron Fediuck" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2740/develop/release-management/features/sla/ovirtschedulerapi.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2740/develop/release-management/features/sla/ovirtschedulerapi.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirtSchedulerAPI" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Doron Fediuck" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Doron Fediuck"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"},"name":"Doron Fediuck"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirtSchedulerAPI","url":"https://ovirt.github.io/ovirt-site/previews/2740/develop/release-management/features/sla/ovirtschedulerapi.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2740/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2740/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2740/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2740/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2740/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2740/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2740/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2740/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2740/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2740/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2740/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2740/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2740/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2740/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2740/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2740/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2740/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2740/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2740/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2740/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2740/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2740/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2740/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2740/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2740//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Gilad Chaplik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Laszlo Hornyak</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/700aba24359b09eed055b075338dcaec?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/700aba24359b09eed055b075338dcaec?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">noam slomianko</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2740/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="ovirt-scheduler-api">oVirt Scheduler API</h1>
+
+<blockquote>
+  <p>IMPORTANT: The oVirt Scheduler Proxy project has been dropped from oVirt starting with oVirt 4.5 release.
+The oVirt Scheduler Proxy project development has been discontinued.</p>
+
+  <p>See also:</p>
+  <ul>
+    <li>https://bugzilla.redhat.com/show_bug.cgi?id=2028192</li>
+  </ul>
+
+  <p>Keeping the following section only for reference.</p>
+</blockquote>
+
+<h2 id="summary">Summary</h2>
+
+<p>High level design can be found in the following page: <a href="/ovirt-site/previews/2740/develop/release-management/features/sla/ovirtscheduler.html">Features/oVirtScheduler</a></p>
+
+<h2 id="owner">Owner</h2>
+
+<p>Name: Gilad Chaplik (gchaplik)</p>
+
+<h2 id="current-status">Current status</h2>
+
+<p>Status: design</p>
+
+<p>Last updated: ,</p>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<h3 id="ovirt-scheduler-concepts">oVirt Scheduler Concepts</h3>
+
+<ul>
+  <li>Supports filters for hard constraints; filters out hosts according to a specific logic, then chained to allow complete filtering. This allows clearer code and robustness. Existing logic (pin-to-host, memory limitations, etc.) will be translated into filters.</li>
+  <li>Supports Cost Functions for soft constraints; scores filtered hosts according to a specific logic. Cost Functions also allows chaining for the same reasons.</li>
+  <li>Load balancing policies related to filters and cost functions. Balancing logic allows auto selection of a VM for migration (from over utilized host to non-over utilized hosts). Existing load balancing policies will be translated to the new format.</li>
+  <li>Additional policies, filters and cost functions may be added by users.</li>
+  <li>Supports Python (we may be able to allow others as well).</li>
+</ul>
+
+<h2 id="api">API</h2>
+
+<p>Note on pending resources: whatever usage data is passed over to the engine, it must pass over the used and the pending resources together.</p>
+
+<h3 id="schedule">Schedule</h3>
+
+<p>Called by Engine’s commands: Run VM and Migrate VM- replaces current VdsSelector logic.</p>
+
+<h4 id="filter">Filter</h4>
+
+<p>Signature:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     Host[] filter(Host[], properties)
+</code></pre></div></div>
+
+<ul>
+  <li>Input: set of hosts, properties.</li>
+  <li>Output: set of Hosts (filtered according to filter logic).</li>
+  <li>Filters out all hosts that don’t meet the filter requirements (hard constraint), similar to validations.</li>
+  <li>Filters support custom properties.</li>
+  <li>Filters are chained; by that the hosts list may decrease from one filter to another.</li>
+</ul>
+
+<p>Code sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     filter(hosts[], properties) {
+         vm = properties['vm']
+         minimal_ram = vm['mem_size']
+         filter(key=lambda host: host['available_mem'] &gt; minimal_ram, hosts)
+         return hosts
+     }
+</code></pre></div></div>
+
+<p>Explanation: memory filter, the filter will exclude hosts that don’t have enough RAM.</p>
+
+<h4 id="cost-function">Cost Function</h4>
+
+<p>Signature:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     &lt;Host, Integer&gt;[] score(Host[], properties)
+</code></pre></div></div>
+
+<ul>
+  <li>Input: set of hosts, properties.</li>
+  <li>Output: set of pairs, pair of host and its score → logically orders the Hosts.</li>
+  <li>The cost functions score each host according to its logic; different hosts may have the same score, and the same host may have different scores in different iterations.</li>
+  <li>Functions can be prioritized using Factors; default factor is 1.</li>
+  <li>Ultimately, using the filtered hosts, cost functions and factors, we will construct a cost table (see figure), which will order the hosts (we will try to run the VM on the first host, then second and so-forth).</li>
+</ul>
+
+<p>Code sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     score(hosts[], properties) {
+         costs = []
+         for host in hosts:
+             costs += (host, host[usage_mem_percent])
+         sorted(costs, key=lambda pair: pair[1])
+         return costs #list of pairs
+     }
+</code></pre></div></div>
+
+<p>Explanation: memory cost function, will score hosts according to available memory, this will cause memory even distribution among the hosts. <img src="/ovirt-site/previews/2740/images/wiki/Hosts.png" alt="" /></p>
+
+<p>Flow:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     schedule(filters, cost_functions, factors, hosts[], properties) {
+         # go over all filters
+         for (filter in filters)
+             hosts = filter(hosts, properties)
+         # init cost table
+         for (host in hosts)
+       map += &lt;host, 0&gt;
+         # go over all cost functions
+         for (cost_function in cost_functions)
+             result = cost_function(hosts, properties)
+             # aggregate factored scores for all hosts               
+             for (host in hosts)
+           map += &lt;host, map[host] + result[host] * factors[cost_function]&gt;
+     }
+</code></pre></div></div>
+
+<h3 id="balance">Balance</h3>
+
+<p>Called periodically. Each cluster may use a single balancing logic at any given time. oVirt’s load balance supports built in VM balancing.</p>
+
+<p>Signature</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     &lt;VM, Host[]&gt; balance(Host[], properties)
+</code></pre></div></div>
+
+<ul>
+  <li>Input: Hosts, properties (initial host list, custom properties map).</li>
+  <li>Output: VM, hosts (a VM to migrate, filtered hosts (non-over utilized hosts)).</li>
+  <li>Perform single balancing policy logic- replaces a manual selection of scheduled VM.</li>
+  <li>Select a VM to migrate based on balance logic, later the engine will try to migrate on one of the hosts returned by balance.</li>
+  <li>For the returned VM, a migration command will be invoked, which ultimately triggers a schedule call (see schedule), the initial schedule hosts list will be the balance non-over utilized hosts list (to prevent redundant migration to other over utilized hosts).</li>
+  <li>A user may provide a filter and/or a cost function. We strongly advice on making sure the selected balancing policy is aligned with the filters and cost functions lists. A cost function is a good way to correlate the logic. A filter may be used if filtering out over-utilized hosts is needed in scheduling process.</li>
+</ul>
+
+<p>For example: for power saving policy, a CPU load cost-function is needed.</p>
+
+<ul>
+  <li>Performance/implementation open-issue: split balance into 2 methods:</li>
+</ul>
+
+<p>Host BalanceHosts(Host[], properties)</p>
+
+<p>&lt;VM, Host[]&gt; BalanceVM(VM[], properties)</p>
+
+<p>Currently the user is responsible to fetch the relevant VMs.</p>
+
+<p>Code sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     balance(hosts[], properties) {
+         max_host = max(hosts, key=lambda host: host['usage_mem_percent']))
+         vms_on_host = filter(key=lambda vm: vm['run_on_host'] = max_host['id'], vms)
+         vm = vms_on_host[random(vms_on_host.size)]
+         non_utilized_hosts =filter(key=lambda host: host['usage_mem_percent'] &gt; properties['mem_threshold'], hosts)
+   return &lt;vm, non_utilized_hosts&gt;
+     }
+</code></pre></div></div>
+
+<h2 id="design">Design</h2>
+
+<p>Cluster’s policy will have a set of filters, cost functions and a single balancing logic implementation. To allow easy coupling between the logic of these three, a single class will be provided.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     Class PolicyUnit
+         filter
+         cost_function
+         balance
+</code></pre></div></div>
+
+<p>In this class only a single method ought to be implemented, but when balance is implemented it is advised to implement a cost-function, since it later influences migration processes, and being aligned with overall selection policy.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     Class ClusterPolicy
+         &lt;Filter, filterSequence(first,last,no-order), customParameters&gt;[]
+         &lt;CostFunction, factor, customParameters&gt;[]
+   &lt;Balance, customParameters&gt;
+</code></pre></div></div>
+
+<p>Move current selection process into new arch: Policy Units and Cluster Policies:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Policy Unit</th>
+      <th>Filter</th>
+      <th>Cost function</th>
+      <th>Balance</th>
+      <th>Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Migration Domain</td>
+      <td>Hosts that doesn’t belong to the VM’s cluster</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Migration</td>
+      <td>Host that the VM is currently running</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Pin-to-host</td>
+      <td>Other Hosts except the pinned host</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Memory</td>
+      <td>Hosts that doesn’t have sufficient Memory to run the VM, and have swap memory</td>
+      <td>Order Hosts according to available memory</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CPU</td>
+      <td>Hosts that doesn’t meet the VM’s CPU topology</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Network Policy</td>
+      <td>Host that doesn’t have all required networks installed</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Even distribution</td>
+      <td> </td>
+      <td>Order Hosts according to CPU usage (low to high)</td>
+      <td>Even distribution</td>
+      <td>HighCpuUtilization, CpuOverCommitDurationMinutes</td>
+    </tr>
+    <tr>
+      <td>Power saving</td>
+      <td> </td>
+      <td>Order Hosts according to CPU usage (high to low)</td>
+      <td>Power saving</td>
+      <td>HighCpuUtilization , LowCpuUtilization, CpuOverCommitDurationMinutes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Current Policies:</p>
+
+<ul>
+  <li>None (all above filters, without Even Distribution and Power Saving policy units).</li>
+  <li>Power Saving (all above except Even Distribution policy unit)</li>
+  <li>Even Distribution (all above except Power Saving policy unit)</li>
+</ul>
+
+<h2 id="db-scheme">DB Scheme</h2>
+
+<h3 id="policy_unit-table">policy_unit table</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Relations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+      <td>Class/File name</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>is_internal</td>
+      <td>boolean</td>
+      <td>java = true, python = false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>has_filter</td>
+      <td>boolean</td>
+      <td>Does filter method implemented?</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>has_cost_function</td>
+      <td>boolean</td>
+      <td>Does filter method implemented?</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>has_balance</td>
+      <td>boolean</td>
+      <td>Does filter method implemented?</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>filter_parameters</td>
+      <td>string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>cost_function_parameters</td>
+      <td>string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>balance_parameters</td>
+      <td>string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="policy-table">policy table</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Relations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>is_locked</td>
+      <td>boolean</td>
+      <td>non-editable</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>is_default</td>
+      <td>boolean</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="policy-cluster-table">policy-cluster table</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Relations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policy_id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td>Policy table</td>
+    </tr>
+    <tr>
+      <td>vds_group_id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td>vds_group table</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="policy-policy-unit-table">policy-policy unit table</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Relations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policy_id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td>Policy table</td>
+    </tr>
+    <tr>
+      <td>policy_unit_id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td>Policy Unit table</td>
+    </tr>
+    <tr>
+      <td>filter_selected</td>
+      <td>boolean</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>filter_sequence</td>
+      <td>int/enum</td>
+      <td>execute filter first, last or no-order (for performance reasons)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>cost_function_selected</td>
+      <td>boolean</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>factor</td>
+      <td>int</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>balance_selected</td>
+      <td>boolean</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="policy-parameters-table">policy parameters table</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Relations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policy-cluster-id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td>policy-cluster table</td>
+    </tr>
+    <tr>
+      <td>policy-policy_unit-id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td>policy-policy unit table</td>
+    </tr>
+    <tr>
+      <td>filter_parameters</td>
+      <td>string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>cost_function_parameters</td>
+      <td>string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>balance_parameters</td>
+      <td>string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="concurrent-scheduler-invocations--and-pending-resources-memory-cpu">Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)</h2>
+
+<p>When a scheduler call is invoked there is a need to dis-allow any other scheduler requests on that cluster. The scheduler decision is based on shared resources and those resources state should be visible only to a single selection at a time. Therefore there should be a lock protecting a single scheduler invocation and waiting for shared state to be updated. There are two timeouts: one on trying to acquire the lock, and the other on time the lock is held (both are configurable). In case a filtering process ended with no hosts and there is enough pending memory, the request should try to reacquire the lock and hopefully can be rescheduled when pending resources will become available. We can later consider a priory queue to give advantage to schedule VM requests that are likely to be scheduled successfully (give VM requests with less constraints and resources, higher priority).</p>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>Action Groups:</p>
+
+<p>1) CreatePolicy(also ‘clone’ in the UI): Containing role should be attached to Cluster or higher.</p>
+
+<p>2) Edit/Delete Policy: Containing role should be attached to all Clusters or higher attached to that policy.</p>
+
+<p>2) Attach Policy to a Cluster: will be part of cluster add/new command, currently a permission for those command is sufficient.</p>
+
+<h2 id="ui">UI</h2>
+
+<p><img src="/ovirt-site/previews/2740/images/wiki/ClusterPolicyList.png" alt="" /></p>
+
+<ul>
+  <li>Policies will be configured on a system level in configure dialog, much like Roles.</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2740/images/wiki/ClusterPolicy.png" alt="" /></p>
+
+<ul>
+  <li>pencil button, is used to update the custom property of the unit, derived from plugin’s config default_value (optional)</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2740/images/wiki/Attach_cluster_policy.png" alt="" /></p>
+
+<ul>
+  <li>custom properties values are derived from policy configuration.</li>
+</ul>
+
+<h2 id="rest">REST</h2>
+
+<ul>
+  <li>methods:</li>
+</ul>
+
+<ol>
+  <li>api/schedulingpolicies; add; POST; type: SchedulingPolicy; response: SchedulingPolicy</li>
+  <li>api/schedulingpolicies; get; GET; response: SchedulingPolicies</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}; get; GET; response: SchedulingPolicy</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}: update: PUT; type: SchedulingPolicy; response: SchedulingPolicy</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/balances: add: POST; type: BaseResource; response: BaseResource</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/balances: get: GET; response: Balances</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: delete: DELETE</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: get: GET; response: Balance</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/filters: add: POST; type: BaseResource; response: BaseResource</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/filters: get: GET; response: Filters</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: delete: DELETE</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: get: GET; response: Filter</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/weights: add: POST; type: BaseResource; response: BaseResource</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/weights: get: GET; response: Weights</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: delete: DELETE</li>
+  <li>api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: get: GET; response: Weight</li>
+  <li>api/schedulingpolicyunits: get: GET; response: SchedulingPolicyUnits</li>
+  <li>api/schedulingpolicyunits/{schedulingpolicyunit:id}: delete: DELETE</li>
+  <li>api/schedulingpolicyunits/{schedulingpolicyunit:id}: get: GET; response: SchedulingPolicyUnit</li>
+</ol>
+
+<ul>
+  <li>Elements (samples):</li>
+</ul>
+
+<figure class="highlight">
+  <pre><code class="language-xml" data-lang="xml"> <span class="nt">&lt;scheduling_policy_unit</span> <span class="na">type=</span><span class="s">"load_balancing"</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicyunits/d58c8e32-44e1-418f-9222-52cd887bf9e0"</span> <span class="na">id=</span><span class="s">"d58c8e32-44e1-418f-9222-52cd887bf9e0"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;name&gt;</span>OptimalForEvenGuestDistribution<span class="nt">&lt;/name&gt;</span>
+   <span class="nt">&lt;description&gt;</span>Even VM count distribution policy<span class="nt">&lt;/description&gt;</span>
+   <span class="nt">&lt;internal&gt;</span>true<span class="nt">&lt;/internal&gt;</span>
+   <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+   <span class="nt">&lt;properties&gt;</span>
+       <span class="nt">&lt;property&gt;</span>
+           <span class="nt">&lt;name&gt;</span>HighVmCount<span class="nt">&lt;/name&gt;</span>
+           <span class="nt">&lt;value&gt;</span>^([0-9]|[1-9][0-9]+)$<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/property&gt;</span>
+       <span class="nt">&lt;property&gt;</span>
+           <span class="nt">&lt;name&gt;</span>MigrationThreshold<span class="nt">&lt;/name&gt;</span>
+           <span class="nt">&lt;value&gt;</span>^([2-9]|[1-9][0-9]+)$<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/property&gt;</span>
+       <span class="nt">&lt;property&gt;</span>
+           <span class="nt">&lt;name&gt;</span>SpmVmGrace<span class="nt">&lt;/name&gt;</span>
+           <span class="nt">&lt;value&gt;</span>^([0-9]|[1-9][0-9]+)$<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/property&gt;</span>
+   <span class="nt">&lt;/properties&gt;</span>
+ <span class="nt">&lt;/scheduling_policy_unit&gt;</span>
+ <span class="nt">&lt;scheduling_policy</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579"</span> <span class="na">id=</span><span class="s">"8d5d7bec-68de-4a67-b53e-0ac54686d579"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;name&gt;</span>vm_evenly_distributed<span class="nt">&lt;/name&gt;</span>
+   <span class="nt">&lt;description/&gt;</span>
+   <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/filters"</span> <span class="na">rel=</span><span class="s">"filters"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/weights"</span> <span class="na">rel=</span><span class="s">"weights"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/balances"</span> <span class="na">rel=</span><span class="s">"balances"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/clusters"</span> <span class="na">rel=</span><span class="s">"clusters"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;locked&gt;</span>true<span class="nt">&lt;/locked&gt;</span>
+   <span class="nt">&lt;default_policy&gt;</span>false<span class="nt">&lt;/default_policy&gt;</span>
+   <span class="nt">&lt;properties&gt;</span>
+       <span class="nt">&lt;property&gt;</span>
+           <span class="nt">&lt;name&gt;</span>HighVmCount<span class="nt">&lt;/name&gt;</span>
+           <span class="nt">&lt;value&gt;</span>10<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/property&gt;</span>
+       <span class="nt">&lt;property&gt;</span>
+           <span class="nt">&lt;name&gt;</span>MigrationThreshold<span class="nt">&lt;/name&gt;</span>
+           <span class="nt">&lt;value&gt;</span>5<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/property&gt;</span>
+       <span class="nt">&lt;property&gt;</span>
+           <span class="nt">&lt;name&gt;</span>SpmVmGrace<span class="nt">&lt;/name&gt;</span>
+           <span class="nt">&lt;value&gt;</span>5<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/property&gt;</span>
+   <span class="nt">&lt;/properties&gt;</span>
+ <span class="nt">&lt;/scheduling_policy&gt;</span>
+ <span class="nt">&lt;filters&gt;</span>
+   <span class="nt">&lt;filter</span> <span class="na">id=</span><span class="s">"84e6ddee-ab0d-42dd-82f0-c297779db566"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;scheduling_policy_unit</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicyunits/84e6ddee-ab0d-42dd-82f0-c297779db566"</span> <span class="na">id=</span><span class="s">"84e6ddee-ab0d-42dd-82f0-c297779db566"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;position&gt;</span>0<span class="nt">&lt;/position&gt;</span>
+   <span class="nt">&lt;/filter&gt;</span>
+         ...
+ <span class="nt">&lt;/filters&gt;</span>
+ <span class="nt">&lt;cluster</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/clusters/00000001-0001-0001-0001-000000000086"</span> <span class="na">id=</span><span class="s">"00000001-0001-0001-0001-000000000086"</span><span class="nt">&gt;</span>
+       ...
+   <span class="nt">&lt;scheduling_policy</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/schedulingpolicies/20d25257-b4bd-4589-92a6-c4c5c5d3fd1a"</span> <span class="na">id=</span><span class="s">"20d25257-b4bd-4589-92a6-c4c5c5d3fd1a"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;name&gt;</span>evenly_distributed<span class="nt">&lt;/name&gt;</span>
+       <span class="nt">&lt;policy&gt;</span>evenly_distributed<span class="nt">&lt;/policy&gt;</span>
+       <span class="nt">&lt;thresholds</span> <span class="na">high=</span><span class="s">"80"</span> <span class="na">duration=</span><span class="s">"120"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;properties&gt;</span>
+           <span class="nt">&lt;property&gt;</span>
+               <span class="nt">&lt;name&gt;</span>CpuOverCommitDurationMinutes<span class="nt">&lt;/name&gt;</span>
+               <span class="nt">&lt;value&gt;</span>2<span class="nt">&lt;/value&gt;</span>
+           <span class="nt">&lt;/property&gt;</span>
+           <span class="nt">&lt;property&gt;</span>
+               <span class="nt">&lt;name&gt;</span>HighUtilization<span class="nt">&lt;/name&gt;</span>
+               <span class="nt">&lt;value&gt;</span>80<span class="nt">&lt;/value&gt;</span>
+           <span class="nt">&lt;/property&gt;</span>
+       <span class="nt">&lt;/properties&gt;</span>
+   <span class="nt">&lt;/scheduling_policy&gt;</span>
+       ...
+ <span class="nt">&lt;/cluster&gt;</span></code></pre>
+</figure>
+
+<h2 id="external-scheduler">External Scheduler</h2>
+
+<p>See <a href="/ovirt-site/previews/2740/develop/release-management/features/sla/external-scheduling-proxy.html">External Scheduler</a></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2740/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2740/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2740/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2740/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/ovirtschedulerapi.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/ovirtschedulerapi.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Release process | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Release process" />
+<meta name="author" content="Brian Proffitt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/process/release-process.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/process/release-process.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Release process" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Brian Proffitt" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Brian Proffitt"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2739/images/logo.svg"},"name":"Brian Proffitt"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Release process","url":"https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/process/release-process.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2739/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2739/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2739/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2739/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2739/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2739/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2739/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2739/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2739/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2739/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2739/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2739/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2739/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2739/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2739/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2739/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2739/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2739/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2739/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2739/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2739/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2739/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2739/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2739/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2739/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2739/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2739/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2739/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2739/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2739/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2739/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2739/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2739/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2739/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2739/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2739//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2739//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2739/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2739/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2739/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2739/develop/release-management/process/">
+              <span property="name">Process</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bdc8ca08102747efb50537d34ab6d73c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bdc8ca08102747efb50537d34ab6d73c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Brian Proffitt</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dave Neary</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9e2a26c1b7751bdb65047a7ea281b23b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9e2a26c1b7751bdb65047a7ea281b23b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ofer Schreiber</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Karsten 'quaid' Wade</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="release-process">Release process</h1>
+
+<h2 id="planning-phase">Planning Phase</h2>
+
+<p>This phase deciding if a feature is ready to be released.</p>
+
+<ul>
+  <li>After a new 4.<em>y</em>.0 release, a new 4.<em>y+1.0</em> release is tentatively scheduled after six months.</li>
+  <li>A new release management page is created (see <a href="../releases/4.0/release-management.html">oVirt 4.0 Release Management</a>)</li>
+  <li>Must have a clear schedule, like <a href="http://fedoraproject.org/wiki/Releases/24/Schedule">1</a></li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>A new target milestone is created (e.g. ovirt-4.1.0)</li>
+  <li>A discussion is started on devel and users mailing list gathering ideas for next release features</li>
+  <li>Teams prepare a list of accepted features collecting / creating bug tracker, devel owner, qa owner, and feature page for each of them.
+    <ul>
+      <li>The QA owner should build a test suite that effectively covers what’s indicated in the Features page.</li>
+      <li>The feature must contain enough documentation to be considered “a contract” between the feature owner and the feature tester / user.</li>
+    </ul>
+  </li>
+  <li>Several presentations will be scheduled by the teams presenting the accepted features</li>
+  <li>An alpha release is tentatively scheduled four months before GA</li>
+  <li>Feature freeze is tentatively scheduled three months before GA</li>
+  <li>A beta release is tentatively scheduled two months before GA, git tree is branched for stabilization</li>
+  <li>A release candidate is tentatively scheduled one month before GA</li>
+  <li>A string freeze is tentatively scheduled two weeks before RC</li>
+  <li>Test days are scheduled after every milestone release</li>
+</ul>
+
+<h2 id="feature-submission">Feature Submission</h2>
+
+<ul>
+  <li>Each feature must come with a set of test cases covering the functionality provided by the new feature.</li>
+  <li>Each feature must define a contingency plan, allowing either to disable the incomplete feature or ensuring that the feature code is isolated in a directory or package that can be easily dropped.</li>
+  <li>Those features that can’t be done with a contingency plan should live in their own branch until they’re finished and merged in the main tree just when completed.</li>
+</ul>
+
+<h2 id="feature-review---feature-submission-closed">Feature Review - Feature Submission Closed</h2>
+
+<p>Before Alpha Release, submitted features must be reviewed for inclusion in Alpha release.</p>
+
+<h3 id="ignoring-feature-submission-closure">Ignoring Feature Submission Closure</h3>
+
+<p>Introducing significant changes after Feature Submission Closure can result in your patch being reverted.</p>
+
+<p>These actions are allowed after Feature Submission Closure:</p>
+
+<ul>
+  <li>Adding code meant for automated testing of the feature</li>
+  <li>Adding bug fixes</li>
+  <li>Adding localization</li>
+  <li>Cleaning or optimizing the code without introducing new features</li>
+</ul>
+
+<p>These actions are not allowed after Feature Submission Closure:</p>
+
+<ul>
+  <li>Continuing to add new enhancements (note that supporting a new distribution is an enhancement)</li>
+  <li>Trying to cover new enhancements under bug fixes</li>
+  <li>Making changes that require other subprojects to make changes as well (API, ABI and configuration files included) if not absolutely required for fixing a bug</li>
+  <li>Make changes that require packages not yet available on supported distributions.</li>
+</ul>
+
+<h3 id="exceptions">Exceptions</h3>
+
+<p>A public vote on the exception is required.</p>
+
+<p>Exceptions should be asked for at least one week before Feature Submission Closure and voting on them should be closed by Feature Submission Closure date.</p>
+
+<p>This means that you’re not allowed to open new features, but you can complete those that can’t be completed for Feature Submission Closure if the vote allows it.</p>
+
+<h3 id="incomplete-features">Incomplete Features</h3>
+
+<p>Incomplete features will be reverted according to their contingency plan</p>
+
+<h2 id="development-phase">Development Phase</h2>
+
+<ul>
+  <li>Each subproject must list packages expected to be in the release.</li>
+  <li>All milestones releases are created by taking the latest nightly snapshot available after verifying that the build passes basic sanity test</li>
+  <li>Weekly status emails are sent starting three weeks before alpha release.</li>
+  <li>Release Manager updates the release notes pages starting from Alpha</li>
+  <li>Release Candidate will be postponed until all known blockers are fixed</li>
+  <li>Between RC and GA, release criteria are tested on the RC and if the release meets the criteria, a GA release will be built just updating the versioning code to drop master, git hash, and timestamp suffix from tarballs and rpms.</li>
+  <li>A new RC will be created and GA postponed by one week if release criteria are not met.</li>
+  <li>The whole test case suite must be verified on each release candidate.</li>
+  <li>Only patches fixing blockers bug must be allowed between RC and GA.</li>
+</ul>
+
+<h2 id="maintenance-phase">Maintenance Phase</h2>
+
+<p>Once a version is released it enters the maintenance mode. This means that the following revision releases only fix security and critical bug fixes commits are backported to the stable branch. The first release following GA may also include minor fixes for new features included with that release.</p>
+
+<h3 id="acceptance-criteria">Acceptance criteria</h3>
+
+<ul>
+  <li>The Bug is a Regression.</li>
+  <li>The Bug is a Security threat.</li>
+  <li>The Bug affects major functionality of the release.</li>
+  <li>The fix for the Bug won’t introduce a major change in the code causing potential risk to the stability of the application.</li>
+</ul>
+
+<h3 id="release-planning">Release Planning</h3>
+
+<p>Maintenance releases are tentatively scheduled once per month.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2739/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2739/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2739/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2739/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/process/release-process.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/process/release-process.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

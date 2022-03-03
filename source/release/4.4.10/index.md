@@ -11,7 +11,7 @@ page_classes: releases
 
 # oVirt 4.4.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.10.1 release as of February 03, 2022.
+The oVirt Project is pleased to announce the availability of the 4.4.10.2 release as of March 03, 2022.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -175,6 +175,14 @@ After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without br
 
  - [BZ 2013932](https://bugzilla.redhat.com/show_bug.cgi?id=2013932) **[CBT] VM backup scratch disks remains if the VM destroyed during the backup**
 
+   
+
+
+#### oVirt Release Package
+
+ - [BZ 2006682](https://bugzilla.redhat.com/show_bug.cgi?id=2006682) **subscription-manager is missing from ovirt-node image**
+
+   
 
 
 ### No Doc Update
@@ -187,8 +195,22 @@ After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without br
 
 #### oVirt Node NG Image
 
- - [BZ 2046038](https://bugzilla.redhat.com/show_bug.cgi?id=2046038) **CVE-2021-4034 polkit: Local privilege escalation in pkexec due to incorrect handling of argument vector [ovirt-4.4]**
+ - [BZ 2055098](https://bugzilla.redhat.com/show_bug.cgi?id=2055098) **CVE-2022-22942 kernel: failing usercopy allows for use-after-free exploitation [ovirt-4.4]**
 
+
+ - [BZ 2047640](https://bugzilla.redhat.com/show_bug.cgi?id=2047640) **CVE-2021-0920 kernel: Use After Free in unix_gc() which could result in a local privilege escalation [ovirt-4.4]**
+   
+
+ - [BZ 2047630](https://bugzilla.redhat.com/show_bug.cgi?id=2047630) **CVE-2021-4154 kernel: local privilege escalation by exploiting the fsconfig syscall parameter leads to container breakout  [ovirt-4.4]**
+   
+
+ - [BZ 2046005](https://bugzilla.redhat.com/show_bug.cgi?id=2046005) **CVE-2022-0330 kernel: possible privileges escalation due to missing TLB flush  [ovirt-4.4]**
+
+
+ - [BZ 2043471](https://bugzilla.redhat.com/show_bug.cgi?id=2043471) **CVE-2021-45417 aide: heap-based buffer overflow on outputs larger than B64_BUF [ovirt-4.4]**
+   
+
+ - [BZ 2046038](https://bugzilla.redhat.com/show_bug.cgi?id=2046038) **CVE-2021-4034 polkit: Local privilege escalation in pkexec due to incorrect handling of argument vector [ovirt-4.4]**
 
 
 #### oVirt Engine Data Warehouse
@@ -209,7 +231,7 @@ After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without br
 
 	@lessfoobar (Contributed to: ovirt-site)
 	Ales Musil (Contributed to: ovirt-engine, ovirt-site, vdsm)
-	Arik Hadas (Contributed to: ovirt-engine)
+	Arik Hadas (Contributed to: ovirt-engine, ovirt-site)
 	Artur Socha (Contributed to: ovirt-engine)
 	Asaf Rachmani (Contributed to: ovirt-hosted-engine-ha)
 	Avital Pinnick (Contributed to: ovirt-site)
@@ -232,14 +254,14 @@ After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without br
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
 	Nir Soffer (Contributed to: vdsm)
 	Pavel Bar (Contributed to: ovirt-engine)
-	RichardHoch (Contributed to: ovirt-site)
+	Richard Hoch (Contributed to: ovirt-site)
 	Saif Abu Saleh (Contributed to: ovirt-engine, ovirt-site)
 	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-hosted-engine-ha, ovirt-node-ng-image, ovirt-release, ovirt-site)
 	Sanja Bonic (Contributed to: ovirt-site)
 	Scott J Dickerson (Contributed to: ovirt-site)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Steve Goodman (Contributed to: ovirt-site)
-	Tomáš Golembiovský (Contributed to: vdsm)
+	Tomáš Golembiovský (Contributed to: ovirt-site, vdsm)
 	Yedidyah Bar David (Contributed to: ovirt-hosted-engine-ha)
 	dercol1 (Contributed to: ovirt-site)
 	jekader (Contributed to: ovirt-site)

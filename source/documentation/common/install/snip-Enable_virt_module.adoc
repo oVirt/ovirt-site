@@ -14,15 +14,22 @@
 ----
 # dnf module enable virt:8.3
 ----
-* For {virt-product-shortname} 4.4.6 or later:
+* For {virt-product-shortname} 4.4.6 to 4.4.8:
 +
 [source,terminal,subs="normal"]
 +
 ----
 # dnf module enable virt:av
 ----
+* For {virt-product-shortname} 4.4.9 and later:
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module enable virt:rhel
+----
 +
 [NOTE]
 ====
-Starting with {enterprise-linux-shortname} 8.4, only one Advanced Virtualization stream is used, `rhel:av`.
+ Starting in {enterprise-linux-shortname} the Advanced virtualization packages will use the standard `virt:rhel` module. For {enterprise-linux-shortname} 8.4 and 8.5, only one Advanced Virtualization stream is used, `rhel:av`. 
 ====

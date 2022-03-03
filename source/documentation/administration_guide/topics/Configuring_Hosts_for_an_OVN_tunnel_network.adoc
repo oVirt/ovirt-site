@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :_content-type: PROCEDURE
 [id="Configuring_Hosts_for_an_OVN_tunnel_network"]
 = Configuring Hosts for an OVN Tunnel Network
@@ -14,31 +15,24 @@ The `ovirt-provider-ovn-driver` Ansible playbook updates existing hosts. If you 
 . On the {engine-name} machine, go to the *playbooks* directory:
 +
 [source,terminal]
+=======
+[[Configuring_Hosts_for_an_OVN_tunnel_network]]
+===== Updating the OVN Tunnel Network on a Single Host
+
+You can update the OVN tunnel network on a single host with `vdsm-tool`:
+
+[options="nowrap" subs="normal"]
+>>>>>>> c42c3d5f0d... BZ2006228 - Updates for OVN/OVS upgrade to the Admin Guide
 ----
-# cd /usr/share/ovirt-engine/playbooks
+# vdsm-tool ovn-config OVN_Central_IP Tunneling_IP_or_Network_Name Host_FQDN
 ----
 
-. Run the `ansible-playbook` command with the following parameters:
-+
-[options="nowrap" subs="normal" ]
-----
-# ansible-playbook --private-key=/etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars "{nbsp}cluster_name=_Cluster_Name_ ovn_central=_OVN_Central_IP_ ovn_tunneling_interface=_VDSM_Network_Name_" ovirt-provider-ovn-driver.yml
-----
-+
-For example:
-+
-[options="nowrap" subs="normal" ]
-----
-# ansible-playbook --private-key=/etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars "{nbsp}cluster_name=MyCluster ovn_central=192.168.0.1 ovn_tunneling_interface=MyNetwork" ovirt-provider-ovn-driver.yml
-----
-+
 [NOTE]
 ====
-The _OVN_Central_IP_ can be on the new network, but this is not a requirement. The _OVN_Central_IP_ must be accessible to all hosts.
-
-The _VDSM_Network_Name_ is limited to 15 characters. If you defined a logical network name that was longer than 15 characters or contained non-ASCII characters, a 15-character name is automatically generated. See xref:Vdsm_To_Network_Mapping_Tool[Mapping VDSM Names to Logical Network Names] for instructions on displaying a mapping of these names.
+The Host_FQDN must match FQDN that is specified in engine for this host.
 ====
 
+<<<<<<< HEAD
 *Updating the OVN Tunnel Network on a Single Host*
 
 You can update the OVN tunnel network on a single host with `vdsm-tool`:
@@ -48,12 +42,14 @@ You can update the OVN tunnel network on a single host with `vdsm-tool`:
 # vdsm-tool ovn-config _OVN_Central_IP_ _Tunneling_IP_or_Network_Name_
 ----
 
+=======
+>>>>>>> c42c3d5f0d... BZ2006228 - Updates for OVN/OVS upgrade to the Admin Guide
 .Updating a Host with `vdsm-tool`
 ====
 
 [source,terminal]
 ----
-# vdsm-tool ovn-config 192.168.0.1 MyNetwork
+# vdsm-tool ovn-config 192.168.0.1 MyNetwork MyFQDN
 ----
 
 ====

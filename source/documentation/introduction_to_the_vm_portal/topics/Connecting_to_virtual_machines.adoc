@@ -13,3 +13,8 @@
 . Open the file with *remote-viewer*. A console window displays.
 +
 You can now use the virtual machine in the same way you would use a physical desktop.
+
+[NOTE]
+====
+When you are finished using the console, you must restart the Virtual Machine. Otherwise, the console session continues and is unavailable to other users.
+====

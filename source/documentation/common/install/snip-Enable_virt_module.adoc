@@ -28,8 +28,8 @@
 ----
 # dnf module enable virt:rhel
 ----
-+
+
 [NOTE]
 ====
- Starting in {enterprise-linux-shortname} the Advanced virtualization packages will use the standard `virt:rhel` module. For {enterprise-linux-shortname} 8.4 and 8.5, only one Advanced Virtualization stream is used, `rhel:av`. 
+ Starting in {enterprise-linux-shortname} the Advanced virtualization packages will use the standard `virt:rhel` module. For {enterprise-linux-shortname} 8.4 and 8.5, only one Advanced Virtualization stream is used, `rhel:av`.
 ====

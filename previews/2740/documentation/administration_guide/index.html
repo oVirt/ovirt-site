@@ -11769,15 +11769,6 @@ Release      : 1.0.el8
 <pre class="nowrap"># dnf module enable virt:rhel</pre>
 </div>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -11785,29 +11776,28 @@ Release      : 1.0.el8
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="literalblock">
-<div class="content">
-<pre>Starting in {enterprise-linux-shortname} the Advanced virtualization packages will use the standard `virt:rhel` module. For {enterprise-linux-shortname} 8.4 and 8.5, only one Advanced Virtualization stream is used, `rhel:av`.</pre>
-</div>
+<div class="paragraph">
+<p>Starting in EL the Advanced virtualization packages will use the standard <code>virt:rhel</code> module. For EL 8.4 and 8.5, only one Advanced Virtualization stream is used, <code>rhel:av</code>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>+
-. Update the host:</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>+</p>
+</li>
+</ol>
 </div>
+</li>
+<li>
+<p>Update the host:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># dnf upgrade --nobest</pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Reboot the host to ensure all updates are correctly applied.</p>
 <div class="admonitionblock note">

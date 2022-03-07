@@ -1,4 +1,5 @@
-[[Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux]]
+:_content-type: PROCEDURE
+[id="Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux_{context}"]
 = Installing the Guest Agents and Drivers on {enterprise-linux}
 
 The {virt-product-fullname} guest agents and drivers are provided by the {virt-product-fullname} Agent repository.

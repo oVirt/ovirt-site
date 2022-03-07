@@ -1,3 +1,5 @@
+:_content-type: REFERENCE
+[id="virtual-machine-user-roles-explained_{context}"]
 ==== Virtual Machine User Roles Explained
 
 The table below describes the user roles and privileges applicable to virtual machine users. These roles allow access to the VM Portal for managing and accessing virtual machines, but they do not confer any permissions for the Administration Portal.

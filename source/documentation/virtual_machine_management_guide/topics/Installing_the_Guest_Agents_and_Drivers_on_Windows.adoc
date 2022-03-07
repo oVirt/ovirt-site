@@ -1,4 +1,5 @@
-[[Installing_the_Guest_Agents_and_Drivers_on_Windows]]
+:_content-type: PROCEDURE
+[id="Installing_the_Guest_Agents_and_Drivers_on_Windows_{context}"]
 = Installing the guest agents, tools, and drivers on Windows
 
 .Procedure

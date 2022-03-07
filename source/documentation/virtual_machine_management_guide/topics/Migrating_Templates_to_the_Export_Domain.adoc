@@ -1,4 +1,5 @@
-[[Migrating_Templates_to_the_Export_Domain]]
+:_content-type: PROCEDURE
+[id="Migrating_Templates_to_the_Export_Domain_{context}"]
 ==== Migrating Templates to the Export Domain
 
 

@@ -1,4 +1,5 @@
-[id='Installing_Red_Hat_Enterprise_Linux_Virtual_Machines']
+:_content-type: ASSEMBLY
+[id="Installing_Red_Hat_Enterprise_Linux_Virtual_Machiness_{context}"]
 = Installing {enterprise-linux} Virtual Machines
 
 :context: linux_vm
@@ -29,7 +30,7 @@ Installing a {enterprise-linux} virtual machine involves the following key steps
 
 include::common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
 
-[[Starting_the_Virtual_Machine]]
+[id="Starting_the_Virtual_Machine_{context}"]
 == Starting the Virtual Machine
 
 include::topics/Powering_on_a_virtual_machine.adoc[leveloffset=+2]
@@ -43,7 +44,7 @@ include::topics/Automatically_connecting_to_a_Virtual_Machine.adoc[]
 
 include::topics/Enabling_the_Required_Repositories.adoc[leveloffset=+1]
 
-[[Installing_Guest_Agents_and_Drivers_Linux]]
+[id="Installing_Guest_Agents_and_Drivers_Linux_{context}"]
 == Installing Guest Agents and Drivers
 
 include::common/install/ref-Red_Hat_Virtualization_Guest_Agents_and_Drivers.adoc[leveloffset=+2]

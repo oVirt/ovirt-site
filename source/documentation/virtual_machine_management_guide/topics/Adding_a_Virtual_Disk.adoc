@@ -1,4 +1,5 @@
-[[Adding_a_Virtual_Disk]]
+:_content-type: PROCEDURE
+[id="Adding_a_Virtual_Disk_{context}"]
 ==== Adding a New Virtual Disk
 
 You can add multiple virtual disks to a virtual machine.

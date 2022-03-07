@@ -1,4 +1,5 @@
-[[Configuring_Satellite_Errata]]
+:_content-type: PROCEDURE
+[id="Configuring_Satellite_Errata_{context}"]
 = Configuring Satellite errata viewing for a virtual machine
 
 In the Administration Portal, you can configure a virtual machine to display the available errata. The virtual machine needs to be associated with a Red Hat Satellite server to show available errata.

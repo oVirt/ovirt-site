@@ -1,4 +1,5 @@
-[[Enabling_the_Required_Repositories]]
+:_content-type: PROCEDURE
+[id="Enabling_the_Required_Repositories_{context}"]
 = Enabling the Required Repositories
 
 To install packages signed by Red Hat you must register the target system to the Content Delivery Network. Then, use an entitlement from your subscription pool and enable the required repositories.

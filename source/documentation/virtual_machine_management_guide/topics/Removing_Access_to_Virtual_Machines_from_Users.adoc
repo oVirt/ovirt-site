@@ -1,4 +1,7 @@
-[[Removing_Access_to_Virtual_Machines_from_Users]]
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+[id="Removing_Access_to_Virtual_Machines_from_Users_{context}"]
 ==== Removing Access to Virtual Machines from Users
 
 

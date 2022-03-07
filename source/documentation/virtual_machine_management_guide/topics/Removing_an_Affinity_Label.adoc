@@ -1,4 +1,7 @@
-[[Removing_an_Affinity_Label]]
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+[id="Removing_an_Affinity_Label_{context}"]
 ==== Removing an Affinity Label
 
 You can remove affinity labels only from the details view of a cluster.

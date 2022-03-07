@@ -1,4 +1,5 @@
-[[Supported_virtual_machines]]
+:_content-type: REFERENCE
+[id="Supported_virtual_machines_{context}"]
 === Supported Virtual Machine Operating Systems
 
 For information on the operating systems that can be virtualized as guest operating systems in {virt-product-fullname}, see link:https://access.redhat.com/articles/973163[].

@@ -1,4 +1,5 @@
-[[High_availability_considerations]]
+:_content-type: CONCEPT
+[id="High_availability_considerations_{context}"]
 ==== High Availability Considerations
 
 A highly available host requires a power management device and fencing parameters. In addition, for a virtual machine to be highly available when its host becomes non-operational, it needs to be started on another available host in the cluster. To enable the migration of highly available virtual machines:

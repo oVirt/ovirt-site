@@ -1,4 +1,7 @@
-[[Removing_an_Administrator_or_User_Role_from_a_Resource]]
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+[id="Removing_an_Administrator_or_User_Role_from_a_Resource_{context}"]
 ==== Removing an Administrator or User Role from a Resource
 
 Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.

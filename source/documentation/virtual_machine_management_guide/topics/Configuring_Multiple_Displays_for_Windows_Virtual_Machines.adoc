@@ -1,4 +1,5 @@
-[[Configuring_Multiple_Displays_for_Windows_Virtual_Machines]]
+:_content-type: PROCEDURE
+[id="Configuring_Multiple_Displays_for_Windows_Virtual_Machines_{context}"]
 = Configuring Multiple Displays for Windows Virtual Machines
 
 A maximum of four displays can be configured for a single Windows virtual machine when connecting to the virtual machine using the SPICE protocol.

@@ -1,4 +1,5 @@
-[[Disabling_Single_Sign-on_for_Virtual_Machines]]
+:_content-type: PROCEDURE
+[id="Disabling_Single_Sign-on_for_Virtual_Machines_{context}"]
 = Disabling Single Sign-on for Virtual Machines
 
 The following procedure explains how to disable single sign-on for a virtual machine.

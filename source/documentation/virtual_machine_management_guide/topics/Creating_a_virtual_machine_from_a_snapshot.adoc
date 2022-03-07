@@ -1,4 +1,5 @@
-[id='Creating_a_Virtual_Machine_from_a_Snapshot_{context}']
+:_content-type: PROCEDURE
+[id="Creating_a_Virtual_Machine_from_a_Snapshot_{context}""]
 ==== Creating a Virtual Machine from a Snapshot
 
 You can use a snapshot to create another virtual machine.

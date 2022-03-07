@@ -1,4 +1,5 @@
-[[Confirming_Watchdog_Functionality]]
+:_content-type: PROCEDURE
+[id="Confirming_Watchdog_Functionality_{context}"]
 = Confirming Watchdog Functionality
 
 Confirm that a watchdog card has been attached to a virtual machine and that the `watchdog` service is active.

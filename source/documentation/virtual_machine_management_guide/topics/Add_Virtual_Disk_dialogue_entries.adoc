@@ -1,4 +1,5 @@
-[[Add_Virtual_Disk_dialogue_entries]]
+:_content-type: PROCEDURE
+[id="Add_Virtual_Disk_dialogue_entries_{context}"]
 === Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows
 
 [NOTE]

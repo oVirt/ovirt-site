@@ -1,4 +1,7 @@
-[[Removing_Host_Devices_from_a_Virtual_Machine]]
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+[id="Removing_Host_Devices_from_a_Virtual_Machine_{context}"]
 ==== Removing Host Devices from a Virtual Machine
 
 If you are removing all host devices directly attached to the virtual machine in order to add devices from a different host, you can instead add the devices from the desired host, which will automatically remove all of the devices already attached to the virtual machine.

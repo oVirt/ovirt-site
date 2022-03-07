@@ -1,4 +1,5 @@
-[[Accessing_console_options]]
+:_content-type: PROCEDURE
+[id="Accessing_console_options_{context}"]
 = Accessing Console Options
 
 You can configure several options for opening graphical consoles for virtual machines in the Administration Portal.

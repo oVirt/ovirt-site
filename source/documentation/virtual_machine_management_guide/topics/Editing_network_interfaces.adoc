@@ -1,4 +1,5 @@
-[[Editing_network_interfaces]]
+:_content-type: PROCEDURE
+[id="Editing_network_interfaces_{context}"]
 ==== Editing a Network Interface
 
 In order to change any network settings, you must edit the network interface. This procedure can be performed on virtual machines that are running, but some actions can be performed only on virtual machines that are not running.

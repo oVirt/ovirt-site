@@ -1,4 +1,5 @@
-[[Installing_a_Watchdog]]
+:_content-type: PROCEDURE
+[id="Installing_a_Watchdog_{context}"]
 = Installing a Watchdog
 
 To activate a watchdog card attached to a virtual machine, you must install the `watchdog` package on that virtual machine and start the `watchdog` service.

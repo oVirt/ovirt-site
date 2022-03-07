@@ -1,4 +1,5 @@
-[[Affinity_Labels]]
+:_content-type: CONCEPT
+[id="Affinity_Labels_{context}"]
 === Affinity Labels
 
 You can create and modify affinity labels in the Administration Portal.

@@ -1,4 +1,5 @@
-[[VNC_Console_Options]]
+:_content-type: REFERENCE
+[id="VNC_Console_Options_{context}"]
 = VNC Console Options
 
 When the VNC connection protocol is selected, the following options are available in the *Console Options* window.

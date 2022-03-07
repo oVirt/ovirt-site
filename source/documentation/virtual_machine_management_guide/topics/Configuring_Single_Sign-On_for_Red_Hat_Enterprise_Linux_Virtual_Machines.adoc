@@ -1,4 +1,5 @@
-[[Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines]]
+:_content-type: PROCEDURE
+[id="Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines_{context}"]
 = Configuring Single Sign-On for {enterprise-linux} Virtual Machines Using IPA (IdM)
 
 To configure single sign-on for {enterprise-linux} virtual machines using GNOME and KDE graphical desktop environments and IPA (IdM) servers, you must install the `ovirt-guest-agent` package on the virtual machine and install the packages associated with your window manager.
@@ -15,7 +16,7 @@ Single Sign-On (SSO) is deprecated for virtual machines running {enterprise-linu
 SSO is not supported for virtual machines running {enterprise-linux} 8 or later, or for Windows operating systems.
 ====
 
-[[configure-sso-linux-74]]
+[id="configure-sso-linux-74_{context}"]
 Configuring Single Sign-On for {enterprise-linux} Virtual Machines
 
 . Log in to the {enterprise-linux} virtual machine.

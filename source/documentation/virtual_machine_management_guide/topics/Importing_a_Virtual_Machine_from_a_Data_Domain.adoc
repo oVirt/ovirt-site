@@ -1,4 +1,5 @@
-[[Importing_a_Virtual_Machine_from_a_Data_Domain]]
+:_content-type: PROCEDURE
+[id="Importing_a_Virtual_Machine_from_a_Data_Domain_{context}"]
 = Importing a Virtual Machine from a Data Domain
 
 You can import a virtual machine into one or more clusters from a data storage domain.

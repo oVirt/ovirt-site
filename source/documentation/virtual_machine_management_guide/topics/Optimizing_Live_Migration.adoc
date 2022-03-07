@@ -1,4 +1,5 @@
-[id="Optimizing_Live_Migration"]
+:_content-type: PROCEDURE
+[id="Optimizing_Live_Migration_{context}"]
 ==== Optimizing Live Migration
 
 Live virtual machine migration can be a resource-intensive operation. To optimize live migration, you can set the following two options globally for every virtual machine in an environment, for every virtual machine in a cluster, or for an individual virtual machine.

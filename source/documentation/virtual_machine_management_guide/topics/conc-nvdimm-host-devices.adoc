@@ -2,6 +2,7 @@
 //
 // doc-Virtual_Machine_Management_Guide/chap-Administrative_Tasks.adoc
 
+:_content-type: CONCEPT
 [id="conc-nvdimm-host-devices_{context}"]
 = NVDIMM host devices
 

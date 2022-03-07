@@ -1,4 +1,5 @@
-[[Viewing_Virtual_Machines_Pinned_to_a_Host]]
+:_content-type: PROCEDURE
+[id="Viewing_Virtual_Machines_Pinned_to_a_Host_{context}"]
 === Viewing Virtual Machines Pinned to a Host
 
 You can view virtual machines pinned to a host even while the virtual machines are offline. Use the *Pinned to Host* list to see which virtual machines will be affected and which virtual machines will require a manual restart after the host becomes active again.

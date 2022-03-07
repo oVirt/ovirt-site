@@ -1,4 +1,5 @@
-[[Creating_a_template_from_an_existing_virtual_machine]]
+:_content-type: PROCEDURE
+[id="Creating_a_template_from_an_existing_virtual_machine_{context}"]
 === Creating a Template
 
 Create a template from an existing virtual machine to use as a blueprint for creating additional virtual machines.

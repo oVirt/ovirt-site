@@ -1,4 +1,5 @@
-[[Using_USB_Devices_on_a_Red_Hat_Enterprise_Linux_Client]]
+:_content-type: PROCEDURE
+[id="Using_USB_Devices_on_a_Red_Hat_Enterprise_Linux_Client_{context}"]
 = Using USB Devices on a {enterprise-linux} Client
 
 The `usbredir` package enables USB redirection from {enterprise-linux} clients to virtual machines. `usbredir` is a dependency of the `virt-viewer` package, and is automatically installed together with that package.

@@ -1,4 +1,5 @@
-[[Importing_a_Virtual_Machine_from_a_VMware_Provider]]
+:_content-type: PROCEDURE
+[id="Importing_a_Virtual_Machine_from_a_VMware_Provider_{context}"]
 ==== Importing a Virtual Machine from a VMware Provider
 
 Import virtual machines from a VMware vCenter provider to your {virt-product-fullname} environment. You can import from a VMware provider by entering its details in the *Import Virtual Machine(s)* window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Adding_External_Providers[Adding a VMware Instance as a Virtual Machine Provider].

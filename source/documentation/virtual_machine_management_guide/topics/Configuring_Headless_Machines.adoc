@@ -1,4 +1,5 @@
-[[Configuring_Headless_Machines]]
+:_content-type: PROCEDURE
+[id="Configuring_Headless_Machines_{context}"]
 = Configuring Headless Virtual Machines
 
 You can configure a headless virtual machine when it is not necessary to access the machine via a graphical console. This headless machine will run without graphical and video devices. This can be  useful in situations where the host has limited resources, or to comply with virtual machine usage requirements such as real-time virtual machines.

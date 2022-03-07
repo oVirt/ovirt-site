@@ -1,4 +1,5 @@
-[[Viewing_Satellite_Errata]]
+:_content-type: PROCEDURE
+[id="Viewing_Satellite_Errata_{context}"]
 === Viewing Red Hat Satellite Errata for a Virtual Machine
 
 Errata for each virtual machine can be viewed after the {virt-product-fullname} virtual machine has been configured to receive errata information from the Red Hat Satellite server.

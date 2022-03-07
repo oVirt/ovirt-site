@@ -1,4 +1,5 @@
-[[Affinity_groups_troubleshooting]]
+:_content-type: PROCEDURE
+[id="Affinity_groups_troubleshooting_{context}"]
 ==== Affinity Groups Troubleshooting
 
 .To help prevent problems with affinity groups

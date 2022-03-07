@@ -1,4 +1,5 @@
-[[Prerequisites_for_Sealing_a_Windows_Virtual_Machine]]
+:_content-type: REFERENCE
+[id="Prerequisites_for_Sealing_a_Windows_Virtual_Machine_{context}"]
 ===== Prerequisites for Sealing a Windows Virtual Machine
 
 

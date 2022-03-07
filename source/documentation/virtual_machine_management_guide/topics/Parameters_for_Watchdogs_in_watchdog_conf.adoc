@@ -1,4 +1,5 @@
-[[Parameters_for_Watchdogs_in_watchdog_conf]]
+:_content-type: REFERENCE
+[id="Parameters_for_Watchdogs_in_watchdog_conf_{context}"]
 = Parameters for Watchdogs in watchdog.conf
 
 The following is a list of options for configuring the `watchdog` service available in the */etc/watchdog.conf* file. To configure an option, you must uncomment that option and restart the `watchdog` service after saving the changes.

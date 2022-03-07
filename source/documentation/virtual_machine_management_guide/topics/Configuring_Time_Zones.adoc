@@ -1,4 +1,5 @@
-[[Configuring_timezones]]
+:_content-type: PROCEDURE
+[id="Configuring_timezones_{context}"]
 = Configuring the time zone
 
 {virt-product-fullname} stores time zone configurations for virtual machines in `/etc/ovirt-engine/conf/00-timezone.properties`. This file contains default time zone values such as `Etc/GMT=Greenwich Standard Time`. It features mappings that are valid for Windows and non-Windows time zones.

@@ -1,4 +1,5 @@
-[[Exporting_a_virtual_machine_to_a_host]]
+:_content-type: PROCEDURE
+[id="Exporting_a_virtual_machine_to_a_host_{context}"]
 ==== Exporting a Virtual Machine to a Host
 
 You can export a virtual machine to a specific path or mounted NFS shared storage on a host in the {virt-product-fullname} data center. The export will produce an Open Virtual Appliance (OVA) package.

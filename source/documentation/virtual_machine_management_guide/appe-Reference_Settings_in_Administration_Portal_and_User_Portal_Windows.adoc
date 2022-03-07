@@ -1,10 +1,11 @@
 :numbered!:
 
 [appendix]
-[[appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows]]
+:_content-type: ASSEMBLY
+[id="appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows_{context}"]
 == Reference: Settings in Administration Portal and VM Portal Windows
 
-[[sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows]]
+[id="sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows_{context}"]
 === Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows
 
 include::topics/Virtual_Machine_General_settings_explained.adoc[]

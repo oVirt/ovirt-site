@@ -1,4 +1,5 @@
-[[Using_a_snapshot_to_restore_a_virtual_machine]]
+:_content-type: PROCEDURE
+[id="Using_a_snapshot_to_restore_a_virtual_machine_{context}"]
 ==== Using a Snapshot to Restore a Virtual Machine
 
 A snapshot can be used to restore a virtual machine to its previous state.

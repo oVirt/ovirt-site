@@ -1,4 +1,5 @@
-[[Installing_usbdk_on_Windows]]
+:_content-type: PROCEDURE
+[id="Installing_usbdk_on_Windows_{context}"]
 ==== Installing usbdk on Windows
 
 `usbdk` is a driver that enables `remote-viewer` exclusive access to USB devices on Windows operating systems. Installing `usbdk` requires Administrator privileges. Note that the previously supported `USB Clerk` option has been deprecated and is no longer supported.

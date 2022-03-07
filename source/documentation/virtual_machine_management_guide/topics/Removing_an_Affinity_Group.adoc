@@ -1,4 +1,7 @@
-[[Removing_an_Affinity_Group]]
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+[id="Removing_an_Affinity_Group_{context}"]
 ==== Removing an Affinity Group
 
 

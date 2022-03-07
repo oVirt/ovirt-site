@@ -1,4 +1,5 @@
-[id="Updating_the_Guest_Agents_and_Drivers_on_Windows"]
+:_content-type: PROCEDURE
+[id="Updating_the_Guest_Agents_and_Drivers_on_Windows_{context}"]
 = Updating Windows guest agents and drivers using the command prompt
 
 When you do not have access to Windows Update to update Windows drivers, or when you need to update the Windows guest agents, you can do so from the `virtio-win` package by using the virtual machine's command prompt. During this procedure, you must remove and reinstall the drivers, which can lead to network disruption. This procedure restores your settings after reinstalling the drivers.

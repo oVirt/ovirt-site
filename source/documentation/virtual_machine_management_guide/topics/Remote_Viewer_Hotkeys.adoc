@@ -1,4 +1,5 @@
-[[Remote_Viewer_Hotkeys]]
+:_content-type: REFERENCE
+[id="Remote_Viewer_Hotkeys_{context}"]
 = Remote Viewer Hotkeys
 
 You can access the hotkeys for a virtual machine in both full screen mode and windowed mode. If you are using full screen mode, you can display the menu containing the button for hotkeys by moving the mouse pointer to the middle of the top of the screen. If you are using windowed mode, you can access the hotkeys via the *Send key* menu on the virtual machine window title bar.

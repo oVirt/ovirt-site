@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Minor_Release_Updates']
 = Updating {virt-product-fullname} between minor releases
 

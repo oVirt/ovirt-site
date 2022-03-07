@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
 = Installing {virt-product-fullname} as a standalone {engine-name} with remote databases

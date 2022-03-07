@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="installing_virtual_product_hypervisors_from_local_repository_{context}"]
 = Installing {virt-product-shortname} hypervisors from a local repository
 

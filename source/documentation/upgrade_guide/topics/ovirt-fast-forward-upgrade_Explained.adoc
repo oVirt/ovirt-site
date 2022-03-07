@@ -1,8 +1,7 @@
+:_content-type: CONCEPT
 [id="ovirt-fast-forward-upgrade_Explained"]
-
-:ovirt-fast-forward-upgrade_explained:
-
 = ovirt-fast-forward-upgrade Explained
+:ovirt-fast-forward-upgrade_explained:
 
 You can upgrade the {engine-name} to the latest version with the `ovirt-fast-forward-upgrade` tool. `ovirt-fast-forward-upgrade` detects the current version of the {engine-name} and checks for available upgrades. If an upgrade is available, the tool upgrades the {engine-name} to the next major version, and continues to upgrade the {engine-name} until the latest version is installed.
 

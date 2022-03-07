@@ -1,4 +1,5 @@
-[[What_is_the_VM_Portal]]
+:_content-type: CONCEPT
+[id="What_is_the_VM_Portal"]
 = What is the VM Portal?
 
 The VM Portal presents a comprehensive view of a virtual machine and allows the user to start, stop, edit, and view details of a virtual machine.

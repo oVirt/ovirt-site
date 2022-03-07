@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="Remote_Upgrading_from_4-2"]
 = Upgrading a Remote Database Environment from {virt-product-fullname} 4.2 to 4.3
 

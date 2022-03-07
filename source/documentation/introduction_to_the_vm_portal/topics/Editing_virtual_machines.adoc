@@ -1,4 +1,5 @@
-[[Editing_virtual_machines]]
+:_content-type: PROCEDURE
+[id="Editing_virtual_machines"]
 === Editing virtual machines
 
 [NOTE]

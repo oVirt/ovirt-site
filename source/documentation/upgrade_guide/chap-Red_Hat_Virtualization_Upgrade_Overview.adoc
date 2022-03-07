@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="Red_Hat_Virtualization_Upgrade_Overview"]
 = {virt-product-fullname} Upgrade Overview
 

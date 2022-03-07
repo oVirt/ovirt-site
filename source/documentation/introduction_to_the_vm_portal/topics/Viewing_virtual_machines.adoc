@@ -1,4 +1,5 @@
-[[Viewing_virtual_machine_details]]
+:_content-type: PROCEDURE
+[id="Viewing_virtual_machine_details"]
 === Viewing virtual machine details
 
 *Viewing a virtual machine's details*

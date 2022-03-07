@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Working with oVirt Gerrit | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Working with oVirt Gerrit" />
+<meta name="author" content="Alissa Bonas" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2742/develop/dev-process/working-with-gerrit.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2742/develop/dev-process/working-with-gerrit.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Working with oVirt Gerrit" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alissa Bonas" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Alissa Bonas"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2742/images/logo.svg"},"name":"Alissa Bonas"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Working with oVirt Gerrit","url":"https://ovirt.github.io/ovirt-site/previews/2742/develop/dev-process/working-with-gerrit.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2742/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2742/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2742/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2742/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2742/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2742/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2742/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2742/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2742/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2742/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2742/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2742/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2742/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2742/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2742/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2742/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2742/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2742/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2742/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2742/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2742/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2742/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2742/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2742/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2742/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2742/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2742/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2742/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2742/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2742/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2742/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2742/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2742/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2742/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2742/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2742//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2742//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2742/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2742/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2742/develop/dev-process/">
+              <span property="name">Dev Process</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alissa Bonas</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Assaf Muller</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Allon Mureinik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2f82b389fe8c24a12bdc2c879c070804?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2f82b389fe8c24a12bdc2c879c070804?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Asaf Shakarchi</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bcb2aef8cc1559485f70f69eed60b9bb?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bcb2aef8cc1559485f70f69eed60b9bb?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">David</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dave Neary</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Douglas Landgraf</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cc45d43aef767f251af073453c81fc10?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cc45d43aef767f251af073453c81fc10?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Itamar Heim</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Livnat Peer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6300746c0155ec4eddef82e6a3669433?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6300746c0155ec4eddef82e6a3669433?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mike Burns</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/3a926e93dc6d7e960adc891da3cb2581?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/3a926e93dc6d7e960adc891da3cb2581?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Max Kovgan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5a3da0b81e7e9b1e1c78621348bdfe11?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5a3da0b81e7e9b1e1c78621348bdfe11?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Muli Salem</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Oved Ourfali</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Karsten 'quaid' Wade</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/e37ec99e8f2caef5e1238d05dfc36de6?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/e37ec99e8f2caef5e1238d05dfc36de6?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Robert Middleswarth</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c489669ce6f88f4b35f0d0b4464250f2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c489669ce6f88f4b35f0d0b4464250f2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Steve Gordon</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vered Volansky</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/44e4378995fb672615e0dad9288c6701?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/44e4378995fb672615e0dad9288c6701?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Saif Abu Saleh</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="working-with-ovirt-gerrit">Working with oVirt Gerrit</h1>
+
+<p>Gerrit is a web-based code review system that uses the Git version control system. Gerrit makes it easy to review code by showing changes in a side by side display, allowing inline comments to be added by any reviewer.
+In the oVirt project we use Gerrit to review new commits. With Gerrit, it’s easy to add comments and suggestions, ask questions, and more.
+In the following sections you will find step-by-step directions for setting up Gerrit in your development environment.</p>
+
+<p>To get started, go to <a href="https://gerrit.ovirt.org">gerrit.ovirt.org.</a></p>
+
+<ol id="markdown-toc">
+  <li><a href="#working-with-ovirt-gerrit" id="markdown-toc-working-with-ovirt-gerrit">Working with oVirt Gerrit</a>    <ol>
+      <li><a href="#registering-as-a-user" id="markdown-toc-registering-as-a-user">Registering as a User</a></li>
+      <li><a href="#ssh-configuration" id="markdown-toc-ssh-configuration">SSH Configuration</a>        <ol>
+          <li><a href="#setting-up-ssh-keys" id="markdown-toc-setting-up-ssh-keys">Setting up SSH Keys</a></li>
+          <li><a href="#defining-gerrit-in-sshconfig" id="markdown-toc-defining-gerrit-in-sshconfig">Defining Gerrit in ~/.ssh/config</a></li>
+          <li><a href="#changing-file-permissions" id="markdown-toc-changing-file-permissions">Changing File Permissions</a></li>
+          <li><a href="#verifying-the-ssh-configuration" id="markdown-toc-verifying-the-ssh-configuration">Verifying the SSH Configuration</a></li>
+        </ol>
+      </li>
+      <li><a href="#git-configuration-and-procedures" id="markdown-toc-git-configuration-and-procedures">Git Configuration and Procedures</a>        <ol>
+          <li><a href="#cloning-the-ovirt-engine-repository" id="markdown-toc-cloning-the-ovirt-engine-repository">Cloning the oVirt-engine Repository</a></li>
+          <li><a href="#installing-the-change-id-hook" id="markdown-toc-installing-the-change-id-hook">Installing the change-ID Hook</a></li>
+          <li><a href="#configuring-git-personal-settings" id="markdown-toc-configuring-git-personal-settings">Configuring Git Personal Settings</a></li>
+          <li><a href="#configuring-the-commit-template" id="markdown-toc-configuring-the-commit-template">Configuring the Commit Template</a></li>
+          <li><a href="#configuring-the-git-commit-spell-check-syntax-highlighting-and-maxwidth" id="markdown-toc-configuring-the-git-commit-spell-check-syntax-highlighting-and-maxwidth">Configuring the Git Commit Spell Check, Syntax Highlighting and Maxwidth</a></li>
+          <li><a href="#rebasing" id="markdown-toc-rebasing">Rebasing</a></li>
+        </ol>
+      </li>
+      <li><a href="#pushing-a-patch-for-review" id="markdown-toc-pushing-a-patch-for-review">Pushing a Patch for Review</a>        <ol>
+          <li><a href="#pushing-or-updating-a-draft-using-the-git-review-plugin" id="markdown-toc-pushing-or-updating-a-draft-using-the-git-review-plugin">Pushing or Updating a Draft Using the Git Review Plugin</a></li>
+        </ol>
+      </li>
+      <li><a href="#the-track-patch-review-process" id="markdown-toc-the-track-patch-review-process">The Track Patch Review Process</a>        <ol>
+          <li><a href="#a-summary-of-the-process" id="markdown-toc-a-summary-of-the-process">A Summary of the Process</a></li>
+          <li><a href="#the-process-in-detail" id="markdown-toc-the-process-in-detail">The Process in Detail</a></li>
+          <li><a href="#submitting-a-topic-branch-to-gerrit" id="markdown-toc-submitting-a-topic-branch-to-gerrit">Submitting a Topic Branch to Gerrit</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="registering-as-a-user">Registering as a User</h2>
+
+<p>You can register as a user with any OpenID provider.
+Alternatively, sign in with:</p>
+
+<ul>
+  <li>GitHub or Google OAuth 2.0</li>
+  <li>Your Launchpad or Yahoo IDs</li>
+  <li>Any fedora FAS account, using: &lt;username&gt;.id.fedoraproject.org</li>
+</ul>
+
+<p>Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings –&gt; HTTP Password) and to enable SSH connection.</p>
+
+<p>To choose username:</p>
+<ul>
+  <li>Go to Settings</li>
+  <li>Enter your username in the username field and click Save Changes</li>
+</ul>
+
+<h2 id="ssh-configuration">SSH Configuration</h2>
+
+<h3 id="setting-up-ssh-keys">Setting up SSH Keys</h3>
+
+<p>If you don’t have a set of SSH keys, open the terminal on your local machine and enter the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ssh-keygen -t rsa
+</code></pre></div></div>
+
+<p>Ensure that your private RSA key is located at <code class="language-plaintext highlighter-rouge">~/.ssh</code> and that the permissions on the <code class="language-plaintext highlighter-rouge">.ssh</code> directory are sufficiently restrictive. Typically, the <code class="language-plaintext highlighter-rouge">.ssh</code> directory should have permissions set to 700, and the file <code class="language-plaintext highlighter-rouge">.ssh/id_rsa</code> should have the permissions set to 600.</p>
+
+<p>To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:</p>
+
+<ul>
+  <li>In the top right corner, click your username, and select Settings &gt; SSH public keys.</li>
+  <li>Copy and paste the contents of your public key file (typically <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code>) into the provided text box.</li>
+</ul>
+
+<h3 id="defining-gerrit-in-sshconfig">Defining Gerrit in ~/.ssh/config</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Host gerrit.ovirt.org
+     HostName gerrit.ovirt.org
+     Port 29418
+     User &lt;your_gerrit_username&gt;
+     PubkeyAcceptedKeyTypes=+rsa-sha2-512
+</code></pre></div></div>
+
+<h3 id="changing-file-permissions">Changing File Permissions</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  chmod 600 ~/.ssh/config
+</code></pre></div></div>
+
+<h3 id="verifying-the-ssh-configuration">Verifying the SSH Configuration</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ssh gerrit.ovirt.org
+</code></pre></div></div>
+
+<p>If SSH is configured correctly, you will see the following message:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ***    Welcome to Gerrit Code Review    ****
+</code></pre></div></div>
+
+<h2 id="git-configuration-and-procedures">Git Configuration and Procedures</h2>
+
+<h3 id="cloning-the-ovirt-engine-repository">Cloning the oVirt-engine Repository</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git clone gerrit.ovirt.org:ovirt-engine
+</code></pre></div></div>
+
+<p>For a read-only repository, this can also be done using:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #Read-only
+  git clone git://gerrit.ovirt.org/ovirt-engine
+</code></pre></div></div>
+
+<h3 id="installing-the-change-id-hook">Installing the change-ID Hook</h3>
+
+<p><strong>You must do this before you commit anything</strong>
+In order to easily track commit changes in Gerrit, each commit must have a change-ID. This change-ID is added automatically via a Git hook. To install this hook, enter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  cd ovirt-engine
+  scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
+</code></pre></div></div>
+
+<p>Or alternatively without need of authentication:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  wget -P .git/hooks https://gerrit.ovirt.org/tools/hooks/commit-msg
+</code></pre></div></div>
+
+<p><strong>ATTENTION</strong>: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of <code class="language-plaintext highlighter-rouge">.git/hooks/commit-msg</code>, after the line “add_ChangeId”:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*&gt;\).*$/Signed-off-by: \1/p')
+  grep -qs "^$SOB" "$1" || echo "$SOB" &gt;&gt; "$1"
+</code></pre></div></div>
+
+<p>Allow the hook to be executed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  chmod a+x .git/hooks/commit-msg
+</code></pre></div></div>
+
+<p><strong>Note</strong>: If you commit something before you do the above, you can add the Change-ID and signed-off-by lines by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git commit --amend -s
+</code></pre></div></div>
+
+<h3 id="configuring-git-personal-settings">Configuring Git Personal Settings</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git config --global user.name "John Doe"
+  git config --global user.email johndoe@example.com
+</code></pre></div></div>
+
+<h3 id="configuring-the-commit-template">Configuring the Commit Template</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  cd ovirt-engine
+  git config commit.template config/engine-commit-template.txt
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong><em>NOTE:</em></strong> Alternatively, if you’re contributing to other projects than ovirt-engine
+try looking for template in it’s git tree instead.</p>
+</blockquote>
+
+<h3 id="configuring-the-git-commit-spell-check-syntax-highlighting-and-maxwidth">Configuring the Git Commit Spell Check, Syntax Highlighting and Maxwidth</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # edit ~/.vimrc
+  syntax on
+  filetype plugin indent on
+  autocmd Filetype gitcommit setlocal spell textwidth=72
+</code></pre></div></div>
+
+<h3 id="rebasing">Rebasing</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git fetch -v
+  git rebase origin/master
+</code></pre></div></div>
+
+<h2 id="pushing-a-patch-for-review">Pushing a Patch for Review</h2>
+
+<p>Enter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
+</code></pre></div></div>
+
+<p>Alternatively, assuming your remote repository is ‘origin’, enter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git push origin HEAD:refs/for/master
+</code></pre></div></div>
+
+<h3 id="pushing-or-updating-a-draft-using-the-git-review-plugin">Pushing or Updating a Draft Using the Git Review Plugin</h3>
+
+<p>The git-review plugin is optional.</p>
+
+<p>To push or update a draft, enter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git review -D -r origin master
+</code></pre></div></div>
+
+<p>To push or update a published patch:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git review -r origin master
+</code></pre></div></div>
+
+<h2 id="the-track-patch-review-process">The Track Patch Review Process</h2>
+
+<h3 id="a-summary-of-the-process">A Summary of the Process</h3>
+
+<p>The patch life cycle process comprises of the following steps:</p>
+
+<ol>
+  <li>‎The patch is checked
+    <ul>
+      <li>Verification (Verified+1): bug fixes or new functionality should be verified by a real person</li>
+      <li>Maintainer review and approval (Code-Review+2)</li>
+      <li>Publishing. This triggers Continuous Integration (CI)</li>
+    </ul>
+  </li>
+  <li>CI tests passed (Continuous-Integration+1)</li>
+  <li>Patch merged by maintainer</li>
+</ol>
+
+<h3 id="the-process-in-detail">The Process in Detail</h3>
+
+<ul>
+  <li>Anyone can send a patch
+    <ul>
+      <li>Initially a patch should be sent as draft</li>
+    </ul>
+  </li>
+  <li>Code-Review - human code review:</li>
+  <li>A human code review can result in “Code-Review” flag set to:
+    <ul>
+      <li>
+        <ul>
+          <li>+2 - Looks good to me, approved</li>
+          <li>+1 - Looks good to me, but someone else must approve</li>
+          <li>0 - No score</li>
+          <li>-1 - I would prefer that you didn’t submit this</li>
+          <li>-2 - Do not submit</li>
+        </ul>
+      </li>
+      <li>Anyone can set Code-Review flag to +1/-1 and comment on the patch. This helps maintainers in reviewing the patches</li>
+      <li>Only maintainer(s) can set Code-Review flag to +2, which is required to commit (submit) it</li>
+    </ul>
+  </li>
+  <li>Verified - human verified
+    <ul>
+      <li>Somebody (can be anyone) needs to confirm they checked the patch works and set “Verified” flag to +1</li>
+      <li>this doesn’t have to be the developer</li>
+      <li>this does not have to be done fully manually, but human must verify</li>
+    </ul>
+  </li>
+  <li>Automated tests by continuous integration:
+    <ul>
+      <li>After humans have:
+        <ul>
+          <li>set Code-Review +2</li>
+          <li>confirmed the patch is ready and has Verified +1</li>
+        </ul>
+      </li>
+      <li>The developer should publish the draft patch:
+        <ul>
+          <li>Visit the patch page with your browser</li>
+          <li>Press on the button “Publish” in the web view of your patch</li>
+        </ul>
+      </li>
+      <li>After “Verified” flag is +1 and the patch is published, CI Runs on patch set updates:
+        <ul>
+          <li>CI sets “Continuous-Integration” flag to:
+            <ul>
+              <li>+1 if the patch passes CI tests</li>
+              <li>-1 if the patch fails CI tests</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>The maintainer(s) can submit (commit) the patch when it has:
+* Code-Review: +2
+    <ul>
+      <li>Verified: +1</li>
+      <li>Continuous-Integration: +1</li>
+    </ul>
+  </li>
+  <li>NACK-ed (-1/-2) patches should not be submitted</li>
+  <li>A submitted patch is automatically merged to the git repository</li>
+  <li>When uploading a new patch set, the contributor should also add a review comment of the changes from previous version, to help reviewers track and review the changes (unless Gerrit itself added a comment that a rebase is needed, and in that case no new comment is needed).</li>
+</ul>
+
+<h3 id="submitting-a-topic-branch-to-gerrit">Submitting a Topic Branch to Gerrit</h3>
+
+<p>A <a href="https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows">topic branch</a> is a short-lived branch that you create and use for a single particular feature or related work.</p>
+
+<ul>
+  <li>First, install the git-review tool
+    <ul>
+      <li>git-review is a tool that helps submitting git branches to Gerrit for review.</li>
+    </ul>
+  </li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ dnf install git-review
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Setting git-review:</p>
+
+    <p>git-review, by default, looks for a git remote called gerrit, and submits the current branch to HEAD:refs/for/master at that remote.
+  If the “gerrit” remote does not exist, git-review looks for a file called <code class="language-plaintext highlighter-rouge">.gitreview</code> at the root of the repository with information
+  about the gerrit remote. Assuming that file is present, git-review should be able to automatically configure your 
+  repository the first time it is run.</p>
+  </li>
+  <li>
+    <p>Example: project/.git/config</p>
+  </li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [remote "gerrit"]
+    url = http://gerrit.ovirt.org/p/project
+    pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
+    fetch = +refs/heads/*:refs/remotes/gerrit/* 
+</code></pre></div></div>
+
+<ul>
+  <li>Execute git-review setup</li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $project&gt; git review -s 
+</code></pre></div></div>
+
+<ul>
+  <li>Create your local branch feature</li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $project&gt; git checkout -b engine-register 
+</code></pre></div></div>
+
+<ul>
+  <li>Check if you are under branch</li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $project&gt; git branch
+    * engine-register
+    master  
+</code></pre></div></div>
+
+<ul>
+  <li>Execute the changes and commit it</li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $project&gt; vi source.py
+    $project&gt; git add source.py
+    $project&gt; git commit  
+</code></pre></div></div>
+
+<ul>
+  <li>Submit the topic branch changes to gerrit</li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $project&gt;git review -t engine-register
+    remote: Resolving deltas:   0% (0/3)
+    remote: (W) fba45fe: no files changed, message updated
+    To ssh://user@gerrit.ovirt.org:29418/project.git
+   * [new branch]      HEAD -&gt; refs/for/master/engine-register 
+</code></pre></div></div>
+
+<ul>
+  <li>Now go to the gerrit url for your change and note that the topic field is changed to your topic branch name.</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2742/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2742/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2742/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2742/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/dev-process/working-with-gerrit.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/dev-process/working-with-gerrit.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

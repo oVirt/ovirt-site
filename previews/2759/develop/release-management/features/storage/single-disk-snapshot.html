@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Single Disk Snapshot | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Single Disk Snapshot" />
+<meta name="author" content="Allon Mureinik" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2759/develop/release-management/features/storage/single-disk-snapshot.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2759/develop/release-management/features/storage/single-disk-snapshot.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Single Disk Snapshot" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Allon Mureinik" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Allon Mureinik"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2759/images/logo.svg"},"name":"Allon Mureinik"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Single Disk Snapshot","url":"https://ovirt.github.io/ovirt-site/previews/2759/develop/release-management/features/storage/single-disk-snapshot.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2759/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2759/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2759/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2759/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2759/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2759/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2759/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2759/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2759/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2759/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2759/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2759/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2759/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2759/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2759/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2759/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2759/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2759/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2759/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2759/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2759/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2759/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2759/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2759/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2759/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2759/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2759/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2759/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2759/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2759/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2759/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2759/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2759/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2759/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2759/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2759//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2759//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2759/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2759/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2759/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2759/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2759/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Allon Mureinik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Daniel Erez</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vered Volansky</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2759/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="single-disk-snapshot">Single Disk Snapshot</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Customization of snapshots with regards to VM configuration and disks.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Daniel Erez (Derez)</li>
+  <li>Email: <a href="mailto:derez@redhat.com">derez@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release: 3.4</li>
+  <li>Status: released</li>
+</ul>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<ul>
+  <li>Allow creation of a customized snapshot. I.e. selecting which disks to take snapshot on.</li>
+  <li>Custom snapshot preview:
+    <ul>
+      <li>Previewing a new state by selecting VM configuration and disks from various snapshots.</li>
+      <li>Support commit to the new state and undo to the previous one.</li>
+    </ul>
+  </li>
+  <li>Features based on specific disks snapshots, such as <a href="/ovirt-site/previews/2759/develop/release-management/features/storage/storagelivemigration.html">Storage Live Migration</a>, will benefit from the new support
+    <ul>
+      <li>E.g. LSM will take a snapshot only on the migrated disks - as opposed to the current situation in which a snapshot is taken on all disks.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>Currently, a Snapshot represents a single point in time that contains the configuration of the VM and all attached disks.</p>
+
+<p>I.e. creating/previewing/committing a snapshot must be done on the entire VM - including all the disks.</p>
+
+<p>This feature introduces the ability to remove the constraint by allowing to exclude disks from a snapshot.</p>
+
+<p>In addition, adds a new functionality of creating a customized snapshot composed of configuration and disk from multiple snapshots.</p>
+
+<h3 id="ui">UI</h3>
+
+<h4 id="create-snapshot-dialog">Create Snapshot Dialog</h4>
+
+<p><img src="/ovirt-site/previews/2759/images/wiki/Create_snapshot_dialog.png" alt="" /></p>
+
+<h4 id="custom-preview-button">Custom Preview Button</h4>
+
+<p><img src="/ovirt-site/previews/2759/images/wiki/Custom_preview_button.png" alt="" /></p>
+
+<h4 id="custom-preivew-dialog">Custom Preivew Dialog</h4>
+
+<h5 id="screenshot">Screenshot</h5>
+
+<p><img src="/ovirt-site/previews/2759/images/wiki/Custom_preview_dialog.png" alt="" /></p>
+
+<h5 id="video">Video</h5>
+
+<p><a href="media:custom_preview_dialog_video.gz">Custom Preview Dialog - Video</a></p>
+
+<h3 id="rest-api">REST-API</h3>
+
+<p>Add <disks> tag to create/restore snapshot.</disks></p>
+
+<p>Note: preview only is not available from rest (restore = preview + commit).</p>
+
+<h4 id="create-snapshot">Create Snapshot:</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /api/vms/{vm_id}/snapshots
+
+<span class="nt">&lt;snapshot&gt;</span>
+ <span class="nt">&lt;vm</span> <span class="na">id=</span><span class="s">"{vm_id}"</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;disks&gt;</span>
+  <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"{disk_id}"</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;/disks&gt;</span>
+<span class="nt">&lt;/snapshot&gt;</span>
+</code></pre></div></div>
+
+<h4 id="restore-snapshot">Restore Snapshot:</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /api/vms/{vm_id}/snapshots/{snapshot_id}/restore
+
+<span class="nt">&lt;action&gt;</span>
+ <span class="nt">&lt;restore_memory&gt;</span>"true|false"<span class="nt">&lt;/restore_memory&gt;</span>
+ <span class="nt">&lt;disks&gt;</span>
+  <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"{disk_id}"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;image_id&gt;</span>"{image_id}"<span class="nt">&lt;/image_id&gt;</span>
+   <span class="nt">&lt;snapshot</span> <span class="na">id=</span><span class="s">"{snapshot_id}"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/disk&gt;</span>
+ <span class="nt">&lt;/disks&gt;</span>
+<span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<h4 id="ovirt-35">oVirt 3.5</h4>
+
+<h4 id="preview-snapshot">Preview Snapshot:</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /api/vms/{vm_id}/preview_snapshot
+
+<span class="nt">&lt;action&gt;</span>
+ <span class="nt">&lt;snapshot</span> <span class="na">id=</span><span class="s">"{snapshot_id}"</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;restore_memory&gt;</span>`true|false`<span class="nt">&lt;/restore_memory&gt;</span>
+ <span class="nt">&lt;disks&gt;</span>
+  <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"{disk_id}"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;image_id&gt;</span>`{image_id}`<span class="nt">&lt;/image_id&gt;</span>
+   <span class="nt">&lt;snapshot</span> <span class="na">id=</span><span class="s">"{snapshot_id}"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/disk&gt;</span>
+ <span class="nt">&lt;/disks&gt;</span>
+<span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<h3 id="backend">Backend</h3>
+
+<ul>
+  <li>CreateAllSnapshotsFromVmCommand
+    <ul>
+      <li>The command should support handling a specified disks list.</li>
+      <li>Disks not included in specified list should be ‘fast-forwarded’ to active snapshot (i.e. update snapshot id without creating a new snapshot).</li>
+    </ul>
+  </li>
+  <li>TryBackToAllSnapshotsOfVmCommand
+    <ul>
+      <li>The command should support handling a specified disks list.</li>
+      <li>Ability to preview a subset of VM disks.</li>
+      <li>Allow previewing to various points of time (each specified image can define a different snapshot).</li>
+      <li>Support previewing only disks while keeping the current VM configuration.</li>
+      <li>Keeping old API from ‘regular’ preview.</li>
+    </ul>
+  </li>
+  <li>RestoreAllSnapshotsCommand
+    <ul>
+      <li>Identify on which disks to perform snapshot undo/commit.</li>
+      <li>Skip restore for excluded disks (but keep updating snapshot id accordingly).</li>
+    </ul>
+  </li>
+  <li>GetAllVmSnapshotsByVmIdQuery
+    <ul>
+      <li>Configurable support to return the snapshots with appropriate images list.</li>
+      <li>Fetch disks data from VM configuration which resides in the OVF (depending on UI design).</li>
+    </ul>
+  </li>
+  <li>Snapshot
+    <ul>
+      <li>Add a list of disk images.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<p>Already supported.</p>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<ul>
+  <li>Custom Preview Dialog
+    <ul>
+      <li>What to display at the bottom section?
+        <ul>
+          <li>“Result” - i.e. the state to preview.</li>
+          <li>VM configuration - i.e. the bottom section updates on configuration selection.</li>
+          <li>Decision: the bottom section displays the ‘result’ snapshot.</li>
+        </ul>
+      </li>
+      <li>Memory (applicable only for live snapshot)
+        <ul>
+          <li>Should we allow configuration/memory decoupling?</li>
+          <li>Or, configuration selection enforces the selection of memory from same snapshot (and vice versa)?</li>
+          <li>Decision: VM configuration and memory are coupled. I.e. one cannot preview memory of a snapshot without selecting the same snapshot’s configuration.</li>
+        </ul>
+      </li>
+      <li>Allow excluding a disk from preview (deselecting entire column)?
+        <ul>
+          <li>Excluding a disk implications are similar to deleting a disk (will result with an illegal disk on previous snapshots).</li>
+          <li>Decision: allow disk exclude for now.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<ul>
+  <li>Verify that create snapshot flow has no regressions.</li>
+  <li>Verify that the ‘regular’ preview/undo/commit flow has no regressions.</li>
+  <li>Create a snapshot with a subset of disks.</li>
+  <li>Custom preview a snapshot from various point of times.</li>
+  <li>Undo/commit a custom previewed snapshot.</li>
+</ul>
+
+<h2 id="future-work">Future Work</h2>
+
+<ul>
+  <li>Revise error flows
+    <ul>
+      <li>E.g. failing to take a snapshot on one disk shouldn’t rollback the entire snapshot, instead, just exclude the disk from the snapshot.</li>
+    </ul>
+  </li>
+  <li>Continue the decoupling of snapshot components and use single disks snapshots when needed, as in LSM flow.</li>
+  <li>Create a snapshot form disk context
+    <ul>
+      <li>Select a disk -&gt; create snapshot (still requires including the VM configuration).</li>
+    </ul>
+  </li>
+  <li>Preview/commit/undo a snapshot from disk context
+    <ul>
+      <li>Only a subset of the disks at a time, since creating a preview snapshot locks most VM operations (adding/removing disks, etc).</li>
+    </ul>
+  </li>
+  <li>Exclude VM configuration
+    <ul>
+      <li>Do we want to allow creating a snapshot without VM configuration?</li>
+    </ul>
+  </li>
+  <li>Detach/Attach of disks with snapshots
+    <ul>
+      <li>How to represent/display snapshots of a floating disk?</li>
+      <li>How to handle attach of a disk with snapshots to a different VM?</li>
+    </ul>
+  </li>
+  <li>Profiles
+    <ul>
+      <li>Creating a snapshot profiles (which allows single click snapshot). E.g. ‘VM configuration + OS disk profile’ / etc.</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2759/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2759/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2759/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2759/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/single-disk-snapshot.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/single-disk-snapshot.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

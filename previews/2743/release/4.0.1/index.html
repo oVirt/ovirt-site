@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>oVirt 4.0.1 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="oVirt 4.0.1 Release Notes" />
+<meta name="author" content="Rafael Martins" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2743/release/4.0.1/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2743/release/4.0.1/" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 4.0.1 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@rafaelmartins" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Rafael Martins"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2743/images/logo.svg"},"name":"Rafael Martins"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt 4.0.1 Release Notes","url":"https://ovirt.github.io/ovirt-site/previews/2743/release/4.0.1/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2743/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2743/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2743/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2743/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2743/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2743/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2743/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2743/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2743/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2743/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2743/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2743/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2743/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2743/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2743/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2743/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2743/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2743/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class="releases"><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2743/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2743/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2743/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2743/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2743/release/">
+              <span property="name">Release</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/rafaelmartins" title="Rafael Martins">Rafael Martins</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-401-release-notes">oVirt 4.0.1 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of oVirt 4.0.1 Release as of July 19th, 2016.</p>
+
+<p>oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).</p>
+
+<p>To find out more about features which were added in previous oVirt releases,
+check out the <a href="/ovirt-site/previews/2743/develop/release-management/releases/">previous versions release notes</a>.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-401-release-notes" id="markdown-toc-ovirt-401-release-notes">oVirt 4.0.1 Release Notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+        </ol>
+      </li>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a></li>
+      <li><a href="#whats-new-in-401" id="markdown-toc-whats-new-in-401">What’s New in 4.0.1?</a>        <ol>
+          <li><a href="#enhancement" id="markdown-toc-enhancement">Enhancement</a>            <ol>
+              <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a>                <ol>
+                  <li><a href="#team-infra" id="markdown-toc-team-infra">Team: Infra</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-engine-dwh" id="markdown-toc-ovirt-engine-dwh">oVirt Engine DWH</a>                <ol>
+                  <li><a href="#team-dwh" id="markdown-toc-team-dwh">Team: DWH</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#rebase-bug-fixes-and-enhancements" id="markdown-toc-rebase-bug-fixes-and-enhancements">Rebase: Bug Fixes and Enhancements</a>            <ol>
+              <li><a href="#otopi" id="markdown-toc-otopi">OTOPI</a>                <ol>
+                  <li><a href="#team-integration" id="markdown-toc-team-integration">Team: Integration</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#rebase-enhancements-only" id="markdown-toc-rebase-enhancements-only">Rebase: Enhancements Only</a>            <ol>
+              <li><a href="#ovirt-release-rpm" id="markdown-toc-ovirt-release-rpm">oVirt Release RPM</a>                <ol>
+                  <li><a href="#team-integration-1" id="markdown-toc-team-integration-1">Team: Integration</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#unclassified" id="markdown-toc-unclassified">Unclassified</a>            <ol>
+              <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a>                <ol>
+                  <li><a href="#team-network" id="markdown-toc-team-network">Team: Network</a></li>
+                  <li><a href="#team-virt" id="markdown-toc-team-virt">Team: Virt</a></li>
+                  <li><a href="#team-storage" id="markdown-toc-team-storage">Team: Storage</a></li>
+                  <li><a href="#team-integration-2" id="markdown-toc-team-integration-2">Team: Integration</a></li>
+                  <li><a href="#team-infra-1" id="markdown-toc-team-infra-1">Team: Infra</a></li>
+                  <li><a href="#team-sla" id="markdown-toc-team-sla">Team: SLA</a></li>
+                  <li><a href="#team-ux" id="markdown-toc-team-ux">Team: UX</a></li>
+                </ol>
+              </li>
+              <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a>                <ol>
+                  <li><a href="#team-storage-1" id="markdown-toc-team-storage-1">Team: Storage</a></li>
+                  <li><a href="#team-network-1" id="markdown-toc-team-network-1">Team: Network</a></li>
+                  <li><a href="#team-infra-2" id="markdown-toc-team-infra-2">Team: Infra</a></li>
+                </ol>
+              </li>
+              <li><a href="#vdsm-json-rpc-java" id="markdown-toc-vdsm-json-rpc-java">VDSM JSON-RPC Java</a>                <ol>
+                  <li><a href="#team-infra-3" id="markdown-toc-team-infra-3">Team: Infra</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-engine-extension-aaa-ldap" id="markdown-toc-ovirt-engine-extension-aaa-ldap">oVirt Engine Extension AAA LDAP</a>                <ol>
+                  <li><a href="#team-infra-4" id="markdown-toc-team-infra-4">Team: Infra</a></li>
+                </ol>
+              </li>
+              <li><a href="#otopi-1" id="markdown-toc-otopi-1">OTOPI</a>                <ol>
+                  <li><a href="#team-integration-3" id="markdown-toc-team-integration-3">Team: Integration</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a>                <ol>
+                  <li><a href="#team-integration-4" id="markdown-toc-team-integration-4">Team: Integration</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a>                <ol>
+                  <li><a href="#team-integration-5" id="markdown-toc-team-integration-5">Team: Integration</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-release-rpm-1" id="markdown-toc-ovirt-release-rpm-1">oVirt Release RPM</a>                <ol>
+                  <li><a href="#team-node" id="markdown-toc-team-node">Team: Node</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug fixes</a>        <ol>
+          <li><a href="#ovirt-engine-2" id="markdown-toc-ovirt-engine-2">oVirt Engine</a>            <ol>
+              <li><a href="#team-virt-1" id="markdown-toc-team-virt-1">Team: Virt</a></li>
+              <li><a href="#team-gluster" id="markdown-toc-team-gluster">Team: Gluster</a></li>
+              <li><a href="#team-storage-2" id="markdown-toc-team-storage-2">Team: Storage</a></li>
+              <li><a href="#team-network-2" id="markdown-toc-team-network-2">Team: Network</a></li>
+              <li><a href="#team-infra-5" id="markdown-toc-team-infra-5">Team: Infra</a></li>
+              <li><a href="#team-sla-1" id="markdown-toc-team-sla-1">Team: SLA</a></li>
+            </ol>
+          </li>
+          <li><a href="#vdsm-1" id="markdown-toc-vdsm-1">VDSM</a>            <ol>
+              <li><a href="#team-infra-6" id="markdown-toc-team-infra-6">Team: Infra</a></li>
+            </ol>
+          </li>
+          <li><a href="#ovirt-host-deploy" id="markdown-toc-ovirt-host-deploy">oVirt Host Deploy</a>            <ol>
+              <li><a href="#team-integration-6" id="markdown-toc-team-integration-6">Team: Integration</a></li>
+            </ol>
+          </li>
+          <li><a href="#mom" id="markdown-toc-mom">MOM</a>            <ol>
+              <li><a href="#team-sla-2" id="markdown-toc-team-sla-2">Team: SLA</a></li>
+            </ol>
+          </li>
+          <li><a href="#ovirt-engine-dwh-1" id="markdown-toc-ovirt-engine-dwh-1">oVirt Engine DWH</a>            <ol>
+              <li><a href="#team-integration-7" id="markdown-toc-team-integration-7">Team: Integration</a></li>
+            </ol>
+          </li>
+          <li><a href="#otopi-2" id="markdown-toc-otopi-2">OTOPI</a>            <ol>
+              <li><a href="#team-integration-8" id="markdown-toc-team-integration-8">Team: Integration</a></li>
+            </ol>
+          </li>
+          <li><a href="#ovirt-hosted-engine-setup-1" id="markdown-toc-ovirt-hosted-engine-setup-1">oVirt Hosted Engine Setup</a>            <ol>
+              <li><a href="#team-integration-9" id="markdown-toc-team-integration-9">Team: Integration</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p>In order to install it on a clean system, you need to install</p>
+
+<p><code class="language-plaintext highlighter-rouge"># yum install </code><a href="http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm</code></a></p>
+
+<p>If you’re upgrading from a previous release on Enterprise Linux 7 you just need to execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+  # yum update "ovirt-engine-setup*"
+  # engine-setup
+</code></pre></div></div>
+
+<p>Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our <a href="https://web.archive.org/web/20170723145830/http://www.ovirt.org/documentation/migration-engine-36-to-40/">Migration Guide</a> in order to migrate to Enterprise Linux 7 or Fedora 23.</p>
+
+<h2 id="known-issues">Known issues</h2>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1297835">BZ 1297835</a> <b>Host install fails on Fedora 23 due to lack of dep on python2-dnf</b><br />On Fedora &gt;= 23 dnf package manager with python 3 is used by default while
+ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host install to fail on Fedora &gt;= 23 due to lack of python2-dnf in the default environment. As workaround please install manually python2-dnf on the host before trying to add it to the engine.</li>
+</ul>
+
+<h2 id="whats-new-in-401">What’s New in 4.0.1?</h2>
+
+<h3 id="enhancement">Enhancement</h3>
+
+<h4 id="ovirt-engine">oVirt Engine</h4>
+
+<h5 id="team-infra">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1268133">BZ 1268133</a> <b>[RFE] RHEV Manager support for SNMPv3 traps</b><br />Support for SNMPv3 traps was added, so RHEVM is able to provide SNMP v2c and v3 traps.<br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347157">BZ 1347157</a> <b>[v4] capabilities was removed</b><br />Replace /capabilities with /clusterlevels top level collection.<br /></li>
+</ul>
+
+<h4 id="ovirt-engine-dwh">oVirt Engine DWH</h4>
+
+<h5 id="team-dwh">Team: DWH</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347281">BZ 1347281</a> <b>Remove foreign keys from history database for better etl performance on scale</b><br />Feature: <br />Remove foreign keys from history database for better sampling performance on scale environment.<br /><br />Reason: <br />In scale environments the sampling process was taking more time then required. <br /><br />Result: <br />Sampling in scale environment is taking less then 15 seconds.</li>
+</ul>
+
+<h3 id="rebase-bug-fixes-and-enhancements">Rebase: Bug Fixes and Enhancements</h3>
+
+<h4 id="otopi">OTOPI</h4>
+
+<h5 id="team-integration">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1354607">BZ 1354607</a> <b>[FC23] firewalld version detection is broken</b><br />Rebase otopi to support firewalld version &gt;= 0.4.3.2 <br /><br />Highlights, important fixes, or notable enhancements:<br />Fixes firewalld detection with firewalld &gt;= 0.4.3.2 shipped with Fedora &gt;= 23</li>
+</ul>
+
+<h3 id="rebase-enhancements-only">Rebase: Enhancements Only</h3>
+
+<h4 id="ovirt-release-rpm">oVirt Release RPM</h4>
+
+<h5 id="team-integration-1">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1354336">BZ 1354336</a> <b>we use python-paramiko instead of python2-paramiko</b><br /></li>
+</ul>
+
+<h3 id="unclassified">Unclassified</h3>
+
+<h4 id="ovirt-engine-1">oVirt Engine</h4>
+
+<h5 id="team-network">Team: Network</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1343332">BZ 1343332</a> <b>[Network] When all mac range is allocated after engine restart got 404 - Not Found</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1340644">BZ 1340644</a> <b>[REST-API] - Creating bond with network attached via rest leaving the setup networks dialog in unrecoverable state</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347931">BZ 1347931</a> <b>REST-API V4 | Missing network_filter <name> when creating vnic profile with default filter&lt;/b&gt;<br /></name></b></li>
+</ul>
+
+<h5 id="team-virt">Team: Virt</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1353219">BZ 1353219</a> <b>Fail to upgrade db if storage domain with memory was removed</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349368">BZ 1349368</a> <b>‘Disable smartcard’ checkbox does not work (no change in console.vv file)</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346270">BZ 1346270</a> <b>Pool VM loses its disk during reinitialisation after shutdown.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1345791">BZ 1345791</a> <b>Cannot go fullscreen from user portal (wrong value in console.vv)</b><br />The “full screen” option from console options dialog was ignored.<br /><br />After this fix the console will respect the “full screen” option from this dialog.</li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348468">BZ 1348468</a> <b>VM pool in REST is missing all devices but RNG</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1341268">BZ 1341268</a> <b>REST API for Kernel cmdline</b><br /></li>
+</ul>
+
+<h5 id="team-storage">Team: Storage</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350708">BZ 1350708</a> <b>Hot unplug disk using REST API returns “Internal Server Error”</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1344314">BZ 1344314</a> <b>“VDSM HOST2 command failed: Cannot find master domain” after adding storage</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1344367">BZ 1344367</a> <b>Uncaught UI exception when resuming disk upload</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1353175">BZ 1353175</a> <b>Remove old API of template disks and replace it with the new diskattachments API</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1352966">BZ 1352966</a> <b>Allow disk to be plugged/unplugged to a VM through diskattachment REST API</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1353196">BZ 1353196</a> <b>QCOW image upload to block storage is limited to 1GB</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346918">BZ 1346918</a> <b>Remove old API of VM disks</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1352422">BZ 1352422</a> <b>Import a VM created on a storage pool that doesn’t exist in the current deployment fails with NullPointerException</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349594">BZ 1349594</a> <b>REST-API v3 | Failed to update VM disk interface to virtio_scsi</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350226">BZ 1350226</a> <b>Attach disk as VirtIO-ISCSI / SPAPR-VSCSI to a running VM fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350203">BZ 1350203</a> <b>NullPointerException UI exception is thrown when importing an unregistered VM</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350200">BZ 1350200</a> <b>ClassCastException UI exception when importing an unregistered VM with no applications listed</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350343">BZ 1350343</a> <b>RESTAPI : Luns collection in ISCSI SD returns always with only one item</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350207">BZ 1350207</a> <b>API for updating disk attachments is missing</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350208">BZ 1350208</a> <b>iptables should be configured automatically for ovirt-imageio-daemon</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347974">BZ 1347974</a> <b>UI - Wrong LUN check when editing ISCSI/FC domain</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1342783">BZ 1342783</a> <b>Remove snapshot with its disk attached to other VM should be blocked</b><br /></li>
+</ul>
+
+<h5 id="team-integration-2">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348073">BZ 1348073</a> <b>engine-setup does not lock packages on fedora 23</b><br /></li>
+</ul>
+
+<h5 id="team-infra-1">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348805">BZ 1348805</a> <b>Import vm from export domain using REST API returns “Internal Server Error”</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346932">BZ 1346932</a> <b>My Groups option in the Add Permission to User dialog throws NPE (Query ‘GetDirectoryGroupsForUserQuery’ failed: null)</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1344272">BZ 1344272</a> <b>Failed to execute login on behalf - for user admin.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1351217">BZ 1351217</a> <b>FQDN checking introduced by SSO should be case-insensitive or engine-setup should lower-case Host FQDN</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349008">BZ 1349008</a> <b>Host stuck on installing</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1340451">BZ 1340451</a> <b>Some Sessions columns are not sortable</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350966">BZ 1350966</a> <b>REST-API v3 | Failed to destroy a storage domain</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349517">BZ 1349517</a> <b>Listing host storages on 4.0 using APIv3 causes internal error</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349092">BZ 1349092</a> <b>Add Users and Groups dialog: cannot close via ‘X’ button or Esc key</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348916">BZ 1348916</a> <b>When using provisioned/discovered hosts some fields are not filled in properly</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346299">BZ 1346299</a> <b>choosing satellite provider doesn’t fill address field</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347007">BZ 1347007</a> <b>[Dashboard] Search mechanism does not know all storage statuses</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1344284">BZ 1344284</a> <b>REST (V3 and V4)| &lt;mac_pool href= is missing under /api/datacenters/<id>&lt;/b&gt;<br /></id></b></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346263">BZ 1346263</a> <b>satellite 6.2 changed katello API, incompatible with RHEV 3.6.7</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348138">BZ 1348138</a> <b>snapshot type not reported at all if Version: 3</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347155">BZ 1347155</a> <b>Can not get graphic console by id from VM under REST API V3</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347148">BZ 1347148</a> <b>Localization strings for SSO module needs to use indexes for string substitutions to be translatable</b><br /></li>
+</ul>
+
+<h5 id="team-sla">Team: SLA</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350228">BZ 1350228</a> <b>Add affinity label to the VM or to the host does not return in response body entity</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348559">BZ 1348559</a> <b>Can not create quota limits via REST(V4)</b><br /></li>
+</ul>
+
+<h5 id="team-ux">Team: UX</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1344428">BZ 1344428</a> <b>[scale] The Dashboard takes a long time to load on a medium scale system (39 Hosts/3K VMs)</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1347017">BZ 1347017</a> <b>Cannot switch to UI plugin contributed sub tabs</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348278">BZ 1348278</a> <b>oVirt 4.0 translation cycle 2</b><br /></li>
+</ul>
+
+<h4 id="vdsm">VDSM</h4>
+
+<h5 id="team-storage-1">Team: Storage</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346012">BZ 1346012</a> <b>Require lvm package for platform bug 1346172 “vgck scan all devices even if filter is configured”</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349033">BZ 1349033</a> <b>Enable ovirt-imageio in rhev</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348256">BZ 1348256</a> <b>storage: fix schema validation warnings</b><br /></li>
+</ul>
+
+<h5 id="team-network-1">Team: Network</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350723">BZ 1350723</a> <b>VDSM should not require openvswitch as it is not shipped in the Beta channel</b><br /></li>
+</ul>
+
+<h5 id="team-infra-2">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349218">BZ 1349218</a> <b>Host localhost installation failed. Failed to configure management network on the host.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349461">BZ 1349461</a> <b>Migrate Failed with “Bad file descriptor” error in vdsm</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1350350">BZ 1350350</a> <b>[RFE] Add reports module to vdsm</b><br /></li>
+</ul>
+
+<h4 id="vdsm-json-rpc-java">VDSM JSON-RPC Java</h4>
+
+<h5 id="team-infra-3">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349008">BZ 1349008</a> <b>Host stuck on installing</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine-extension-aaa-ldap">oVirt Engine Extension AAA LDAP</h4>
+
+<h5 id="team-infra-4">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349305">BZ 1349305</a> <b>[ovirt-engine-extension-aaa-ldap-setup] No timeout when server is down</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1340380">BZ 1340380</a> <b>[RFE] Assume ‘Active Directory Forest name’ is by default equal to profile name</b><br /></li>
+</ul>
+
+<h4 id="otopi-1">OTOPI</h4>
+
+<h5 id="team-integration-3">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346860">BZ 1346860</a> <b>otopi’s machine dialog always outputs “False” for **%QDefault if no value is set</b><br /></li>
+</ul>
+
+<h4 id="ovirt-hosted-engine-ha">oVirt Hosted Engine HA</h4>
+
+<h5 id="team-integration-4">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346341">BZ 1346341</a> <b>hosted-engine-setup doesn’t correctly initialize the lockspace volume with zeroes</b><br /></li>
+</ul>
+
+<h4 id="ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</h4>
+
+<h5 id="team-integration-5">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1352601">BZ 1352601</a> <b>hosted-engine –deploy fails after selecting FC as strorage type</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1352160">BZ 1352160</a> <b>hosted-engine-setup fails on iSCSI when tgpt is negative</b><br /></li>
+</ul>
+
+<h4 id="ovirt-release-rpm-1">oVirt Release RPM</h4>
+
+<h5 id="team-node">Team: Node</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1340382">BZ 1340382</a> <b>Upgrade to latest build ovirt-node ngn 4.0 failed via “yum update”</b><br /></li>
+</ul>
+
+<h2 id="bug-fixes">Bug fixes</h2>
+
+<h3 id="ovirt-engine-2">oVirt Engine</h3>
+
+<h4 id="team-virt-1">Team: Virt</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349049">BZ 1349049</a> <b>User portal reports Internal error when taking a pool VM</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1318955">BZ 1318955</a> <b>VM in pool reported as stateful</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346270">BZ 1346270</a> <b>Pool VM loses its disk during reinitialisation after shutdown.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1305600">BZ 1305600</a> <b>Setting vm ticket using REST doesn’t report error</b><br /></li>
+</ul>
+
+<h4 id="team-gluster">Team: Gluster</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1262046">BZ 1262046</a> <b>[HC] When glusterd is down - show alert and provide an option to restart glusterd</b><br /></li>
+</ul>
+
+<h4 id="team-storage-2">Team: Storage</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1302780">BZ 1302780</a> <b>Can’t clone vm from template as thin copy to an imported domain with a copy of the template disk</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1325863">BZ 1325863</a> <b>Storage connections collection for gluster storage domains is empty from API</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1328887">BZ 1328887</a> <b>Image Uploader: when not filling in mandatory fields: Size(GB), Alias - Uncaught exception Cannot read property ‘H’ of undefined</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1324076">BZ 1324076</a> <b>SD metadata indicates that its attached to DC while it is not, preventing remove and format storage</b><br /></li>
+</ul>
+
+<h4 id="team-network-2">Team: Network</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1329224">BZ 1329224</a> <b>[Host QoS] - It’s not possible to set an anonymous QoS on a network via the setup networks</b><br /></li>
+</ul>
+
+<h4 id="team-infra-5">Team: Infra</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1323484">BZ 1323484</a> <b>oVirt welcome page locale selector is broken</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1336838">BZ 1336838</a> <b>engine doesn’t trust externally-issued web certificate for internal authentication in spite of issuer being in system (and java) trust store</b><br /></li>
+</ul>
+
+<h4 id="team-sla-1">Team: SLA</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1301105">BZ 1301105</a> <b>[RHEV 3.6 beta] hosted_storage Domain does not get imported in case the Storage Domain is renamed</b><br /></li>
+</ul>
+
+<h3 id="vdsm-1">VDSM</h3>
+
+<h4 id="team-infra-6">Team: Infra</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1279555">BZ 1279555</a> <b>Add drop-in dir for vdsm configuration file</b><br /></li>
+</ul>
+
+<h3 id="ovirt-host-deploy">oVirt Host Deploy</h3>
+
+<h4 id="team-integration-6">Team: Integration</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1349532">BZ 1349532</a> <b>Failed to add NGN 4.0 as additional hosted-engine-host via WEBUI</b><br /></li>
+</ul>
+
+<h3 id="mom">MOM</h3>
+
+<h4 id="team-sla-2">Team: SLA</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1234953">BZ 1234953</a> <b>the error “The ovirt-guest-agent is not active” should not appear when vm is in powering up state</b><br /></li>
+</ul>
+
+<h3 id="ovirt-engine-dwh-1">oVirt Engine DWH</h3>
+
+<h4 id="team-integration-7">Team: Integration</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1332892">BZ 1332892</a> <b>Automatic provisioning of engine db keeps password in answer file if dwh is installed</b><br /></li>
+</ul>
+
+<h3 id="otopi-2">OTOPI</h3>
+
+<h4 id="team-integration-8">Team: Integration</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1343382">BZ 1343382</a> <b>dnf packager uses obsolete function sigCheckPkg</b><br /></li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-setup-1">oVirt Hosted Engine Setup</h3>
+
+<h4 id="team-integration-9">Team: Integration</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1335426">BZ 1335426</a> <b>Cockpit port (9090) is getting closed on HE hosts</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1353537">BZ 1353537</a> <b>hosted-engine –vm-status –json does not show global maintenance mode</b><br /></li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2743/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2743/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2743/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2743/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/4.0.1/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/release/4.0.1/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

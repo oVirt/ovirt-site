@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Action Permissions overview | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Action Permissions overview" />
+<meta name="author" content="Moti Asayag" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2743/develop/developer-guide/action-permissions-overview.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2743/develop/developer-guide/action-permissions-overview.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Action Permissions overview" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Moti Asayag" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Moti Asayag"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2743/images/logo.svg"},"name":"Moti Asayag"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Action Permissions overview","url":"https://ovirt.github.io/ovirt-site/previews/2743/develop/developer-guide/action-permissions-overview.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2743/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2743/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2743/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2743/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2743/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2743/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2743/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2743/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2743/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2743/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2743/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2743/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2743/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2743/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2743/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2743/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2743/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2743/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2743/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2743/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2743/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2743/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2743/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2743/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2743//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2743/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2743/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2743/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/b1766f2c8efbe055218f5ccdae3bc8da?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/b1766f2c8efbe055218f5ccdae3bc8da?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Omer Frenkel</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cd28135f3bdc2a6146213104dfe6bf79?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cd28135f3bdc2a6146213104dfe6bf79?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Shmuel Leib Melamud</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="action-permissions-overview">Action Permissions Overview</h1>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>This is an overview and a how-to for developers.
+It should give a good idea about how permissions are built into the engine architecture and how to add/update authorization to commands and entities.</p>
+
+<h2 id="terminology">Terminology</h2>
+
+<ul>
+  <li><strong>Permission</strong></li>
+</ul>
+
+<p>The main building block of authorization. Permissions are stored in <code class="language-plaintext highlighter-rouge">permissions</code> table (<code class="language-plaintext highlighter-rouge">Permission</code> class).</p>
+
+<p>Permission is composed of the target Object (<code class="language-plaintext highlighter-rouge">object_type_id</code>, <code class="language-plaintext highlighter-rouge">object_id</code>), User (<code class="language-plaintext highlighter-rouge">ad_element_id</code>), and Role (<code class="language-plaintext highlighter-rouge">role_id</code>).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        Permission
+       /     |     \
+    Object  User   Role
+</code></pre></div></div>
+
+<p>That means that the user has right to act in that particular role in relation to that particular object (for example, he has right to act as <code class="language-plaintext highlighter-rouge">UserVmManager</code> for a particular VM).</p>
+
+<ul>
+  <li><strong>Object (or Entity or Managed Entity)</strong></li>
+</ul>
+
+<p>The target object on which we want to enforce authorization. The object is described by type and ID. Most of the types in <code class="language-plaintext highlighter-rouge">VdcObjectType</code> enum are managed by authorization and that’s why they are sometimes referred to as “managed entities” in the this context. <strong>VM</strong>, <strong>VmPool</strong> etc are managed entities, while <strong>Tags</strong> and <strong>Bookmarks</strong> are not.</p>
+
+<ul>
+  <li><strong>User</strong></li>
+</ul>
+
+<p>A logged-in user (or group of users) which is performing the command and is managed in a Directory Server (IPA, Active Directory, IBM Tivoli Server). User is identified by ID. Special ID <code class="language-plaintext highlighter-rouge">Guid.EVERYONE</code> means all authenticated users.</p>
+
+<ul>
+  <li><strong>Role</strong></li>
+</ul>
+
+<p>Role is a set of one or several Action Groups. All roles are listed in <code class="language-plaintext highlighter-rouge">roles</code> table (<code class="language-plaintext highlighter-rouge">Role</code> class), link between roles and Action Groups - in <code class="language-plaintext highlighter-rouge">roles_groups</code> table. Also each role has a type - USER or ADMIN (see <code class="language-plaintext highlighter-rouge">RoleType</code> enum). ADMIN roles can contain any Action Groups, USER roles can contain only USER Action Groups.</p>
+
+<p>Roles are identified by ID, by some IDs are predefined and have names associated to them (see below).</p>
+
+<ul>
+  <li><strong>Pre-Defined Roles</strong></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">SuperUser</code> and <code class="language-plaintext highlighter-rouge">DataCenterAdmin</code> are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see <code class="language-plaintext highlighter-rouge">PredefinedRoles</code> enum and the <code class="language-plaintext highlighter-rouge">data/00500_insert_roles.sql</code>, <code class="language-plaintext highlighter-rouge">data/00600_insert_permissions.sql</code> and <code class="language-plaintext highlighter-rouge">data/00700_insert_roles_groups.sql</code> scripts.</p>
+
+<ul>
+  <li><strong>Action Group</strong></li>
+</ul>
+
+<p>Group of actions - used for grouping similar actions (commands), for example <code class="language-plaintext highlighter-rouge">RUN_VM</code> action group allows execution of <code class="language-plaintext highlighter-rouge">RunVm</code> and <code class="language-plaintext highlighter-rouge">RunOnce</code> commands. All Action Groups are listed in <code class="language-plaintext highlighter-rouge">ActionGroup</code> enum. The type of the Action Group - USER or ADMIN - is also set here.</p>
+
+<ul>
+  <li><strong>Action</strong></li>
+</ul>
+
+<p>The basic building block. Every <strong>Command</strong> in the engine is an action and has a unique ID given in <code class="language-plaintext highlighter-rouge">VdcActionType</code> enum. The corresponding Action Group for each action is also given here.</p>
+
+<ul>
+  <li><strong>MLA</strong></li>
+</ul>
+
+<p>Multi Level Administration. To make a long story short, it was the initial name of the permission feature in the engine. At first there was no authorization on actions so a special UI was designed to enforce it and its name was “Multi Level Administration Portal”.</p>
+
+<ul>
+  <li><strong>Admin</strong></li>
+</ul>
+
+<p>User having at least one permission that contains ADMIN role. Only super user can give permissions with ADMIN role.</p>
+
+<h3 id="entities-hierarchy">Entities Hierarchy</h3>
+
+<ul>
+  <li>Permissions are inherited in the entities hierarchy, for example:
+    <ul>
+      <li>the following permission: <code class="language-plaintext highlighter-rouge">('User1', 'vm1', 'UserRole')</code> means that <em>User1</em> has <em>UserRole</em> on <em>vm1</em> only;</li>
+      <li>but <code class="language-plaintext highlighter-rouge">('User1', 'cluster1', 'UserRole')</code> means that <em>User1</em> has <em>UserRole</em> on the <em>cluster1</em> cluster and all objects in it (VMs, Hosts…).</li>
+    </ul>
+  </li>
+</ul>
+
+<p> </p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Data Center
+    |
+    +--- Cluster
+    |        |
+    |        +--- Host
+    |        |
+    |        +--- VM
+    |        |     |
+    |        |     +--- Disk
+    |        |
+    |        +--- VM Pool
+    |        |
+    |        +--- Gluster Volume
+    |
+    +--- Storage Domain
+    |        |
+    |        +--- Disk
+    |
+    +--- Quota
+    |
+    +--- Template
+    |
+    +--- Network
+</code></pre></div></div>
+
+<ul>
+  <li>Special object ID <code class="language-plaintext highlighter-rouge">Guid.SYSTEM</code> is root of all hierarchies and used to give global permissions.</li>
+  <li>The hierarchy is defined in the DB, specifically in <code class="language-plaintext highlighter-rouge">fn_get_entity_parents</code> DB function.</li>
+</ul>
+
+<h3 id="setting-command-permissions">Setting command permissions</h3>
+
+<p>Every command checks permissions required to run it in CommandBase.isUserAuthorizedToRunAction() method. It calls getPermissionCheckSubjects() method to get list of command-specific permissions. Actual check is performed by CommandBase.checkUserAuthorization() method.</p>
+
+<ul>
+  <li>Each permission that command requires is represented by <code class="language-plaintext highlighter-rouge">PermissionSubject</code> object, containing target object, Action Group that’s required and message that should be displayed if the permission is absent.</li>
+  <li>List of permissions that command requires is returned by <code class="language-plaintext highlighter-rouge">CommandBase.getPermissionCheckSubjects()</code> method.
+    <ul>
+      <li>for example, <code class="language-plaintext highlighter-rouge">RunVmCommand</code> requires <code class="language-plaintext highlighter-rouge">ActionGroup.RUN_VM</code> on the VM passed to it in the params and <code class="language-plaintext highlighter-rouge">ActionGroup.CHANGE_VM_CUSTOM_PROPERTIES</code> on the same VM, if custom properties are to be changed.</li>
+    </ul>
+  </li>
+  <li>As special case, if <code class="language-plaintext highlighter-rouge">CommandBase.getPermissionCheckSubjects()</code> returns null or empty list, access is denied. This can be used to deny user from calling some commands directly.</li>
+  <li>Internal commands do not check permissions - they rely on the permission check performed by their caller. That means that external command must check not only the permissions it requires for itself, but also the permissions required by its subcommands.</li>
+  <li>Actual check is performed by <code class="language-plaintext highlighter-rouge">CommandBase.checkPermissions()</code> method. It is possible to override this method for more advanced usage and modification of the logic of the permission check. <code class="language-plaintext highlighter-rouge">checkSinglePermission()</code> can be used as building block here to check single <code class="language-plaintext highlighter-rouge">PermissionSubject</code>.</li>
+  <li>The whole authorization logic is coded in <code class="language-plaintext highlighter-rouge">CommandBase.isUserAuthorizedToRunAction()</code> method. Low-level work is performed by <code class="language-plaintext highlighter-rouge">CommandBase.checkUserAuthorization()</code> method.</li>
+</ul>
+
+<h3 id="more-info">More Info</h3>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2743/develop/release-management/features/infra/user-portal-permissions.html">User queries</a></li>
+  <li><a href="/ovirt-site/previews/2743/develop/release-management/features/network/networkpermissions.html">Network permissions</a></li>
+  <li><a href="/ovirt-site/previews/2743/develop/release-management/features/storage/diskpermissions.html">Disk permissions</a></li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2743/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2743/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2743/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2743/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/action-permissions-overview.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/action-permissions-overview.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

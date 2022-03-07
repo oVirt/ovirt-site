@@ -1,4 +1,4 @@
-[[chap-Managing_virtual_machines]]
+[id="chap-Managing_virtual_machines"]
 == Managing virtual machines
 
 You can perform common virtual machine management tasks in the virtual machines pane:

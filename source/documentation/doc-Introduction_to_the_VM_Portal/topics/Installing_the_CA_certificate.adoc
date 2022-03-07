@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="installing-the-ca-certificate"]
 = Installing the CA certificate
 
 The first time you access the VM Portal, you must install the certificate used by the {virt-product-fullname} {engine-name} to avoid security warnings.

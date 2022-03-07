@@ -19,21 +19,21 @@ For an Active Directory example, see xref:Attaching_an_Active_Directory[].
 
 . On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install ovirt-engine-extension-aaa-ldap-setup
 ----
 +
 . Run `ovirt-engine-extension-aaa-ldap-setup` to start the interactive setup:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-engine-extension-aaa-ldap-setup
 ----
 +
 . Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at xref:Attaching_an_Active_Directory[].
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Available LDAP implementations:
  1 - 389ds
@@ -55,7 +55,7 @@ Please select:
 +
 . Press `Enter` to accept the default and configure domain name resolution for your LDAP server name:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 It is highly recommended to use DNS resolution for LDAP server.
 If for some reason you intend to use hosts or plain address disable DNS usage.
@@ -68,7 +68,7 @@ Use DNS (Yes, No) [Yes]:
 +
 * For option 2, enter the fully qualified domain name (FQDN) or the IP address of the LDAP server. You can use the `dig` command with the SRV record to find out the domain name. An SRV record takes the following format:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 __service._protocol_._domain_name_
 ----
@@ -78,7 +78,7 @@ Example: `dig _ldap._tcp.redhat.com SRV`.
 * For option 3, enter a space-separated list of LDAP servers. Use either the FQDN or IP address of the servers. This policy provides load-balancing between the LDAP servers. Queries are distributed among all LDAP servers according to the round-robin algorithm.
 * For option 4, enter a space-separated list of LDAP servers. Use either the FQDN or IP address of the servers. This policy defines the first LDAP server to be the default LDAP server to respond to queries. If the first server is not available, the query will go to the next LDAP server on the list.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 1 - Single server
 2 - DNS domain LDAP SRV record
@@ -94,7 +94,7 @@ Please select:
 * `System` allows you to specify the default location for all CA files.
 * `Insecure` skips certificate validation, but the connection is still encrypted using TLS.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 NOTE:
 It is highly recommended to use secure protocol to access the LDAP server.
@@ -113,7 +113,7 @@ LDAPS stands for Lightweight Directory Access Protocol Over Secure Socket Links.
 +
 . Enter the search user distinguished name (DN). The user must have permissions to browse all users and groups on the directory server. The search user must be specified in LDAP annotation. If anonymous search is allowed, press `Enter` without any input.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Enter search user DN (for example uid=username,dc=example,dc=com or leave empty for anonymous): `uid=user1,ou=Users,ou=department-1,dc=example,dc=com`
 Enter search user password:
@@ -121,14 +121,14 @@ Enter search user password:
 +
 . Enter the base DN:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Please enter base DN (dc=redhat,dc=com) [dc=redhat,dc=com]: _ou=department-1,dc=redhat,dc=com_
 ----
 +
 . Select `Yes` if you intend to configure single sign-on for virtual machines. Note that the feature cannot be used with single sign-on to the Administration Portal feature. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Configuring_Single_Sign-On_for_Virtual_Machines[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:
 ----
@@ -140,7 +140,7 @@ Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:
 To rename the profile after the domain has been configured, edit the `ovirt.engine.aaa.authn.profile.name` attribute in the */etc/ovirt-engine/extensions.d/_redhat.com_-authn.properties* file. Restart the `ovirt-engine` service for the changes to take effect.
 ====
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Please specify profile name that will be visible to users: _redhat.com_
 ----
@@ -180,7 +180,7 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]:
 
 . Manually testing the Search function is recommended. For the search query, select `Principal` for user accounts or `Group` for group accounts. Select `Yes` to `Resolve Groups` if you want the group account information for the user account to be returned. Three configuration files are created and displayed in the screen output.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Select test sequence to execute (Done, Abort, Login, Search) [Search]: _Search_
 Select entity to search (Principal, Group) [Principal]:
@@ -190,7 +190,7 @@ Resolve Groups (Yes, No) [No]:
 
 . Select `Done` to complete the setup:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Select test sequence to execute (Done, Abort, Login, Search) [Abort]: _Done_
 [ INFO  ] Stage: Transaction setup
@@ -213,7 +213,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 
 . Restart the `ovirt-engine` service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[].
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----

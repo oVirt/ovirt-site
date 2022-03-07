@@ -65,7 +65,7 @@ connection.close()
 
 If the calls to the `add` methods are successful, the examples output the following text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Attached data storage domain 'data1' to data center 'Default' (Status: maintenance).
 ----

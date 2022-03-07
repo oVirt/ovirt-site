@@ -38,21 +38,21 @@ To import a virtual machine from RHEL 5 Xen, follow these steps:
 . Enable public key authentication between the proxy host and the RHEL 5 Xen host:
 .. Log in to the proxy host and generate SSH keys for the *vdsm* user.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sudo -u vdsm ssh-keygen
 ----
 +
 .. Copy the *vdsm* user's public key to the RHEL 5 Xen host.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sudo -u vdsm ssh-copy-id root@_xenhost.example.com_
 ----
 +
 .. Log in to the RHEL 5 Xen host to verify that the login works correctly.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sudo -u vdsm ssh root@_xenhost.example.com_
 ----
@@ -114,21 +114,21 @@ If the CPU type of the virtual machine is different, configure the imported virt
 . Enable public key authentication between the proxy host and the RHEL 5 Xen host:
 .. Log in to the proxy host and generate SSH keys for the *vdsm* user.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sudo -u vdsm ssh-keygen
 ----
 +
 .. Copy the *vdsm* user's public key to the RHEL 5 Xen host.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sudo -u vdsm ssh-copy-id root@_xenhost.example.com_
 ----
 +
 .. Log in to the RHEL 5 Xen host to verify that the login works correctly.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sudo -u vdsm ssh root@_xenhost.example.com_
 ----
@@ -136,14 +136,14 @@ If the CPU type of the virtual machine is different, configure the imported virt
 . Attach an export domain. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Attaching_an_export_domain[Attaching an Existing Export Domain to a Data Center] in the _Administration Guide_ for details.
 . On the proxy host, copy the virtual machine from the RHEL 5 Xen host:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # virt-v2v-copy-to-local -ic xen+ssh://root@_xenhost.example.com_ _vmname_
 ----
 +
 . Convert the virtual machine to libvirt XML and move the file to your export domain:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # virt-v2v -i libvirtxml _vmname_.xml -o rhev -of raw -os _storage.example.com:/exportdomain_
 ----

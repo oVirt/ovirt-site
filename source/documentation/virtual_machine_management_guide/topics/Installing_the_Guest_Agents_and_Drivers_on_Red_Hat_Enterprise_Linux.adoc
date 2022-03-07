@@ -15,46 +15,46 @@ The {virt-product-fullname} guest agents and drivers are provided by the {virt-p
 . Enable the {virt-product-fullname} Agent repository:
 * For {enterprise-linux} 6
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms
 ----
 * For {enterprise-linux} 7
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos --enable=rhel-7-server-rh-common-rpms
 ----
 * For {enterprise-linux} 8
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
 ----
 . Install the guest agent and dependencies:
 * For {enterprise-linux} 6 or 7, install the ovirt guest agent:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum install ovirt-guest-agent-common
 ----
 * For {enterprise-linux} 8, install the qemu guest agent:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum install qemu-guest-agent
 ----
 . Start and enable the `ovirt-guest-agent` service:
 * For {enterprise-linux} 6
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # service ovirt-guest-agent start
 # chkconfig ovirt-guest-agent on
 ----
 * For {enterprise-linux} 7
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl start ovirt-guest-agent
 # systemctl enable ovirt-guest-agent
@@ -63,14 +63,14 @@ The {virt-product-fullname} guest agents and drivers are provided by the {virt-p
 . Start and enable the `qemu-guest-agent` service:
 * For {enterprise-linux} 6
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # service qemu-ga start
 # chkconfig qemu-ga on
 ----
 * For {enterprise-linux} 7 or 8
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl start qemu-guest-agent
 # systemctl enable qemu-guest-agent

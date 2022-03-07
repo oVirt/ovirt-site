@@ -14,7 +14,7 @@ However, you can install the appliance manually on the deployment host beforehan
 . On {enterprise-linux-host-fullname}s:
 .. Reset the `virt` module:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 +
 ----
 # dnf module reset virt
@@ -36,14 +36,14 @@ include::../install/snip-Enable_virt_module.adoc[]
 +
 . Synchronize installed packages to update them to the latest available versions:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf distro-sync --nobest
 ----
 //ansible lock addition
 . Install the {engine-appliance-name} to the host manually:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install {engine-package}-appliance
 ----

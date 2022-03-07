@@ -7,14 +7,14 @@ You can install Cockpit for monitoring the host's resources and performing admin
 
 . Install the dashboard packages:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install cockpit-ovirt-dashboard
 ----
 
 . Enable and start the `cockpit.socket` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl enable cockpit.socket
 # systemctl start cockpit.socket
@@ -22,14 +22,14 @@ You can install Cockpit for monitoring the host's resources and performing admin
 
 . Check if Cockpit is an active service in the firewall:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --list-services
 ----
 +
 You should see `cockpit` listed. If it is not, enter the following with root permissions to add `cockpit` as a service to your firewall:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --permanent --add-service=cockpit
 ----

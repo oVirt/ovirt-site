@@ -17,7 +17,7 @@ This example uses the `dr-rhv-failback.yml` playbook created earlier.
 
 . Run the failback playbook with the following command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 #  ansible-playbook dr-rhv-failback.yml --tags "fail_back"
 ----

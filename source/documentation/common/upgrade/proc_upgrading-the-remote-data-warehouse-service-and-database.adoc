@@ -23,7 +23,7 @@ Notice that part of this procedure requires you to install {enterprise-linux} 8.
 Grafana is not supported on {virt-product-shortname} 4.3, but on {virt-product-shortname} 4.4, this command also includes the Grafana service and the Grafana database.
 ====
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --file=__<backupfile>__
 ----
@@ -32,7 +32,7 @@ Grafana is not supported on {virt-product-shortname} 4.3, but on {virt-product-s
 
 . Stop and disable the Data Warehouse service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl stop ovirt-engine-dwhd
 # systemctl disable ovirt-engine-dwhd
@@ -48,7 +48,7 @@ Grafana is not supported on {virt-product-shortname} 4.3, but on {virt-product-s
 
 . Restore the backup file:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=restore --file=backup.bck --provision-all-databases
 ----
@@ -60,14 +60,14 @@ Grafana is not supported on {virt-product-shortname} 4.3, but on {virt-product-s
 
 . On the Data Warehouse machine, run the `engine-setup` command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-setup
 ----
 
 . On the {engine-name} machine, restart the {engine-name} to connect it to the Data Warehouse database:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine
 ----

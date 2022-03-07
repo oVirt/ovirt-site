@@ -14,7 +14,7 @@ A typical plug-in bootstrap sequence consists of following steps:
 
 The following code snippet illustrates the above mentioned steps in practice:
 	
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 
 // Access plug-in API using 'parent' due to this code being evaluated within the context of an iframe element.

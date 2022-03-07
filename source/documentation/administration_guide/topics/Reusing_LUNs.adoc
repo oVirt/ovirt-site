@@ -3,14 +3,14 @@
 
 LUNs cannot be reused, as is, to create a storage domain or virtual disk. If you try to reuse the LUNs, the Administration Portal displays the following error message:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Physical device initialization failed. Please check that the device is empty and accessible by the host.
 ----
 
 A self-hosted engine shows the following error during installation:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 [ ERROR ] Error creating Volume Group: Failed to initialize physical device: ("[u'/dev/mapper/000000000000000000000000000000000']",)
 [ ERROR ] Failed to execute stage 'Misc configuration': Failed to initialize physical device: ("[u'/dev/mapper/000000000000000000000000000000000']",)

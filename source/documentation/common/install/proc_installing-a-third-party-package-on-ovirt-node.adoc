@@ -17,7 +17,7 @@ If you need a package that is not included in the `ovirt-release44.rpm` reposito
 
 . Add an entry to the `.repo` file. For example, to install `sssd-ldap`, add the following entry to a new `.repo` file name `third-party.repo`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # imgbased: set-enabled
 [custom-sssd-ldap]
@@ -31,7 +31,7 @@ includepkgs = sssd-ldap
 
 . Install ` sssd-ldap`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install sssd-ldap
 ----

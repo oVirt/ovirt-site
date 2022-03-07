@@ -12,14 +12,14 @@ You must blacklist NICs on the virtual machine before the guest agent is started
 
 . In the `/etc/ovirt-guest-agent.conf` configuration file on the virtual machine, insert the following line, with the NICs to be ignored separated by spaces:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ignored_nics = _first_NIC_to_ignore_ _second_NIC_to_ignore_
 ----
 +
 . Start the agent:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl start ovirt-guest-agent
 ----

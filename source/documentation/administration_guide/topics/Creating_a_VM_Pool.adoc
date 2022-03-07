@@ -23,7 +23,7 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
 
 . Create a new `sysprep` file, specifying the domain, domain password, and domain administrator:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
     <Credentials>
         <Domain>__AD_Domain__</Domain>
@@ -81,7 +81,7 @@ This `User Name` is the name of the local administrator. You can change its valu
 
 * `Key`. If you do not want to use the pre-defined Windows activation product key, replace `<![CDATA[$ProductKey$]]>` with a valid product key:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
     <ProductKey>
         <Key><![CDATA[$ProductKey$]]></Key>

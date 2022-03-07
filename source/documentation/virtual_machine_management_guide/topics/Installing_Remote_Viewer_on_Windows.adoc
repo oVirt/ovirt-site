@@ -11,14 +11,14 @@ The Remote Viewer application provides users with a graphical console for connec
 
 * Virt Viewer for 32-bit Windows:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x86.msi
 ----
 
 * Virt Viewer for 64-bit Windows:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x64.msi
 ----

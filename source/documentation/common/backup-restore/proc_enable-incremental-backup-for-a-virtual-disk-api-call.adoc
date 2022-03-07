@@ -10,14 +10,14 @@ You can use a REST API request to enable incremental backup for a virtual machin
 
 * Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with id `123`, send this request:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 POST /ovirt-engine/api/vms/123/diskattachments
 ----
 +
 The request body should include `backup` set to `incremental` as part of a `disk` object, like this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 <disk_attachment>
     ...
@@ -31,7 +31,7 @@ The request body should include `backup` set to `incremental` as part of a `disk
 
 The response is:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 <disk_attachment>
     ...

@@ -9,7 +9,7 @@ Update the guest agents and drivers on your {enterprise-linux} virtual machines 
 . Log in to the {enterprise-linux} virtual machine.
 . Update the `ovirt-guest-agent-common` package: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum update ovirt-guest-agent-common
 ----
@@ -19,7 +19,7 @@ Update the guest agents and drivers on your {enterprise-linux} virtual machines 
 
 * For {enterprise-linux} 6
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # service ovirt-guest-agent restart
 ----
@@ -27,7 +27,7 @@ Update the guest agents and drivers on your {enterprise-linux} virtual machines 
 
 * For {enterprise-linux} 7
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-guest-agent.service
 ----

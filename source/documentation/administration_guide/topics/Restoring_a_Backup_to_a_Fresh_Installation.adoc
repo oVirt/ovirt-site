@@ -11,28 +11,28 @@ The `engine-backup` command can be used to restore a backup to a fresh installat
 
 * Restore a complete backup: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions
 ----
 +
 If Data Warehouse is also being restored as part of the complete backup, provision the additional database:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --provision-dwh-db --restore-permissions
 ----
 
 * Restore a database-only backup by restoring the configuration files and database backup: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions
 ----
 +
 The example above restores a backup of the {engine-name} database. 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions
 ----
@@ -40,7 +40,7 @@ The example above restores a backup of the Data Warehouse database.
 +
 If successful, the following output displays:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 You should now run engine-setup.
 Done.
@@ -48,7 +48,7 @@ Done.
 +
 . Run the following command and follow the prompts to configure the restored {engine-name}: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-setup
 ----

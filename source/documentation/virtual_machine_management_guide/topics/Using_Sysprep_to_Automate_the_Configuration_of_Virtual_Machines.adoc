@@ -16,7 +16,7 @@ Copy the default values for your Windows operating system from */etc/ovirt-engin
 .Windows 7 Default Configuration Values
 ====
 			 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # Windows7(11, OsType.Windows, false),false
 os.windows_7.id.value = 11

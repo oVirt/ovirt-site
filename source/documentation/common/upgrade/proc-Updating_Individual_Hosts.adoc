@@ -23,14 +23,14 @@ include::snip-Host_update_limitations.adoc[]
 ifdef::rhv-doc[]
 * For {hypervisor-fullname}s:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos --enable=rhvh-4-for-rhel-8-x86_64-rpms
 ----
 
 * For {enterprise-linux-host-fullname}s:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --enable=rhel-8-for-x86_64-baseos-rpms \
@@ -43,14 +43,14 @@ endif::[]
 ifdef::ovirt-doc[]
 * For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf update -y ovirt-release44
 ----
 
 * For {enterprise-linux-host-fullname}s:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----

@@ -8,21 +8,21 @@ This procedure explains how to turn off (deactivate) a SPICE proxy.
 
 . Log in to the {engine-name}: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 $ ssh root@_[IP of {engine-name}]_
 ----
 +
 . Run the following command to clear the SPICE proxy: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config -s SpiceProxyDefault=""
 ----
 +
 . Restart the {engine-name}: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----

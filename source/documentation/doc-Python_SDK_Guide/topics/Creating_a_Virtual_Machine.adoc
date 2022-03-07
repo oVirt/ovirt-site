@@ -54,7 +54,7 @@ connection.close()
 
 If the `add` request is successful, the examples output the text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Virtual machine 'vm1' added.
 ----

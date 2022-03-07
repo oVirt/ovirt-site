@@ -7,7 +7,7 @@ To install the guest agents, tools, and drivers on a Windows virtual machine, co
 
 . On the {engine-name} machine, install the `virtio-win` package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install virtio-win*
 ----
@@ -35,7 +35,7 @@ After you install the package, the ISO file is located in [filename]`/usr/share/
   .. Open a command prompt with Administrator privileges.
   .. Enter the [cmd]`msiexec` command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 D:\ msiexec /i "_PATH_TO_MSI_" /qn [/l*v "_PATH_TO_LOG_"][/norestart] ADDLOCAL=ALL
 ----
@@ -44,7 +44,7 @@ Other possible values for ADDLOCAL are listed below.
 +
 For example, to run the installation when `virtio-win-gt-x64.msi` is on the `D:\` drive, without saving the log, and then immediately restart the virtual machine, enter the following command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=ALL
 ----
@@ -87,14 +87,14 @@ The `ADDLOCAL` parameter of the [cmd]`msiexec` command enables you to specify wh
 
 The following command installs only the VirtIO SCSI pass-through controller, the VirtIO Serial device driver, and the VirtIO Block driver:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=`FE_vioscsi_driver,FE_vioserial_driver,FE_viostor_driver
 ----
 
 The following command installs only the Spice Agent and its required corresponding drivers:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL = FE_spice_Agent,FE_vioserial_driver,FE_spice_driver
 ----

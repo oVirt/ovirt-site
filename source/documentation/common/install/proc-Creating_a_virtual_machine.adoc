@@ -37,7 +37,7 @@ endif::linux_vm[]
 ifdef::windows_vm[]
 . You can change the default virtual machine name length with the `engine-config` tool. Run the following command on the {engine-name} machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --set MaxVmNameLength=_integer_
 ----

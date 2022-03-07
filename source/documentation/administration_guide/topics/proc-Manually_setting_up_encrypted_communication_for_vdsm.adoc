@@ -22,7 +22,7 @@ Hosts in clusters with level 4.2 are automatically reconfigured for strong encry
 
 . On the host, create  `/etc/vdsm/vdsm.conf.d/99-custom-ciphers.conf` with the following setting:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 [vars]
 ssl_ciphers = HIGH
@@ -32,7 +32,7 @@ See link:https://www.openssl.org/docs/man1.0.2/apps/ciphers.html[OpenSSL Cipher 
 
 . Restart VDSM:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart vdsm
 ----

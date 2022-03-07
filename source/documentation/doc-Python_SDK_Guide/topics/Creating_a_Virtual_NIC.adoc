@@ -57,7 +57,7 @@ connection.close()
 
 If the `add` request is successful, the examples output the text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Network interface 'nic1' added to 'vm1'.
 ----

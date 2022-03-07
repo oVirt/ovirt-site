@@ -18,14 +18,14 @@ To define the syslog facility, navigate to the `/etc/ovirt-engine/extensions.d` 
 
 . Install the extension.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install ovirt-engine-extension-logger-log4j
 ----
 +
 . Create the `Log4jLogger.properties` file in the */etc/ovirt-engine/extensions.d/* directory and include the following contents.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ovirt.engine.extension.name = log4jlogger
 ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.logger.Logger
@@ -41,21 +41,21 @@ log4j.appender.myappender.layout.ConversionPattern=[%c] %m%n
 +
 . Install and configure rsyslog.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install rsyslog
 ----
 +
 . Configure SELinux to allow `rsyslog` traffic.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # semanage port -a -t syslogd_port_t -p udp 514
 ----
 +
 . Edit */etc/rsyslog.conf* and add the following lines:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 $template TmplAuth, "/var/log/%fromhost%/secure"
 $template TmplMsg, "/var/log/%fromhost%/messages"
@@ -69,7 +69,7 @@ $InputUDPServerBindRuleset remote
 +
 . Uncomment the following two lines.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 #$ModLoad imudp
 #$UDPServerRun 514
@@ -77,14 +77,14 @@ $InputUDPServerBindRuleset remote
 +
 . Restart the `rsyslog` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart rsyslog.service
 ----
 +
 . If the firewall is enabled and active, run the following command to add the necessary rules for opening the rsyslog ports in Firewalld.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --permanent --add-port=514/udp
 # firewall-cmd --reload
@@ -92,7 +92,7 @@ $InputUDPServerBindRuleset remote
 +
 . Restart {virt-product-fullname} {engine-name}.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine
 ----

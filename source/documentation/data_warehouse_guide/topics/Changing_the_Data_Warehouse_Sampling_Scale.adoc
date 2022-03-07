@@ -9,7 +9,7 @@ Data Warehouse is required in {virt-product-fullname}. It can be installed and c
 
 The sampling scale is configured by `engine-setup` during installation:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 --== MISC CONFIGURATION ==--
 

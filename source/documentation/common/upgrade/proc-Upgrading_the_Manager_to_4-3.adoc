@@ -28,7 +28,7 @@ If the upgrade fails, the `engine-setup` command attempts to restore your {virt-
 . Enable the {virt-product-fullname} 4.3 repositories:
 +
 ifdef::rhv-doc[]
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --enable=rhel-7-server-rhv-4.3-manager-rpms \
@@ -36,7 +36,7 @@ ifdef::rhv-doc[]
 ----
 endif::[]
 ifdef::ovirt-doc[]
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 ----
@@ -47,13 +47,13 @@ All other repositories remain the same across {virt-product-fullname} releases.
 . Update the setup packages:
 +
 ifdef::rhv-doc[]
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum update ovirt\\*setup\* rh\*vm-setup-plugins
 ----
 endif::[]
 ifdef::ovirt-doc[]
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum update ovirt\\*setup\*
 ----
@@ -67,7 +67,7 @@ ifdef::4-2_remote_db[]
 the {virt-product-fullname} {engine-name}, the remote database or remote service:
 endif::4-2_remote_db[]
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-setup
 ----
@@ -81,7 +81,7 @@ endif::4-2_remote_db[]
 +
 When the script completes successfully, the following message appears:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Execution of setup completed successfully
 ----
@@ -89,7 +89,7 @@ Execution of setup completed successfully
 ifdef::rhv-doc[]
 . Disable the {virt-product-fullname} 4.2 repositories to ensure the system does not use any 4.2 packages:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --disable=rhel-7-server-rhv-4.2-manager-rpms \
@@ -99,7 +99,7 @@ endif::[]
 
 . Update the base operating system:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum update
 ----
@@ -127,7 +127,7 @@ Complete these additional steps when upgrading a remote Data Warehouse database 
 
 . The `ovirt-engine-dwhd` service is now running on the {engine-name} machine. If the `ovirt-engine-dwhd` service is on a remote machine, stop and disable the `ovirt-engine-dwhd` service on the {engine-name} machine, and remove the configuration files that `engine-setup` created:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl stop ovirt-engine-dwhd
 # systemctl disable ovirt-engine-dwhd

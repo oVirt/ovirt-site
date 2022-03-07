@@ -75,7 +75,7 @@ connection.close()
 
 If the `add` request is successful, the examples output the text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Disk 'vm1_Disk1' added to 'vm1'.
 ----

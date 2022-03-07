@@ -18,20 +18,20 @@ You should use this procedure only on a standalone installation of the {virt-pro
 
 . Run the following command on the {engine-name} machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-cleanup
 ----
 
 . The {engine-name} service must be stopped before proceeding. You are prompted to confirm. Enter `OK` to proceed:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 During execution engine service will be stopped (OK, Cancel) [OK]: 
 ----
 . You are prompted to confirm that you want to remove all {engine-name} components. Enter `OK` to remove all components, or `Cancel` to exit `engine-cleanup`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 All the installed ovirt components are about to be removed, data will be lost (OK, Cancel) [Cancel]: OK
 ----
@@ -40,7 +40,7 @@ All the installed ovirt components are about to be removed, data will be lost (O
 
 . Remove the {virt-product-fullname} packages:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf remove {engine-package}* vdsm-bootstrap
 ----

@@ -11,7 +11,7 @@ This procedure uses the [command]`pg_dump` and [command]`pg_restore` commands. F
 
 . Back up all remote databases. Use the following command on each remote database machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # pg_dump -f _backup-file_ _database-name_
 ----
@@ -20,7 +20,7 @@ The default name for the engine database is `engine`, and the default name for t
 +
 For example, on the machine hosting the Data Warehouse database, enter a command similar to the following:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # pg_dump -f dwh-backup.dump ovirt-engine-history
 ----
@@ -49,14 +49,14 @@ Updates to the {virt-product-fullname} {engine-name} are released through the Co
 
 . Install the PostgreSQL server package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum install postgresql postgresql-server postgresql-contrib
 ----
 
 . Restore the backup on the data warehouse database machine and the engine database machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # pg_restore -d _database-name_ _backup-file_
 ----
@@ -64,7 +64,7 @@ Updates to the {virt-product-fullname} {engine-name} are released through the Co
 ifdef::remote_database_upgrade[]
 . On the {engine-name} machine, run `engine-setup` to configure the {engine-name}:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-setup
 ----

@@ -21,14 +21,14 @@ If the host is attached to the {engine-name} already, ensure you place the host 
 . Right-click the host and select *Edit*. Click the *Kernel* tab.
 . In the *Kernel command line* free text entry field, enter the IDs located in the previous steps.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 pci-stub.ids=10de:13ba,10de:0fbc
 ----
 +
 . Blacklist the corresponding drivers on the host. For example, to blacklist nVidia's nouveau driver, next to _pci-stub.ids=xxxx:xxxx_, enter *rdblacklist=nouveau*.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 pci-stub.ids=10de:13ba,10de:0fbc rdblacklist=nouveau
 ----
@@ -76,7 +76,7 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... rdblacklist=nouveau"
 +
 . Locate the GPU BusID. In this example, is BusID is `00:09.0`.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # lspci | grep VGA
 00:09.0 VGA compatible controller: NVIDIA Corporation GK106GL [Quadro K4000] (rev a1)
@@ -84,7 +84,7 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... rdblacklist=nouveau"
 +
 . Edit the */etc/X11/xorg.conf* file and append the following content:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Section "Device"
 Identifier "Device0"

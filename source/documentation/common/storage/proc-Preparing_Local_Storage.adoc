@@ -8,14 +8,14 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 
 . On the host, create the directory to be used for the local storage:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # mkdir -p /data/images
 ----
 +
 . Ensure that the directory has permissions allowing read/write access to the *vdsm* user (UID 36) and *kvm* group (GID 36):
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # chown 36:36 /data /data/images
 # chmod 0755 /data /data/images
@@ -27,7 +27,7 @@ Create the local storage on a logical volume:
 
 . Create a local storage directory:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # mkdir /data
 # lvcreate -L $SIZE rhvh -n data
@@ -38,13 +38,13 @@ Create the local storage on a logical volume:
 +
 . Mount the new local storage:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # mount -a
 ----
 . Ensure that the directory has permissions allowing read/write access to the *vdsm* user (UID 36) and *kvm* group (GID 36):
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # chown 36:36 /data /rhvh-data
 # chmod 0755 /data /rhvh-data

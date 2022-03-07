@@ -11,14 +11,14 @@
 
 * `usbdk` for 32-bit Windows:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x86.msi
 ----
 +
 * `usbdk` for 64-bit Windows:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x64.msi
 ----

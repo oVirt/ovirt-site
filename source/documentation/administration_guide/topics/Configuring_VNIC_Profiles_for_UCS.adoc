@@ -21,7 +21,7 @@ A UCS port profile must be configured in Cisco UCS before configuring the vNIC p
 
 . On the {virt-product-fullname} {engine-name}, configure the `vmfex` custom property and set the cluster compatibility level using `--cver`.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 
 # engine-config -s CustomDeviceProperties='{type=interface;prop={vmfex=^[a-zA-Z0-9_.-]{2,32}$}}' --cver=4.4
@@ -30,7 +30,7 @@ A UCS port profile must be configured in Cisco UCS before configuring the vNIC p
 +
 . Verify that the `vmfex` custom device property was added.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 
 # engine-config -g CustomDeviceProperties
@@ -39,7 +39,7 @@ A UCS port profile must be configured in Cisco UCS before configuring the vNIC p
 +
 . Restart the `ovirt-engine` service.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 
 # systemctl restart ovirt-engine.service

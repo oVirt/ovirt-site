@@ -10,7 +10,7 @@ For more information about failing over the environment, cleaning the environmen
 . Disable storage replication between the primary and replicated storage domains and ensure that all replicated storage domains are in read/write mode.
 . Run the command to fail over to the secondary site:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook _playbook_ --tags "fail_over"
 ----
@@ -21,13 +21,13 @@ For more information about failing over the environment, cleaning the environmen
 . Synchronize replication between the secondary site’s storage domains and the primary site’s storage domains. The secondary site’s storage domains must be in read/write mode and the primary site’s storage domains must be in read-only mode.
 . Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook _playbook_ --tags "clean_engine"
 ----
 . Run the failback command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook _playbook_ --tags "fail_back"
 ----

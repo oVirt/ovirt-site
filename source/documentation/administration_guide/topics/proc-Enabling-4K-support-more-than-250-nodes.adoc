@@ -14,21 +14,21 @@ You can enable 4K block support on environments with more than 250 hosts by sett
 
 . On the {engine-name} machine enable the required maximum number of hosts:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config -s MaxNumberOfHostsInStoragePool=_NUMBER_OF_HOSTS_
 ----
 
 . Restart the JBoss Application Server:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # service jboss-as restart
 ----
 
 For example, if you have a cluster with 300 hosts, enter:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config -s MaxNumberOfHostsInStoragePool=300
 # service jboss-as restart
@@ -38,7 +38,7 @@ For example, if you have a cluster with 300 hosts, enter:
 
 View the value of the `MaxNumberOfHostsInStoragePool` parameter on the {engine-name}:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
  # engine-config --get=MaxNumberOfHostsInStoragePool
  MaxNumberOfHostsInStoragePool: 250 version: general

@@ -28,7 +28,7 @@ Are you sure you want to proceed? [y/n]
 . Define whether to reinstall on the same shared storage device or select a different shared storage device.
   * To deploy the installation on the same storage domain, clean up the storage domain by running the following command in the appropriate directory on the server for NFS, Gluster, PosixFS or local storage domains:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # rm -rf _storage_location_/*
 ----

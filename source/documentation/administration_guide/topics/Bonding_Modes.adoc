@@ -19,7 +19,7 @@ The packet dispersal algorithm is determined by the bonding mode. (See the link:
 
 The bonded NICs must have the same aggregator IDs. Otherwise, the {engine-name} displays a warning exclamation mark icon on the bond in the *Network Interfaces* tab and the `ad_partner_mac` value of the bond is reported as `00:00:00:00:00:00`. You can check the aggregator IDs by entering the following command:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cat /proc/net/bonding/_bond0_
 ----

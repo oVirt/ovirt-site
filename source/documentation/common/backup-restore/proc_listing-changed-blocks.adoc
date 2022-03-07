@@ -32,14 +32,14 @@ length:: number of bytes
 
 * To list data and zero ranges, send a request like this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /images/__ticket-uuid__/map
 ----
 +
 The response body should appear similar to this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 [
     {"data": true, "start": 0, "length": 1048576},
@@ -50,14 +50,14 @@ The response body should appear similar to this:
 
 * To list only only ranges modified since a backup checkpoint id, send a request like this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /images/__ticket-uuid__/map?dirty=y
 ----
 +
 The response body should appear similar to this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 [
     {"data": true, "start": 0, "length": 1048576},

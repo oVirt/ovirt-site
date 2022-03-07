@@ -26,7 +26,7 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Install the PostgreSQL server package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install postgresql-server postgresql-contrib
 ----
@@ -55,14 +55,14 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Create a default user. The {engine-name}'s default user is `engine` and Data Warehouse's default user is `ovirt_engine_history`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 postgres=# create role _user_name_ with login encrypted password '_password_';
 ----
 
 . Create a database. The {engine-name}'s default database name is `engine` and Data Warehouse's default database name is `ovirt_engine_history`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 postgres=# create database _database_name_ owner _user_name_ template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
 
@@ -70,35 +70,35 @@ postgres=# create database _database_name_ owner _user_name_ template template0 
 
 . Connect to the new database:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 postgres=# \c _database_name_
 ----
 
 . Add the `uuid-ossp` extension:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 _database_name_=# CREATE EXTENSION "uuid-ossp";
 ----
 
 . Add the `plpgsql` language if it does not exist:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 _database_name_=# CREATE LANGUAGE plpgsql;
 ----
 
 . Quit the `psql` interface:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 _database_name_=# \q
 ----
 
 . Edit the `/var/lib/pgsql/data/pg_hba.conf` file to enable md5 client authentication, so the engine can access the database locally. Add the following line immediately below the line that starts with `local` at the bottom of the file:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 host    _database_name_    _user_name_    0.0.0.0/0    md5
 host    _database_name_    _user_name_    ::0/0   md5
@@ -106,7 +106,7 @@ host    _database_name_    _user_name_    ::0/0   md5
 
 . Update the PostgreSQL server's configuration. Edit the `/var/lib/pgsql/data/postgresql.conf` file and add the following lines to the bottom of the file:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 autovacuum_vacuum_scale_factor=0.01
 autovacuum_analyze_scale_factor=0.075
@@ -118,7 +118,7 @@ work_mem=8192
 
 . Restart the `postgresql` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart postgresql
 ----

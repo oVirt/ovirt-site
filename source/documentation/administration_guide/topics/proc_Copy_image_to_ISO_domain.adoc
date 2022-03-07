@@ -20,7 +20,7 @@ To upload an ISO image to an ISO storage domain in order to make it available fr
 
 . Get a directory tree of `/rhv/data-center`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # tree /rhev/data-center
 .
@@ -49,14 +49,14 @@ To upload an ISO image to an ISO storage domain in order to make it available fr
 
 . Securely copy the image from the source location into the full path of `11111111-1111-1111-1111-111111111111`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # scp root@isosource:/isos/example.iso /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111
 ----
 
 . File permissions for the newly copied ISO image should be 36:36 (vdsm:kvm). If they are not, change user and group ownership of the ISO file to 36:36 (vdsm's user and group):
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cd /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111
 # chown 36.36 example.iso

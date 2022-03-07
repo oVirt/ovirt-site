@@ -15,7 +15,7 @@ Double-click the USB Filter Editor shortcut icon on your desktop. This opens the
 */etc/ovirt-engine/*
 . As the *root* user on the server running {virt-product-fullname} {engine-name}, restart the *ovirt-engine* service.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----

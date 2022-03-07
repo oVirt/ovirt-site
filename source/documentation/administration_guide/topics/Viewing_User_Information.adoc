@@ -2,7 +2,7 @@
 
 You can view detailed user account information:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool user show test1
 ----

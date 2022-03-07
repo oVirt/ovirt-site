@@ -45,7 +45,7 @@ endif::[]
 
 . Enable the `pki-deps` module.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 +
 ----
 # dnf module -y enable pki-deps
@@ -53,7 +53,7 @@ endif::[]
 
 . Ensure that all packages currently installed are up to date:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf upgrade --nobest
 ----
@@ -61,7 +61,7 @@ endif::[]
 +
 . Install the `ovirt-engine-dwh-setup` package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install ovirt-engine-dwh-setup
 ----
@@ -71,14 +71,14 @@ endif::[]
 
 . Stop the Data Warehouse service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl stop ovirt-engine-dwhd.service
 ----
 +
 . If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the [filename]`/var/lib/pgsql/data/postgresql.conf` file and modify the listen_addresses line so that it matches the following:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 listen_addresses = '*'
 ----
@@ -89,7 +89,7 @@ If the database is hosted on the {engine-name} machine and was configured during
 See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[] for more information on how to configure and migrate the Data Warehouse database.
 . Restart the postgresql service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart postgresql
 ----
@@ -101,7 +101,7 @@ The order of the options or settings shown in this section may differ depending 
 
 . If you are migrating both the `ovirt_engine_history` database and the Data Warehouse service to the *same* machine, run the following, otherwise proceed to the next step.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sed -i '/^ENGINE_DB_/d' \
         /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
@@ -114,21 +114,21 @@ The order of the options or settings shown in this section may differ depending 
 
 . Run the `engine-setup` command to begin configuration of Data Warehouse on the machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-setup
 ----
 
 . Press *Enter* to accept the automatically detected host name, or enter an alternative host name and press *Enter*:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Host fully qualified DNS name of this server [_autodetected host name_]:
 ----
 
 . Press `Enter` to automatically configure the firewall, or type `No` and press `Enter` to maintain existing settings:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 
 ----
 Setup can automatically configure the firewall on this system.
@@ -139,7 +139,7 @@ If you choose to automatically configure the firewall, and no firewall managers 
 
 . Enter the fully qualified domain name and password for the {engine-name}. Press *Enter* to accept the default values in each other field:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Host fully qualified DNS name of the engine server []: _engine-fqdn_
 Setup needs to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
@@ -153,7 +153,7 @@ root password on remote engine server _engine-fqdn_: _password_
 
 . Enter the FQDN and password for the {engine-name} database machine. Press `Enter` to accept the default values in each other field:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Engine database host []: _manager-db-fqdn_
 Engine database port [5432]:
@@ -165,7 +165,7 @@ Engine database password: _password_
 
 . Confirm your installation settings:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Please confirm installation settings (OK, Cancel) [OK]:
 ----
@@ -185,14 +185,14 @@ endif::DWH[]
 
 . On the {engine-name} machine, restart the {engine-name}:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # service ovirt-engine restart
 ----
 
 . Run the following command to modify the file */etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf* and set the options to `False`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # sed -i \
      -e 's;^\(OVESETUP_DWH_CORE/enable=bool\):True;\1:False;' \
@@ -206,14 +206,14 @@ endif::DWH[]
 
 . Disable the Data Warehouse service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl disable ovirt-engine-dwhd.service
 ----
 
 . Remove the Data Warehouse files:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*
 ----

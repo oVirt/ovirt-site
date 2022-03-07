@@ -11,14 +11,14 @@ This procedure shows you how to create a group account, add users to the group, 
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.
 . Create a new group: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool group add _group1_
 ----
 +
 . Add users to the group. The users must be created already. 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool group-manage useradd _group1_ --user=_test1_
 ----
@@ -30,7 +30,7 @@ For a full list of the group-manage options, run `ovirt-aaa-jdbc-tool group-mana
 +
 . View group account details: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool group show _group1_
 ----
@@ -45,21 +45,21 @@ This procedure shows you how to create groups within groups.
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.
 . Create the first group: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool group add _group1_
 ----
 +
 . Create the second group: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool group add _group1-1_
 ----
 +
 . Add the second group to the first group: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool group-manage groupadd _group1_ --group=_group1-1_
 ----

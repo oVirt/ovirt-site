@@ -7,14 +7,14 @@ You must place the self-hosted engine environment in global maintenance mode bef
 
 . Log in to one of the self-hosted engine nodes and enable global maintenance mode:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
 
 . Confirm that the environment is in global maintenance mode before proceeding:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # hosted-engine --vm-status
 ----

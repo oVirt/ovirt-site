@@ -10,7 +10,7 @@ Finalizing a backup ends the backup, unlocks resources, and performs cleanups. U
 
 * To finalize a backup of a disk with id `456` on a virtual machine with id `123`, send a request like this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 POST /vms/123/backups/456/finalize
 ----

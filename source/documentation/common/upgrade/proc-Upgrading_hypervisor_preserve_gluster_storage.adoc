@@ -148,14 +148,14 @@ Before creating a backup, do the following:
 . Check for any pending self-heal tasks on all the replica 3 volumes. Wait for the heal to be completed.
 . Run the following command on one of the hosts:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # gluster volume heal <volume> info summary
 ----
 +
 . Stop the `glusterfs` brick process and unmount all the bricks on the first host to maintain file system consistency. Run the following on the first host:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # pkill glusterfsd; pkill glusterfs
 # systemctl stop glusterd
@@ -258,7 +258,7 @@ The following procedure is an automated method for deploying a HostedEngine VM u
 +
 Example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cat /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/he_gluster_vars.json
 
@@ -292,7 +292,7 @@ Example:
 
 .. For static {engine-name} network configuration, add more options as listed below:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
   “he_vm_ip_addr”:  “<engine VM ip address>”
   “he_vm_ip_prefix”:  “<engine VM ip prefix>”
@@ -310,7 +310,7 @@ and
 +
 .. Run the playbook to deploy HostedEngine Deployment.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
 ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'
@@ -331,7 +331,7 @@ If there are any failures during self-hosted engine deployment, find the problem
 
 .. From the command line of the host, unmount Gluster bricks
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # umount /gluster_bricks/*
 ----
@@ -360,7 +360,7 @@ Edit the  playbook on the newly installed host and execute it as described in th
 
 .. Reinstall the host in {hypervisor-shortname} Administration Portal Copy the authorized key from the first deployed host in {hypervisor-shortname} 4.4
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # scp root@host1.example.com:/root/.ssh/authorized_keys /root/.ssh/
 ----
@@ -372,7 +372,7 @@ Edit the  playbook on the newly installed host and execute it as described in th
 
 .. Make sure that there are no errors in the volumes related to GFID mismatch. If there are any errors, resolve them.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 grep -i ‘gfid mismatch’ /var/log/glusterfs/*
 ----
@@ -405,7 +405,7 @@ There will be a warning for changing compatibility version, which requires VMs o
 
 . There are new Gluster volume options available with {hypervisor-shortname} 4.4, apply those volume options on all the volumes. Execute the following on one of the nodes in the cluster:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # for vol in `gluster volume list`; do gluster volume set $vol group virt; done
 ----

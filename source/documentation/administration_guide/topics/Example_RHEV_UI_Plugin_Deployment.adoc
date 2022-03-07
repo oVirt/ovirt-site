@@ -8,7 +8,7 @@ Follow these instructions to create a user interface plug-in that runs a *Hello 
 
 . Create a plug-in descriptor by creating the following file in the {engine-name} at */usr/share/ovirt-engine/ui-plugins/helloWorld.json*:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 {
     "name": "HelloWorld",
@@ -19,7 +19,7 @@ Follow these instructions to create a user interface plug-in that runs a *Hello 
 +
 . Create the plug-in host page by creating the following file in the {engine-name} at */usr/share/ovirt-engine/ui-plugins/hello-files/start.html*:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 <!DOCTYPE html><html><head>
 <script>

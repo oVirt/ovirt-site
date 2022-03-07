@@ -11,7 +11,7 @@ This procedure shows you how to update the default account settings.
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.
 . Run the following command to show all the settings available:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool settings show
 ----
@@ -20,14 +20,14 @@ This procedure shows you how to update the default account settings.
 
 * This example updates the default log in session time to 60 minutes for all user accounts. The default value is 10080 minutes.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool settings set --name=MAX_LOGIN_MINUTES --value=_60_
 ----
 
 * This example updates the number of failed login attempts a user can perform before the user account is locked. The default value is 5.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-aaa-jdbc-tool settings set --name=MAX_FAILURES_SINCE_SUCCESS --value=_3_
 ----

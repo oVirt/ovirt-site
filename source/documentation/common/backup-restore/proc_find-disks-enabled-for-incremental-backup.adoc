@@ -10,14 +10,14 @@ For the specified virtual machine, you can list the disks that are enabled for i
 
 . List the disks that are attached to the virtual machine. For example, for a virtual machine with the id `123`, send this request:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /ovirt-engine/api/vms/123/diskattachments
 ----
 +
 The response includes all `disk_attachment` objects, each of which includes one or more `disk` objects. For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 <disk_attachments>
     <disk_attachment>
@@ -31,14 +31,14 @@ The response includes all `disk_attachment` objects, each of which includes one 
 
 . Use the `disk` service to see the properties of a disk from the previous step. For example, for the disk with the id `456`, send this request:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /ovirt-engine/api/disks/456
 ----
 +
 The response includes all properties for the disk. `backup` is set to `none` or `incremental`. For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 <disk href="/ovirt-engine/api/disks/456" id="456">
     ...

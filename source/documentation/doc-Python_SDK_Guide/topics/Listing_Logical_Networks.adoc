@@ -33,7 +33,7 @@ connection.close()
 
 In an environment where only the default management network exists, the examples output the text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ovirtmgmt (00000000-0000-0000-0000-000000000000)
 ----

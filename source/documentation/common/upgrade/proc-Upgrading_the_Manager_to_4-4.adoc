@@ -50,7 +50,7 @@ Connected hosts and virtual machines can continue to work while the {engine-name
 ifdef::SHE_upgrade[]
 . Log in to the {engine-name} virtual machine and shut down the engine service.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl stop ovirt-engine
 ----
@@ -60,7 +60,7 @@ ifdef::local_database_upgrade,remote_database_upgrade[. Log in to the {engine-na
 
 . Back up the {virt-product-fullname} {engine-name} 4.3 environment.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log
 ----
@@ -70,7 +70,7 @@ ifdef::SHE_upgrade[]
 
 . Shut down the self-hosted engine.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # shutdown
 ----
@@ -82,7 +82,7 @@ If you want to reuse the self-hosted engine virtual machine to deploy the {virt-
 
 . Make sure that the self-hosted engine is shut down.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # hosted-engine --vm-status | grep 'Engine status|Hostname'
 ----
@@ -100,7 +100,7 @@ It is recommended that you use one of the existing hosts. If you decide to use a
 +
 . Install the self-hosted engine deployment tool.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum install ovirt-hosted-engine-setup
 ----
@@ -109,7 +109,7 @@ It is recommended that you use one of the existing hosts. If you decide to use a
 
 . Log in to the {engine-name} host and deploy the self-hosted engine with the backup file:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # hosted-engine --deploy --restore-from-file=/_path_/backup.bck
 ----
@@ -120,7 +120,7 @@ It is recommended that you use one of the existing hosts. If you decide to use a
 
 To run the deployment script using `tmux`, enter the `tmux` command before you run the deployment script:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # tmux
 # hosted-engine --deploy --restore-from-file=backup.bck
@@ -133,7 +133,7 @@ The deployment script automatically disables global maintenance mode and calls t
 
 . Log in to the {engine-name} virtual machine and shut down the engine service.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl stop ovirt-engine
 ----
@@ -148,7 +148,7 @@ ifdef::local_database_upgrade,remote_database_upgrade[]
 
 . Copy the backup file to the {virt-product-fullname} {engine-name} 4.4 machine and restore it.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=restore --file=backup.bck --provision-all-databases
 ----
@@ -176,7 +176,7 @@ endif::rhv-doc[]
 
 . Install optional extension packages if they were installed on the {virt-product-fullname} {engine-name} 4.3 machine.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j
 ----
@@ -188,7 +188,7 @@ The configuration for these package extensions must be manually reapplied becaus
 
 . Configure the {engine-name} by running the `engine-setup` command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-setup
 ----
@@ -200,7 +200,7 @@ endif::SHE_upgrade[]
 ifdef::local_database_upgrade[]
 . Run `engine-setup` to configure the {engine-name}.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-setup
 ----
@@ -220,7 +220,7 @@ Now you need to upgrade the remote databases in your environment.
 
 If you intend to postpone the next parts of this procedure, log in to the Data Warehouse machine and start the Data Warehouse service:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl start ovirt-engine-dwhd.service
 ----

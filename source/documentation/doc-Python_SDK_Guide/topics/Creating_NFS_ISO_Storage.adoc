@@ -74,7 +74,7 @@ connection.close()
 
 If the `add` method call is successful, the examples output the text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Storage Domain 'myiso' added (00000000-0000-0000-0000-000000000000).
 ----

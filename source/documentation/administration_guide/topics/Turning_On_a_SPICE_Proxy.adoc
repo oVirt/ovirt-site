@@ -8,21 +8,21 @@ This procedure explains how to activate (or turn on) the SPICE proxy.
 
 . On the {engine-name}, use the engine-config tool to set a proxy: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # `engine-config -s SpiceProxyDefault=someProxy`
 ----
 +
 . Restart the `ovirt-engine` service: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----
 +
 The proxy must have this form:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 protocol://[host]:[port]
 ----

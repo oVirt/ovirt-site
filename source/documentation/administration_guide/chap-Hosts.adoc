@@ -108,7 +108,7 @@ For more information on installing and using kdump, see the link:{URL_rhel_docs_
 Enabling *Kdump integration* in the *Power Management* tab of the *New Host* or *Edit Host* window configures a standard fence_kdump setup. If the environment's network configuration is simple and the {engine-name}'s FQDN is resolvable on all hosts, the default fence_kdump settings are sufficient for use.
 
 However, there are some cases where advanced configuration of fence_kdump is necessary. Environments with more complex networking may require manual changes to the configuration of the {engine-name}, fence_kdump listener, or both. For example, if the {engine-name}'s FQDN is not resolvable on all hosts with *Kdump integration* enabled, you can set a proper host name or IP address using `engine-config`:
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 engine-config -s FenceKdumpDestinationAddress=_A.B.C.D_
 ----

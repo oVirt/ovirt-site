@@ -8,49 +8,49 @@ To allow access to the history database without allowing edits, you must create 
 
 . Log in as root to the postgres user shell:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # su - postgres
 ----
 
 . Create the user to be granted read-only access to the history database:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # psql -U postgres -c "CREATE ROLE _username_ WITH LOGIN ENCRYPTED PASSWORD '_password_';" -d ovirt_engine_history
 ----
 
 . Grant the newly created user permission to connect to the history database:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # psql -U postgres -c "GRANT CONNECT ON DATABASE ovirt_engine_history TO _username_;"
 ----
 
 . Grant the newly created user usage of the `public` schema:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # psql -U postgres -c "GRANT USAGE ON SCHEMA public TO _username_;" ovirt_engine_history
 ----
 
 . Generate the rest of the permissions that will be granted to the newly created user and save them to a file:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO _username_;' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history > grant.sql
 ----
 
 . Use the file you created in the previous step to grant permissions to the newly created user:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # psql -U postgres -f grant.sql ovirt_engine_history
 ----
 
 . Remove the file you used to grant permissions to the newly created user:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # rm grant.sql
 ----
@@ -59,7 +59,7 @@ To allow access to the history database without allowing edits, you must create 
 
 . Add the following lines for the newly created user to `/var/lib/pgsql/data/pg_hba.conf` preceding the line beginning `local all all`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # TYPE  DATABASE                USER           ADDRESS                 METHOD
 host    ovirt_engine_history    _username_    0.0.0.0/0               md5
@@ -69,7 +69,7 @@ local   all             all                                     peer
 
 . Reload the PostgreSQL service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl reload postgresql
 ----

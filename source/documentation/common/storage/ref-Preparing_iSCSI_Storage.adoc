@@ -27,7 +27,7 @@ If your host is booting from SAN storage and loses connectivity to the storage, 
 
 To prevent this situation, add a drop-in multipath configuration file on the root file system of the SAN for the boot LUN to ensure that it is queued when there is a connection:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cat /etc/multipath/conf.d/host.conf
 multipaths {

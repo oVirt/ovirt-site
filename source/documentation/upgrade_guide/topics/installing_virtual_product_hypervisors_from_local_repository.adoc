@@ -7,7 +7,7 @@ If your system uses a private {virt-product-fullname} ({virt-product-shortname})
 
 . On the system hosting the offline repository, create a file named `/etc/yum.repos.d/rhvh-mirror.repo` with contents similar to the lines that follow:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 [rhvh-4-for-rhel-8-x86_64-rpms]
 name = Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)
@@ -29,14 +29,14 @@ You must populate the `sslclientcert` and `sslclientkey` fields with full path n
 
 .. List all files in the `/etc/pki/entitlement` directory:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ls -al /etc/pki/entitlement/
 ----
 +
 Output similar to the following is displayed:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 total 836
 drwxr-xr-x.  2 root root    202 May 28 15:18 .
@@ -52,7 +52,7 @@ drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
 
 .. Use the `rct cat-cert` command on each certificate in order to find the one that contains the RHV-H entitlement:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cd /etc/pki/entitlement/
 # rct cat-cert 5659494963772844103.pem | grep rhvh/4/ | grep URL
@@ -60,7 +60,7 @@ drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
 +
 Output similar to the following is displayed:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
         URL: /content/beta/rhel/server/7/$basearch/rhvh/4/os
         URL: /content/dist/rhel/server/7/7Server/$basearch/rhvh/4/os
@@ -70,7 +70,7 @@ Output similar to the following is displayed:
 
 . Identify the correct certificate and fill in the `sslclientcert` and `sslclientkey` values in the previously mentioned `.repo` file:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 sslclientcert = /etc/pki/entitlement/5659494963772844103.pem
 sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem
@@ -80,27 +80,27 @@ sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem
 +
 .. Use the 'pwd' command to determine the correct path:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # pwd
 ----
 +
 Output similar to the following is displayed:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 /home/test/rhvh-reposync
 ----
 .. Run the `reposync` command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # reposync --repo rhvh-4-for-rhel-8-x86_64-rpms
 ----
 +
 Output similar to the following is displayed:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Updating Subscription Management repositories.
 Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                             11 kB/s | 4.0 kB     00:00

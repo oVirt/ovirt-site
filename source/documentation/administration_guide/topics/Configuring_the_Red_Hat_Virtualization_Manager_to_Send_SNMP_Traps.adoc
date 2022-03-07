@@ -36,7 +36,7 @@ Default SNMP configuration values exist on the {engine-name} in the events notif
 
 . On the {engine-name}, create the SNMP configuration file with the file name `<__integer__>-snmp.conf`, where `<__integer__>` is an integer that indicates the order in which files are processed. For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # vi /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf
 ----
@@ -48,7 +48,7 @@ Copy the default SNMP settings from the events notification daemon configuration
 
 . Specify the SNMP manager(s), the SNMP community (SNMP version 2 only), and the OID in the format in this example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 SNMP_MANAGERS="_manager1.example.com_ _manager2.example.com:162_"
 SNMP_COMMUNITY=public
@@ -58,14 +58,14 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1
 
 . Define whether to use SNMP version 2 (default) or 3:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 SNMP_VERSION=3
 ----
 
 . Specify a value for SNMP_ENGINE_ID. For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"
 ----
@@ -74,7 +74,7 @@ SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"
 +
 Security level 1, NoAuthNoPriv traps:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 SNMP_USERNAME=NoAuthNoPriv
 SNMP_SECURITY_LEVEL=1
@@ -82,7 +82,7 @@ SNMP_SECURITY_LEVEL=1
 +
 Security level 2, AuthNoPriv traps, as user `ovirtengine`, with SNMP Auth passphrase `authpass`.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 SNMP_USERNAME=ovirtengine
 SNMP_AUTH_PROTOCOL=MD5
@@ -92,7 +92,7 @@ SNMP_SECURITY_LEVEL=2
 +
 Security level 3, AuthPriv traps, as user `ovirtengine` with SNMP Auth passphrase `authpass` and SNMP Priv passphrase `privpass`. For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 SNMP_USERNAME=ovirtengine
 SNMP_AUTH_PROTOCOL=MD5
@@ -108,36 +108,36 @@ SNMP_SECURITY_LEVEL=3
 ====
 Send all events to the default SNMP profile:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 FILTER="include:*(snmp:) ${FILTER}"
 ----
 Send all events with the severity `ERROR` or `ALERT` to the default SNMP profile:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 FILTER="include:*:ERROR(snmp:) ${FILTER}"
 ----
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 FILTER="include:*:ALERT(snmp:) ${FILTER}"
 ----
 Send events for _VDC_START_ to the specified email address:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 FILTER="include:__VDC_START__(snmp:__mail@example.com__) ${FILTER}"
 ----
 Send events for everything but _VDC_START_ to the default SNMP profile:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 FILTER="exclude:__VDC_START__ include:*(snmp:) ${FILTER}"
 ----
 This the default filter defined in `ovirt-engine-notifier.conf`; if you do not disable this filter or apply overriding filters, no notifications will be sent:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 FILTER="exclude:*"
 ----
@@ -149,7 +149,7 @@ FILTER="exclude:*"
 
 . Start the `ovirt-engine-notifier` service, and ensure that this service starts on boot:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl start ovirt-engine-notifier.service
 # systemctl enable ovirt-engine-notifier.service

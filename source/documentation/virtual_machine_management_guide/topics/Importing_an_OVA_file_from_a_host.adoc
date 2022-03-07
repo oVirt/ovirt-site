@@ -21,7 +21,7 @@ The location can be a local directory or a remote nfs mount, as long as it has s
 +
 . Ensure that the OVA file has permissions allowing read/write access to the *qemu* user (UID 36) and the *kvm* group (GID 36):
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # chown 36:36 _path_to_OVA_file/file.OVA_
 ----

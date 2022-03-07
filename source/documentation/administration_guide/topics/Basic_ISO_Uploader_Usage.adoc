@@ -6,7 +6,7 @@ The example below demonstrates the ISO uploader and the list parameter. The firs
 .List Domains and Upload Image
 ====
 		
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # `engine-iso-uploader list`
 Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
@@ -14,7 +14,7 @@ ISO Storage Domain Name   | Datacenter          | ISO Domain Status
 ISODomain                 | Default             | active
 ----
 		
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # `engine-iso-uploader --iso-domain=_[ISODomain]_ upload _[RHEL6.iso]_`
 Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):

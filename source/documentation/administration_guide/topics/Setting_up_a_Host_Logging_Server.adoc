@@ -10,7 +10,7 @@ This procedure should be used on your centralized log server. You could use a se
 
 . Check to see if the firewall allows traffic on the `UDP 514` port, and is open to `syslog` service traffic:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --query-service=syslog
 ----
@@ -24,7 +24,7 @@ If the output is `no`, allow traffic on the `UDP 514` port with:
 +
 . Create a new `.conf` file on the syslog server, for example, `/etc/rsyslog.d/from_remote.conf`, and add the following lines:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 template(name="DynFile" type="string" string="/var/log/%HOSTNAME%/%PROGRAMNAME%.log")
 RuleSet(name="RemoteMachine"){  action(type="omfile" dynaFile="DynFile")  }
@@ -34,21 +34,21 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")
 +
 . Restart the `rsyslog` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart rsyslog.service
 ----
 +
 . Log in to the hypervisor, and in the `/etc/rsyslog.conf` add the following line:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 *.info;mail.none;authpriv.none;cron.none @<syslog-FQDN>:514
 ----
 +
 . Restart the rsyslog service on the hypervisor.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart rsyslog.service
 ----

@@ -12,21 +12,21 @@ Specific system user accounts and system user groups are required by {virt-produ
 
 . Install the NFS `utils` package.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install nfs-utils -y
 ----
 +
 . To check the enabled versions:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cat /proc/fs/nfsd/versions
 ----
 +
 . Enable the following services:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl enable nfs-server
 # systemctl enable rpcbind
@@ -36,14 +36,14 @@ Specific system user accounts and system user groups are required by {virt-produ
 
 . Create the group `kvm`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # useradd vdsm -u 36 -g kvm
 ----
 +
 . Create the `storage` directory and modify the access rights.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
  # mkdir /storage
  # chmod 0755 /storage
@@ -52,7 +52,7 @@ Specific system user accounts and system user groups are required by {virt-produ
 +
 . Add the `storage` directory to `/etc/exports` with the relevant permissions.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
  # vi /etc/exports
  # cat /etc/exports
@@ -61,7 +61,7 @@ Specific system user accounts and system user groups are required by {virt-produ
 +
 . Restart the following services:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
  # systemctl start rpcbind
  # systemctl start nfs-server
@@ -69,7 +69,7 @@ Specific system user accounts and system user groups are required by {virt-produ
 +
 . To see which export are available for a specific IP address:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
  # exportfs
  /nfs_server/srv

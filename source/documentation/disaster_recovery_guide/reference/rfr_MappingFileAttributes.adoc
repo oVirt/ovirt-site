@@ -23,7 +23,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem
 
 | Storage domain details a| These attributes map the storage domain details between the primary and secondary site. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_import_storages:
 - dr_domain_type: nfs
@@ -47,7 +47,7 @@ dr_import_storages:
 
 |Cluster details a| These attributes map the cluster names between the primary and secondary site. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_cluster_mappings:
   - primary_name: cluster_prod
@@ -58,7 +58,7 @@ dr_cluster_mappings:
 
 |Affinity group details a| These attributes map the affinity groups that virtual machines belong to. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_affinity_group_mappings:
 - primary_name: affinity_prod
@@ -67,7 +67,7 @@ dr_affinity_group_mappings:
 
 |Affinity label details a| These attributes map the affinity labels that virtual machines belong to. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_affinity_label_mappings:
 - primary_name: affinity_label_prod
@@ -76,7 +76,7 @@ dr_affinity_label_mappings:
 
 | Domain AAA details a| The domain Authentication, Authorization and Accounting (AAA) attributes map authorization details between the primary and secondary site. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_domain_mappings:
 - primary_name: internal-authz
@@ -87,7 +87,7 @@ dr_domain_mappings:
 
 |Role details a| The Role attributes provide mapping for specific roles. For example, if a virtual machine is registered with a user with a `VmCreator` role, it is possible on failover for the {engine-name} to register a permission for that virtual machine with the same user but with a different role. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_role_mappings:
 - primary_name: VmCreator
@@ -97,7 +97,7 @@ dr_role_mappings:
 |Network details
 a| The network attributes map the vNIC details between the primary and secondary site. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_network_mappings:
 - primary_network_name: ovirtmgmt
@@ -111,7 +111,7 @@ dr_network_mappings:
 
 If you have multiple networks or multiple data centers then you must use an empty network mapping in the mapping file to ensure that all entities register on the target during failover. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_network_mappings:
 # No mapping should be here
@@ -119,7 +119,7 @@ dr_network_mappings:
 
 |External LUN disk details a| The external LUN attributes allow virtual machines to be registered with the appropriate external LUN disk after failover and failback. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 dr_lun_mappings:
 - primary_logical_unit_id: 460014069b2be431c0fd46c4bdce29b66

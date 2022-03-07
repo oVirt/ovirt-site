@@ -3,7 +3,7 @@
 
 The basic syntax for the log collector command is:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovirt-log-collector _options_  list _all|clusters|datacenters_
 # ovirt-log-collector _options_ collect

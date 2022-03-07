@@ -22,7 +22,7 @@ It is assumed that you are running `remove_stale_lun.yml` from the engine machin
 . Remove the LUN from the storage server.
 . Remove the stale LUNs from the host using Ansible:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook --extra-vars "lun=<LUN>" /usr/share/ansible/collections/ansible_collections/ovirt/ovirt/roles/remove_stale_lun/examples/remove_stale_lun.yml
 ----

@@ -60,7 +60,7 @@ If `intel_iommu=on` or an AMD IOMMU is detected, you can try adding `iommu=pt`. 
 
 If the passthrough fails because the hardware does not support interrupt remapping, you can consider enabling the `allow_unsafe_interrupts` option if the virtual machines are trusted. The `allow_unsafe_interrupts` is not enabled by default because enabling it potentially exposes the host to MSI attacks from virtual machines. To enable the option:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # vi /etc/modprobe.d
 options vfio_iommu_type1 allow_unsafe_interrupts=1
@@ -70,12 +70,12 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1
 +
 . Refresh the *grub.cfg* file and reboot the host for these changes to take effect:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 ----
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # reboot
 ----

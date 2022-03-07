@@ -11,7 +11,7 @@ This procedure describes how to install Cloud-Init on a virtual machine. Once Cl
 
 * For {enterprise-linux} 6:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --enable=rhel-6-server-rpms \
@@ -20,7 +20,7 @@ This procedure describes how to install Cloud-Init on a virtual machine. Once Cl
 +
 * For {enterprise-linux} 7:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --enable=rhel-7-server-rpms \
@@ -31,7 +31,7 @@ This procedure describes how to install Cloud-Init on a virtual machine. Once Cl
 +
 . Install the `cloud-init` package and dependencies:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install cloud-init
 ----

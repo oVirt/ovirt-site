@@ -1,4 +1,4 @@
-[id="Latest_host_configuration_view_{context}"]
+[id="Latest_host_configuration_view"]
 ==== Host Configuration
 
 The following table shows the configuration history parameters of the hosts in the system.

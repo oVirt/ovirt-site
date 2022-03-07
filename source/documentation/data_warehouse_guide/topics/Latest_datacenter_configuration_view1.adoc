@@ -1,4 +1,4 @@
-[id="Latest_datacenter_configuration_view1_{context}"]
+[id="Latest_datacenter_configuration_view1"]
 ==== Data Center Configuration
 
 The following table shows the configuration history parameters of the data centers in the system.

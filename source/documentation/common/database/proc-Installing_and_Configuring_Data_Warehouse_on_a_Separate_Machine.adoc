@@ -1,4 +1,4 @@
-[id='Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_{context}']
+[id='Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine']
 = Installing and Configuring Data Warehouse on a Separate Machine
 
 :context: install_DWH_remote

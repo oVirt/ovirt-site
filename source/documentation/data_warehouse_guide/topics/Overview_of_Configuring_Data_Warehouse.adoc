@@ -1,11 +1,11 @@
-[id="Overview_of_Configuring_Data_Warehouse_{context}"]
+[id="Overview_of_Configuring_Data_Warehouse"]
 == Overview of Configuring Data Warehouse
 
 You can install and configure Data Warehouse on the same machine as the {engine-name}, or on a separate machine with access to the {engine-name}:
 
 Install and configure Data Warehouse on the {engine-name} machine:: This configuration requires only a single registered machine, and is the simplest to configure, but it increases the demand on the {engine-name} machine. Users who require access to the Data Warehouse service require access to the {engine-name} machine itself. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a standalone {engine-name} with local databases_.
 
-Install and configure Data Warehouse on a separate machine:: This configuration requires two registered machines. It reduces the load on the {engine-name} machine and avoids potential CPU and memory-sharing conflicts on that machine. Administrators can also allow user access to the Data Warehouse machine, without the need to grant access to the {engine-name} machine. See xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_{context}[] for more information on this configuration.
+Install and configure Data Warehouse on a separate machine:: This configuration requires two registered machines. It reduces the load on the {engine-name} machine and avoids potential CPU and memory-sharing conflicts on that machine. Administrators can also allow user access to the Data Warehouse machine, without the need to grant access to the {engine-name} machine. See xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine[] for more information on this configuration.
 
 [IMPORTANT]
 ====

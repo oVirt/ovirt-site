@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="active_passive_{context}"]
+[id="active_passive"]
 = Active-Passive Disaster Recovery
 :cptdir: ../concept
 :taskdir: ../task

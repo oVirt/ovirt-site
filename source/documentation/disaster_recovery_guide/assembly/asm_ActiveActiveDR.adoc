@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="active_active_{context}"]
+[id="active_active"]
 = Active-Active Disaster Recovery
 :cptdir: ../concept
 :taskdir: ../task

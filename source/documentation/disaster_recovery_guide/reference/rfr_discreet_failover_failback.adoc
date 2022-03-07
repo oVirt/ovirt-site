@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="discreet_failover_failback_{context}"]
+[id="discreet_failover_failback"]
 = Discreet Failover and Failback Test
 
 For this test you must define testable storage domains that will be used specifically for testing the failover and failback. These storage domains must be replicated so that the replicated storage can be attached to the secondary site. This allows you to test the failover while users continue to work in the primary site.

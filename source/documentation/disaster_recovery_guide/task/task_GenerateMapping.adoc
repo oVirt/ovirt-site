@@ -1,4 +1,5 @@
-[[generate_mapping]]
+:_content-type: PROCEDURE
+[id="generate_mapping_{context}"]
 = Creating the Playbook to Generate the Mapping File
 
 The Ansible playbook used to generate the mapping file will prepopulate the file with the target (primary) site’s entities. You then must manually add the backup site’s entities, such as IP addresses, cluster, affinity groups, affinity label, external LUN disks, authorization domains, roles, and vNIC profiles, to the file.
@@ -13,7 +14,7 @@ In this example the Ansible playbook is named `dr-rhv-setup.yml`, and is execute
 
 . Create an Ansible playbook to generate the mapping file. For example:
 +
-[source,yaml,options="nowrap" subs="quotes"]
+[source,yaml]
 ----
 ---
 - name: Generate mapping

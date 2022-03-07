@@ -1,4 +1,5 @@
-[[disaster_recovery_solutions]]
+:_content-type: CONCEPT
+[id="disaster_recovery_solutions_{context}"]
 
 = Disaster Recovery Solutions
 

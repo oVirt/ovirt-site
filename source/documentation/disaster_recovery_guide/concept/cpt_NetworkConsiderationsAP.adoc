@@ -1,4 +1,5 @@
-[[network_considerations_active_passive]]
+:_content-type: CONCEPT
+[id="network_considerations_active_passive_{context}"]
 = Network Considerations
 
 You must ensure that the same general connectivity exists in the primary and secondary sites.

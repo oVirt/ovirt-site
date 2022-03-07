@@ -1,4 +1,5 @@
-[[active_active_overview]]
+:_content-type: CONCEPT
+[id="active_active_overview_{context}"]
 = Active-Active Overview
 
 The active-active disaster recovery failover configuration can span two sites. Both sites are active, and if the primary site becomes unavailable, the {virt-product-fullname} environment continues to operate in the secondary site to ensure business continuity.

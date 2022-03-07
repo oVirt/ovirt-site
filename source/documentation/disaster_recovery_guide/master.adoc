@@ -1,5 +1,7 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+:_content-type: ASSEMBLY
+[id="disaster-recovery-guide"]
 = Disaster Recovery Guide
 :imagesdir: images
 :toclevels: 4

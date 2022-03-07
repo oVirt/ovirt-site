@@ -1,3 +1,5 @@
+:_content-type: SNIPPET
+
 . Configure the SPM priority to be higher on all hosts in the primary site to ensure SPM failover to the secondary site occurs only when all hosts in the primary site are unavailable. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#SPM_Priority[SPM Priority] in the _Administration Guide_.
 
 . Configure all virtual machines that must failover as highly available, and ensure that the virtual machine has a lease on the target storage domain. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Configuring_a_highly_available_virtual_machine[Configuring a Highly Available Virtual Machine] in the _Virtual Machine Management Guide_.

@@ -1,4 +1,5 @@
-[[create_ansible_playbooks]]
+:_content-type: PROCEDURE
+[id="create_ansible_playbooks_{context}"]
 = Create the Required Ansible Playbooks
 
 Ansible is used to initiate and manage the disaster recovery failover and failback. So you must create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the link:http://docs.ansible.com/ansible/latest/playbooks.html[Ansible documentation].

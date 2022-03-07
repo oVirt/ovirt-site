@@ -1,4 +1,5 @@
-[[configure_she_stretch_cluster]]
+:_content-type: PROCEDURE
+[id="configure_she_stretch_cluster_{context}"]
 = Configuring a Self-hosted Engine Stretch Cluster Environment
 
 This procedure provides instructions to configure a stretch cluster using a self-hosted engine deployment.
@@ -19,7 +20,7 @@ include::{cptdir}/cpt_StretchPrerequisites.adoc[]
 
 include::{taskdir}/task_CommonStepsConfigureStretchCluster.adoc[]
 
-[[configure_standalone_manager_stretch_cluster]]
+[id="configure_standalone_manager_stretch_cluster"]
 = Configuring a Standalone {engine-name} Stretch Cluster Environment
 
 This procedure provides instructions to configure a stretch cluster using a standalone {engine-name} deployment.

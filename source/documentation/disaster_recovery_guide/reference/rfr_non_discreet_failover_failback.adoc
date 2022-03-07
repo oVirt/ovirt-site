@@ -1,4 +1,5 @@
-[[non_discreet_failover_failback]]
+:_content-type: REFERENCE
+[id="non_discreet_failover_failback_{context}"]
 = Full Failover and Failback test
 
 This test performs a full failover and failback between the primary and secondary site. You can simulate the disaster by shutting down the primary site's hosts or by adding firewall rules to block writing to the storage domains.

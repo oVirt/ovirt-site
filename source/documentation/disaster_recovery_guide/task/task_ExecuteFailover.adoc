@@ -1,4 +1,5 @@
-[[execute_failover]]
+:_content-type: PROCEDURE
+[id="execute_failover_{context}"]
 = Executing a Failover
 
 .Prerequisites

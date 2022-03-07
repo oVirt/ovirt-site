@@ -1,4 +1,5 @@
-[[clean]]
+:_content-type: PROCEDURE
+[id="clean_{context}"]
 = Cleaning the Primary Site
 
 After you fail over, you must clean the environment in the primary site before failing back to it:

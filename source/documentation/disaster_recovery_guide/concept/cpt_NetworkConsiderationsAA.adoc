@@ -1,4 +1,5 @@
-[[network_considerations]]
+:_content-type: CONCEPT
+[id="network_considerations_{context}"]
 = Network Considerations
 
 All hosts in the cluster must be on the same broadcast domain over an L2 network. So connectivity between the two sites must be L2.

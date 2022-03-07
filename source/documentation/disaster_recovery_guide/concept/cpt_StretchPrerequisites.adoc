@@ -1,3 +1,5 @@
+:_content-type: SNIPPET
+
 .Prerequisites
 
 * A writable storage server in both sites with L2 network connectivity.

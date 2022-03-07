@@ -1,4 +1,5 @@
-[[create_failover_failback]]
+:_content-type: PROCEDURE
+[id="create_failover_failback_{context}"]
 = Create the Failover and Failback Playbooks
 
 Ensure that you have the mapping file that you created and configured, in this case `disaster_recovery_vars.yml`, because this must be added to the playbooks.

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="oVirt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2751/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2751/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2751/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2751/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2751/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2751/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2751/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2751/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2751/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2751/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2751/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2751/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2751/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2751/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2751/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2751/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2751/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2751/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2751/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2751/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2751/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2751/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2751/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2751/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2751/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2751/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2751/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2751/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2751/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2751/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2751/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2751/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2751/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2751/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2751/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2751/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2751/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2751/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2751/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2751//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2751//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2751/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2751/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2751/documentation/doc-Ruby_SDK_Guide/">
+              <span property="name">Ruby SDK Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div class="sect1">
+<h2 id="chap-Ruby_Examples">Ruby Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Connecting_to_the_server">Connecting to the {virt-product-fullname} {engine-name}</h3>
+<div class="paragraph">
+<p>The <code>Connection</code> class is the entry point of the software development kit. It provides access to the services of the {virt-product-fullname} {engine-name}'s REST API.</p>
+</div>
+<div class="paragraph">
+<p>The parameters of the <code>Connection</code> class are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>url</code> - Base URL of the {virt-product-fullname} {engine-name} API</p>
+</li>
+<li>
+<p><code>username</code></p>
+</li>
+<li>
+<p><code>password</code></p>
+</li>
+<li>
+<p><code>ca_file</code> - PEM file containing the trusted CA certificates. The <code>ca.pem</code> file is required when connecting to a server protected by TLS. If you do not specify the <code>ca_file</code>, the system-wide CA certificate store is used.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Connecting to the {virt-product-fullname} {engine-name}</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">connection = <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">Connection</span>.new(
+  <span style="color:#606">url</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+  <span style="color:#606">username</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+  <span style="color:#606">password</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">...</span><span style="color:#710">'</span></span>,
+  <span style="color:#606">ca_file</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The connection holds critical resources, including a pool of HTTP connections to the server and an authentication token. You must free these resources when they are no longer in use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>connection.close</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The connection, and all the services obtained from it, cannot be used after the connection has been closed.</p>
+</div>
+<div class="paragraph">
+<p>If the connection fails, the software development kit will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception, containing details of the failure.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection:initialize" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection:initialize</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-data-centers">Listing Data Centers</h3>
+<div class="paragraph">
+<p>This Ruby example lists the data centers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the root of the services tree:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Get the reference to the service that manages the</span>
+<span style="color:#777"># collection of data centers:</span>
+dcs_service = system_service.data_centers_service
+
+<span style="color:#777"># Retrieve the list of data centers and for each one</span>
+<span style="color:#777"># print its name:</span>
+dcs = dcs_service.list
+dcs.each <span style="color:#080;font-weight:bold">do</span> |dc|
+  puts dc.name
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment with only the Default data center, the example outputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Default</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DataCentersService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DataCentersService:list</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-clusters">Listing Clusters</h3>
+<div class="paragraph">
+<p>This Ruby example lists the clusters.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the root of the services tree:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Get the reference to the service that manages the</span>
+<span style="color:#777"># collection of clusters:</span>
+cls_service = system_service.clusters_service
+
+<span style="color:#777"># Retrieve the list of clusters and for each one</span>
+<span style="color:#777"># print its name:</span>
+cls = cls_service.list
+cls.each <span style="color:#080;font-weight:bold">do</span> |cl|
+  puts cl.name
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment with only the Default cluster, the example outputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Default</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/ClustersService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/ClustersService:list</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-logical-networks">Listing Logical Networks</h3>
+<div class="paragraph">
+<p>This Ruby example lists the logical networks.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the root of the services tree:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Get the reference to the service that manages the</span>
+<span style="color:#777"># collection of networks:</span>
+nws_service = system_service.networks_service
+
+<span style="color:#777"># Retrieve the list of clusters and for each one</span>
+<span style="color:#777"># print its name:</span>
+nws = nws_service.list
+nws.each <span style="color:#080;font-weight:bold">do</span> |nw|
+  puts nw.name
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment with only the default management network, the example outputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ovirtmgmt</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/NetworksService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/NetworksService:list</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-hosts">Listing Hosts</h3>
+<div class="paragraph">
+<p>This Ruby example lists the hosts.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the root of the services tree:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Get the reference to the service that manages the</span>
+<span style="color:#777"># collection of hosts:</span>
+host_service = system_service.hosts_service
+
+<span style="color:#777"># Retrieve the list of hosts and for each one</span>
+<span style="color:#777"># print its name:</span>
+host = host_service.list
+host.each <span style="color:#080;font-weight:bold">do</span> |host|
+  puts host.name
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment with only one attached host (<code>Atlantic</code>) the example outputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Atlantic</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="https://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/HostsService#list-instance_method" class="bare">https://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/HostsService#list-instance_method</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-iso-files-in-the-iso-storage-domain">Listing ISO Files in the ISO Storage Domain</h3>
+<div class="paragraph">
+<p>This Ruby example lists the ISO files in the ISO storage domain, <code>myiso</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the root of the services tree:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Find the service that manages the collection of storage domains:</span>
+sds_service = system_service.storage_domains_service
+
+<span style="color:#777"># Find the ISO storage domain:</span>
+sd = sds_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myiso</span><span style="color:#710">'</span></span>).first
+
+<span style="color:#777"># Find the service that manages the ISO storage domain:</span>
+sd_service = sds_service.storage_domain_service(sd.id)
+
+<span style="color:#777"># Find the service that manages the collection of files available in the storage domain:</span>
+files_service = sd_service.files_service
+
+<span style="color:#777"># List the names of the files. Note that the name of the .iso file is contained</span>
+<span style="color:#777"># in the `id` attribute.</span>
+files = files_service.list
+files.each <span style="color:#080;font-weight:bold">do</span> |file|
+  puts file.id
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FFilesService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FFilesService:list</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you do not know the name of the ISO storage domain, this Ruby example retrieves all the ISO storage domains.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Find the ISO storage domain:</span>
+iso_sds = sds_service.list.select { |sd| sd.type == <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">StorageDomainType</span>::<span style="color:#036;font-weight:bold">ISO</span> }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:list</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-an-nfs-storage-domain">Creating an NFS Storage Domain</h3>
+<div class="paragraph">
+<p>This Ruby example adds an NFS storage domain.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the root of the services tree:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Get the reference to the storage domains service:</span>
+sds_service = connection.system_service.storage_domains_service
+
+<span style="color:#777"># Create a new NFS data storage domain:</span>
+sd = sds_service.add(
+  <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">StorageDomain</span>.new(
+    <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mydata</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">description</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">My data</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">type</span>: <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">StorageDomainType</span>::<span style="color:#036;font-weight:bold">DATA</span>,
+    <span style="color:#606">host</span>: {
+      <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myhost</span><span style="color:#710">'</span></span>
+    },
+    <span style="color:#606">storage</span>: {
+      <span style="color:#606">type</span>: <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">StorageType</span>::<span style="color:#036;font-weight:bold">NFS</span>,
+      <span style="color:#606">address</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">server0.example.com</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">path</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/nfs/ovirt/40/mydata</span><span style="color:#710">'</span></span>
+    }
+  )
+)
+
+<span style="color:#777"># Wait until the storage domain is unattached:</span>
+sd_service = sds_service.storage_domain_service(sd.id)
+loop <span style="color:#080;font-weight:bold">do</span>
+  sleep(<span style="color:#00D">5</span>)
+  sd = sd_service.get
+  <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> sd.status == <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">StorageDomainStatus</span>::<span style="color:#036;font-weight:bold">UNATTACHED</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="attaching-a-storage-domain-to-a-data-center">Attaching a Storage Domain to a Data Center</h3>
+<div class="paragraph">
+<p>This Ruby example attaches an existing NFS storage domain, <code>mydata</code>, to an existing data center, <code>mydc</code>. This example is used to attach both data and ISO storage domains.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the root of the services tree:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Locate the service that manages the storage domains and use it to</span>
+<span style="color:#777"># search for the storage domain:</span>
+sds_service = system_service.storage_domains_service
+sd = sds_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=mydata</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the data centers and use it to</span>
+<span style="color:#777"># search for the data center:</span>
+dcs_service = system_service.data_centers_service
+dc = dcs_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=mydc</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the data center where you want to</span>
+<span style="color:#777"># attach the storage domain:</span>
+dc_service = dcs_service.data_center_service(dc.id)
+
+<span style="color:#777"># Locate the service that manages the storage domains that are attached</span>
+<span style="color:#777"># to the data centers:</span>
+attached_sds_service = dc_service.storage_domains_service
+
+<span style="color:#777"># Use the &quot;add&quot; method of service that manages the attached storage</span>
+<span style="color:#777"># domains to attach it:</span>
+attached_sds_service.add(
+  <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">StorageDomain</span>.new(
+    <span style="color:#606">id</span>: sd.id
+  )
+)
+
+<span style="color:#777"># Wait until the storage domain is active:</span>
+attached_sd_service = attached_sds_service.storage_domain_service(sd.id)
+loop <span style="color:#080;font-weight:bold">do</span>
+  sleep(<span style="color:#00D">5</span>)
+  sd = attached_sd_service.get
+  <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> sd.status == <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">StorageDomainStatus</span>::<span style="color:#036;font-weight:bold">ACTIVE</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-virtual-machine">Creating a Virtual Machine</h3>
+<div class="paragraph">
+<p>This Ruby example creates a virtual machine. This example uses a hash with symbols and nested hashes as their values. Another method, more verbose, is to use the constructors of the corresponding objects directly. See <a href="#Creating_a_Virtual_Machine_Instance_with_Attributes">Creating a Virtual Machine Instance with Attributes</a> for more information.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service.vms_service
+
+<span style="color:#777"># Use the &quot;add&quot; method to create a new virtual machine:</span>
+vms_service.add(
+  <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">Vm</span>.new(
+    <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myvm</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">cluster</span>: {
+      <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mycluster</span><span style="color:#710">'</span></span>
+    },
+    <span style="color:#606">template</span>: {
+      <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Blank</span><span style="color:#710">'</span></span>
+    }
+  )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After creating a virtual machine, it is recommended to <a href="#Adding_Virtual_Machine_Locating_Its_Service_and_Retrieving_Status">poll the virtual machine&#8217;s status</a>, to ensure that all the disks have been created.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-vnic-profile">Creating a vNIC Profile</h3>
+<div class="paragraph">
+<p>This Ruby example creates a vNIC profile.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Find the root of the tree of services:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Find the network where you want to add the profile. There may be multiple</span>
+<span style="color:#777"># networks with the same name (in different data centers, for example).</span>
+<span style="color:#777"># Therefore, you must look up a specific network by name, in a specific data center.</span>
+dcs_service = system_service.data_centers_service
+dc = dcs_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=mydc</span><span style="color:#710">'</span></span>).first
+networks = connection.follow_link(dc.networks)
+network = networks.detect { |n| n.name == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mynetwork</span><span style="color:#710">'</span></span> }
+
+<span style="color:#777"># Create the vNIC profile, with passthrough and port mirroring disabled:</span>
+profiles_service = system_service.vnic_profiles_service
+profiles_service.add(
+  <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">VnicProfile</span>.new(
+    <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myprofile</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">pass_through</span>: {
+      <span style="color:#606">mode</span>: <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">VnicPassThroughMode</span>::<span style="color:#036;font-weight:bold">DISABLED</span>,
+    },
+    <span style="color:#606">port_mirroring</span>: <span style="color:#069">false</span>,
+    <span style="color:#606">network</span>: {
+      <span style="color:#606">id</span>: network.id
+    }
+  )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VnicProfilesService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VnicProfilesService:add</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-vnic">Creating a vNIC</h3>
+<div class="paragraph">
+<p>To ensure that a newly created virtual machine has network access you must create and attach a vNIC.</p>
+</div>
+<div class="paragraph">
+<p>This Ruby example creates a vNIC and attaches it to an existing virtual machine, <code>myvm</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Find the root of the tree of services:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Find the virtual machine:</span>
+vms_service = system_service.vms_service
+vm = vms_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myvm</span><span style="color:#710">'</span></span>).first
+
+<span style="color:#777"># In order to specify the network that the new NIC will be connected to, you must</span>
+<span style="color:#777"># specify the identifier of the vNIC profile. However, there may be multiple</span>
+<span style="color:#777"># profiles with the same name (for different data centers, for example), so first</span>
+<span style="color:#777"># you must find the networks that are available in the cluster that the</span>
+<span style="color:#777"># virtual machine belongs to.</span>
+cluster = connection.follow_link(vm.cluster)
+networks = connection.follow_link(cluster.networks)
+network_ids = networks.map(&amp;<span style="color:#A60">:id</span>)
+
+<span style="color:#777"># Now that you know what networks are available in the cluster, you can select a</span>
+<span style="color:#777"># vNIC profile that corresponds to one of those networks, and has the</span>
+<span style="color:#777"># name that you want to use. The system automatically creates a vNIC</span>
+<span style="color:#777"># profile for each network, with the same name as the network.</span>
+profiles_service = system_service.vnic_profiles_service
+profiles = profiles_service.list
+profile = profiles.detect { |p| network_ids.include?(p.network.id) &amp;&amp; p.name == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myprofile</span><span style="color:#710">'</span></span> }
+
+<span style="color:#777"># Locate the service that manages the network interface cards collection of the</span>
+<span style="color:#777"># virtual machine:</span>
+nics_service = vms_service.vm_service(vm.id).nics_service
+
+<span style="color:#777"># Add the new network interface card:</span>
+nics_service.add(
+  <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">Nic</span>.new(
+    <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mynic</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">description</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">My network interface card</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">vnic_profile</span>: {
+      <span style="color:#606">id</span>: profile.id
+    }
+  )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-virtual-disk">Creating a Virtual Disk</h3>
+<div class="paragraph">
+<p>To ensure that a newly created virtual machine has access to persistent storage you must create and attach a disk.</p>
+</div>
+<div class="paragraph">
+<p>This Ruby example creates and attaches a virtual storage disk to a virtual machine.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Locate the virtual machines service and use it to find the virtual</span>
+<span style="color:#777"># machine:</span>
+vms_service = connection.system_service.vms_service
+vm = vms_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myvm</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the disk attachments of the virtual</span>
+<span style="color:#777"># machine:</span>
+disk_attachments_service = vms_service.vm_service(vm.id).disk_attachments_service
+
+<span style="color:#777"># Use the &quot;add&quot; method of the disk attachments service to add the disk.</span>
+<span style="color:#777"># Note that the size of the disk, the `provisioned_size` attribute, is</span>
+<span style="color:#777"># specified in bytes, so to create a disk of 10 GiB the value should</span>
+<span style="color:#777"># be 10 * 2^30.</span>
+disk_attachment = disk_attachments_service.add(
+  <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">DiskAttachment</span>.new(
+    <span style="color:#606">disk</span>: {
+      <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mydisk</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">description</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">My disk</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">format</span>: <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">DiskFormat</span>::<span style="color:#036;font-weight:bold">COW</span>,
+      <span style="color:#606">provisioned_size</span>: <span style="color:#00D">10</span> * <span style="color:#00D">2</span>**<span style="color:#00D">30</span>,
+      <span style="color:#606">storage_domains</span>: [{
+        <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mydata</span><span style="color:#710">'</span></span>
+      }]
+    },
+    <span style="color:#606">interface</span>: <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">DiskInterface</span>::<span style="color:#036;font-weight:bold">VIRTIO</span>,
+    <span style="color:#606">bootable</span>: <span style="color:#069">false</span>,
+    <span style="color:#606">active</span>: <span style="color:#069">true</span>
+  )
+)
+
+<span style="color:#777"># Wait until the disk status is OK:</span>
+disks_service = connection.system_service.disks_service
+disk_service = disks_service.disk_service(disk_attachment.disk.id)
+loop <span style="color:#080;font-weight:bold">do</span>
+  sleep(<span style="color:#00D">5</span>)
+  disk = disk_service.get
+  <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> disk.status == <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">DiskStatus</span>::<span style="color:#036;font-weight:bold">OK</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DiskAttachmentsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DiskAttachmentsService:add</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="attaching-an-iso-image-to-a-virtual-machine">Attaching an ISO Image to a Virtual Machine</h3>
+<div class="paragraph">
+<p>This Ruby example attaches a CD-ROM to a virtual machine and changes it to an ISO image in order to install the guest operating system.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service.vms_service
+
+<span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myvm</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Locate the service that manages the CDROM devices of the VM:</span>
+cdroms_service = vm_service.cdroms_service
+
+<span style="color:#777"># List the first CDROM device:</span>
+cdrom = cdroms_service.list[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the CDROM device you just found:</span>
+cdrom_service = cdroms_service.cdrom_service(cdrom.id)
+
+<span style="color:#777"># Change the CD of the VM to 'my_iso_file.iso'. By default this</span>
+<span style="color:#777"># operation permanently changes the disk that is visible to the</span>
+<span style="color:#777"># virtual machine after the next boot, but it does not have any effect</span>
+<span style="color:#777"># on the currently running virtual machine. If you want to change the</span>
+<span style="color:#777"># disk that is visible to the current running virtual machine, change</span>
+<span style="color:#777"># the `current` parameter's value to `true`.</span>
+cdrom_service.update(
+  <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">Cdrom</span>.new(
+    <span style="color:#606">file</span>: {
+      <span style="color:#606">id</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">CentOS-7-x86_64-DVD-1511.iso</span><span style="color:#710">'</span></span>
+    }
+  ),
+  <span style="color:#606">current</span>: <span style="color:#069">false</span>
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FVmService:cdroms_service" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FVmService:cdroms_service</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="detaching-a-virtual-disk">Detaching a Virtual Disk</h3>
+<div class="paragraph">
+<p>This Ruby example detaches a disk from a virtual machine.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myvm</span><span style="color:#710">'</span></span>).first
+
+<span style="color:#777"># Detach the first disk from the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+attachments_service = vm_service.disk_attachments_service
+attachment = attachments_service.list.first
+
+<span style="color:#777"># Remove the attachment. The default behavior is that the disk is detached</span>
+<span style="color:#777"># from the virtual machine, but not deleted from the system. If you wish to</span>
+<span style="color:#777"># delete the disk, change the `detach_only` parameter to `false`.</span>
+attachment.remove(<span style="color:#606">detach_only</span>: <span style="color:#069">true</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:disk_attachments_service" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:disk_attachments_service</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="starting-a-virtual-machine">Starting a Virtual Machine</h3>
+<div class="paragraph">
+<p>This Ruby example starts a virtual machine.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service.vms_service
+
+<span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myvm</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the virtual machine, as that is where</span>
+<span style="color:#777"># the action methods are defined:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Call the &quot;start&quot; method of the service to start it:</span>
+vm_service.start
+
+<span style="color:#777"># Wait until the virtual machine status is UP:</span>
+loop <span style="color:#080;font-weight:bold">do</span>
+  sleep(<span style="color:#00D">5</span>)
+  vm = vm_service.get
+  <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> vm.status == <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">VmStatus</span>::<span style="color:#036;font-weight:bold">UP</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="starting-a-virtual-machine-with-specific-boot-devices-and-boot-order">Starting a Virtual Machine with Specific Boot Devices and Boot Order</h3>
+<div class="paragraph">
+<p>This Ruby example starts a virtual machine specifying the boot devices and boot order.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Find the root of the tree of services:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Find the virtual machine:</span>
+vms_service = system_service.vms_service
+vm = vms_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myvm</span><span style="color:#710">'</span></span>).first
+
+<span style="color:#777"># Find the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Start the virtual machine explicitly indicating the boot devices and order:</span>
+vm_service.start(
+  <span style="color:#606">vm</span>: {
+    <span style="color:#606">os</span>: {
+      <span style="color:#606">boot</span>: {
+        <span style="color:#606">devices</span>: [
+          <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">BootDevice</span>::<span style="color:#036;font-weight:bold">NETWORK</span>,
+          <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">BootDevice</span>::<span style="color:#036;font-weight:bold">CDROM</span>
+        ]
+      }
+    }
+  }
+)
+
+<span style="color:#777"># Wait until the virtual machine is up:</span>
+loop <span style="color:#080;font-weight:bold">do</span>
+  sleep(<span style="color:#00D">5</span>)
+  vm = vm_service.get
+  <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> vm.status == <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">VmStatus</span>::<span style="color:#036;font-weight:bold">UP</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/BootDevice" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/BootDevice</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="starting-a-virtual-machine-with-cloud-init">Starting a Virtual Machine with Cloud-Init</h3>
+<div class="paragraph">
+<p>This Ruby example starts a virtual machine using the Cloud-Init tool to set the <code>root</code> password and network configuration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># Find the virtual machine:</span>
+vms_service = connection.system_service.vms_service
+vm = vms_service.list(<span style="color:#606">search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=myvm</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Find the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Create a cloud-init script to execute in the</span>
+<span style="color:#777"># deployed virtual machine. The script must be correctly</span>
+<span style="color:#777"># formatted and indented because it uses YAML.</span>
+my_script = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">
+write_files:
+  - content: |
+      Hello, world!
+    path: /tmp/greeting.txt
+    permissions: '0644'
+</span><span style="color:#710">&quot;</span></span>
+
+<span style="color:#777"># Start the virtual machine, enabling cloud-init and providing the</span>
+<span style="color:#777"># password for the `root` user and the network configuration:</span>
+vm_service.start(
+  <span style="color:#606">use_cloud_init</span>: <span style="color:#069">true</span>,
+  <span style="color:#606">vm</span>: {
+    <span style="color:#606">initialization</span>: {
+      <span style="color:#606">user_name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">root_password</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">redhat123</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">host_name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myvm.example.com</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">nic_configurations</span>: [
+        {
+          <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">eth0</span><span style="color:#710">'</span></span>,
+          <span style="color:#606">on_boot</span>: <span style="color:#069">true</span>,
+          <span style="color:#606">boot_protocol</span>: <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">BootProtocol</span>::<span style="color:#036;font-weight:bold">STATIC</span>,
+          <span style="color:#606">ip</span>: {
+            <span style="color:#606">version</span>: <span style="color:#036;font-weight:bold">OvirtSDK4</span>::<span style="color:#036;font-weight:bold">IpVersion</span>::<span style="color:#036;font-weight:bold">V4</span>,
+            <span style="color:#606">address</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">192.168.0.100</span><span style="color:#710">'</span></span>,
+            <span style="color:#606">netmask</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">255.255.255.0</span><span style="color:#710">'</span></span>,
+            <span style="color:#606">gateway</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">192.168.0.1</span><span style="color:#710">'</span></span>
+          }
+        }
+      ],
+      <span style="color:#606">dns_servers</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">192.168.0.1 192.168.0.2 192.168.0.3</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">dns_search</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">example.com</span><span style="color:#710">'</span></span>,
+      <span style="color:#606">custom_script</span>: my_script
+    }
+  }
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="checking-system-events">Checking System Events</h3>
+<div class="paragraph">
+<p>This Ruby example retrieves logged system events.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="Ruby"><span style="color:#777"># In order to ensure that no events are lost, it is recommended to write</span>
+<span style="color:#777"># the index of the last processed event, in persistent storage.</span>
+<span style="color:#777"># Here, it is stored in a file called `index.txt`. In a production environment,</span>
+<span style="color:#777"># it will likely be stored in a database.</span>
+<span style="color:#036;font-weight:bold">INDEX_TXT</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">index.txt</span><span style="color:#710">'</span></span>.freeze
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">write_index</span>(index)
+  <span style="color:#036;font-weight:bold">File</span>.open(<span style="color:#036;font-weight:bold">INDEX_TXT</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) { |f| f.write(index.to_s) }
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">read_index</span>
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#036;font-weight:bold">File</span>.read(<span style="color:#036;font-weight:bold">INDEX_TXT</span>).to_i <span style="color:#080;font-weight:bold">if</span> <span style="color:#036;font-weight:bold">File</span>.exist?(<span style="color:#036;font-weight:bold">INDEX_TXT</span>)
+  <span style="color:#069">nil</span>
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#777"># This is the function that is called to process the events. It prints</span>
+<span style="color:#777"># the identifier and description of each event.</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">process_event</span>(event)
+  puts(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>event.id<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> - </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>event.description<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>)
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#777"># Find the root of the tree of services:</span>
+system_service = connection.system_service
+
+<span style="color:#777"># Find the service that manages the collection of events:</span>
+events_service = system_service.events_service
+
+<span style="color:#777"># If no index is stored yet, retrieve the last event and start with it.</span>
+<span style="color:#777"># Events are ordered by index, in ascending order. `max=1` retrieves only one event,</span>
+<span style="color:#777"># the last event.</span>
+<span style="color:#080;font-weight:bold">unless</span> read_index
+  events = events_service.list(<span style="color:#606">max</span>: <span style="color:#00D">1</span>)
+  <span style="color:#080;font-weight:bold">unless</span> events.empty?
+    first = events.first
+    process_event(first)
+    write_index(first.id.to_i)
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#777"># This loop retrieves the events, always starting from the last index. It waits</span>
+<span style="color:#777"># before repeating. The `from` parameter specifies that you want to retrieve</span>
+<span style="color:#777"># events that are newer than the last index that was processed. Note: the `max`</span>
+<span style="color:#777"># parameter is not used, so that all pending events will be retrieved.</span>
+loop <span style="color:#080;font-weight:bold">do</span>
+  sleep(<span style="color:#00D">5</span>)
+  events = events_service.list(<span style="color:#606">from</span>: read_index)
+  events.each <span style="color:#080;font-weight:bold">do</span> |event|
+    process_event(event)
+    write_index(event.id.to_i)
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FEventsService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FEventsService:list</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2751/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2751/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2751/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2751/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

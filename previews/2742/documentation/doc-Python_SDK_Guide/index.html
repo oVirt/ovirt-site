@@ -254,10 +254,10 @@
 <p>Enable the repositories that are <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/package_manifest/index">appropriate for your hardware platform</a>. For example, for x86-64 hardware, enable:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos \
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos \
     --enable=rhel-8-for-x86_64-baseos-rpms \
     --enable=rhel-8-for-x86_64-appstream-rpms \
-    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms</pre>
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -265,7 +265,7 @@
 <p>Install the required packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install python3-ovirt-engine-sdk4</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install python3-ovirt-engine-sdk4</code></pre>
 </div>
 </div>
 </li>
@@ -922,7 +922,7 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ pydoc <em>[MODULE]</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc _[MODULE]_</code></pre>
 </div>
 </div>
 </div>
@@ -972,7 +972,7 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ pydoc ovirtsdk.infrastructure.errors</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc ovirtsdk.infrastructure.errors</code></pre>
 </div>
 </div>
 </div>
@@ -1102,7 +1102,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ pydoc ovirtsdk.api</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc ovirtsdk.api</code></pre>
 </div>
 </div>
 </div>
@@ -1147,7 +1147,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Default (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Default (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1194,7 +1194,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Default (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Default (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1243,7 +1243,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">MyHost (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">MyHost (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1288,7 +1288,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ovirtmgmt (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">ovirtmgmt (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1345,9 +1345,9 @@ virtual_machines = vms_service.list()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Name                          Disk Size
+<pre class="CodeRay highlight"><code data-lang="terminal">Name                          Disk Size
 ==================================================
-vm1                           50000000000</pre>
+vm1                           50000000000</code></pre>
 </div>
 </div>
 </div>
@@ -1457,7 +1457,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Storage Domain 'mydata' added (00000000-0000-0000-0000-000000000000).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Storage Domain 'mydata' added (00000000-0000-0000-0000-000000000000).</code></pre>
 </div>
 </div>
 </div>
@@ -1564,7 +1564,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Storage Domain 'myiso' added (00000000-0000-0000-0000-000000000000).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Storage Domain 'myiso' added (00000000-0000-0000-0000-000000000000).</code></pre>
 </div>
 </div>
 </div>
@@ -1643,7 +1643,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Attached data storage domain 'data1' to data center 'Default' (Status: maintenance).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Attached data storage domain 'data1' to data center 'Default' (Status: maintenance).</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1718,7 +1718,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Activated storage domain 'mydata' in data center 'Default' (Status: active).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Activated storage domain 'mydata' in data center 'Default' (Status: active).</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1855,7 +1855,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Virtual machine 'vm1' added.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Virtual machine 'vm1' added.</code></pre>
 </div>
 </div>
 </div>
@@ -1926,7 +1926,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Network interface 'nic1' added to 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Network interface 'nic1' added to 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2030,7 +2030,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Disk 'vm1_Disk1' added to 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Disk 'vm1_Disk1' added to 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2106,7 +2106,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Attached CD to 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Attached CD to 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2163,7 +2163,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Removed CD from 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Removed CD from 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2220,7 +2220,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Detached disk vm1_disk1 successfully!</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Detached disk vm1_disk1 successfully!</code></pre>
 </div>
 </div>
 </div>
@@ -2282,7 +2282,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Started 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Started 'vm1'.</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2513,9 +2513,9 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
+<pre class="CodeRay highlight"><code data-lang="terminal">YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
 YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 153 - VM vm1 was started by admin@internal (Host: MyHost).
-YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.</pre>
+YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.</code></pre>
 </div>
 </div>
 </div>

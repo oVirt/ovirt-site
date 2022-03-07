@@ -231,7 +231,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Configure Data Warehouse on this host (Yes, No) [Yes]: No</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Data Warehouse on this host (Yes, No) [Yes]: No</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -313,7 +313,7 @@
 <p>You must manually grant access by editing the <code>postgresql.conf</code> file. Edit the <code>/var/lib/pgsql/data/postgresql.conf</code> file and modify the <code>listen_addresses</code> line so that it matches the following:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">listen_addresses = '*'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses = '*'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -331,7 +331,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -343,7 +343,7 @@
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -351,7 +351,7 @@
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -359,7 +359,7 @@
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -367,7 +367,7 @@
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -404,7 +404,7 @@
 <p>Ensure that all packages are up to date:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -412,7 +412,7 @@
 <p>Install the <code>ovirt-engine-dwh-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-dwh-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-dwh-setup</code></pre>
 </div>
 </div>
 </li>
@@ -420,7 +420,7 @@
 <p>Run the <code>engine-setup</code> command to begin the installation:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -428,7 +428,7 @@
 <p>Answer <code>Yes</code> to install Data Warehouse on this machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Configure Data Warehouse on this host (Yes, No) [Yes]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Data Warehouse on this host (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -436,7 +436,7 @@
 <p>Answer <code>Yes</code> to install Grafana on this machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Configure Grafana on this host (Yes, No) [Yes]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Grafana on this host (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -444,7 +444,7 @@
 <p>Press <code>Enter</code> to accept the automatically-detected host name, or enter an alternative host name and press <code>Enter</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of this server [<em>autodetected hostname</em>]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected hostname_]:</code></pre>
 </div>
 </div>
 </li>
@@ -452,9 +452,9 @@
 <p>Press <code>Enter</code> to automatically configure the firewall, or type <code>No</code> and press <code>Enter</code> to maintain existing settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can automatically configure the firewall on this system.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
-Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -465,7 +465,7 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Enter the fully qualified domain name of the Engine machine, and then press <code>Enter</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of the engine server []:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of the engine server []:</code></pre>
 </div>
 </div>
 </li>
@@ -473,11 +473,11 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Press <code>Enter</code> to allow setup to sign the certificate on the Engine via SSH:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
 Please choose one of the following:
 1 - Access remote engine server using ssh as root
 2 - Perform each action manually, use files to copy content around
-(1, 2) [1]:</pre>
+(1, 2) [1]:</code></pre>
 </div>
 </div>
 </li>
@@ -485,7 +485,7 @@ Please choose one of the following:
 <p>Press <code>Enter</code> to accept the default SSH port, or enter an alternative port number and then press <code>Enter</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ssh port on remote engine server [22]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">ssh port on remote engine server [22]:</code></pre>
 </div>
 </div>
 </li>
@@ -493,7 +493,7 @@ Please choose one of the following:
 <p>Enter the root password for the Engine machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">root password on remote engine server <em>manager.example.com</em>:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">root password on remote engine server _manager.example.com_:</code></pre>
 </div>
 </div>
 </li>
@@ -515,7 +515,7 @@ Please choose one of the following:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Where is the DWH database located? (Local, Remote) [Local]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Where is the DWH database located? (Local, Remote) [Local]:</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -524,8 +524,8 @@ Please choose one of the following:
 <p>If you select <code>Local</code>, the <code>engine-setup</code> script can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
-Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
+Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -537,10 +537,10 @@ Would you like Setup to automatically configure postgresql and create DWH databa
 <p>If you select <code>Manual</code>, input the following values for the manually-configured local database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">DWH database secured connection (Yes, No) [No]:
+<pre class="CodeRay highlight"><code data-lang="terminal">DWH database secured connection (Yes, No) [No]:
 DWH database name [ovirt_engine_history]:
 DWH database user [ovirt_engine_history]:
-DWH database password:</pre>
+DWH database password:</code></pre>
 </div>
 </div>
 </li>
@@ -554,12 +554,12 @@ DWH database password:</pre>
 <p>Enter the fully qualified domain name and password for the Engine database machine. If you are installing the Data Warehouse database on the same machine where the Engine database is installed, use the same FQDN. Press <code>Enter</code> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Engine database host []: <em>engine-db-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: _engine-db-fqdn_
 Engine database port [5432]:
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
 Engine database user [engine]:
-Engine database password: <em>password</em></pre>
+Engine database password: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -567,10 +567,10 @@ Engine database password: <em>password</em></pre>
 <p>Choose how long Data Warehouse will retain collected data:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please choose Data Warehouse sampling scale:
+<pre class="CodeRay highlight"><code data-lang="terminal">Please choose Data Warehouse sampling scale:
 (1) Basic
 (2) Full
-(1, 2)[1]:</pre>
+(1, 2)[1]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -584,7 +584,7 @@ Engine database password: <em>password</em></pre>
 <p>Confirm your installation settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please confirm installation settings (OK, Cancel) [OK]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please confirm installation settings (OK, Cancel) [OK]:</code></pre>
 </div>
 </div>
 </li>
@@ -592,7 +592,7 @@ Engine database password: <em>password</em></pre>
 <p>After the Data Warehouse configuration is complete, on the oVirt Engine, restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -666,7 +666,7 @@ Enable the required repositories on the new database server.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -678,7 +678,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -686,7 +686,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -694,7 +694,7 @@ Enable the required repositories on the new database server.</p>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -727,7 +727,7 @@ Enable the required repositories on the new database server.</p>
 <p>Create a backup of the Data Warehouse database and configuration files on the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </li>
@@ -735,7 +735,7 @@ Enable the required repositories on the new database server.</p>
 <p>Copy the backup file from the Engine to the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp <em>/tmp/file_name</em> <em>root@new.dwh.server.com:/tmp</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp _/tmp/file_name_ _root@new.dwh.server.com:/tmp_</code></pre>
 </div>
 </div>
 </li>
@@ -743,7 +743,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install <code>engine-backup</code> on the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-tools-backup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-tools-backup</code></pre>
 </div>
 </div>
 </li>
@@ -751,7 +751,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the PostgreSQL server package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install postgresql-server postgresql-contrib</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install postgresql-server postgresql-contrib</code></pre>
 </div>
 </div>
 </li>
@@ -769,7 +769,7 @@ Enable the required repositories on the new database server.</p>
 <p>Restore the Data Warehouse database on the new machine. <em>file_name</em> is the backup file copied from the Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -858,7 +858,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -866,7 +866,7 @@ Enable the required repositories on the new database server.</p>
 <p>Ensure that all packages currently installed are up to date:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -874,7 +874,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the <code>ovirt-engine-dwh-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-dwh-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-dwh-setup</code></pre>
 </div>
 </div>
 </li>
@@ -889,7 +889,7 @@ Enable the required repositories on the new database server.</p>
 <p>Stop the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -897,7 +897,7 @@ Enable the required repositories on the new database server.</p>
 <p>If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the <code class="filename">/var/lib/pgsql/data/postgresql.conf</code> file and modify the listen_addresses line so that it matches the following:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">listen_addresses = '*'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses = '*'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -914,7 +914,7 @@ Enable the required repositories on the new database server.</p>
 <p>Restart the postgresql service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart postgresql</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart postgresql</code></pre>
 </div>
 </div>
 </li>
@@ -932,13 +932,13 @@ Enable the required repositories on the new database server.</p>
 <p>If you are migrating both the <code>ovirt_engine_history</code> database and the Data Warehouse service to the <strong>same</strong> machine, run the following, otherwise proceed to the next step.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i '/^ENGINE_DB_/d' \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i '/^ENGINE_DB_/d' \
         /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_ENGINE_CORE/enable=bool\):True;\1:False;' \
      -e '/^OVESETUP_CONFIG\/fqdn/d' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -946,7 +946,7 @@ Enable the required repositories on the new database server.</p>
 <p>Run the <code>engine-setup</code> command to begin configuration of Data Warehouse on the machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -954,7 +954,7 @@ Enable the required repositories on the new database server.</p>
 <p>Press <strong>Enter</strong> to accept the automatically detected host name, or enter an alternative host name and press <strong>Enter</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of this server [<em>autodetected host name</em>]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected host name_]:</code></pre>
 </div>
 </div>
 </li>
@@ -962,9 +962,9 @@ Enable the required repositories on the new database server.</p>
 <p>Press <code>Enter</code> to automatically configure the firewall, or type <code>No</code> and press <code>Enter</code> to maintain existing settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can automatically configure the firewall on this system.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
-Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -975,14 +975,14 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Enter the fully qualified domain name and password for the Engine. Press <strong>Enter</strong> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of the engine server []: <em>engine-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of the engine server []: _engine-fqdn_
 Setup needs to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
 Please choose one of the following:
 1 - Access remote engine server using ssh as root
 2 - Perform each action manually, use files to copy content around
 (1, 2) [1]:
 ssh port on remote engine server [22]:
-root password on remote engine server <em>engine-fqdn</em>: <em>password</em></pre>
+root password on remote engine server _engine-fqdn_: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -990,12 +990,12 @@ root password on remote engine server <em>engine-fqdn</em>: <em>password</em></p
 <p>Enter the FQDN and password for the Engine database machine. Press <code>Enter</code> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Engine database host []: <em>manager-db-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: _manager-db-fqdn_
 Engine database port [5432]:
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
 Engine database user [engine]:
-Engine database password: <em>password</em></pre>
+Engine database password: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -1003,7 +1003,7 @@ Engine database password: <em>password</em></pre>
 <p>Confirm your installation settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please confirm installation settings (OK, Cancel) [OK]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please confirm installation settings (OK, Cancel) [OK]:</code></pre>
 </div>
 </div>
 </li>
@@ -1036,7 +1036,7 @@ Engine database password: <em>password</em></pre>
 <p>On the Engine machine, restart the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service ovirt-engine restart</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service ovirt-engine restart</code></pre>
 </div>
 </div>
 </li>
@@ -1044,14 +1044,14 @@ Engine database password: <em>password</em></pre>
 <p>Run the following command to modify the file <strong>/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</strong> and set the options to <code>False</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i \
      -e 's;^\(OVESETUP_DWH_CORE/enable=bool\):True;\1:False;' \
      -e 's;^\(OVESETUP_DWH_CONFIG/remoteEngineConfigured=bool\):True;\1:False;' \
      /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_GRAFANA_CORE/enable=bool\):True;\1:False;' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -1059,7 +1059,7 @@ Engine database password: <em>password</em></pre>
 <p>Disable the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl disable ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl disable ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -1067,7 +1067,7 @@ Engine database password: <em>password</em></pre>
 <p>Remove the Data Warehouse files:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</code></pre>
 </div>
 </div>
 </li>
@@ -1099,12 +1099,12 @@ Engine database password: <em>password</em></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">--== MISC CONFIGURATION ==--
+<pre class="CodeRay highlight"><code data-lang="terminal">--== MISC CONFIGURATION ==--
 
 Please choose Data Warehouse sampling scale:
 (1) Basic
 (2) Full
-(1, 2)[1]:</pre>
+(1, 2)[1]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1328,7 +1328,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Log in as root to the postgres user shell:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># su - postgres</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># su - postgres</code></pre>
 </div>
 </div>
 </li>
@@ -1336,7 +1336,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Create the user to be granted read-only access to the history database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># psql -U postgres -c "CREATE ROLE <em>username</em> WITH LOGIN ENCRYPTED PASSWORD '<em>password</em>';" -d ovirt_engine_history</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;CREATE ROLE _username_ WITH LOGIN ENCRYPTED PASSWORD '_password_';&quot; -d ovirt_engine_history</code></pre>
 </div>
 </div>
 </li>
@@ -1344,7 +1344,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Grant the newly created user permission to connect to the history database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># psql -U postgres -c "GRANT CONNECT ON DATABASE ovirt_engine_history TO <em>username</em>;"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;GRANT CONNECT ON DATABASE ovirt_engine_history TO _username_;&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1352,7 +1352,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Grant the newly created user usage of the <code>public</code> schema:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># psql -U postgres -c "GRANT USAGE ON SCHEMA public TO <em>username</em>;" ovirt_engine_history</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;GRANT USAGE ON SCHEMA public TO _username_;&quot; ovirt_engine_history</code></pre>
 </div>
 </div>
 </li>
@@ -1360,7 +1360,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Generate the rest of the permissions that will be granted to the newly created user and save them to a file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO <em>username</em>;' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history &gt; grant.sql</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;SELECT 'GRANT SELECT ON ' || relname || ' TO _username_;' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');&quot; --pset=tuples_only=on  ovirt_engine_history &gt; grant.sql</code></pre>
 </div>
 </div>
 </li>
@@ -1368,7 +1368,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Use the file you created in the previous step to grant permissions to the newly created user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># psql -U postgres -f grant.sql ovirt_engine_history</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -f grant.sql ovirt_engine_history</code></pre>
 </div>
 </div>
 </li>
@@ -1376,7 +1376,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Remove the file you used to grant permissions to the newly created user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm grant.sql</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm grant.sql</code></pre>
 </div>
 </div>
 </li>
@@ -1387,10 +1387,10 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <p>Add the following lines for the newly created user to <code>/var/lib/pgsql/data/pg_hba.conf</code> preceding the line beginning <code>local all all</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># TYPE  DATABASE                USER           ADDRESS                 METHOD
-host    ovirt_engine_history    <em>username</em>    0.0.0.0/0               md5
-host    ovirt_engine_history    <em>username</em>    ::0/0                   md5
-local   all             all                                     peer</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># TYPE  DATABASE                USER           ADDRESS                 METHOD
+host    ovirt_engine_history    _username_    0.0.0.0/0               md5
+host    ovirt_engine_history    _username_    ::0/0                   md5
+local   all             all                                     peer</code></pre>
 </div>
 </div>
 </li>
@@ -1398,7 +1398,7 @@ local   all             all                                     peer</pre>
 <p>Reload the PostgreSQL service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl reload postgresql</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl reload postgresql</code></pre>
 </div>
 </div>
 </li>
@@ -1434,7 +1434,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1442,7 +1442,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># \dv</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># \dv</code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -1459,7 +1459,7 @@ ovirt_engine_history=&gt;</pre>
 <p>Add the following line to the configuration file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">DWH_AGGREGATION_DEBUG=true</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">DWH_AGGREGATION_DEBUG=true</code></pre>
 </div>
 </div>
 </li>
@@ -1467,7 +1467,7 @@ ovirt_engine_history=&gt;</pre>
 <p>Restart the <strong>ovirt-engine-dwhd</strong> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 <div class="literalblock">
@@ -2297,7 +2297,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># SELECT * FROM v4_4_configuration_history_datacenters;</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># SELECT * FROM v4_4_configuration_history_datacenters;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2305,7 +2305,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># \dv</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># \dv</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">

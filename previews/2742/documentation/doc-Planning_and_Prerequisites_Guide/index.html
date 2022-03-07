@@ -680,7 +680,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --deploy --ansible-extra-vars=he_ipv4_subnet_prefix=192.168.222</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --ansible-extra-vars=he_ipv4_subnet_prefix=192.168.222</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1864,8 +1864,8 @@ Always use the {virt-product-shortname} {engine-name} to modify the network conf
 <p>Configure a VLAN on a physical NIC as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>eth0.50</em> dev <em>eth0</em> id <em>50</em>
-# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type vlan con-name __vlan50__ ifname __eth0.50__ dev __eth0__ id __50__
+# nmcli con mod __vlan50__ +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -1873,11 +1873,11 @@ Always use the {virt-product-shortname} {engine-name} to modify the network conf
 <p>Configure a VLAN on a bond as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># nmcli connection add type bond con-name <em>bond0</em> ifname <em>bond0</em> bond.options "mode=active-backup,miimon=100" ipv4.method disabled ipv6.method ignore
-# nmcli connection add type ethernet con-name <em>eth0</em> ifname <em>eth0</em> master <em>bond0</em> slave-type bond
-# nmcli connection add type ethernet con-name <em>eth1</em> ifname <em>eth1</em> master <em>bond0</em> slave-type bond
-# nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>bond0.50</em> dev <em>bond0</em> id <em>50</em>
-# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type bond con-name __bond0__ ifname __bond0__ bond.options &quot;mode=active-backup,miimon=100&quot; ipv4.method disabled ipv6.method ignore
+# nmcli connection add type ethernet con-name __eth0__ ifname __eth0__ master __bond0__ slave-type bond
+# nmcli connection add type ethernet con-name __eth1__ ifname __eth1__ master __bond0__ slave-type bond
+# nmcli connection add type vlan con-name __vlan50__ ifname __bond0.50__ dev __bond0__ id __50__
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254</code></pre>
 </div>
 </div>
 </li>

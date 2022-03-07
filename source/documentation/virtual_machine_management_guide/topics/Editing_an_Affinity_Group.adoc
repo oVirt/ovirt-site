@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Editing_an_Affinity_Group_{context}"]
+[id="Editing_an_Affinity_Group"]
 ==== Editing an Affinity Group
 
 

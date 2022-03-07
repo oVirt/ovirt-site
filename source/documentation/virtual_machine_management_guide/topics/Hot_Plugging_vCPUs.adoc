@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="CPU_hot_plug_{context}"]
+[id="CPU_hot_plug"]
 === Hot Plugging vCPUs
 
 You can hot plug vCPUs. Hot plugging means enabling or disabling devices while a virtual machine is running.
@@ -29,7 +29,7 @@ The following prerequisites apply:
 
 
 
-[id="CPU_hotplug_OS_support_{context}"]
+[id="CPU_hotplug_OS_support"]
 
 .Operating System Support Matrix for vCPU Hot Plug
 [options="header"]

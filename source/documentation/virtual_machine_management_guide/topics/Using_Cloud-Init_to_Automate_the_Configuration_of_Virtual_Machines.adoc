@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines_{context}"]
+[id="Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines"]
 === Using Cloud-Init to Automate the Configuration of Virtual Machines
 
 Cloud-Init is a tool for automating the initial setup of virtual machines such as configuring the host name, network interfaces, and authorized keys. It can be used when provisioning virtual machines that have been deployed based on a template to avoid conflicts on the network.

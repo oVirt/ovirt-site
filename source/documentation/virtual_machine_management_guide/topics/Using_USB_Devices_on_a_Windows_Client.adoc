@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Using_USB_Devices_on_a_Windows_Client_{context}"]
+[id="Using_USB_Devices_on_a_Windows_Client"]
 = Using USB Devices on a Windows Client
 
 The `usbdk` driver must be installed on the Windows client for the USB device to be redirected to the guest. Ensure the version of `usbdk` matches the architecture of the client machine. For example, the 64-bit version of `usbdk` must be installed on 64-bit Windows machines.

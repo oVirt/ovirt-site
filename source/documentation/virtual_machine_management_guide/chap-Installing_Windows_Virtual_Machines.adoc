@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Installing_Windows_Virtual_Machines_{context}"]
+[id="chap-Installing_Windows_Virtual_Machines"]
 = Installing Windows virtual machines
 :context: windows_vm
 :windows_vm:
@@ -19,14 +19,14 @@ When all of these steps are complete, the new virtual machine is functional and 
 
 include::common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
 
-[id="sect-Starting_the_Virtual_Machine_Using_the_Run_Once_Option_{context}"]
+[id="sect-Starting_the_Virtual_Machine_Using_the_Run_Once_Option"]
 == Starting the virtual machine using Run Once
 
 include::topics/Installing_Windows_on_Virtio_Optimized_Hardware.adoc[leveloffset=+2]
 
 include::topics/Opening_a_console_to_a_virtual_machine.adoc[leveloffset=+2]
 
-[id="Installing_Guest_Agents_and_Drivers_Windows_{context}"]
+[id="Installing_Guest_Agents_and_Drivers_Windows"]
 == Installing guest agents and drivers
 
 include::common/install/ref-Red_Hat_Virtualization_Guest_Agents_and_Drivers.adoc[leveloffset=+2]

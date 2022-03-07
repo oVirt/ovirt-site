@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Using_Cloud-Init_{context}"]
+[id="Using_Cloud-Init"]
 ==== Using Cloud-Init to Initialize a Virtual Machine
 
 Use Cloud-Init to automate the initial configuration of a Linux virtual machine. You can use the Cloud-Init fields to configure a virtual machine's host name, time zone, root password, authorized keys, network interfaces, and DNS service. You can also specify a custom script, a script in YAML format, to run on boot. The custom script allows for additional Cloud-Init configuration that is supported by Cloud-Init but not available in the Cloud-Init fields. For more information on custom script examples, see link:http://cloudinit.readthedocs.org/en/latest/topics/examples.html[Cloud config examples].

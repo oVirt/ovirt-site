@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Suspending_a_virtual_machine_{context}"]
+[id="Suspending_a_virtual_machine"]
 === Suspending a Virtual Machine
 
 Suspending a virtual machine is equal to placing that virtual machine into *Hibernate* mode.

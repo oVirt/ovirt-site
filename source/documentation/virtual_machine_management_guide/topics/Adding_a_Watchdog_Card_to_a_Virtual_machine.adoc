@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Adding_a_Watchdog_Card_to_a_Virtual_machine_{context}"]
+[id="Adding_a_Watchdog_Card_to_a_Virtual_machine"]
 = Adding a Watchdog Card to a Virtual Machine
 
 You can add a watchdog card to a virtual machine to monitor the operating system's responsiveness.

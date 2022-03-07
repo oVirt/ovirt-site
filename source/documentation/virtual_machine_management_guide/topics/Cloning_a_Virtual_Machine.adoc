@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Cloning_a_Virtual_Machine_{context}"]
+[id="Cloning_a_Virtual_Machine"]
 === Cloning a Virtual Machine
 
 You can clone virtual machines without having to create a template or a snapshot first.

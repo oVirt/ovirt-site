@@ -1,7 +1,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
-[id="Preventing_automatic_migration_of_a_virtual_machine_{context}"]
+[id="Preventing_automatic_migration_of_a_virtual_machine"]
 ==== Preventing Automatic Migration of a Virtual Machine
 
 {virt-product-fullname} {engine-name} allows you to disable automatic migration of virtual machines. You can also disable manual migration of virtual machines by setting the virtual machine to run only on a specific host.

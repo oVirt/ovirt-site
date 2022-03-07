@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Configuring_a_highly_available_virtual_machine_{context}"]
+[id="Configuring_a_highly_available_virtual_machine"]
 ==== Configuring a Highly Available Virtual Machine
 
 High availability must be configured individually for each virtual machine.

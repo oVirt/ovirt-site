@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Creating_a_cloned_virtual_machine_based_on_a_template_{context}"]
+[id="Creating_a_cloned_virtual_machine_based_on_a_template"]
 === Creating a Cloned Virtual Machine Based on a Template
 
 Cloned virtual machines are based on templates and inherit the settings of the template. A cloned virtual machine does not depend on the template on which it was based after it has been created. This means the template can be deleted if no other dependencies exist.

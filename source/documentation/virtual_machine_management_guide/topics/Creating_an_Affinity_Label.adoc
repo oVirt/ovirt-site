@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Creating_an_Affinity_Label_{context}"]
+[id="Creating_an_Affinity_Label"]
 ==== Creating an Affinity Label
 
 You can create affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.

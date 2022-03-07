@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Importing_a_Virtual_Machine_from_Xen_{context}"]
+[id="Importing_a_Virtual_Machine_from_Xen"]
 ==== Importing a virtual machine from a RHEL 5 Xen host
 
 Import virtual machines from Xen on {enterprise-linux} 5 to your {virt-product-fullname} environment. {virt-product-fullname} uses V2V to import QCOW2 or raw virtual machine disk formats.

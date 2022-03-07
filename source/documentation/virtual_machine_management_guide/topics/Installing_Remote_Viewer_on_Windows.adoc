@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Installing_Remote_Viewer_on_Windows_{context}"]
+[id="Installing_Remote_Viewer_on_Windows"]
 ===== Installing Remote Viewer on Windows
 
 The Remote Viewer application provides users with a graphical console for connecting to virtual machines. Once installed, it is called automatically when attempting to open a SPICE session with a virtual machine. Alternatively, it can also be used as a standalone application.

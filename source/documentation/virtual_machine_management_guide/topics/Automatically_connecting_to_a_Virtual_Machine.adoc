@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Automatically_connecting_to_a_Virtual_Machine_{context}"]
+[id="Automatically_connecting_to_a_Virtual_Machine"]
 ==== Automatically Connecting to a Virtual Machine
 
 Once you have logged in, you can automatically connect to a single running virtual machine. This can be configured in the VM Portal.

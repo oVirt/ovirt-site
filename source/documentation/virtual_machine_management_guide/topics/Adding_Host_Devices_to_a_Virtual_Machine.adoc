@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Adding_Host_Devices_to_a_Virtual_Machine_{context}"]
+[id="Adding_Host_Devices_to_a_Virtual_Machine"]
 ==== Adding a Host Device to a Virtual Machine
 
 To improve performance, you can attach a host device to a virtual machine.
@@ -38,7 +38,7 @@ If the virtual machine cannot start on the specified host or access the host dev
 +
 [NOTE]
 ====
-The `nvdimm` option is a technical preview feature. For more information, see xref:conc-nvdimm-host-devices_{context}[].
+The `nvdimm` option is a technical preview feature. For more information, see xref:conc-nvdimm-host-devices[].
 ====
 . Use *Available Host Devices* to select devices.
 . Click the down arrow to move devices to *Host Devices to be attached*.
@@ -78,4 +78,4 @@ You can fix the error by removing the host device from the virtual machine or co
 * link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#pinning_a_virtual_machine_to_multiple_hosts[Pinning a Virtual Machine to Multiple Hosts]
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_a_Host_for_PCI_Passthrough_host_tasks[Configuring a Host for PCI Passthrough]
 * link:{URL_downstream_virt_product_docs}hardware_considerations_for_implementing_sr-iov/[Additional Hardware Considerations for Using Device Assignment] in _Hardware Considerations for Implementing SR-IOV_.
-* xref:conc-nvdimm-host-devices_{context}[]
+* xref:conc-nvdimm-host-devices[]

@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="Templates_{context}"]
+[id="Templates"]
 == Templates
 
 A template is a copy of a virtual machine that you can use to simplify the subsequent, repeated creation of similar virtual machines. Templates capture the configuration of software, configuration of hardware, and the software installed on the virtual machine on which the template is based. The virtual machine on which a template is based is known as the source virtual machine.

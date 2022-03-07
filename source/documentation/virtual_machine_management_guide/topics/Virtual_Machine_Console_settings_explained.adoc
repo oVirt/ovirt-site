@@ -1,9 +1,9 @@
 :_content-type: REFERENCE
-[id="Virtual_Machine_Console_settings_explained_{context}"]
+[id="Virtual_Machine_Console_settings_explained"]
 ==== Virtual Machine Console Settings Explained
 
 The following table details the options available on the *Console* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
-[id="New_VMs_Console_{context}"]
+[id="New_VMs_Console"]
 
 .Virtual Machine: Console Settings
 [cols="1,2,1", options="header"]

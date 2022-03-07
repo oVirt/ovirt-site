@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Creating_a_snapshot_of_a_virtual_machine_{context}"]
+[id="Creating_a_snapshot_of_a_virtual_machine"]
 ==== Creating a Snapshot of a Virtual Machine
 
 A snapshot is a view of a virtual machine's operating system and applications on any or all available disks at a given point in time. Take a snapshot of a virtual machine before you make a change to it that may have unintended consequences. You can use a snapshot to return a virtual machine to a previous state.

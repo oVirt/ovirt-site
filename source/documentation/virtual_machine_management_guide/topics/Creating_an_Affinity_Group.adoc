@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Creating_an_Affinity_Group_{context}"]
+[id="Creating_an_Affinity_Group"]
 ==== Creating an Affinity Group
 
 You can create new affinity groups in the Administration Portal.

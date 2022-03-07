@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Updating_Win_Guest_Drivers_with_Windows_Updates_{context}"]
+[id="Updating_Win_Guest_Drivers_with_Windows_Updates"]
 = Updating Windows drivers with Windows Update
 
 When you need to update the drivers for a Windows virtual machine, the simplest method is to use Windows Update.

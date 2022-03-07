@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
-[id="Configuring_Sysprep_on_a_Template_{context}"]
+[id="Configuring_Sysprep_on_a_Template"]
 ==== Configuring Sysprep on a Template
 
 You can use this procedure to specify a set of standard `Sysprep` settings to include in the template, alternatively you can configure the `Sysprep` settings when creating a virtual machine based on this template.
 
-Replacement strings can be used to substitute values provided in the default files in the */usr/share/ovirt-engine/conf/sysprep/* directory.  For example, *"<Domain><![CDATA[$JoinDomain$_{context}"]></Domain>"* can be used to indicate the domain to join.
+Replacement strings can be used to substitute values provided in the default files in the */usr/share/ovirt-engine/conf/sysprep/* directory.  For example, *"<Domain><![CDATA[$JoinDomain$"]></Domain>"* can be used to indicate the domain to join.
 
 [IMPORTANT]
 ====

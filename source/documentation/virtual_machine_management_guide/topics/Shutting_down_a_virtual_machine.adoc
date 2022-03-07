@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Shutting_down_a_virtual_machine_{context}"]
+[id="Shutting_down_a_virtual_machine"]
 === Shutting Down a Virtual Machine
 
 You can turn off a virtual machine using *Shutdown* or *Power Off*. *Shutdown* gracefully shuts down a virtual machine. *Power Off* executes a hard shutdown. A graceful shutdown is usually preferable to a hard shutdown.

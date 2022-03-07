@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Opening_a_Serial_Console_to_a_Virtual_Machine_{context}"]
+[id="Opening_a_Serial_Console_to_a_Virtual_Machine"]
 ==== Opening a Serial Console to a Virtual Machine
 
 You can access a virtual machine's serial console from the command line instead of opening a console from the Administration Portal or the VM Portal. The serial console is emulated through VirtIO channels, using SSH and key pairs. The {engine-name} acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. You can add public keys for each user from either the Administration Portal or the VM Portal. You can access serial consoles for only those virtual machines for which you have appropriate permissions.

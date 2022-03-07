@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Affinity_groups_troubleshooting_{context}"]
+[id="Affinity_groups_troubleshooting"]
 ==== Affinity Groups Troubleshooting
 
 .To help prevent problems with affinity groups

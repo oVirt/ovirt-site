@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="RDP_Console_Options_{context}"]
+[id="RDP_Console_Options"]
 = RDP Console Options
 
 When the RDP connection protocol is selected, the following options are available in the *Console Options* window.

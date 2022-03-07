@@ -1,9 +1,9 @@
-[[Explanation_of_bridge_opts_Parameters]]
+[id="Explanation_of_bridge_opts_Parameters_{context}"]
 === Explanation of bridge_opts Parameters
 
 
 
-[[Table-Explanation_of_bridge_opts_Parameters]]
+[id="Table-Explanation_of_bridge_opts_Parameters_{context}"]
 
 .bridge_opts parameters
 [options="header"]

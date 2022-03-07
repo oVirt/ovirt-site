@@ -1,4 +1,4 @@
-[[Turning_On_a_SPICE_Proxy]]
+[id="Turning_On_a_SPICE_Proxy_{context}"]
 ==== Turning On a SPICE Proxy
 
 This procedure explains how to activate (or turn on) the SPICE proxy.

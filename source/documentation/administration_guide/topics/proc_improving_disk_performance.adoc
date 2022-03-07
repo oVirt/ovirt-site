@@ -3,7 +3,7 @@
 // doc-Administration_Guide/chap-Virtual_Disks.adoc
 
 
-[id="proc_improving_disk_performance"]
+[id="proc_improving_disk_performance_{context}"]
 = Improving disk performance
 
 In the Administration Portal, on the virtual machine's *Resource Allocation* tab, the default *I/O Threads Enabled* setting is checked (enabled), and the number of threads is `1`.

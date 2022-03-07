@@ -1,4 +1,4 @@
-[[Creating_a_CPU_Quality_of_Service_Entry]]
+[id="Creating_a_CPU_Quality_of_Service_Entry_{context}"]
 ==== Creating a CPU Quality of Service Entry
 
 Create a CPU quality of service entry.

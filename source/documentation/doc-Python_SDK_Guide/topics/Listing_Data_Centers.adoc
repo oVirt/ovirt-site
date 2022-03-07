@@ -33,7 +33,7 @@ connection.close()
 
 In an environment where only the `Default` data center exists, and it is not activated, the examples output the text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Default (00000000-0000-0000-0000-000000000000)
 ----

@@ -1,4 +1,4 @@
-[[Service_methods]]
+[id="Service_methods"]
 ==== Service Methods
 
 After you have located the service you want, you can call its service methods. These methods send requests to the server and do the real work.
@@ -147,7 +147,7 @@ The creation of most objects is an asynchronous task. For example, if you create
 
 The recommended approach is to create a virtual machine, locate the service that manages the new virtual machine, and retrieve the status repeatedly until the virtual machine status is `DOWN`, indicating that all the disks have been created.
 
-[[Adding_Virtual_Machine_Locating_Its_Service_and_Retrieving_Status]]
+[id="Adding_Virtual_Machine_Locating_Its_Service_and_Retrieving_Status"]
 .Adding a Virtual Machine, Locating Its Service, and Retrieving Its Status
 [source, Ruby]
 ----

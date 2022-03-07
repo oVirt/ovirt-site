@@ -1,4 +1,4 @@
-[[Creating_a_New_Data_Center]]
+[id="Creating_a_New_Data_Center_{context}"]
 ==== Creating a New Data Center
 
 This procedure creates a data center in your virtualization environment. The data center requires a functioning cluster, host, and storage domain to operate.

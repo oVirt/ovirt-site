@@ -1,4 +1,4 @@
-[[Updating_the_MoM_Policy_on_Hosts_in_a_Cluster]]
+[id="Updating_the_MoM_Policy_on_Hosts_in_a_Cluster_{context}"]
 ==== Updating the MoM Policy on Hosts in a Cluster
 
 The Memory Overcommit Manager handles memory balloon and KSM functions on a host. Changes to these functions for a cluster pass to hosts the next time a host moves to a status of *Up* after being rebooted or in maintenance mode. However, if necessary you can apply important changes to a host immediately by synchronizing the MoM policy while the host is *Up*. The following procedure must be performed on each host individually.

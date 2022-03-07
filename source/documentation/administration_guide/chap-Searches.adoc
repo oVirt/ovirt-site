@@ -1,4 +1,4 @@
-[[chap-Searches]]
+[id="chap-Searches"]
 == Searches
 
 include::topics/Performing_searches.adoc[]

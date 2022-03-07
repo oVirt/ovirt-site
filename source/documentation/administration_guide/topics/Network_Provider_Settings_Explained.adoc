@@ -1,4 +1,4 @@
-[[Network_Provider_Settings_Explained]]
+[id="Network_Provider_Settings_Explained_{context}"]
 ==== Network Provider Settings Explained
 
 The *Network Provider* settings table details the information required on the *Network Provider* tab of the *New Host* or *Edit Host* window.

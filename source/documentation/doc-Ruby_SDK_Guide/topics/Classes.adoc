@@ -1,4 +1,4 @@
-[[Classes]]
+[id="Classes"]
 === Classes
 
 The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4[OvirtSDK4] module contains the following software development kit classes:

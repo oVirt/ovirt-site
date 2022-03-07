@@ -1,11 +1,11 @@
-[[chap-Pools]]
+[id="chap-Pools"]
 == Pools
 
 include::topics/Pools.adoc[]
 
 include::topics/Creating_a_VM_Pool.adoc[]
 
-[[sect-Explanation_of_Settings_and_Controls_in_the_New_Pool_Window]]
+[id="sect-Explanation_of_Settings_and_Controls_in_the_New_Pool_Window"]
 === Explanation of Settings and Controls in the New Pool and Edit Pool Windows
 
 include::topics/New_Pool_General_Settings_Explained.adoc[]

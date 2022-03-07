@@ -1,4 +1,4 @@
-[[chap-Data_Centers]]
+[id="chap-Data_Centers"]
 = Data Centers
 
 include::topics/Data_Centers.adoc[leveloffset=-1]
@@ -7,7 +7,7 @@ include::topics/The_Storage_Pool_ManagerSPM.adoc[]
 
 include::topics/SPM_Priority.adoc[]
 
-[[sect-Data_Center_Tasks]]
+[id="sect-Data_Center_Tasks"]
 == Data Center Tasks
 
 include::topics/Creating_a_New_Data_Center.adoc[leveloffset=-1]
@@ -26,7 +26,7 @@ include::topics/Changing_the_Data_Center_Storage_Type.adoc[leveloffset=-1]
 :admin:
 include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+2]
 
-[[sect-Data_Centers_and_Storage_Domains]]
+[id="sect-Data_Centers_and_Storage_Domains"]
 == Data Centers and Storage Domains
 
 include::topics/Attaching_a_data_domain.adoc[leveloffset=-1]

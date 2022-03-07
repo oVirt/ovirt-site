@@ -1,9 +1,9 @@
-[[Searching_for_users]]
+[id="Searching_for_users_{context}"]
 === Searching for Users
 
 The following table describes all search options for users.
 
-[[searching_users]]
+[id="searching_users_{context}"]
 .Searching for Users
 [options="header"]
 |===

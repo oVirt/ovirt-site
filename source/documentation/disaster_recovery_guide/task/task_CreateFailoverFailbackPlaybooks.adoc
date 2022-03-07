@@ -5,7 +5,7 @@ Ensure that you have the mapping file that you created and configured, in this c
 
 You can define a password file (for example `passwords.yml`) to store the {engine-name} passwords of the primary and secondary site. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ---
 # This file is in plain text, if you want to
@@ -31,7 +31,7 @@ In these examples the Ansible playbooks to fail over and fail back are named `dr
 
 Create the  following Ansible playbook to failover the environment:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ---
 - name: Failover RHV
@@ -50,7 +50,7 @@ Create the  following Ansible playbook to failover the environment:
 
 Create the  following Ansible playbook to failback the environment:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ---
 - name: Failback RHV

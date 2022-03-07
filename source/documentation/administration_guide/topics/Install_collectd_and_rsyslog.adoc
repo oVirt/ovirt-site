@@ -1,4 +1,4 @@
-[id="Install_collectd_and_rsyslog"]
+[id="Install_collectd_and_rsyslog_{context}"]
 
 
 Deploy `collectd` and `rsyslog` on the hosts to collect logs and metrics.

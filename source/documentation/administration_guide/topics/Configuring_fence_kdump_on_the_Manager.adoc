@@ -1,4 +1,4 @@
-[[Configuring_fence_kdump_on_the_Manager]]
+[id="Configuring_fence_kdump_on_the_Manager_{context}"]
 ===== Configuring fence_kdump on the {engine-name}
 
 Edit the {engine-name}'s kdump configuration. This is only necessary in cases where the default configuration is not sufficient. The current configuration values can be found using:

@@ -1,4 +1,4 @@
-[[Removing_a_Storage_Quality_of_Service_Entry]]
+[id="Removing_a_Storage_Quality_of_Service_Entry_{context}"]
 ==== Removing a Storage Quality of Service Entry
 
 Remove an existing storage quality of service entry.

@@ -1,4 +1,4 @@
-[[VDSM_hooks]]
+[id="VDSM_hooks_{context}"]
 === VDSM Hooks
 
 VDSM is extensible via hooks. Hooks are scripts executed on the host when key events occur. When a supported event occurs VDSM runs any executable hook scripts in */usr/libexec/vdsm/hooks/_nn_event-name_/* on the host in alphanumeric order. By convention each hook script is assigned a two digit number, included at the front of the file name, to ensure that the order in which the scripts will be run in is clear. You are able to create hook scripts in any programming language, Python will however be used for the examples contained in this chapter.

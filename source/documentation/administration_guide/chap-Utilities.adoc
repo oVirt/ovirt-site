@@ -1,7 +1,7 @@
-[[chap-Utilities]]
+[id="chap-Utilities"]
 == Utilities
 
-[[sect-The_oVirt_Engine_Rename_Tool]]
+[id="sect-The_oVirt_Engine_Rename_Tool"]
 === The oVirt Engine Rename Tool
 
 include::topics/The_oVirt_Engine_Rename_Tool.adoc[]
@@ -10,14 +10,14 @@ include::topics/Syntax_for_the_oVirt_Engine_Rename_Command.adoc[]
 
 include::topics/Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool.adoc[]
 
-[[sect-The_Engine_Configuration_Tool]]
+[id="sect-The_Engine_Configuration_Tool"]
 === The Engine Configuration Tool
 
 include::topics/The_Engine_Configuration_Tool.adoc[]
 
 include::topics/Syntax_for_the_engine-config_Command.adoc[]
 
-[[sect-The_USB_Filter_Editor]]
+[id="sect-The_USB_Filter_Editor"]
 === The USB Filter Editor
 
 include::topics/Installing_the_USB_Filter_Editor.adoc[leveloffset=+3]
@@ -44,7 +44,7 @@ include::common/upgrade/proc-Image_discrepancies_tool.adoc[]
 endif::[]
 
 ifdef::rhv-doc[]
-[[sect-The_Log_Collector_Tool]]
+[id="sect-The_Log_Collector_Tool"]
 === The Log Collector Tool
 
 include::topics/Log_Collector.adoc[]
@@ -54,7 +54,7 @@ include::topics/Syntax_for_the_ovirt-log-collector_Command.adoc[]
 include::topics/Basic_Log_Collector_Usage.adoc[]
 endif::[]
 
-[[sect-The_ISO_Uploader_Tool]]
+[id="sect-The_ISO_Uploader_Tool"]
 === The ISO Uploader Tool
 
 include::topics/The_ISO_Uploader_Tool.adoc[]
@@ -67,7 +67,7 @@ include::topics/Basic_ISO_Uploader_Usage.adoc[]
 
 include::topics/Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain.adoc[]
 
-[[sect-The_Engine_Vacuum_Tool]]
+[id="sect-The_Engine_Vacuum_Tool"]
 === The Engine Vacuum Tool
 
 include::topics/The_Engine_Vacuum_Tool.adoc[]
@@ -76,7 +76,7 @@ include::topics/Engine_Vacuum_Modes.adoc[]
 
 include::topics/Syntax_for_the_engine-vacuum_Command.adoc[]
 
-[[sect-The_VDSM_To_Network_Name_Tool]]
+[id="sect-The_VDSM_To_Network_Name_Tool"]
 === The VDSM to Network Name Mapping Tool
 
 include::topics/Vdsm_To_Network_Mapping_Tool.adoc[]

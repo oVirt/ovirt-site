@@ -1,4 +1,4 @@
-[[Add_Provider_Agent_Configuration_Settings_Explained]]
+[id="Add_Provider_Agent_Configuration_Settings_Explained_{context}"]
 ==== Add Provider Agent Configuration Settings Explained
 
 The *Agent Configuration* tab in the *Add Provider* window allows users to register details for networking plugins. This tab is only available for the *OpenStack Networking* provider type.

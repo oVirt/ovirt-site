@@ -1,4 +1,4 @@
-[[chap-Event_Notifications]]
+[id="chap-Event_Notifications"]
 == Event Notifications
 
 include::topics/Configuring_event_notifications.adoc[]

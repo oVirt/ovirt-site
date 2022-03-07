@@ -1,4 +1,4 @@
-[[Data_center_permissions_entities]]
+[id="Data_center_permissions_entities_{context}"]
 ==== Data Center Administrator Roles Explained
 
 
@@ -6,7 +6,7 @@
 
 The table below describes the administrator roles and privileges applicable to data center administration.
 
-[[Data_Center_Administrator_Roles]]
+[id="Data_Center_Administrator_Roles_{context}"]
 
 .{virt-product-fullname} System Administrator Roles
 [options="header"]

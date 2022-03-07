@@ -1,4 +1,4 @@
-[[Cluster_virtual_machine_entities]]
+[id="Cluster_virtual_machine_entities_{context}"]
 ==== Storage Administrator Roles Explained
 
 
@@ -6,7 +6,7 @@
 
 The table below describes the administrator roles and privileges applicable to storage domain administration.
 
-[[Storage_Administrator_Roles]]
+[id="Storage_Administrator_Roles_{context}"]
 
 .{virt-product-fullname} System Administrator Roles
 [options="header"]

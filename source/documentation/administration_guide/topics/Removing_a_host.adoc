@@ -1,4 +1,4 @@
-[[Removing_a_host]]
+[id="Removing_a_host_{context}"]
 ==== Removing a Host
 
 Remove a host from your virtualized environment.

@@ -1,7 +1,7 @@
 :numbered!:
 
 [appendix]
-[[appe-Custom_Network_Properties]]
+[id="appe-Custom_Network_Properties"]
 == Custom Network Properties
 
 include::topics/Explanation_of_bridge_opts_Parameters.adoc[]

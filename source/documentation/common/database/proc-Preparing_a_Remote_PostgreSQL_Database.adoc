@@ -26,7 +26,7 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Install the PostgreSQL server package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install postgresql-server postgresql-contrib
 ----
@@ -55,49 +55,49 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Create a default user. The {engine-name}'s default user is `engine`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 postgres=# create role _user_name_ with login encrypted password '_password_';
 ----
 
 . Create a database. The {engine-name}'s default database name is `engine`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 postgres=# create database _database_name_ owner _user_name_ template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
 ----
 
 . Connect to the new database:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 postgres=# \c _database_name_
 ----
 
 . Add the `uuid-ossp` extension:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 _database_name_=# CREATE EXTENSION "uuid-ossp";
 ----
 
 . Add the `plpgsql` language if it does not exist:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 _database_name_=# CREATE LANGUAGE plpgsql;
 ----
 
 . Quit the `psql` interface:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 _database_name_=# \q
 ----
 
 . Edit the `/var/lib/pgsql/data/pg_hba.conf` file to enable md5 client authentication, so that the engine can access the database remotely. Add the following line immediately below the line that starts with `local` at the bottom of the file. Replace `X.X.X.X` with the IP address of the {engine-name} or Data Warehouse machine, and replace `0-32` or `0-128` with the CIDR mask length:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 host    _database_name_    _user_name_    _X.X.X.X/0-32_    md5
 host    _database_name_    _user_name_    _X.X.X.X::/0-128_   md5
@@ -105,7 +105,7 @@ host    _database_name_    _user_name_    _X.X.X.X::/0-128_   md5
 +
 For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # IPv4, 32-bit address:
 host    engine    engine    192.168.12.10/32    md5
@@ -116,7 +116,7 @@ host    engine    engine    fe80::7a31:c1ff:0000:0000/96   md5
 
 . Allow TCP/IP connections to the database. Edit the `/var/lib/pgsql/data/postgresql.conf` file and add the following line:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 listen_addresses='*'
 ----
@@ -124,7 +124,7 @@ This example configures the `postgresql` service to listen for connections on al
 
 . Update the PostgreSQL server's configuration. In the `/var/lib/pgsql/data/postgresql.conf` file, add the following lines to the bottom of the file:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 autovacuum_vacuum_scale_factor=0.01
 autovacuum_analyze_scale_factor=0.075
@@ -136,7 +136,7 @@ work_mem=8192
 
 . Open the default port used for PostgreSQL database connections, and save the updated firewall rules:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --zone=public --add-service=postgresql
 # firewall-cmd --permanent --zone=public --add-service=postgresql
@@ -144,7 +144,7 @@ work_mem=8192
 
 . Restart the `postgresql` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart postgresql
 ----

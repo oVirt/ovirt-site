@@ -1,8 +1,8 @@
-[[Supported_VDSM_events]]
+[id="Supported_VDSM_events_{context}"]
 === Supported VDSM Events
 
 
-[[vdsm-hook-names]]
+[id="vdsm-hook-names_{context}"]
 
 .Supported VDSM Events
 [options="header"]

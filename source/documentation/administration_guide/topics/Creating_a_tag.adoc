@@ -1,4 +1,4 @@
-[[Creating_a_tag]]
+[id="Creating_a_tag_{context}"]
 === Creating a Tag
 
 Create tags so you can filter search results using tags.

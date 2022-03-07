@@ -15,7 +15,7 @@ with Red Hat Subscription Manager, attach the `{virt-product-fullname} {engine-n
 
 . Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager register
 ----
@@ -27,14 +27,14 @@ If you are using an IPv6 network, use an IPv6 transition mechanism to access the
 
 . Find the `{virt-product-fullname} {engine-name}` subscription pool and record the pool ID:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager list --available
 ----
 
 . Use the pool ID to attach the subscription to the system:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager attach --pool=_pool_id_
 ----
@@ -42,12 +42,12 @@ If you are using an IPv6 network, use an IPv6 transition mechanism to access the
 [NOTE]
 ====
 To view currently attached subscriptions:
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager list --consumed
 ----
 To list all enabled repositories:
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf repolist
 ----
@@ -56,7 +56,7 @@ To list all enabled repositories:
 . Configure the repositories:
 +
 ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --disable='*' \
@@ -71,7 +71,7 @@ ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_D
 ----
 endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
 ifdef::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --disable='*' \
@@ -81,7 +81,7 @@ ifdef::remote_database_install,manual_database_install,migrate_DWH_DB,install_DW
 ----
 endif::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
 ifdef::migrate_SHE_DB,migrate_manager_db[]
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos \
     --disable='*' \
@@ -96,7 +96,7 @@ ifdef::ovirt-doc[]
 
 Ensure the correct repositories are enabled:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
@@ -105,7 +105,7 @@ You can check which repositories are currently enabled by running `dnf repolist`
 
 . Enable the `javapackages-tools` module.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf module -y enable javapackages-tools
 ----
@@ -117,7 +117,7 @@ endif::ovirt-doc[]
 ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,migrate_manager_db[]
 . Enable the `pki-deps` module.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 +
 ----
 # dnf module -y enable pki-deps
@@ -125,14 +125,14 @@ ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_D
 endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,migrate_manager_db[]
 . Enable version 12 of the `postgresql` module.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 +
 ----
 # dnf module -y enable postgresql:12
 ----
 . Synchronize installed packages to update them to the latest available versions.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf distro-sync --nobest
 ----

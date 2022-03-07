@@ -1,4 +1,4 @@
-[id="Architecture_diagram_log_metrics"]
+[id="Architecture_diagram_log_metrics_{context}"]
 
 
 The log and metrics collection architecture is based on the link:https://docs.openshift.com/container-platform/3.11/install_config/aggregate_logging.html#overview[Red Hat OpenShift EFK logging stack], running on link:https://docs.openshift.com/container-platform/3.11/welcome/index.html[Red Hat OpenShift Container Platform 3.11].

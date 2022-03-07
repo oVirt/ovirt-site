@@ -1,10 +1,10 @@
-[[chap-Backups_and_Migration]]
+[id="chap-Backups_and_Migration"]
 == Backups and Migration
 
 :context: RHV_backup_restore
 :RHV_backup_restore:
 
-[[sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager]]
+[id="sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager"]
 === Backing Up and Restoring the {virt-product-fullname} {engine-name}
 
 include::topics/Backing_up_Red_Hat_Enterprise_Virtualization_Manager_using_the_engine-backup_Command.adoc[]
@@ -27,7 +27,7 @@ include::common/backup-restore/assembly-Recovering_a_Self-Hosted_Engine.adoc[lev
 
 include::common/backup-restore/assembly-Overwriting_a_Self-Hosted_Engine.adoc[leveloffset=+3]
 
-[[migrating-rhv-databases]]
+[id="migrating-rhv-databases"]
 === Migrating {virt-product-fullname} Databases to Remote Servers
 
 :context: migrate_database
@@ -60,7 +60,7 @@ include::topics/proc_Backing_Up_a_Virtual_Machine_with_backup_domain.adoc[levelo
 :context!: backup_domain
 
 :context: RHV_backup_restore
-[[sect-Backing_Up_and_Restoring_Virtual_Machines_Using_the_Backup_and_Restore_API]]
+[id="sect-Backing_Up_and_Restoring_Virtual_Machines_Using_the_Backup_and_Restore_API"]
 === Backing Up and Restoring Virtual Machines Using the Backup and Restore API
 
 include::topics/The_Backup_and_Restore_API.adoc[]

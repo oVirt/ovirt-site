@@ -1,4 +1,4 @@
-[[Adding_Xen_as_an_External_Provider]]
+[id="Adding_Xen_as_an_External_Provider_{context}"]
 ==== Adding a RHEL 5 Xen Host as a Virtual Machine Provider
 
 Add a RHEL 5 Xen host to import virtual machines from Xen to {virt-product-fullname}.

@@ -1,4 +1,4 @@
-[[Detaching_a_storage_domain]]
+[id="Detaching_a_storage_domain_{context}"]
 ==== Detaching a Storage Domain from a Data Center
 
 Detach a storage domain from one data center to migrate it to another data center.

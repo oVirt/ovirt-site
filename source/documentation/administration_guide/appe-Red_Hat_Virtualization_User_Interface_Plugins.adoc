@@ -1,12 +1,12 @@
 :numbered!:
 
 [appendix]
-[[appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins]]
+[id="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins"]
 == {virt-product-fullname} User Interface Plugins
 
 include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugins.adoc[]
 
-[[sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle]]
+[id="sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle"]
 === {virt-product-fullname} User Interface Plugin Lifecycle
 
 include::topics/RHEV_UI_Plugin_Lifecycle.adoc[]

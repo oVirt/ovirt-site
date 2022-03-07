@@ -1,4 +1,4 @@
-[[Viewing_user_information]]
+[id="Viewing_user_information_{context}"]
 ==== Viewing User Information
 
 *Viewing User Information*

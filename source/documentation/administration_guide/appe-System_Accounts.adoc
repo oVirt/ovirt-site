@@ -1,10 +1,10 @@
 :numbered!:
 
 [appendix]
-[[appe-System_Accounts]]
+[id="appe-System_Accounts"]
 == System Accounts
 
-[[sect-System_Accounts]]
+[id="sect-System_Accounts"]
 === System Accounts
 
 include::topics/Red_Hat_Enterprise_Virtualization_Manager_User_Accounts.adoc[]

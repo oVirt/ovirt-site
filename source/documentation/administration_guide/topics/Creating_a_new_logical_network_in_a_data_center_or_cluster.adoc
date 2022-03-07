@@ -1,4 +1,4 @@
-[[Creating_a_new_logical_network_in_a_data_center_or_cluster]]
+[id="Creating_a_new_logical_network_in_a_data_center_or_cluster_{context}"]
 ==== Creating a New Logical Network in a Data Center or Cluster
 
 Create a logical network and define its use in a data center, or in clusters in a data center.

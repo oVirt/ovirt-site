@@ -1,8 +1,8 @@
-[[Searching_for_storage]]
+[id="Searching_for_storage_{context}"]
 === Searching for Storage
 
 The following table describes all search options for storage.
-[[searching_storage]]
+[id="searching_storage_{context}"]
 
 .Searching for Storage
 [options="header"]

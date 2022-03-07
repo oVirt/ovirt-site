@@ -1,4 +1,4 @@
-[[Add_Provider_General_Settings_Explained]]
+[id="Add_Provider_General_Settings_Explained_{context}"]
 ==== Add Provider General Settings Explained
 
 The *General* tab in the *Add Provider* window allows you to register the core details of the external provider.
@@ -56,7 +56,7 @@ The *General* tab in the *Add Provider* window allows you to register the core d
 * *Certificate Authority* The CA certificate to be trusted when making https requests.
 
 * *Prometheus URL* The URL for the OpenShift cluster's prometheus service. If you do not provide this URL, the software will try to automatically detect this URL.
-// Reviewer: Is this the url, proxyUrl, or externalUrl mentioned here: https://docs.openshift.com/container-platform/4.4/rest_api/monitoring_apis/prometheus-monitoring-coreos-com-v1.html? How does the user get this information? 
+// Reviewer: Is this the url, proxyUrl, or externalUrl mentioned here: https://docs.openshift.com/container-platform/4.4/rest_api/monitoring_apis/prometheus-monitoring-coreos-com-v1.html? How does the user get this information?
 
 * *Prometheus Certificate Authority* The X509 certificate for prometheus. If you do not specify this CA, the provider uses the KubeVirt CA instead.
 // Reviewer: How does the user get the Prometheus CA mentioned on the next line?

@@ -1,4 +1,4 @@
-[id="Configure_grafana"]
+[id="Configure_grafana_{context}"]
 
 
 .Installation

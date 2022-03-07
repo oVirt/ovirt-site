@@ -1,4 +1,4 @@
-[[fence_kdump_listener_Configuration]]
+[id="fence_kdump_listener_Configuration_{context}"]
 ===== fence_kdump listener Configuration
 
 Edit the configuration of the fence_kdump listener. This is only necessary in cases where the default configuration is not sufficient.

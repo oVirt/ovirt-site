@@ -1,4 +1,4 @@
-[[RHEV_UI_Plugin_Lifecycle]]
+[id="RHEV_UI_Plugin_Lifecycle_{context}"]
 ==== {virt-product-fullname} User Interface Plug-in Life cycle
 
 The basic life cycle of a User Interface Plug-in divides into three stages:

@@ -10,7 +10,7 @@ You can list all checkpoints for a virtual machine, including information for ea
 
 * Send a request specifying a virtual machine. For example, specify a virtual machine with id `123` like this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /vms/123/checkpoints/
 ----
@@ -24,7 +24,7 @@ The response includes all the virtual machine checkpoints. Each checkpoint conta
 
 For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 <parent_id>, <creation_date> and the virtual machine it belongs to <vm>:
 <checkpoints>

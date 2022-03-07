@@ -1,4 +1,4 @@
-[[Host_Log_Files]]
+[id="Host_Log_Files_{context}"]
 === Host Log Files
 
 [options="header"]

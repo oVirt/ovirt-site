@@ -8,7 +8,7 @@ The Remote Viewer application provides users with a graphical console for connec
 
 . Install the `virt-viewer` package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install virt-viewer
 ----

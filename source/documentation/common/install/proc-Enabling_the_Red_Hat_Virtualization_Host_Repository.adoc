@@ -9,14 +9,14 @@ Register the system to receive updates. {hypervisor-fullname} only requires one 
 ifdef::SHE_cli_deploy[]
 . Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager register
 ----
 endif::SHE_cli_deploy[]
 . Enable the `{hypervisor-fullname} 8` repository to allow later updates to the {hypervisor-fullname}:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager repos --enable=rhvh-4-for-rhel-8-x86_64-rpms
 ----

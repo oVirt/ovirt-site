@@ -12,7 +12,7 @@ This script is located in `/usr/share/ansible/roles/oVirt.disaster-recovery/file
 
 .Usage
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ./ovirt-dr _generate/validate/failover/failback_
               [--conf-file=dr.conf]

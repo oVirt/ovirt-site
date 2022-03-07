@@ -15,28 +15,28 @@ Specific system user accounts and system user groups are required by {virt-produ
 
 . Create the group `kvm`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # groupadd kvm -g 36
 ----
 +
 . Create the user `vdsm` in the group `kvm`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # useradd vdsm -u 36 -g 36
 ----
 +
 . Set the ownership of your exported directory to 36:36, which gives `vdsm:kvm` ownership:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # chown -R 36:36 _/exports/data_
 ----
 +
 . Change the mode of the directory so that read and write access is granted to the owner, and so that read and execute access is granted to the group and other users:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # chmod 0755 _/exports/data_
 ----

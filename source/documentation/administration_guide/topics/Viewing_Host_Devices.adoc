@@ -1,4 +1,4 @@
-[[Viewing_Host_Devices]]
+[id="Viewing_Host_Devices_{context}"]
 ==== Viewing Host Devices
 
 You can view the host devices for each host in the *Host Devices* tab in the details view. If the host has been configured for direct device assignment, these devices can be directly attached to virtual machines for improved performance.

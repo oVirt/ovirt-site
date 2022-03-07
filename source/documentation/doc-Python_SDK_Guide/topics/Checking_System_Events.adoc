@@ -50,7 +50,7 @@ connection.close()
 
 These examples output events in the following format:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
 YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 153 - VM vm1 was started by admin@internal (Host: MyHost).

@@ -1,4 +1,4 @@
-[[Assigning_Additional_IPv4_Addresses_to_a_Host_Network]]
+[id="Assigning_Additional_IPv4_Addresses_to_a_Host_Network_{context}"]
 ==== Assigning Additional IPv4 Addresses to a Host Network
 
 A host network, such as the *ovirtmgmt* management network, is created with only one IP address when initially set up. This means that if a NIC's configuration file is configured with multiple IP addresses, only the first listed IP address will be assigned to the host network. Additional IP addresses may be required if connecting to storage, or to a server on a separate private subnet using the same NIC.

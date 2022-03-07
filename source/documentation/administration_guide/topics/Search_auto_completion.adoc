@@ -1,4 +1,4 @@
-[[Search_auto_completion]]
+[id="Search_auto_completion_{context}"]
 === Search Auto-Completion
 
 The Administration Portal provides auto-completion to help you create valid and powerful search queries. As you type each part of a search query, a drop-down list of choices for the next part of the search opens below the Search Bar. You can either select from the list and then continue typing/selecting the next part of the search, or ignore the options and continue entering your query manually.
@@ -7,7 +7,7 @@ The following table specifies by example how the Administration Portal auto-comp
 
 `Hosts: Vms.status = down`
 
-[[query_contruction]]
+[id="query_contruction_{context}"]
 .Example Search Queries Using Auto-Completion
 [options="header"]
 |===

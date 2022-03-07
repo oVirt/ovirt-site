@@ -15,42 +15,42 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Log in to the {virt-product-fullname} {engine-name} machine and stop the `ovirt-engine` service so that it does not interfere with the engine backup:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl stop ovirt-engine.service
 ----
 
 . Create the `engine` database backup:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --scope=files --scope=db --mode=backup --file=_file_name_ --log=_backup_log_name_
 ----
 
 . Copy the backup file to the new database server:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # scp _/tmp/engine.dump_ _root@new.database.server.com:/tmp_
 ----
 
 . Log in to the new database server and install `engine-backup`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install ovirt-engine-tools-backup
 ----
 
 . Restore the database on the new database server. _file_name_ is the backup file copied from the {engine-name}.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_restore_log_name_ --provision-db --no-restore-permissions
 ----
 
 . Now that the database has been migrated, start the `ovirt-engine` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl start ovirt-engine.service
 ----

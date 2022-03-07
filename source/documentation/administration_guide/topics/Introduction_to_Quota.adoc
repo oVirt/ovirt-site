@@ -1,4 +1,4 @@
-[[Introduction_to_Quota]]
+[id="Introduction_to_Quota_{context}"]
 === Introduction to Quota
 
 Quota is a resource limitation tool provided with {virt-product-fullname}. Quota may be thought of as a layer of limitations on top of the layer of limitations set by User Permissions.

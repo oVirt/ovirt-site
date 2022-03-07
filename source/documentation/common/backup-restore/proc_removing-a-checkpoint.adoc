@@ -10,7 +10,7 @@ You can remove a checkpoint of a virtual machine by sending a DELETE request. Yo
 
 * Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with id `123` and a checkpoint with id `456` like this:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 DELETE /vms/123/checkpoints/456/
 ----

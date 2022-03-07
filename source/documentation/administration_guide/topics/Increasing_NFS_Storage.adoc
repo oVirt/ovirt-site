@@ -1,4 +1,4 @@
-[[Increasing_NFS_Storage]]
+[id="Increasing_NFS_Storage_{context}"]
 ==== Increasing NFS Storage
 
 To increase the amount of NFS storage, you can either create a new storage domain and add it to an existing data center, or increase the available free space on the NFS server. For the former option, see xref:Adding_NFS_Storage_storage_admin[]. The following procedure explains how to increase the available free space on the existing NFS server.

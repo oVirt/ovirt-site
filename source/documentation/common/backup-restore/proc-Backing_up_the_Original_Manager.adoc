@@ -34,14 +34,14 @@ Though stopping the original {engine-name} from running is not obligatory, it is
 
 . Run the `engine-backup` command, specifying the name of the backup file to create, and the name of the log file to create to store the backup log:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=backup --file=__file_name__ --log=__log_file_name__
 ----
 
 . Copy the files to an external server. In the following example, `storage.example.com` is the fully qualified domain name of a network storage server that will store the backup until it is needed, and `/backup/` is any designated folder or path.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # scp -p __file_name__ __log_file_name__ storage.example.com:/backup/
 ----
@@ -50,7 +50,7 @@ ifdef::rhv-doc[]
 . If you do not require the {engine-name} machine for other purposes, unregister it from Red Hat Subscription Manager:
 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # subscription-manager unregister
 ----
@@ -60,7 +60,7 @@ endif::[]
 ifdef::SHE_backup_restore[]
 . Log in to one of the self-hosted engine nodes and shut down the original {engine-name} virtual machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # hosted-engine --vm-shutdown
 ----

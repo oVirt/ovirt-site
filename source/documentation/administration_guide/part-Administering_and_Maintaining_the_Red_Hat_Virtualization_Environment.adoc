@@ -1,4 +1,4 @@
-[[part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment]]
+[id="part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment"]
 = Administering and Maintaining the {virt-product-fullname} Environment
 The {virt-product-fullname} environment requires an administrator to keep it running. As an administrator, your tasks include:
 

@@ -1,4 +1,4 @@
-[[Managing_Account_Settings]]
+[id="Managing_Account_Settings_{context}"]
 ==== Managing Account Settings
 
 To change the default account settings, use the `ovirt-aaa-jdbc-tool` `settings` module.

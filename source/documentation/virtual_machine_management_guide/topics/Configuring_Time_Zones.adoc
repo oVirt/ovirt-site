@@ -20,7 +20,7 @@ General:: Time zones used for non-Windows operating system types, must follow th
 Windows:: Time zones specifically supported on link:https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)?redirectedfrom=MSDN[Windows] for example, `GMT Standard Time` or `Israel Standard Time`.
 . Restart the `{engine-package}` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine
 ----

@@ -1,4 +1,4 @@
-[[Configuring_Host_Power_Management_Settings]]
+[id="Configuring_Host_Power_Management_Settings_{context}"]
 ==== Configuring Host Power Management Settings
 
 Configure your host power management device settings to perform host life-cycle operations (stop, start, restart) from the Administration Portal.

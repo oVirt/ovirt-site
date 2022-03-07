@@ -22,7 +22,7 @@ This example uses the `dr-rhv-failover.yml` playbook created earlier.
 
 . Run the failover playbook with the following command:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook dr-rhv-failover.yml --tags "fail_over"
 ----

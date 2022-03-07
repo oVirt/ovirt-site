@@ -12,7 +12,7 @@ You can change the cipher string by using an Ansible playbook.
 
 . On the {engine-name} machine, create a file in the directory [filename]`/usr/share/ovirt-engine/playbooks`. For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # vim /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml
 ----
@@ -31,7 +31,7 @@ roles:
 +
 . Run the file you just created:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook -l _hostname_ /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml
 ----
@@ -40,7 +40,7 @@ roles:
 
 Alternatively, you can reconfigure the host with the Ansible playbook `ovirt-host-deploy`  using the  `--extra-vars` option  with the variable `host_deploy_spice_cipher_string`:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook -l _hostname_ \
   --extra-vars host_deploy_spice_cipher_string=”DEFAULT:-RC4:-3DES:-DES” \

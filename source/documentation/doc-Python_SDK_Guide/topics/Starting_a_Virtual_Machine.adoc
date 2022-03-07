@@ -50,7 +50,7 @@ connection.close()
 
 If the `start` request is successful, the examples output the text:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 Started 'vm1'.
 ----

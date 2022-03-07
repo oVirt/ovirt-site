@@ -5,7 +5,7 @@ The self-hosted engine deployment process temporarily uses a `/24` network addre
 
 When installing the self-hosted engine using the command line, you can set the deployment script to use an alternate `/24` network range with the option `--ansible-extra-vars=he_ipv4_subnet_prefix=_PREFIX_`, where `_PREFIX_` is the prefix for the default range. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # hosted-engine --deploy --ansible-extra-vars=he_ipv4_subnet_prefix=192.168.222
 ----

@@ -9121,7 +9121,7 @@ To configure the logical network, select the <strong>IPv6</strong> tab and make 
 <p>To configure a network bridge, click the <strong>Custom Properties</strong> tab and select <strong>bridge_opts</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see <a href="#Explanation_of_bridge_opts_Parameters">[Explanation_of_bridge_opts_Parameters]</a>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">forward_delay=1500
+<pre class="CodeRay highlight"><code data-lang="terminal">forward_delay=1500
 group_addr=1:80:c2:0:0:0
 group_fwd_mask=0x0
 hash_max=512
@@ -9138,7 +9138,7 @@ multicast_query_use_ifaddr=0
 multicast_router=1
 multicast_snooping=1
 multicast_startup_query_count=2
-multicast_startup_query_interval=3125</pre>
+multicast_startup_query_interval=3125</code></pre>
 </div>
 </div>
 </li>
@@ -9146,7 +9146,7 @@ multicast_startup_query_interval=3125</pre>
 <p>To configure ethernet properties, click the <strong>Custom Properties</strong> tab and select <strong>ethtool_opts</strong> from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">--coalesce em1 rx-usecs 14 sample-interval 3 --offload em2 rx on lro on tso off --change em1 speed 1000 duplex half</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">--coalesce em1 rx-usecs 14 sample-interval 3 --offload em2 rx on lro on tso off --change em1 speed 1000 duplex half</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9154,7 +9154,7 @@ multicast_startup_query_interval=3125</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">--coalesce * rx-usecs 14 sample-interval 3</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">--coalesce * rx-usecs 14 sample-interval 3</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9215,7 +9215,7 @@ multicast_startup_query_interval=3125</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --set SetupNetworksWaitTimeoutSeconds=40</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set SetupNetworksWaitTimeoutSeconds=40</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -9631,7 +9631,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <p>On the host that you want to configure additional IPv4 addresses for, install the VDSM hook package. The package is available by default on oVirt Nodes but needs to be installed on Enterprise Linux hosts.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install vdsm-hook-extra-ipv4-addrs</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install vdsm-hook-extra-ipv4-addrs</code></pre>
 </div>
 </div>
 </li>
@@ -9639,7 +9639,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <p>On the Engine, run the following command to add the key:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s 'UserDefinedNetworkCustomProperties=ipv4_addrs=.*'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s 'UserDefinedNetworkCustomProperties=ipv4_addrs=.*'</code></pre>
 </div>
 </div>
 </li>
@@ -9647,7 +9647,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <p>Restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -9827,7 +9827,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <p>Use the <code>hostnamectl</code> tool to update the host name. For more options, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Networking_Guide/ch-Configure_Host_Names.html"> Configure Host Names</a> in the <em>Enterprise Linux 7 Networking Guide</em>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hostnamectl set-hostname _NEW_FQDN_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hostnamectl set-hostname _NEW_FQDN_</code></pre>
 </div>
 </div>
 </li>
@@ -10284,7 +10284,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /proc/net/bonding/_bond0_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /proc/net/bonding/_bond0_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11217,7 +11217,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 <p>On the Engine machine, edit <strong>ovirt-host-deploy-post-tasks.yml.example</strong> to add a custom firewall port:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/ovirt-engine/ansible/ovirt-host-deploy-post-tasks.yml.example
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/ovirt-engine/ansible/ovirt-host-deploy-post-tasks.yml.example
 ---
 #
 # Any additional tasks required to be executing during host deploy process can
@@ -11225,10 +11225,10 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 #
 - name: Enable additional port on firewalld
   firewalld:
-    port: "_12345/tcp_"
+    port: &quot;_12345/tcp_&quot;
     permanent: yes
     immediate: yes
-    state: enabled</pre>
+    state: enabled</code></pre>
 </div>
 </div>
 </li>
@@ -12950,7 +12950,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Restart the fence_kdump listener:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-fence-kdump-listener.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-fence-kdump-listener.service</code></pre>
 </div>
 </div>
 </li>
@@ -13020,7 +13020,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -g _OPTION_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -g _OPTION_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13032,7 +13032,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Edit kdump&#8217;s configuration using the <code>engine-config</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s _OPTION_=_value_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s _OPTION_=_value_</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -13054,7 +13054,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -13258,7 +13258,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>If your hosts take an unusually long time to boot, you can set <code>ServerRebootTimeout</code> to specify how many seconds to wait before determining that the host is <code>Non Responsive</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --set ServerRebootTimeout=_integer_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set ServerRebootTimeout=_integer_</code></pre>
 </div>
 </div>
 </li>
@@ -14454,7 +14454,7 @@ multipaths {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Physical device initialization failed. Please check that the device is empty and accessible by the host.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Physical device initialization failed. Please check that the device is empty and accessible by the host.</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14462,8 +14462,8 @@ multipaths {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[ ERROR ] Error creating Volume Group: Failed to initialize physical device: ("[u'/dev/mapper/000000000000000000000000000000000']",)
-[ ERROR ] Failed to execute stage 'Misc configuration': Failed to initialize physical device: ("[u'/dev/mapper/000000000000000000000000000000000']",)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">[ ERROR ] Error creating Volume Group: Failed to initialize physical device: (&quot;[u'/dev/mapper/000000000000000000000000000000000']&quot;,)
+[ ERROR ] Failed to execute stage 'Misc configuration': Failed to initialize physical device: (&quot;[u'/dev/mapper/000000000000000000000000000000000']&quot;,)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14568,7 +14568,7 @@ It is assumed that you are running <code>remove_stale_lun.yml</code> from the en
 <p>Remove the stale LUNs from the host using Ansible:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook --extra-vars "lun=<LUN>" /usr/share/ansible/collections/ansible_collections/ovirt/ovirt/roles/remove_stale_lun/examples/remove_stale_lun.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook --extra-vars &quot;lun=&lt;LUN&gt;&quot; /usr/share/ansible/collections/ansible_collections/ovirt/ovirt/roles/remove_stale_lun/examples/remove_stale_lun.yml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15303,8 +15303,8 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000
-# systemctl restart ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000
+# systemctl restart ovirt-engine</code></pre>
 </div>
 </div>
 </td>
@@ -15344,14 +15344,14 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Get a directory tree of <code>/rhv/data-center</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># tree /rhev/data-center
+<pre class="CodeRay highlight"><code data-lang="terminal"># tree /rhev/data-center
 .
 |-- 80dfacc7-52dd-4d75-ab82-4f9b8423dc8b
-|   |-- 76d1ecba-b61d-45a4-8eb5-89ab710a6275 -> /rhev/data-center/mnt/10.10.10.10:_rhevnfssd/76d1ecba-b61d-45a4-8eb5-89ab710a6275
-|   |-- b835cd1c-111c-468d-ba70-fec5346af227 -> /rhev/data-center/mnt/10.10.10.10:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227
-|   |-- mastersd -> 76d1ecba-b61d-45a4-8eb5-89ab710a6275
-|   |-- tasks -> mastersd/master/tasks
-|   `-- vms -> mastersd/master/vms
+|   |-- 76d1ecba-b61d-45a4-8eb5-89ab710a6275 -&gt; /rhev/data-center/mnt/10.10.10.10:_rhevnfssd/76d1ecba-b61d-45a4-8eb5-89ab710a6275
+|   |-- b835cd1c-111c-468d-ba70-fec5346af227 -&gt; /rhev/data-center/mnt/10.10.10.10:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227
+|   |-- mastersd -&gt; 76d1ecba-b61d-45a4-8eb5-89ab710a6275
+|   |-- tasks -&gt; mastersd/master/tasks
+|   `-- vms -&gt; mastersd/master/vms
 |-- hsm-tasks
 `-- mnt
     |-- 10.10.10.10:_rhevisosd
@@ -15366,7 +15366,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
     |   |       `-- 11111111-1111-1111-1111-111111111111
     |   `-- lost+found [error opening dir]
 
-(output trimmed)</pre>
+(output trimmed)</code></pre>
 </div>
 </div>
 </li>
@@ -15374,7 +15374,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Securely copy the image from the source location into the full path of <code>11111111-1111-1111-1111-111111111111</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp root@isosource:/isos/example.iso /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp root@isosource:/isos/example.iso /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111</code></pre>
 </div>
 </div>
 </li>
@@ -15382,8 +15382,8 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>File permissions for the newly copied ISO image should be 36:36 (vdsm:kvm). If they are not, change user and group ownership of the ISO file to 36:36 (vdsm&#8217;s user and group):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cd /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111
-# chown 36.36 example.iso</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cd /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111
+# chown 36.36 example.iso</code></pre>
 </div>
 </div>
 </li>
@@ -15919,7 +15919,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>On the Engine machine enable the required maximum number of hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s MaxNumberOfHostsInStoragePool=_NUMBER_OF_HOSTS_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s MaxNumberOfHostsInStoragePool=_NUMBER_OF_HOSTS_</code></pre>
 </div>
 </div>
 </li>
@@ -15927,7 +15927,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Restart the JBoss Application Server:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service jboss-as restart</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service jboss-as restart</code></pre>
 </div>
 </div>
 </li>
@@ -15938,8 +15938,8 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s MaxNumberOfHostsInStoragePool=300
-# service jboss-as restart</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s MaxNumberOfHostsInStoragePool=300
+# service jboss-as restart</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15948,8 +15948,8 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"> # engine-config --get=MaxNumberOfHostsInStoragePool
- MaxNumberOfHostsInStoragePool: 250 version: general</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"> # engine-config --get=MaxNumberOfHostsInStoragePool
+ MaxNumberOfHostsInStoragePool: 250 version: general</code></pre>
 </div>
 </div>
 </div>
@@ -15968,15 +15968,15 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Ensure that 4K block support is enabled.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ vdsm-client Host getCapabilities
+<pre class="CodeRay highlight"><code data-lang="terminal">$ vdsm-client Host getCapabilities
 ...
 {
-    "GLUSTERFS" : [
+    &quot;GLUSTERFS&quot; : [
          0,
          512,
          4096,
     ]
-    ...</pre>
+    ...</code></pre>
 </div>
 </div>
 </li>
@@ -15984,12 +15984,12 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Edit <code class="filename">/etc/vdsm/vdsm.conf.d/gluster.conf</code> and set <code>enable_4k_storage</code> to <code><strong>false</strong></code>. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ vi  /etc/vdsm/vdsm.conf.d/gluster.conf
+<pre class="CodeRay highlight"><code data-lang="terminal">$ vi  /etc/vdsm/vdsm.conf.d/gluster.conf
 
 [gluster]
 # Use to disable 4k support
 # if needed.
-enable_4k_storage = false</pre>
+enable_4k_storage = false</code></pre>
 </div>
 </div>
 </li>
@@ -16089,9 +16089,9 @@ enable_4k_storage = false</pre>
 <p>In <code>99-defaults.properties</code>, specify the Windows product activation key and the path of your new custom <code>sysprep</code> file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">os.__operating_system__.productKey.value=__Windows_product_activation_key__
+<pre class="CodeRay highlight"><code data-lang="terminal">os.__operating_system__.productKey.value=__Windows_product_activation_key__
 ...
-os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.__operating_system__</pre>
+os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.__operating_system__</code></pre>
 </div>
 </div>
 </li>
@@ -16099,11 +16099,11 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
 <p>Create a new <code>sysprep</code> file, specifying the domain, domain password, and domain administrator:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">    <Credentials>
-        <Domain>__AD_Domain__</Domain>
-        <Password>__Domain_Password__</Password>
-        <Username>__Domain_Administrator__</Username>
-    </Credentials></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">    &lt;Credentials&gt;
+        &lt;Domain&gt;__AD_Domain__&lt;/Domain&gt;
+        &lt;Password&gt;__Domain_Password__&lt;/Password&gt;
+        &lt;Username&gt;__Domain_Administrator__&lt;/Username&gt;
+    &lt;/Credentials&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -16226,9 +16226,9 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
 <p><code>Key</code>. If you do not want to use the pre-defined Windows activation product key, replace <code>&lt;![CDATA[$ProductKey$_storage_tasks"]&gt;</code> with a valid product key:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">    <ProductKey>
-        <Key><![CDATA[$ProductKey$_{context}"]></Key>
-    </ProductKey></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">    &lt;ProductKey&gt;
+        &lt;Key&gt;&lt;![CDATA[$ProductKey$_{context}&quot;]&gt;&lt;/Key&gt;
+    &lt;/ProductKey&gt;</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -16538,7 +16538,7 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">protocol://_host_:__port__</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">protocol://_host_:__port__</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -17048,7 +17048,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Run the <code>engine-config</code> tool with the <code>--set</code> action:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --set SANWipeAfterDelete=true</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set SANWipeAfterDelete=true</code></pre>
 </div>
 </div>
 </li>
@@ -17056,7 +17056,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Restart the <code>ovirt-engine</code> service for the change to take effect:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -17070,7 +17070,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">a9cb0625-d5dc-49ab-8ad1-72722e82b0bf/a49351a7-15d8-4932-8d67-512a369f9d61 was zeroed and will be deleted</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">a9cb0625-d5dc-49ab-8ad1-72722e82b0bf/a49351a7-15d8-4932-8d67-512a369f9d61 was zeroed and will be deleted</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -17078,7 +17078,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">finished with VG:a9cb0625-d5dc-49ab-8ad1-72722e82b0bf LVs: {'a49351a7-15d8-4932-8d67-512a369f9d61': ImgsPar(imgs=['11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d'], parent='00000000-0000-0000-0000-000000000000')}, img: 11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">finished with VG:a9cb0625-d5dc-49ab-8ad1-72722e82b0bf LVs: {'a49351a7-15d8-4932-8d67-512a369f9d61': ImgsPar(imgs=['11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d'], parent='00000000-0000-0000-0000-000000000000')}, img: 11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -18287,7 +18287,7 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>Log in to the proxy host and generate SSH keys for the <strong>vdsm</strong> user.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-keygen</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-keygen</code></pre>
 </div>
 </div>
 </li>
@@ -18295,7 +18295,7 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the RHEL 5 Xen host. The proxy host&#8217;s <strong>known_hosts</strong> file will also be updated to include the host key of the RHEL 5 Xen host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-copy-id root@_xenhost.example.com_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_xenhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -18303,7 +18303,7 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>Log in to the RHEL 5 Xen host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh root@_xenhost.example.com_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_xenhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -18361,7 +18361,7 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>Log in to the proxy host and generate SSH keys for the <strong>vdsm</strong> user.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-keygen</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-keygen</code></pre>
 </div>
 </div>
 </li>
@@ -18369,7 +18369,7 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the KVM host. The proxy host&#8217;s <strong>known_hosts</strong> file will also be updated to include the host key of the KVM host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-copy-id root@_kvmhost.example.com_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_kvmhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -18377,7 +18377,7 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>Log in to the KVM host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh root@_kvmhost.example.com_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_kvmhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -18403,7 +18403,7 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>Enter the URI of the KVM host in the <strong>URI</strong> field.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">qemu+ssh://root@host.example.com/system</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">qemu+ssh://root@host.example.com/system</code></pre>
 </div>
 </div>
 </li>
@@ -18670,7 +18670,7 @@ oVirt OVN provider password[empty]:</pre>
 <p>Install the provider on the provider machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-provider-ovn</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-provider-ovn</code></pre>
 </div>
 </div>
 </li>
@@ -18678,8 +18678,8 @@ oVirt OVN provider password[empty]:</pre>
 <p>If you are not installing the provider on the same machine as the Engine, add the following entry to the <code>/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf</code> file (create this file if it does not already exist):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[OVIRT]
-ovirt-host=https://__Manager_host_name__</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">[OVIRT]
+ovirt-host=https://__Manager_host_name__</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -18690,8 +18690,8 @@ ovirt-host=https://__Manager_host_name__</pre>
 <p>If you are not installing the provider on the same machine as the OVN central server, add the following entry to the <code>/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf</code> file (create this file if it does not already exist):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[OVN REMOTE]
-ovn-remote=tcp:__OVN_central_server_IP__:6641</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">[OVN REMOTE]
+ovn-remote=tcp:__OVN_central_server_IP__:6641</code></pre>
 </div>
 </div>
 </li>
@@ -18699,9 +18699,9 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641</pre>
 <p>Open ports 9696, 6641, and 6642 in the firewall to allow communication between the OVN provider, the OVN central server, and the Engine. This can be done either manually or by adding the <code>ovirt-provider-ovn</code> and <code>ovirt-provider-ovn-central</code> services to the appropriate zone:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># firewall-cmd --zone=_ZoneName_ --add-service=ovirt-provider-ovn --permanent
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --zone=_ZoneName_ --add-service=ovirt-provider-ovn --permanent
 # firewall-cmd --zone=_ZoneName_ --add-service=ovirt-provider-ovn-central --permanent
-# firewall-cmd --reload</pre>
+# firewall-cmd --reload</code></pre>
 </div>
 </div>
 </li>
@@ -18709,8 +18709,8 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641</pre>
 <p>Start and enable the service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl start ovirt-provider-ovn
-# systemctl enable ovirt-provider-ovn</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start ovirt-provider-ovn
+# systemctl enable ovirt-provider-ovn</code></pre>
 </div>
 </div>
 </li>
@@ -18718,8 +18718,8 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641</pre>
 <p>Configure the OVN central server to listen to requests from ports 6642 and 6641:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovn-sbctl set-connection ptcp:6642
-# ovn-nbctl set-connection ptcp:6641</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovn-sbctl set-connection ptcp:6642
+# ovn-nbctl set-connection ptcp:6641</code></pre>
 </div>
 </div>
 </li>
@@ -18821,7 +18821,7 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook --key-file <path_to_key_file> -i <path_to_inventory> --extra-vars " cluster_name=<cluster_name> ovn_central=<ovn_central_ip_address> ovirt_network=<ovirt network name> ovn_tunneling_interface=<vdsm_network_name>" ovirt-provider-ovn-driver.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook --key-file &lt;path_to_key_file&gt; -i &lt;path_to_inventory&gt; --extra-vars &quot; cluster_name=&lt;cluster_name&gt; ovn_central=&lt;ovn_central_ip_address&gt; ovirt_network=&lt;ovirt network name&gt; ovn_tunneling_interface=&lt;vdsm_network_name&gt;&quot; ovirt-provider-ovn-driver.yml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -18874,7 +18874,7 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovirt_network=\"Long\ Network\ Name\ with\ \Ascii\ character\ \☺\"" ovirt-provider-ovn-driver.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars &quot; cluster_name=test-cluster ovn_central=192.168.200.2 ovirt_network=\&quot;Long\ Network\ Name\ with\ \Ascii\ character\ \☺\&quot;&quot; ovirt-provider-ovn-driver.yml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -18882,7 +18882,7 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovn_tunneling_interface=on703ea21ddbc34" ovirt-provider-ovn-driver.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars &quot; cluster_name=test-cluster ovn_central=192.168.200.2 ovn_tunneling_interface=on703ea21ddbc34&quot; ovirt-provider-ovn-driver.yml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -18917,7 +18917,7 @@ You must also define the authentication URL of the Keystone server by defining t
 <p>On the Engine machine, go to the <strong>playbooks</strong> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cd /usr/share/ovirt-engine/playbooks</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cd /usr/share/ovirt-engine/playbooks</code></pre>
 </div>
 </div>
 </li>
@@ -18964,7 +18964,7 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vdsm-tool ovn-config _OVN_Central_IP_ _Tunneling_IP_or_Network_Name_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vdsm-tool ovn-config _OVN_Central_IP_ _Tunneling_IP_or_Network_Name_</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -18972,7 +18972,7 @@ You must also define the authentication URL of the Keystone server by defining t
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vdsm-tool ovn-config 192.168.0.1 MyNetwork</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vdsm-tool ovn-config 192.168.0.1 MyNetwork</code></pre>
 </div>
 </div>
 </div>
@@ -20347,12 +20347,12 @@ and disable global maintenance mode:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20487,7 +20487,7 @@ and disable global maintenance mode:</p>
 <p>Create a backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </li>
@@ -20507,7 +20507,7 @@ and disable global maintenance mode:</p>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </div>
@@ -20517,7 +20517,7 @@ and disable global maintenance mode:</p>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --scope=files --scope=db --mode=backup --file=_file_name_ --log=_log_file_name_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --scope=files --scope=db --mode=backup --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </div>
@@ -20527,7 +20527,7 @@ and disable global maintenance mode:</p>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --scope=files --scope=dwhdb --mode=backup --file=_file_name_ --log=_log_file_name_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --scope=files --scope=dwhdb --mode=backup --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </div>
@@ -20541,7 +20541,7 @@ and disable global maintenance mode:</p>
 <p>Make a directory to store configuration customizations for the <code class="command">engine-backup</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d</code></pre>
 </div>
 </div>
 </li>
@@ -20549,10 +20549,10 @@ and disable global maintenance mode:</p>
 <p>Create a text file in the new directory named <code>ntp-chrony.sh</code> with the following contents:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">BACKUP_PATHS="${BACKUP_PATHS}
+<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
 /etc/chrony.conf
 /etc/ntp.conf
-/etc/ovirt-engine-backup"</pre>
+/etc/ovirt-engine-backup&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -20607,7 +20607,7 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 <p>Restore a complete backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20615,7 +20615,7 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --provision-dwh-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --provision-dwh-db --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -20623,7 +20623,7 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 <p>Restore a database-only backup by restoring the configuration files and database backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20631,7 +20631,7 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20642,8 +20642,8 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">You should now run engine-setup.
-Done.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">You should now run engine-setup.
+Done.</code></pre>
 </div>
 </div>
 </li>
@@ -20654,7 +20654,7 @@ Done.</pre>
 <p>Run the following command and follow the prompts to configure the restored Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -20777,7 +20777,7 @@ Done.</pre>
 <p>Run the following command and follow the prompts to remove the Engine&#8217;s configuration files and to clean the Engine&#8217;s database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-cleanup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-cleanup</code></pre>
 </div>
 </div>
 </li>
@@ -20797,7 +20797,7 @@ Done.</pre>
 <p>Change the password of the user that owns the <code>engine</code> database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">postgres=# alter role _user_name_ encrypted password '_new_password_';</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">postgres=# alter role _user_name_ encrypted password '_new_password_';</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20829,7 +20829,7 @@ Done.</pre>
 <p>Restore a complete backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --change-db-credentials --db-host=_database_location_ --db-name=_database_name_ --db-user=engine --db-password --no-restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --change-db-credentials --db-host=_database_location_ --db-name=_database_name_ --db-user=engine --db-password --no-restore-permissions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20837,7 +20837,7 @@ Done.</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --change-db-credentials --db-host=_database_location_ --db-name=_database_name_ --db-user=engine --db-password --change-dwh-db-credentials --dwh-db-host=_database_location_ --dwh-db-name=_database_name_ --dwh-db-user=ovirt_engine_history --dwh-db-password --no-restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --change-db-credentials --db-host=_database_location_ --db-name=_database_name_ --db-user=engine --db-password --change-dwh-db-credentials --dwh-db-host=_database_location_ --dwh-db-name=_database_name_ --dwh-db-user=ovirt_engine_history --dwh-db-password --no-restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -20845,7 +20845,7 @@ Done.</pre>
 <p>Restore a database-only backup by restoring the configuration files and the database backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --change-db-credentials --db-host=_database_location_ --db-name=_database_name_ --db-user=engine --db-password --no-restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --change-db-credentials --db-host=_database_location_ --db-name=_database_name_ --db-user=engine --db-password --no-restore-permissions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20853,7 +20853,7 @@ Done.</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --change-dwh-db-credentials --dwh-db-host=_database_location_ --dwh-db-name=_database_name_ --dwh-db-user=ovirt_engine_history --dwh-db-password --no-restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --change-dwh-db-credentials --dwh-db-host=_database_location_ --dwh-db-name=_database_name_ --dwh-db-user=ovirt_engine_history --dwh-db-password --no-restore-permissions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20864,8 +20864,8 @@ Done.</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">You should now run engine-setup.
-Done.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">You should now run engine-setup.
+Done.</code></pre>
 </div>
 </div>
 </li>
@@ -20876,7 +20876,7 @@ Done.</pre>
 <p>Run the following command and follow the prompts to reconfigure the firewall and ensure the <code>ovirt-engine</code> service is correctly configured:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -22867,13 +22867,13 @@ Engine database password: <em>password</em></pre>
 <p>Using the REST API, create a snapshot of the virtual machine to back up:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /api/vms/`_{vm:id}_`/snapshots/ HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /api/vms/`_{vm:id}_`/snapshots/ HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
 
-<snapshot>
-    <description>BACKUP</description>
-</snapshot></pre>
+&lt;snapshot&gt;
+    &lt;description&gt;BACKUP&lt;/description&gt;
+&lt;/snapshot&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -22916,10 +22916,10 @@ Content-type: application/xml
 <p>Retrieve the configuration data of the virtual machine from the <code>data</code> attribute under the snapshot:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
 All-Content: true
 Accept: application/xml
-Content-type: application/xml</pre>
+Content-type: application/xml</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -22948,9 +22948,9 @@ Content-type: application/xml</pre>
 <p>Get the snapshot ID:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /api/vms/{vm:id}/snapshots/ HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /api/vms/{vm:id}/snapshots/ HTTP/1.1
 Accept: application/xml
-Content-type: application/xml</pre>
+Content-type: application/xml</code></pre>
 </div>
 </div>
 </li>
@@ -22958,9 +22958,9 @@ Content-type: application/xml</pre>
 <p>Identify the disk ID of the snapshot:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_`/disks HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_`/disks HTTP/1.1
 Accept: application/xml
-Content-type: application/xml</pre>
+Content-type: application/xml</code></pre>
 </div>
 </div>
 </li>
@@ -22968,17 +22968,17 @@ Content-type: application/xml</pre>
 <p>Attach the snapshot to a backup virtual machine as an active disk attachment, with the correct interface type (for example, <strong>virtio_scsi</strong>):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /api/vms/`_{vm:id}_`/diskattachments/ HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /api/vms/`_{vm:id}_`/diskattachments/ HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
 
-<disk_attachment>
-	<active>true</active>
-	<interface>_virtio_scsi_</interface>
-	<disk id="_{disk:id}_">
-	<snapshot id="_{snapshot:id}_"/>
-	</disk>
-</disk_attachment></pre>
+&lt;disk_attachment&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;interface&gt;_virtio_scsi_&lt;/interface&gt;
+        &lt;disk id=&quot;_{disk:id}_&quot;&gt;
+        &lt;snapshot id=&quot;_{snapshot:id}_&quot;/&gt;
+        &lt;/disk&gt;
+&lt;/disk_attachment&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -23001,9 +23001,9 @@ Here, replace <code><em>{vm:id}</em></code> with the ID of the <em>backup</em> v
 <p>Remove the snapshot disk attachment from the backup virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">DELETE /api/vms/`_{vm:id}_`/diskattachments/`_{snapshot:id}_` HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">DELETE /api/vms/`_{vm:id}_`/diskattachments/`_{snapshot:id}_` HTTP/1.1
 Accept: application/xml
-Content-type: application/xml</pre>
+Content-type: application/xml</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -23023,9 +23023,9 @@ Here, replace <code><em>{vm:id}</em></code> with the ID of the <em>backup</em> v
 <p>Optionally, delete the snapshot:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">DELETE /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">DELETE /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
 Accept: application/xml
-Content-type: application/xml</pre>
+Content-type: application/xml</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -23064,12 +23064,12 @@ Here, replace <code><em>{vm:id}</em></code> with the ID of the virtual machine w
 <p>Attach the disk to the backup virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
 
-<disk id="_{disk:id}_">
-</disk></pre>
+&lt;disk id=&quot;_{disk:id}_&quot;&gt;
+&lt;/disk&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -23095,13 +23095,13 @@ Replace <code>{disk:id}</code> with the disk ID you got while backing up the vir
 <p>Detach the disk from the backup virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">DELETE /api/vms/`_{vm:id}_`/disks/_{disk:id}_ HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">DELETE /api/vms/`_{vm:id}_`/disks/_{disk:id}_ HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
 
-<action>
-    <detach>true</detach>
-</action></pre>
+&lt;action&gt;
+    &lt;detach&gt;true&lt;/detach&gt;
+&lt;/action&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -23164,12 +23164,12 @@ Content-type: application/xml
 <p>Attach the disk to the new virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
 
-<disk id="_{disk:id}_">
-</disk></pre>
+&lt;disk id=&quot;_{disk:id}_&quot;&gt;
+&lt;/disk&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -24793,7 +24793,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <p>On the oVirt Engine, install the LDAP extension package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-extension-aaa-ldap-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-extension-aaa-ldap-setup</code></pre>
 </div>
 </div>
 </li>
@@ -24801,7 +24801,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <p>Run <code>ovirt-engine-extension-aaa-ldap-setup</code> to start the interactive setup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-engine-extension-aaa-ldap-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-engine-extension-aaa-ldap-setup</code></pre>
 </div>
 </div>
 </li>
@@ -24809,7 +24809,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <p>Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at <a href="#Attaching_an_Active_Directory">[Attaching_an_Active_Directory]</a>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Available LDAP implementations:
+<pre class="CodeRay highlight"><code data-lang="terminal">Available LDAP implementations:
  1 - 389ds
  2 - 389ds RFC-2307 Schema
  3 - Active Directory
@@ -24824,7 +24824,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 12 - RHDS
 13 - RHDS RFC-2307 Schema
 14 - iPlanet
-Please select:</pre>
+Please select:</code></pre>
 </div>
 </div>
 </li>
@@ -24832,9 +24832,9 @@ Please select:</pre>
 <p>Press <code>Enter</code> to accept the default and configure domain name resolution for your LDAP server name:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">It is highly recommended to use DNS resolution for LDAP server.
+<pre class="CodeRay highlight"><code data-lang="terminal">It is highly recommended to use DNS resolution for LDAP server.
 If for some reason you intend to use hosts or plain address disable DNS usage.
-Use DNS (Yes, No) [Yes]:</pre>
+Use DNS (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -24849,7 +24849,7 @@ Use DNS (Yes, No) [Yes]:</pre>
 <p>For option 2, enter the fully qualified domain name (FQDN) or the IP address of the LDAP server. You can use the <code>dig</code> command with the SRV record to find out the domain name. An SRV record takes the following format:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">__service._protocol_._domain_name_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">__service._protocol_._domain_name_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -24863,11 +24863,11 @@ Use DNS (Yes, No) [Yes]:</pre>
 <p>For option 4, enter a space-separated list of LDAP servers. Use either the FQDN or IP address of the servers. This policy defines the first LDAP server to be the default LDAP server to respond to queries. If the first server is not available, the query will go to the next LDAP server on the list.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">1 - Single server
+<pre class="CodeRay highlight"><code data-lang="terminal">1 - Single server
 2 - DNS domain LDAP SRV record
 3 - Round-robin between multiple hosts
 4 - Failover between multiple hosts
-Please select:</pre>
+Please select:</code></pre>
 </div>
 </div>
 </li>
@@ -24894,14 +24894,14 @@ Please select:</pre>
 <p><code>Insecure</code> skips certificate validation, but the connection is still encrypted using TLS.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">NOTE:
+<pre class="CodeRay highlight"><code data-lang="terminal">NOTE:
 It is highly recommended to use secure protocol to access the LDAP server.
 Protocol startTLS is the standard recommended method to do so.
 Only in cases in which the startTLS is not supported, fallback to non standard ldaps protocol.
 Use plain for test environments only.
 Please select protocol to use (startTLS, ldaps, plain) [startTLS]: _startTLS_
 Please select method to obtain PEM encoded CA certificate (File, URL, Inline, System, Insecure):
-Please enter the password:</pre>
+Please enter the password:</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -24926,8 +24926,8 @@ Please enter the password:</pre>
 <p>Enter the search user distinguished name (DN). The user must have permissions to browse all users and groups on the directory server. The search user must be specified in LDAP annotation. If anonymous search is allowed, press <code>Enter</code> without any input.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Enter search user DN (for example uid=username,dc=example,dc=com or leave empty for anonymous): `uid=user1,ou=Users,ou=department-1,dc=example,dc=com`
-Enter search user password:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Enter search user DN (for example uid=username,dc=example,dc=com or leave empty for anonymous): `uid=user1,ou=Users,ou=department-1,dc=example,dc=com`
+Enter search user password:</code></pre>
 </div>
 </div>
 </li>
@@ -24935,7 +24935,7 @@ Enter search user password:</pre>
 <p>Enter the base DN:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please enter base DN (dc=redhat,dc=com) [dc=redhat,dc=com]: _ou=department-1,dc=redhat,dc=com_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please enter base DN (dc=redhat,dc=com) [dc=redhat,dc=com]: _ou=department-1,dc=redhat,dc=com_</code></pre>
 </div>
 </div>
 </li>
@@ -24943,7 +24943,7 @@ Enter search user password:</pre>
 <p>Select <code>Yes</code> if you intend to configure single sign-on for virtual machines. Note that the feature cannot be used with single sign-on to the Administration Portal feature. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Configuring_Single_Sign-On_for_Virtual_Machines">Configuring Single Sign-On for Virtual Machines</a> in the <em>Virtual Machine Management Guide</em>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -24965,7 +24965,7 @@ Enter search user password:</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please specify profile name that will be visible to users: _redhat.com_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please specify profile name that will be visible to users: _redhat.com_</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -25020,10 +25020,10 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]:</pre>
 <p>Manually testing the Search function is recommended. For the search query, select <code>Principal</code> for user accounts or <code>Group</code> for group accounts. Select <code>Yes</code> to <code>Resolve Groups</code> if you want the group account information for the user account to be returned. Three configuration files are created and displayed in the screen output.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Select test sequence to execute (Done, Abort, Login, Search) [Search]: _Search_
+<pre class="CodeRay highlight"><code data-lang="terminal">Select test sequence to execute (Done, Abort, Login, Search) [Search]: _Search_
 Select entity to search (Principal, Group) [Principal]:
 Term to search, trailing '*' is allowed: _testuser1_
-Resolve Groups (Yes, No) [No]:</pre>
+Resolve Groups (Yes, No) [No]:</code></pre>
 </div>
 </div>
 </li>
@@ -25031,7 +25031,7 @@ Resolve Groups (Yes, No) [No]:</pre>
 <p>Select <code>Done</code> to complete the setup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Select test sequence to execute (Done, Abort, Login, Search) [Abort]: _Done_
+<pre class="CodeRay highlight"><code data-lang="terminal">Select test sequence to execute (Done, Abort, Login, Search) [Abort]: _Done_
 [ INFO  ] Stage: Transaction setup
 [ INFO  ] Stage: Misc configuration
 [ INFO  ] Stage: Package installation
@@ -25047,7 +25047,7 @@ The following files were created:
 [ INFO  ] Stage: Clean up
 Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-20171004101225-mmneib.log:
 [ INFO  ] Stage: Pre-termination
-[ INFO  ] Stage: Termination</pre>
+[ INFO  ] Stage: Termination</code></pre>
 </div>
 </div>
 </li>
@@ -25055,7 +25055,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 <p>Restart the <code>ovirt-engine</code> service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Administering User Tasks From the Administration Portal</a>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -25126,7 +25126,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 <p>On the oVirt Engine, install the LDAP extension package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-extension-aaa-ldap-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-extension-aaa-ldap-setup</code></pre>
 </div>
 </div>
 </li>
@@ -25134,7 +25134,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 <p>Run <code>ovirt-engine-extension-aaa-ldap-setup</code> to start the interactive setup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-engine-extension-aaa-ldap-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-engine-extension-aaa-ldap-setup</code></pre>
 </div>
 </div>
 </li>
@@ -25142,7 +25142,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 <p>Select an LDAP type by entering the corresponding number. The LDAP-related questions after this step are different for different LDAP types.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Available LDAP implementations:
+<pre class="CodeRay highlight"><code data-lang="terminal">Available LDAP implementations:
  1 - 389ds
  2 - 389ds RFC-2307 Schema
  3 - Active Directory
@@ -25157,7 +25157,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 12 - RHDS
 13 - RHDS RFC-2307 Schema
 14 - iPlanet
-Please select: 3</pre>
+Please select: 3</code></pre>
 </div>
 </div>
 </li>
@@ -25165,9 +25165,9 @@ Please select: 3</pre>
 <p>Enter the Active Directory forest name. If the forest name is not resolvable by your Engine&#8217;s DNS, the script prompts you to enter a space-separated list of Active Directory DNS server names.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please enter Active Directory Forest name: _ad-example.redhat.com_
+<pre class="CodeRay highlight"><code data-lang="terminal">Please enter Active Directory Forest name: _ad-example.redhat.com_
 [ INFO  ] Resolving Global Catalog SRV record for _ad-example.redhat.com_
-[ INFO  ] Resolving LDAP SRV record for _ad-example.redhat.com_</pre>
+[ INFO  ] Resolving LDAP SRV record for _ad-example.redhat.com_</code></pre>
 </div>
 </div>
 </li>
@@ -25175,14 +25175,14 @@ Please select: 3</pre>
 <p>Select the secure connection method your LDAP server supports and specify the method to obtain a PEM-encoded CA certificate. The file option allows you to provide the full path to the certificate. The URL option allows you to specify a URL to the certificate. Use the inline option to paste the content of the certificate in the terminal. The system option allows you to specify the location for all CA files. The insecure option allows you to use startTLS in insecure mode.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">NOTE:
+<pre class="CodeRay highlight"><code data-lang="terminal">NOTE:
 It is highly recommended to use secure protocol to access the LDAP server.
 Protocol startTLS is the standard recommended method to do so.
 Only in cases in which the startTLS is not supported, fallback to non standard ldaps protocol.
 Use plain for test environments only.
 Please select protocol to use (startTLS, ldaps, plain) [startTLS]: _startTLS_
 Please select method to obtain PEM encoded CA certificate (File, URL, Inline, System, Insecure): _File_
-Please enter the password:</pre>
+Please enter the password:</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -25207,8 +25207,8 @@ Please enter the password:</pre>
 <p>Enter the search user distinguished name (DN). The user must have permissions to browse all users and groups on the directory server. The search user must be of LDAP annotation. If anonymous search is allowed, press <code>Enter</code> without any input.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Enter search user DN (empty for anonymous): _cn=user1,ou=Users,dc=test,dc=redhat,dc=com_
-Enter search user password:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Enter search user DN (empty for anonymous): _cn=user1,ou=Users,dc=test,dc=redhat,dc=com_
+Enter search user password:</code></pre>
 </div>
 </div>
 </li>
@@ -25216,7 +25216,7 @@ Enter search user password:</pre>
 <p>Specify whether to use single sign-on for virtual machines. This feature is enabled by default, but cannot be used if single sign-on to the Administration Portal is enabled. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Configuring_Single_Sign-On_for_Virtual_Machines">Configuring Single Sign-On for Virtual Machines</a> in the <em>Virtual Machine Management Guide</em>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -25224,7 +25224,7 @@ Enter search user password:</pre>
 <p>Specify a profile name. The profile name is visible to users on the login page. This example uses <code>redhat.com</code>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please specify profile name that will be visible to users:__redhat.com__</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please specify profile name that will be visible to users:__redhat.com__</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -25323,7 +25323,7 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 <p>On the oVirt Engine, install the LDAP extension package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-extension-aaa-ldap</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-extension-aaa-ldap</code></pre>
 </div>
 </div>
 </li>
@@ -25331,7 +25331,7 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 <p>Copy the LDAP configuration template file into the <strong>/etc/ovirt-engine</strong> directory. Template files are available for active directories (<strong>ad</strong>) and other directory types (<strong>simple</strong>). This example uses the simple configuration template.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -r /usr/share/ovirt-engine-extension-aaa-ldap/examples/simple/. /etc/ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -r /usr/share/ovirt-engine-extension-aaa-ldap/examples/simple/. /etc/ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -25339,9 +25339,9 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 <p>Rename the configuration files to match the profile name you want visible to users on the Administration Portal and the VM Portal login pages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/ovirt-engine/aaa/profile1.properties /etc/ovirt-engine/aaa/_example_.properties
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/ovirt-engine/aaa/profile1.properties /etc/ovirt-engine/aaa/_example_.properties
 # mv /etc/ovirt-engine/extensions.d/profile1-authn.properties /etc/ovirt-engine/extensions.d/_example_-authn.properties
-# mv /etc/ovirt-engine/extensions.d/profile1-authz.properties /etc/ovirt-engine/extensions.d/_example_-authz.properties</pre>
+# mv /etc/ovirt-engine/extensions.d/profile1-authz.properties /etc/ovirt-engine/extensions.d/_example_-authz.properties</code></pre>
 </div>
 </div>
 </li>
@@ -25349,7 +25349,7 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 <p>Edit the LDAP property configuration file by uncommenting an LDAP server type and updating the domain and passwords fields:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#  vi /etc/ovirt-engine/aaa/_example_.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">#  vi /etc/ovirt-engine/aaa/_example_.properties</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25357,18 +25357,18 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Select one
+<pre class="CodeRay highlight"><code data-lang="terminal"># Select one
 #
-include = <openldap.properties>
-#include = <389ds.properties>
-#include = <rhds.properties>
-#include = <ipa.properties>
-#include = <iplanet.properties>
-#include = <rfc2307-389ds.properties>
-#include = <rfc2307-rhds.properties>
-#include = <rfc2307-openldap.properties>
-#include = <rfc2307-edir.properties>
-#include = <rfc2307-generic.properties>
+include = &lt;openldap.properties&gt;
+#include = &lt;389ds.properties&gt;
+#include = &lt;rhds.properties&gt;
+#include = &lt;ipa.properties&gt;
+#include = &lt;iplanet.properties&gt;
+#include = &lt;rfc2307-389ds.properties&gt;
+#include = &lt;rfc2307-rhds.properties&gt;
+#include = &lt;rfc2307-openldap.properties&gt;
+#include = &lt;rfc2307-edir.properties&gt;
+#include = &lt;rfc2307-generic.properties&gt;
 
 # Server
 #
@@ -25381,7 +25381,7 @@ vars.password = _123456_
 
 pool.default.serverset.single.server = ${global:vars.server}
 pool.default.auth.simple.bindDN = ${global:vars.user}
-pool.default.auth.simple.password = ${global:vars.password}</pre>
+pool.default.auth.simple.password = ${global:vars.password}</code></pre>
 </div>
 </div>
 </div>
@@ -25408,11 +25408,11 @@ pool.default.auth.simple.password = ${global:vars.password}</pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Create keystore, import certificate chain and uncomment
+<pre class="CodeRay highlight"><code data-lang="terminal"># Create keystore, import certificate chain and uncomment
 # if using tls.
 pool.default.ssl.startTLS = true
 pool.default.ssl.truststore.file = _/full/path/to/myrootca.jks_
-pool.default.ssl.truststore.password = _password_</pre>
+pool.default.ssl.truststore.password = _password_</code></pre>
 </div>
 </div>
 </div>
@@ -25422,7 +25422,7 @@ pool.default.ssl.truststore.password = _password_</pre>
 <p>Review the authentication configuration file. The profile name visible to users on the Administration Portal and the VM Portal login pages is defined by <strong>ovirt.engine.aaa.authn.profile.name</strong>. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/ovirt-engine/extensions.d/_example_-authn.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/ovirt-engine/extensions.d/_example_-authn.properties</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25430,14 +25430,14 @@ pool.default.ssl.truststore.password = _password_</pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ovirt.engine.extension.name = _example_-authn
+<pre class="CodeRay highlight"><code data-lang="terminal">ovirt.engine.extension.name = _example_-authn
 ovirt.engine.extension.bindings.method = jbossmodule
 ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.ldap
 ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.ldap.AuthnExtension
 ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authn
 ovirt.engine.aaa.authn.profile.name = _example_
 ovirt.engine.aaa.authn.authz.plugin = _example_-authz
-config.profile.file.1 = ../aaa/_example_.properties</pre>
+config.profile.file.1 = ../aaa/_example_.properties</code></pre>
 </div>
 </div>
 </div>
@@ -25447,7 +25447,7 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <p>Review the authorization configuration file. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/ovirt-engine/extensions.d/_example_-authz.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/ovirt-engine/extensions.d/_example_-authz.properties</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25455,12 +25455,12 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ovirt.engine.extension.name = _example_-authz
+<pre class="CodeRay highlight"><code data-lang="terminal">ovirt.engine.extension.name = _example_-authz
 ovirt.engine.extension.bindings.method = jbossmodule
 ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.ldap
 ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.ldap.AuthzExtension
 ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authz
-config.profile.file.1 = ../aaa/_example_.properties</pre>
+config.profile.file.1 = ../aaa/_example_.properties</code></pre>
 </div>
 </div>
 </div>
@@ -25470,8 +25470,8 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <p>Ensure that the ownership and permissions of the configuration profile are appropriate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown ovirt:ovirt /etc/ovirt-engine/aaa/_example_.properties
-# chmod 600 /etc/ovirt-engine/aaa/_example_.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown ovirt:ovirt /etc/ovirt-engine/aaa/_example_.properties
+# chmod 600 /etc/ovirt-engine/aaa/_example_.properties</code></pre>
 </div>
 </div>
 </li>
@@ -25479,7 +25479,7 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <p>Restart the engine service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -25517,9 +25517,9 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <p>Remove the LDAP provider configuration files, replacing the default name <em>profile1</em>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm /etc/ovirt-engine/extensions.d/_profile1_-authn.properties
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm /etc/ovirt-engine/extensions.d/_profile1_-authn.properties
 # rm /etc/ovirt-engine/extensions.d/_profile1_-authz.properties
-# rm /etc/ovirt-engine/aaa/_profile1_.properties</pre>
+# rm /etc/ovirt-engine/aaa/_profile1_.properties</code></pre>
 </div>
 </div>
 </li>
@@ -25527,7 +25527,7 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <p>Restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -25611,8 +25611,8 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <p>On the KDC server, use the <code>kadmin</code> utility to create a service principal for the Apache service on the oVirt Engine. The service principal is a reference ID to the KDC for the Apache service.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># kadmin
-kadmin> addprinc -randkey _HTTP/fqdn-of-rhevm_@_REALM.COM_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># kadmin
+kadmin&gt; addprinc -randkey _HTTP/fqdn-of-rhevm_@_REALM.COM_</code></pre>
 </div>
 </div>
 </li>
@@ -25634,8 +25634,8 @@ kadmin> addprinc -randkey _HTTP/fqdn-of-rhevm_@_REALM.COM_</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">kadmin> ktadd -k /tmp/http.keytab _HTTP/fqdn-of-rhevm_@_REALM.COM_
-kadmin> quit</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">kadmin&gt; ktadd -k /tmp/http.keytab _HTTP/fqdn-of-rhevm_@_REALM.COM_
+kadmin&gt; quit</code></pre>
 </div>
 </div>
 </li>
@@ -25643,7 +25643,7 @@ kadmin> quit</pre>
 <p>Copy the <strong>keytab</strong> file from the KDC server to the oVirt Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp /tmp/http.keytab root@_rhevm.example.com_:/etc/httpd</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp /tmp/http.keytab root@_rhevm.example.com_:/etc/httpd</code></pre>
 </div>
 </div>
 </li>
@@ -25658,8 +25658,8 @@ kadmin> quit</pre>
 <p>On the oVirt Engine, ensure that the ownership and permissions for the keytab are appropriate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown apache /etc/httpd/http.keytab
-# chmod 400 /etc/httpd/http.keytab</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown apache /etc/httpd/http.keytab
+# chmod 400 /etc/httpd/http.keytab</code></pre>
 </div>
 </div>
 </li>
@@ -25667,7 +25667,7 @@ kadmin> quit</pre>
 <p>Install the authentication extension package, LDAP extension package, and the <code>mod_auth_gssapi</code> and  <code>mod_session</code> Apache modules:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session</code></pre>
 </div>
 </div>
 </li>
@@ -25675,7 +25675,7 @@ kadmin> quit</pre>
 <p>Copy the SSO configuration template file into the <strong>/etc/ovirt-engine</strong> directory. Template files are available for Active Directory (<strong>ad-sso</strong>) and other directory types (<strong>simple-sso</strong>). This example uses the simple SSO configuration template.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -r /usr/share/ovirt-engine-extension-aaa-ldap/examples/simple-sso/. /etc/ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -r /usr/share/ovirt-engine-extension-aaa-ldap/examples/simple-sso/. /etc/ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -25697,7 +25697,7 @@ kadmin> quit</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/ovirt-engine/aaa/ovirt-sso.conf /etc/httpd/conf.d</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/ovirt-engine/aaa/ovirt-sso.conf /etc/httpd/conf.d</code></pre>
 </div>
 </div>
 </li>
@@ -25705,7 +25705,7 @@ kadmin> quit</pre>
 <p>Review the authentication method file. You do not need to edit this file, as the realm is automatically fetched from the <strong>keytab</strong> file.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/httpd/conf.d/ovirt-sso.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/httpd/conf.d/ovirt-sso.conf</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25742,22 +25742,22 @@ kadmin> quit</pre>
 <p>Rename the configuration files to match the profile name you want visible to users on the Administration Portal and the VM Portal login pages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/ovirt-engine/aaa/profile1.properties /etc/ovirt-engine/aaa/_example_.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/ovirt-engine/aaa/profile1.properties /etc/ovirt-engine/aaa/_example_.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/ovirt-engine/extensions.d/profile1-http-authn.properties /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/ovirt-engine/extensions.d/profile1-http-authn.properties /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/ovirt-engine/extensions.d/profile1-http-mapping.properties /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/ovirt-engine/extensions.d/profile1-http-mapping.properties /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/ovirt-engine/extensions.d/profile1-authz.properties /etc/ovirt-engine/extensions.d/_example_-authz.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/ovirt-engine/extensions.d/profile1-authz.properties /etc/ovirt-engine/extensions.d/_example_-authz.properties</code></pre>
 </div>
 </div>
 </li>
@@ -25765,7 +25765,7 @@ kadmin> quit</pre>
 <p>Edit the LDAP property configuration file by uncommenting an LDAP server type and updating the domain and passwords fields:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#  vi /etc/ovirt-engine/aaa/_example_.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">#  vi /etc/ovirt-engine/aaa/_example_.properties</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25773,17 +25773,17 @@ kadmin> quit</pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Select one
-include = <openldap.properties>
-#include = <389ds.properties>
-#include = <rhds.properties>
-#include = <ipa.properties>
-#include = <iplanet.properties>
-#include = <rfc2307-389ds.properties>
-#include = <rfc2307-rhds.properties>
-#include = <rfc2307-openldap.properties>
-#include = <rfc2307-edir.properties>
-#include = <rfc2307-generic.properties>
+<pre class="CodeRay highlight"><code data-lang="terminal"># Select one
+include = &lt;openldap.properties&gt;
+#include = &lt;389ds.properties&gt;
+#include = &lt;rhds.properties&gt;
+#include = &lt;ipa.properties&gt;
+#include = &lt;iplanet.properties&gt;
+#include = &lt;rfc2307-389ds.properties&gt;
+#include = &lt;rfc2307-rhds.properties&gt;
+#include = &lt;rfc2307-openldap.properties&gt;
+#include = &lt;rfc2307-edir.properties&gt;
+#include = &lt;rfc2307-generic.properties&gt;
 
 # Server
 #
@@ -25796,7 +25796,7 @@ vars.password = _123456_
 
 pool.default.serverset.single.server = ${global:vars.server}
 pool.default.auth.simple.bindDN = ${global:vars.user}
-pool.default.auth.simple.password = ${global:vars.password}</pre>
+pool.default.auth.simple.password = ${global:vars.password}</code></pre>
 </div>
 </div>
 </div>
@@ -25823,11 +25823,11 @@ pool.default.auth.simple.password = ${global:vars.password}</pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Create keystore, import certificate chain and uncomment
+<pre class="CodeRay highlight"><code data-lang="terminal"># Create keystore, import certificate chain and uncomment
 # if using ssl/tls.
 pool.default.ssl.startTLS = true
 pool.default.ssl.truststore.file = _/full/path/to/myrootca.jks_
-pool.default.ssl.truststore.password = _password_</pre>
+pool.default.ssl.truststore.password = _password_</code></pre>
 </div>
 </div>
 </div>
@@ -25837,7 +25837,7 @@ pool.default.ssl.truststore.password = _password_</pre>
 <p>Review the authentication configuration file. The profile name visible to users on the Administration Portal and the VM Portal login pages is defined by <strong>ovirt.engine.aaa.authn.profile.name</strong>. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25845,7 +25845,7 @@ pool.default.ssl.truststore.password = _password_</pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ovirt.engine.extension.name = _example_-http-authn
+<pre class="CodeRay highlight"><code data-lang="terminal">ovirt.engine.extension.name = _example_-http-authn
 ovirt.engine.extension.bindings.method = jbossmodule
 ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.misc
 ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.misc.http.AuthnExtension
@@ -25854,7 +25854,7 @@ ovirt.engine.aaa.authn.profile.name = _example_-http
 ovirt.engine.aaa.authn.authz.plugin = _example_-authz
 ovirt.engine.aaa.authn.mapping.plugin = _example_-http-mapping
 config.artifact.name = HEADER
-config.artifact.arg = X-Remote-User</pre>
+config.artifact.arg = X-Remote-User</code></pre>
 </div>
 </div>
 </div>
@@ -25864,7 +25864,7 @@ config.artifact.arg = X-Remote-User</pre>
 <p>Review the authorization configuration file. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#  vi /etc/ovirt-engine/extensions.d/_example_-authz.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">#  vi /etc/ovirt-engine/extensions.d/_example_-authz.properties</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25872,12 +25872,12 @@ config.artifact.arg = X-Remote-User</pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ovirt.engine.extension.name = _example_-authz
+<pre class="CodeRay highlight"><code data-lang="terminal">ovirt.engine.extension.name = _example_-authz
 ovirt.engine.extension.bindings.method = jbossmodule
 ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.ldap
 ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.ldap.AuthzExtension
 ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authz
-config.profile.file.1 = ../aaa/_example_.properties</pre>
+config.profile.file.1 = ../aaa/_example_.properties</code></pre>
 </div>
 </div>
 </div>
@@ -25887,7 +25887,7 @@ config.profile.file.1 = ../aaa/_example_.properties</pre>
 <p>Review the authentication mapping configuration file. The configuration profile location must match the LDAP configuration file location. The configuration profile extension name must match the <code>ovirt.engine.aaa.authn.mapping.plugin</code> value in the authentication configuration file. All fields can be left as default.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -25913,42 +25913,42 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}</pre>
 <p>Ensure that the ownership and permissions of the configuration files are appropriate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown ovirt:ovirt /etc/ovirt-engine/aaa/_example_.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown ovirt:ovirt /etc/ovirt-engine/aaa/_example_.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-authz.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-authz.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chmod 600 /etc/ovirt-engine/aaa/_example_.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chmod 600 /etc/ovirt-engine/aaa/_example_.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chmod 640 /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chmod 640 /etc/ovirt-engine/extensions.d/_example_-http-authn.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chmod 640 /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chmod 640 /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chmod 640 /etc/ovirt-engine/extensions.d/_example_-authz.properties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chmod 640 /etc/ovirt-engine/extensions.d/_example_-authz.properties</code></pre>
 </div>
 </div>
 </li>
@@ -25956,8 +25956,8 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}</pre>
 <p>Restart the Apache service and the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart httpd.service
-# systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart httpd.service
+# systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -26663,7 +26663,7 @@ user updated successfully</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --set UserSessionTimeOutInterval=_integer_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set UserSessionTimeOutInterval=_integer_</code></pre>
 </div>
 </div>
 </div>
@@ -26695,7 +26695,7 @@ user updated successfully</pre>
 <p>Run the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># /usr/share/ovirt-engine/bin/ovirt-engine-crypto-tool.sh pbe-encode</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># /usr/share/ovirt-engine/bin/ovirt-engine-crypto-tool.sh pbe-encode</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -26706,7 +26706,7 @@ user updated successfully</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># /usr/share/ovirt-engine/bin/ovirt-engine-crypto-tool.sh pbe-encode --password=file:__file__</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># /usr/share/ovirt-engine/bin/ovirt-engine-crypto-tool.sh pbe-encode --password=file:__file__</code></pre>
 </div>
 </div>
 </li>
@@ -26714,7 +26714,7 @@ user updated successfully</pre>
 <p>Set the new password with the <code>ovirt-aaa-jdbc-tool</code> script, using the <code>--encrypted</code> option:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool user password-reset __test1__ --password-valid-to="2025-08-01 12:00:00-0800" --encrypted</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool user password-reset __test1__ --password-valid-to=&quot;2025-08-01 12:00:00-0800&quot; --encrypted</code></pre>
 </div>
 </div>
 </li>
@@ -26739,7 +26739,7 @@ user updated successfully</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool user show test1</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool user show test1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -26764,7 +26764,7 @@ user updated successfully</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool user delete test1</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool user delete test1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -26791,7 +26791,7 @@ user updated successfully</pre>
 <p>Disable the default <strong>admin</strong> user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool user edit `admin` --flag=+disabled</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool user edit `admin` --flag=+disabled</code></pre>
 </div>
 </div>
 </li>
@@ -26832,7 +26832,7 @@ user updated successfully</pre>
 <p>Create a new group:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool group add _group1_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool group add _group1_</code></pre>
 </div>
 </div>
 </li>
@@ -26840,7 +26840,7 @@ user updated successfully</pre>
 <p>Add users to the group. The users must be created already.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool group-manage useradd _group1_ --user=_test1_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool group-manage useradd _group1_ --user=_test1_</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -26862,7 +26862,7 @@ user updated successfully</pre>
 <p>View group account details:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool group show _group1_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool group show _group1_</code></pre>
 </div>
 </div>
 </li>
@@ -26886,7 +26886,7 @@ user updated successfully</pre>
 <p>Create the first group:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool group add _group1_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool group add _group1_</code></pre>
 </div>
 </div>
 </li>
@@ -26894,7 +26894,7 @@ user updated successfully</pre>
 <p>Create the second group:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool group add _group1-1_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool group add _group1-1_</code></pre>
 </div>
 </div>
 </li>
@@ -26902,7 +26902,7 @@ user updated successfully</pre>
 <p>Add the second group to the first group:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool group-manage groupadd _group1_ --group=_group1-1_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool group-manage groupadd _group1_ --group=_group1-1_</code></pre>
 </div>
 </div>
 </li>
@@ -26936,7 +26936,7 @@ user updated successfully</pre>
 <p>All user account details:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool query --what=user</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool query --what=user</code></pre>
 </div>
 </div>
 </li>
@@ -26944,7 +26944,7 @@ user updated successfully</pre>
 <p>All group account details:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool query --what=group</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool query --what=group</code></pre>
 </div>
 </div>
 </li>
@@ -26972,7 +26972,7 @@ user updated successfully</pre>
 <p>List user account details with names that start with the character <em>j</em>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool query --what=user --pattern="name=_j*_"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool query --what=user --pattern=&quot;name=_j*_&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -26980,7 +26980,7 @@ user updated successfully</pre>
 <p>List groups that have the department attribute set to <em>marketing</em>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool query --what=group --pattern="department=_marketing_"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool query --what=group --pattern=&quot;department=_marketing_&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -27010,7 +27010,7 @@ user updated successfully</pre>
 <p>Run the following command to show all the settings available:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool settings show</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool settings show</code></pre>
 </div>
 </div>
 </li>
@@ -27022,7 +27022,7 @@ user updated successfully</pre>
 <p>This example updates the default log in session time to 60 minutes for all user accounts. The default value is 10080 minutes.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool settings set --name=MAX_LOGIN_MINUTES --value=_60_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool settings set --name=MAX_LOGIN_MINUTES --value=_60_</code></pre>
 </div>
 </div>
 </li>
@@ -27030,7 +27030,7 @@ user updated successfully</pre>
 <p>This example updates the number of failed login attempts a user can perform before the user account is locked. The default value is 5.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ovirt-aaa-jdbc-tool settings set --name=MAX_FAILURES_SINCE_SUCCESS --value=_3_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-aaa-jdbc-tool settings set --name=MAX_FAILURES_SINCE_SUCCESS --value=_3_</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -27577,7 +27577,7 @@ user updated successfully</pre>
 <p>On the Engine machine, copy <code>ovirt-engine-notifier.conf</code> to a new file called <code>90-email-notify.conf</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf /etc/ovirt-engine/notifier/notifier.conf.d/90-email-notify.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf /etc/ovirt-engine/notifier/notifier.conf.d/90-email-notify.conf</code></pre>
 </div>
 </div>
 </li>
@@ -27644,9 +27644,9 @@ MAIL_RETRIES=4</pre>
 <p>Enable and restart the <code>ovirt-engine-notifier</code> service to activate the changes you have made:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl daemon-reload
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl daemon-reload
 # systemctl enable ovirt-engine-notifier.service
-# systemctl restart ovirt-engine-notifier.service</pre>
+# systemctl restart ovirt-engine-notifier.service</code></pre>
 </div>
 </div>
 </li>
@@ -28039,7 +28039,7 @@ MAIL_RETRIES=4</pre>
 <p>On the Engine, create the SNMP configuration file with the file name <code>&lt;<em>integer</em>&gt;-snmp.conf</code>, where <code>&lt;<em>integer</em>&gt;</code> is an integer that indicates the order in which files are processed. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -28061,9 +28061,9 @@ MAIL_RETRIES=4</pre>
 <p>Specify the SNMP manager(s), the SNMP community (SNMP version 2 only), and the OID in the format in this example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_MANAGERS="_manager1.example.com_ _manager2.example.com:162_"
+<pre class="CodeRay highlight"><code data-lang="terminal">SNMP_MANAGERS=&quot;_manager1.example.com_ _manager2.example.com:162_&quot;
 SNMP_COMMUNITY=public
-SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
+SNMP_OID=1.3.6.1.4.1.2312.13.1.1</code></pre>
 </div>
 </div>
 </li>
@@ -28071,7 +28071,7 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 <p>Define whether to use SNMP version 2 (default) or 3:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_VERSION=3</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">SNMP_VERSION=3</code></pre>
 </div>
 </div>
 </li>
@@ -28079,7 +28079,7 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 <p>Specify a value for SNMP_ENGINE_ID. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">SNMP_ENGINE_ID=&quot;80:00:00:00:01:02:05:05&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -28090,8 +28090,8 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_USERNAME=NoAuthNoPriv
-SNMP_SECURITY_LEVEL=1</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">SNMP_USERNAME=NoAuthNoPriv
+SNMP_SECURITY_LEVEL=1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28099,10 +28099,10 @@ SNMP_SECURITY_LEVEL=1</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_USERNAME=ovirtengine
+<pre class="CodeRay highlight"><code data-lang="terminal">SNMP_USERNAME=ovirtengine
 SNMP_AUTH_PROTOCOL=MD5
 SNMP_AUTH_PASSPHRASE=authpass
-SNMP_SECURITY_LEVEL=2</pre>
+SNMP_SECURITY_LEVEL=2</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28110,12 +28110,12 @@ SNMP_SECURITY_LEVEL=2</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_USERNAME=ovirtengine
+<pre class="CodeRay highlight"><code data-lang="terminal">SNMP_USERNAME=ovirtengine
 SNMP_AUTH_PROTOCOL=MD5
 SNMP_AUTH_PASSPHRASE=authpass
 SNMP_PRIVACY_PROTOCOL=AES128
 SNMP_PRIVACY_PASSPHRASE=privpass
-SNMP_SECURITY_LEVEL=3</pre>
+SNMP_SECURITY_LEVEL=3</code></pre>
 </div>
 </div>
 </li>
@@ -28129,7 +28129,7 @@ SNMP_SECURITY_LEVEL=3</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">FILTER="include:*(snmp:) ${FILTER}"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">FILTER=&quot;include:*(snmp:) ${FILTER}&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28137,12 +28137,12 @@ SNMP_SECURITY_LEVEL=3</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">FILTER="include:*:ERROR(snmp:) ${FILTER}"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">FILTER=&quot;include:*:ERROR(snmp:) ${FILTER}&quot;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">FILTER="include:*:ALERT(snmp:) ${FILTER}"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">FILTER=&quot;include:*:ALERT(snmp:) ${FILTER}&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28150,7 +28150,7 @@ SNMP_SECURITY_LEVEL=3</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">FILTER="include:__VDC_START__(snmp:__mail@example.com__) ${FILTER}"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">FILTER=&quot;include:__VDC_START__(snmp:__mail@example.com__) ${FILTER}&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28158,7 +28158,7 @@ SNMP_SECURITY_LEVEL=3</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">FILTER="exclude:__VDC_START__ include:*(snmp:) ${FILTER}"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">FILTER=&quot;exclude:__VDC_START__ include:*(snmp:) ${FILTER}&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28166,7 +28166,7 @@ SNMP_SECURITY_LEVEL=3</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">FILTER="exclude:*"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">FILTER=&quot;exclude:*&quot;</code></pre>
 </div>
 </div>
 </div>
@@ -28182,8 +28182,8 @@ SNMP_SECURITY_LEVEL=3</pre>
 <p>Start the <code>ovirt-engine-notifier</code> service, and ensure that this service starts on boot:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl start ovirt-engine-notifier.service
-# systemctl enable ovirt-engine-notifier.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start ovirt-engine-notifier.service
+# systemctl enable ovirt-engine-notifier.service</code></pre>
 </div>
 </div>
 </li>
@@ -28397,7 +28397,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28454,7 +28454,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>Run the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename</code></pre>
 </div>
 </div>
 </li>
@@ -28462,7 +28462,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>When prompted, press <code>Enter</code> to stop the engine service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">During execution engine service will be stopped (OK, Cancel) [OK]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">During execution engine service will be stopped (OK, Cancel) [OK]:</code></pre>
 </div>
 </div>
 </li>
@@ -28470,7 +28470,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>When prompted, enter the new FQDN for the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">New fully qualified server name:__new_engine_fqdn__</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">New fully qualified server name:__new_engine_fqdn__</code></pre>
 </div>
 </div>
 </li>
@@ -28488,7 +28488,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>Run the following command on every existing self-hosted engine node:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_local</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_local</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28499,7 +28499,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>Run the following command on one of the self-hosted engine nodes:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_shared</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_shared</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28542,7 +28542,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --help</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --help</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28554,7 +28554,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>List available configuration keys</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --list</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --list</code></pre>
 </div>
 </div>
 </li>
@@ -28562,7 +28562,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>List available configuration values</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --all</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --all</code></pre>
 </div>
 </div>
 </li>
@@ -28570,7 +28570,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>Retrieve value of configuration key</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --get _KEY_NAME_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --get _KEY_NAME_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28581,7 +28581,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <p>Set value of configuration key</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --set _KEY_NAME_=_KEY_VALUE_ --cver=_VERSION_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set _KEY_NAME_=_KEY_VALUE_ --cver=_VERSION_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28595,7 +28595,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -28830,7 +28830,7 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <p>As the <strong>root</strong> user on the server running oVirt Engine, restart the <strong>ovirt-engine</strong> service.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -28894,8 +28894,8 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-iso-uploader _options_ list
-# engine-iso-uploader _options_ upload _file file file_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-iso-uploader _options_ list
+# engine-iso-uploader _options_ upload _file file file_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -29041,7 +29041,7 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># `engine-iso-uploader --nfs-server=_storage.demo.redhat.com:/iso/path_ upload _RHEL6.0.iso_`</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># `engine-iso-uploader --nfs-server=_storage.demo.redhat.com:/iso/path_ upload _RHEL6.0.iso_`</code></pre>
 </div>
 </div>
 </div>
@@ -29057,16 +29057,16 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># `engine-iso-uploader list`
+<pre class="CodeRay highlight"><code data-lang="terminal"># `engine-iso-uploader list`
 Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
 ISO Storage Domain Name   | Datacenter          | ISO Domain Status
-ISODomain                 | Default             | active</pre>
+ISODomain                 | Default             | active</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># `engine-iso-uploader --iso-domain=_[ISODomain]_ upload _[RHEL6.iso]_`
-Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># `engine-iso-uploader --iso-domain=_[ISODomain]_ upload _[RHEL6.iso]_`
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):</code></pre>
 </div>
 </div>
 </div>
@@ -29113,7 +29113,7 @@ Please provide the REST API password for the admin@internal oVirt Engine user (C
 <p>Install the image files on the Engine machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf -y install virtio-win</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install virtio-win</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -29203,12 +29203,12 @@ See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-vacuum</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-vacuum</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-vacuum _option_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-vacuum _option_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -29247,7 +29247,7 @@ See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 <p>Vacuums a specific table or tables.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-vacuum -f -v -t vm_dynamic -t vds_dynamic</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-vacuum -f -v -t vm_dynamic -t vds_dynamic</code></pre>
 </div>
 </div>
 </dd>
@@ -29270,7 +29270,7 @@ See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 For example, run:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># export PASSWORD=_DatabaseUserPassword_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># export PASSWORD=_DatabaseUserPassword_</code></pre>
 </div>
 </div>
 </li>
@@ -29407,7 +29407,7 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 <p>Put the environment in global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -29434,7 +29434,7 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 <p>Disable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=none</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
 </div>
 </div>
 </li>
@@ -29712,7 +29712,7 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 <p>Copy <code>/etc/ovirt-engine-metrics/config.yml.example</code> to create <code>/etc/ovirt-engine-metrics/config.yml.d/config.yml</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml.d/config.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml.d/config.yml</code></pre>
 </div>
 </div>
 </li>
@@ -29740,7 +29740,7 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 <p>Deploy <code>collectd</code> and <code>rsyslog</code> on the hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -30006,7 +30006,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>Enable SPICE debugging by running the <code>remote-viewer</code> command with the <code>--spice-debug</code> option. When prompted, enter the connection URL, for example, spice://<em>virtual_machine_IP</em>:<em>port</em>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#  remote-viewer --spice-debug</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">#  remote-viewer --spice-debug</code></pre>
 </div>
 </div>
 </li>
@@ -30014,7 +30014,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>To run SPICE client with the debug parameter and to pass a .vv file to it, download the <strong>console.vv</strong> file and run the <code>remote-viewer</code> command with the <code>--spice-debug</code> option and specify the full path to the <strong>console.vv</strong> file.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># remote-viewer --spice-debug __/path/to/__console.vv</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># remote-viewer --spice-debug __/path/to/__console.vv</code></pre>
 </div>
 </div>
 </li>
@@ -30032,7 +30032,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>Run the <code>remote-viewer</code> command with the <code>spice-debug</code> argument and direct the command at the path to the console:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">remote-viewer --spice-debug __path\to\__console.vv</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">remote-viewer --spice-debug __path\to\__console.vv</code></pre>
 </div>
 </div>
 </li>
@@ -30225,7 +30225,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>Check to see if the firewall allows traffic on the <code>UDP 514</code> port, and is open to <code>syslog</code> service traffic:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># firewall-cmd --query-service=syslog</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --query-service=syslog</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -30242,10 +30242,10 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>Create a new <code>.conf</code> file on the syslog server, for example, <code>/etc/rsyslog.d/from_remote.conf</code>, and add the following lines:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">template(name="DynFile" type="string" string="/var/log/%HOSTNAME%/%PROGRAMNAME%.log")
-RuleSet(name="RemoteMachine"){  action(type="omfile" dynaFile="DynFile")  }
-Module(load="imudp")
-Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">template(name=&quot;DynFile&quot; type=&quot;string&quot; string=&quot;/var/log/%HOSTNAME%/%PROGRAMNAME%.log&quot;)
+RuleSet(name=&quot;RemoteMachine&quot;){  action(type=&quot;omfile&quot; dynaFile=&quot;DynFile&quot;)  }
+Module(load=&quot;imudp&quot;)
+Input(type=&quot;imudp&quot; port=&quot;514&quot; ruleset=&quot;RemoteMachine&quot;)</code></pre>
 </div>
 </div>
 </li>
@@ -30253,7 +30253,7 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 <p>Restart the <code>rsyslog</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart rsyslog.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart rsyslog.service</code></pre>
 </div>
 </div>
 </li>
@@ -30261,7 +30261,7 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 <p>Log in to the hypervisor, and in the <code>/etc/rsyslog.conf</code> add the following line:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">*.info;mail.none;authpriv.none;cron.none @<syslog-FQDN>:514</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">*.info;mail.none;authpriv.none;cron.none @&lt;syslog-FQDN&gt;:514</code></pre>
 </div>
 </div>
 </li>
@@ -30269,7 +30269,7 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 <p>Restart the rsyslog service on the hypervisor.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart rsyslog.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart rsyslog.service</code></pre>
 </div>
 </div>
 </li>
@@ -30730,7 +30730,7 @@ The _hook_domxml variable of the following hooks contains the XML representation
 <p>Check the existing custom properties defined by the <code>UserDefinedVMProperties</code> configuration key using the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -g UserDefinedVMProperties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -g UserDefinedVMProperties</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -30856,15 +30856,15 @@ UserDefinedVMProperties : {type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(fu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#!/usr/bin/python
+<pre class="CodeRay highlight"><code data-lang="terminal">#!/usr/bin/python
 
 import os
 import sys
 
 if os.environ.has_key('key1'):
-	sys.stderr.write('key1 value was : %s\n' % os.environ['key1'])
+        sys.stderr.write('key1 value was : %s\n' % os.environ['key1'])
 else:
-    sys.exit(0)</pre>
+    sys.exit(0)</code></pre>
 </div>
 </div>
 </div>
@@ -30938,7 +30938,7 @@ else:
 <p>Add this line to the file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">vdsm ALL=(ALL) NOPASSWD: /bin/chown</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">vdsm ALL=(ALL) NOPASSWD: /bin/chown</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -30952,7 +30952,7 @@ else:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">retcode = subprocess.call( ["/usr/bin/sudo", "/bin/chown", "root", "/my_file_{context}"] )</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">retcode = subprocess.call( [&quot;/usr/bin/sudo&quot;, &quot;/bin/chown&quot;, &quot;root&quot;, &quot;/my_file_{context}&quot;] )</code></pre>
 </div>
 </div>
 </div>
@@ -31209,7 +31209,7 @@ if os.environ.has_key('numa'):
 <p>On the Engine, run the following command to add the key:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s UserDefinedNetworkCustomProperties=ethtool_opts=.* --cver=4.4</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s UserDefinedNetworkCustomProperties=ethtool_opts=.* --cver=4.4</code></pre>
 </div>
 </div>
 </li>
@@ -31217,7 +31217,7 @@ if os.environ.has_key('numa'):
 <p>Restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -31225,7 +31225,7 @@ if os.environ.has_key('numa'):
 <p>On the hosts that you want to configure ethtool properties, install the VDSM hook package. The package is available by default on oVirt Node but needs to be installed on Enterprise Linux hosts.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install vdsm-hook-ethtool-options</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install vdsm-hook-ethtool-options</code></pre>
 </div>
 </div>
 </li>
@@ -31242,7 +31242,7 @@ if os.environ.has_key('numa'):
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -g UserDefinedNetworkCustomProperties</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -g UserDefinedNetworkCustomProperties</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -31257,7 +31257,7 @@ if os.environ.has_key('numa'):
 <p>On the Engine, run the following command to add the key:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s UserDefinedNetworkCustomProperties='fcoe=^((enable|dcb|auto_vlan)=(yes|no),?)*$'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s UserDefinedNetworkCustomProperties='fcoe=^((enable|dcb|auto_vlan)=(yes|no),?)*$'</code></pre>
 </div>
 </div>
 </li>
@@ -31265,7 +31265,7 @@ if os.environ.has_key('numa'):
 <p>Restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -31273,7 +31273,7 @@ if os.environ.has_key('numa'):
 <p>Install the VDSM hook package on each of the Enterprise Linux hosts on which you want to configure FCoE properties. The package is available by default on oVirt Node (oVirt Node).</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install vdsm-hook-fcoe</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install vdsm-hook-fcoe</code></pre>
 </div>
 </div>
 </li>
@@ -31391,7 +31391,7 @@ if os.environ.has_key('numa'):
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">// Access plug-in API using 'parent' due to this code being evaluated within the context of an iframe element.
+<pre class="CodeRay highlight"><code data-lang="terminal">// Access plug-in API using 'parent' due to this code being evaluated within the context of an iframe element.
 // As 'parent.pluginApi' is subject to Same-Origin Policy, this will only work when WebAdmin HTML page and plug-in
 // host page are served from same origin. WebAdmin HTML page and plug-in host page will always be on same origin
 // when using UI plug-in infrastructure support to serve plug-in resource files.
@@ -31402,15 +31402,15 @@ var config = api.configObject();
 
 // Register event handler function(s) for later invocation by UI plug-in infrastructure.
 api.register({
-	    // UiInit event handler function.
-		UiInit: function() {
-				// Handle UiInit event.
-					window.alert('Favorite music band is ' + config.band);
-					    }
+            // UiInit event handler function.
+                UiInit: function() {
+                                // Handle UiInit event.
+                                        window.alert('Favorite music band is ' + config.band);
+                                            }
 });
 
 // Notify UI plug-in infrastructure to proceed with plug-in initialization.
-api.ready();</pre>
+api.ready();</code></pre>
 </div>
 </div>
 </div>
@@ -31462,11 +31462,11 @@ api.ready();</pre>
 <p>Create a plug-in descriptor by creating the following file in the Engine at <strong>/usr/share/ovirt-engine/ui-plugins/helloWorld.json</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">{
-    "name": "HelloWorld",
-    "url": "/ovirt-engine/webadmin/plugin/HelloWorld/start.html",
-    "resourcePath": "hello-files"
-}</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">{
+    &quot;name&quot;: &quot;HelloWorld&quot;,
+    &quot;url&quot;: &quot;/ovirt-engine/webadmin/plugin/HelloWorld/start.html&quot;,
+    &quot;resourcePath&quot;: &quot;hello-files&quot;
+}</code></pre>
 </div>
 </div>
 </li>
@@ -31474,15 +31474,15 @@ api.ready();</pre>
 <p>Create the plug-in host page by creating the following file in the Engine at <strong>/usr/share/ovirt-engine/ui-plugins/hello-files/start.html</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"><!DOCTYPE html><html><head>
-<script>
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
+&lt;script&gt;
     var api = parent.pluginApi('HelloWorld');
     api.register({
-	UiInit: function() { window.alert('Hello world'); }
+        UiInit: function() { window.alert('Hello world'); }
     });
     api.ready();
-</script>
-</head><body></body></html></pre>
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -31567,7 +31567,7 @@ api.ready();</pre>
 <p>Back up the current <code>apache.p12</code> file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/keys/apache.p12 /etc/pki/ovirt-engine/keys/apache.p12.bck</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/keys/apache.p12 /etc/pki/ovirt-engine/keys/apache.p12.bck</code></pre>
 </div>
 </div>
 </li>
@@ -31575,7 +31575,7 @@ api.ready();</pre>
 <p>Replace the current file with the new file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /tmp/apache.p12 /etc/pki/ovirt-engine/keys/apache.p12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/apache.p12 /etc/pki/ovirt-engine/keys/apache.p12</code></pre>
 </div>
 </div>
 </li>
@@ -31583,8 +31583,8 @@ api.ready();</pre>
 <p>Extract the private key and certificate to the required locations. If the file is password protected, you must add <code>-passin pass:_password_</code>, replacing <em>password</em> with the required password.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes > /tmp/apache.key
-# openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys > /tmp/apache.cer</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes &gt; /tmp/apache.key
+# openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys &gt; /tmp/apache.cer</code></pre>
 </div>
 </div>
 </li>
@@ -31613,7 +31613,7 @@ api.ready();</pre>
 <p>If you are using a self-hosted engine, put the environment into global maintenance mode.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -31624,8 +31624,8 @@ api.ready();</pre>
 <p>Add your CA certificate to the host-wide trust store:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /tmp/_3rd-party-ca-cert_.pem /etc/pki/ca-trust/source/anchors
-# update-ca-trust</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/_3rd-party-ca-cert_.pem /etc/pki/ca-trust/source/anchors
+# update-ca-trust</code></pre>
 </div>
 </div>
 </li>
@@ -31633,7 +31633,7 @@ api.ready();</pre>
 <p>The Engine has been configured to use <code>/etc/pki/ovirt-engine/apache-ca.pem</code>, which is symbolically linked to <code>/etc/pki/ovirt-engine/ca.pem</code>. Remove the symbolic link:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm /etc/pki/ovirt-engine/apache-ca.pem</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -31641,7 +31641,7 @@ api.ready();</pre>
 <p>Save your CA certificate as <code>/etc/pki/ovirt-engine/apache-ca.pem</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /tmp/_3rd-party-ca-cert_.pem /etc/pki/ovirt-engine/apache-ca.pem</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/_3rd-party-ca-cert_.pem /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -31649,8 +31649,8 @@ api.ready();</pre>
 <p>Back up the existing private key and certificate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /etc/pki/ovirt-engine/keys/apache.key.nopass /etc/pki/ovirt-engine/keys/apache.key.nopass.bck
-# cp /etc/pki/ovirt-engine/certs/apache.cer /etc/pki/ovirt-engine/certs/apache.cer.bck</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /etc/pki/ovirt-engine/keys/apache.key.nopass /etc/pki/ovirt-engine/keys/apache.key.nopass.bck
+# cp /etc/pki/ovirt-engine/certs/apache.cer /etc/pki/ovirt-engine/certs/apache.cer.bck</code></pre>
 </div>
 </div>
 </li>
@@ -31658,7 +31658,7 @@ api.ready();</pre>
 <p>Copy the private key to the required location:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /tmp/apache.key /etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/apache.key /etc/pki/ovirt-engine/keys/apache.key.nopass</code></pre>
 </div>
 </div>
 </li>
@@ -31666,8 +31666,8 @@ api.ready();</pre>
 <p>Set the private key owner to root and set the permissions to <code>0640</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown root:ovirt  /etc/pki/ovirt-engine/keys/apache.key.nopass
-# chmod 640 /etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown root:ovirt  /etc/pki/ovirt-engine/keys/apache.key.nopass
+# chmod 640 /etc/pki/ovirt-engine/keys/apache.key.nopass</code></pre>
 </div>
 </div>
 </li>
@@ -31675,7 +31675,7 @@ api.ready();</pre>
 <p>Copy the certificate to the required location:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /tmp/apache.cer /etc/pki/ovirt-engine/certs/apache.cer</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/apache.cer /etc/pki/ovirt-engine/certs/apache.cer</code></pre>
 </div>
 </div>
 </li>
@@ -31683,8 +31683,8 @@ api.ready();</pre>
 <p>Set the certificate owner to root and set the permissions to <code>0644</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown root:ovirt /etc/pki/ovirt-engine/certs/apache.cer
-# chmod 644 /etc/pki/ovirt-engine/certs/apache.cer</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown root:ovirt /etc/pki/ovirt-engine/certs/apache.cer
+# chmod 644 /etc/pki/ovirt-engine/certs/apache.cer</code></pre>
 </div>
 </div>
 </li>
@@ -31692,7 +31692,7 @@ api.ready();</pre>
 <p>Restart the Apache server:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart httpd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart httpd.service</code></pre>
 </div>
 </div>
 </li>
@@ -31700,8 +31700,8 @@ api.ready();</pre>
 <p>Create a new trust store configuration file, <code>/etc/ovirt-engine/engine.conf.d/99-custom-truststore.conf</code>, with the following parameters:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ENGINE_HTTPS_PKI_TRUST_STORE="/etc/pki/java/cacerts"
-ENGINE_HTTPS_PKI_TRUST_STORE_PASSWORD=""</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">ENGINE_HTTPS_PKI_TRUST_STORE=&quot;/etc/pki/java/cacerts&quot;
+ENGINE_HTTPS_PKI_TRUST_STORE_PASSWORD=&quot;&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -31718,7 +31718,7 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 <p>Restart the <code>websocket-proxy</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-websocket-proxy.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-websocket-proxy.service</code></pre>
 </div>
 </div>
 </li>
@@ -31729,11 +31729,11 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 <p>Enable <code>engine-backup</code> to update the system on restore by creating a new file, <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code>, with the following content:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">BACKUP_PATHS="${BACKUP_PATHS}
-/etc/ovirt-engine-backup"
+<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
+/etc/ovirt-engine-backup&quot;
 cp -f /etc/pki/ovirt-engine/apache-ca.pem \
 /etc/pki/ca-trust/source/anchors/_3rd-party-ca-cert_.pem
-update-ca-trust</pre>
+update-ca-trust</code></pre>
 </div>
 </div>
 </li>
@@ -31741,7 +31741,7 @@ update-ca-trust</pre>
 <p>Restart the <code>ovirt-provider-ovn</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-provider-ovn.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-provider-ovn.service</code></pre>
 </div>
 </div>
 </li>
@@ -31749,7 +31749,7 @@ update-ca-trust</pre>
 <p>Restart the <code>ovirt-imageio</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-imageio.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-imageio.service</code></pre>
 </div>
 </div>
 </li>
@@ -31757,7 +31757,7 @@ update-ca-trust</pre>
 <p>Restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
 </div>
 </div>
 </li>
@@ -31765,7 +31765,7 @@ update-ca-trust</pre>
 <p>If you are using a self-hosted engine, turn off global maintenance mode.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=none</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
 </div>
 </div>
 </li>
@@ -31803,7 +31803,7 @@ update-ca-trust</pre>
 <p>On the oVirt Engine, copy the root CA certificate of the LDAP server to the <strong>/tmp</strong> directory and import the root CA certificate using <code>keytool</code> to create a PEM-encoded CA certificate. The following command imports the root CA certificate at <em>/tmp/myrootca.pem</em> and creates a PEM-encoded CA certificate <em>myrootca.jks</em> under <em>/etc/ovirt-engine/aaa/</em>. Note down the certificate&#8217;s location and password. If you are using the interactive setup tool, this is all the information you need. If you are configuring the LDAP server manually, follow the rest of the procedure to update the configuration files.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ keytool -importcert -noprompt -trustcacerts -alias _myrootca_ -file _/tmp/myrootca.pem_ -keystore _/etc/ovirt-engine/aaa/myrootca.jks_ -storepass _password_</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ keytool -importcert -noprompt -trustcacerts -alias _myrootca_ -file _/tmp/myrootca.pem_ -keystore _/etc/ovirt-engine/aaa/myrootca.jks_ -storepass _password_</code></pre>
 </div>
 </div>
 </li>
@@ -31829,10 +31829,10 @@ update-ca-trust</pre>
 <p>To use startTLS (recommended):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Create keystore, import certificate chain and uncomment
+<pre class="CodeRay highlight"><code data-lang="terminal"># Create keystore, import certificate chain and uncomment
 pool.default.ssl.startTLS = true
 pool.default.ssl.truststore.file = ${local:_basedir}/_myrootca.jks_
-pool.default.ssl.truststore.password = _password_</pre>
+pool.default.ssl.truststore.password = _password_</code></pre>
 </div>
 </div>
 </li>
@@ -31840,11 +31840,11 @@ pool.default.ssl.truststore.password = _password_</pre>
 <p>To use SSL:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Create keystore, import certificate chain and uncomment
+<pre class="CodeRay highlight"><code data-lang="terminal"># Create keystore, import certificate chain and uncomment
 pool.default.serverset.single.port = 636
 pool.default.ssl.enable = true
 pool.default.ssl.truststore.file = ${local:_basedir}/_myrootca.jks_
-pool.default.ssl.truststore.password = _password_</pre>
+pool.default.ssl.truststore.password = _password_</code></pre>
 </div>
 </div>
 </li>

@@ -1,9 +1,9 @@
-[[VDSM_hooks_examples]]
+[id="VDSM_hooks_examples_{context}"]
 === VDSM Hook Examples
 
 The example hook scripts provided in this section are strictly not supported by Red Hat. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.
 
-[[VDSM_Hooks-example-numaset]]
+[id="VDSM_Hooks-example-numaset_{context}"]
 .NUMA Node Tuning
 ====
 

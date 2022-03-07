@@ -1,9 +1,9 @@
-[[Administrator_Roles_Explained]]
+[id="Administrator_Roles_Explained_{context}"]
 ==== Administrator Roles Explained
 
 The table below describes basic administrator roles which confer permissions to access and configure resources in the Administration Portal.
 
-[[Admin_Roles_Basic]]
+[id="Admin_Roles_Basic_{context}"]
 
 .{virt-product-fullname} System Administrator Roles - Basic
 [options="header"]
@@ -20,7 +20,7 @@ Do not use the administrative user for the directory server as the {virt-product
 ====
 The table below describes advanced administrator roles which allow you to do more fine tuning of permissions for resources in the Administration Portal.
 
-[[Admin_Roles_Advanced]]
+[id="Admin_Roles_Advanced_{context}"]
 
 .{virt-product-fullname} System Administrator Roles - Advanced
 [options="header"]

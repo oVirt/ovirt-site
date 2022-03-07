@@ -1,8 +1,8 @@
-[[Searching_for_Networks]]
+[id="Searching_for_Networks_{context}"]
 === Searching for Networks
 
 The following table describes all search options for networks.
-[[searching_networks]]
+[id="searching_networks_{context}"]
 
 .Searching for Networks
 [options="header"]

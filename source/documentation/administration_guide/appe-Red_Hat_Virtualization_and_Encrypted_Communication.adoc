@@ -1,9 +1,9 @@
 :numbered!:
 
 [appendix]
-[[appe-Red_Hat_Enterprise_Virtualization_and_Encrypted_Communication]]
+[id="appe-Red_Hat_Enterprise_Virtualization_and_Encrypted_Communication"]
 // keeping old section id to prevent broken links
-[[appe-Red_Hat_Enterprise_Virtualization_and_SSL]]
+[id="appe-Red_Hat_Enterprise_Virtualization_and_SSL"]
 == {virt-product-fullname} and encrypted communication
 :context: encrypted-communication
 

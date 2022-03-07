@@ -1,4 +1,4 @@
-[[Removing_a_cluster]]
+[id="Removing_a_cluster_{context}"]
 ==== Removing a Cluster
 
 Move all hosts out of a cluster before removing it.

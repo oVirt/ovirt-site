@@ -1,4 +1,4 @@
-[[Manager_Log_Files]]
+[id="Manager_Log_Files_{context}"]
 === {virt-product-fullname} {engine-name} Log Files
 
 

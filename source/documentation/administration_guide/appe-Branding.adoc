@@ -1,10 +1,10 @@
 :numbered!:
 
 [appendix]
-[[appe-Branding]]
+[id="appe-Branding"]
 == Branding
 
-[[sect-Branding]]
+[id="sect-Branding"]
 === Branding
 
 include::topics/Re-Branding_the_Manager1.adoc[]
@@ -22,4 +22,3 @@ include::topics/Tabs.adoc[]
 include::topics/The_Welcome_Page.adoc[]
 
 include::topics/The_File_Not_Found_Page.adoc[]
-

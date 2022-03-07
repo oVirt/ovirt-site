@@ -2,7 +2,7 @@
 [id="monitoring-available-space-in-a-storage-domain_{context}"]
 = Monitoring available space in a storage domain
 
-[role="_abstract"]
+[role="_abstract_{context}"]
 You can monitor available space in a storage domain and create an alert to warn you when a storage domain is nearing capacity. You can also define a critical threshold at which point the domain shuts down.
 
 With Virtual Data Optimizer (VDO) and thin pool support, you might see more available space than is physically available. For VDO this behavior is expected, but the {engine-name} cannot predict how much data you can actually write. The *Warning Low Confirmed Space Indicator* parameter notifies you when the domain is nearing physical space capacity and shows how much confirmed space remains. Confirmed space refers to the actual space available to write data.

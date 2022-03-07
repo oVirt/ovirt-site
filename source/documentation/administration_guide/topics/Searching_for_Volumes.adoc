@@ -1,9 +1,9 @@
-[[Searching_for_Volumes]]
+[id="Searching_for_Volumes_{context}"]
 === Searching for Volumes
 
 The following table describes all search options for volumes.
 
-[[searching_volumes]]
+[id="searching_volumes_{context}"]
 .Searching for Volumes
 [options="header"]
 |===

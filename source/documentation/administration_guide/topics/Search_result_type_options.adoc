@@ -1,4 +1,4 @@
-[[Search_result_type_options]]
+[id="Search_result_type_options_{context}"]
 === Search Result Type Options
 
 The result type allows you to search for resources of any of the following types:

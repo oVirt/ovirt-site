@@ -1,4 +1,4 @@
-[[Creating_Instance_Types]]
+[id="Creating_Instance_Types_{context}"]
 ==== Creating Instance Types
 
 Administrators can create new instance types, which can then be selected by users when creating or editing virtual machines.

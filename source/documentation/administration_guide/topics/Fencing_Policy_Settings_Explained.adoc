@@ -1,4 +1,4 @@
-[[Fencing_Policy_Settings_Explained]]
+[id="Fencing_Policy_Settings_Explained_{context}"]
 ==== Fencing Policy Settings Explained
 
 The table below describes the settings for the *Fencing Policy* tab in the *New Cluster* and *Edit Cluster* windows.

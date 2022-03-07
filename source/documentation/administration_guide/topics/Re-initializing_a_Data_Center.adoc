@@ -1,4 +1,4 @@
-[[Re-initializing_a_Data_Center]]
+[id="Re-initializing_a_Data_Center_{context}"]
 ==== Re-Initializing a Data Center: Recovery Procedure
 
 This recovery procedure replaces the master data domain of your data center with a new master data domain. You must re-initialize your master data domain if its data is corrupted. Re-initializing a data center allows you to restore all other resources associated with the data center, including clusters, hosts, and non-problematic storage domains.

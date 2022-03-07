@@ -1,4 +1,4 @@
-[[Modifying_a_tag]]
+[id="Modifying_a_tag_{context}"]
 === Modifying a Tag
 
 You can edit the name and description of a tag.

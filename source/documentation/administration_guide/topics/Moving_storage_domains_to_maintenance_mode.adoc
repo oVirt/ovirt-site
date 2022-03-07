@@ -1,4 +1,4 @@
-[[Moving_storage_domains_to_maintenance_mode]]
+[id="Moving_storage_domains_to_maintenance_mode_{context}"]
 ==== Moving Storage Domains to Maintenance Mode
 
 A storage domain must be in maintenance mode before it can be detached and removed. This is required to redesignate another data domain as the master data domain.

@@ -1,4 +1,4 @@
-[[SPM_priority_settings_explained]]
+[id="SPM_priority_settings_explained_{context}"]
 ==== SPM Priority Settings Explained
 
 The *SPM* settings table details the information required on the *SPM* tab of the *New Host* or *Edit Host* window.

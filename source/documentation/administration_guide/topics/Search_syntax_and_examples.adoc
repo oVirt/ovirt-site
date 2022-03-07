@@ -1,4 +1,4 @@
-[[Search_syntax_and_examples]]
+[id="Search_syntax_and_examples_{context}"]
 === Search Syntax and Examples
 
 The syntax of the search queries for {virt-product-fullname} resources is as follows:
@@ -8,7 +8,7 @@ The syntax of the search queries for {virt-product-fullname} resources is as fol
 *Syntax Examples*
 
 The following examples describe how the search query is used and help you to understand how {virt-product-fullname} assists with building search queries.
-[[search_query_eg]]
+[id="search_query_eg_{context}"]
 
 .Example Search Queries
 [options="header"]

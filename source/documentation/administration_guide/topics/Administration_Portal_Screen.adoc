@@ -1,4 +1,4 @@
-[[Administration_Portal_Screen]]
+[id="Administration_Portal_Screen_{context}"]
 ==== Administration Portal Screen
 
 The administration portal screen is the main screen that is shown when you log into the Administration Portal. The elements of the administration portal screen that can be customized are as follows:

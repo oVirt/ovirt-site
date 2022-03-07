@@ -1,7 +1,7 @@
-[[chap-Logical_Networks]]
+[id="chap-Logical_Networks"]
 == Logical Networks
 
-[[sect-Logical_Network_Tasks]]
+[id="sect-Logical_Network_Tasks"]
 === Logical Network Tasks
 
 include::topics/Performing_Networking_Tasks.adoc[]
@@ -32,7 +32,7 @@ include::topics/Explanation_of_Settings_in_the_Manage_Networks_Window.adoc[]
 
 include::topics/Editing_Vfs_on_NIC.adoc[]
 
-[[sect-Virtual_Network_Interface_Cards]]
+[id="sect-Virtual_Network_Interface_Cards"]
 === Virtual Network Interface Cards (vNICs)
 
 include::topics/VNIC_Profile_Overview.adoc[]
@@ -53,7 +53,7 @@ include::topics/User_Permissions_for_VNIC_Profiles.adoc[]
 
 //include::topics/Configuring_VNIC_Profiles_for_UCS.adoc[]
 
-[[sect-External_Provider_Networks]]
+[id="sect-External_Provider_Networks"]
 === External Provider Networks
 
 include::topics/Importing_Networks.adoc[]
@@ -68,7 +68,7 @@ include::topics/Removing_Subnets_from_External_Provider_Logical_Networks.adoc[]
 
 include::topics/Assigning_Security_Groups_to_Logical_Networks.adoc[]
 
-[[sect-Hosts_and_Networking]]
+[id="sect-Hosts_and_Networking"]
 === Hosts and Networking
 
 :Network:
@@ -99,7 +99,7 @@ include::common/network/con-IPv6_Networking_Support.adoc[leveloffset=+3]
 include::common/sriov/assembly-Set_Up_and_Configure_SR-IOV.adoc[leveloffset=+3]
 :Network!:
 
-[[sect-Network_Bonding]]
+[id="sect-Network_Bonding"]
 === Network Bonding
 :Bonding:
 

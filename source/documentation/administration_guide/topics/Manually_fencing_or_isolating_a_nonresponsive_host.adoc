@@ -1,4 +1,4 @@
-[[Manually_fencing_or_isolating_a_nonresponsive_host]]
+[id="Manually_fencing_or_isolating_a_nonresponsive_host_{context}"]
 ==== Manually Fencing or Isolating a Non-Responsive Host
 
 If a host unpredictably goes into a non-responsive state, for example, due to a hardware failure, it can significantly affect the performance of the environment. If you do not have a power management device, or if it is incorrectly configured, you can reboot the host manually.

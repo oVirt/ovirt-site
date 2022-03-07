@@ -1,4 +1,4 @@
-[[Activating_a_host_from_maintenance_mode]]
+[id="Activating_a_host_from_maintenance_mode_{context}"]
 ==== Activating a Host from Maintenance Mode
 
 A host that has been placed into maintenance mode, or recently added to the environment, must be activated before it can be used. Activation may fail if the host is not ready; ensure that all tasks are complete before attempting to activate the host.

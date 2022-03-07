@@ -1,4 +1,4 @@
-[[Configuring_scheduling_policy]]
+[id="Configuring_scheduling_policy_{context}"]
 ==== Setting Load and Power Management Policies for Hosts in a Cluster
 
 The *evenly_distributed* and *power_saving* scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The *vm_evenly_distributed* scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see xref:Cluster_Scheduling_Policy_Settings[].

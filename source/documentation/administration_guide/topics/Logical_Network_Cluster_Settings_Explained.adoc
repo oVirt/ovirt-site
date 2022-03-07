@@ -1,4 +1,4 @@
-[[Logical_Network_Cluster_Settings_Explained]]
+[id="Logical_Network_Cluster_Settings_Explained_{context}"]
 ==== Logical Network Cluster Settings Explained
 
 The table below describes the settings for the *Cluster* tab of the *New Logical Network* window.

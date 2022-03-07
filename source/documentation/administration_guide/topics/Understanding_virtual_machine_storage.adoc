@@ -1,4 +1,4 @@
-[[Understanding_virtual_machine_storage]]
+[id="Understanding_virtual_machine_storage_{context}"]
 === Understanding Virtual Machine Storage
 
 {virt-product-fullname} supports three storage types: NFS, iSCSI and FCP.

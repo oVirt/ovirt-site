@@ -1,9 +1,9 @@
-[[chap-Global_Configuration]]
+[id="chap-Global_Configuration"]
 == Global Configuration
 
 Accessed by clicking menu:Administration[Configure], the *Configure* window allows you to configure a number of global resources for your {virt-product-fullname} environment, such as users, roles, system permissions, scheduling policies, instance types, and MAC address pools. This window allows you to customize the way in which users interact with resources in the environment, and provides a central location for configuring options that can be applied to multiple clusters.
 
-[[sect-Roles]]
+[id="sect-Roles"]
 === Roles
 
 Roles are predefined sets of privileges that can be configured from {virt-product-fullname} {engine-name}. Roles provide access and management permissions to different levels of resources in the data center, and to specific physical and virtual resources.
@@ -16,16 +16,16 @@ include::topics/Editing_a_role.adoc[]
 
 include::topics/Authorization_examples.adoc[]
 
-[[sect-System_Permissions]]
+[id="sect-System_Permissions"]
 === System Permissions
 
 Permissions enable users to perform actions on objects, where objects are either individual objects or container objects. Any permissions that apply to a container object also apply to all members of that container.
 
-[[rhev-roles-permissions]]
+[id="rhev-roles-permissions"]
 .Permissions &amp; Roles
 image::images/496.png[]
 
-[[rhev-object-hierarchy-2]]
+[id="rhev-object-hierarchy-2"]
 .{virt-product-fullname} Object Hierarchy
 image::images/492.png[]
 
@@ -73,7 +73,7 @@ include::topics/Virtual_Disk_User_Roles_Explained.adoc[]
 include::common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
 
 
-[[sect-Scheduling_Policies]]
+[id="sect-Scheduling_Policies"]
 === Scheduling Policies
 
 A scheduling policy is a set of rules that defines the logic by which virtual machines are distributed amongst hosts in the cluster that scheduling policy is applied to. Scheduling policies determine this logic via a combination of filters, weightings, and a load balancing policy. The filter modules apply hard enforcement and filter out hosts that do not meet the conditions specified by that filter. The weights modules apply soft enforcement, and are used to control the relative priority of factors considered when determining the hosts in a cluster on which a virtual machine can run.
@@ -104,7 +104,7 @@ include::topics/Creating_a_Scheduling_Policy.adoc[]
 
 include::topics/Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window.adoc[]
 
-[[sect-Instance_Types]]
+[id="sect-Instance_Types"]
 === Instance Types
 
 Instance types can be used to define the hardware configuration of a virtual machine. Selecting an instance type when creating or editing a virtual machine will automatically fill in the hardware configuration fields. This allows users to create multiple virtual machines with the same hardware configuration without having to manually fill in every field.
@@ -114,7 +114,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 
 A set of predefined instance types are available by default, as outlined in the following table:
 
-[[Predef_Instance_Types]]
+[id="Predef_Instance_Types"]
 .Predefined Instance Types
 [options="header"]
 |===
@@ -136,7 +136,7 @@ include::topics/Editing_Instance_Types.adoc[]
 
 include::topics/Removing_Instance_Types.adoc[]
 
-[[sect-MAC_Address_Pools]]
+[id="sect-MAC_Address_Pools"]
 === MAC Address Pools
 
 MAC address pools define the range(s) of MAC addresses allocated for each cluster. A MAC address pool is specified for each cluster. By using MAC address pools, {virt-product-fullname} can automatically generate and assign MAC addresses to new virtual network devices, which helps to prevent MAC address duplication. MAC address pools are more memory efficient when all MAC addresses related to a cluster are within the range for the assigned MAC address pool.

@@ -1,4 +1,4 @@
-[[Creating_a_Disk_Profile]]
+[id="Creating_a_Disk_Profile_{context}"]
 ==== Creating a Disk Profile
 
 Disk profiles define the maximum level of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are created based on storage profiles defined under data centers, and must be manually assigned to individual virtual disks for the profile to take effect.

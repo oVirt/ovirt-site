@@ -1,10 +1,10 @@
 :numbered!:
 
 [appendix]
-[[appe-Proxies]]
+[id="appe-Proxies"]
 == Proxies
 
-[[sect-SPICE_Proxy]]
+[id="sect-SPICE_Proxy"]
 === SPICE Proxy
 
 include::topics/SPICE_Proxy_Overview.adoc[]
@@ -15,12 +15,12 @@ include::topics/Turning_On_a_SPICE_Proxy.adoc[]
 
 include::topics/Turning_off_a_SPICE_Proxy.adoc[]
 
-[[sect-Squid_Proxy]]
+[id="sect-Squid_Proxy"]
 === Squid Proxy
 
 include::topics/Installing_and_Configuring_a_Squid_Proxy.adoc[]
 
-[[sect-Websocket_Proxy]]
+[id="sect-Websocket_Proxy"]
 === Websocket Proxy
 
 :context: proxy_admin

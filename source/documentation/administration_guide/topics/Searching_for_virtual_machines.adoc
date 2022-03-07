@@ -1,4 +1,4 @@
-[[Searching_for_virtual_machines]]
+[id="Searching_for_virtual_machines_{context}"]
 === Searching for Virtual Machines
 
 The following table describes all search options for virtual machines.
@@ -8,7 +8,7 @@ The following table describes all search options for virtual machines.
 Currently, the *Network Label*, *Custom Emulated Machine*, and *Custom CPU Type* properties are not supported search parameters.
 ====
 
-[[searching_Vms_syntax]]
+[id="searching_Vms_syntax_{context}"]
 .Searching for Virtual Machines
 [options="header"]
 |===

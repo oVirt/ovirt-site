@@ -1,4 +1,4 @@
-[[chap-Hosts]]
+[id="chap-Hosts"]
 == Hosts
 
 include::topics/Introduction_to_Hosts.adoc[]
@@ -9,7 +9,7 @@ include::topics/Red_Hat_Enterprise_Linux_Hosts.adoc[]
 
 include::topics/Satellite_Host_Provider_Hosts.adoc[]
 
-[[sect-Host_Tasks]]
+[id="sect-Host_Tasks"]
 === Host Tasks
 :context: host_tasks
 
@@ -19,7 +19,7 @@ include::topics/Adding_a_Satellite_Host_Provider_Host.adoc[]
 
 include::topics/Configuring_Satellite_Errata_Management_for_a_Host.adoc[]
 
-[[sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows]]
+[id="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"]
 
 include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+3]
 
@@ -79,7 +79,7 @@ include::topics/Hosted_Engine_Settings_Explained.adoc[]
 
 :context: additional_config
 
-[[sect-Host_Resilience]]
+[id="sect-Host_Resilience"]
 === Host Resilience
 
 include::topics/Host_high_availability.adoc[]
@@ -88,7 +88,7 @@ include::topics/Power_Management_by_Proxy_in_Red_Hat_Enterprise_Virtualization.a
 
 include::topics/Setting_fencing_parameters_on_a_host.adoc[]
 
-[[sect-fence_kdump_Advanced_Configuration]]
+[id="sect-fence_kdump_Advanced_Configuration"]
 ==== fence_kdump Advanced Configuration
 
 *kdump*

@@ -1,4 +1,4 @@
-[[Editing_MAC_Address_Pools]]
+[id="Editing_MAC_Address_Pools_{context}"]
 ==== Editing MAC Address Pools
 
 You can edit MAC address pools to change the details, including the range of MAC addresses available in the pool and whether duplicates are allowed.

@@ -1,4 +1,4 @@
-[[Creating_a_VM_Pool]]
+[id="Creating_a_VM_Pool_{context}"]
 === Creating a virtual machine pool
 
 You can create a virtual machine pool containing multiple virtual machines based on a common template. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for information about sealing a virtual machine and creating a template.
@@ -14,23 +14,23 @@ If your pool needs to join a domain, you can create a custom `sysprep` for each 
 . Copy the relevant sections for each operating system from `/usr/share/ovirt-engine/conf/osinfo-defaults.properties` to a new file and save as `99-defaults.properties`.
 . In `99-defaults.properties`, specify the Windows product activation key and the path of your new custom `sysprep` file:
 +
-[options="nowrap" subs="quotes"]
-----
+[source,terminal]
+====
 os.__operating_system__.productKey.value=__Windows_product_activation_key__
 ...
 os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.__operating_system__
-----
+====
 
 . Create a new `sysprep` file, specifying the domain, domain password, and domain administrator:
 +
 [source,terminal]
-----
+====
     <Credentials>
         <Domain>__AD_Domain__</Domain>
         <Password>__Domain_Password__</Password>
         <Username>__Domain_Administrator__</Username>
     </Credentials>
-----
+====
 
 If you need to configure different `sysprep` settings for different pools of Windows virtual machines, you can create a custom `sysprep` file in the Administration Portal (see link:#custom_sysprep[Creating a Virtual Machine Pool] below). See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines[Using Sysprep to Automate the Configuration of Virtual Machines] in the _Virtual Machine Guide_ for more information.
 
@@ -82,13 +82,14 @@ This `User Name` is the name of the local administrator. You can change its valu
 * `Key`. If you do not want to use the pre-defined Windows activation product key, replace `<![CDATA[$ProductKey$]]>` with a valid product key:
 +
 [source,terminal]
-----
+====
     <ProductKey>
         <Key><![CDATA[$ProductKey$]]></Key>
     </ProductKey>
-----
+====
 +
 .Windows Product Key Example
+[source,terminal]
 ====
     <ProductKey>
         <Key>0000-000-000-000</Key>
@@ -97,16 +98,17 @@ This `User Name` is the name of the local administrator. You can change its valu
 
 * `Domain` that the Windows virtual machines will join, the domain's `Password`, and the domain administrator's `Username`:
 +
-[source,yaml,subs="normal"]
-----
+[source,terminal]
+====
     <Credentials>
         <Domain>__AD_Domain__</Domain>
         <Password>__Domain_Password__</Password>
         <Username>__Domain_Administrator__</Username>
     </Credentials>
-----
+====
 +
 .Domain Credentials Example
+[source,terminal]
 ====
     <Credentials>
         <Domain>addomain.local</Domain>
@@ -124,18 +126,19 @@ The domain and credentials cannot be modified in the *Initial Run* tab.
 
 * `FullName` of the local administrator:
 +
-[source,yaml,subs="normal"]
-----
+[source,terminal]
+====
     <UserData>
     ...
         <FullName>__Local_Administrator__</FullName>
     ...
     </UserData>
-----
+====
+
 * `DisplayName` and `Name` of the local administrator:
 +
-[source,yaml,subs="normal"]
-----
+[source,yaml]
+====
     <LocalAccounts>
         <LocalAccount wcm:action="add">
             <Password>
@@ -147,7 +150,7 @@ The domain and credentials cannot be modified in the *Initial Run* tab.
             <Name>__Local_Administrator__</Name>
         </LocalAccount>
     </LocalAccounts>
-----
+====
 +
 The remaining variables in the `sysprep` file can be filled in on the *Initial Run* tab.
 

@@ -1,4 +1,4 @@
-[[The_Engine_Vacuum_Tool]]
+[id="The_Engine_Vacuum_Tool_{context}"]
 ==== The Engine Vacuum Tool
 
 The Engine Vacuum tool maintains PostgreSQL databases by updating tables and removing dead rows, allowing disk space to be reused. See the link:https://www.postgresql.org/docs/10/sql-vacuum.html[PostgreSQL documentation] for information about the `VACUUM` command and its parameters.

@@ -1,4 +1,4 @@
-[[Creating_a_New_Quota_Policy]]
+[id="Creating_a_New_Quota_Policy_{context}"]
 === Creating a New Quota Policy
 
 You have enabled quota mode, either in Audit or Enforcing mode. You want to define a quota policy to manage resource usage in your data center.

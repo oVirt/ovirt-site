@@ -1,4 +1,4 @@
-[[VDSM_hooks_setting_custom_properties]]
+[id="VDSM_hooks_setting_custom_properties_{context}"]
 === Setting Virtual Machine Custom Properties
 
 Once custom properties are defined in the {virt-product-fullname} {engine-name}, you can begin setting them on virtual machines. Custom properties are set on the *Custom Properties* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows in the Administration Portal.

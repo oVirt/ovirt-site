@@ -1,4 +1,4 @@
-[id="Removing_stale_LUNs"]
+[id="Removing_stale_LUNs_{context}"]
 = Removing stale LUNs
 
 When a storage domain is removed, stale LUN links can remain on the storage server. This can lead to slow multipath scans, cluttered log files, and LUN ID conflicts.

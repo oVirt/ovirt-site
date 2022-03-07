@@ -1,9 +1,9 @@
-[[Searching_for_events]]
+[id="Searching_for_events_{context}"]
 === Searching for Events
 
 The following table describes all search options you can use to search for events. Auto-completion is offered for many options as appropriate.
 
-[[searching_events_syntax]]
+[id="searching_events_syntax_{context}"]
 .Searching for Events
 [options="header"]
 |===

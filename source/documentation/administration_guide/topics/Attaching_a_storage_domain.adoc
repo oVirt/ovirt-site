@@ -1,4 +1,4 @@
-[[Attaching_a_storage_domain]]
+[id="Attaching_a_storage_domain_{context}"]
 ==== Attaching a Storage Domain to a Data Center
 
 Attach a storage domain to a data center.

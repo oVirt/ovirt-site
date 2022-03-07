@@ -1,9 +1,9 @@
-[[Searching_for_pools]]
+[id="Searching_for_pools_{context}"]
 === Searching for Pools
 
 The following table describes all search options for Pools.
 
-[[searching_pools]]
+[id="searching_pools_{context}"]
 .Searching for Pools
 [options="header"]
 |===

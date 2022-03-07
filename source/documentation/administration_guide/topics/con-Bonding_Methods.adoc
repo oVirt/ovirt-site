@@ -1,4 +1,4 @@
-[[Bonding_Methods]]
+[id="Bonding_Methods_{context}"]
 
 Network bonding combines multiple NICs into a bond device, with the following advantages:
 
@@ -11,7 +11,7 @@ Using NICs of the same make and model ensures that they support the same bonding
 [IMPORTANT]
 ====
 {virt-product-fullname}'s default bonding mode, `(Mode 4) Dynamic Link Aggregation`, requires a switch that supports 802.3ad.
-[[Bond_logical_networks_compatibility]]
+[id="Bond_logical_networks_compatibility_{context}"]
 The logical networks of a bond must be compatible. A bond can support only 1 non-VLAN logical network. The rest of the logical networks must have unique VLAN IDs.
 
 Bonding must be enabled for the switch ports. Consult the manual provided by your switch vendor for specific instructions.

@@ -1,4 +1,4 @@
-[[Migrating_SD_between_DC_Same_Env]]
+[id="Migrating_SD_between_DC_Same_Env_{context}"]
 ==== Migrating Storage Domains between Data Centers in the Same Environment
 
 Migrate a storage domain from one data center to another in the same {virt-product-fullname} environment to allow the destination data center to access the data contained in the storage domain. This procedure involves detaching the storage domain from one data center, and attaching it to a different data center.

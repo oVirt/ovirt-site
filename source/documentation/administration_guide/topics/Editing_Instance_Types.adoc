@@ -1,4 +1,4 @@
-[[Editing_Instance_Types]]
+[id="Editing_Instance_Types_{context}"]
 ==== Editing Instance Types
 
 Administrators can edit existing instance types from the *Configure* window.

@@ -1,4 +1,4 @@
-[[Deleting_a_tag]]
+[id="Deleting_a_tag_{context}"]
 === Deleting a Tag
 
 When a tag is no longer needed, remove it.

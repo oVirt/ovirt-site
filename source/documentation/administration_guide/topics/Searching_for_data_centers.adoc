@@ -1,8 +1,8 @@
-[[Searching_for_data_centers]]
+[id="Searching_for_data_centers_{context}"]
 === Searching for Data Centers
 
 The following table describes all search options for Data Centers.
-[[searching_datacenters]]
+[id="searching_datacenters_{context}"]
 
 .Searching for Data Centers
 [options="header"]

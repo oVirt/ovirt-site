@@ -1,4 +1,4 @@
-[[Configuring_Host_Firewall_Rules]]
+[id="Configuring_Host_Firewall_Rules_{context}"]
 = Configuring Host Firewall Rules
 
 You can configure the host firewall rules so that they are persistent, using Ansible. The cluster must be configured to use `firewalld`.

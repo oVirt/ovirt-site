@@ -1,4 +1,4 @@
-[[Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading]]
+[id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading_{context}"]
 ==== {virt-product-fullname} User Interface Plug-in Loading
 
 After a plug-in has been discovered and its data is embedded into the administration portal HTML page, administration portal tries to load the plug-in as part of application startup (unless you have configured it not to load as part of application startup).

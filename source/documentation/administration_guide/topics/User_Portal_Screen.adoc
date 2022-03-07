@@ -1,4 +1,4 @@
-[[User_Portal_Screen]]
+[id="User_Portal_Screen_{context}"]
 ==== VM Portal Screen
 
 The VM Portal screen is the screen that is shown when you log into the VM Portal. The elements of the VM Portal screen that can be customized are as follows:

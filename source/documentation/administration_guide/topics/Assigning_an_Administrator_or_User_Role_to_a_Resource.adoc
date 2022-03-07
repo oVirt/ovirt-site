@@ -1,4 +1,4 @@
-[[Assigning_an_Administrator_or_User_Role_to_a_Resource]]
+[id="Assigning_an_Administrator_or_User_Role_to_a_Resource_{context}"]
 ==== Assigning an Administrator or User Role to a Resource
 
 Assign administrator or user roles to resources to allow users to access or manage that resource.

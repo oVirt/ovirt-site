@@ -1,4 +1,4 @@
-[[Importing_a_USB_policy]]
+[id="Importing_a_USB_policy_{context}"]
 = Importing a USB Policy
 
 An existing USB device policy must be downloaded and imported into the USB Filter Editor before you can edit it.

@@ -1,4 +1,4 @@
-[[VDSM_hooks_environment]]
+[id="VDSM_hooks_environment_{context}"]
 === The VDSM Hook Environment
 
 Most hook scripts are run as the *vdsm* user and inherit the environment of the VDSM process. The exceptions are hook scripts triggered by the *before_vdsm_start* and *after_vdsm_stop* events. Hook scripts triggered by these events run as the *root* user and do not inherit the environment of the VDSM process.

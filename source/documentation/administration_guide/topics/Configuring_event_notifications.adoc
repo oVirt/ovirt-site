@@ -1,4 +1,4 @@
-[[Configuring_event_notifications]]
+[id="Configuring_event_notifications_{context}"]
 === Configuring Event Notifications in the Administration Portal
 
 The {virt-product-fullname} {engine-name} can notify designated users via email when specific events occur in the environment that the {virt-product-fullname} {engine-name} manages. To use this functionality, you must set up a mail transfer agent to deliver messages. Only email notifications can be configured through the Administration Portal. SNMP traps must be configured on the {engine-name} machine.

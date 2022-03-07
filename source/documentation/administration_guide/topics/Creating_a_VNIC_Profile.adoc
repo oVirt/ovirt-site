@@ -1,4 +1,4 @@
-[[Creating_a_VNIC_Profile]]
+[id="Creating_a_VNIC_Profile_{context}"]
 ==== Creating or Editing a vNIC Profile
 
 Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate network bandwidth for users and groups.

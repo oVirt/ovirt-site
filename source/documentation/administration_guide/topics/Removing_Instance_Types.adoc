@@ -1,4 +1,4 @@
-[[Removing_Instance_Types]]
+[id="Removing_Instance_Types_{context}"]
 ==== Removing Instance Types
 
 *Removing an Instance Type*

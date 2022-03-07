@@ -1,10 +1,10 @@
-[[chap-External_Providers]]
+[id="chap-External_Providers"]
 == External Providers
 :context: external_providers
 
 include::topics/Introduction_to_External_Providers_in_RHV.adoc[]
 
-[[sect-Adding_External_Providers]]
+[id="sect-Adding_External_Providers"]
 === Adding External Providers
 
 include::topics/Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning.adoc[]

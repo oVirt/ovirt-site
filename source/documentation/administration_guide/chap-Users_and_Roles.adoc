@@ -1,11 +1,11 @@
-[[chap-Users_and_Roles]]
+[id="chap-Users_and_Roles"]
 == Users and Roles
 
 include::topics/Introduction_to_users.adoc[]
 
 include::topics/Introduction_to_Directory_Servers.adoc[]
 
-[[sect-Configuring_an_External_LDAP_Provider]]
+[id="sect-Configuring_an_External_LDAP_Provider"]
 === Configuring an External LDAP Provider
 
 include::topics/Configuring_an_External_LDAP_Provider.adoc[]
@@ -21,14 +21,14 @@ include::topics/Configuring_LDAP_and_Kerberos_for_Single_Sign-on.adoc[]
 include::topics/Configuring_Red_Hat_SSO.adoc[]
 
 
-[[sect-User_Authorization]]
+[id="sect-User_Authorization"]
 === User Authorization
 
 include::topics/User_authorization_model.adoc[]
 
 include::topics/User_actions.adoc[]
 
-[[sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks]]
+[id="sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks"]
 === Administering User Tasks From the Administration Portal
 
 include::topics/Adding_users.adoc[]
@@ -43,7 +43,7 @@ include::topics/Viewing_Logged_In_Users.adoc[]
 
 include::topics/Terminating_a_User_Session.adoc[]
 
-[[sect-Administering_User_Tasks_From_the_commandline]]
+[id="sect-Administering_User_Tasks_From_the_commandline"]
 === Administering User Tasks From the Command Line
 
 You can use the `ovirt-aaa-jdbc-tool` tool to manage user accounts on the internal domain. Changes made using the tool take effect immediately and do not require you to restart the `ovirt-engine` service. For a full list of user options, run `ovirt-aaa-jdbc-tool user --help`. Common examples are provided in this section.

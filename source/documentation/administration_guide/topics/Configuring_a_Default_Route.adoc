@@ -1,4 +1,4 @@
-[[Configuring_a_Default_Route]]
+[id="Configuring_a_Default_Route_{context}"]
 ==== Configuring a Non-Management Logical Network as the Default Route
 
 The default route used by hosts in a cluster is through the management network (`ovirtmgmt`). The following procedure provides instructions to configure a non-management logical network as the default route.

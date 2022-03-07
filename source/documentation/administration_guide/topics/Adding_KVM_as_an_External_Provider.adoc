@@ -1,4 +1,4 @@
-[[Adding_KVM_as_an_External_Provider]]
+[id="Adding_KVM_as_an_External_Provider_{context}"]
 ==== Adding a KVM Host as a Virtual Machine Provider
 
 Add a KVM host to import virtual machines from KVM to {virt-product-fullname} {engine-name}.

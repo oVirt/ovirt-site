@@ -1,7 +1,7 @@
 // Module included in the following assemblies:
 //
 // appe-Red_Hat_Virtualization_and_SSL.adoc
-[id="Manually_setting_up_encrypted_communication_for_vdsm"]
+[id="Manually_setting_up_encrypted_communication_for_vdsm_{context}"]
 = Manually Setting Up Encrypted Communication for VDSM
 
 You can manually set up encrypted communication for VDSM with the {engine-name} and with other VDSM instances.

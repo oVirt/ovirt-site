@@ -1,4 +1,4 @@
-[[Removing_a_VNIC_Profile]]
+[id="Removing_a_VNIC_Profile_{context}"]
 ==== Removing a vNIC Profile
 
 Remove a vNIC profile to delete it from your virtualized environment.

@@ -1,4 +1,4 @@
-[id="Configure_grafana_SSO"]
+[id="Configure_grafana_SSO_{context}"]
 
 .Configuring Grafana for Single Sign-on
 

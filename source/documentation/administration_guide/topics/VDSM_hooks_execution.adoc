@@ -1,4 +1,4 @@
-[[VDSM_hooks_execution]]
+[id="VDSM_hooks_execution_{context}"]
 === VDSM Hook Execution
 
 *before_vm_start* scripts can edit the domain XML in order to change VDSM's definition of a virtual machine before it reaches libvirt. Caution must be exercised in doing so. Hook scripts have the potential to disrupt the operation of VDSM, and buggy scripts can result in outages to the {virt-product-fullname} environment. In particular, ensure you never change the UUID of the domain, and do not attempt to remove a device from the domain without sufficient background knowledge.
@@ -11,7 +11,7 @@ In this example the `sudo` command will be configured to allow the *vdsm* user t
 
 . Log into the virtualization host as *root*.
 . Open the */etc/sudoers* file in a text editor.
-. Add this line to the file: 
+. Add this line to the file:
 +
 [source,terminal]
 ----
@@ -20,7 +20,7 @@ vdsm ALL=(ALL) NOPASSWD: /bin/chown
 +
 This specifies that the *vdsm* user has the ability to run the `/bin/chown` command as the *root* user. The `NOPASSWD` parameter indicates that the user will not be prompted to enter their password when calling `sudo`.
 
-Once this configuration change has been made VDSM hooks are able to use the `sudo` command to run `/bin/chown` as *root*. This Python code uses `sudo` to execute `/bin/chown` as *root* on the file */my_file*. 
+Once this configuration change has been made VDSM hooks are able to use the `sudo` command to run `/bin/chown` as *root*. This Python code uses `sudo` to execute `/bin/chown` as *root* on the file */my_file*.
 
 [source,terminal]
 ----

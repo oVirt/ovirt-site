@@ -1,9 +1,9 @@
-[[User_Roles_Explained]]
+[id="User_Roles_Explained_{context}"]
 ==== User Roles Explained
 
 The table below describes basic user roles which confer permissions to access and configure virtual machines in the VM Portal.
 
-[[User_Roles_Basic]]
+[id="User_Roles_Basic_{context}"]
 .{virt-product-fullname} User Roles - Basic
 [options="header"]
 |===
@@ -14,7 +14,7 @@ The table below describes basic user roles which confer permissions to access an
 |===
 The table below describes advanced user roles which allow you to do more fine tuning of permissions for resources in the VM Portal.
 
-[[User_Roles_Advanced]]
+[id="User_Roles_Advanced_{context}"]
 .{virt-product-fullname} User Roles - Advanced
 [options="header"]
 |===

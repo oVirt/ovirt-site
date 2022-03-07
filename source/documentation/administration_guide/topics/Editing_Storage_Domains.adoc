@@ -1,4 +1,4 @@
-[[Editing_Storage_Domains]]
+[id="Editing_Storage_Domains_{context}"]
 ==== Editing Storage Domains
 
 You can edit storage domain parameters through the Administration Portal. Depending on the state of the storage domain, either active or inactive, different fields are available for editing. Fields such as *Data Center*, *Domain Function*, *Storage Type*, and *Format* cannot be changed.

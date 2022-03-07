@@ -605,7 +605,7 @@
 <p>Install the NFS <code>utils</code> package.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install nfs-utils -y</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install nfs-utils -y</code></pre>
 </div>
 </div>
 </li>
@@ -613,7 +613,7 @@
 <p>To check the enabled versions:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /proc/fs/nfsd/versions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /proc/fs/nfsd/versions</code></pre>
 </div>
 </div>
 </li>
@@ -621,8 +621,8 @@
 <p>Enable the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl enable nfs-server
-# systemctl enable rpcbind</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable nfs-server
+# systemctl enable rpcbind</code></pre>
 </div>
 </div>
 </li>
@@ -635,7 +635,7 @@
 <p>Create the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># groupadd kvm -g 36</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># groupadd kvm -g 36</code></pre>
 </div>
 </div>
 </li>
@@ -643,7 +643,7 @@
 <p>Create the user <code>vdsm</code> in the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># useradd vdsm -u 36 -g kvm</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># useradd vdsm -u 36 -g kvm</code></pre>
 </div>
 </div>
 </li>
@@ -661,9 +661,9 @@
 <p>Add the <code>storage</code> directory to <code>/etc/exports</code> with the relevant permissions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/exports
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/exports
 # cat /etc/exports
- /storage *(rw)</pre>
+ /storage *(rw)</code></pre>
 </div>
 </div>
 </li>
@@ -671,8 +671,8 @@
 <p>Restart the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart rpcbind
-# systemctl restart nfs-server</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart rpcbind
+# systemctl restart nfs-server</code></pre>
 </div>
 </div>
 </li>
@@ -680,10 +680,10 @@
 <p>To see which export are available for a specific IP address:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># exportfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># exportfs
  /nfs_server/srv
                10.46.11.3/24
- /nfs_server       &lt;world&gt;</pre>
+ /nfs_server       &lt;world&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -757,12 +757,12 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid <em>boot_LUN_wwid</em>
+        wwid _boot_LUN_wwid_
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -825,12 +825,12 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid <em>boot_LUN_wwid</em>
+        wwid _boot_LUN_wwid_
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -1045,7 +1045,7 @@ Do not override this setting.
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -1172,7 +1172,7 @@ Do not override this setting.
 <p>Run the <code>engine-backup</code> command, specifying the name of the backup file to create, and the name of the log file to create to store the backup log:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --file=__file_name__ --log=__log_file_name__</code></pre>
 </div>
 </div>
 </li>
@@ -1180,7 +1180,7 @@ Do not override this setting.
 <p>Copy the files to an external server. In the following example, <code>storage.example.com</code> is the fully qualified domain name of a network storage server that will store the backup until it is needed, and <code>/backup/</code> is any designated folder or path.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp -p <em>file_name</em> <em>log_file_name</em> storage.example.com:/backup/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p __file_name__ __log_file_name__ storage.example.com:/backup/</code></pre>
 </div>
 </div>
 </li>
@@ -1231,7 +1231,7 @@ Do not override this setting.
 <p>Copy the backup file to the new host. In the following example, <code>host.example.com</code> is the FQDN for the host, and <code>/backup/</code> is any designated folder or path.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp -p <em>file_name</em> host.example.com:/backup/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p __file_name__ host.example.com:/backup/</code></pre>
 </div>
 </div>
 </li>
@@ -1242,7 +1242,7 @@ Do not override this setting.
 <p>If you are deploying on oVirt Node, <code>ovirt-hosted-engine-setup</code> is already installed, so skip this step. If you are deploying on Enterprise Linux, install the <code>ovirt-hosted-engine-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-hosted-engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-hosted-engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -1253,8 +1253,8 @@ Do not override this setting.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf -y install tmux
-# tmux</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install tmux
+# tmux</code></pre>
 </div>
 </div>
 </li>
@@ -1262,7 +1262,7 @@ Do not override this setting.
 <p>Run the <code>hosted-engine</code> script, specifying the path to the backup file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --deploy --restore-from-file=backup/<em>file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=backup/__file_name__</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1412,12 +1412,12 @@ For example, if this deployment was restored from a backup, and the backup inclu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">gluster volume set <em>VOLUME_NAME</em> group virt
-gluster volume set <em>VOLUME_NAME</em> performance.strict-o-direct on
-gluster volume set <em>VOLUME_NAME</em> network.remote-dio off
-gluster volume set <em>VOLUME_NAME</em> storage.owner-uid 36
-gluster volume set <em>VOLUME_NAME</em> storage.owner-gid 36
-gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">gluster volume set _VOLUME_NAME_ group virt
+gluster volume set _VOLUME_NAME_ performance.strict-o-direct on
+gluster volume set _VOLUME_NAME_ network.remote-dio off
+gluster volume set _VOLUME_NAME_ storage.owner-uid 36
+gluster volume set _VOLUME_NAME_ storage.owner-gid 36
+gluster volume set _VOLUME_NAME_ network.ping-timeout 30</code></pre>
 </div>
 </div>
 </td>
@@ -1455,7 +1455,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1467,7 +1467,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -1475,7 +1475,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -1483,7 +1483,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -1491,7 +1491,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">

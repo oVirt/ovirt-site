@@ -629,10 +629,10 @@
 <div class="listingblock">
 <div class="title">Usage</div>
 <div class="content">
-<pre class="nowrap"># ./ovirt-dr <em>generate/validate/failover/failback</em>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ./ovirt-dr _generate/validate/failover/failback_
               [--conf-file=dr.conf]
-              [--log-file=ovirt-dr-<em>log_number</em>.log]
-              [--log-level=<em>DEBUG/INFO/WARNING/ERROR</em>]</pre>
+              [--log-file=ovirt-dr-_log_number_.log]
+              [--log-level=_DEBUG/INFO/WARNING/ERROR_]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -709,7 +709,7 @@
 <p>Run the Ansible command to generate the mapping file. The primary site’s configuration will be prepopulated.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook dr-rhv-setup.yml --tags "generate_mapping"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook dr-rhv-setup.yml --tags &quot;generate_mapping&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -732,7 +732,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
+<pre class="CodeRay highlight"><code data-lang="terminal">---
 # This file is in plain text, if you want to
 # encrypt this file, please execute following command:
 #
@@ -744,7 +744,7 @@
 # $ ansible-playbook myplaybook.yml --ask-vault-pass
 #
 dr_sites_primary_password: primary_password
-dr_sites_secondary_password: secondary_password</pre>
+dr_sites_secondary_password: secondary_password</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -769,7 +769,7 @@ dr_sites_secondary_password: secondary_password</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
+<pre class="CodeRay highlight"><code data-lang="terminal">---
 - name: Failover RHV
   hosts: localhost
   connection: local
@@ -780,7 +780,7 @@ dr_sites_secondary_password: secondary_password</pre>
     - disaster_recovery_vars.yml
     - passwords.yml
   roles:
-    - oVirt.disaster-recovery</pre>
+    - oVirt.disaster-recovery</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -788,7 +788,7 @@ dr_sites_secondary_password: secondary_password</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
+<pre class="CodeRay highlight"><code data-lang="terminal">---
 - name: Failback RHV
   hosts: localhost
   connection: local
@@ -799,7 +799,7 @@ dr_sites_secondary_password: secondary_password</pre>
     - disaster_recovery_vars.yml
     - passwords.yml
   roles:
-    - oVirt.disaster-recovery</pre>
+    - oVirt.disaster-recovery</code></pre>
 </div>
 </div>
 </div>
@@ -813,7 +813,7 @@ dr_sites_secondary_password: secondary_password</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
+<pre class="CodeRay highlight"><code data-lang="terminal">---
 - name: clean RHV
   hosts: localhost
   connection: local
@@ -822,7 +822,7 @@ dr_sites_secondary_password: secondary_password</pre>
   vars_files:
     - disaster_recovery_vars.yml
   roles:
-    - oVirt.disaster-recovery</pre>
+    - oVirt.disaster-recovery</code></pre>
 </div>
 </div>
 </div>
@@ -881,7 +881,7 @@ These locks should be released automatically approximately 80 seconds after the 
 <p>Run the failover playbook with the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook dr-rhv-failover.yml --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook dr-rhv-failover.yml --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -922,7 +922,7 @@ These locks should be released automatically approximately 80 seconds after the 
 <p>Clean up the primary site with the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook dr-cleanup.yml --tags "clean_engine"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook dr-cleanup.yml --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -971,7 +971,7 @@ These locks should be released automatically approximately 80 seconds after the 
 <p>Run the failback playbook with the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#  ansible-playbook dr-rhv-failback.yml --tags "fail_back"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">#  ansible-playbook dr-rhv-failback.yml --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1027,7 +1027,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_import_storages:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_import_storages:
 - dr_domain_type: nfs
   dr_primary_name: DATA
   dr_master_domain: True
@@ -1043,7 +1043,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
   dr_secondary_dc_name: Default
   dr_secondary_path: /storage/data2
   dr_secondary_address:10.64.90.xxx
-  dr_secondary_name: DATA</pre>
+  dr_secondary_name: DATA</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1054,11 +1054,11 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_cluster_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_cluster_mappings:
   - primary_name: cluster_prod
     secondary_name: cluster_recovery
   - primary_name: fc_cluster
-    secondary_name: recovery_fc_cluster</pre>
+    secondary_name: recovery_fc_cluster</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1069,9 +1069,9 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_affinity_group_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_affinity_group_mappings:
 - primary_name: affinity_prod
-  secondary_name: affinity_recovery</pre>
+  secondary_name: affinity_recovery</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1082,9 +1082,9 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_affinity_label_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_affinity_label_mappings:
 - primary_name: affinity_label_prod
-  secondary_name: affinity_label_recovery</pre>
+  secondary_name: affinity_label_recovery</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1095,11 +1095,11 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_domain_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_domain_mappings:
 - primary_name: internal-authz
   secondary_name: recovery-authz
 - primary_name: external-authz
-  secondary_name: recovery2-authz</pre>
+  secondary_name: recovery2-authz</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1110,9 +1110,9 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_role_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_role_mappings:
 - primary_name: VmCreator
-  Secondary_name: NewVmCreator</pre>
+  Secondary_name: NewVmCreator</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1123,14 +1123,14 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_network_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_network_mappings:
 - primary_network_name: ovirtmgmt
   primary_profile_name: ovirtmgmt
   primary_profile_id: 0000000a-000a-000a-000a-000000000398
   # Fill in the correlated vnic profile properties in the secondary site for profile 'ovirtmgmt'
   secondary_network_name: ovirtmgmt
   secondary_profile_name: ovirtmgmt
-  secondary_profile_id:  0000000a-000a-000a-000a-000000000410</pre>
+  secondary_profile_id:  0000000a-000a-000a-000a-000000000410</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1138,8 +1138,8 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_network_mappings:
-# No mapping should be here</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_network_mappings:
+# No mapping should be here</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1150,7 +1150,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_lun_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_lun_mappings:
 - primary_logical_unit_id: 460014069b2be431c0fd46c4bdce29b66
   primary_logical_unit_alias: Fedora_Disk
   primary_wipe_after_delete: False
@@ -1168,7 +1168,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
   secondary_logical_unit_address: 10.35.x.xxx
   secondary_logical_unit_port: 3260
   secondary_logical_unit_portal: 1
-  secondary_logical_unit_target: iqn.2017-12.com.recovery.example:444</pre>
+  secondary_logical_unit_target: iqn.2017-12.com.recovery.example:444</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1243,7 +1243,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1305,7 +1305,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1321,7 +1321,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "clean_engine"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1329,7 +1329,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the failback command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_back"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1360,7 +1360,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1379,7 +1379,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "clean_engine"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1387,7 +1387,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the failback command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_back"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>

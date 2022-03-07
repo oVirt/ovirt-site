@@ -101,7 +101,7 @@
 <ul class="sectlevel1">
 <li><a href="#chap-Installing_and_Configuring_Data_Warehouse">1. Installing and Configuring Data Warehouse</a>
 <ul class="sectlevel2">
-<li><a href="#Overview_of_Configuring_Data_Warehouse">1.1. Overview of Configuring Data Warehouse</a></li>
+<li><a href="#Overview_of_Configuring_Data_Warehouse_DWH_admin">1.1. Overview of Configuring Data Warehouse</a></li>
 <li><a href="#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_DWH_admin">1.2. Installing and Configuring Data Warehouse on a Separate Machine</a></li>
 <li><a href="#Migrating_Data_Warehouse_to_a_Separate_Machine_DWH_admin">1.3. Migrating Data Warehouse to a Separate Machine</a>
 <ul class="sectlevel3">
@@ -109,41 +109,41 @@
 <li><a href="#Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_migrate_DWH">1.3.2. Migrating the Data Warehouse Service to a Separate Machine</a></li>
 </ul>
 </li>
-<li><a href="#Changing_the_Data_Warehouse_Sampling_Scale">1.4. Changing the Data Warehouse Sampling Scale</a></li>
+<li><a href="#Changing_the_Data_Warehouse_Sampling_Scale_DWH_admin">1.4. Changing the Data Warehouse Sampling Scale</a></li>
 </ul>
 </li>
 <li><a href="#chap-About_History_Database">2. About the History Database</a>
 <ul class="sectlevel2">
-<li><a href="#History_Database_Overview">2.1. History Database Overview</a></li>
-<li><a href="#Tracking_configuration_history">2.2. Tracking Configuration History</a></li>
-<li><a href="#Recording_statistical_history">2.3. Recording Statistical History</a></li>
-<li><a href="#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">2.4. Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</a></li>
-<li><a href="#Tracking_tag_history">2.5. Tracking Tag History</a></li>
-<li><a href="#Allowing_Read_Only_Access_to_the_History_Database">2.6. Allowing Read-Only Access to the History Database</a></li>
+<li><a href="#History_Database_Overview_DWH_admin">2.1. History Database Overview</a></li>
+<li><a href="#Tracking_configuration_history_DWH_admin">2.2. Tracking Configuration History</a></li>
+<li><a href="#Recording_statistical_history_DWH_admin">2.3. Recording Statistical History</a></li>
+<li><a href="#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file_DWH_admin">2.4. Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</a></li>
+<li><a href="#Tracking_tag_history_DWH_admin">2.5. Tracking Tag History</a></li>
+<li><a href="#Allowing_Read_Only_Access_to_the_History_Database_DWH_admin">2.6. Allowing Read-Only Access to the History Database</a></li>
 <li><a href="#sect-Statistics_History_Views">2.7. Statistics History Views</a>
 <ul class="sectlevel3">
-<li><a href="#enabling-debug-mode">2.7.1. Enabling Debug Mode</a></li>
-<li><a href="#Storage_domain_daily_history_view">2.7.2. Storage Domain Statistics Views</a></li>
-<li><a href="#Host_hourly_and_daily_history_views">2.7.3. Host Statistics Views</a></li>
-<li><a href="#Host_interface_hourly_and_daily_history_views">2.7.4. Host Interface Statistics Views</a></li>
-<li><a href="#Virtual_machine_hourly_and_daily_history_views">2.7.5. Virtual Machine Statistics Views</a></li>
-<li><a href="#Virtual_machine_interface_hourly_and_daily_history_views">2.7.6. Virtual Machine Interface Statistics Views</a></li>
-<li><a href="#Virtual_machine_disk_hourly_and_samples_history_views">2.7.7. Virtual Disk Statistics Views</a></li>
+<li><a href="#enabling-debug-mode_DWH_admin">2.7.1. Enabling Debug Mode</a></li>
+<li><a href="#Storage_domain_daily_history_view_DWH_admin">2.7.2. Storage Domain Statistics Views</a></li>
+<li><a href="#Host_hourly_and_daily_history_views_DWH_admin">2.7.3. Host Statistics Views</a></li>
+<li><a href="#Host_interface_hourly_and_daily_history_views_DWH_admin">2.7.4. Host Interface Statistics Views</a></li>
+<li><a href="#Virtual_machine_hourly_and_daily_history_views_DWH_admin">2.7.5. Virtual Machine Statistics Views</a></li>
+<li><a href="#Virtual_machine_interface_hourly_and_daily_history_views_DWH_admin">2.7.6. Virtual Machine Interface Statistics Views</a></li>
+<li><a href="#Virtual_machine_disk_hourly_and_samples_history_views_DWH_admin">2.7.7. Virtual Disk Statistics Views</a></li>
 </ul>
 </li>
 <li><a href="#sect-Configuration_History_Views">2.8. Configuration History Views</a>
 <ul class="sectlevel3">
-<li><a href="#Latest_datacenter_configuration_view1">2.8.1. Data Center Configuration</a></li>
-<li><a href="#Latest_datacenter_configuration_view2">2.8.2. Data Center Storage Domain Map</a></li>
-<li><a href="#Latest_storage_domain_configuration_view">2.8.3. Storage Domain Configuration</a></li>
-<li><a href="#Latest_cluster_configuration_view">2.8.4. Cluster Configuration</a></li>
-<li><a href="#Latest_host_configuration_view">2.8.5. Host Configuration</a></li>
-<li><a href="#Latest_host_interface_configuration_view">2.8.6. Host Interface Configuration</a></li>
-<li><a href="#Latest_virtual_machine_configuration_view">2.8.7. Virtual Machine Configuration</a></li>
-<li><a href="#Latest_virtual_machine_interface_configuration_view">2.8.8. Virtual Machine Interface Configuration</a></li>
-<li><a href="#Virtual_Machine_Device_Configuration">2.8.9. Virtual Machine Device Configuration</a></li>
-<li><a href="#Latest_virtual_machine_disk_configuration_view">2.8.10. Virtual Disk Configuration</a></li>
-<li><a href="#User_Details_History">2.8.11. User Details History</a></li>
+<li><a href="#Latest_datacenter_configuration_view1_DWH_admin">2.8.1. Data Center Configuration</a></li>
+<li><a href="#Latest_datacenter_configuration_view2_DWH_admin">2.8.2. Data Center Storage Domain Map</a></li>
+<li><a href="#Latest_storage_domain_configuration_view_DWH_admin">2.8.3. Storage Domain Configuration</a></li>
+<li><a href="#Latest_cluster_configuration_view_DWH_admin">2.8.4. Cluster Configuration</a></li>
+<li><a href="#Latest_host_configuration_view_DWH_admin">2.8.5. Host Configuration</a></li>
+<li><a href="#Latest_host_interface_configuration_view_DWH_admin">2.8.6. Host Interface Configuration</a></li>
+<li><a href="#Latest_virtual_machine_configuration_view_DWH_admin">2.8.7. Virtual Machine Configuration</a></li>
+<li><a href="#Latest_virtual_machine_interface_configuration_view_DWH_admin">2.8.8. Virtual Machine Interface Configuration</a></li>
+<li><a href="#Virtual_Machine_Device_Configuration_DWH_admin">2.8.9. Virtual Machine Device Configuration</a></li>
+<li><a href="#Latest_virtual_machine_disk_configuration_view_DWH_admin">2.8.10. Virtual Disk Configuration</a></li>
+<li><a href="#User_Details_History_DWH_admin">2.8.11. User Details History</a></li>
 </ul>
 </li>
 </ul>
@@ -179,7 +179,7 @@
 <h2 id="chap-Installing_and_Configuring_Data_Warehouse">1. Installing and Configuring Data Warehouse</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Overview_of_Configuring_Data_Warehouse">1.1. Overview of Configuring Data Warehouse</h3>
+<h3 id="Overview_of_Configuring_Data_Warehouse_DWH_admin">1.1. Overview of Configuring Data Warehouse</h3>
 <div class="paragraph">
 <p>You can install and configure Data Warehouse on the same machine as the Engine, or on a separate machine with access to the Engine:</p>
 </div>
@@ -313,7 +313,7 @@
 <p>You must manually grant access by editing the <code>postgresql.conf</code> file. Edit the <code>/var/lib/pgsql/data/postgresql.conf</code> file and modify the <code>listen_addresses</code> line so that it matches the following:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">listen_addresses = '*'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses = '*'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -331,7 +331,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -343,7 +343,7 @@
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -351,7 +351,7 @@
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -359,7 +359,7 @@
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -367,7 +367,7 @@
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -404,7 +404,7 @@
 <p>Ensure that all packages are up to date:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -412,7 +412,7 @@
 <p>Install the <code>ovirt-engine-dwh-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-dwh-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-dwh-setup</code></pre>
 </div>
 </div>
 </li>
@@ -420,7 +420,7 @@
 <p>Run the <code>engine-setup</code> command to begin the installation:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -428,7 +428,7 @@
 <p>Answer <code>Yes</code> to install Data Warehouse on this machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Configure Data Warehouse on this host (Yes, No) [Yes]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Data Warehouse on this host (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -436,7 +436,7 @@
 <p>Answer <code>Yes</code> to install Grafana on this machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Configure Grafana on this host (Yes, No) [Yes]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Grafana on this host (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -444,7 +444,7 @@
 <p>Press <code>Enter</code> to accept the automatically-detected host name, or enter an alternative host name and press <code>Enter</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of this server [<em>autodetected hostname</em>]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected hostname_]:</code></pre>
 </div>
 </div>
 </li>
@@ -452,9 +452,9 @@
 <p>Press <code>Enter</code> to automatically configure the firewall, or type <code>No</code> and press <code>Enter</code> to maintain existing settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can automatically configure the firewall on this system.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
-Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -465,7 +465,7 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Enter the fully qualified domain name of the Engine machine, and then press <code>Enter</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of the engine server []:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of the engine server []:</code></pre>
 </div>
 </div>
 </li>
@@ -473,11 +473,11 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Press <code>Enter</code> to allow setup to sign the certificate on the Engine via SSH:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
 Please choose one of the following:
 1 - Access remote engine server using ssh as root
 2 - Perform each action manually, use files to copy content around
-(1, 2) [1]:</pre>
+(1, 2) [1]:</code></pre>
 </div>
 </div>
 </li>
@@ -485,7 +485,7 @@ Please choose one of the following:
 <p>Press <code>Enter</code> to accept the default SSH port, or enter an alternative port number and then press <code>Enter</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ssh port on remote engine server [22]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">ssh port on remote engine server [22]:</code></pre>
 </div>
 </div>
 </li>
@@ -493,7 +493,7 @@ Please choose one of the following:
 <p>Enter the root password for the Engine machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">root password on remote engine server <em>manager.example.com</em>:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">root password on remote engine server _manager.example.com_:</code></pre>
 </div>
 </div>
 </li>
@@ -515,7 +515,7 @@ Please choose one of the following:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Where is the DWH database located? (Local, Remote) [Local]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Where is the DWH database located? (Local, Remote) [Local]:</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -524,8 +524,8 @@ Please choose one of the following:
 <p>If you select <code>Local</code>, the <code>engine-setup</code> script can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
-Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
+Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -537,10 +537,10 @@ Would you like Setup to automatically configure postgresql and create DWH databa
 <p>If you select <code>Manual</code>, input the following values for the manually-configured local database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">DWH database secured connection (Yes, No) [No]:
+<pre class="CodeRay highlight"><code data-lang="terminal">DWH database secured connection (Yes, No) [No]:
 DWH database name [ovirt_engine_history]:
 DWH database user [ovirt_engine_history]:
-DWH database password:</pre>
+DWH database password:</code></pre>
 </div>
 </div>
 </li>
@@ -554,12 +554,12 @@ DWH database password:</pre>
 <p>Enter the fully qualified domain name and password for the Engine database machine. If you are installing the Data Warehouse database on the same machine where the Engine database is installed, use the same FQDN. Press <code>Enter</code> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Engine database host []: <em>engine-db-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: _engine-db-fqdn_
 Engine database port [5432]:
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
 Engine database user [engine]:
-Engine database password: <em>password</em></pre>
+Engine database password: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -567,10 +567,10 @@ Engine database password: <em>password</em></pre>
 <p>Choose how long Data Warehouse will retain collected data:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please choose Data Warehouse sampling scale:
+<pre class="CodeRay highlight"><code data-lang="terminal">Please choose Data Warehouse sampling scale:
 (1) Basic
 (2) Full
-(1, 2)[1]:</pre>
+(1, 2)[1]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -584,7 +584,7 @@ Engine database password: <em>password</em></pre>
 <p>Confirm your installation settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please confirm installation settings (OK, Cancel) [OK]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please confirm installation settings (OK, Cancel) [OK]:</code></pre>
 </div>
 </div>
 </li>
@@ -592,7 +592,7 @@ Engine database password: <em>password</em></pre>
 <p>After the Data Warehouse configuration is complete, on the oVirt Engine, restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -666,7 +666,7 @@ Enable the required repositories on the new database server.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -678,7 +678,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -686,7 +686,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -694,7 +694,7 @@ Enable the required repositories on the new database server.</p>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -727,7 +727,7 @@ Enable the required repositories on the new database server.</p>
 <p>Create a backup of the Data Warehouse database and configuration files on the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </li>
@@ -735,7 +735,7 @@ Enable the required repositories on the new database server.</p>
 <p>Copy the backup file from the Engine to the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp <em>/tmp/file_name</em> <em>root@new.dwh.server.com:/tmp</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp _/tmp/file_name_ _root@new.dwh.server.com:/tmp_</code></pre>
 </div>
 </div>
 </li>
@@ -743,7 +743,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install <code>engine-backup</code> on the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-tools-backup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-tools-backup</code></pre>
 </div>
 </div>
 </li>
@@ -751,7 +751,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the PostgreSQL server package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install postgresql-server postgresql-contrib</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install postgresql-server postgresql-contrib</code></pre>
 </div>
 </div>
 </li>
@@ -769,7 +769,7 @@ Enable the required repositories on the new database server.</p>
 <p>Restore the Data Warehouse database on the new machine. <em>file_name</em> is the backup file copied from the Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -858,7 +858,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -866,7 +866,7 @@ Enable the required repositories on the new database server.</p>
 <p>Ensure that all packages currently installed are up to date:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -874,7 +874,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the <code>ovirt-engine-dwh-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-dwh-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-dwh-setup</code></pre>
 </div>
 </div>
 </li>
@@ -889,7 +889,7 @@ Enable the required repositories on the new database server.</p>
 <p>Stop the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -897,7 +897,7 @@ Enable the required repositories on the new database server.</p>
 <p>If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the <code class="filename">/var/lib/pgsql/data/postgresql.conf</code> file and modify the listen_addresses line so that it matches the following:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">listen_addresses = '*'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses = '*'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -914,7 +914,7 @@ Enable the required repositories on the new database server.</p>
 <p>Restart the postgresql service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart postgresql</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart postgresql</code></pre>
 </div>
 </div>
 </li>
@@ -932,13 +932,13 @@ Enable the required repositories on the new database server.</p>
 <p>If you are migrating both the <code>ovirt_engine_history</code> database and the Data Warehouse service to the <strong>same</strong> machine, run the following, otherwise proceed to the next step.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i '/^ENGINE_DB_/d' \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i '/^ENGINE_DB_/d' \
         /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_ENGINE_CORE/enable=bool\):True;\1:False;' \
      -e '/^OVESETUP_CONFIG\/fqdn/d' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -946,7 +946,7 @@ Enable the required repositories on the new database server.</p>
 <p>Run the <code>engine-setup</code> command to begin configuration of Data Warehouse on the machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -954,7 +954,7 @@ Enable the required repositories on the new database server.</p>
 <p>Press <strong>Enter</strong> to accept the automatically detected host name, or enter an alternative host name and press <strong>Enter</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of this server [<em>autodetected host name</em>]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected host name_]:</code></pre>
 </div>
 </div>
 </li>
@@ -962,9 +962,9 @@ Enable the required repositories on the new database server.</p>
 <p>Press <code>Enter</code> to automatically configure the firewall, or type <code>No</code> and press <code>Enter</code> to maintain existing settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can automatically configure the firewall on this system.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
-Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -975,14 +975,14 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Enter the fully qualified domain name and password for the Engine. Press <strong>Enter</strong> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of the engine server []: <em>engine-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of the engine server []: _engine-fqdn_
 Setup needs to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
 Please choose one of the following:
 1 - Access remote engine server using ssh as root
 2 - Perform each action manually, use files to copy content around
 (1, 2) [1]:
 ssh port on remote engine server [22]:
-root password on remote engine server <em>engine-fqdn</em>: <em>password</em></pre>
+root password on remote engine server _engine-fqdn_: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -990,12 +990,12 @@ root password on remote engine server <em>engine-fqdn</em>: <em>password</em></p
 <p>Enter the FQDN and password for the Engine database machine. Press <code>Enter</code> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Engine database host []: <em>manager-db-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: _manager-db-fqdn_
 Engine database port [5432]:
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
 Engine database user [engine]:
-Engine database password: <em>password</em></pre>
+Engine database password: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -1003,7 +1003,7 @@ Engine database password: <em>password</em></pre>
 <p>Confirm your installation settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please confirm installation settings (OK, Cancel) [OK]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please confirm installation settings (OK, Cancel) [OK]:</code></pre>
 </div>
 </div>
 </li>
@@ -1021,7 +1021,7 @@ Engine database password: <em>password</em></pre>
 <td class="content">
 <div class="paragraph">
 <p>If you want to change the Data Warehouse sampling scale to the recommended scale on a remote server, see
-<a href="#Changing_the_Data_Warehouse_Sampling_Scale">Changing the Data Warehouse Sampling Scale</a>.</p>
+<a href="#Changing_the_Data_Warehouse_Sampling_Scale">[Changing_the_Data_Warehouse_Sampling_Scale]</a>.</p>
 </div>
 </td>
 </tr>
@@ -1036,7 +1036,7 @@ Engine database password: <em>password</em></pre>
 <p>On the Engine machine, restart the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service ovirt-engine restart</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service ovirt-engine restart</code></pre>
 </div>
 </div>
 </li>
@@ -1044,14 +1044,14 @@ Engine database password: <em>password</em></pre>
 <p>Run the following command to modify the file <strong>/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</strong> and set the options to <code>False</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i \
      -e 's;^\(OVESETUP_DWH_CORE/enable=bool\):True;\1:False;' \
      -e 's;^\(OVESETUP_DWH_CONFIG/remoteEngineConfigured=bool\):True;\1:False;' \
      /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_GRAFANA_CORE/enable=bool\):True;\1:False;' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -1059,7 +1059,7 @@ Engine database password: <em>password</em></pre>
 <p>Disable the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl disable ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl disable ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -1067,7 +1067,7 @@ Engine database password: <em>password</em></pre>
 <p>Remove the Data Warehouse files:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</code></pre>
 </div>
 </div>
 </li>
@@ -1080,14 +1080,14 @@ Engine database password: <em>password</em></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Data_Warehouse_Sampling_Scale">1.4. Changing the Data Warehouse Sampling Scale</h3>
+<h3 id="Changing_the_Data_Warehouse_Sampling_Scale_DWH_admin">1.4. Changing the Data Warehouse Sampling Scale</h3>
 <div class="paragraph">
 <p>Data Warehouse is required in oVirt. It can be installed and configured on the same machine as the Engine, or on a separate machine with access to the Engine. The default data retention settings may not be required for all setups, so <code>engine-setup</code> offers two data sampling scales: <code>Basic</code> and <code>Full</code>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Full</code> uses the default values for the data retention settings listed in <a href="#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</a> (recommended when Data Warehouse is installed on a remote host).</p>
+<p><code>Full</code> uses the default values for the data retention settings listed in <a href="#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">[Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file]</a> (recommended when Data Warehouse is installed on a remote host).</p>
 </li>
 <li>
 <p><code>Basic</code> reduces the values of <code>DWH_TABLES_KEEP_HOURLY</code> to <code>720</code> and <code>DWH_TABLES_KEEP_DAILY</code> to <code>0</code>, easing the load on the Engine machine. Use <code>Basic</code> when the Engine and Data Warehouse are installed on the same machine.</p>
@@ -1143,7 +1143,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also adjust individual data retention settings if necessary, as documented in <a href="#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</a>.</p>
+<p>You can also adjust individual data retention settings if necessary, as documented in <a href="#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">[Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file]</a>.</p>
 </div>
 </div>
 </div>
@@ -1152,7 +1152,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 <h2 id="chap-About_History_Database">2. About the History Database</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="History_Database_Overview">2.1. History Database Overview</h3>
+<h3 id="History_Database_Overview_DWH_admin">2.1. History Database Overview</h3>
 <div class="paragraph">
 <p>oVirt includes a comprehensive management history database, which can be used by reporting applications to generate reports at data center, cluster and host levels. This chapter provides information to enable you to set up queries against the history database.</p>
 </div>
@@ -1184,7 +1184,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Tracking_configuration_history">2.2. Tracking Configuration History</h3>
+<h3 id="Tracking_configuration_history_DWH_admin">2.2. Tracking Configuration History</h3>
 <div class="paragraph">
 <p>Data from the oVirt History Database (called <code>ovirt_engine_history</code>) can be used to track the <code>engine</code> database.</p>
 </div>
@@ -1225,7 +1225,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Recording_statistical_history">2.3. Recording Statistical History</h3>
+<h3 id="Recording_statistical_history_DWH_admin">2.3. Recording Statistical History</h3>
 <div class="paragraph">
 <p>The ETL service collects data into the statistical tables every minute. Data is stored for every minute of the past 24 hours, at a minimum, but can be stored for as long as 48 hours depending on the last time a deletion job was run. Minute-by-minute data more than two hours old is aggregated into hourly data and stored for two months. Hourly data more than two days old is aggregated into daily data and stored for five years.</p>
 </div>
@@ -1237,7 +1237,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">2.4. Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</h3>
+<h3 id="Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file_DWH_admin">2.4. Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</h3>
 <div class="paragraph">
 <p>The following is a list of options for configuring application settings for the Data Warehouse service. These options are available in the <strong>/usr/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.conf</strong> file. Configure any changes to the default values in an override file under <strong>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/</strong>. Restart the Data Warehouse service after saving the changes.</p>
 </div>
@@ -1290,7 +1290,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="Tracking_tag_history">2.5. Tracking Tag History</h3>
+<h3 id="Tracking_tag_history_DWH_admin">2.5. Tracking Tag History</h3>
 <div class="paragraph">
 <p>The ETL Service collects tag information as displayed in the Administration Portal every minute and stores this data in the tags historical tables. The ETL Service tracks five types of changes:</p>
 </div>
@@ -1315,7 +1315,7 @@ Please confirm installation settings (OK, Cancel) [OK]:</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Allowing_Read_Only_Access_to_the_History_Database">2.6. Allowing Read-Only Access to the History Database</h3>
+<h3 id="Allowing_Read_Only_Access_to_the_History_Database_DWH_admin">2.6. Allowing Read-Only Access to the History Database</h3>
 <div class="paragraph">
 <p>To allow access to the history database without allowing edits, you must create a read-only PostgreSQL user that can log in to and read from the <code>ovirt_engine_history</code> database. This procedure must be executed on the system on which the history database is installed.</p>
 </div>
@@ -1434,7 +1434,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1442,11 +1442,11 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># \dv</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># \dv</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enabling-debug-mode">2.7.1. Enabling Debug Mode</h4>
+<h4 id="enabling-debug-mode_DWH_admin">2.7.1. Enabling Debug Mode</h4>
 <div class="paragraph">
 <p>You can enable debug mode to record log sampling, hourly, and daily job times in the <strong>/var/log/ovirt-engine-dwh/ovirt-engine-dwhd.log</strong> file. This is useful for checking the ETL process. Debug mode is disabled by default.</p>
 </div>
@@ -1481,7 +1481,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Storage_domain_daily_history_view">2.7.2. Storage Domain Statistics Views</h4>
+<h4 id="Storage_domain_daily_history_view_DWH_admin">2.7.2. Storage Domain Statistics Views</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 2. Historical Statistics for Each Storage Domain in the System</caption>
 <colgroup>
@@ -1557,7 +1557,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Host_hourly_and_daily_history_views">2.7.3. Host Statistics Views</h4>
+<h4 id="Host_hourly_and_daily_history_views_DWH_admin">2.7.3. Host Statistics Views</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 3. Historical Statistics for Each Host in the System</caption>
 <colgroup>
@@ -1769,7 +1769,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Host_interface_hourly_and_daily_history_views">2.7.4. Host Interface Statistics Views</h4>
+<h4 id="Host_interface_hourly_and_daily_history_views_DWH_admin">2.7.4. Host Interface Statistics Views</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 4. Historical Statistics for Each Host Network Interface in the System</caption>
 <colgroup>
@@ -1851,7 +1851,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Virtual_machine_hourly_and_daily_history_views">2.7.5. Virtual Machine Statistics Views</h4>
+<h4 id="Virtual_machine_hourly_and_daily_history_views_DWH_admin">2.7.5. Virtual Machine Statistics Views</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 5. Historical Statistics for Each Virtual Machine in the System</caption>
 <colgroup>
@@ -2036,7 +2036,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Virtual_machine_interface_hourly_and_daily_history_views">2.7.6. Virtual Machine Interface Statistics Views</h4>
+<h4 id="Virtual_machine_interface_hourly_and_daily_history_views_DWH_admin">2.7.6. Virtual Machine Interface Statistics Views</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 6. Historical Statistics for the Virtual Machine Network Interfaces in the System</caption>
 <colgroup>
@@ -2118,7 +2118,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Virtual_machine_disk_hourly_and_samples_history_views">2.7.7. Virtual Disk Statistics Views</h4>
+<h4 id="Virtual_machine_disk_hourly_and_samples_history_views_DWH_admin">2.7.7. Virtual Disk Statistics Views</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 7. Historical Statistics for the Virtual Disks in the System</caption>
 <colgroup>
@@ -2297,7 +2297,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># SELECT * FROM v4_4_configuration_history_datacenters;</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># SELECT * FROM v4_4_configuration_history_datacenters;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2305,7 +2305,7 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># \dv</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># \dv</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2323,7 +2323,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_datacenter_configuration_view1">2.8.1. Data Center Configuration</h4>
+<h4 id="Latest_datacenter_configuration_view1_DWH_admin">2.8.1. Data Center Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the data centers in the system.</p>
 </div>
@@ -2396,7 +2396,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_datacenter_configuration_view2">2.8.2. Data Center Storage Domain Map</h4>
+<h4 id="Latest_datacenter_configuration_view2_DWH_admin">2.8.2. Data Center Storage Domain Map</h4>
 <div class="paragraph">
 <p>The following table shows the relationships between storage domains and data centers in the system.</p>
 </div>
@@ -2451,7 +2451,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_storage_domain_configuration_view">2.8.3. Storage Domain Configuration</h4>
+<h4 id="Latest_storage_domain_configuration_view_DWH_admin">2.8.3. Storage Domain Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the storage domains in the system.</p>
 </div>
@@ -2532,7 +2532,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_cluster_configuration_view">2.8.4. Cluster Configuration</h4>
+<h4 id="Latest_cluster_configuration_view_DWH_admin">2.8.4. Cluster Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the clusters in the system.</p>
 </div>
@@ -2629,7 +2629,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_host_configuration_view">2.8.5. Host Configuration</h4>
+<h4 id="Latest_host_configuration_view_DWH_admin">2.8.5. Host Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the hosts in the system.</p>
 </div>
@@ -2817,7 +2817,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_host_interface_configuration_view">2.8.6. Host Interface Configuration</h4>
+<h4 id="Latest_host_interface_configuration_view_DWH_admin">2.8.6. Host Interface Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the host interfaces in the system.</p>
 </div>
@@ -2947,7 +2947,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_virtual_machine_configuration_view">2.8.7. Virtual Machine Configuration</h4>
+<h4 id="Latest_virtual_machine_configuration_view_DWH_admin">2.8.7. Virtual Machine Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the virtual machines in the system.</p>
 </div>
@@ -3164,7 +3164,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_virtual_machine_interface_configuration_view">2.8.8. Virtual Machine Interface Configuration</h4>
+<h4 id="Latest_virtual_machine_interface_configuration_view_DWH_admin">2.8.8. Virtual Machine Interface Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the virtual interfaces in the system.</p>
 </div>
@@ -3265,7 +3265,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Virtual_Machine_Device_Configuration">2.8.9. Virtual Machine Device Configuration</h4>
+<h4 id="Virtual_Machine_Device_Configuration_DWH_admin">2.8.9. Virtual Machine Device Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the relationships between virtual machines and their associated devices, including disks and virtual interfaces.</p>
 </div>
@@ -3370,7 +3370,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Latest_virtual_machine_disk_configuration_view">2.8.10. Virtual Disk Configuration</h4>
+<h4 id="Latest_virtual_machine_disk_configuration_view_DWH_admin">2.8.10. Virtual Disk Configuration</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the virtual disks in the system.</p>
 </div>
@@ -3482,7 +3482,7 @@ ovirt_engine_history=&gt;</pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="User_Details_History">2.8.11. User Details History</h4>
+<h4 id="User_Details_History_DWH_admin">2.8.11. User Details History</h4>
 <div class="paragraph">
 <p>The following table shows the configuration history parameters of the users in the system.</p>
 </div>

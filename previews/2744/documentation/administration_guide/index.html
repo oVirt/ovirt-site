@@ -1935,7 +1935,7 @@
 <p>On the Engine machine, create a file in the directory <code class="filename">/usr/share/ovirt-engine/playbooks</code>. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vim /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vim /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</code></pre>
 </div>
 </div>
 </li>
@@ -1956,7 +1956,7 @@ roles:
 <p>Run the file you just created:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook -l <em>hostname</em> /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook -l _hostname_ /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</code></pre>
 </div>
 </div>
 </li>
@@ -1967,9 +1967,9 @@ roles:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook -l <em>hostname</em> \
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook -l _hostname_ \
   --extra-vars host_deploy_spice_cipher_string=”DEFAULT:-RC4:-3DES:-DES” \
-  /usr/share/ovirt-engine/playbooks/ovirt-host-deploy.yml</pre>
+  /usr/share/ovirt-engine/playbooks/ovirt-host-deploy.yml</code></pre>
 </div>
 </div>
 </div>
@@ -10899,8 +10899,8 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/modprobe.d
-options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/modprobe.d
+options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
 </div>
 </div>
 </td>
@@ -10915,12 +10915,12 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <p>Refresh the <strong>grub.cfg</strong> file and reboot the host for these changes to take effect:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># reboot</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># reboot</code></pre>
 </div>
 </div>
 </li>
@@ -11512,7 +11512,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
 </div>
 </div>
 </li>
@@ -11520,7 +11520,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 </li>
@@ -11637,7 +11637,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
 </div>
 </div>
 </li>
@@ -11645,7 +11645,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 </li>
@@ -11666,7 +11666,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>Identify the current version of Enterprise Linux:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/redhat-release</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/redhat-release</code></pre>
 </div>
 </div>
 </li>
@@ -11674,7 +11674,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>Check which version of the redhat-release package is available:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf --refresh info --available redhat-release</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf --refresh info --available redhat-release</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11682,11 +11682,11 @@ Pinned virtual machines must be shut down before updating the host.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Available Packages
+<pre class="CodeRay highlight"><code data-lang="terminal">Available Packages
 Name         : redhat-release
 Version      : 8.3
 Release      : 1.0.el8
-&#8230;&#8203;</pre>
+...</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -11708,7 +11708,7 @@ Release      : 1.0.el8
 <p>If the Advanced Virtualization stream is available for Enterprise Linux 8.3 or later, reset the <code>virt</code> module:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module reset virt</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module reset virt</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -11742,7 +11742,7 @@ Release      : 1.0.el8
 <p>For oVirt 4.4.2:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:8.2</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:8.2</code></pre>
 </div>
 </div>
 </li>
@@ -11750,7 +11750,7 @@ Release      : 1.0.el8
 <p>For oVirt 4.4.3 to 4.4.5:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:8.3</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:8.3</code></pre>
 </div>
 </div>
 </li>
@@ -11758,7 +11758,7 @@ Release      : 1.0.el8
 <p>For oVirt 4.4.6 or later:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:av</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:av</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -11786,7 +11786,7 @@ Release      : 1.0.el8
 <p>Update the host:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -12015,7 +12015,7 @@ Release      : 1.0.el8
 <p>On the Engine machine, create a file in the directory <code class="filename">/usr/share/ovirt-engine/playbooks</code>. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vim /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vim /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</code></pre>
 </div>
 </div>
 </li>
@@ -12036,7 +12036,7 @@ roles:
 <p>Run the file you just created:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook -l <em>hostname</em> /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook -l _hostname_ /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml</code></pre>
 </div>
 </div>
 </li>
@@ -12047,9 +12047,9 @@ roles:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook -l <em>hostname</em> \
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook -l _hostname_ \
   --extra-vars host_deploy_spice_cipher_string=”DEFAULT:-RC4:-3DES:-DES” \
-  /usr/share/ovirt-engine/playbooks/ovirt-host-deploy.yml</pre>
+  /usr/share/ovirt-engine/playbooks/ovirt-host-deploy.yml</code></pre>
 </div>
 </div>
 </div>
@@ -13006,7 +13006,7 @@ If a host runs virtual machines that are highly available, power management must
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">engine-config -s FenceKdumpDestinationAddress=<em>A.B.C.D</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">engine-config -s FenceKdumpDestinationAddress=_A.B.C.D_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13516,7 +13516,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Install the NFS <code>utils</code> package.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install nfs-utils -y</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install nfs-utils -y</code></pre>
 </div>
 </div>
 </li>
@@ -13524,7 +13524,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>To check the enabled versions:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /proc/fs/nfsd/versions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /proc/fs/nfsd/versions</code></pre>
 </div>
 </div>
 </li>
@@ -13532,8 +13532,8 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Enable the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl enable nfs-server
-# systemctl enable rpcbind</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable nfs-server
+# systemctl enable rpcbind</code></pre>
 </div>
 </div>
 </li>
@@ -13546,7 +13546,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Create the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># groupadd kvm -g 36</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># groupadd kvm -g 36</code></pre>
 </div>
 </div>
 </li>
@@ -13554,7 +13554,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Create the user <code>vdsm</code> in the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># useradd vdsm -u 36 -g kvm</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># useradd vdsm -u 36 -g kvm</code></pre>
 </div>
 </div>
 </li>
@@ -13572,9 +13572,9 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Add the <code>storage</code> directory to <code>/etc/exports</code> with the relevant permissions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/exports
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/exports
 # cat /etc/exports
- /storage *(rw)</pre>
+ /storage *(rw)</code></pre>
 </div>
 </div>
 </li>
@@ -13582,8 +13582,8 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>Restart the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart rpcbind
-# systemctl restart nfs-server</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart rpcbind
+# systemctl restart nfs-server</code></pre>
 </div>
 </div>
 </li>
@@ -13591,10 +13591,10 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>To see which export are available for a specific IP address:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># exportfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># exportfs
  /nfs_server/srv
                10.46.11.3/24
- /nfs_server       &lt;world&gt;</pre>
+ /nfs_server       &lt;world&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -13723,7 +13723,7 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <p>On the host, create the directory to be used for the local storage:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir -p /data/images</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /data/images</code></pre>
 </div>
 </div>
 </li>
@@ -13731,8 +13731,8 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <p>Ensure that the directory has permissions allowing read/write access to the <strong>vdsm</strong> user (UID 36) and <strong>kvm</strong> group (GID 36):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown 36:36 /data /data/images
-# chmod 0755 /data /data/images</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown 36:36 /data /data/images
+# chmod 0755 /data /data/images</code></pre>
 </div>
 </div>
 </li>
@@ -13748,11 +13748,11 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <p>Create a local storage directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir /data
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /data
 # lvcreate -L $SIZE rhvh -n data
 # mkfs.ext4 /dev/mapper/rhvh-data
-# echo "/dev/mapper/rhvh-data /data ext4 defaults,discard 1 2" &gt;&gt; /etc/fstab
-# mount /data</pre>
+# echo &quot;/dev/mapper/rhvh-data /data ext4 defaults,discard 1 2&quot; &gt;&gt; /etc/fstab
+# mount /data</code></pre>
 </div>
 </div>
 </li>
@@ -13760,7 +13760,7 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <p>Mount the new local storage:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mount -a</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount -a</code></pre>
 </div>
 </div>
 </li>
@@ -13768,8 +13768,8 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <p>Ensure that the directory has permissions allowing read/write access to the <strong>vdsm</strong> user (UID 36) and <strong>kvm</strong> group (GID 36):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown 36:36 /data /rhvh-data
-# chmod 0755 /data /rhvh-data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown 36:36 /data /rhvh-data
+# chmod 0755 /data /rhvh-data</code></pre>
 </div>
 </div>
 </li>
@@ -13974,12 +13974,12 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid <em>boot_LUN_wwid</em>
+        wwid _boot_LUN_wwid_
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -14383,12 +14383,12 @@ multipaths {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid <em>boot_LUN_wwid</em>
+        wwid _boot_LUN_wwid_
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -19831,7 +19831,7 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-shared-config <em>key</em> --type=<em>type</em> --help</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-shared-config _key_ --type=_type_ --help</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -19888,7 +19888,7 @@ You must also define the authentication URL of the Keystone server by defining t
 <p>On a self-hosted engine node, set the <code>smtp-server</code> key to the desired SMTP server address:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-shared-config smtp-server <em>smtp.example.com</em> --type=broker</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-shared-config smtp-server __smtp.example.com__ --type=broker</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -19903,8 +19903,8 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --get-shared-config smtp-server --type=broker
-broker : smtp.example.com, type : broker</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --get-shared-config smtp-server --type=broker
+broker : smtp.example.com, type : broker</code></pre>
 </div>
 </div>
 </td>
@@ -19925,7 +19925,7 @@ broker : 25, type : broker</pre>
 <p>Specify an email address you want the SMTP server to use to send out email notifications. Only one address can be specified.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-shared-config source-email <em>source@example.com</em> --type=broker</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-shared-config source-email _source@example.com_ --type=broker</code></pre>
 </div>
 </div>
 </li>
@@ -19933,7 +19933,7 @@ broker : 25, type : broker</pre>
 <p>Specify the destination email address to receive email notifications. To specify multiple email addresses, separate each address by a comma.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-shared-config destination-emails <em>destination1@example.com</em>,<em>destination2@example.com</em> --type=broker</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-shared-config destination-emails _destination1@example.com_,_destination2@example.com_ --type=broker</code></pre>
 </div>
 </div>
 </li>
@@ -20094,7 +20094,7 @@ broker : 25, type : broker</pre>
 <p>Connect to one of the hosted-engine nodes:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ ssh root@<em>host_address</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ ssh root@__host_address__</code></pre>
 </div>
 </div>
 </li>
@@ -20102,7 +20102,7 @@ broker : 25, type : broker</pre>
 <p>Put the self-hosted engine in global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -20110,7 +20110,7 @@ broker : 25, type : broker</pre>
 <p>Check if there is already a running instance of the Engine virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20118,7 +20118,7 @@ broker : 25, type : broker</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ssh root@<em>host_address</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh root@__host_address__</code></pre>
 </div>
 </div>
 </li>
@@ -20126,7 +20126,7 @@ broker : 25, type : broker</pre>
 <p>Shut down the virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-shutdown</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-shutdown</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -20153,7 +20153,7 @@ broker : 25, type : broker</pre>
 <p>Start the Engine virtual machine in pause mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">hosted-engine --vm-start-paused</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">hosted-engine --vm-start-paused</code></pre>
 </div>
 </div>
 </li>
@@ -20161,7 +20161,7 @@ broker : 25, type : broker</pre>
 <p>Set a temporary VNC password:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">hosted-engine --add-console-password</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">hosted-engine --add-console-password</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20189,7 +20189,7 @@ broker : 25, type : broker</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># /usr/bin/virsh -c qemu:///system?authfile=/etc/ovirt-hosted-engine/virsh_auth.conf resume HostedEngine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># /usr/bin/virsh -c qemu:///system?authfile=/etc/ovirt-hosted-engine/virsh_auth.conf resume HostedEngine</code></pre>
 </div>
 </div>
 </li>
@@ -20200,7 +20200,7 @@ broker : 25, type : broker</pre>
 <p>Disable global maintenance mode</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=none</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
 </div>
 </div>
 </li>
@@ -20260,7 +20260,7 @@ broker : 25, type : broker</pre>
 <p>Log in to one of the self-hosted engine nodes and enable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -20268,7 +20268,7 @@ broker : 25, type : broker</pre>
 <p>Confirm that the environment is in global maintenance mode before proceeding:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20293,7 +20293,7 @@ broker : 25, type : broker</pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -20405,7 +20405,7 @@ broker : 25, type : broker</pre>
 and disable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=none</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20416,7 +20416,7 @@ and disable global maintenance mode:</p>
 <p>Confirm that the environment is running:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20817,7 +20817,7 @@ Done.</code></pre>
 <p>Remove the configuration files and clean the database associated with the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-cleanup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-cleanup</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20832,7 +20832,7 @@ Done.</code></pre>
 <p>Restore a full backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --file=<em>file_name</em> --log=<em>log_file_name</em> --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -20840,7 +20840,7 @@ Done.</code></pre>
 <p>Restore a database-only backup by restoring the configuration files and the database backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=db --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=db --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --restore-permissions</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -20862,8 +20862,8 @@ Done.</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">You should now run engine-setup.
-Done.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">You should now run engine-setup.
+Done.</code></pre>
 </div>
 </div>
 </li>
@@ -20874,7 +20874,7 @@ Done.</pre>
 <p>Reconfigure the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -21143,7 +21143,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>Run the <code>engine-backup</code> command, specifying the name of the backup file to create, and the name of the log file to create to store the backup log:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --file=__file_name__ --log=__log_file_name__</code></pre>
 </div>
 </div>
 </li>
@@ -21151,7 +21151,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>Copy the files to an external server. In the following example, <code>storage.example.com</code> is the fully qualified domain name of a network storage server that will store the backup until it is needed, and <code>/backup/</code> is any designated folder or path.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp -p <em>file_name</em> <em>log_file_name</em> storage.example.com:/backup/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p __file_name__ __log_file_name__ storage.example.com:/backup/</code></pre>
 </div>
 </div>
 </li>
@@ -21159,7 +21159,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>Log in to one of the self-hosted engine nodes and shut down the original Engine virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-shutdown</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-shutdown</code></pre>
 </div>
 </div>
 </li>
@@ -21208,7 +21208,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>Copy the backup file to the new host. In the following example, <code>host.example.com</code> is the FQDN for the host, and <code>/backup/</code> is any designated folder or path.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp -p <em>file_name</em> host.example.com:/backup/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p __file_name__ host.example.com:/backup/</code></pre>
 </div>
 </div>
 </li>
@@ -21219,7 +21219,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>If you are deploying on oVirt Node, <code>ovirt-hosted-engine-setup</code> is already installed, so skip this step. If you are deploying on Enterprise Linux, install the <code>ovirt-hosted-engine-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-hosted-engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-hosted-engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -21230,8 +21230,8 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf -y install tmux
-# tmux</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install tmux
+# tmux</code></pre>
 </div>
 </div>
 </li>
@@ -21239,7 +21239,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>Run the <code>hosted-engine</code> script, specifying the path to the backup file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --deploy --restore-from-file=backup/<em>file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=backup/__file_name__</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21403,12 +21403,12 @@ For example, if this deployment was restored from a backup, and the backup inclu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">gluster volume set <em>VOLUME_NAME</em> group virt
-gluster volume set <em>VOLUME_NAME</em> performance.strict-o-direct on
-gluster volume set <em>VOLUME_NAME</em> network.remote-dio off
-gluster volume set <em>VOLUME_NAME</em> storage.owner-uid 36
-gluster volume set <em>VOLUME_NAME</em> storage.owner-gid 36
-gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">gluster volume set _VOLUME_NAME_ group virt
+gluster volume set _VOLUME_NAME_ performance.strict-o-direct on
+gluster volume set _VOLUME_NAME_ network.remote-dio off
+gluster volume set _VOLUME_NAME_ storage.owner-uid 36
+gluster volume set _VOLUME_NAME_ storage.owner-gid 36
+gluster volume set _VOLUME_NAME_ network.ping-timeout 30</code></pre>
 </div>
 </div>
 </td>
@@ -21444,7 +21444,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21456,7 +21456,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -21464,7 +21464,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -21472,7 +21472,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -21480,7 +21480,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21715,7 +21715,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Copy the backup file to the new host. In the following example, <code>host.example.com</code> is the FQDN for the host, and <code>/backup/</code> is any designated folder or path.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp -p <em>file_name</em> host.example.com:/backup/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p __file_name__ host.example.com:/backup/</code></pre>
 </div>
 </div>
 </li>
@@ -21726,7 +21726,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>If you are deploying on oVirt Node, <code>ovirt-hosted-engine-setup</code> is already installed, so skip this step. If you are deploying on Enterprise Linux, install the <code>ovirt-hosted-engine-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-hosted-engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-hosted-engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -21737,8 +21737,8 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf -y install tmux
-# tmux</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install tmux
+# tmux</code></pre>
 </div>
 </div>
 </li>
@@ -21746,7 +21746,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Run the <code>hosted-engine</code> script, specifying the path to the backup file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --deploy --restore-from-file=backup/<em>file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=backup/__file_name__</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21910,12 +21910,12 @@ For example, if this deployment was restored from a backup, and the backup inclu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">gluster volume set <em>VOLUME_NAME</em> group virt
-gluster volume set <em>VOLUME_NAME</em> performance.strict-o-direct on
-gluster volume set <em>VOLUME_NAME</em> network.remote-dio off
-gluster volume set <em>VOLUME_NAME</em> storage.owner-uid 36
-gluster volume set <em>VOLUME_NAME</em> storage.owner-gid 36
-gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">gluster volume set _VOLUME_NAME_ group virt
+gluster volume set _VOLUME_NAME_ performance.strict-o-direct on
+gluster volume set _VOLUME_NAME_ network.remote-dio off
+gluster volume set _VOLUME_NAME_ storage.owner-uid 36
+gluster volume set _VOLUME_NAME_ storage.owner-gid 36
+gluster volume set _VOLUME_NAME_ network.ping-timeout 30</code></pre>
 </div>
 </div>
 </td>
@@ -21951,7 +21951,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21963,7 +21963,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -21971,7 +21971,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -21979,7 +21979,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -21987,7 +21987,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22181,7 +22181,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Log in to one of the self-hosted engine nodes and enable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -22189,7 +22189,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Confirm that the environment is in global maintenance mode before proceeding:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22217,7 +22217,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Remove the configuration files and clean the database associated with the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-cleanup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-cleanup</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22232,7 +22232,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Restore a full backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --file=<em>file_name</em> --log=<em>log_file_name</em> --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -22240,7 +22240,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Restore a database-only backup by restoring the configuration files and the database backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=db --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=db --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --restore-permissions</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -22262,8 +22262,8 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">You should now run engine-setup.
-Done.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">You should now run engine-setup.
+Done.</code></pre>
 </div>
 </div>
 </li>
@@ -22274,7 +22274,7 @@ Done.</pre>
 <p>Reconfigure the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -22294,7 +22294,7 @@ Done.</pre>
 and disable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=none</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22305,7 +22305,7 @@ and disable global maintenance mode:</p>
 <p>Confirm that the environment is running:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22413,7 +22413,7 @@ Enable the required repositories on the new database server.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22425,7 +22425,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -22433,7 +22433,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -22441,7 +22441,7 @@ Enable the required repositories on the new database server.</p>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22474,7 +22474,7 @@ Enable the required repositories on the new database server.</p>
 <p>Create a backup of the Data Warehouse database and configuration files on the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </li>
@@ -22482,7 +22482,7 @@ Enable the required repositories on the new database server.</p>
 <p>Copy the backup file from the Engine to the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp <em>/tmp/file_name</em> <em>root@new.dwh.server.com:/tmp</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp _/tmp/file_name_ _root@new.dwh.server.com:/tmp_</code></pre>
 </div>
 </div>
 </li>
@@ -22490,7 +22490,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install <code>engine-backup</code> on the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-tools-backup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-tools-backup</code></pre>
 </div>
 </div>
 </li>
@@ -22498,7 +22498,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the PostgreSQL server package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install postgresql-server postgresql-contrib</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install postgresql-server postgresql-contrib</code></pre>
 </div>
 </div>
 </li>
@@ -22516,7 +22516,7 @@ Enable the required repositories on the new database server.</p>
 <p>Restore the Data Warehouse database on the new machine. <em>file_name</em> is the backup file copied from the Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -22605,7 +22605,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -22613,7 +22613,7 @@ Enable the required repositories on the new database server.</p>
 <p>Ensure that all packages currently installed are up to date:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -22621,7 +22621,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the <code>ovirt-engine-dwh-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-dwh-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-dwh-setup</code></pre>
 </div>
 </div>
 </li>
@@ -22636,7 +22636,7 @@ Enable the required repositories on the new database server.</p>
 <p>Stop the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -22644,7 +22644,7 @@ Enable the required repositories on the new database server.</p>
 <p>If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the <code class="filename">/var/lib/pgsql/data/postgresql.conf</code> file and modify the listen_addresses line so that it matches the following:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">listen_addresses = '*'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses = '*'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22661,7 +22661,7 @@ Enable the required repositories on the new database server.</p>
 <p>Restart the postgresql service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart postgresql</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart postgresql</code></pre>
 </div>
 </div>
 </li>
@@ -22679,13 +22679,13 @@ Enable the required repositories on the new database server.</p>
 <p>If you are migrating both the <code>ovirt_engine_history</code> database and the Data Warehouse service to the <strong>same</strong> machine, run the following, otherwise proceed to the next step.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i '/^ENGINE_DB_/d' \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i '/^ENGINE_DB_/d' \
         /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_ENGINE_CORE/enable=bool\):True;\1:False;' \
      -e '/^OVESETUP_CONFIG\/fqdn/d' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -22693,7 +22693,7 @@ Enable the required repositories on the new database server.</p>
 <p>Run the <code>engine-setup</code> command to begin configuration of Data Warehouse on the machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -22701,7 +22701,7 @@ Enable the required repositories on the new database server.</p>
 <p>Press <strong>Enter</strong> to accept the automatically detected host name, or enter an alternative host name and press <strong>Enter</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of this server [<em>autodetected host name</em>]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected host name_]:</code></pre>
 </div>
 </div>
 </li>
@@ -22709,9 +22709,9 @@ Enable the required repositories on the new database server.</p>
 <p>Press <code>Enter</code> to automatically configure the firewall, or type <code>No</code> and press <code>Enter</code> to maintain existing settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can automatically configure the firewall on this system.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
-Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22722,14 +22722,14 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Enter the fully qualified domain name and password for the Engine. Press <strong>Enter</strong> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of the engine server []: <em>engine-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of the engine server []: _engine-fqdn_
 Setup needs to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
 Please choose one of the following:
 1 - Access remote engine server using ssh as root
 2 - Perform each action manually, use files to copy content around
 (1, 2) [1]:
 ssh port on remote engine server [22]:
-root password on remote engine server <em>engine-fqdn</em>: <em>password</em></pre>
+root password on remote engine server _engine-fqdn_: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -22737,12 +22737,12 @@ root password on remote engine server <em>engine-fqdn</em>: <em>password</em></p
 <p>Enter the FQDN and password for the Engine database machine. Press <code>Enter</code> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Engine database host []: <em>manager-db-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: _manager-db-fqdn_
 Engine database port [5432]:
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
 Engine database user [engine]:
-Engine database password: <em>password</em></pre>
+Engine database password: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -22750,7 +22750,7 @@ Engine database password: <em>password</em></pre>
 <p>Confirm your installation settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please confirm installation settings (OK, Cancel) [OK]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please confirm installation settings (OK, Cancel) [OK]:</code></pre>
 </div>
 </div>
 </li>
@@ -22768,7 +22768,7 @@ Engine database password: <em>password</em></pre>
 <p>On the Engine machine, restart the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service ovirt-engine restart</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service ovirt-engine restart</code></pre>
 </div>
 </div>
 </li>
@@ -22776,14 +22776,14 @@ Engine database password: <em>password</em></pre>
 <p>Run the following command to modify the file <strong>/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</strong> and set the options to <code>False</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i \
      -e 's;^\(OVESETUP_DWH_CORE/enable=bool\):True;\1:False;' \
      -e 's;^\(OVESETUP_DWH_CONFIG/remoteEngineConfigured=bool\):True;\1:False;' \
      /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_GRAFANA_CORE/enable=bool\):True;\1:False;' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -22791,7 +22791,7 @@ Engine database password: <em>password</em></pre>
 <p>Disable the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl disable ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl disable ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -22799,7 +22799,7 @@ Engine database password: <em>password</em></pre>
 <p>Remove the Data Warehouse files:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</code></pre>
 </div>
 </div>
 </li>
@@ -23688,7 +23688,7 @@ Content-type: application/xml
 <p>Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with id <code>123</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /ovirt-engine/api/vms/123/diskattachments</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/diskattachments</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -23696,14 +23696,14 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;disk_attachment&gt;
-    &#8230;&#8203;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk_attachment&gt;
+    ...
     &lt;disk&gt;
-       &#8230;&#8203;
+       ...
        &lt;backup&gt;incremental&lt;/backup&gt;
-       &#8230;&#8203;
+       ...
     &lt;/disk&gt;
-&lt;/disk_attachment&gt;</pre>
+&lt;/disk_attachment&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -23714,11 +23714,11 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;disk_attachment&gt;
-    &#8230;&#8203;
-    &lt;disk href="/ovirt-site/previews/2744/ovirt-engine/api/disks/456" id="456"/&gt;
-    &#8230;&#8203;
-&lt;/disk_attachment&gt;</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk_attachment&gt;
+    ...
+    &lt;disk href=&quot;/ovirt-engine/api/disks/456&quot; id=&quot;456&quot;/&gt;
+    ...
+&lt;/disk_attachment&gt;</code></pre>
 </div>
 </div>
 <div class="ulist _additional-resources">
@@ -23742,7 +23742,7 @@ Content-type: application/xml
 <p>List the disks that are attached to the virtual machine. For example, for a virtual machine with the id <code>123</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /ovirt-engine/api/vms/123/diskattachments</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/123/diskattachments</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -23750,14 +23750,14 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;disk_attachments&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk_attachments&gt;
     &lt;disk_attachment&gt;
-       &#8230;&#8203;
-       &lt;disk href="/ovirt-site/previews/2744/ovirt-engine/api/disks/456" id="456"/&gt;
-       &#8230;&#8203;
+       ...
+       &lt;disk href=&quot;/ovirt-engine/api/disks/456&quot; id=&quot;456&quot;/&gt;
+       ...
     &lt;/disk_attachment&gt;
-    &#8230;&#8203;
-&lt;/disk_attachments&gt;</pre>
+    ...
+&lt;/disk_attachments&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -23765,7 +23765,7 @@ Content-type: application/xml
 <p>Use the <code>disk</code> service to see the properties of a disk from the previous step. For example, for the disk with the id <code>456</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /ovirt-engine/api/disks/456</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/disks/456</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -23773,11 +23773,11 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;disk href="/ovirt-site/previews/2744/ovirt-engine/api/disks/456" id="456"&gt;
-    &#8230;&#8203;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk href=&quot;/ovirt-engine/api/disks/456&quot; id=&quot;456&quot;&gt;
+    ...
     &lt;backup&gt;incremental&lt;/backup&gt;
-    &#8230;&#8203;
-&lt;/disk&gt;</pre>
+    ...
+&lt;/disk&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -23813,7 +23813,7 @@ Content-type: application/xml
 <p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /ovirt-engine/api/vms/123/backups</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
 </div>
 </div>
 </li>
@@ -23821,12 +23821,12 @@ Content-type: application/xml
 <p>In the request body, specify a disk to back up. For example, to start a full backup of a disk with id <code>456</code>, send the following request body:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;backup&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
     &lt;disks&gt;
-       &lt;disk id="456" /&gt;
-       &#8230;&#8203;
+       &lt;disk id=&quot;456&quot; /&gt;
+       ...
     &lt;/disks&gt;
-&lt;/backup&gt;</pre>
+&lt;/backup&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -23834,15 +23834,15 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;backup id="789"&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup id=&quot;789&quot;&gt;
     &lt;disks&gt;
-       &lt;disk id="456" /&gt;
-       &#8230;&#8203;
-       &#8230;&#8203;
+       &lt;disk id=&quot;456&quot; /&gt;
+       ...
+       ...
     &lt;/disks&gt;
     &lt;status&gt;initializing&lt;/status&gt;
     &lt;creation_date&gt;
-&lt;/backup&gt;</pre>
+&lt;/backup&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -23891,7 +23891,7 @@ Content-type: application/xml
 <p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /ovirt-engine/api/vms/123/backups</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
 </div>
 </div>
 </li>
@@ -23899,13 +23899,13 @@ Content-type: application/xml
 <p>In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with id <code>456</code>, send the following request body:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;backup&gt;
-    &lt;from_checkpoint_id&gt;<em>previous-checkpoint-uuid</em>&lt;/from_checkpoint_id&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
+    &lt;from_checkpoint_id&gt;__previous-checkpoint-uuid__&lt;/from_checkpoint_id&gt;
     &lt;disks&gt;
-       &lt;disk id="456" /&gt;
-       &#8230;&#8203;
+       &lt;disk id=&quot;456&quot; /&gt;
+       ...
     &lt;/disks&gt;
-&lt;/backup&gt;</pre>
+&lt;/backup&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -23920,14 +23920,14 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;backup&gt;
-    &lt;from_checkpoint_id&gt;<em>previous-checkpoint-uuid</em>&lt;/from_checkpoint_id&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
+    &lt;from_checkpoint_id&gt;__previous-checkpoint-uuid__&lt;/from_checkpoint_id&gt;
     &lt;disks&gt;
-       &lt;disk id="456" /&gt;
-       <strong>&lt;disk id="789" /&gt;</strong>
-       &#8230;&#8203;
+       &lt;disk id=&quot;456&quot; /&gt;
+       **&lt;disk id=&quot;789&quot; /&gt;**
+       ...
     &lt;/disks&gt;
-&lt;/backup&gt;</pre>
+&lt;/backup&gt;</code></pre>
 </div>
 </div>
 </td>
@@ -23939,18 +23939,18 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;backup id="101112"&gt;
-&lt;from_checkpoint_id&gt;<em>previous-checkpoint-uuid</em>&lt;/from_checkpoint_id&gt;
-&lt;to_checkpoint_id&gt;<em>new-checkpoint-uuid</em>&lt;/to_checkpoint_id&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup id=&quot;101112&quot;&gt;
+&lt;from_checkpoint_id&gt;__previous-checkpoint-uuid__&lt;/from_checkpoint_id&gt;
+&lt;to_checkpoint_id&gt;__new-checkpoint-uuid__&lt;/to_checkpoint_id&gt;
     &lt;disks&gt;
-       &lt;disk id="456" /&gt;
-       &lt;disk id="789" /&gt;
-       &#8230;&#8203;
-       &#8230;&#8203;
+       &lt;disk id=&quot;456&quot; /&gt;
+       &lt;disk id=&quot;789&quot; /&gt;
+       ...
+       ...
     &lt;/disks&gt;
     &lt;status&gt;initializing&lt;/status&gt;
     &lt;creation_date&gt;
-&lt;/backup&gt;</pre>
+&lt;/backup&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -24021,7 +24021,7 @@ Content-type: application/xml
 <p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /ovirt-engine/api/vms/456/backups/123</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -24029,13 +24029,13 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;backup id="456"&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup id=&quot;456&quot;&gt;
     &lt;from_checkpoint_id&gt;999&lt;/from_checkpoint_id&gt;
     &lt;to_checkpoint_id&gt;666&lt;/to_checkpoint_id&gt;
-    &lt;link href="/ovirt-site/previews/2744/ovirt-engine/api/vms/456/backups/123/disks" rel="disks"/&gt;
+    &lt;link href=&quot;/ovirt-engine/api/vms/456/backups/123/disks&quot; rel=&quot;disks&quot;/&gt;
     &lt;status&gt;ready&lt;/status&gt;
     &lt;creation_date&gt;
-&lt;/backup&gt;</pre>
+&lt;/backup&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -24084,7 +24084,7 @@ Content-type: application/xml
 <p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /ovirt-engine/api/vms/456/backups/123/disks</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123/disks</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -24092,8 +24092,8 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;disks&gt;
-    &lt;disk id="789"&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disks&gt;
+    &lt;disk id=&quot;789&quot;&gt;
         &lt;name&gt;vm1_Disk1&lt;/name&gt;
         &lt;actual_size&gt;671744&lt;/actual_size&gt;
         &lt;backup&gt;incremental&lt;/backup&gt;
@@ -24105,7 +24105,7 @@ Content-type: application/xml
         &lt;storage_type&gt;image&lt;/storage_type&gt;
         &lt;total_size&gt;0&lt;/total_size&gt;
     &lt;/disk&gt;
-&lt;/disks&gt;</pre>
+&lt;/disks&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -24132,7 +24132,7 @@ Content-type: application/xml
 <p>To finalize a backup of a disk with id <code>456</code> on a virtual machine with id <code>123</code>, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /vms/123/backups/456/finalize</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /vms/123/backups/456/finalize</code></pre>
 </div>
 </div>
 </li>
@@ -24162,7 +24162,7 @@ Content-type: application/xml
 <p>Send a request like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /ovirt-engine/api/imagetransfers</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/imagetransfers</code></pre>
 </div>
 </div>
 </li>
@@ -24189,12 +24189,12 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;image_transfer&gt;
-    &lt;disk id="123"/&gt;
-    &lt;backup id="456"/&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;image_transfer&gt;
+    &lt;disk id=&quot;123&quot;/&gt;
+    &lt;backup id=&quot;456&quot;/&gt;
     &lt;direction&gt;download&lt;/direction&gt;
     &lt;format&gt;raw&lt;/format&gt;
-&lt;/image_transfer&gt;</pre>
+&lt;/image_transfer&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -24227,7 +24227,7 @@ Content-type: application/xml
 <p>Send a request like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">POST /ovirt-engine/api/imagetransfers</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/imagetransfers</code></pre>
 </div>
 </div>
 </li>
@@ -24251,11 +24251,11 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;image_transfer&gt;
-    &lt;disk id="123"/&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;image_transfer&gt;
+    &lt;disk id=&quot;123&quot;/&gt;
     &lt;direction&gt;upload&lt;/direction&gt;
     &lt;format&gt;raw&lt;/format&gt;
-&lt;/image_transfer&gt;</pre>
+&lt;/image_transfer&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -24282,7 +24282,7 @@ Content-type: application/xml
 <p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /vms/123/checkpoints/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/</code></pre>
 </div>
 </div>
 </li>
@@ -24312,15 +24312,15 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;parent_id&gt;, &lt;creation_date&gt; and the virtual machine it belongs to &lt;vm&gt;:
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;parent_id&gt;, &lt;creation_date&gt; and the virtual machine it belongs to &lt;vm&gt;:
 &lt;checkpoints&gt;
-    &lt;checkpoint id="456"&gt;
-         &lt;link href="/ovirt-site/previews/2744/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks" rel="disks"/&gt;
+    &lt;checkpoint id=&quot;456&quot;&gt;
+         &lt;link href=&quot;/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks&quot; rel=&quot;disks&quot;/&gt;
          &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
          &lt;creation_date&gt;xxx&lt;/creation_date&gt;
-         &lt;vm href="/ovirt-site/previews/2744/ovirt-engine/api/vms/123" id="123"/&gt;
+         &lt;vm href=&quot;/ovirt-engine/api/vms/123&quot; id=&quot;123&quot;/&gt;
     &lt;/checkpoint&gt;
-&lt;/checkpoints&gt;</pre>
+&lt;/checkpoints&gt;</code></pre>
 </div>
 </div>
 <div class="ulist _additional-resources">
@@ -24344,7 +24344,7 @@ Content-type: application/xml
 <p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> and checkpoint id <code>456</code> like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GET /vms/123/checkpoints/456</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/456</code></pre>
 </div>
 </div>
 </li>
@@ -24374,12 +24374,12 @@ Content-type: application/xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;checkpoint id="456"&gt;
-     &lt;link href="/ovirt-site/previews/2744/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks" rel="disks"/&gt;
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;checkpoint id=&quot;456&quot;&gt;
+     &lt;link href=&quot;/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks&quot; rel=&quot;disks&quot;/&gt;
      &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
      &lt;creation_date&gt;xxx&lt;/creation_date&gt;
-     &lt;vm href="/ovirt-site/previews/2744/ovirt-engine/api/vms/123" id="123"/&gt;
-&lt;/checkpoint&gt;</pre>
+     &lt;vm href=&quot;/ovirt-engine/api/vms/123&quot; id=&quot;123&quot;/&gt;
+&lt;/checkpoint&gt;</code></pre>
 </div>
 </div>
 <div class="ulist _additional-resources">
@@ -24403,7 +24403,7 @@ Content-type: application/xml
 <p>Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with id <code>123</code> and a checkpoint with id <code>456</code> like this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">DELETE /vms/123/checkpoints/456/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">DELETE /vms/123/checkpoints/456/</code></pre>
 </div>
 </div>
 </li>

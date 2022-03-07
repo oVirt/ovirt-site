@@ -1,4 +1,5 @@
-[[Snapshot_Previews]]
+:_content-type: CONCEPT
+[id="Snapshot_Previews"]
 === Snapshot Previews
 
 To select which snapshot a virtual disk will be reverted to, the administrator can preview all previously created snapshots.
@@ -9,7 +10,7 @@ After the administrator previews the selected snapshot, the preview can be commi
 
 After a snapshot is previewed, the administrator can select *Undo* to discard the preview layer of the viewed snapshot. The layer that contains the snapshot itself is preserved despite the preview layer being discarded.
 
-[[figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot]]
+[id="figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot"]
 .Preview Snapshot
 image::1002.png[]
 

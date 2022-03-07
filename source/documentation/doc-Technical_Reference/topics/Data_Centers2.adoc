@@ -1,4 +1,5 @@
-[[Data_Centers2]]
+:_content-type: CONCEPT
+[id="Data_Centers2"]
 === Data Centers
 
 A data center is the highest level of abstraction in {virt-product-fullname}. A data center contains three types of information:

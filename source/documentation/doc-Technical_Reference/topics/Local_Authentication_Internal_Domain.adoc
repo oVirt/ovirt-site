@@ -1,4 +1,5 @@
-[[Local_Authentication_Internal_Domain]]
+:_content-type: CONCEPT
+[id="Local_Authentication_Internal_Domain"]
 === Local Authentication: Internal Domain
 
 The {virt-product-fullname} {engine-name} creates a limited, internal administration domain during installation. This domain is not the same as an AD or IdM domain, because it exists based on a key in the {virt-product-fullname} PostgreSQL database rather than as a directory service user on a directory server. The internal domain is also different from an external domain because the internal domain will only have one user: the *admin@internal* user. Taking this approach to initial authentication allows {virt-product-fullname} to be evaluated without requiring a complete, functional directory server, and ensures an administrative account is available to troubleshoot any issues with external directory services.

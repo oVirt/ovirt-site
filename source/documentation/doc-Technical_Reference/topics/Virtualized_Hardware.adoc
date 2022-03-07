@@ -1,4 +1,5 @@
-[[Virtualized_Hardware]]
+:_content-type: CONCEPT
+[id="Virtualized_Hardware"]
 === Virtualized Hardware
 
 {virt-product-fullname} presents three distinct types of system devices to virtualized guests. These hardware devices all appear as physically attached hardware devices to the virtualized guest but the device drivers work in different ways.

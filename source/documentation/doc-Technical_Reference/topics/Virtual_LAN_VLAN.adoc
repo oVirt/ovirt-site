@@ -1,4 +1,5 @@
-[[Virtual_LAN_VLAN]]
+:_content-type: CONCEPT
+[id="Virtual_LAN_VLAN"]
 === Virtual LAN (VLAN)
 
 A VLAN (Virtual LAN) is an attribute that can be applied to network packets. Network packets can be "tagged" into a numbered VLAN. A VLAN is a security feature used to isolate network traffic at the switch level. VLANs are separate and mutually exclusive. The {virt-product-fullname} {engine-name} is VLAN-aware and able to tag and redirect VLAN traffic, however VLAN implementation requires a switch that supports VLANs.

@@ -2,7 +2,7 @@
 //
 // doc-Technical_Reference/chap-Network.adoc
 
-
+:_content-type: REFERENCE
 [id="conc-overview-of-networking-in-rhv"]
 = Networking in RHV
 

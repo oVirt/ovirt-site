@@ -1,4 +1,5 @@
-[[Sound_Devices]]
+:_content-type: CONCEPT
+[id="Sound_Devices"]
 === Sound Devices
 
 Two emulated sound devices are available:

@@ -1,4 +1,5 @@
-[[Components_that_Support_the_Manager]]
+:_content-type: CONCEPT
+[id="Components_that_Support_the_Manager"]
 === Components that Support the {engine-name}
 
 

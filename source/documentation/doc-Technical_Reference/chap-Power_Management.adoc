@@ -1,4 +1,5 @@
-[[chap-Power_Management]]
+:_content-type: ASSEMBLY
+[id="chap-Power_Management"]
 == Power Management
 
 include::topics/Power_Management_and_Fencing.adoc[]

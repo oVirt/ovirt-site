@@ -1,4 +1,5 @@
-[[System_Devices]]
+:_content-type: CONCEPT
+[id="System_Devices"]
 === System Devices
 
 System devices are critical for the guest to run and cannot be removed. Each system device attached to a guest also takes up an available PCI slot. The default system devices are:

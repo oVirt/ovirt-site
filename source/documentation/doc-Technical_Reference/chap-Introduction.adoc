@@ -1,4 +1,5 @@
-[[chap-Introduction]]
+:_content-type: ASSEMBLY
+[id="chap-Introduction"]
 == Introduction
 
 include::topics/Red_Hat_Enterprise_Virtualization_Manager.adoc[]

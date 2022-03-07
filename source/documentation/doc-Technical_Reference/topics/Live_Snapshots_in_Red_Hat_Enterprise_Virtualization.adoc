@@ -1,4 +1,5 @@
-[[Live_Snapshots_in_Red_Hat_Enterprise_Virtualization]]
+:_content-type: CONCEPT
+[id="Live_Snapshots_in_Red_Hat_Enterprise_Virtualization"]
 === Live Snapshots in {virt-product-fullname}
 
 Snapshots of virtual machine hard disks marked *shareable* and those that are based on *Direct LUN* connections are not supported, live or otherwise.

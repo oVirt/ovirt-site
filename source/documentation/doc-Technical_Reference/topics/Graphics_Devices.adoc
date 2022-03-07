@@ -1,4 +1,5 @@
-[[Graphics_Devices]]
+:_content-type: CONCEPT
+[id="Graphics_Devices"]
 === Graphics Devices
 
 The SPICE or VNC graphics protocols can be used to connect to the emulated graphics devices.

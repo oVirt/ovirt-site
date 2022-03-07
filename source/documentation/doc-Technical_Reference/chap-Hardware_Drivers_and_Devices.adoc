@@ -1,4 +1,5 @@
-[[chap-Hardware_Drivers_and_Devices]]
+:_content-type: ASSEMBLY
+[id="chap-Hardware_Drivers_and_Devices"]
 == Hardware Drivers and Devices
 
 include::topics/Virtualized_Hardware.adoc[]

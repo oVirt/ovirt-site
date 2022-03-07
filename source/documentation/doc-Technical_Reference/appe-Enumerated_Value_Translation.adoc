@@ -1,7 +1,8 @@
 :numbered!:
 
 [appendix]
-[[appe-Enumerated_Value_Translation]]
+:_content-type: ASSEMBLY
+[id="appe-Enumerated_Value_Translation"]
 == Enumerated Value Translation
 
 The API uses {virt-product-fullname} Query Language to perform search queries. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Searches[Searches] in the _Introduction to the Administration Portal_.

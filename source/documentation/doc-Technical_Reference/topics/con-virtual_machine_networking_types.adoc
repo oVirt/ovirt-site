@@ -2,7 +2,7 @@
 //
 // doc-Technical_Reference/chap-Network.adoc
 
-
+:_content-type: REFERENCE
 [id="virtual_machine_networking_types"]
 = Virtual machine networking types
 

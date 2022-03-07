@@ -1,4 +1,5 @@
-[[Logical_Volume_Extension]]
+:_content-type: CONCEPT
+[id="Logical_Volume_Extension"]
 === Logical Volume Extension
 
 The {virt-product-fullname} {engine-name} uses thin provisioning to overcommit the storage available in a storage pool, and allocates more storage than is physically available. Virtual machines write data as they operate. A virtual machine with a thinly-provisioned disk image will eventually write more data than the logical volume backing its disk image can hold. When this happens, logical volume extension is used to provide additional storage and facilitate the continued operations for the virtual machine.

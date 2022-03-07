@@ -1,4 +1,5 @@
-[[Over-commitment]]
+:_content-type: CONCEPT
+[id="Over-commitment"]
 === Thin Provisioning and Storage Over-Commitment
 
 The {virt-product-fullname} {engine-name} provides provisioning policies to optimize storage usage within the virtualization environment. A thin provisioning policy allows you to over-commit storage resources, provisioning storage based on the actual storage usage of your virtualization environment.

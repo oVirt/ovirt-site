@@ -1,4 +1,5 @@
-[[Virtual_Network_Interface_Controller_VNIC]]
+:_content-type: CONCEPT
+[id="Virtual_Network_Interface_Controller_VNIC"]
 === Virtual Network Interface Cards
 
 Virtual network interface cards (vNICs) are virtual network interfaces that are based on the physical NICs of a host. Each host can have multiple NICs, and each NIC can be a base for multiple vNICs.

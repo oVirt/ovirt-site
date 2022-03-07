@@ -1,4 +1,5 @@
-[[Preallocated_Storage]]
+:_content-type: CONCEPT
+[id="Preallocated_Storage"]
 === Virtual Disk Storage Allocation Policies
 
 

@@ -1,4 +1,5 @@
-[[Power_Management]]
+:_content-type: CONCEPT
+[id="Power_Management"]
 === Power Management
 
 The {virt-product-fullname} {engine-name} is capable of rebooting hosts that have entered a non-operational or non-responsive state, as well as preparing to power off under-utilized hosts to save power. This functionality depends on a properly configured power management device. The {virt-product-fullname} environment supports the following power management devices:

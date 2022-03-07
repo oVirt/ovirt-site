@@ -1,4 +1,5 @@
-[[Load_Balancing_Policy_Cluster_Maintenance]]
+:_content-type: CONCEPT
+[id="Load_Balancing_Policy_Cluster_Maintenance"]
 === Load Balancing Policy: Cluster_Maintenance
 
 A cluster maintenance scheduling policy limits activity in a cluster during maintenance tasks.
@@ -6,4 +7,4 @@ When a cluster maintenance policy is set:
 
 * No new virtual machines may be started, except highly available virtual machines. (Users can create highly available virtual machines and start them manually.)
 
-* In the event of host failure, highly available virtual machines will restart properly and any virtual machine can migrate. 
+* In the event of host failure, highly available virtual machines will restart properly and any virtual machine can migrate.

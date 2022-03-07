@@ -1,4 +1,5 @@
-[[Storage_Domain_Autorecovery_in_Red_Hat_Enterprise_Virtualization]]
+:_content-type: CONCEPT
+[id="Storage_Domain_Autorecovery_in_Red_Hat_Enterprise_Virtualization"]
 === Storage Domain Autorecovery in {virt-product-fullname}
 
 Hosts in a {virt-product-fullname} environment monitor storage domains in their data centers by reading metadata from each domain. A storage domain becomes inactive when all hosts in a data center report that they cannot access the storage domain.

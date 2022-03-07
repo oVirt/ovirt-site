@@ -1,4 +1,5 @@
-[[chap-Network]]
+:_content-type: ASSEMBLY
+[id="chap-Network"]
 == Networking
 
 include::topics/con-networking-in-rhv.adoc[leveloffset=+2]

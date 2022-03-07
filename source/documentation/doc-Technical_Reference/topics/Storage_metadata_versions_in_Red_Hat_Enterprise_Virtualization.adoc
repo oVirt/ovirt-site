@@ -1,4 +1,5 @@
-[[Storage_metadata_versions_in_Red_Hat_Enterprise_Virtualization]]
+:_content-type: CONCEPT
+[id="Storage_metadata_versions_in_Red_Hat_Enterprise_Virtualization"]
 === Storage Metadata Versions in {virt-product-fullname}
 
 {virt-product-fullname} stores information about storage domains as metadata on the storage domains themselves. Each major release of {virt-product-fullname} has seen improved implementations of storage metadata.

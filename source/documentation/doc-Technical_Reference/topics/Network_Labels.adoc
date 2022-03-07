@@ -1,4 +1,5 @@
-[[Network_Labels]]
+:_content-type: CONCEPT
+[id="Network_Labels"]
 === Network Labels
 
 You can use network labels to simplify several administrative tasks associated with creating and administering logical networks and associating those logical networks with physical host network interfaces and bonds.

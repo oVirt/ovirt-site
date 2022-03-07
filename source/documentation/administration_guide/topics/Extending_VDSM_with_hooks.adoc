@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Extending_VDSM_with_hooks_{context}"]
 === Extending VDSM with Hooks
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Saving_a_query_string_as_a_bookmark_{context}"]
 === Saving a Query String as a Bookmark
 

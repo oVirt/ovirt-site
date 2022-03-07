@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_storage_{context}"]
 === Searching for Storage
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Restoring_a_Virtual_Machine_{context}"]
 ==== Restoring a Virtual Machine
 

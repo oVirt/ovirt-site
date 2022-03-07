@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_a_host_{context}"]
 ==== Removing a Host
 

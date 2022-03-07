@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_VFs_on_NIC_{context}"]
 ==== Configuring virtual functions on a NIC
 

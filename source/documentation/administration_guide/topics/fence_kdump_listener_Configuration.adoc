@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="fence_kdump_listener_Configuration_{context}"]
 ===== fence_kdump listener Configuration
 

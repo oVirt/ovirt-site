@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="VDSM_hooks_environment_{context}"]
 === The VDSM Hook Environment
 

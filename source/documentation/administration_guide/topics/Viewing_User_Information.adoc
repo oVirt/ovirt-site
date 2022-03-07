@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="viewing-user-information_{context}"]
 ==== Viewing User Information
 
 You can view detailed user account information:
@@ -7,4 +9,4 @@ You can view detailed user account information:
 # ovirt-aaa-jdbc-tool user show test1
 ----
 
-This command displays more information than in the Administration Portal's menu:Administration[Users] screen. 
+This command displays more information than in the Administration Portal's menu:Administration[Users] screen.

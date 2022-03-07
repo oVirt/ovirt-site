@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_bond_device_in_the_administration_portal_{context}"]
 ==== Creating a Bond Device in the Administration Portal
 

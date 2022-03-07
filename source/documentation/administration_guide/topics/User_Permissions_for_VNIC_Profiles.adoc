@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="User_Permissions_for_VNIC_Profiles_{context}"]
 ==== User Permissions for vNIC Profiles
 

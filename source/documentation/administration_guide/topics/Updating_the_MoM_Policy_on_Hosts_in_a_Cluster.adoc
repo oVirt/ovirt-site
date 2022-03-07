@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Updating_the_MoM_Policy_on_Hosts_in_a_Cluster_{context}"]
 ==== Updating the MoM Policy on Hosts in a Cluster
 

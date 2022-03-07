@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Search_determining_search_order_{context}"]
 === Search: Determining Search Order
 

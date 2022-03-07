@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Introduction_to_Quota_{context}"]
 === Introduction to Quota
 

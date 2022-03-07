@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="The_File_Not_Found_Page_{context}"]
 ==== The Page Not Found Page
 
@@ -13,4 +14,3 @@ The Page Not Found page is a page that is displayed when you open a link to a pa
 * The link to forward and the associated message for that link
 
 The classes for the Page Not Found page are located in `welcome_style.css`.
-

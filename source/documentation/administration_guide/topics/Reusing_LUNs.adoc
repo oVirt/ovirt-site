@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Reusing_LUNs_{context}"]
 ==== Reusing LUNs
 

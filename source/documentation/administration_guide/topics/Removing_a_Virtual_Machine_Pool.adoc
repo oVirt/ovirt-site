@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_a_Virtual_Machine_Pool_{context}"]
 === Removing a Virtual Machine Pool
 

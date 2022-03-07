@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_New_Cluster_{context}"]
 ==== Creating a New Cluster
 

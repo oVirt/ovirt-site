@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_Host_SPM_Settings_{context}"]
 ==== Configuring Host Storage Pool Manager Settings
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Introduction_to_Third_Party_Resource_Providers_in_Red_Hat_Enterprise_Virtualization_{context}"]
 === Introduction to External Providers in {virt-product-fullname}
 

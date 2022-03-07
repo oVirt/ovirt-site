@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="VDSM_hooks_hooking_module_{context}"]
 === Using the VDSM Hooking Module
 

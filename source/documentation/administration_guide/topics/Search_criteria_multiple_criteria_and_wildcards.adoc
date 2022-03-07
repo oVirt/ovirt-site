@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Search_criteria_multiple_criteria_and_wildcards_{context}"]
 === Search: Multiple Criteria and Wildcards
 

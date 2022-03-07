@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Backing_up_Red_Hat_Enterprise_Virtualization_Manager_using_the_engine-backup_Command_{context}"]
 ==== Backing up {virt-product-fullname} {engine-name} - Overview
 

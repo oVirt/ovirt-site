@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Cancelling_event_notifications_{context}"]
 === Canceling Event Notifications in the Administration Portal
 

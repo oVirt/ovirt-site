@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="creating-a-new-user_{context}"]
 ==== Creating a New User
 
 You can create a new user account. The optional `--attribute` command specifies account details. For a full list of options, run `ovirt-aaa-jdbc-tool user add --help`.

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="User_authorization_model_{context}"]
 ==== User Authorization Model
 

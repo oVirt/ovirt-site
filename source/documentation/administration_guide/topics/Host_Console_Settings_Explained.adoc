@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Host_Console_Settings_Explained_{context}"]
 ==== Host Console Settings Explained
 

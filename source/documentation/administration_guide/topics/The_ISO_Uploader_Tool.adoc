@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="The_ISO_Uploader_Tool_{context}"]
 ==== The ISO Uploader Tool
 

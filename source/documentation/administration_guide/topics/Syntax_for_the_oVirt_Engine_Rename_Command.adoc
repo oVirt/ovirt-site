@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Syntax_for_the_oVirt_Engine_Rename_Command_{context}"]
 ==== Syntax for the oVirt Engine Rename Command
 

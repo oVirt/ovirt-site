@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Adding_Red_Hat_Enterprise_Linux_Hosts_{context}"]
 === {enterprise-linux-host-fullname}s
 

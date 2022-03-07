@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_objects_using_tags_{context}"]
 === Searching for Objects Using Tags
 

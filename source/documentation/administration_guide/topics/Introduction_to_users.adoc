@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Introduction_to_users_{context}"]
 === Introduction to Users
 
@@ -6,5 +7,3 @@ In {virt-product-fullname}, there are two types of user domains: local domain an
 You can create additional users on the *internal* domain using `ovirt-aaa-jdbc-tool`. User accounts created on local domains are known as local users. You can also attach external directory servers such as Red Hat Directory Server, Active Directory, OpenLDAP, and many other supported options to your {virt-product-fullname} environment and use them as external domains. User accounts created on external domains are known as directory users.
 
 Both local users and directory users need to be assigned with appropriate roles and permissions through the Administration Portal before they can function in the environment. There are two main types of user roles: end user and administrator. An end user role uses and manages virtual resources from the VM Portal. An administrator role maintains the system infrastructure using the Administration Portal. The roles can be assigned to the users for individual resources like virtual machines and hosts, or on a hierarchy of objects like clusters and data centers.
-
-

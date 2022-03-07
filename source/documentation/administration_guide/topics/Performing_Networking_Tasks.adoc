@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Performing_Networking_Tasks_{context}"]
 ==== Performing Networking Tasks
 

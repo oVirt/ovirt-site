@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="The_USB_Filter_Editor_interface_{context}"]
 = The USB Filter Editor Interface
 

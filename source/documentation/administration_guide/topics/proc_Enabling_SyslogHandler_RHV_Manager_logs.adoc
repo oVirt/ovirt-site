@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Enabling_SyslogHandler_RHV_Manager_logs_{context}"]
 === Enabling SyslogHandler to pass {virt-product-shortname} {engine-name} logs to a remote syslog server
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Overview_of_Live_Storage_Migration_{context}"]
 ==== Overview of Live Storage Migration
 
@@ -13,5 +14,3 @@ Consider the following when using live storage migration:
 * You can live migrate disks between any two storage domains in the same data center.
 
 * You cannot live migrate direct LUN hard disk images or disks marked as shareable.
-
-

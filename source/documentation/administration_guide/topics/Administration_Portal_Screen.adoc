@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Administration_Portal_Screen_{context}"]
 ==== Administration Portal Screen
 
@@ -15,4 +16,3 @@ The administration portal screen is the main screen that is shown when you log i
 * The text to the right of the logo
 
 The classes for the administration portal screen are located in *web_admin.css*.
-

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Supported_VDSM_events_{context}"]
 === Supported VDSM Events
 
@@ -48,5 +49,5 @@
 |before_device_migrate_source |Before device migration, run on the source host from which the migration is occurring.
 |after_device_migrate_source |After device migration, run on the source host from which the migration is occurring.
 |after_network_setup |After setting up the network when starting a host machine.
-|before_network_setup |Before setting up the network when starting a host machine. 
+|before_network_setup |Before setting up the network when starting a host machine.
 |===

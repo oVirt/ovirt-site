@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Attaching_a_data_domain_{context}"]
 ==== Attaching an Existing Data Domain to a Data Center
 

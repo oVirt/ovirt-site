@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Host_General_Settings_{context}"]
 ==== Host General Settings Explained
 

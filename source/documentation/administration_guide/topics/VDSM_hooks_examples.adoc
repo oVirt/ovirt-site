@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="VDSM_hooks_examples_{context}"]
 === VDSM Hook Examples
 

@@ -1,4 +1,5 @@
-[id="chap-Hosts"]
+:_content-type: ASSEMBLY
+[id="chap-Hosts_{context}"]
 == Hosts
 
 include::topics/Introduction_to_Hosts.adoc[]

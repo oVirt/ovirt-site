@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_MAC_Address_Pool_Permissions_{context}"]
 ==== Editing MAC Address Pool Permissions
 

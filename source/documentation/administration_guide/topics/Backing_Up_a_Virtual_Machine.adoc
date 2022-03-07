@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Backing_Up_a_Virtual_Machine_{context}"]
 ==== Backing Up a Virtual Machine
 

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Hosted_Engine_Settings_Explained_{context}"]
 ==== Hosted Engine Settings Explained
 

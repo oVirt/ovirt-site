@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Logical_Network_vNIC_Profiles_Settings_Explained_{context}"]
 ==== Logical Network vNIC Profiles Settings Explained
 

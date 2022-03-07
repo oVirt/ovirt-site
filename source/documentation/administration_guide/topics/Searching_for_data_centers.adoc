@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_data_centers_{context}"]
 === Searching for Data Centers
 

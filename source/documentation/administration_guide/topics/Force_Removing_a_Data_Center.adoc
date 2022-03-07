@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Force_Removing_a_Data_Center_{context}"]
 ==== Force Removing a Data Center
 

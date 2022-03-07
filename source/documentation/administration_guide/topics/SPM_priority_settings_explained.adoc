@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="SPM_priority_settings_explained_{context}"]
 ==== SPM Priority Settings Explained
 

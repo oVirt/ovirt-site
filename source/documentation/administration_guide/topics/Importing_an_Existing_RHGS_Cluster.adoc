@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Importing_an_Existing_RHGS_Cluster_{context}"]
 ==== Importing an Existing {gluster-storage-fullname} Cluster
 

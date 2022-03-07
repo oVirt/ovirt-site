@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="To_view_virtual_machines_in_a_cluster_{context}"]
 ==== Host Administrator Roles Explained
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Customizing_hosts_with_tags_{context}"]
 === Customizing Hosts with Tags
 

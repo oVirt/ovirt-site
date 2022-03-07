@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="RHEV_UI_Plugin_Lifecycle_{context}"]
 ==== {virt-product-fullname} User Interface Plug-in Life cycle
 
@@ -10,6 +11,3 @@ The basic life cycle of a User Interface Plug-in divides into three stages:
 * Plug-in loading.
 
 * Plug-in bootstrapping.
-
-
-

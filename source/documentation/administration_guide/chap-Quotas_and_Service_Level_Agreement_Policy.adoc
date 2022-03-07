@@ -1,4 +1,5 @@
-[id="chap-Quotas_and_Service_Level_Agreement_Policy"]
+:_content-type: ASSEMBLY
+[id="chap-Quotas_and_Service_Level_Agreement_Policy_{context}"]
 == Quotas and Service Level Agreement Policy
 
 include::topics/Introduction_to_Quota.adoc[]

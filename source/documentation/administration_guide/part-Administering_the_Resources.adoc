@@ -1,4 +1,5 @@
-[id="part-Administering_the_Resources"]
+:_content-type: ASSEMBLY
+[id="part-Administering_the_Resources_{context}"]
 = Administering the Resources
 include::chap-Quality_of_Service.adoc[]
 

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="SNMPv3-traps-configuration-file_{context}"]
 = Sample SNMP configuration file
 

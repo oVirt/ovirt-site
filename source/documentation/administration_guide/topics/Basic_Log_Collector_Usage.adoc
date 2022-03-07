@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Basic_Log_Collector_Usage_{context}"]
 ==== Basic Log Collector Usage
 

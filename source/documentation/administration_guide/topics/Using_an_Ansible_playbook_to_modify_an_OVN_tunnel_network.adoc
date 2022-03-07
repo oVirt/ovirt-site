@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Using_an_Ansible_playbook_to_modify_an_OVN_tunnel_network_{context}"]
 ===== Using an Ansible playbook to modify an OVN tunnel network
 

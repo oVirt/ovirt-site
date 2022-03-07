@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Configuring_Red_Hat_SSO']
 
 === Installing and Configuring Red Hat Single Sign-On

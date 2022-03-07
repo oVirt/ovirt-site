@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Cluster_General_Settings_Explained_{context}"]
 ==== General Cluster Settings Explained
 

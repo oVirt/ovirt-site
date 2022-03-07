@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_users_{context}"]
 === Searching for Users
 

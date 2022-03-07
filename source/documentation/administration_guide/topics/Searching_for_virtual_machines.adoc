@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_virtual_machines_{context}"]
 === Searching for Virtual Machines
 

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Add_Provider_General_Settings_Explained_{context}"]
 ==== Add Provider General Settings Explained
 

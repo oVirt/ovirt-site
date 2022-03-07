@@ -1,4 +1,5 @@
-[id="chap-Searches"]
+:_content-type: ASSEMBLY
+[id="chap-Searches_{context}"]
 == Searches
 
 include::topics/Performing_searches.adoc[]

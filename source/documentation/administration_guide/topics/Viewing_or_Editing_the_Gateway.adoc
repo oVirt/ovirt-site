@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Viewing_or_Editing_the_Gateway_{context}"]
 ==== Viewing or Editing the Gateway for a Logical Network
 

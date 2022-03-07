@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_a_Logical_Network_{context}"]
 ==== Editing a Logical Network
 

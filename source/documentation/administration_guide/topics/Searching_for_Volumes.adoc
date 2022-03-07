@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_Volumes_{context}"]
 === Searching for Volumes
 

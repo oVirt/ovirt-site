@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Enabling-4K-support-more-than-250-nodes_{context}"]
 = Enabling 4K support on environments with more than 250 hosts
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_Virtual_Machines_to_a_VM_Pool_{context}"]
 === Adding Virtual Machines to a Virtual Machine Pool
 

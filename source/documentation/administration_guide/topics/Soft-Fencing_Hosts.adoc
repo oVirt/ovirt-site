@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Soft-Fencing_Hosts_{context}"]
 ==== Soft-Fencing Hosts
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="memory_optimization_{context}"]
 ==== Memory Optimization
 

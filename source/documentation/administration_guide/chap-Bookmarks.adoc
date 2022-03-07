@@ -1,4 +1,5 @@
-[id="chap-Bookmarks"]
+:_content-type: ASSEMBLY
+[id="chap-Bookmarks_{context}"]
 == Bookmarks
 
 include::topics/Saving_a_query_string_as_a_bookmark.adoc[]

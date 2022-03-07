@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_New_Quota_Policy_{context}"]
 === Creating a New Quota Policy
 

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Search_criteria_{context}"]
 === Search Criteria
 

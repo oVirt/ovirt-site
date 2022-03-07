@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_a_Logical_Network_{context}"]
 ==== Removing a Logical Network
 

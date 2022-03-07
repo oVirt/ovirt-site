@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_OVN_as_an_External_Network_Provider_{context}"]
 ==== Adding Open Virtual Network (OVN) as an External Network Provider
 

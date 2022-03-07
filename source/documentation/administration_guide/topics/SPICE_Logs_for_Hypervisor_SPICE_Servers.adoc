@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="SPICE_Logs_for_Hypervisor_SPICE_Servers_{context}"]
 ==== SPICE Logs for Hypervisor SPICE Servers
 
@@ -8,4 +9,3 @@
 |Log Type |Log Location |To Change Log Level:
 |Host/Hypervisor SPICE Server |/var/log/libvirt/qemu/(guest_name).log |Run `export SPICE_DEBUG_LEVEL=5` on the host/hypervisor prior to launching the guest. This variable is parsed by QEMU, and if run system-wide will print the debugging information of all virtual machines on the system. This command must be run on each host in the cluster. This command works only on a per-host/hypervisor basis, not a per-cluster basis.
 |===
-

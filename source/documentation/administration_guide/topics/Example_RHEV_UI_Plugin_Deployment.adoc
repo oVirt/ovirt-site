@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Example_RHEV_UI_Plugin_Deployment_{context}"]
 === Example User Interface Plug-in Deployment
 
@@ -37,6 +38,4 @@ If you have successfully implemented the *Hello World!* plug-in, you will see th
 
 [id="ui-plugin-hello-world-success_{context}"]
 .A Successful Implementation of the *Hello World!* Plug-in
-image::images/1475.png[] 
-
-
+image::images/1475.png[]

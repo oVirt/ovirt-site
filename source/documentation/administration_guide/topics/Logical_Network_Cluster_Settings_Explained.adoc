@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Logical_Network_Cluster_Settings_Explained_{context}"]
 ==== Logical Network Cluster Settings Explained
 

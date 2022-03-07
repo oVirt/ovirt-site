@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Fencing_Policy_Settings_Explained_{context}"]
 ==== Fencing Policy Settings Explained
 

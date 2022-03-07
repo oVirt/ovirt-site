@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Virtual_Disk_User_Roles_Explained_{context}"]
 ==== Virtual Disk User Roles Explained
 

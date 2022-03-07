@@ -2,6 +2,7 @@
 //
 // doc-Administration_Guide/chap-External_Providers.adoc
 
+:_content-type: PROCEDURE
 [id="proc-adding-kubevirt-openshift-as-an-external-provider_{context}"]
 = Adding KubeVirt/Openshift Virtualization as an external provider
 

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Data_center_system_permissions_{context}"]
 ==== Managing System Permissions for a Data Center
 

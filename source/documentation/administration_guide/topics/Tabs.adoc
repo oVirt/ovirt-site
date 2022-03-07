@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Tabs_{context}"]
 ==== Tabs
 
@@ -8,4 +9,3 @@ Many pop-up windows in the Administration Portal include tabs. The elements of t
 * Inactive
 
 The classes for tabs are located in *common.css* and *user_portal.css*.
-

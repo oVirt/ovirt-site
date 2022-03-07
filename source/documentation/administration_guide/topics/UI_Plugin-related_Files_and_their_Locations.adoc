@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="UI_Plugin-related_Files_and_their_Locations_{context}"]
 === User Interface Plugin-related Files and Their Locations
 

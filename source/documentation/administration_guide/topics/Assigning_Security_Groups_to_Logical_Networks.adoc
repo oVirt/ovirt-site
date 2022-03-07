@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Assigning_Security_Groups_to_Logical_Networks_{context}"]
 ==== Assigning Security Groups to Logical Networks and Ports
 

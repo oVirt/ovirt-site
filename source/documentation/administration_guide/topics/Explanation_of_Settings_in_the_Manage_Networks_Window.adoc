@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Explanation_of_Settings_in_the_Manage_Networks_Window_{context}"]
 ==== Explanation of Settings in the Manage Networks Window
 

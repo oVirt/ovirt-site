@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Refreshing_Host_Capabilities_{context}"]
 ==== Refreshing Host Capabilities
 

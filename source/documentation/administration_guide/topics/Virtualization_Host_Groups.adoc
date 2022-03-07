@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Virtualization_Host_Groups_{context}"]
 ==== Virtualization Host Groups
 

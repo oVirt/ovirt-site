@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="SPICE_Proxy_Machine_Setup_{context}"]
 ==== SPICE Proxy Machine Setup
 

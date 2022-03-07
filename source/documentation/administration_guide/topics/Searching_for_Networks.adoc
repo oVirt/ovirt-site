@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_Networks_{context}"]
 === Searching for Networks
 

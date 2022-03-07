@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_Quotas_{context}"]
 === Editing Quotas
 

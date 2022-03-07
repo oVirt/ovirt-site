@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping_{context}"]
 ==== {virt-product-fullname} User Interface Plug-in Bootstrapping
 
@@ -13,7 +14,7 @@ A typical plug-in bootstrap sequence consists of following steps:
 
 
 The following code snippet illustrates the above mentioned steps in practice:
-	
+
 [source,terminal]
 ----
 
@@ -39,4 +40,3 @@ api.register({
 api.ready();
 
 ----
-

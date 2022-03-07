@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Viewing_Logged_In_Users_{context}"]
 ==== Viewing Logged-In Users
 

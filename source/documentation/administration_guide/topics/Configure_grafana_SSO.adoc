@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configure_grafana_SSO_{context}"]
 
 .Configuring Grafana for Single Sign-on

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Websocket_Proxy_Overview_{context}"]
 ==== Websocket Proxy Overview
 

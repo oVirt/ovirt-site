@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Cluster_Migration_Policy_Settings_Explained_{context}"]
 ==== Migration Policy Settings Explained
 

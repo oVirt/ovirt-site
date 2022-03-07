@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Activating_storage_domains_{context}"]
 ==== Activating Storage Domains from Maintenance Mode
 

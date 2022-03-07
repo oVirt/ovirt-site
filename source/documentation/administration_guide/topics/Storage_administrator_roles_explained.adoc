@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Cluster_virtual_machine_entities_{context}"]
 ==== Storage Administrator Roles Explained
 

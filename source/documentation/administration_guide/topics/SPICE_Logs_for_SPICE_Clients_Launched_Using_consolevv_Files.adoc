@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files_{context}"]
 ==== SPICE Logs for SPICE Clients Launched Using console.vv Files
 
@@ -26,7 +27,7 @@
 +
 [source,terminal]
 ----
-remote-viewer --spice-debug __path\to\__console.vv 
+remote-viewer --spice-debug __path\to\__console.vv
 ----
 +
 . To view logs, connect to the virtual machine, and you will see a command prompt running GDB that prints standard output and standard error of `remote-viewer`.

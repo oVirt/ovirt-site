@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Parameters_for_event_notifications_in_notifier_{context}"]
 === Parameters for Event Notifications in ovirt-engine-notifier.conf
 

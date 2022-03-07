@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Viewing_Host_Errata_{context}"]
 ==== Viewing Host Errata
 

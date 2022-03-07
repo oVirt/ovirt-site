@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_Subnets_on_External_Provider_Logical_Networks_{context}"]
 ==== Configuring Subnets on External Provider Logical Networks
 

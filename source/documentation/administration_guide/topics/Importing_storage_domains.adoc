@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Importing_storage_domains_{context}"]
 ==== Importing storage domains
 

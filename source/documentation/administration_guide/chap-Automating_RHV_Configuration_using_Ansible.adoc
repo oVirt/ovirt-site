@@ -1,4 +1,5 @@
-[id="chap-Automating_RHV_Configuration_using_Ansible"]
+:_content-type: ASSEMBLY
+[id="chap-Automating_RHV_Configuration_using_Ansible_{context}"]
 == Automating Configuration Tasks using Ansible
 
 Ansible is an automation tool used to configure systems, deploy software, and perform rolling updates. {virt-product-fullname} includes a limited version of Ansible to automate {virt-product-shortname} post-installation tasks such as data center setup and configuration, managing users, and virtual machine operations.

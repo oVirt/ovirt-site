@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Installing_Red_Hat_Virtualization_Hosts_{context}']
 = Installing {hypervisor-fullname}s
 

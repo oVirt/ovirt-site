@@ -1,5 +1,6 @@
 :_module-type: PROCEDURE
 
+:_content-type: PROCEDURE
 [id="getting-information-about-a-backup_{context}"]
 = Getting information about a backup
 

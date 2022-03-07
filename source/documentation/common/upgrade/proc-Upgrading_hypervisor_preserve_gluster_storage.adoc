@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Upgrading_hypervisor_preserve_gluster_storage"]
 
 = Upgrading {hypervisor-shortname} while preserving Gluster storage

@@ -1,3 +1,5 @@
+:_content-type: SNIPPET
+
 [NOTE]
 ====
 This is one in a series of topics that show how to set up and configure SR-IOV on {virt-product-fullname}. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#setting-up-and-configuring-sr-iov[Setting Up and Configuring SR-IOV]

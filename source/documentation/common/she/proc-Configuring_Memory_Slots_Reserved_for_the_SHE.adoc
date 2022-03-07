@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Configuring_Memory_Slots_Reserved_for_the_SHE']
 = Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts
 

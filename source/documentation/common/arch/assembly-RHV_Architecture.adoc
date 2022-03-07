@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='RHV_Architecture']
 = {virt-product-fullname} Architecture
 

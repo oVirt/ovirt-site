@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Configuring_a_Host_for_PCI_Passthrough_{context}']
 
 = Configuring a Host for PCI Passthrough

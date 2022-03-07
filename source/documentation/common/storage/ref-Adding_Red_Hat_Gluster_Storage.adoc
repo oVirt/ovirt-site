@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='Adding_Red_Hat_Gluster_Storage_{context}']
 = Adding {gluster-storage-fullname}
 

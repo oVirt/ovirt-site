@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='RHV-manager-requirements']
 = {virt-product-fullname} {engine-name} Requirements
 

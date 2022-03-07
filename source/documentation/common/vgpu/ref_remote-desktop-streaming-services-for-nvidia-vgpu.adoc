@@ -2,6 +2,7 @@
 //
 // assembly_managing-nvidia-vgpu-devices
 
+:_content-type: CONCEPT
 [id="ref_remote-desktop-streaming-services-for-nvidia-vgpu_{context}"]
 = Remote desktop streaming services for NVIDIA vGPU
 

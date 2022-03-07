@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id='RHV_Installation_Options_{context}']
 = {virt-product-fullname} Installation Options
 

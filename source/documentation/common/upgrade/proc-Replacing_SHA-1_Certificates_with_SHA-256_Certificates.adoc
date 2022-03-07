@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Replacing_SHA-1_Certificates_with_SHA-256_Certificates_{context}']
 = Replacing SHA-1 Certificates with SHA-256 Certificates
 

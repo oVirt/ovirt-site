@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Troubleshooting_SHE_{context}']
 = Troubleshooting a Self-hosted Engine Deployment
 

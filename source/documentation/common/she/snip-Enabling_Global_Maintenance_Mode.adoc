@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Enabling_Global_Maintenance_Mode_{context}"]
 = Enabling global maintenance mode
 

@@ -1,8 +1,9 @@
-[[RHV_installation-overview]]
+:_content-type: CONCEPT
+[id="RHV_installation-overview"]
 = {virt-product-fullname} Installation Overview
 
 The following diagram outlines the setup procedure for a standalone {engine-name} deployment and a self-hosted engine deployment.
 
-[[img-installation_overview]]
+[id="img-installation_overview"]
 .Setup Overview of {virt-product-fullname}
 image::images/RHEV_SHE_454569_0717_JCS_deployment_02.png[Setup Overview of {virt-product-fullname}]

@@ -3,6 +3,7 @@
 // Administration Guide
 //   chap-Clusters.adoc
 
+:_content-type: CONCEPT
 [id='About_UEFI_Q35-{context}']
 = UEFI and the Q35 chipset
 

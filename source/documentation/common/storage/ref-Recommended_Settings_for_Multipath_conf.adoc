@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='ref-Recommended_Settings_for_Multipath_conf_{context}']
 = Recommended Settings for Multipath.conf
 

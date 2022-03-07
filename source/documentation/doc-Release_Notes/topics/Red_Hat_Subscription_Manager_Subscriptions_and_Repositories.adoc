@@ -1,9 +1,10 @@
-[[Red_Hat_Subscription_Manager_Subscriptions_and_Repositories]]
+:_content-type: REFERENCE
+[id="Red_Hat_Subscription_Manager_Subscriptions_and_Repositories"]
 = Required Subscriptions and Repositories
 
 The packages provided in the following repositories are required to install and configure a functioning {virt-product-fullname} environment. When one of these repositories is required to install a package, the steps required to enable the repository are provided in the appropriate location in the documentation.
 
-[[RHSM_Repositories_Required-Manager]]
+[id="RHSM_Repositories_Required-Manager"]
 .{virt-product-fullname} {engine-name}
 [options="header"]
 |===
@@ -15,7 +16,7 @@ The packages provided in the following repositories are required to install and 
 |`{virt-product-fullname}` |`Red Hat Fast Datapath for RHEL 8 (RPMs)` |`fast-datapath-for-rhel-8-x86_64-rpms` |Provides Open vSwitch (OVS) packages.
 |===
 
-[[RHSM_Repositories_Required-Hypervisor]]
+[id="RHSM_Repositories_Required-Hypervisor"]
 .{hypervisor-fullname}
 [options="header"]
 |===
@@ -23,7 +24,7 @@ The packages provided in the following repositories are required to install and 
 |`{virt-product-fullname}` |`{hypervisor-fullname}` |`rhvh-4-for-rhel-8-x86_64-rpms` |Provides the `redhat-virtualization-host-image-update` package, which allows you to update the image installed on the host.
 |===
 
-[[RHSM_Repositories_Required-RHEL8_Host]]
+[id="RHSM_Repositories_Required-RHEL8_Host"]
 .{enterprise-linux} 8 Hosts
 [options="header"]
 |===

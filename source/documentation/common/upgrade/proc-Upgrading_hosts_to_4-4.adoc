@@ -2,6 +2,7 @@
 //
 // Upgrading from 4.3 to {virt-product-fullname} 4.4
 //
+:_content-type: PROCEDURE
 [id="Upgrading_hosts_to_4-4_{context}"]
 
 = Migrating hosts and virtual machines from {virt-product-shortname} 4.3 to 4.4

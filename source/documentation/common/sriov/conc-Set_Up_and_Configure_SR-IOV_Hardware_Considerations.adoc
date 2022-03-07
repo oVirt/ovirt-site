@@ -1,3 +1,5 @@
+:_content-type: SNIPPET
+
 This is one in a series of topics that show how to set up and configure SR-IOV on {virt-product-fullname}:
 
 * Hardware Considerations for Implementing SR-IOV (this document)

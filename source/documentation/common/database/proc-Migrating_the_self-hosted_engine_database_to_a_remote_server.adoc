@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Migrating_the_self-hosted_engine_database_{context}']
 = Migrating the {engine-name} Database to a Remote Server
 

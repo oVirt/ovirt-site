@@ -1,4 +1,5 @@
-[[RHV-components]]
+:_content-type: ASSEMBLY
+[id="RHV-components"]
 == {virt-product-fullname} Components
 
 === {virt-product-fullname} {engine-name}

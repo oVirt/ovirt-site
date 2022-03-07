@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Creating_LVM_filter_{context}']
 
 = Creating an LVM filter

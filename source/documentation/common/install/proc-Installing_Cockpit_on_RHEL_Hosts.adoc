@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Installing_Cockpit_on_Linux_Hosts_{context}']
 = Installing Cockpit on {enterprise-linux-host-fullname}s
 

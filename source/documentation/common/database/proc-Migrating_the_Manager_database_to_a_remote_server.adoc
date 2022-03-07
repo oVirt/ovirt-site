@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Migrating_the_Manager_database_to_a_remote_server_{context}']
 = Migrating the {engine-name} Database to a Remote Server
 

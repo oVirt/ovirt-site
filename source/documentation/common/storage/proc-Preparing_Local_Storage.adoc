@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Preparing_Local_Storage_{context}']
 = Preparing local storage
 

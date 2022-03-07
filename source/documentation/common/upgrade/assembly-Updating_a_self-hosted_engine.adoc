@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="Updating_a_self-hosted_engine_{context}"]
 = Updating a Self-Hosted Engine
 

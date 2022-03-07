@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Maintaining_the_Self-Hosted_Engine']
 = Maintaining the Self-hosted engine
 

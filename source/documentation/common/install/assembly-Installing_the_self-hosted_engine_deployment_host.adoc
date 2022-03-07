@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Installing_the_self-hosted_engine_deployment_host_{context}']
 = Installing the Self-hosted Engine Deployment Host
 

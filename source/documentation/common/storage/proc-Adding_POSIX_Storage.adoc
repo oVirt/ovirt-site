@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Adding_POSIX_Storage_{context}']
 = Adding POSIX-compliant File System Storage
 

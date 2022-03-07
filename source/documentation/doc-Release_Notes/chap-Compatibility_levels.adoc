@@ -1,3 +1,4 @@
-[[chap-Compatibility]]
+:_content-type: ASSEMBLY
+[id="chap-Compatibility"]
 
 include::common/upgrade/compatibility_levels.adoc[]

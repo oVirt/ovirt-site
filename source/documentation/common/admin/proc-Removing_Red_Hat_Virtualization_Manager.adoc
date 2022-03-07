@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Removing_Red_Hat_Virtualization_Manager_{context}']
 = Removing the standalone {virt-product-fullname} {engine-name}
 

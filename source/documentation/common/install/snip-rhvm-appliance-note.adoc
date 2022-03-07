@@ -1,3 +1,5 @@
+:_content-type: SNIPPET
+
 [NOTE]
 ====
 The {engine-appliance-name} is only used during installation. It is not used to upgrade the {engine-name}.

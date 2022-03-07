@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Adding_iSCSI_Storage_{context}']
 = Adding iSCSI Storage
 

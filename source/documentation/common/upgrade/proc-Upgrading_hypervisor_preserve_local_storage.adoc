@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Upgrading_hypervisor_preserving_local_storage_{context}']
 = Upgrading {hypervisor-shortname} while preserving local storage
 

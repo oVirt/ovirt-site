@@ -1,5 +1,6 @@
 :_module-type: REFERENCE
 
+:_content-type: REFERENCE
 [id="ref_troubleshooting-incremental-backups_{context}"]
 = Troubleshooting Incremental Backups
 

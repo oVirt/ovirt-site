@@ -1,5 +1,6 @@
 :_module-type: PROCEDURE
 
+:_content-type: PROCEDURE
 [id="listing-specific-checkpoints-for-a-virtual-machine_{context}"]
 = Listing a specific checkpoint for a virtual machine
 

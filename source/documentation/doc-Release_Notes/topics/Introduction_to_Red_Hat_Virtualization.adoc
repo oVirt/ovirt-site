@@ -1,4 +1,5 @@
-[[Introduction_to_Red_Hat_Virtualization]]
+:_content-type: CONCEPT
+[id="Introduction_to_Red_Hat_Virtualization"]
 === Introduction to {virt-product-fullname}
 
 {virt-product-fullname} is an enterprise-grade server and desktop virtualization platform built on {enterprise-linux}. See the link:{URL_virt_product_docs}{URL_format}product_guide/[Product Guide] for more information.

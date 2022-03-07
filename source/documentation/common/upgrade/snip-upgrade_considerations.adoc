@@ -1,4 +1,5 @@
 //4.4 upgrade considerations
+:_content-type: SNIPPET
 .Upgrade Considerations
 
 When planning to upgrade, see link:https://access.redhat.com/articles/5268351[Red Hat Virtualization 4.4 upgrade considerations and known issues].

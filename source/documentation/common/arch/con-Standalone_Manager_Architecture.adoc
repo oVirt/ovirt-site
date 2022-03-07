@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id='Standalone_Manager_Architecture_{context}']
 = Standalone {engine-name} Architecture
 

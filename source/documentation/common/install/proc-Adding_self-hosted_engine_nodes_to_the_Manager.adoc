@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Adding_self-hosted_engine_nodes_to_the_Manager_{context}']
 = Adding Self-Hosted Engine Nodes to the {virt-product-fullname} {engine-name}
 

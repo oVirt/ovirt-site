@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='RHV-manager-firewall-requirements_{context}']
 = {virt-product-fullname} {engine-name} Firewall Requirements
 

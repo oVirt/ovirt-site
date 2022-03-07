@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node_{context}']
 = Reinstalling an Existing Host as a Self-Hosted Engine Node
 

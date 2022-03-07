@@ -1,4 +1,5 @@
-[[chap-Release_Notes]]
+:_content-type: ASSEMBLY
+[id="chap-Release_Notes"]
 == Release Information
 
 These release notes highlight technology preview items, recommended practices, known issues, and deprecated functionality to be taken into consideration when deploying this release of {virt-product-fullname}.

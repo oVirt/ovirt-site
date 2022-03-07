@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Migrating_Data_Warehouse_to_a_Separate_Machine_{context}']
 = Migrating Data Warehouse to a Separate Machine
 

@@ -18,6 +18,7 @@ Refer to vendor specification for determining processor-based and controller hub
 
 In addition, any PCIe switch or bridge within the I/O topology also requires ACS support, otherwise it may extend the IOMMU group.
 
+:_content-type: CONCEPT
 [id='Summary_of_Hardware_Considerations_for_Device_Assignment']
 === Summary of Hardware Considerations for Device Assignment
 

@@ -1,5 +1,4 @@
-:_module-type: PROCEDURE
-
+:_content-type: PROCEDURE
 [id="proc_upgrading-the-remote-data-warehouse-service-and-database_{context}"]
 = Upgrading the remote Data Warehouse service and database
 

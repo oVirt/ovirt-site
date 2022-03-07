@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Restoring_the_Backup_on_a_New_Self-hosted_Engine_{context}']
 = Restoring the Backup on a New Self-Hosted Engine
 

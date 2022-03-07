@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Manually_Updating_Hosts_{context}']
 = Manually Updating Hosts
 

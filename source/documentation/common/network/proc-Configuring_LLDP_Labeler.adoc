@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Configuring_LLDP_Labeler_{context}'']
 
 By default, LLDP Labeler runs as an hourly service. This option is useful if you make hardware changes (for example, NICs, switches, or cables) or change switch configurations.

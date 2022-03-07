@@ -2,6 +2,7 @@
 //
 // <List assemblies here, each on a new line>
 
+:_content-type: PROCEDURE
 [id="Enabling-and-configuring-firewall_{context}"]
 
 = Enabling and configuring the firewall

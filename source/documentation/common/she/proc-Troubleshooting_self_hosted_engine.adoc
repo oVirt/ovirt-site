@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Troubleshooting_the_Manager_Virtual_Machine_{context}']
 = Troubleshooting the {engine-name} Virtual Machine
 

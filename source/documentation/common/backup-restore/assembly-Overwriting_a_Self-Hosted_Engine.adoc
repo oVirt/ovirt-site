@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Overwriting_a_Self-Hosted_Engine']
 = Overwriting a Self-Hosted Engine from an Existing Backup
 

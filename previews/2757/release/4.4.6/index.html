@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>oVirt 4.4.6 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="oVirt 4.4.6 Release Notes" />
+<meta name="author" content="Lev Veyde" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2757/release/4.4.6/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2757/release/4.4.6/" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 4.4.6 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Lev Veyde" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Lev Veyde"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2757/images/logo.svg"},"name":"Lev Veyde"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt 4.4.6 Release Notes","url":"https://ovirt.github.io/ovirt-site/previews/2757/release/4.4.6/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2757/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2757/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2757/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2757/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2757/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2757/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2757/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2757/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2757/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2757/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2757/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2757/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2757/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2757/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2757/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2757/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2757/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2757/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2757/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2757/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2757/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2757/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2757/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2757/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2757/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2757/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2757/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2757/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2757/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class="releases"><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2757/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2757/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2757/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2757/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2757/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2757/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2757//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2757//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2757/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2757/release/">
+              <span property="name">Release</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2a744af9899bb43af53646a9e98e69bb?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2a744af9899bb43af53646a9e98e69bb?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Lev Veyde</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-446-release-notes">oVirt 4.4.6 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of the 4.4.6 release as of May 4th, 2021.</p>
+
+<p>oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.</p>
+
+<p>This release is available now for Red Hat Enterprise Linux 8.3 and
+CentOS Linux 8.3 (or similar) and CentOS Stream.</p>
+
+<blockquote>
+  <p><strong>NOTE</strong></p>
+
+  <p>Starting from oVirt 4.4.6 both oVirt Node and oVirt Engine Appliance are
+based on CentOS Stream.</p>
+</blockquote>
+
+<p class="alert alert-warning">Please note that if you are upgrading oVirt Node from previous version you should remove CentOS Linux related yum configuration.
+See Bug <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1955617">1955617 - CentOS Repositories should be removed from yum.repo.d when upgrading to CentOS Stream</a>
+For more details.</p>
+
+<p>To find out how to interact with oVirt developers and users and ask questions,
+visit our <a href="/ovirt-site/previews/2757/community/">community page</a>.
+All issues or bugs should be reported via
+<a href="https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt">Red Hat Bugzilla</a>.</p>
+
+<p>If you’d like to try oVirt as quickly as possible, follow the instructions on
+the <a href="/ovirt-site/previews/2757/download/">Download</a> page.</p>
+
+<p>For complete installation, administration, and usage instructions, see
+the <a href="/ovirt-site/previews/2757/documentation/">oVirt Documentation</a>.</p>
+
+<p>For a general overview of oVirt, read the <a href="/ovirt-site/previews/2757/community/about.html">About oVirt</a>
+page.</p>
+
+<p>To learn about features introduced before 4.4.6, see the
+<a href="/ovirt-site/previews/2757/documentation/#previous-release-notes">release notes for previous versions</a>.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-446-release-notes" id="markdown-toc-ovirt-446-release-notes">oVirt 4.4.6 Release Notes</a>    <ol>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a>        <ol>
+          <li><a href="#how-to-prevent-hosts-entering-emergency-mode-after-upgrade-from-ovirt-441" id="markdown-toc-how-to-prevent-hosts-entering-emergency-mode-after-upgrade-from-ovirt-441">How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1</a></li>
+        </ol>
+      </li>
+      <li><a href="#whats-new-in-446" id="markdown-toc-whats-new-in-446">What’s New in 4.4.6?</a>        <ol>
+          <li><a href="#release-note" id="markdown-toc-release-note">Release Note</a>            <ol>
+              <li><a href="#ovirt-engine-data-warehouse" id="markdown-toc-ovirt-engine-data-warehouse">oVirt Engine Data Warehouse</a></li>
+              <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+              <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+            </ol>
+          </li>
+          <li><a href="#enhancements" id="markdown-toc-enhancements">Enhancements</a>            <ol>
+              <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a></li>
+              <li><a href="#ovirt-host-dependencies" id="markdown-toc-ovirt-host-dependencies">oVirt Host Dependencies</a></li>
+              <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a></li>
+            </ol>
+          </li>
+          <li><a href="#rebase-bug-fixeses-and-enhancementss" id="markdown-toc-rebase-bug-fixeses-and-enhancementss">Rebase: Bug Fixeses and Enhancementss</a>            <ol>
+              <li><a href="#ovirt-engine-appliance" id="markdown-toc-ovirt-engine-appliance">oVirt Engine Appliance</a></li>
+              <li><a href="#ovirt-node-ng-image" id="markdown-toc-ovirt-node-ng-image">oVirt Node NG Image</a></li>
+            </ol>
+          </li>
+          <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a>            <ol>
+              <li><a href="#ovirt-engine-2" id="markdown-toc-ovirt-engine-2">oVirt Engine</a></li>
+              <li><a href="#vdsm-1" id="markdown-toc-vdsm-1">VDSM</a></li>
+              <li><a href="#imgbased" id="markdown-toc-imgbased">imgbased</a></li>
+            </ol>
+          </li>
+          <li><a href="#other" id="markdown-toc-other">Other</a>            <ol>
+              <li><a href="#ovirt-engine-data-warehouse-1" id="markdown-toc-ovirt-engine-data-warehouse-1">oVirt Engine Data Warehouse</a></li>
+              <li><a href="#ovirt-engine-3" id="markdown-toc-ovirt-engine-3">oVirt Engine</a></li>
+              <li><a href="#ovirt-release-package" id="markdown-toc-ovirt-release-package">oVirt Release Package</a></li>
+              <li><a href="#vdsm-2" id="markdown-toc-vdsm-2">VDSM</a></li>
+              <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a></li>
+              <li><a href="#ovirt-engine-appliance-1" id="markdown-toc-ovirt-engine-appliance-1">oVirt Engine Appliance</a></li>
+              <li><a href="#ovirt-engine-database-query-tool" id="markdown-toc-ovirt-engine-database-query-tool">oVirt Engine database query tool</a></li>
+              <li><a href="#ovirt-ansible-collection" id="markdown-toc-ovirt-ansible-collection">oVirt Ansible collection</a></li>
+              <li><a href="#mom" id="markdown-toc-mom">MOM</a></li>
+              <li><a href="#cockpit-ovirt" id="markdown-toc-cockpit-ovirt">cockpit-ovirt</a></li>
+              <li><a href="#ovirt-web-site" id="markdown-toc-ovirt-web-site">oVirt Web Site</a></li>
+            </ol>
+          </li>
+          <li><a href="#no-doc-update" id="markdown-toc-no-doc-update">No Doc Update</a>            <ol>
+              <li><a href="#ovirt-engine-data-warehouse-2" id="markdown-toc-ovirt-engine-data-warehouse-2">oVirt Engine Data Warehouse</a></li>
+              <li><a href="#ovirt-engine-4" id="markdown-toc-ovirt-engine-4">oVirt Engine</a></li>
+              <li><a href="#vdsm-3" id="markdown-toc-vdsm-3">VDSM</a></li>
+              <li><a href="#ovirt-engine-extension-aaa-ldap" id="markdown-toc-ovirt-engine-extension-aaa-ldap">ovirt-engine-extension-aaa-ldap</a></li>
+              <li><a href="#contributors" id="markdown-toc-contributors">Contributors</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="known-issues">Known issues</h2>
+
+<h3 id="how-to-prevent-hosts-entering-emergency-mode-after-upgrade-from-ovirt-441">How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1</h3>
+
+<p>Due to <strong><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1837864">[Bug 1837864]</a> - Host enter emergency mode after upgrading to latest build</strong>,</p>
+
+<p>If you have your root file system on a multipath device on your hosts you should be aware that after upgrading from 4.4.1 to 4.4.6 you may get your host entering emergency mode.</p>
+
+<p>In order to prevent this be sure to upgrade oVirt Engine first, then on your hosts:</p>
+<ol>
+  <li>Remove the current lvm filter while still on 4.4.1, or in emergency mode (if rebooted).</li>
+  <li>Reboot.</li>
+  <li>Upgrade to 4.4.6 (redeploy in case of already being on 4.4.6).</li>
+  <li>Run vdsm-tool config-lvm-filter to confirm there is a new filter in place.</li>
+  <li>Only if not using oVirt Node:
+    <ul>
+      <li>run “dracut –force –add multipath” to rebuild initramfs with the correct filter configuration</li>
+    </ul>
+  </li>
+  <li>Reboot.</li>
+</ol>
+
+<h2 id="whats-new-in-446">What’s New in 4.4.6?</h2>
+
+<h3 id="release-note">Release Note</h3>
+
+<h4 id="ovirt-engine-data-warehouse">oVirt Engine Data Warehouse</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917874">BZ 1917874</a> <strong>[RFE] Add Resource size to Hosts/Virtual Machine Uptime panels</strong></p>
+
+    <p>Add Resource size to Hosts/Virtual Machine Uptime panels:</p>
+  </li>
+</ul>
+
+<p>Hosts Uptime (BR8) panel:</p>
+
+<ol>
+  <li>
+    <p>CPU Cores</p>
+  </li>
+  <li>
+    <p>Memory Size</p>
+  </li>
+</ol>
+
+<p>Virtual Machine Uptime (BR46) panel:</p>
+
+<ol>
+  <li>
+    <p>CPU Cores</p>
+  </li>
+  <li>
+    <p>Memory Size</p>
+  </li>
+  <li>
+    <p>Disks Size</p>
+  </li>
+</ol>
+
+<h4 id="ovirt-engine">oVirt Engine</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1933672">BZ 1933672</a> <strong>Ansible security advisory RHSA-2021:0663 not included in RHV</strong></p>
+
+    <p>RHV 4.4.6 now requires Ansible Engine 2.9.18</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1947403">BZ 1947403</a> <strong>Increase reboot timeout to 10 min.</strong></p>
+
+    <p>By default we are waiting a certain amount of time defined by engine-config option ServerRebootTimeout before we consider that a hypervisor finished rebooting. Before oVirt 4.4.6 this timeout has been set to 5 minutes, but from 4.4.6 we are increasing the default to 10 minute. If this is not enough and hypervisors in your setup requires more time to finish rebooting, then please use below commant:</p>
+  </li>
+</ul>
+
+<p>engine-config -s ServerRebootTimeout=NNN</p>
+
+<p>where NNN is number of seconds which engine waits until it tries to connect to the hypervisor after a reboot. ovirt-engine service needs to be restarted after above change to take effect.</p>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1926819">BZ 1926819</a> <strong>python-sdk iscsidiscover return iscsi_targets instead of iscsi_details</strong></p>
+
+    <p>Host ‘iscsi_discover’ action has been deprecated.</p>
+  </li>
+</ul>
+
+<p>Host ‘discover_iscsi’ action has been added to replace it.</p>
+
+<p>The actions do the same thing but have different return values.</p>
+
+<p>‘discover_iscsi’ returns the information in a ‘iscsi_details’ element.</p>
+
+<p>‘iscsi_discover’ returns the information in a ‘iscsi_targets’ element.</p>
+
+<p>In summary, the action which should be used from now on is ‘discover_iscsi’.</p>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1933974">BZ 1933974</a> <strong>[RFE] Introduce Datacenter and cluster level 4.6</strong></p>
+
+    <p>DataCenter and Cluster compatibility level 4.6 is introduced in oVirt Engine 4.4.6. Only hosts running on CentOS/RHEL 8.4 with Advanced Virtualization 8.4 (libvirt &gt;= 7.0.0) can join cluster level 4.6.</p>
+  </li>
+</ul>
+
+<p>New features available in compatibility 4.6 are tracked as separate bugs depending on this bug.</p>
+
+<h4 id="vdsm">VDSM</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1933974">BZ 1933974</a> <strong>[RFE] Introduce Datacenter and cluster level 4.6</strong></p>
+
+    <p>DataCenter and Cluster compatibility level 4.6 is introduced in oVirt Engine 4.4.6. Only hosts running on CentOS/RHEL 8.4 with Advanced Virtualization 8.4 (libvirt &gt;= 7.0.0) can join cluster level 4.6.</p>
+  </li>
+</ul>
+
+<p>New features available in compatibility 4.6 are tracked as separate bugs depending on this bug.</p>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<h4 id="ovirt-engine-1">oVirt Engine</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1113630">BZ 1113630</a> <strong>[RFE] indicate vNICs that are out-of-sync from their configuration on engine</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1944723">BZ 1944723</a> <strong>[RFE] Support virtual machines with 16TB memory</strong></p>
+
+    <p>In this version, we support running virtual machines with up to 16TB of RAM on x86_64.</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1669178">BZ 1669178</a> <strong>[RFE] Q35 SecureBoot - Add ability to preserve variable store certificates.</strong></p>
+
+    <p>Secure Boot process relies on keys that are normally stored in NVRAM of the VM. However, NVRAM was not stored in previous versions of oVirt and was newly initialized on every start of a VM. This prevented the use of any custom drivers (e.g. for Nvidia devices or for PLDP drivers in SUSE) on VMs with Secure Boot enabled. To be able to use SecureBoot VMs effectively oVirt now persists the content of NVRAM for UEFI VMs.</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1936897">BZ 1936897</a> <strong>[Engine JDK 11] More verbose and configurable GC logging.</strong></p>
+
+    <p>Feature:</p>
+  </li>
+</ul>
+
+<p>More verbose and configurable GC logging. This includes:</p>
+
+<ol>
+  <li>
+    <p>GC verbose logging disabled by default with INFO verbosity level.</p>
+  </li>
+  <li>
+    <p>Ability to setup desired GC log level via config the property:</p>
+  </li>
+</ol>
+
+<p>ENGINE_VERBOSE_GC_LOG_LEVEL=info</p>
+
+<p>Available options are: off, error, warning, info, debug, trace</p>
+
+<ol>
+  <li>Ability to setup desired GC log file rotation via:</li>
+</ol>
+
+<p>ENGINE_VERBOSE_GC_LOG_FILE_SIZE=2M  #single log file size</p>
+
+<p>ENGINE_VERBOSE_GC_LOG_FILES_NUMBER=50 #number of files in rotation</p>
+
+<p>Reason:</p>
+
+<p>oVirt Engine tends to allocate large chunks of memory (depending on overall setup) that might contribute to potential various slow downs caused by Java Garbage Collector operations.</p>
+
+<p>Result:</p>
+
+<p>The ability to monitor and discover memory related issues much earlier (before the issue is actually negatively impacting an environment)</p>
+
+<p>In order to customize or disable the above default settings it is recommended to put these properties in one of the engine’s etc config ie. /etc/ovirt-engine/engine.conf.d/99-setup-gc-logging.conf</p>
+
+<h4 id="ovirt-host-dependencies">oVirt Host Dependencies</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1933245">BZ 1933245</a> <strong>[RFE] Include smartmontools in RHVH Node image</strong></li>
+</ul>
+
+<h4 id="ovirt-hosted-engine-ha">oVirt Hosted Engine HA</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1909888">BZ 1909888</a> <strong>[RFE] Support multiple IQN in hosted-engine.conf for Active-Active DR setup</strong></p>
+
+    <p>With this release, ovirt-hosted-engine-ha supports multiple, comma-separated, values, for all iSCSI configuration items.</p>
+  </li>
+</ul>
+
+<h3 id="rebase-bug-fixeses-and-enhancementss">Rebase: Bug Fixeses and Enhancementss</h3>
+
+<h4 id="ovirt-engine-appliance">oVirt Engine Appliance</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1907831">BZ 1907831</a> <strong>Rebase ovirt-appliance on top of CentOS Stream 8</strong></li>
+</ul>
+
+<h4 id="ovirt-node-ng-image">oVirt Node NG Image</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1907833">BZ 1907833</a> <strong>Rebase oVirt Node on CentOS Stream 8</strong></li>
+</ul>
+
+<h3 id="bug-fixes">Bug Fixes</h3>
+
+<h4 id="ovirt-engine-2">oVirt Engine</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1946502">BZ 1946502</a> <strong>engine-setup on a separate {dwh, websocket-proxy, grafana) machine fails</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1932284">BZ 1932284</a> <strong>Engine handled FS freeze is not fast enough for Windows systems</strong></p>
+  </li>
+</ul>
+
+<h4 id="vdsm-1">VDSM</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1902127">BZ 1902127</a> <strong>Sanlock exception during Lease.delete leaves lease UPDATING_FLAG in updating state, failing the next Lease.create and engine updates VM lease incorrectly.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1945675">BZ 1945675</a> <strong>delete-snapshot stress with extreme load- Vdsm aborts live merge job without aborting the libvirt block job</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1940484">BZ 1940484</a> <strong>Consume  Bug 1931331 - libvirtd crashes in virEventThreadWorker</strong></p>
+  </li>
+</ul>
+
+<h4 id="imgbased">imgbased</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1936972">BZ 1936972</a> <strong>[RHVH] Failed to reinstall persisted RPMs</strong></li>
+</ul>
+
+<h3 id="other">Other</h3>
+
+<h4 id="ovirt-engine-data-warehouse-1">oVirt Engine Data Warehouse</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1861685">BZ 1861685</a> <strong>[RFE] Add filter to Inventory Dashboards</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1935000">BZ 1935000</a> <strong>Add a minimal Grafana version as dependent</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1853254">BZ 1853254</a> <strong>[RFE] Create links between reports</strong></p>
+  </li>
+</ul>
+
+<h4 id="ovirt-engine-3">oVirt Engine</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1958869">BZ 1958869</a> <strong>Import VM from export domain fails - the imported VM remains in ‘image locked’ state</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1957253">BZ 1957253</a> <strong>[cinderlib] Enable using Managed Block Storage on 4.6 cluster by default</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1956677">BZ 1956677</a> <strong>Snapshot merge fails with null pointer exception.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1957595">BZ 1957595</a> <strong>Failed to import VM from KVM</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1950209">BZ 1950209</a> <strong>Leaf images used by the VM is deleted by the engine during snapshot merge</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1906074">BZ 1906074</a> <strong>[RFE] Support disks copy between regular and managed block storage domains</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1899453">BZ 1899453</a> <strong>Remove old Cinder integration from the UI</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1954401">BZ 1954401</a> <strong>HP VMs pinning is wiped after edit-&gt;ok and pinned to first physical CPUs.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1950467">BZ 1950467</a> <strong>[CBT] VM backup failed after upgrade to 4.4.5. Invalid parameter: ‘DiskType=SCRD’</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1953558">BZ 1953558</a> <strong>[CBT] Unable to GET storage domain disks through API during a backup (when scratch disks created on the same SD)</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1928158">BZ 1928158</a> <strong>Rename ‘CA Certificate’ link in welcome page to ‘Engine CA certificate’</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1950323">BZ 1950323</a> <strong>Missing title in the SSH public key management tooltip</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1952075">BZ 1952075</a> <strong>Failed to migrate vm when migration encryption is enabled - upgrade-flow</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1859921">BZ 1859921</a> <strong>GenericApiGWTService causing additional load on engine</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1949798">BZ 1949798</a> <strong>Remove the replace-host options available with reinstall host workflow from administration portal</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1952787">BZ 1952787</a> <strong>Chipset/firmware type setting doesn’t work when creating vm pool</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1900992">BZ 1900992</a> <strong>If there is no enough free space on the target domain while LSM is being performed, Live Merge (as part of LSM) fails but the event on the UI is not informative</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1673059">BZ 1673059</a> <strong>[RFE] [UX] provide an indication that ISO domains are deprecated and Data Domains can/should now store ISOs</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1952834">BZ 1952834</a> <strong>Failure during SSH stop/restart on FIPS enabled host</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1952098">BZ 1952098</a> <strong>VM created from a template (the same to pools) doesn’t inherit ‘VirtIO-SCSI Multi Queues Enabled’ setting</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1930895">BZ 1930895</a> <strong>RHEL 8 virtual machine with qemu-guest-agent installed displays Guest OS Memory Free/Cached/Buffered: Not Configured</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1948376">BZ 1948376</a> <strong>Failed to migrate vm when migration encryption is enabled - new deployments</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1891851">BZ 1891851</a> <strong>Clarify the error-message in case of incorrect cpu-type set to a cluster</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1951506">BZ 1951506</a> <strong>VM update fails on bios type check on PPC arch.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1950752">BZ 1950752</a> <strong>[RFE][CBT] redefine only the checkpoint that the backup is taken from and not the entire chain</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1805808">BZ 1805808</a> <strong>[de_DE] Compute - Virtual Machines - New - Custom Properties: text truncated and overlapped with &gt;</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1805796">BZ 1805796</a> <strong>[fr_FR] Compute - Virtual Machines - New - Random Generator: text truncated and overlapped with &gt;</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917718">BZ 1917718</a> <strong>[RFE] Collect memory usage from guests without ovirt-guest-agent and memory ballooning</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1926018">BZ 1926018</a> <strong>Failed to run VM after FIPS mode is enabled</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1821199">BZ 1821199</a> <strong>HP VM fails to migrate between identical hosts (the same cpu flags) not supporting TSC.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1948484">BZ 1948484</a> <strong>Failed to change CD in vm</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1948500">BZ 1948500</a> <strong>Tpm model should be tpm-crb for x86_64 and tpm-spapr for ppc(RHV)</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1910858">BZ 1910858</a> <strong>vm_ovf_generations is not cleared while detaching the storage domain causing VM import with old stale configuration</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1927243">BZ 1927243</a> <strong>Cannot hotplug disk reports libvirtError: Requested operation is not valid: Domain already contains a disk with that address</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1717411">BZ 1717411</a> <strong>improve engine logging when migration fail</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1676708">BZ 1676708</a> <strong>[UI] hint after updating mtu on networks connected to running VMs and indicate vNICs out of sync</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1621421">BZ 1621421</a> <strong>[RFE] indicate vNIC is out of sync on network QoS modification on engine</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917956">BZ 1917956</a> <strong>After restore, vm has warning Pending virtual machine changes : cluster cpu type</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1936164">BZ 1936164</a> <strong>Enable KVM Software TPM by default</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1932485">BZ 1932485</a> <strong>[RFE] Disks-only snapshots for VMs with TPM/NVRAM data</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1892525">BZ 1892525</a> <strong>Cannot clone VM from Admin Portal if it has Direct LUN</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1879032">BZ 1879032</a> <strong>If there is no master storage domain, the engine should elect one</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1940764">BZ 1940764</a> <strong>Parsing of absurd variables seen from classes using jackson dependency to ansible-playbook while create-brick</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1941518">BZ 1941518</a> <strong>[CBT] Scratch disk size should be equal to VM disk size for now</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1942722">BZ 1942722</a> <strong>VM backup failed with RPC call Host.add_image_ticket failed (error 482)</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1943267">BZ 1943267</a> <strong>Snapshot creation is failing for VM having vGPU.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1775145">BZ 1775145</a> <strong>Incorrect message from hot-plugging memory</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1912691">BZ 1912691</a> <strong>[RFE] ticket classes should use SHA-256</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1937310">BZ 1937310</a> <strong>[REST] live update of the network filter parameter does not update the libvirt XML on the host</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1834250">BZ 1834250</a> <strong>CPU hotplug on UEFI VM causes VM reboot</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1927718">BZ 1927718</a> <strong>[RFE] Provide Reset option for VMs</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1937827">BZ 1937827</a> <strong>TPM device cannot be marked to be added to VM while it is running</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1930282">BZ 1930282</a> <strong>vcpu pinning string for HP VM must be shown in UI(even if it must be disabled for editing)</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1936163">BZ 1936163</a> <strong>Enable bochs-display for UEFI guests by default</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1589763">BZ 1589763</a> <strong>[downstream clone] Error changing CD for a running VM when ISO image is on a block domain</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1936185">BZ 1936185</a> <strong>[CBT] Scratch disk not removed if a VM goes to ‘paused’ state during the backup process</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1934129">BZ 1934129</a> <strong>[Gluster] Unable to import existing gluster configuration into newly created cluster</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1897049">BZ 1897049</a> <strong>[CBT][incremental backup] Multiple NullPointerExceptions during VM removal after backing up the VM and removing the backup checkpoints</strong></p>
+  </li>
+</ul>
+
+<h4 id="ovirt-release-package">oVirt Release Package</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1954571">BZ 1954571</a> <strong>Ansible does not correctly detect distribution_version on oVirt Node based on CentOS Stream 8</strong></li>
+</ul>
+
+<h4 id="vdsm-2">VDSM</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1950209">BZ 1950209</a> <strong>Leaf images used by the VM is deleted by the engine during snapshot merge</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1589763">BZ 1589763</a> <strong>[downstream clone] Error changing CD for a running VM when ISO image is on a block domain</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1868643">BZ 1868643</a> <strong>Volume not deactivated after ejecting CDROM</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1906074">BZ 1906074</a> <strong>[RFE] Support disks copy between regular and managed block storage domains</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1717411">BZ 1717411</a> <strong>improve engine logging when migration fail</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1950752">BZ 1950752</a> <strong>[RFE][CBT] redefine only the checkpoint that the backup is taken from and not the entire chain</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1933669">BZ 1933669</a> <strong>Improve live snapshot logs in case of aborting</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1948532">BZ 1948532</a> <strong>Resize disk when vm is up fails, vm cannot be stopped</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1940118">BZ 1940118</a> <strong>abrt-hook-ccpp[57365]: Process * (qemu-kvm) of user 107 killed by SIGABRT in live storage migration process</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1946204">BZ 1946204</a> <strong>Hosted-engine fail to add first host</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1821199">BZ 1821199</a> <strong>HP VM fails to migrate between identical hosts (the same cpu flags) not supporting TSC.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1946199">BZ 1946199</a> <strong>Cannot create Logical Volume … Failed to wipe signatures</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1943141">BZ 1943141</a> <strong>vGPU with SecureBoot and Nvidia enrolled key: NVRAM file got truncated after host crash.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917718">BZ 1917718</a> <strong>[RFE] Collect memory usage from guests without ovirt-guest-agent and memory ballooning</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1927718">BZ 1927718</a> <strong>[RFE] Provide Reset option for VMs</strong></p>
+  </li>
+</ul>
+
+<h4 id="ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1933191">BZ 1933191</a> <strong>ovirt-hosted-engine-cleanup should also cleanup ip -6 rules</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1900591">BZ 1900591</a> <strong>hosted-engine deploy fails on AMD EPYC nested virtualization</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1900551">BZ 1900551</a> <strong>[RFE] validate Engine VM domain if –restore-from-file</strong></p>
+  </li>
+</ul>
+
+<h4 id="ovirt-engine-appliance-1">oVirt Engine Appliance</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1918291">BZ 1918291</a> <strong>Remove unneeded packages from RHV-M appliance</strong></li>
+</ul>
+
+<h4 id="ovirt-engine-database-query-tool">oVirt Engine database query tool</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1949543">BZ 1949543</a> <strong>rhv-log-collector-analyzer fails to run MAC Pools rule</strong></li>
+</ul>
+
+<h4 id="ovirt-ansible-collection">oVirt Ansible collection</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1924590">BZ 1924590</a> <strong>“FIPS mode is not enabled as required” error occur in “Enforce FIPS mode” task when deploying hosted engine</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1948274">BZ 1948274</a> <strong>HE deployment checks host instead of appliance distribution when applying openscap profile</strong></p>
+  </li>
+</ul>
+
+<h4 id="mom">MOM</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1945132">BZ 1945132</a> <strong>VDSM always reports ksmState as True, regardless of the cluster ksm configuration</strong></li>
+</ul>
+
+<h4 id="cockpit-ovirt">cockpit-ovirt</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1946095">BZ 1946095</a> <strong>“No valid network interface has been found” when starting HE deployment via cockpit</strong></li>
+</ul>
+
+<h4 id="ovirt-web-site">oVirt Web Site</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1948429">BZ 1948429</a> <strong>Dependance issues occur when installing ovirt-hosted-engine-setup with RHEL8.4-host.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1906394">BZ 1906394</a> <strong>websocket proxy service - [Errno 13] Permission denied</strong></p>
+  </li>
+</ul>
+
+<h3 id="no-doc-update">No Doc Update</h3>
+
+<h4 id="ovirt-engine-data-warehouse-2">oVirt Engine Data Warehouse</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1928188">BZ 1928188</a> <strong>Failed to parse ‘writeOps’ value ‘XXXX’ to integer: For input string: “XXXX”</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1870055">BZ 1870055</a> <strong>OVESETUP_GRAFANA_CONFIG/grafanaUser might be undefined</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1919984">BZ 1919984</a> <strong>engine-setup failse to deploy the grafana service in an external DWH server</strong></p>
+  </li>
+</ul>
+
+<h4 id="ovirt-engine-4">oVirt Engine</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1953159">BZ 1953159</a> <strong>VM with next run configuration can’t get IP after it’s restarted becasue the VM’s vNIC profile is set to &lt;Empty&gt;</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1952369">BZ 1952369</a> <strong>[SR-IOV] [Failover] Can’t unplug VM’s vNIC if the failover vNIC profile has been changed</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1935073">BZ 1935073</a> <strong>Ansible ovirt_disk module can create disks with conflicting IDs that cannot be removed</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1952057">BZ 1952057</a> <strong>Indicate vNIC is out of sync on network VLAN modification on engine</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1952353">BZ 1952353</a> <strong>Do not indicate vNIC is out of sync on network Host Qos modification on engine</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1915207">BZ 1915207</a> <strong>[UI] user can create more than 1 network with the same name when checking the external provider check box</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1950466">BZ 1950466</a> <strong>Host installation failed</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1875363">BZ 1875363</a> <strong>engine-setup failing on FIPS enable rhel8 machine</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1948491">BZ 1948491</a> <strong>When installing RHEL8.2 host in CL 4.4 installation fails on missing module virt:av</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1928188">BZ 1928188</a> <strong>Failed to parse ‘writeOps’ value ‘XXXX’ to integer: For input string: “XXXX”</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1930565">BZ 1930565</a> <strong>Host upgrade failed in imgbased but RHVM shows upgrade successful</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1930522">BZ 1930522</a> <strong>[RHV-4.4.5.5] Failed to deploy RHEL AV 8.4.0 host to RHV with error “missing groups or modules: virt:8.4”</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1919248">BZ 1919248</a> <strong>[CBT] Race condition in deleting checkpoints causes inconsistency and failed backups</strong></p>
+  </li>
+</ul>
+
+<h4 id="vdsm-3">VDSM</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1955571">BZ 1955571</a> <strong>Verify if we still need to omit ifcfg and clevis dracut modules for properly working bridged network</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1959945">BZ 1959945</a> <strong>[NBDE] RHVH 4.4.6 host fails to startup, without prompting for passphrase</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1949995">BZ 1949995</a> <strong>Removing a network gateway causes the sync host networks to fail</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1949048">BZ 1949048</a> <strong>unable to unplug vNIC based port-mirroring from running VM</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1940569">BZ 1940569</a> <strong>Restart lldpad and fcoe services only if needed</strong></p>
+  </li>
+</ul>
+
+<h4 id="ovirt-engine-extension-aaa-ldap">ovirt-engine-extension-aaa-ldap</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1896779">BZ 1896779</a> <strong>Unable to access LDAP server using IPv6 when both engine and LDAP are configured with IPv6 interfaces only, but DNS records for LDAP contains also IPv4 address</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1940138">BZ 1940138</a> <strong>AAA - IPV6 detection needs to be disabled for LDAP hosts to be recognized</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1941541">BZ 1941541</a> <strong>ldap setup fails to login with connection error when use dns is specified</strong></p>
+  </li>
+</ul>
+
+<h4 id="contributors">Contributors</h4>
+
+<p>57 people contributed to this release:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Adam Feldman (Contributed to: mom)
+Ahmad Khiet (Contributed to: ovirt-engine, ovirt-engine-sdk)
+Ales Musil (Contributed to: ovirt-engine, ovirt-site, vdsm)
+Andrej Krejcir (Contributed to: mom)
+Arik Hadas (Contributed to: ovirt-engine)
+Artur Socha (Contributed to: ovirt-engine)
+Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
+Aviv Litman (Contributed to: ovirt-dwh)
+Aviv Turgeman (Contributed to: cockpit-ovirt)
+Bella Khizgiyaev (Contributed to: ovirt-engine)
+Ben Amsalem (Contributed to: ovirt-web-ui)
+Bence Santha (Contributed to: ovirt-site)
+Benny Zlotnik (Contributed to: ovirt-engine, ovirt-engine-sdk-go, ovirt-site, vdsm)
+Dan Kenigsberg (Contributed to: vdsm)
+Dana Elfassy (Contributed to: ovirt-engine)
+Douglas Schilling Landgraf (Contributed to: engine-db-query, ovirt-engine-sdk-go)
+Eitan Raviv (Contributed to: ovirt-engine)
+Eli Marcus (Contributed to: documentation)
+Eli Mesika (Contributed to: ovirt-engine, ovirt-engine-sdk-go)
+Evgeny Slutsky (Contributed to: ovirt-engine-sdk-go)
+Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
+Hilda Stastna (Contributed to: ovirt-engine)
+Huihui Fu (Contributed to: ovirt-engine-sdk-go)
+Jean-Louis Dupond (Contributed to: ovirt-dwh, ovirt-engine, vdsm)
+Joey Ma (Contributed to: ovirt-engine-sdk-go)
+Lev Veyde (Contributed to: imgbased, ovirt-appliance, ovirt-engine, ovirt-hosted-engine-ha, ovirt-node-ng-image, ovirt-release, ovirt-site)
+Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
+Lucia Jelinkova (Contributed to: ovirt-engine)
+Marc Dequènes (Duck) (Contributed to: ovirt-site)
+Marcin Sobczyk (Contributed to: vdsm)
+Martin Nečas (Contributed to: ovirt-ansible-collection)
+Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-extension-aaa-ldap, ovirt-site, vdsm)
+Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
+Milan Zamazal (Contributed to: ovirt-engine, vdsm)
+Moti Asayag (Contributed to: ovirt-engine-sdk-go)
+Nick Bouwhuis (Contributed to: ovirt-engine)
+Nir Soffer (Contributed to: ovirt-engine-sdk, vdsm)
+Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-ruby)
+Pavel Bar (Contributed to: ovirt-engine)
+Prajith Kesava Prasad (Contributed to: ovirt-engine)
+Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
+Ritesh Chikatwar (Contributed to: vdsm)
+Roberto Ciatti (Contributed to: ovirt-engine-sdk-go, ovirt-engine-sdk-ruby)
+Roman Bednar (Contributed to: vdsm)
+Roy Golan (Contributed to: ovirt-engine-sdk-go)
+Ryan Barry (Contributed to: mom)
+S.Mohammad Emami Razavi (Contributed to: ovirt-engine)
+Sandro Bonazzola (Contributed to: cockpit-ovirt, engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-sdk-go, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-site)
+Scott J Dickerson (Contributed to: cockpit-ovirt, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
+Shani Leviim (Contributed to: ovirt-engine, ovirt-engine-sdk)
+Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
+Shmuel Melamud (Contributed to: ovirt-engine, vdsm)
+Steve Goodman (Contributed to: ovirt-site, documentation)
+Steven Rosenberg (Contributed to: ovirt-engine)
+Tomáš Golembiovský (Contributed to: mom, vdsm)
+Vojtech Juranek (Contributed to: ovirt-engine, vdsm)
+Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
+</code></pre></div></div>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2757/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2757/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2757/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2757/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/4.4.6/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/release/4.4.6/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

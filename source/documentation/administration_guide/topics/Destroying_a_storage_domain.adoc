@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Destroying_a_storage_domain_{context}"]
+[id="Destroying_a_storage_domain"]
 ==== Destroying a Storage Domain
 
 A storage domain encountering errors may not be able to be removed through the normal procedure. Destroying a storage domain forcibly removes the storage domain from the virtualized environment.

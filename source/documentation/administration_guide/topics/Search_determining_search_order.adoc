@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Search_determining_search_order_{context}"]
+[id="Search_determining_search_order"]
 === Search: Determining Search Order
 
 You can determine the sort order of the returned information by using `sortby`. Sort direction (`asc` for ascending, `desc` for descending) can be included.

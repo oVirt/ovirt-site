@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Service_Level_Agreement_Policy_Enforcement_{context}"]
+[id="Service_Level_Agreement_Policy_Enforcement"]
 === Service Level Agreement Policy Enforcement
 
 This procedure describes how to set service level agreement CPU features.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Enabling_the_oVirt_Engine_Extension_Logger_log4j_{context}"]
+[id="Enabling_the_oVirt_Engine_Extension_Logger_log4j"]
 === Enabling the oVirt Engine Extension Logger log4j
 
 Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization {engine-name} delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.

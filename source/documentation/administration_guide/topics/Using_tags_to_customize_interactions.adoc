@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Using_tags_to_customize_interactions_{context}"]
+[id="Using_tags_to_customize_interactions"]
 === Using Tags to Customize Interactions with {virt-product-fullname}
 
 After your {virt-product-fullname} platform is set up and configured to your requirements, you can customize the way you work with it using tags. Tags allow system resources to be arranged into groups or categories. This is useful when many objects exist in the virtualization environment and the administrator wants to concentrate on a specific set of them.

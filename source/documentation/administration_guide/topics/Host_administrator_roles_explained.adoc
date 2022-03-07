@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="To_view_virtual_machines_in_a_cluster_{context}"]
+[id="To_view_virtual_machines_in_a_cluster"]
 ==== Host Administrator Roles Explained
 
 
@@ -7,7 +6,7 @@
 
 The table below describes the administrator roles and privileges applicable to host administration.
 
-[id="Host_Administrator_Roles_{context}"]
+[id="Host_Administrator_Roles"]
 
 .{virt-product-fullname} System Administrator Roles
 [options="header"]

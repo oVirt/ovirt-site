@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Basic_ISO_Uploader_Usage_{context}"]
+[id="Basic_ISO_Uploader_Usage"]
 ==== Basic ISO Uploader Usage
 
 The example below demonstrates the ISO uploader and the list parameter. The first command lists the available ISO storage domains; the `admin@internal` user is used because no user was specified in the command. The second command uploads an ISO file over NFS to the specified ISO domain.

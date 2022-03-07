@@ -2,8 +2,7 @@
 //
 // doc-Administration_Guide/chap-Logical_Networks.adoc
 
-:_content-type: PROCEDURE
-[id="proc-Copying-host-networks_{context}"]
+[id="proc-Copying-host-networks"]
 = Copying host networks
 
 To save time, you can copy a source host's network configuration to a target host in the same cluster.

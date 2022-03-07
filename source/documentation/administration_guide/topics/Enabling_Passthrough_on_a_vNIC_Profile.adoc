@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Enabling_Passthrough_on_a_vNIC_Profile_{context}"]
+[id="Enabling_Passthrough_on_a_vNIC_Profile"]
 ==== Enabling Passthrough on a vNIC Profile
 
 include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]

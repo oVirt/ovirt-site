@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Users_and_Roles_{context}"]
+[id="chap-Users_and_Roles"]
 == Users and Roles
 
 include::topics/Introduction_to_users.adoc[]

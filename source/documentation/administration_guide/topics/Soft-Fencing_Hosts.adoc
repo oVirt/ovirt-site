@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Soft-Fencing_Hosts_{context}"]
+[id="Soft-Fencing_Hosts"]
 ==== Soft-Fencing Hosts
 
 Hosts can sometimes become non-responsive due to an unexpected problem, and though VDSM is unable to respond to requests, the virtual machines that depend upon VDSM remain alive and accessible. In these situations, restarting VDSM returns VDSM to a responsive state and resolves this issue.

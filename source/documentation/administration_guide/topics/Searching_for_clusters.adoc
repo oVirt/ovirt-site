@@ -1,9 +1,8 @@
-:_content-type: REFERENCE
-[id="Searching_for_clusters_{context}"]
+[id="Searching_for_clusters"]
 === Searching for Clusters
 
 The following table describes all search options for clusters.
-[id="searching_clusters_{context}"]
+[id="searching_clusters"]
 
 .Searching Clusters
 [options="header"]

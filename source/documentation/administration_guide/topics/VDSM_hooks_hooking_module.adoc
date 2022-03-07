@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="VDSM_hooks_hooking_module_{context}"]
+[id="VDSM_hooks_hooking_module"]
 === Using the VDSM Hooking Module
 
 VDSM ships with a Python hooking module, providing helper functions for VDSM hook scripts. This module is provided as an example, and is only relevant to VDSM hooks written in Python.
@@ -8,7 +7,7 @@ The hooking module supports reading of a virtual machine's libvirt XML into a DO
 
 The modified object can then be saved back to libvirt XML using the hooking module. The hooking module provides the following functions to support hook development:
 
-[id="hooking-module-functions_{context}"]
+[id="hooking-module-functions"]
 
 .Hooking module functions
 [options="header"]

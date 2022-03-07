@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="SNMPv3-traps-configuration-file_{context}"]
+[id="SNMPv3-traps-configuration-file"]
 = Sample SNMP configuration file
 
 This sample configuration file is based on settings in `ovirt-engine-notifier.conf`. A dedicated SNMP configuration file, such as this one, overrides the settings in `ovirt-engine-notifier.conf`.
@@ -11,7 +10,7 @@ Copy the default SNMP settings from the events notification daemon configuration
 
 ./etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf
 
-[source,perl,subs="+quotes_{context}"]
+[source,perl,subs="+quotes"]
 ----
 SNMP_MANAGERS="manager1.example.com manager2.example.com:162" <1>
 SNMP_COMMUNITY=public <2>

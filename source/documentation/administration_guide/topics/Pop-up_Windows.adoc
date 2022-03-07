@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Pop-up_Windows_{context}"]
+[id="Pop-up_Windows"]
 ==== Pop-Up Windows
 
 Pop-up windows are all windows in the {engine-name} that allow you to create, edit or update an entity such as a host or virtual machine. The elements of pop-up windows that can be customized are as follows:
@@ -12,3 +11,4 @@ Pop-up windows are all windows in the {engine-name} that allow you to create, ed
 * The header center image (repeated)
 
 The classes for pop-up windows are located in `common.css`.
+

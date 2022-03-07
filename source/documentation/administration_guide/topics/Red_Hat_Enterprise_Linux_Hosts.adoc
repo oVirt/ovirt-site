@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Adding_Red_Hat_Enterprise_Linux_Hosts_{context}"]
+[id="Adding_Red_Hat_Enterprise_Linux_Hosts"]
 === {enterprise-linux-host-fullname}s
 
 You can use a {enterprise-linux} 7 installation on capable hardware as a host. {virt-product-fullname} supports hosts running {enterprise-linux} 7 Server AMD64/Intel 64 version with Intel VT or AMD-V extensions. To use your {enterprise-linux} machine as a host, you must also attach the `{enterprise-linux} Server` and `{virt-product-fullname}` subscriptions.

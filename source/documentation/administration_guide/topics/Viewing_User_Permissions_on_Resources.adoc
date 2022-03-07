@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Viewing_User_Permissions_on_Resources_{context}"]
+[id="Viewing_User_Permissions_on_Resources"]
 ==== Viewing User Permissions on Resources
 
 Users can be assigned permissions on specific resources or a hierarchy of resources. You can view the assigned users and their permissions on each resource.

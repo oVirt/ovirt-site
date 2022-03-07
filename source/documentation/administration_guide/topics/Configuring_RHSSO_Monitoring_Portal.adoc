@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Configuring_RHSSO_Monitoring_Portal_{context}"]
+[id="Configuring_RHSSO_Monitoring_Portal"]
 
 
 . Configure a client's valid redirect URL:

@@ -2,7 +2,7 @@
 
 [appendix]
 :_content-type: ASSEMBLY
-[id="appe-Proxies_{context}"]
+[id="appe-Proxies"]
 == Proxies
 
 [id="sect-SPICE_Proxy"]

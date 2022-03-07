@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="User_authorization_model_{context}"]
+[id="User_authorization_model"]
 ==== User Authorization Model
 
 {virt-product-fullname} applies authorization controls based on the combination of the three components:

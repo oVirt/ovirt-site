@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Removing_a_VNIC_Profile_{context}"]
+[id="Removing_a_VNIC_Profile"]
 ==== Removing a vNIC Profile
 
 Remove a vNIC profile to delete it from your virtualized environment.

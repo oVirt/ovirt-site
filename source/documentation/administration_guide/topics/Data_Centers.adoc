@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Data_Centers_{context}"]
+[id="Data_Centers"]
 === Introduction to Data Centers
 
 A data center is a logical entity that defines the set of resources used in a specific environment. A data center is considered a container resource, in that it is comprised of logical resources, in the form of clusters and hosts; network resources, in the form of logical networks and physical NICs; and storage resources, in the form of storage domains.
@@ -8,7 +7,7 @@ A data center can contain multiple clusters, which can contain multiple hosts; i
 
 All data centers are managed from the single Administration Portal.
 
-[id="data_center_fig_{context}"]
+[id="data_center_fig"]
 .Data Centers
 image::images/523.png[]
 

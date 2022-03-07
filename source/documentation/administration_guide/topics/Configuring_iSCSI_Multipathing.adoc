@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Configuring_iSCSI_Multipathing_{context}"]
+[id="Configuring_iSCSI_Multipathing"]
 ==== Configuring iSCSI Multipathing
 
 iSCSI multipathing enables you to create and manage groups of logical networks and iSCSI storage connections. Multiple network paths between the hosts and iSCSI storage prevent host downtime caused by network path failure.

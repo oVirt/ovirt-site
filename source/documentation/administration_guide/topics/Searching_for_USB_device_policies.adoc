@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Searching_for_USB_device_policies_{context}"]
+[id="Searching_for_USB_device_policies"]
 = Searching for USB Device Policies
 
 Search for attached USB devices to either allow or block them in the USB Filter Editor.

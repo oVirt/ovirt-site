@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Refreshing_Host_Capabilities_{context}"]
+[id="Refreshing_Host_Capabilities"]
 ==== Refreshing Host Capabilities
 
 When a network interface card is added to a host, the capabilities of the host must be refreshed to display that network interface card in the {engine-name}.

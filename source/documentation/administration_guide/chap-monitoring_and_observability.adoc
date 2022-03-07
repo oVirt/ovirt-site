@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="monitoring_and_observability_{context}"]
+[id="monitoring_and_observability"]
 
 == Monitoring and observability
 

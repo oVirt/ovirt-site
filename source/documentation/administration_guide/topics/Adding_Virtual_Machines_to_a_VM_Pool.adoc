@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Adding_Virtual_Machines_to_a_VM_Pool_{context}"]
+[id="Adding_Virtual_Machines_to_a_VM_Pool"]
 === Adding Virtual Machines to a Virtual Machine Pool
 
 If you require more virtual machines than originally provisioned in a virtual machine pool, add more machines to the pool.

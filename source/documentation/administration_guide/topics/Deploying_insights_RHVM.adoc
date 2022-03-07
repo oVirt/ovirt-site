@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Deploying_insights_RHVM_{context}"]
+[id="Deploying_insights_RHVM"]
 
 
 To deploy Red Hat Insights on an existing Red Hat

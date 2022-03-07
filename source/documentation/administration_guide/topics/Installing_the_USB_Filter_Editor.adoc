@@ -1,12 +1,11 @@
-:_content-type: PROCEDURE
-[id="Installing_the_USB_Filter_Editor_{context}"]
+[id="Installing_the_USB_Filter_Editor"]
 = Installing the USB Filter Editor
 
 The USB Filter Editor is a Windows tool used to configure the *usbfilter.txt* policy file. The policy rules defined in this file allow or deny automatic passthrough of specific USB devices from client machines to virtual machines managed using the {virt-product-fullname} {engine-name}. The policy file resides on the {virt-product-fullname} {engine-name} in the following location:
 */etc/ovirt-engine/usbfilter.txt*
 Changes to USB filter policies do not take effect unless the *ovirt-engine* service on the {virt-product-fullname} {engine-name} is restarted.
 
-Download the *USB Filter Editor* installer from link:https://access.redhat.com/downloads/content/415/[this "Installers and Images for {virt-product-fullname} {engine-name}_{context}"] topic.
+Download the *USB Filter Editor* installer from link:https://access.redhat.com/downloads/content/415/[this "Installers and Images for {virt-product-fullname} {engine-name}"] topic.
 
 
 .Procedure

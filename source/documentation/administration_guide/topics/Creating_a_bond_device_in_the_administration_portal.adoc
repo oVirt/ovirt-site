@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_bond_device_in_the_administration_portal_{context}"]
+[id="Creating_a_bond_device_in_the_administration_portal"]
 ==== Creating a Bond Device in the Administration Portal
 
 You can create a bond device on a specific host in the Administration Portal. The bond device can carry both VLAN-tagged and untagged traffic.

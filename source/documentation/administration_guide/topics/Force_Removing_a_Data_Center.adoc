@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Force_Removing_a_Data_Center_{context}"]
+[id="Force_Removing_a_Data_Center"]
 ==== Force Removing a Data Center
 
 A data center becomes `Non Responsive` if the attached storage domain is corrupt or if the host becomes `Non Responsive`. You cannot *Remove* the data center under either circumstance.

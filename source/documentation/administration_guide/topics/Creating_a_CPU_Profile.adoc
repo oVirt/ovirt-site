@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_CPU_Profile_{context}"]
+[id="Creating_a_CPU_Profile"]
 ==== Creating a CPU Profile
 
 CPU profiles define the maximum amount of processing capability a virtual machine in a cluster can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. CPU profiles are created based on CPU profiles defined under data centers, and are not automatically applied to all virtual machines in a cluster; they must be manually assigned to individual virtual machines for the profile to take effect.

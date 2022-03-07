@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Assigning_Security_Groups_to_VNIC_Profiles_{context}"]
+[id="Assigning_Security_Groups_to_VNIC_Profiles"]
 ==== Assigning Security Groups to vNIC Profiles
 
 

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning_{context}"]
+[id="Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning"]
 ==== Adding a Red Hat Satellite Instance for Host Provisioning
 
 Add a Satellite instance for host provisioning to the {virt-product-fullname} {engine-name}. {virt-product-fullname} 4.2 is supported with Red Hat Satellite 6.1.

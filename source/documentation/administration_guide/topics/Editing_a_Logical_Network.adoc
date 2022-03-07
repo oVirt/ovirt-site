@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Editing_a_Logical_Network_{context}"]
+[id="Editing_a_Logical_Network"]
 ==== Editing a Logical Network
 
 [IMPORTANT]

@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Bonding_Modes_{context}"]
+[id="Bonding_Modes"]
 ==== Bonding Modes
 
 The packet dispersal algorithm is determined by the bonding mode. (See the link:https://www.kernel.org/doc/Documentation/networking/bonding.txt[Linux Ethernet Bonding Driver HOWTO] for details). {virt-product-fullname}'s default bonding mode is `(Mode 4) Dynamic Link Aggregation(802.3ad)`.

@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Host_General_Settings_{context}"]
+[id="Host_General_Settings"]
 ==== Host General Settings Explained
 
 These settings apply when editing the details of a host or adding new {enterprise-linux-host-fullname}s and Satellite host provider hosts.
@@ -9,7 +8,7 @@ The *General* settings table contains the information required on the *General* 
 
 .*General* settings
 [options="header"]
-[cols=",a_{context}"]
+[cols=",a"]
 |===
 |Field Name |Description
 |*Host Cluster* |The cluster and data center to which the host belongs.

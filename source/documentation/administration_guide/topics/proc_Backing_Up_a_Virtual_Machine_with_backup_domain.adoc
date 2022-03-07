@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id='proc_Backing_Up_a_Virtual_Machine_{context}']
+[id='proc_Backing_Up_a_Virtual_Machine']
 = Backing up or Restoring a Virtual Machine or Snapshot Using a Backup Domain
 
 You can back up a powered down virtual machine or snapshot. You can then store the backup on the same data center and restore it as needed, or migrate it to another data center.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Example_RHEV_UI_Plugin_Deployment_{context}"]
+[id="Example_RHEV_UI_Plugin_Deployment"]
 === Example User Interface Plug-in Deployment
 
 Follow these instructions to create a user interface plug-in that runs a *Hello World!* program when you sign in to the {virt-product-fullname} {engine-name} Administration Portal.
@@ -36,6 +35,8 @@ Follow these instructions to create a user interface plug-in that runs a *Hello 
 
 If you have successfully implemented the *Hello World!* plug-in, you will see this screen when you sign in to the Administration Portal:
 
-[id="ui-plugin-hello-world-success_{context}"]
+[id="ui-plugin-hello-world-success"]
 .A Successful Implementation of the *Hello World!* Plug-in
-image::images/1475.png[]
+image::images/1475.png[] 
+
+

@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Quota_Accounting_{context}"]
+[id="Quota_Accounting"]
 === Quota Accounting
 
 When a quota is assigned to a consumer or a resource, each action by that consumer or on the resource involving storage, vCPU, or memory results in quota consumption or quota release.

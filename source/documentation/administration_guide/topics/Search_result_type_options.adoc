@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Search_result_type_options_{context}"]
+[id="Search_result_type_options"]
 === Search Result Type Options
 
 The result type allows you to search for resources of any of the following types:

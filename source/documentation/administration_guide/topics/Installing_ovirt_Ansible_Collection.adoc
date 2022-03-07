@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Installing_ovirt_Ansible_Collection_{context}"]
+[id="Installing_ovirt_Ansible_Collection"]
 
 === Installing oVirt Ansible Collection from an RPM package
 

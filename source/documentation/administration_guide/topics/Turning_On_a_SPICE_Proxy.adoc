@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Turning_On_a_SPICE_Proxy_{context}"]
+[id="Turning_On_a_SPICE_Proxy"]
 ==== Turning On a SPICE Proxy
 
 This procedure explains how to activate (or turn on) the SPICE proxy.

@@ -1,9 +1,8 @@
-:_content-type: REFERENCE
-[id="Data_center_properties_{context}"]
+[id="Data_center_properties"]
 ==== Explanation of Settings in the New Data Center and Edit Data Center Windows
 
 The table below describes the settings of a data center as displayed in the *New Data Center* and *Edit Data Center* windows. Invalid entries are outlined in orange when you click btn:[OK], prohibiting the changes being accepted. In addition, field prompts indicate the expected values or range of values.
-[id="datacenters-Properties_{context}"]
+[id="datacenters-Properties"]
 
 .Data Center Properties
 [options="header"]

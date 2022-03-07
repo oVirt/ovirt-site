@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Importing_a_Disk_Image_from_an_OpenStack_Image_Service_{context}"]
+[id="Importing_a_Disk_Image_from_an_OpenStack_Image_Service"]
 ==== Importing a Virtual Disk from an OpenStack Image Service
 
 

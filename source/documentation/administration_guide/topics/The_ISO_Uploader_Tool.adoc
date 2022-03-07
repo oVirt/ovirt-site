@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="The_ISO_Uploader_Tool_{context}"]
+[id="The_ISO_Uploader_Tool"]
 ==== The ISO Uploader Tool
 
 [NOTE]

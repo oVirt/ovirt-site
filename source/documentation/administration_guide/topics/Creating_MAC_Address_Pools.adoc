@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_MAC_Address_Pools_{context}"]
+[id="Creating_MAC_Address_Pools"]
 ==== Creating MAC Address Pools
 
 You can create new MAC address pools.

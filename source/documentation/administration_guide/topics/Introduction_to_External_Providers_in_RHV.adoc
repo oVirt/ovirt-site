@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Introduction_to_Third_Party_Resource_Providers_in_Red_Hat_Enterprise_Virtualization_{context}"]
+[id="Introduction_to_Third_Party_Resource_Providers_in_Red_Hat_Enterprise_Virtualization"]
 === Introduction to External Providers in {virt-product-fullname}
 
 In addition to resources managed by the {virt-product-fullname} {engine-name} itself, {virt-product-fullname} can also take advantage of resources managed by external sources. The providers of these resources, known as external providers, can provide resources such as virtualization hosts, virtual machine images, and networks.

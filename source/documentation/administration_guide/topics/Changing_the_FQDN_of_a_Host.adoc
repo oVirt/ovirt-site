@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Changing_the_FQDN_of_a_Host_{context}"]
+[id="Changing_the_FQDN_of_a_Host"]
 ==== Changing the FQDN of a Host
 
 Use the following procedure to change the fully qualified domain name of hosts.

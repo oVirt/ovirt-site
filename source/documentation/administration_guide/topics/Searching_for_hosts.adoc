@@ -1,9 +1,8 @@
-:_content-type: REFERENCE
-[id="Searching_for_hosts_{context}"]
+[id="Searching_for_hosts"]
 === Searching for Hosts
 
 The following table describes all search options for hosts.
-[id="searching_hosts_{context}"]
+[id="searching_hosts"]
 
 .Searching for Hosts
 [options="header"]

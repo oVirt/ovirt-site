@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Activating_storage_domains_{context}"]
+[id="Activating_storage_domains"]
 ==== Activating Storage Domains from Maintenance Mode
 
 If you have been making changes to a data center's storage, you have to put storage domains into maintenance mode. Activate a storage domain to resume using it.

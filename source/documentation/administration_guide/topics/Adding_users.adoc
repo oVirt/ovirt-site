@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Adding_users_{context}"]
+[id="Adding_users"]
 ==== Adding Users and Assigning VM Portal Permissions
 
 Users must be created already before they can be added and assigned roles and permissions. The roles and permissions assigned in this procedure give the user the permission to log in to the VM Portal and to start creating virtual machines. The procedure also applies to group accounts.

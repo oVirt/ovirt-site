@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Red_Hat_Enterprise_Virtualization_Manager_Groups_{context}"]
+[id="Red_Hat_Enterprise_Virtualization_Manager_Groups"]
 ==== {virt-product-fullname} {engine-name} Groups
 
 
@@ -21,3 +20,6 @@ A number of system user groups are created to support {virt-product-fullname} wh
 
 
 * The *ovirt-vmconsole* user.
+
+
+

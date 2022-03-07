@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Manager_Installation_Log_Files_{context}"]
+[id="Manager_Installation_Log_Files"]
 === {engine-name} Installation Log Files
 
 

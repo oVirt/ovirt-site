@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Removing_Quotas_{context}"]
+[id="Removing_Quotas"]
 === Removing Quotas
 
 This procedure describes how to remove quotas.

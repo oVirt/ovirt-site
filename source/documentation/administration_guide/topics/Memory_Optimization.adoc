@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="memory_optimization_{context}"]
+[id="memory_optimization"]
 ==== Memory Optimization
 
 To increase the number of virtual machines on a host, you can use _memory overcommitment_, in which the memory you assign to virtual machines exceeds RAM and relies on swap space.

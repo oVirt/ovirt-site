@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool_{context}"]
+[id="Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool"]
 ==== Renaming the {engine-name} with the oVirt Engine Rename Tool
 
 You can use the `ovirt-engine-rename` command to update records of the fully qualified domain name (FQDN) of the {engine-name}.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Preparing_GPU_Passthrough_{context}"]
+[id="Preparing_GPU_Passthrough"]
 ==== Preparing Host and Guest Systems for GPU Passthrough
 
 The Graphics Processing Unit (GPU) device from a host can be directly assigned to a virtual machine. Before this can be achieved, both the host and the virtual machine require amendments to their *grub* configuration files. You can edit the host *grub* configuration file using the *Kernel command line* free text entry field in the Administration Portal. Both the host machine and the virtual machine require reboot for the changes to take effect.

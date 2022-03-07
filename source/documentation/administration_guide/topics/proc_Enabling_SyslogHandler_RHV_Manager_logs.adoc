@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Enabling_SyslogHandler_RHV_Manager_logs_{context}"]
+[id="Enabling_SyslogHandler_RHV_Manager_logs"]
 === Enabling SyslogHandler to pass {virt-product-shortname} {engine-name} logs to a remote syslog server
 
 This implementation uses the *JBoss EAP SyslogHandler* log manager and enables passing log records from the `engine.log` and `server.log` to a syslog server.

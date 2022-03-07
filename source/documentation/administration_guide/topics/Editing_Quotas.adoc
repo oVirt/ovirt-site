@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Editing_Quotas_{context}"]
+[id="Editing_Quotas"]
 === Editing Quotas
 
 This procedure describes how to change existing quotas.

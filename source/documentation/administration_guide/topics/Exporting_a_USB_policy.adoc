@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Exporting_a_USB_policy_{context}"]
+[id="Exporting_a_USB_policy"]
 = Exporting a USB Policy
 
 

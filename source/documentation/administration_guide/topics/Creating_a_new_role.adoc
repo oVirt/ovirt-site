@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_new_role_{context}"]
+[id="Creating_a_new_role"]
 ==== Creating a New Role
 
 If the role you require is not on {virt-product-fullname}'s default list of roles, you can create a new role and customize it to suit your purposes.

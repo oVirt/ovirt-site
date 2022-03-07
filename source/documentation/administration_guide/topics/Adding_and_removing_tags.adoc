@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Adding_and_removing_tags_{context}"]
+[id="Adding_and_removing_tags"]
 === Adding and Removing Tags to and from Objects
 
 You can assign tags to and remove tags from hosts, virtual machines, and users.

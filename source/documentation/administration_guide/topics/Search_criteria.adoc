@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Search_criteria_{context}"]
+[id="Search_criteria"]
 === Search Criteria
 
 You can specify the search criteria after the colon in the query. The syntax of `{criteria}` is as follows:
@@ -13,7 +12,7 @@ or
 *Examples*
 
 The following table describes the parts of the syntax:
-[id="search_criteria_{context}"]
+[id="search_criteria"]
 
 .Example Search Criteria
 [options="header"]

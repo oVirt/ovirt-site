@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Grafana_overview_{context}"]
+[id="Grafana_overview"]
 
 Grafana is a web-based UI tool used to display reports based on data collected from the oVirt Data Warehouse PostgreSQL database under the database name `ovirt_engine_history`. See link:https://grafana.com/grafana/dashboards[Grafana dashboards].
 

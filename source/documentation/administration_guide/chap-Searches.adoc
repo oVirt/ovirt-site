@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Searches_{context}"]
+[id="chap-Searches"]
 == Searches
 
 include::topics/Performing_searches.adoc[]

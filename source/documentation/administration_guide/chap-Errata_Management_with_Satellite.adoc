@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Errata_Management_with_Satellite_{context}"]
+[id="chap-Errata_Management_with_Satellite"]
 = Setting up errata viewing with Red Hat Satellite
 
 In the Administration Portal, you can configure {virt-product-fullname} to view errata from Red Hat Satellite in the {virt-product-fullname} {engine-name}. After you associate your hosts, virtual machines, and the {engine-name} with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the link:{URL_satellite_docs}[Red Hat Satellite Documentation].

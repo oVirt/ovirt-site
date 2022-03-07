@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
-[id="Setting_Up_Encrypted_Communication_between_the_Manager_and_an_LDAP_Server_{context}"]
+[id="Setting_Up_Encrypted_Communication_between_the_Manager_and_an_LDAP_Server"]
 // old ID to prevent broken links:
-[id="Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server_{context}"]
+[id="Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server"]
 === Setting Up Encrypted Communication between the {engine-name} and an LDAP Server
 
 To set up encrypted communication between the {virt-product-fullname} {engine-name} and an LDAP server, obtain the root CA certificate of the LDAP server, copy the root CA certificate to the {engine-name}, and create a PEM-encoded CA certificate. The keystore type can be any Java-supported type. The following procedure uses the Java KeyStore (JKS) format.

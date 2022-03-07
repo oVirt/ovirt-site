@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Search_criteria_multiple_criteria_and_wildcards_{context}"]
+[id="Search_criteria_multiple_criteria_and_wildcards"]
 === Search: Multiple Criteria and Wildcards
 
 Wildcards can be used in the `<value>` part of the syntax for strings. For example, to find all users beginning with *m*, enter `m*`.

@@ -2,8 +2,7 @@
 //
 // chap-Storage
 
-:_content-type: PROCEDURE
-[id="Copy_ISO_to_ISO_domain-{context}_{context}"]
+[id="Copy_ISO_to_ISO_domain"]
 = Uploading images to an ISO domain
 
 [NOTE]

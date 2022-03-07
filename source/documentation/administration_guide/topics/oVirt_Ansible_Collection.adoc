@@ -1,5 +1,4 @@
-:_content-type: ASSEMBLY
-[id="oVirt_Ansible_Collection_{context}"]
+[id="oVirt_Ansible_Collection"]
 
 === oVirt Ansible Collection
 

@@ -1,7 +1,6 @@
 // Module included in the following assemblies:
 //
-:_content-type: CONCEPT
-[id='con_Backup_domains_explained_{context}']
+[id='con_Backup_domains_explained']
 = Backup storage domains explained
 
 A backup storage domain is one that you can use specifically for storing and migrating virtual machines and virtual machine templates for the purpose of backing up and restoring for disaster recovery, migration, or any other backup/restore usage model. A backup domain differs from a non-backup domain in that all virtual machines on a backup domain are in a powered-down state. A virtual machine cannot run on a backup domain.

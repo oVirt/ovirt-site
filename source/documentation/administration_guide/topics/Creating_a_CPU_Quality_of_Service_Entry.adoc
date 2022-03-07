@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_CPU_Quality_of_Service_Entry_{context}"]
+[id="Creating_a_CPU_Quality_of_Service_Entry"]
 ==== Creating a CPU Quality of Service Entry
 
 Create a CPU quality of service entry.

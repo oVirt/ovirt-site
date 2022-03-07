@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_bond_device_with_the_lldp_labeler_service_{context}"]
+[id="Creating_a_bond_device_with_the_lldp_labeler_service"]
 ==== Creating a Bond Device with the LLDP Labeler Service
 
 The LLDP Labeler service enables you to create a bond device automatically with all unbonded NICs, for all the hosts in one or more clusters or in the entire data center. The bonding mode is xref:Bonding_Modes[`(Mode 4) Dynamic Link Aggregation(802.3ad)`].

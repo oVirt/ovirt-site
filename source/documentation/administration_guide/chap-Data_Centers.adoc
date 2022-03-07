@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Data_Centers_{context}"]
+[id="chap-Data_Centers"]
 = Data Centers
 
 include::topics/Data_Centers.adoc[leveloffset=-1]
@@ -37,4 +37,3 @@ include::topics/Attaching_an_iso_domain.adoc[leveloffset=-1]
 include::topics/Attaching_an_export_domain.adoc[leveloffset=-1]
 
 include::topics/Detaching_storage_domains_from_a_data_center.adoc[leveloffset=-1]
-

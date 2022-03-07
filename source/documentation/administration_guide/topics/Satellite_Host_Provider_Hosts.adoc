@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Satellite_Host_Provider_Hosts_{context}"]
+[id="Satellite_Host_Provider_Hosts"]
 === Satellite Host Provider Hosts
 
 Hosts provided by a Satellite host provider can also be used as virtualization hosts by the {virt-product-fullname} {engine-name}. After a Satellite host provider has been added to the {engine-name} as an external provider, any hosts that it provides can be added to and used in {virt-product-fullname} in the same way as {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-host-fullname}s.

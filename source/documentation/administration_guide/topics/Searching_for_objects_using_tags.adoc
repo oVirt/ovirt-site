@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Searching_for_objects_using_tags_{context}"]
+[id="Searching_for_objects_using_tags"]
 === Searching for Objects Using Tags
 
 Enter a search query using `tag` as the property and the desired value or set of values as criteria for the search.

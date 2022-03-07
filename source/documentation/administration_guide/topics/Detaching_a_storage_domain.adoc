@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Detaching_a_storage_domain_{context}"]
+[id="Detaching_a_storage_domain"]
 ==== Detaching a Storage Domain from a Data Center
 
 Detach a storage domain from one data center to migrate it to another data center.

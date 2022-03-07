@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Basic_Log_Collector_Usage_{context}"]
+[id="Basic_Log_Collector_Usage"]
 ==== Basic Log Collector Usage
 
 When the `ovirt-log-collector` command is run without specifying any additional parameters, its default behavior is to collect all logs from the {virt-product-fullname} {engine-name} and its attached hosts. It will also collect database logs unless the `--no-postgresql` parameter is added. In the following example, log collector is run to collect all logs from the {virt-product-fullname} {engine-name} and three attached hosts.

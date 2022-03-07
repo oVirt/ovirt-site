@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Logical_Networks_{context}"]
+[id="chap-Logical_Networks"]
 == Logical Networks
 
 [id="sect-Logical_Network_Tasks"]

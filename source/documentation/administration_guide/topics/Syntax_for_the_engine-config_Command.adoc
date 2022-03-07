@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Syntax_for_the_engine-config_Command_{context}"]
+[id="Syntax_for_the_engine-config_Command"]
 ==== Syntax for the engine-config Command
 
 You can run the engine configuration tool from the machine on which the {virt-product-fullname} {engine-name} is installed. For detailed information on usage, print the help output for the command: 

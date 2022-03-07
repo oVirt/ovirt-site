@@ -2,8 +2,7 @@
 //
 // doc-Administration_Guide/assembly-enabling-encrypted-vnc-consoles-for-fips.adoc
 
-:_content-type: PROCEDURE
-[id="enabling-fips_in_rhv_{context}"]
+//[id="enabling-fips_in_rhv"]
 = Enabling FIPS in Red Hat Virtualization
 // The VPP security profile in these instructions is specific to Red Hat Virtualization - These instructions do not apply to oVirt. Do not replace product names with attributes.
 

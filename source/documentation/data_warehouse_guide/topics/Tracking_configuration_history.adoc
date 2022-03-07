@@ -1,4 +1,4 @@
-[id="Tracking_configuration_history_{context}"]
+[id="Tracking_configuration_history"]
 === Tracking Configuration History
 
 Data from the {virt-product-fullname} History Database (called `ovirt_engine_history`) can be used to track the `engine` database.

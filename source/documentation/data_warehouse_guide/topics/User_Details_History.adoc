@@ -1,4 +1,4 @@
-[id="User_Details_History_{context}"]
+[id="User_Details_History"]
 ==== User Details History
 
 The following table shows the configuration history parameters of the users in the system.

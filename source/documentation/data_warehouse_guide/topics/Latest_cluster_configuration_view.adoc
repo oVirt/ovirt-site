@@ -1,4 +1,4 @@
-[id="Latest_cluster_configuration_view_{context}"]
+[id="Latest_cluster_configuration_view"]
 ==== Cluster Configuration
 
 The following table shows the configuration history parameters of the clusters in the system.

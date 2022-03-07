@@ -1,4 +1,4 @@
-[id="Latest_virtual_machine_disk_configuration_view_{context}"]
+[id="Latest_virtual_machine_disk_configuration_view"]
 ==== Virtual Disk Configuration
 
 The following table shows the configuration history parameters of the virtual disks in the system.

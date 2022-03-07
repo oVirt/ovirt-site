@@ -1,4 +1,4 @@
-[id="Virtual_machine_interface_hourly_and_daily_history_views_{context}"]
+[id="Virtual_machine_interface_hourly_and_daily_history_views"]
 ==== Virtual Machine Interface Statistics Views
 
 

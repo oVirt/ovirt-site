@@ -1,4 +1,4 @@
-[id="Latest_storage_domain_configuration_view_{context}"]
+[id="Latest_storage_domain_configuration_view"]
 ==== Storage Domain Configuration
 
 The following table shows the configuration history parameters of the storage domains in the system.

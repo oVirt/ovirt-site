@@ -1,4 +1,4 @@
-[id="Latest_virtual_machine_configuration_view_{context}"]
+[id="Latest_virtual_machine_configuration_view"]
 ==== Virtual Machine Configuration
 
 The following table shows the configuration history parameters of the virtual machines in the system.

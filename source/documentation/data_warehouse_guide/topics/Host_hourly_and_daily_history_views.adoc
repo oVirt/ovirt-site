@@ -1,4 +1,4 @@
-[id="Host_hourly_and_daily_history_views_{context}"]
+[id="Host_hourly_and_daily_history_views"]
 ==== Host Statistics Views
 
 

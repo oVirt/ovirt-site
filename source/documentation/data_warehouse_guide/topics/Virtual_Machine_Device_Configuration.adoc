@@ -1,4 +1,4 @@
-[id="Virtual_Machine_Device_Configuration_{context}"]
+[id="Virtual_Machine_Device_Configuration"]
 ==== Virtual Machine Device Configuration
 
 The following table shows the relationships between virtual machines and their associated devices, including disks and virtual interfaces.

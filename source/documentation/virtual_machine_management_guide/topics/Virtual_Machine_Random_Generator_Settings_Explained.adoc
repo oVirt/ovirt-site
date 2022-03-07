@@ -1,9 +1,9 @@
 :_content-type: REFERENCE
-[id="Virtual_Machine_Random_Generator_Settings_Explained_{context}"]
+[id="Virtual_Machine_Random_Generator_Settings_Explained"]
 ==== Virtual Machine Random Generator Settings Explained
 
 The following table details the options available on the *Random Generator* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
-[id="New_VMs_Random_Generator_{context}"]
+[id="New_VMs_Random_Generator"]
 
 .Virtual Machine: Random Generator Settings
 [cols="1,2,1", options="header"]

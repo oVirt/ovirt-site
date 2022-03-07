@@ -1,5 +1,8 @@
 :_content-type: ASSEMBLY
-[id="chap-Templates_{context}"]
+
+[id="chap-Templates"]
+[discrete]
+= Templates
 
 include::topics/Templates.adoc[]
 
@@ -19,21 +22,21 @@ include::topics/Editing_a_Template.adoc[]
 
 include::topics/Deleting_a_template.adoc[]
 
-[id="sect-Exporting_Templates_{context}"]
+[id="sect-Exporting_Templates"]
 === Exporting Templates
 
 include::topics/Migrating_Templates_to_the_Export_Domain.adoc[]
 
 include::topics/Copying_a_Templates_Virtual_Hard_Disk.adoc[]
 
-[id="sect-Importing_Templates_{context}"]
+[id="sect-Importing_Templates"]
 === Importing Templates
 
 include::topics/Importing_a_template_into_a_data_center.adoc[]
 
 include::topics/Importing_a_Virtual_Disk_Image_from_an_OpenStack_Image_Service_as_a_Template.adoc[]
 
-[id="sect-Templates_and_Permissions_{context}"]
+[id="sect-Templates_and_Permissions"]
 === Templates and Permissions
 
 include::topics/Managing_System_Permissions_for_a_Template.adoc[]

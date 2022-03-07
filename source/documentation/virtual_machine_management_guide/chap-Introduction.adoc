@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Introduction_{context}"]
+[id="chap-Introduction"]
 == Introduction
 
 A virtual machine is a software implementation of a computer. The {virt-product-fullname} environment enables you to create virtual desktops and virtual servers.
@@ -11,10 +11,10 @@ include::topics/Supported_virtual_machines.adoc[]
 
 include::topics/Virtual_machine_performance_parameters.adoc[]
 
-[id="sect-Installing_Supporting_Components_{context}"]
+[id="sect-Installing_Supporting_Components"]
 === Installing Supporting Components on Client Machines
 
-[id="sect-Installing_Console_Components_{context}"]
+[id="sect-Installing_Console_Components"]
 ==== Installing Console Components
 
 A console is a graphical window that allows you to view the start up screen, shut down screen, and desktop of a virtual machine, and to interact with that virtual machine in a similar way to a physical machine. In {virt-product-fullname}, the default application for opening a console to a virtual machine is Remote Viewer, which must be installed on the client machine prior to use.
@@ -23,4 +23,3 @@ include::topics/Installing_Remote_Viewer_on_Linux.adoc[]
 include::topics/Installing_Remote_Viewer_on_Windows.adoc[]
 
 include::topics/Installing_usbdk_on_Windows.adoc[]
-

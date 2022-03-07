@@ -1,7 +1,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
-[id="proc_Exporting_individual_virtual_machines_to_a_data_domain_{context}"]
+[id="proc_Exporting_individual_virtual_machines_to_a_data_domain"]
 = Exporting a Virtual Machine to a Data Domain
 
 You can export a virtual machine to a data domain to store a clone of the virtual machine as a backup.

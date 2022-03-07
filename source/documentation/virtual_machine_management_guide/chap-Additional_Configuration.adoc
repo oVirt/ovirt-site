@@ -1,10 +1,10 @@
 :_content-type: ASSEMBLY
-[id="chap-Additional_Configuration_{context}"]
+[id="chap-Additional_Configuration"]
 = Additional Configuration
 
 include::topics/Configuring_operating_systems_with_osinfo.adoc[leveloffset=+1]
 
-[id="sect-Configuring_Single_Sign-On_for_Virtual_Machines_{context}"]
+[id="sect-Configuring_Single_Sign-On_for_Virtual_Machines"]
 == Configuring Single Sign-On for Virtual Machines
 
 Configuring single sign-on, also known as password delegation, allows you to automatically log in to a virtual machine using the credentials you use to log in to the VM Portal. Single sign-on can be used on both {enterprise-linux} and Windows virtual machines.
@@ -25,7 +25,7 @@ include::topics/Configuring_Single_Sign_On_for_Windows_Virtual_Machines.adoc[lev
 
 include::topics/Disabling_Single_Sign-on_for_Virtual_Machines.adoc[leveloffset=+2]
 
-[id="sect-Configuring_USB_Devices_{context}"]
+[id="sect-Configuring_USB_Devices"]
 == Configuring USB Devices
 
 A virtual machine connected with the SPICE protocol can be configured to connect directly to USB devices.
@@ -48,17 +48,17 @@ include::topics/Using_USB_Devices_on_a_Windows_Client.adoc[leveloffset=+2]
 
 include::topics/Using_USB_Devices_on_a_Red_Hat_Enterprise_Linux_Client.adoc[leveloffset=+2]
 
-[id="sect-Configuring_Multiple_Monitors_{context}"]
+[id="sect-Configuring_Multiple_Monitors"]
 == Configuring Multiple Monitors
 
 include::topics/Configuring_Multiple_Displays_for_Red_Hat_Enterprise_Linux_Guest_Virtual_Machines.adoc[leveloffset=+2]
 
 include::topics/Configuring_Multiple_Displays_for_Windows_Virtual_Machines.adoc[leveloffset=+2]
 
-[id="sect-Configuring_Console_Options_{context}"]
+[id="sect-Configuring_Console_Options"]
 == Configuring Console Options
 
-[id="sect-Console_Options_{context}"]
+[id="sect-Console_Options"]
 === Console Options
 
 Connection protocols are the underlying technology used to provide graphical consoles for virtual machines and allow users to work with virtual machines in a similar way as they would with physical machines. {virt-product-fullname} currently supports the following connection protocols:
@@ -87,7 +87,7 @@ include::topics/VNC_Console_Options.adoc[leveloffset=+2]
 
 include::topics/RDP_Console_Options.adoc[leveloffset=+2]
 
-[id="sect-Remote_Viewer_Options_{context}"]
+[id="sect-Remote_Viewer_Options"]
 === Remote Viewer Options
 
 include::topics/Remote_Viewer_Options.adoc[leveloffset=+3]
@@ -96,7 +96,7 @@ include::topics/Remote_Viewer_Hotkeys.adoc[leveloffset=+3]
 
 include::topics/Manually_Associating_console.vv_Files_with_Remote_Viewer.adoc[leveloffset=+3]
 
-[id="sect-Configuring_a_Watchdog_{context}"]
+[id="sect-Configuring_a_Watchdog"]
 == Configuring a Watchdog
 
 include::topics/Adding_a_Watchdog_Card_to_a_Virtual_machine.adoc[leveloffset=+2]
@@ -118,4 +118,4 @@ include::topics/Configuring_high_performance_virtual_machines.adoc[leveloffset=+
 include::topics/Configuring_Time_Zones.adoc[leveloffset=+1]
 
 // Very basic attribute, since I assume this section could one day be its own assembly and this attribute will therefore not be needed.
-:vmm:  
+:vmm:

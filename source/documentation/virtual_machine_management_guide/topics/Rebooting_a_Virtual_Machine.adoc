@@ -1,7 +1,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
-[id="Rebooting_a_Virtual_Machine_{context}"]
+[id="Rebooting_a_Virtual_Machine"]
 === Rebooting or Resetting a Virtual Machine
 
 You can restart your virtual machines in two different ways; either using reboot or reset.

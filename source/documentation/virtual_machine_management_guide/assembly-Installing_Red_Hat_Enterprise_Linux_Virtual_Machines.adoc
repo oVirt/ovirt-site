@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="Installing_Red_Hat_Enterprise_Linux_Virtual_Machiness_{context}"]
+[id="Installing_Red_Hat_Enterprise_Linux_Virtual_Machines"]
 = Installing {enterprise-linux} Virtual Machines
 
 :context: linux_vm

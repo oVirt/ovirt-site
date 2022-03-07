@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template_{context}"]
+[id="Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template"]
 ==== Sealing a Windows Virtual Machine for Deployment as a Template
 
 A template created for Windows virtual machines must be generalized (sealed) before being used to deploy virtual machines. This ensures that machine-specific settings are not reproduced in the template.
@@ -8,4 +8,4 @@ A template created for Windows virtual machines must be generalized (sealed) bef
 
 The Sysprep file can be edited to affect various aspects of the Windows virtual machines created from the template that the Sysprep file is attached to. These include the provisioning of Windows, setting up the required domain membership, configuring the hostname, and setting the security policy.
 
-Replacement strings can be used to substitute values provided in the default files in the */usr/share/ovirt-engine/conf/sysprep/* directory.  For example, `"<Domain><![CDATA[$JoinDomain$_{context}"]></Domain>"` can be used to indicate the domain to join.
+Replacement strings can be used to substitute values provided in the default files in the */usr/share/ovirt-engine/conf/sysprep/* directory.  For example, `"<Domain><![CDATA[$JoinDomain$"]></Domain>"` can be used to indicate the domain to join.

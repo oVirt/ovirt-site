@@ -1,12 +1,12 @@
 :_content-type: REFERENCE
-[id="Virtual_Machine_System_Settings_Explained_{context}"]
+[id="Virtual_Machine_System_Settings_Explained"]
 ==== Virtual Machine System Settings Explained
 
 :context: vm_sys_settings
 include::../common/admin/snip-CPU-Considerations.adoc[]
 
 The following table details the options available on the *System* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
-[id="New_VMs_Initial_Run-226_{context}"]
+[id="New_VMs_Initial_Run-226"]
 
 .Virtual Machine: System Settings
 [cols="1,2,1", options="header"]

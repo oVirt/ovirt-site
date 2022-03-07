@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="Remote_Viewer_Options_{context}"]
+[id="Remote_Viewer_Options"]
 = Remote Viewer Options
 
 When you specify the *Native client* console invocation option, you will connect to virtual machines using Remote Viewer. The Remote Viewer window provides a number of options for interacting with the virtual machine to which it is connected.

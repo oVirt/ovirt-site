@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux_{context}"]
+[id="Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux"]
 ==== Updating the Guest Agents and Drivers on {enterprise-linux}
 
 Update the guest agents and drivers on your {enterprise-linux} virtual machines to use the latest version.

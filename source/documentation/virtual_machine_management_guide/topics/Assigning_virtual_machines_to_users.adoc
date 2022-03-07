@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Assigning_virtual_machines_to_users_{context}"]
+[id="Assigning_virtual_machines_to_users"]
 ==== Assigning Virtual Machines to Users
 
 If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Users_and_Roles[Users and Roles] in the _Administration Guide_ for details on creating user accounts.

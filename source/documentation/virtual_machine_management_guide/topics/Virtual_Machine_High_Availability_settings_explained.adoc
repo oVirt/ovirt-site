@@ -1,9 +1,9 @@
 :_content-type: REFERENCE
-[id="Virtual_Machine_High_Availability_settings_explained_{context}"]
+[id="Virtual_Machine_High_Availability_settings_explained"]
 ==== Virtual Machine High Availability Settings Explained
 
 The following table details the options available on the *High Availability* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
-[id="New_VMs_HA_{context}"]
+[id="New_VMs_HA"]
 
 .Virtual Machine: High Availability Settings
 [cols="1,2,1", options="header"]

@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Setting_migration_priority_{context}"]
+[id="Setting_migration_priority"]
 ==== Setting Migration Priority
 
 {virt-product-fullname} {engine-name} queues concurrent requests for migration of virtual machines off of a given host. The load balancing process runs every minute. Hosts already involved in a migration event are not included in the migration cycle until their migration event has completed. When there is a migration request in the queue and available hosts in the cluster to action it, a migration event is triggered in line with the load balancing policy for the cluster.

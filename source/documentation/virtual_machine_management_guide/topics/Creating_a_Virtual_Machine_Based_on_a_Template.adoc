@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Creating_a_Virtual_Machine_Based_on_a_Template_{context}"]
+[id="Creating_a_Virtual_Machine_Based_on_a_Template"]
 === Creating a Virtual Machine Based on a Template
 
 Create a virtual machine from a template to enable the virtual machines to be pre-configured with an operating system, network interfaces, applications and other resources.

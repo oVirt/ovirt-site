@@ -1,10 +1,10 @@
 :_content-type: REFERENCE
-[id="Affinity_groups_examples_{context}"]
+[id="Affinity_groups_examples"]
 ==== Affinity Groups Examples
 
 The following examples illustrate how to apply affinity rules for various scenarios, using the different features of the affinity group capability described in this chapter.
 
-[id="Affinity_high_availability_{context}"]
+[id="Affinity_high_availability"]
 .High Availability
 ====
 Dalia is the DevOps engineer for a startup. For high availability, a particular system's two virtual machines should run on separate hosts anywhere in the cluster.
@@ -18,7 +18,7 @@ Dalia creates an affinity group named "high availability" and does the following
 
 ====
 
-[id="Affinity_performance_{context}"]
+[id="Affinity_performance"]
 .Performance
 ====
 Sohni is a software developer who uses two virtual machines to build and test his software many times each day. There is heavy network traffic between these two virtual machines. Running the machines on the same host reduces both network traffic and the effects of network latency on the build and test process. Using high-specification hosts (faster CPUs, SSDs, and more memory) further accelerates this process.
@@ -33,7 +33,7 @@ Sohni creates an affinity group called "build and test" and does the following:
 
 ====
 
-[id="Affinity_licensing_{context}"]
+[id="Affinity_licensing"]
 .Licensing
 ====
 Bandile, a software asset manager, helps his organization comply with the restrictive licensing requirements of a 3D imaging software vendor. These terms require the virtual machines for its licensing server, *VM-LS*, and imaging workstations, *VM-WS__#__*, to run on the same host. Additionally, the physical CPU-based licensing model requires that the workstations run on either of two GPU-equipped hosts, *host-gpu-primary* or *host-gpu-backup*.

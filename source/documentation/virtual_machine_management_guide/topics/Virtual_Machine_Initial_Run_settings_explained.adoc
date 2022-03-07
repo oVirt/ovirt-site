@@ -1,9 +1,9 @@
 :_content-type: REFERENCE
-[id="Virtual_Machine_Initial_Run_settings_explained_{context}"]
+[id="Virtual_Machine_Initial_Run_settings_explained"]
 ==== Virtual Machine Initial Run Settings Explained
 
 The following table details the options available on the *Initial Run* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows. The settings in this table are only visible if the *Use Cloud-Init/Sysprep* check box is selected, and certain options are only visible when either a Linux-based or Windows-based option has been selected in the *Operating System* list in the *General* tab, as outlined below.
-[id="New_VMs_Initial_Run-227_{context}"]
+[id="New_VMs_Initial_Run-227"]
 
 [NOTE]
 This table does not include information on whether a power cycle is required because the settings apply to the virtual machine's _initial_ run; the virtual machine is not running when you configure these settings.
@@ -99,7 +99,7 @@ a|Network-related settings for the virtual machine. Click the disclosure arrow t
 
 |*Sysprep*
 |Windows
-|A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the */usr/share/ovirt-engine/conf/sysprep/* directory on the machine on which the {virt-product-fullname} {engine-name} is installed and alter the fields as required. See xref:chap-Templates[] for more information.
+|A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the */usr/share/ovirt-engine/conf/sysprep/* directory on the machine on which the {virt-product-fullname} {engine-name} is installed and alter the fields as required. See xref:chap-Templates[Templates] for more information.
 
 |*Ignition 2.3.0*
 |Red Hat Enterprise Linux CoreOS

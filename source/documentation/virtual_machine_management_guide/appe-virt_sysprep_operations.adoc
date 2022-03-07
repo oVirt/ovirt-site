@@ -2,7 +2,7 @@
 
 [appendix]
 :_content-type: ASSEMBLY
-[id="appe-virt_sysprep_operations_{context}"]
+[id="appe-virt_sysprep_operations"]
 == `virt-sysprep` Operations
 
 The `virt-sysprep` command removes system-specific details.
@@ -53,4 +53,3 @@ utmp * Remove the utmp file
 yum-uuid * Remove the yum UUID
 
 ----
-

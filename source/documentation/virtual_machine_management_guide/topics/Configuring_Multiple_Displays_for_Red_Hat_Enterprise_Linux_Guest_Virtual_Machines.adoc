@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Configuring_Multiple_Displays_for_Red_Hat_Enterprise_Linux_Guest_Virtual_Machines_{context}"]
+[id="Configuring_Multiple_Displays_for_Red_Hat_Enterprise_Linux_Guest_Virtual_Machines"]
 = Configuring Multiple Displays for {enterprise-linux} Virtual Machines
 
 A maximum of four displays can be configured for a single {enterprise-linux} virtual machine when connecting to the virtual machine using the SPICE protocol.

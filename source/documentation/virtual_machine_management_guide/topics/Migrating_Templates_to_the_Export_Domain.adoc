@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Migrating_Templates_to_the_Export_Domain_{context}"]
+[id="Migrating_Templates_to_the_Export_Domain"]
 ==== Migrating Templates to the Export Domain
 
 

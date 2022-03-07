@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Associating_a_Virtual_Disk_with_a_Virtual_Machine_{context}"]
+[id="Associating_a_Virtual_Disk_with_a_Virtual_Machine"]
 ==== Attaching an Existing Disk to a Virtual Machine
 
 Floating disks are disks that are not associated with any virtual machine.

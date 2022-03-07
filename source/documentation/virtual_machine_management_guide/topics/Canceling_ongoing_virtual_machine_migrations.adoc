@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Canceling_ongoing_virtual_machine_migrations_{context}"]
+[id="Canceling_ongoing_virtual_machine_migrations"]
 ==== Canceling Ongoing Virtual Machine Migrations
 
 A virtual machine migration is taking longer than you expected. You'd like to be sure where all virtual machines are running before you make any changes to your environment.

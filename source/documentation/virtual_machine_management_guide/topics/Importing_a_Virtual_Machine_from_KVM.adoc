@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Importing_a_Virtual_Machine_from_KVM_{context}"]
+[id="Importing_a_Virtual_Machine_from_KVM"]
 ==== Importing a Virtual Machine from a KVM Host
 
 Import virtual machines from KVM to your {virt-product-fullname} environment. {virt-product-fullname} converts KVM virtual machines to the correct format before they are imported. You must enable public key authentication between the KVM host and at least one host in the destination data center (this host is referred to in the following procedure as the proxy host).

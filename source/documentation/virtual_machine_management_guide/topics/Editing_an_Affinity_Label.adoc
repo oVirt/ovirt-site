@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Editing_an_Affinity_Label_{context}"]
+[id="Editing_an_Affinity_Label"]
 ==== Editing an Affinity Label
 
 You can edit affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.

@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Using_Cloud-Init_to_Prepare_a_Template_{context}"]
+[id="Using_Cloud-Init_to_Prepare_a_Template"]
 ==== Using Cloud-Init to Prepare a Template
 
 As long as the `cloud-init` package is installed on a Linux virtual machine, you can use the virtual machine to make a cloud-init enabled template. Specify a set of standard settings to be included in a template as described in the following procedure or, alternatively, skip the Cloud-Init settings steps and configure them when creating a virtual machine based on this template.

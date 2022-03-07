@@ -1,7 +1,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
-[id="Pinning_a_Virtual_Machine_to_Another_Host_{context}"]
+[id="Pinning_a_Virtual_Machine_to_Another_Host"]
 ==== Pinning a Virtual Machine to Another Host
 
 You can use the *Host Devices* tab in the details view of a virtual machine to pin it to a specific host.

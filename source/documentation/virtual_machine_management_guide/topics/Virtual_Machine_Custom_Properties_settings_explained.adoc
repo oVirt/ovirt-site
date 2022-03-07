@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="Virtual_Machine_Custom_Properties_settings_explained_{context}"]
+[id="Virtual_Machine_Custom_Properties_settings_explained"]
 ==== Virtual Machine Custom Properties Settings Explained
 
 The following table details the options available on the *Custom Properties* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.

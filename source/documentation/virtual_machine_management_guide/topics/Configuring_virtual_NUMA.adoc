@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Configuring_virtual_numa_{context}"]
+[id="Configuring_virtual_numa"]
 = Configuring Virtual NUMA
 
 In the Administration Portal, you can configure virtual NUMA nodes on a virtual machine and pin them to physical NUMA nodes on one or more hosts. The host’s default policy is to schedule and run virtual machines on any available resources on the host. As a result, the resources backing a large virtual machine that cannot fit within a single host socket could be spread out across multiple NUMA nodes. Over time these resources may be moved around, leading to poor and unpredictable performance. Configure and pin virtual NUMA nodes to avoid this outcome and improve performance.

@@ -1,5 +1,5 @@
 :_content-type: CONCEPT
-[id="Audience_{context}"]
+[id="Audience"]
 === Audience
 
 Most virtual machine tasks in {virt-product-fullname} can be performed in both the VM Portal and Administration Portal. However, the user interface differs between each portal, and some administrative tasks require access to the Administration Portal. Tasks that can only be performed in the Administration Portal will be described as such in this book. Which portal you use, and which tasks you can perform in each portal, is determined by your level of permissions. Virtual machine permissions are explained in link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#sect-Virtual_Machines_and_Permissions[Virtual Machines and Permissions].

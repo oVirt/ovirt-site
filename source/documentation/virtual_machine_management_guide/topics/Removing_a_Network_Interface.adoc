@@ -1,7 +1,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
-[id="Removing_a_Network_Interface_{context}"]
+[id="Removing_a_Network_Interface"]
 ==== Removing a Network Interface
 
 

@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Installing_the_Guest_Agents_and_Drivers_on_Windows_{context}"]
+[id="Installing_the_Guest_Agents_and_Drivers_on_Windows"]
 = Installing the guest agents, tools, and drivers on Windows
 
 .Procedure

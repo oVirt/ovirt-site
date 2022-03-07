@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="KVM_virtual_machine_timing_management_{context}"]
+[id="KVM_virtual_machine_timing_management"]
 ==== KVM Virtual Machine Timing Management
 
 Virtualization poses various challenges for virtual machine time keeping. Virtual machines which use the Time Stamp Counter (TSC) as a clock source may suffer timing issues as some CPUs do not have a constant Time Stamp Counter. Virtual machines running without accurate timekeeping can have serious affects on some networked applications as your virtual machine will run faster or slower than the actual time.
@@ -42,7 +42,7 @@ Using the `ntpd` service should minimize the affects of clock skew in all cases.
 The NTP servers you are trying to use must be operational and accessible to your hosts and virtual machines.
 ====
 
-[id="form-Virtualization-KVM_guest_timing_management-Determining_if_your_CPU_has_the_constant_Time_Stamp_Counter_{context}"]
+[id="form-Virtualization-KVM_guest_timing_management-Determining_if_your_CPU_has_the_constant_Time_Stamp_Counter"]
 *Determining if your CPU has the constant Time Stamp Counter*
 
 Your CPU has a constant Time Stamp Counter if the `constant_tsc` flag is present. To determine if your CPU has the `constant_tsc` flag run the following command:
@@ -54,7 +54,7 @@ $ cat /proc/cpuinfo | grep constant_tsc
 ----
 If any output is given your CPU has the `constant_tsc` bit. If no output is given follow the instructions below.
 
-[id="form-Virtualization-KVM_guest_timing_management-Configuring_hosts_without_a_constant_Time_Stamp_Counter_{context}"]
+[id="form-Virtualization-KVM_guest_timing_management-Configuring_hosts_without_a_constant_Time_Stamp_Counter"]
 *Configuring hosts without a constant Time Stamp Counter*
 
 Systems without constant time stamp counters require additional configuration. Power management features interfere with accurate time keeping and must be disabled for virtual machines to accurately keep time with KVM.
@@ -82,7 +82,7 @@ There are 2 relevant parameters for time drift on hosts: `EnableHostTimeDrift` a
 
 Alerts are sent once per hour per host.
 
-[id="form-Virtualization-KVM_guest_timing_management-Using_the_para_virtualized_clock_with_Red_Hat_Enterprise_Linux_guests_{context}"]
+[id="form-Virtualization-KVM_guest_timing_management-Using_the_para_virtualized_clock_with_Red_Hat_Enterprise_Linux_guests"]
 *Using the paravirtualized clock with {enterprise-linux} virtual machines*
 
 For certain {enterprise-linux} virtual machines, additional kernel parameters are required. These parameters can be set by appending them to the end of the /kernel line in the /boot/grub/grub.conf file of the virtual machine.

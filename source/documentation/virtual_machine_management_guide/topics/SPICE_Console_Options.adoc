@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="SPICE_Console_Options_{context}"]
+[id="SPICE_Console_Options"]
 = SPICE Console Options
 
 When the SPICE connection protocol is selected, the following options are available in the *Console Options* window.

@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="Virtual_Machine_Run_Once_settings_explained_{context}"]
+[id="Virtual_Machine_Run_Once_settings_explained"]
 === Explanation of settings in the Run Once window
 
 The *Run Once* window defines one-off boot options for a virtual machine. For persistent boot options, use the *Boot Options* tab in the *New Virtual Machine* window. The *Run Once* window contains multiple sections that can be configured.
@@ -11,7 +11,7 @@ The *Boot Options* section defines the virtual machine's boot sequence, running 
 [NOTE]
 The following tables do not include information on whether a power cycle is required because these _one-off boot options_ apply only when you reboot the virtual machine.
 
-[id="Boot_Options_Fields_{context}"]
+[id="Boot_Options_Fields"]
 
 .Boot Options Section
 [cols="1,2", options="header"]
@@ -46,7 +46,7 @@ The following tables do not include information on whether a power cycle is requ
 |===
 
 The *Linux Boot Options* section contains fields to boot a Linux kernel directly instead of through the BIOS bootloader.
-[id="Linux_Boot_Options_Fields_{context}"]
+[id="Linux_Boot_Options_Fields"]
 
 .Linux Boot Options Section
 [cols="1,2", options="header"]
@@ -71,7 +71,7 @@ The *Linux Boot Options* section contains fields to boot a Linux kernel directly
 The *Initial Run* section is used to specify whether to use Cloud-Init or Sysprep to initialize the virtual machine. For Linux-based virtual machines, you must select the *Use Cloud-Init* check box in the *Initial Run* tab to view the available options. For Windows-based virtual machines, you must attach the `[sysprep]` floppy by selecting the *Attach Floppy* check box in the *Boot Options* tab and selecting the floppy from the list.
 
 The options that are available in the *Initial Run* section differ depending on the operating system that the virtual machine is based on.
-[id="Initial_Run_Fields_Linux_{context}"]
+[id="Initial_Run_Fields_Linux"]
 
 .Initial Run Section (Linux-based Virtual Machines)
 [cols="1,2", options="header"]
@@ -132,7 +132,7 @@ The options that are available in the *Initial Run* section differ depending on 
 |Custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by the {engine-name}, and allow you to automate tasks such as creating users and files, configuring `yum` repositories and running commands. For more information on the format of scripts that can be entered in this field, see the link:http://cloudinit.readthedocs.io/en/latest/topics/examples.html#yaml-examples[Custom Script] documentation.
 
 |===
-[id="Initial_Run_Fields_Win_{context}"]
+[id="Initial_Run_Fields_Win"]
 
 .Initial Run Section (Windows-based Virtual Machines)
 [cols="1,2", options="header"]
@@ -207,7 +207,7 @@ The options that are available in the *Initial Run* section differ depending on 
 |===
 
 The *System* section enables you to define the supported machine type or CPU type.
-[id="System_Fields_{context}"]
+[id="System_Fields"]
 
 .System Section
 [cols="1,2", options="header"]
@@ -223,7 +223,7 @@ The *System* section enables you to define the supported machine type or CPU typ
 |===
 
 The *Host* section is used to define the virtual machine's host.
-[id="Host_Fields_{context}"]
+[id="Host_Fields"]
 
 .Host Section
 [cols="1,2", options="header"]
@@ -239,7 +239,7 @@ The *Host* section is used to define the virtual machine's host.
 |===
 
 The *Console* section defines the protocol to connect to virtual machines.
-[id="Console_Fields_{context}"]
+[id="Console_Fields"]
 
 .Console Section
 [cols="1,2", options="header"]
@@ -264,4 +264,4 @@ The *Console* section defines the protocol to connect to virtual machines.
 |===
 
 The *Custom Properties* section contains additional VDSM options for running virtual machines. See xref:New_VMs_Custom_Properties[] for details.
-[id="Custom_Properties_Fields_{context}"]
+[id="Custom_Properties_Fields"]

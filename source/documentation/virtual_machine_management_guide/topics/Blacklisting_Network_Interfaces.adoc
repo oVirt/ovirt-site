@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Blacklisting_Network_Interfaces_{context}"]
+[id="Blacklisting_Network_Interfaces"]
 ==== Blacklisting Network Interfaces
 
 You can configure the `ovirt-guest-agent` on a virtual machine to ignore certain NICs. This prevents IP addresses associated with network interfaces created by certain software from appearing in reports. You must specify the name and number of the network interface you want to blacklist (for example, `eth0`, `docker0`).

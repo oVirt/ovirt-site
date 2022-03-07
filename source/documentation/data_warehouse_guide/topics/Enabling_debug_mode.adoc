@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="enabling-debug-mode"]
 ==== Enabling Debug Mode
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Allowing_Read_Only_Access_to_the_History_Database"]
 === Allowing Read-Only Access to the History Database
 

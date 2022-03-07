@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Latest_datacenter_configuration_view1"]
 ==== Data Center Configuration
 

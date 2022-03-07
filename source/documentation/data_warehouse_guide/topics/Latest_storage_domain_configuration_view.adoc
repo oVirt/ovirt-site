@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Latest_storage_domain_configuration_view"]
 ==== Storage Domain Configuration
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="History_Database_Overview"]
 === History Database Overview
 

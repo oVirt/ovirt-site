@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Latest_virtual_machine_configuration_view"]
 ==== Virtual Machine Configuration
 

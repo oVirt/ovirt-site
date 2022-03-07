@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Tracking_tag_history"]
 === Tracking Tag History
 

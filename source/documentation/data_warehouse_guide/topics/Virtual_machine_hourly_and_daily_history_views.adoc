@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Virtual_machine_hourly_and_daily_history_views"]
 ==== Virtual Machine Statistics Views
 

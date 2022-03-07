@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file"]
 === Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf
 

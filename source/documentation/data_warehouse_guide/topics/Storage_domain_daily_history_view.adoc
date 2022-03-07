@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Storage_domain_daily_history_view"]
 ==== Storage Domain Statistics Views
 

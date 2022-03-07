@@ -1,9 +1,9 @@
-[[Searching_for_templates]]
+[id="Searching_for_templates_{context}"]
 === Searching for Templates
 
 The following table describes all search options for templates.
 
-[[searching_templates_syntax]]
+[id="searching_templates_syntax_{context}"]
 .Searching for Templates
 [options="header"]
 |===

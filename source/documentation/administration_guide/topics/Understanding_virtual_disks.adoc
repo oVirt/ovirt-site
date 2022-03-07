@@ -1,4 +1,4 @@
-[[Understanding_virtual_disks]]
+[id="Understanding_virtual_disks_{context}"]
 === Understanding Virtual Disks
 
 {virt-product-fullname} features *Preallocated* (thick provisioned) and *Sparse* (thin provisioned) storage options.
@@ -21,7 +21,7 @@ You can view the *Actual Size* of a disk in the *Disks* tab of the details view 
 
 The possible combinations of storage types and formats are described in the following table.
 
-[[vdisk-combos]]
+[id="vdisk-combos_{context}"]
 
 .Permitted Storage Combinations
 [options="header"]

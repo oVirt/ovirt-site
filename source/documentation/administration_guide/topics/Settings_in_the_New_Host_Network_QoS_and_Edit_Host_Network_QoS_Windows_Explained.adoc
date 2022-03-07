@@ -1,8 +1,8 @@
-[[Settings_in_the_New_Host_Network_QoS_and_Edit_Host_Network_QoS_Windows_Explained]]
+[id="Settings_in_the_New_Host_Network_QoS_and_Edit_Host_Network_QoS_Windows_Explained_{context}"]
 ==== Settings in the New Host Network Quality of Service and Edit Host Network Quality of Service Windows Explained
 
 Host network quality of service settings allow you to configure bandwidth limits for outbound traffic.
-[[Host_Network_QoS_Settings]]
+[id="Host_Network_QoS_Settings_{context}"]
 
 .Host Network QoS Settings
 [options="header"]

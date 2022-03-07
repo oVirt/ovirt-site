@@ -1,4 +1,4 @@
-[[Detaching_storage_domains_from_a_data_center]]
+[id="Detaching_storage_domains_from_a_data_center_{context}"]
 ==== Detaching a Storage Domain from a Data Center
 
 Detaching a storage domain from a data center stops the data center from associating with that storage domain. The storage domain is not removed from the {virt-product-fullname} environment; it can be attached to another data center.

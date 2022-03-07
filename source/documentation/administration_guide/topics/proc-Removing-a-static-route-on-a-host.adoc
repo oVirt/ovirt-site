@@ -2,7 +2,7 @@
 //
 // doc-Administration_Guide/chap-Logical_Networks.adoc
 
-[id="proc-Removing-a-static-route-on-a-host"]
+[id="proc-Removing-a-static-route-on-a-host_{context}"]
 = Removing a static route on a host
 
 You can use nmstate to remove static routes from hosts. This method requires you to configure the hosts directly, without using {virt-product-fullname} {engine-name}.

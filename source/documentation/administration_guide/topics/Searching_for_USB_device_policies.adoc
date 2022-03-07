@@ -1,4 +1,4 @@
-[[Searching_for_USB_device_policies]]
+[id="Searching_for_USB_device_policies_{context}"]
 = Searching for USB Device Policies
 
 Search for attached USB devices to either allow or block them in the USB Filter Editor.

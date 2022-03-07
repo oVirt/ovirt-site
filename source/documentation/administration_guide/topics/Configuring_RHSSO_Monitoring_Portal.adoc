@@ -1,4 +1,4 @@
-[id="Configuring_RHSSO_Monitoring_Portal"]
+[id="Configuring_RHSSO_Monitoring_Portal_{context}"]
 
 
 . Configure a client's valid redirect URL:

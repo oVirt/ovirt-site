@@ -1,4 +1,4 @@
-[[Restoring_a_Backup_to_a_Fresh_Installation]]
+[id="Restoring_a_Backup_to_a_Fresh_Installation_{context}"]
 ==== Restoring a Backup to a Fresh Installation
 
 The `engine-backup` command can be used to restore a backup to a fresh installation of the {virt-product-fullname} {engine-name}. The following procedure must be performed on a machine on which the base operating system has been installed and the required packages for the {virt-product-fullname} {engine-name} have been installed, but the `engine-setup` command has not yet been run. This procedure assumes that the backup file or files can be accessed from the machine on which the backup is to be restored.

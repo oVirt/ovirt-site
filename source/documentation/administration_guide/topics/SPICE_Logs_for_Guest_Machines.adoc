@@ -1,4 +1,4 @@
-[[SPICE_Logs_for_Guest_Machines]]
+[id="SPICE_Logs_for_Guest_Machines_{context}"]
 ==== SPICE Logs for Guest Machines
 
 

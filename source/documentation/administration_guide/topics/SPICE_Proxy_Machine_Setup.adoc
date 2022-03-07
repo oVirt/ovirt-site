@@ -1,4 +1,4 @@
-[[SPICE_Proxy_Machine_Setup]]
+[id="SPICE_Proxy_Machine_Setup_{context}"]
 ==== SPICE Proxy Machine Setup
 
 This procedure explains how to set up a machine as a SPICE Proxy. A SPICE Proxy makes it possible to connect to the {virt-product-fullname} network from outside the network. We use `Squid` in this procedure to provide proxy services.

@@ -1,4 +1,4 @@
-[[Log_Collector]]
+[id="Log_Collector_{context}"]
 ==== Log Collector
 
 A log collection tool is included in the {virt-product-fullname} {engine-name}. This allows you to easily collect relevant logs from across the {virt-product-fullname} environment when requesting support.

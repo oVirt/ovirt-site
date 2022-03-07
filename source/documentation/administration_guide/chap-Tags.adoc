@@ -1,4 +1,4 @@
-[[chap-Tags]]
+[id="chap-Tags"]
 == Tags
 
 include::topics/Using_tags_to_customize_interactions.adoc[]

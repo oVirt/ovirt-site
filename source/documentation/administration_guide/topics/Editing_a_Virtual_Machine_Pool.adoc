@@ -1,4 +1,4 @@
-[[Editing_a_Virtual_Machine_Pool]]
+[id="Editing_a_Virtual_Machine_Pool_{context}"]
 === Editing a Virtual Machine Pool
 
 After a virtual machine pool has been created, its properties can be edited. The properties available when editing a virtual machine pool are identical to those available when creating a new virtual machine pool except that the *Number of VMs* property is replaced by *Increase number of VMs in pool by*.

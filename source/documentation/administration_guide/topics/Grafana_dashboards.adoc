@@ -1,4 +1,4 @@
-[id="Grafana_dashboards"]
+[id="Grafana_dashboards_{context}"]
 
 .Built-in Grafana dashboards
 

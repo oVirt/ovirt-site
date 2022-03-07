@@ -1,10 +1,10 @@
-[[Activating_storage_domains]]
+[id="Activating_storage_domains_{context}"]
 ==== Activating Storage Domains from Maintenance Mode
 
 If you have been making changes to a data center's storage, you have to put storage domains into maintenance mode. Activate a storage domain to resume using it.
 
 
-. Click menu:Storage[Domains]. 
+. Click menu:Storage[Domains].
 . Click an inactive storage domain's name. This opens the details view.
 . Click the *Data Centers* tab.
 . Click *Activate*.

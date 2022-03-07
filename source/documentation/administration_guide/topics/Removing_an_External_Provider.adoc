@@ -1,4 +1,4 @@
-[[Removing_an_External_Provider]]
+[id="Removing_an_External_Provider_{context}"]
 === Removing an External Provider
 
 *Removing an External Provider*

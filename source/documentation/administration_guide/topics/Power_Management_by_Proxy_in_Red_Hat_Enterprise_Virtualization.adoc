@@ -1,4 +1,4 @@
-[[Power_Management_by_Proxy_in_Red_Hat_Enterprise_Virtualization]]
+[id="Power_Management_by_Proxy_in_Red_Hat_Enterprise_Virtualization_{context}"]
 ==== Power Management by Proxy in {virt-product-fullname}
 
 The {virt-product-fullname} {engine-name} does not communicate directly with fence agents. Instead, the {engine-name} uses a proxy to send power management commands to a host power management device. The {engine-name} uses VDSM to execute power management device actions, so another host in the environment is used as a fencing proxy.

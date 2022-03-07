@@ -1,4 +1,4 @@
-[[Explanation_of_Quota_Threshold_Settings]]
+[id="Explanation_of_Quota_Threshold_Settings_{context}"]
 === Explanation of Quota Threshold Settings
 
 .Quota thresholds and grace

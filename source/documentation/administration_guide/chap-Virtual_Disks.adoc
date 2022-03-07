@@ -1,4 +1,4 @@
-[[chap-Virtual_Machine_Disks]]
+[id="chap-Virtual_Machine_Disks"]
 == Virtual Disks
 
 include::topics/Understanding_virtual_machine_storage.adoc[]
@@ -11,7 +11,7 @@ include::topics/Shareable_Disks.adoc[]
 
 include::topics/Read_Only_Disks.adoc[]
 
-[[sect-Virtual_Disk_Tasks]]
+[id="sect-Virtual_Disk_Tasks"]
 === Virtual Disk Tasks
 
 :context: virtual_disk_tasks

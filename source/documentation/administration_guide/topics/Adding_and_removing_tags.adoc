@@ -1,4 +1,4 @@
-[[Adding_and_removing_tags]]
+[id="Adding_and_removing_tags_{context}"]
 === Adding and Removing Tags to and from Objects
 
 You can assign tags to and remove tags from hosts, virtual machines, and users.

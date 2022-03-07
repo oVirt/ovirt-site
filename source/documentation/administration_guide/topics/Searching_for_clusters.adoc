@@ -1,8 +1,8 @@
-[[Searching_for_clusters]]
+[id="Searching_for_clusters_{context}"]
 === Searching for Clusters
 
 The following table describes all search options for clusters.
-[[searching_clusters]]
+[id="searching_clusters_{context}"]
 
 .Searching Clusters
 [options="header"]

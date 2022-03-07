@@ -1,4 +1,4 @@
-[id="Disabling-4K-support-{context}"]
+[id="Disabling-4K-support-{context}_{context}"]
 = Disabling 4K support
 
 // Module included in the following assemblies:

@@ -1,4 +1,4 @@
-[[Setting_fencing_parameters_on_a_host]]
+[id="Setting_fencing_parameters_on_a_host_{context}"]
 ==== Setting Fencing Parameters on a Host
 
 The parameters for host fencing are set using the *Power Management* fields on the *New Host* or *Edit Host* windows. Power management enables the system to fence a troublesome host using an additional interface such as a Remote Access Card (RAC).

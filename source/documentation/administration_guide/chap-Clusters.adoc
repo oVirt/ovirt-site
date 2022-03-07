@@ -1,9 +1,9 @@
-[[chap-Clusters]]
+[id="chap-Clusters"]
 = Clusters
 
 include::topics/Clusters.adoc[leveloffset=-1]
 
-[[sect-Cluster_Tasks]]
+[id="sect-Cluster_Tasks"]
 == Cluster Tasks
 
 [NOTE]

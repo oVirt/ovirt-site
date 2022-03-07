@@ -1,7 +1,7 @@
 :numbered!:
 
 [appendix]
-[[appe-VDSM_and_Hooks]]
+[id="appe-VDSM_and_Hooks"]
 == VDSM and Hooks
 
 include::topics/VDSM.adoc[]

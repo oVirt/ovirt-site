@@ -1,4 +1,4 @@
-[[Network_Administrator_and_User_Roles_Explained]]
+[id="Network_Administrator_and_User_Roles_Explained_{context}"]
 ==== Network Administrator and User Roles Explained
 
 
@@ -6,7 +6,7 @@
 
 The table below describes the administrator and user roles and privileges applicable to network administration.
 
-[[Network_Administrator_Roles]]
+[id="Network_Administrator_Roles_{context}"]
 
 .{virt-product-fullname} Network Administrator and User Roles
 [options="header"]

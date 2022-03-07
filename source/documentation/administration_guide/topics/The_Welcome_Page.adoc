@@ -1,4 +1,4 @@
-[[The_Welcome_Page]]
+[id="The_Welcome_Page_{context}"]
 ==== The Welcome Page
 
 The Welcome Page is the page that is initially displayed when you visit the homepage of the {engine-name}. In addition to customizing the overall look and feel, you can also make other changes such as adding links to the page for additional documentation or internal websites by editing a template file. The elements of the Welcome Page that can be customized are as follows:

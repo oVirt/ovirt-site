@@ -1,4 +1,4 @@
-[[The_ISO_Uploader_Tool]]
+[id="The_ISO_Uploader_Tool_{context}"]
 ==== The ISO Uploader Tool
 
 [NOTE]

@@ -1,4 +1,4 @@
-[[Cancelling_event_notifications]]
+[id="Cancelling_event_notifications_{context}"]
 === Canceling Event Notifications in the Administration Portal
 
 A user has configured some unnecessary email notifications and wants them canceled.

@@ -1,4 +1,4 @@
-[[Removing_a_Disk_Profile]]
+[id="Removing_a_Disk_Profile_{context}"]
 ==== Removing a Disk Profile
 
 Remove an existing disk profile from your {virt-product-fullname} environment.

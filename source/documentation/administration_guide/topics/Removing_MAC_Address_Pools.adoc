@@ -1,4 +1,4 @@
-[[Removing_MAC_Address_Pools]]
+[id="Removing_MAC_Address_Pools_{context}"]
 ==== Removing MAC Address Pools
 
 You can remove a created MAC address pool if the pool is not associated with a cluster, but the default MAC address pool cannot be removed.

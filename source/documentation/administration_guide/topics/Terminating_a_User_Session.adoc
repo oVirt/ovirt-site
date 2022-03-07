@@ -1,4 +1,4 @@
-[[Terminating_a_User_Session]]
+[id="Terminating_a_User_Session_{context}"]
 ==== Terminating a User Session
 
 You can terminate the session of a user who is currently logged in.

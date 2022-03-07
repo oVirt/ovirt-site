@@ -1,4 +1,4 @@
-[[Editing_an_External_Provider]]
+[id="Editing_an_External_Provider_{context}"]
 === Editing an External Provider
 
 *Editing an External Provider*

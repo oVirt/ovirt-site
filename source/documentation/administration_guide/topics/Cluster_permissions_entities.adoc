@@ -1,4 +1,4 @@
-[[Cluster_permissions_entities]]
+[id="Cluster_permissions_entities_{context}"]
 ==== Cluster Administrator Roles Explained
 
 
@@ -6,7 +6,7 @@
 
 The table below describes the administrator roles and privileges applicable to cluster administration.
 
-[[Cluster_Administrator_Roles]]
+[id="Cluster_Administrator_Roles_{context}"]
 
 .{virt-product-fullname} System Administrator Roles
 [options="header"]

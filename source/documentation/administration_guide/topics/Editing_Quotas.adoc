@@ -1,4 +1,4 @@
-[[Editing_Quotas]]
+[id="Editing_Quotas_{context}"]
 === Editing Quotas
 
 This procedure describes how to change existing quotas.

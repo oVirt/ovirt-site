@@ -1,4 +1,4 @@
-[[Managing_Groups]]
+[id="Managing_Groups_{context}"]
 ==== Managing Groups
 
 You can use the `ovirt-aaa-jdbc-tool` tool to manage group accounts on your internal domain. Managing group accounts is similar to managing user accounts. For a full list of group options, run `ovirt-aaa-jdbc-tool group --help`. Common examples are provided in this section.

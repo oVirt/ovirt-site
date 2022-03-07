@@ -1,11 +1,11 @@
-[[Searching_for_Disks]]
+[id="Searching_for_Disks_{context}"]
 === Searching for Disks
 
 The following table describes all search options for disks.
 
 NOTE: You can use the `Disk Type` and `Content Type` filtering options to reduce the number of displayed virtual disks.
 
-[[searching_disks]]
+[id="searching_disks_{context}"]
 .Searching for Disks
 [options="header"]
 |===

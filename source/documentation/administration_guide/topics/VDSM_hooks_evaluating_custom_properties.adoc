@@ -1,4 +1,4 @@
-[[VDSM_hooks_evaluating_custom_properties]]
+[id="VDSM_hooks_evaluating_custom_properties_{context}"]
 === Evaluating Virtual Machine Custom Properties in a VDSM Hook
 
 Each key set in the *Custom Properties* field for a virtual machine is appended as an environment variable when calling hook scripts. Although the regular expressions used to validate the *Custom Properties* field provide some protection you should ensure that your scripts also validate that the inputs provided match their expectations.

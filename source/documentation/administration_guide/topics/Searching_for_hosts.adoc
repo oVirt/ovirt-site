@@ -1,8 +1,8 @@
-[[Searching_for_hosts]]
+[id="Searching_for_hosts_{context}"]
 === Searching for Hosts
 
 The following table describes all search options for hosts.
-[[searching_hosts]]
+[id="searching_hosts_{context}"]
 
 .Searching for Hosts
 [options="header"]

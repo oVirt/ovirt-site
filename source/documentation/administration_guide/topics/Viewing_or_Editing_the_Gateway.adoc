@@ -1,4 +1,4 @@
-[[Viewing_or_Editing_the_Gateway]]
+[id="Viewing_or_Editing_the_Gateway_{context}"]
 ==== Viewing or Editing the Gateway for a Logical Network
 
 Users can define the gateway, along with the IP address and subnet mask, for a logical network. This is necessary when multiple networks exist on a host and traffic should be routed through the specified network, rather than the default gateway.

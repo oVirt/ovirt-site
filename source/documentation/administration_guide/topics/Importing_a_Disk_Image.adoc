@@ -1,4 +1,4 @@
-[[Importing_a_Disk_Image_from_an_Imported_Storage_Domain]]
+[id="Importing_a_Disk_Image_from_an_Imported_Storage_Domain_{context}"]
 ==== Importing a Disk Image from an Imported Storage Domain
 
 Import floating virtual disks from an imported storage domain.

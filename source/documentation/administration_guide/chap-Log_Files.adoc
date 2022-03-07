@@ -1,11 +1,11 @@
-[[chap-Log_Files]]
+[id="chap-Log_Files"]
 == Log Files
 
 include::topics/Manager_Installation_Log_Files.adoc[]
 
 include::topics/Manager_Log_Files.adoc[]
 
-[[sect-SPICE_Log_Files]]
+[id="sect-SPICE_Log_Files"]
 === SPICE Log Files
 
 SPICE log files are useful when troubleshooting SPICE connection issues. To start SPICE debugging, change the log level to `debugging`. Then, identify the log location.

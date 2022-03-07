@@ -1,4 +1,4 @@
-[[Adding_an_OpenStack_Image_Service_Glance_for_Image_Management]]
+[id="Adding_an_OpenStack_Image_Service_Glance_for_Image_Management_{context}"]
 ==== Adding an OpenStack Image (Glance) Instance for Image Management
 
 Add an OpenStack Image (Glance) instance for image management to the {virt-product-fullname} {engine-name}.

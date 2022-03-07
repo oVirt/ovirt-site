@@ -1,4 +1,4 @@
-[[part-Administering_the_Environment]]
+[id="part-Administering_the_Environment"]
 = Administering the Environment
 
 include::common/she/chap-Administering_the_Self-Hosted_Engine.adoc[leveloffset=+1]

@@ -1,4 +1,4 @@
-[[chap-Storage]]
+[id="chap-Storage"]
 == Storage
 
 :context: storage_admin
@@ -51,7 +51,7 @@ Only commence configuring and attaching storage for your {virt-product-fullname}
 
 include::topics/Understanding_Storage.adoc[]
 
-[[sect-Preparing_and_Adding_NFS_Storage]]
+[id="sect-Preparing_and_Adding_NFS_Storage"]
 === Preparing and Adding NFS Storage
 
 include::common/storage/proc-Preparing_NFS_Storage.adoc[leveloffset=+3]
@@ -60,7 +60,7 @@ include::common/storage/proc-Adding_NFS_Storage.adoc[leveloffset=+3]
 
 include::topics/Increasing_NFS_Storage.adoc[]
 
-[[sect-Preparing_and_Adding_Local_Storage]]
+[id="sect-Preparing_and_Adding_Local_Storage"]
 === Preparing and adding local storage
 
 A virtual machine's disk that uses a storage device that is physically installed on the virtual machine's host is referred to as a local storage device.
@@ -73,14 +73,14 @@ include::common/storage/proc-Preparing_Local_Storage.adoc[leveloffset=+3]
 
 include::common/storage/proc-Adding_Local_Storage.adoc[leveloffset=+3]
 
-[[sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage]]
+[id="sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage"]
 === Preparing and Adding POSIX-compliant File System Storage
 
 include::common/storage/ref-Preparing_POSIX_Storage.adoc[leveloffset=+3]
 
 include::common/storage/proc-Adding_POSIX_Storage.adoc[leveloffset=+3]
 
-[[sect-Preparing_and_Adding_Block_Storage]]
+[id="sect-Preparing_and_Adding_Block_Storage"]
 === Preparing and Adding Block Storage
 
 include::common/storage/ref-Preparing_iSCSI_Storage.adoc[leveloffset=+3]
@@ -103,7 +103,7 @@ include::topics/Removing_stale_LUNs.adoc[leveloffset=+3]
 
 include::common/storage/proc-Creating_LVM_filter.adoc[leveloffset=+3]
 
-[[Adding_Red_Hat_Gluster_Storage]]
+[id="Adding_Red_Hat_Gluster_Storage"]
 === Preparing and Adding {gluster-storage-fullname}
 
 include::common/storage/ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
@@ -111,7 +111,7 @@ include::common/storage/ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+
 include::common/storage/ref-Adding_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
 
 
-[[sect-Importing_Existing_Storage_Domains]]
+[id="sect-Importing_Existing_Storage_Domains"]
 === Importing Existing Storage Domains
 
 include::topics/Overview_of_Importing_Existing_Storage_Domains.adoc[]
@@ -124,7 +124,7 @@ include::topics/Migrating_Storage_Domains_between_Data_Centers_Different_Environ
 
 include::topics/Importing_Templates_from_Imported_Data_Storage_Domains.adoc[]
 
-[[sect-Storage_Tasks]]
+[id="sect-Storage_Tasks"]
 === Storage Tasks
 
 :context: storage_tasks

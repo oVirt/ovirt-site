@@ -1,4 +1,4 @@
-[[Turning_off_a_SPICE_Proxy]]
+[id="Turning_off_a_SPICE_Proxy_{context}"]
 ==== Turning Off a SPICE Proxy
 
 This procedure explains how to turn off (deactivate) a SPICE proxy.

@@ -1,4 +1,4 @@
-[[Editing_a_bookmark]]
+[id="Editing_a_bookmark_{context}"]
 === Editing a Bookmark
 
 You can modify the name and search string of a bookmark.

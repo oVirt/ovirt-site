@@ -1,4 +1,4 @@
-[[chap-Ruby_Examples]]
+[id="chap-Ruby_Examples"]
 == Ruby Examples
 
 include::topics/Connecting_to_the_server.adoc[]

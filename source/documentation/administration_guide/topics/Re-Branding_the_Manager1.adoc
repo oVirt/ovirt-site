@@ -1,4 +1,4 @@
-[[Re-Branding_the_Manager1]]
+[id="Re-Branding_the_Manager1_{context}"]
 ==== Re-Branding the {engine-name}
 
 Various aspects of the {virt-product-fullname} {engine-name} can be customized, such as the icons used by and text displayed in pop-up windows and the links shown on the Welcome Page. This allows you to re-brand the {engine-name} and gives you fine-grained control over the end look and feel presented to administrators and users.

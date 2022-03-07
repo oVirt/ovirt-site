@@ -1,4 +1,4 @@
-[[Updating_a_host_between_minor_releases]]
+[id="Updating_a_host_between_minor_releases_{context}"]
 = Updating Hosts Between Minor Releases
 
 :context: admin

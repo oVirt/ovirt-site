@@ -1,23 +1,23 @@
-[[Authorization_examples]]
+[id="Authorization_examples_{context}"]
 ==== User Role and Authorization Examples
 
 The following examples illustrate how to apply authorization controls for various scenarios, using the different features of the authorization system described in this chapter.
 
-[[VM_Cluster_Permissions-1]]
+[id="VM_Cluster_Permissions-1_{context}"]
 .Cluster Permissions
 ====
 Sarah is the system administrator for the accounts department of a company. All the virtual resources for her department are organized under a {virt-product-fullname} *cluster* called `Accounts`. She is assigned the *ClusterAdmin* role on the accounts cluster. This enables her to manage all virtual machines in the cluster, since the virtual machines are child objects of the cluster. Managing the virtual machines includes editing, adding, or removing virtual resources such as disks, and taking snapshots. It does not allow her to manage any resources outside this cluster. Because *ClusterAdmin* is an administrator role, it allows her to use the Administration Portal or the VM Portal to manage these resources.
 
 ====
 
-[[VM_UserVmManager_Permissions-1]]
+[id="VM_UserVmManager_Permissions-1_{context}"]
 .VM PowerUser Permissions
 ====
 John is a software developer in the accounts department. He uses virtual machines to build and test his software. Sarah has created a virtual desktop called `johndesktop` for him. John is assigned the *UserVmManager* role on the `johndesktop` virtual machine. This allows him to access this single virtual machine using the VM Portal. Because he has *UserVmManager* permissions, he can modify the virtual machine. Because *UserVmManager* is a user role, it does not allow him to use the Administration Portal.
 
 ====
 
-[[DataCenter_Power_User_Role_Permissions-1]]
+[id="DataCenter_Power_User_Role_Permissions-1_{context}"]
 .Data Center Power User Role Permissions
 ====
 Penelope is an office manager. In addition to her own responsibilities, she occasionally helps the HR manager with recruitment tasks, such as scheduling interviews and following up on reference checks. As per corporate policy, Penelope needs to use a particular application for recruitment tasks.
@@ -28,19 +28,19 @@ Note that this is not the same as assigning *DataCenterAdmin* privileges to Pene
 
 ====
 
-[[Network_Role_Permissions]]
+[id="Network_Role_Permissions_{context}"]
 .Network Administrator Permissions
 ====
 Chris works as the network administrator in the IT department. Her day-to-day responsibilities include creating, manipulating, and removing networks in the department's {virt-product-fullname} environment. For her role, she requires administrative privileges on the resources and on the networks of each resource. For example, if Chris has *NetworkAdmin* privileges on the IT department's data center, she can add and remove networks in the data center, and attach and detach networks for all virtual machines belonging to the data center.
 
 ====
 
-[[Custom_Role_Permissions-1]]
+[id="Custom_Role_Permissions-1_{context}"]
 .Custom Role Permissions
 ====
 Rachel works in the IT department, and is responsible for managing user accounts in {virt-product-fullname}. She needs permission to add user accounts and assign them the appropriate roles and permissions. She does not use any virtual machines herself, and should not have access to administration of hosts, virtual machines, clusters or data centers. There is no built-in role which provides her with this specific set of permissions. A custom role must be created to define the set of permissions appropriate to Rachel's position.
 
-[[rhv-object-hierarchy]]
+[id="rhv-object-hierarchy_{context}"]
 .UserManager Custom Role
 image::images/UserManagerRole.png[] 
 

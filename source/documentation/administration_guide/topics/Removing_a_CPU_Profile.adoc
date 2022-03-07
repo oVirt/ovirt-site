@@ -1,4 +1,4 @@
-[[Removing_a_CPU_Profile]]
+[id="Removing_a_CPU_Profile_{context}"]
 ==== Removing a CPU Profile
 
 Remove an existing CPU profile from your {virt-product-fullname} environment.

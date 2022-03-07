@@ -1,4 +1,4 @@
-[[SPICE_Logs_for_Hypervisor_SPICE_Servers]]
+[id="SPICE_Logs_for_Hypervisor_SPICE_Servers_{context}"]
 ==== SPICE Logs for Hypervisor SPICE Servers
 
 

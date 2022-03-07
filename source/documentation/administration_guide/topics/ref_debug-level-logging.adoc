@@ -2,7 +2,7 @@
 //
 // chap-Log_Files.adoc
 
-[[ref_debug_level_logging]]
+[id="ref_debug_level_logging_{context}"]
 === Main configuration files for {virt-product-fullname} services
 
 In addition to a `sysconfig` file, each of these {virt-product-fullname} ({virt-product-shortname}) services has another configuration file that is used more often.

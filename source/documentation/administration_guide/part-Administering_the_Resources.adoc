@@ -1,4 +1,4 @@
-[[part-Administering_the_Resources]]
+[id="part-Administering_the_Resources"]
 = Administering the Resources
 include::chap-Quality_of_Service.adoc[]
 

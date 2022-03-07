@@ -1,4 +1,4 @@
-[[Saving_a_query_string_as_a_bookmark]]
+[id="Saving_a_query_string_as_a_bookmark_{context}"]
 === Saving a Query String as a Bookmark
 
 A bookmark can be used to remember a search query, and shared with other users.

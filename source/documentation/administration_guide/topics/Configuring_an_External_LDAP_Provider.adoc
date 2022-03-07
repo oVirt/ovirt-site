@@ -1,4 +1,4 @@
-[[Configuring_an_External_LDAP_Provider]]
+[id="Configuring_an_External_LDAP_Provider_{context}"]
 ==== Configuring an External LDAP Provider (Interactive Setup)
 
 The *ovirt-engine-extension-aaa-ldap* extension allows users to customize their external directory setup easily. The *ovirt-engine-extension-aaa-ldap* extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.
@@ -155,7 +155,7 @@ Users must select the profile from the drop-down list when logging in for the fi
 +
 . Test the login function to ensure your LDAP server is connected to your {virt-product-fullname} environment properly. For the login query, enter your `user name` and `password`:
 +
-[options="nowrap" ]
+[source,terminal]
 ----
 NOTE:
 It is highly recommended to test drive the configuration before applying it into engine.
@@ -171,7 +171,7 @@ Enter user password:
 
 . Check that the user details are correct. If the user details are incorrect, select `Abort`:
 +
-[options="nowrap"  subs="quotes"]
+[source,terminal]
 ----
 Please make sure that user details are correct and group membership meets expectations (search for PrincipalRecord and GroupRecord titles).
 Abort if output is incorrect.

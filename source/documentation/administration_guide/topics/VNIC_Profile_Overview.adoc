@@ -1,4 +1,4 @@
-[[VNIC_Profile_Overview]]
+[id="VNIC_Profile_Overview_{context}"]
 ==== vNIC Profile Overview
 
 A Virtual Network Interface Card (vNIC) profile is a collection of settings that can be applied to individual virtual network interface cards in the {engine-name}. A vNIC profile allows you to apply Network QoS profiles to a vNIC, enable or disable port mirroring, and add or remove custom properties. A vNIC profile also offers an added layer of administrative flexibility in that permission to use (consume) these profiles can be granted to specific users. In this way, you can control the quality of service that different users receive from a given network.

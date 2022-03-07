@@ -1,4 +1,4 @@
-[[How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool]]
+[id="How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool_{context}"]
 === How to Set Up {virt-product-fullname} {engine-name} to Use Ethtool
 
 You can configure ethtool properties for host network interface cards from the Administration Portal. The *ethtool_opts* key is not available by default and needs to be added to the {engine-name} using the engine configuration tool. You also need to install the required VDSM hook package on the hosts.

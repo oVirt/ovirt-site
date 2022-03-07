@@ -1,4 +1,4 @@
-[id="Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps"]
+[id="Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps_{context}"]
 = Configuring the {virt-product-fullname} {engine-name} to Send SNMP Traps
 
 Configure your {virt-product-fullname} {engine-name} to send Simple Network Management Protocol (SNMP) traps to one or more external SNMP managers. SNMP traps contain system event information; they are used to monitor your {virt-product-fullname} environment. The number and type of traps sent to the SNMP manager can be defined within the {virt-product-fullname} {engine-name}.

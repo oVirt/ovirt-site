@@ -1,4 +1,4 @@
-[[Editing_a_role]]
+[id="Editing_a_role_{context}"]
 ==== Editing or Copying a Role
 
 You can change the settings for roles you have created, but you cannot change default roles. To change default roles, clone and modify them to suit your requirements.

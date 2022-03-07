@@ -1,5 +1,6 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+[id="ruby-sdk-guide"]
 = Ruby SDK Guide
 :imagesdir: images
 :toclevels: 4

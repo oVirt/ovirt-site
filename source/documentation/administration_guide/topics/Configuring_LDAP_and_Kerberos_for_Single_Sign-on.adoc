@@ -1,4 +1,4 @@
-[[Configuring_LDAP_and_Kerberos_for_Single_Sign-on]]
+[id="Configuring_LDAP_and_Kerberos_for_Single_Sign-on_{context}"]
 === Configuring LDAP and Kerberos for Single Sign-on
 
 Single sign-on allows users to log in to the VM Portal or the Administration Portal without re-typing their passwords. Authentication credentials are obtained from the Kerberos server. To configure single sign-on to the Administration Portal and the VM Portal, you need to configure two extensions: *ovirt-engine-extension-aaa-misc* and *ovirt-engine-extension-aaa-ldap*; and two Apache modules: *mod_auth_gssapi* and *mod_session*. You can configure single sign-on that does not involve Kerberos, however this is outside the scope of this documentation.
@@ -273,7 +273,7 @@ config.profile.file.1 = ../aaa/_example_.properties
 .Example authentication mapping configuration file
 ====
 
-[options="nowrap" subs="verbatim,quotes"]
+[options="nowrap" subs="verbatim,quotes_{context}"]
 ----
 ovirt.engine.extension.name = _example_-http-mapping
 ovirt.engine.extension.bindings.method = jbossmodule

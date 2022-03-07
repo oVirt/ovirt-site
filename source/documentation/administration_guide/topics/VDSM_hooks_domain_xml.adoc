@@ -1,4 +1,4 @@
-[[VDSM_hooks_domain_xml]]
+[id="VDSM_hooks_domain_xml_{context}"]
 === The VDSM Hook Domain XML Object
 
 When hook scripts are started, the _hook_domxml variable is appended to the environment. This variable contains the path of the libvirt domain XML representation of the relevant virtual machine. Several hooks are an exception to this rule, as outlined below.

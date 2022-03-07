@@ -1,4 +1,4 @@
-[[Retrieving_services]]
+[id="Retrieving_services"]
 ==== Retrieving Services
 
 The API provides a set of services, each associated with a server path. For example, the service that manages the collection of virtual machines in the system is located in `/vms`, and the service that manages the virtual machine with identifier `123` is located in `/vms/123`.

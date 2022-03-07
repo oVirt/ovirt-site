@@ -1,4 +1,4 @@
-[[Search_criteria]]
+[id="Search_criteria_{context}"]
 === Search Criteria
 
 You can specify the search criteria after the colon in the query. The syntax of `{criteria}` is as follows:
@@ -12,7 +12,7 @@ or
 *Examples*
 
 The following table describes the parts of the syntax:
-[[search_criteria]]
+[id="search_criteria_{context}"]
 
 .Example Search Criteria
 [options="header"]

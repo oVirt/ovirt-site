@@ -1,4 +1,4 @@
-[[Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts]]
+[id="Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts_{context}"]
 ==== Editing Host Network Interfaces and Assigning Logical Networks to Hosts
 
 You can change the settings of physical host network interfaces, move the management network from one physical host network interface to another, and assign logical networks to physical host network interfaces. Bridge and ethtool custom properties are also supported.

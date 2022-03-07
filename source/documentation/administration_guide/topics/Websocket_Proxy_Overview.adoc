@@ -1,4 +1,4 @@
-[[Websocket_Proxy_Overview]]
+[id="Websocket_Proxy_Overview_{context}"]
 ==== Websocket Proxy Overview
 
 The websocket proxy allows users to connect to virtual machines via a noVNC console.

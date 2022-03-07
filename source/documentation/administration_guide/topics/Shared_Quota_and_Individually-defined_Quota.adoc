@@ -1,4 +1,4 @@
-[[Shared_Quota_and_Individually-defined_Quota]]
+[id="Shared_Quota_and_Individually-defined_Quota_{context}"]
 === Shared Quota and Individually Defined Quota
 
 Users with SuperUser permissions can create quotas for individual users or quotas for groups.

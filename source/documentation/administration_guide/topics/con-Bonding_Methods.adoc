@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Bonding_Methods_{context}"]
 
 Network bonding combines multiple NICs into a bond device, with the following advantages:

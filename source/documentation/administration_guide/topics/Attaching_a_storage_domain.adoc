@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Attaching_a_storage_domain_{context}"]
 ==== Attaching a Storage Domain to a Data Center
 

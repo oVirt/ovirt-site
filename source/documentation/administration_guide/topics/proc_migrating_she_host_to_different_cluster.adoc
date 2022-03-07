@@ -1,6 +1,7 @@
 // module included:
 // doc-Administration_Guide/chap-Hosts.adoc
 
+:_content-type: PROCEDURE
 [id='migrating_she_host_to_different_cluster_{context}']
 = Migrating a self-hosted engine host to a different cluster
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Changing_the_Data_Center_Storage_Type_{context}"]
 ==== Changing the Data Center Storage Type
 

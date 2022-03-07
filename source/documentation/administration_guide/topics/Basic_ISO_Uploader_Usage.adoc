@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Basic_ISO_Uploader_Usage_{context}"]
 ==== Basic ISO Uploader Usage
 

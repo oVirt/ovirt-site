@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Increasing_NFS_Storage_{context}"]
 ==== Increasing NFS Storage
 

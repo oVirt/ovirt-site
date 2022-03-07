@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_a_Disk_Profile_{context}"]
 ==== Removing a Disk Profile
 

@@ -1,7 +1,8 @@
 :numbered!:
 
 [appendix]
-[id="appe-Red_Hat_Enterprise_Virtualization_and_Encrypted_Communication"]
+:_content-type: ASSEMBLY
+[id="appe-Red_Hat_Enterprise_Virtualization_and_Encrypted_Communication_{context}"]
 // keeping old section id to prevent broken links
 [id="appe-Red_Hat_Enterprise_Virtualization_and_SSL"]
 == {virt-product-fullname} and encrypted communication

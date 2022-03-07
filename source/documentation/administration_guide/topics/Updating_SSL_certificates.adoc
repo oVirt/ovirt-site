@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Updating_SSL_Certificates_{context}"]
 
 = Updating SSL Certificates

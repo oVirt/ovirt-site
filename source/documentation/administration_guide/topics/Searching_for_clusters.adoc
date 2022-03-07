@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_clusters_{context}"]
 === Searching for Clusters
 

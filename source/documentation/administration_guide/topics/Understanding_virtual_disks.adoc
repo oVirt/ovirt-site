@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Understanding_virtual_disks_{context}"]
 === Understanding Virtual Disks
 

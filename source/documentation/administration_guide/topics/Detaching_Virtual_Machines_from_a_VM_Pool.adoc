@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Detaching_Virtual_Machines_from_a_VM_Pool_{context}"]
 === Detaching Virtual Machines from a Virtual Machine Pool
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="VDSM_hooks_execution_{context}"]
 === VDSM Hook Execution
 

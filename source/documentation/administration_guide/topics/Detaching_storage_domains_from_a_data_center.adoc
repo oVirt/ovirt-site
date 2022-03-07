@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Detaching_storage_domains_from_a_data_center_{context}"]
 ==== Detaching a Storage Domain from a Data Center
 

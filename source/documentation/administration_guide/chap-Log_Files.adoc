@@ -1,4 +1,5 @@
-[id="chap-Log_Files"]
+:_content-type: ASSEMBLY
+[id="chap-Log_Files_{context}"]
 == Log Files
 
 include::topics/Manager_Installation_Log_Files.adoc[]

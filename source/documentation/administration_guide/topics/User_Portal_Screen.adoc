@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="User_Portal_Screen_{context}"]
 ==== VM Portal Screen
 

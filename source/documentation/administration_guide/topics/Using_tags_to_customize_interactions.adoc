@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Using_tags_to_customize_interactions_{context}"]
 === Using Tags to Customize Interactions with {virt-product-fullname}
 

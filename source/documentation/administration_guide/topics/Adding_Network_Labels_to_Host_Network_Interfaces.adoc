@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_Network_Labels_to_Host_Network_Interfaces_{context}"]
 ==== Adding Network Labels to Host Network Interfaces
 

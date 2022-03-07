@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Architecture_diagram_log_metrics_{context}"]
 
 

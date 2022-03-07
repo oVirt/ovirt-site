@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps_{context}"]
 = Configuring the {virt-product-fullname} {engine-name} to Send SNMP Traps
 

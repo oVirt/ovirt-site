@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="VDSM_hooks_defining_custom_properties_{context}"]
 === Defining Custom Properties
 

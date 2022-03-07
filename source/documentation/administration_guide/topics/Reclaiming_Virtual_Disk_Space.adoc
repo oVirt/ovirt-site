@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Reclaiming_virtual_disk_space_{context}"]
 ==== Reclaiming Virtual Disk Space
 

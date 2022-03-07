@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_Disk_Profile_{context}"]
 ==== Creating a Disk Profile
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="The_Engine_Vacuum_Tool_{context}"]
 ==== The Engine Vacuum Tool
 

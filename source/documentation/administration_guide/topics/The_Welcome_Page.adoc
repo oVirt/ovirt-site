@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="The_Welcome_Page_{context}"]
 ==== The Welcome Page
 

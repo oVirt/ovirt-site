@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Understanding_virtual_machine_storage_{context}"]
 === Understanding Virtual Machine Storage
 

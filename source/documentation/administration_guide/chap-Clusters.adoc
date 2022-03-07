@@ -1,4 +1,5 @@
-[id="chap-Clusters"]
+:_content-type: ASSEMBLY
+[id="chap-Clusters_{context}"]
 = Clusters
 
 include::topics/Clusters.adoc[leveloffset=-1]

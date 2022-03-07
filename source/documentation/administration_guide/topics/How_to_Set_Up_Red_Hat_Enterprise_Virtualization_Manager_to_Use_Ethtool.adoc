@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool_{context}"]
 === How to Set Up {virt-product-fullname} {engine-name} to Use Ethtool
 

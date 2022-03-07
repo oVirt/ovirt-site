@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_Satellite_Errata_Management_for_a_Host_{context}"]
 ==== Setting up Satellite errata viewing for a host
 

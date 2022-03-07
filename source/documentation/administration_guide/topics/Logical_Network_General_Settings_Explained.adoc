@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Logical_Network_General_Settings_Explained_{context}"]
 ==== Logical Network General Settings Explained
 

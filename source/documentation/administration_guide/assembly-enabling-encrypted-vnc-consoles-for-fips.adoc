@@ -6,7 +6,8 @@
 ifdef::context[:parent-context: {context}]
 
 
-[id="assembly-enabling-encrypted-vnc-consoles-for-fips"]
+:_content-type: ASSEMBLY
+[id="assembly-enabling-encrypted-vnc-consoles-for-fips_{context}"]
 = Enabling encrypted VNC consoles for FIPS
 :context: encrypted-vnc
 

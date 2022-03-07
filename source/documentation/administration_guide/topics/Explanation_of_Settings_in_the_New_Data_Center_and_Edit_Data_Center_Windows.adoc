@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Data_center_properties_{context}"]
 ==== Explanation of Settings in the New Data Center and Edit Data Center Windows
 

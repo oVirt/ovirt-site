@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Moving_storage_domains_to_maintenance_mode_{context}"]
 ==== Moving Storage Domains to Maintenance Mode
 

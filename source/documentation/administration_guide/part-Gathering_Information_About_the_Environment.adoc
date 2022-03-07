@@ -1,4 +1,5 @@
-[id="part-Gathering_Information_About_the_Environment"]
+:_content-type: ASSEMBLY
+[id="part-Gathering_Information_About_the_Environment_{context}"]
 = Gathering Information About the Environment
 
 include::chap-monitoring_and_observability.adoc[]

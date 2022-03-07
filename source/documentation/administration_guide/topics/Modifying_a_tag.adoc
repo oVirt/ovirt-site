@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Modifying_a_tag_{context}"]
 === Modifying a Tag
 

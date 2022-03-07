@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_MAC_Address_Pools_{context}"]
 ==== Removing MAC Address Pools
 

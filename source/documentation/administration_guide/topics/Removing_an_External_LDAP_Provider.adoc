@@ -1,3 +1,4 @@
+[id="removing-an-external-ldap-provider_{context}"]
 ==== Removing an External LDAP Provider
 
 This procedure shows you how to remove an external configured LDAP provider and its users.
@@ -20,4 +21,4 @@ This procedure shows you how to remove an external configured LDAP provider and 
 # systemctl restart ovirt-engine
 ----
 
-. In the Administration Portal, in the *Users* resource tab, select the users of this provider (those whose `Authorization provider` is _profile1_-authz) and click *Remove*. 
+. In the Administration Portal, in the *Users* resource tab, select the users of this provider (those whose `Authorization provider` is _profile1_-authz) and click *Remove*.

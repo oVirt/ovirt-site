@@ -2,6 +2,7 @@
 //
 // chap-Log_Files.adoc
 
+:_content-type: PROCEDURE
 [id="proc-setting_up_debug_level_logging_{context}"]
 === Setting debug-level logging for {virt-product-fullname} services
 

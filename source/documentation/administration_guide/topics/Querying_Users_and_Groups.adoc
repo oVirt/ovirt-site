@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Querying_Users_and_Groups_{context}"]
 ==== Querying Users and Groups
 

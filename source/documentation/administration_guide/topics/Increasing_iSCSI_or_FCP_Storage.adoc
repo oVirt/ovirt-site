@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Increasing_iSCSI_or_FCP_Storage_{context}"]
 ==== Increasing iSCSI or FCP Storage
 

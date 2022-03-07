@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Introduction_to_Directory_Servers_{context}"]
 === Introduction to Directory Servers
 

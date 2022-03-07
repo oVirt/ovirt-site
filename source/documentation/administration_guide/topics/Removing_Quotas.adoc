@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_Quotas_{context}"]
 === Removing Quotas
 

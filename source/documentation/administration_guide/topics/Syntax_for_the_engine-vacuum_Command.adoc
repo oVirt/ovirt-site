@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Syntax_for_the_engine-vacuum_Command_{context}"]
 ==== Syntax for the engine-vacuum Command
 

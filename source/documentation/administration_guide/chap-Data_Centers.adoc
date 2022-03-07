@@ -1,4 +1,5 @@
-[id="chap-Data_Centers"]
+:_content-type: ASSEMBLY
+[id="chap-Data_Centers_{context}"]
 = Data Centers
 
 include::topics/Data_Centers.adoc[leveloffset=-1]

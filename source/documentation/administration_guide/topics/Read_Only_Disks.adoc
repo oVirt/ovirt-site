@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Read_Only_Disks_in_Red_Hat_Enterprise_Virtualization_{context}"]
 === Read Only Disks in {virt-product-fullname}
 
@@ -9,4 +10,3 @@ You cannot change the read-only status of a disk while the virtual machine is ru
 ====
 Mounting a journaled file system requires read-write access. Using the *Read Only* option is not appropriate for virtual disks that contain such file systems (e.g. *EXT3*, *EXT4*, or *XFS*).
 ====
-

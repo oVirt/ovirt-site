@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_users_{context}"]
 ==== Adding Users and Assigning VM Portal Permissions
 

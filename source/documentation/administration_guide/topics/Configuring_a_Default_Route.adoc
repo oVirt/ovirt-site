@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_a_Default_Route_{context}"]
 ==== Configuring a Non-Management Logical Network as the Default Route
 

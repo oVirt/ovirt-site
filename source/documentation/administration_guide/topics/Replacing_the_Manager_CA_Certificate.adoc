@@ -1,4 +1,5 @@
 // old ID to prevent broken links
+:_content-type: PROCEDURE
 [id="Replacing_the_Manager_SSL_Certificate_{context}"]
 [id="Replacing_the_Manager_CA_Certificate_{context}"]
 === Replacing the {virt-product-fullname} {engine-name} CA Certificate

@@ -1,4 +1,5 @@
-[id="chap-Global_Configuration"]
+:_content-type: ASSEMBLY
+[id="chap-Global_Configuration_{context}"]
 == Global Configuration
 
 Accessed by clicking menu:Administration[Configure], the *Configure* window allows you to configure a number of global resources for your {virt-product-fullname} environment, such as users, roles, system permissions, scheduling policies, instance types, and MAC address pools. This window allows you to customize the way in which users interact with resources in the environment, and provides a central location for configuring options that can be applied to multiple clusters.

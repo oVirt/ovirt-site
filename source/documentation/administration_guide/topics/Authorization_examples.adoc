@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Authorization_examples_{context}"]
 ==== User Role and Authorization Examples
 

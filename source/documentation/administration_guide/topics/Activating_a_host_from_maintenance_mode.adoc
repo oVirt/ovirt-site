@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Activating_a_host_from_maintenance_mode_{context}"]
 ==== Activating a Host from Maintenance Mode
 

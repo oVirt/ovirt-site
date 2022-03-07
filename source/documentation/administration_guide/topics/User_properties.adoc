@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="User_properties_{context}"]
 ==== User Properties
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_Virtual_Disk_{context}"]
 ==== Creating a Virtual Disk
 

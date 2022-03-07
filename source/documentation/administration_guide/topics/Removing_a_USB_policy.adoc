@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_a_USB_policy_{context}"]
 = Removing a USB Policy
 

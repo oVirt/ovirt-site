@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Clusters_{context}"]
 === Introduction to Clusters
 
@@ -14,4 +15,3 @@ Clusters run virtual machines or {gluster-storage-fullname} Servers. These two p
 [id="cluster_tab_{context}"]
 .Cluster
 image::images/223.png[]
-

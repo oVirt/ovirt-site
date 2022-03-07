@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="New_Pool_General_Settings_Explained_{context}"]
 ==== New Pool and Edit Pool General Settings Explained
 

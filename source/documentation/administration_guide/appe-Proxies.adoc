@@ -1,7 +1,8 @@
 :numbered!:
 
 [appendix]
-[id="appe-Proxies"]
+:_content-type: ASSEMBLY
+[id="appe-Proxies_{context}"]
 == Proxies
 
 [id="sect-SPICE_Proxy"]

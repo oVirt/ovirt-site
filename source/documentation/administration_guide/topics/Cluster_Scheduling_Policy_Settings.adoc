@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Cluster_Scheduling_Policy_Settings_{context}"]
 ==== Scheduling Policy Settings Explained
 

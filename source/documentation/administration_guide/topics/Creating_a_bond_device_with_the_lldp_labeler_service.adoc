@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_bond_device_with_the_lldp_labeler_service_{context}"]
 ==== Creating a Bond Device with the LLDP Labeler Service
 

@@ -1,4 +1,5 @@
-[id="chap-Storage"]
+:_content-type: ASSEMBLY
+[id="chap-Storage_{context}"]
 == Storage
 
 :context: storage_admin

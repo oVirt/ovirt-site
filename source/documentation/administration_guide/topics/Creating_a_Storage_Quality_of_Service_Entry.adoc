@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_Storage_Quality_of_Service_Entry_{context}"]
 ==== Creating a Storage Quality of Service Entry
 

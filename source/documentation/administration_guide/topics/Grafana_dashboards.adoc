@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Grafana_dashboards_{context}"]
 
 .Built-in Grafana dashboards

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_Host_Firewall_Rules_{context}"]
 = Configuring Host Firewall Rules
 

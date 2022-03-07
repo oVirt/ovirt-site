@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Cluster_Console_Settings_Explained_{context}"]
 ==== Cluster Console Settings Explained
 

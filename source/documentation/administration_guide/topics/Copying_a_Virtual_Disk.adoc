@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Copying_a_Virtual_Disk_{context}"]
 ==== Copying a Virtual Disk
 

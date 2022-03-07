@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="The_Storage_Pool_ManagerSPM_{context}"]
 === The Storage Pool Manager
 

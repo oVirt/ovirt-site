@@ -1,4 +1,5 @@
-[id="monitoring_and_observability"]
+:_content-type: ASSEMBLY
+[id="monitoring_and_observability_{context}"]
 
 == Monitoring and observability
 

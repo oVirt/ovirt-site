@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="User_properties_roles_{context}"]
 ==== User and Administrator Roles
 

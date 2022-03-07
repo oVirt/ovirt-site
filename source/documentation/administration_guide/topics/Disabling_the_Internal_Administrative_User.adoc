@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Disabling_the_Internal_Administrative_User_{context}"]
 ==== Disabling the Internal Administrative User
 

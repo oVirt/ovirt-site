@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Exporting_a_Virtual_Disk_to_an_OpenStack_Image_Service_{context}"]
 ==== Exporting a Virtual Disk to an OpenStack Image Service
 

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Explanation_of_Quota_Threshold_Settings_{context}"]
 === Explanation of Quota Threshold Settings
 

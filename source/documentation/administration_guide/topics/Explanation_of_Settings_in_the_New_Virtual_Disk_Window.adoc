@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Explanation_of_Settings_in_the_New_Virtual_Disk_Window_{context}"]
 ==== Explanation of settings in the New Virtual Disk window
 

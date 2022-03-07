@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Kernel_Settings_Explained_{context}"]
 ==== Kernel Settings Explained
 

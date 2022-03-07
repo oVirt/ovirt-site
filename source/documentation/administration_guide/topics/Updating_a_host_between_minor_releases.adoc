@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Updating_a_host_between_minor_releases_{context}"]
 = Updating Hosts Between Minor Releases
 

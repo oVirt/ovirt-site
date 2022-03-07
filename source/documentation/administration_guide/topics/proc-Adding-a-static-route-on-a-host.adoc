@@ -2,6 +2,7 @@
 //
 // doc-Administration_Guide/chap-Logical_Networks.adoc
 
+:_content-type: PROCEDURE
 [id="proc-Adding-a-static-route-on-a-host_{context}"]
 = Adding a static route on a host
 

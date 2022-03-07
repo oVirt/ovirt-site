@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='proc_Backing_Up_a_Virtual_Machine_{context}']
 = Backing up or Restoring a Virtual Machine or Snapshot Using a Backup Domain
 

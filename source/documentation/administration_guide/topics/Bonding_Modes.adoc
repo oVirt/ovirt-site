@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Bonding_Modes_{context}"]
 ==== Bonding Modes
 

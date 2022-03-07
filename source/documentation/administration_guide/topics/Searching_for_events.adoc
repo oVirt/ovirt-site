@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_events_{context}"]
 === Searching for Events
 

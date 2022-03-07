@@ -2,6 +2,7 @@
 //
 // chap-Storage.adoc
 
+:_content-type: PROCEDURE
 [id="Migrating_a_logical_network_to_an_iscsi_bond_{context}"]
 = Migrating a Logical Network to an iSCSI Bond
 

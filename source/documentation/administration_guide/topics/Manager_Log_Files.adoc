@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Manager_Log_Files_{context}"]
 === {virt-product-fullname} {engine-name} Log Files
 

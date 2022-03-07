@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Search_syntax_and_examples_{context}"]
 === Search Syntax and Examples
 

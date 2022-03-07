@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Service_Level_Agreement_Policy_Enforcement_{context}"]
 === Service Level Agreement Policy Enforcement
 

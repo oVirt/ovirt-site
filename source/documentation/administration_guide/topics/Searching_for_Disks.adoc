@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Searching_for_Disks_{context}"]
 === Searching for Disks
 

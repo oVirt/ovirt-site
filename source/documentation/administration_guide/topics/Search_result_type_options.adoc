@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Search_result_type_options_{context}"]
 === Search Result Type Options
 

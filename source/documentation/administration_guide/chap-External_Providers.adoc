@@ -1,4 +1,5 @@
-[id="chap-External_Providers"]
+:_content-type: ASSEMBLY
+[id="chap-External_Providers_{context}"]
 == External Providers
 :context: external_providers
 

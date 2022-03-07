@@ -1,4 +1,5 @@
-[id="chap-Tags"]
+:_content-type: ASSEMBLY
+[id="chap-Tags_{context}"]
 == Tags
 
 include::topics/Using_tags_to_customize_interactions.adoc[]

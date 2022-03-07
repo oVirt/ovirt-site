@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_Backup_with_the_engine-backup_Command_{context}"]
 ==== Creating a backup with the engine-backup command
 

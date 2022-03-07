@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_scheduling_policy_{context}"]
 ==== Setting Load and Power Management Policies for Hosts in a Cluster
 

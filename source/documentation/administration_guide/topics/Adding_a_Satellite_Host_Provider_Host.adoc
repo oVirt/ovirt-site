@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_a_Satellite_Host_Provider_Host_{context}"]
 ==== Adding a Satellite Host Provider Host
 

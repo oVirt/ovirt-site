@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Data_Centers_{context}"]
 === Introduction to Data Centers
 

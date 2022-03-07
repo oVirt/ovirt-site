@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Terminating_a_User_Session_{context}"]
 ==== Terminating a User Session
 

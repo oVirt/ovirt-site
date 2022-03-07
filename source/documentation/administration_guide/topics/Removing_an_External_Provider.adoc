@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_an_External_Provider_{context}"]
 === Removing an External Provider
 

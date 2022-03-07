@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="User_actions_{context}"]
 ==== User Actions
 

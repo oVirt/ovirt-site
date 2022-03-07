@@ -1,5 +1,6 @@
 :_module-type: PROCEDURE
 
+:_content-type: PROCEDURE
 [id="proc_installing-a-third-party-package-on-ovirt-node_{context}"]
 = Installing a third-party package on oVirt-node
 

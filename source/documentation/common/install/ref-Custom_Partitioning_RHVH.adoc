@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='Custom_Partitioning_{context}']
 = Custom Partitioning
 

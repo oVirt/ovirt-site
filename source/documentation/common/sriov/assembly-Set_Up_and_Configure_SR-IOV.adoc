@@ -4,6 +4,7 @@
 
 ifdef::context[:parent-context: {context}]
 
+:_content-type: ASSEMBLY
 [id='setting-up-and-configuring-sr-iov']
 
 :context: assembly-setting-up-and-configuring-sr-iov

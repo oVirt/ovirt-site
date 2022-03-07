@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Deploying_the_Self-Hosted_Engine_Using_the_CLI_{context}']
 = Deploying the self-hosted engine using the command line
 

@@ -3,6 +3,7 @@
 // assembly_managing-intel-vgpu-devices
 
 
+:_content-type: PROCEDURE
 [id="proc_setting-up-intel-vgpu-devices_{context}"]
 = Setting up Intel vGPU devices
 

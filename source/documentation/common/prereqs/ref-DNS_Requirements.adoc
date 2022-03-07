@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='dns-requirements_{context}']
 = Firewall Requirements for DNS, NTP, and IPMI Fencing
 

@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='networking-requirements']
 = Networking requirements
 

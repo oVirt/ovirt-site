@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Configuring_vm_to_use_Q35_or_UEFI_{context}']
 
 = Configuring a virtual machine to use the Q35 Chipset and UEFI

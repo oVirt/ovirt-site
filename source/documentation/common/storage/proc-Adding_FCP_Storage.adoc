@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Adding_FCP_Storage_{context}']
 = Adding FCP Storage
 

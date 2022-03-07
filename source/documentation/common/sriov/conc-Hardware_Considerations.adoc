@@ -1,8 +1,10 @@
+:_content-type: CONCEPT
+
 Single Root I/O Virtualization (SR-IOV) is a hardware reference that enables a single PCI Express (PCIe) endpoint to be used as multiple separate devices. This is achieved through the introduction of two PCIe functions: Physical Functions (PFs) and Virtual Functions (VFs).
 
-Physical functions are traditional PCIe functions that include SR-IOV capability, possessing full configuration and control of the PCIe device, including data movement. Each PCIe device can have between one and eight independent PFs. 
+Physical functions are traditional PCIe functions that include SR-IOV capability, possessing full configuration and control of the PCIe device, including data movement. Each PCIe device can have between one and eight independent PFs.
 
-Virtual functions are lightweight PCIe functions that contain the resources necessary for data movement and a minimized set of configuration resources. Multiple VFs can be created on each PF and each PF can support a different amount of VFs. The total number of VFs allowed is dependent on the PCIe device vendor, and is different between devices. 
+Virtual functions are lightweight PCIe functions that contain the resources necessary for data movement and a minimized set of configuration resources. Multiple VFs can be created on each PF and each PF can support a different amount of VFs. The total number of VFs allowed is dependent on the PCIe device vendor, and is different between devices.
 
 The PCIe specification supports greater numbers of VFs through the implementation of Alternative Routing ID Interpretation (ARI), which reinterprets the device number field in the PCIe header allowing for more than eight functions. This translation relies on both the PCIe device and the port immediately upstream of the device, whether root port or switch, supporting ARI.
 

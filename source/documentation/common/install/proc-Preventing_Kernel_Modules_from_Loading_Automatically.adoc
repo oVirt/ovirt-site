@@ -8,6 +8,7 @@ assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_remote_d
 assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_remote_databases/master.adoc
 ////
 
+:_content-type: PROCEDURE
 [id="proc-Preventing_Kernel_Modules_from_Loading_Automatically_{context}"]
 = Preventing kernel modules from loading automatically
 

@@ -1,4 +1,5 @@
 // Host update limitations
+:_content-type: SNIPPET
 .Limitations
 
 * On {hypervisor-shortname}, the update only preserves modified content in the `/etc` and `/var` directories. Modified data in other paths is overwritten during an update.

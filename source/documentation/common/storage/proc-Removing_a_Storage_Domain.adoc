@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Removing_a_Storage_Domain_{context}']
 = Removing a Storage Domain
 

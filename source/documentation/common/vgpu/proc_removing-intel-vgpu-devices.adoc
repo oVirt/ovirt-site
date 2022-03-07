@@ -5,6 +5,7 @@
 // This module can be included from assemblies using the following include statement:
 // include::<path>/proc_removing-intel-vgpu-devices.adoc[leveloffset=+1]
 
+:_content-type: PROCEDURE
 [id="proc_removing-intel-vgpu-devices_{context}"]
 = Removing Intel vGPU devices
 

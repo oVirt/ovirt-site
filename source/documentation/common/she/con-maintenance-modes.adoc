@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id='Self-hosted_engine_maintenance_modes_explained_{context}']
 = Self-hosted engine maintenance modes explained
 

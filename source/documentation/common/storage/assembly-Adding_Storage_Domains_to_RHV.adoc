@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Adding_Storage_Domains_to_RHV_{context}']
 = Adding Storage for {virt-product-fullname}
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Image_discrepancies_tool_{context}']
 
 The *{virt-product-shortname} Image Discrepancies* tool analyzes image data in the Storage Domain and RHV Database. It alerts you if it finds discrepancies in volumes and volume attributes, but does not fix those discrepancies.

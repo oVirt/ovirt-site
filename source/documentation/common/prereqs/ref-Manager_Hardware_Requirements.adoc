@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='hardware-requirements_{context}']
 = Hardware Requirements
 

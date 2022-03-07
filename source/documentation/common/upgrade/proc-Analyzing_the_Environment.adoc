@@ -1,8 +1,8 @@
-[id='Analyzing_the_Environment_{context}']
-
 // Included in:
 // Updates between Minor Releases
 
+:_content-type: PROCEDURE
+[id='Analyzing_the_Environment_{context}']
 = Analyzing the Environment
 
 // Although most of the {virt-product-fullname} doc set now uses `dnf` instead of `yum`, this topic still

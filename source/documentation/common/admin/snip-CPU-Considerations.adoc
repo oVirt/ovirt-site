@@ -1,3 +1,4 @@
+:_content-type: SNIPPET
 [id='CPU_Considerations_{context}']
 
 *CPU Considerations*

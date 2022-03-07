@@ -1,4 +1,5 @@
-[[Removing_a_Host_from_a_Self-Hosted_Engine_Environment]]
+
+[id="Removing_a_Host_from_a_Self-Hosted_Engine_Environment"]
 = Removing a Host from a Self-Hosted Engine Environment
 
 To remove a self-hosted engine node from your environment, place the node into maintenance mode, undeploy the node, and optionally remove it. The node can be managed as a regular host after the HA services have been stopped, and the self-hosted engine configuration files have been removed.

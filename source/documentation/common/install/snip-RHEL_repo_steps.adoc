@@ -1,3 +1,5 @@
+:_content-type: SNIPPET
+
 . Enable the required repositories:
 .. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +

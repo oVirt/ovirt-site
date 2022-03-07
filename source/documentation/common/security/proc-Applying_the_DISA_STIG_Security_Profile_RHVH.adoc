@@ -3,6 +3,7 @@
 // doc-Administration_Guide/common/security/assembly-Securing_Red_Hat_Virtualization.adoc
 // THIS MODULE IS RHV ONLY.
 
+:_content-type: PROCEDURE
 [id='applying-the-disa-stig-profile-rhvh_{context}']
 
 = Applying the DISA STIG profile in Red Hat Virtualization Host

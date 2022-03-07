@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Upgrading_Remote_Databases_from_PG10_to_PG12_{context}"]
 = Upgrading Remote Databases from PostgreSQL 10 to 12
 

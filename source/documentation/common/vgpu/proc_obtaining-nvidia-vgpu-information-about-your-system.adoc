@@ -2,6 +2,7 @@
 //
 // assembly_managing-nvidia-vgpu-devices
 
+:_content-type: PROCEDURE
 [id="proc_obtaining-nvidia-vgpu-information-about-your-system_{context}"]
 = Monitoring NVIDIA vGPUs
 

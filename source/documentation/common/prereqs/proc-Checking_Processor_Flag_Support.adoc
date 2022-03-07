@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Checking_Processor_Flag_Support_{context}']
 = Checking if a Processor Supports the Required Flags
 

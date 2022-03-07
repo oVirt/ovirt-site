@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Updating_Individual_Hosts_{context}']
 = Updating Individual Hosts
 

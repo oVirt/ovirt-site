@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Backing_up_the_Original_Manager_{context}']
 = Backing up the Original {engine-name}
 

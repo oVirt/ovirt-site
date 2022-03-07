@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Backing_up_and_Restoring_a_Self-hosted_Engine']
 = Backing up and Restoring a Self-Hosted Engine
 :context: SHE_backup_restore

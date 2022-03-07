@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_{context}']
 = Configuring a Local Repository for Offline {virt-product-fullname} {engine-name} Installation
 

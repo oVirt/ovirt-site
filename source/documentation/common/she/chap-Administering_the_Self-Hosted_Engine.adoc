@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='chap-Administering_the_Self-Hosted_Engine']
 = Administering the Self-Hosted Engine
 

@@ -1,4 +1,5 @@
 [preface]
+:_content-type: CONCEPT
 [id="making-open-source-more-inclusive"]
 = Making open source more inclusive
 

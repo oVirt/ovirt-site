@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Booting_a_Self-Hosted_Engine_in_Rescue_Mode_{context}']
 = Booting the {engine-name} Virtual Machine in Rescue Mode
 

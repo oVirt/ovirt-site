@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Recommended_practices_for_configuring_host_networks_{context}"]
 = Recommended Practices for Configuring Host Networks
 

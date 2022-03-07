@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='Memory_Requirements_{context}']
 = Memory Requirements
 

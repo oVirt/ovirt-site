@@ -3,6 +3,7 @@
 // assembly_managing-nvidia-vgpu-devices
 
 
+:_content-type: PROCEDURE
 [id="proc_install-nvidia-vgpu-guest-driver_{context}"]
 ifdef::nvidia_gpu_passthrough[= Installing the GPU driver on the virtual machine]
 ifdef::nvidia_vgpu[= Installing the vGPU driver on the virtual machine]

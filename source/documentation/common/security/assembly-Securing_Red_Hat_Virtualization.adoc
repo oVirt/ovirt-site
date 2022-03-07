@@ -6,6 +6,7 @@
 
 ifdef::context[:parent-context: {context}]
 
+:_content-type: ASSEMBLY
 [id='security']
 = Securing {virt-product-fullname}
 

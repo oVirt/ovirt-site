@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Cleaning_Up_a_Failed_Self-hosted_Engine_Deployment_{context}']
 = Cleaning Up a Failed Self-hosted Engine Deployment
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Setting_Legacy_SPICE_Cipher_{context}']
 = Setting a Legacy SPICE Cipher
 

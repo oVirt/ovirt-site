@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Changing_FQDN_of_RHVM_self-hosted_engine']
 = Changing the FQDN of the {engine-name} in a Self-Hosted Engine
 

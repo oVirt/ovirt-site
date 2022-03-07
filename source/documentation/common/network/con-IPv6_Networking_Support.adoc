@@ -1,6 +1,7 @@
 // Module included in the following assemblies:
 // doc-Administration_Guide
 
+:_content-type: CONCEPT
 [id='IPv6-networking-support-{context}']
 
 = IPv6 Networking Support

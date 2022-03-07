@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='proc-Customizing_Multipath_Configurations_for_SAN_Vendors_{context}']
 = Customizing Multipath Configurations for SAN Vendors
 

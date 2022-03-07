@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Enabling_the_RHVH_repository_{context}']
 = Enabling the {hypervisor-fullname} Repository
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Adding_Local_Storage_{context}']
 = Adding a local storage domain
 

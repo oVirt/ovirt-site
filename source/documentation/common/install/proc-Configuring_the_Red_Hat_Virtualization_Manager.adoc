@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Configuring_the_Red_Hat_Virtualization_Manager_{context}']
 = Installing and Configuring the {virt-product-fullname} {engine-name}
 

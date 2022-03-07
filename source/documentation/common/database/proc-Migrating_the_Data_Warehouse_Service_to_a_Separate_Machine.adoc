@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_{context}']
 = Migrating the Data Warehouse Service to a Separate Machine
 

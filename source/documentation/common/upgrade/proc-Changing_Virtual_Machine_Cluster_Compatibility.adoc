@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Changing_Virtual_Machine_Cluster_Compatibility_{context}']
 = Changing Virtual Machine Cluster Compatibility
 

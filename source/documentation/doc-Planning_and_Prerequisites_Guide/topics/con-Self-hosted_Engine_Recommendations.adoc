@@ -1,4 +1,5 @@
-[[self-hosted-engine-recommendations]]
+:_content-type: CONCEPT
+[id="self-hosted-engine-recommendations"]
 === Self-Hosted Engine Recommendations
 
 * Create a separate data center and cluster for the {virt-product-fullname} {engine-name} and other infrastructure-level services, if the environment is large enough to allow it. Although the {engine-name} virtual machine can run on hosts in a regular cluster, separation from production virtual machines helps facilitate backup schedules, performance, availability, and security.

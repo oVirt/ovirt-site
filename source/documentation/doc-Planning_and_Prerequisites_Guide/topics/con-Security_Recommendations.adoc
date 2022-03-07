@@ -1,4 +1,5 @@
-[[security-recommendations]]
+:_content-type: CONCEPT
+[id="security-recommendations"]
 === Security Recommendations
 
 * Do not disable any security features (such as HTTPS, SELinux, and the firewall) on the hosts or virtual machines.

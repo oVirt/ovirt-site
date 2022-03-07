@@ -1,4 +1,5 @@
-[[considerations]]
+:_content-type: ASSEMBLY
+[id="considerations"]
 == Considerations
 
 This chapter describes the advantages, limitations, and available options for various {virt-product-fullname} components.

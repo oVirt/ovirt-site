@@ -28,14 +28,14 @@ If these packages are not available from the repositories already enabled on the
 . Install and configure the OVN provider.
 .. Install the provider on the provider machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install ovirt-provider-ovn
 ----
 +
 .. If you are not installing the provider on the same machine as the {engine-name}, add the following entry to the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist):
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 [OVIRT]
 ovirt-host=https://__Manager_host_name__
@@ -44,7 +44,7 @@ ovirt-host=https://__Manager_host_name__
 This is used for authentication, if authentication is enabled.
 .. If you are not installing the provider on the same machine as the OVN central server, add the following entry to the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist):
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 [OVN REMOTE]
 ovn-remote=tcp:__OVN_central_server_IP__:6641
@@ -52,7 +52,7 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641
 +
 .. Open ports 9696, 6641, and 6642 in the firewall to allow communication between the OVN provider, the OVN central server, and the {engine-name}. This can be done either manually or by adding the `ovirt-provider-ovn` and `ovirt-provider-ovn-central` services to the appropriate zone:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --zone=_ZoneName_ --add-service=ovirt-provider-ovn --permanent
 # firewall-cmd --zone=_ZoneName_ --add-service=ovirt-provider-ovn-central --permanent
@@ -61,7 +61,7 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641
 +
 .. Start and enable the service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl start ovirt-provider-ovn
 # systemctl enable ovirt-provider-ovn
@@ -69,7 +69,7 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641
 +
 .. Configure the OVN central server to listen to requests from ports 6642 and 6641:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ovn-sbctl set-connection ptcp:6642
 # ovn-nbctl set-connection ptcp:6641

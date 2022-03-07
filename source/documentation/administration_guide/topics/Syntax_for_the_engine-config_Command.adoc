@@ -3,7 +3,7 @@
 
 You can run the engine configuration tool from the machine on which the {virt-product-fullname} {engine-name} is installed. For detailed information on usage, print the help output for the command: 
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --help
 ----
@@ -13,21 +13,21 @@ You can run the engine configuration tool from the machine on which the {virt-pr
 
 * List available configuration keys 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --list
 ----
 
 * List available configuration values
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --all
 ----
 
 * Retrieve value of configuration key
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --get _KEY_NAME_
 ----
@@ -36,7 +36,7 @@ Replace _KEY_NAME_ with the name of the preferred key to retrieve the value for 
 
 * Set value of configuration key
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --set _KEY_NAME_=_KEY_VALUE_ --cver=_VERSION_
 ----
@@ -47,7 +47,7 @@ Replace _KEY_NAME_ with the name of the specific key to set, and replace _KEY_VA
 +
 The *ovirt-engine* service needs to be restarted for your changes to take effect. 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----

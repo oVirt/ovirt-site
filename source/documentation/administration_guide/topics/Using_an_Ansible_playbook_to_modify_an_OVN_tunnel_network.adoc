@@ -5,7 +5,7 @@ You can use the `ovirt-provider-ovn-driver` Ansible playbook to use long names t
 
 *Ansible playbook to modify an OVN tunnel network*
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook --key-file <path_to_key_file> -i <path_to_inventory> --extra-vars " cluster_name=<cluster_name> ovn_central=<ovn_central_ip_address> ovirt_network=<ovirt network name> ovn_tunneling_interface=<vdsm_network_name>" ovirt-provider-ovn-driver.yml
 ----
@@ -31,14 +31,14 @@ The `ovirt-provider-ovn-driver` Ansible playbook supports using either the `ovir
 
 *Playbook with `ovirt_network` parameter*
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovirt_network=\"Long\ Network\ Name\ with\ \Ascii\ character\ \☺\"" ovirt-provider-ovn-driver.yml
 ----
 
 *Playbook with `ovn_tunneling_interface` parameter*
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovn_tunneling_interface=on703ea21ddbc34" ovirt-provider-ovn-driver.yml
 ----

@@ -2,7 +2,7 @@
 
 You can set the user timeout period: 
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --set UserSessionTimeOutInterval=_integer_
 ----

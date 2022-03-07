@@ -16,7 +16,7 @@ To install and upload the most recent version of `virtio-win___version__.iso`:
 
 . Install the image files on the {engine-name} machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf -y install virtio-win
 ----

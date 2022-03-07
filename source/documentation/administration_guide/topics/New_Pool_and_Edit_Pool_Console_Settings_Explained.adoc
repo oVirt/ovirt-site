@@ -11,7 +11,7 @@ The following table details the information required on the *Console* tab of the
 |*Override SPICE proxy* |Select this check box to enable overriding the SPICE proxy defined in global configuration. This feature is useful in a case where the user (who is, for example, connecting via the VM Portal) is outside of the network where the hosts reside.
 |*Overridden SPICE proxy address* a|The proxy by which the SPICE client connects to virtual machines. This proxy overrides both the global SPICE proxy defined for the {virt-product-fullname} environment and the SPICE proxy defined for the cluster to which the virtual machine pool belongs, if any. The address must be in the following format: 
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 protocol://_host_:__port__
 ----

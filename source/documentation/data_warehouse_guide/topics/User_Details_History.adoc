@@ -1,8 +1,8 @@
-[[User_Details_History]]
+[id="User_Details_History_{context}"]
 ==== User Details History
 
 The following table shows the configuration history parameters of the users in the system.
-[[References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-81]]
+[id="References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-81"]
 
 .v4_4_users_details_history
 [options="header"]

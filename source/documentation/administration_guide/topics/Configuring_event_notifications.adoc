@@ -22,7 +22,7 @@ The email address can be a text message email address (for example, `_1234567890
 . Click btn:[OK].
 . On the {engine-name} machine, copy `ovirt-engine-notifier.conf` to a new file called `90-email-notify.conf`:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cp /usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf /etc/ovirt-engine/notifier/notifier.conf.d/90-email-notify.conf
 ----
@@ -77,7 +77,7 @@ See `/etc/ovirt-engine/notifier/notifier.conf.d/README` for more options.
 
 . Enable and restart the `ovirt-engine-notifier` service to activate the changes you have made:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl daemon-reload
 # systemctl enable ovirt-engine-notifier.service

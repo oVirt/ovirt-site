@@ -1,4 +1,4 @@
-[[chap-Installing_and_Configuring_Data_Warehouse]]
+[id="chap-Installing_and_Configuring_Data_Warehouse"]
 = Installing and Configuring Data Warehouse
 
 :context: DWH_admin

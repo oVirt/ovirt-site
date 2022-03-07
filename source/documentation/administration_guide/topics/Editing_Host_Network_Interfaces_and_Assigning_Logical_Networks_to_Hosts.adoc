@@ -78,7 +78,7 @@ Set *all* hosts in a cluster to use the same IP stack for their management netwo
 
 .. To configure a network bridge, click the *Custom Properties* tab and select *bridge_opts* from the drop-down list. Enter a valid key and value with the following syntax: _key_=_value_. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see xref:Explanation_of_bridge_opts_Parameters[].
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 forward_delay=1500
 group_addr=1:80:c2:0:0:0
@@ -102,13 +102,13 @@ multicast_startup_query_interval=3125
 +
 .. To configure ethernet properties, click the *Custom Properties* tab and select *ethtool_opts* from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 --coalesce em1 rx-usecs 14 sample-interval 3 --offload em2 rx on lro on tso off --change em1 speed 1000 duplex half
 ----
 This field can accept wildcards. For example, to apply the same option to all of this network's interfaces, use:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 --coalesce * rx-usecs 14 sample-interval 3
 ----
@@ -136,7 +136,7 @@ If not all network interface cards for the host are displayed, click menu:Manage
 
 In some cases, making multiple concurrent changes to a host network configuration using the *Setup Host Networks* window or `setupNetwork` command fails with an `Operation failed: [Cannot setup Networks]. Another Setup Networks or Host Refresh process in progress on the host. Please try later.]` error in the event log. This error indicates that some of the changes were not configured on the host. This happens because, to preserve the integrity of the configuration state, only a single setup network command can be processed at a time. Other concurrent configuration commands are queued for up to a default timeout of 20 seconds. To help prevent the above failure from happening, use the `engine-config` command to increase the timeout period of `SetupNetworksWaitTimeoutSeconds` beyond 20 seconds. For example:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config --set SetupNetworksWaitTimeoutSeconds=40
 ----

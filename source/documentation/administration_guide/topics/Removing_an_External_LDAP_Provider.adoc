@@ -6,7 +6,7 @@ This procedure shows you how to remove an external configured LDAP provider and 
 
 . Remove the LDAP provider configuration files, replacing the default name _profile1_:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # rm /etc/ovirt-engine/extensions.d/_profile1_-authn.properties
 # rm /etc/ovirt-engine/extensions.d/_profile1_-authz.properties
@@ -15,7 +15,7 @@ This procedure shows you how to remove an external configured LDAP provider and 
 
 . Restart the `ovirt-engine` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine
 ----

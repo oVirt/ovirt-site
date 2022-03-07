@@ -8,21 +8,21 @@ You can configure ethtool properties for host network interface cards from the A
 
 . On the {engine-name}, run the following command to add the key:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config -s UserDefinedNetworkCustomProperties=ethtool_opts=.* --cver=4.4
 ----
 +
 . Restart the `ovirt-engine` service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----
 +
 . On the hosts that you want to configure ethtool properties, install the VDSM hook package. The package is available by default on {hypervisor-fullname} but needs to be installed on {enterprise-linux-host-fullname}s.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install vdsm-hook-ethtool-options
 ----

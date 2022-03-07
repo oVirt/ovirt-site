@@ -1,4 +1,4 @@
-[[chap-About_History_Database]]
+[id="chap-About_History_Database"]
 == About the History Database
 
 include::topics/History_Database_Overview.adoc[]
@@ -13,7 +13,7 @@ include::topics/Tracking_tag_history.adoc[]
 
 include::topics/Allowing_Read_Only_Access_to_the_History_Database.adoc[]
 
-[[sect-Statistics_History_Views]]
+[id="sect-Statistics_History_Views"]
 === Statistics History Views
 
 Statistics data is available in `hourly`, `daily`, and `samples` views.
@@ -45,7 +45,7 @@ include::topics/Virtual_machine_interface_hourly_and_daily_history_views.adoc[]
 
 include::topics/Virtual_machine_disk_hourly_and_samples_history_views.adoc[]
 
-[[sect-Configuration_History_Views]]
+[id="sect-Configuration_History_Views"]
 === Configuration History Views
 
 To query a configuration view, run `SELECT * FROM _view_name_;`. For example:

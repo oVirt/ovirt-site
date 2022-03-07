@@ -8,7 +8,7 @@ Use the backup and restore API to back up a virtual machine. This procedure assu
 
 . Using the REST API, create a snapshot of the virtual machine to back up:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 POST /api/vms/`_{vm:id}_`/snapshots/ HTTP/1.1
 Accept: application/xml
@@ -32,7 +32,7 @@ You cannot take snapshots of disks marked as shareable or based on direct LUN di
 +
 . Retrieve the configuration data of the virtual machine from the `data` attribute under the snapshot:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
 All-Content: true
@@ -47,7 +47,7 @@ Content-type: application/xml
 ====
 . Get the snapshot ID:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /api/vms/{vm:id}/snapshots/ HTTP/1.1
 Accept: application/xml
@@ -56,7 +56,7 @@ Content-type: application/xml
 +
 . Identify the disk ID of the snapshot:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_`/disks HTTP/1.1
 Accept: application/xml
@@ -65,7 +65,7 @@ Content-type: application/xml
 +
 . Attach the snapshot to a backup virtual machine as an active disk attachment, with the correct interface type (for example, *virtio_scsi*):
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 POST /api/vms/`_{vm:id}_`/diskattachments/ HTTP/1.1
 Accept: application/xml
@@ -85,7 +85,7 @@ NOTE: Here, replace `_{vm:id}_` with the ID of the _backup_ virtual machine, not
 . Use the backup software on the backup virtual machine to back up the data on the snapshot disk.
 . Remove the snapshot disk attachment from the backup virtual machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 DELETE /api/vms/`_{vm:id}_`/diskattachments/`_{snapshot:id}_` HTTP/1.1
 Accept: application/xml
@@ -96,7 +96,7 @@ NOTE: Here, replace `_{vm:id}_` with the ID of the _backup_ virtual machine, not
 
 . Optionally, delete the snapshot:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 DELETE /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
 Accept: application/xml

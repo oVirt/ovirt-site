@@ -3,12 +3,12 @@
 
 The `engine-backup` command works in one of two basic modes:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=backup
 ----
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-backup --mode=restore
 ----

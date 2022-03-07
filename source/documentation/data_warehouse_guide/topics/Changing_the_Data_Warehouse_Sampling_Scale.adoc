@@ -1,4 +1,4 @@
-[[Changing_the_Data_Warehouse_Sampling_Scale]]
+[id="Changing_the_Data_Warehouse_Sampling_Scale_{context}"]
 = Changing the Data Warehouse Sampling Scale
 
 Data Warehouse is required in {virt-product-fullname}. It can be installed and configured on the same machine as the {engine-name}, or on a separate machine with access to the {engine-name}. The default data retention settings may not be required for all setups, so `engine-setup` offers two data sampling scales: `Basic` and `Full`.
@@ -9,7 +9,7 @@ Data Warehouse is required in {virt-product-fullname}. It can be installed and c
 
 The sampling scale is configured by `engine-setup` during installation:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 --== MISC CONFIGURATION ==--
 

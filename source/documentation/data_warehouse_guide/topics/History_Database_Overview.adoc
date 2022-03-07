@@ -1,4 +1,4 @@
-[[History_Database_Overview]]
+[id="History_Database_Overview_{context}"]
 === History Database Overview
 
 {virt-product-fullname} includes a comprehensive management history database, which can be used by reporting applications to generate reports at data center, cluster and host levels. This chapter provides information to enable you to set up queries against the history database.

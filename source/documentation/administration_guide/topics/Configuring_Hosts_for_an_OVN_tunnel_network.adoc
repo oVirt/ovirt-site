@@ -12,7 +12,7 @@ The `ovirt-provider-ovn-driver` Ansible playbook updates existing hosts. If you 
 
 . On the {engine-name} machine, go to the *playbooks* directory:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cd /usr/share/ovirt-engine/playbooks
 ----
@@ -42,7 +42,7 @@ The _VDSM_Network_Name_ is limited to 15 characters. If you defined a logical ne
 
 You can update the OVN tunnel network on a single host with `vdsm-tool`:
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # vdsm-tool ovn-config _OVN_Central_IP_ _Tunneling_IP_or_Network_Name_
 ----
@@ -50,7 +50,7 @@ You can update the OVN tunnel network on a single host with `vdsm-tool`:
 .Updating a Host with `vdsm-tool`
 ====
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # vdsm-tool ovn-config 192.168.0.1 MyNetwork
 ----

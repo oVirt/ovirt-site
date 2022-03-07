@@ -3,7 +3,7 @@
 
 You can configure Fibre Channel over Ethernet (FCoE) properties for host network interface cards from the Administration Portal. The *fcoe* key is not available by default and needs to be added to the {engine-name} using the engine configuration tool. You can check whether *fcoe* has already been enabled by running the following command: 
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config -g UserDefinedNetworkCustomProperties
 ----
@@ -15,21 +15,21 @@ You also need to install the required VDSM hook package on the hosts. Depending 
 
 . On the {engine-name}, run the following command to add the key:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # engine-config -s UserDefinedNetworkCustomProperties='fcoe=^((enable|dcb|auto_vlan)=(yes|no),?)*$'
 ----
 +
 . Restart the `ovirt-engine` service: 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----
 +
 . Install the VDSM hook package on each of the {enterprise-linux-host-fullname}s on which you want to configure FCoE properties. The package is available by default on {hypervisor-fullname} ({hypervisor-shortname}). 
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install vdsm-hook-fcoe
 ----

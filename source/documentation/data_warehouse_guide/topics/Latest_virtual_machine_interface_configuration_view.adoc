@@ -1,8 +1,8 @@
-[[Latest_virtual_machine_interface_configuration_view]]
+[id="Latest_virtual_machine_interface_configuration_view_{context}"]
 ==== Virtual Machine Interface Configuration
 
 The following table shows the configuration history parameters of the virtual interfaces in the system.
-[[References_RHEV_3_Reporting_Database-Configuration_Views_table-VIEWNAME]]
+[id="References_RHEV_3_Reporting_Database-Configuration_Views_table-VIEWNAME"]
 
 .v4_4_configuration_history_vms_interfaces
 [options="header"]

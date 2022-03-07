@@ -30,7 +30,7 @@ include::../common/install/snip-RHEL_repo_steps.adoc[]
 endif::[]
 . Install the Openstack Networking hook:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # yum install vdsm-hook-openstacknet
 ----
@@ -44,7 +44,7 @@ Do not select the OpenStack Networking provider from the *Network Provider* tab.
 +
 . Remove the firewall rule that rejects ICMP traffic:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # iptables -D INPUT -j REJECT --reject-with icmp-host-prohibited
 ----

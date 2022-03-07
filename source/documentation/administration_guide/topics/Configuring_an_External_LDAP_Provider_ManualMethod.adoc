@@ -10,21 +10,21 @@ If the interactive setup method in the previous section does not cover your use 
 
 . On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install ovirt-engine-extension-aaa-ldap
 ----
 +
 . Copy the LDAP configuration template file into the */etc/ovirt-engine* directory. Template files are available for active directories (*ad*) and other directory types (*simple*). This example uses the simple configuration template.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # cp -r /usr/share/ovirt-engine-extension-aaa-ldap/examples/simple/. /etc/ovirt-engine
 ----
 +
 . Rename the configuration files to match the profile name you want visible to users on the Administration Portal and the VM Portal login pages:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # mv /etc/ovirt-engine/aaa/profile1.properties /etc/ovirt-engine/aaa/_example_.properties
 # mv /etc/ovirt-engine/extensions.d/profile1-authn.properties /etc/ovirt-engine/extensions.d/_example_-authn.properties
@@ -33,7 +33,7 @@ If the interactive setup method in the previous section does not cover your use 
 +
 . Edit the LDAP property configuration file by uncommenting an LDAP server type and updating the domain and passwords fields:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 #  vi /etc/ovirt-engine/aaa/_example_.properties
 ----
@@ -41,7 +41,7 @@ If the interactive setup method in the previous section does not cover your use 
 .Example profile: LDAP server section
 ====
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # Select one
 #
@@ -83,7 +83,7 @@ For more information on creating a public keystore file, see xref:Setting_Up_SSL
 .Example profile: keystore section
 ====
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # Create keystore, import certificate chain and uncomment
 # if using tls.
@@ -96,7 +96,7 @@ pool.default.ssl.truststore.password = _password_
 +
 . Review the authentication configuration file. The profile name visible to users on the Administration Portal and the VM Portal login pages is defined by *ovirt.engine.aaa.authn.profile.name*. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # vi /etc/ovirt-engine/extensions.d/_example_-authn.properties
 ----
@@ -104,7 +104,7 @@ pool.default.ssl.truststore.password = _password_
 .Example authentication configuration file
 ====
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ovirt.engine.extension.name = _example_-authn
 ovirt.engine.extension.bindings.method = jbossmodule
@@ -120,7 +120,7 @@ config.profile.file.1 = ../aaa/_example_.properties
 +
 . Review the authorization configuration file. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # vi /etc/ovirt-engine/extensions.d/_example_-authz.properties
 ----
@@ -128,7 +128,7 @@ config.profile.file.1 = ../aaa/_example_.properties
 .Example authorization configuration file
 ====
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 ovirt.engine.extension.name = _example_-authz
 ovirt.engine.extension.bindings.method = jbossmodule
@@ -141,7 +141,7 @@ config.profile.file.1 = ../aaa/_example_.properties
 +
 . Ensure that the ownership and permissions of the configuration profile are appropriate:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # chown ovirt:ovirt /etc/ovirt-engine/aaa/_example_.properties
 # chmod 600 /etc/ovirt-engine/aaa/_example_.properties
@@ -149,7 +149,7 @@ config.profile.file.1 = ../aaa/_example_.properties
 +
 . Restart the engine service:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl restart ovirt-engine.service
 ----

@@ -1,8 +1,8 @@
-[[Virtual_Machine_Device_Configuration]]
+[id="Virtual_Machine_Device_Configuration_{context}"]
 ==== Virtual Machine Device Configuration
 
 The following table shows the relationships between virtual machines and their associated devices, including disks and virtual interfaces.
-[[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_5_vm_config_hist_devices]]
+[id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_5_vm_config_hist_devices"]
 
 .v4_4_configuration_history_vms_devices
 [options="header"]

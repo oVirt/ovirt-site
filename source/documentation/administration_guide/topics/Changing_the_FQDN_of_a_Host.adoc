@@ -10,7 +10,7 @@ Use the following procedure to change the fully qualified domain name of hosts.
 . Click *Remove*, and click btn:[OK] to remove the host from the Administration Portal.
 . Use the `hostnamectl` tool to update the host name. For more options, see link:{URL_rhel_docs_legacy}html/Networking_Guide/ch-Configure_Host_Names.html[ Configure Host Names] in the _{enterprise-linux} 7 Networking Guide_.
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # hostnamectl set-hostname _NEW_FQDN_
 ----

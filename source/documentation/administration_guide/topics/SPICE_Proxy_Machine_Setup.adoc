@@ -8,49 +8,49 @@ This procedure explains how to set up a machine as a SPICE Proxy. A SPICE Proxy 
 
 . Install `Squid` on the Proxy machine:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # dnf install squid
 ----
 +
 . Open */etc/squid/squid.conf*. Change:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 http_access deny CONNECT !SSL_ports
 ----
 +
 to:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 http_access deny CONNECT !Safe_ports
 ----
 +
 . Start the squid service and enable it to run automatically after reboot:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # systemctl enable squid.service --now
 ----
 +
 . Enable incoming requests to the squid service in the default firewalld zone:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --permanent --add-service=squid
 ----
 +
 . Make this firewall rule persistent in the runtime configuration:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --reload
 ----
 +
 . Confirm that the squid service appears in the list of firewall services:
 +
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # firewall-cmd --list-services
 ssh dhcpv6-client squid

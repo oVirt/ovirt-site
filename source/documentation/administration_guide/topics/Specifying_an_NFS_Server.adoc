@@ -5,7 +5,7 @@
 .Uploading to an NFS Server
 ====
 
-[options="nowrap" subs="normal"]
+[source,terminal]
 ----
 # `engine-iso-uploader --nfs-server=_storage.demo.redhat.com:/iso/path_ upload _RHEL6.0.iso_`
 ----

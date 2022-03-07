@@ -495,7 +495,7 @@
 <li><a href="#Removing_a_Disk_Profile_storage_tasks">11.8.12. Removing a Disk Profile</a></li>
 <li><a href="#Viewing_Storage_Health_Status_storage_tasks">11.8.13. Viewing the Health Status of a Storage Domain</a></li>
 <li><a href="#Setting_Discard_After_Delete_for_a_Storage_Domain_storage_tasks">11.8.14. Setting Discard After Delete for a Storage Domain</a></li>
-<li><a href="#Enabling-4K-support-more-than-250-nodes-storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</a></li>
+<li><a href="#Enabling-4K-support-more-than-250-nodes_storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</a></li>
 <li><a href="#Disabling-4K-support-storage_tasks_storage_tasks">11.8.16. Disabling 4K support</a></li>
 <li><a href="#monitoring-available-space-in-a-storage-domain_storage_tasks">11.8.17. Monitoring available space in a storage domain</a></li>
 </ul>
@@ -16010,7 +16010,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Enabling-4K-support-more-than-250-nodes-storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</h4>
+<h4 id="Enabling-4K-support-more-than-250-nodes_storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</h4>
 <div class="paragraph">
 <p>By default, GlusterFS domains and local storage domains support 4K block size on oVirt environments with up to 250 hosts. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.</p>
 </div>
@@ -16195,23 +16195,29 @@ enable_4k_storage = false</code></pre>
 </li>
 <li>
 <p>In <code>99-defaults.properties</code>, specify the Windows product activation key and the path of your new custom <code>sysprep</code> file:</p>
-<div class="listingblock">
+<div class="exampleblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">os.__operating_system__.productKey.value=__Windows_product_activation_key__
-...
-os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.__operating_system__</code></pre>
+<div class="paragraph">
+<p>os.<em>operating_system</em>.productKey.value=<em>Windows_product_activation_key</em>
+&#8230;&#8203;
+os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.<em>operating_system</em></p>
+</div>
 </div>
 </div>
 </li>
 <li>
 <p>Create a new <code>sysprep</code> file, specifying the domain, domain password, and domain administrator:</p>
-<div class="listingblock">
+<div class="exampleblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">    &lt;Credentials&gt;
-        &lt;Domain&gt;__AD_Domain__&lt;/Domain&gt;
-        &lt;Password&gt;__Domain_Password__&lt;/Password&gt;
-        &lt;Username&gt;__Domain_Administrator__&lt;/Username&gt;
-    &lt;/Credentials&gt;</code></pre>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;Credentials&gt;
+    &lt;Domain&gt;__AD_Domain__&lt;/Domain&gt;
+    &lt;Password&gt;__Domain_Password__&lt;/Password&gt;
+    &lt;Username&gt;__Domain_Administrator__&lt;/Username&gt;
+&lt;/Credentials&gt;</pre>
+</div>
+</div>
 </div>
 </div>
 </li>
@@ -16331,12 +16337,16 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
 <div class="ulist">
 <ul>
 <li>
-<p><code>Key</code>. If you do not want to use the pre-defined Windows activation product key, replace <code>&lt;![CDATA[$ProductKey$"]&gt;</code> with a valid product key:</p>
-<div class="listingblock">
+<p><code>Key</code>. If you do not want to use the pre-defined Windows activation product key, replace <code>&lt;![CDATA[$ProductKey$]]&gt;</code> with a valid product key:</p>
+<div class="exampleblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">    &lt;ProductKey&gt;
-        &lt;Key&gt;&lt;![CDATA[$ProductKey$&quot;]&gt;&lt;/Key&gt;
-    &lt;/ProductKey&gt;</code></pre>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;ProductKey&gt;
+    &lt;Key&gt;&lt;![CDATA[$ProductKey$"]&gt;&lt;/Key&gt;
+&lt;/ProductKey&gt;</pre>
+</div>
+</div>
 </div>
 </div>
 <div class="exampleblock">
@@ -16354,13 +16364,17 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
 </li>
 <li>
 <p><code>Domain</code> that the Windows virtual machines will join, the domain&#8217;s <code>Password</code>, and the domain administrator&#8217;s <code>Username</code>:</p>
-<div class="listingblock">
+<div class="exampleblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml">    <span style="color:#F00;background-color:#FAA">&lt;Credentials&gt;</span>
-        <span style="color:#F00;background-color:#FAA">&lt;Domain&gt;<em>AD_Domain</em>&lt;/Domain&gt;</span>
-        <span style="color:#F00;background-color:#FAA">&lt;Password&gt;<em>Domain_Password</em>&lt;/Password&gt;</span>
-        <span style="color:#F00;background-color:#FAA">&lt;Username&gt;<em>Domain_Administrator</em>&lt;/Username&gt;</span>
-    <span style="color:#F00;background-color:#FAA">&lt;/Credentials&gt;</span></code></pre>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;Credentials&gt;
+    &lt;Domain&gt;__AD_Domain__&lt;/Domain&gt;
+    &lt;Password&gt;__Domain_Password__&lt;/Password&gt;
+    &lt;Username&gt;__Domain_Administrator__&lt;/Username&gt;
+&lt;/Credentials&gt;</pre>
+</div>
+</div>
 </div>
 </div>
 <div class="exampleblock">
@@ -16397,31 +16411,39 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
 </li>
 <li>
 <p><code>FullName</code> of the local administrator:</p>
-<div class="listingblock">
+<div class="exampleblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml">    <span style="color:#F00;background-color:#FAA">&lt;UserData&gt;</span>
-    <span style="color:#F00;background-color:#FAA">&#8230;&#8203;</span>
-        <span style="color:#F00;background-color:#FAA">&lt;FullName&gt;<em>Local_Administrator</em>&lt;/FullName&gt;</span>
-    <span style="color:#F00;background-color:#FAA">&#8230;&#8203;</span>
-    <span style="color:#F00;background-color:#FAA">&lt;/UserData&gt;</span></code></pre>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;UserData&gt;
+...
+    &lt;FullName&gt;__Local_Administrator__&lt;/FullName&gt;
+...
+&lt;/UserData&gt;</pre>
+</div>
+</div>
 </div>
 </div>
 </li>
 <li>
 <p><code>DisplayName</code> and <code>Name</code> of the local administrator:</p>
-<div class="listingblock">
+<div class="exampleblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml">    <span style="color:#F00;background-color:#FAA">&lt;LocalAccounts&gt;</span>
-        <span style="color:#F00;background-color:#FAA">&lt;LocalAccount wcm:action=&quot;add&quot;&gt;</span>
-            <span style="color:#F00;background-color:#FAA">&lt;Password&gt;</span>
-                <span style="color:#F00;background-color:#FAA">&lt;Value&gt;&lt;![CDATA[$AdminPassword$&quot;]&gt;&lt;/Value&gt;</span>
-                <span style="color:#F00;background-color:#FAA">&lt;PlainText&gt;true&lt;/PlainText&gt;</span>
-            <span style="color:#F00;background-color:#FAA">&lt;/Password&gt;</span>
-            <span style="color:#F00;background-color:#FAA">&lt;DisplayName&gt;<em>Local_Administrator</em>&lt;/DisplayName&gt;</span>
-            <span style="color:#F00;background-color:#FAA">&lt;Group&gt;administrators&lt;/Group&gt;</span>
-            <span style="color:#F00;background-color:#FAA">&lt;Name&gt;<em>Local_Administrator</em>&lt;/Name&gt;</span>
-        <span style="color:#F00;background-color:#FAA">&lt;/LocalAccount&gt;</span>
-    <span style="color:#F00;background-color:#FAA">&lt;/LocalAccounts&gt;</span></code></pre>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;LocalAccounts&gt;
+    &lt;LocalAccount wcm:action="add"&gt;
+        &lt;Password&gt;
+            &lt;Value&gt;&lt;![CDATA[$AdminPassword$"]&gt;&lt;/Value&gt;
+            &lt;PlainText&gt;true&lt;/PlainText&gt;
+        &lt;/Password&gt;
+        &lt;DisplayName&gt;__Local_Administrator__&lt;/DisplayName&gt;
+        &lt;Group&gt;administrators&lt;/Group&gt;
+        &lt;Name&gt;__Local_Administrator__&lt;/Name&gt;
+    &lt;/LocalAccount&gt;
+&lt;/LocalAccounts&gt;</pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -25119,7 +25141,7 @@ Enter search user password:</code></pre>
 <p>Test the login function to ensure your LDAP server is connected to your oVirt environment properly. For the login query, enter your <code>user name</code> and <code>password</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">NOTE:
+<pre class="CodeRay highlight"><code data-lang="terminal">NOTE:
 It is highly recommended to test drive the configuration before applying it into engine.
 Login sequence is executed automatically, but it is recommended to also execute Search sequence manually after successful Login sequence.
 
@@ -25128,7 +25150,7 @@ Enter user name:
 Enter user password:
 [ INFO  ] Executing login sequence...
 ...
-[ INFO  ] Login sequence executed successfully</pre>
+[ INFO  ] Login sequence executed successfully</code></pre>
 </div>
 </div>
 </li>
@@ -25136,9 +25158,9 @@ Enter user password:
 <p>Check that the user details are correct. If the user details are incorrect, select <code>Abort</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please make sure that user details are correct and group membership meets expectations (search for PrincipalRecord and GroupRecord titles).
+<pre class="CodeRay highlight"><code data-lang="terminal">Please make sure that user details are correct and group membership meets expectations (search for PrincipalRecord and GroupRecord titles).
 Abort if output is incorrect.
-Select test sequence to execute (Done, Abort, Login, Search) [Abort]:</pre>
+Select test sequence to execute (Done, Abort, Login, Search) [Abort]:</code></pre>
 </div>
 </div>
 </li>

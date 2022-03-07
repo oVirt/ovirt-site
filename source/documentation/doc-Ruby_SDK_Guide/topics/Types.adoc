@@ -1,4 +1,4 @@
-[[Using_Types]]
+[id="Using_Types"]
 === Types
 
 ==== Creating and Modifying Instances of Types
@@ -9,7 +9,7 @@ The constructors of these classes have multiple optional arguments, one for each
 
 In the following example, an instance of a virtual machine is created and its attributes (cluster, template, and memory) are set:
 
-[[Creating_a_Virtual_Machine_Instance_with_Attributes]]
+[id="Creating_a_Virtual_Machine_Instance_with_Attributes"]
 .Creating a Virtual Machine Instance with Attributes
 [source, Ruby, options="nowrap"]
 ----

@@ -1,4 +1,4 @@
-[[Dependencies]]
+[id="Dependencies"]
 === Dependencies
 
 The Ruby Software Development Kit has the following dependencies, which you must install manually if you are using `gem`:

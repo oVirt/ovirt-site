@@ -1,4 +1,4 @@
-[[Prerequisites]]
+[id="Prerequisites"]
 === Prerequisites
 To install the Ruby software development kit, you must have:
 

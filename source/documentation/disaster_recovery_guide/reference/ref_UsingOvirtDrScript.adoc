@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="Using-ovirt-dr-script_{context}"]
+[id="Using-ovirt-dr-script"]
 = The `ovirt-dr` Script for Ansible Tasks
 
 The `ovirt-dr` script simplifies the following Ansible tasks:

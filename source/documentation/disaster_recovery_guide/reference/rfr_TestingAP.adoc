@@ -1,5 +1,5 @@
 :_content-type: REFERENCE
-[id="testing_active_passive_{context}"]
+[id="testing_active_passive"]
 = Testing the Active-Passive Configuration
 :refdir: ../reference
 

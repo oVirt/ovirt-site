@@ -1,5 +1,5 @@
 :_content-type: CONCEPT
-[id="active_passive_overview_{context}"]
+[id="active_passive_overview"]
 = Active-Passive Overview
 
 {virt-product-fullname} supports an active-passive disaster recovery solution that can span two sites. If the primary site becomes unavailable, the {virt-product-fullname} environment can be forced to fail over to the secondary (backup) site.

@@ -1,5 +1,5 @@
 :_content-type: CONCEPT
-[id="disaster_recovery_solutions_{context}"]
+[id="disaster_recovery_solutions"]
 
 = Disaster Recovery Solutions
 

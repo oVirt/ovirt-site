@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="generate_mapping_{context}"]
+[id="generate_mapping"]
 = Creating the Playbook to Generate the Mapping File
 
 The Ansible playbook used to generate the mapping file will prepopulate the file with the target (primary) site’s entities. You then must manually add the backup site’s entities, such as IP addresses, cluster, affinity groups, affinity label, external LUN disks, authorization domains, roles, and vNIC profiles, to the file.

@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="execute_failback_{context}"]
+[id="execute_failback"]
 = Executing a Failback
 
 Once you fail over, you can fail back to the primary site when it is active and you have performed the necessary steps to clean the environment.

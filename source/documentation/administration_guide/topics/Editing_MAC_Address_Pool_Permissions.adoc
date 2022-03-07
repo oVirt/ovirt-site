@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Editing_MAC_Address_Pool_Permissions_{context}"]
+[id="Editing_MAC_Address_Pool_Permissions"]
 ==== Editing MAC Address Pool Permissions
 
 After a MAC address pool has been created, you can edit its user permissions. The user permissions control which data centers can use the MAC address pool. See xref:sect-Roles[] for more information on adding new user permissions.

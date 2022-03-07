@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Using_power_host_power_management_functions_{context}"]
+[id="Using_power_host_power_management_functions"]
 ==== Using Host Power Management Functions
 
 

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="VDSM_hooks_evaluating_custom_properties_{context}"]
+[id="VDSM_hooks_evaluating_custom_properties"]
 === Evaluating Virtual Machine Custom Properties in a VDSM Hook
 
 Each key set in the *Custom Properties* field for a virtual machine is appended as an environment variable when calling hook scripts. Although the regular expressions used to validate the *Custom Properties* field provide some protection you should ensure that your scripts also validate that the inputs provided match their expectations.
@@ -7,7 +6,7 @@ Each key set in the *Custom Properties* field for a virtual machine is appended 
 .Evaluating Custom Properties
 ====
 This short Python example checks for the existence of the custom property `key1`. If the custom property is set then the value is printed to standard error. If the custom property is not set then no action is taken.
-
+		
 [source,terminal]
 ----
 

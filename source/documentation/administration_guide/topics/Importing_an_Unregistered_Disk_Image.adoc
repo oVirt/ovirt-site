@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Importing_an_Unregistered_Disk_Image_from_an_Imported_Storage_Domain_{context}"]
+[id="Importing_an_Unregistered_Disk_Image_from_an_Imported_Storage_Domain"]
 ==== Importing an Unregistered Disk Image from an Imported Storage Domain
 
 Import floating virtual disks from a storage domain. Floating disks created outside of a {virt-product-fullname} environment are not registered with the {engine-name}. Scan the storage domain to identify unregistered floating disks to be imported.

@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery_{context}"]
+[id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery"]
 ==== {virt-product-fullname} User Interface Plug-in Discovery
 
 Creating plug-in descriptors is the first step in the plug-in discovery process. Plug-in descriptors contain important plug-in metadata and optional default plug-in-specific configurations.

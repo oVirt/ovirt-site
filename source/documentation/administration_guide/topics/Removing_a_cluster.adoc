@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Removing_a_cluster_{context}"]
+[id="Removing_a_cluster"]
 ==== Removing a Cluster
 
 Move all hosts out of a cluster before removing it.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Adding_Network_Labels_to_Host_Network_Interfaces_{context}"]
+[id="Adding_Network_Labels_to_Host_Network_Interfaces"]
 ==== Adding Network Labels to Host Network Interfaces
 
 Using network labels allows you to greatly simplify the administrative workload associated with assigning logical networks to host network interfaces. Setting a label on a role network (for instance, a migration network or a display network) causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.

@@ -2,8 +2,7 @@
 //
 // doc-Administration_Guide/chap-Hosts.adoc
 
-:_content-type: PROCEDURE
-[id="proc-enabling-nested-virtualization-for-individual-virtual-machines_{context}"]
+[id="proc-enabling-nested-virtualization-for-individual-virtual-machines"]
 = Enabling nested virtualization for individual virtual machines
 
 [IMPORTANT]

@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Cluster_Optimization_Settings_Explained_{context}"]
+[id="Cluster_Optimization_Settings_Explained"]
 ==== Optimization Settings Explained
 *Memory Considerations*
 
@@ -10,7 +9,7 @@ include::../common/admin/snip-CPU-Considerations.adoc[]
 
 The table below describes the settings for the *Optimization* tab in the *New Cluster* and *Edit Cluster* windows.
 
-[id="Memory_Optimization_settings_{context}"]
+[id="Memory_Optimization_settings"]
 .Optimization Settings
 [options="header"]
 |===

@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Cluster_Migration_Policy_Settings_Explained_{context}"]
+[id="Cluster_Migration_Policy_Settings_Explained"]
 ==== Migration Policy Settings Explained
 
 A migration policy defines the conditions for live migrating virtual machines in the event of host failure. These conditions include the downtime of the virtual machine during migration, network bandwidth, and how the virtual machines are prioritized.
@@ -40,7 +39,7 @@ For example, if the `Custom` bandwidth is defined as 600 Mbps, a virtual machine
 |===
 
 The resilience policy defines how the virtual machines are prioritized in the migration.
-[id="Resilience_Policy_settings_{context}"]
+[id="Resilience_Policy_settings"]
 
 .Resilience Policy Settings
 [options="header"]

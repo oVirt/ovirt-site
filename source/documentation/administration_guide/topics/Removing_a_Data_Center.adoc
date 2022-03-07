@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Removing_a_Data_Center_{context}"]
+[id="Removing_a_Data_Center"]
 ==== Removing a Data Center
 
 An active host is required to remove a data center. Removing a data center will not remove the associated resources.

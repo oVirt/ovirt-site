@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Adding_a_USB_policy_{context}"]
+[id="Adding_a_USB_policy"]
 = Adding a USB Policy
 
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.

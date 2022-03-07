@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Viewing_Host_Devices_{context}"]
+[id="Viewing_Host_Devices"]
 ==== Viewing Host Devices
 
 You can view the host devices for each host in the *Host Devices* tab in the details view. If the host has been configured for direct device assignment, these devices can be directly attached to virtual machines for improved performance.

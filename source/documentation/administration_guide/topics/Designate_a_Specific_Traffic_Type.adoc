@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Designate_a_Specific_Traffic_Type_{context}"]
+[id="Designate_a_Specific_Traffic_Type"]
 ==== Designate a Specific Traffic Type for a Logical Network with the Manage Networks Window
 
 Specify the traffic type for the logical network to optimize the network traffic flow.

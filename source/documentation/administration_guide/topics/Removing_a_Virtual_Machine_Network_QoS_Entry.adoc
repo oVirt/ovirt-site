@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Removing_a_Virtual_Machine_Network_QoS_Entry_{context}"]
+[id="Removing_a_Virtual_Machine_Network_QoS_Entry"]
 ==== Removing a Virtual Machine Network Quality of Service Entry
 
 Remove an existing virtual machine network quality of service entry.

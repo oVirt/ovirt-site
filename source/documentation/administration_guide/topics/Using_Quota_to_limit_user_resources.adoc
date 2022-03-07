@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Using_Quota_to_limit_user_resources_{context}"]
+[id="Using_Quota_to_limit_user_resources"]
 === Using Quota to Limit Resources by User
 
 This procedure describes how to use quotas to limit the resources a user has access to.

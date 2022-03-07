@@ -2,7 +2,7 @@
 
 [appendix]
 :_content-type: ASSEMBLY
-[id="appe-VDSM_and_Hooks_{context}"]
+[id="appe-VDSM_and_Hooks"]
 == VDSM and Hooks
 
 include::topics/VDSM.adoc[]

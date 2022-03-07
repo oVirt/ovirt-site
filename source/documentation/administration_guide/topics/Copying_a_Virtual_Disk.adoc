@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Copying_a_Virtual_Disk_{context}"]
+[id="Copying_a_Virtual_Disk"]
 ==== Copying a Virtual Disk
 
 You can copy a virtual disk from one storage domain to another. The copied disk can be attached to virtual machines.

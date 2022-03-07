@@ -1,8 +1,7 @@
 // module included:
 // doc-Administration_Guide/chap-Hosts.adoc
 
-:_content-type: PROCEDURE
-[id='migrating_she_host_to_different_cluster_{context}']
+[id='migrating_she_host_to_different_cluster']
 = Migrating a self-hosted engine host to a different cluster
 
 You cannot migrate a host that is configured as a self-hosted engine host to a data center or cluster other than the one in which the self-hosted engine virtual machine is running. All self-hosted engine hosts must be in the same data center and cluster.

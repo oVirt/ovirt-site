@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="User_actions_{context}"]
+[id="User_actions"]
 ==== User Actions
 
 For an action to be successfully performed, the *user* must have the appropriate *permission* for the *object* being acted upon. Each type of action has a corresponding *permission*.

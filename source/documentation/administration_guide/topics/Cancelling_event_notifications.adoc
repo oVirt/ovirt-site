@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Cancelling_event_notifications_{context}"]
+[id="Cancelling_event_notifications"]
 === Canceling Event Notifications in the Administration Portal
 
 A user has configured some unnecessary email notifications and wants them canceled.

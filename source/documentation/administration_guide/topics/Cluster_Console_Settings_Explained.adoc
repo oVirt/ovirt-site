@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Cluster_Console_Settings_Explained_{context}"]
+[id="Cluster_Console_Settings_Explained"]
 ==== Cluster Console Settings Explained
 
 The table below describes the settings for the *Console* tab in the *New Cluster* and *Edit Cluster* windows.

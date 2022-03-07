@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Customizing_hosts_with_tags_{context}"]
+[id="Customizing_hosts_with_tags"]
 === Customizing Hosts with Tags
 
 You can use tags to store information about your hosts. You can then search for hosts based on tags. For more information on searches, see xref:chap-Searches[].

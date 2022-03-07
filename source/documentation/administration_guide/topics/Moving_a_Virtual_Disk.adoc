@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Moving_a_Virtual_Disk_{context}"]
+[id="Moving_a_Virtual_Disk"]
 ==== Moving a Virtual Disk
 
 Move a virtual disk that is attached to a virtual machine or acts as a floating virtual disk from one storage domain to another. You can move a virtual disk that is attached to a running virtual machine; this is referred to as live storage migration. Alternatively, shut down the virtual machine before continuing.

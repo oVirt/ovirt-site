@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Introduction_to_Hosts_{context}"]
+[id="Introduction_to_Hosts"]
 === Introduction to Hosts
 
 Hosts, also known as hypervisors, are the physical servers on which virtual machines run. Full virtualization is provided by using a loadable Linux kernel module called Kernel-based Virtual Machine (KVM).

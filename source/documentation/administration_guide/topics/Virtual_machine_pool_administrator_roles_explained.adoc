@@ -1,4 +1,4 @@
-[id="virtual-machine-pool-administrator-roles-explained_{context}"]
+[id="Cluster_logical_network_entities"]
 ==== Virtual Machine Pool Administrator Roles Explained
 
 
@@ -6,7 +6,7 @@
 
 The table below describes the administrator roles and privileges applicable to pool administration.
 
-[id="Pool_Administrator_Roles_{context}"]
+[id="Pool_Administrator_Roles"]
 
 .{virt-product-fullname} System Administrator Roles
 [options="header"]
@@ -15,3 +15,4 @@ The table below describes the administrator roles and privileges applicable to p
 |VmPoolAdmin |System Administrator role of a virtual pool. |Can create, delete, and configure a virtual pool, assign and remove virtual pool users, and perform basic operations on a virtual machine.
 |ClusterAdmin |Cluster Administrator |Can use, create, delete, manage all virtual machine pools in a specific cluster.
 |===
+

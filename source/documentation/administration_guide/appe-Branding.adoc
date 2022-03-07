@@ -2,7 +2,7 @@
 
 [appendix]
 :_content-type: ASSEMBLY
-[id="appe-Branding_{context}"]
+[id="appe-Branding"]
 == Branding
 
 [id="sect-Branding"]

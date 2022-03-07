@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Overview_of_Importing_Existing_Storage_Domains_{context}"]
+[id="Overview_of_Importing_Existing_Storage_Domains"]
 ==== Overview of Importing Existing Storage Domains
 
 Aside from adding new storage domains, which contain no data, you can import existing storage domains and access the data they contain. By importing storage domains, you can recover data in the event of a failure in the Manager database, and migrate data from one data center or environment to another.
@@ -10,7 +9,7 @@ The following is an overview of importing each storage domain type:
 +
 [IMPORTANT]
 ====
-You can import existing data storage domains that were attached to data centers with the correct supported compatibility level. See link:https://access.redhat.com/solutions/4303801[Supportability and constraints regarding importing Storage Domains and Virtual Machines from older RHV versions] for more information.
+You can import existing data storage domains that were attached to data centers with the correct supported compatibility level. See link:https://access.redhat.com/solutions/4303801[Supportability and constraints regarding importing Storage Domains and Virtual Machines from older RHV versions] for more information. 
 ====
 
 *ISO*:: Importing an existing ISO storage domain allows you to access all of the ISO files and virtual diskettes that the ISO storage domain contains. No additional action is required after importing the storage domain to access these resources; you can attach them to virtual machines as required.

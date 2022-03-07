@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Configuring_VNIC_Profiles_for_UCS_{context}"]
+[id="Configuring_VNIC_Profiles_for_UCS"]
 ==== Configuring vNIC Profiles for UCS Integration
 
 // the vmfex component is deprecated and has been removed in RHV 4.4.7 or later - this section has been removed from the Logical Networks chapter of the Administration Guide.

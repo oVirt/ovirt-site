@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Network_Provider_Settings_Explained_{context}"]
+[id="Network_Provider_Settings_Explained"]
 ==== Network Provider Settings Explained
 
 The *Network Provider* settings table details the information required on the *Network Provider* tab of the *New Host* or *Edit Host* window.

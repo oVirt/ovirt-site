@@ -1,10 +1,9 @@
-:_content-type: REFERENCE
-[id="Engine_Vacuum_Modes_{context}"]
+[id="Engine_Vacuum_Modes"]
 ==== Engine Vacuum Modes
 
 Engine Vacuum has two modes:
 
-*Standard Vacuum*::
+*Standard Vacuum*:: 
 Frequent standard vacuuming is recommended.
 +
 Standard vacuum removes dead row versions in tables and indexes and marks the space as available for future reuse. Frequently updated tables should be vacuumed on a regular basis. However, standard vacuum does not return the space to the operating system.

@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Explanation_of_Settings_in_the_New_Virtual_Disk_Window_{context}"]
+[id="Explanation_of_Settings_in_the_New_Virtual_Disk_Window"]
 ==== Explanation of settings in the New Virtual Disk window
 
 Because the New Virtual Disk windows for creating floating and attached virtual disks are very similar, their settings are described in a single section.

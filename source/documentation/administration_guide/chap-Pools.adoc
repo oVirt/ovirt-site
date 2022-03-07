@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Pools_{context}"]
+[id="chap-Pools"]
 == Pools
 
 include::topics/Pools.adoc[]

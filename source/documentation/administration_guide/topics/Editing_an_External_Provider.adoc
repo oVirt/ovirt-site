@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Editing_an_External_Provider_{context}"]
+[id="Editing_an_External_Provider"]
 === Editing an External Provider
 
 *Editing an External Provider*

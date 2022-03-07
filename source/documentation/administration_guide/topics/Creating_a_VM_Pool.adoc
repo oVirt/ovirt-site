@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_VM_Pool_{context}"]
+[id="Creating_a_VM_Pool"]
 === Creating a virtual machine pool
 
 You can create a virtual machine pool containing multiple virtual machines based on a common template. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for information about sealing a virtual machine and creating a template.

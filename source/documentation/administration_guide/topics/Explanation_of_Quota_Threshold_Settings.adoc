@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Explanation_of_Quota_Threshold_Settings_{context}"]
+[id="Explanation_of_Quota_Threshold_Settings"]
 === Explanation of Quota Threshold Settings
 
 .Quota thresholds and grace

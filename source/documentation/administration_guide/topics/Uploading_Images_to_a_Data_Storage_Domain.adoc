@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id='Uploading_Images_to_a_Data_Storage_Domain_{context}']
+[id="Uploading_Images_to_a_Data_Storage_Domain_{context}"]
 = Uploading Images to a Data Storage Domain
 
 You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Installing_Ansible_Collection_from_Automation_Hub_{context}"]
+[id="Installing_Ansible_Collection_from_Automation_Hub"]
 
 === Installing oVirt Ansible Collection from Automation Hub
 

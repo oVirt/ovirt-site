@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Removing_Users_{context}"]
+[id="Removing_Users"]
 ==== Removing Users
 
 When a user account is no longer required, remove it from {virt-product-fullname}.

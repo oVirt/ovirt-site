@@ -1,10 +1,9 @@
-:_content-type: REFERENCE
-[id="Searching_for_users_{context}"]
+[id="Searching_for_users"]
 === Searching for Users
 
 The following table describes all search options for users.
 
-[id="searching_users_{context}"]
+[id="searching_users"]
 .Searching for Users
 [options="header"]
 |===

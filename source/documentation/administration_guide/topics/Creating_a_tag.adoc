@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_tag_{context}"]
+[id="Creating_a_tag"]
 === Creating a Tag
 
 Create tags so you can filter search results using tags.

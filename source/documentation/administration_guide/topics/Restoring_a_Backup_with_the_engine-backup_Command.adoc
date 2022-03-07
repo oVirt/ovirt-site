@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Restoring_a_Backup_with_the_engine-backup_Command_{context}"]
+[id="Restoring_a_Backup_with_the_engine-backup_Command"]
 ==== Restoring a Backup with the engine-backup Command
 
 Restoring a backup using the engine-backup command involves more steps than creating a backup does, depending on the restoration destination. For example, the `engine-backup` command can be used to restore backups to fresh installations of {virt-product-fullname}, on top of existing installations of {virt-product-fullname}, and using local or remote databases.

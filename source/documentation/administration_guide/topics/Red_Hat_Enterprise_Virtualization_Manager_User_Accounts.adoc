@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Red_Hat_Enterprise_Virtualization_Manager_User_Accounts_{context}"]
+[id="Red_Hat_Enterprise_Virtualization_Manager_User_Accounts"]
 ==== {virt-product-fullname} {engine-name} User Accounts
 
 
@@ -10,3 +9,5 @@ A number of system user accounts are created to support {virt-product-fullname} 
 * The *ovirt* user (UID `108`). Owner of the *ovirt-engine* Red Hat JBoss Enterprise Application Platform instance.
 
 * The *ovirt-vmconsole* user (UID `498`). Required for the guest serial console.
+
+

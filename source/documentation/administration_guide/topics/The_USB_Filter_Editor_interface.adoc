@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="The_USB_Filter_Editor_interface_{context}"]
+[id="The_USB_Filter_Editor_interface"]
 = The USB Filter Editor Interface
 
 Double-click the USB Filter Editor shortcut icon on your desktop.

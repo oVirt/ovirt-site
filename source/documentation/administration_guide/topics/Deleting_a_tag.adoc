@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Deleting_a_tag_{context}"]
+[id="Deleting_a_tag"]
 === Deleting a Tag
 
 When a tag is no longer needed, remove it.

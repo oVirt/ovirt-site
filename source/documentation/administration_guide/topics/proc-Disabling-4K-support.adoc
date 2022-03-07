@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Disabling-4K-support-{context}_{context}"]
+[id="Disabling-4K-support-{context}"]
 = Disabling 4K support
 
 // Module included in the following assemblies:

@@ -1,10 +1,9 @@
-:_content-type: REFERENCE
-[id="Searching_for_Volumes_{context}"]
+[id="Searching_for_Volumes"]
 === Searching for Volumes
 
 The following table describes all search options for volumes.
 
-[id="searching_volumes_{context}"]
+[id="searching_volumes"]
 .Searching for Volumes
 [options="header"]
 |===

@@ -1,7 +1,6 @@
 // old ID to prevent broken links
-:_content-type: PROCEDURE
-[id="Replacing_the_Manager_SSL_Certificate_{context}"]
-[id="Replacing_the_Manager_CA_Certificate_{context}"]
+[id="Replacing_the_Manager_SSL_Certificate"]
+[id="Replacing_the_Manager_CA_Certificate"]
 === Replacing the {virt-product-fullname} {engine-name} CA Certificate
 
 [WARNING]
@@ -26,7 +25,7 @@ Using a third-party CA certificate for HTTPS connections does not affect the cer
 
 If you received the private key and certificate from your CA in a P12 file, use the following procedure to extract them. For other file formats, contact your CA. After extracting the private key and certificate, proceed to xref:Replace[Replacing the {virt-product-fullname} {engine-name} Apache CA Certificate].
 
-[id="Extracting_{context}"]
+[id="Extracting"]
 *Extracting the Certificate and Private Key from a P12 Bundle*
 
 The internal CA stores the internally generated key and certificate in a P12 file, in `/etc/pki/ovirt-engine/keys/apache.p12`. Store your new file in the same location. The following procedure assumes that the new P12 file is in `/tmp/apache.p12`.
@@ -59,7 +58,7 @@ The internal CA stores the internally generated key and certificate in a P12 fil
 For new {virt-product-fullname} installations, you must complete all of the steps in this procedure.
 ====
 
-[id="Replace_{context}"]
+[id="Replace"]
 *Replacing the {virt-product-fullname} {engine-name} Apache CA Certificate*
 
 

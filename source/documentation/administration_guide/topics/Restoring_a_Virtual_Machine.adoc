@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Restoring_a_Virtual_Machine_{context}"]
+[id="Restoring_a_Virtual_Machine"]
 ==== Restoring a Virtual Machine
 
 Restore a virtual machine that has been backed up using the backup and restore API. This procedure assumes you have a backup virtual machine on which the software used to manage the previous backup is installed.

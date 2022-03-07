@@ -2,7 +2,7 @@
 
 [appendix]
 :_content-type: ASSEMBLY
-[id="appe-System_Accounts_{context}"]
+[id="appe-System_Accounts"]
 == System Accounts
 
 [id="sect-System_Accounts"]
@@ -15,4 +15,3 @@ include::topics/Red_Hat_Enterprise_Virtualization_Manager_Groups.adoc[]
 include::topics/Virtualization_Host_User_Accounts.adoc[]
 
 include::topics/Virtualization_Host_Groups.adoc[]
-

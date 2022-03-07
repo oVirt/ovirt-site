@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="SPM_priority_settings_explained_{context}"]
+[id="SPM_priority_settings_explained"]
 ==== SPM Priority Settings Explained
 
 The *SPM* settings table details the information required on the *SPM* tab of the *New Host* or *Edit Host* window.

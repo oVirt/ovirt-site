@@ -1,10 +1,9 @@
-:_content-type: REFERENCE
-[id="Searching_for_pools_{context}"]
+[id="Searching_for_pools"]
 === Searching for Pools
 
 The following table describes all search options for Pools.
 
-[id="searching_pools_{context}"]
+[id="searching_pools"]
 .Searching for Pools
 [options="header"]
 |===

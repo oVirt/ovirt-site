@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="Pools_{context}"]
+[id="Pools"]
 === Introduction to Virtual Machine Pools
 
 A virtual machine pool is a group of virtual machines that are all clones of the same template and that can be used on demand by any user in a given group. Virtual machine pools allow administrators to rapidly configure a set of generalized virtual machines for users.

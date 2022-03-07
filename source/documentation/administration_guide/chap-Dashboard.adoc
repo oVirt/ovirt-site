@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-System_Dashboard_{context}"]
+[id="chap-System_Dashboard"]
 == Dashboard
 
 The Dashboard provides an overview of the {virt-product-fullname} system status by displaying a summary of {virt-product-fullname}'s resources and utilization. This summary can alert you to a problem and allows you to analyze the problem area.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Removing_a_USB_policy_{context}"]
+[id="Removing_a_USB_policy"]
 = Removing a USB Policy
 
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Increasing_iSCSI_or_FCP_Storage_{context}"]
+[id="Increasing_iSCSI_or_FCP_Storage"]
 ==== Increasing iSCSI or FCP Storage
 
 There are several ways to increase iSCSI or FCP storage size:

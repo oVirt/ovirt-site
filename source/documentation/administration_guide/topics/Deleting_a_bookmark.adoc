@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Deleting_a_bookmark_{context}"]
+[id="Deleting_a_bookmark"]
 === Deleting a Bookmark
 
 When a bookmark is no longer needed, remove it.

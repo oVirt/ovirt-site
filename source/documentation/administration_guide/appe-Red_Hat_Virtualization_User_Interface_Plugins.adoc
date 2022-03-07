@@ -2,7 +2,7 @@
 
 [appendix]
 :_content-type: ASSEMBLY
-[id="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins_{context}"]
+[id="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins"]
 == {virt-product-fullname} User Interface Plugins
 
 include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugins.adoc[]

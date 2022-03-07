@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Explanation_of_Settings_in_the_Manage_Networks_Window_{context}"]
+[id="Explanation_of_Settings_in_the_Manage_Networks_Window"]
 ==== Explanation of Settings in the Manage Networks Window
 
 The table below describes the settings for the *Manage Networks* window.

@@ -1,5 +1,4 @@
-:_content-type: CONCEPT
-[id="The_File_Not_Found_Page_{context}"]
+[id="The_File_Not_Found_Page"]
 ==== The Page Not Found Page
 
 The Page Not Found page is a page that is displayed when you open a link to a page that cannot be found in the {virt-product-fullname} {engine-name}. The elements of the Page Not Found page that can be customized are as follows:
@@ -14,3 +13,4 @@ The Page Not Found page is a page that is displayed when you open a link to a pa
 * The link to forward and the associated message for that link
 
 The classes for the Page Not Found page are located in `welcome_style.css`.
+

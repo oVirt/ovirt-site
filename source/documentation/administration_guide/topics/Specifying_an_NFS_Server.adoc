@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Specifying_an_NFS_Server_{context}"]
+[id="Specifying_an_NFS_Server"]
 ==== Specifying an NFS Server
 
 
@@ -12,3 +11,4 @@
 ----
 
 ====
+

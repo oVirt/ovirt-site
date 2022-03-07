@@ -2,8 +2,7 @@
 //
 // chap-Storage.adoc
 
-:_content-type: PROCEDURE
-[id="Migrating_a_logical_network_to_an_iscsi_bond_{context}"]
+[id="Migrating_a_logical_network_to_an_iscsi_bond"]
 = Migrating a Logical Network to an iSCSI Bond
 
 If you have a logical network that you created for iSCSI traffic and configured on top of an existing xref:sect-Network_Bonding[network bond], you can migrate it to an iSCSI bond on the same subnet without disruption or downtime.

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Settings_to_Wipe_Virtual_Disks_After_Deletion_{context}"]
+[id="Settings_to_Wipe_Virtual_Disks_After_Deletion"]
 === Settings to Wipe Virtual Disks After Deletion
 
 The `wipe_after_delete` flag, viewed in the Administration Portal as the *Wipe After Delete* check box will replace used data with zeros when a virtual disk is deleted. If it is set to false, which is the default, deleting the disk will open up those blocks for reuse but will not wipe the data. It is, therefore, possible for this data to be recovered because the blocks have not been returned to zero.

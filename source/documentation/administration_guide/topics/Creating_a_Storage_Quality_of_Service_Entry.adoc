@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Creating_a_Storage_Quality_of_Service_Entry_{context}"]
+[id="Creating_a_Storage_Quality_of_Service_Entry"]
 ==== Creating a Storage Quality of Service Entry
 
 *Creating a Storage Quality of Service Entry*

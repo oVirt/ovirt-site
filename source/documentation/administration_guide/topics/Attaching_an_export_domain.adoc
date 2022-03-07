@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Attaching_an_export_domain_{context}"]
+[id="Attaching_an_export_domain"]
 ==== Attaching an Existing Export Domain to a Data Center
 
 [NOTE]

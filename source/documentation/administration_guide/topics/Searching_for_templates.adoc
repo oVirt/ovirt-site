@@ -1,10 +1,9 @@
-:_content-type: REFERENCE
-[id="Searching_for_templates_{context}"]
+[id="Searching_for_templates"]
 === Searching for Templates
 
 The following table describes all search options for templates.
 
-[id="searching_templates_syntax_{context}"]
+[id="searching_templates_syntax"]
 .Searching for Templates
 [options="header"]
 |===

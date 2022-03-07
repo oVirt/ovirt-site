@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Virtual_Disk_User_Roles_Explained_{context}"]
+[id="Virtual_Disk_User_Roles_Explained"]
 ==== Virtual Disk User Roles Explained
 
 
@@ -7,7 +6,7 @@
 
 The table below describes the user roles and privileges applicable to using and administrating virtual disks in the VM Portal.
 
-[id="Virtual_Disk_Administrator_Roles_{context}"]
+[id="Virtual_Disk_Administrator_Roles"]
 
 .{virt-product-fullname} System Administrator Roles
 [options="header"]

@@ -1,10 +1,9 @@
-:_content-type: REFERENCE
-[id="Explanation_of_bridge_opts_Parameters_{context}"]
+[id="Explanation_of_bridge_opts_Parameters"]
 === Explanation of bridge_opts Parameters
 
 
 
-[id="Table-Explanation_of_bridge_opts_Parameters_{context}"]
+[id="Table-Explanation_of_bridge_opts_Parameters"]
 
 .bridge_opts parameters
 [options="header"]

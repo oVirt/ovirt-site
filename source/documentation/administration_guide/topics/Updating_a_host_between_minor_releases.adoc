@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Updating_a_host_between_minor_releases_{context}"]
+[id="Updating_a_host_between_minor_releases"]
 = Updating Hosts Between Minor Releases
 
 :context: admin

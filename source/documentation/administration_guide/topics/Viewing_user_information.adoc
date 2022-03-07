@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Viewing_user_information_{context}"]
+[id="Viewing_user_information"]
 ==== Viewing User Information
 
 *Viewing User Information*

@@ -1,5 +1,4 @@
-:_content-type: ASSEMBLY
-[id="Sending_metrics_to_ELK_{context}"]
+[id="Sending_metrics_to_ELK"]
 
 
 [NOTE]

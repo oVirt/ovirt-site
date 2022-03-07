@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Configuring_Host_SPM_Settings_{context}"]
+[id="Configuring_Host_SPM_Settings"]
 ==== Configuring Host Storage Pool Manager Settings
 
 The Storage Pool Manager (SPM) is a management role given to one of the hosts in a data center to maintain access control over the storage domains. The SPM must always be available, and the SPM role will be assigned to another host if the SPM host becomes unavailable. As the SPM role uses some of the host's available resources, it is important to prioritize hosts that can afford the resources.

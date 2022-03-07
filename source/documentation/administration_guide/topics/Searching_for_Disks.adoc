@@ -1,12 +1,11 @@
-:_content-type: REFERENCE
-[id="Searching_for_Disks_{context}"]
+[id="Searching_for_Disks"]
 === Searching for Disks
 
 The following table describes all search options for disks.
 
 NOTE: You can use the `Disk Type` and `Content Type` filtering options to reduce the number of displayed virtual disks.
 
-[id="searching_disks_{context}"]
+[id="searching_disks"]
 .Searching for Disks
 [options="header"]
 |===

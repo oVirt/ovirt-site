@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Host_Log_Files_{context}"]
+[id="Host_Log_Files"]
 === Host Log Files
 
 [options="header"]

@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Querying_Users_and_Groups_{context}"]
+[id="Querying_Users_and_Groups"]
 ==== Querying Users and Groups
 
 The `query` module allows you to query user and group information. For a full list of options, run `ovirt-aaa-jdbc-tool query --help`.

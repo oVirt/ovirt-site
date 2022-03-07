@@ -1,5 +1,4 @@
-:_content-type: PROCEDURE
-[id="Changing_the_Data_Center_Storage_Type_{context}"]
+[id="Changing_the_Data_Center_Storage_Type"]
 ==== Changing the Data Center Storage Type
 
 You can change the storage type of the data center after it has been initialized. This is useful for data domains that are used to move virtual machines or templates around.

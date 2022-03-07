@@ -1,5 +1,4 @@
-:_content-type: REFERENCE
-[id="Host_Power_Management_settings_explained_{context}"]
+[id="Host_Power_Management_settings_explained"]
 ==== Host Power Management Settings Explained
 
 The *Power Management* settings table contains the information required on the *Power Management* tab of the *New Host* or *Edit Host* windows. You can configure power management if the host has a supported power management card.

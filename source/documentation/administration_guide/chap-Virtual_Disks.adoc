@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Virtual_Machine_Disks_{context}"]
+[id="chap-Virtual_Machine_Disks"]
 == Virtual Disks
 
 include::topics/Understanding_virtual_machine_storage.adoc[]

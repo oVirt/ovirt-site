@@ -1,7 +1,7 @@
+:_content-type: PROCEDURE
 [id="Upgrading_with_ovirt-fast-forward-upgrade_{context}"]
-:Upgrading_with_ovirt-fast-forward-upgrade:
-
 = Upgrading to {virt-product-fullname} {engine-name} 4.3 with `ovirt-fast-forward-upgrade`
+:Upgrading_with_ovirt-fast-forward-upgrade:
 
 .Procedure
 

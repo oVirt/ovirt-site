@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="Upgrading_from_4-3"]
 = Upgrading from {virt-product-fullname} 4.3 to 4.4
 

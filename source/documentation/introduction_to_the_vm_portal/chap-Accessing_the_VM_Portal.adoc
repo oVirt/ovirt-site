@@ -1,4 +1,5 @@
-[[chap-Accessing_the_VM_Portal]]
+:_content-type: ASSEMBLY
+[id="chap-Accessing_the_VM_Portal"]
 = Accessing the VM Portal
 
 include::topics/What_is_the_VM_Portal.adoc[leveloffset=+1]

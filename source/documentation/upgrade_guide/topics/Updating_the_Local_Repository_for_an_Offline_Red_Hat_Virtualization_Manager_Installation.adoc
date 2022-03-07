@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Updating_the_Local_Repository_for_an_Offline_Red_Hat_Enterprise_Virtualization_Manager_Installation"]
 = Updating the Local Repository for an Offline {virt-product-fullname} {engine-name} Installation
 

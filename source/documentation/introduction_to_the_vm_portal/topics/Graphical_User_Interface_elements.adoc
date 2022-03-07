@@ -1,9 +1,10 @@
-[[Graphical_User_Interface_elements]]
+:_content-type: CONCEPT
+[id="Graphical_User_Interface_elements"]
 = Graphical user interface elements
 
 You can perform common virtual machine tasks, change log-in options, and view messages in the VM Portal screen.
 
-image:VM_screen.png[] 
+image:VM_screen.png[]
 
 *Key graphical user interface elements*
 

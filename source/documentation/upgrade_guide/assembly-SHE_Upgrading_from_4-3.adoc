@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='SHE_Upgrading_from_4-3']
 = Upgrading a self-Hosted engine from {virt-product-fullname} 4.3 to 4.4
 

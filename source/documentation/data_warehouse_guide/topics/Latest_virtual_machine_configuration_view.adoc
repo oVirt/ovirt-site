@@ -1,8 +1,8 @@
-[[Latest_virtual_machine_configuration_view]]
+[id="Latest_virtual_machine_configuration_view_{context}"]
 ==== Virtual Machine Configuration
 
 The following table shows the configuration history parameters of the virtual machines in the system.
-[[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_configuration_view]]
+[id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_configuration_view"]
 
 .v4_4_configuration_history_vms
 [options="header"]

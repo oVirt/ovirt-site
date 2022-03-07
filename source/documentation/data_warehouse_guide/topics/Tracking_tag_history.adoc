@@ -1,4 +1,4 @@
-[[Tracking_tag_history]]
+[id="Tracking_tag_history_{context}"]
 === Tracking Tag History
 
 The ETL Service collects tag information as displayed in the Administration Portal every minute and stores this data in the tags historical tables. The ETL Service tracks five types of changes:

@@ -1,4 +1,4 @@
-[[Overview_of_Configuring_Data_Warehouse]]
+[id="Overview_of_Configuring_Data_Warehouse_{context}"]
 == Overview of Configuring Data Warehouse
 
 You can install and configure Data Warehouse on the same machine as the {engine-name}, or on a separate machine with access to the {engine-name}:

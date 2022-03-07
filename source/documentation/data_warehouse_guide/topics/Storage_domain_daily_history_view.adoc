@@ -1,4 +1,4 @@
-[[Storage_domain_daily_history_view]]
+[id="Storage_domain_daily_history_view_{context}"]
 ==== Storage Domain Statistics Views
 
 

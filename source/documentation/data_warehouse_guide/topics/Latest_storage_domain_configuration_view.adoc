@@ -1,8 +1,8 @@
-[[Latest_storage_domain_configuration_view]]
+[id="Latest_storage_domain_configuration_view_{context}"]
 ==== Storage Domain Configuration
 
 The following table shows the configuration history parameters of the storage domains in the system.
-[[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_storage_domain_configuration_view]]
+[id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_storage_domain_configuration_view"]
 
 .v4_4_configuration_history_storage_domains
 [options="header"]

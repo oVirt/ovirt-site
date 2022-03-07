@@ -1,8 +1,8 @@
-[[Latest_datacenter_configuration_view1]]
+[id="Latest_datacenter_configuration_view1_{context}"]
 ==== Data Center Configuration
 
 The following table shows the configuration history parameters of the data centers in the system.
-[[References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-70]]
+[id="References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-70"]
 
 .v4_4_configuration_history_datacenters
 [options="header"]

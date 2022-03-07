@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Dedicated CPU Policies | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Dedicated CPU Policies" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/features/virt/dedicated-cpu.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/features/virt/dedicated-cpu.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dedicated CPU Policies" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2752/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Dedicated CPU Policies","url":"https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/features/virt/dedicated-cpu.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2752/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2752/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2752/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2752/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2752/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2752/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2752/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2752/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2752/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2752/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2752/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2752/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2752/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2752/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2752/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2752/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2752/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2752/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2752/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2752/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2752/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/1cbe657a4bee069d0b10b63100fd75ae?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/1cbe657a4bee069d0b10b63100fd75ae?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Tomáš Golembiovský</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2752/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="dedicated-cpu-policies">Dedicated CPU Policies</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature introduces policies for dynamically dedicating physical CPUs to
+the VM. While this can be (to some extent) done with static CPU pinning, the
+CPU pinning requires that the VM is pinned also to a particular host(s). It
+also ideally requires that no other VMs without pinning are running on the host
+to avoid sharing the pinned CPUs. Instead, this new feature allows the user to
+configure only the way how its physical CPUs should be assigned to the VM and oVirt
+will take care of dynamically allocating suitable physical CPUs as well as
+forbidding other VMs from running on dedicated CPUs.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Tomáš Golembiovský</li>
+  <li>Email: tgolembi@redhat.com</li>
+</ul>
+
+<h2 id="glossary">Glossary</h2>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2752/develop/sla/cpu-pinning.html"><em>CPU pinning</em></a>:
+Feature in oVirt that allows you to statically pin vCPUs to pCPUs by
+defining a pinning string in VM configuration (e.g. <code class="language-plaintext highlighter-rouge">0#1_1#2-3</code>).</li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1688186"><em>NUMA auto pinning policy</em></a>:
+Feature in oVirt that defines pinning policies (<em>Pin</em> and <em>Resize and
+Pin</em>) that allow CPU pinning to automatically adapt to the topology of
+pinned host. Just like CPU pinning, this is performed once during VM
+configuration.</li>
+  <li><em>pCPU</em>: Physical CPU of a host.</li>
+  <li><em>vCPU</em>: Virtual CPU of a VM.</li>
+  <li><em>CPU list</em>: A string describing list of CPUs. It is a comma-separated list
+of CPUs or CPU ranges. The range of CPUs has to be specified in
+non-decreasing order. Example of such string is: <code class="language-plaintext highlighter-rouge">1,3-5,7</code></li>
+</ul>
+
+<h2 id="description">Description</h2>
+
+<p>CPU pinning and NUMA auto pinning policies don’t take into account current
+utilization of a host. Instead, it is a responsibility of the administrator to
+make sure that VMs running on a host are not pinned to same pCPUs and ideally
+also to make sure that no VMs without CPU pinning are running on the host. This
+makes the pinning process rather difficult and inflexible.</p>
+
+<p>To be able to have more flexibility in configuring how vCPUs of VMs use pCPUs
+this feature introduces several policies for automatic dedicating of CPUs.
+This feature can be used instead of the manual CPU pinning methods (not in
+addition). Compared to CPU pinning the advantages are that:</p>
+
+<ul>
+  <li>VM does not need to be pinned to a specific host(s),</li>
+  <li>takes into consideration existing VMs which solves one of the issues with
+<em>Pin</em> NUMA auto pinning policy where several VMs can end up to be pinned
+to same CPUs,</li>
+  <li>it makes sure that VMs without any dedicated CPUs don’t share CPUs with
+VMs that have dedicated CPUs</li>
+</ul>
+
+<p>The policies described below divide the set of available pCPUs into
+three sub-sets. There are the dedicated CPUs where each of those can be
+assigned only to a single VM. Then there are some restricted CPUs (threads)
+that cannot be used by any
+other VM because of requirements on the threads of the core. And
+finally there is the set of CPUs that are not strictly assigned to any
+particular VM and are shared between all the VMs with <em>shared</em> policy. This
+subset is hereby referred to as <em>shared pool</em>. Host CPUs that play a special
+role, e.g. CPU that VDSM is pinned to or CPUs reserved to host on SAP HANA
+systems are considered to be also part of the <em>shared pool</em>.</p>
+
+<p>The available CPU policies are:</p>
+
+<ul>
+  <li><em>shared</em>: <em>(default)</em> The guest vCPUs will be allowed to roam among all
+pCPUs from shared pool.</li>
+  <li><em>dedicated</em>: The guest vCPUs will be strictly pinned to a set of host pCPUs
+(similarly to static CPU pinning). The set of pCPUs will be chosen to match
+the required guest CPU topology. If the host has SMT architecture, thread
+siblings are preferred.</li>
+  <li><em>isolate-threads</em>: If the host does not have SMT architecture this is same
+as <em>dedicated</em> policy. If the host has SMT architecture each vCPU is placed
+on a different physical core and all thread siblings are excluded from use
+by this and any other VM (rendering all but one thread from a core unusable).</li>
+  <li><em>siblings</em>: The host must have an SMT architecture. Each vCPU is
+allocated on thread siblings and threads from single core can only be
+assigned to this VM. If some threads remain unused these will be excluded
+from use by any other VM.</li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>There are no special prerequisites for this feature.</p>
+
+<h2 id="security">Security</h2>
+
+<p>This feature is primarily designed for performance tuning and is not meant to
+be a security feature. It is possible for other VMs to share the dedicated CPUs
+for a short period of time when the VM is brought up (boot, after migration,
+restore from snapshots, etc.). This is not so much problem during boot because
+by the time OS is started the CPUs should be already evicted, but it could
+potentially provide a window of opportunity (for exploiting CPU
+vulnerabilities) after finished migration or when restoring VM from snapshot.</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>See the <em>Security</em> section.</p>
+
+<p>Currently, when a CPU is already dedicated to some VM, VDSM will not move the
+VM onto another CPU to make it free to another VM. This may be addressed in
+the future (see <em>Future Work</em> section), but for now this means:</p>
+
+<ul>
+  <li>
+    <p>It may be impossible to start VMs with CPU pinning on that host because
+the requested CPUs are already occupied. It is suggested to start VMs with
+CPU pinning before any VMs with dedicated CPU policy.</p>
+  </li>
+  <li>
+    <p>It may be impossible to start a VM with dedicated CPUs even though there
+seems to be enough space in terms of number of used vs. free CPUs.</p>
+  </li>
+</ul>
+
+<h2 id="changes-to-engine-and-vdsm">Changes to Engine and Vdsm</h2>
+
+<p>The high level overview of the workflow in Engine and Vdsm is following:</p>
+
+<ol>
+  <li>
+    <p>When refreshing host capabilities Engine picks the information about which
+CPU is dedicated to VDSM process. It will also read a detailed information
+about CPU topology on the host.</p>
+  </li>
+  <li>
+    <p>On VM start/migration/etc. Engine consults the policy for dedicating CPUs
+and schedules the VM on host with enough free CPUs. Engine determines the
+mapping between physical and virtual CPUs.</p>
+  </li>
+  <li>
+    <p>Engine produces domain XML that contains properly populated <code class="language-plaintext highlighter-rouge">&lt;vcpupin&gt;</code>
+element (similarly to CPU pinning) and stores the policy name in VM
+metadata.</p>
+  </li>
+  <li>
+    <p>Vdsm starts the VM and analyzes which CPUs were dedicated. Vdsm updates the
+pool of shared CPUs and re-configures VMs without any CPU pinning or
+dedicated CPUs to run on the new set of CPUs from shared pool.</p>
+  </li>
+  <li>
+    <p>When the VM with CPU pinning or dedicated CPUs is being destroyed, Vdsm
+updates the pool of shared CPUs. Vdsm then re-configures VMs without any
+CPU pinning or dedicated CPUs to run on the new set of CPUs from shared
+pool. Because we allow overprovisioning CPUs this needs to be done
+immediately to better utilize the CPUs among VMs.</p>
+  </li>
+</ol>
+
+<p>Several changes to the internal API are required. To accomplish step 1. the
+verb <code class="language-plaintext highlighter-rouge">Host.getCapabilities</code> will be extended to provide keys:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">vdsmToCpuAffinity</code>: list of one or more CPU IDs to which VDSM process is
+pinned to</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">cpuTopology</code>: detailed description of CPU topology in a form of a list
+where each object contains:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">cpu_id</code>: ID of the physical CPU</li>
+      <li><code class="language-plaintext highlighter-rouge">numa_cell_id</code>: to which NUMA node the CPU belongs</li>
+      <li><code class="language-plaintext highlighter-rouge">socket_id</code>: on which socket the CPU resides</li>
+      <li><code class="language-plaintext highlighter-rouge">die_id</code>: on which die of the socket this CPU resides; usually there is
+only one die in the socket so in most cases this will be <code class="language-plaintext highlighter-rouge">0</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">core_id</code>: on which core of the die this CPU resides</li>
+    </ul>
+  </li>
+</ul>
+
+<p>There are also changes to VM metadata. One is that Engine will add a new entry
+called <code class="language-plaintext highlighter-rouge">cpuPolicy</code> that will contain the requested CPU policy. The valid values
+for <code class="language-plaintext highlighter-rouge">cpuPolicy</code> are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">none</code>: no pinning or policy selected, this is regular VM with shared CPUs</li>
+  <li><code class="language-plaintext highlighter-rouge">manual</code>: VM has fixed CPU pinning (CPU pinning or NUMA auto pinning)</li>
+  <li><code class="language-plaintext highlighter-rouge">dedicated</code>: VM uses the <code class="language-plaintext highlighter-rouge">dedicated</code> policy</li>
+  <li><code class="language-plaintext highlighter-rouge">isolate-threads</code>: VM uses the <code class="language-plaintext highlighter-rouge">isolate-threads</code> policy</li>
+  <li><code class="language-plaintext highlighter-rouge">siblings</code>: VM uses the <code class="language-plaintext highlighter-rouge">siblings</code> policy</li>
+</ul>
+
+<p>Another new metadata entry is <code class="language-plaintext highlighter-rouge">manuallyPinedCPUs</code>. This is populated by VDSM
+(unless Engine does it first) for VMs with <code class="language-plaintext highlighter-rouge">manual</code> policy and it contains CPU
+list of CPUs that are covered by the pinning string. This lets VDSM know which
+CPUs have defined pinning and which do not. It is important during recovery
+when it cannot be ascertained in any other way. Note that CPUs that are not
+pinned manually will use CPUs from shared pool.</p>
+
+<p>Migration parameters in <code class="language-plaintext highlighter-rouge">VM.migrate</code> API call will contain a field <code class="language-plaintext highlighter-rouge">cpusets</code>
+with the CPU mapping for the VM on the destination host. Because the libvirt
+domain on destination is created by VDSM on source it needs to know which CPUs
+are dedicated to the VM on destination so that it can provide a correct domain
+XML to the destination host. The value of <code class="language-plaintext highlighter-rouge">cpusets</code> is a list of CPU lists
+where each item of the list describes pinning for the vCPU at that index. For
+example <code class="language-plaintext highlighter-rouge">['1','3','5']</code> means that vCPU
+<code class="language-plaintext highlighter-rouge">1</code> should be pinned to pCPU <code class="language-plaintext highlighter-rouge">1</code>, vCPU <code class="language-plaintext highlighter-rouge">2</code> should be pinned to pCPU <code class="language-plaintext highlighter-rouge">3</code> and
+vCPU <code class="language-plaintext highlighter-rouge">3</code> should be pinned to pCPU <code class="language-plaintext highlighter-rouge">5</code>. While the field itself is technically
+optional it is required for VMs with policy other than <code class="language-plaintext highlighter-rouge">shared</code> or <code class="language-plaintext highlighter-rouge">manual</code>. When
+specified, length of the list must match number of virtual CPUs.</p>
+
+<p>API call <code class="language-plaintext highlighter-rouge">VM.setNumberOfCpus</code> will be extended with an optional field
+<code class="language-plaintext highlighter-rouge">cpusets</code>. It is a list of CPU lists where each item of the list describes
+pinning for the vCPU at that index. The rules of its use are same as for
+<code class="language-plaintext highlighter-rouge">VM.migrate</code> call. When checking list length it must match the new number of
+CPUs (i.e. must match <code class="language-plaintext highlighter-rouge">numberOfCpus</code> field).</p>
+
+<h2 id="testing">Testing</h2>
+
+<p><em>TODO</em></p>
+
+<p>There are many parts that need to be tested</p>
+
+<p>feature testing:</p>
+<ul>
+  <li>create and especially migration</li>
+  <li><code class="language-plaintext highlighter-rouge">isolate-threads</code> is respected</li>
+  <li><code class="language-plaintext highlighter-rouge">siblings</code> excludes unused threads</li>
+</ul>
+
+<p>backward compatibility:</p>
+<ul>
+  <li>cpu pinning</li>
+  <li>migration</li>
+</ul>
+
+<h2 id="future-work">Future Work</h2>
+
+<p>Use of VMs with dedicated CPU policies may in time lead to fragmentation of
+cores and threads on the hosts. Leading not only to inefficient use,
+difficulties with scheduling but ultimately could prevent new VMs from
+starting on a host. As an example consider a situation where your VM needs to
+use a single socket, but all the sockets are already occupied by smaller VMs.
+So even though there may be enough free cores/threads in total on the host,
+you won’t be able to start the VM without removing VMs from one of the sockets
+firsts. Techniques for re-assigning CPUs for consolidating resources need to
+be investigated. It may (or may not) turn out to be a prerequisite for useful
+CPU hot-plugging too.</p>
+
+<p>At the moment we generally do not pin the emulator thread (<code class="language-plaintext highlighter-rouge">emulatorpin</code>) nor
+do we pin IO threads (<code class="language-plaintext highlighter-rouge">iothreadpin</code>) of the VMs. The only exception is high
+performance VMs where these threads are pinned to first core of the socket on
+which the VM runs. This however may change in the future in respect to another
+feature,
+<a href="/ovirt-site/previews/2752/develop/release-management/features/virt/parallel-migration-connections.html">parallel migration connections</a>.
+In all cases Engine has to take care that CPUs used for emulator threads or IO
+threads are not dedicated to a VM. Such CPUs have to remain in shared pool.</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2752/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2752/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2752/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2752/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/dedicated-cpu.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/dedicated-cpu.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

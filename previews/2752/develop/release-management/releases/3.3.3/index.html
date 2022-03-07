@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>oVirt 3.3.3 release notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="oVirt 3.3.3 release notes" />
+<meta name="author" content="Brian Proffitt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/releases/3.3.3/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/releases/3.3.3/" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.3.3 release notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Brian Proffitt" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Brian Proffitt"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2752/images/logo.svg"},"name":"Brian Proffitt"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt 3.3.3 release notes","url":"https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/releases/3.3.3/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2752/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2752/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2752/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2752/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2752/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2752/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2752/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2752/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2752/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2752/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2752/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2752/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2752/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2752/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2752/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2752/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2752/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2752/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2752/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2752/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2752/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bdc8ca08102747efb50537d34ab6d73c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bdc8ca08102747efb50537d34ab6d73c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Brian Proffitt</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Douglas Landgraf</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-333-release-notes">oVirt 3.3.3 release notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of oVirt 3.3.3 release</p>
+
+<p>oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.</p>
+
+<p>To find out more about features that were added in previous oVirt releases, check out the <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.3.2/">oVirt 3.3.2 release notes</a>, <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.3.1/">oVirt 3.3.1 release notes</a>, <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.3/">oVirt 3.3 release notes</a>, <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.2/">oVirt 3.2 release notes</a>, and <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.1/">oVirt 3.1 release notes</a>.</p>
+
+<p>For a general overview of oVirt, read <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.0/feature-guide.html">the oVirt 3.0 feature guide</a> and the <a href="/ovirt-site/previews/2752/community/about.html">about oVirt</a> page.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-333-release-notes" id="markdown-toc-ovirt-333-release-notes">oVirt 3.3.3 release notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+        </ol>
+      </li>
+      <li><a href="#whats-new-in-333" id="markdown-toc-whats-new-in-333">What’s New in 3.3.3?</a></li>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a></li>
+      <li><a href="#bugs-fixed" id="markdown-toc-bugs-fixed">Bugs fixed</a>        <ol>
+          <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+          <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+          <li><a href="#ovirt-node-plugin-vdsm" id="markdown-toc-ovirt-node-plugin-vdsm">ovirt-node-plugin-vdsm</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p><strong>IMPORTANT NOTE:</strong> If you’re upgrading from a previous version please update ovirt-release to latest version (10) and ensure you’ve <strong>ovirt-3.3.3</strong> and <strong>ovirt-stable</strong> repository enabled.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update ovirt-release
+  # yum repolist enabled
+</code></pre></div></div>
+
+<p>If you’re upgrading from oVirt 3.3, you should just execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update ovirt-engine-setup
+  # engine-setup
+</code></pre></div></div>
+
+<p>If you’re upgrading from oVirt 3.2, you should read <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.2/to-3.3-upgrade.html">oVirt 3.2 to 3.3 upgrade</a></p>
+
+<p>If you’re upgrading from oVirt 3.1, you should upgrade to 3.2 before upgrading to 3.3.3. Please read <a href="/ovirt-site/previews/2752/develop/release-management/releases/3.1/to-3.2-upgrade.html">oVirt 3.1 to 3.2 upgrade</a> before starting the upgrade.
+ On CentOS and RHEL: For upgrading to 3.2 you’ll need the 3.2 stable repository.
+So, the first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [ovirt-32]
+  name=Stable builds of the oVirt 3.2 project
+  baseurl=https://resources.ovirt.org/releases/3.2/rpm/EL/$releasever/
+  enabled=1
+  skip_if_unavailable=1
+  gpgcheck=0
+</code></pre></div></div>
+
+<p>Then</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update ovirt-engine-setup
+</code></pre></div></div>
+
+<p>should install ovirt-engine-setup-3.2.3-1.el6.noarch.rpm
+if you have already updated to 3.3.x please use distro-sync or downgrade instead of update.
+Then:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # engine-upgrade
+</code></pre></div></div>
+
+<p>this will upgrade your system to latest 3.2.
+Once you’ve all working on 3.2, enable 3.3/stable repository, then just</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update ovirt-engine-setup
+  # engine-setup
+</code></pre></div></div>
+
+<p>will upgrade to latest 3.3.</p>
+
+<h2 id="whats-new-in-333">What’s New in 3.3.3?</h2>
+
+<h2 id="known-issues">Known issues</h2>
+
+<ul>
+  <li>EL &gt;= 6.5 or cloud-init &gt;= 0.7.2 are needed for cloud-init feature support ()</li>
+</ul>
+
+<h2 id="bugs-fixed">Bugs fixed</h2>
+
+<h3 id="ovirt-engine">oVirt Engine</h3>
+
+<ul>
+  <li>[RHEVM-RHS] Remove rebalance and replace-brick actions from REST API</li>
+  <li>[es_ES] change spanish translation for “poweroff”, at the moment it is the same word “apagar”</li>
+  <li>[RHEVM-RHS] Should check for gluster capabilities when moving host from virt to gluster cluster</li>
+  <li>(PENDING RC BUILD) PRD33 - set marketplace link/icon</li>
+  <li>[oVirt] [provider] Add button shouldn’t appear on specific provider</li>
+  <li>cloud-init integration - REST API</li>
+  <li>[rhevm] Webadmin - Events - Search box with value “Events: Templates =*” gives error (Exception message is StatementCallback)</li>
+  <li>[GlusterFS] Default option on GlusterFS Data Center in Storage Type is ISO/ POSIX compliant FS</li>
+  <li>When run multiple vms then filter don’t check correctly free resources.</li>
+  <li>[RHEVM] cannot upgrade RHEVM 3.2 to RHEVM 3.3 because of rhevm-tools-3.3.0-0.22.master.el6ev.noarch Requires: rhevm-notification-service = 3.2.3-0.43.el6ev</li>
+  <li>Fencing flow fails to get to secondary PM (primary is deliberately configured with wrong params)</li>
+  <li>The $action and the $type aren’t set in the change cd command.</li>
+  <li>optimize scheduling for speed</li>
+  <li>Scheduling: allow overbooking resources</li>
+  <li>async between masterVersion : can’t connect to StoragePool</li>
+  <li>Plaintext user passwords in async_tasks database</li>
+  <li>CPU pinning option is not available for the VMs running on “Local on Host” type DataCenter.</li>
+  <li>engine-setup incorrectly directs users to use firewall-cmd on RHEL when it’s only available on Fedora</li>
+  <li>engine-setup after ‘engine-backup –mode=restore’ does not fix everything</li>
+  <li>[RHSC][scale-test] Create Volume Results In “Error while executing action”</li>
+  <li>[engine-backend] LSM fails due to another operation (attaching the disk snapshot to another VM), which was started after it and managed to take the lock on the disk</li>
+  <li>[ovirt-setup] engine-setup does not configure firewall properly on upgrade</li>
+  <li>CpuOverCommitDuration not working correctly in cluster policies</li>
+  <li>Incorrect error message when trying to import network with invalid name from network provider</li>
+  <li>NPE: CanDoActionFailure - Import a vm that has memory state snapshot</li>
+  <li>Trying to add VNIC profile from “Edit Logical Network” window fails with error message</li>
+  <li>It is possible to create several VNIC profile with the same name for the specific network</li>
+  <li>[REST-API] XSD schema validation error: ‘vnic_profile’: Missing child element(s)</li>
+  <li>[REST-API] XSD schema validation error: Element ‘payload’: Missing child element(s).</li>
+  <li>[upgrade] upgrade 3.2 =&gt; 3.3 failed - password authentication failed for user “rhevm”</li>
+  <li>VM stays locked, in being migrated state, even after migration failed.</li>
+  <li>Issues during database cleanup after upgrade</li>
+  <li>[RHEVM] setup should be more tolerant detecting available memory</li>
+  <li>Upgrade fails if postgres owned temporary table exists in engine database</li>
+  <li>limitation for maximum VirtIO-SCSI disks should be removed</li>
+  <li>[scale-test] Create Volume Results In “Error while executing action”</li>
+  <li>Path to image under glance storage domain not correct</li>
+  <li>rhevm-manage-domains fails to update ldapServers entries when using action=edit</li>
+  <li>[RHEVM][backend] cannot add vNIC with custom MAC address to VM if there is no adresses left in MAC Address Pool.</li>
+  <li>Spelling correction</li>
+  <li>[Admin Portal] [java.lang.NullPointerException] No msg/event when prestarted pooled VM cannot be started because of low memory</li>
+  <li>Setting shmmax on F19 is not enough for starting postgres</li>
+  <li>Pending memory is not decremented during VM migration</li>
+  <li>Even distribution policy selects the same host where there is no CPU load on the host</li>
+  <li>Power Managment with cisco_ucs problem</li>
+  <li>NIC selection shows but it is not part of VM creation.</li>
+  <li>An attempt to create a vnic profile is made each time a vm network is being updated</li>
+  <li>RPM packages built without .pyc/.pyo files</li>
+  <li>Webadmin &amp; User Portal: set secure-channels property in .vv files</li>
+  <li>[RHEVM] user is not forced to unplug vNIC when switching to profile without port mirroring</li>
+  <li>Cannot add hypervisor host when use chinese support</li>
+  <li>[RHEV-RHS] Disable ‘rebalance’ from RHEVM UI, as its partial in implementation</li>
+  <li>[engine-backend] guest alignment scan fails on file storage</li>
+  <li>[REST-API] misleading error message, for moving hosts between clusters</li>
+  <li>[engine-backend] deadlock in postgres during multiple AddVmFromTemplate threads</li>
+  <li>[oVirt] Disabled Balloon in Add Vm</li>
+  <li>Rollback of setup seems to remove several configuration files when upgrade is ran again setup will prompt for hostname and other data</li>
+  <li>upgrade from 3.2 with remote db user ‘postgres’ is not recognized as an upgrade</li>
+  <li>Storage and dc are up although there is no host</li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<h3 id="ovirt-node-plugin-vdsm">ovirt-node-plugin-vdsm</h3>
+
+<ul>
+  <li>Use Management class to pass informations</li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2752/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2752/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2752/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2752/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.3.3/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/releases/3.3.3/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

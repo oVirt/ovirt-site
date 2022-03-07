@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>SSO | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="SSO" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/features/infra/sso.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/features/infra/sso.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SSO" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2752/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"SSO","url":"https://ovirt.github.io/ovirt-site/previews/2752/develop/release-management/features/infra/sso.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2752/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2752/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2752/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2752/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2752/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2752/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2752/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2752/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2752/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2752/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2752/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2752/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2752/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2752/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2752/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2752/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2752/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2752/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2752/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2752/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2752/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2752/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2752/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2752//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2752/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alon Bar-Lev</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2752/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="sso">SSO</h1>
+
+<h2 id="ovirt-sso">oVirt SSO</h2>
+
+<h3 id="the-challenge">The challenge</h3>
+
+<p>Acquire ability to automatically login a user into the console of a virtual machine.</p>
+
+<p>Console login is assumed to be local, there is no standard way to pass credential via a protocol as no network is involved.</p>
+
+<p>There are solution to automate the login process via API, this implies that with cooperation of a component running on system it is possible to automate the login process.</p>
+
+<h3 id="why-dont-we-use-the-network-login-capabilities-of-the-system">Why don’t we use the network login capabilities of the system?</h3>
+
+<p>In theory there should be no need to hijack remote system console, as every modern operating system supports remote login protocol and graphics redirection, in other words there is no need for spice protocols, as we could use native system remote desktop capabilities.</p>
+
+<p>In practice there are no mature Windows based solutions for graphics redirection leveraging the local and remote GPUs.</p>
+
+<p>Within Linux using ssh + x11 + mesa is possible, but is somewhat difficult to establish, as X11 does not support multiple window managers.</p>
+
+<p>The other challenge is to reach virtual machine user interface via network protocol when there is no network available or via side-band, this can be solved by tunneling stream over virtual io channel into localhost at specific port, for example ssh.</p>
+
+<h3 id="current-ovirt-implementation-33">Current oVirt Implementation (3.3)</h3>
+
+<p>Automatic login is enabled only in user portal.</p>
+
+<p>Automatic login is always enabled in user portal for VMs that run guest agent.</p>
+
+<p>The domain, user and password that it used are the credentials used to login into the web interface.</p>
+
+<h4 id="players">Players</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>ovirt-engine</td>
+      <td>management server</td>
+    </tr>
+    <tr>
+      <td>vdsm</td>
+      <td>host managers</td>
+    </tr>
+    <tr>
+      <td>libvirt</td>
+      <td>qemu access layer</td>
+    </tr>
+    <tr>
+      <td>qemu</td>
+      <td>virtualization provider</td>
+    </tr>
+    <tr>
+      <td>guest agent</td>
+      <td>software that runs within vm operating system</td>
+    </tr>
+    <tr>
+      <td>websocket proxy</td>
+      <td>websocket protocol proxy</td>
+    </tr>
+    <tr>
+      <td>desktop</td>
+      <td>end-user desktop</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="use-diagram">Use diagram</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vdsm control:            ovirt-engine --HTTPS(mutual authentication)--&gt; vdsm
+  qemu control:            vdsm --API----&gt; libvirt --usock--------------&gt; qemu
+  guest agent:             vdsm --usock--&gt; qemu    --virtual serial-----&gt; guest agent
+  user: ovirt user portal: browser --HTTPS-----------&gt; ovirt-engine
+  user: spice/novnc        native  --SSL(vnc/spice)--&gt;  qemu
+  user  novnc/spice-html5: browser --SSL(webscoket)--&gt; websocket proxy --TCP(vnc/spice)--&gt; qemu
+</code></pre></div></div>
+
+<h4 id="auto-login-sequence">Auto login sequence</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
+   1.     ---HTTPS---&gt; login
+   2.     ---HTTPS---&gt; Start Graphical
+   3.
+   4.                ---HTTPS(m.auth)--&gt;---usock---&gt;Ticket
+   5.                ---HTTPS(m.auth)--&gt;---usock---&gt;---serial--&gt;user/password
+   6.                                                            --------------&gt;
+   7.     &lt;--HTTPS- Execute spice/vnc client with Ticket, host, port
+   8.     ---SSL-----------------------------------&gt;Ticket
+   9.                           &lt;--usock--------- disconnect
+  10                            ---usock-----------&gt;---serial--&gt;lock-screen
+  11.                           ---usock-----------&gt;Ticket
+</code></pre></div></div>
+
+<ol>
+  <li>User login into ovirt-engine user portal.</li>
+  <li>User request graphical session to a VM within user portal.</li>
+  <li>ovirt-engine generates random “ticket”.</li>
+  <li>ovirt-engine via vdsm sends the ticket to qemu with hard coded validity period of 120 seconds.</li>
+  <li>ovirt-egnine via vdsm sends desktop login command along with domain, user, password to guest agent running within the virtual machine, this is done via the side band vdsm&lt;-&gt;guest agent channel.</li>
+  <li>guest agent uses the credentials to automate login sequence using one of various methods.</li>
+  <li>ovirt-engine trigger execution of spice/vnc at client machine passing the ticket.</li>
+  <li>spice/vnc at client connects to qemu passing the ticket and establish connection.</li>
+  <li>when spice/vnc session disconnects qemu will issue disconnection event to vdsm.</li>
+  <li>vdsm sends lock-screen command to guest agent.</li>
+  <li>vdsm will revive ticket so it will be valid again in case of virtual migration, to enable client re-connection.</li>
+</ol>
+
+<p>* in case of webscoket proxy another ticket is issued signed by engine key and validated against engine public key at websocket proxy, ticket contains destination ip and port to establish communication with.</p>
+
+<h4 id="guest-agent-commands">Guest agent commands</h4>
+
+<p>Available more commands than actually used.</p>
+
+<ul>
+  <li>refresh - Send misc information back.</li>
+  <li>login - Perform login, triggered by engine command, can also be used to unlock. Accepts: username[@domain], password</li>
+  <li>lock-screen - Lock console, used by:
+    <ol>
+      <li>vdsm save vm state sequence (before saving).</li>
+      <li>libvirt event GRAPHICS phase: GRAPHICS_DISCONNECT</li>
+    </ol>
+  </li>
+  <li>log-off - Force logoff user from console, triggered by engine command, not actually used anywhere.</li>
+  <li>shutdown - Gracefully shutdown system, used by vdsm VM shutdown sequence before using other more intrusive means.</li>
+</ul>
+
+<h3 id="problems-in-current-implementations">Problems in current implementations</h3>
+
+<ul>
+  <li>
+    <p>Inability to support single signon or non password based authentication (example: OpenID)
+The assumption that the password used to login into the ovirt web interface is available or can be used in order to login into guest is incorrect. Authentication using kerberos, SSL certificate, OpenID or any password based SSO will not provide usable password to the engine.</p>
+  </li>
+  <li>
+    <p>Always enable automatic login when guest agent is available may cause user lockout
+If password on guest differs, the lock reference of the user will be incremented at any attempt (should be solved in 3.4).</p>
+  </li>
+  <li>Webadmin does not support automatic login</li>
+  <li>
+    <p>No mutual authentication between client and virtual machine
+The user credentials are passed directly to VM using the engine-&gt;vdsm channel, the user login takes place without even the user is involved. User does not need to connect to the VM in order to establish login.</p>
+  </li>
+  <li>
+    <p>vdsm&lt;-&gt;guest agent protocol does not support negotiation
+No protocol version is exchanged between components, components are unaware of what features are supported by peer.</p>
+  </li>
+  <li>
+    <p>vdsm&lt;-&gt;guest protocol does not support peer restart message
+If vdsm is restarted (upgraded for example) or guest agent is restarted (upgraded for example) the peer do not know of the event in order to enable new features or handle state pull.</p>
+  </li>
+  <li>
+    <p>websocket proxy does not use SSL protocol toward qemu
+Should be solved separately.</p>
+  </li>
+  <li>The guest agent uses thread to send periodic status but does not use locking, so channel may become corrupted
+Should be solved separately.</li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<ol>
+  <li>Establish single signin friendly environment.</li>
+  <li>Provide Linux end-to-end and firefox based solution of kerberos based end-to-end SSO.</li>
+  <li>Decouple solution from oVirt specific implementation as much as possible.</li>
+  <li>Windows guests are out of scope for now, there are multiple issues with Windows as CredSSP<a href="http://msdn.microsoft.com/en-us/library/cc226764.aspx">1</a> violates SSO by require access to user’s master password, and there is no [documented] way to load TGT into LSA.</li>
+</ol>
+
+<h3 id="proposed-solution">Proposed solution</h3>
+
+<h4 id="outline">Outline</h4>
+
+<p>Establish a channel between client and guest and transfer credentials using stream protocol on top of the channel. The protocol may be based on SASL to exchange credentials information.</p>
+
+<p>This solution can be used outside of the oVirt project scope, so it should be relatively easy to push missing bits into spice upstream.</p>
+
+<p>This solution unlikely to support spice-html5/novnc.</p>
+
+<h5 id="design-principals">Design principals</h5>
+
+<ul>
+  <li>Make solution usable to non-oVirt projects.</li>
+  <li>Tight component - each component should do one task and only one.</li>
+  <li>Decoupling - components should share the minimum required implementation with each other.</li>
+  <li>Interfaces - interaction between components should be done via well defined interfaces.</li>
+  <li>Reuse - any effort invested should be reused for similar cases.</li>
+</ul>
+
+<h5 id="implementation-summary">Implementation Summary</h5>
+
+<p>This section is written mostly for spice developers to understand the reasoning.</p>
+
+<ul>
+  <li>The current spice client is monolithic, a new functionality cannot be added without modifying the code. Establishing a stream channel between client and guest is usable for many solutions:
+    <ul>
+      <li>Credentials delegation (aka SSO), this initiative.</li>
+      <li>Private key usage delegation, solutions such as gpg-agent, ssh-agent forwarding.</li>
+      <li>Access to other client side agents, such as gnome-keyring.</li>
+      <li>Client software execution, such as stream URLs.</li>
+      <li>Biometric.</li>
+    </ul>
+  </li>
+  <li>serial&lt;-&gt;usock proxy - instead of implementing the SSO initiative within the current monolithic implementation, this solution recommends to support serial device delegation into unix domain socket and implement the logic within separate component, this meets design principals:
+    <ul>
+      <li>Tight components - the spice client core is “Remote Desktop” while “SSO” is, well, “SSO”, two different unrelated tasks.</li>
+      <li>Decoupling - there is nothing common between “SSO” and the logic of how to implement remote devices except of that the “SSO” component requires to establish a stream channel over the protocol into the guest. “SSO” component may be usable for other setups, such as vnc or direct tcp connection.</li>
+      <li>Interfaces - there is no programmatic usage between “SSO”, or any similar solution, and the spice implementation, except of tunneling a stream between client and guest. Unix domain socket is an interface that provides all required interaction between components:
+        <ul>
+          <li>Both sides can detect that the channel is alive.</li>
+          <li>Bidirectional full duplex communication.</li>
+          <li>Async IO support.</li>
+          <li>In-process and out-of-process support.</li>
+          <li>Windows name pipe is similar to unix domain sockets in this regard.</li>
+        </ul>
+      </li>
+      <li>Reuse - implementation of serial&lt;-&gt;usock proxy will enable other components such as those which are outlined above to be implemented with zero effort.</li>
+    </ul>
+  </li>
+  <li>spice-client-sso - once serial&lt;-&gt;usock proxy is available, the client component aka spice-client-sso can be implemented to interact with guest and delegate credentials.
+    <ul>
+      <li>The author of this component can be completely detached from spice-gtk implementation considerations, hence we add more potential contributers.</li>
+      <li>The author of this component can know nothing about spice nor its protocol, hence we add more potential contributers.</li>
+      <li>The component can be reused with any stream channel such as vnc or plain tcp connection.</li>
+      <li>The component can be managed/maintained/reside at spice project or as standalone project.</li>
+      <li>If the protocol is designed properly, various of guest agent implementation may reuse this component for establishing SSO.</li>
+      <li>Easier to debug, and perform integration tests.</li>
+    </ul>
+  </li>
+  <li>sso-guest-agent - guest agent is responsible of accepting the credentials, it is the most complex piece of software in this solution.
+    <ul>
+      <li>pam module.</li>
+      <li>gdm2 plugin.</li>
+      <li>gdm1 plugin.</li>
+      <li>kde greeter.</li>
+      <li>windows credprov</li>
+      <li>gina</li>
+      <li>agent logic.</li>
+      <li>Credentials accept, interacts with spice-client-sso to acquire credentials.</li>
+    </ul>
+  </li>
+  <li>ovirt-guest-agent is the most complete agent to provide the sso-guest-agent functionality, there is no point in re-inventing the wheel. The addition of credentials accept is minor compared to the other required functionality. The functionality of the sso-guest-agent can be reused and split out of the ovirt-guest-agent when we have a working solution, to enable component reuse at other projects.</li>
+</ul>
+
+<p>Regardless this design comes from the oVirt project it had been written as if spice team is to implement the functionality regardless of oVirt. The same principals and arguments had been introduced as well and the conclusion had been the same. Modularity is better than monolithic, reuse of effort invested for future component implementation to extend the eco-system of spice is important.</p>
+
+<p>I would like to separate the argument of who is maintaining the spice-client-sso component from the discussion, as it should not impact the resource allocation.</p>
+
+<p>Open up the spice implementation for external component does not imply losing control of the components nor fragmentation of these. Forbidding external components damage innovation and limiting the size of the eco-system. Please keep in mind that nothing prevents the spice team to maintain the spice-client-sso as separate component in-tree, out-of-tree or at letting 3rd party maintain it.</p>
+
+<p>Also be aware that spice client side SSO solution is the least work in maintaining a solution, most of the work is at guest agent. As far as I want to perceive the solution the spice-client-sso has far more in common with the guest agent than with the spice client, both in term of code and knowledge. Unlike supporting remote desktop, the SSO is derived from IT infrastructure, and far from being stable, every day we witness new technologies and there should be flexible method for people to provide a solution that is synced not between the guest agent and client but between the guest agent and the spice-client-sso component.</p>
+
+<p>In term of packaging it would be something like the following:</p>
+
+<ul>
+  <li>Install the following at guest: xxxagent-sso.</li>
+  <li>Install the following at client: spice-gtk, xxxagent-spice-sso.</li>
+</ul>
+
+<p>The xxxagent can as well be vdagent, however per the tight and decoupling design principals, there is nothing common between the current vdagent which is used for core interaction (display, mouse, clipboard) and SSO, both in term of functionality and knowledge required to maintain each component. BTW: I believe that in future at least the clipboard integration can be implemented using the same approach of usock&lt;-&gt;serial channel quite easily.</p>
+
+<h5 id="preparations">Preparations</h5>
+
+<ul>
+  <li>mod_auth_kerb5 is installed at engine to enable kerberos SSO.</li>
+  <li>Issue kerberos credentials to all VMs.</li>
+</ul>
+
+<h5 id="sequence">Sequence</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
+   1.
+   2.     ---HTTPS---&gt; login
+   3.     ---HTTPS---&gt; Start Graphical
+   4.                ---HTTPS(m.auth)--&gt;---usock---&gt;---serial--&gt;get SPN
+   5.
+   6.                ---HTTPS(m.auth)--&gt;---usock---&gt;Ticket
+   7.     &lt;--HTTPS- Execute spice/vnc client with Ticket, host, port, SPN
+   8.     ---SSL-----------------------------------&gt;Ticket
+   9.     ---SSL-----------------------------------&gt;---serial--&gt;SASL
+  10.                                                             -----------&gt;
+</code></pre></div></div>
+
+<ol>
+  <li>User login into his desktop using kerberos.</li>
+  <li>User access ovirt-engine user portal.</li>
+  <li>User requests graphic session.</li>
+  <li>ovirt-engine queries guest agent for its service principal name.</li>
+  <li>ovirt-engine generates random “ticket”.</li>
+  <li>ovirt-engine via vdsm sends the ticket to qemu with hard coded validity period of 120 seconds. NOTE: in standalone mode this can be replaced with SASL negotiation.</li>
+  <li>ovirt-engine trigger execution of spice/vnc at client machine passing the ticket and the service principal name.</li>
+  <li>spice/vnc at client connects to qemu passing the ticket and establish connection.</li>
+  <li>spice/vnc client negotiate using SASL directly with the guest agent delegating TGT or other credentials.</li>
+  <li>guest agent uses the credentials to automate login sequence using one of various methods.</li>
+</ol>
+
+<h4 id="components-major-changes">Components’ major changes</h4>
+
+<h5 id="spice-client"><strong>Spice client</strong></h5>
+
+<p>It turns out<a href="http://lists.freedesktop.org/archives/spice-devel/2013-November/015504.html">2</a> the spice client is monolithic software, design that should not happen in the 21th century… but ovirt-engine and vdsm are aligned in this sense. So it won’t be that easy to introduce new functionality.</p>
+
+<p>There is an existing project named vd_agent<a href="http://cgit.freedesktop.org/spice/linux/vd_agent">3</a> which is guest agent. It implements mouse offload and X server helper. The guest agent already interacts with the spice client using virtual serial device.</p>
+
+<p>The easiest implementation is probably to push more code into spice client and the vd_agent projects. However, this will not be productive for future maintenance of the functionality, nor it will help the spice project to be able to support similar efforts in future.</p>
+
+<p>There are two options of implementation to help the spice project to open up:</p>
+
+<ul>
+  <li>Modularizing the interface at client side, allowing to dynamically load components that can serve spice channels. This will require much resources and will likely be a long process to complete.</li>
+  <li>Modularizing only the spice port at client side implementation, this will provide a solution to any stream based implementation including our own, while splitting the work between spice developer and agent developer.</li>
+</ul>
+
+<p>I suggest to focus on modularizing only the spice port at client side, the solution will be to fork a process attaching usock to its stdin/stdout and proxy the spice port stream into the usock. Once this mechanism is in place the implementation of the software that interact with the agent is quite simple and completely detached from spice internals.</p>
+
+<p>Spice client should accept the following additional parameters:</p>
+
+<ul>
+  <li>port name.</li>
+  <li>executable to run. The path should be relative to some pre-defined spice plugin folder, example ${libdir}/spice/, so that only approved plugins will be allowed to be loaded.</li>
+  <li>parameters to pass.</li>
+</ul>
+
+<p>Once spice client connects, if port exists on remote, it will fork the process with parameters and usock as stdin/stdout, and proxy all data. It should be generic implementation.</p>
+
+<h5 id="spice-sso-client"><strong>spice-sso-client</strong></h5>
+
+<p>A new component to be loaded by spice-client for the sso channel to interact with the guest agent for credentials delegation and refresh.</p>
+
+<p>At qemu side, define spice port for the interaction:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  -device virtio-serial-pci
+  -device virtserialport,chardev=spicesso,name=spice.sso.0
+  -chardev spicevmc,id=myappl,name=spicesso
+</code></pre></div></div>
+
+<p>At guest a serial device at /dev/virtio-ports/spice.sso.0 will be available for guest agent use.</p>
+
+<p>At client configure spice client to execute spice-sso-client for spice.sso.0 spice port, the parameters it accept are:</p>
+
+<ul>
+  <li>Optional: Remote service principal name.</li>
+  <li>Trust any service principal name (disabled per default)</li>
+  <li>Offer TGT to untrusted for delegation services (disabled per default).</li>
+  <li>Perform password authentication (disabled per default)</li>
+  <li>Optional: User/password.</li>
+</ul>
+
+<h6 id="protocol-highlights">Protocol highlights</h6>
+
+<ul>
+  <li>SIGNATURE - sent by guest agent when connected or reseted.</li>
+  <li>SIGNATURE - sent by spice-client-sso to reset guest agent in case of inability for guest to detect disconnect of spice port.</li>
+  <li>startTLS - sent by spice-client-sso to start TLS negotiation over the channel, optional.</li>
+  <li>startSASL - sent by spice-client-sso to start SASL negotiation over the channel, optional.</li>
+  <li>credentials type blob - sent by spice-client-sso to delegate credentials, blob is encoded using base64.</li>
+  <li>authenticate type type type… - sent by guest agent when credentials are required, while specifying supported types.</li>
+  <li>info attr - sent by spice-client-sso to retrieve information, example ‘spn’ or ‘time’.</li>
+  <li>ok</li>
+  <li>error code string</li>
+</ul>
+
+<h6 id="sequence-1">Sequence</h6>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        Client                                       Guest
+   1.1    &lt;---SIGNATURE---------------------------------
+   1.2.1  ---SIGNATURE---------------------------------&gt;
+   1.2.2  &lt;---SIGNATURE---------------------------------
+   2.     &lt;--authenticate kerberos password-------------
+   3.     ---error 300, delay--------------------------&gt;
+   4.     ---startTLS----------------------------------&gt;
+   5.     &lt;--error 400, unsupported -------------------&gt;
+   6.     ---startSASL---------------------------------&gt;
+   7.     &lt;--ok-----------------------------------------
+   8.     &lt;--------------SASL negotiation--------------&gt;
+   9      &lt;---SIGNATURE---------------------------------
+  10.1    &lt;--authenticate kerberos password-------------
+  10.2    ---ok----------------------------------------&gt;
+  10.3    ---credentials kerberos AAEK12DS==-----------&gt;
+  10.4    &lt;--ok-----------------------------------------
+</code></pre></div></div>
+
+<ol>
+  <li>Signature exchange
+    <ol>
+      <li>Guest detect new client connection and sends signature.</li>
+      <li>In case we cannot detect connection at guest and/or at client
+        <ol>
+          <li>Client will send signature to reset guest state.</li>
+          <li>Guest was rested so it sends signature when reseted.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Guest asks for authentication using kerberos or password.</li>
+  <li>Client delay this request.</li>
+  <li>Client tries to initiate TLS.</li>
+  <li>Guest does not support TLS.</li>
+  <li>Client tries to initiate SASL</li>
+  <li>Guest support SASL.</li>
+  <li>SASL negotiation
+    <ol>
+      <li>If no spn given in command-line acquire spn from guest (weak), if not trust all spn parameter set prompt user for acknowledge spn.</li>
+      <li>Acquire service ticket by using the service principal name.</li>
+      <li>If TGT is forwardable forward TGT using SASL negotiation, guest will extract TGT out of negotiation.</li>
+      <li>If TGT is not forwardable perform plain SASL negotiation.</li>
+    </ol>
+  </li>
+  <li>Guest sends signature.</li>
+  <li>In case ticket was not forwardable and configuration allows passing TGT
+    <ol>
+      <li>Guest asks for authentication using kerberos or password.</li>
+      <li>Client support types.</li>
+      <li>Client sends kerberos TGT.</li>
+      <li>Guest accepts.</li>
+    </ol>
+  </li>
+</ol>
+
+<h5 id="vnc-client"><strong>vnc client</strong></h5>
+
+<p>Needs support of stream between client and guest in similar manner as spice.</p>
+
+<h5 id="virt-viewer"><strong>virt-viewer</strong></h5>
+
+<p>Support of new features of spice client within its configuration file format.</p>
+
+<h5 id="vdsm"><strong>vdsm</strong></h5>
+
+<ul>
+  <li>Forward libvirt GRAPHICS event phase INITIALIZE into new guest agent ‘client-connect’ command.</li>
+  <li>Add ‘get-spn’ command to acquire service principal name of the guest agent.</li>
+</ul>
+
+<p>Optional:</p>
+
+<ul>
+  <li>Add version command vdsm-&gt;guest agent with minimum and maximum supported versions.</li>
+  <li>Add version command guest agent-&gt;vdsm with minimum and maximum supported versions.</li>
+  <li>If not received assumes version=0 (current) is supported</li>
+  <li>Add connect vdsm-&gt;guest agent command to be used when vdsm is started.</li>
+  <li>Add connect guest agent-&gt;vdsm command to be used when guest agent is started.</li>
+  <li>Add command to return guest agent protocol version of an active vm to engine so engine be aware of new features availability.</li>
+</ul>
+
+<p>Note: Sending unknown commands in current implementation will issue error within logs of both components, no other side effect.</p>
+
+<h5 id="guest-agent"><strong>guest agent</strong></h5>
+
+<ul>
+  <li>Add get-spn command to return service principal name of guest agent.</li>
+  <li>If ‘client-connect’ is received try to detect SASL VDI.</li>
+  <li>Implement the spice-client-sso protocol.</li>
+  <li>If console is locked, user must patch current logged on user.</li>
+</ul>
+
+<h5 id="ovirt-engine"><strong>ovirt-engine</strong></h5>
+
+<ul>
+  <li>If kerberos SSO is enabled.</li>
+  <li>Acquire VM machine service principal name via guest agent.</li>
+  <li>Send service principal name to virtviewer instructing it to enable the spice-client-sso component.</li>
+</ul>
+
+<h3 id="resource-estimation">Resource Estimation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Task</th>
+      <th>Estimation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Spice developer</td>
+      <td>Implement the spice-port&lt;-&gt;usock proxy</td>
+      <td>4w</td>
+    </tr>
+    <tr>
+      <td>AAA developer</td>
+      <td>Implement the spice-client-sso and guest agent component, verify TGT</td>
+      <td>8w</td>
+    </tr>
+    <tr>
+      <td>Guest agent developer</td>
+      <td>Wrap all up, handle local login, tests</td>
+      <td>4w</td>
+    </tr>
+    <tr>
+      <td>AAA developer</td>
+      <td>Setup environment at rhev office</td>
+      <td>3d</td>
+    </tr>
+    <tr>
+      <td>Virt developer</td>
+      <td>Setup environment at rhev office</td>
+      <td>3d</td>
+    </tr>
+    <tr>
+      <td>Virt developer</td>
+      <td>Implement sequence within vdsm, ovirt-engine</td>
+      <td>1w</td>
+    </tr>
+    <tr>
+      <td>QE</td>
+      <td>Test</td>
+      <td>2w</td>
+    </tr>
+    <tr>
+      <td>Manager</td>
+      <td>Overhead</td>
+      <td>1w</td>
+    </tr>
+    <tr>
+      <td>Peers</td>
+      <td>Review</td>
+      <td>2w</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Author: Alon Bar-Lev (Alonbl)</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2752/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2752/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2752/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2752/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/sso.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/sso.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

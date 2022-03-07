@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Preparing_Storage_for_RHV_{context}']
 = Preparing Storage for {virt-product-fullname}
 

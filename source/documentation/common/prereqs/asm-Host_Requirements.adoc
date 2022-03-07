@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='host-requirements']
 = Host Requirements
 

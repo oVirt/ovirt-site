@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Preparing_a_Remote_PostgreSQL_Database_{context}']
 = Preparing a Remote PostgreSQL Database
 

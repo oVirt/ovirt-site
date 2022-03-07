@@ -1,4 +1,5 @@
-[[Administering_the_Manager_Virtual_Machine]]
+:_content-type: PROCEDURE
+[id="Administering_the_Manager_Virtual_Machine"]
 = Administering the {engine-name} Virtual Machine
 
 The `hosted-engine` utility provides many commands to help administer the {engine-name} virtual machine. You can run `hosted-engine` on any self-hosted engine node. To see all available commands, run `hosted-engine --help`. For additional information on a specific command, run `hosted-engine --_command_ --help`.

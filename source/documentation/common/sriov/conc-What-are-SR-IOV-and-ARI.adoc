@@ -2,6 +2,7 @@
 //
 // common/sriov/assembly-Set_Up_and_Configure_SR-IOV.adoc
 
+:_content-type: CONCEPT
 [id='what-are-sr-iov-and-ari']
 
 = What are SR-IOV and ARI?

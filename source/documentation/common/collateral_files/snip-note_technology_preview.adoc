@@ -1,3 +1,4 @@
+:_content-type: SNIPPET
 [NOTE]
 ====
 <feature name> are Technology Preview features only.

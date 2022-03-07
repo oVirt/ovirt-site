@@ -3,6 +3,7 @@
 // doc-Administration_Guide/common/security/assembly-Securing_Red_Hat_Virtualization.adoc
 // THIS MODULE IS RHV ONLY.
 
+:_content-type: CONCEPT
 [id='disa-stig-for-red-hat-linux_{context}']
 = DISA STIG for Red Hat Virtualization 4.4
 

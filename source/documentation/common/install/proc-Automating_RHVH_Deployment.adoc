@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Automating_RHVH_Deployment_{context}']
 = Automating {hypervisor-fullname} deployment
 

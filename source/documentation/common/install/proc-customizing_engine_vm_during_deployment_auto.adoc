@@ -4,6 +4,7 @@ assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_com
 assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_command_line_interface/master.adoc
 ////
 
+:_content-type: PROCEDURE
 [id="customizing_engine_vm_during_deployment_auto_{context}"]
 
 = Customizing the {engine-name} virtual machine using automation during deployment

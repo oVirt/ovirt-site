@@ -6,6 +6,7 @@
 // include::<path>/proc_removing-nvidia-vgpu-devices.adoc[leveloffset=+1]
 
 
+:_content-type: PROCEDURE
 [id="proc_removing-nvidia-vgpu-devices_{context}"]
 = Removing NVIDIA vGPU devices
 

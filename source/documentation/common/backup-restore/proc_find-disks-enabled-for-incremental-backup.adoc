@@ -1,5 +1,6 @@
 :_module-type: PROCEDURE
 
+:_content-type: PROCEDURE
 [id="find-disks-enabled-for-incremental-backup"]
 = Finding disks that are enabled for incremental backup
 

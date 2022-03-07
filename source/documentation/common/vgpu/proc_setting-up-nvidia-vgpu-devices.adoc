@@ -3,6 +3,7 @@
 // assembly_managing-nvidia-vgpu-devices
 
 
+:_content-type: PROCEDURE
 [id="proc_setting-up-nvidia-vgpu-devices_{context}"]
 = Setting up NVIDIA vGPU devices on the host
 

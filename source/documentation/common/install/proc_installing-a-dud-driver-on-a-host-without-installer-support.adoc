@@ -1,5 +1,6 @@
 :_module-type: PROCEDURE
 
+:_content-type: PROCEDURE
 [id="proc_installing-a-dud-driver-on-a-host-without-installer-support_{context}"]
 = Installing a DUD driver on a host without installer support
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Installing_Red_Hat_Enterprise_Linux_Hosts_{context}']
 = Installing {enterprise-linux-host-fullname}s
 

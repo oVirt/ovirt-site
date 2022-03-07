@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Adding_standard_hosts_to_the_Manager_{context}']
 = Adding Standard Hosts to the {virt-product-fullname} {engine-name}
 

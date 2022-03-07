@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Updating_all_hosts_in_a_cluster_{context}']
 = Updating All Hosts in a Cluster
 

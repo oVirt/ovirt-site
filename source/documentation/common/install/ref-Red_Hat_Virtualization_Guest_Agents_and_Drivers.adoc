@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='Red_Hat_Virtualization_Guest_Agents_and_Drivers_{context}']
 = {virt-product-fullname} Guest agents, tools, and drivers
 

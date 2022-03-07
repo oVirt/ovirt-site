@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='proc_Manually_installing_the_appliance_{context}']
 = Manually installing the {engine-appliance-name}
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Connecting_to_the_Administration_Portal_{context}']
 = Connecting to the Administration Portal
 

@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Recovering_a_Self-hosted_Engine']
 = Recovering a Self-Hosted Engine from an Existing Backup
 

@@ -1,5 +1,5 @@
+:_content-type: ASSEMBLY
 [id='Set_up_Cinderlib']
-
 = Setting up Cinderlib
 
 ifdef::rhv-doc[]

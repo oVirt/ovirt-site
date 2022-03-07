@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Log_collector_analyzer_tool_{context}']
 
 

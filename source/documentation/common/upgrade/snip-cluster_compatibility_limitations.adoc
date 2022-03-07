@@ -1,4 +1,6 @@
 // Cluster compatibility limitations
+:_content-type: SNIPPET
+
 .Limitations
 
 * Virtio NICs are enumerated as a different device after upgrading the cluster compatibility level to 4.6. Therefore, the NICs might need to be reconfigured. {org-fullname} recommends that you test the virtual machines before you upgrade the cluster by setting the cluster compatibility level to 4.6 on the virtual machine and verifying the network connection.

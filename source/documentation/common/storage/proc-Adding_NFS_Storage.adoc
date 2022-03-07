@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Adding_NFS_Storage_{context}']
 = Adding NFS Storage
 

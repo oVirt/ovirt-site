@@ -1,4 +1,5 @@
-[[compatibility_levels]]
+:_content-type: REFERENCE
+[id="data-center-and-cluster-compatibility-levels"]
 == Data Center and Cluster Compatibility Levels
 
 {virt-product-fullname} data centers and clusters have a compatibility version.

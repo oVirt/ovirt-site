@@ -2,6 +2,7 @@
 //
 // assembly_managing-nvidia-vgpu-devices
 
+:_content-type: PROCEDURE
 [id="proc_nvidia_gpu_passthrough_{context}"]
 = GPU device passthrough: Assigning a host GPU to a single virtual machine
 

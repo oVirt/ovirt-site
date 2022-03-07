@@ -1,3 +1,4 @@
+:_content-type: SNIPPET
 // Blurb: About Data Warehouse
 
 // Included in:

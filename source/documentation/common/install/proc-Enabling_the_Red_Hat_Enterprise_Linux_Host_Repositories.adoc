@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories_{context}'']
 = Enabling the {enterprise-linux-host-fullname} Repositories
 

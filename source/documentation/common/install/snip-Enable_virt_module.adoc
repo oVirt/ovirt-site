@@ -1,3 +1,4 @@
+:_content-type: SNIPPET
 
 * For {virt-product-shortname} 4.4.2:
 +

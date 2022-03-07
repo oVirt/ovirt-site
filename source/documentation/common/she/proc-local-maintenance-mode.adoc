@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='local-maintenance-mode_{context}']
 = Setting local maintenance mode
 

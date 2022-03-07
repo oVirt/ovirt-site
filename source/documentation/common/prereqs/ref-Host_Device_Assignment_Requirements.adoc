@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='Device_Assignment_Requirements_{context}']
 = Device Assignment Requirements
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id='Reinstalling_Hosts_{context}']
 = Reinstalling Hosts
 

@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Installing_Hosts_for_RHV_{context}']
 = Installing Hosts for {virt-product-fullname}
 

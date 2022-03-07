@@ -1,6 +1,7 @@
 // module included:
 // doc-Administration_Guide/chap-Hosts.adoc
 
+:_content-type: PROCEDURE
 [id='Removing_a_host']
 = Removing a Host
 

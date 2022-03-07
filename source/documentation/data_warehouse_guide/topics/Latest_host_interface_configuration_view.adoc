@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Latest_host_interface_configuration_view"]
 ==== Host Interface Configuration
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Recording_statistical_history"]
 === Recording Statistical History
 

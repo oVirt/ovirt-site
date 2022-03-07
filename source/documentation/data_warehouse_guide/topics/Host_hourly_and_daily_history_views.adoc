@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Host_hourly_and_daily_history_views"]
 ==== Host Statistics Views
 

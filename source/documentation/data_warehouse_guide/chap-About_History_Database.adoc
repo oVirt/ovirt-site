@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="chap-About_History_Database"]
 == About the History Database
 

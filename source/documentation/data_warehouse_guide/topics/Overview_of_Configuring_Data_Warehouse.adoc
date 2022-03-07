@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Overview_of_Configuring_Data_Warehouse"]
 == Overview of Configuring Data Warehouse
 

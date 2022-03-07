@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Tracking_configuration_history"]
 === Tracking Configuration History
 
@@ -21,5 +22,3 @@ The configuration tables in the `ovirt_engine_history` database differ from the 
 * an `update_date` field to indicate when the entity was changed; and
 
 * a `delete_date` field to indicate the date the entity was removed from the system.
-
-

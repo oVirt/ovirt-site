@@ -1,5 +1,6 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+:_content-type: ASSEMBLY
 [id="data-warehouse-guide"]
 = Data Warehouse Guide
 :imagesdir: images

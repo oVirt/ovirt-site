@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="chap-Installing_and_Configuring_Data_Warehouse"]
 = Installing and Configuring Data Warehouse
 

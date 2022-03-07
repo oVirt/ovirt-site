@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Changing_the_Data_Warehouse_Sampling_Scale"]
 = Changing the Data Warehouse Sampling Scale
 

@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Latest_host_configuration_view"]
 ==== Host Configuration
 
@@ -7,7 +8,7 @@ The following table shows the configuration history parameters of the hosts in t
 .v4_4_configuration_history_hosts
 [options="header"]
 |===
-|Name |Type |Description |Indexed 
+|Name |Type |Description |Indexed
 |history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `host_configuration_version` in the host statistics views and it can be used to join them. |No
 |host_id |uuid |The unique ID of the host in the system. |Yes
 |host_unique_id |character varying(128) |This field is a combination of the host's physical UUID and one of its MAC addresses, and is used to detect hosts already registered in the system. |No

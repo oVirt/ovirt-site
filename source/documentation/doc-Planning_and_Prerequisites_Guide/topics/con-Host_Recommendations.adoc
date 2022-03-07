@@ -1,4 +1,5 @@
-[[host-recommendations]]
+:_content-type: CONCEPT
+[id="host-recommendations"]
 === Host Recommendations
 
 * Standardize the hosts in the same cluster. This includes having consistent hardware models and firmware versions. Mixing different server hardware within the same cluster can result in inconsistent performance from host to host.

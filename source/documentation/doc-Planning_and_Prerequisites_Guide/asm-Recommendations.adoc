@@ -1,4 +1,5 @@
-[[recommendations]]
+:_content-type: ASSEMBLY
+[id="recommendations"]
 == Recommendations
 
 This chapter describes configuration that is not strictly required, but may improve the performance or stability of your environment.

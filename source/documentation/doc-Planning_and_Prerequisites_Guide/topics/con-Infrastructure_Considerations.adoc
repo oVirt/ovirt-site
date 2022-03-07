@@ -1,4 +1,5 @@
-[[infrastructure-considerations]]
+:_content-type: CONCEPT
+[id="infrastructure-considerations"]
 === Infrastructure Considerations
 
 ==== Local or Remote Hosting

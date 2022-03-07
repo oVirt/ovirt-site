@@ -1,23 +1,21 @@
-[[minimum-architecture]]
+:_content-type: CONCEPT
+[id="minimum-architecture"]
 === Minimum Architecture
 
 *The minimum setup of a standalone {engine-name} environment includes:*
 
-* One {virt-product-fullname} {engine-name} machine.  
+* One {virt-product-fullname} {engine-name} machine.
 
-* A minimum of two hosts for virtual machine high availability. 
+* A minimum of two hosts for virtual machine high availability.
 
 * One storage service, which must be accessible to all hosts.
 
 *The minimum setup of a self-hosted engine environment includes:*
 
-* One {virt-product-fullname} {engine-name} virtual machine that is hosted on one of the self-hosted engine nodes. 
+* One {virt-product-fullname} {engine-name} virtual machine that is hosted on one of the self-hosted engine nodes.
 
-* A minimum of two self-hosted engine nodes for virtual machine high availability. 
+* A minimum of two self-hosted engine nodes for virtual machine high availability.
 
 * One storage service, which must be accessible to all hosts.
 
 For more details, see link:{URL_virt_product_docs}{URL_format}product_guide/index#architecture[Architecture] in the _Product Guide_.
-
-
-

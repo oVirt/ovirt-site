@@ -1,4 +1,5 @@
-[[networking-recommendations]]
+:_content-type: CONCEPT
+[id="networking-recommendations"]
 === Networking Recommendations
 
 * Bond network interfaces, especially on production hosts. Bonding improves the overall availability of service, as well as network bandwidth. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-network_bonding[Network Bonding] in the _Administration Guide_.

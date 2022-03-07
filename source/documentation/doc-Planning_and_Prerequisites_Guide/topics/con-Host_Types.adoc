@@ -1,4 +1,5 @@
-[[host-types]]
+:_content-type: CONCEPT
+[id="host-types"]
 === Host Types
 
 Use the host type that best suits your environment. You can also use both types of host in the same cluster if required.

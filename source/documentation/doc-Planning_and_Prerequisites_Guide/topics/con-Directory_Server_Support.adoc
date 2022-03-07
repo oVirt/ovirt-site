@@ -1,4 +1,5 @@
-[[directory-server-support]]
+:_content-type: CONCEPT
+[id="directory-server-support"]
 === Directory Server Support
 
 During installation, {virt-product-fullname} {engine-name} creates a default *admin* user in a default *internal* domain. This account is intended for use when initially configuring the environment, and for troubleshooting. You can create additional users on the *internal* domain using `ovirt-aaa-jdbc-tool`. User accounts created on local domains are known as local users. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-administering_user_tasks_from_the_commandline[Administering User Tasks From the Command Line] in the _Administration Guide_.

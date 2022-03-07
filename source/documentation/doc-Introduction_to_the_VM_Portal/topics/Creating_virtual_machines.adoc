@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="creating-virtual-machines"]
 === Creating virtual machines
 
 *Creating a virtual machine*

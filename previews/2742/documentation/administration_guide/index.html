@@ -357,7 +357,7 @@
 <li><a href="#Synchronizing_host_networks_nmstate">9.4.4. Synchronizing Host Networks</a></li>
 <li><a href="#Editing-VLAN-Settings_nmstate">9.4.5. Editing a Host&#8217;s VLAN Settings</a></li>
 <li><a href="#Adding_multiple_VLANs_to_a_single_network_interface_using_logical_networks_nmstate">9.4.6. Adding Multiple VLANs to a Single Network Interface Using Logical Networks</a></li>
-<li><a href="#proc-Copying-host-networks_vlan_vlan">9.4.7. Copying host networks</a></li>
+<li><a href="#proc-Copying-host-networks_vlan">9.4.7. Copying host networks</a></li>
 <li><a href="#Assigning_Additional_IPv4_Addresses_to_a_Host_Network_vlan">9.4.8. Assigning Additional IPv4 Addresses to a Host Network</a></li>
 <li><a href="#Adding_Network_Labels_to_Host_Network_Interfaces_vlan">9.4.9. Adding Network Labels to Host Network Interfaces</a></li>
 <li><a href="#Changing_the_FQDN_of_a_Host_labels">9.4.10. Changing the FQDN of a Host</a></li>
@@ -495,9 +495,9 @@
 <li><a href="#Removing_a_Disk_Profile_storage_tasks">11.8.12. Removing a Disk Profile</a></li>
 <li><a href="#Viewing_Storage_Health_Status_storage_tasks">11.8.13. Viewing the Health Status of a Storage Domain</a></li>
 <li><a href="#Setting_Discard_After_Delete_for_a_Storage_Domain_storage_tasks">11.8.14. Setting Discard After Delete for a Storage Domain</a></li>
-<li><a href="#Enabling-4K-support-more-than-250-nodes-storage_tasks_storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</a></li>
+<li><a href="#Enabling-4K-support-more-than-250-nodes-storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</a></li>
 <li><a href="#Disabling-4K-support-storage_tasks_storage_tasks">11.8.16. Disabling 4K support</a></li>
-<li><a href="#monitoring-available-space-in-a-storage-domain_storage_tasks_storage_tasks">11.8.17. Monitoring available space in a storage domain</a></li>
+<li><a href="#monitoring-available-space-in-a-storage-domain_storage_tasks">11.8.17. Monitoring available space in a storage domain</a></li>
 </ul>
 </li>
 </ul>
@@ -555,7 +555,7 @@
 <ul class="sectlevel3">
 <li><a href="#Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning_external_providers">14.2.1. Adding a Red Hat Satellite Instance for Host Provisioning</a></li>
 <li><a href="#Adding_an_OpenStack_Image_Service_Glance_for_Image_Management_external_providers">14.2.2. Adding an OpenStack Image (Glance) Instance for Image Management</a></li>
-<li><a href="#proc-adding-kubevirt-openshift-as-an-external-provider_external_providers_external_providers">14.2.3. Adding KubeVirt/Openshift Virtualization as an external provider</a></li>
+<li><a href="#proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">14.2.3. Adding KubeVirt/Openshift Virtualization as an external provider</a></li>
 <li><a href="#Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider_external_providers">14.2.4. Adding a VMware Instance as a Virtual Machine Provider</a></li>
 <li><a href="#Adding_Xen_as_an_External_Provider_external_providers">14.2.5. Adding a RHEL 5 Xen Host as a Virtual Machine Provider</a></li>
 <li><a href="#Adding_KVM_as_an_External_Provider_external_providers">14.2.6. Adding a KVM Host as a Virtual Machine Provider</a></li>
@@ -9599,7 +9599,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="proc-Copying-host-networks_vlan_vlan">9.4.7. Copying host networks</h4>
+<h4 id="proc-Copying-host-networks_vlan">9.4.7. Copying host networks</h4>
 <div class="paragraph">
 <p>To save time, you can copy a source host&#8217;s network configuration to a target host in the same cluster.</p>
 </div>
@@ -16010,7 +16010,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Enabling-4K-support-more-than-250-nodes-storage_tasks_storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</h4>
+<h4 id="Enabling-4K-support-more-than-250-nodes-storage_tasks">11.8.15. Enabling 4K support on environments with more than 250 hosts</h4>
 <div class="paragraph">
 <p>By default, GlusterFS domains and local storage domains support 4K block size on oVirt environments with up to 250 hosts. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.</p>
 </div>
@@ -16105,7 +16105,7 @@ enable_4k_storage = false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="monitoring-available-space-in-a-storage-domain_storage_tasks_storage_tasks">11.8.17. Monitoring available space in a storage domain</h4>
+<h4 id="monitoring-available-space-in-a-storage-domain_storage_tasks">11.8.17. Monitoring available space in a storage domain</h4>
 <div class="paragraph _abstract_storage_tasks">
 <p>You can monitor available space in a storage domain and create an alert to warn you when a storage domain is nearing capacity. You can also define a critical threshold at which point the domain shuts down.</p>
 </div>
@@ -18058,7 +18058,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <dl>
 <dt class="hdlist1"><strong>KubeVirt/Openshift Virtualization</strong></dt>
 <dd>
-<p>Openshift Virtualization (formerly container-native virtualization or "CNV") enables you to bring virtual machines (VMs) into containerized workflows so you can develop, manage, and deploy virtual machines side-by-side with containers and serverless. In oVirt Engine, adding this provider is one of the requirements for using {container-platform-virt}. For details, see <a href="#proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">[proc-adding-kubevirt-openshift-as-an-external-provider_external_providers]</a>.</p>
+<p>Openshift Virtualization (formerly container-native virtualization or "CNV") enables you to bring virtual machines (VMs) into containerized workflows so you can develop, manage, and deploy virtual machines side-by-side with containers and serverless. In oVirt Engine, adding this provider is one of the requirements for using {container-platform-virt}. For details, see <a href="#proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">Adding KubeVirt/Openshift Virtualization as an external provider</a>.</p>
 </dd>
 <dt class="hdlist1"><strong>OpenStack Image Service (Glance) for Image Management</strong></dt>
 <dd>
@@ -18201,7 +18201,7 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 </div>
 <div class="sect3">
-<h4 id="proc-adding-kubevirt-openshift-as-an-external-provider_external_providers_external_providers">14.2.3. Adding KubeVirt/Openshift Virtualization as an external provider</h4>
+<h4 id="proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">14.2.3. Adding KubeVirt/Openshift Virtualization as an external provider</h4>
 <div class="paragraph">
 <p>To run virtual machines in a container on the OKD, you add OpenShift as an external provider in Red Hat Virtualization.</p>
 </div>

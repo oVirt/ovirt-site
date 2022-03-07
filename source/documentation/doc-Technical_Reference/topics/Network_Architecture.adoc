@@ -1,4 +1,5 @@
-[[Network_Architecture]]
+:_content-type: CONCEPT
+[id="Network_Architecture"]
 === Network Architecture
 
 Networking in {virt-product-fullname} includes basic networking, networking within a cluster, and host networking configurations.

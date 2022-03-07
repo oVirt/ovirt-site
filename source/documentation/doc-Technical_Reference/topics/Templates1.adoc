@@ -1,4 +1,5 @@
-[[Templates1]]
+:_content-type: CONCEPT
+[id="Templates1"]
 === Templates
 
 To create a template, an administrator creates and customizes a virtual machine. Desired packages are installed, customized configurations are applied, the virtual machine is prepared for its intended purpose in order to minimize the changes that must be made to it after deployment. An optional but recommended step before creating a template from a virtual machine is generalization. Generalization is used to remove details like system user names, passwords, and timezone information that will change upon deployment. Generalization does not affect customized configurations. Generalization of Windows and Linux guests in the {virt-product-fullname} environment is discussed further in link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#chap-Templates[Templates] in the _Virtual Machine Management Guide_. {enterprise-linux} guests are generalized using `sys-unconfig`. Windows guests are generalized using `sys-prep`.

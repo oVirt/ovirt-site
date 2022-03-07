@@ -1,9 +1,10 @@
-[[Red_Hat_Enterprise_Virtualization_Manager]]
+:_content-type: CONCEPT
+[id="Red_Hat_Enterprise_Virtualization_Manager"]
 === {virt-product-fullname} {engine-name}
 
 The {virt-product-fullname} {engine-name} provides centralized management for a virtualized environment. A number of different interfaces can be used to access the {virt-product-fullname} {engine-name}. Each interface facilitates access to the virtualized environment in a different manner.
 
-[[figu-Technical_Reference_Guide-Manager-Red_Hat_Enterprise_Virtualization_Manager_Architecture]]
+[id="figu-Technical_Reference_Guide-Manager-Red_Hat_Enterprise_Virtualization_Manager_Architecture"]
 .{virt-product-fullname} {engine-name} Architecture
 image::984.png[]
 

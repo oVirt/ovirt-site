@@ -1,10 +1,11 @@
-[[Network]]
+:_content-type: CONCEPT
+[id="Network"]
 === Network
 
 The {virt-product-fullname} network architecture facilitates connectivity between the different elements of the {virt-product-fullname} environment. The network architecture not only supports network connectivity, it also allows for network segregation.
 
 
-[[figu-Technical_Reference_Guide-Network-Network_Architecture]]
+[id="figu-Technical_Reference_Guide-Network-Network_Architecture"]
 .Network Architecture
 image::180.png[]
 

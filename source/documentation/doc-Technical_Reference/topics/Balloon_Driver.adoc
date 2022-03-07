@@ -1,4 +1,5 @@
-[[Balloon_Driver]]
+:_content-type: CONCEPT
+[id="Balloon_Driver"]
 === Balloon Driver
 
 The balloon driver allows guests to express to the hypervisor how much memory they require. The balloon driver allows the host to efficiently allocate and memory to the guest and allow free memory to be allocated to other guests and processes.

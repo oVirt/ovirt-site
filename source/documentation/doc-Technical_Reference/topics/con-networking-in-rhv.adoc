@@ -2,7 +2,7 @@
 //
 // doc-Technical_Reference/chap-Network.adoc
 
-
+:_content-type: CONCEPT
 [id="overview-of-networking-in-rhv"]
 = Host networking
 

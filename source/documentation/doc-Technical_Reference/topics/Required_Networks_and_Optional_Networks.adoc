@@ -1,4 +1,5 @@
-[[Virtual_Machine_Networks_and_Optional_Networks]]
+:_content-type: CONCEPT
+[id="Virtual_Machine_Networks_and_Optional_Networks"]
 === Required Networks, Optional Networks, and Virtual Machine Networks
 
 A required network is a logical network that must be available to all hosts in a cluster. When a host's required network becomes non-operational, virtual machines running on that host are migrated to another host; the extent of this migration is dependent upon the chosen scheduling policy. This is beneficial if you have virtual machines running mission critical workloads.

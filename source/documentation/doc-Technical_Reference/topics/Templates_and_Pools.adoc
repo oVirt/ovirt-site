@@ -1,4 +1,5 @@
-[[Templates_and_Pools]]
+:_content-type: CONCEPT
+[id="Templates_and_Pools"]
 === Templates and Pools
 
 The {virt-product-fullname} environment provides administrators with tools to simplify the provisioning of virtual machines to users. These are templates and pools. A template is a shortcut that allows an administrator to quickly create a new virtual machine based on an existing, pre-configured virtual machine, bypassing operating system installation and configuration. This is especially helpful for virtual machines that will be used like appliances, for example web server virtual machines. If an organization uses many instances of a particular web server, an administrator can create a virtual machine that will be used as a template, installing an operating system, the web server, any supporting packages, and applying unique configuration changes. The administrator can then create a template based on the working virtual machine that will be used to create new, identical virtual machines as they are required.

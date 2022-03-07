@@ -1,4 +1,5 @@
-[[Logical_Networks2]]
+:_content-type: CONCEPT
+[id="Logical_Networks2"]
 === Logical Networks
 
 Logical networking enables the {virt-product-fullname} environment to separate network traffic by type. For example, the *ovirtmgmt* network is created by default during the installation of {virt-product-fullname} to be used for management communication between the {engine-name} and hosts. A typical use for logical networks is to group network traffic with similar requirements and usage together. In many cases, a storage network and a display network are created by an administrator to isolate traffic of each respective type for optimization and troubleshooting.
@@ -13,7 +14,7 @@ Logical networks are defined at the data center level.
 
 If necessary, the {virt-product-fullname} {engine-name} automatically instantiates logical networks on the host, depending on the type of virtual machine network. For more information, see xref:virtual_machine_networking_types[].
 
-[[exam-Technical_Reference_Guide-Logical_Networks-Example_usage_of_a_logical_network.]]
+[id="exam-Technical_Reference_Guide-Logical_Networks-Example_usage_of_a_logical_network."]
 .Example usage of a logical network.
 ====
 A system administrator wants to use a logical network to test a web server.

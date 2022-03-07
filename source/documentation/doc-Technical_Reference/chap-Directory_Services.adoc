@@ -1,4 +1,5 @@
-[[chap-Directory_Services]]
+:_content-type: ASSEMBLY
+[id="chap-Directory_Services"]
 == Directory Services
 
 include::topics/Directory_Services2.adoc[]

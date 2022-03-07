@@ -1,4 +1,5 @@
-[[Network_devices]]
+:_content-type: CONCEPT
+[id="Network_devices"]
 === Network Devices
 
 {virt-product-fullname} is able to expose three different types of network interface controller to guests. The type of network interface controller to expose to a guest is chosen when the guest is created but is changeable from the {virt-product-fullname} {engine-name}.

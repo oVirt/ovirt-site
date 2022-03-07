@@ -1,4 +1,5 @@
-[[Red_Hat_Virtualization_Host]]
+:_content-type: CONCEPT
+[id="Red_Hat_Virtualization_Host"]
 === {hypervisor-fullname}
 
 A {virt-product-fullname} environment has one or more hosts attached to it. A host is a server that provides the physical hardware that virtual machines make use of.
@@ -9,7 +10,7 @@ A {virt-product-fullname} environment has one or more hosts attached to it. A ho
 
 Both methods of host installation result in hosts that interact with the rest of the virtualized environment in the same way, and so, will both referred to as *hosts*.
 
-[[figu-Technical_Reference_Guide-Red_Hat_Virtualization_Hypervisor-Host_Architecture]]
+[id="figu-Technical_Reference_Guide-Red_Hat_Virtualization_Hypervisor-Host_Architecture"]
 .Host Architecture
 image::983.png[]
 
@@ -24,7 +25,7 @@ image::983.png[]
 
 *{virt-product-fullname} {engine-name} Host Agent, VDSM*:: In {virt-product-fullname}, *VDSM* initiates actions on virtual machines and storage. It also facilitates inter-host communication. VDSM monitors host resources such as memory, storage, and networking. Additionally, VDSM manages tasks such as virtual machine creation, statistics accumulation, and log collection. A VDSM instance runs on each host and receives management commands from the {virt-product-fullname} {engine-name} using the re-configurable port `54321`.
 
-[[form-Technical_Reference_Guide-Red_Hat_Virtualization_Hypervisor-VDSM_REG]]
+[id="form-Technical_Reference_Guide-Red_Hat_Virtualization_Hypervisor-VDSM_REG"]
 *VDSM-REG*:: *VDSM* uses *VDSM-REG* to register each host with the {virt-product-fullname} {engine-name}. *VDSM-REG* supplies information about itself and its host using port `80` or port `443`.
 
 

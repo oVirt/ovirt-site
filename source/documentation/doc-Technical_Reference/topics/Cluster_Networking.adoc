@@ -1,4 +1,5 @@
-[[Cluster_Networking]]
+:_content-type: CONCEPT
+[id="Cluster_Networking"]
 === Cluster Networking
 
 Cluster level networking objects include:
@@ -9,7 +10,7 @@ Cluster level networking objects include:
 * Logical Networks
 
 
-[[figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster]]
+[id="figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster"]
 .Networking within a cluster
 image::1009.png[]
 

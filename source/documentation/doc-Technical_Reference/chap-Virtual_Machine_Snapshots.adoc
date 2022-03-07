@@ -1,4 +1,5 @@
-[[chap-Virtual_Machine_Snapshots]]
+:_content-type: ASSEMBLY
+[id="chap-Virtual_Machine_Snapshots"]
 == Virtual Machine Snapshots
 
 include::topics/Snapshots1.adoc[]

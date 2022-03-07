@@ -1,4 +1,5 @@
-[[Load_Balancing_Scheduling_and_Migration]]
+:_content-type: CONCEPT
+[id="Load_Balancing_Scheduling_and_Migration"]
 === Load Balancing, Scheduling, and Migration
 
 Individual hosts have finite hardware resources, and are susceptible to failure. To mitigate against failure and resource exhaustion, hosts are grouped into clusters, which are essentially a grouping of shared resources. A {virt-product-fullname} environment responds to changes in demand for host resources using load balancing policy, scheduling, and migration. The {engine-name} is able to ensure that no single host in a cluster is responsible for all of the virtual machines in that cluster. Conversely, the {engine-name} is able to recognize an underutilized host, and migrate all virtual machines off of it, allowing an administrator to shut down that host to save power.

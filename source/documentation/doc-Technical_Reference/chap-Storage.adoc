@@ -1,4 +1,5 @@
-[[chap-Storage]]
+:_content-type: ASSEMBLY
+[id="chap-Storage"]
 == Storage
 
 include::topics/Storage_Domains1.adoc[]

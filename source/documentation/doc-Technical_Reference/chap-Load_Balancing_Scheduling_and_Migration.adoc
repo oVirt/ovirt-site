@@ -1,4 +1,5 @@
-[[chap-Load_Balancing_Scheduling_and_Migration]]
+:_content-type: ASSEMBLY
+[id="chap-Load_Balancing_Scheduling_and_Migration"]
 == Load Balancing, Scheduling, and Migration
 
 include::topics/Load_Balancing_Scheduling_and_Migration.adoc[]

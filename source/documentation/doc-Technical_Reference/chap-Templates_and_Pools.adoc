@@ -1,4 +1,5 @@
-[[chap-Templates_and_Pools]]
+:_content-type: ASSEMBLY
+[id="chap-Templates_and_Pools"]
 == Templates and Pools
 
 include::topics/Templates_and_Pools.adoc[]

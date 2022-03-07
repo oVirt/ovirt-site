@@ -1,4 +1,5 @@
-[[Exclusive_Resources_and_Sanlock_in_Red_Hat_Enterprise_Virtualization]]
+:_content-type: CONCEPT
+[id="Exclusive_Resources_and_Sanlock_in_Red_Hat_Enterprise_Virtualization"]
 === Exclusive Resources and Sanlock in {virt-product-fullname}
 
 Certain resources in the {virt-product-fullname} environment must be accessed exclusively.

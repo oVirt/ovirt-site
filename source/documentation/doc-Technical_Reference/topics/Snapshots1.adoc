@@ -1,4 +1,5 @@
-[[Snapshots1]]
+:_content-type: CONCEPT
+[id="Snapshots1"]
 === Snapshots
 
 Snapshots are a storage function that allows an administrator to create a restore point of a virtual machine's operating system, applications, and data at a certain point in time. Snapshots save the data currently present in a virtual machine hard disk image as a COW volume and allow for a recovery to the data as it existed at the time the snapshot was taken. A snapshot causes a new COW layer to be created over the current layer. All write actions performed after a snapshot is taken are written to the new COW layer.

@@ -1,4 +1,5 @@
-[[The_Effect_of_Storage_Domain_Actions_on_Storage_Capacity]]
+:_content-type: CONCEPT
+[id="The_Effect_of_Storage_Domain_Actions_on_Storage_Capacity"]
 === The Effect of Storage Domain Actions on Storage Capacity
 
 Power on, power off, and reboot a stateless virtual machine:: These three processes affect the copy-on-write (COW) layer in a stateless virtual machine. For more information, see the *Stateless* row of the link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained[Virtual Machine General Settings table] in the _Virtual Machine Management Guide_.

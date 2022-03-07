@@ -1,9 +1,10 @@
-[[Template_Administrator_Roles_Explained]]
+:_content-type: REFERENCE
+[id="Template_Administrator_Roles_Explained_{context}"]
 ==== Template Administrator Roles Explained
 
 The table below describes the administrator roles and privileges applicable to template administration.
 
-[[Template_Administrator_Roles]]
+[id="Template_Administrator_Roles_{context}"]
 
 .{virt-product-fullname} System Administrator Roles
 [options="header"]

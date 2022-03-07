@@ -1,4 +1,5 @@
-[[Editing_a_Template]]
+:_content-type: PROCEDURE
+[id="Editing_a_Template_{context}"]
 === Editing a Template
 
 Once a template has been created, its properties can be edited. Because a template is a copy of a virtual machine, the options available when editing a template are identical to those in the *Edit Virtual Machine* window.

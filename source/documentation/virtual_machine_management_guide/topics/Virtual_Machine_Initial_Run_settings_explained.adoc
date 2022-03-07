@@ -1,8 +1,9 @@
-[[Virtual_Machine_Initial_Run_settings_explained]]
+:_content-type: REFERENCE
+[id="Virtual_Machine_Initial_Run_settings_explained_{context}"]
 ==== Virtual Machine Initial Run Settings Explained
 
 The following table details the options available on the *Initial Run* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows. The settings in this table are only visible if the *Use Cloud-Init/Sysprep* check box is selected, and certain options are only visible when either a Linux-based or Windows-based option has been selected in the *Operating System* list in the *General* tab, as outlined below.
-[[New_VMs_Initial_Run-227]]
+[id="New_VMs_Initial_Run-227_{context}"]
 
 [NOTE]
 This table does not include information on whether a power cycle is required because the settings apply to the virtual machine's _initial_ run; the virtual machine is not running when you configure these settings.

@@ -1,4 +1,5 @@
-[[Manually_migrating_virtual_machines]]
+:_content-type: PROCEDURE
+[id="Manually_migrating_virtual_machines_{context}"]
 ==== Manually Migrating Virtual Machines
 
 A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see xref:Live_migration_prerequisites[].

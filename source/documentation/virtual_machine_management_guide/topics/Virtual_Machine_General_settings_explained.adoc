@@ -1,8 +1,9 @@
-[[Virtual_Machine_General_settings_explained]]
+:_content-type: REFERENCE
+[id="Virtual_Machine_General_settings_explained_{context}"]
 ==== Virtual Machine General Settings Explained
 
 The following table details the options available on the *General* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
-[[New_VMs_Fields]]
+[id="New_VMs_Fields_{context}"]
 
 .Virtual Machine: General Settings
 [cols="1,2,1", options="header"]

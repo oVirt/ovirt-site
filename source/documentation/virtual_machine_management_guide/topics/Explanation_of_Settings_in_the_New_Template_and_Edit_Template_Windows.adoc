@@ -1,4 +1,5 @@
-[[Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows]]
+:_content-type: REFERENCE
+[id="Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows_{context}"]
 === Explanation of Settings in the New Template Window
 
 The following table details the settings for the *New Template* window.

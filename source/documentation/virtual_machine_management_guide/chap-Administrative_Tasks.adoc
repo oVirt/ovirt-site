@@ -1,4 +1,5 @@
-[[chap-Administrative_Tasks]]
+:_content-type: ASSEMBLY
+[id="chap-Administrative_Tasks_{context}"]
 == Administrative Tasks
 
 :context: vm_guide_administrative_tasks
@@ -13,7 +14,7 @@ include::topics/Removing_a_virtual_machine.adoc[]
 
 include::topics/Cloning_a_Virtual_Machine.adoc[]
 
-[[sect-Updating_Virtual_Machine_Guest_Agents_and_Drivers]]
+[id="sect-Updating_Virtual_Machine_Guest_Agents_and_Drivers_{context}"]
 === Updating Virtual Machine Guest Agents and Drivers
 
 The {virt-product-fullname} guest agents, tools, and drivers provide additional functionality for virtual machines, such as gracefully shutting down or rebooting virtual machines from the VM Portal and Administration Portal. The tools and agents also provide information for virtual machines, including:
@@ -32,7 +33,7 @@ include::topics/Updating_the_Guest_Agents_and_Drivers_on_Windows.adoc[leveloffse
 
 include::topics/Viewing_Satellite_Errata.adoc[]
 
-[[sect-Virtual_Machines_and_Permissions]]
+[id="sect-Virtual_Machines_and_Permissions_{context}"]
 === Virtual Machines and Permissions
 
 include::topics/Managing_System_Permissions_for_a_Virtual_Machine.adoc[]
@@ -45,7 +46,7 @@ include::topics/Assigning_virtual_machines_to_users.adoc[]
 
 include::topics/Removing_Access_to_Virtual_Machines_from_Users.adoc[]
 
-[[sect-Snapshots]]
+[id="sect-Snapshots_{context}"]
 === Snapshots
 
 include::topics/Creating_a_snapshot_of_a_virtual_machine.adoc[]
@@ -56,7 +57,7 @@ include::topics/Creating_a_virtual_machine_from_a_snapshot.adoc[]
 
 include::topics/Deleting_a_snapshot.adoc[]
 
-[[sect-Host_Devices]]
+[id="sect-Host_Devices_{context}"]
 === Host Devices
 
 include::topics/Adding_Host_Devices_to_a_Virtual_Machine.adoc[]
@@ -68,7 +69,7 @@ include::topics/Pinning_a_Virtual_Machine_to_Another_Host.adoc[]
 include::topics/conc-nvdimm-host-devices.adoc[leveloffset=+3]
 
 
-[[sect-Affinity_Groups]]
+[id="sect-Affinity_Groups_{context}"]
 include::topics/Affinity_groups.adoc[]
 
 include::topics/Creating_an_Affinity_Group.adoc[]
@@ -82,7 +83,7 @@ include::topics/Affinity_groups_examples.adoc[]
 include::topics/Affinity_groups_troubleshooting.adoc[]
 
 
-[[sect-Affinity_Labels]]
+[id="sect-Affinity_Labels_{context}"]
 include::topics/Affinity_Labels.adoc[]
 
 include::topics/Creating_an_Affinity_Label.adoc[]
@@ -91,7 +92,7 @@ include::topics/Editing_an_Affinity_Label.adoc[]
 
 include::topics/Removing_an_Affinity_Label.adoc[]
 
-[[sect-Exporting_and_Importing_Virtual_Machines_and_Templates]]
+[id="sect-Exporting_and_Importing_Virtual_Machines_and_Templates_{context}"]
 === Exporting and Importing Virtual Machines and Templates
 
 
@@ -132,7 +133,7 @@ include::topics/Importing_a_Virtual_Machine_from_KVM.adoc[]
 
 include::topics/Importing_a_Red_Hat_KVM_Guest_Image.adoc[]
 
-[[sect-Migrating_Virtual_Machines_Between_Hosts]]
+[id="sect-Migrating_Virtual_Machines_Between_Hosts_{context}"]
 === Migrating Virtual Machines Between Hosts
 
 Live migration provides the ability to move a running virtual machine between physical hosts with no interruption to service. The virtual machine remains powered on and user applications continue to run while the virtual machine is relocated to a new physical host. In the background, the virtual machine's RAM is copied from the source host to the destination host. Storage and network connectivity are not altered.
@@ -163,7 +164,7 @@ include::topics/Canceling_ongoing_virtual_machine_migrations.adoc[]
 
 include::topics/Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers.adoc[]
 
-[[sect-Improving_Uptime_with_Virtual_Machine_High_Availability]]
+[id="sect-Improving_Uptime_with_Virtual_Machine_High_Availability_{context}"]
 === Improving Uptime with Virtual Machine High Availability
 
 include::topics/What_is_high_availability.adoc[]
@@ -172,12 +173,12 @@ include::topics/High_availability_considerations.adoc[]
 
 include::topics/Configuring_a_highly_available_virtual_machine.adoc[]
 
-[[sect-Other_Virtual_Machine_Tasks]]
+[id="sect-Other_Virtual_Machine_Tasks_{context}"]
 === Other Virtual Machine Tasks
 
 include::topics/Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal.adoc[]
 
-[[sect-Configuring_Red_Hat_Enterprise_Linux_5.4_and_Higher_Virtual_Machines_to_use_SPICE]]
+[id="sect-Configuring_Red_Hat_Enterprise_Linux_5.4_and_Higher_Virtual_Machines_to_use_SPICE_{context}"]
 ==== Configuring {enterprise-linux} 5.4 and later Virtual Machines to use SPICE
 
 SPICE is a remote display protocol designed for virtual environments, which enables you to view a virtualized desktop or server. SPICE delivers a high quality user experience, keeps CPU consumption low, and supports high quality video streaming.

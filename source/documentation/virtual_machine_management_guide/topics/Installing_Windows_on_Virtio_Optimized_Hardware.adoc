@@ -1,4 +1,5 @@
-[[Installing_Windows_on_Virtio_Optimized_Hardware]]
+:_content-type: PROCEDURE
+[id="Installing_Windows_on_Virtio_Optimized_Hardware_{context}"]
 = Installing Windows on VirtIO-optimized hardware
 
 Install VirtIO-optimized disk and network device drivers during your Windows installation by attaching the `virtio-win___version__.iso` file to your virtual machine. These drivers provide a performance improvement over emulated device drivers.

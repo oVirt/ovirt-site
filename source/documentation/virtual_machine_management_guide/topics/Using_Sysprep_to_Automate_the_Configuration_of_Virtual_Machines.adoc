@@ -1,4 +1,5 @@
-[[Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines]]
+:_content-type: PROCEDURE
+[id="Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines_{context}"]
 === Using Sysprep to Automate the Configuration of Virtual Machines
 
 `Sysprep` is a tool used to automate the setup of Windows virtual machines, for example, configuring host names, network interfaces, authorized keys, set up users, or to connect to Active Directory. `Sysprep` is installed with every version of Windows.

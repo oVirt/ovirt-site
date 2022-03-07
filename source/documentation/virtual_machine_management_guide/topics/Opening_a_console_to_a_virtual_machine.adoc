@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Opening_a_Console_to_a_Virtual_Machine_{context}"]
 = Opening a console to a virtual machine
 

@@ -1,4 +1,5 @@
-[[Editing_an_Affinity_Group]]
+:_content-type: PROCEDURE
+[id="Editing_an_Affinity_Group_{context}"]
 ==== Editing an Affinity Group
 
 

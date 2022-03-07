@@ -1,4 +1,5 @@
-[[Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal]]
+:_content-type: PROCEDURE
+[id="Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal_{context}"]
 ==== Enabling SAP Monitoring
 
 Enable SAP monitoring on a virtual machine through the Administration Portal.

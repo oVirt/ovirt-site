@@ -1,4 +1,5 @@
-[[Powering_on_a_virtual_machine]]
+:_content-type: PROCEDURE
+[id="Powering_on_a_virtual_machine_{context}"]
 = Starting a Virtual Machine
 
 .Procedure

@@ -1,4 +1,5 @@
-[[Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates]]
+:_content-type: PROCEDURE
+[id="Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates_{context}"]
 === Sealing Virtual Machines in Preparation for Deployment as Templates
 
 This section describes procedures for sealing Linux and Windows virtual machines. Sealing is the process of removing all system-specific details from a virtual machine before creating a template based on that virtual machine. Sealing is necessary to prevent the same details from appearing on multiple virtual machines created based on the same template. It is also necessary to ensure the functionality of other features, such as predictable vNIC order.

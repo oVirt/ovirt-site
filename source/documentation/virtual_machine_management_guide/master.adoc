@@ -1,5 +1,7 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+:_content-type: ASSEMBLY
+[id="virtual-machine-management-guide"]
 = Virtual Machine Management Guide
 
 include::chap-Introduction.adoc[]

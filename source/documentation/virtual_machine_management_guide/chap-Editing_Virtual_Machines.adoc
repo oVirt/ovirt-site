@@ -1,9 +1,10 @@
-[[chap-Editing_Virtual_Machines]]
+:_content-type: ASSEMBLY
+[id="chap-Editing_Virtual_Machines_{context}"]
 == Editing Virtual Machines
 
 include::topics/Editing_Virtual_Machine_Properties.adoc[]
 
-[[sect-Network_Interfaces]]
+[id="sect-Network_Interfaces_{context}"]
 === Network Interfaces
 
 include::topics/Adding_a_Network_Interface.adoc[]
@@ -16,7 +17,7 @@ include::topics/Removing_a_Network_Interface.adoc[]
 
 include::topics/Blacklisting_Network_Interfaces.adoc[]
 
-[[sect-Virtual_Disks]]
+[id="sect-Virtual_Disks_{context}"]
 === Virtual Disks
 
 include::topics/Adding_a_Virtual_Disk.adoc[]
@@ -33,7 +34,7 @@ include::topics/Importing_a_Disk_Image.adoc[]
 
 include::topics/Importing_an_Unregistered_Disk_Image.adoc[]
 
-[[sect-Virtual_Memory]]
+[id="sect-Virtual_Memory_{context}"]
 === Virtual Memory
 
 include::topics/Hot_Plugging_Virtual_Memory.adoc[]

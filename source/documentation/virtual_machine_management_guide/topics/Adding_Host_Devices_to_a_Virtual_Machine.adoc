@@ -1,4 +1,5 @@
-[[Adding_Host_Devices_to_a_Virtual_Machine]]
+:_content-type: PROCEDURE
+[id="Adding_Host_Devices_to_a_Virtual_Machine_{context}"]
 ==== Adding a Host Device to a Virtual Machine
 
 To improve performance, you can attach a host device to a virtual machine.

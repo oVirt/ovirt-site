@@ -1,4 +1,5 @@
-[[Editing_Virtual_Machine_Properties]]
+:_content-type: PROCEDURE
+[id="Editing_Virtual_Machine_Properties_{context}"]
 === Editing Virtual Machine Properties
 
 Changes to storage, operating system, or networking parameters can adversely affect the virtual machine. Ensure that you have the correct details before attempting to make any changes. Virtual machines can be edited while running, and some changes (listed in the procedure below) will be applied immediately. To apply all other changes, the virtual machine must be shut down and restarted.

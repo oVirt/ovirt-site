@@ -1,8 +1,9 @@
-[[Virtual_Machine_Boot_Options_settings_explained]]
+:_content-type: REFERENCE
+[id="Virtual_Machine_Boot_Options_settings_explained_{context}"]
 ==== Virtual Machine Boot Options Settings Explained
 
 The following table details the options available on the *Boot Options* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows
-[[New_VMs_Boot_Options]]
+[id="New_VMs_Boot_Options_{context}"]
 
 .Virtual Machine: Boot Options Settings
 [cols="1,2,1", options="header"]

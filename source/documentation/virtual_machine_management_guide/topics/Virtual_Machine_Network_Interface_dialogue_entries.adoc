@@ -1,4 +1,5 @@
-[[Virtual_Machine_Network_Interface_dialogue_entries]]
+:_content-type: REFERENCE
+[id="Virtual_Machine_Network_Interface_dialogue_entries_{context}"]
 === Explanation of Settings in the New Network Interface and Edit Network Interface Windows
 
 These settings apply when you are adding or editing a virtual machine network interface. If you have more than one network interface attached to a virtual machine, you can put the virtual machine on more than one logical network.

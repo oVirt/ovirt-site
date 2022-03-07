@@ -1,4 +1,7 @@
-[[Removing_a_virtual_machine]]
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+:_content-type: PROCEDURE
+[id="Removing_a_virtual_machine_{context}"]
 === Removing a Virtual Machine
 
 

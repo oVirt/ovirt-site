@@ -1,4 +1,5 @@
-[[Extending_the_Available_Size_of_a_Virtual_Disk]]
+:_content-type: PROCEDURE
+[id="Extending_the_Available_Size_of_a_Virtual_Disk_{context}"]
 ==== Extending the Available Size of a Virtual Disk
 
 You can extend the available size of a virtual disk while the virtual disk is attached to a virtual machine. Resizing a virtual disk does not resize the underlying partitions or file systems on that virtual disk. Use the `fdisk` utility to resize the partitions and file systems as required. See link:https://access.redhat.com/articles/1190213[How to Resize a Partition using fdisk] for more information.

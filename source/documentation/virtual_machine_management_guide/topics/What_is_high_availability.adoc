@@ -1,4 +1,5 @@
-[[What_is_high_availability]]
+:_content-type: CONCEPT
+[id="What_is_high_availability_{context}"]
 ==== What is High Availability?
 
 High availability is recommended for virtual machines running critical workloads. A highly available virtual machine is automatically restarted, either on its original host or another host in the cluster, if its process is interrupted, such as in the following scenarios:

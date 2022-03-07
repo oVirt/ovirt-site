@@ -1,4 +1,5 @@
-[[Importing_a_template_into_a_data_center]]
+:_content-type: PROCEDURE
+[id="Importing_a_template_into_a_data_center_{context}"]
 ==== Importing a Template into a Data Center
 
 

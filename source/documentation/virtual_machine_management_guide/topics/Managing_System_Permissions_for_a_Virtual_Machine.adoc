@@ -1,4 +1,5 @@
-[[Managing_System_Permissions_for_a_Virtual_Machine]]
+:_content-type: PROCEDURE
+[id="Managing_System_Permissions_for_a_Virtual_Machine_{context}"]
 ==== Managing System Permissions for a Virtual Machine
 
 As the *SuperUser*, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a *DataCenterAdmin* role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a *ClusterAdmin* has administrator privileges only for the assigned cluster.

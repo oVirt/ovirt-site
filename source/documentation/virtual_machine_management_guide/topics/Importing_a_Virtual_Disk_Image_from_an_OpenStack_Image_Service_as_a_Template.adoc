@@ -1,4 +1,5 @@
-[[Importing_a_Virtual_Disk_from_an_OpenStack_Image_Service_as_a_Template]]
+:_content-type: PROCEDURE
+[id="Importing_a_Virtual_Disk_from_an_OpenStack_Image_Service_as_a_Template_{context}"]
 ==== Importing a Virtual Disk from an OpenStack Image Service as a Template
 
 Virtual disks managed by an OpenStack Image Service can be imported into the {virt-product-fullname} {engine-name} if that OpenStack Image Service has been added to the {engine-name} as an external provider. This procedure requires access to the Administration Portal.

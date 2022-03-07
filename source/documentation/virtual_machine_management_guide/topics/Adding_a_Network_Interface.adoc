@@ -1,4 +1,5 @@
-[[Adding_a_Network_Interface]]
+:_content-type: PROCEDURE
+[id="Adding_a_Network_Interface_{context}"]
 ==== Adding a New Network Interface
 
 You can add multiple network interfaces to virtual machines. Doing so allows you to put your virtual machine on multiple logical networks.

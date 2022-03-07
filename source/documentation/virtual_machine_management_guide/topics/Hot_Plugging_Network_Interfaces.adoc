@@ -1,4 +1,5 @@
-[[Hot_Plugging_Network_Interfaces]]
+:_content-type: PROCEDURE
+[id="Hot_Plugging_Network_Interfaces_{context}"]
 ==== Hot Plugging a Network Interface
 
 You can hot plug network interfaces. Hot plugging means enabling and disabling devices while a virtual machine is running.

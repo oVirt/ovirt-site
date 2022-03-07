@@ -1,4 +1,5 @@
-[[Sealing_a_Windows_7_or_Windows_2008_template]]
+:_content-type: PROCEDURE
+[id="Sealing_a_Windows_7_or_Windows_2008_template_{context}"]
 ===== Sealing a Windows 7, Windows 2008, or Windows 2012 Virtual Machine for Deployment as Template
 
 Seal a Windows 7, Windows 2008, or Windows 2012 virtual machine before creating a template to use to deploy virtual machines.

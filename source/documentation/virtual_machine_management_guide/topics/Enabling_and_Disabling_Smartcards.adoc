@@ -1,4 +1,5 @@
-[[Enabling_and_Disabling_Smartcards]]
+:_content-type: PROCEDURE
+[id="Enabling_and_Disabling_Smartcards_{context}"]
 === Smart Card Authentication
 
 Smart cards are an external hardware security feature, most commonly seen in credit cards, but also used by many businesses as authentication tokens. Smart cards can be used to protect {virt-product-fullname} virtual machines.

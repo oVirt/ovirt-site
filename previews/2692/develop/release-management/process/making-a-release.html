@@ -154,9 +154,9 @@ the git hosting and build execution.</p>
 
 <p>During the development of the next oVirt release, patches are being verified using GitHub Actions.</p>
 
-<p>We also have <a href="https://github.com/oVirt/ovirt-system-tests">oVirt System Tests</a> for gating but we didn’t integrate it yet into GitHub Actions.</p>
+<p>We also have <a href="https://github.com/oVirt/ovirt-system-tests">oVirt System Tests</a> for gating but haven’t integrated them into GitHub Actions yet.</p>
 
-<p>Once a PR is merged, the packages are being built by COPR infrastructure within <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">ovirt/ovirt-master-snapshot</a> project.</p>
+<p>Once a PR is merged, the packages are being built by COPR infrastructure within the <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">ovirt/ovirt-master-snapshot</a> project.</p>
 
 <p>Manual and automated testing can then be done using the <a href="/ovirt-site/previews/2692/develop/dev-process/install-nightly-snapshot.html">snapshot composes provided by COPR</a>.</p>
 
@@ -174,13 +174,13 @@ In order to do that we are going to use the <a href="https://cbs.centos.org/koji
 <p>Package maintainers must have a <a href="https://accounts.centos.org/">CentOS Account</a> or a <a href="https://accounts.fedoraproject.org/">Fedora Account</a>,
 which were unified in the middle of 2021 to use the same account system.</p>
 
-<p>In order to build for oVirt you need to be added to the CBS you need to join the <a href="https://wiki.centos.org/SpecialInterestGroup/Virtualization">CentOS Virtualization SIG</a>.
+<p>In order to build for oVirt you need to be added to the CBS for which you need to join the <a href="https://wiki.centos.org/SpecialInterestGroup/Virtualization">CentOS Virtualization SIG</a>.
 You can do that by attending a <a href="https://www.centos.org/community/calendar/#virtualization-sig">Virt SIG IRC meeting</a>
-or asking on the <a href="https://lists.centos.org/mailman/listinfo/centos-virt">CentOS Virt mailing list</a></p>
+or asking on the <a href="https://lists.centos.org/mailman/listinfo/centos-virt">CentOS Virt mailing list</a>.</p>
 
 <blockquote>
-  <p>Please note that if you want to ship oVirt packages in other distributions you’ll need to get permissions there.
-For example, if you want to ship for Fedora, you need to be package owner on <a href="https://koji.fedoraproject.org/koji/">Fedora Build System</a>.</p>
+  <p>Please note that if you want to ship oVirt packages in other distributions, you’ll need to get permissions there.
+For example, if you want to ship for Fedora, you need to be a package owner on the <a href="https://koji.fedoraproject.org/koji/">Fedora Build System</a>.</p>
 
   <p>At the time of writing, the oVirt project is focusing only on <a href="https://www.centos.org/centos-stream/">CentOS Stream</a>.</p>
 </blockquote>
@@ -196,7 +196,7 @@ cbs build <span class="nt">--scratch</span> virt9s-ovirt-45-el9s &lt;your packag
 <span class="c"># This is for CentOS Stream 8:</span>
 cbs build <span class="nt">--scratch</span> virt8s-ovirt-45-el8s &lt;your package .src.rpm&gt;
 
-<span class="c"># if the build goes fine you can build for real</span>
+<span class="c"># If the build goes through fine, you can do a real build</span>
 <span class="c"># CentOS Stream 9:</span>
 cbs build virt9s-ovirt-45-el9s &lt;your package .src.rpm&gt;
 
@@ -211,11 +211,11 @@ cbs build virt8s-ovirt-45-el8s &lt;your package .src.rpm&gt;
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># CentOS Stream 8</span>
 cbs tag virt8s-ovirt-45-testing &lt;your build without the trailing <span class="s1">'.src.rpm'</span><span class="o">&gt;</span>
 
-<span class="c">#example:</span>
+<span class="c"># Example:</span>
 cbs tag virt8s-ovirt-45-testing ovirt-hosted-engine-ha-2.4.10-1.el8
 </code></pre></div></div>
 
-<p>This will publish the build on https://buildlogs.centos.org/centos/8-stream/virt/ repository.</p>
+<p>This will publish the build under the https://buildlogs.centos.org/centos/8-stream/virt/ repository.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># CentOS Stream 9</span>
 cbs tag virt9s-ovirt-45-testing &lt;your build without the trailing <span class="s1">'.src.rpm'</span><span class="o">&gt;</span>
@@ -224,11 +224,11 @@ cbs tag virt9s-ovirt-45-testing &lt;your build without the trailing <span class=
 cbs tag virt9s-ovirt-45-testing ovirt-hosted-engine-ha-2.4.10-1.el9
 </code></pre></div></div>
 
-<p>This will publish the build on https://buildlogs.centos.org/centos/9-stream/virt/ repository.</p>
+<p>This will publish the build on https://buildlogs.centos.org/centos/9-stream/virt/.</p>
 
 <h2 id="release-phase">Release phase</h2>
 
-<p>Once the content in testing has been properly verified and considered good to be released for general availability the release manager needs to tag the builds for release:</p>
+<p>Once the content in testing has been properly verified and considered good to be released for general availability, the release manager needs to tag the builds for release:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># CentOS Stream 8</span>
 cbs tag virt8s-ovirt-45-release &lt;build without the trailing <span class="s1">'.src.rpm'</span><span class="o">&gt;</span>
@@ -237,26 +237,26 @@ cbs tag virt8s-ovirt-45-release &lt;build without the trailing <span class="s1">
 cbs tag virt8s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el8
 </code></pre></div></div>
 
-<p>This will publish the build on http://mirror.centos.org/centos/8-stream/virt/ repository and to CentOS mirrors.</p>
+<p>This will publish the build on the http://mirror.centos.org/centos/8-stream/virt/ repository and to CentOS mirrors.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># CentOS Stream 9</span>
 cbs tag virt9s-ovirt-45-release &lt;build without the trailing <span class="s1">'.src.rpm'</span><span class="o">&gt;</span>
 
-<span class="c">#example:</span>
+<span class="c"># Example:</span>
 cbs tag virt9s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el9
 </code></pre></div></div>
 
-<p>This will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ repository and to CentOS mirrors.</p>
+<p>This will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ and to CentOS mirrors.</p>
 
 <h2 id="release-notes-preparation">Release notes preparation</h2>
 
-<p>Release notes are autogenerated from git logs using scripts and config file stored in <a href="https://github.com/oVirt/releng-tools">oVirt/releng-tools</a> repository.</p>
+<p>Release notes are auto-generated from git logs using scripts and config files stored in the <a href="https://github.com/oVirt/releng-tools">oVirt/releng-tools</a> repository.</p>
 
-<p>Please follow instructions on <a href="https://github.com/oVirt/releng-tools/blob/master/releases/README-prepare-patches">oVirt Release Engineering Tools documentation</a>.
+<p>Please follow the instructions on the <a href="https://github.com/oVirt/releng-tools/blob/master/releases/README-prepare-patches">oVirt Release Engineering Tools documentation</a>.
 Remember that the release config file is going to be used only to deliver content which couldn’t build on CentOS Community Build Service (CBS).
 The milestone config is the one used for generating the release notes.</p>
 
-<p>Once ready, the notes can be automatically generated with <a href="https://github.com/oVirt/releng-tools/blob/master/release_notes_git.py"><code class="language-plaintext highlighter-rouge">release_notes_git.py</code></a> command line like:</p>
+<p>Once ready, the notes can be automatically generated with <a href="https://github.com/oVirt/releng-tools/blob/master/release_notes_git.py"><code class="language-plaintext highlighter-rouge">release_notes_git.py</code></a> on the command line like:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># this assumes milestone/ovirt-4.5.0.conf being already populated</span>
 <span class="c"># https://github.com/oVirt/releng-tools/blob/master/milestones/ovirt-4.5.0.conf</span>
@@ -265,9 +265,9 @@ The milestone config is the one used for generating the release notes.</p>
 
 <h2 id="announcements">Announcements</h2>
 
-<p>Once ready to announce the release manager must ensure announcement is sent to:</p>
+<p>Once ready to announce, the release manager must ensure the announcement is sent:</p>
 
-<p>To <a href="https://blogs.ovirt.org/">oVirt Blog</a></p>
+<p>To the <a href="https://blogs.ovirt.org/">oVirt Blog</a></p>
 
 <p>To the relevant mailing list:</p>
 
@@ -282,15 +282,15 @@ The milestone config is the one used for generating the release notes.</p>
 <ul>
   <li><a href="https://twitter.com/ovirt">Twitter</a></li>
   <li><a href="https://www.reddit.com/r/ovirt">Reddit</a></li>
-  <li><a href="https://www.linkedin.com/company/ovirt">Linkedin Official</a></li>
-  <li><a href="https://www.linkedin.com/groups/4707460/">Linkedin oVirt group</a></li>
+  <li><a href="https://www.linkedin.com/company/ovirt">LinkedIn Official</a></li>
+  <li><a href="https://www.linkedin.com/groups/4707460/">LinkedIn oVirt group</a></li>
   <li><a href="https://www.facebook.com/groups/ovirt.openvirtualization">Facebook Official</a></li>
 </ul>
 
 <p>To local communities:</p>
 
 <ul>
-  <li><a href="https://www.linkedin.com/groups/13669751/">Linkedin oVirt Italia</a></li>
+  <li><a href="https://www.linkedin.com/groups/13669751/">LinkedIn oVirt Italia</a></li>
   <li><a href="https://www.facebook.com/groups/409421802961475/">Facebook oVirt India</a></li>
   <li><a href="https://www.facebook.com/groups/ovirt.italia/">Facebook oVirt Italia</a></li>
   <li><a href="https://www.facebook.com/groups/ovirt.korea/">Facebook oVirt Korea</a></li>
@@ -299,12 +299,12 @@ The milestone config is the one used for generating the release notes.</p>
   <li><a href="https://www.facebook.com/groups/ovirtph/">Facebook oVirt Philippines</a></li>
 </ul>
 
-<p>Missed someone? Please add!</p>
+<p>Missed something? Please add!</p>
 
 <p>A typical announcement for social media:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The #oVirt project community is pleased to announce the general availability of the new stable release
-of the #opensource #virtualization solution for your entire #enterprise: oVirt &lt;new version&gt;.
+of the #opensource #virtualization solution for your entire enterprise: oVirt &lt;new version&gt;.
 Read more about it on &lt;link to announcement blog post&gt;.
 </code></pre></div></div>
 

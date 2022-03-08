@@ -146,7 +146,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[root@rhev-host-01 ~]# ip addr show
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# ip addr show
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -174,7 +174,7 @@
     link/ether 00:21:86:a2:85:cd brd ff:ff:ff:ff:ff:ff
     inet 10.64.32.134/23 brd 10.64.33.255 scope global ovirtmgmt
     inet6 fe80::221:86ff:fea2:85cd/64 scope link
-       valid_lft forever preferred_lft forever</pre>
+       valid_lft forever preferred_lft forever</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -185,12 +185,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[root@rhev-host-01 ~]# brctl show
-bridge name	bridge id		STP enabled	interfaces
-ovirtmgmt		8000.e41f13b7fdd4	no		vnet002
-							vnet001
-							vnet000
-							eth0</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# brctl show
+bridge name        bridge id                STP enabled        interfaces
+ovirtmgmt                8000.e41f13b7fdd4        no                vnet002
+                                                        vnet001
+                                                        vnet000
+                                                        eth0</code></pre>
 </div>
 </div>
 <div class="paragraph">

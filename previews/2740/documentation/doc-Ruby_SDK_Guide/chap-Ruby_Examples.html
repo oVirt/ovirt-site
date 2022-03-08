@@ -173,7 +173,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-data-centers">Listing Data Centers</h3>
+<h3 id="Listing_data_centers">Listing Data Centers</h3>
 <div class="paragraph">
 <p>This Ruby example lists the data centers.</p>
 </div>
@@ -207,7 +207,7 @@ dcs.each <span style="color:#080;font-weight:bold">do</span> |dc|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-clusters">Listing Clusters</h3>
+<h3 id="Listing_clusters">Listing Clusters</h3>
 <div class="paragraph">
 <p>This Ruby example lists the clusters.</p>
 </div>
@@ -241,7 +241,7 @@ cls.each <span style="color:#080;font-weight:bold">do</span> |cl|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-logical-networks">Listing Logical Networks</h3>
+<h3 id="Listing_logical_networks">Listing Logical Networks</h3>
 <div class="paragraph">
 <p>This Ruby example lists the logical networks.</p>
 </div>
@@ -275,7 +275,7 @@ nws.each <span style="color:#080;font-weight:bold">do</span> |nw|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-hosts">Listing Hosts</h3>
+<h3 id="Listing_hosts">Listing Hosts</h3>
 <div class="paragraph">
 <p>This Ruby example lists the hosts.</p>
 </div>
@@ -309,7 +309,7 @@ host.each <span style="color:#080;font-weight:bold">do</span> |host|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-iso-files-in-the-iso-storage-domain">Listing ISO Files in the ISO Storage Domain</h3>
+<h3 id="Listing_ISO_files_in_ISO_storage_domain">Listing ISO Files in the ISO Storage Domain</h3>
 <div class="paragraph">
 <p>This Ruby example lists the ISO files in the ISO storage domain, <code>myiso</code>.</p>
 </div>
@@ -355,7 +355,7 @@ iso_sds = sds_service.list.select { |sd| sd.type == <span style="color:#036;font
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-an-nfs-storage-domain">Creating an NFS Storage Domain</h3>
+<h3 id="Creating_NFS_storage_domain">Creating an NFS Storage Domain</h3>
 <div class="paragraph">
 <p>This Ruby example adds an NFS storage domain.</p>
 </div>
@@ -447,7 +447,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-virtual-machine">Creating a Virtual Machine</h3>
+<h3 id="Creating_a_virtual_machine">Creating a Virtual Machine</h3>
 <div class="paragraph">
 <p>This Ruby example creates a virtual machine. This example uses a hash with symbols and nested hashes as their values. Another method, more verbose, is to use the constructors of the corresponding objects directly. See <a href="#Creating_a_Virtual_Machine_Instance_with_Attributes">Creating a Virtual Machine Instance with Attributes</a> for more information.</p>
 </div>
@@ -478,7 +478,7 @@ vms_service.add(
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-vnic-profile">Creating a vNIC Profile</h3>
+<h3 id="Creating_a_vNIC_profile">Creating a vNIC Profile</h3>
 <div class="paragraph">
 <p>This Ruby example creates a vNIC profile.</p>
 </div>
@@ -516,7 +516,7 @@ profiles_service.add(
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-vnic">Creating a vNIC</h3>
+<h3 id="Creating_a_vNIC">Creating a vNIC</h3>
 <div class="paragraph">
 <p>To ensure that a newly created virtual machine has network access you must create and attach a vNIC.</p>
 </div>
@@ -570,7 +570,7 @@ nics_service.add(
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-virtual-disk">Creating a Virtual Disk</h3>
+<h3 id="Creating_a_virtual_disk">Creating a Virtual Disk</h3>
 <div class="paragraph">
 <p>To ensure that a newly created virtual machine has access to persistent storage you must create and attach a disk.</p>
 </div>
@@ -624,7 +624,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="attaching-an-iso-image-to-a-virtual-machine">Attaching an ISO Image to a Virtual Machine</h3>
+<h3 id="Attaching_ISO_image_to_a_virtual_machine">Attaching an ISO Image to a Virtual Machine</h3>
 <div class="paragraph">
 <p>This Ruby example attaches a CD-ROM to a virtual machine and changes it to an ISO image in order to install the guest operating system.</p>
 </div>
@@ -669,7 +669,7 @@ cdrom_service.update(
 </div>
 </div>
 <div class="sect2">
-<h3 id="detaching-a-virtual-disk">Detaching a Virtual Disk</h3>
+<h3 id="Detaching_a_virtual_disk">Detaching a Virtual Disk</h3>
 <div class="paragraph">
 <p>This Ruby example detaches a disk from a virtual machine.</p>
 </div>
@@ -694,7 +694,7 @@ attachment.remove(<span style="color:#606">detach_only</span>: <span style="colo
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-virtual-machine">Starting a Virtual Machine</h3>
+<h3 id="Starting_a_virtual_machine">Starting a Virtual Machine</h3>
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine.</p>
 </div>
@@ -726,7 +726,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-virtual-machine-with-specific-boot-devices-and-boot-order">Starting a Virtual Machine with Specific Boot Devices and Boot Order</h3>
+<h3 id="Starting_a_virtual_machine_with_specific_boot_devices">Starting a Virtual Machine with Specific Boot Devices and Boot Order</h3>
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine specifying the boot devices and boot order.</p>
 </div>
@@ -769,7 +769,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-virtual-machine-with-cloud-init">Starting a Virtual Machine with Cloud-Init</h3>
+<h3 id="Starting_a_virtual_machine_with_cloud-init">Starting a Virtual Machine with Cloud-Init</h3>
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine using the Cloud-Init tool to set the <code>root</code> password and network configuration.</p>
 </div>
@@ -828,7 +828,7 @@ vm_service.start(
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-system-events">Checking System Events</h3>
+<h3 id="Checking_system_events">Checking System Events</h3>
 <div class="paragraph">
 <p>This Ruby example retrieves logged system events.</p>
 </div>

@@ -147,14 +147,14 @@
           
 <h1 id="ovirt-4410-release-notes">oVirt 4.4.10 Release Notes</h1>
 
-<p>The oVirt Project is pleased to announce the availability of the 4.4.10 release as of January 18, 2022.</p>
+<p>The oVirt Project is pleased to announce the availability of the 4.4.10.2 release as of March 03, 2022.</p>
 
 <p>oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.</p>
 
-<p>This release is available now for Red Hat Enterprise Linux 8.5 Beta (or similar) and CentOS Stream.</p>
+<p>This release is available now for Red Hat Enterprise Linux 8.5 (or similar) and CentOS Stream.</p>
 
 <blockquote>
   <p><strong>NOTE</strong></p>
@@ -199,20 +199,26 @@ page.</p>
               <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a></li>
             </ol>
           </li>
+          <li><a href="#removed-functionality" id="markdown-toc-removed-functionality">Removed functionality</a>            <ol>
+              <li><a href="#ovirt-engine-2" id="markdown-toc-ovirt-engine-2">oVirt Engine</a></li>
+            </ol>
+          </li>
           <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a>            <ol>
               <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
-              <li><a href="#ovirt-engine-2" id="markdown-toc-ovirt-engine-2">oVirt Engine</a></li>
+              <li><a href="#ovirt-engine-3" id="markdown-toc-ovirt-engine-3">oVirt Engine</a></li>
               <li><a href="#ovirt-engine-data-warehouse" id="markdown-toc-ovirt-engine-data-warehouse">oVirt Engine Data Warehouse</a></li>
               <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a></li>
             </ol>
           </li>
           <li><a href="#other" id="markdown-toc-other">Other</a>            <ol>
               <li><a href="#vdsm-1" id="markdown-toc-vdsm-1">VDSM</a></li>
-              <li><a href="#ovirt-engine-3" id="markdown-toc-ovirt-engine-3">oVirt Engine</a></li>
+              <li><a href="#ovirt-engine-4" id="markdown-toc-ovirt-engine-4">oVirt Engine</a></li>
+              <li><a href="#ovirt-release-package" id="markdown-toc-ovirt-release-package">oVirt Release Package</a></li>
             </ol>
           </li>
           <li><a href="#no-doc-update" id="markdown-toc-no-doc-update">No Doc Update</a>            <ol>
               <li><a href="#vdsm-2" id="markdown-toc-vdsm-2">VDSM</a></li>
+              <li><a href="#ovirt-node-ng-image" id="markdown-toc-ovirt-node-ng-image">oVirt Node NG Image</a></li>
               <li><a href="#ovirt-engine-data-warehouse-1" id="markdown-toc-ovirt-engine-data-warehouse-1">oVirt Engine Data Warehouse</a></li>
               <li><a href="#ovirt-hosted-engine-ha-1" id="markdown-toc-ovirt-hosted-engine-ha-1">oVirt Hosted Engine HA</a></li>
               <li><a href="#contributors" id="markdown-toc-contributors">Contributors</a></li>
@@ -254,16 +260,18 @@ page.</p>
 
 <ul>
   <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2032919">BZ 2032919</a> <strong>Unable to add RHEL 7 host into RHV Manager in clusters 4.2/4.3</strong></p>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2044257">BZ 2044257</a> <strong>Bump snmp4j library version to remove dependency on log4j</strong></p>
 
-    <p>There was an error in the with tracked by BZ2019807, which caused the issue that RHEL 7 hosts could not be added to RHV Manager. This issue is now fixed and RHEL 7 hosts can be added to RHV Manager successfully.</p>
+    <p>In this release, oVirt 4.4.10 requires snmp4j version 3.6.4 or later, which no longer depends on the log4j library.</p>
   </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2007286">BZ 2007286</a> <strong>Host is never fenced after a soft fence attempt</strong></p>
 
-    <p>Soft fencing phase has been fixed, so if soft fencing won’t make the host responsive again, then the non-responding host treatment flow will proceed correctly with following phases.</p>
+    <p>Previously, a non-responding host was first soft-fenced by the Engine, but this did not fix the connectivity issue. The engine did not initiate a hard fence and the host was left in an non-responding state.</p>
   </li>
 </ul>
+
+<p>In this release, soft fencing has been fixed so that if the soft fencing does not make the host responsive again, then the non-responding host treatment process continues correctly with the additional steps.</p>
 
 <h3 id="enhancements">Enhancements</h3>
 
@@ -273,45 +281,25 @@ page.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1897114">BZ 1897114</a> <strong>Add additional logging information to be able to understand why host is stuck in Unassigned state</strong></p>
 
-    <p>Feature:</p>
+    <p>In this release, monitoring of host refresh capabilities functionality was improved to help debug very rare production issues that sometimes caused the oVirt Engine to lose connectivity with the oVirt Node hosts.</p>
   </li>
 </ul>
 
-<p>Improved monitoring of host refresh capabilities functionality [1] and minor refactoring [2]</p>
+<h3 id="removed-functionality">Removed functionality</h3>
 
-<p>Reason [1]:</p>
+<h4 id="ovirt-engine-2">oVirt Engine</h4>
 
-<p>The motivation behind this change is a difficulty to investigate and very rare production issues causing Virtualization Manager (RHV-M) to lost connectivity hosts (RHV-H). In a result - these hosts end up in illegal states like  or simply cannot be activated.</p>
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2044277">BZ 2044277</a> <strong>Replace ovirt-engine-extension-logger-log4j with internal ovirt-engine implementation</strong></p>
 
-<p>Result [2]:</p>
+    <p>With this release, the ovirt-engine-extension-logger-log4j package has been removed. It is replaced by an internal ovirt-engine implementation.</p>
+  </li>
+</ul>
 
-<p>The service occasionally prints information about hosts that were not ‘refreshed’ by HostMonitoring for</p>
+<p>When upgrading from earlier oVirt versions to oVirt 4.4.10, the ovirt-engine-extension-logger-log4j package is uninstalled if it is present. If you used the ovirt-engine-extension-logger-log4j in earlier oVirt versions, you must manually remove the ovirt-engine-extension-logger-log4j configuration files and configure the new feature for sending log records to a remote syslog service, as outlined in the Administration Guide.</p>
 
-<p>given period (a warning in /var/log/ovirt-engine/engine.log).</p>
-
-<p>The watchdog service is configured by optional configuration properties:</p>
-
-<p>$ engine-config -g HostMonitoringWatchdogIntervalInSeconds</p>
-
-<p>HostMonitoringWatchdogIntervalInSeconds: 900 version: general</p>
-
-<p>$ engine-config -g HostMonitoringWatchdogInactivityThresholdInSeconds</p>
-
-<p>HostMonitoringWatchdogInactivityThresholdInSeconds: 1200 version: general</p>
-
-<p>In order to disable watchdog service set:</p>
-
-<p>$ engine-config -s HostMonitoringWatchdogIntervalInSeconds=0</p>
-
-<p>and restart ovirt-engine</p>
-
-<p>Reason [2]</p>
-
-<p>Some of the internally used volatile flags where incremented in non-atomic way which could lead to unpredictable race conditions.</p>
-
-<p>Result [2]</p>
-
-<p>Dedicated atomic non-blocking data structures were used so that the race condition while increment was impossible.</p>
+<p>After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without breaking the oVirt setup by running the following command: <code class="language-plaintext highlighter-rouge">$ dnf remove log4j12</code>.</p>
 
 <h3 id="bug-fixes">Bug Fixes</h3>
 
@@ -326,9 +314,15 @@ page.</p>
   </li>
 </ul>
 
-<h4 id="ovirt-engine-2">oVirt Engine</h4>
+<h4 id="ovirt-engine-3">oVirt Engine</h4>
 
 <ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2013430">BZ 2013430</a> <strong>oVirt 4.4. FIPS install leaves UUID blank in grub after setting kernel option</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2032919">BZ 2032919</a> <strong>Unable to add EL 7 host into oVirt Engine in clusters 4.2/4.3</strong></p>
+  </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2027424">BZ 2027424</a> <strong>Consume video device from virt-v2v</strong></p>
   </li>
@@ -360,9 +354,15 @@ page.</p>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2026809">BZ 2026809</a> <strong>VM remains locked after importing from vmware/external-ova, we see  “‘str’ object has no attribute ‘decode’” in the log</strong></li>
 </ul>
 
-<h4 id="ovirt-engine-3">oVirt Engine</h4>
+<h4 id="ovirt-engine-4">oVirt Engine</h4>
 
 <ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2037216">BZ 2037216</a> <strong>VM imported from configuration is stuck in WaitForLaunch once removed quickly after power-off</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1854038">BZ 1854038</a> <strong>Download or upload disk (SDK) fails due to ‘Timed out waiting for transfer XXX to finalize’</strong></p>
+  </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1985746">BZ 1985746</a> <strong>[CBT][Veeam] Full backup is stuck on ‘FINALIZING’ status when an error occurs during the image transfer flow</strong></p>
   </li>
@@ -383,12 +383,41 @@ page.</p>
   </li>
 </ul>
 
+<h4 id="ovirt-release-package">oVirt Release Package</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2006682">BZ 2006682</a> <strong>subscription-manager is missing from ovirt-node image</strong></li>
+</ul>
+
 <h3 id="no-doc-update">No Doc Update</h3>
 
 <h4 id="vdsm-2">VDSM</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2022354">BZ 2022354</a> <strong>Network gateway stays out-of-sync after upgrade</strong></li>
+</ul>
+
+<h4 id="ovirt-node-ng-image">oVirt Node NG Image</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2055098">BZ 2055098</a> <strong>CVE-2022-22942 kernel: failing usercopy allows for use-after-free exploitation [ovirt-4.4]</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2047640">BZ 2047640</a> <strong>CVE-2021-0920 kernel: Use After Free in unix_gc() which could result in a local privilege escalation [ovirt-4.4]</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2047630">BZ 2047630</a> <strong>CVE-2021-4154 kernel: local privilege escalation by exploiting the fsconfig syscall parameter leads to container breakout  [ovirt-4.4]</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2046005">BZ 2046005</a> <strong>CVE-2022-0330 kernel: possible privileges escalation due to missing TLB flush  [ovirt-4.4]</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2043471">BZ 2043471</a> <strong>CVE-2021-45417 aide: heap-based buffer overflow on outputs larger than B64_BUF [ovirt-4.4]</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2046038">BZ 2046038</a> <strong>CVE-2021-4034 polkit: Local privilege escalation in pkexec due to incorrect handling of argument vector [ovirt-4.4]</strong></p>
+  </li>
 </ul>
 
 <h4 id="ovirt-engine-data-warehouse-1">oVirt Engine Data Warehouse</h4>
@@ -405,12 +434,14 @@ page.</p>
 
 <h4 id="contributors">Contributors</h4>
 
-<p>33 people contributed to this release:</p>
+<p>38 people contributed to this release:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ales Musil (Contributed to: ovirt-engine, ovirt-site, vdsm)
-Arik Hadas (Contributed to: ovirt-engine)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@lessfoobar (Contributed to: ovirt-site)
+Ales Musil (Contributed to: ovirt-engine, ovirt-site, vdsm)
+Arik Hadas (Contributed to: ovirt-engine, ovirt-site)
 Artur Socha (Contributed to: ovirt-engine)
 Asaf Rachmani (Contributed to: ovirt-hosted-engine-ha)
+Avital Pinnick (Contributed to: ovirt-site)
 Aviv Litman (Contributed to: ovirt-dwh)
 Benny Zlotnik (Contributed to: ovirt-engine)
 Donna DaCosta (Contributed to: ovirt-site)
@@ -418,27 +449,30 @@ Eli Marcus (Contributed to: ovirt-site)
 Eli Mesika (Contributed to: ovirt-engine)
 Evgheni Dereveanchin (Contributed to: ovirt-site)
 Eyal Shenitzky (Contributed to: ovirt-engine)
+Harel Braha (Contributed to: ovirt-site)
 Jake Reynolds (Contributed to: ovirt-hosted-engine-ha)
 Janos Bonic (Contributed to: ovirt-site)
 Lev Veyde (Contributed to: ovirt-appliance, ovirt-node-ng-image, ovirt-release, ovirt-site)
 Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 Marcin Sobczyk (Contributed to: vdsm)
 Martin Nečas (Contributed to: ovirt-ansible-collection)
-Martin Perina (Contributed to: ovirt-engine)
+Martin Perina (Contributed to: ovirt-engine, ovirt-site)
 Milan Zamazal (Contributed to: ovirt-engine, ovirt-site, vdsm)
 Nijin Ashok (Contributed to: ovirt-ansible-collection)
 Nir Soffer (Contributed to: vdsm)
 Pavel Bar (Contributed to: ovirt-engine)
-RichardHoch (Contributed to: ovirt-site)
+Richard Hoch (Contributed to: ovirt-site)
 Saif Abu Saleh (Contributed to: ovirt-engine, ovirt-site)
 Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-hosted-engine-ha, ovirt-node-ng-image, ovirt-release, ovirt-site)
 Sanja Bonic (Contributed to: ovirt-site)
 Scott J Dickerson (Contributed to: ovirt-site)
 Shani Leviim (Contributed to: ovirt-engine)
 Steve Goodman (Contributed to: ovirt-site)
-Tomáš Golembiovský (Contributed to: vdsm)
+Tomáš Golembiovský (Contributed to: ovirt-site, vdsm)
 Yedidyah Bar David (Contributed to: ovirt-hosted-engine-ha)
+dercol1 (Contributed to: ovirt-site)
 jekader (Contributed to: ovirt-site)
+michalskrivanek (Contributed to: ovirt-site)
 tinez (Contributed to: ovirt-site)
 </code></pre></div></div>
 

@@ -115,14 +115,14 @@
 <li><a href="#Installing_Red_Hat_Enterprise_Linux_Virtual_Machines">2. Installing Enterprise Linux Virtual Machines</a>
 <ul class="sectlevel2">
 <li><a href="#Creating_a_virtual_machine_linux_vm">2.1. Creating a virtual machine</a></li>
-<li><a href="#Starting_the_Virtual_Machine">2.2. Starting the Virtual Machine</a>
+<li><a href="#Starting_the_Virtual_Machine_linux_vm">2.2. Starting the Virtual Machine</a>
 <ul class="sectlevel3">
 <li><a href="#Powering_on_a_virtual_machine">2.2.1. Starting a Virtual Machine</a></li>
 <li><a href="#Opening_a_Console_to_a_Virtual_Machine_linux_vm">2.2.2. Opening a console to a virtual machine</a></li>
 </ul>
 </li>
 <li><a href="#Enabling_the_Required_Repositories">2.3. Enabling the Required Repositories</a></li>
-<li><a href="#Installing_Guest_Agents_and_Drivers_Linux">2.4. Installing Guest Agents and Drivers</a>
+<li><a href="#Installing_Guest_Agents_and_Drivers_Linux_linux_vm">2.4. Installing Guest Agents and Drivers</a>
 <ul class="sectlevel3">
 <li><a href="#Red_Hat_Virtualization_Guest_Agents_and_Drivers_linux_vm">2.4.1. oVirt Guest agents, tools, and drivers</a></li>
 <li><a href="#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux">2.4.2. Installing the Guest Agents and Drivers on Enterprise Linux</a></li>
@@ -263,7 +263,7 @@
 <ul class="sectlevel3">
 <li><a href="#Creating_a_snapshot_of_a_virtual_machine">6.9.1. Creating a Snapshot of a Virtual Machine</a></li>
 <li><a href="#Using_a_snapshot_to_restore_a_virtual_machine">6.9.2. Using a Snapshot to Restore a Virtual Machine</a></li>
-<li><a href="#Creating_a_Virtual_Machine_from_a_Snapshot_vm_guide_administrative_tasks">6.9.3. Creating a Virtual Machine from a Snapshot</a></li>
+<li><a href="#Creating_a_Virtual_Machine_from_a_Snapshot">6.9.3. Creating a Virtual Machine from a Snapshot</a></li>
 <li><a href="#Deleting_a_snapshot">6.9.4. Deleting a Snapshot</a></li>
 </ul>
 </li>
@@ -272,10 +272,10 @@
 <li><a href="#Adding_Host_Devices_to_a_Virtual_Machine">6.10.1. Adding a Host Device to a Virtual Machine</a></li>
 <li><a href="#Removing_Host_Devices_from_a_Virtual_Machine">6.10.2. Removing Host Devices from a Virtual Machine</a></li>
 <li><a href="#Pinning_a_Virtual_Machine_to_Another_Host">6.10.3. Pinning a Virtual Machine to Another Host</a></li>
-<li><a href="#conc-nvdimm-host-devices_vm_guide_administrative_tasks">6.10.4. NVDIMM host devices</a></li>
+<li><a href="#conc-nvdimm-host-devices">6.10.4. NVDIMM host devices</a></li>
 </ul>
 </li>
-<li><a href="#sect-Affinity_Groups">6.11. Affinity Groups</a>
+<li><a href="#affinity-groups">6.11. Affinity Groups</a>
 <ul class="sectlevel3">
 <li><a href="#Creating_an_Affinity_Group">6.11.1. Creating an Affinity Group</a></li>
 <li><a href="#Editing_an_Affinity_Group">6.11.2. Editing an Affinity Group</a></li>
@@ -294,7 +294,7 @@
 <li><a href="#sect-Exporting_and_Importing_Virtual_Machines_and_Templates">6.13. Exporting and Importing Virtual Machines and Templates</a>
 <ul class="sectlevel3">
 <li><a href="#Exporting_individual_virtual_machines_to_the_export_domain">6.13.1. Exporting a Virtual Machine to the Export Domain</a></li>
-<li><a href="#proc_Exporting_individual_virtual_machines_to_a_data_domain_vm_guide_administrative_tasks">6.13.2. Exporting a Virtual Machine to a Data Domain</a></li>
+<li><a href="#proc_Exporting_individual_virtual_machines_to_a_data_domain">6.13.2. Exporting a Virtual Machine to a Data Domain</a></li>
 <li><a href="#Importing_the_virtual_machine_from_the_export_domain">6.13.3. Importing a Virtual Machine from the Export Domain</a></li>
 <li><a href="#Importing_a_Virtual_Machine_from_a_Data_Domain">6.13.4. Importing a Virtual Machine from a Data Domain</a></li>
 <li><a href="#Importing_a_Virtual_Machine_from_a_VMware_Provider">6.13.5. Importing a Virtual Machine from a VMware Provider</a></li>
@@ -309,14 +309,15 @@
 <ul class="sectlevel3">
 <li><a href="#Live_migration_prerequisites">6.14.1. Live Migration Prerequisites</a></li>
 <li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs">6.14.2. Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration</a></li>
-<li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime.</a></li>
-<li><a href="#Guest_Agent_Hooks">6.14.4. Guest Agent Hooks</a></li>
-<li><a href="#Automatic_virtual_machine_migration">6.14.5. Automatic Virtual Machine Migration</a></li>
-<li><a href="#Preventing_automatic_migration_of_a_virtual_machine">6.14.6. Preventing Automatic Migration of a Virtual Machine</a></li>
-<li><a href="#Manually_migrating_virtual_machines">6.14.7. Manually Migrating Virtual Machines</a></li>
-<li><a href="#Setting_migration_priority">6.14.8. Setting Migration Priority</a></li>
-<li><a href="#Canceling_ongoing_virtual_machine_migrations">6.14.9. Canceling Ongoing Virtual Machine Migrations</a></li>
-<li><a href="#Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.10. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</a></li>
+<li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime</a></li>
+<li><a href="#Optimizing_Live_Migration">6.14.4. Optimizing Live Migration</a></li>
+<li><a href="#Guest_Agent_Hooks">6.14.5. Guest Agent Hooks</a></li>
+<li><a href="#Automatic_virtual_machine_migration">6.14.6. Automatic Virtual Machine Migration</a></li>
+<li><a href="#Preventing_automatic_migration_of_a_virtual_machine">6.14.7. Preventing Automatic Migration of a Virtual Machine</a></li>
+<li><a href="#Manually_migrating_virtual_machines">6.14.8. Manually Migrating Virtual Machines</a></li>
+<li><a href="#Setting_migration_priority">6.14.9. Setting Migration Priority</a></li>
+<li><a href="#Canceling_ongoing_virtual_machine_migrations">6.14.10. Canceling Ongoing Virtual Machine Migrations</a></li>
+<li><a href="#Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.11. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</a></li>
 </ul>
 </li>
 <li><a href="#sect-Improving_Uptime_with_Virtual_Machine_High_Availability">6.15. Improving Uptime with Virtual Machine High Availability</a>
@@ -336,7 +337,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#chap-Templates">7. Templates</a>
+<li><a href="#Templates">7. Templates</a>
 <ul class="sectlevel2">
 <li><a href="#Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates">7.1. Sealing Virtual Machines in Preparation for Deployment as Templates</a>
 <ul class="sectlevel3">
@@ -425,7 +426,8 @@
 <p>A virtual machine is a software implementation of a computer. The oVirt environment enables you to create virtual desktops and virtual servers.</p>
 </div>
 <div class="paragraph">
-<p>Virtual machines consolidate computing tasks and workloads. In traditional computing environments, workloads usually run on individually administered and upgraded servers. Virtual machines reduce the amount of hardware and administration required to run the same computing tasks and workloads.</p>
+<p>Virtual machines consolidate computing tasks and workloads. In traditional computing environments, workloads usually run on individually administered and upgraded servers. Virtual machines reduce the amount of hardware and administration required to run the same computing tasks and workloads.
+:_content-type: CONCEPT</p>
 </div>
 <div class="sect2">
 <h3 id="Audience">1.1. Audience</h3>
@@ -462,7 +464,8 @@
 <div class="sect3">
 <h4 id="sect-Installing_Console_Components">1.4.1. Installing Console Components</h4>
 <div class="paragraph">
-<p>A console is a graphical window that allows you to view the start up screen, shut down screen, and desktop of a virtual machine, and to interact with that virtual machine in a similar way to a physical machine. In oVirt, the default application for opening a console to a virtual machine is Remote Viewer, which must be installed on the client machine prior to use.</p>
+<p>A console is a graphical window that allows you to view the start up screen, shut down screen, and desktop of a virtual machine, and to interact with that virtual machine in a similar way to a physical machine. In oVirt, the default application for opening a console to a virtual machine is Remote Viewer, which must be installed on the client machine prior to use.
+:_content-type: PROCEDURE</p>
 </div>
 <div class="sect4">
 <h5 id="Installing_Remote_Viewer_on_Linux">Installing Remote Viewer on Enterprise Linux</h5>
@@ -476,7 +479,7 @@
 <p>Install the <code>virt-viewer</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install virt-viewer</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install virt-viewer</code></pre>
 </div>
 </div>
 </li>
@@ -507,7 +510,7 @@
 <p>Virt Viewer for 32-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">https://<em>your-manager-fqdn</em>/ovirt-engine/services/files/spice/virt-viewer-x86.msi</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x86.msi</code></pre>
 </div>
 </div>
 </li>
@@ -515,7 +518,7 @@
 <p>Virt Viewer for 64-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">https://<em>your-manager-fqdn</em>/ovirt-engine/services/files/spice/virt-viewer-x64.msi</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x64.msi</code></pre>
 </div>
 </div>
 </li>
@@ -559,7 +562,7 @@
 <p><code>usbdk</code> for 32-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">https://<em>[your manager&#8217;s address]</em>/ovirt-engine/services/files/spice/usbdk-x86.msi</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x86.msi</code></pre>
 </div>
 </div>
 </li>
@@ -567,7 +570,7 @@
 <p><code>usbdk</code> for 64-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">https://<em>[your manager&#8217;s address]</em>/ovirt-engine/services/files/spice/usbdk-x64.msi</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x64.msi</code></pre>
 </div>
 </div>
 </li>
@@ -794,7 +797,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="Starting_the_Virtual_Machine">2.2. Starting the Virtual Machine</h3>
+<h3 id="Starting_the_Virtual_Machine_linux_vm">2.2. Starting the Virtual Machine</h3>
 <div class="sect3">
 <h4 id="Powering_on_a_virtual_machine">2.2.1. Starting a Virtual Machine</h4>
 <div class="olist arabic">
@@ -831,7 +834,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Boot failed: not a bootable disk - No Bootable device</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Boot failed: not a bootable disk - No Bootable device</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -937,9 +940,9 @@
 <p>On the virtual machine whose serial console you are accessing, add the following lines to <strong>/etc/default/grub</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"
-GRUB_TERMINAL="console serial"
-GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">GRUB_CMDLINE_LINUX_DEFAULT=&quot;console=tty0 console=ttyS0,115200n8&quot;
+GRUB_TERMINAL=&quot;console serial&quot;
+GRUB_SERIAL_COMMAND=&quot;serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1&quot;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -968,7 +971,7 @@ GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=
 <p>BIOS-based machines:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre>
 </div>
 </div>
 </li>
@@ -976,7 +979,7 @@ GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=
 <p>UEFI-based machines:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -990,7 +993,7 @@ GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=
 <p>On the client machine from which you are accessing the virtual machine serial console, generate an SSH key pair. The Engine supports standard SSH key types, for example, an RSA key:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ssh-keygen -t rsa -b 2048 -C "<em>user@domain</em>" -f .ssh/serialconsolekey</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh-keygen -t rsa -b 2048 -C &quot;_user@domain_&quot; -f .ssh/serialconsolekey</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1026,10 +1029,10 @@ GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=
 <p>If a single virtual machine is available, this command connects the user to that virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> -i .ssh/serialconsolekey
-Enterprise Linux Server release 6.7 (Santiago)
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey
+{enterprise-linux} Server release 6.7 (Santiago)
 Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
-<em>USER</em> login:</pre>
+_USER_ login:</code></pre>
 </div>
 </div>
 </li>
@@ -1037,14 +1040,14 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>If more than one virtual machine is available, this command lists the available virtual machines and their IDs:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> -i .ssh/serialconsolekey list
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey list
 1. vm1 [vmid1]
 2. vm2 [vmid2]
 3. vm3 [vmid3]
 &gt; 2
-Enterprise Linux Server release 6.7 (Santiago)
+{enterprise-linux} Server release 6.7 (Santiago)
 Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
-<em>USER</em> login:</pre>
+_USER_ login:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1055,12 +1058,12 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Alternatively, connect directly to a virtual machine using its unique identifier or its name:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> connect --vm-id <em>vmid1</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-id _vmid1_</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> connect --vm-name <em>vm1</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-name _vm1_</code></pre>
 </div>
 </div>
 </li>
@@ -1114,7 +1117,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager register</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager register</code></pre>
 </div>
 </div>
 </li>
@@ -1122,7 +1125,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Locate the relevant subscription pools and note down the pool identifiers:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager list --available</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager list --available</code></pre>
 </div>
 </div>
 </li>
@@ -1130,7 +1133,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Use the pool identifiers to attach the required subscriptions:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager attach --pool=<em>pool_id</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager attach --pool=_pool_id_</code></pre>
 </div>
 </div>
 </li>
@@ -1138,7 +1141,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>When a system is attached to a subscription pool with multiple repositories, only the main repository is enabled by default. Others are available, but disabled. Enable any additional repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos --enable=<em>repository</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=_repository_</code></pre>
 </div>
 </div>
 </li>
@@ -1146,7 +1149,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Ensure that all packages currently installed are up to date:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1161,7 +1164,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1176,7 +1179,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 </div>
 <div class="sect2">
-<h3 id="Installing_Guest_Agents_and_Drivers_Linux">2.4. Installing Guest Agents and Drivers</h3>
+<h3 id="Installing_Guest_Agents_and_Drivers_Linux_linux_vm">2.4. Installing Guest Agents and Drivers</h3>
 <div class="sect3">
 <h4 id="Red_Hat_Virtualization_Guest_Agents_and_Drivers_linux_vm">2.4.1. oVirt Guest agents, tools, and drivers</h4>
 <div class="paragraph">
@@ -1306,7 +1309,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 6</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -1314,7 +1317,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 7</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -1322,7 +1325,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 8</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -1337,7 +1340,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 6 or 7, install the ovirt guest agent:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install ovirt-guest-agent-common</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-guest-agent-common</code></pre>
 </div>
 </div>
 </li>
@@ -1345,7 +1348,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 8, install the qemu guest agent:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install qemu-guest-agent</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install qemu-guest-agent</code></pre>
 </div>
 </div>
 </li>
@@ -1360,8 +1363,8 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 6</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service ovirt-guest-agent start
-# chkconfig ovirt-guest-agent on</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service ovirt-guest-agent start
+# chkconfig ovirt-guest-agent on</code></pre>
 </div>
 </div>
 </li>
@@ -1369,8 +1372,8 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 7</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl start ovirt-guest-agent
-# systemctl enable ovirt-guest-agent</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start ovirt-guest-agent
+# systemctl enable ovirt-guest-agent</code></pre>
 </div>
 </div>
 </li>
@@ -1385,8 +1388,8 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 6</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service qemu-ga start
-# chkconfig qemu-ga on</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service qemu-ga start
+# chkconfig qemu-ga on</code></pre>
 </div>
 </div>
 </li>
@@ -1394,8 +1397,8 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 7 or 8</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl start qemu-guest-agent
-# systemctl enable qemu-guest-agent</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start qemu-guest-agent
+# systemctl enable qemu-guest-agent</code></pre>
 </div>
 </div>
 </li>
@@ -1479,7 +1482,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>You can change the default virtual machine name length with the <code>engine-config</code> tool. Run the following command on the Engine machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config --set MaxVmNameLength=<em>integer</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set MaxVmNameLength=_integer_</code></pre>
 </div>
 </div>
 </li>
@@ -1780,7 +1783,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>On the Engine machine, install the <code>virtio-win</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install virtio-win*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install virtio-win*</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1836,7 +1839,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Enter the <code class="cmd">msiexec</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">D:\ msiexec /i "<em>PATH_TO_MSI</em>" /qn [/l*v "<em>PATH_TO_LOG</em>"][/norestart] ADDLOCAL=ALL</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">D:\ msiexec /i &quot;_PATH_TO_MSI_&quot; /qn [/l*v &quot;_PATH_TO_LOG_&quot;][/norestart] ADDLOCAL=ALL</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1847,7 +1850,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=ALL</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">D:\ msiexec /i &quot;virtio-win-gt-x64.msi&quot; /qn ADDLOCAL=ALL</code></pre>
 </div>
 </div>
 </li>
@@ -1976,7 +1979,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=`FE_vioscsi_driver,FE_vioserial_driver,FE_viostor_driver</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">D:\ msiexec /i &quot;virtio-win-gt-x64.msi&quot; /qn ADDLOCAL=`FE_vioscsi_driver,FE_vioserial_driver,FE_viostor_driver</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1984,7 +1987,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL = FE_spice_Agent,FE_vioserial_driver,FE_spice_driver</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">D:\ msiexec /i &quot;virtio-win-gt-x64.msi&quot; /qn ADDLOCAL = FE_spice_Agent,FE_vioserial_driver,FE_spice_driver</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -2152,7 +2155,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 6:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -2160,7 +2163,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 7:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -2171,7 +2174,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Download and install the guest agent, single sign-on, and IPA packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install ovirt-guest-agent-common ovirt-guest-agent-pam-module ovirt-guest-agent-gdm-plugin ipa-client</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-guest-agent-common ovirt-guest-agent-pam-module ovirt-guest-agent-gdm-plugin ipa-client</code></pre>
 </div>
 </div>
 </li>
@@ -2179,7 +2182,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Run the following command and follow the prompts to configure <code>ipa-client</code> and join the virtual machine to the domain:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ipa-client-install --permit --mkhomedir</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ipa-client-install --permit --mkhomedir</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2194,7 +2197,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ipa-client-install --domain=<em>FQDN</em> --server=<em>FQDN</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ipa-client-install --domain=_FQDN_ --server=_FQDN_</code></pre>
 </div>
 </div>
 </td>
@@ -2206,7 +2209,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 7.2 and later:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># authconfig --enablenis --update</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># authconfig --enablenis --update</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2228,7 +2231,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Fetch the details of an IPA user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># getent passwd <em>ipa-user</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># getent passwd _ipa-user_</code></pre>
 </div>
 </div>
 </li>
@@ -2236,7 +2239,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Record the IPA user&#8217;s UID and GID:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"><em>ipa-user</em>:*:936600010:936600001::/home/<em>ipa-user</em>:/bin/sh</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">_ipa-user_:*:936600010:936600001::/home/_ipa-user_:/bin/sh</code></pre>
 </div>
 </div>
 </li>
@@ -2244,7 +2247,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Create a home directory for the IPA user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir /home/<em>ipa-user</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /home/_ipa-user_</code></pre>
 </div>
 </div>
 </li>
@@ -2252,7 +2255,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Assign ownership of the directory to the IPA user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown 936600010:936600001 /home/<em>ipa-user</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown 936600010:936600001 /home/_ipa-user_</code></pre>
 </div>
 </div>
 </li>
@@ -2958,7 +2961,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Install the <code>watchdog</code> package and dependencies:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install watchdog</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install watchdog</code></pre>
 </div>
 </div>
 </li>
@@ -2966,7 +2969,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Edit the <strong>/etc/watchdog.conf</strong> file and uncomment the following line:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">watchdog-device = /dev/watchdog</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">watchdog-device = /dev/watchdog</code></pre>
 </div>
 </div>
 </li>
@@ -2981,8 +2984,8 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Enterprise Linux 6:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service watchdog start
-# chkconfig watchdog on</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service watchdog start
+# chkconfig watchdog on</code></pre>
 </div>
 </div>
 </li>
@@ -2990,8 +2993,8 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Enterprise Linux 7:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl start watchdog.service
-# systemctl enable watchdog.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start watchdog.service
+# systemctl enable watchdog.service</code></pre>
 </div>
 </div>
 </li>
@@ -3032,7 +3035,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Confirm that the watchdog card has been identified by the virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># lspci | grep watchdog -i</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># lspci | grep watchdog -i</code></pre>
 </div>
 </div>
 </li>
@@ -3044,7 +3047,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Trigger a kernel panic:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># echo c &gt; /proc/sysrq-trigger</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># echo c &gt; /proc/sysrq-trigger</code></pre>
 </div>
 </div>
 </li>
@@ -3052,7 +3055,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Terminate the <code>watchdog</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># kill -9 <code>pgrep watchdog</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># kill -9 `pgrep watchdog`</code></pre>
 </div>
 </div>
 </li>
@@ -3399,7 +3402,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>Before running a virtual machine in headless mode, the GRUB configuration for this machine must be set to console mode otherwise the guest operating system&#8217;s boot process will hang. To set console mode, comment out the spashimage flag in the GRUB menu configuration file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"> #splashimage=(hd0,0)/grub/splash.xpm.gz serial --unit=0 --speed=9600 --parity=no --stop=1 terminal --timeout=2 serial</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"> #splashimage=(hd0,0)/grub/splash.xpm.gz serial --unit=0 --speed=9600 --parity=no --stop=1 terminal --timeout=2 serial</code></pre>
 </div>
 </div>
 </li>
@@ -3810,7 +3813,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 </ul>
 </div>
 <div class="sect4">
-<h5 id="Manual_High_Performance_Configuration_Settings">Manual High Performance Configuration Settings</h5>
+<h5 id="manual-high-performance-configuration-settings-idmanual_high_performance_configuration_settings">Manual High Performance Configuration Settings [id="Manual_High_Performance_Configuration_Settings"]</h5>
 <div class="paragraph">
 <p>The following table summarizes the recommended manual settings. The <strong>Enabled (Y/N)</strong> column indicates configurations that should be enabled or disabled. The <strong>Applies to</strong> column indicates the relevant resources:</p>
 </div>
@@ -4238,7 +4241,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Restart the <code>ovirt-engine</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -4532,7 +4535,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>In the <code>/etc/ovirt-guest-agent.conf</code> configuration file on the virtual machine, insert the following line, with the NICs to be ignored separated by spaces:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ignored_nics = <em>first_NIC_to_ignore</em> <em>second_NIC_to_ignore</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">ignored_nics = _first_NIC_to_ignore_ _second_NIC_to_ignore_</code></pre>
 </div>
 </div>
 </li>
@@ -4540,7 +4543,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Start the agent:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl start ovirt-guest-agent</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start ovirt-guest-agent</code></pre>
 </div>
 </div>
 </li>
@@ -5346,7 +5349,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>To install the <code>Smart card support</code> group, run the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf groupinstall "Smart card support"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf groupinstall &quot;Smart card support&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -5390,7 +5393,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>When such libraries are obtained, register them by running the following command as a user with elevated privileges:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">modutil -dbdir %PROGRAMDATA%\pki\nssdb -add "<em>module name</em>" -libfile C:_\Path\to\module_.dll</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">modutil -dbdir %PROGRAMDATA%\pki\nssdb -add &quot;_module name_&quot; -libfile C:_\Path\to\module_.dll</code></pre>
 </div>
 </div>
 </li>
@@ -5658,7 +5661,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Update the <code>ovirt-guest-agent-common</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt-guest-agent-common</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt-guest-agent-common</code></pre>
 </div>
 </div>
 </li>
@@ -5670,7 +5673,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>For Enterprise Linux 6</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service ovirt-guest-agent restart</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service ovirt-guest-agent restart</code></pre>
 </div>
 </div>
 </li>
@@ -5678,7 +5681,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>For Enterprise Linux 7</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-guest-agent.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-guest-agent.service</code></pre>
 </div>
 </div>
 </li>
@@ -6152,7 +6155,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </div>
 </div>
 <div class="sect3">
-<h4 id="Creating_a_Virtual_Machine_from_a_Snapshot_vm_guide_administrative_tasks">6.9.3. Creating a Virtual Machine from a Snapshot</h4>
+<h4 id="Creating_a_Virtual_Machine_from_a_Snapshot">6.9.3. Creating a Virtual Machine from a Snapshot</h4>
 <div class="paragraph">
 <p>You can use a snapshot to create another virtual machine.</p>
 </div>
@@ -6322,7 +6325,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>nvdimm</code> option is a technical preview feature. For more information, see <a href="#conc-nvdimm-host-devices_vm_guide_administrative_tasks">NVDIMM host devices</a>.</p>
+<p>The <code>nvdimm</code> option is a technical preview feature. For more information, see <a href="#conc-nvdimm-host-devices">NVDIMM host devices</a>.</p>
 </div>
 </td>
 </tr>
@@ -6418,7 +6421,7 @@ Error while executing action:
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
 </li>
 <li>
-<p><a href="#conc-nvdimm-host-devices_vm_guide_administrative_tasks">NVDIMM host devices</a></p>
+<p><a href="#conc-nvdimm-host-devices">NVDIMM host devices</a></p>
 </li>
 </ul>
 </div>
@@ -6478,7 +6481,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="conc-nvdimm-host-devices_vm_guide_administrative_tasks">6.10.4. NVDIMM host devices</h4>
+<h4 id="conc-nvdimm-host-devices">6.10.4. NVDIMM host devices</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6559,10 +6562,11 @@ Error while executing action:
 </li>
 </ul>
 </div>
+<h3 id="sect-Affinity_Groups" class="discrete">Affinity Groups</h3>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sect-Affinity_Groups">6.11. Affinity Groups</h3>
+<h3 id="affinity-groups">6.11. Affinity Groups</h3>
 <div class="paragraph">
 <p>Affinity groups help you determine where selected virtual machines run in relation to each other and specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
 </div>
@@ -7176,7 +7180,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="proc_Exporting_individual_virtual_machines_to_a_data_domain_vm_guide_administrative_tasks">6.13.2. Exporting a Virtual Machine to a Data Domain</h4>
+<h4 id="proc_Exporting_individual_virtual_machines_to_a_data_domain">6.13.2. Exporting a Virtual Machine to a Data Domain</h4>
 <div class="paragraph">
 <p>You can export a virtual machine to a data domain to store a clone of the virtual machine as a backup.</p>
 </div>
@@ -7685,7 +7689,7 @@ Error while executing action:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Currently, only oVirt and VMware OVAs can be imported. KVM and Xen are not supported.</p>
+<p>Currently, only oVirt and OVAs created by VMware can be imported. KVM and Xen are not supported.</p>
 </div>
 <div class="paragraph">
 <p>The import process uses <code>virt-v2v</code>. Only virtual machines running operating systems compatible with <code>virt-v2v</code> can be successfully imported. For a current list of compatible operating systems, see <a href="https://access.redhat.com/articles/1351473" class="bare">https://access.redhat.com/articles/1351473</a>.</p>
@@ -7720,7 +7724,7 @@ Error while executing action:
 <p>Ensure that the OVA file has permissions allowing read/write access to the <strong>qemu</strong> user (UID 36) and the <strong>kvm</strong> group (GID 36):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown 36:36 <em>path_to_OVA_file/file.OVA</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown 36:36 _path_to_OVA_file/file.OVA_</code></pre>
 </div>
 </div>
 </li>
@@ -7876,7 +7880,7 @@ Error while executing action:
 <p>Log in to the proxy host and generate SSH keys for the <strong>vdsm</strong> user.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-keygen</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-keygen</code></pre>
 </div>
 </div>
 </li>
@@ -7884,7 +7888,7 @@ Error while executing action:
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the RHEL 5 Xen host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-copy-id root@<em>xenhost.example.com</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_xenhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -7892,7 +7896,7 @@ Error while executing action:
 <p>Log in to the RHEL 5 Xen host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh root@<em>xenhost.example.com</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_xenhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -8046,7 +8050,7 @@ Error while executing action:
 <p>Log in to the proxy host and generate SSH keys for the <strong>vdsm</strong> user.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-keygen</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-keygen</code></pre>
 </div>
 </div>
 </li>
@@ -8054,7 +8058,7 @@ Error while executing action:
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the RHEL 5 Xen host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-copy-id root@<em>xenhost.example.com</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_xenhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -8062,7 +8066,7 @@ Error while executing action:
 <p>Log in to the RHEL 5 Xen host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh root@<em>xenhost.example.com</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_xenhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -8076,7 +8080,7 @@ Error while executing action:
 <p>On the proxy host, copy the virtual machine from the RHEL 5 Xen host:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># virt-v2v-copy-to-local -ic xen+ssh://root@<em>xenhost.example.com</em> <em>vmname</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># virt-v2v-copy-to-local -ic xen+ssh://root@_xenhost.example.com_ _vmname_</code></pre>
 </div>
 </div>
 </li>
@@ -8084,7 +8088,7 @@ Error while executing action:
 <p>Convert the virtual machine to libvirt XML and move the file to your export domain:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># virt-v2v -i libvirtxml <em>vmname</em>.xml -o rhev -of raw -os <em>storage.example.com:/exportdomain</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># virt-v2v -i libvirtxml _vmname_.xml -o rhev -of raw -os _storage.example.com:/exportdomain_</code></pre>
 </div>
 </div>
 </li>
@@ -8157,7 +8161,7 @@ Error while executing action:
 <p>Log in to the proxy host and generate SSH keys for the <strong>vdsm</strong> user.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-keygen</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-keygen</code></pre>
 </div>
 </div>
 </li>
@@ -8165,7 +8169,7 @@ Error while executing action:
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the KVM host. The proxy host&#8217;s <strong>known_hosts</strong> file will also be updated to include the host key of the KVM host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh-copy-id root@<em>kvmhost.example.com</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_kvmhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -8173,7 +8177,7 @@ Error while executing action:
 <p>Log in to the KVM host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sudo -u vdsm ssh root@<em>kvmhost.example.com</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_kvmhost.example.com_</code></pre>
 </div>
 </div>
 </li>
@@ -8202,7 +8206,7 @@ Error while executing action:
 <p>Enter the <strong>URI</strong> of the KVM host in the following format:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">qemu+ssh://root@<em>kvmhost.example.com</em>/system</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">qemu+ssh://root@_kvmhost.example.com_/system</code></pre>
 </div>
 </div>
 </li>
@@ -8463,7 +8467,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime.</h4>
+<h4 id="Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime</h4>
 <div class="paragraph">
 <p>To configure virtual machines for migration with SR-IOV enabled vNICs and minimal downtime follow the procedure described below.</p>
 </div>
@@ -8503,7 +8507,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The virtual machine will have three interfaces available, in order for migration to work properly, the main interface should be activated and used for connection. The main interface acts as a master for the remaining two interfaces.</p>
+<p>The virtual machine has three network interfaces: a controller interface and two secondary interfaces. The controller interface must be active and connected in order for migration to succeed.</p>
 </div>
 </td>
 </tr>
@@ -8529,7 +8533,122 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Guest_Agent_Hooks">6.14.4. Guest Agent Hooks</h4>
+<h4 id="Optimizing_Live_Migration">6.14.4. Optimizing Live Migration</h4>
+<div class="paragraph">
+<p>Live virtual machine migration can be a resource-intensive operation. To optimize live migration, you can set the following two options globally for every virtual machine in an environment, for every virtual machine in a cluster, or for an individual virtual machine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <strong>Auto Converge migrations</strong> and <strong>Enable migration compression</strong> options are available for cluster levels 4.2 or earlier.</p>
+</div>
+<div class="paragraph">
+<p>For cluster levels 4.3 or later, auto converge is enabled by default for all built-in migration policies, and migration compression is enabled by default for only the <code>Suspend workload if needed</code> migration policy. You can change these parameters when adding a new migration policy, or by modifying the <code>MigrationPolicies</code> configuration value.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>Auto Converge migrations</strong> option allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>Enable migration compression</strong> option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern.</p>
+</div>
+<div class="paragraph">
+<p>Both options are disabled globally by default.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Enable auto-convergence at the global level:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s DefaultAutoConvergence=True</code></pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enable migration compression at the global level:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s DefaultMigrationCompression=True</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the <strong>ovirt-engine</strong> service to apply the changes:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configure the optimization settings for a cluster:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span> and select a cluster.</p>
+</li>
+<li>
+<p>Click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>Click the <strong>Migration Policy</strong> tab.</p>
+</li>
+<li>
+<p>From the <strong>Auto Converge migrations</strong> list, select <strong>Inherit from global setting</strong>, <strong>Auto Converge</strong>, or <strong>Don&#8217;t Auto Converge</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Enable migration compression</strong> list, select <strong>Inherit from global setting</strong>, <strong>Compress</strong>, or <strong>Don&#8217;t Compress</strong>.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configure the optimization settings at the virtual machine level:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a virtual machine.</p>
+</li>
+<li>
+<p>Click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>Click the <strong>Host</strong> tab.</p>
+</li>
+<li>
+<p>From the <strong>Auto Converge migrations</strong> list, select <strong>Inherit from cluster setting</strong>, <strong>Auto Converge</strong>, or <strong>Don&#8217;t Auto Converge</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Enable migration compression</strong> list, select <strong>Inherit from cluster setting</strong>, <strong>Compress</strong>, or <strong>Don&#8217;t Compress</strong>.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Guest_Agent_Hooks">6.14.5. Guest Agent Hooks</h4>
 <div class="paragraph">
 <p>Hooks are scripts that trigger activity within a virtual machine when key events occur:</p>
 </div>
@@ -8560,7 +8679,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Automatic_virtual_machine_migration">6.14.5. Automatic Virtual Machine Migration</h4>
+<h4 id="Automatic_virtual_machine_migration">6.14.6. Automatic Virtual Machine Migration</h4>
 <div class="paragraph">
 <p>oVirt Engine automatically initiates live migration of all virtual machines running on a host when the host is moved into maintenance mode. The destination host for each virtual machine is assessed as the virtual machine is migrated, in order to spread the load across the cluster.</p>
 </div>
@@ -8575,7 +8694,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Preventing_automatic_migration_of_a_virtual_machine">6.14.6. Preventing Automatic Migration of a Virtual Machine</h4>
+<h4 id="Preventing_automatic_migration_of_a_virtual_machine">6.14.7. Preventing Automatic Migration of a Virtual Machine</h4>
 <div class="paragraph">
 <p>oVirt Engine allows you to disable automatic migration of virtual machines. You can also disable manual migration of virtual machines by setting the virtual machine to run only on a specific host.</p>
 </div>
@@ -8637,7 +8756,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Manually_migrating_virtual_machines">6.14.7. Manually Migrating Virtual Machines</h4>
+<h4 id="Manually_migrating_virtual_machines">6.14.8. Manually Migrating Virtual Machines</h4>
 <div class="paragraph">
 <p>A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see <a href="#Live_migration_prerequisites">Live Migration Prerequisites</a>.</p>
 </div>
@@ -8708,7 +8827,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Setting_migration_priority">6.14.8. Setting Migration Priority</h4>
+<h4 id="Setting_migration_priority">6.14.9. Setting Migration Priority</h4>
 <div class="paragraph">
 <p>oVirt Engine queues concurrent requests for migration of virtual machines off of a given host. The load balancing process runs every minute. Hosts already involved in a migration event are not included in the migration cycle until their migration event has completed. When there is a migration request in the queue and available hosts in the cluster to action it, a migration event is triggered in line with the load balancing policy for the cluster.</p>
 </div>
@@ -8739,7 +8858,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Canceling_ongoing_virtual_machine_migrations">6.14.9. Canceling Ongoing Virtual Machine Migrations</h4>
+<h4 id="Canceling_ongoing_virtual_machine_migrations">6.14.10. Canceling Ongoing Virtual Machine Migrations</h4>
 <div class="paragraph">
 <p>A virtual machine migration is taking longer than you expected. You&#8217;d like to be sure where all virtual machines are running before you make any changes to your environment.</p>
 </div>
@@ -8761,7 +8880,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.10. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</h4>
+<h4 id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.11. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</h4>
 <div class="paragraph">
 <p>When a virtual server is automatically migrated because of the high availability function, the details of an automatic migration are documented in the <strong>Events</strong> tab and in the engine log to aid in troubleshooting, as illustrated in the following examples:</p>
 </div>
@@ -8993,7 +9112,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <p>Install the QXL drivers:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install xorg-x11-drv-qxl</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install xorg-x11-drv-qxl</code></pre>
 </div>
 </div>
 </li>
@@ -9039,7 +9158,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <p>Back up <strong>/etc/X11/xorg.conf</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup</code></pre>
 </div>
 </div>
 </li>
@@ -9047,10 +9166,10 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <p>Make the following change to the Device section of <strong>/etc/X11/xorg.conf</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Section 	"Device"
-Identifier	"Videocard0"
-Driver		"qxl"
-Endsection</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Section         &quot;Device&quot;
+Identifier        &quot;Videocard0&quot;
+Driver                &quot;qxl&quot;
+Endsection</code></pre>
 </div>
 </div>
 </li>
@@ -9071,7 +9190,7 @@ Endsection</pre>
 <p>Verify that the tablet device is available on your guest:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># /sbin/lsusb -v | grep 'QEMU USB Tablet'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># /sbin/lsusb -v | grep 'QEMU USB Tablet'</code></pre>
 </div>
 </div>
 <div class="literalblock">
@@ -9084,7 +9203,7 @@ Endsection</pre>
 <p>Back up <code>/etc/X11/xorg.conf</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup</code></pre>
 </div>
 </div>
 </li>
@@ -9092,27 +9211,27 @@ Endsection</pre>
 <p>Make the following changes to <code>/etc/X11/xorg.conf</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Section "ServerLayout"
-Identifier     "single head configuration"
-Screen      0  "Screen0" 0 0
-InputDevice    "Keyboard0" "CoreKeyboard"
-InputDevice    "Tablet" "SendCoreEvents"
-InputDevice    "Mouse" "CorePointer"
+<pre class="CodeRay highlight"><code data-lang="terminal">Section &quot;ServerLayout&quot;
+Identifier     &quot;single head configuration&quot;
+Screen      0  &quot;Screen0&quot; 0 0
+InputDevice    &quot;Keyboard0&quot; &quot;CoreKeyboard&quot;
+InputDevice    &quot;Tablet&quot; &quot;SendCoreEvents&quot;
+InputDevice    &quot;Mouse&quot; &quot;CorePointer&quot;
 EndSection
 
-Section "InputDevice"
-Identifier  "Mouse"
-Driver      "void"
-#Option      "Device" "/dev/input/mice"
-#Option      "Emulate3Buttons" "yes"
+Section &quot;InputDevice&quot;
+Identifier  &quot;Mouse&quot;
+Driver      &quot;void&quot;
+#Option      &quot;Device&quot; &quot;/dev/input/mice&quot;
+#Option      &quot;Emulate3Buttons&quot; &quot;yes&quot;
 EndSection
 
-Section "InputDevice"
-Identifier  "Tablet"
-Driver      "evdev"
-Option      "Device" "/dev/input/event2"
-Option "CorePointer" "true"
-EndSection</pre>
+Section &quot;InputDevice&quot;
+Identifier  &quot;Tablet&quot;
+Driver      &quot;evdev&quot;
+Option      &quot;Device&quot; &quot;/dev/input/event2&quot;
+Option &quot;CorePointer&quot; &quot;true&quot;
+EndSection</code></pre>
 </div>
 </div>
 </li>
@@ -9204,7 +9323,7 @@ EndSection</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ cat /proc/cpuinfo | grep constant_tsc</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ cat /proc/cpuinfo | grep constant_tsc</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9235,9 +9354,9 @@ EndSection</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">term Enterprise Linux Server (2.6.18-159.el5)
+<pre class="CodeRay highlight"><code data-lang="terminal">term {enterprise-linux} Server (2.6.18-159.el5)
         root (hd0,0)
-	kernel /vmlinuz-2.6.18-159.el5 ro root=/dev/VolGroup00/LogVol00 rhgb quiet <code>processor.max_cstate=1</code></pre>
+        kernel /vmlinuz-2.6.18-159.el5 ro root=/dev/VolGroup00/LogVol00 rhgb quiet `processor.max_cstate=1`</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9413,12 +9532,13 @@ EndSection</pre>
 </li>
 </ul>
 </div>
+<h1 id="chap-Templates" class="discrete">Templates</h1>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="chap-Templates">7. Templates</h2>
+<h2 id="Templates">7. Templates</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A template is a copy of a virtual machine that you can use to simplify the subsequent, repeated creation of similar virtual machines. Templates capture the configuration of software, configuration of hardware, and the software installed on the virtual machine on which the template is based. The virtual machine on which a template is based is known as the source virtual machine.</p>
@@ -9470,7 +9590,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <p>The Sysprep file can be edited to affect various aspects of the Windows virtual machines created from the template that the Sysprep file is attached to. These include the provisioning of Windows, setting up the required domain membership, configuring the hostname, and setting the security policy.</p>
 </div>
 <div class="paragraph">
-<p>Replacement strings can be used to substitute values provided in the default files in the <strong>/usr/share/ovirt-engine/conf/sysprep/</strong> directory.  For example, <code>"&lt;Domain&gt;&lt;![CDATA[$JoinDomain$]]&gt;&lt;/Domain&gt;"</code> can be used to indicate the domain to join.</p>
+<p>Replacement strings can be used to substitute values provided in the default files in the <strong>/usr/share/ovirt-engine/conf/sysprep/</strong> directory.  For example, <code>"&lt;Domain&gt;&lt;![CDATA[$JoinDomain$"]&gt;&lt;/Domain&gt;"</code> can be used to indicate the domain to join.</p>
 </div>
 <div class="sect4">
 <h5 id="Prerequisites_for_Sealing_a_Windows_Virtual_Machine">Prerequisites for Sealing a Windows Virtual Machine</h5>
@@ -9515,7 +9635,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Windows7(11, OsType.Windows, false),false
+<pre class="CodeRay highlight"><code data-lang="terminal"># Windows7(11, OsType.Windows, false),false
 os.windows_7.id.value = 11
 os.windows_7.name.value = Windows 7
 os.windows_7.derivedFrom.value = windows_xp
@@ -9525,7 +9645,7 @@ os.windows_7.devices.audio.value = ich6
 os.windows_7.devices.diskInterfaces.value.3.3 = IDE, VirtIO_SCSI, VirtIO
 os.windows_7.devices.diskInterfaces.value.3.4 = IDE, VirtIO_SCSI, VirtIO
 os.windows_7.devices.diskInterfaces.value.3.5 = IDE, VirtIO_SCSI, VirtIO
-os.windows_7.isTimezoneTypeInteger.value = false</pre>
+os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </div>
 </div>
 </div>
@@ -10152,9 +10272,9 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <p>For Enterprise Linux 6:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos \
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos \
     --enable=rhel-6-server-rpms \
-    --enable=rhel-6-server-rh-common-rpms</pre>
+    --enable=rhel-6-server-rh-common-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -10162,9 +10282,9 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <p>For Enterprise Linux 7:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos \
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos \
     --enable=rhel-7-server-rpms \
-    --enable=rhel-7-server-rh-common-rpms</pre>
+    --enable=rhel-7-server-rh-common-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -10178,7 +10298,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <p>Install the <code>cloud-init</code> package and dependencies:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install cloud-init</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install cloud-init</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -10408,7 +10528,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># Windows7(11, OsType.Windows, false),false
+<pre class="CodeRay highlight"><code data-lang="terminal"># Windows7(11, OsType.Windows, false),false
 os.windows_7.id.value = 11
 os.windows_7.name.value = Windows 7
 os.windows_7.derivedFrom.value = windows_xp
@@ -10418,7 +10538,7 @@ os.windows_7.devices.audio.value = ich6
 os.windows_7.devices.diskInterfaces.value.3.3 = IDE, VirtIO_SCSI, VirtIO
 os.windows_7.devices.diskInterfaces.value.3.4 = IDE, VirtIO_SCSI, VirtIO
 os.windows_7.devices.diskInterfaces.value.3.5 = IDE, VirtIO_SCSI, VirtIO
-os.windows_7.isTimezoneTypeInteger.value = false</pre>
+os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </div>
 </div>
 </div>
@@ -10429,7 +10549,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</pre>
 <p>You can use this procedure to specify a set of standard <code>Sysprep</code> settings to include in the template, alternatively you can configure the <code>Sysprep</code> settings when creating a virtual machine based on this template.</p>
 </div>
 <div class="paragraph">
-<p>Replacement strings can be used to substitute values provided in the default files in the <strong>/usr/share/ovirt-engine/conf/sysprep/</strong> directory.  For example, <strong>"&lt;Domain&gt;&lt;![CDATA[$JoinDomain$]]&gt;&lt;/Domain&gt;"</strong> can be used to indicate the domain to join.</p>
+<p>Replacement strings can be used to substitute values provided in the default files in the <strong>/usr/share/ovirt-engine/conf/sysprep/</strong> directory.  For example, <strong>"&lt;Domain&gt;&lt;![CDATA[$JoinDomain$"]&gt;&lt;/Domain&gt;"</strong> can be used to indicate the domain to join.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -11602,7 +11722,7 @@ You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragg
 <p><strong>poweroff</strong> - The virtual machine is immediately shut down.</p>
 </li>
 <li>
-<p><strong>dump</strong> - A dump is performed and the virtual machine is paused.</p>
+<p><strong>dump</strong> - A dump is performed and the virtual machine is paused. The guest&#8217;s memory is dumped by libvirt, therefore, neither 'kdump' nor 'pvpanic' is required. The dump file is created in the directory that is configured by auto_dump_path in the /etc/libvirt/qemu.conf file on the host.</p>
 </li>
 <li>
 <p><strong>pause</strong> - The virtual machine is paused, and can be resumed by users.</p>
@@ -12962,7 +13082,7 @@ The following tables do not include information on whether a power cycle is requ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># virt-sysprep --list-operations
+<pre class="CodeRay highlight"><code data-lang="terminal"># virt-sysprep --list-operations
 abrt-data * Remove the crash data generated by ABRT
 bash-history * Remove the bash history in the guest
 blkid-tab * Remove blkid tab in the guest
@@ -12994,13 +13114,13 @@ samba-db-log * Remove the database and log files of Samba
 script * Run arbitrary scripts against the guest
 smolt-uuid * Remove the Smolt hardware UUID
 ssh-hostkeys * Remove the SSH host keys in the guest
-ssh-userdir * Remove ".ssh" directories in the guest
+ssh-userdir * Remove &quot;.ssh&quot; directories in the guest
 sssd-db-log * Remove the database and log files of sssd
 tmp-files * Remove temporary files
 udev-persistent-net * Remove udev persistent net rules
 user-account   Remove the user accounts in the guest
 utmp * Remove the utmp file
-yum-uuid * Remove the yum UUID</pre>
+yum-uuid * Remove the yum UUID</code></pre>
 </div>
 </div>
 </div>

@@ -302,10 +302,9 @@ Thanks
           <span class="s">yum --downloadonly install -y exported-artifacts/*noarch.rpm</span>
           <span class="s">yum --downloadonly install -y ovirt-engine ovirt-engine-setup-plugin-websocket-proxy</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upload artifacts</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ovirt/upload-rpms-action@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">artifacts</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">exported-artifacts/</span>
+        <span class="na">directory</span><span class="pi">:</span> <span class="s">test-artifacts</span>
 
 
   <span class="na">build-el9</span><span class="pi">:</span>
@@ -350,10 +349,9 @@ Thanks
           <span class="s">yum --downloadonly install -y exported-artifacts/*noarch.rpm</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upload artifacts</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ovirt/upload-rpms-action@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">artifacts</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">exported-artifacts/</span>
+        <span class="na">directory</span><span class="pi">:</span> <span class="s">test-artifacts</span>
 </code></pre></div></div>
 
 <h1 id="require-ci-1-for-merging">Require “CI +1” for merging</h1>

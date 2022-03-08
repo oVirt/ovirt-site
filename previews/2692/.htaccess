@@ -375,6 +375,10 @@ RewriteRule ^(.*)$ /privacy-policy.html [R=301,L]
 RewriteCond %{REQUEST_URI} /documentation/introduction/about-ovirt/$
 RewriteRule ^(.*)$ /community/about.html [R=301,L]
 
+# /develop/release-management/process/making-an-release -> /develop/release-management/process/making-a-release
+RewriteCond %{REQUEST_URI} /develop/release-management/process/making-an-release.html
+RewriteRule ^(.*)$ /develop/release-management/process/making-a-release.html [R=301,L]
+
 ##
 
 # add .html

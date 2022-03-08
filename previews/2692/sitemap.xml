@@ -2185,7 +2185,7 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2692/develop/infra/maintaining-rsvp-mail-alias.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2692/develop/release-management/process/making-an-release.html</loc>
+<loc>https://ovirt.github.io/ovirt-site/previews/2692/develop/release-management/process/making-a-release.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2692/develop/release-management/features/storage/manage-storage-connections.html</loc>
@@ -3689,6 +3689,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2692/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-08T08:07:44+00:00</lastmod>
+<lastmod>2022-03-08T08:13:20+00:00</lastmod>
 </url>
 </urlset>

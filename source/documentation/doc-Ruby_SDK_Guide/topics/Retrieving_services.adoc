@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Retrieving_services"]
 ==== Retrieving Services
 

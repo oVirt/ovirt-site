@@ -1,4 +1,5 @@
-[[Listing_Hosts]]
+:_content-type: PROCEDURE
+[id="Listing_Hosts"]
 === Listing Hosts
 
 The `hosts` collection contains all hosts in the environment.

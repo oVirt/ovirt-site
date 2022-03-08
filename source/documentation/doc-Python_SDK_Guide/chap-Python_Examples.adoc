@@ -1,4 +1,5 @@
-[[chap-Python_Examples]]
+:_content-type: ASSEMBLY
+[id="chap-Python_Examples"]
 == Python Examples
 
 include::topics/Examples_overview.adoc[]

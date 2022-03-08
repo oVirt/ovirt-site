@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Installing_the_Ruby_SDK"]
 === Installing the Ruby Software Development Kit
 

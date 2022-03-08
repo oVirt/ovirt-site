@@ -1,4 +1,5 @@
-[[Python_SDK_Prerequisites]]
+:_content-type: CONCEPT
+[id="Python_SDK_Prerequisites"]
 === Prerequisites
 
 To install the Python software development kit, you must have:

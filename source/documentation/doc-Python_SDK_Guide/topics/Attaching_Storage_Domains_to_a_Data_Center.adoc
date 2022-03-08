@@ -1,4 +1,5 @@
-[[Attaching_Storage_Domains_to_a_Data_Center]]
+:_content-type: PROCEDURE
+[id="Attaching_Storage_Domains_to_a_Data_Center"]
 === Attaching a Storage Domain to a Data Center
 
 Once you have added a storage domain to {virt-product-fullname}, you must attach it to a data center and activate it before it will be ready for use.

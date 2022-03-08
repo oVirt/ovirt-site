@@ -1,4 +1,5 @@
-[[Connecting_to_the_Red_Hat_Virtualization_Manager]]
+:_content-type: PROCEDURE
+[id="Connecting_to_the_Red_Hat_Virtualization_Manager"]
 === Connecting to the {virt-product-fullname} {engine-name} in Version 4
 
 To connect to the {virt-product-fullname} {engine-name}, you must create an instance of the *Connection* class from the `ovirtsdk4.sdk` module by importing the class at the start of the script:

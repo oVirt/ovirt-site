@@ -1,6 +1,7 @@
-:_content-type: ASSEMBLY
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+:_content-type: ASSEMBLY
+[id="planning-and-prerequisites-guide"]
 = Planning and Prerequisites Guide
 :context: RHV_planning
 :RHV_planning:

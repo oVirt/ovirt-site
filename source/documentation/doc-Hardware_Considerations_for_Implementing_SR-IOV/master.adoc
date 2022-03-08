@@ -1,6 +1,7 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
 :_content-type: ASSEMBLY
+[id="hardware-considerations-for-implementing-sr-iov"]
 = Hardware Considerations for Implementing SR-IOV
 
 [id='Intro']

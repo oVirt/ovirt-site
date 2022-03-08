@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Creating_a_virtual_machine"]
 === Creating a Virtual Machine
 
 This Ruby example creates a virtual machine. This example uses a hash with symbols and nested hashes as their values. Another method, more verbose, is to use the constructors of the corresponding objects directly. See xref:Creating_a_Virtual_Machine_Instance_with_Attributes[Creating a Virtual Machine Instance with Attributes] for more information.

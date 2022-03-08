@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Starting_a_virtual_machine"]
 === Starting a Virtual Machine
 
 This Ruby example starts a virtual machine.

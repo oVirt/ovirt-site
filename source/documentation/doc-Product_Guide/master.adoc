@@ -1,6 +1,7 @@
-:_content-type: ASSEMBLY
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+:_content-type: ASSEMBLY
+[id="product-guide"]
 = Product Guide
 
 include::asm-Introduction.adoc[leveloffset=+1]

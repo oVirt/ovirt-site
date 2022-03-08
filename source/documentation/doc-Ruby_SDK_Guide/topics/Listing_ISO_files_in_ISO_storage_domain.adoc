@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Listing_ISO_files_in_ISO_storage_domain"]
 === Listing ISO Files in the ISO Storage Domain
 
 This Ruby example lists the ISO files in the ISO storage domain, `myiso`.
@@ -19,7 +21,7 @@ sd_service = sds_service.storage_domain_service(sd.id)
 # Find the service that manages the collection of files available in the storage domain:
 files_service = sd_service.files_service
 
-# List the names of the files. Note that the name of the .iso file is contained 
+# List the names of the files. Note that the name of the .iso file is contained
 # in the `id` attribute.
 files = files_service.list
 files.each do |file|

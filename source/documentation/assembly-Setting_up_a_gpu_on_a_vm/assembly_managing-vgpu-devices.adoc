@@ -10,6 +10,7 @@
 // assemblies. It restores the `context` variable to its previous state.
 :parent-context-of-assembly_managing-vgpu-devices: {context}
 
+:_content-type: ASSEMBLY
 [id='assembly_managing-vgpu-devices_{context}']
 = Setting up a GPU and using it on a virtual machine
 

@@ -3,6 +3,8 @@
 // [id='Migrating_from_a_Standalone_Manager_to_a_Self-hosted_Engine']
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+:_content-type: ASSEMBLY
+[id="migrating-from-a-standalone-manager-to-a-self-hosted-engine"]
 = Migrating from a standalone {engine-name} to a self-hosted engine
 
 :context: migrating_to_SHE

@@ -5,6 +5,7 @@
 :parent-context-of-assembly_managing-intel-vgpu-devices: {context}
 
 
+:_content-type: ASSEMBLY
 [id='assembly_managing-intel-vgpu-devices_{context}']
 = Setting up an Intel GPU and using it on a virtual machine
 

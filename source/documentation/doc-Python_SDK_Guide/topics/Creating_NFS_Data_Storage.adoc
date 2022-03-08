@@ -1,4 +1,5 @@
-[[Creating_NFS_Data_Storage]]
+:_content-type: PROCEDURE
+[id="Creating_NFS_Data_Storage"]
 === Creating NFS Data Storage
 
 When a {virt-product-fullname} environment is first created, it is necessary to define at least a data storage domain and an ISO storage domain. The data storage domain stores virtual disks while the ISO storage domain stores the installation media for guest operating systems.

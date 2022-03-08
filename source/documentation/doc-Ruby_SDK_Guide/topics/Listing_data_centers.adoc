@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Listing_data_centers"]
 === Listing Data Centers
 
 This Ruby example lists the data centers.

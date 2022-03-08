@@ -1,6 +1,8 @@
+:_content-type: PROCEDURE
+[id="Creating_a_vNIC"]
 === Creating a vNIC
 
-To ensure that a newly created virtual machine has network access you must create and attach a vNIC. 
+To ensure that a newly created virtual machine has network access you must create and attach a vNIC.
 
 This Ruby example creates a vNIC and attaches it to an existing virtual machine, `myvm`.
 
@@ -13,8 +15,8 @@ system_service = connection.system_service
 vms_service = system_service.vms_service
 vm = vms_service.list(search: 'name=myvm').first
 
-# In order to specify the network that the new NIC will be connected to, you must 
-# specify the identifier of the vNIC profile. However, there may be multiple 
+# In order to specify the network that the new NIC will be connected to, you must
+# specify the identifier of the vNIC profile. However, there may be multiple
 # profiles with the same name (for different data centers, for example), so first
 # you must find the networks that are available in the cluster that the
 # virtual machine belongs to.
@@ -47,4 +49,3 @@ nics_service.add(
 ----
 
 For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add[].
-

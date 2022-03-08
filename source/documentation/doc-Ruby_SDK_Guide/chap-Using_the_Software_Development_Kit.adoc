@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="chap-Using_the_Software_Development_Kit"]
 == Using the Software Development Kit
 

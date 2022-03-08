@@ -5,6 +5,7 @@
 
 :parent-context-of-assembly_managing-nvidia-vgpu-devices: {context}
 
+:_content-type: ASSEMBLY
 [id='assembly_managing-nvidia-vgpu-devices_{context}']
 //= Setting up an NVIDIA GPU and using it on a virtual machine
 

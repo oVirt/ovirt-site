@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Detaching_a_virtual_disk"]
 === Detaching a Virtual Disk
 
 This Ruby example detaches a disk from a virtual machine.

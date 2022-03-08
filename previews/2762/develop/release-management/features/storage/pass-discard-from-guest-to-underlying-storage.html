@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>PassDiscardFromGuestToUnderlyingStorage | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="PassDiscardFromGuestToUnderlyingStorage" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2762/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2762/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="PassDiscardFromGuestToUnderlyingStorage" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2762/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"PassDiscardFromGuestToUnderlyingStorage","url":"https://ovirt.github.io/ovirt-site/previews/2762/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2762/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2762/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2762/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2762/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2762/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2762/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2762/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2762/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2762/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2762/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2762/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2762/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2762/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2762/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2762/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2762/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2762/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2762/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2762/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2762/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2762/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2762/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2762/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2762/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2762/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2762/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2762/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2762/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2762/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2762/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2762/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2762/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2762/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2762/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2762/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2762//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2762//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2762/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2762/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2762/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2762/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2762/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Idan Shaby</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2762/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="pass-discard-from-guest-to-underlying-storage">Pass discard from guest to underlying storage</h1>
+
+<h2 id="summary">Summary</h2>
+
+<h3 id="how-thinly-provisioned-disks-were-previously-used">How thinly provisioned disks were previously used</h3>
+<p>Today, when the engine creates a thinly provisioned disk on a block domain, a logical volume with a preconfigured size is created,
+regardless its virtual size.</p>
+
+<p>When the watermark comes near the LV’s size, the <em>SPM</em> extends the LV, so that the disk grows again and again until it reaches its virtual size.</p>
+
+<p>If the lun that is used to create the storage domain is also thinly provisioned, it behaves in a similar way.
+That is, when the engine extends a disk with one Gigabyte, it doesn’t necessarily get 1G from the storage, but it does get 1G of virtual space.
+Therefore, like the LV, the underlying thinly provisioned lun will grow more and more until it reaches its virtual size.</p>
+
+<p>Similarly, in file domains, the underlying thinly provisioned lun gets bigger as the corresponding disk’s file grows.</p>
+
+<h3 id="what-could-be-improved">What could be improved</h3>
+<p>When files are removed from the disk by the guest, the LV does not shrink (it would if <em>vdsm</em> would have called <code class="language-plaintext highlighter-rouge">lvreduce</code>, but it can’t since <em>vdsm</em> is not aware of file removals in the guest). Since the LV’s size did not change, the thinly provisioned lun in the underlying storage did not change either.
+So, in fact, although some of the disk’s space was freed, the underlying storage was not aware of it, practically creating a situation where the underlying thinly provisioned luns can <strong>only grow</strong>, and can <strong>never shrink</strong>.</p>
+
+<p>The same goes with file storage - when files are removed by the guest, the disk’s actual size remains the same and so is the reported consumed space of the underlying thinly provisioned luns.</p>
+
+<p>A better approach would be to “tell” the underlying storage that the guest freed some space that it doesn’t need anymore, so that someone else can use it.</p>
+
+<h3 id="for-whom-is-this-feature-useful">For whom is this feature useful</h3>
+<p>This feature is useful for users that have thinly provisioned LUNs and wish to reclaim space released by their guests.</p>
+
+<h2 id="owner">Owner</h2>
+<ul>
+  <li>Idan Shaby</li>
+  <li>Email: <a href="mailto:ishaby@redhat.com">ishaby@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+<p>Released in oVirt 4.1.</p>
+
+<h2 id="general-functionality-and-restrictions">General functionality and restrictions</h2>
+
+<h3 id="under-the-hood">Under the hood</h3>
+<p>This feature adds a new virtual machine’s disk property called <strong><em>“Pass Discard”</em></strong> (<strong><em>“Enable Discard”</em></strong> in the UI).</p>
+
+<p>If all the <a href="#restrictions">restrictions</a> are met and <em>Pass Discard</em> is enabled, when a discard command (UNMAP SCSI command) is sent from the guest, qemu will not ignore it and will pass it on to the underlying storage. Then, the storage will set the unused blocks as free so that others can use them, and the reported consumed space of the underlying thinly provisioned lun will reduce.</p>
+
+<h3 id="possible-consumers-of-the-discarded-blocks">Possible consumers of the discarded blocks</h3>
+
+<h4 id="block-storage">Block storage</h4>
+<p>Since vdsm does not call <code class="language-plaintext highlighter-rouge">lvreduce</code>, the size of the LV is not reduced; only the reported consumed space of the lun in the underlying storage is reduced.<br />
+That means that if the guest frees some blocks from a disk that resides on a storage domain named <em>sd1</em>, other disks on <em>sd1</em> will <strong>not</strong> be able to use it <strong>if <em>sd1</em> went out of space</strong>.<br />
+To better understand what can and what cannot consume the new unused space, let’s take a look at the next example:</p>
+
+<p>Suppose that we have a block storage domain named <em>sd1</em> that is built on a thinly provisioned lun named <em>lun1</em>.<br />
+Also, suppose that we have two VMs, <em>vm1</em> and <em>vm2</em>, with OSs installed and with thinly provisioned disks on <em>sd1</em>, <em>disk1</em> and <em>disk2</em>, respectively (all the other <a href="#restrictions">restrictions</a> are met).<br />
+Suppose that currently <em>sd1</em> has 10G of free space, and that the virtual size of <em>disk1</em> and <em>disk2</em> is very big.<br />
+From lvm’s perspective - let’s say that vdsm created a pv <em>pv1</em> out of <em>lun1</em>, and then created a vg <em>vg1</em> from it (which is our storage domain, <em>sd1</em>). Our two disks, <em>disk1</em> and <em>disk2</em>, are in fact simple logical volumes on <em>vg1</em>. Let’s assume that they are called <em>lv1</em> and <em>lv2</em>, respectively.</p>
+
+<p>Now, suppose that <em>vm1</em> writes to <em>disk1</em> 10 more Gigabytes so that <em>sd1</em> is out of space. Then, <em>vm2</em> tries to write to <em>disk2</em>, the LV is already full and needs to be extended, but it fails because <em>sd1</em> is out of space.<br />
+At first sight, it seems that if <em>vm1</em> would have removed some files from <em>disk1</em> and discarded the unused space, then <em>lv2</em> could be extended and <em>vm2</em> could write to <em>disk2</em>. But that’s not the case.</p>
+
+<p>The reason for this is the implementation of lvm. When <em>vm1</em> wrote 10G to <em>disk1</em> and filled <em>sd1</em> completely, lvm’s metadata indicated that <em>vg1</em> was full, so that a logical volume in <em>vg1</em> could not be given with additional logical extents anymore.<br />
+After <em>vm1</em> discarded some unused blocks, lvm’s metadata didn’t change. That is, the size of <em>lv1</em> was still the same, and so is the size of <em>vg1</em> - it was still full. So when vdsm tried to extend <em>lv2</em>, it couldn’t, because there where no free logical extents in <em>vg1</em>.</p>
+
+<p>As noted before, if vdsm frees some blocks from a disk that resides on a storage domain named <em>sd1</em>, other disks on <em>sd1</em> will not be able to use it if <em>sd1</em> went out of space.<br />
+So now we can better understand what <strong>can</strong> consume those discarded blocks:</p>
+
+<ol>
+  <li>Disks on other storage domains - because the storage is not full; and if it was full - we’ve just discarded a few blocks that can now be consumed.</li>
+  <li>Other disks on <em>sd1</em> if <em>sd1</em> is not out of space - because if the vg is not full, vdsm can extend its logical volumes with any blocks that it is given by the storage, and those discarded blocks are not exceptional.</li>
+  <li>In fact, if <em>sd1</em> went out of space, and enough blocks were discarded to extend it, the user can always do that by adding another lun to the domain or by extending the existing one using the <a href="/ovirt-site/previews/2762/develop/release-management/features/storage/lun-resize.html">Refresh LUN Size</a> feature, making it possible for the logical volumes to extend.</li>
+</ol>
+
+<h4 id="file-storage">File storage</h4>
+<p>Unlike block storage, file storage does not have restrictions caused by metadata, so if the underlying file system supports discard, it will work in any scenario.<br />
+If we take the example from above - after <em>vm2</em> was unable to write to <em>disk2</em>, if <em>vm1</em> removed some files and discarded the removed blocks from <em>disk1</em>, then:</p>
+
+<ul>
+  <li>The actual size of <em>disk1</em> reduces.</li>
+  <li>The amount of free space in <em>sd1</em> gets bigger.</li>
+  <li><em>vm2</em> can write to <em>disk2</em>.</li>
+</ul>
+
+<h3 id="restrictions">Restrictions</h3>
+
+<h4 id="the-underlying-storage">The underlying storage</h4>
+
+<h5 id="block-storage-1">Block storage</h5>
+<p>The underlying storage must support <em>discard</em> calls in order for this feature to work.<br />
+That’s why when trying to enable <em>Pass Discard</em> for a VM disk, the engine first queries the disk’s storage domain for its <em>discard</em> support.</p>
+
+<p>To check if a storage device supports <em>discard</em>:</p>
+
+<ul>
+  <li>Let <em>lunX</em> be a device and <em>dm-X</em> be its corresponding dm device for a natural number X. Then <em>lunX</em> is considered to <strong><em>support discard</em></strong> iff the value of <code class="language-plaintext highlighter-rouge">/sys/block/dm-X/queue/discard_max_bytes</code> is bigger than 0 <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</li>
+  <li>A storage domain <em>supports discard</em> iff <strong>all</strong> of the luns that it is built from <em>support discard</em>. That means that if at least one of its luns doesn’t <em>support discard</em>, then so is the storage domain.</li>
+</ul>
+
+<h5 id="file-storage-1">File storage</h5>
+<p>Since the shared file system adds another layer between the guest’s file system and the underlying shared block device, the engine can’t check if the block device <em>supports discard</em>. Therefore, <em>Pass Discard</em> can be enabled for any disk on any file storage domain, and it will actually work only if the underlying file system and block device support it.<br />
+Thus, <em>Pass Discard</em> on file storage works on the basis of <strong>best effort</strong>.</p>
+
+<h4 id="the-virtual-machines-disk">The virtual machine’s disk</h4>
+<p>It is possible to enable <em>Pass Discard</em> for two disk storage types: <strong>Images</strong> and <strong>Direct LUNs</strong>.<br />
+Regardless the type, the disk interfaces that support <em>Pass Discard</em> are <strong>VirtIO SCSI</strong> and <strong>IDE</strong>.</p>
+
+<h4 id="the-guest-virtual-machine">The guest virtual machine</h4>
+<blockquote>
+  <p><strong>Note</strong><br />
+The following restrictions cannot be satisfied by the engine (at least not at this point, see the <a href="#future-plans">Future plans</a> section for more details), and should be handled by the VM’s owner.</p>
+</blockquote>
+
+<p>In order to send a <em>discard</em> command from the guest, one can do it:</p>
+
+<ul>
+  <li>Manually - using the <code class="language-plaintext highlighter-rouge">fstrim</code> linux command.</li>
+  <li>Automatically on file removal (<em>online discarding</em>) - by adding the <code class="language-plaintext highlighter-rouge">discard</code> option to the list of the device’s mount options. For example, in EL based guests’ <code class="language-plaintext highlighter-rouge">/etc/fstab</code>:</li>
+</ul>
+
+<div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">/dev/mapper/rhel-root</span>   <span class="err">/</span>   <span class="err">ext4</span>    <span class="err">defaults,discard</span>    <span class="err">1</span>   <span class="err">1</span>
+<span class="c"># Here's the discard option -----------------^
+</span></code></pre></div></div>
+
+<p>For more information about sending <em>discard</em> from EL7 based OSs, refer to <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fs-discard-unused-blocks">Storage Administration Guide - Discard unused blocks</a>.<br />
+Either way, these conditions regarding the <em>discard</em> command should be met:</p>
+
+<ul>
+  <li>It should be supported by the device’s file system, <em>ext4</em> for example.</li>
+  <li>It should be supported by the guest’s OS.</li>
+</ul>
+
+<h4 id="wipe-after-delete-and-pass-discard"><em>Wipe After Delete</em> and <em>Pass Discard</em></h4>
+
+<h5 id="block-storage-2">Block storage</h5>
+<p>When a disk’s <em>Wipe After Delete</em> property is enabled, the engine guarantees that when the user removes the disk, it would be first wiped and only then removed.<br />
+Since discarding a block in the storage means that it doesn’t belong to the LV anymore, and since vdsm cannot wipe this block before it is discarded by the guest, if a disk’s <em>Wipe After Delete</em> and <em>Pass Discard</em> properties were both enabled, some sensitive data could have been exposed as part of a new disk that could have been allocated with the same blocks to another user.<br />
+Thus, <em>Wipe After Delete</em> and <em>Pass Discard</em> cannot, theoretically, be both enabled for the same disk.</p>
+
+<p>There is a case, though, where it’s possible. To understand it, let’s first take a look at these declarations:</p>
+
+<ul>
+  <li>Let <em>lunX</em> be a device and <em>dm-X</em> be its corresponding dm device for a natural number X. Then <em>lunX</em> supports the property that <strong><em>discard zeroes the data</em></strong> iff the value of <code class="language-plaintext highlighter-rouge">/sys/block/dm-X/queue/discard_zeroes_data</code> is 1 <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.
+A lun that supports the property that <em>discard zeroes the data</em> guarantees that previously discarded blocks are read back as zeros from it.</li>
+  <li>A storage domain supports the property that <em>discard zeroes the data</em> iff <strong>all</strong> of the luns that it is built from support it. That means that if at least one of its luns doesn’t support the property that <em>discard zeroes the data</em>, then so is the storage domain.</li>
+</ul>
+
+<p>Thus, <em>Wipe After Delete</em> and <em>Pass Discard</em> can be both enabled for the same disk iff the corresponding storage domain supports <em>discard</em> and the property that <em>discard zeroes the data</em>.</p>
+
+<h5 id="file-storage-2">File storage</h5>
+<p>On file storage, the file system guarantees that previously removed blocks are read back as zeros. Thus, vdsm never wipes removed disks on file storage like it does in block storage, because the file system does the work for us.<br />
+Therefore, it is always allowed to enable both <em>Wipe After Delete</em> and <em>Pass Discard</em> for a disk on file storage, but such a disk cannot be moved to a block domain that doesn’t support both <em>discard</em> and the property that <em>discard zeroes the data</em>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="gui">GUI</h3>
+<blockquote>
+  <p><strong>Note</strong><br />
+The next screenshots were taken when the VM was down.<br />
+When the VM is up, <em>Pass Discard</em> <strong>cannot</strong> be edited.</p>
+</blockquote>
+
+<h4 id="addedit-a-virtual-machines-disk">Add/Edit a virtual machine’s disk</h4>
+
+<h5 id="disk-image">Disk image</h5>
+<p><img src="/ovirt-site/previews/2762/images/wiki/New_Vm_Disk_Image_With_Pass_Discard_Bolded.png" alt="" /></p>
+
+<h5 id="direct-lun">Direct LUN</h5>
+<p><img src="/ovirt-site/previews/2762/images/wiki/New_Vm_Direct_LUN_With_Pass_Discard_Bolded.png" alt="" /></p>
+
+<h3 id="rest-api">REST-API</h3>
+
+<h4 id="add-a-new-virtual-machines-disk">Add a new virtual machine’s disk</h4>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST api/vms/<span class="nt">&lt;vm_id&gt;</span>/diskattachments
+Content-Type: application/xml
+
+<span class="nt">&lt;disk_attachment&gt;</span>
+    <span class="nt">&lt;disk&gt;</span>
+        <span class="nt">&lt;alias&gt;</span>new_disk<span class="nt">&lt;/alias&gt;</span>
+        <span class="nt">&lt;provisioned_size&gt;</span>1073741824<span class="nt">&lt;/provisioned_size&gt;</span>
+        <span class="nt">&lt;format&gt;</span>cow<span class="nt">&lt;/format&gt;</span>
+        <span class="nt">&lt;storage_domains&gt;</span>
+            <span class="nt">&lt;storage_domain</span> <span class="na">id=</span><span class="s">"&lt;storage_domain_id&gt;"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/storage_domains&gt;</span>
+    <span class="nt">&lt;/disk&gt;</span>
+    <span class="nt">&lt;bootable&gt;</span>false<span class="nt">&lt;/bootable&gt;</span>
+    <span class="nt">&lt;interface&gt;</span>virtio_scsi<span class="nt">&lt;/interface&gt;</span>
+    <span class="nt">&lt;active&gt;</span>true<span class="nt">&lt;/active&gt;</span>
+    <span class="nt">&lt;pass_discard&gt;</span>true<span class="nt">&lt;/pass_discard&gt;</span> <span class="c">&lt;!--The value of pass_discard --&gt;</span>
+<span class="nt">&lt;/disk_attachment&gt;</span>
+</code></pre></div></div>
+
+<h4 id="attach-a-disk-to-a-virtual-machine">Attach a disk to a virtual machine</h4>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST api/vms/<span class="nt">&lt;vm_id&gt;</span>/diskattachments
+Content-Type: application/xml
+
+<span class="nt">&lt;disk_attachment&gt;</span>
+    <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"&lt;disk_id&gt;"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bootable&gt;</span>false<span class="nt">&lt;/bootable&gt;</span>
+    <span class="nt">&lt;interface&gt;</span>virtio_scsi<span class="nt">&lt;/interface&gt;</span>
+    <span class="nt">&lt;active&gt;</span>true<span class="nt">&lt;/active&gt;</span>
+    <span class="nt">&lt;pass_discard&gt;</span>true<span class="nt">&lt;/pass_discard&gt;</span> <span class="c">&lt;!--The value of pass_discard --&gt;</span>
+<span class="nt">&lt;/disk_attachment&gt;</span>
+</code></pre></div></div>
+
+<h4 id="update-a-virtual-machine-disk">Update a virtual machine disk</h4>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT api/vms/<span class="nt">&lt;vm_id&gt;</span>/diskattachments/<span class="nt">&lt;disk_attachment_id&gt;</span>
+Content-Type: application/xml
+
+<span class="nt">&lt;disk_attachment&gt;</span>
+    <span class="nt">&lt;pass_discard&gt;</span>true<span class="nt">&lt;/pass_discard&gt;</span> <span class="c">&lt;!--The value of pass_discard --&gt;</span>
+<span class="nt">&lt;/disk_attachment&gt;</span>
+</code></pre></div></div>
+
+<h2 id="related-bugs">Related Bugs</h2>
+<ul>
+  <li>Allow TRIM from within the guest to shrink thin-provisioned disks on iSCSI and FC storage domains(<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1241106">Bug 1241106</a>)</li>
+</ul>
+
+<h2 id="future-plans">Future plans</h2>
+<ul>
+  <li>It might be useful to add a possibility to configure the mount options of a VM disk for discard support from the engine.</li>
+  <li>It’s worth checking if qemu/libvirt allow to update a disk’s driver when the VM is up. If they do, then <em>Pass Discard</em> can be edited also for a running VM.</li>
+</ul>
+
+<h2 id="related-features">Related Features</h2>
+<ul>
+  <li><a href="/ovirt-site/previews/2762/develop/release-management/features/storage/discard-after-delete.html">Discard after delete</a></li>
+  <li><a href="/ovirt-site/previews/2762/develop/release-management/features/storage/wipe-volumes-using-blkdiscard.html">Wipe volumes using blkdiscard</a></li>
+</ul>
+
+<h2 id="references">References</h2>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>See “discard_max_bytes” in “Queue sysfs files” - <a href="https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt">https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>See “discard_zeroes_data” in “Queue sysfs files” - <a href="https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt">https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2762/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2762/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2762/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2762/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

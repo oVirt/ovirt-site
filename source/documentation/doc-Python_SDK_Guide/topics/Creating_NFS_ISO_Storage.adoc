@@ -1,4 +1,5 @@
-[[Creating_NFS_ISO_Storage]]
+:_content-type: PROCEDURE
+[id="Creating_NFS_ISO_Storage"]
 === Creating NFS ISO Storage
 
 To create a virtual machine, you need installation media for the guest operating system. The installation media are stored in an ISO storage domain.

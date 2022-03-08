@@ -1,11 +1,12 @@
+:_content-type: REFERENCE
 [id="Dependencies"]
 === Dependencies
 
 The Ruby Software Development Kit has the following dependencies, which you must install manually if you are using `gem`:
 
-* `libxml2` for parsing and rendering XML 
+* `libxml2` for parsing and rendering XML
 * `libcurl` for HTTP transfers
-* C compiler 
+* C compiler
 * Required header and library files
 
 [NOTE]

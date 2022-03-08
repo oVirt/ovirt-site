@@ -1,5 +1,8 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+
+:_content-type: ASSEMBLY
+[id="python-sdk-guide"]
 = Python SDK Guide
 :imagesdir: images
 

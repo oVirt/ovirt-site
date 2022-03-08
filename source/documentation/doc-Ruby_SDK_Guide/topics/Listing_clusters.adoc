@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Listing_clusters"]
 === Listing Clusters
 
 This Ruby example lists the clusters.

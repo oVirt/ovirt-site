@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Creating_NFS_storage_domain"]
 === Creating an NFS Storage Domain
 
 This Ruby example adds an NFS storage domain.

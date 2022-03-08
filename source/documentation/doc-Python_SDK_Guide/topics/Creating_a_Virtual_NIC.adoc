@@ -1,4 +1,5 @@
-[[Creating_a_Virtual_NIC]]
+:_content-type: PROCEDURE
+[id="Creating_a_Virtual_NIC"]
 === Creating a Virtual NIC
 
 To ensure that a newly created virtual machine has network access, you must create and attach a virtual NIC.

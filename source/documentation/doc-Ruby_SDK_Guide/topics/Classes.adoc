@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Classes"]
 === Classes
 
@@ -23,7 +24,7 @@ vms_service = connection.system_service.vms_service
 Do not create instances of these classes manually. The constructor parameters and methods may change in the future.
 ====
 
-Error:: The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] class is the base exception class that the software development kit raises when it reports an error. 
+Error:: The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] class is the base exception class that the software development kit raises when it reports an error.
 +
 Certain specific error classes extend the base error class:
 

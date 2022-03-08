@@ -1,4 +1,5 @@
-[[chap-Overview]]
+:_content-type: ASSEMBLY
+[id="chap-Overview"]
 == Overview
 
 Version 4 of the Python software development kit is a collection of classes that allows you to interact with the {virt-product-fullname} {engine-name} in Python-based projects. By downloading these classes and adding them to your project, you can access a range of functionality for high-level automation of administrative tasks.

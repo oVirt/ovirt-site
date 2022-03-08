@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Listing_hosts"]
 === Listing Hosts
 
 This Ruby example lists the hosts.

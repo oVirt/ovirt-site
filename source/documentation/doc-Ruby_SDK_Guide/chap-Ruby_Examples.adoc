@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id="chap-Ruby_Examples"]
 == Ruby Examples
 

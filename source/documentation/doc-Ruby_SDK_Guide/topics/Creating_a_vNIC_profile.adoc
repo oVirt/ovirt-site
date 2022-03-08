@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+[id="Creating_a_vNIC_profile"]
 === Creating a vNIC Profile
 
 This Ruby example creates a vNIC profile.
@@ -7,8 +9,8 @@ This Ruby example creates a vNIC profile.
 # Find the root of the tree of services:
 system_service = connection.system_service
 
-# Find the network where you want to add the profile. There may be multiple 
-# networks with the same name (in different data centers, for example). 
+# Find the network where you want to add the profile. There may be multiple
+# networks with the same name (in different data centers, for example).
 # Therefore, you must look up a specific network by name, in a specific data center.
 dcs_service = system_service.data_centers_service
 dc = dcs_service.list(search: 'name=mydc').first
@@ -32,4 +34,3 @@ profiles_service.add(
 ----
 
 For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VnicProfilesService:add[].
-

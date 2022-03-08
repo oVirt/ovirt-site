@@ -1,4 +1,5 @@
-[[Activating_a_Storage_Domain]]
+:_content-type: PROCEDURE
+[id="Activating_a_Storage_Domain"]
 === Activating a Storage Domain
 
 Once you have added a storage domain to {virt-product-fullname} and attached it to a data center, you must activate it before it will be ready for use.

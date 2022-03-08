@@ -1,4 +1,5 @@
-[[Listing_Files_in_an_ISO_Storage_Domain]]
+:_content-type: PROCEDURE
+[id="Listing_Files_in_an_ISO_Storage_Domain"]
 === Listing Files in an ISO Storage Domain
 
 The `storagedomains` collection contains a `files` collection that describes the files in a storage domain.

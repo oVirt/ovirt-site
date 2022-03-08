@@ -1,4 +1,5 @@
-[[Listing_Logical_Networks]]
+:_content-type: PROCEDURE
+[id="Listing_Logical_Networks"]
 === Listing Logical Networks
 
 The `networks` collection contains all logical networks in the environment.

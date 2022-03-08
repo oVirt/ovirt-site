@@ -16,9 +16,9 @@ the git hosting and build execution.
 
 During the development of the next oVirt release, patches are being verified using GitHub Actions.
 
-We also have [oVirt System Tests](https://github.com/oVirt/ovirt-system-tests) for gating but we didn't integrate it yet into GitHub Actions.
+We also have [oVirt System Tests](https://github.com/oVirt/ovirt-system-tests) for gating but haven't integrated them into GitHub Actions yet.
 
-Once a PR is merged, the packages are being built by COPR infrastructure within [ovirt/ovirt-master-snapshot](https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/) project.
+Once a PR is merged, the packages are being built by COPR infrastructure within the [ovirt/ovirt-master-snapshot](https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/) project.
 
 Manual and automated testing can then be done using the [snapshot composes provided by COPR](/develop/dev-process/install-nightly-snapshot.html).
 
@@ -34,12 +34,12 @@ In order to do that we are going to use the [CentOS Community Build Service (CBS
 Package maintainers must have a [CentOS Account](https://accounts.centos.org/) or a [Fedora Account](https://accounts.fedoraproject.org/),
 which were unified in the middle of 2021 to use the same account system.
 
-In order to build for oVirt you need to be added to the CBS you need to join the [CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization).
+In order to build for oVirt you need to be added to the CBS for which you need to join the [CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization).
 You can do that by attending a [Virt SIG IRC meeting](https://www.centos.org/community/calendar/#virtualization-sig)
-or asking on the [CentOS Virt mailing list](https://lists.centos.org/mailman/listinfo/centos-virt)
+or asking on the [CentOS Virt mailing list](https://lists.centos.org/mailman/listinfo/centos-virt).
 
-> Please note that if you want to ship oVirt packages in other distributions you'll need to get permissions there.
-> For example, if you want to ship for Fedora, you need to be package owner on [Fedora Build System](https://koji.fedoraproject.org/koji/).
+> Please note that if you want to ship oVirt packages in other distributions, you'll need to get permissions there.
+> For example, if you want to ship for Fedora, you need to be a package owner on the [Fedora Build System](https://koji.fedoraproject.org/koji/).
 >
 > At the time of writing, the oVirt project is focusing only on [CentOS Stream](https://www.centos.org/centos-stream/).
 
@@ -55,7 +55,7 @@ cbs build --scratch virt9s-ovirt-45-el9s <your package .src.rpm>
 # This is for CentOS Stream 8:
 cbs build --scratch virt8s-ovirt-45-el8s <your package .src.rpm>
 
-# if the build goes fine you can build for real
+# If the build goes through fine, you can do a real build
 # CentOS Stream 9:
 cbs build virt9s-ovirt-45-el9s <your package .src.rpm>
 
@@ -71,11 +71,11 @@ In order to publish the build you need to tag it for testing:
 # CentOS Stream 8
 cbs tag virt8s-ovirt-45-testing <your build without the trailing '.src.rpm'>
 
-#example:
+# Example:
 cbs tag virt8s-ovirt-45-testing ovirt-hosted-engine-ha-2.4.10-1.el8
 ```
 
-This will publish the build on https://buildlogs.centos.org/centos/8-stream/virt/ repository.
+This will publish the build under the https://buildlogs.centos.org/centos/8-stream/virt/ repository.
 
 
 ```bash
@@ -86,12 +86,12 @@ cbs tag virt9s-ovirt-45-testing <your build without the trailing '.src.rpm'>
 cbs tag virt9s-ovirt-45-testing ovirt-hosted-engine-ha-2.4.10-1.el9
 ```
 
-This will publish the build on https://buildlogs.centos.org/centos/9-stream/virt/ repository.
+This will publish the build on https://buildlogs.centos.org/centos/9-stream/virt/.
 
 
 ## Release phase
 
-Once the content in testing has been properly verified and considered good to be released for general availability the release manager needs to tag the builds for release:
+Once the content in testing has been properly verified and considered good to be released for general availability, the release manager needs to tag the builds for release:
 
 ```bash
 # CentOS Stream 8
@@ -101,28 +101,28 @@ cbs tag virt8s-ovirt-45-release <build without the trailing '.src.rpm'>
 cbs tag virt8s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el8
 ```
 
-This will publish the build on http://mirror.centos.org/centos/8-stream/virt/ repository and to CentOS mirrors.
+This will publish the build on the http://mirror.centos.org/centos/8-stream/virt/ repository and to CentOS mirrors.
 
 
 ```bash
 # CentOS Stream 9
 cbs tag virt9s-ovirt-45-release <build without the trailing '.src.rpm'>
 
-#example:
+# Example:
 cbs tag virt9s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el9
 ```
 
-This will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ repository and to CentOS mirrors.
+This will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ and to CentOS mirrors.
 
 ## Release notes preparation
 
-Release notes are autogenerated from git logs using scripts and config file stored in [oVirt/releng-tools](https://github.com/oVirt/releng-tools) repository.
+Release notes are auto-generated from git logs using scripts and config files stored in the [oVirt/releng-tools](https://github.com/oVirt/releng-tools) repository.
 
-Please follow instructions on [oVirt Release Engineering Tools documentation](https://github.com/oVirt/releng-tools/blob/master/releases/README-prepare-patches).
+Please follow the instructions on the [oVirt Release Engineering Tools documentation](https://github.com/oVirt/releng-tools/blob/master/releases/README-prepare-patches).
 Remember that the release config file is going to be used only to deliver content which couldn't build on CentOS Community Build Service (CBS).
 The milestone config is the one used for generating the release notes.
 
-Once ready, the notes can be automatically generated with [`release_notes_git.py`](https://github.com/oVirt/releng-tools/blob/master/release_notes_git.py) command line like:
+Once ready, the notes can be automatically generated with [`release_notes_git.py`](https://github.com/oVirt/releng-tools/blob/master/release_notes_git.py) on the command line like:
 
 ```bash
 # this assumes milestone/ovirt-4.5.0.conf being already populated
@@ -132,9 +132,9 @@ Once ready, the notes can be automatically generated with [`release_notes_git.py
 
 ## Announcements
 
-Once ready to announce the release manager must ensure announcement is sent to:
+Once ready to announce, the release manager must ensure the announcement is sent:
 
-To [oVirt Blog](https://blogs.ovirt.org/)
+To the [oVirt Blog](https://blogs.ovirt.org/)
 
 To the relevant mailing list:
 
@@ -146,13 +146,13 @@ To social media:
 
 * [Twitter](https://twitter.com/ovirt)
 * [Reddit](https://www.reddit.com/r/ovirt)
-* [Linkedin Official](https://www.linkedin.com/company/ovirt)
-* [Linkedin oVirt group](https://www.linkedin.com/groups/4707460/)
+* [LinkedIn Official](https://www.linkedin.com/company/ovirt)
+* [LinkedIn oVirt group](https://www.linkedin.com/groups/4707460/)
 * [Facebook Official](https://www.facebook.com/groups/ovirt.openvirtualization)
 
 To local communities:
 
-* [Linkedin oVirt Italia](https://www.linkedin.com/groups/13669751/)
+* [LinkedIn oVirt Italia](https://www.linkedin.com/groups/13669751/)
 * [Facebook oVirt India](https://www.facebook.com/groups/409421802961475/)
 * [Facebook oVirt Italia](https://www.facebook.com/groups/ovirt.italia/)
 * [Facebook oVirt Korea](https://www.facebook.com/groups/ovirt.korea/)
@@ -160,13 +160,13 @@ To local communities:
 * [Facebook oVirt Myanmar](https://www.facebook.com/Ovirt-Myanmar-Community-974969229309990)
 * [Facebook oVirt Philippines](https://www.facebook.com/groups/ovirtph/)
 
-Missed someone? Please add!
+Missed something? Please add!
 
 A typical announcement for social media:
 
 ```
 The #oVirt project community is pleased to announce the general availability of the new stable release
-of the #opensource #virtualization solution for your entire #enterprise: oVirt <new version>.
+of the #opensource #virtualization solution for your entire enterprise: oVirt <new version>.
 Read more about it on <link to announcement blog post>.
 ```
 

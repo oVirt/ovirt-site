@@ -226,6 +226,25 @@ and [Browser Support](/download/browsers_and_mobile.html) for more information.
 
 ## RPM Repositories and GPG keys
 
+### oVirt 4.5 ALPHA
+
+oVirt 4.5 is shipped via CentOS repositories.
+
+In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:
+```bash
+dnf install -y centos-release-ovirt45
+```
+
+After that, for pre-release testing you'll need to execute:
+
+```bash
+dnf install -y python3-dnf-plugins-core
+dnf config-manager --set-enabled centos-ovirt45-testing
+dnf config-manager --set-enabled ovirt-45-upstream-testing
+```
+
+### oVirt 4.4 - RPM Repositories and GPG keys
+
 [RPM repository for oVirt 4.4 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.4/)
 
 See [RPMs and GPG](/download/rpms_and_gpg.html) for older releases, nightlies, mirrors, and GPG keys.

@@ -2560,9 +2560,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2762/privacy-policy.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2762/documentation/administration_guide/proc_getting-information-about-the-disks-in-a-backup.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2762/develop/developer-guide/profiling-javascript.html</loc>
 </url>
 <url>
@@ -3644,6 +3641,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2762/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-08T16:13:51+00:00</lastmod>
+<lastmod>2022-03-08T16:15:56+00:00</lastmod>
 </url>
 </urlset>

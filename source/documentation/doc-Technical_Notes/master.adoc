@@ -1,5 +1,6 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
+:_content-type: ASSEMBLY
 [id="technical-notes"]
 = Technical Notes
 :imagesdir: images

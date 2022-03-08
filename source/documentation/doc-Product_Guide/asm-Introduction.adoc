@@ -1,4 +1,5 @@
-[[introduction]]
+:_content-type: ASSEMBLY
+[id="introduction"]
 = Introduction to {virt-product-fullname}
 
 :context: RHV_intro

@@ -1,8 +1,9 @@
-[[Additional_Packages_from_Red_Hat_Network]]
+:_content-type: REFERENCE
+[id="Additional_Packages_from_Red_Hat_Network"]
 = Optional Subscriptions and Repositories
 
 The packages provided in the following repositories are not required to install and configure a functioning {virt-product-fullname} environment. However, they are required to install packages that provide supporting functionality on virtual machines and client systems such as virtual machine resource monitoring. When one of these repositories is required to install a package, the steps required to enable the repository are provided in the appropriate location in the documentation.
-[[RHN_Channels_Recommended]]
+[id="RHN_Channels_Recommended"]
 
 .Optional Subscriptions and Repositories
 [options="header"]

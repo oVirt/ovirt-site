@@ -1,4 +1,5 @@
-[[RHV_terminology]]
+:_content-type: REFERENCE
+[id="RHV_terminology"]
 = {virt-product-fullname} Terminology
 
 * *Cluster* - A cluster is a set of physical hosts that are treated as a resource pool for virtual machines. Hosts in a cluster share the same network infrastructure and storage. They form a migration domain within which virtual machines can be moved from host to host.

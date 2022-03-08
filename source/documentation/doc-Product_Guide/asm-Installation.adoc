@@ -1,4 +1,5 @@
-[[installation]]
+:_content-type: ASSEMBLY
+[id="installation"]
 = Installing {virt-product-fullname}
 
 include::topics/con-RHV_Installation_Overview.adoc[leveloffset=+1]

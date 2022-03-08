@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id='Removed_Features_RHV']
 = Removed Features
 // This is a static section that must be reviewed by PM every release to confirm which items to add or remove.

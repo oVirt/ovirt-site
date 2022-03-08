@@ -1,3 +1,4 @@
+:_content-type: ASSEMBLY
 [id='Tech_Preview_and_Deprecated_Features']
 = Technology Preview, Deprecated, and Removed Features
 

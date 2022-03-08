@@ -48,7 +48,7 @@ Obsolete:
 
 #### Release process
 - [Adding a project to ovirt-master-snapshot COPR repository](/develop/release-management/process/add_a_package_to_copr.html)
-- [Making an oVirt release](/develop/release-management/process/making-an-release.html)
+- [Making an oVirt release](/develop/release-management/process/making-a-release.html)
 
 
 #### Development Help

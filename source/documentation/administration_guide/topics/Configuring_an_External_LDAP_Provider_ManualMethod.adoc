@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_an_External_LDAP_Provider_ManualMethod"]
 ==== Configuring an External LDAP Provider (Manual Method)
 

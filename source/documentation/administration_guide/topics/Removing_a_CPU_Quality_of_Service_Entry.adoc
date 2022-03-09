@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_a_CPU_Quality_of_Service_Entry"]
 ==== Removing a CPU Quality of Service Entry
 

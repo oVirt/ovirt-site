@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Host_Power_Management_settings_explained"]
 ==== Host Power Management Settings Explained
 

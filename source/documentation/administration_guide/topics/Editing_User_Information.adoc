@@ -1,4 +1,5 @@
 :_content-type: PROCEDURE
+:_content-type: PROCEDURE
 [id="editing-user-information_{context}"]
 ==== Editing User Information
 

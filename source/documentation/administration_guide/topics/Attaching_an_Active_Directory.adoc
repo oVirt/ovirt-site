@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Attaching_an_Active_Directory"]
 ==== Attaching an Active Directory
 

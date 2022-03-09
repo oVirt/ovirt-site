@@ -1,6 +1,7 @@
 // Module included in the following assemblies:
 //
 // appe-Red_Hat_Virtualization_and_SSL.adoc
+:_content-type: PROCEDURE
 [id="Manually_setting_up_encrypted_communication_for_vdsm"]
 = Manually Setting Up Encrypted Communication for VDSM
 

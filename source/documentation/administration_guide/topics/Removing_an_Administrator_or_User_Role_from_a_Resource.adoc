@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_an_Administrator_or_User_Role_from_a_Resource"]
 ==== Removing an Administrator or User Role from a Resource
 

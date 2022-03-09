@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="VDSM_hooks_evaluating_custom_properties"]
 === Evaluating Virtual Machine Custom Properties in a VDSM Hook
 

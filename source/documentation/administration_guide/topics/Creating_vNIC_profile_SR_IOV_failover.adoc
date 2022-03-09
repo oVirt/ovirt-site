@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_vNIC_profile_SR_IOV_failover"]
 
 ==== Enabling a vNIC profile for SR-IOV migration with failover

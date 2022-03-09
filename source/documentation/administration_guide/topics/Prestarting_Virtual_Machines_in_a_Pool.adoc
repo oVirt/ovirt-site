@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Prestarting_Virtual_Machines_in_a_Pool"]
 === Prestarting Virtual Machines in a Pool
 

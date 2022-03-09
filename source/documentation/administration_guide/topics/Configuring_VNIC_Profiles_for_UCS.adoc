@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_VNIC_Profiles_for_UCS"]
 ==== Configuring vNIC Profiles for UCS Integration
 

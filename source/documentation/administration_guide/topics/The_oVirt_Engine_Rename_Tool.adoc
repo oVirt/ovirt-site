@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="The_oVirt_Engine_Rename_Tool"]
 ==== The oVirt Engine Rename Tool
 

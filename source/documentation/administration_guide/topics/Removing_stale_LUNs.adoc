@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_stale_LUNs"]
 = Removing stale LUNs
 

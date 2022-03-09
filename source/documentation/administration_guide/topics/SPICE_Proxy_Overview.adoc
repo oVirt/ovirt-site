@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="SPICE_Proxy_Overview"]
 ==== SPICE Proxy Overview
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="SPM_Priority"]
 === SPM Priority
 

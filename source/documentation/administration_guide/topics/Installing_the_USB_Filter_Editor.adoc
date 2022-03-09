@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Installing_the_USB_Filter_Editor"]
 = Installing the USB Filter Editor
 

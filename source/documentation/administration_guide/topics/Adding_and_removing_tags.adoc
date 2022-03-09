@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_and_removing_tags"]
 === Adding and Removing Tags to and from Objects
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Service_Level_Agreement_Policy_Enforcement"]
 === Service Level Agreement Policy Enforcement
 

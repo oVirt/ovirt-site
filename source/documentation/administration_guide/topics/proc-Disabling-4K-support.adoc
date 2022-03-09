@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Disabling-4K-support-{context}"]
 = Disabling 4K support
 

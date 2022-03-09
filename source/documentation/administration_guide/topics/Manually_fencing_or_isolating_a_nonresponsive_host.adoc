@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Manually_fencing_or_isolating_a_nonresponsive_host"]
 ==== Manually Fencing or Isolating a Non-Responsive Host
 

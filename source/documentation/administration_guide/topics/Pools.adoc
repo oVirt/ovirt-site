@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Pools"]
 === Introduction to Virtual Machine Pools
 

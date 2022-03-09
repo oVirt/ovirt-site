@@ -1,6 +1,6 @@
+:_content-type: PROCEDURE
 [id="Configure_grafana_SSO"]
-
-.Configuring Grafana for Single Sign-on
+= Configuring Grafana for Single Sign-on
 
 The {engine-name} engine-setup automatically configures Grafana to allow existing users on the {engine-name} to log in with SSO from the Administration Portal, but does not automatically create users. You need to create new users (`Invite` in the Grafana UI), confirm the new user, and then they can log in.
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="removing-an-external-ldap-provider_{context}"]
 ==== Removing an External LDAP Provider
 

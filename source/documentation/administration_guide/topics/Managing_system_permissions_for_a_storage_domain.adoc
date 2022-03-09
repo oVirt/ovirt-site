@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Cluster_hosts_entities"]
 ==== Managing System Permissions for a Storage Domain
 

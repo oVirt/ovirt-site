@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Administration_Portal_Screen"]
 ==== Administration Portal Screen
 

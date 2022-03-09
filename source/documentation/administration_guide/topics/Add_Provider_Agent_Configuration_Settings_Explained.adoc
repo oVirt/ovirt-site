@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Add_Provider_Agent_Configuration_Settings_Explained"]
 ==== Add Provider Agent Configuration Settings Explained
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts"]
 ==== Editing Host Network Interfaces and Assigning Logical Networks to Hosts
 

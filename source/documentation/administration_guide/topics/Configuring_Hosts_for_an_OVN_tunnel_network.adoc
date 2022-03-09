@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_Hosts_for_an_OVN_tunnel_network"]
 ===== Configuring Hosts for an OVN Tunnel Network
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Vdsm_To_Network_Mapping_Tool"]
 ==== Mapping VDSM Names to Logical Network Names
 

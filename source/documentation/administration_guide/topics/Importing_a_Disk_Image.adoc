@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Importing_a_Disk_Image_from_an_Imported_Storage_Domain"]
 ==== Importing a Disk Image from an Imported Storage Domain
 

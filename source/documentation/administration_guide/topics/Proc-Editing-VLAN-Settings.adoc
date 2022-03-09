@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing-VLAN-Settings"]
 ==== Editing a Host's VLAN Settings
 

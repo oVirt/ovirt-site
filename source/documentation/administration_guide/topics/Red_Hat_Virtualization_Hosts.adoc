@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Intro_to_RHVH"]
 === {hypervisor-fullname}
 

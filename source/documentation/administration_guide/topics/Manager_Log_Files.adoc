@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Manager_Log_Files"]
 === {virt-product-fullname} {engine-name} Log Files
 

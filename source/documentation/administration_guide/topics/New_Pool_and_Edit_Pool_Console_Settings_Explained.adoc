@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="New_Pool_and_Edit_Pool_Console_Settings_Explained"]
 ==== New Pool and Edit Pool Console Settings Explained
 

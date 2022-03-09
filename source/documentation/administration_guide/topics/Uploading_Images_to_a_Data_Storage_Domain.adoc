@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Uploading_Images_to_a_Data_Storage_Domain_{context}"]
 = Uploading Images to a Data Storage Domain
 

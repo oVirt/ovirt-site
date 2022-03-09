@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_Instance_Types"]
 ==== Removing Instance Types
 

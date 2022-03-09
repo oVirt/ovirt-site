@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Sending_metrics_to_ELK"]
 
 

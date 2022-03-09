@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Attaching_an_iso_domain"]
 ==== Attaching an Existing ISO domain to a Data Center
 

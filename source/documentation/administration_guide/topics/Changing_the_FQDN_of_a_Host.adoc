@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Changing_the_FQDN_of_a_Host"]
 ==== Changing the FQDN of a Host
 

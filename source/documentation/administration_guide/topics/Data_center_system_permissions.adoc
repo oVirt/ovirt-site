@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Data_center_system_permissions"]
 ==== Managing System Permissions for a Data Center
 

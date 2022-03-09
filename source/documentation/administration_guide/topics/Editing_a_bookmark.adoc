@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_a_bookmark"]
 === Editing a Bookmark
 

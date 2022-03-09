@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_CPU_Profile"]
 ==== Creating a CPU Profile
 

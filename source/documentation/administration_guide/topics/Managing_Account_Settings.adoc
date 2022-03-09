@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Managing_Account_Settings"]
 ==== Managing Account Settings
 

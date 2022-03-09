@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="To_view_hosts_in_a_cluster"]
 ==== Managing System Permissions for a Host
 

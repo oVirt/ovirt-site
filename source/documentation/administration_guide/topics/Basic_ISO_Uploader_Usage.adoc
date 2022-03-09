@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Basic_ISO_Uploader_Usage"]
 ==== Basic ISO Uploader Usage
 
@@ -5,7 +6,7 @@ The example below demonstrates the ISO uploader and the list parameter. The firs
 
 .List Domains and Upload Image
 ====
-		
+
 [source,terminal]
 ----
 # `engine-iso-uploader list`
@@ -13,7 +14,7 @@ Please provide the REST API password for the admin@internal oVirt Engine user (C
 ISO Storage Domain Name   | Datacenter          | ISO Domain Status
 ISODomain                 | Default             | active
 ----
-		
+
 [source,terminal]
 ----
 # `engine-iso-uploader --iso-domain=_[ISODomain]_ upload _[RHEL6.iso]_`
@@ -21,4 +22,3 @@ Please provide the REST API password for the admin@internal oVirt Engine user (C
 ----
 
 ====
-

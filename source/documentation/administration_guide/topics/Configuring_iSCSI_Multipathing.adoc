@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_iSCSI_Multipathing"]
 ==== Configuring iSCSI Multipathing
 

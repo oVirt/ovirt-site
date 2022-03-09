@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Authorization_examples"]
 ==== User Role and Authorization Examples
 

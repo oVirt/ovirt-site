@@ -3,6 +3,7 @@
 // doc-Administration_Guide/assembly-enabling-encrypted-vnc-consoles-for-fips.adoc
 
 :_content-type: PROCEDURE
+:_content-type: PROCEDURE
 [id="enabling_fips_using_the_rhv_manager_{context}"]
 = Configuring FIPS hosts using the Manager
 

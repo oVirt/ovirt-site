@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Viewing_User_Permissions_on_Resources"]
 ==== Viewing User Permissions on Resources
 

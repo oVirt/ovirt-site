@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_an_OpenStack_Image_Service_Glance_for_Image_Management"]
 ==== Adding an OpenStack Image (Glance) Instance for Image Management
 

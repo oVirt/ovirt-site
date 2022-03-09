@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Assigning_a_Quota_to_an_Object"]
 === Assigning a Quota to an Object
 

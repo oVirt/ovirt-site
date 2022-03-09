@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Log_Collector"]
 ==== Log Collector
 

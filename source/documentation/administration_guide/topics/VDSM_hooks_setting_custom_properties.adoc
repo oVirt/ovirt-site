@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="VDSM_hooks_setting_custom_properties"]
 === Setting Virtual Machine Custom Properties
 

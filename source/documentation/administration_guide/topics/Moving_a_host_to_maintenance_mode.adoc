@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Moving_a_host_to_maintenance_mode"]
 ==== Moving a Host to Maintenance Mode
 

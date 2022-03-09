@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Enabling_Passthrough_on_a_vNIC_Profile"]
 ==== Enabling Passthrough on a vNIC Profile
 

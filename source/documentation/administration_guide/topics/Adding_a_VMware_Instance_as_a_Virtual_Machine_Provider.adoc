@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider"]
 ==== Adding a VMware Instance as a Virtual Machine Provider
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="The_File_Not_Found_Page"]
 ==== The Page Not Found Page
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="VNIC_Profile_Overview"]
 ==== vNIC Profile Overview
 

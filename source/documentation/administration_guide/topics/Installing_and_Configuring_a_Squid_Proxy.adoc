@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Installing_and_Configuring_a_Squid_Proxy"]
 ==== Installing and Configuring a Squid Proxy
 

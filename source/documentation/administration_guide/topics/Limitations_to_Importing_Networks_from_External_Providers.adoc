@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Limitations_to_Importing_Networks_from_External_Providers"]
 ==== Limitations to Using External Provider Networks
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Restoring_a_Backup_to_a_Fresh_Installation"]
 ==== Restoring a Backup to a Fresh Installation
 

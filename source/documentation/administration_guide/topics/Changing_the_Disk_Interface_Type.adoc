@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Changing_the_Disk_Interface_Type"]
 ==== Changing the Disk Interface Type
 

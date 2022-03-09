@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Destroying_a_storage_domain"]
 ==== Destroying a Storage Domain
 

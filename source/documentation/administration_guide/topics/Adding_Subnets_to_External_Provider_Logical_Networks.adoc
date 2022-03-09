@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_Subnets_to_External_Provider_Logical_Networks"]
 ==== Adding Subnets to External Provider Logical Networks
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Introduction_to_Hosts"]
 === Introduction to Hosts
 

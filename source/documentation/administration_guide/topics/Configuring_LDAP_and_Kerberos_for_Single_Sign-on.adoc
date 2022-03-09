@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_LDAP_and_Kerberos_for_Single_Sign-on"]
 === Configuring LDAP and Kerberos for Single Sign-on
 

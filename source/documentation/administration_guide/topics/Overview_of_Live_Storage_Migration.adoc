@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Overview_of_Live_Storage_Migration"]
 ==== Overview of Live Storage Migration
 

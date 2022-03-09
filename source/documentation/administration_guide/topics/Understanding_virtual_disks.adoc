@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Understanding_virtual_disks"]
 === Understanding Virtual Disks
 

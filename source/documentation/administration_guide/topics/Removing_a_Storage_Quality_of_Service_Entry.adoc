@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_a_Storage_Quality_of_Service_Entry"]
 ==== Removing a Storage Quality of Service Entry
 

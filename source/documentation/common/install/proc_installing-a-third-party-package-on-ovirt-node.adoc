@@ -5,7 +5,7 @@
 = Installing a third-party package on oVirt-node
 
 [role="_abstract"]
-If you need a package that is not included in the `ovirt-release44.rpm` repository, you need to provide the repository before you can install the package.
+If you need a package that is not included in the oVirt provided repository, you need to provide the repository before you can install the package.
 
 .Prerequisites
 

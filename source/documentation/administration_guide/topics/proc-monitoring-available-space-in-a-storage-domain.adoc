@@ -1,5 +1,4 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id="monitoring-available-space-in-a-storage-domain"]
 = Monitoring available space in a storage domain
 

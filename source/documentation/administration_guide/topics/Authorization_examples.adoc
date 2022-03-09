@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Authorization_examples"]
-==== User Role and Authorization Examples
+= User Role and Authorization Examples
 
 The following examples illustrate how to apply authorization controls for various scenarios, using the different features of the authorization system described in this chapter.
 
@@ -43,9 +43,8 @@ Rachel works in the IT department, and is responsible for managing user accounts
 
 [id="rhv-object-hierarchy"]
 .UserManager Custom Role
-image::images/UserManagerRole.png[] 
+image::images/UserManagerRole.png[]
 
 The *UserManager* custom role shown above allows manipulation of users, permissions and roles. These actions are organized under *System* - the top level object of the hierarchy shown in xref:rhev-object-hierarchy-2[]. This means they apply to all other objects in the system. The role is set to have an *Account Type* of *Admin*. This means that when she is assigned this role, Rachel can use both the Administration Portal and the VM Portal.
 
 ====
-

@@ -1,4 +1,3 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Cluster_Migration_Policy_Settings_Explained"]
 ==== Migration Policy Settings Explained

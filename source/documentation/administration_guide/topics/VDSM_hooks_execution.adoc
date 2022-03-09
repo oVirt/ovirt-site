@@ -1,5 +1,4 @@
 :_content-type: PROCEDURE
-:_content-type: CONCEPT
 [id="VDSM_hooks_execution"]
 === VDSM Hook Execution
 

@@ -1,5 +1,4 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id="creating-a-new-user_{context}"]
 ==== Creating a New User
 

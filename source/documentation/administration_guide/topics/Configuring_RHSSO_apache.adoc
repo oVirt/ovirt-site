@@ -1,5 +1,4 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id='Configuring_RHSSO_apache']
 
 

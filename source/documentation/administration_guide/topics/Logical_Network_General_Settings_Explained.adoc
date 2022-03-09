@@ -1,4 +1,3 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Logical_Network_General_Settings_Explained"]
 ==== Logical Network General Settings Explained

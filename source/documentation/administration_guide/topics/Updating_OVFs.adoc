@@ -1,6 +1,5 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
-[id="updating_ovfs_{context}"] 
+[id="updating_ovfs_{context}"]
 ==== Updating OVFs
 
 By default, OVFs are updated every 60 minutes. However, if you have imported an important virtual machine or made a critical update, you can update OVFs manually.

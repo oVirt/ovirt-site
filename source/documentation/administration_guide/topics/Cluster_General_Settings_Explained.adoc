@@ -1,4 +1,3 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Cluster_General_Settings_Explained"]
 ==== General Cluster Settings Explained

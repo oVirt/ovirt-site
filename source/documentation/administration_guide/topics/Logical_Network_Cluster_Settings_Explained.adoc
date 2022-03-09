@@ -1,4 +1,3 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Logical_Network_Cluster_Settings_Explained"]
 ==== Logical Network Cluster Settings Explained

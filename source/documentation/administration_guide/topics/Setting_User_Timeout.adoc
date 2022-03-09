@@ -1,5 +1,4 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id="setting-user-timeout_{context}"]
 ==== Setting User Timeout
 

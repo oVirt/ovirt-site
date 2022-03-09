@@ -1,5 +1,4 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id="enabling_fips_rhvh_{context}"]
 = Enabling FIPS in RHVH
 

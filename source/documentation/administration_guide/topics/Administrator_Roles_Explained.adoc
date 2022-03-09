@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Administrator_Roles_Explained"]
-==== Administrator Roles Explained
+= Administrator Roles Explained
 
 The table below describes basic administrator roles which confer permissions to access and configure resources in the Administration Portal.
 

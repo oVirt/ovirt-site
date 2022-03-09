@@ -1,4 +1,3 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Network_Provider_Settings_Explained"]
 ==== Network Provider Settings Explained

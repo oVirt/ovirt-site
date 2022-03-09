@@ -2,6 +2,6 @@
 [id="part-Gathering_Information_About_the_Environment"]
 = Gathering Information About the Environment
 
-include::chap-monitoring_and_observability.adoc[]
+include::chap-monitoring_and_observability.adoc[leveloffset=+1]
 
-include::chap-Log_Files.adoc[]
+include::chap-Log_Files.adoc[leveloffset=+1]

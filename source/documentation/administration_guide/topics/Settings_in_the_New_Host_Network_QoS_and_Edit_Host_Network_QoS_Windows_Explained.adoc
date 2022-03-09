@@ -1,4 +1,3 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Settings_in_the_New_Host_Network_QoS_and_Edit_Host_Network_QoS_Windows_Explained"]
 ==== Settings in the New Host Network Quality of Service and Edit Host Network Quality of Service Windows Explained
@@ -24,7 +23,7 @@ Host network quality of service settings allow you to configure bandwidth limits
 |===
 
 To change the maximum value allowed by the *Rate Limit [Mbps]* or *Committed Rate [Mbps]* fields, use the `engine-config` command to change the value of the `MaxAverageNetworkQoSValue` configuration key. You must restart the *ovirt-engine* service for the change to take effect. For example:
-	
+
 ----
 # engine-config -s MaxAverageNetworkQoSValue=2048
 # systemctl restart ovirt-engine

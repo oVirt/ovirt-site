@@ -1,4 +1,4 @@
-:_module-type: PROCEDURE
+
 
 :_content-type: PROCEDURE
 [id="start-an-incremental-backup_{context}"]

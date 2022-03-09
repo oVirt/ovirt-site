@@ -1,4 +1,4 @@
-:_module-type: PROCEDURE
+
 
 :_content-type: PROCEDURE
 [id="getting-information-about-the-disks-in-a-backup_{context}"]

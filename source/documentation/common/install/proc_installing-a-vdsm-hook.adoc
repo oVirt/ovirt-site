@@ -1,4 +1,4 @@
-:_module-type: PROCEDURE
+
 
 :_content-type: PROCEDURE
 [id="proc_installing-a-vdsm-hook"]

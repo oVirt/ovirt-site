@@ -1,4 +1,4 @@
-:_module-type: PROCEDURE
+
 
 :_content-type: PROCEDURE
 [id="image-transfer-object-for-incremental-restore_{context}"]

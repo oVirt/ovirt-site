@@ -1,6 +1,6 @@
-:_module-type: REFERENCE
 
-:_content-type: REFERENCE
+
+:_content-type: CONCEPT
 [id="ref_troubleshooting-incremental-backups_{context}"]
 = Troubleshooting Incremental Backups
 

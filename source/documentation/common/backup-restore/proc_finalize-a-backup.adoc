@@ -1,4 +1,4 @@
-:_module-type: PROCEDURE
+
 
 :_content-type: PROCEDURE
 [id="finalize-a-backup_{context}"]

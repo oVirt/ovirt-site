@@ -1,4 +1,4 @@
-:_module-type: PROCEDURE
+
 
 :_content-type: PROCEDURE
 [id="enabling-incremental-backup-on-an-existing-virtual-disk_{context}"]

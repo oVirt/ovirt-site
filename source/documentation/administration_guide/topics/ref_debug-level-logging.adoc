@@ -2,6 +2,7 @@
 //
 // chap-Log_Files.adoc
 
+:_content-type: PROCEDURE
 [id="ref_debug_level_logging"]
 === Main configuration files for {virt-product-fullname} services
 

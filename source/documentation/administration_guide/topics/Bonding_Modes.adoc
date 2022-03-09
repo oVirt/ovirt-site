@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Bonding_Modes"]
 ==== Bonding Modes
 

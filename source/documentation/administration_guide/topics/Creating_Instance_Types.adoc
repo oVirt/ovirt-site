@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_Instance_Types"]
 ==== Creating Instance Types
 

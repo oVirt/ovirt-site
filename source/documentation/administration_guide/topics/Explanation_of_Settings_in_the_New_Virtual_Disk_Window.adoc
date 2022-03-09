@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Explanation_of_Settings_in_the_New_Virtual_Disk_Window"]
 ==== Explanation of settings in the New Virtual Disk window
 

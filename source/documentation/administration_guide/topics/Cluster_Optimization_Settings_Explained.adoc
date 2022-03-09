@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Cluster_Optimization_Settings_Explained"]
 ==== Optimization Settings Explained
 *Memory Considerations*

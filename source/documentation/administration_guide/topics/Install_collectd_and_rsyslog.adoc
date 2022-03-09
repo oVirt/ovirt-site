@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Install_collectd_and_rsyslog"]
 
 

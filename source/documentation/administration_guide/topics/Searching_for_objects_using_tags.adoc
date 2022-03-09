@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Searching_for_objects_using_tags"]
 === Searching for Objects Using Tags
 

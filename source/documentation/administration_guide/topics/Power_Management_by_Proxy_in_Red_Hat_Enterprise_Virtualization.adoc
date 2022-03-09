@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Power_Management_by_Proxy_in_Red_Hat_Enterprise_Virtualization"]
 ==== Power Management by Proxy in {virt-product-fullname}
 

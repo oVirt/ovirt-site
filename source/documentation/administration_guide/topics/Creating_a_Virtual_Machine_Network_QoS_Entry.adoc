@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_Virtual_Machine_Network_QoS_Entry"]
 ==== Creating a Virtual Machine Network Quality of Service Entry
 

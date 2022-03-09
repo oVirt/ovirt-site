@@ -1,4 +1,5 @@
 :_content-type: PROCEDURE
+:_content-type: PROCEDURE
 [id='Configuring_RHSSO_OVN']
 
 If you configured the *ovirt-ovn-provider* in the {engine-name}, you need to configure the OVN provider credentials.

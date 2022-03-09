@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Synchronizing_host_networks"]
 ==== Synchronizing Host Networks
 

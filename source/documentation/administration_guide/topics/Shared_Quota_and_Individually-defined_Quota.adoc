@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Shared_Quota_and_Individually-defined_Quota"]
 === Shared Quota and Individually Defined Quota
 

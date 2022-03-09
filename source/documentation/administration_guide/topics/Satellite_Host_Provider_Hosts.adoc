@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Satellite_Host_Provider_Hosts"]
 === Satellite Host Provider Hosts
 

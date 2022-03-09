@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Preparing_GPU_Passthrough"]
 ==== Preparing Host and Guest Systems for GPU Passthrough
 

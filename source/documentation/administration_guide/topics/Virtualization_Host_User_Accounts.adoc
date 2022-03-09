@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Virtualization_Host_User_Accounts"]
 ==== Virtualization Host User Accounts
 

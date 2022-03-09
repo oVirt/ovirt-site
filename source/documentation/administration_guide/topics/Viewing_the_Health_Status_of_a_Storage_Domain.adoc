@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Viewing_Storage_Health_Status"]
 ==== Viewing the Health Status of a Storage Domain
 

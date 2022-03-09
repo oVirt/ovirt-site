@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files"]
 ==== SPICE Logs for SPICE Clients Launched Using console.vv Files
 

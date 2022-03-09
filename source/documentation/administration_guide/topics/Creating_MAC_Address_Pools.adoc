@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_MAC_Address_Pools"]
 ==== Creating MAC Address Pools
 

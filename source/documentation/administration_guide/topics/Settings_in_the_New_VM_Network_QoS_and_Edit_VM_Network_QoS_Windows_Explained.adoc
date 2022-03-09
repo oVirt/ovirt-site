@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Settings_in_the_New_VM_Network_QoS_and_Edit_VM_Network_QoS_Windows_Explained"]
 ==== Settings in the New Virtual Machine Network QoS and Edit Virtual Machine Network QoS Windows Explained
 

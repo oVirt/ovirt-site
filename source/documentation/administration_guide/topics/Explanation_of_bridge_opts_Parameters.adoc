@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Explanation_of_bridge_opts_Parameters"]
 === Explanation of bridge_opts Parameters
 

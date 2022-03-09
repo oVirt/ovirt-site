@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Syntax_for_the_ovirt-log-collector_Command"]
 ==== Syntax for the ovirt-log-collector Command
 

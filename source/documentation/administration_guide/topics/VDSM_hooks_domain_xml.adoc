@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="VDSM_hooks_domain_xml"]
 === The VDSM Hook Domain XML Object
 

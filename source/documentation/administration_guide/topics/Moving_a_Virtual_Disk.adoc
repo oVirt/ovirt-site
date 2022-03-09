@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Moving_a_Virtual_Disk"]
 ==== Moving a Virtual Disk
 

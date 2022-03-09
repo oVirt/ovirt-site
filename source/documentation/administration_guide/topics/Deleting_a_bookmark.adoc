@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Deleting_a_bookmark"]
 === Deleting a Bookmark
 

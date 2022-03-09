@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugins"]
 === {virt-product-fullname} User Interface Plug-ins
 

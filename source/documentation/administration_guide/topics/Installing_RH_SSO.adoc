@@ -1,4 +1,5 @@
 :_content-type: PROCEDURE
+:_content-type: PROCEDURE
 [id='Installing_RH_SSO']
 
 You can install Red Hat Single Sign-On by downloading a ZIP file and unpacking it, or by using an RPM file.

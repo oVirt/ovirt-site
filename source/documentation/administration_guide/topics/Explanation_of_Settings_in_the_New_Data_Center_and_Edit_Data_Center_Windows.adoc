@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Data_center_properties"]
 ==== Explanation of Settings in the New Data Center and Edit Data Center Windows
 

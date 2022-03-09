@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Turning_On_a_SPICE_Proxy"]
 ==== Turning On a SPICE Proxy
 

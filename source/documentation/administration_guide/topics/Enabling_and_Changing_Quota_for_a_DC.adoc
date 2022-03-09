@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Enabling_and_Changing_Quota_for_a_DC"]
 === Enabling and Changing a Quota Mode in a Data Center
 

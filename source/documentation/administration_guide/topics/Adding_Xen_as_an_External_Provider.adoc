@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_Xen_as_an_External_Provider"]
 ==== Adding a RHEL 5 Xen Host as a Virtual Machine Provider
 

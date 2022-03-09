@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping"]
 ==== {virt-product-fullname} User Interface Plug-in Bootstrapping
 

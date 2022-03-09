@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Manager_Installation_Log_Files"]
 === {engine-name} Installation Log Files
 

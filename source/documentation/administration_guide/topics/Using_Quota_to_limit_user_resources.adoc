@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Using_Quota_to_limit_user_resources"]
 === Using Quota to Limit Resources by User
 

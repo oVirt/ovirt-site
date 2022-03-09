@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Re-initializing_a_Data_Center"]
 ==== Re-Initializing a Data Center: Recovery Procedure
 

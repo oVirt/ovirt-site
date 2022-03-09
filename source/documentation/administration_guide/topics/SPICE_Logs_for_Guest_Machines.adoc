@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="SPICE_Logs_for_Guest_Machines"]
 ==== SPICE Logs for Guest Machines
 

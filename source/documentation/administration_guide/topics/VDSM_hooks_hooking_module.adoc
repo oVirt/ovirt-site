@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="VDSM_hooks_hooking_module"]
 === Using the VDSM Hooking Module
 

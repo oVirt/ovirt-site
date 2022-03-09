@@ -1,13 +1,12 @@
+:_content-type: PROCEDURE
 [id="Configure_grafana"]
-
-
-.Installation
+= Installation
 
 Grafana integration is enabled and installed by default when you run {virt-product-fullname} {engine-name} `engine-setup` in a Stand Alone Manager installation, and in the Self-Hosted engine installation.
 
 [NOTE]
 ====
-Grafana is not installed by default and you may need to install it manually under some scenarios such as performing an upgrade from an earlier version of {virt-product-shortname}, restoring a backup, or when the Data Warehouse is migrated to a separate machine. 
+Grafana is not installed by default and you may need to install it manually under some scenarios such as performing an upgrade from an earlier version of {virt-product-shortname}, restoring a backup, or when the Data Warehouse is migrated to a separate machine.
 ====
 
 To enable Grafana integration manually:

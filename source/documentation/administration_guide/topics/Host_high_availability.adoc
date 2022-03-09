@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Host_high_availability"]
 ==== Host High Availability
 

@@ -2,6 +2,7 @@
 //
 // doc-Administration_Guide/chap-Logical_Networks.adoc
 
+:_content-type: CONCEPT
 [id="con-Network-Manager-Stateful-Configuration-nmstate"]
 = Network Manager Stateful Configuration (nmstate)
 :context: nmstate

@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Virtual_Machine_Pool_Host_settings_explained"]
 ==== Virtual Machine Pool Host Settings Explained
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Example_RHEV_UI_Plugin_Deployment"]
 === Example User Interface Plug-in Deployment
 

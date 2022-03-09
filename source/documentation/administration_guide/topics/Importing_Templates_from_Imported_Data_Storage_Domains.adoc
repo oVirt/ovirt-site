@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Importing_Templates_from_Imported_Data_Storage_Domains"]
 ==== Importing Templates from Imported Data Storage Domains
 

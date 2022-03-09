@@ -2,6 +2,7 @@
 //
 // doc-Administration_Guide/chap-Logical_Networks.adoc
 
+:_content-type: PROCEDURE
 [id="proc-Copying-host-networks"]
 = Copying host networks
 

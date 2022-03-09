@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Settings_to_Wipe_Virtual_Disks_After_Deletion"]
 === Settings to Wipe Virtual Disks After Deletion
 

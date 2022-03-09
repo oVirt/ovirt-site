@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Overview_of_Importing_Existing_Storage_Domains"]
 ==== Overview of Importing Existing Storage Domains
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_multiple_VLANs_to_a_single_network_interface_using_logical_networks"]
 ==== Adding Multiple VLANs to a Single Network Interface Using Logical Networks
 

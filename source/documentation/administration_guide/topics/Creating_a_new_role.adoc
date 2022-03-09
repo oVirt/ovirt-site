@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_new_role"]
 ==== Creating a New Role
 

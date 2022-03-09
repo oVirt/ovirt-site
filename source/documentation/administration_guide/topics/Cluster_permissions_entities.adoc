@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Cluster_permissions_entities"]
 ==== Cluster Administrator Roles Explained
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_New_Data_Center"]
 ==== Creating a New Data Center
 

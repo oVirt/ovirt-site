@@ -1,5 +1,6 @@
 // Module included in the following assemblies:
 //
+:_content-type: REFERENCE
 [id='con_Backup_domains_explained']
 = Backup storage domains explained
 

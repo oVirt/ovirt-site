@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Creating_a_VNIC_Profile"]
 ==== Creating or Editing a vNIC Profile
 

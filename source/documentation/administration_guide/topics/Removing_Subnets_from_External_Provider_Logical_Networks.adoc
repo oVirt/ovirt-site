@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Removing_Subnets_from_External_Provider_Logical_Networks"]
 ==== Removing Subnets from External Provider Logical Networks
 

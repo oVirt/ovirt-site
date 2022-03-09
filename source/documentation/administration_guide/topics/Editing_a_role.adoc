@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_a_role"]
 ==== Editing or Copying a Role
 

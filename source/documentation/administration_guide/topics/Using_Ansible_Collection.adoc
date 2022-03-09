@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Using_Ansible_Collection"]
 
 === Using oVirt Ansible Collection to Configure {virt-product-fullname}

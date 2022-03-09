@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Assigning_Additional_IPv4_Addresses_to_a_Host_Network"]
 ==== Assigning Additional IPv4 Addresses to a Host Network
 

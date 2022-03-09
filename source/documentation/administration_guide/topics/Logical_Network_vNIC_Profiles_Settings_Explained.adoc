@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Logical_Network_vNIC_Profiles_Settings_Explained"]
 ==== Logical Network vNIC Profiles Settings Explained
 

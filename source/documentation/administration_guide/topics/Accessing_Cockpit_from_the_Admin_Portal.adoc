@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Accessing_Cockpit_from_the_Admin_Portal"]
 ==== Accessing Cockpit from the Administration Portal
 

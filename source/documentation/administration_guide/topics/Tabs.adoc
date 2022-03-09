@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Tabs"]
 ==== Tabs
 

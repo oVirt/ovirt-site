@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="Supported_VDSM_events"]
 === Supported VDSM Events
 

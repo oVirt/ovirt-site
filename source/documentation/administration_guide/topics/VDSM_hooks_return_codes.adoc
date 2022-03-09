@@ -1,3 +1,4 @@
+:_content-type: REFERENCE
 [id="VDSM_hooks_return_codes"]
 === VDSM Hook Return Codes
 

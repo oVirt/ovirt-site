@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Performing_searches"]
 === Performing Searches in {virt-product-fullname}
 

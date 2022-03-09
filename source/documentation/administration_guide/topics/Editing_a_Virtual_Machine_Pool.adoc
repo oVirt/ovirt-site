@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Editing_a_Virtual_Machine_Pool"]
 === Editing a Virtual Machine Pool
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Searching_for_Volumes"]
 === Searching for Volumes
 

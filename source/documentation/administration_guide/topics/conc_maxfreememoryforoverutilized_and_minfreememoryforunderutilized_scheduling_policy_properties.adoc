@@ -2,6 +2,7 @@
 //
 // doc-Administration_Guide/chap-Global_Configuration.adoc
 
+:_content-type: PROCEDURE
 [id="conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties"]
 = MaxFreeMemoryForOverUtilized and MinFreeMemoryForUnderUtilized cluster scheduling policy properties
 

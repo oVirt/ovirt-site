@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Searching_for_USB_device_policies"]
 = Searching for USB Device Policies
 

@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Search_result_type_options"]
 === Search Result Type Options
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Viewing_Host_Devices"]
 ==== Viewing Host Devices
 

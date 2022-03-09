@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Adding_an_existing_OVN_network_provider"]
 ===== Adding an Existing OVN Network Provider
 

@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Data_center_logical_network_entities"]
 ==== Managing System Permissions for a Virtual Machine Pool
 

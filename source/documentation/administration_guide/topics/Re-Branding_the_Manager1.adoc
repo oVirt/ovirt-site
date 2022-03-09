@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Re-Branding_the_Manager1"]
 ==== Re-Branding the {engine-name}
 

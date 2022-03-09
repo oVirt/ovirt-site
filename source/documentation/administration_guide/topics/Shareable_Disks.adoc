@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="Shareable_Disks"]
 === Shareable Disks in {virt-product-fullname}
 

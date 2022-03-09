@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Settings_in_the_New_Host_Network_QoS_and_Edit_Host_Network_QoS_Windows_Explained"]
 ==== Settings in the New Host Network Quality of Service and Edit Host Network Quality of Service Windows Explained
 

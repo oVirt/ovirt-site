@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="Add_Provider_General_Settings_Explained"]
 ==== Add Provider General Settings Explained
 

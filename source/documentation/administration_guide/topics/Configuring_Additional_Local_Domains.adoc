@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_Additional_Local_Domains"]
 === Configuring Additional Local Domains
 

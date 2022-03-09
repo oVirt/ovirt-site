@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="How_to_Set_Up_RHVM_to_Use_FCoE"]
 === How to Set Up {virt-product-fullname} {engine-name} to Use FCoE
 

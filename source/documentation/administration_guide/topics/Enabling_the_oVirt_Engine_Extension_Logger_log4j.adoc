@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Enabling_the_oVirt_Engine_Extension_Logger_log4j"]
 === Enabling the oVirt Engine Extension Logger log4j
 

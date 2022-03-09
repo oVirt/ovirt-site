@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Migrating_SD_between_DC_different_env"]
 ==== Migrating Storage Domains between Data Centers in Different Environments
 

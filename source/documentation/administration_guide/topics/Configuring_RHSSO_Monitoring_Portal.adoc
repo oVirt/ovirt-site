@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Configuring_RHSSO_Monitoring_Portal"]
 
 

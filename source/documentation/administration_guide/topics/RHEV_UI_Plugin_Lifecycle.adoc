@@ -1,3 +1,4 @@
+:_content-type: CONCEPT
 [id="RHEV_UI_Plugin_Lifecycle"]
 ==== {virt-product-fullname} User Interface Plug-in Life cycle
 

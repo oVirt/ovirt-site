@@ -1,3 +1,5 @@
+:_content-type: PROCEDURE
+:_content-type: REFERENCE
 [id="New_Pool_Resource_Settings_Explained"]
 ==== New Pool and Edit Pool Resource Allocation Settings Explained
 

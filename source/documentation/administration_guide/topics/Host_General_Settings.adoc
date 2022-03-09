@@ -1,3 +1,4 @@
+:_content-type: PROCEDURE
 [id="Host_General_Settings"]
 ==== Host General Settings Explained
 

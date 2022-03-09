@@ -1,4 +1,4 @@
-:_module-type: REFERENCE
+
 
 :_content-type: REFERENCE
 [id="ref_using-the-imageio-api-to-transfer-backup-data_{context}"]

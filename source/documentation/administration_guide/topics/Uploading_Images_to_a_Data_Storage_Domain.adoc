@@ -13,7 +13,7 @@ QEMU-compatible virtual disks can be attached to virtual machines. Virtual disk 
 
 ISO images can be attached to virtual machines as CDROMs or used to boot virtual machines.
 
-*Prerequisites*
+.Prerequisites
 
 The upload function uses HTML 5 APIs, which requires your environment to have the following:
 

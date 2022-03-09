@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Add_Provider_General_Settings_Explained"]
-==== Add Provider General Settings Explained
+= Add Provider General Settings Explained
 
 The *General* tab in the *Add Provider* window allows you to register the core details of the external provider.
 

@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Using_Quota_to_limit_user_resources"]
-=== Using Quota to Limit Resources by User
+= Using Quota to Limit Resources by User
 
 This procedure describes how to use quotas to limit the resources a user has access to.
 
 
-*Assigning a User to a Quota*
+.Procedure
 
 . Click menu:Administration[Quota].
 . Click the name of the target quota. This opens the details view.

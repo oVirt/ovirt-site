@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Adding_Subnets_to_External_Provider_Logical_Networks"]
-==== Adding Subnets to External Provider Logical Networks
+= Adding Subnets to External Provider Logical Networks
 
 Create a subnet on a logical network provided by an external provider.
 
 
-*Adding Subnets to External Provider Logical Networks*
+.Procedure
 
 . Click menu:Network[Networks].
 . Click the logical network's name. This opens the details view.

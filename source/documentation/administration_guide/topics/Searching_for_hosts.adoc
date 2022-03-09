@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_hosts"]
-=== Searching for Hosts
+= Searching for Hosts
 
 The following table describes all search options for hosts.
 [id="searching_hosts"]

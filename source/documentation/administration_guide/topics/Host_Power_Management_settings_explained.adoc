@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Host_Power_Management_settings_explained"]
-==== Host Power Management Settings Explained
+= Host Power Management Settings Explained
 
 The *Power Management* settings table contains the information required on the *Power Management* tab of the *New Host* or *Edit Host* windows. You can configure power management if the host has a supported power management card.
 
@@ -11,7 +10,7 @@ The *Power Management* settings table contains the information required on the *
 |===
 |Field Name |Description
 |*Enable Power Management* |Enables power management on the host. Select this check box to enable the rest of the fields in the *Power Management* tab.
-|*Kdump integration* |Prevents the host from fencing while performing a kernel crash dump, so that the crash dump is not interrupted. In {enterprise-linux} 7.1 and later, kdump is available by default. If kdump is available on the host, but its configuration is not valid (the kdump service cannot be started), enabling *Kdump integration* will cause the host (re)installation to fail. If this is the case, see xref:sect-fence_kdump_Advanced_Configuration[].
+|*Kdump integration* |Prevents the host from fencing while performing a kernel crash dump, so that the crash dump is not interrupted. In {enterprise-linux} 7.1 and later, kdump is available by default. If kdump is available on the host, but its configuration is not valid (the kdump service cannot be started), enabling *Kdump integration* will cause the host (re)installation to fail. If this is the case, see xref:fence_kdump_Advanced_Configuration[].
 |*Disable policy control of power management* |Power management is controlled by the *Scheduling Policy* of the host's *cluster*. If power management is enabled and the defined low utilization value is reached, the {engine-name} will power down the host machine, and restart it again when load balancing requires or there are not enough free hosts in the cluster. Select this check box to disable policy control.
 |*Agents by Sequential Order* a|Lists the host's fence agents. Fence agents can be sequential, concurrent, or a mix of both.
 

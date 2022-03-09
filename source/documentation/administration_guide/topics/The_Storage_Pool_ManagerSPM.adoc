@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="The_Storage_Pool_ManagerSPM"]
-=== The Storage Pool Manager
+= The Storage Pool Manager
 
 The Storage Pool Manager (SPM) is a role given to one of the hosts in the data center enabling it to manage the storage domains of the data center. The SPM entity can be run on any host in the data center; the {virt-product-fullname} {engine-name} grants the role to one of the hosts. The SPM does not preclude the host from its standard operation; a host running as SPM can still host virtual resources.
 

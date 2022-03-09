@@ -20,12 +20,12 @@ The {virt-product-fullname} environment requires an administrator to keep it run
 * Generating general and specific reports.
 
 
-include::chap-Global_Configuration.adoc[]
+include::chap-Global_Configuration.adoc[leveloffset=+1]
 
-include::chap-Dashboard.adoc[]
+include::chap-Dashboard.adoc[leveloffset=+1]
 
-include::chap-Searches.adoc[]
+include::chap-Searches.adoc[leveloffset=+1]
 
-include::chap-Bookmarks.adoc[]
+include::chap-Bookmarks.adoc[leveloffset=+1]
 
-include::chap-Tags.adoc[]
+include::chap-Tags.adoc[leveloffset=+1]

@@ -1,7 +1,6 @@
 :_content-type: PROCEDURE
-:_content-type: CONCEPT
 [id="VDSM_hooks_defining_custom_properties"]
-=== Defining Custom Properties
+= Defining Custom Properties
 
 The custom properties that are accepted by the {virt-product-fullname} {engine-name} - and in turn passed to custom hooks - are defined using the `engine-config` command. Run this command as the *root* user on the host where {virt-product-fullname} {engine-name} is installed.
 

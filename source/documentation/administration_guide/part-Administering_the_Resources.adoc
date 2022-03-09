@@ -1,20 +1,20 @@
 :_content-type: ASSEMBLY
 [id="part-Administering_the_Resources"]
 = Administering the Resources
-include::chap-Quality_of_Service.adoc[]
+include::chap-Quality_of_Service.adoc[leveloffset=+1]
 
 include::chap-Data_Centers.adoc[leveloffset=+1]
 
 include::chap-Clusters.adoc[leveloffset=+1]
 
-include::chap-Logical_Networks.adoc[]
+include::chap-Logical_Networks.adoc[leveloffset=+1]
 
-include::chap-Hosts.adoc[]
+include::chap-Hosts.adoc[leveloffset=+1]
 
-include::chap-Storage.adoc[]
+include::chap-Storage.adoc[leveloffset=+1]
 
-include::chap-Pools.adoc[]
+include::chap-Pools.adoc[leveloffset=+1]
 
-include::chap-Virtual_Disks.adoc[]
+include::chap-Virtual_Disks.adoc[leveloffset=+1]
 
-include::chap-External_Providers.adoc[]
+include::chap-External_Providers.adoc[leveloffset=+1]

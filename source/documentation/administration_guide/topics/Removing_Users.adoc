@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Removing_Users"]
-==== Removing Users
+= Removing Users
 
 When a user account is no longer required, remove it from {virt-product-fullname}.
 
-*Removing Users*
+.Procedure
 
 . Click menu:Administration[Users] to display the list of authorized users.
 . Select the user to be removed. Ensure the user is not running any virtual machines.

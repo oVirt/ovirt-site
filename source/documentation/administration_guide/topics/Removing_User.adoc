@@ -1,7 +1,6 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id="removing-a-user_{context}"]
-==== Removing a User
+= Removing a User
 
 You can remove a user account:
 

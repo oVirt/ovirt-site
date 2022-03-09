@@ -1,5 +1,4 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id="enabling_fips_rhel_hosts_and_rhvm_{context}"]
 = Enabling FIPS in RHEL hosts and the standalone Manager
 

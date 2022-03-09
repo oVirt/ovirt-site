@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_pools"]
-=== Searching for Pools
+= Searching for Pools
 
 The following table describes all search options for Pools.
 

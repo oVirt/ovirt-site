@@ -2,7 +2,7 @@
 :_content-type: PROCEDURE
 [id="Replacing_the_Manager_SSL_Certificate"]
 [id="Replacing_the_Manager_CA_Certificate"]
-=== Replacing the {virt-product-fullname} {engine-name} CA Certificate
+= Replacing the {virt-product-fullname} {engine-name} CA Certificate
 
 [WARNING]
 ====

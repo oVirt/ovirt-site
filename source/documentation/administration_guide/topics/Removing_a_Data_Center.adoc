@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Removing_a_Data_Center"]
-==== Removing a Data Center
+= Removing a Data Center
 
 An active host is required to remove a data center. Removing a data center will not remove the associated resources.
 
 
-*Removing a Data Center*
+.Procedure
 
 . Ensure the storage domains attached to the data center are in maintenance mode.
 . Click menu:Compute[Data Centers] and select the data center to remove.

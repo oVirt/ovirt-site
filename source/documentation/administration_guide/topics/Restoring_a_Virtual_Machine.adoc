@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Restoring_a_Virtual_Machine"]
-==== Restoring a Virtual Machine
+= Restoring a Virtual Machine
 
 Restore a virtual machine that has been backed up using the backup and restore API. This procedure assumes you have a backup virtual machine on which the software used to manage the previous backup is installed.
 
-*Restoring a Virtual Machine*
+.Procedure
 
 . In the Administration Portal, create a floating disk on which to restore the backup. See xref:Creating_a_Virtual_Disk[] for details on how to create a floating disk.
 . Attach the disk to the backup virtual machine:

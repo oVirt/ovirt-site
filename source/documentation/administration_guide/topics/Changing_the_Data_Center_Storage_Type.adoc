@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Changing_the_Data_Center_Storage_Type"]
-==== Changing the Data Center Storage Type
+= Changing the Data Center Storage Type
 
 You can change the storage type of the data center after it has been initialized. This is useful for data domains that are used to move virtual machines or templates around.
 
@@ -10,7 +10,7 @@ You can change the storage type of the data center after it has been initialized
 
 * Local to Shared - For a data center that does not contain a local storage domain.
 
-*Changing the Data Center Storage Type*
+.Procedure
 
 . Click menu:Compute[Data Centers] and select the data center to change.
 . Click *Edit*.

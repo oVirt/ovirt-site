@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Logging_schema"]
-
+= Logging schema and analyzing logs
 
 Use the *Discover* page to interactively explore data collected from {virt-product-shortname}. Each set of results that is collected is referred to as a *document*. Documents are collected from the following log files:
 

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Cluster_Scheduling_Policy_Settings"]
-==== Scheduling Policy Settings Explained
+= Scheduling Policy Settings Explained
 
 Scheduling policies allow you to specify the usage and distribution of virtual machines between available hosts. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
 

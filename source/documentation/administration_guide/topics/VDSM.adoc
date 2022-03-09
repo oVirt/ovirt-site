@@ -1,5 +1,5 @@
 :_content-type: CONCEPT
 [id="VDSM"]
-=== VDSM
+= VDSM
 
 The VDSM service is used by the {virt-product-fullname} {engine-name} to manage {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-host-fullname}s. VDSM manages and monitors the host's storage, memory and network resources. It also co-ordinates virtual machine creation, statistics gathering, log collection and other host administration tasks. VDSM is run as a daemon on each host managed by {virt-product-fullname} {engine-name}. It answers XML-RPC calls from clients. The {virt-product-fullname} {engine-name} functions as a VDSM client.

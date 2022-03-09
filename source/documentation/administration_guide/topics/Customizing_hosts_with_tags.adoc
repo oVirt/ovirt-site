@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Customizing_hosts_with_tags"]
-=== Customizing Hosts with Tags
+= Customizing Hosts with Tags
 
 You can use tags to store information about your hosts. You can then search for hosts based on tags. For more information on searches, see xref:chap-Searches[].
 
-*Customizing hosts with tags*
+.Procedure
 
 . Click menu:Compute[Hosts] and select a host.
 . Click *More Actions* (image:common/images/moreactions.png[]), then click *Assign Tags*.

@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Kernel_Settings_Explained"]
-==== Kernel Settings Explained
+= Kernel Settings Explained
 
 The *Kernel* settings table details the information required on the *Kernel* tab of the *New Host* or *Edit Host* window. Common kernel boot parameter options are listed as check boxes so you can easily select them.
 

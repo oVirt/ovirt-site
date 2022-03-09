@@ -1,12 +1,12 @@
 :_content-type: PROCEDURE
 [id="Attaching_a_storage_domain"]
-==== Attaching a Storage Domain to a Data Center
+= Attaching a Storage Domain to a Data Center
 
 Attach a storage domain to a data center.
 
-*Attaching a Storage Domain to a Data Center*
+.Procedure
 
-. Click menu:Storage[Domains]. 
+. Click menu:Storage[Domains].
 . Click the storage domain's name. This opens the details view.
 . Click the *Data Center* tab.
 . Click *Attach*.

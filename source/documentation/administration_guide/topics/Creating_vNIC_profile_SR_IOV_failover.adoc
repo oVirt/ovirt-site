@@ -1,7 +1,7 @@
 :_content-type: PROCEDURE
 [id="Creating_vNIC_profile_SR_IOV_failover"]
 
-==== Enabling a vNIC profile for SR-IOV migration with failover
+= Enabling a vNIC profile for SR-IOV migration with failover
 
 Failover allows the selection of a profile that acts as a failover device during virtual machine migration when the VF needs to be detached, preserving virtual machine communication with minimal interruption.
 

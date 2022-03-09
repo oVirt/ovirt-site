@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Cluster_Optimization_Settings_Explained"]
-==== Optimization Settings Explained
+= Optimization Settings Explained
 *Memory Considerations*
 
 Memory page sharing allows virtual machines to use up to 200% of their allocated memory by utilizing unused memory in other virtual machines. This process is based on the assumption that the virtual machines in your {virt-product-fullname} environment will not all be running at full capacity at the same time, allowing unused memory to be temporarily allocated to a particular virtual machine.

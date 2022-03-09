@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Host_Console_Settings_Explained"]
-==== Host Console Settings Explained
+= Host Console Settings Explained
 
 The *Console* settings table details the information required on the *Console* tab of the *New Host* or *Edit Host* window.
 

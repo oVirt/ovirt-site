@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Host_Log_Files"]
-=== Host Log Files
+= Host Log Files
 
 [options="header"]
 |===

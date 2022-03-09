@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Importing_storage_domains"]
-==== Importing storage domains
+= Importing storage domains
 
 Import a storage domain that was previously attached to a data center in the same environment or in a different environment. This procedure assumes the storage domain is no longer attached to any data center in any environment, to avoid data corruption. To import and attach an existing data storage domain to a data center, the target data center must be initialized.
 

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Attaching_an_export_domain"]
-==== Attaching an Existing Export Domain to a Data Center
+= Attaching an Existing Export Domain to a Data Center
 
 [NOTE]
 ====
@@ -9,7 +9,7 @@ The export storage domain is deprecated. Storage data domains can be unattached 
 
 An export domain that is *Unattached* can be attached to a data center. Only one export domain can be attached to a data center.
 
-*Attaching an Existing Export Domain to a Data Center*
+.Procedure
 
 . Click menu:Compute[Data Centers].
 . Click a data center's name. This opens the details view.

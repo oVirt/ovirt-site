@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Clusters"]
-=== Introduction to Clusters
+= Introduction to Clusters
 
 A cluster is a logical grouping of hosts that share the same storage domains and have the same type of CPU (either Intel or AMD). If the hosts have different generations of CPU models, they use only the features present in all models.
 
@@ -15,4 +15,3 @@ Clusters run virtual machines or {gluster-storage-fullname} Servers. These two p
 [id="cluster_tab"]
 .Cluster
 image::images/223.png[]
-

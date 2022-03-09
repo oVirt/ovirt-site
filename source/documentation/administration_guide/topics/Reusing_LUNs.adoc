@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Reusing_LUNs"]
-==== Reusing LUNs
+= Reusing LUNs
 
 LUNs cannot be reused, as is, to create a storage domain or virtual disk. If you try to reuse the LUNs, the Administration Portal displays the following error message:
 

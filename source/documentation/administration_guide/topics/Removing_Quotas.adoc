@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Removing_Quotas"]
-=== Removing Quotas
+= Removing Quotas
 
 This procedure describes how to remove quotas.
 
 
-*Removing Quotas*
+.Procedure
 
 . Click menu:Administration[Quota] and select a quota.
 . Click *Remove*.

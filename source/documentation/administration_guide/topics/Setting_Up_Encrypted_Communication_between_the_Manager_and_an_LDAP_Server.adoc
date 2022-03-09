@@ -2,7 +2,7 @@
 [id="Setting_Up_Encrypted_Communication_between_the_Manager_and_an_LDAP_Server"]
 // old ID to prevent broken links:
 [id="Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server"]
-=== Setting Up Encrypted Communication between the {engine-name} and an LDAP Server
+= Setting Up Encrypted Communication between the {engine-name} and an LDAP Server
 
 To set up encrypted communication between the {virt-product-fullname} {engine-name} and an LDAP server, obtain the root CA certificate of the LDAP server, copy the root CA certificate to the {engine-name}, and create a PEM-encoded CA certificate. The keystore type can be any Java-supported type. The following procedure uses the Java KeyStore (JKS) format.
 
@@ -12,7 +12,7 @@ For more information on creating a PEM-encoded CA certificate and importing cert
 ====
 
 
-*Creating a PEM-encoded CA certificate*
+.Procedure
 
 . On the {virt-product-fullname} {engine-name}, copy the root CA certificate of the LDAP server to the */tmp* directory and import the root CA certificate using `keytool` to create a PEM-encoded CA certificate. The following command imports the root CA certificate at _/tmp/myrootca.pem_ and creates a PEM-encoded CA certificate _myrootca.jks_ under _/etc/ovirt-engine/aaa/_. Note down the certificate's location and password. If you are using the interactive setup tool, this is all the information you need. If you are configuring the LDAP server manually, follow the rest of the procedure to update the configuration files.
 +

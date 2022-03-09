@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_clusters"]
-=== Searching for Clusters
+= Searching for Clusters
 
 The following table describes all search options for clusters.
 [id="searching_clusters"]

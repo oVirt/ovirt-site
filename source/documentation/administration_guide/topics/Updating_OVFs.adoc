@@ -1,11 +1,10 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
-[id="updating_ovfs_{context}"] 
-==== Updating OVFs
+[id="updating_ovfs_{context}"]
+= Updating OVFs
 
 By default, OVFs are updated every 60 minutes. However, if you have imported an important virtual machine or made a critical update, you can update OVFs manually.
 
-*Updating OVFs*
+.Procedure
 
 . Click menu:Storage[Domains].
 . Select the storage domain and click *More Actions* (image:common/images/moreactions.png[]), then click *Update OVFs*.

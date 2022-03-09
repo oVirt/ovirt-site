@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_virtual_machines"]
-=== Searching for Virtual Machines
+= Searching for Virtual Machines
 
 The following table describes all search options for virtual machines.
 

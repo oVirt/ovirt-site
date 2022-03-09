@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Adding_an_External_Network_Provider"]
-==== Adding an External Network Provider
+= Adding an External Network Provider
 
 Any network provider that implements the OpenStack Networking REST API can be added to {virt-product-fullname}. The virtual interface driver needs to be provided by the implementer of the external network provider.
 

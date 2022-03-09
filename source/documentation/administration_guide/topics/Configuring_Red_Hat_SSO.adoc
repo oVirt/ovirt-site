@@ -1,8 +1,6 @@
-:_content-type: PROCEDURE
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id='Configuring_Red_Hat_SSO']
-
-=== Installing and Configuring Red Hat Single Sign-On
+= Installing and Configuring Red Hat Single Sign-On
 To use Red Had Single Sign-On as your authorization method, you need to:
 
 * Install Red Hat SSO.
@@ -17,8 +15,6 @@ To use Red Had Single Sign-On as your authorization method, you need to:
 If Red Hat SSO is configured, previous LDAP sign ons will not work, as only a single authorization protocol may be used at a time.
 ====
 
-==== Installing Red Hat Single Sign-On
-
 include::Installing_RH_SSO.adoc[]
 
 Prepare the following information:
@@ -27,19 +23,7 @@ Prepare the following information:
 * The subscription channel for the correct repositories.
 * Valid Red Hat subscription login credentials.
 
-
-==== Configuring the LDAP group mapper
-
 include::Configuring_RHSSO_ldap.adoc[]
-
-==== Configuring Apache in the {engine-name}
-
 include::Configuring_RHSSO_apache.adoc[]
-
-==== Configuring OVN
-
 include::Configuring_RHSSO_OVN.adoc[]
-
-==== Configuring the Monitoring Portal (Grafana)
-
 include::Configuring_RHSSO_Monitoring_Portal.adoc[]

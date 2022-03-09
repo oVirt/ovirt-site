@@ -1,7 +1,6 @@
 :_content-type: ASSEMBLY
 [id="monitoring_and_observability"]
-
-== Monitoring and observability
+= Monitoring and observability
 
 This chapter provides a number of ways to monitor and obtain metrics and logs from your {virt-product-fullname} system. These methods include:
 
@@ -11,33 +10,28 @@ This chapter provides a number of ways to monitor and obtain metrics and logs fr
 
 //test
 
-=== Using Data Warehouse and Grafana to monitor {virt-product-shortname}
+== Using Data Warehouse and Grafana to monitor {virt-product-shortname}
 
-==== Grafana
+include::topics/Grafana_overview.adoc[leveloffset=+2]
 
-include::topics/Grafana_overview.adoc[]
+include::topics/Configure_grafana.adoc[leveloffset=+2]
 
-==== Configuring Grafana
+include::topics/Grafana_dashboards.adoc[leveloffset=+2]
 
-include::topics/Configure_grafana.adoc[]
+include::topics/Sending_metrics_to_ELK.adoc[leveloffset=+1]
 
-==== Grafana dashboards
+include::topics/Install_collectd_and_rsyslog.adoc[leveloffset=+2]
 
-include::topics/Grafana_dashboards.adoc[leveloffset=+1]
-
-=== Sending metrics and logs to a remote instance of Elasticsearch
-
-include::topics/Sending_metrics_to_ELK.adoc[]
+include::topics/Logging_schema.adoc[leveloffset=+2]
 
 //to be included in upstream only
 
 //ifdef::ovirt-doc[]
-//=== Metrics schema
+//== Metrics schema
 // include::topics/Metrics_Schema.adoc[]
 //endif::[]
 
 ifdef::rhv-doc[]
-=== Deploying Insights in Red Hat Virtualization Manager
 
-include::topics/Deploying_insights_RHVM.adoc[]
+include::topics/Deploying_insights_RHVM.adoc[leveloffset=+1]
 endif::[]

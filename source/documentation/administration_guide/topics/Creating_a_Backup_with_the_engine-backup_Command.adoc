@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_Backup_with_the_engine-backup_Command"]
-==== Creating a backup with the engine-backup command
+= Creating a backup with the engine-backup command
 
 You can back up the {virt-product-fullname} {engine-name} with the [command]`engine-backup` command while the {engine-name} is active. Append one of the following values to the `--scope` option to specify what you want to back up:
 

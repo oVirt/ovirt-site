@@ -1,13 +1,13 @@
 :_content-type: PROCEDURE
 [id="Attaching_an_iso_domain"]
-==== Attaching an Existing ISO domain to a Data Center
+= Attaching an Existing ISO domain to a Data Center
 
 An ISO domain that is *Unattached* can be attached to a data center. The ISO domain must be of the same *Storage Type* as the data center.
 
 Only one ISO domain can be attached to a data center.
 
 
-*Attaching an Existing ISO Domain to a Data Center*
+.Procedure
 
 . Click menu:Compute[Data Centers].
 . Click a data center's name. This opens the details view.

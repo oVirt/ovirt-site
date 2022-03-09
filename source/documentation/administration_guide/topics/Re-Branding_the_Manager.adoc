@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Re-Branding_the_Manager"]
-==== Login Screen
+= Login Screen
 
 The login screen is the login screen used by both the Administration Portal and VM Portal. The elements of the login screen that can be customized are as follows:
 

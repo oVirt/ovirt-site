@@ -1,17 +1,17 @@
 :_content-type: ASSEMBLY
 [id="chap-Tags"]
-== Tags
+= Tags
 
-include::topics/Using_tags_to_customize_interactions.adoc[]
+include::topics/Using_tags_to_customize_interactions.adoc[leveloffset=+1]
 
-include::topics/Creating_a_tag.adoc[]
+include::topics/Creating_a_tag.adoc[leveloffset=+1]
 
-include::topics/Modifying_a_tag.adoc[]
+include::topics/Modifying_a_tag.adoc[leveloffset=+1]
 
-include::topics/Deleting_a_tag.adoc[]
+include::topics/Deleting_a_tag.adoc[leveloffset=+1]
 
-include::topics/Adding_and_removing_tags.adoc[]
+include::topics/Adding_and_removing_tags.adoc[leveloffset=+1]
 
-include::topics/Searching_for_objects_using_tags.adoc[]
+include::topics/Searching_for_objects_using_tags.adoc[leveloffset=+1]
 
-include::topics/Customizing_hosts_with_tags.adoc[]
+include::topics/Customizing_hosts_with_tags.adoc[leveloffset=+1]

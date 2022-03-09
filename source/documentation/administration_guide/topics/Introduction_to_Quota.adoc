@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Introduction_to_Quota"]
-=== Introduction to Quota
+= Introduction to Quota
 
 Quota is a resource limitation tool provided with {virt-product-fullname}. Quota may be thought of as a layer of limitations on top of the layer of limitations set by User Permissions.
 

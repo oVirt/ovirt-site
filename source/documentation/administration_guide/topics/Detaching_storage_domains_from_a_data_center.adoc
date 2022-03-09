@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Detaching_storage_domains_from_a_data_center"]
-==== Detaching a Storage Domain from a Data Center
+= Detaching a Storage Domain from a Data Center
 
 Detaching a storage domain from a data center stops the data center from associating with that storage domain. The storage domain is not removed from the {virt-product-fullname} environment; it can be attached to another data center.
 
@@ -12,7 +12,7 @@ The master storage, if it is the last available storage domain, cannot be remove
 ====
 
 
-*Detaching a Storage Domain from a Data Center*
+.Procedure
 
 . Click menu:Compute[Data Centers].
 . Click a data center's name. This opens the details view.

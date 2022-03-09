@@ -3,10 +3,10 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-Custom_Network_Properties"]
-== Custom Network Properties
+= Custom Network Properties
 
-include::topics/Explanation_of_bridge_opts_Parameters.adoc[]
+include::topics/Explanation_of_bridge_opts_Parameters.adoc[leveloffset=+1]
 
-include::topics/How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool.adoc[]
+include::topics/How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool.adoc[leveloffset=+1]
 
-include::topics/How_to_Set_Up_RHVM_to_Use_FCoE.adoc[]
+include::topics/How_to_Set_Up_RHVM_to_Use_FCoE.adoc[leveloffset=+1]

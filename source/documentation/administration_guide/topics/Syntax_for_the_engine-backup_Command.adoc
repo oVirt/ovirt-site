@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Syntax_for_the_engine-backup_Command"]
-==== Syntax for the engine-backup Command
+= Syntax for the engine-backup Command
 
 The `engine-backup` command works in one of two basic modes:
 

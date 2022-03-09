@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Cluster_Console_Settings_Explained"]
-==== Cluster Console Settings Explained
+= Cluster Console Settings Explained
 
 The table below describes the settings for the *Console* tab in the *New Cluster* and *Edit Cluster* windows.
 
@@ -11,7 +10,7 @@ The table below describes the settings for the *Console* tab in the *New Cluster
 |===
 |Field |Description/Action
 |*Define SPICE Proxy for Cluster* |Select this check box to enable overriding the SPICE proxy defined in global configuration. This feature is useful in a case where the user (who is, for example, connecting via the VM Portal) is outside of the network where the hypervisors reside.
-|*Overridden SPICE proxy address* a|The proxy by which the SPICE client connects to virtual machines. The address must be in the following format: 
+|*Overridden SPICE proxy address* a|The proxy by which the SPICE client connects to virtual machines. The address must be in the following format:
 
 ----
 protocol://[host]:[port]

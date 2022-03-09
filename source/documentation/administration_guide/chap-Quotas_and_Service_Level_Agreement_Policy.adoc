@@ -1,25 +1,25 @@
 :_content-type: ASSEMBLY
 [id="chap-Quotas_and_Service_Level_Agreement_Policy"]
-== Quotas and Service Level Agreement Policy
+= Quotas and Service Level Agreement Policy
 
-include::topics/Introduction_to_Quota.adoc[]
+include::topics/Introduction_to_Quota.adoc[leveloffset=+1]
 
-include::topics/Shared_Quota_and_Individually-defined_Quota.adoc[]
+include::topics/Shared_Quota_and_Individually-defined_Quota.adoc[leveloffset=+1]
 
-include::topics/Quota_Accounting.adoc[]
+include::topics/Quota_Accounting.adoc[leveloffset=+1]
 
-include::topics/Enabling_and_Changing_Quota_for_a_DC.adoc[]
+include::topics/Enabling_and_Changing_Quota_for_a_DC.adoc[leveloffset=+1]
 
-include::topics/Creating_a_New_Quota_Policy.adoc[]
+include::topics/Creating_a_New_Quota_Policy.adoc[leveloffset=+1]
 
-include::topics/Explanation_of_Quota_Threshold_Settings.adoc[]
+include::topics/Explanation_of_Quota_Threshold_Settings.adoc[leveloffset=+1]
 
-include::topics/Assigning_a_Quota_to_an_Object.adoc[]
+include::topics/Assigning_a_Quota_to_an_Object.adoc[leveloffset=+1]
 
-include::topics/Using_Quota_to_limit_user_resources.adoc[]
+include::topics/Using_Quota_to_limit_user_resources.adoc[leveloffset=+1]
 
-include::topics/Editing_Quotas.adoc[]
+include::topics/Editing_Quotas.adoc[leveloffset=+1]
 
-include::topics/Removing_Quotas.adoc[]
+include::topics/Removing_Quotas.adoc[leveloffset=+1]
 
-include::topics/Service_Level_Agreement_Policy_Enforcement.adoc[]
+include::topics/Service_Level_Agreement_Policy_Enforcement.adoc[leveloffset=+1]

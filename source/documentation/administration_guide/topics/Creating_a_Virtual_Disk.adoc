@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_Virtual_Disk"]
-==== Creating a Virtual Disk
+= Creating a Virtual Disk
 
 *Image* disk creation is managed entirely by the {engine-name}. *Direct LUN* disks require externally prepared targets that already exist.
 

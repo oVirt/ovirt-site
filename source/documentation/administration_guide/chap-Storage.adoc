@@ -1,68 +1,24 @@
 :_content-type: ASSEMBLY
 [id="chap-Storage"]
-== Storage
+= Storage
 
 :context: storage_admin
 
-{virt-product-fullname} uses a centralized storage system for virtual disks, ISO files and snapshots. Storage networking can be implemented using:
+include::topics/about-storage.adoc[leveloffset=+1]
 
-* Network File System (NFS)
-
-* GlusterFS exports
-//* CephFS
-
-* Other POSIX compliant file systems
-
-* Internet Small Computer System Interface (iSCSI)
-
-* Local storage attached directly to the virtualization hosts
-
-* Fibre Channel Protocol (FCP)
-
-* Parallel NFS (pNFS)
-
-Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.
-
-As a {virt-product-fullname} system administrator, you need to create, configure, attach and maintain storage for the virtualized enterprise. You should be familiar with the storage types and their use. Read your storage array vendor's guides, and see the link:{URL_rhel_docs_legacy}html/Storage_Administration_Guide/[{enterprise-linux} Storage Administration Guide] for more information on the concepts, protocols, requirements or general usage of storage.
-
-To add storage domains you must be able to successfully access the Administration Portal, and there must be at least one host connected with a status of *Up*.
-
-{virt-product-fullname} has three types of storage domains:
-
-
-* *Data Domain:* A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center. In addition, snapshots of the virtual machines are also stored in the data domain.
-+
-The data domain cannot be shared across data centers. Data domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center, provided they are all shared, rather than local, domains.
-+
-You must attach a data domain to a data center before you can attach domains of other types to it.
-
-* *ISO Domain:* ISO domains store ISO files (or logical CDs) used to install and boot operating systems and applications for the virtual machines. An ISO domain removes the data center's need for physical media. An ISO domain can be shared across different data centers. ISO domains can only be NFS-based. Only one ISO domain can be added to a data center.
-
-* *Export Domain:* Export domains are temporary storage repositories that are used to copy and move images between data centers and {virt-product-fullname} environments. Export domains can be used to backup virtual machines. An export domain can be moved between data centers, however, it can only be active in one data center at a time. Export domains can only be NFS-based. Only one export domain can be added to a data center.
-+
-[NOTE]
-====
-The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See xref:sect-Importing_Existing_Storage_Domains[] for information on importing storage domains.
-====
-
-[IMPORTANT]
-====
-Only commence configuring and attaching storage for your {virt-product-fullname} environment once you have determined the storage needs of your data center(s).
-====
-
-include::topics/Understanding_Storage.adoc[]
+include::topics/Understanding_Storage.adoc[leveloffset=+1]
 
 [id="sect-Preparing_and_Adding_NFS_Storage"]
-=== Preparing and Adding NFS Storage
+== Preparing and Adding NFS Storage
 
-include::common/storage/proc-Preparing_NFS_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Preparing_NFS_Storage.adoc[leveloffset=+2]
 
-include::common/storage/proc-Adding_NFS_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_NFS_Storage.adoc[leveloffset=+2]
 
-include::topics/Increasing_NFS_Storage.adoc[]
+include::topics/Increasing_NFS_Storage.adoc[leveloffset=+2]
 
 [id="sect-Preparing_and_Adding_Local_Storage"]
-=== Preparing and adding local storage
+== Preparing and adding local storage
 
 A virtual machine's disk that uses a storage device that is physically installed on the virtual machine's host is referred to as a local storage device.
 
@@ -70,96 +26,96 @@ A storage device must be part of a storage domain. The storage domain type for l
 
 Configuring a host to use local storage automatically creates, and adds the host to, a new local storage domain, data center and cluster to which no other host can be added. Multiple-host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
 
-include::common/storage/proc-Preparing_Local_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Preparing_Local_Storage.adoc[leveloffset=+2]
 
-include::common/storage/proc-Adding_Local_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_Local_Storage.adoc[leveloffset=+2]
 
 [id="sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage"]
-=== Preparing and Adding POSIX-compliant File System Storage
+== Preparing and Adding POSIX-compliant File System Storage
 
-include::common/storage/ref-Preparing_POSIX_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_POSIX_Storage.adoc[leveloffset=+2]
 
-include::common/storage/proc-Adding_POSIX_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_POSIX_Storage.adoc[leveloffset=+2]
 
 [id="sect-Preparing_and_Adding_Block_Storage"]
-=== Preparing and Adding Block Storage
+== Preparing and Adding Block Storage
 
-include::common/storage/ref-Preparing_iSCSI_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_iSCSI_Storage.adoc[leveloffset=+2]
 
-include::common/storage/proc-Adding_iSCSI_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_iSCSI_Storage.adoc[leveloffset=+2]
 
-include::topics/Configuring_iSCSI_Multipathing.adoc[]
+include::topics/Configuring_iSCSI_Multipathing.adoc[leveloffset=+2]
 
-include::topics/proc-Migrating_a_logical_network_to_an_iscsi_bond.adoc[leveloffset=+3]
+include::topics/proc-Migrating_a_logical_network_to_an_iscsi_bond.adoc[leveloffset=+2]
 
-include::common/storage/ref-Preparing_FCP_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_FCP_Storage.adoc[leveloffset=+2]
 
-include::common/storage/proc-Adding_FCP_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_FCP_Storage.adoc[leveloffset=+2]
 
-include::topics/Increasing_iSCSI_or_FCP_Storage.adoc[]
+include::topics/Increasing_iSCSI_or_FCP_Storage.adoc[leveloffset=+2]
 
-include::topics/Reusing_LUNs.adoc[]
+include::topics/Reusing_LUNs.adoc[leveloffset=+2]
 
-include::topics/Removing_stale_LUNs.adoc[leveloffset=+3]
+include::topics/Removing_stale_LUNs.adoc[leveloffset=+2]
 
-include::common/storage/proc-Creating_LVM_filter.adoc[leveloffset=+3]
+include::common/storage/proc-Creating_LVM_filter.adoc[leveloffset=+2]
 
 [id="Adding_Red_Hat_Gluster_Storage"]
-=== Preparing and Adding {gluster-storage-fullname}
+== Preparing and Adding {gluster-storage-fullname}
 
-include::common/storage/ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+2]
 
-include::common/storage/ref-Adding_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Adding_Red_Hat_Gluster_Storage.adoc[leveloffset=+2]
 
 
 [id="sect-Importing_Existing_Storage_Domains"]
-=== Importing Existing Storage Domains
+== Importing Existing Storage Domains
 
-include::topics/Overview_of_Importing_Existing_Storage_Domains.adoc[]
+include::topics/Overview_of_Importing_Existing_Storage_Domains.adoc[leveloffset=+2]
 
-include::topics/Importing_storage_domains.adoc[]
+include::topics/Importing_storage_domains.adoc[leveloffset=+2]
 
-include::topics/Migrating_Storage_Domains_between_Data_Centers_Same_Environment.adoc[]
+include::topics/Migrating_Storage_Domains_between_Data_Centers_Same_Environment.adoc[leveloffset=+2]
 
-include::topics/Migrating_Storage_Domains_between_Data_Centers_Different_Environment.adoc[]
+include::topics/Migrating_Storage_Domains_between_Data_Centers_Different_Environment.adoc[leveloffset=+2]
 
-include::topics/Importing_Templates_from_Imported_Data_Storage_Domains.adoc[]
+include::topics/Importing_Templates_from_Imported_Data_Storage_Domains.adoc[leveloffset=+2]
 
 [id="sect-Storage_Tasks"]
-=== Storage Tasks
+== Storage Tasks
 
 :context: storage_tasks
 
-include::topics/Uploading_Images_to_a_Data_Storage_Domain.adoc[leveloffset=+3]
+include::topics/Uploading_Images_to_a_Data_Storage_Domain.adoc[leveloffset=+2]
 
-include::topics/proc_Copy_image_to_ISO_domain.adoc[leveloffset=+3]
+include::topics/proc_Copy_image_to_ISO_domain.adoc[leveloffset=+2]
 
-include::topics/Moving_storage_domains_to_maintenance_mode.adoc[]
+include::topics/Moving_storage_domains_to_maintenance_mode.adoc[leveloffset=+2]
 
-include::topics/Editing_Storage_Domains.adoc[]
+include::topics/Editing_Storage_Domains.adoc[leveloffset=+2]
 
-include::topics/Updating_OVFs.adoc[]
+include::topics/Updating_OVFs.adoc[leveloffset=+2]
 
-include::topics/Activating_storage_domains.adoc[]
+include::topics/Activating_storage_domains.adoc[leveloffset=+2]
 
-include::topics/Detaching_a_storage_domain.adoc[]
+include::topics/Detaching_a_storage_domain.adoc[leveloffset=+2]
 
-include::topics/Attaching_a_storage_domain.adoc[]
+include::topics/Attaching_a_storage_domain.adoc[leveloffset=+2]
 
-include::common/storage/proc-Removing_a_Storage_Domain.adoc[leveloffset=+3]
+include::common/storage/proc-Removing_a_Storage_Domain.adoc[leveloffset=+2]
 
-include::topics/Destroying_a_storage_domain.adoc[]
+include::topics/Destroying_a_storage_domain.adoc[leveloffset=+2]
 
-include::topics/Creating_a_Disk_Profile.adoc[]
+include::topics/Creating_a_Disk_Profile.adoc[leveloffset=+2]
 
-include::topics/Removing_a_Disk_Profile.adoc[]
+include::topics/Removing_a_Disk_Profile.adoc[leveloffset=+2]
 
-include::topics/Viewing_the_Health_Status_of_a_Storage_Domain.adoc[]
+include::topics/Viewing_the_Health_Status_of_a_Storage_Domain.adoc[leveloffset=+2]
 
-include::topics/Setting_Discard_After_Delete_for_a_storage_domain.adoc[]
+include::topics/Setting_Discard_After_Delete_for_a_storage_domain.adoc[leveloffset=+2]
 
-include::topics/proc-Enabling-4K-support-more-than-250-nodes.adoc[leveloffset=+3]
+include::topics/proc-Enabling-4K-support-more-than-250-nodes.adoc[leveloffset=+2]
 
-include::topics/proc-Disabling-4K-support.adoc[leveloffset=+3]
+include::topics/proc-Disabling-4K-support.adoc[leveloffset=+2]
 
-include::topics/proc-monitoring-available-space-in-a-storage-domain.adoc[leveloffset=+3]
+include::topics/proc-monitoring-available-space-in-a-storage-domain.adoc[leveloffset=+2]

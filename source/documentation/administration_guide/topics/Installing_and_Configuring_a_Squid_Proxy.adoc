@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Installing_and_Configuring_a_Squid_Proxy"]
-==== Installing and Configuring a Squid Proxy
+= Installing and Configuring a Squid Proxy
 
 This section explains how to install and configure a Squid proxy to the VM Portal. A Squid proxy server is used as a content accelerator. It caches frequently-viewed content, reducing bandwidth and improving response times.
 
 
-*Configuring a Squid Proxy*
+.Procedure
 
 . Obtain a keypair and certificate for the HTTPS port of the Squid proxy server. You can obtain this keypair the same way that you would obtain a keypair for another SSL/TLS service. The keypair is in the form of two PEM files which contain the private key and the signed certificate. For this procedure, we assume that they are named *proxy.key* and *proxy.cer*.
 +

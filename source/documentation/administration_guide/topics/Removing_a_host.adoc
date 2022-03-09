@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Removing_a_host"]
-==== Removing a Host
+= Removing a Host
 
 Remove a host from your virtualized environment.
 
 
-*Removing a host*
+.Procedure
 
 . Click menu:Compute[Hosts] and select the host.
 . Click menu:Management[Maintenance] and btn:[OK].

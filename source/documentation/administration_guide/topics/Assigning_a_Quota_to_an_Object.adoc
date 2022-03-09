@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Assigning_a_Quota_to_an_Object"]
-=== Assigning a Quota to an Object
+= Assigning a Quota to an Object
 
 *Assigning a Quota to a Virtual Machine*
 
@@ -10,12 +10,12 @@
 . Click btn:[OK].
 
 
-*Assigning a Quota to a Virtual Disk*
+*Assigning a Quota to a Disk*
 
-. Click menu:Compute[Virtual Machines]. 
+. Click menu:Compute[Virtual Machines].
 . Click a virtual machine's name. This opens the details view.
 . Click the *Disks* tab and select the disk you plan to associate with a quota.
-. Click *Edit*. 
+. Click *Edit*.
 . Select the quota you want the virtual disk to consume from the *Quota* drop-down list.
 . Click btn:[OK].
 

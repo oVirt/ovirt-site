@@ -1,77 +1,77 @@
 :_content-type: ASSEMBLY
 [id="chap-Backups_and_Migration"]
-== Backups and Migration
+= Backups and Migration
 
 :context: RHV_backup_restore
 :RHV_backup_restore:
 
 [id="sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager"]
-=== Backing Up and Restoring the {virt-product-fullname} {engine-name}
+== Backing Up and Restoring the {virt-product-fullname} {engine-name}
 
-include::topics/Backing_up_Red_Hat_Enterprise_Virtualization_Manager_using_the_engine-backup_Command.adoc[]
+include::topics/Backing_up_Red_Hat_Enterprise_Virtualization_Manager_using_the_engine-backup_Command.adoc[leveloffset=+2]
 
-include::topics/Syntax_for_the_engine-backup_Command.adoc[]
+include::topics/Syntax_for_the_engine-backup_Command.adoc[leveloffset=+2]
 
-include::topics/Creating_a_Backup_with_the_engine-backup_Command.adoc[]
+include::topics/Creating_a_Backup_with_the_engine-backup_Command.adoc[leveloffset=+2]
 
-include::topics/Restoring_a_Backup_with_the_engine-backup_Command.adoc[]
+include::topics/Restoring_a_Backup_with_the_engine-backup_Command.adoc[leveloffset=+2]
 
-include::topics/Restoring_a_Backup_to_a_Fresh_Installation.adoc[]
+include::topics/Restoring_a_Backup_to_a_Fresh_Installation.adoc[leveloffset=+2]
 
-include::common/backup-restore/proc-Restoring_a_Backup_to_Overwrite_an_Existing_Installation.adoc[leveloffset=+3]
+include::common/backup-restore/proc-Restoring_a_Backup_to_Overwrite_an_Existing_Installation.adoc[leveloffset=+2]
 
-include::topics/Restoring_a_Backup_with_Different_Credentials.adoc[]
+include::topics/Restoring_a_Backup_with_Different_Credentials.adoc[leveloffset=+2]
 
-include::common/backup-restore/assembly-Backing_up_and_Restoring_a_Self-Hosted_Engine.adoc[leveloffset=+3]
+include::common/backup-restore/assembly-Backing_up_and_Restoring_a_Self-Hosted_Engine.adoc[leveloffset=+2]
 
-include::common/backup-restore/assembly-Recovering_a_Self-Hosted_Engine.adoc[leveloffset=+3]
+include::common/backup-restore/assembly-Recovering_a_Self-Hosted_Engine.adoc[leveloffset=+2]
 
-include::common/backup-restore/assembly-Overwriting_a_Self-Hosted_Engine.adoc[leveloffset=+3]
+include::common/backup-restore/assembly-Overwriting_a_Self-Hosted_Engine.adoc[leveloffset=+2]
 
 [id="migrating-rhv-databases"]
-=== Migrating {virt-product-fullname} Databases to Remote Servers
+== Migrating {virt-product-fullname} Databases to Remote Servers
 
 :context: migrate_database
 //ddacosta - removed the Migrating the Manager Database topics for BZ#1854791
-//include::common/database/proc-Migrating_the_Manager_database_to_a_remote_server.adoc[leveloffset=+3]
+//include::common/database/proc-Migrating_the_Manager_database_to_a_remote_server.adoc[leveloffset=+2]
 //Adding back context
 //:context: migrate_database
 
-//include::common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+3]
+//include::common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+2]
 //Adding back context
 //:context: migrate_database
 
-include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+3]
+include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+2]
 
 :context!: migrate_database
 
 [id='sect-Backing_Up_and_Restoring_Virtual_Machines_Using_a_Backup_Domain']
-=== Backing Up and Restoring Virtual Machines Using a Backup Storage Domain
+== Backing Up and Restoring Virtual Machines Using a Backup Storage Domain
 
 :context: backup_domain
 
-include::topics/con_Backup_domains_explained.adoc[leveloffset=+3]
+include::topics/con_Backup_domains_explained.adoc[leveloffset=+2]
 
-include::topics/proc_Setting_a_storage_domain_to_be_a_backup_domain.adoc[leveloffset=+3]
+include::topics/proc_Setting_a_storage_domain_to_be_a_backup_domain.adoc[leveloffset=+2]
 
-include::topics/proc_Backing_Up_a_Virtual_Machine_with_backup_domain.adoc[leveloffset=+3]
+include::topics/proc_Backing_Up_a_Virtual_Machine_with_backup_domain.adoc[leveloffset=+2]
 
-//include::topics/proc_Restoring_a_Virtual_Machine_from_backup_domain.adoc[leveloffset=+3]
+//include::topics/proc_Restoring_a_Virtual_Machine_from_backup_domain.adoc[leveloffset=+2]
 
 :context!: backup_domain
 
 :context: RHV_backup_restore
 [id="sect-Backing_Up_and_Restoring_Virtual_Machines_Using_the_Backup_and_Restore_API"]
-=== Backing Up and Restoring Virtual Machines Using the Backup and Restore API
+== Backing Up and Restoring Virtual Machines Using the Backup and Restore API
 
-include::topics/The_Backup_and_Restore_API.adoc[]
+include::topics/The_Backup_and_Restore_API.adoc[leveloffset=+2]
 
-include::topics/Backing_Up_a_Virtual_Machine.adoc[]
+include::topics/Backing_Up_a_Virtual_Machine.adoc[leveloffset=+2]
 
-include::topics/Restoring_a_Virtual_Machine.adoc[]
+include::topics/Restoring_a_Virtual_Machine.adoc[leveloffset=+2]
 
-=== Backing Up and Restoring Virtual Machines Using the Incremental Backup and Restore API
+== Backing Up and Restoring Virtual Machines Using the Incremental Backup and Restore API
 
-include::common/backup-restore/assembly_incremental-backup-and-restore.adoc[leveloffset=+3]
+include::common/backup-restore/assembly_incremental-backup-and-restore.adoc[leveloffset=+2]
 
 :RHV_backup_restore!:

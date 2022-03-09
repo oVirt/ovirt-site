@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Syntax_for_the_engine-iso-uploader_Command"]
-==== Syntax for the engine-iso-uploader Command
+= Syntax for the engine-iso-uploader Command
 
 The basic syntax for the ISO uploader command is:
 

@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="New_Pool_Resource_Settings_Explained"]
-==== New Pool and Edit Pool Resource Allocation Settings Explained
+= New Pool and Edit Pool Resource Allocation Settings Explained
 
 The following table details the information required on the *Resource Allocation* tab of the *New Pool* and *Edit Pool* windows that are specific to virtual machine pools. All other settings are identical to those in the *New Virtual Machine* window. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#Virtual_Machine_Resource_Allocation_settings_explained[Virtual Machine Resource Allocation Settings Explained] in the _Virtual Machine Management Guide_ for more information.
 

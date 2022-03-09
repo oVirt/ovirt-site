@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Search_result_type_options"]
-=== Search Result Type Options
+= Search Result Type Options
 
 The result type allows you to search for resources of any of the following types:
 

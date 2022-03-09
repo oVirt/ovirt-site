@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider"]
-==== Adding a VMware Instance as a Virtual Machine Provider
+= Adding a VMware Instance as a Virtual Machine Provider
 
 Add a VMware vCenter instance to import virtual machines from VMware to the {virt-product-fullname} {engine-name}.
 
@@ -11,7 +11,7 @@ Add a VMware vCenter instance to import virtual machines from VMware to the {vir
 The `virt-v2v` package is not available on ppc64le architecture; these hosts cannot be used as proxy hosts.
 ====
 
-*Adding a VMware vCenter Instance as a Virtual Machine Provider*
+.Procedure
 
 . Click menu:Administration[Providers].
 . Click *Add*.
@@ -30,4 +30,3 @@ The `virt-v2v` package is not available on ppc64le architecture; these hosts can
 . Click btn:[OK].
 
 To import virtual machines from the VMware external provider, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_VMware_Provider[Importing a Virtual Machine from a VMware Provider] in the _Virtual Machine Management Guide_.
-

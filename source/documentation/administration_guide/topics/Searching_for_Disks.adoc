@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_Disks"]
-=== Searching for Disks
+= Searching for Disks
 
 The following table describes all search options for disks.
 

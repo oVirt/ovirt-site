@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Viewing_Storage_Health_Status"]
-==== Viewing the Health Status of a Storage Domain
+= Viewing the Health Status of a Storage Domain
 
 Storage domains have an external health status in addition to their regular *Status*. The external health status is reported by plug-ins or external systems, or set by an administrator, and appears to the left of the storage domain's *Name* as one of the following icons:
 

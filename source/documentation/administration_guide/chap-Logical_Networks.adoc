@@ -1,99 +1,99 @@
 :_content-type: ASSEMBLY
 [id="chap-Logical_Networks"]
-== Logical Networks
+= Logical Networks
 
 [id="sect-Logical_Network_Tasks"]
-=== Logical Network Tasks
+== Logical Network Tasks
 
-include::topics/Performing_Networking_Tasks.adoc[]
+include::topics/Performing_Networking_Tasks.adoc[leveloffset=+2]
 
-include::topics/Creating_a_new_logical_network_in_a_data_center_or_cluster.adoc[]
+include::topics/Creating_a_new_logical_network_in_a_data_center_or_cluster.adoc[leveloffset=+2]
 
-include::topics/Editing_a_Logical_Network.adoc[]
+include::topics/Editing_a_Logical_Network.adoc[leveloffset=+2]
 
-include::topics/Removing_a_Logical_Network.adoc[]
+include::topics/Removing_a_Logical_Network.adoc[leveloffset=+2]
 
-include::topics/Configuring_a_Default_Route.adoc[]
+include::topics/Configuring_a_Default_Route.adoc[leveloffset=+2]
 
-include::topics/proc-Adding-a-static-route-on-a-host.adoc[leveloffset=+3]
+include::topics/proc-Adding-a-static-route-on-a-host.adoc[leveloffset=+2]
 
-include::topics/proc-Removing-a-static-route-on-a-host.adoc[leveloffset=+3]
+include::topics/proc-Removing-a-static-route-on-a-host.adoc[leveloffset=+2]
 
-include::topics/Viewing_or_Editing_the_Gateway.adoc[]
+include::topics/Viewing_or_Editing_the_Gateway.adoc[leveloffset=+2]
 
-include::topics/Logical_Network_General_Settings_Explained.adoc[]
+include::topics/Logical_Network_General_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Logical_Network_Cluster_Settings_Explained.adoc[]
+include::topics/Logical_Network_Cluster_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Logical_Network_vNIC_Profiles_Settings_Explained.adoc[]
+include::topics/Logical_Network_vNIC_Profiles_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Designate_a_Specific_Traffic_Type.adoc[]
+include::topics/Designate_a_Specific_Traffic_Type.adoc[leveloffset=+2]
 
-include::topics/Explanation_of_Settings_in_the_Manage_Networks_Window.adoc[]
+include::topics/Explanation_of_Settings_in_the_Manage_Networks_Window.adoc[leveloffset=+2]
 
-include::topics/Editing_Vfs_on_NIC.adoc[]
+include::topics/Editing_Vfs_on_NIC.adoc[leveloffset=+2]
 
 [id="sect-Virtual_Network_Interface_Cards"]
-=== Virtual Network Interface Cards (vNICs)
+== Virtual Network Interface Cards (vNICs)
 
-include::topics/VNIC_Profile_Overview.adoc[]
+include::topics/VNIC_Profile_Overview.adoc[leveloffset=+2]
 
-include::topics/Creating_a_VNIC_Profile.adoc[]
+include::topics/Creating_a_VNIC_Profile.adoc[leveloffset=+2]
 
-include::topics/Explanation_of_Settings_in_the_VM_Interface_Profile_Window.adoc[]
+include::topics/Explanation_of_Settings_in_the_VM_Interface_Profile_Window.adoc[leveloffset=+2]
 
-include::topics/Enabling_Passthrough_on_a_vNIC_Profile.adoc[]
+include::topics/Enabling_Passthrough_on_a_vNIC_Profile.adoc[leveloffset=+2]
 
-include::topics/Creating_vNIC_profile_SR_IOV_failover.adoc[]
+include::topics/Creating_vNIC_profile_SR_IOV_failover.adoc[leveloffset=+2]
 
-include::topics/Removing_a_VNIC_Profile.adoc[]
+include::topics/Removing_a_VNIC_Profile.adoc[leveloffset=+2]
 
-include::topics/Assigning_Security_Groups_to_VNIC_Profiles.adoc[]
+include::topics/Assigning_Security_Groups_to_VNIC_Profiles.adoc[leveloffset=+2]
 
-include::topics/User_Permissions_for_VNIC_Profiles.adoc[]
+include::topics/User_Permissions_for_VNIC_Profiles.adoc[leveloffset=+2]
 
-//include::topics/Configuring_VNIC_Profiles_for_UCS.adoc[]
+//include::topics/Configuring_VNIC_Profiles_for_UCS.adoc[leveloffset=+2]
 
 [id="sect-External_Provider_Networks"]
-=== External Provider Networks
+== External Provider Networks
 
-include::topics/Importing_Networks.adoc[]
+include::topics/Importing_Networks.adoc[leveloffset=+2]
 
-include::topics/Limitations_to_Importing_Networks_from_External_Providers.adoc[]
+include::topics/Limitations_to_Importing_Networks_from_External_Providers.adoc[leveloffset=+2]
 
-include::topics/Configuring_Subnets_on_External_Provider_Logical_Networks.adoc[]
+include::topics/Configuring_Subnets_on_External_Provider_Logical_Networks.adoc[leveloffset=+2]
 
-include::topics/Adding_Subnets_to_External_Provider_Logical_Networks.adoc[]
+include::topics/Adding_Subnets_to_External_Provider_Logical_Networks.adoc[leveloffset=+2]
 
-include::topics/Removing_Subnets_from_External_Provider_Logical_Networks.adoc[]
+include::topics/Removing_Subnets_from_External_Provider_Logical_Networks.adoc[leveloffset=+2]
 
-include::topics/Assigning_Security_Groups_to_Logical_Networks.adoc[]
+include::topics/Assigning_Security_Groups_to_Logical_Networks.adoc[leveloffset=+2]
 
 [id="sect-Hosts_and_Networking"]
-=== Hosts and Networking
+== Hosts and Networking
 
 :Network:
 :context: hosts_networking
 
 include::topics/con-Network-Manager-Stateful-Configuration-nmstate.adoc[leveloffset=+3]
 
-include::topics/Refreshing_Host_Capabilities.adoc[]
+include::topics/Refreshing_Host_Capabilities.adoc[leveloffset=+2]
 
-include::topics/Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts.adoc[]
+include::topics/Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts.adoc[leveloffset=+2]
 
-include::topics/Proc-Synchronizing_host_networks.adoc[]
+include::topics/Proc-Synchronizing_host_networks.adoc[leveloffset=+2]
 
-include::topics/Proc-Editing-VLAN-Settings.adoc[]
+include::topics/Proc-Editing-VLAN-Settings.adoc[leveloffset=+2]
 
-include::topics/Adding_multiple_VLANs_to_a_single_network_interface_using_logical_networks.adoc[]
+include::topics/Adding_multiple_VLANs_to_a_single_network_interface_using_logical_networks.adoc[leveloffset=+2]
 
 include::topics/proc-Copying-host-networks.adoc[leveloffset=+3]
 
-include::topics/Assigning_Additional_IPv4_Addresses_to_a_Host_Network.adoc[]
+include::topics/Assigning_Additional_IPv4_Addresses_to_a_Host_Network.adoc[leveloffset=+2]
 
-include::topics/Adding_Network_Labels_to_Host_Network_Interfaces.adoc[]
+include::topics/Adding_Network_Labels_to_Host_Network_Interfaces.adoc[leveloffset=+2]
 
-include::topics/Changing_the_FQDN_of_a_Host.adoc[]
+include::topics/Changing_the_FQDN_of_a_Host.adoc[leveloffset=+2]
 
 include::common/network/con-IPv6_Networking_Support.adoc[leveloffset=+3]
 
@@ -101,15 +101,15 @@ include::common/sriov/assembly-Set_Up_and_Configure_SR-IOV.adoc[leveloffset=+3]
 :Network!:
 
 [id="sect-Network_Bonding"]
-=== Network Bonding
+== Network Bonding
 :Bonding:
 
-include::topics/con-Bonding_Methods.adoc[leveloffset=+3]
+include::topics/con-Bonding_Methods.adoc[leveloffset=+2]
 
-include::topics/Creating_a_bond_device_in_the_administration_portal.adoc[]
+include::topics/Creating_a_bond_device_in_the_administration_portal.adoc[leveloffset=+2]
 
-include::topics/Creating_a_bond_device_with_the_lldp_labeler_service.adoc[]
+include::topics/Creating_a_bond_device_with_the_lldp_labeler_service.adoc[leveloffset=+2]
 
-include::topics/Bonding_Modes.adoc[]
+include::topics/Bonding_Modes.adoc[leveloffset=+2]
 
 :Bonding!:

@@ -1,7 +1,6 @@
 :_content-type: REFERENCE
 [id="Grafana_dashboards"]
-
-.Built-in Grafana dashboards
+= Built-in Grafana dashboards
 
 The following dashboards are available in the initial Grafana setup to report Data Center, Cluster, Host, and Virtual Machine data:
 
@@ -46,8 +45,8 @@ The following dashboards are available in the initial Grafana setup to report Da
 
 |===
 
-
-.Customized Grafana dashboards
+\
+= Customized Grafana dashboards
 
 You can create customized dashboards or copy and modify existing dashboards according to your reporting needs.
 

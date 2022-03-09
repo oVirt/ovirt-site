@@ -1,7 +1,6 @@
 :_content-type: PROCEDURE
-:_content-type: PROCEDURE
 [id="viewing-user-information_{context}"]
-==== Viewing User Information
+= Viewing User Information
 
 You can view detailed user account information:
 

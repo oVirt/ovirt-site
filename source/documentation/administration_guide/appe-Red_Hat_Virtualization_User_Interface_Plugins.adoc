@@ -3,21 +3,22 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins"]
-== {virt-product-fullname} User Interface Plugins
+= {virt-product-fullname} User Interface Plugins
 
-include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugins.adoc[]
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugins.adoc[leveloffset=+1]
 
 [id="sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle"]
-=== {virt-product-fullname} User Interface Plugin Lifecycle
+== {virt-product-fullname} User Interface Plugin Lifecycle
 
-include::topics/RHEV_UI_Plugin_Lifecycle.adoc[]
+The basic life cycle of a User Interface Plug-in divides into three stages:
 
-include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery.adoc[]
+* Plug-in discovery.
+* Plug-in loading.
+* Plug-in bootstrapping.
 
-include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading.adoc[]
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery.adoc[leveloffset=+2]
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading.adoc[leveloffset=+2]
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping.adoc[leveloffset=+2]
 
-include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping.adoc[]
-
-include::topics/UI_Plugin-related_Files_and_their_Locations.adoc[]
-
-include::topics/Example_RHEV_UI_Plugin_Deployment.adoc[]
+include::topics/UI_Plugin-related_Files_and_their_Locations.adoc[leveloffset=+1]
+include::topics/Example_RHEV_UI_Plugin_Deployment.adoc[leveloffset=+1]

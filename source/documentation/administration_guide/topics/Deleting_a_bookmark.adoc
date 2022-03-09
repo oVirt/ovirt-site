@@ -1,15 +1,11 @@
 :_content-type: PROCEDURE
 [id="Deleting_a_bookmark"]
-=== Deleting a Bookmark
+= Deleting a Bookmark
 
 When a bookmark is no longer needed, remove it.
 
-*Deleting a Bookmark*
+.Procedure
 
 . Click the *Bookmarks* icon (image:images/Bookmark.png[]) in the header bar.
 . Select a bookmark and click *Remove*.
 . Click btn:[OK].
-
-
-
-

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Explanation_of_Quota_Threshold_Settings"]
-=== Explanation of Quota Threshold Settings
+= Explanation of Quota Threshold Settings
 
 .Quota thresholds and grace
 [options="header"]

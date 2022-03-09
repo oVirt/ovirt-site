@@ -1,7 +1,6 @@
 :_content-type: PROCEDURE
-:_content-type: CONCEPT
 [id="VDSM_hooks_execution"]
-=== VDSM Hook Execution
+= VDSM Hook Execution
 
 *before_vm_start* scripts can edit the domain XML in order to change VDSM's definition of a virtual machine before it reaches libvirt. Caution must be exercised in doing so. Hook scripts have the potential to disrupt the operation of VDSM, and buggy scripts can result in outages to the {virt-product-fullname} environment. In particular, ensure you never change the UUID of the domain, and do not attempt to remove a device from the domain without sufficient background knowledge.
 

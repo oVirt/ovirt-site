@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Intro_to_RHVH"]
-=== {hypervisor-fullname}
+= {hypervisor-fullname}
 
 {hypervisor-fullname} ({hypervisor-shortname}) is installed using a special build of {enterprise-linux} with only the packages required to host virtual machines. It uses an `Anaconda` installation interface based on the one used by {enterprise-linux-host-fullname}s, and can be updated through the {virt-product-fullname} {engine-name} or via `yum`. Using the `yum` command is the only way to install additional packages and have them persist after an upgrade.
 

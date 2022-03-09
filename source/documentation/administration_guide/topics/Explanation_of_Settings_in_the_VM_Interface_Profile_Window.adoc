@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Explanation_of_Settings_in_the_VM_Interface_Profile_Window"]
-==== Explanation of Settings in the VM Interface Profile Window
+= Explanation of Settings in the VM Interface Profile Window
 
 
 .VM Interface Profile Window

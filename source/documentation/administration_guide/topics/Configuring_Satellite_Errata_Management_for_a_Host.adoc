@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Configuring_Satellite_Errata_Management_for_a_Host"]
-==== Setting up Satellite errata viewing for a host
+= Setting up Satellite errata viewing for a host
 
 In the Administration Portal, you can configure a host to view errata from Red Hat Satellite. After you associate a host with a Red Hat Satellite provider, you can receive updates in the host configuration dashboard about available errata and their importance, and decide when it is practical to apply the updates.
 

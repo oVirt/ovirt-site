@@ -1,7 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_Ansible_Collection"]
-
-=== Using oVirt Ansible Collection to Configure {virt-product-fullname}
+= Using oVirt Ansible Collection to Configure {virt-product-fullname}
 
 The following procedure guides you through creating and running a playbook that uses *oVirt Ansible Collection* to configure Red Hat Virtualization. This example uses Ansible to connect to the Manager on the local machine and create a new data center.
 

@@ -1,33 +1,33 @@
 :_content-type: ASSEMBLY
 [id="chap-External_Providers"]
-== External Providers
+= External Providers
 :context: external_providers
 
-include::topics/Introduction_to_External_Providers_in_RHV.adoc[]
+include::topics/Introduction_to_External_Providers_in_RHV.adoc[leveloffset=+1]
 
 [id="sect-Adding_External_Providers"]
-=== Adding External Providers
+== Adding External Providers
 
-include::topics/Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning.adoc[]
+include::topics/Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning.adoc[leveloffset=+2]
 
-include::topics/Adding_an_OpenStack_Image_Service_Glance_for_Image_Management.adoc[]
+include::topics/Adding_an_OpenStack_Image_Service_Glance_for_Image_Management.adoc[leveloffset=+2]
 
-include::topics/proc-adding-kubevirt-openshift-as-an-external-provider.adoc[leveloffset=+3]
+include::topics/proc-adding-kubevirt-openshift-as-an-external-provider.adoc[leveloffset=+2]
 
-include::topics/Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider.adoc[]
+include::topics/Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider.adoc[leveloffset=+2]
 
-include::topics/Adding_Xen_as_an_External_Provider.adoc[]
+include::topics/Adding_Xen_as_an_External_Provider.adoc[leveloffset=+2]
 
-include::topics/Adding_KVM_as_an_External_Provider.adoc[]
+include::topics/Adding_KVM_as_an_External_Provider.adoc[leveloffset=+2]
 
-include::topics/Adding_OVN_as_an_External_Network_Provider.adoc[]
+include::topics/Adding_OVN_as_an_External_Network_Provider.adoc[leveloffset=+2]
 
-include::topics/Adding_an_External_Network_Provider.adoc[]
+include::topics/Adding_an_External_Network_Provider.adoc[leveloffset=+2]
 
-include::topics/Add_Provider_General_Settings_Explained.adoc[]
+include::topics/Add_Provider_General_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Editing_an_External_Provider.adoc[]
+include::topics/Editing_an_External_Provider.adoc[leveloffset=+1]
 
-include::topics/Removing_an_External_Provider.adoc[]
+include::topics/Removing_an_External_Provider.adoc[leveloffset=+1]
 
 :context!: external_providers

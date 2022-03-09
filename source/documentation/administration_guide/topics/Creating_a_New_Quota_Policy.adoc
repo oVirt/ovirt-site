@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Creating_a_New_Quota_Policy"]
-=== Creating a New Quota Policy
+= Creating a New Quota Policy
 
 You have enabled quota mode, either in Audit or Enforcing mode. You want to define a quota policy to manage resource usage in your data center.
 
 
-*Creating a New Quota Policy*
+.Procedure
 
 . Click menu:Administration[Quota].
 . Click *Add*.

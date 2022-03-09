@@ -1,0 +1,35 @@
+:_content-type: CONCEPT
+[id="fence_kdump_Advanced_Configuration"]
+= fence_kdump Advanced Configuration
+
+*kdump*
+
+Click the name of a host to view the status of the kdump service in the *General* tab of the details view:
+
+* *Enabled*: kdump is configured properly and the kdump service is running.
+
+* *Disabled*: the kdump service is not running (in this case kdump integration will not work properly).
+
+* *Unknown*: happens only for hosts with an earlier VDSM version that does not report kdump status.
+
+For more information on installing and using kdump, see the link:{URL_rhel_docs_legacy}html/Kernel_Crash_Dump_Guide/index.html[{enterprise-linux} 7 Kernel Crash Dump Guide].
+
+*fence_kdump*
+
+Enabling *Kdump integration* in the *Power Management* tab of the *New Host* or *Edit Host* window configures a standard fence_kdump setup. If the environment's network configuration is simple and the {engine-name}'s FQDN is resolvable on all hosts, the default fence_kdump settings are sufficient for use.
+
+However, there are some cases where advanced configuration of fence_kdump is necessary. Environments with more complex networking may require manual changes to the configuration of the {engine-name}, fence_kdump listener, or both. For example, if the {engine-name}'s FQDN is not resolvable on all hosts with *Kdump integration* enabled, you can set a proper host name or IP address using `engine-config`:
+[source,terminal]
+----
+engine-config -s FenceKdumpDestinationAddress=_A.B.C.D_
+----
+
+The following example cases may also require configuration changes:
+
+* The {engine-name} has two NICs, where one of these is public-facing, and the second is the preferred destination for fence_kdump messages.
+
+* You need to execute the fence_kdump listener on a different IP or port.
+
+* You need to set a custom interval for fence_kdump notification messages, to prevent possible packet loss.
+
+Customized fence_kdump detection settings are recommended for advanced users only, as changes to the default configuration are only necessary in more complex networking setups.

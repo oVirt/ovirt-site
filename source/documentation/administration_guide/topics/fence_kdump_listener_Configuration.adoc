@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="fence_kdump_listener_Configuration"]
-===== fence_kdump listener Configuration
+= fence_kdump listener Configuration
 
 Edit the configuration of the fence_kdump listener. This is only necessary in cases where the default configuration is not sufficient.
 
 
-*Manually Configuring the fence_kdump Listener*
+.Procedure
 
 . Create a new file (for example, *my-fence-kdump.conf*) in */etc/ovirt-engine/ovirt-fence-kdump-listener.conf.d/*.
 . Enter your customization with the syntax _OPTION_=_value_ and save the file.

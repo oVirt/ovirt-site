@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Editing_a_Virtual_Machine_Pool"]
-=== Editing a Virtual Machine Pool
+= Editing a Virtual Machine Pool
 
 After a virtual machine pool has been created, its properties can be edited. The properties available when editing a virtual machine pool are identical to those available when creating a new virtual machine pool except that the *Number of VMs* property is replaced by *Increase number of VMs in pool by*.
 
@@ -10,7 +10,7 @@ When editing a virtual machine pool, the changes introduced affect only new virt
 ====
 
 
-*Editing a Virtual Machine Pool*
+.Procedure
 
 . Click menu:Compute[Pools] and select a virtual machine pool.
 . Click *Edit*.

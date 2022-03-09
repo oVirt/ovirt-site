@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
 [id="Viewing_Logged_In_Users"]
-==== Viewing Logged-In Users
+= Viewing Logged-In Users
 
 You can view the users who are currently logged in, along with session times and other details. Click menu:Administration[Active User Sessions] to view the *Session DB ID*, *User Name*, *Authorization provider*, *User id*, *Source IP*, *Session Start Time*, and *Session Last Active Time* for each logged-in user.

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Overview_of_Live_Storage_Migration"]
-==== Overview of Live Storage Migration
+= Overview of Live Storage Migration
 
 Virtual disks can be migrated from one storage domain to another while the virtual machine to which they are attached is running. This is referred to as live storage migration. When a disk attached to a running virtual machine is migrated, a snapshot of that disk's image chain is created in the source storage domain, and the entire image chain is replicated in the destination storage domain. As such, ensure that you have sufficient storage space in both the source storage domain and the destination storage domain to host both the disk image chain and the snapshot. A new snapshot is created on each live storage migration attempt, even when the migration fails.
 

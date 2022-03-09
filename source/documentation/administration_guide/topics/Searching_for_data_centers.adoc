@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_data_centers"]
-=== Searching for Data Centers
+= Searching for Data Centers
 
 The following table describes all search options for Data Centers.
 [id="searching_datacenters"]

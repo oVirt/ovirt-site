@@ -1,12 +1,12 @@
 :_content-type: PROCEDURE
 [id="Adding_users"]
-==== Adding Users and Assigning VM Portal Permissions
+= Adding Users and Assigning VM Portal Permissions
 
 Users must be created already before they can be added and assigned roles and permissions. The roles and permissions assigned in this procedure give the user the permission to log in to the VM Portal and to start creating virtual machines. The procedure also applies to group accounts.
 
-*Adding Users and Assigning VM Portal Permissions*
+.Procedure
 
-. On the header bar, click menu:Administration[Configure]. This opens the *Configure* window. 
+. On the header bar, click menu:Administration[Configure]. This opens the *Configure* window.
 . Click *System Permissions*.
 . Click *Add*. This opens the *Add System Permission to User* window.
 . Select a profile under *Search*. The profile is the domain you want to search. Enter a name or part of a name in the search text field, and click *GO*. Alternatively, click *GO* to view a list of all users and groups.
@@ -15,4 +15,3 @@ Users must be created already before they can be added and assigned roles and pe
 . Click btn:[OK].
 
 Log in to the VM Portal to verify that the user account has the permissions to log in.
-

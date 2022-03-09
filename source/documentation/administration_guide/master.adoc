@@ -5,29 +5,28 @@ include::common/collateral_files/attributes.adoc[]
 = Administration Guide
 :context: administration_guide
 
-include::part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment.adoc[]
+include::part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment.adoc[leveloffset=+1]
 
-include::part-Administering_the_Resources.adoc[]
+include::part-Administering_the_Resources.adoc[leveloffset=+1]
 
-include::part-Administering_the_Environment.adoc[]
+include::part-Administering_the_Environment.adoc[leveloffset=+1]
 
-include::part-Gathering_Information_About_the_Environment.adoc[]
+include::part-Gathering_Information_About_the_Environment.adoc[leveloffset=+1]
 
-include::appe-VDSM_and_Hooks.adoc[]
+include::appe-VDSM_and_Hooks.adoc[leveloffset=+1]
 
-include::appe-Custom_Network_Properties.adoc[]
+include::appe-Custom_Network_Properties.adoc[leveloffset=+1]
 
-include::appe-Red_Hat_Virtualization_User_Interface_Plugins.adoc[]
+include::appe-Red_Hat_Virtualization_User_Interface_Plugins.adoc[leveloffset=+1]
 
 include::appe-enabling_FIPS.adoc[leveloffset=+1]
-//include::appe-enabling_FIPS.adoc[]
 
-include::appe-Red_Hat_Virtualization_and_Encrypted_Communication.adoc[]
+include::appe-Red_Hat_Virtualization_and_Encrypted_Communication.adoc[leveloffset=+1]
 
-include::appe-Proxies.adoc[]
+include::appe-Proxies.adoc[leveloffset=+1]
 
-include::appe-Branding.adoc[]
+include::appe-Branding.adoc[leveloffset=+1]
 
-include::appe-System_Accounts.adoc[]
+include::appe-System_Accounts.adoc[leveloffset=+1]
 
-include::common/collateral_files/legal-notice.adoc[]
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

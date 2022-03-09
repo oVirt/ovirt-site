@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="VDSM_hooks_examples"]
-=== VDSM Hook Examples
+= VDSM Hook Examples
 
 The example hook scripts provided in this section are strictly not supported by Red Hat. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.
 

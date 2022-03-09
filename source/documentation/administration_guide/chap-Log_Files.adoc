@@ -1,30 +1,23 @@
 :_content-type: ASSEMBLY
 [id="chap-Log_Files"]
-== Log Files
+= Log Files
 
-include::topics/Manager_Installation_Log_Files.adoc[]
-
-include::topics/Manager_Log_Files.adoc[]
+include::topics/Manager_Installation_Log_Files.adoc[leveloffset=+1]
+include::topics/Manager_Log_Files.adoc[leveloffset=+1]
 
 [id="sect-SPICE_Log_Files"]
-=== SPICE Log Files
+== SPICE Log Files
 
 SPICE log files are useful when troubleshooting SPICE connection issues. To start SPICE debugging, change the log level to `debugging`. Then, identify the log location.
 
 Both the clients used to access the guest machines and the guest machines themselves have SPICE log files. For client-side logs, if a SPICE client was launched using the native client, for which a *console.vv* file is downloaded, use the `remote-viewer` command to enable debugging and generate log output.
 
-include::topics/SPICE_Logs_for_Hypervisor_SPICE_Servers.adoc[]
+include::topics/SPICE_Logs_for_Hypervisor_SPICE_Servers.adoc[leveloffset=+2]
+include::topics/SPICE_Logs_for_Guest_Machines.adoc[leveloffset=+2]
+include::topics/SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files.adoc[leveloffset=+2]
 
-include::topics/SPICE_Logs_for_Guest_Machines.adoc[]
-
-include::topics/SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files.adoc[]
-
-include::topics/Host_Log_Files.adoc[]
-
-include::topics/proc_setting-up-debug-level-logging.adoc[]
-
-include::topics/ref_debug-level-logging.adoc[]
-
-include::topics/Setting_up_a_Host_Logging_Server.adoc[]
-
-include::topics/proc_Enabling_SyslogHandler_RHV_Manager_logs.adoc[]
+include::topics/Host_Log_Files.adoc[leveloffset=+1]
+include::topics/proc_setting-up-debug-level-logging.adoc[leveloffset=+1]
+include::topics/ref_debug-level-logging.adoc[leveloffset=+1]
+include::topics/Setting_up_a_Host_Logging_Server.adoc[leveloffset=+1]
+include::topics/proc_Enabling_SyslogHandler_RHV_Manager_logs.adoc[leveloffset=+1]

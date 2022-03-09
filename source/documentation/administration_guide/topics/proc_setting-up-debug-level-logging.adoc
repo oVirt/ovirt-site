@@ -4,7 +4,7 @@
 
 :_content-type: PROCEDURE
 [id="proc-setting_up_debug_level_logging"]
-=== Setting debug-level logging for {virt-product-fullname} services
+= Setting debug-level logging for {virt-product-fullname} services
 
 You can set the logs of the following {virt-product-fullname} ({virt-product-shortname}) services to debug-level by modifying the `sysconfig` file of each service.
 

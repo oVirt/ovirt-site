@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Supported_VDSM_events"]
-=== Supported VDSM Events
+= Supported VDSM Events
 
 
 [id="vdsm-hook-names"]

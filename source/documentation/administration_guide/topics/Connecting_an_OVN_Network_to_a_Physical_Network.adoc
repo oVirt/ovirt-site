@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Connecting_an_OVN_Network_to_a_Physical_Network"]
-===== Connecting an OVN Network to a Physical Network
+= Connecting an OVN Network to a Physical Network
 ifdef::rhv-doc[]
 [IMPORTANT]
 ====
@@ -17,12 +17,12 @@ You can create an external provider network that overlays a native {virt-product
 If you created a subnet for the OVN network, a virtual machine using that network will receive an IP address from there. If you want the physical network to allocate the IP address, do not create a subnet for the OVN network.
 ====
 
-*Prerequisites*
+.Prerequisites
 
 * The cluster must have *OVS* selected as the *Switch Type*. Hosts added to this cluster must not have any pre-existing {virt-product-fullname} networks configured, such as the *ovirtmgmt* bridge.
 * The physical network must be available on the hosts. You can enforce this by setting the physical network as required for the cluster (in the *Manage Networks* window, or the *Cluster* tab of the *New Logical Network* window).
 
-*Creating a New External Network Connected to a Physical Network*
+.Procedure
 
 . Click menu:Compute[Clusters].
 . Click the cluster's name. This opens the details view.

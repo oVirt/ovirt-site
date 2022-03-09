@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_users"]
-=== Searching for Users
+= Searching for Users
 
 The following table describes all search options for users.
 

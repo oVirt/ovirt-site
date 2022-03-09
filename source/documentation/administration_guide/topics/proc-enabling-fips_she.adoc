@@ -1,5 +1,3 @@
-
-:_content-type: PROCEDURE
 :_content-type: PROCEDURE
 [id="enabling_fips_she_{context}"]
 = Enabling FIPS in a self-hosted engine

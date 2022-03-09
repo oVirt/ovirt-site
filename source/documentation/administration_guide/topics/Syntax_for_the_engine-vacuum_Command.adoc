@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Syntax_for_the_engine-vacuum_Command"]
-==== Syntax for the engine-vacuum Command
+= Syntax for the engine-vacuum Command
 
 The basic syntax for the `engine-vacuum` command is:
 	

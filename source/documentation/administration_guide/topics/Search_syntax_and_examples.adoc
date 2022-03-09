@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Search_syntax_and_examples"]
-=== Search Syntax and Examples
+= Search Syntax and Examples
 
 The syntax of the search queries for {virt-product-fullname} resources is as follows:
 

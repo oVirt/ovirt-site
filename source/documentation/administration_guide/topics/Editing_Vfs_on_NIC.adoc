@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Editing_VFs_on_NIC"]
-==== Configuring virtual functions on a NIC
+= Configuring virtual functions on a NIC
 
 include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
 

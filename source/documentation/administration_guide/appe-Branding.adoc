@@ -3,23 +3,23 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-Branding"]
-== Branding
+= Branding
 
 [id="sect-Branding"]
-=== Branding
+== Branding
 
-include::topics/Re-Branding_the_Manager1.adoc[]
+include::topics/Re-Branding_the_Manager1.adoc[leveloffset=+2]
 
-include::topics/Re-Branding_the_Manager.adoc[]
+include::topics/Re-Branding_the_Manager.adoc[leveloffset=+2]
 
-include::topics/Administration_Portal_Screen.adoc[]
+include::topics/Administration_Portal_Screen.adoc[leveloffset=+2]
 
-include::topics/User_Portal_Screen.adoc[]
+include::topics/User_Portal_Screen.adoc[leveloffset=+2]
 
-include::topics/Pop-up_Windows.adoc[]
+include::topics/Pop-up_Windows.adoc[leveloffset=+2]
 
-include::topics/Tabs.adoc[]
+include::topics/Tabs.adoc[leveloffset=+2]
 
-include::topics/The_Welcome_Page.adoc[]
+include::topics/The_Welcome_Page.adoc[leveloffset=+2]
 
-include::topics/The_File_Not_Found_Page.adoc[]
+include::topics/The_File_Not_Found_Page.adoc[leveloffset=+2]

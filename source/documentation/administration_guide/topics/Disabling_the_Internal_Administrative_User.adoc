@@ -1,15 +1,15 @@
 :_content-type: PROCEDURE
 [id="Disabling_the_Internal_Administrative_User"]
-==== Disabling the Internal Administrative User
+= Disabling the Internal Administrative User
 
 You can disable users on the local domains including the *admin@internal* user created during `engine-setup`. Make sure you have at least one user in the envrionment with full administrative permissions before disabling the default *admin* user.
 
 
-*Disabling the Internal Administrative User*
+.Procedure
 
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.
 . Make sure another user with the *SuperUser* role has been added to the environment. See xref:Adding_users[] for more information.
-. Disable the default *admin* user: 
+. Disable the default *admin* user:
 +
 [source,terminal]
 ----
@@ -20,6 +20,3 @@ You can disable users on the local domains including the *admin@internal* user c
 ====
 To enable a disabled user, run `ovirt-aaa-jdbc-tool user edit _username_ --flag=-disabled`
 ====
-
-
-

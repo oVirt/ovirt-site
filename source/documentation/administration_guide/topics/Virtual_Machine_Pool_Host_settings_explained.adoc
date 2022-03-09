@@ -1,7 +1,6 @@
-:_content-type: PROCEDURE
 :_content-type: REFERENCE
 [id="Virtual_Machine_Pool_Host_settings_explained"]
-==== Virtual Machine Pool Host Settings Explained
+= Virtual Machine Pool Host Settings Explained
 
 The following table details the options available on the *Host* tab of the *New Pool* and *Edit Pool* windows.
 [id="New_VMs_Host"]

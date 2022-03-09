@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_templates"]
-=== Searching for Templates
+= Searching for Templates
 
 The following table describes all search options for templates.
 

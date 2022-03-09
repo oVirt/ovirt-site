@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_events"]
-=== Searching for Events
+= Searching for Events
 
 The following table describes all search options you can use to search for events. Auto-completion is offered for many options as appropriate.
 

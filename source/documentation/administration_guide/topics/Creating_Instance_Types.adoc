@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Creating_Instance_Types"]
-==== Creating Instance Types
+= Creating Instance Types
 
 Administrators can create new instance types, which can then be selected by users when creating or editing virtual machines.
 
 
-*Creating an Instance Type*
+.Procedure
 
 . Click menu:Administration[Configure].
 . Click the *Instance Types* tab.

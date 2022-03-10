@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Host_Networking_Configurations"]
-=== Host Networking Configurations
+= Host Networking Configurations
 
 xref:figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster[] can be helpful to understand these networking configurations.
 

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Bridge"]
-=== Linux bridge
+= Linux bridge
 
 A Linux bridge is a software device that uses packet forwarding in a packet-switched network. Bridging allows multiple network interface devices to share the connectivity of one NIC and appear on a network as separate physical devices. The bridge examines a packet's source addresses to determine relevant target addresses. Once the target address is determined, the bridge adds the location to a table for future reference. This allows a host to redirect network traffic to virtual machine associated vNICs that are members of a bridge.
 

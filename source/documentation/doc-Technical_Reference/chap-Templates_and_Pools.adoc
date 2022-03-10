@@ -1,10 +1,9 @@
 :_content-type: ASSEMBLY
 [id="chap-Templates_and_Pools"]
-== Templates and Pools
+= Templates and Pools
 
-include::topics/Templates_and_Pools.adoc[]
+include::topics/Templates_and_Pools.adoc[leveloffset=+1]
 
-include::topics/Templates1.adoc[]
+include::topics/Templates1.adoc[leveloffset=+1]
 
-include::topics/Pools1.adoc[]
-
+include::topics/Pools1.adoc[leveloffset=+1]

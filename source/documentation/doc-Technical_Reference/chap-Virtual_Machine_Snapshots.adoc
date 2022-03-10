@@ -1,25 +1,23 @@
 :_content-type: ASSEMBLY
 [id="chap-Virtual_Machine_Snapshots"]
-== Virtual Machine Snapshots
+= Virtual Machine Snapshots
 
-include::topics/Snapshots1.adoc[]
+include::topics/Snapshots1.adoc[leveloffset=+1]
 
-include::topics/Live_Snapshots_in_Red_Hat_Enterprise_Virtualization.adoc[]
+include::topics/Live_Snapshots_in_Red_Hat_Enterprise_Virtualization.adoc[leveloffset=+1]
 
-include::topics/Snapshot_Creation.adoc[]
+include::topics/Snapshot_Creation.adoc[leveloffset=+1]
 
 ifdef::rhv-doc[]
-=== Monitoring snapshot health with the image discrepancies tool
-
 :context: tr
 :tr:
 
-include::common/upgrade/proc-Image_discrepancies_tool.adoc[]
+include::common/upgrade/proc-Image_discrepancies_tool.adoc[leveloffset=+1]
 
 :tr!:
 :context!: tr
 endif::[]
 
-include::topics/Snapshot_Previews.adoc[]
+include::topics/Snapshot_Previews.adoc[leveloffset=+1]
 
-include::topics/Snapshot_Deletion.adoc[]
+include::topics/Snapshot_Deletion.adoc[leveloffset=+1]

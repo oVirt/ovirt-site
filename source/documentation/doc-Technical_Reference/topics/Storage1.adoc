@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Storage1"]
-=== Storage
+= Storage
 
 {virt-product-fullname} uses a centralized storage system for virtual disks, templates, snapshots, and ISO files. Storage is logically grouped into storage pools, which are comprised of storage domains. A storage domain is a combination of storage capacity and metadata that describes the internal structure of the storage. See xref:Storage_Domain_Types1[Storage Domain Types]
 

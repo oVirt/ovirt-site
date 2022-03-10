@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Load_Balancing_Policy_Even_Distribution"]
-=== Load Balancing Policy: Evenly_Distributed
+= Load Balancing Policy: Evenly_Distributed
 
 .Evenly Distributed Scheduling Policy
 image::RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png[]

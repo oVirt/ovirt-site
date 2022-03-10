@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Storage_Domain_Types1"]
-=== Storage Domain Types
+= Storage Domain Types
 
 {virt-product-fullname} supports the following types of storage domains, as well as the storage types that each storage domain supports.
 

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Storage_Pool_Manager_Selection_Process"]
-=== Storage Pool Manager Selection Process
+= Storage Pool Manager Selection Process
 
 If a host has not been manually assigned the Storage Pool Manager (SPM) role, the SPM selection process is initiated and managed by the {virt-product-fullname} {engine-name}.
 

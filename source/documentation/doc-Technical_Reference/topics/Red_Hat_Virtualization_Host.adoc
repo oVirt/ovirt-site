@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Red_Hat_Virtualization_Host"]
-=== {hypervisor-fullname}
+= {hypervisor-fullname}
 
 A {virt-product-fullname} environment has one or more hosts attached to it. A host is a server that provides the physical hardware that virtual machines make use of.
 

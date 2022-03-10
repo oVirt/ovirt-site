@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Load_Balancing_Policy"]
-=== Load Balancing Policy
+= Load Balancing Policy
 
 Load balancing policy is set for a cluster, which includes one or more hosts that may each have different hardware parameters and available memory. The {virt-product-fullname} {engine-name} uses a load balancing policy to determine which host in a cluster to start a virtual machine on. Load balancing policy also allows the {engine-name} determine when to move virtual machines from over-utilized hosts to under-utilized hosts.
 

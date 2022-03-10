@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Cluster_Networking"]
-=== Cluster Networking
+= Cluster Networking
 
 Cluster level networking objects include:
 

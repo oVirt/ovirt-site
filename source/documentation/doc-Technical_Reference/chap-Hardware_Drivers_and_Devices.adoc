@@ -1,24 +1,23 @@
 :_content-type: ASSEMBLY
 [id="chap-Hardware_Drivers_and_Devices"]
-== Hardware Drivers and Devices
+= Hardware Drivers and Devices
 
-include::topics/Virtualized_Hardware.adoc[]
+include::topics/Virtualized_Hardware.adoc[leveloffset=+1]
 
-include::topics/Stable_Device_Addresses_in_Red_Hat_Enterprise_Virtualization.adoc[]
+include::topics/Stable_Device_Addresses_in_Red_Hat_Enterprise_Virtualization.adoc[leveloffset=+1]
 
-include::topics/Central_Processing_Unit_CPU.adoc[]
+include::topics/Central_Processing_Unit_CPU.adoc[leveloffset=+1]
 
-include::topics/System_Devices.adoc[]
+include::topics/System_Devices.adoc[leveloffset=+1]
 
-include::topics/Network_devices.adoc[]
+include::topics/Network_devices.adoc[leveloffset=+1]
 
-include::topics/Graphics_Devices.adoc[]
+include::topics/Graphics_Devices.adoc[leveloffset=+1]
 
-include::topics/Storage_Devices.adoc[]
+include::topics/Storage_Devices.adoc[leveloffset=+1]
 
-include::topics/Sound_Devices.adoc[]
+include::topics/Sound_Devices.adoc[leveloffset=+1]
 
-include::topics/Serial_Driver.adoc[]
+include::topics/Serial_Driver.adoc[leveloffset=+1]
 
-include::topics/Balloon_Driver.adoc[]
-
+include::topics/Balloon_Driver.adoc[leveloffset=+1]

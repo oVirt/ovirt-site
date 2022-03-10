@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Load_Balancing_Policy_Cluster_Maintenance"]
-=== Load Balancing Policy: Cluster_Maintenance
+= Load Balancing Policy: Cluster_Maintenance
 
 A cluster maintenance scheduling policy limits activity in a cluster during maintenance tasks.
 When a cluster maintenance policy is set:

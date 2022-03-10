@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Central_Processing_Unit_CPU"]
-=== Central Processing Unit (CPU)
+= Central Processing Unit (CPU)
 
 Each host within a cluster has a number of virtual CPUs (vCPUs). The virtual CPUs are in turn exposed to guests running on the hosts. All virtual CPUs exposed by hosts within a cluster are of the type selected when the cluster was initially created via {virt-product-fullname} {engine-name}. Mixing of virtual CPU types within a cluster is not possible.
 

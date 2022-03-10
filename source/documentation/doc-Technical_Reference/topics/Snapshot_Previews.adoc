@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Snapshot_Previews"]
-=== Snapshot Previews
+= Snapshot Previews
 
 To select which snapshot a virtual disk will be reverted to, the administrator can preview all previously created snapshots.
 

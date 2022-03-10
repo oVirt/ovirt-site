@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Stable_Device_Addresses_in_Red_Hat_Enterprise_Virtualization"]
-=== Stable Device Addresses in {virt-product-fullname}
+= Stable Device Addresses in {virt-product-fullname}
 
 Virtual hardware PCI address allocations are persisted in the *ovirt-engine* database.
 

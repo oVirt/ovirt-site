@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Remote_Authentication_Using_GSSAPI"]
-=== Remote Authentication Using GSSAPI
+= Remote Authentication Using GSSAPI
 
 In the context of {virt-product-fullname}, remote authentication refers to authentication that is handled by a remote service, not the {virt-product-fullname} {engine-name}. Remote authentication is used for user or API connections coming to the {engine-name} from within an AD, IdM, or RHDS domain. The {virt-product-fullname} {engine-name} must be configured by an administrator using the *engine-manage-domains* tool to be a part of an RHDS, AD, or IdM domain. This requires that the {engine-name} be provided with credentials for an account from the RHDS, AD, or IdM directory server for the domain with sufficient privileges to join a system to the domain. After domains have been added, domain users can be authenticated by the {virt-product-fullname} {engine-name} against the directory server using a password. The {engine-name} uses a framework called the Simple Authentication and Security Layer (SASL) which in turn uses the Generic Security Services Application Program Interface (GSSAPI) to securely verify the identity of a user, and ascertain the authorization level available to the user.
 

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="connecting-to-virtual-machines"]
-=== Connecting to virtual machines
+= Connecting to virtual machines
 
 *Connecting to a virtual machine*
 

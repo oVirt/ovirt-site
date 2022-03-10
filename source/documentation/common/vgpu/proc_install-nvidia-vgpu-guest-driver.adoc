@@ -35,7 +35,6 @@ endif::[]
 [IMPORTANT]
 ====
 *Linux only:* When installing the driver on a Linux guest operating system, you are prompted to update xorg.conf. If you do not update xorg.conf during the installation, you need to update it manually.
-For more information, see xref:Updating_and_Enabling_xorg_nvidia_gpu_passthrough[].
 ====
 +
 . After the driver finishes installing, reboot the machine. *For Windows virtual machines,* fully power off the guest from the Administration portal or the VM portal, not from within the guest operating system.

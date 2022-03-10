@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Latest_cluster_configuration_view"]
-==== Cluster Configuration
+= Cluster Configuration
 
 The following table shows the configuration history parameters of the clusters in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_cluster_configuration_view"]

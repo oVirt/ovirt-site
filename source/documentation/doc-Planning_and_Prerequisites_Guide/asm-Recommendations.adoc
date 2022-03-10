@@ -1,18 +1,18 @@
 :_content-type: ASSEMBLY
 [id="recommendations"]
-== Recommendations
+= Recommendations
 
 This chapter describes configuration that is not strictly required, but may improve the performance or stability of your environment.
 
-include::topics/con-General_Recommendations.adoc[]
+include::topics/con-General_Recommendations.adoc[leveloffset=+1]
 
-include::topics/con-Security_Recommendations.adoc[]
+include::topics/con-Security_Recommendations.adoc[leveloffset=+1]
 
-include::topics/con-Host_Recommendations.adoc[]
+include::topics/con-Host_Recommendations.adoc[leveloffset=+1]
 
-include::topics/con-Networking_Recommendations.adoc[]
+include::topics/con-Networking_Recommendations.adoc[leveloffset=+1]
 
 [discrete]
 include::common/install/con-Recommended_practices_for_configuring_host_networks.adoc[leveloffset=+2]
 
-include::topics/con-Self-hosted_Engine_Recommendations.adoc[]
+include::topics/con-Self-hosted_Engine_Recommendations.adoc[leveloffset=+1]

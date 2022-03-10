@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_machine_hourly_and_daily_history_views"]
-==== Virtual Machine Statistics Views
+= Virtual Machine Statistics Views
 
 
 .Historical Statistics for Each Virtual Machine in the System

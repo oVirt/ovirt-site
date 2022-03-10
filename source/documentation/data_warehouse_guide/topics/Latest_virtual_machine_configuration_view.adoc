@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Latest_virtual_machine_configuration_view"]
-==== Virtual Machine Configuration
+= Virtual Machine Configuration
 
 The following table shows the configuration history parameters of the virtual machines in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_configuration_view"]

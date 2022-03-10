@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="User_Details_History"]
-==== User Details History
+= User Details History
 
 The following table shows the configuration history parameters of the users in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-81"]

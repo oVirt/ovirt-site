@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_Machine_Device_Configuration"]
-==== Virtual Machine Device Configuration
+= Virtual Machine Device Configuration
 
 The following table shows the relationships between virtual machines and their associated devices, including disks and virtual interfaces.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_5_vm_config_hist_devices"]

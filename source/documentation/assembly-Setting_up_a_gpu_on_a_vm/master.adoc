@@ -5,14 +5,34 @@ include::common/collateral_files/attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="setting-up-an-nvidia-gpu-for-a-virtual-machine"]
 = Setting up an NVIDIA GPU for a virtual machine in {virt-product-fullname}
-:context: assembly_managing-vgpu-devices
 :context: GPU_setup_on_vm_standalone_doc
 :GPU_setup_on_vm_standalone_doc:
 
 You can use a host with a compatible graphics processing unit (GPU) to run virtual machines in {virt-product-fullname} that are suited for graphics-intensive tasks and for running software that cannot run without a GPU, such as CAD.
 
-include::assembly_managing-nvidia-vgpu-devices.adoc[]
-//include::common/assemblies/assembly_managing-intel-vgpu-devices.adoc[leveloffset=+1]
+You can assign a GPU to a virtual machine in one of the following ways:
+
+* *GPU passthrough*: You can assign a host GPU to a single virtual machine, so the virtual machine, instead of the host, uses the GPU.
+
+* *Virtual GPU (vGPU)*: You can divide a physical GPU device into one or more virtual devices, referred to as _mediated devices_. You can then assign these mediated devices to one or more virtual machines as virtual GPUs. These virtual machines share the performance of a single physical GPU. For some GPUs, only one mediated device can be assigned to a single guest. vGPU support is only available on selected NVIDIA GPUs.
++
+.Example:
+A host has four GPUs. Each GPU can support up to 16 vGPUs, for a total of 64 vGPUs. Some possible vGPU assignments are:
+
+** one virtual machine with 64 vGPUs
+** 64 virtual machines, each with one vGPU
+** 32 virtual machines, each with one vGPU; eight virtual machines, each with two vGPUs; 4 virtual machines, each with four vGPUs
+
+include::assembly_nvidia_gpu_passthrough.adoc[leveloffset=+1]
+include::assembly_managing-nvidia-vgpu-devices.adoc[leveloffset=+1]
+
+
+[id='related-information-general_{context}']
+== Related information
+
+For further information on using NVIDA vGPU on RHEL with KVM, see:
+
+* link:https://docs.nvidia.com/grid/latest/grid-vgpu-release-notes-red-hat-el-kvm/index.html[the NVIDIA GPU Software Release Notes].
+* _NVIDIA Virtual GPU Software Documentation_ at https://docs.nvidia.com.
 
 :GPU_setup_on_vm_standalone_doc!:
-:context!: GPU_setup_on_vm_standalone_doc

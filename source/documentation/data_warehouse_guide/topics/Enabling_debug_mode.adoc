@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="enabling-debug-mode"]
-==== Enabling Debug Mode
+= Enabling Debug Mode
 
 You can enable debug mode to record log sampling, hourly, and daily job times in the */var/log/ovirt-engine-dwh/ovirt-engine-dwhd.log* file. This is useful for checking the ETL process. Debug mode is disabled by default.
 

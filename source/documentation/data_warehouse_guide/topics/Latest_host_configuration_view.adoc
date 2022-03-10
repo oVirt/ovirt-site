@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Latest_host_configuration_view"]
-==== Host Configuration
+= Host Configuration
 
 The following table shows the configuration history parameters of the hosts in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_host_configuration_view"]

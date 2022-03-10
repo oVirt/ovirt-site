@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Latest_host_interface_configuration_view"]
-==== Host Interface Configuration
+= Host Interface Configuration
 
 The following table shows the configuration history parameters of the host interfaces in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-host_interface_configuration_view"]

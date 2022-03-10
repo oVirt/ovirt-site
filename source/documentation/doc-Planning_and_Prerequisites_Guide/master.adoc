@@ -20,6 +20,6 @@ include::common/arch/assembly-RHV_Architecture.adoc[leveloffset=+1]
 
 include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 
-include::asm-Considerations.adoc[]
+include::asm-Considerations.adoc[leveloffset=+1]
 
-include::asm-Recommendations.adoc[]
+include::asm-Recommendations.adoc[leveloffset=+1]

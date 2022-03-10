@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Host_hourly_and_daily_history_views"]
-==== Host Statistics Views
+= Host Statistics Views
 
 
 .Historical Statistics for Each Host in the System

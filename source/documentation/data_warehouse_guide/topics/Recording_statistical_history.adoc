@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Recording_statistical_history"]
-=== Recording Statistical History
+= Recording Statistical History
 
 The ETL service collects data into the statistical tables every minute. Data is stored for every minute of the past 24 hours, at a minimum, but can be stored for as long as 48 hours depending on the last time a deletion job was run. Minute-by-minute data more than two hours old is aggregated into hourly data and stored for two months. Hourly data more than two days old is aggregated into daily data and stored for five years.
 

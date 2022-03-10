@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="storage-types"]
-=== Storage Types
+= Storage Types
 
 Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.
 
@@ -21,7 +21,7 @@ See:
 * link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index#[_{enterprise-linux} Storage Administration Guide_]
 
 [id="nfs"]
-==== NFS
+== NFS
 
 NFS versions 3 and 4 are supported by {virt-product-fullname} 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.
 
@@ -34,7 +34,7 @@ See:
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-preparing_and_adding_nfs_storage[Preparing and Adding NFS Storage] in the _Administration Guide_.
 
 [id="iscsi"]
-==== iSCSI
+== iSCSI
 
 Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.
 
@@ -47,7 +47,7 @@ See:
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_iSCSI_Storage_storage_admin[Adding iSCSI Storage] in the _Administration Guide_.
 
 [id="fibre-channel"]
-==== Fibre Channel
+== Fibre Channel
 
 Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.
 
@@ -60,7 +60,7 @@ See:
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_FCP_Storage_storage_admin[Adding FCP Storage] in the _Administration Guide_.
 
 [id="fcoe"]
-==== Fibre Channel over Ethernet
+== Fibre Channel over Ethernet
 
 To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must enable the *fcoe* key on the {engine-name}, and install the _vdsm-hook-fcoe_ package on the hosts.
 
@@ -72,23 +72,23 @@ See:
 
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#how_to_set_up_rhvm_to_use_fcoe[How to Set Up {virt-product-fullname} {engine-name} to Use FCoE] in the _Administration Guide_.
 
-[id="gluster"]
-==== {gluster-storage-fullname}
-
-{gluster-storage-fullname} (RHGS) is a POSIX-compliant and open source file system. Three or more servers are configured as a {gluster-storage-fullname} cluster, instead of network-attached storage (NAS) appliances or a storage area network (SAN) array.
-
-{gluster-storage-fullname} should be utilized over 10GbE and segregated with VLANs.
-
-Check the compatibility matrix in link:https://access.redhat.com/articles/2356261[] before using RHGS with {virt-product-fullname}.
-
-See:
-
-* link:https://access.redhat.com/documentation/en-us/red-hat-gluster-storage/[{gluster-storage-fullname} Documentation]
-
-* link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.2/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/[_Configuring {virt-product-fullname} with {gluster-storage-fullname}_]
+// [id="gluster"]
+// == {gluster-storage-fullname}
+//
+// {gluster-storage-fullname} (RHGS) is a POSIX-compliant and open source file system. Three or more servers are configured as a {gluster-storage-fullname} cluster, instead of network-attached storage (NAS) appliances or a storage area network (SAN) array.
+//
+// {gluster-storage-fullname} should be utilized over 10GbE and segregated with VLANs.
+//
+// Check the compatibility matrix in link:https://access.redhat.com/articles/2356261[] before using RHGS with {virt-product-fullname}.
+//
+// See:
+//
+// * link:https://access.redhat.com/documentation/en-us/red-hat-gluster-storage/[{gluster-storage-fullname} Documentation]
+//
+// * link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.2/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/[_Configuring {virt-product-fullname} with {gluster-storage-fullname}_]
 
 [id="rhhi"]
-==== Red Hat Hyperconverged Infrastructure
+== Red Hat Hyperconverged Infrastructure
 
 Red Hat Hyperconverged Infrastructure (RHHI) combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.
 
@@ -109,7 +109,7 @@ See:
 //See: link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/[_Ceph File System Guide_]
 
 [id="posix"]
-==== POSIX-Compliant FS
+== POSIX-Compliant FS
 
 Other POSIX-compliant file systems can be used as storage domains in {virt-product-fullname}, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with {virt-product-fullname}.
 
@@ -120,7 +120,7 @@ See:
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage[Adding POSIX Compliant File System Storage] in the _Administration Guide_.
 
 [id="local-storage"]
-==== Local Storage
+== Local Storage
 
 Local storage is set up on an individual host, using the host's own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
 

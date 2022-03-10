@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Editing_virtual_machines"]
-=== Editing virtual machines
+= Editing virtual machines
 
 [NOTE]
 ====
@@ -12,6 +12,7 @@ You can edit a virtual machine's disks and network interfaces in the virtual mac
 *Editing a virtual machine*
 
 In the virtual machines pane, click the card of the virtual machine that you want to edit. The Virtual machine dashboard is displayed, which contains the following fields, organized in individual cards.
+
 Click the *Edit* icon (image:Edit_VM.png[width=20px]) in the appropriate card to edit the values in that card:
 
 .Virtual Machine name and description

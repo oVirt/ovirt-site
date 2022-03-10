@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 [id="chap-Managing_virtual_machines"]
-== Managing virtual machines
+= Managing virtual machines
 
 You can perform common virtual machine management tasks in the virtual machines pane:
 
@@ -11,10 +11,10 @@ You can perform common virtual machine management tasks in the virtual machines 
 * Restart a virtual machine by selecting *Reboot* from the drop-down menu. It is available when the virtual machine is running.
 
 
-include::topics/Viewing_virtual_machines.adoc[]
+include::topics/Viewing_virtual_machines.adoc[leveloffset=+1]
 
-include::topics/Editing_virtual_machines.adoc[]
+include::topics/Editing_virtual_machines.adoc[leveloffset=+1]
 
-include::topics/Creating_virtual_machines.adoc[]
+include::topics/Creating_virtual_machines.adoc[leveloffset=+1]
 
-include::topics/Connecting_to_virtual_machines.adoc[]
+include::topics/Connecting_to_virtual_machines.adoc[leveloffset=+1]

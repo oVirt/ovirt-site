@@ -3,7 +3,7 @@
 
 //this topic is deprecated and will be removed in 4.4.4 or 4.4.5
 
-==== Adding an OpenStack Block Storage (Cinder) Instance for Storage Management
+= Adding an OpenStack Block Storage (Cinder) Instance for Storage Management
 ifdef::rhv-doc[]
 [IMPORTANT]
 ====
@@ -15,7 +15,7 @@ endif::[]
 
 Add an OpenStack Block Storage (Cinder) instance for storage management to the {virt-product-fullname} {engine-name}. The OpenStack Cinder volumes are provisioned by Ceph Storage.
 
-*Adding an OpenStack Block Storage (Cinder) Instance for Storage Management*
+.Procedure
 
 . Click menu:Administration[Providers].
 . Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].

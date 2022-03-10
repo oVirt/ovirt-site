@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="VDSM_hooks_hooking_module"]
-=== Using the VDSM Hooking Module
+= Using the VDSM Hooking Module
 
 VDSM ships with a Python hooking module, providing helper functions for VDSM hook scripts. This module is provided as an example, and is only relevant to VDSM hooks written in Python.
 

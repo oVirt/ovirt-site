@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="editing-user-information_{context}"]
-==== Editing User Information
+= Editing User Information
 
 You can update user information, such as the email address:
 

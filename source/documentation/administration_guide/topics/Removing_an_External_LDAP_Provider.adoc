@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="removing-an-external-ldap-provider_{context}"]
-==== Removing an External LDAP Provider
+= Removing an External LDAP Provider
 
 This procedure shows you how to remove an external configured LDAP provider and its users.
 
-*Removing an External LDAP Provider*
+.Procedure
 
 . Remove the LDAP provider configuration files, replacing the default name _profile1_:
 +

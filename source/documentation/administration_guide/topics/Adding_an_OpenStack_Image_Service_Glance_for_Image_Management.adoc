@@ -1,18 +1,18 @@
 :_content-type: PROCEDURE
 [id="Adding_an_OpenStack_Image_Service_Glance_for_Image_Management"]
-==== Adding an OpenStack Image (Glance) Instance for Image Management
+= Adding an OpenStack Image (Glance) Instance for Image Management
 
 Add an OpenStack Image (Glance) instance for image management to the {virt-product-fullname} {engine-name}.
 
-*Adding an OpenStack Image (Glance) Instance for Image Management*
+.Procedure
 
 . Click menu:Administration[Providers].
 . Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
 . Enter a *Name* and *Description*.
 . Select *OpenStack Image* from the *Type* drop-down list.
 . Enter the URL or fully qualified domain name of the machine on which the OpenStack Image instance is installed in the *Provider URL* text field.
-. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the OpenStack Image instance user registered in Keystone. 
-You must also define the authentication URL of the Keystone server by defining the *Protocol* (must be `HTTP`), *Hostname*, and *API Port.* 
+. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the OpenStack Image instance user registered in Keystone.
+You must also define the authentication URL of the Keystone server by defining the *Protocol* (must be `HTTP`), *Hostname*, and *API Port.*
 +
 Enter the *Tenant* for the OpenStack Image instance.
 

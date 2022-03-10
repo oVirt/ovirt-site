@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Host_General_Settings"]
-==== Host General Settings Explained
+= Host General Settings Explained
 
 These settings apply when editing the details of a host or adding new {enterprise-linux-host-fullname}s and Satellite host provider hosts.
 

@@ -1,9 +1,9 @@
 :_content-type: ASSEMBLY
 [id="chap-Bookmarks"]
-== Bookmarks
+= Bookmarks
 
-include::topics/Saving_a_query_string_as_a_bookmark.adoc[]
+include::topics/Saving_a_query_string_as_a_bookmark.adoc[leveloffset=+1]
 
-include::topics/Editing_a_bookmark.adoc[]
+include::topics/Editing_a_bookmark.adoc[leveloffset=+1]
 
-include::topics/Deleting_a_bookmark.adoc[]
+include::topics/Deleting_a_bookmark.adoc[leveloffset=+1]

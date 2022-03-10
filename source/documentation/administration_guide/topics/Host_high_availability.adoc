@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Host_high_availability"]
-==== Host High Availability
+= Host High Availability
 
 The {virt-product-fullname} {engine-name} uses fencing to keep hosts in a cluster responsive. A *Non Responsive* host is different from a *Non Operational* host. *Non Operational* hosts can be communicated with by the {engine-name}, but have an incorrect configuration, for example a missing logical network. *Non Responsive* hosts cannot be communicated with by the {engine-name}.
 

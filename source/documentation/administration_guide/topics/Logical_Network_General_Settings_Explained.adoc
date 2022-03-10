@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Logical_Network_General_Settings_Explained"]
-==== Logical Network General Settings Explained
+= Logical Network General Settings Explained
 
 The table below describes the settings for the *General* tab of the *New Logical Network* and *Edit Logical Network* window.
 

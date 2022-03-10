@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Modifying_a_tag"]
-=== Modifying a Tag
+= Modifying a Tag
 
 You can edit the name and description of a tag.
 

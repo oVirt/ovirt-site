@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_storage"]
-=== Searching for Storage
+= Searching for Storage
 
 The following table describes all search options for storage.
 [id="searching_storage"]

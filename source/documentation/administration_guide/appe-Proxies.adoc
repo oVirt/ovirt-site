@@ -3,30 +3,30 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-Proxies"]
-== Proxies
+= Proxies
 
 [id="sect-SPICE_Proxy"]
-=== SPICE Proxy
+== SPICE Proxy
 
-include::topics/SPICE_Proxy_Overview.adoc[]
+include::topics/SPICE_Proxy_Overview.adoc[leveloffset=+2]
 
-include::topics/SPICE_Proxy_Machine_Setup.adoc[]
+include::topics/SPICE_Proxy_Machine_Setup.adoc[leveloffset=+2]
 
-include::topics/Turning_On_a_SPICE_Proxy.adoc[]
+include::topics/Turning_On_a_SPICE_Proxy.adoc[leveloffset=+2]
 
-include::topics/Turning_off_a_SPICE_Proxy.adoc[]
+include::topics/Turning_off_a_SPICE_Proxy.adoc[leveloffset=+2]
 
 [id="sect-Squid_Proxy"]
-=== Squid Proxy
+== Squid Proxy
 
-include::topics/Installing_and_Configuring_a_Squid_Proxy.adoc[]
+include::topics/Installing_and_Configuring_a_Squid_Proxy.adoc[leveloffset=+2]
 
 [id="sect-Websocket_Proxy"]
-=== Websocket Proxy
+== Websocket Proxy
 
 :context: proxy_admin
 
-include::topics/Websocket_Proxy_Overview.adoc[]
+include::topics/Websocket_Proxy_Overview.adoc[leveloffset=+2]
 
 // include::common/admin/proc-Migrating_the_Websocket_Proxy_to_a_Separate_Machine.adoc[leveloffset=+3]
 

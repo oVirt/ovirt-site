@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Cluster_General_Settings_Explained"]
-==== General Cluster Settings Explained
+= General Cluster Settings Explained
 
 The table below describes the settings for the *General* tab in the *New Cluster* and *Edit Cluster* windows. Invalid entries are outlined in orange when you click btn:[OK], prohibiting the changes being accepted. In addition, field prompts indicate the expected values or range of values.
 

@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 [id="chap-Automating_RHV_Configuration_using_Ansible"]
-== Automating Configuration Tasks using Ansible
+= Automating Configuration Tasks using Ansible
 
 Ansible is an automation tool used to configure systems, deploy software, and perform rolling updates. {virt-product-fullname} includes a limited version of Ansible to automate {virt-product-shortname} post-installation tasks such as data center setup and configuration, managing users, and virtual machine operations.
 
@@ -13,4 +13,16 @@ Ansible Tower is a graphically enabled framework accessible through a web interf
 
 See the link:http://docs.ansible.com/[Ansible documentation] for alternate installation instructions, and information about using Ansible.
 
-include::topics/oVirt_Ansible_Collection.adoc[]
+[id="oVirt_Ansible_Collection"]
+== oVirt Ansible Collection
+
+*oVirt Ansible Collection* provides modules, roles, and plugins for managing various parts of the Red Hat Virtualization infrastructure.
+The modules are used for communication between Ansible and the Red Hat Virtualization Manager.
+Ansible roles provide a method of modularizing Ansible code by breaking up large playbooks into smaller reusable files that can be shared with other users.
+For more information about *oVirt Ansible Collection*, see the link:https://cloud.redhat.com/ansible/automation-hub/redhat/rhv/docs[Automation Hub] documentation.
+
+include::topics/Installing_ovirt_Ansible_Collection.adoc[leveloffset=+2]
+
+include::topics/Installing_Ansible_Collection_from_Automation_Hub.adoc[leveloffset=+2]
+
+include::topics/Using_Ansible_Collection.adoc[leveloffset=+2]

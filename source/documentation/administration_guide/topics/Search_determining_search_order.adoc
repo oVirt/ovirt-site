@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Search_determining_search_order"]
-=== Search: Determining Search Order
+= Search: Determining Search Order
 
 You can determine the sort order of the returned information by using `sortby`. Sort direction (`asc` for ascending, `desc` for descending) can be included.
 

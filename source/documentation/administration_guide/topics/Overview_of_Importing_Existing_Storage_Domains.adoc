@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Overview_of_Importing_Existing_Storage_Domains"]
-==== Overview of Importing Existing Storage Domains
+= Overview of Importing Existing Storage Domains
 
 Aside from adding new storage domains, which contain no data, you can import existing storage domains and access the data they contain. By importing storage domains, you can recover data in the event of a failure in the Manager database, and migrate data from one data center or environment to another.
 

@@ -1,17 +1,13 @@
 :_content-type: PROCEDURE
 [id="Creating_a_tag"]
-=== Creating a Tag
+= Creating a Tag
 
 Create tags so you can filter search results using tags.
 
 
-*Creating a Tag*
+.Procedure
 
 . Click the *Tags* icon (image:images/Tag.png[]) in the header bar.
 . Click *Add* to create a new tag, or select a tag and click *New* to create a descendant tag.
 . Enter the *Name* and *Description* of the new tag.
 . Click btn:[OK].
-
-
-
-

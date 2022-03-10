@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Service_Level_Agreement_Policy_Enforcement"]
-=== Service Level Agreement Policy Enforcement
+= Service Level Agreement Policy Enforcement
 
 This procedure describes how to set service level agreement CPU features.
 
-*Setting a Service Level Agreement CPU Policy*
+.Procedure
 
 . Click menu:Compute[Virtual Machines].
 . Click *New*, or select a virtual machine and click *Edit*.

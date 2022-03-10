@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Assigning_Security_Groups_to_VNIC_Profiles"]
-==== Assigning Security Groups to vNIC Profiles
+= Assigning Security Groups to vNIC Profiles
 
 
 [NOTE]
@@ -17,7 +17,7 @@ A security group is identified using the ID of that security group as registered
 ====
 
 
-*Assigning Security Groups to vNIC Profiles*
+.Procedure
 
 . Click menu:Network[Networks].
 . Click the logical network's name. This opens the details view.

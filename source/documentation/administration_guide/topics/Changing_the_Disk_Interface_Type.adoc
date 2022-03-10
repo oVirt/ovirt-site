@@ -1,13 +1,13 @@
 :_content-type: PROCEDURE
 [id="Changing_the_Disk_Interface_Type"]
-==== Changing the Disk Interface Type
+= Changing the Disk Interface Type
 
 Users can change a disk's interface type after the disk has been created. This enables you to attach an existing disk to a virtual machine that requires a different interface type. For example, a disk using the `VirtIO` interface can be attached to a virtual machine requiring the `VirtIO-SCSI` or `IDE` interface. This provides flexibility to migrate disks for the purpose of backup and restore, or disaster recovery. The disk interface for shareable disks can also be updated per virtual machine. This means that each virtual machine that uses the shared disk can use a different interface type.
 
 To update a disk interface type, all virtual machines using the disk must first be stopped.
 
 
-*Changing a Disk Interface Type*
+.Changing a Disk Interface Type*
 
 . Click menu:Compute[Virtual Machines] and stop the appropriate virtual machine(s).
 . Click the virtual machine's name. This opens the details view.
@@ -17,7 +17,7 @@ To update a disk interface type, all virtual machines using the disk must first 
 
 You can attach a disk to a different virtual machine that requires a different interface type.
 
-*Attaching a Disk to a Different Virtual Machine using a Different Interface Type*
+.Attaching a Disk to a Different Virtual Machine using a Different Interface Type
 
 . Click menu:Compute[Virtual Machines] and stop the appropriate virtual machine(s).
 . Click the virtual machine's name. This opens the details view.

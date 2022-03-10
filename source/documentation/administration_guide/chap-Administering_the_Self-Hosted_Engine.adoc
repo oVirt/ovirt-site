@@ -1,0 +1,30 @@
+:_content-type: ASSEMBLY
+[id='chap-Administering_the_Self-Hosted_Engine']
+= Administering the Self-Hosted Engine
+
+:context: SHE_admin
+
+[id='Maintaining_the_Self-Hosted_Engine']
+== Maintaining the Self-hosted engine
+
+include::common/she/con-maintenance-modes.adoc[leveloffset=+2]
+include::common/she/proc-local-maintenance-mode.adoc[leveloffset=+2]
+include::common/she/proc-global-maintenance-mode.adoc[leveloffset=+2]
+
+include::common/she/proc-Administering_the_Manager_Virtual_Machine.adoc[leveloffset=+1]
+
+include::common/she/proc-Configuring_Memory_Slots_Reserved_for_the_SHE.adoc[leveloffset=+1]
+
+include::common/install/proc-Adding_self-hosted_engine_nodes_to_the_Manager.adoc[leveloffset=+1]
+
+include::common/install/proc-Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node.adoc[leveloffset=+1]
+
+include::common/she/proc-Booting_a_self-hosted_engine_in_rescue_mode.adoc[leveloffset=+1]
+
+include::common/she/proc-Removing_a_Host_from_a_Self-Hosted_Engine_Environment.adoc[leveloffset=+1]
+
+include::common/upgrade/assembly-Updating_a_self-hosted_engine.adoc[leveloffset=+1]
+
+include::common/she/proc-Changing_fqdn_of_rhvm_self-hosted_engine.adoc[leveloffset=+1]
+
+:context!: SHE_admin

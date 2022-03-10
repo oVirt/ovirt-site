@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning"]
-==== Adding a Red Hat Satellite Instance for Host Provisioning
+= Adding a Red Hat Satellite Instance for Host Provisioning
 
 Add a Satellite instance for host provisioning to the {virt-product-fullname} {engine-name}. {virt-product-fullname} 4.2 is supported with Red Hat Satellite 6.1.
 
 
-*Adding a Satellite Instance for Host Provisioning*
+.Procedure
 
 . Click menu:Administration[Providers].
 . Click *Add*.
@@ -24,4 +24,3 @@ IP addresses cannot be used to add a Satellite instance.
 .. Click *Test* to test whether you can authenticate successfully with the Satellite instance using the provided credentials.
 .. If the Satellite instance uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the Satellite instance provides to ensure the {engine-name} can communicate with the instance.
 . Click btn:[OK].
-

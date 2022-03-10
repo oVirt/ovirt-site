@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Removing_a_cluster"]
-==== Removing a Cluster
+= Removing a Cluster
 
 Move all hosts out of a cluster before removing it.
 
@@ -10,7 +10,7 @@ You cannot remove the *Default* cluster, as it holds the *Blank* template. You c
 ====
 
 
-*Removing a Cluster*
+.Procedure
 
 . Click menu:Compute[Clusters] and select a cluster.
 . Ensure there are no hosts in the cluster.

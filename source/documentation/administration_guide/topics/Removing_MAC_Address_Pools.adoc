@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Removing_MAC_Address_Pools"]
-==== Removing MAC Address Pools
+= Removing MAC Address Pools
 
 You can remove a created MAC address pool if the pool is not associated with a cluster, but the default MAC address pool cannot be removed.
 
 
-*Removing a MAC Address Pool*
+.Procedure
 
 . Click menu:Administration[Configure].
 . Click the *MAC Address Pools* tab.

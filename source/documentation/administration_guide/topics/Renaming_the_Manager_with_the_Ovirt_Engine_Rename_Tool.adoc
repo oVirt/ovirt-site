@@ -1,13 +1,13 @@
 :_content-type: PROCEDURE
 [id="Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool"]
-==== Renaming the {engine-name} with the oVirt Engine Rename Tool
+= Renaming the {engine-name} with the oVirt Engine Rename Tool
 
 You can use the `ovirt-engine-rename` command to update records of the fully qualified domain name (FQDN) of the {engine-name}.
 
 The tool checks whether the {engine-name} provides a local ISO or Data storage domain. If it does, the tool prompts the user to eject, shut down, or place into maintenance mode any virtual machine or storage domain connected to the storage before continuing with the operation. This ensures that virtual machines do not lose connectivity with their virtual disks, and prevents ISO storage domains from losing connectivity during the renaming process.
 
 
-*Using the oVirt Engine Rename Tool*
+.Procedure
 
 . Prepare all DNS and other relevant records for the new FQDN.
 . Update the DHCP server configuration if DHCP is used.

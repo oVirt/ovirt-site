@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="The_oVirt_Engine_Rename_Tool"]
-==== The oVirt Engine Rename Tool
+= The oVirt Engine Rename Tool
 
 When the `engine-setup` command is run in a clean environment, the command generates a number of certificates and keys that use the fully qualified domain name of the {engine-name} supplied during the setup process. If the fully qualified domain name of the {engine-name} must be changed later on (for example, due to migration of the machine hosting the {engine-name} to a different domain), the records of the fully qualified domain name must be updated to reflect the new name. The `ovirt-engine-rename` command automates this task.
 

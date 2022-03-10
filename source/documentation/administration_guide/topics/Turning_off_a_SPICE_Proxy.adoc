@@ -1,27 +1,27 @@
 :_content-type: PROCEDURE
 [id="Turning_off_a_SPICE_Proxy"]
-==== Turning Off a SPICE Proxy
+= Turning Off a SPICE Proxy
 
 This procedure explains how to turn off (deactivate) a SPICE proxy.
 
 
-*Turning Off a SPICE Proxy*
+.Procedure
 
-. Log in to the {engine-name}: 
+. Log in to the {engine-name}:
 +
 [source,terminal]
 ----
 $ ssh root@_[IP of {engine-name}]_
 ----
 +
-. Run the following command to clear the SPICE proxy: 
+. Run the following command to clear the SPICE proxy:
 +
 [source,terminal]
 ----
 # engine-config -s SpiceProxyDefault=""
 ----
 +
-. Restart the {engine-name}: 
+. Restart the {engine-name}:
 +
 [source,terminal]
 ----
@@ -30,4 +30,3 @@ $ ssh root@_[IP of {engine-name}]_
 
 
 SPICE proxy is now deactivated (turned off). It is no longer possible to connect to the {virt-product-fullname} network through the SPICE proxy.
-

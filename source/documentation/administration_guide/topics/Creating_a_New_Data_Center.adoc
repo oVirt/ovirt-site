@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_New_Data_Center"]
-==== Creating a New Data Center
+= Creating a New Data Center
 
 This procedure creates a data center in your virtualization environment. The data center requires a functioning cluster, host, and storage domain to operate.
 
@@ -12,7 +12,7 @@ You can specify a MAC pool range for a cluster. Setting a MAC pool range is no l
 ====
 
 
-*Creating a New Data Center*
+.Procedure
 
 . Click menu:Compute[Data Centers].
 . Click *New*.

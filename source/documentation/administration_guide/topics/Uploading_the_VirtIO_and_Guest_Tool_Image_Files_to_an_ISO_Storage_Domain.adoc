@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain"]
-==== Uploading the VirtIO and guest tool image files to a storage domain
+= Uploading the VirtIO and guest tool image files to a storage domain
 
 [NOTE]
 ====

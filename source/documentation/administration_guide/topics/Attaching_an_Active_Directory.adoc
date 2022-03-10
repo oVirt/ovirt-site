@@ -1,9 +1,9 @@
 :_content-type: PROCEDURE
 [id="Attaching_an_Active_Directory"]
-==== Attaching an Active Directory
+= Attaching an Active Directory
 
 
-*Prerequisites*
+.Prerequisites
 
 * You need to know the Active Directory forest name. The forest name is also known as the root domain name.
 +
@@ -23,7 +23,7 @@ Examples of the most common Active Directory configurations, which cannot be con
 * If your Active Directory deployment spans multiple domains, be aware of the limitation described in the `/usr/share/ovirt-engine-extension-aaa-ldap/profiles/ad.properties` file.
 
 
-*Configuring an External LDAP Provider*
+.Procedure
 
 . On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
 +

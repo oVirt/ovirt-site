@@ -1,31 +1,31 @@
 :_content-type: ASSEMBLY
 [id="chap-Pools"]
-== Pools
+= Pools
 
-include::topics/Pools.adoc[]
+include::topics/Pools.adoc[leveloffset=+1]
 
-include::topics/Creating_a_VM_Pool.adoc[]
+include::topics/Creating_a_VM_Pool.adoc[leveloffset=+1]
 
 [id="sect-Explanation_of_Settings_and_Controls_in_the_New_Pool_Window"]
-=== Explanation of Settings and Controls in the New Pool and Edit Pool Windows
+== Explanation of Settings and Controls in the New Pool and Edit Pool Windows
 
-include::topics/New_Pool_General_Settings_Explained.adoc[]
+include::topics/New_Pool_General_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/New_Pool_Pool_Settings_Explained.adoc[]
+include::topics/New_Pool_Pool_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/New_Pool_and_Edit_Pool_Console_Settings_Explained.adoc[]
+include::topics/New_Pool_and_Edit_Pool_Console_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Pool_Host_settings_explained.adoc[]
+include::topics/Virtual_Machine_Pool_Host_settings_explained.adoc[leveloffset=+2]
 
-include::topics/New_Pool_Resource_Settings_Explained.adoc[]
+include::topics/New_Pool_Resource_Settings_Explained.adoc[leveloffset=+2]
 
 
-include::topics/Editing_a_Virtual_Machine_Pool.adoc[]
+include::topics/Editing_a_Virtual_Machine_Pool.adoc[leveloffset=+2]
 
-include::topics/Prestarting_Virtual_Machines_in_a_Pool.adoc[]
+include::topics/Prestarting_Virtual_Machines_in_a_Pool.adoc[leveloffset=+2]
 
-include::topics/Adding_Virtual_Machines_to_a_VM_Pool.adoc[]
+include::topics/Adding_Virtual_Machines_to_a_VM_Pool.adoc[leveloffset=+2]
 
-include::topics/Detaching_Virtual_Machines_from_a_VM_Pool.adoc[]
+include::topics/Detaching_Virtual_Machines_from_a_VM_Pool.adoc[leveloffset=+2]
 
-include::topics/Removing_a_Virtual_Machine_Pool.adoc[]
+include::topics/Removing_a_Virtual_Machine_Pool.adoc[leveloffset=+2]

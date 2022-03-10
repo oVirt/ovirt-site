@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Specifying_an_NFS_Server"]
-==== Specifying an NFS Server
+= Specifying an NFS Server
 
 
 .Uploading to an NFS Server

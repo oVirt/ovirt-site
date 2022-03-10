@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Parameters_for_event_notifications_in_notifier"]
-=== Parameters for Event Notifications in ovirt-engine-notifier.conf
+= Parameters for Event Notifications in ovirt-engine-notifier.conf
 
 The event notifier configuration file can be found in */usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf*.
 

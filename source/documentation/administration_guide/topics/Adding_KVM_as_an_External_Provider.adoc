@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Adding_KVM_as_an_External_Provider"]
-==== Adding a KVM Host as a Virtual Machine Provider
+= Adding a KVM Host as a Virtual Machine Provider
 
 Add a KVM host to import virtual machines from KVM to {virt-product-fullname} {engine-name}.
 
-*Adding a KVM Host as a Virtual Machine Provider*
+.Procedure
 
 . Enable public key authentication between the proxy host and the KVM host:
 .. Log in to the proxy host and generate SSH keys for the *vdsm* user.

@@ -2,7 +2,7 @@
 [id="chap-Clusters"]
 = Clusters
 
-include::topics/Clusters.adoc[leveloffset=-1]
+include::topics/Clusters.adoc[leveloffset=+1]
 
 [id="sect-Cluster_Tasks"]
 == Cluster Tasks
@@ -12,43 +12,43 @@ include::topics/Clusters.adoc[leveloffset=-1]
 Some cluster options do not apply to Gluster clusters. For more information about using {gluster-storage-fullname} with {virt-product-fullname}, see link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.3/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/[_Configuring {virt-product-fullname} with {gluster-storage-fullname}_].
 ====
 
-include::topics/Creating_a_New_Cluster.adoc[leveloffset=-1]
+include::topics/Creating_a_New_Cluster.adoc[leveloffset=+2]
 
-include::topics/Cluster_General_Settings_Explained.adoc[leveloffset=-1]
+include::topics/Cluster_General_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Cluster_Optimization_Settings_Explained.adoc[leveloffset=-1]
+include::topics/Cluster_Optimization_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Cluster_Migration_Policy_Settings_Explained.adoc[leveloffset=-1]
+include::topics/Cluster_Migration_Policy_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Cluster_Scheduling_Policy_Settings.adoc[leveloffset=-1]
+include::topics/Cluster_Scheduling_Policy_Settings.adoc[leveloffset=+2]
 
 include::topics/conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties.adoc[leveloffset=+2]
 
-include::topics/Cluster_Console_Settings_Explained.adoc[leveloffset=-1]
+include::topics/Cluster_Console_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Fencing_Policy_Settings_Explained.adoc[leveloffset=-1]
+include::topics/Fencing_Policy_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Setting_Load_and_Power_Mgmt_Policies_for_Hosts.adoc[leveloffset=-1]
+include::topics/Setting_Load_and_Power_Mgmt_Policies_for_Hosts.adoc[leveloffset=+2]
 
-include::topics/Updating_the_MoM_Policy_on_Hosts_in_a_Cluster.adoc[leveloffset=-1]
+include::topics/Updating_the_MoM_Policy_on_Hosts_in_a_Cluster.adoc[leveloffset=+2]
 
-include::topics/Creating_a_CPU_Profile.adoc[leveloffset=-1]
+include::topics/Creating_a_CPU_Profile.adoc[leveloffset=+2]
 
-include::topics/Removing_a_CPU_Profile.adoc[leveloffset=-1]
+include::topics/Removing_a_CPU_Profile.adoc[leveloffset=+2]
 
-include::topics/Importing_an_Existing_RHGS_Cluster.adoc[leveloffset=-1]
+include::topics/Importing_an_Existing_RHGS_Cluster.adoc[leveloffset=+2]
 
-include::topics/Explanation_of_Settings_in_the_Add_Hosts_Window.adoc[leveloffset=-1]
+include::topics/Explanation_of_Settings_in_the_Add_Hosts_Window.adoc[leveloffset=+2]
 
-include::topics/Removing_a_cluster.adoc[leveloffset=-1]
+include::topics/Removing_a_cluster.adoc[leveloffset=+2]
 
-include::topics/Memory_Optimization.adoc[leveloffset=-1]
+include::topics/Memory_Optimization.adoc[leveloffset=+2]
 
 include::common/admin/con_UEFI_Q35_explanation.adoc[leveloffset=+2]
 
-include::common/admin/proc_Configuring_cluster_to_use_Q35_or_UEFI.adoc[leveloffset=+3]
+include::common/admin/proc_Configuring_cluster_to_use_Q35_or_UEFI.adoc[leveloffset=+2]
 
-include::common/admin/proc_Configuring_vm_to_use_Q35_or_UEFI.adoc[leveloffset=+3]
+include::common/admin/proc_Configuring_vm_to_use_Q35_or_UEFI.adoc[leveloffset=+2]
 
 
 :context: admin

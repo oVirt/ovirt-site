@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Hosted_Engine_Settings_Explained"]
-==== Hosted Engine Settings Explained
+= Hosted Engine Settings Explained
 
 The *Hosted Engine* settings table details the information required on the *Hosted Engine* tab of the *New Host* or *Edit Host* window.
 

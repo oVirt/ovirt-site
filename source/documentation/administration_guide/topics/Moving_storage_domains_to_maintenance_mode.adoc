@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Moving_storage_domains_to_maintenance_mode"]
-==== Moving Storage Domains to Maintenance Mode
+= Moving Storage Domains to Maintenance Mode
 
 A storage domain must be in maintenance mode before it can be detached and removed. This is required to redesignate another data domain as the master data domain.
 
@@ -12,7 +12,7 @@ You cannot move a storage domain into maintenance mode if a virtual machine has 
 Expanding iSCSI domains by adding more LUNs can only be done when the domain is active.
 
 
-*Moving storage domains to maintenance mode*
+.Procedure
 
 . Shut down all the virtual machines running on the storage domain.
 . Click menu:Storage[Domains].
@@ -25,7 +25,7 @@ Expanding iSCSI domains by adding more LUNs can only be done when the domain is 
 The `Ignore OVF update failure` check box allows the storage domain to go into maintenance mode even if the OVF update fails.
 ====
 
-. Click btn:[OK]. 
+. Click btn:[OK].
 
 The storage domain is deactivated and has an `Inactive` status in the results list. You can now edit, detach, remove, or reactivate the inactive storage domains from the data center.
 
@@ -33,4 +33,3 @@ The storage domain is deactivated and has an `Inactive` status in the results li
 ====
 You can also activate, detach, and place domains into maintenance mode using the Storage tab in the details view of the data center it is associated with.
 ====
-

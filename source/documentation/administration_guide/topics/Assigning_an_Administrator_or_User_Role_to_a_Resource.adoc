@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Assigning_an_Administrator_or_User_Role_to_a_Resource"]
-==== Assigning an Administrator or User Role to a Resource
+= Assigning an Administrator or User Role to a Resource
 
 Assign administrator or user roles to resources to allow users to access or manage that resource.
 
-*Assigning a Role to a Resource*
+.Procedure
 
 . Find and click the resource's name. This opens the details view.
 . Click the *Permissions* tab to list the assigned users, each user's role, and the inherited permissions for the selected resource.

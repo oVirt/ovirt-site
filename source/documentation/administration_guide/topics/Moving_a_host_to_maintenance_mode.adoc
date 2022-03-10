@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Moving_a_host_to_maintenance_mode"]
-==== Moving a Host to Maintenance Mode
+= Moving a Host to Maintenance Mode
 
 Many common maintenance tasks, including network configuration and deployment of software updates, require that hosts be placed into maintenance mode. Hosts should be placed into maintenance mode before any event that might cause VDSM to stop working properly, such as a reboot, or issues with networking or storage.
 

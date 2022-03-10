@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Removing_a_CPU_Profile"]
-==== Removing a CPU Profile
+= Removing a CPU Profile
 
 Remove an existing CPU profile from your {virt-product-fullname} environment.
 
-*Removing a CPU Profile*
+.Procedure
 
 . Click menu:Compute[Clusters].
 . Click the cluster's name. This opens the details view.

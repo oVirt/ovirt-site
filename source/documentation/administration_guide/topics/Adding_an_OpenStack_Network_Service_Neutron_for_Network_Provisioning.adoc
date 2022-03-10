@@ -1,7 +1,6 @@
 :_content-type: PROCEDURE
 [id="Adding_an_OpenStack_Network_Service_Neutron_for_Network_Provisioning"]
-
-==== Adding an OpenStack Networking (Neutron) Instance for Network Provisioning
+= Adding an OpenStack Networking (Neutron) Instance for Network Provisioning
 
 [IMPORTANT]
 ====
@@ -50,7 +49,7 @@ Do not select the OpenStack Networking provider from the *Network Provider* tab.
 # iptables -D INPUT -j REJECT --reject-with icmp-host-prohibited
 ----
 
-*Adding an OpenStack Networking (Neutron) Instance for Network Provisioning*
+.Procedure
 
 . Click menu:Administration[Providers].
 . Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].

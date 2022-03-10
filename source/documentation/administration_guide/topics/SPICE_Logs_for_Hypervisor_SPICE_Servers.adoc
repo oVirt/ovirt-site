@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="SPICE_Logs_for_Hypervisor_SPICE_Servers"]
-==== SPICE Logs for Hypervisor SPICE Servers
+= SPICE Logs for Hypervisor SPICE Servers
 
 
 .SPICE Logs for Hypervisor SPICE Servers

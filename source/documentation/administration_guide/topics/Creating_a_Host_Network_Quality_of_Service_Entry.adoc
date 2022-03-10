@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Creating_a_Host_Network_Quality_of_Service_Entry"]
-==== Creating a Host Network Quality of Service Entry
+= Creating a Host Network Quality of Service Entry
 
 Create a host network quality of service entry.
 
 
-*Creating a Host Network Quality of Service Entry*
+.Procedure
 
 . Click menu:Compute[Data Centers].
 . Click a data center's name. This opens the details view.

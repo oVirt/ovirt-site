@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Reclaiming_virtual_disk_space"]
-==== Reclaiming Virtual Disk Space
+= Reclaiming Virtual Disk Space
 
 Virtual disks that use thin provisioning do not automatically shrink after deleting files from them. For example, if the actual disk size is 100GB and you delete 50GB of files, the allocated disk size remains at 100GB, and the remaining 50GB is not returned to the host, and therefore cannot be used by other virtual machines. This unused disk space can be reclaimed by the host by performing a sparsify operation on the virtual machine's disks. This transfers the free space from the disk image to the host. You can sparsify multiple virtual disks in parallel.
 

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
-[id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugins"]
-=== {virt-product-fullname} User Interface Plug-ins
+[id="About-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins"]
+= About {virt-product-fullname} User Interface Plug-ins
 
 {virt-product-fullname} supports plug-ins that expose non-standard features. This makes it easier to use the {virt-product-fullname} Administration Portal to integrate with other systems. Each interface plug-in represents a set of user interface extensions that can be packaged and distributed for use with {virt-product-fullname}.
 

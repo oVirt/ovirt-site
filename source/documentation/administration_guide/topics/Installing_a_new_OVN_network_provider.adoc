@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Installing_a_new_OVN_network_provider"]
-===== Installing a New OVN Network Provider
+= Installing a New OVN Network Provider
 
 [WARNING]
 ====

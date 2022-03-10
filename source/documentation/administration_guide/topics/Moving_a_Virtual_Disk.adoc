@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Moving_a_Virtual_Disk"]
-==== Moving a Virtual Disk
+= Moving a Virtual Disk
 
 Move a virtual disk that is attached to a virtual machine or acts as a floating virtual disk from one storage domain to another. You can move a virtual disk that is attached to a running virtual machine; this is referred to as live storage migration. Alternatively, shut down the virtual machine before continuing.
 
@@ -12,7 +12,7 @@ Consider the following when moving a disk:
 
 * If the virtual disk is attached to a virtual machine that was created based on a template and used the thin provisioning storage allocation option, you must copy the disks for the template on which the virtual machine was based to the same storage domain as the virtual disk.
 
-*Moving a Virtual Disk*
+.Procedure
 
 . Click menu:Storage[Disks] and select one or more virtual disks to move.
 . Click *Move*.

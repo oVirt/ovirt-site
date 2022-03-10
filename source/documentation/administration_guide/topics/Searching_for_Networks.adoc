@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_Networks"]
-=== Searching for Networks
+= Searching for Networks
 
 The following table describes all search options for networks.
 [id="searching_networks"]

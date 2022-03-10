@@ -1,20 +1,20 @@
 :_content-type: PROCEDURE
 [id="Turning_On_a_SPICE_Proxy"]
-==== Turning On a SPICE Proxy
+= Turning On a SPICE Proxy
 
 This procedure explains how to activate (or turn on) the SPICE proxy.
 
 
-*Activating SPICE Proxy*
+.Procedure
 
-. On the {engine-name}, use the engine-config tool to set a proxy: 
+. On the {engine-name}, use the engine-config tool to set a proxy:
 +
 [source,terminal]
 ----
 # `engine-config -s SpiceProxyDefault=someProxy`
 ----
 +
-. Restart the `ovirt-engine` service: 
+. Restart the `ovirt-engine` service:
 +
 [source,terminal]
 ----

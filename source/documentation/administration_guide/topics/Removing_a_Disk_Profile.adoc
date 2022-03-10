@@ -1,12 +1,12 @@
 :_content-type: PROCEDURE
 [id="Removing_a_Disk_Profile"]
-==== Removing a Disk Profile
+= Removing a Disk Profile
 
 Remove an existing disk profile from your {virt-product-fullname} environment.
 
-*Removing a Disk Profile*
+.Procedure
 
-. Click menu:Storage[Domains]. 
+. Click menu:Storage[Domains].
 . Click the data storage domain's name. This opens the details view.
 . Click the *Disk Profiles* tab.
 . Select the disk profile to remove.

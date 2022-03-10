@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Attaching_a_data_domain"]
-==== Attaching an Existing Data Domain to a Data Center
+= Attaching an Existing Data Domain to a Data Center
 
 Data domains that are *Unattached* can be attached to a data center. Shared storage domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center.
 
 
-*Attaching an Existing Data Domain to a Data Center*
+.Procedure
 
 . Click menu:Compute[Data Centers].
 . Click a data center's name. This opens the details view.

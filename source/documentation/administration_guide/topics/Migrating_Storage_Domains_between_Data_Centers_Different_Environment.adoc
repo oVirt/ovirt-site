@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Migrating_SD_between_DC_different_env"]
-==== Migrating Storage Domains between Data Centers in Different Environments
+= Migrating Storage Domains between Data Centers in Different Environments
 
 Migrate a storage domain from one {virt-product-fullname} environment to another
 to allow the destination environment to access the data contained in the storage domain.

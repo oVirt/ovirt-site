@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 [id="chap-System_Dashboard"]
-== Dashboard
+= Dashboard
 
 The Dashboard provides an overview of the {virt-product-fullname} system status by displaying a summary of {virt-product-fullname}'s resources and utilization. This summary can alert you to a problem and allows you to analyze the problem area.
 
@@ -10,12 +10,12 @@ The information in the dashboard is updated every 15 minutes by default from Dat
 image::images/RHVdashboard.png[]
 
 [id="sect-Prerequisites"]
-=== Prerequisites
+== Prerequisites
 
 The Dashboard requires that Data Warehouse is installed and configured. See link:{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#chap-Installing_and_Configuring_Data_Warehouse[Installing and Configuring Data Warehouse] in the _Data Warehouse Guide_.
 
 [id="sect-Global_Inventory"]
-=== Global Inventory
+== Global Inventory
 
 The top section of the Dashboard provides a global inventory of the {virt-product-fullname} resources and includes items for data centers, clusters, hosts, storage domains, virtual machines, and events. Icons show the status of each resource and numbers show the quantity of the each resource with that status.
 
@@ -61,7 +61,7 @@ The title shows the number of a type of resource and their status is displayed b
 |===
 
 [id="sect-Global_Utilization"]
-=== Global Utilization
+== Global Utilization
 
 The *Global Utilization* section shows the system utilization of the CPU, Memory and Storage.
 
@@ -75,7 +75,7 @@ image::images/Dashboard_Global_Utilization.png[]
 * The line graph at the bottom displays the trend in the last 24 hours. Each data point shows the average usage for a specific hour. Hovering over a point on the graph displays the time and the percentage used for the CPU graph and the amount of usage for the memory and storage graphs.
 
 [id="sect-Top_Utilized_Resources"]
-==== Top Utilized Resources
+=== Top Utilized Resources
 
 .Top Utilized Resources (Memory)
 image::images/Dashboard_Pop_Up.png[]
@@ -83,7 +83,7 @@ image::images/Dashboard_Pop_Up.png[]
 Clicking the donut in the global utilization section of the Dashboard will display a list of the top utilized resources for the CPU, memory or storage. For CPU and memory the pop-up shows a list of the ten hosts and virtual machines with the highest usage. For storage the pop-up shows a list of the top ten utilized storage domains and virtual machines. The arrow to the right of the usage bar shows the trend of usage for that resource in the last minute.
 
 [id="sect-Cluster_Utilization"]
-=== Cluster Utilization
+== Cluster Utilization
 
 The *Cluster Utilization* section shows the cluster utilization for the CPU and memory in a heatmap.
 
@@ -91,17 +91,17 @@ The *Cluster Utilization* section shows the cluster utilization for the CPU and 
 image::images/Dashboard_Cluster_Utilization.png[]
 
 [id="sect-Cluster_CPU_Utilization"]
-==== CPU
+=== CPU
 
 The heatmap of the CPU utilization for a specific cluster that shows the average utilization of the CPU for the last 24 hours. Hovering over the heatmap displays the cluster name. Clicking on the heatmap navigates to menu:Compute[Hosts] and displays the results of a search on a specific cluster sorted by CPU utilization. The formula used to calculate the usage of the CPU by the cluster is the average host CPU utilization in the cluster. This is calculated by using the average host CPU utilization for each host over the last 24 hours to find the total average usage of the CPU by the cluster.
 
 [id="sect-Cluster_Memory_Utilization"]
-==== Memory
+=== Memory
 
 The heatmap of the memory utilization for a specific cluster that shows the average utilization of the memory for the last 24 hours. Hovering over the heatmap displays the cluster name. Clicking on the heatmap navigates to menu:Compute[Hosts] and displays the results of a search on a specific cluster sorted by memory usage. The formula used to calculate the memory usage by the cluster is the total utilization of the memory in the cluster in GB. This is calculated by using the average host memory utilization for each host over the last 24 hours to find the total average usage of memory by the cluster.
 
 [id="sect-Storage_Utilization"]
-=== Storage Utilization
+== Storage Utilization
 
 The *Storage Utilization* section shows the storage utilization in a heatmap.
 

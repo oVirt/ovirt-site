@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Searching_for_Volumes"]
-=== Searching for Volumes
+= Searching for Volumes
 
 The following table describes all search options for volumes.
 

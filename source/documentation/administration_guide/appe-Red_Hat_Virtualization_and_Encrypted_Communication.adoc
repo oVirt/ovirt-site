@@ -5,13 +5,163 @@
 [id="appe-Red_Hat_Enterprise_Virtualization_and_Encrypted_Communication"]
 // keeping old section id to prevent broken links
 [id="appe-Red_Hat_Enterprise_Virtualization_and_SSL"]
-== {virt-product-fullname} and encrypted communication
+= {virt-product-fullname} and encrypted communication
 :context: encrypted-communication
 
-include::topics/Replacing_the_Manager_CA_Certificate.adoc[]
+include::topics/Replacing_the_Manager_CA_Certificate.adoc[leveloffset=+1]
 
-include::topics/Setting_Up_Encrypted_Communication_between_the_Manager_and_an_LDAP_Server.adoc[]
+include::topics/Setting_Up_Encrypted_Communication_between_the_Manager_and_an_LDAP_Server.adoc[leveloffset=+1]
 
 ifdef::rhv-doc[]
-include::assembly-enabling-encrypted-vnc-consoles-for-fips.adoc[leveloffset=+2]
+[id="enabling-encrypted-vnc-consoles-for-fips"]
+== Enabling encrypted VNC consoles for FIPS
+:context: encrypted-vnc
+
+You can set up encrypted VNC consoles to work with a {virt-product-fullname} ({virt-product-shortname}) {engine-name} and hosts that have FIPS enabled.
+
+To set up encrypted VNC consoles, you complete the following procedures:
+
+* xref:enabling-fips_in_rhv[Enable FIPS in RHV]
+// * Creating RHV hosts that have FIPS enabled, or enabling FIPS on existing hosts.
+// * Enabling FIPS using the RHV Manager, including:
+// ** Configuring the hosts to support FIPS mode.
+* xref:configuring_cluster_to_enable_vnc_encryption[Configure the host cluster's console settings to enable VNC Encryption].
+* xref:running_vnc_sasl_ansible_playbook_for_each_host[Run the VNC SASL ansible playbook on each host.]
+* xref:configuring_remote_viewer_trust_rhvm_ca_certificate[Configure the Remote Viewer to trust the Manager's CA certificate.]
+
+// include::topics/proc-enabling-fips_in_rhv.adoc[leveloffset=+1]
+//include::topics/proc-enabling-fips-using-the-rhv-manager.adoc[leveloffset=+1]
+
+[id="configuring_cluster_to_enable_vnc_encryption"]
+=== Configuring the cluster to enable VNC Encryption
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Clusters].
+
+. Select the cluster where you plan to enable VNC encryption and click btn:[Edit]. The *Edit Cluster* window opens.
+
+. Select the *Console* tab.
+
+. Select the *Enable VNC Encryption* checkbox and click btn:[OK].
+
+[id="running_vnc_sasl_ansible_playbook_for_each_host"]
+=== Running the VNC SASL Ansible playbook for each host
+
+.Procedure
+
+. In the Administration Portal, put the hosts you created with FIPS enabled into maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts].
+.. In the *Virtual Machines* column, verify that each host has zero virtual machines. Perform a live migration to remove all virtual machines from any hosts where necessary. For details, see link:{URL_downstream_virt_product_docs}virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts]
+.. Select each host and click menu:Management[Maintenance] and btn:[OK].
+
+. Connect to the command line of the machine where the Manager is running.
++
+* If the Manager is running on a stand-alone machine, connect to that machine's command line. For example, enter:
++
+[source,terminal]
+----
+# ssh root@rhvm
+----
+
+* If the Manager is running as a self-hosted engine, use menu:Compute[Virtual Machines] to select the self-hosted engine virtual machine, named `HostedEngine` by default, and click btn:[Console].
+
+. On the Manager machine, run the VNC SASL ansible playbook for each host.
++
+[source,terminal]
+----
+# cd /usr/share/ovirt-engine/ansible-runner-service-project/project/
+# ansible-playbook --ask-pass --inventory=<hostname>, ovirt-vnc-sasl.yml
+----
++
+For `<hostname>`, enter the complete *Hostname* shown on menu:Compute[Hosts].
+
+. Select the host and click menu:Installation[Reinstall].
+. After reinstallation, select the host and click menu:Management[Restart].
+. After rebooting, select the host and click menu:Management[Activate].
+
+== Troubleshooting
+
+When running the VNC SASL Ansible playbook, the task might fail with the following error message:
+
+[source,terminal]
+----
+Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host.
+----
+
+To solve this problem, disable host key checking by doing one of the following:
+
+* Disable host key checking permanently by uncommenting the following line in [filename]`/etc/ansible/ansible.cfg`:
++
+[source,terminal]
+----
+#host_key_checking = False
+----
+
+* Disable host key checking temporarily by running the following command:
++
+[source,terminal]
+----
+export ANSIBLE_HOST_KEY_CHECKING=False.
+----
+
+.Additional resources
+
+* link:https://www.redhat.com/en/blog/configuring-and-applying-scap-policies-during-installation[Configuring and Applying SCAP Policies During Installation]
+* link:{URL_customer-portal}downloads/content/415/ver=4.3/rhel---7/4.3/x86_64/product-software[Installers and Images for Red Hat Virtualization Manager (v. 4.3 for x86_64)]
+
+[discrete]
+[id="configuring_remote_viewer_trust_rhvm_ca_certificate"]
+== Configuring the Remote Viewer to trust the Manager's CA certificate
+
+Configure the Remote Viewer console on your client machine, `virt-viewer` or `remote-viewer`, to trust the RHV Manager's certificate authority (CA)
+
+.Procedure
+
+. Navigate to `\https://<__engine_address__>/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`.
+
+. Enable all the trust settings.
+
+. On the client machine where you plan to run the VNC console, create a directory for the certificate file:
++
+[source,terminal]
+----
+$ mkdir ~/.pki/CA
+----
++
+[WARNING]
+====
+If this step generates an error such as `mkdir: cannot create directory ‘/home/example_user/.pki/CA’: File exists`, take precautions to avoid overwriting `~/.pki/CA/cacert.pem` in the next step. For example, include the current date in the filename.
+====
+. Download the certificate:
++
+[source,terminal]
+----
+$ curl -k -o ~/.pki/CA/cacert-<today's date>.pem '\https://<engine_address>/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA'
+----
+
+. Install the certificate authority in your browser:
++
+* link:{URL_customer-portal}solutions/95103[Firefox]
+* link:{URL_customer-portal}solutions/17864[Internet Explorer]
+* link:{URL_customer-portal}solutions/1168383[Google Chrome].
+
+Install the SASL SCRAM libraries on the client machine:
+
+[source,terminal]
+----
+$ sudo dnf install cyrus-sasl-scram
+----
+
+.Verification steps
+
+. Run a virtual machine on one of the FIPS-enabled hosts you created.
+
+. Connect to the virtual machine using a VNC console.
+
+.Additional resources
+
+* link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#sect-Installing_Console_Components[Installing Console Components]
+* xref:Replacing_the_Manager_CA_Certificate[]
+
 endif::rhv-doc[]

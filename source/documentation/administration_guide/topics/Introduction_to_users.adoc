@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Introduction_to_users"]
-=== Introduction to Users
+= Introduction to Users
 
 In {virt-product-fullname}, there are two types of user domains: local domain and external domain. A default local domain called the *internal* domain and a default user *admin* is created during the the {engine-name} installation process.
 

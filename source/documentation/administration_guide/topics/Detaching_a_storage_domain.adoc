@@ -1,12 +1,12 @@
 :_content-type: PROCEDURE
 [id="Detaching_a_storage_domain"]
-==== Detaching a Storage Domain from a Data Center
+= Detaching a Storage Domain from a Data Center
 
 Detach a storage domain from one data center to migrate it to another data center.
 
-*Detaching a Storage Domain from the Data Center*
+.Procedure
 
-. Click menu:Storage[Domains]. 
+. Click menu:Storage[Domains].
 . Click the storage domain's name. This opens the details view.
 . Click the *Data Center* tab.
 . Click *Maintenance*.

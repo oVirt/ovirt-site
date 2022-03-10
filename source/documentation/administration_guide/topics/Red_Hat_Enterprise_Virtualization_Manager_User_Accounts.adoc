@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Red_Hat_Enterprise_Virtualization_Manager_User_Accounts"]
-==== {virt-product-fullname} {engine-name} User Accounts
+= {virt-product-fullname} {engine-name} User Accounts
 
 
 A number of system user accounts are created to support {virt-product-fullname} when the `rhevm` package is installed. Each system user has a default user identifier (UID). The system user accounts created are:

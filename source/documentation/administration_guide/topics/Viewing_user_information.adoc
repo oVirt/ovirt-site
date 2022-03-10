@@ -1,8 +1,8 @@
 :_content-type: PROCEDURE
 [id="Viewing_user_information"]
-==== Viewing User Information
+= Viewing User Information
 
-*Viewing User Information*
+.Procedure
 
 . Click menu:Administration[Users] to display the list of authorized users.
 . Click the user's name. This opens the details view, usually with the *General* tab displaying general information, such as the domain name, email and status of the user.

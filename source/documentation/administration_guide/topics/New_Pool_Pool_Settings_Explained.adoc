@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="New_Pool_Pool_Settings_Explained"]
-==== New Pool and Edit Pool Type Settings Explained
+= New Pool and Edit Pool Type Settings Explained
 
 The following table details the information required on the *Type* tab of the *New Pool* and *Edit Pool* windows.
 

@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="User_Roles_Explained"]
-==== User Roles Explained
+= User Roles Explained
 
 The table below describes basic user roles which confer permissions to access and configure virtual machines in the VM Portal.
 

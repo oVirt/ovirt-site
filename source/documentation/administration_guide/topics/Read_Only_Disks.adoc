@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Read_Only_Disks_in_Red_Hat_Enterprise_Virtualization"]
-=== Read Only Disks in {virt-product-fullname}
+= Read Only Disks in {virt-product-fullname}
 
 Some applications require administrators to share data with read-only rights. You can do this when creating or editing a disk attached to a virtual machine via the *Disks* tab in the details view of the virtual machine and selecting the *Read Only* check box. That way, a single disk can be read by multiple cluster-aware guests, while an administrator maintains writing privileges.
 

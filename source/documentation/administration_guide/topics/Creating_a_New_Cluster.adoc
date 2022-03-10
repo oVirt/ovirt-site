@@ -1,10 +1,10 @@
 :_content-type: PROCEDURE
 [id="Creating_a_New_Cluster"]
-==== Creating a New Cluster
+= Creating a New Cluster
 
 A data center can contain multiple clusters, and a cluster can contain multiple hosts. All hosts in a cluster must have the same CPU architecture. To optimize your CPU types, create your hosts before you create your cluster. After creating the cluster, you can configure the hosts using the *Guide Me* button.
 
-*Creating a New Cluster*
+.Procedure
 
 . Click menu:Compute[Clusters].
 . Click *New*.

@@ -1,13 +1,13 @@
 :_content-type: PROCEDURE
 [id="Enabling_and_Changing_Quota_for_a_DC"]
-=== Enabling and Changing a Quota Mode in a Data Center
+= Enabling and Changing a Quota Mode in a Data Center
 
 This procedure enables or changes the quota mode in a data center. You must select a quota mode before you can define quotas. You must be logged in to the Administration Portal to follow the steps of this procedure.
 
 Use *Audit* mode to test your quota to verify that it works as you expect it to. You do not need to have your quota in *Audit* mode to create or change a quota.
 
 
-*Enabling and Changing Quota in a Data Center*
+.Procedure
 
 . Click menu:Compute[Data Centers] and select a data center.
 . Click *Edit*.

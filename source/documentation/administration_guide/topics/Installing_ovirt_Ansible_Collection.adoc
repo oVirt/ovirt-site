@@ -1,7 +1,6 @@
 :_content-type: PROCEDURE
 [id="Installing_ovirt_Ansible_Collection"]
-
-=== Installing oVirt Ansible Collection from an RPM package
+= Installing oVirt Ansible Collection from an RPM package
 
 You can install *oVirt Ansible Collection* for Red Hat Virtualization from the Red Hat Virtualization Manager repository.
 

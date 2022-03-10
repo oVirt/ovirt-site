@@ -1,13 +1,13 @@
 :_content-type: PROCEDURE
 [id="Setting_up_a_Host_Logging_Server"]
-=== Setting Up a Host Logging Server
+= Setting Up a Host Logging Server
 
 Hosts generate and update log files, recording their actions and problems. Collecting these log files centrally simplifies debugging.
 
 This procedure should be used on your centralized log server. You could use a separate logging server, or use this procedure to enable host logging on the {virt-product-fullname} {engine-name}.
 
 
-*Setting up a Host Logging Server*
+.Procedure
 
 . Check to see if the firewall allows traffic on the `UDP 514` port, and is open to `syslog` service traffic:
 +

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Managing_Account_Settings"]
-==== Managing Account Settings
+= Managing Account Settings
 
 To change the default account settings, use the `ovirt-aaa-jdbc-tool` `settings` module.
 

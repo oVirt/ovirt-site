@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="setting-user-timeout_{context}"]
-==== Setting User Timeout
+= Setting User Timeout
 
 You can set the user timeout period:
 

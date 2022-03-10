@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Editing_Quotas"]
-=== Editing Quotas
+= Editing Quotas
 
 This procedure describes how to change existing quotas.
 
 
-*Editing Quotas*
+.Procedure
 
 . Click menu:Administration[Quota] and select a quota.
 . Click *Edit*.

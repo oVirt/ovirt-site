@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="User_Permissions_for_VNIC_Profiles"]
-==== User Permissions for vNIC Profiles
+= User Permissions for vNIC Profiles
 
 Configure user permissions to assign users to certain vNIC profiles. Assign the *VnicProfileUser* role to a user to enable them to use the profile. Restrict users from certain profiles by removing their permission for that profile.
 

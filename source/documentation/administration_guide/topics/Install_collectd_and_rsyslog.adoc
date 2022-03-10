@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Install_collectd_and_rsyslog"]
-
+= Installing collectd and rsyslog
 
 Deploy `collectd` and `rsyslog` on the hosts to collect logs and metrics.
 

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Sending_metrics_to_ELK"]
-
+= Sending metrics and logs to a remote instance of Elasticsearch
 
 [NOTE]
 ====
@@ -11,15 +11,8 @@ You can configure the {virt-product-fullname} {engine-name} and hosts to send me
 
 To do this, run the Ansible role that configures `collectd` and `rsyslog` on the {engine-name} and all hosts to collect `engine.log`, `vdsm.log`, and `collectd` metrics, and send them to your Elasticsearch instance.
 
-==== Installing collectd and rsyslog
-
-include::Install_collectd_and_rsyslog.adoc[]
 
 //ifdef::rhv-doc[]
 For more information, including a full list with explanations of available Metrics Schema, see link:https://access.redhat.com/articles/4921101[Sending RHV monitoring data to a remote Elasticsearch instance].
 
 //endif::[]
-
-==== Logging schema and analyzing logs
-
-include::Logging_schema.adoc[]

@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="UI_Plugin-related_Files_and_their_Locations"]
-=== User Interface Plugin-related Files and Their Locations
+= User Interface Plugin-related Files and Their Locations
 
 
 .UI Plugin-related Files and their Locations

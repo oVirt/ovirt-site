@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id='Configuring_RHSSO_apache']
-
+= Configuring Apache in the {engine-name}
 
 . Enable the `mod_auth_openidc` module.
 +

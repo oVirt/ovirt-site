@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Data_center_permissions_entities"]
-==== Data Center Administrator Roles Explained
+= Data Center Administrator Roles Explained
 
 
 *Data Center Permission Roles*

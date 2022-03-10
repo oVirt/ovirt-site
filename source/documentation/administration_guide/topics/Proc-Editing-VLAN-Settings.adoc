@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Editing-VLAN-Settings"]
-==== Editing a Host's VLAN Settings
+= Editing a Host's VLAN Settings
 
 To change the VLAN settings of a host, the host must be removed from the {engine-name}, reconfigured, and re-added to the {engine-name}.
 

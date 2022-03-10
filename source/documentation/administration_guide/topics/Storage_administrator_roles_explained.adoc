@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Cluster_virtual_machine_entities"]
-==== Storage Administrator Roles Explained
+= Storage Administrator Roles Explained
 
 
 *Storage Domain Permission Roles*

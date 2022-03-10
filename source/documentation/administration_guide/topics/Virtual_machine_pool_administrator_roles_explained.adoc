@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Cluster_logical_network_entities"]
-==== Virtual Machine Pool Administrator Roles Explained
+= Virtual Machine Pool Administrator Roles Explained
 
 
 *Pool Permission Roles*

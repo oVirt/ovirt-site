@@ -1,7 +1,10 @@
 :_content-type: PROCEDURE
 [id='Configuring_RHSSO_OVN']
+= Configuring OVN
 
 If you configured the *ovirt-ovn-provider* in the {engine-name}, you need to configure the OVN provider credentials.
+
+.Procedure
 
 . Create the file `20-setup-ovirt-provider-ovn.conf` in */etc/ovirt-provider-ovn/conf.d/* with the following contents,
 where *user1* belongs to the LDAP group *ovirt-administrator*, and *openidchttp* is the profile configured for *aaa-ldap-misc*.

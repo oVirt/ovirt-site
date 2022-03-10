@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Editing_Storage_Domains"]
-==== Editing Storage Domains
+= Editing Storage Domains
 
 You can edit storage domain parameters through the Administration Portal. Depending on the state of the storage domain, either active or inactive, different fields are available for editing. Fields such as *Data Center*, *Domain Function*, *Storage Type*, and *Format* cannot be changed.
 
@@ -14,7 +14,7 @@ You can edit storage domain parameters through the Administration Portal. Depend
 iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-storage_server_connection_extension-methods-update[Updating Storage Connections] in the _REST API Guide_.
 ====
 
-*Editing an Active Storage Domain*
+.Editing an Active Storage Domain*
 
 . Click menu:Storage[Domains] and select a storage domain.
 . Click *Manage Domain*.
@@ -22,7 +22,7 @@ iSCSI storage connections cannot be edited via the Administration Portal, but ca
 . Click btn:[OK].
 
 
-*Editing an Inactive Storage Domain*
+.Editing an Inactive Storage Domain
 
 . Click menu:Storage[Domains].
 . If the storage domain is active, move it to maintenance mode:

@@ -1,15 +1,15 @@
 :_content-type: PROCEDURE
 [id="Creating_a_Disk_Profile"]
-==== Creating a Disk Profile
+= Creating a Disk Profile
 
 Disk profiles define the maximum level of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are created based on storage profiles defined under data centers, and must be manually assigned to individual virtual disks for the profile to take effect.
 
 This procedure assumes you have already defined one or more storage quality of service entries under the data center to which the storage domain belongs.
 
 
-*Creating a Disk Profile*
+.Procedure
 
-. Click menu:Storage[Domains]. 
+. Click menu:Storage[Domains].
 . Click the data storage domain's name. This opens the details view.
 . Click the *Disk Profiles* tab.
 . Click *New*.

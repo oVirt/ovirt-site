@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="New_Pool_and_Edit_Pool_Console_Settings_Explained"]
-==== New Pool and Edit Pool Console Settings Explained
+= New Pool and Edit Pool Console Settings Explained
 
 The following table details the information required on the *Console* tab of the *New Pool* or *Edit Pool* window that is specific to virtual machine pools. All other settings are identical to those in the *New Virtual Machine* and *Edit Virtual Machine* windows.
 

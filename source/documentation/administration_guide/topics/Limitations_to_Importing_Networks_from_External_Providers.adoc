@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Limitations_to_Importing_Networks_from_External_Providers"]
-==== Limitations to Using External Provider Networks
+= Limitations to Using External Provider Networks
 
 The following limitations apply to using logical networks imported from an external provider in a {virt-product-fullname} environment.
 

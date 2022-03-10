@@ -1,12 +1,12 @@
 :_content-type: PROCEDURE
 [id="Using_power_host_power_management_functions"]
-==== Using Host Power Management Functions
+= Using Host Power Management Functions
 
 
 When power management has been configured for a host, you can access a number of options from the Administration Portal interface. While each power management device has its own customizable options, they all support the basic options to start, stop, and restart a host.
 
 
-*Using Host Power Management Functions*
+.Procedure
 
 . Click menu:Compute[Hosts] and select the host.
 . Click the *Management* drop-down menu and select one of the following *Power Management* options:

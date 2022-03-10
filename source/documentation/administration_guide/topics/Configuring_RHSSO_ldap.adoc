@@ -1,5 +1,8 @@
 :_content-type: PROCEDURE
 [id='Configuring_RHSSO_ldap']
+= Configuring the LDAP group mapper
+
+.Procedure
 
 . Add the LDAP groups mapper with the following information:
 +

@@ -1,13 +1,13 @@
 :_content-type: PROCEDURE
 [id="Importing_an_Existing_RHGS_Cluster"]
-==== Importing an Existing {gluster-storage-fullname} Cluster
+= Importing an Existing {gluster-storage-fullname} Cluster
 
 You can import a {gluster-storage-fullname} cluster and all hosts belonging to the cluster into {virt-product-fullname} {engine-name}.
 
 When you provide details such as the IP address or host name and password of any host in the cluster, the `gluster peer status` command is executed on that host through SSH, then displays a list of hosts that are a part of the cluster. You must manually verify the fingerprint of each host and provide passwords for them. You will not be able to import the cluster if one of the hosts in the cluster is down or unreachable. As the newly imported hosts do not have VDSM installed, the bootstrap script installs all the necessary VDSM packages on the hosts after they have been imported, and reboots them.
 
 
-*Importing an Existing {gluster-storage-fullname} Cluster to the {virt-product-fullname} {engine-name}*
+.Procedure
 
 . Click menu:Compute[Clusters].
 . Click *New*.

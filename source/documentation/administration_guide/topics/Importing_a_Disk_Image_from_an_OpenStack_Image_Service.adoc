@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Importing_a_Disk_Image_from_an_OpenStack_Image_Service"]
-==== Importing a Virtual Disk from an OpenStack Image Service
+= Importing a Virtual Disk from an OpenStack Image Service
 
 
 Virtual disks managed by an OpenStack Image Service can be imported into the {virt-product-fullname} {engine-name} if that OpenStack Image Service has been added to the {engine-name} as an external provider.

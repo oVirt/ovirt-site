@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Removing_a_Storage_Quality_of_Service_Entry"]
-==== Removing a Storage Quality of Service Entry
+= Removing a Storage Quality of Service Entry
 
 Remove an existing storage quality of service entry.
 
 
-*Removing a Storage Quality of Service Entry*
+.Procedure
 
 . Click menu:Compute[Data Centers].
 . Click a data center's name. This opens the details view.

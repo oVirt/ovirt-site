@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Configuring_fence_kdump_on_the_Manager"]
-===== Configuring fence_kdump on the {engine-name}
+= Configuring fence_kdump on the {engine-name}
 
 Edit the {engine-name}'s kdump configuration. This is only necessary in cases where the default configuration is not sufficient. The current configuration values can be found using:
 
@@ -9,7 +9,7 @@ Edit the {engine-name}'s kdump configuration. This is only necessary in cases wh
 # engine-config -g _OPTION_
 ----
 
-*Manually Configuring Kdump with engine-config*
+.Procedure
 
 . Edit kdump's configuration using the `engine-config` command:
 +
@@ -23,7 +23,7 @@ Edit the {engine-name}'s kdump configuration. This is only necessary in cases wh
 The edited values must also be changed in the fence_kdump listener configuration file as outlined in the `Kdump Configuration Options` table. See xref:fence_kdump_listener_Configuration[].
 ====
 +
-. Restart the `ovirt-engine` service: 
+. Restart the `ovirt-engine` service:
 +
 [source,terminal]
 ----

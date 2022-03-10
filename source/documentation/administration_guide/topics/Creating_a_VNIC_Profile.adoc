@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_VNIC_Profile"]
-==== Creating or Editing a vNIC Profile
+= Creating or Editing a vNIC Profile
 
 Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate network bandwidth for users and groups.
 
@@ -10,11 +10,11 @@ If you are enabling or disabling port mirroring, all virtual machines using the 
 ====
 
 
-*Creating or Editing a vNIC Profile*
+.Procedure
 
 . Click menu:Network[Networks].
 . Click the logical network's name. This opens the details view.
-. Click the *vNIC Profiles* tab. 
+. Click the *vNIC Profiles* tab.
 . Click *New* or *Edit*.
 . Enter the *Name* and *Description* of the profile.
 . Select the relevant Quality of Service policy from the *QoS* list.
@@ -26,4 +26,3 @@ If you are enabling or disabling port mirroring, all virtual machines using the 
 . Click btn:[OK].
 
 Apply this profile to users and groups to regulate their network bandwidth. If you edited a vNIC profile, you must either restart the virtual machine, or hot unplug and then hot plug the vNIC if the guest operating system supports vNIC hot plug and hot unplug.
-

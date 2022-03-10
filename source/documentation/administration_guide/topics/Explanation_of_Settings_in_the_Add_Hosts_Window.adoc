@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Explanation_of_Settings_in_the_Add_Hosts_Window"]
-==== Explanation of Settings in the Add Hosts Window
+= Explanation of Settings in the Add Hosts Window
 
 The *Add Hosts* window allows you to specify the details of the hosts imported as part of a Gluster-enabled cluster. This window appears after you have selected the *Enable Gluster Service* check box in the *New Cluster* window and provided the necessary host details.
 

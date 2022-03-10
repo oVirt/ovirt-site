@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Understanding_virtual_disks"]
-=== Understanding Virtual Disks
+= Understanding Virtual Disks
 
 {virt-product-fullname} features *Preallocated* (thick provisioned) and *Sparse* (thin provisioned) storage options.
 

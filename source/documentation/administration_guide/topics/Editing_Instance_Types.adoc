@@ -1,11 +1,11 @@
 :_content-type: PROCEDURE
 [id="Editing_Instance_Types"]
-==== Editing Instance Types
+= Editing Instance Types
 
 Administrators can edit existing instance types from the *Configure* window.
 
 
-*Editing Instance Type Properties*
+.Procedure
 
 . Click menu:Administration[Configure].
 . Click the *Instance Types* tab.

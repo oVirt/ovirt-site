@@ -1,8 +1,8 @@
 :_content-type: PROCEDURE
 [id="Editing_an_External_Provider"]
-=== Editing an External Provider
+= Editing an External Provider
 
-*Editing an External Provider*
+.Procedure
 
 . Click menu:Administration[Providers] and select the external provider to edit.
 . Click *Edit*.

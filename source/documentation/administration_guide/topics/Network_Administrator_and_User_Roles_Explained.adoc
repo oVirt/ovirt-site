@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Network_Administrator_and_User_Roles_Explained"]
-==== Network Administrator and User Roles Explained
+= Network Administrator and User Roles Explained
 
 
 *Network Permission Roles*

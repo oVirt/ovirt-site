@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Cluster_Migration_Policy_Settings_Explained"]
-==== Migration Policy Settings Explained
+= Migration Policy Settings Explained
 
 A migration policy defines the conditions for live migrating virtual machines in the event of host failure. These conditions include the downtime of the virtual machine during migration, network bandwidth, and how the virtual machines are prioritized.
 

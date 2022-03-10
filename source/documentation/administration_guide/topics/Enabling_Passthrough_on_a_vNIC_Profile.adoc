@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Enabling_Passthrough_on_a_vNIC_Profile"]
-==== Enabling Passthrough on a vNIC Profile
+= Enabling Passthrough on a vNIC Profile
 
 include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
 
@@ -11,7 +11,7 @@ The passthrough property cannot be enabled if the vNIC profile is already attach
 For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in {virt-product-fullname}, see link:{URL_downstream_virt_product_docs}hardware_considerations_for_implementing_sr-iov/index#[Hardware Considerations for Implementing SR-IOV].
 
 
-*Enabling Passthrough*
+.Procedure
 
 . Click menu:Network[Networks].
 . Click the logical network's name. This opens the details view.

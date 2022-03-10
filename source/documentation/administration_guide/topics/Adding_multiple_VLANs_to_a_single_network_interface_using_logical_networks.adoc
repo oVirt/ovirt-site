@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Adding_multiple_VLANs_to_a_single_network_interface_using_logical_networks"]
-==== Adding Multiple VLANs to a Single Network Interface Using Logical Networks
+= Adding Multiple VLANs to a Single Network Interface Using Logical Networks
 
 Multiple VLANs can be added to a single network interface to separate traffic on the one host.
 
@@ -10,7 +10,7 @@ You must have created more than one logical network, all with the *Enable VLAN t
 ====
 
 
-*Adding Multiple VLANs to a Network Interface using Logical Networks*
+.Procedure
 
 . Click menu:Compute[Hosts].
 . Click the host's name. This opens the details view.

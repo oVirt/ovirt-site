@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Configuring_an_External_LDAP_Provider"]
-==== Configuring an External LDAP Provider (Interactive Setup)
+= Configuring an External LDAP Provider (Interactive Setup)
 
 The *ovirt-engine-extension-aaa-ldap* extension allows users to customize their external directory setup easily. The *ovirt-engine-extension-aaa-ldap* extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.
 
@@ -8,7 +8,7 @@ If the LDAP server type is not listed in the interactive setup script, or you wa
 
 For an Active Directory example, see xref:Attaching_an_Active_Directory[].
 
-*Prerequisites:*
+.Prerequisites
 
 * You must know the domain name of the DNS or the LDAP server.
 
@@ -16,7 +16,7 @@ For an Active Directory example, see xref:Attaching_an_Active_Directory[].
 
 * Have at least one set of account name and password ready to perform search and login queries to the LDAP server.
 
-*Configuring an External LDAP Provider*
+.Procedure
 
 . On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
 +

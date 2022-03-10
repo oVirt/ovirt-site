@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Assigning_Security_Groups_to_Logical_Networks"]
-==== Assigning Security Groups to Logical Networks and Ports
+= Assigning Security Groups to Logical Networks and Ports
 
 [NOTE]
 ====

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Configuring_Hosts_for_an_OVN_tunnel_network"]
-===== Configuring Hosts for an OVN Tunnel Network
+= Configuring Hosts for an OVN Tunnel Network
 
 You can configure your hosts to use an existing network, other than the default `ovirtmgmt` network, with the `ovirt-provider-ovn-driver` Ansible playbook. The network must be accessible to all the hosts in the cluster.
 
@@ -9,7 +9,7 @@ You can configure your hosts to use an existing network, other than the default 
 The `ovirt-provider-ovn-driver` Ansible playbook updates existing hosts. If you add new hosts to the cluster, you must run the playbook again.
 ====
 
-*Configuring Hosts for an OVN Tunnel Network*
+.Procedure
 
 . On the {engine-name} machine, go to the *playbooks* directory:
 +

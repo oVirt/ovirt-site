@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Engine_Vacuum_Modes"]
-==== Engine Vacuum Modes
+= Engine Vacuum Modes
 
 Engine Vacuum has two modes:
 

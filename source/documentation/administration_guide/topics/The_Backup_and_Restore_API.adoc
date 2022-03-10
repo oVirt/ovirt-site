@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="The_Backup_and_Restore_API"]
-==== The Backup and Restore API
+= The Backup and Restore API
 
 The backup and restore API is a collection of functions that allows you to perform full or file-level backup and restoration of virtual machines. The API combines several components of {virt-product-fullname}, such as live snapshots and the REST API, to create and work with temporary volumes that can be attached to a virtual machine containing backup software provided by an independent software provider.
 

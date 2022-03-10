@@ -8,7 +8,7 @@ Headless virtual machines can be administered via a Serial Console, SSH, or any 
 
 If you are creating a new headless virtual machine, you can use the *Run Once* window to access the virtual machine via a graphical console for the first run only. See xref:Virtual_Machine_Run_Once_settings_explained[] for more details.
 
-Prerequisites
+.Prerequisites
 
 
 * If you are editing an existing virtual machine, and the {virt-product-fullname} guest agent has not been installed, note the machine's IP prior to selecting *Headless Mode*.

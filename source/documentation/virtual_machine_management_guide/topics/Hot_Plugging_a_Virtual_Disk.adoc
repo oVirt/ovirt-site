@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Hot_Plugging_a_Virtual_Disk"]
-==== Hot Plugging a Virtual Disk
+= Hot Plugging a Virtual Disk
 
 You can hot plug virtual disks. Hot plugging means enabling or disabling devices while a virtual machine is running.
 

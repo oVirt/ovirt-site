@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Importing_a_Red_Hat_KVM_Guest_Image"]
-==== Importing a Red Hat KVM Guest Image
+= Importing a Red Hat KVM Guest Image
 
 You can import a Red Hat-provided KVM virtual machine image. This image is a virtual machine snapshot with a preconfigured instance of {enterprise-linux} installed.
 

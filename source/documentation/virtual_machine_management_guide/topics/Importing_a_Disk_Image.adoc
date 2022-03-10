@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="importing-a-disk-image-from-an-imported-storage-domain"]
-==== Importing a Disk Image from an Imported Storage Domain
+= Importing a Disk Image from an Imported Storage Domain
 
 You can import floating virtual disks from an imported storage domain.
 

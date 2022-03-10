@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Automatic_virtual_machine_migration"]
-==== Automatic Virtual Machine Migration
+= Automatic Virtual Machine Migration
 
 {virt-product-fullname} {engine-name} automatically initiates live migration of all virtual machines running on a host when the host is moved into maintenance mode. The destination host for each virtual machine is assessed as the virtual machine is migrated, in order to spread the load across the cluster.
 

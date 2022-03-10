@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Configuring_a_virtual_machines_tablet_and_mouse_to_use_SPICE"]
-===== Configuring a Virtual Machine's Tablet and Mouse to use SPICE
+= Configuring a Virtual Machine's Tablet and Mouse to use SPICE
 
 Edit the `/etc/X11/xorg.conf` file to enable SPICE for your virtual machine's tablet devices.
 

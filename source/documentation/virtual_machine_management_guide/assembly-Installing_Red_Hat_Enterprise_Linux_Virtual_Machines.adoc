@@ -37,9 +37,9 @@ include::topics/Powering_on_a_virtual_machine.adoc[leveloffset=+2]
 
 include::topics/Opening_a_console_to_a_virtual_machine.adoc[leveloffset=+2]
 
-include::topics/Opening_a_Serial_Console_to_a_Virtual_Machine.adoc[]
+include::topics/Opening_a_Serial_Console_to_a_Virtual_Machine.adoc[leveloffset=+2]
 
-include::topics/Automatically_connecting_to_a_Virtual_Machine.adoc[]
+include::topics/Automatically_connecting_to_a_Virtual_Machine.adoc[leveloffset=+2]
 
 
 include::topics/Enabling_the_Required_Repositories.adoc[leveloffset=+1]

@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_Machine_Administrator_Roles_Explained"]
-==== Virtual Machine Administrator Roles Explained
+= Virtual Machine Administrator Roles Explained
 
 The table below describes the administrator roles and privileges applicable to virtual machine administration.
 

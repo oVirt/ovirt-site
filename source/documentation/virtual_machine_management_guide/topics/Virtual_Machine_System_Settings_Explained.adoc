@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_Machine_System_Settings_Explained"]
-==== Virtual Machine System Settings Explained
+= Virtual Machine System Settings Explained
 
 :context: vm_sys_settings
 include::../common/admin/snip-CPU-Considerations.adoc[]

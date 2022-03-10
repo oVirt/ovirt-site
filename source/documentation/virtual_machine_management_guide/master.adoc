@@ -4,7 +4,7 @@ include::common/collateral_files/attributes.adoc[]
 [id="virtual-machine-management-guide"]
 = Virtual Machine Management Guide
 
-include::chap-Introduction.adoc[]
+include::chap-Introduction.adoc[leveloffset=+1]
 
 include::assembly-Installing_Red_Hat_Enterprise_Linux_Virtual_Machines.adoc[leveloffset=+1]
 
@@ -12,14 +12,14 @@ include::chap-Installing_Windows_Virtual_Machines.adoc[leveloffset=+1]
 
 include::chap-Additional_Configuration.adoc[leveloffset=+1]
 
-include::chap-Editing_Virtual_Machines.adoc[]
+include::chap-Editing_Virtual_Machines.adoc[leveloffset=+1]
 
-include::chap-Administrative_Tasks.adoc[]
+include::chap-Administrative_Tasks.adoc[leveloffset=+1]
 
-include::chap-Templates.adoc[]
+include::chap-Templates.adoc[leveloffset=+1]
 
-include::appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows.adoc[]
+include::appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows.adoc[leveloffset=+1]
 
-include::appe-virt_sysprep_operations.adoc[]
+include::appe-virt_sysprep_operations.adoc[leveloffset=+1]
 
-include::common/collateral_files/legal-notice.adoc[]
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

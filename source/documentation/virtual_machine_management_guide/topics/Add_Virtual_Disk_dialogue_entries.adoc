@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Add_Virtual_Disk_dialogue_entries"]
-=== Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows
+= Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows
 
 [NOTE]
 ====

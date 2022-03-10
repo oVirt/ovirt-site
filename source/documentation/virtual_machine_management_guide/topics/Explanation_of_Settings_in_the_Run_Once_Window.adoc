@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_Machine_Run_Once_settings_explained"]
-=== Explanation of settings in the Run Once window
+= Explanation of settings in the Run Once window
 
 The *Run Once* window defines one-off boot options for a virtual machine. For persistent boot options, use the *Boot Options* tab in the *New Virtual Machine* window. The *Run Once* window contains multiple sections that can be configured.
 

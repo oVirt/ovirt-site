@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_Machine_Resource_Allocation_settings_explained"]
-==== Virtual Machine Resource Allocation Settings Explained
+= Virtual Machine Resource Allocation Settings Explained
 
 The following table details the options available on the *Resource Allocation* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
 [id="New_VMs_Resource"]

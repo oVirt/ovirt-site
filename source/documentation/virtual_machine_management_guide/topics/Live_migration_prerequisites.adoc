@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Live_migration_prerequisites"]
-==== Live Migration Prerequisites
+= Live Migration Prerequisites
 
 include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
 
@@ -30,7 +30,7 @@ Live migrating virtual machines between different clusters is generally not reco
 Live migration is performed using the management network and involves transferring large amounts of data between hosts. Concurrent migrations have the potential to saturate the management network. For best performance, create separate logical networks for management, storage, display, and virtual machine data to minimize the risk of network saturation.
 
 [id="Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs"]
-==== Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration
+= Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration
 
 Virtual machines with vNICs that are directly connected to a virtual function (VF) of an SR-IOV-enabled host NIC can be further configured to reduce network outage during live migration:
 
@@ -52,7 +52,7 @@ Disable the VirtIO vNIC profile's MAC-spoofing filter to ensure that traffic pas
 This failover policy ensures that the MAC address of the bond is always the MAC address of the active slave. During failover, the virtual machine's MAC address changes, with a slight disruption in traffic.
 
 [id="Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime"]
-==== Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime
+= Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime
 To configure virtual machines for migration with SR-IOV enabled vNICs and minimal downtime follow the procedure described below.
 [NOTE]
 ====

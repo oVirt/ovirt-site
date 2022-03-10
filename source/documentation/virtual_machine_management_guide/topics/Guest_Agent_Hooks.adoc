@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Guest_Agent_Hooks"]
-==== Guest Agent Hooks
+= Guest Agent Hooks
 
 Hooks are scripts that trigger activity within a virtual machine when key events occur:
 

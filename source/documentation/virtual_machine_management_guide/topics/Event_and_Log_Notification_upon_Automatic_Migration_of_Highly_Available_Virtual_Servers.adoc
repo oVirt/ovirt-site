@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers"]
-==== Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers
+= Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers
 
 When a virtual server is automatically migrated because of the high availability function, the details of an automatic migration are documented in the *Events* tab and in the engine log to aid in troubleshooting, as illustrated in the following examples:
 

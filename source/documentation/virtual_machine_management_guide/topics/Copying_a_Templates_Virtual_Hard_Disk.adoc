@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Copying_a_Templates_Virtual_Hard_Disk"]
-==== Copying a Template's Virtual Hard Disk
+= Copying a Template's Virtual Hard Disk
 
 If you are moving a virtual machine that was created from a template with the thin provisioning storage allocation option selected, the template's disks must be copied to the same storage domain as that of the virtual disk. This procedure requires access to the Administration Portal.
 

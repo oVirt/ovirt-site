@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_Machine_Satellite_settings_explained"]
-==== Virtual Machine Foreman/Satellite Settings Explained
+= Virtual Machine Foreman/Satellite Settings Explained
 
 The following table details the options available on the *Foreman/Satellite* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows
 [id="New_VMs_Satellite_Options"]

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Hot_Unplugging_Virtual_Memory"]
-==== Hot Unplugging Virtual Memory
+= Hot Unplugging Virtual Memory
 
 You can hot unplug virtual memory. Hot unplugging disables devices while a virtual machine is running.
 

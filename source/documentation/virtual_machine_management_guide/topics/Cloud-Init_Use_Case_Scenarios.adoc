@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Cloud-Init_Use_Case_Scenarios"]
-==== Cloud-Init Use Case Scenarios
+= Cloud-Init Use Case Scenarios
 
 Cloud-Init can be used to automate the configuration of virtual machines in a variety of scenarios. Several common scenarios are as follows:
 

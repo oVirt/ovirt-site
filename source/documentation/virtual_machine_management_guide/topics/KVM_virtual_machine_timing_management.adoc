@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="KVM_virtual_machine_timing_management"]
-==== KVM Virtual Machine Timing Management
+= KVM Virtual Machine Timing Management
 
 Virtualization poses various challenges for virtual machine time keeping. Virtual machines which use the Time Stamp Counter (TSC) as a clock source may suffer timing issues as some CPUs do not have a constant Time Stamp Counter. Virtual machines running without accurate timekeeping can have serious affects on some networked applications as your virtual machine will run faster or slower than the actual time.
 

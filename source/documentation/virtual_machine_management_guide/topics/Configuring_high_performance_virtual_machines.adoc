@@ -143,7 +143,8 @@ The recommended manual settings are:
 * xref:Configuring_Huge_Pages[Configuring Huge Pages]
 * xref:Disabling_KSM[Disabling KSM]
 
-=== Manual High Performance Configuration Settings [id="Manual_High_Performance_Configuration_Settings"]
+[id="Manual_High_Performance_Configuration_Settings"]
+=== Manual High Performance Configuration Settings
 
 The following table summarizes the recommended manual settings. The *Enabled (Y/N)* column indicates configurations that should be enabled or disabled. The *Applies to* column indicates the relevant resources:
 

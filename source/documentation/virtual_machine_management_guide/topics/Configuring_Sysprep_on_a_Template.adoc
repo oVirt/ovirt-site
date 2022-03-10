@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Configuring_Sysprep_on_a_Template"]
-==== Configuring Sysprep on a Template
+= Configuring Sysprep on a Template
 
 You can use this procedure to specify a set of standard `Sysprep` settings to include in the template, alternatively you can configure the `Sysprep` settings when creating a virtual machine based on this template.
 
@@ -11,7 +11,7 @@ Replacement strings can be used to substitute values provided in the default fil
 Do not reboot the virtual machine while `Sysprep` is running.
 ====
 
-*Prerequisites*
+.Prerequisites
 
 
 * The Windows virtual machine parameters have been correctly defined.
@@ -20,7 +20,7 @@ Do not reboot the virtual machine while `Sysprep` is running.
 If not, click menu:Compute[Virtual Machines], click btn:[Edit], and enter the required information in the *Operating System* and *Cluster* fields.
 
 
-* The correct product key has been defined in an override file on the {engine-name}. 
+* The correct product key has been defined in an override file on the {engine-name}.
 
 
 

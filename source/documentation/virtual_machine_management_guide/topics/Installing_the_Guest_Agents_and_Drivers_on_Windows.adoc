@@ -52,7 +52,7 @@ D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=ALL
 
 After installation completes, the guest agents and drivers pass usage information to the {virt-product-fullname} {engine-name} and enable you to access USB devices and other functionality.
 
-== Values for ADDLOCAL to customize virtio-win command-line installation
+= Values for ADDLOCAL to customize virtio-win command-line installation
 
 When installing [filename]`virtio-win-gt-x64.msi` or [filename]`virtio-win-gt-x32.msi` with the command line, you can install any one driver, or any combination of drivers.
 

@@ -2,7 +2,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 [id="Pinning_a_Virtual_Machine_to_Multiple_Hosts"]
-=== Pinning a Virtual Machine to Multiple Hosts
+= Pinning a Virtual Machine to Multiple Hosts
 
 Virtual machines can be pinned to multiple hosts. Multi-host pinning allows a virtual machine to run on a specific subset of hosts within a cluster, instead of one specific host or all hosts in the cluster. The virtual machine cannot run on any other hosts in the cluster even if all of the specified hosts are unavailable. Multi-host pinning can be used to limit virtual machines to hosts with, for example, the same physical hardware configuration.
 

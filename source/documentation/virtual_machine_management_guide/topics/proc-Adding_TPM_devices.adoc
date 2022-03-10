@@ -3,7 +3,7 @@
 :_content-type: PROCEDURE
 [id="Adding_TPM_devices"]
 
-==== Adding a Trusted Platform Module device
+= Adding a Trusted Platform Module device
 Trusted Platform Module (TPM) devices provide a secure crypto-processor designed to carry out cryptographic operations such as generating cryptographic keys, random numbers, and hashes, or for storing data that can be used to verify software configurations securely. TPM devices are commonly used for disk encryption.
 
 QEMU and libvirt implement support for emulated TPM 2.0 devices, which is what {virt-product-fullname} uses to add TPM devices to Virtual Machines.

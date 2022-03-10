@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Assigning_virtual_machines_to_users"]
-==== Assigning Virtual Machines to Users
+= Assigning Virtual Machines to Users
 
 If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Users_and_Roles[Users and Roles] in the _Administration Guide_ for details on creating user accounts.
 
@@ -16,7 +16,7 @@ The VM Portal supports three default roles: User, PowerUser and UserVmManager. H
 When you create a virtual machine, you automatically inherit *UserVmManager* privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See the  link:{URL_virt_product_docs}{URL_format}administration_guide/index#Introduction_to_Directory_Servers[_Administration Guide_] for more information.
 
 
-*Assigning Permissions to Users*
+.Procedure
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click the virtual machine's name to go to the details view.

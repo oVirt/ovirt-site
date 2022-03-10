@@ -1,21 +1,21 @@
 :_content-type: ASSEMBLY
 [id="chap-Administrative_Tasks"]
-== Administrative Tasks
+= Administrative Tasks
 
 :context: vm_guide_administrative_tasks
 
-include::topics/Shutting_down_a_virtual_machine.adoc[]
+include::topics/Shutting_down_a_virtual_machine.adoc[leveloffset=+1]
 
-include::topics/Suspending_a_virtual_machine.adoc[]
+include::topics/Suspending_a_virtual_machine.adoc[leveloffset=+1]
 
-include::topics/Rebooting_a_Virtual_Machine.adoc[]
+include::topics/Rebooting_a_Virtual_Machine.adoc[leveloffset=+1]
 
-include::topics/Removing_a_virtual_machine.adoc[]
+include::topics/Removing_a_virtual_machine.adoc[leveloffset=+1]
 
-include::topics/Cloning_a_Virtual_Machine.adoc[]
+include::topics/Cloning_a_Virtual_Machine.adoc[leveloffset=+1]
 
 [id="sect-Updating_Virtual_Machine_Guest_Agents_and_Drivers"]
-=== Updating Virtual Machine Guest Agents and Drivers
+== Updating Virtual Machine Guest Agents and Drivers
 
 The {virt-product-fullname} guest agents, tools, and drivers provide additional functionality for virtual machines, such as gracefully shutting down or rebooting virtual machines from the VM Portal and Administration Portal. The tools and agents also provide information for virtual machines, including:
 
@@ -25,78 +25,78 @@ The {virt-product-fullname} guest agents, tools, and drivers provide additional 
 
 The guest tools are distributed as an ISO file that you can attach to virtual machines. This ISO file is packaged as an RPM file that you can install and update from the {engine-name} machine.
 
-include::topics/Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux.adoc[]
+include::topics/Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux.adoc[leveloffset=+2]
 
-include::topics/Updating_Win_Guest_Drivers_with_Windows_Update.adoc[leveloffset=+3]
+include::topics/Updating_Win_Guest_Drivers_with_Windows_Update.adoc[leveloffset=+2]
 
-include::topics/Updating_the_Guest_Agents_and_Drivers_on_Windows.adoc[leveloffset=+3]
+include::topics/Updating_the_Guest_Agents_and_Drivers_on_Windows.adoc[leveloffset=+2]
 
-include::topics/Viewing_Satellite_Errata.adoc[]
+include::topics/Viewing_Satellite_Errata.adoc[leveloffset=+1]
 
 [id="sect-Virtual_Machines_and_Permissions"]
-=== Virtual Machines and Permissions
+== Virtual Machines and Permissions
 
-include::topics/Managing_System_Permissions_for_a_Virtual_Machine.adoc[]
+include::topics/Managing_System_Permissions_for_a_Virtual_Machine.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Administrator_Roles_Explained.adoc[]
+include::topics/Virtual_Machine_Administrator_Roles_Explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_User_Roles_Explained.adoc[]
+include::topics/Virtual_Machine_User_Roles_Explained.adoc[leveloffset=+2]
 
-include::topics/Assigning_virtual_machines_to_users.adoc[]
+include::topics/Assigning_virtual_machines_to_users.adoc[leveloffset=+2]
 
-include::topics/Removing_Access_to_Virtual_Machines_from_Users.adoc[]
+include::topics/Removing_Access_to_Virtual_Machines_from_Users.adoc[leveloffset=+2]
 
 [id="sect-Snapshots"]
-=== Snapshots
+== Snapshots
 
-include::topics/Creating_a_snapshot_of_a_virtual_machine.adoc[]
+include::topics/Creating_a_snapshot_of_a_virtual_machine.adoc[leveloffset=+2]
 
-include::topics/Using_a_snapshot_to_restore_a_virtual_machine.adoc[]
+include::topics/Using_a_snapshot_to_restore_a_virtual_machine.adoc[leveloffset=+2]
 
-include::topics/Creating_a_virtual_machine_from_a_snapshot.adoc[]
+include::topics/Creating_a_virtual_machine_from_a_snapshot.adoc[leveloffset=+2]
 
-include::topics/Deleting_a_snapshot.adoc[]
+include::topics/Deleting_a_snapshot.adoc[leveloffset=+2]
 
 [id="sect-Host_Devices"]
-=== Host Devices
+== Host Devices
 
-include::topics/Adding_Host_Devices_to_a_Virtual_Machine.adoc[]
+include::topics/Adding_Host_Devices_to_a_Virtual_Machine.adoc[leveloffset=+2]
 
-include::topics/Removing_Host_Devices_from_a_Virtual_Machine.adoc[]
+include::topics/Removing_Host_Devices_from_a_Virtual_Machine.adoc[leveloffset=+2]
 
-include::topics/Pinning_a_Virtual_Machine_to_Another_Host.adoc[]
+include::topics/Pinning_a_Virtual_Machine_to_Another_Host.adoc[leveloffset=+2]
 
-include::topics/conc-nvdimm-host-devices.adoc[leveloffset=+3]
+include::topics/conc-nvdimm-host-devices.adoc[leveloffset=+2]
 
 [id="sect-Affinity_Groups"]
-[discrete]
-=== Affinity Groups
+== Affinity Groups
 
-include::topics/Affinity_groups.adoc[]
+include::topics/Affinity_groups.adoc[leveloffset=+2]
 
-include::topics/Creating_an_Affinity_Group.adoc[]
+include::topics/Creating_an_Affinity_Group.adoc[leveloffset=+2]
 
-include::topics/Editing_an_Affinity_Group.adoc[]
+include::topics/Editing_an_Affinity_Group.adoc[leveloffset=+2]
 
-include::topics/Removing_an_Affinity_Group.adoc[]
+include::topics/Removing_an_Affinity_Group.adoc[leveloffset=+2]
 
-include::topics/Affinity_groups_examples.adoc[]
+include::topics/Affinity_groups_examples.adoc[leveloffset=+2]
 
-include::topics/Affinity_groups_troubleshooting.adoc[]
+include::topics/Affinity_groups_troubleshooting.adoc[leveloffset=+2]
 
 
 [id="sect-Affinity_Labels"]
-include::topics/Affinity_Labels.adoc[]
+== Affinity Labels
 
-include::topics/Creating_an_Affinity_Label.adoc[]
+include::topics/Affinity_Labels.adoc[leveloffset=+2]
 
-include::topics/Editing_an_Affinity_Label.adoc[]
+include::topics/Creating_an_Affinity_Label.adoc[leveloffset=+2]
 
-include::topics/Removing_an_Affinity_Label.adoc[]
+include::topics/Editing_an_Affinity_Label.adoc[leveloffset=+2]
+
+include::topics/Removing_an_Affinity_Label.adoc[leveloffset=+2]
 
 [id="sect-Exporting_and_Importing_Virtual_Machines_and_Templates"]
-=== Exporting and Importing Virtual Machines and Templates
-
+== Exporting and Importing Virtual Machines and Templates
 
 [NOTE]
 ====
@@ -115,28 +115,28 @@ You can also use the V2V feature to import virtual machines from other virtualiz
 Virtual machines must be shut down before being imported.
 ====
 
-include::topics/Exporting_individual_virtual_machines_to_the_export_domain.adoc[]
+include::topics/Exporting_individual_virtual_machines_to_the_export_domain.adoc[leveloffset=+2]
 
-include::topics/proc_Exporting_individual_virtual_machines_to_a_data_domain.adoc[leveloffset=+3]
+include::topics/proc_Exporting_individual_virtual_machines_to_a_data_domain.adoc[leveloffset=+2]
 
-include::topics/Importing_the_virtual_machine_from_the_export_domain.adoc[]
+include::topics/Importing_the_virtual_machine_from_the_export_domain.adoc[leveloffset=+2]
 
-include::topics/Importing_a_Virtual_Machine_from_a_Data_Domain.adoc[leveloffset=+3]
+include::topics/Importing_a_Virtual_Machine_from_a_Data_Domain.adoc[leveloffset=+2]
 
-include::topics/Importing_a_Virtual_Machine_from_a_VMware_Provider.adoc[]
+include::topics/Importing_a_Virtual_Machine_from_a_VMware_Provider.adoc[leveloffset=+2]
 
-include::topics/Exporting_a_virtual_machines_to_a_host.adoc[]
+include::topics/Exporting_a_virtual_machines_to_a_host.adoc[leveloffset=+2]
 
-include::topics/Importing_an_OVA_file_from_a_host.adoc[]
+include::topics/Importing_an_OVA_file_from_a_host.adoc[leveloffset=+2]
 
-include::topics/Importing_a_Virtual_Machine_from_Xen.adoc[]
+include::topics/Importing_a_Virtual_Machine_from_Xen.adoc[leveloffset=+2]
 
-include::topics/Importing_a_Virtual_Machine_from_KVM.adoc[]
+include::topics/Importing_a_Virtual_Machine_from_KVM.adoc[leveloffset=+2]
 
-include::topics/Importing_a_Red_Hat_KVM_Guest_Image.adoc[]
+include::topics/Importing_a_Red_Hat_KVM_Guest_Image.adoc[leveloffset=+2]
 
 [id="sect-Migrating_Virtual_Machines_Between_Hosts"]
-=== Migrating Virtual Machines Between Hosts
+== Migrating Virtual Machines Between Hosts
 
 Live migration provides the ability to move a running virtual machine between physical hosts with no interruption to service. The virtual machine remains powered on and user applications continue to run while the virtual machine is relocated to a new physical host. In the background, the virtual machine's RAM is copied from the source host to the destination host. Storage and network connectivity are not altered.
 
@@ -145,43 +145,43 @@ Live migration provides the ability to move a running virtual machine between ph
 A virtual machine that is using a vGPU cannot be migrated to a different host.
 ====
 
-include::topics/Live_migration_prerequisites.adoc[]
+include::topics/Live_migration_prerequisites.adoc[leveloffset=+2]
 
-include::topics/Optimizing_Live_Migration.adoc[]
+include::topics/Optimizing_Live_Migration.adoc[leveloffset=+2]
 
 // removed Optimizing live migration section - options no longer Existing
 // dcdacosta: added back Optimizing live migration since the values still apply on some versions. [See https://bugzilla.redhat.com/show_bug.cgi?id=1946201]
 
-include::topics/Guest_Agent_Hooks.adoc[]
+include::topics/Guest_Agent_Hooks.adoc[leveloffset=+2]
 
-include::topics/Automatic_virtual_machine_migration.adoc[]
+include::topics/Automatic_virtual_machine_migration.adoc[leveloffset=+2]
 
-include::topics/Preventing_automatic_migration_of_a_virtual_machine.adoc[]
+include::topics/Preventing_automatic_migration_of_a_virtual_machine.adoc[leveloffset=+2]
 
-include::topics/Manually_migrating_virtual_machines.adoc[]
+include::topics/Manually_migrating_virtual_machines.adoc[leveloffset=+2]
 
-include::topics/Setting_migration_priority.adoc[]
+include::topics/Setting_migration_priority.adoc[leveloffset=+2]
 
-include::topics/Canceling_ongoing_virtual_machine_migrations.adoc[]
+include::topics/Canceling_ongoing_virtual_machine_migrations.adoc[leveloffset=+2]
 
-include::topics/Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers.adoc[]
+include::topics/Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers.adoc[leveloffset=+2]
 
 [id="sect-Improving_Uptime_with_Virtual_Machine_High_Availability"]
-=== Improving Uptime with Virtual Machine High Availability
+== Improving Uptime with Virtual Machine High Availability
 
-include::topics/What_is_high_availability.adoc[]
+include::topics/What_is_high_availability.adoc[leveloffset=+2]
 
-include::topics/High_availability_considerations.adoc[]
+include::topics/High_availability_considerations.adoc[leveloffset=+2]
 
-include::topics/Configuring_a_highly_available_virtual_machine.adoc[]
+include::topics/Configuring_a_highly_available_virtual_machine.adoc[leveloffset=+2]
 
 [id="sect-Other_Virtual_Machine_Tasks"]
-=== Other Virtual Machine Tasks
+== Other Virtual Machine Tasks
 
-include::topics/Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal.adoc[]
+include::topics/Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal.adoc[leveloffset=+2]
 
 [id="sect-Configuring_Red_Hat_Enterprise_Linux_5.4_and_Higher_Virtual_Machines_to_use_SPICE"]
-==== Configuring {enterprise-linux} 5.4 and later Virtual Machines to use SPICE
+=== Configuring {enterprise-linux} 5.4 and later Virtual Machines to use SPICE
 
 SPICE is a remote display protocol designed for virtual environments, which enables you to view a virtualized desktop or server. SPICE delivers a high quality user experience, keeps CPU consumption low, and supports high quality video streaming.
 
@@ -191,12 +191,12 @@ Using SPICE on a Linux machine significantly improves the movement of the mouse 
 ====
 Typically, this is most useful for virtual machines where the user requires the use of the graphical user interface. System administrators who are creating virtual servers may prefer not to configure SPICE if their use of the graphical user interface is minimal.
 ====
-include::topics/Configuring_qxl_drivers_on_virtual_machines.adoc[]
+include::topics/Configuring_qxl_drivers_on_virtual_machines.adoc[leveloffset=+3]
 
-include::topics/Configuring_a_virtual_machines_tablet_and_mouse_to_use_SPICE.adoc[]
+include::topics/Configuring_a_virtual_machines_tablet_and_mouse_to_use_SPICE.adoc[leveloffset=+3]
 
-include::topics/KVM_virtual_machine_timing_management.adoc[]
+include::topics/KVM_virtual_machine_timing_management.adoc[leveloffset=+2]
 
-include::topics/proc-Adding_TPM_devices.adoc[]
+include::topics/proc-Adding_TPM_devices.adoc[leveloffset=+2]
 
 :context!: vm_guide_administrative_tasks

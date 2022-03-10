@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Importing_the_virtual_machine_from_the_export_domain"]
-==== Importing a Virtual Machine from the Export Domain
+= Importing a Virtual Machine from the Export Domain
 
 You have a virtual machine on an export domain. Before the virtual machine can be imported to a new data center, the export domain must be attached to the destination data center.
 

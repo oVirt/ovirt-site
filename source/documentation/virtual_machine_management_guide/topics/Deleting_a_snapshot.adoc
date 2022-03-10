@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Deleting_a_snapshot"]
-==== Deleting a Snapshot
+= Deleting a Snapshot
 
 You can delete a virtual machine snapshot and permanently remove it from your {virt-product-fullname} environment.
 

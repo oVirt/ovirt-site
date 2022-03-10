@@ -2,7 +2,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 [id="Removing_a_virtual_machine"]
-=== Removing a Virtual Machine
+= Removing a Virtual Machine
 
 
 [IMPORTANT]

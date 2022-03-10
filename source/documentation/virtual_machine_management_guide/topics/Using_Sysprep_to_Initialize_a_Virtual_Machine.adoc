@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_Sysprep_to_Initialize_a_Virtual_Machine"]
-==== Using Sysprep to Initialize a Virtual Machine
+= Using Sysprep to Initialize a Virtual Machine
 
 Use `Sysprep` to automate the initial configuration of a Windows virtual machine. You can use the *Sysprep* fields to configure a virtual machine's host name, time zone, root password, authorized keys, network interfaces, and DNS service.
 

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Installing_Cloud-Init"]
-==== Installing Cloud-Init
+= Installing Cloud-Init
 
 This procedure describes how to install Cloud-Init on a virtual machine. Once Cloud-Init is installed, you can create a template based on this virtual machine. Virtual machines created based on this template can leverage Cloud-Init functions, such as configuring the host name, time zone, root password, authorized keys, network interfaces, DNS service, etc on boot.
 

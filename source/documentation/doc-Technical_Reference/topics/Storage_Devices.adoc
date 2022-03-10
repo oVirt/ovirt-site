@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Storage_Devices"]
-=== Storage Devices
+= Storage Devices
 
 Storage devices and storage pools can use the block device drivers to attach storage devices to virtualized guests. Note that the storage drivers are not storage devices. The drivers are used to attach a backing storage device, file or storage pool volume to a virtualized guest. The backing storage device can be any supported type of storage device, file, or storage pool volume.
 

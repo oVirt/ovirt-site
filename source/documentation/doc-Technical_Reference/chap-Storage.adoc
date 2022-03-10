@@ -1,29 +1,29 @@
 :_content-type: ASSEMBLY
 [id="chap-Storage"]
-== Storage
+= Storage
 
-include::topics/Storage_Domains1.adoc[]
+include::topics/Storage_Domains1.adoc[leveloffset=+1]
 
-include::topics/Types_Of_Storage_Backing_Storage_Domains.adoc[]
+include::topics/Types_Of_Storage_Backing_Storage_Domains.adoc[leveloffset=+1]
 
-include::topics/Storage_Domain_Types1.adoc[]
+include::topics/Storage_Domain_Types1.adoc[leveloffset=+1]
 
-include::topics/QCOW2.adoc[]
+include::topics/QCOW2.adoc[leveloffset=+1]
 
-include::topics/Preallocated_Storage.adoc[]
+include::topics/Preallocated_Storage.adoc[leveloffset=+1]
 
-include::topics/Storage_metadata_versions_in_Red_Hat_Enterprise_Virtualization.adoc[]
+include::topics/Storage_metadata_versions_in_Red_Hat_Enterprise_Virtualization.adoc[leveloffset=+1]
 
-include::topics/Storage_Domain_Autorecovery_in_Red_Hat_Enterprise_Virtualization.adoc[]
+include::topics/Storage_Domain_Autorecovery_in_Red_Hat_Enterprise_Virtualization.adoc[leveloffset=+1]
 
-include::topics/Role_The_Storage_Pool_Manager.adoc[]
+include::topics/Role_The_Storage_Pool_Manager.adoc[leveloffset=+1]
 
-include::topics/Storage_Pool_Manager_Selection_Process.adoc[]
+include::topics/Storage_Pool_Manager_Selection_Process.adoc[leveloffset=+1]
 
-include::topics/Exclusive_Resources_and_Sanlock_in_Red_Hat_Enterprise_Virtualization.adoc[]
+include::topics/Exclusive_Resources_and_Sanlock_in_Red_Hat_Enterprise_Virtualization.adoc[leveloffset=+1]
 
-include::topics/Over-commitment.adoc[]
+include::topics/Over-commitment.adoc[leveloffset=+1]
 
-include::topics/Logical_Volume_Extension.adoc[]
+include::topics/Logical_Volume_Extension.adoc[leveloffset=+1]
 
-include::topics/The_Effect_of_Storage_Domain_Actions_on_Storage_Capacity.adoc[]
+include::topics/The_Effect_of_Storage_Domain_Actions_on_Storage_Capacity.adoc[leveloffset=+1]

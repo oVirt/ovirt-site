@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Directory_Services2"]
-=== Directory Services
+= Directory Services
 
 The {virt-product-fullname} platform relies on directory services for user authentication and authorization. Interactions with all {engine-name} interfaces, including the VM Portal, Administration Portal, and REST API are limited to authenticated, authorized users. Virtual machines within the {virt-product-fullname} environment can use the same directory services to provide authentication and authorization, however they must be configured to do so. The currently supported providers of directory services for use with the {virt-product-fullname} {engine-name} are Identity Management (IdM), Red Hat Directory Server 9 (RHDS), Active Directory (AD), and OpenLDAP. The {virt-product-fullname} {engine-name} interfaces with the directory server for:
 

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Introduction_Basic_Networking_Terms"]
-=== Basic Networking Terms
+= Basic Networking Terms
 
 {virt-product-fullname} provides networking functionality between virtual machines, virtualization hosts, and wider networks using:
 

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Scheduling"]
-=== Scheduling
+= Scheduling
 
 In {virt-product-fullname}, scheduling refers to the way the {virt-product-fullname} {engine-name} selects a host in a cluster as the target for a new or migrated virtual machine.
 

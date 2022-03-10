@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Switch_Configuration_for_Bonding"]
-=== Switch Configuration for Bonding
+= Switch Configuration for Bonding
 
 Switch configurations vary per the requirements of your hardware. Refer to the deployment and networking configuration guides for your operating system.
 

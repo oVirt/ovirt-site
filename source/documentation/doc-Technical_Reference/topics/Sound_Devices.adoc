@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Sound_Devices"]
-=== Sound Devices
+= Sound Devices
 
 Two emulated sound devices are available:
 

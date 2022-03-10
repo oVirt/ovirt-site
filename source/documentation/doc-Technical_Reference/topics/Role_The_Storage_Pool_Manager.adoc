@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Role_The_Storage_Pool_Manager"]
-=== The Storage Pool Manager
+= The Storage Pool Manager
 
 {virt-product-fullname} uses metadata to describe the internal structure of storage domains. Structural metadata is written to a segment of each storage domain. Hosts work with the storage domain metadata based on a single writer, and multiple readers configuration. Storage domain structural metadata tracks image and snapshot creation and deletion, and volume and domain extension.
 

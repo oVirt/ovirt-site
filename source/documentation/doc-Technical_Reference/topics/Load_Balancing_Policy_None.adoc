@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Load_Balancing_Policy_None"]
-=== Load Balancing Policy: None
+= Load Balancing Policy: None
 
 If no load balancing policy is selected, virtual machines are started on the host within a cluster with the lowest CPU utilization and available memory. To determine CPU utilization a combined metric is used that takes into account the virtual CPU count and the CPU usage percent. This approach is the least dynamic, as the only host selection point is when a new virtual machine is started. Virtual machines are not automatically migrated to reflect increased demand on a host.
 

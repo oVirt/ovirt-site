@@ -3,7 +3,7 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-Timezones"]
-== Timezones
+= Timezones
 
 The API maps Windows Standard Format timezone names to tz database format when specifying a timezone for a virtual machine or VM template. This means the API only accepts certain tz database codes, which the following table lists:
 

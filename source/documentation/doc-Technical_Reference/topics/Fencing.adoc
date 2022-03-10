@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Fencing"]
-=== Fencing
+= Fencing
 
 In the context of the {virt-product-fullname} environment, fencing is a host reboot initiated by the {engine-name} using a fence agent and performed by a power management device. Fencing allows a cluster to react to unexpected host failures as well as enforce power saving, load balancing, and virtual machine availability policies.
 

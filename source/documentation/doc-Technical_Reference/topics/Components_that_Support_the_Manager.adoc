@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Components_that_Support_the_Manager"]
-=== Components that Support the {engine-name}
+= Components that Support the {engine-name}
 
 
 *Red Hat JBoss Enterprise Application Platform*:: Red Hat JBoss Enterprise Application Platform is a Java application server. It provides a framework to support efficient development and delivery of cross-platform Java applications. The {virt-product-fullname} {engine-name} is delivered using Red Hat JBoss Enterprise Application Platform.

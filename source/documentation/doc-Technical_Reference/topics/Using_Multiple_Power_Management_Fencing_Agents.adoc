@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Using_Multiple_Power_Management_Fencing_Agents"]
-=== Using Multiple Power Management Fencing Agents
+= Using Multiple Power Management Fencing Agents
 
 Single agents are treated as primary agents. The secondary agent is valid when there are two fencing agents, for example for dual-power hosts in which each power switch has two agents connected to the same power switch. Agents can be of the same or different types.
 

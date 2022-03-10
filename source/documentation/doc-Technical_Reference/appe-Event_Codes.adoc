@@ -3,7 +3,7 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-Event_Codes"]
-== Event Codes
+= Event Codes
 
 This table lists all event codes.
 

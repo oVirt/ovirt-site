@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Types_Of_Storage_Backing_Storage_Domains"]
-=== Types of Storage Backing Storage Domains
+= Types of Storage Backing Storage Domains
 
 Storage domains can be implemented using block based and file based storage.
 

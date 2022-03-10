@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Preallocated_Storage"]
-=== Virtual Disk Storage Allocation Policies
+= Virtual Disk Storage Allocation Policies
 
 
 *Preallocated Storage*:: All of the storage required for a virtual disk is allocated prior to virtual machine creation. If a 20 GB disk image is created for a virtual machine, the disk image uses 20 GB of storage domain capacity. Preallocated disk images cannot be enlarged. Preallocating storage can mean faster write times because no storage allocation takes place during runtime, at the cost of flexibility. Allocating storage this way reduces the capacity of the {virt-product-fullname} {engine-name} to overcommit storage. Preallocated storage is recommended for virtual machines used for high intensity I/O tasks with less tolerance for latency in storage. Generally, server virtual machines fit this description.

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Snapshot_Deletion"]
-=== Snapshot Deletion
+= Snapshot Deletion
 
 You can delete individual snapshots that are no longer required. Deleting a snapshot removes the ability to restore a virtual disk to that particular restoration point. It does not necessarily reclaim the disk space consumed by the snapshot, nor does it delete the data. The disk space will only be reclaimed if a subsequent snapshot has overwritten the data of the deleted snapshot. For example, if the third snapshot out of five snapshots is deleted, the unchanged data in the third snapshot must be preserved on the disk for the fourth and fifth snapshots to be usable; however, if the fourth or fifth snapshot has overwritten the data of the third, then the third snapshot has been made redundant and the disk space can be reclaimed. Aside from potential disk space reclamation, deleting a snapshot may also improve the performance of the virtual machine.
 

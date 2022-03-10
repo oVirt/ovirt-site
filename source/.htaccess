@@ -384,6 +384,10 @@ RewriteRule ^(.*)$ /community/about.html [R=301,L]
 RewriteCond %{REQUEST_URI} /develop/release-management/process/making-an-release.html
 RewriteRule ^(.*)$ /develop/release-management/process/making-a-release.html [R=301,L]
 
+# https://www.ovirt.org/documentation/admin-guide/virt/console-client-resources/ -> https://www.ovirt.org/dropped/admin-guide/virt/console-client-resources.html
+RewriteCond %{REQUEST_URI} /documentation/admin-guide/virt/console-client-resources/
+RewriteRule ^(.*)$ /dropped/admin-guide/virt/console-client-resources.html [R=302,L]
+
 ##
 
 # add .html

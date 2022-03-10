@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Local Authentication: Internal Domain | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Local Authentication: Internal Domain" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Local_Authentication_Internal_Domain.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Local Authentication: Internal Domain" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2771/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Local_Authentication_Internal_Domain.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2771/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Local Authentication: Internal Domain","url":"https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Local_Authentication_Internal_Domain.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -114,14 +114,11 @@
         
         <section id="content" class="content container">
           
-<div class="sect2">
-<h3 id="Local_Authentication_Internal_Domain">Local Authentication: Internal Domain</h3>
 <div class="paragraph">
 <p>The {virt-product-fullname} {engine-name} creates a limited, internal administration domain during installation. This domain is not the same as an AD or IdM domain, because it exists based on a key in the {virt-product-fullname} PostgreSQL database rather than as a directory service user on a directory server. The internal domain is also different from an external domain because the internal domain will only have one user: the <strong>admin@internal</strong> user. Taking this approach to initial authentication allows {virt-product-fullname} to be evaluated without requiring a complete, functional directory server, and ensures an administrative account is available to troubleshoot any issues with external directory services.</p>
 </div>
 <div class="paragraph">
 <p>The admin@internal user is for the initial configuration of an environment. This includes installing and accepting hosts, adding external AD or IdM authentication domains, and delegating permissions to users from external domains.</p>
-</div>
 </div>
 
 

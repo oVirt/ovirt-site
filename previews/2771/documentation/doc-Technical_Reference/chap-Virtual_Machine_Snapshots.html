@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Virtual Machine Snapshots | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Virtual Machine Snapshots" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/chap-Virtual_Machine_Snapshots.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Virtual Machine Snapshots" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2771/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/chap-Virtual_Machine_Snapshots.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2771/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Virtual Machine Snapshots","url":"https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/chap-Virtual_Machine_Snapshots.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -106,10 +106,8 @@
         <section id="content" class="content container">
           
 <div class="sect1">
-<h2 id="chap-Virtual_Machine_Snapshots">Virtual Machine Snapshots</h2>
+<h2 id="Snapshots1">Snapshots</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="Snapshots1">Snapshots</h3>
 <div class="paragraph">
 <p>Snapshots are a storage function that allows an administrator to create a restore point of a virtual machine&#8217;s operating system, applications, and data at a certain point in time. Snapshots save the data currently present in a virtual machine hard disk image as a COW volume and allow for a recovery to the data as it existed at the time the snapshot was taken. A snapshot causes a new COW layer to be created over the current layer. All write actions performed after a snapshot is taken are written to the new COW layer.</p>
 </div>
@@ -153,8 +151,10 @@
 <p>For task-based information about snapshot operations, see <a href="{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#sect-Snapshots">Snapshots</a> in the <em>{virt-product-fullname} Virtual Machine Management Guide</em>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Live_Snapshots_in_Red_Hat_Enterprise_Virtualization">Live Snapshots in {virt-product-fullname}</h3>
+</div>
+<div class="sect1">
+<h2 id="Live_Snapshots_in_Red_Hat_Enterprise_Virtualization">Live Snapshots in {virt-product-fullname}</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Snapshots of virtual machine hard disks marked <strong>shareable</strong> and those that are based on <strong>Direct LUN</strong> connections are not supported, live or otherwise.</p>
 </div>
@@ -177,8 +177,10 @@
 <p>All live snapshots attempted with quiescing enabled. If the snapshot command fails because there is no compatible guest agent present, the live snapshot is re-initiated without the use-quiescing flag. When a virtual machine is reverted to its pre-snapshot state with quiesced filesystems, it boots cleanly with no filesystem check required. Reverting the previous snapshot using an un-quiesced filesystem requires a filesystem check on boot.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Snapshot_Creation">Snapshot Creation</h3>
+</div>
+<div class="sect1">
+<h2 id="Snapshot_Creation">Snapshot Creation</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In {virt-product-fullname} the initial snapshot for a virtual machine is different from subsequent snapshots in that the initial snapshot retains its format, either QCOW2 or raw. The first snapshot for a virtual machine uses existing volumes as a base image. Additional snapshots are additional COW layers tracking the changes made to the data stored in the image since the previous snapshot.</p>
 </div>
@@ -201,8 +203,10 @@
 <div class="title">Figure 2. Additional Snapshot Creation</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Snapshot_Previews">Snapshot Previews</h3>
+</div>
+<div class="sect1">
+<h2 id="Snapshot_Previews">Snapshot Previews</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To select which snapshot a virtual disk will be reverted to, the administrator can preview all previously created snapshots.</p>
 </div>
@@ -222,8 +226,10 @@
 <div class="title">Figure 3. Preview Snapshot</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Snapshot_Deletion">Snapshot Deletion</h3>
+</div>
+<div class="sect1">
+<h2 id="Snapshot_Deletion">Snapshot Deletion</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>You can delete individual snapshots that are no longer required. Deleting a snapshot removes the ability to restore a virtual disk to that particular restoration point. It does not necessarily reclaim the disk space consumed by the snapshot, nor does it delete the data. The disk space will only be reclaimed if a subsequent snapshot has overwritten the data of the deleted snapshot. For example, if the third snapshot out of five snapshots is deleted, the unchanged data in the third snapshot must be preserved on the disk for the fourth and fifth snapshots to be usable; however, if the fourth or fifth snapshot has overwritten the data of the third, then the third snapshot has been made redundant and the disk space can be reclaimed. Aside from potential disk space reclamation, deleting a snapshot may also improve the performance of the virtual machine.</p>
 </div>
@@ -249,7 +255,6 @@
 </td>
 </tr>
 </table>
-</div>
 </div>
 </div>
 </div>

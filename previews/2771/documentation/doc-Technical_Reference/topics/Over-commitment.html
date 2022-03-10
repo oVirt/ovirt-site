@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Thin Provisioning and Storage Over-Commitment | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Thin Provisioning and Storage Over-Commitment" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Over-commitment.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Thin Provisioning and Storage Over-Commitment" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2771/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Over-commitment.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2771/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Thin Provisioning and Storage Over-Commitment","url":"https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Over-commitment.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -114,8 +114,6 @@
         
         <section id="content" class="content container">
           
-<div class="sect2">
-<h3 id="Over-commitment">Thin Provisioning and Storage Over-Commitment</h3>
 <div class="paragraph">
 <p>The {virt-product-fullname} {engine-name} provides provisioning policies to optimize storage usage within the virtualization environment. A thin provisioning policy allows you to over-commit storage resources, provisioning storage based on the actual storage usage of your virtualization environment.</p>
 </div>
@@ -141,7 +139,6 @@
 </div>
 <div class="paragraph">
 <p>When QEMU indicates that usage has risen to exceed the threshold limit, VDSM communicates to the {engine-name} that the disk image will soon reach the size of it&#8217;s logical volume. The {virt-product-fullname} {engine-name} requests that the SPM host extend the logical volume. This process can be repeated as long as the data storage domain for the data center has available space. When the data storage domain runs out of available free space, you must manually add storage capacity to expand it.</p>
-</div>
 </div>
 
 

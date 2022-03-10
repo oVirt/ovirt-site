@@ -25,6 +25,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Bond.html</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Bonding_Modes.html</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/Bridge.html</loc>
 </url>
 <url>
@@ -887,9 +890,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/con-virtual_machine_networking_types.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2771/documentation/doc-Technical_Reference/topics/conc-networking-in-rhv.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2771/develop/developer-guide/events/configuration-event-subscribers.html</loc>
@@ -3644,6 +3644,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2771/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-10T12:28:53+00:00</lastmod>
+<lastmod>2022-03-10T15:13:20+00:00</lastmod>
 </url>
 </urlset>

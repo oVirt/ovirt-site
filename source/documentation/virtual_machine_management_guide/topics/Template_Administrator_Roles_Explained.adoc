@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Template_Administrator_Roles_Explained"]
-==== Template Administrator Roles Explained
+= Template Administrator Roles Explained
 
 The table below describes the administrator roles and privileges applicable to template administration.
 

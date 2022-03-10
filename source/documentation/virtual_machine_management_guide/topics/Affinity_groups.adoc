@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="affinity-groups"]
-=== Affinity Groups
+= Affinity Groups
 
 Affinity groups help you determine where selected virtual machines run in relation to each other and specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.
 

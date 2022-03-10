@@ -2,7 +2,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 [id="Removing_an_Affinity_Label"]
-==== Removing an Affinity Label
+= Removing an Affinity Label
 
 You can remove affinity labels only from the details view of a cluster.
 

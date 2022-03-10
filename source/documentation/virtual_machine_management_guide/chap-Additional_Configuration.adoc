@@ -19,6 +19,7 @@ Single sign-on is not supported for virtual machines running {enterprise-linux} 
 ====
 If single sign-on to the VM Portal is enabled, single sign-on to virtual machines will not be possible. With single sign-on to the VM Portal enabled, the VM Portal does not need to accept a password, thus the password cannot be delegated to sign in to virtual machines.
 ====
+
 include::topics/Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines.adoc[leveloffset=+2]
 
 include::topics/Configuring_Single_Sign_On_for_Windows_Virtual_Machines.adoc[leveloffset=+2]
@@ -79,6 +80,7 @@ Remote Desktop Protocol (RDP) can only be used to open consoles to Windows virtu
 ====
 SPICE is not supported on virtual machines running Windows 8 or Windows 8.1. If a virtual machine running one of these operating systems is configured to use the SPICE protocol, it detects the absence of the required SPICE drivers and runs in VGA compatibility mode.
 ====
+
 include::topics/Accessing_console_options.adoc[leveloffset=+2]
 
 include::topics/SPICE_Console_Options.adoc[leveloffset=+2]

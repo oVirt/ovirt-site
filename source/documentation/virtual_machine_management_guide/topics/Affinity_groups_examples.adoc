@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Affinity_groups_examples"]
-==== Affinity Groups Examples
+= Affinity Groups Examples
 
 The following examples illustrate how to apply affinity rules for various scenarios, using the different features of the affinity group capability described in this chapter.
 

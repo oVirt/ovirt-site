@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Importing_a_virtual_machine_from_a_host"]
-==== Importing a Virtual Machine from a Host
+= Importing a Virtual Machine from a Host
 
 Import an Open Virtual Appliance (OVA) file into your {virt-product-fullname} environment. You can import the file from any {hypervisor-fullname} in the data center.
 

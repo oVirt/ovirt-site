@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Exporting_individual_virtual_machines_to_the_export_domain"]
-==== Exporting a Virtual Machine to the Export Domain
+= Exporting a Virtual Machine to the Export Domain
 
 Export a virtual machine to the export domain so that it can be imported into a different data center. Before you begin, the export domain must be attached to the data center that contains the virtual machine to be exported.
 

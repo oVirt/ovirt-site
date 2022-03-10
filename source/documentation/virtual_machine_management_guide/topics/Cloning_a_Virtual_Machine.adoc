@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Cloning_a_Virtual_Machine"]
-=== Cloning a Virtual Machine
+= Cloning a Virtual Machine
 
 You can clone virtual machines without having to create a template or a snapshot first.
 
@@ -10,7 +10,7 @@ The *Clone VM* button is disabled while virtual machines are running; you must s
 ====
 
 
-*Cloning Virtual Machines*
+.Procedure
 
 . Click menu:Compute[Virtual Machines] and select the virtual machine to clone.
 . Click *More Actions* (image:common/images/moreactions.png[]), then click *Clone VM*.

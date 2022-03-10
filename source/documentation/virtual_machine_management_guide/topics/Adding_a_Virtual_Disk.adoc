@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Adding_a_Virtual_Disk"]
-==== Adding a New Virtual Disk
+= Adding a New Virtual Disk
 
 You can add multiple virtual disks to a virtual machine.
 

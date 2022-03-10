@@ -1,68 +1,58 @@
 :_content-type: ASSEMBLY
 
 [id="chap-Templates"]
-[discrete]
 = Templates
 
-include::topics/Templates.adoc[]
+include::topics/Templates.adoc[leveloffset=+1]
 
-include::topics/Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates.adoc[]
+include::topics/Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates.adoc[leveloffset=+1]
 
-include::topics/Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template.adoc[]
+include::topics/Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template.adoc[leveloffset=+2]
+include::topics/Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template.adoc[leveloffset=+2]
 
-include::topics/Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template.adoc[]
+include::topics/Prerequisites_for_Sealing_a_Windows_Virtual_Machine.adoc[leveloffset=+3]
+include::topics/Sealing_a_Windows_7_or_Windows_2008_template.adoc[leveloffset=+3]
 
-include::topics/Prerequisites_for_Sealing_a_Windows_Virtual_Machine.adoc[]
-
-include::topics/Sealing_a_Windows_7_or_Windows_2008_template.adoc[]
-
-include::topics/Creating_a_template_from_an_existing_virtual_machine.adoc[]
-
-include::topics/Editing_a_Template.adoc[]
-
-include::topics/Deleting_a_template.adoc[]
+include::topics/Creating_a_template_from_an_existing_virtual_machine.adoc[leveloffset=+1]
+include::topics/Editing_a_Template.adoc[leveloffset=+1]
+include::topics/Deleting_a_template.adoc[leveloffset=+1]
 
 [id="sect-Exporting_Templates"]
-=== Exporting Templates
+== Exporting Templates
 
-include::topics/Migrating_Templates_to_the_Export_Domain.adoc[]
+include::topics/Migrating_Templates_to_the_Export_Domain.adoc[leveloffset=+2]
 
-include::topics/Copying_a_Templates_Virtual_Hard_Disk.adoc[]
+include::topics/Copying_a_Templates_Virtual_Hard_Disk.adoc[leveloffset=+2]
 
 [id="sect-Importing_Templates"]
-=== Importing Templates
+== Importing Templates
 
-include::topics/Importing_a_template_into_a_data_center.adoc[]
+include::topics/Importing_a_template_into_a_data_center.adoc[leveloffset=+2]
 
-include::topics/Importing_a_Virtual_Disk_Image_from_an_OpenStack_Image_Service_as_a_Template.adoc[]
+include::topics/Importing_a_Virtual_Disk_Image_from_an_OpenStack_Image_Service_as_a_Template.adoc[leveloffset=+2]
 
 [id="sect-Templates_and_Permissions"]
-=== Templates and Permissions
+== Templates and Permissions
 
-include::topics/Managing_System_Permissions_for_a_Template.adoc[]
+include::topics/Managing_System_Permissions_for_a_Template.adoc[leveloffset=+2]
 
-include::topics/Template_Administrator_Roles_Explained.adoc[]
+include::topics/Template_Administrator_Roles_Explained.adoc[leveloffset=+2]
 
-include::topics/Assigning_an_Administrator_or_User_Role_to_a_Resource.adoc[]
+include::topics/Assigning_an_Administrator_or_User_Role_to_a_Resource.adoc[leveloffset=+2]
 
-include::topics/Removing_an_Administrator_or_User_Role_from_a_Resource.adoc[]
+include::topics/Removing_an_Administrator_or_User_Role_from_a_Resource.adoc[leveloffset=+2]
 
-include::topics/Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines.adoc[]
+include::topics/Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines.adoc[leveloffset=+1]
+include::topics/Cloud-Init_Use_Case_Scenarios.adoc[leveloffset=+2]
+include::topics/Installing_Cloud-Init.adoc[leveloffset=+2]
+include::topics/Using_Cloud-Init_to_Prepare_a_Template.adoc[leveloffset=+2]
+include::topics/Using_Cloud-Init.adoc[leveloffset=+2]
 
-include::topics/Cloud-Init_Use_Case_Scenarios.adoc[]
+include::topics/Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines.adoc[leveloffset=+1]
 
-include::topics/Installing_Cloud-Init.adoc[]
+include::topics/Configuring_Sysprep_on_a_Template.adoc[leveloffset=+2]
+include::topics/Using_Sysprep_to_Initialize_a_Virtual_Machine.adoc[leveloffset=+2]
 
-include::topics/Using_Cloud-Init_to_Prepare_a_Template.adoc[]
+include::topics/Creating_a_Virtual_Machine_Based_on_a_Template.adoc[leveloffset=+1]
 
-include::topics/Using_Cloud-Init.adoc[]
-
-include::topics/Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines.adoc[]
-
-include::topics/Configuring_Sysprep_on_a_Template.adoc[]
-
-include::topics/Using_Sysprep_to_Initialize_a_Virtual_Machine.adoc[]
-
-include::topics/Creating_a_Virtual_Machine_Based_on_a_Template.adoc[]
-
-include::topics/Creating_a_cloned_virtual_machine_based_on_a_template.adoc[]
+include::topics/Creating_a_cloned_virtual_machine_based_on_a_template.adoc[leveloffset=+1]

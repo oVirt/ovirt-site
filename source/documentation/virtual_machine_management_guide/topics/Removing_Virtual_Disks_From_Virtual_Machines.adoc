@@ -2,7 +2,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 [id="Removing_Virtual_Disks_From_Virtual_Machines"]
-==== Removing a Virtual Disk from a Virtual Machine
+= Removing a Virtual Disk from a Virtual Machine
 
 *Removing Virtual Disks From Virtual Machines*
 

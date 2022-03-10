@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_Machine_Icon_Settings_Explained"]
-==== Virtual Machine Icon Settings Explained
+= Virtual Machine Icon Settings Explained
 
 You can add custom icons to virtual machines and templates. Custom icons can help to differentiate virtual machines in the VM Portal. The following table details the options available on the *Icon* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
 [id="New_VMs_Icon"]

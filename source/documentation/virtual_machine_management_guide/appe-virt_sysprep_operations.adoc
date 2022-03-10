@@ -3,7 +3,7 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-virt_sysprep_operations"]
-== `virt-sysprep` Operations
+= `virt-sysprep` Operations
 
 The `virt-sysprep` command removes system-specific details.
 

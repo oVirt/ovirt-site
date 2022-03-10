@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Hot_Plugging_Virtual_Memory"]
-==== Hot Plugging Virtual Memory
+= Hot Plugging Virtual Memory
 
 You can hot plug virtual memory. Hot plugging means enabling or disabling devices while a virtual machine is running. Each time memory is hot plugged, it appears as a new memory device in the *Vm Devices* tab in the details view of the virtual machine, up to a maximum of 16 available slots. When the virtual machine is restarted, these devices are cleared from the *Vm Devices* tab without reducing the virtual machine's memory, allowing you to hot plug more memory devices. If the hot plug fails (for example, if there are no more available slots), the memory increase will be applied when the virtual machine is restarted.
 

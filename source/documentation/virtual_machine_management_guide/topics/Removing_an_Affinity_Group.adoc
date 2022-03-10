@@ -2,7 +2,7 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 [id="Removing_an_Affinity_Group"]
-==== Removing an Affinity Group
+= Removing an Affinity Group
 
 
 

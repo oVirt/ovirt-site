@@ -5,7 +5,7 @@
 You can add a watchdog card to a virtual machine to monitor the operating system's responsiveness.
 
 
-*Adding Watchdog Cards to Virtual Machines*
+.Procedure
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click btn:[Edit].

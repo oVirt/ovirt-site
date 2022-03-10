@@ -3,40 +3,39 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows"]
-== Reference: Settings in Administration Portal and VM Portal Windows
+= Reference: Settings in Administration Portal and VM Portal Windows
 
 [id="sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows"]
-=== Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows
+== Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows
 
-include::topics/Virtual_Machine_General_settings_explained.adoc[]
+include::topics/Virtual_Machine_General_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_System_Settings_Explained.adoc[]
+include::topics/Virtual_Machine_System_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Initial_Run_settings_explained.adoc[]
+include::topics/Virtual_Machine_Initial_Run_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Console_settings_explained.adoc[]
+include::topics/Virtual_Machine_Console_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Host_settings_explained.adoc[]
+include::topics/Virtual_Machine_Host_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_High_Availability_settings_explained.adoc[]
+include::topics/Virtual_Machine_High_Availability_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Resource_Allocation_settings_explained.adoc[]
+include::topics/Virtual_Machine_Resource_Allocation_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Boot_Options_settings_explained.adoc[]
+include::topics/Virtual_Machine_Boot_Options_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Random_Generator_Settings_Explained.adoc[]
+include::topics/Virtual_Machine_Random_Generator_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Custom_Properties_settings_explained.adoc[]
+include::topics/Virtual_Machine_Custom_Properties_settings_explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Icon_Settings_Explained.adoc[]
+include::topics/Virtual_Machine_Icon_Settings_Explained.adoc[leveloffset=+2]
 
-include::topics/Virtual_Machine_Satellite_settings_explained.adoc[]
+include::topics/Virtual_Machine_Satellite_settings_explained.adoc[leveloffset=+2]
 
+include::topics/Explanation_of_Settings_in_the_Run_Once_Window.adoc[leveloffset=+1]
 
-include::topics/Explanation_of_Settings_in_the_Run_Once_Window.adoc[]
+include::topics/Virtual_Machine_Network_Interface_dialogue_entries.adoc[leveloffset=+1]
 
-include::topics/Virtual_Machine_Network_Interface_dialogue_entries.adoc[]
+include::topics/Add_Virtual_Disk_dialogue_entries.adoc[leveloffset=+1]
 
-include::topics/Add_Virtual_Disk_dialogue_entries.adoc[]
-
-include::topics/Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows.adoc[]
+include::topics/Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows.adoc[leveloffset=+1]

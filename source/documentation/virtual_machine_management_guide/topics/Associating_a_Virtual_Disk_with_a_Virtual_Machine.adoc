@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Associating_a_Virtual_Disk_with_a_Virtual_Machine"]
-==== Attaching an Existing Disk to a Virtual Machine
+= Attaching an Existing Disk to a Virtual Machine
 
 Floating disks are disks that are not associated with any virtual machine.
 
@@ -11,7 +11,7 @@ Floating disks can be attached to a single virtual machine, or to multiple virtu
 Once a floating disk is attached to a virtual machine, the virtual machine can access it.
 
 
-*Attaching Virtual Disks to Virtual Machines*
+.Procedure
 
 . Click menu:Compute[Virtual Machines].
 . Click a virtual machine name to go to the details view.

@@ -3181,6 +3181,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2768/community/user-stories/users-and-providers.html</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2768/community/users-list.html</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2768/develop/api/design/using-rest-api-in-web-ui.html</loc>
 </url>
 <url>
@@ -3641,6 +3644,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2768/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-09T14:38:12+00:00</lastmod>
+<lastmod>2022-03-10T09:24:00+00:00</lastmod>
 </url>
 </urlset>

@@ -24,7 +24,7 @@ On existing clusters, the management network can only be changed using the *Mana
 * *ppc64*: For IBM POWER CPU types.
 
 |*CPU Type* |The oldest CPU family in the cluster. For a list of CPU types, see link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning[CPU Requirements] in the _Planning and Prerequisites Guide_. You cannot change this cannot after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
-|*FIPS Mode* |The FIPS mode used by the cluster. All hosts in the cluster must run the FIPS mode you specify or the host will fail.
+|*FIPS Mode* a|The FIPS mode used by the cluster. All hosts in the cluster must run the FIPS mode you specify or the host will fail.
 
 * *Auto Detect*: This setting automatically detects whether FIPS mode is enabled or disabled. When *Auto Detect* is selected, the FIPS mode is determined by the first host up in the cluster.
 

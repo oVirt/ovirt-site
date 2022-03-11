@@ -10,7 +10,7 @@ Fencing allows a cluster to react to unexpected host failures and enforce power 
 ====
 To automatically check the fencing parameters, you can configure the `PMHealthCheckEnabled` (false by default) and `PMHealthCheckIntervalInSec` (3600 sec by default) engine-config options.
 
-When set to true, `PMHealthCheckEnabled` will check all host agents at the interval specified by `PMHealthCheckIntervalInSec`, and raise warnings if it detects issues. See <<Syntax_for_the_engine-config_Command>> for more information about configuring engine-config options. 
+When set to true, `PMHealthCheckEnabled` will check all host agents at the interval specified by `PMHealthCheckIntervalInSec`, and raise warnings if it detects issues. See xref:Syntax_for_the_engine-config_Command[Syntax for the engine-config Command] for more information about configuring engine-config options. 
 ====
 Power management operations can be performed by {virt-product-fullname} {engine-name} after it reboots, by a proxy host, or manually in the Administration Portal. All the virtual machines running on the non-responsive host are stopped, and highly available virtual machines are started on a different host. At least two hosts are required for power management operations.
 
@@ -18,6 +18,6 @@ After the {engine-name} starts up, it automatically attempts to fence non-respon
 
 NOTE: The `DisableFenceAtStartupInSec` engine-config option helps prevent a scenario where the {engine-name} attempts to fence hosts while they boot up. This can occur after a data center outage because a host's boot process is normally longer than the {engine-name} boot process.
 
-Hosts can be fenced automatically by the proxy host using the power management parameters, or manually by right-clicking on a host and using the options on the menu. 
+Hosts can be fenced automatically by the proxy host using the power management parameters, or manually by right-clicking on a host and using the options on the menu.
 
 IMPORTANT: If a host runs virtual machines that are highly available, power management must be enabled and configured.

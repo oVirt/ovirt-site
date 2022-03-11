@@ -44,6 +44,6 @@ For extra security, you can encrypt your {engine-name} password in a `.yml` file
 # ansible-playbook dr-rhv-setup.yml --tags "generate_mapping"
 ----
 
-. Configure the mapping file (`disaster_recovery_vars.yml` in this case) with the backup site’s configuration. See <<mapping_file_attributes>> for more information about the mapping file’s attributes.
+. Configure the mapping file (`disaster_recovery_vars.yml` in this case) with the backup site’s configuration. See xref:mapping_file_attributes[Mapping File Attributes] for more information about the mapping file’s attributes.
 
 If you have multiple Ansible machines that can perform the failover and failback, then copy the mapping file to all relevant machines.

@@ -28,4 +28,4 @@ This example uses the `dr-rhv-failover.yml` playbook created earlier.
 # ansible-playbook dr-rhv-failover.yml --tags "fail_over"
 ----
 
-. When the primary site becomes active, ensure that you clean the environment before failing back. See xref:clean[] for more information.
+. When the primary site becomes active, ensure that you clean the environment before failing back. See xref:clean[Cleaning the Primary Site] for more information.

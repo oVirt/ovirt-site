@@ -4,7 +4,7 @@
 
 This test performs a full failover and failback between the primary and secondary site. You can simulate the disaster by shutting down the primary site's hosts or by adding firewall rules to block writing to the storage domains.
 
-For more information about failing over the environment, cleaning the environment, and performing the failback, see <<execute_failover>>, <<clean>>, and <<execute_failback>>.
+For more information about failing over the environment, cleaning the environment, and performing the failback, see xref:execute_failover[Executing a Failover], xref:clean[Cleaning the Primary Site], and xref:execute_failback[Executing a Failback].
 
 .Procedure: Failover test
 

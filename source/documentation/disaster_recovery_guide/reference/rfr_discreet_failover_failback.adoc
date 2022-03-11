@@ -6,7 +6,7 @@ For this test you must define testable storage domains that will be used specifi
 
 NOTE: You should define the testable storage domains on a separate storage server that can be offline without affecting the primary storage domains used for production in the primary site.
 
-For more information about failing over the environment, cleaning the environment, and performing the failback, see <<execute_failover>>, <<clean>>, and <<execute_failback>>.
+For more information about failing over the environment, cleaning the environment, and performing the failback, see xref:execute_failover[Executing a Failover], xref:clean[Cleaning the Primary Site], and xref:execute_failback[Executing a Failback].
 
 .Procedure: Discreet failover test:
 

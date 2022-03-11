@@ -19,6 +19,7 @@ A data center can contain multiple clusters, and a cluster can contain multiple 
 A hosts whose CPU processor family is older than the one you specify with *CPU Type* cannot be part of this cluster.
 For details, see link:https://access.redhat.com/solutions/634853[Which CPU family should a RHEV3 or RHV4 cluster be set to?].
 ====
+. Select the *FIPS Mode* of the cluster from the drop-down list.
 . Select the *Compatibility Version* of the cluster from the drop-down list.
 . Select the *Switch Type* from the drop-down list.
 . Select the *Firewall Type* for hosts in the cluster, either *Firewalld* (default) or *iptables*.

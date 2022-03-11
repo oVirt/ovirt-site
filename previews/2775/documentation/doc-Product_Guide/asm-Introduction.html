@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Introduction to {virt-product-fullname} | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Introduction to {virt-product-fullname}" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2775/documentation/doc-Product_Guide/asm-Introduction.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2775/documentation/doc-Product_Guide/asm-Introduction.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Introduction to {virt-product-fullname}" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2775/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Introduction to {virt-product-fullname}","url":"https://ovirt.github.io/ovirt-site/previews/2775/documentation/doc-Product_Guide/asm-Introduction.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2775/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2775/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2775/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2775/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2775/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2775/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2775/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2775/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2775/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2775/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2775/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2775/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2775/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2775/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2775/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2775/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2775/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2775/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2775/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2775/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2775/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2775/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2775/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2775/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2775/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2775/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2775/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2775/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2775/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2775/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2775/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2775/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2775/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2775/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2775/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2775//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2775//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2775/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2775/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2775/documentation/doc-Product_Guide/">
+              <span property="name">Product Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-fullname} is an enterprise-grade virtualization platform built on {enterprise-linux}. Virtualization allows users to easily provision new virtual servers and workstations, and provides more efficient use of physical server resources. With {virt-product-fullname}, you can manage your entire virtual infrastructure - including hosts, virtual machines, networks, storage, and users - from a centralized graphical user interface or REST API.</p>
+</div>
+<table id="RHV_key_components_RHV_intro" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. {virt-product-fullname} Key Components</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{virt-product-fullname} {engine-name}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A service that provides a graphical user interface and a REST API to manage the resources in the environment. The {engine-name} is installed on a physical or virtual machine running {enterprise-linux}.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hosts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{enterprise-linux-host-fullname}s ({enterprise-linux-host-shortname}s) and {hypervisor-fullname}s (image-based hypervisors) are the two supported types of host. Hosts use Kernel-based Virtual Machine (KVM) technology and provide resources used to run virtual machines.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared Storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A storage service is used to store the data associated with virtual machines.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Warehouse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A service that collects configuration information and statistical data from the {engine-name}.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For detailed technical information about {virt-product-fullname}, see the <a href="{URL_virt_product_docs}{URL_format}technical_reference/index#"><em>Technical Reference</em></a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="RHV_Architecture">{virt-product-fullname} Architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-fullname} can be deployed as a self-hosted engine, or as a standalone {engine-name}. A self-hosted engine is the recommended deployment option.</p>
+</div>
+<div class="sect2">
+<h3 id="Self-hosted_Engine_Architecture_RHV_intro">Self-Hosted Engine Architecture</h3>
+<div class="paragraph">
+<p>The {virt-product-fullname} {engine-name} runs as a virtual machine on self-hosted engine nodes (specialized hosts) in the same environment it manages. A self-hosted engine environment requires one less physical server, but requires more administrative overhead to deploy and manage. The {engine-name} is highly available without external HA management.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup of a self-hosted engine environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One {virt-product-fullname} {engine-name} virtual machine that is hosted on the self-hosted engine nodes. The {engine-appliance-name} is used to automate the installation of a {enterprise-linux} 8 virtual machine, and the {engine-name} on that virtual machine.</p>
+</li>
+<li>
+<p>A minimum of two self-hosted engine nodes for virtual machine high availability. You can use {enterprise-linux-host-fullname}s or {hypervisor-fullname}s ({hypervisor-shortname}). VDSM (the host agent) runs on all hosts to facilitate communication with the {virt-product-fullname} {engine-name}. The HA services run on all self-hosted engine nodes to manage the high availability of the {engine-name} virtual machine.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine {virt-product-fullname} Architecture">
+</div>
+<div class="title">Figure 1. Self-Hosted Engine {virt-product-fullname} Architecture</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Standalone_Manager_Architecture_RHV_intro">Standalone {engine-name} Architecture</h3>
+<div class="paragraph">
+<p>The {virt-product-fullname} {engine-name} runs on a physical server, or a virtual machine hosted in a separate virtualization environment. A standalone {engine-name} is easier to deploy and manage, but requires an additional physical server. The {engine-name} is only highly available when managed externally with a product such as Red Hat&#8217;s High Availability Add-On.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup for a standalone {engine-name} environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One {virt-product-fullname} {engine-name} machine. The {engine-name} is typically deployed on a physical server. However, it can also be deployed on a virtual machine, as long as that virtual machine is hosted in a separate environment. The {engine-name} must run on {enterprise-linux} 8.</p>
+</li>
+<li>
+<p>A minimum of two hosts for virtual machine high availability. You can use {enterprise-linux-host-fullname}s or {hypervisor-fullname}s ({hypervisor-shortname}). VDSM (the host agent) runs on all hosts to facilitate communication with the {virt-product-fullname} {engine-name}.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone {engine-name} {virt-product-fullname} Architecture">
+</div>
+<div class="title">Figure 2. Standalone {engine-name} {virt-product-fullname} Architecture</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="RHV_terminology">{virt-product-fullname} Terminology</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cluster</strong> - A cluster is a set of physical hosts that are treated as a resource pool for virtual machines. Hosts in a cluster share the same network infrastructure and storage. They form a migration domain within which virtual machines can be moved from host to host.</p>
+</li>
+<li>
+<p><strong>Data Center</strong> - A data center is the highest level container for all physical and logical resources within a managed virtual environment. It is a collection of clusters, virtual machines, storage domains, and networks.</p>
+</li>
+<li>
+<p><strong>Events</strong> - Alerts, warnings, and other notices about activities help the administrator to monitor the performance and status of resources.</p>
+</li>
+<li>
+<p><strong>HA Services</strong> - The HA services include the <code>ovirt-ha-agent</code> service and the <code>ovirt-ha-broker</code> service. The HA services run on self-hosted engine nodes and manage the high availability of the {engine-name} virtual machine.</p>
+</li>
+<li>
+<p><strong>High Availability</strong> - High availability means that a virtual machine is automatically restarted if its process is interrupted, either on its original host or another host in the cluster. Highly available environments involve a small amount of downtime, but have a much lower cost than fault tolerance, which maintains two copies of each resource so that one can replace the other immediately in the event of a failure.</p>
+</li>
+<li>
+<p><strong>Host</strong> - A host, or hypervisor, is a physical server that runs one or more virtual machines. Hosts are grouped into clusters. Virtual machines can be migrated from one host to another within a cluster.</p>
+</li>
+<li>
+<p><strong>Host Storage Manager (HSM)</strong> - Any non-SPM host in the data center that can be used for data operations, such as moving a disk between storage domains. This prevents a bottleneck at the SPM host, which should be used for shorter metadata operations.</p>
+</li>
+<li>
+<p><strong>Logical Network</strong> - A logical network is a logical representation of a physical network. Logical networks group network traffic and communication between the {engine-name}, hosts, storage, and virtual machines.</p>
+</li>
+<li>
+<p><strong>Remote Viewer</strong> - A graphical interface to connect to virtual machines over a network connection.</p>
+</li>
+<li>
+<p><strong>Self-Hosted Engine Node</strong> - A self-hosted engine node is a host that has self-hosted engine packages installed so that it can host the {engine-name} virtual machine. Regular hosts can also be attached to a self-hosted engine environment, but cannot host the {engine-name} virtual machine.</p>
+</li>
+<li>
+<p><strong>Snapshot</strong> - A snapshot is a view of a virtual machine&#8217;s operating system and all its applications at a point in time. It can be used to save the settings of a virtual machine before an upgrade or before installing new applications. In case of problems, a snapshot can be used to restore the virtual machine to its original state.</p>
+</li>
+<li>
+<p><strong>Storage Domain</strong> - A storage domain is a logical entity that contains a standalone image repository. Each storage domain is used to store virtual disks or ISO images, and for the import and export of virtual machine images.</p>
+</li>
+<li>
+<p><strong>Storage Pool Manager (SPM)</strong> - The Storage Pool Manager (SPM) is a role assigned to one host in a data center. The SPM host has sole authority to make all metadata changes for the data center, such as the creation and removal of virtual disks.</p>
+</li>
+<li>
+<p><strong>Template</strong> - A template is a model virtual machine with predefined settings. A virtual machine that is based on a particular template acquires the settings of the template. Using templates is the quickest way of creating a large number of virtual machines in a single step.</p>
+</li>
+<li>
+<p><strong>VDSM</strong> - The host agent service running on the hosts, which communicates with the {virt-product-fullname} {engine-name}. The service listens on TCP port 54321.</p>
+</li>
+<li>
+<p><strong>Virtual Machine</strong> - A virtual machine is a virtual workstation or virtual server containing an operating system and a set of applications. Multiple identical virtual machines can be created in a <strong>Pool</strong>. Virtual machines are created, managed, or deleted by power users and accessed by users.</p>
+</li>
+<li>
+<p><strong>Virtual Machine Pool</strong> - A virtual machine pool is a group of identical virtual machines that are available on demand by each group member. Virtual machine pools can be set up for different purposes. For example, one pool can be for the Marketing department, another for Research and Development, and so on.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2775/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2775/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2775/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2775/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Product_Guide/asm-Introduction.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Product_Guide/asm-Introduction.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

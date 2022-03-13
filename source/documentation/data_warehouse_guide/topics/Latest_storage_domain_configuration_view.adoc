@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Latest_storage_domain_configuration_view"]
-==== Storage Domain Configuration
+= Storage Domain Configuration
 
 The following table shows the configuration history parameters of the storage domains in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_storage_domain_configuration_view"]

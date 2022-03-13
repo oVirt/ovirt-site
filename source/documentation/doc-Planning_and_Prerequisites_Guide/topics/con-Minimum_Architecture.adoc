@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="minimum-architecture"]
-=== Minimum Architecture
+= Minimum Architecture
 
 *The minimum setup of a standalone {engine-name} environment includes:*
 

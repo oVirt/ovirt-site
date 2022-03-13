@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_machine_disk_hourly_and_samples_history_views"]
-==== Virtual Disk Statistics Views
+= Virtual Disk Statistics Views
 
 
 .Historical Statistics for the Virtual Disks in the System

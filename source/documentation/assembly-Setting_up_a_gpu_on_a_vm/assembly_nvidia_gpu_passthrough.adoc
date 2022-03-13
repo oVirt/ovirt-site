@@ -1,0 +1,212 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-nvidia-vgpu-devices
+
+:_content-type: ASSEMBLY
+[id="assembly_nvidia_gpu_passthrough"]
+= GPU device passthrough: Assigning a host GPU to a single virtual machine
+:context: nvidia_gpu_passthrough
+:nvidia_gpu_passthrough:
+
+Red Hat Virtualization supports PCI VFIO, also called device passthrough, for some NVIDIA PCIe-based GPU devices as non-VGA graphics devices.
+
+////
+Red Hat Virtualization supports PCI device assignment, also called device passthrough, of the following PCIe-based GPU devices as non-VGA graphics devices:
+* NVIDIA Quadro K-Series, M-Series, and P-Series (models 2000 series or higher)
+* NVIDIA GRID K-Series
+* NVIDIA Tesla K-Series and M-Series
+////
+
+You can attach one or more host GPUs to a single virtual machine by passing through the host GPU to the virtual machine, in addition to one of the standard emulated graphics interfaces. The virtual machine uses the emulated graphics device for pre-boot and installation, and the GPU takes control when its graphics drivers are loaded.
+
+For information on the exact number of host GPUs that you can pass through to a single virtual machine, see the NVIDIA website.
+
+To assign a GPU to a virtual machine, follow the steps in these procedures:
+
+. xref:Enabling_IOMMU_support_in_the_host_machine_kernel[Enable the I/O Memory Management Unit (IOMMU) on the host machine.]
+. xref:Detaching_the_GPU_device_from_the_host[Detach the GPU from the host.]
+. xref:Attaching_the_GPU_to_a_Virtual_Machine[Attach the GPU to the guest.]
+. xref:proc_install-nvidia-vgpu-guest-driver_{context}[Install GPU drivers on the guest.]
+. xref:Updating_and_Enabling_xorg[Configure Xorg on the guest.]
+
+These steps are detailed below.
+
+[id='prerequisites']
+.Prerequisites
+
+* Your GPU device supports GPU passthrough mode.
+
+* Your system is listed as a validated server hardware platform.
+
+* Your host chipset supports Intel VT-d or AMD-Vi
+
+For more information about supported hardware and software, see link:https://docs.nvidia.com/grid/latest/grid-vgpu-release-notes-red-hat-el-kvm/index.html#validated-platforms[Validated Platforms] in the __NVIDIA GPU Software Release Notes__.
+
+
+[id='Enabling_IOMMU_support_in_the_host_machine_kernel']
+== Enabling host IOMMU support and blacklisting nouveau
+
+I/O Memory Management Unit (IOMMU) support on the host machine is necessary to use a GPU on a virtual machine.
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Hosts]. Select a host and click btn:[Edit]. The *Edit Hosts* pane appears.
+. Click the *Kernel* tab.
+// . Enter the kernel boot parameters in the *Kernel command line* field. For example, to enable IOMMU support for a host with Intel VT-d support, enter `*intel_iommu=on iommu=pt*` and click btn:[OK].
+. Check the *Hostdev Passthrough & SR-IOV* checkbox. This checkbox enables IOMMU support for a host with Intel VT-d or AMD Vi by adding `intel_iommu=on` or `amd_iommu=on` to the kernel command line.
+. Check the *Blacklist Nouveau* checkbox.
+. Click btn:[OK].
+. Select the host and click menu:Management[Maintenance] and btn:[OK].
+. Click menu:Installation[Reinstall].
+. After the reinstallation is finished, reboot the host machine.
+. When the host machine has rebooted, click menu:Management[Activate].
+
+[NOTE]
+====
+To enable IOMMU support using the command line, edit the `grub.conf` file in the virtual machine (./entries/rhvh-4.4.<machine id>.conf) to include the option `intel_iommu=on`.
+====
+
+[id='Detaching_the_GPU_device_from_the_host']
+== Detaching the GPU from the host
+
+You cannot add the GPU to the virtual machine if the GPU is bound to the host kernel driver, so you must unbind the GPU device from the host before you can add it to the virtual machine. Host drivers often do not support dynamic unbinding of the GPU, so it is recommended to manually exclude the device from binding to the host drivers.
+
+.Procedure
+
+. On the host, identify the device slot name and IDs of the device by running the [command]`lspci` command. In the following example, a graphics controller such as an NVIDIA Quadro or GRID card is used:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# lspci -Dnn | grep -i NVIDIA
+0000:03:00.0 VGA compatible controller [0300]: NVIDIA Corporation GK104GL [Quadro K4200] [10de:11b4] (rev a1)
+0000:03:00.1 Audio device [0403]: NVIDIA Corporation GK104 HDMI Audio Controller [10de:0e0a] (rev a1)
+----
++
+The output shows that the NVIDIA GK104 device is installed. It has a graphics controller and an audio controller with the following properties:
++
+
+* The device slot name of the graphics controller is `0000:03:00.0`, and the vendor-id:device-id for the graphics controller are `10de:11b4`.
+* The device slot name of the audio controller is `0000:03:00.1`, and the vendor-id:device-id for the audio controller are `10de:0e0a`.
+
+. Prevent the host machine driver from using the GPU device. You can use a vendor-id:device-id with the pci-stub driver. To do this, append the `pci-stub.ids` option, with the vendor-id:device-id as its value, to the `GRUB_CMDLINX_LINUX` environment variable located in the `/etc/sysconfig/grub` configuration file, for example:
++
+[options="nowrap" subs="+quotes,verbatim,+macros"]
+----
+GRUB_CMDLINE_LINUX="crashkernel=auto resume=/dev/mapper/vg0-lv_swap rd.lvm.lv=vg0/lv_root rd.lvm.lv=vg0/lv_swap rhgb quiet intel_iommu=on pci-stub.ids=10de:11b4,10de:0e0a"
+----
++
+When adding additional vendor IDs and device IDs for pci-stub, separate them with a comma.
+. Regenerate the boot loader configuration using grub2-mkconfig to include this option:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# grub2-mkconfig -o /etc/grub2.cfg
+----
++
+[NOTE]
+====
+When using a UEFI-based host, the target file should be [filename]`/etc/grub2-efi.cfg`.
+====
+
+. Reboot the host machine.
+. Confirm that IOMMU is enabled, the host device is added to the list of pci-stub.ids, and Nouveau is blacklisted:
++
+[literal,options="nowrap" subs="+quotes,verbatim,+macros"]
+--
+# cat /proc/cmdline
+BOOT_IMAGE=(hd0,msdos1)/vmlinuz-4.18.0-147.el8.x86_64 root=/dev/mapper/vg0-lv_root ro crashkernel=auto resume=/dev/mapper/vg0-lv_swap rd.lvm.lv=vg0/lv_root rd.lvm.lv=vg0/lv_swap rhgb quiet *intel_iommu=on* <1>
+*pci-stub.ids=10de:11b4,10de:0e0a* <2>
+*rdblacklist=nouveau* <3>
+--
+
+<1> IOMMU is enabled
+<2> the host device is added to the list of pci-stub.ids
+<3> Nouveau is blacklisted
+
+[id='Attaching_the_GPU_to_a_Virtual_Machine']
+== Attaching the GPU to a Virtual Machine
+
+After unbinding the GPU from host kernel driver, you can add it to the virtual machine and enable the correct driver.
+
+.Procedure
+
+. Follow the steps in link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Adding_Host_Devices_to_a_Virtual_Machine[Adding a Host Device to a Virtual Machine] in the _Virtual Machine Management Guide_.
+. Run the virtual machine and log in to it.
+. Install the NVIDIA GPU driver on the virtual machine.
+. Verify that the correct kernel driver is in use for the GPU with the [command]`lspci -nnk` command. For example:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# lspci -nnk
+00:07.0 VGA compatible controller [0300]: NVIDIA Corporation GK104GL [Quadro K4200] [10de:11b4] (rev a1)
+Subsystem: Hewlett-Packard Company Device [103c:1096]
+Kernel driver in use: nvidia
+Kernel modules: nouveau, nvidia_drm, nvidia
+----
+
+include::common/vgpu/proc_install-nvidia-vgpu-guest-driver.adoc[leveloffset=+1]
+
+
+[id='Updating_and_Enabling_xorg']
+== Updating and Enabling xorg (Linux Virtual Machines)
+
+Before you can use the GPU on the virtual machine, you need to update and enable xorg on the virtual machine. The NVIDIA driver installation should do this automatically. Check if xorg is updated and enabled by viewing [filename]`/etc/X11/xorg.conf`:
+
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cat /etc/X11/xorg.conf
+----
+
+The first two lines say if it was generated by NVIDIA. For example:
+
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cat /etc/X11/xorg.conf
+# nvidia-xconfig: X configuration file generated by nvidia-xconfig
+# nvidia-xconfig: version 390.87 (buildmeister@swio-display-x64-rhel04-14) Tue Aug 21 17:33:38 PDT 2018
+----
+
+.Procedure
+
+. On the virtual machine, generate the `xorg.conf` file using following command:
++
+----
+# X -configure
+----
+. Copy the `xorg.conf` file to `/etc/X11/xorg.conf` using the following command:
++
+----
+# cp /root/xorg.conf.new /etc/X11/xorg.conf
+----
+. Reboot the virtual machine.
+
+. Verify that xorg is updated and enabled by viewing [filename]`/etc/X11/xorg.conf`:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cat /etc/X11/xorg.conf
+----
++
+Search for the *`Device`* section. You should see an entry similar to the following section:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+EndSection
+----
+
+The GPU is now assigned to the virtual machine.
+
+
+[id='related-information']
+== Removing a host GPU from a virtual machine
+
+* For information on removing a host GPU from a virtual machine, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Removing_Host_Devices_from_a_Virtual_Machine[Removing Host Devices from a Virtual Machine] in the _Virtual Machine Management Guide_.
+////
+// The following line is necessary to allow assemblies be included in other
+// assemblies. It restores the `context` variable to its previous state.
+////
+:nvidia_gpu_passthrough!:

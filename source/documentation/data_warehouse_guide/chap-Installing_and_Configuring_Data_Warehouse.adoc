@@ -3,12 +3,10 @@
 = Installing and Configuring Data Warehouse
 
 :context: DWH_admin
+:DWH_admin:
 
-include::topics/Overview_of_Configuring_Data_Warehouse.adoc[]
+include::topics/Overview_of_Configuring_Data_Warehouse.adoc[leveloffset=+1]
 
 include::common/database/proc-Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine.adoc[leveloffset=+1]
 
-:context: DWH_admin
-include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+1]
-
-include::topics/Changing_the_Data_Warehouse_Sampling_Scale.adoc[leveloffset=+1]
+:DWH_admin!:

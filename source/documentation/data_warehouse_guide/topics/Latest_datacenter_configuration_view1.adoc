@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Latest_datacenter_configuration_view1"]
-==== Data Center Configuration
+= Data Center Configuration
 
 The following table shows the configuration history parameters of the data centers in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-70"]

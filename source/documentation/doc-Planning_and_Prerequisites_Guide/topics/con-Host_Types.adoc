@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="host-types"]
-=== Host Types
+= Host Types
 
 Use the host type that best suits your environment. You can also use both types of host in the same cluster if required.
 
@@ -10,7 +10,7 @@ ifdef::rhv-doc[]
 For information about supported maximums and limits, such as the maximum number of hosts that the {virt-product-fullname} {engine-name} can support, see link:https://access.redhat.com/articles/906543[Supported Limits for Red Hat Virtualization].
 endif::[]
 
-==== {hypervisor-fullname}s
+== {hypervisor-fullname}s
 
 {hypervisor-fullname}s ({hypervisor-shortname}) have the following advantages over {enterprise-linux-host-fullname}s:
 
@@ -22,7 +22,7 @@ endif::[]
 
 * The Cockpit web interface is available by default and includes extensions specific to {virt-product-fullname}, including virtual machine monitoring tools and a GUI installer for the self-hosted engine. Cockpit is supported on {enterprise-linux-host-fullname}s, but must be manually installed.
 
-==== {enterprise-linux-host-fullname}s
+== {enterprise-linux-host-fullname}s
 
 {enterprise-linux-host-fullname}s have the following advantages over {hypervisor-fullname}s:
 

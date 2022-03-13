@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Virtual_machine_interface_hourly_and_daily_history_views"]
-==== Virtual Machine Interface Statistics Views
+= Virtual Machine Interface Statistics Views
 
 
 .Historical Statistics for the Virtual Machine Network Interfaces in the System

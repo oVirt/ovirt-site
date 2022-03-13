@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="networking-considerations"]
-=== Networking Considerations 
+= Networking Considerations 
 
 Familiarity with network concepts and their use is highly recommended when planning and setting up networking in a {virt-product-fullname} environment. Read your network hardware vendor's guides for more information on managing networking.
 

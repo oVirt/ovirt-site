@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Tracking_tag_history"]
-=== Tracking Tag History
+= Tracking Tag History
 
 The ETL Service collects tag information as displayed in the Administration Portal every minute and stores this data in the tags historical tables. The ETL Service tracks five types of changes:
 

@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file"]
-=== Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf
+= Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf
 
 The following is a list of options for configuring application settings for the Data Warehouse service. These options are available in the */usr/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.conf* file. Configure any changes to the default values in an override file under */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/*. Restart the Data Warehouse service after saving the changes.
 

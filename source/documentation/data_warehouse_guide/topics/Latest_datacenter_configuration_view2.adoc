@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Latest_datacenter_configuration_view2"]
-==== Data Center Storage Domain Map
+= Data Center Storage Domain Map
 
 The following table shows the relationships between storage domains and data centers in the system.
 [id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_datacenter_storage_domain_map_view"]

@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="general-recommendations"]
-=== General Recommendations
+= General Recommendations
 
 * Take a full backup as soon as the deployment is complete, and store it in a separate location. Take regular backups thereafter. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Backups_and_Migration[Backups and Migration] in the _Administration Guide_.
 

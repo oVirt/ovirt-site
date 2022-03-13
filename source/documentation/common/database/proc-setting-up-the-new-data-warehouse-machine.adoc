@@ -1,0 +1,32 @@
+:_content-type: PROCEDURE
+[id="proc-setting-up-the-new-data-warehouse-machine"]
+= Setting up the New Data Warehouse Machine
+
+Enable the {virt-product-fullname} repositories and install the Data Warehouse setup package on a {enterprise-linux} 8 machine:
+
+ifdef::rhv-doc[]
+include::../install/snip-RHVM_repo_steps.adoc[]
+endif::[]
+
+. Enable the `pki-deps` module.
++
+[source,terminal]
++
+----
+# dnf module -y enable pki-deps
+----
+
+. Ensure that all packages currently installed are up to date:
++
+[source,terminal]
+----
+# dnf upgrade --nobest
+----
+//ansible lock addition
++
+. Install the `ovirt-engine-dwh-setup` package:
++
+[source,terminal]
+----
+# dnf install ovirt-engine-dwh-setup
+----

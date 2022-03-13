@@ -9,8 +9,8 @@
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [33](https://github.com/ovirt/ovirt-site/issues) | 71 | 296 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [25](https://github.com/ovirt/terraform-provider-ovirt/issues) | 126 | 62 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 32 | 16 |
+| [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [15](https://github.com/ovirt/vdsm/issues) | 108 | 131 |
 | [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [15](https://github.com/ovirt/go-ovirt-client/issues) | 6 | 8 |
-| [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [14](https://github.com/ovirt/vdsm/issues) | 108 | 131 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 1 | 2 |
 | [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [12](https://github.com/ovirt/ovirt-imageio/issues) | 12 | 12 |
 | [ovirt-system-tests](https://github.com/oVirt/ovirt-system-tests) | This is a mirror for http://gerrit.ovirt.org, for issues use http://jira.ovirt.org, and choose OST project | [11](https://github.com/ovirt/ovirt-system-tests/issues) | 15 | 31 |

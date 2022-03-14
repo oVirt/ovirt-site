@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 :_content-type: PROCEDURE
 [id="Configuring_Hosts_for_an_OVN_tunnel_network"]
 = Configuring Hosts for an OVN Tunnel Network
@@ -21,6 +22,13 @@ The `ovirt-provider-ovn-driver` Ansible playbook updates existing hosts. If you 
 
 You can update the OVN tunnel network on a single host with `vdsm-tool`:
 
+=======
+[[Configuring_Hosts_for_an_OVN_tunnel_network]]
+===== Updating the OVN Tunnel Network on a Single Host
+
+You can update the OVN tunnel network on a single host with `vdsm-tool`:
+
+>>>>>>> c42c3d5f0d... BZ2006228 - Updates for OVN/OVS upgrade to the Admin Guide
 [options="nowrap" subs="normal"]
 >>>>>>> c42c3d5f0d... BZ2006228 - Updates for OVN/OVS upgrade to the Admin Guide
 ----
@@ -33,6 +41,7 @@ The Host_FQDN must match FQDN that is specified in engine for this host.
 ====
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 *Updating the OVN Tunnel Network on a Single Host*
 
 You can update the OVN tunnel network on a single host with `vdsm-tool`:
@@ -42,6 +51,8 @@ You can update the OVN tunnel network on a single host with `vdsm-tool`:
 # vdsm-tool ovn-config _OVN_Central_IP_ _Tunneling_IP_or_Network_Name_
 ----
 
+=======
+>>>>>>> c42c3d5f0d... BZ2006228 - Updates for OVN/OVS upgrade to the Admin Guide
 =======
 >>>>>>> c42c3d5f0d... BZ2006228 - Updates for OVN/OVS upgrade to the Admin Guide
 .Updating a Host with `vdsm-tool`

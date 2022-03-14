@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 :_content-type: PROCEDURE
 [id="Installing_a_new_OVN_network_provider"]
 = Installing a New OVN Network Provider
+=======
+[[Installing_a_new_OVN_network_provider]]
+===== Installing a New OVN Network Provider
+>>>>>>> c42c3d5f0d... BZ2006228 - Updates for OVN/OVS upgrade to the Admin Guide
 
 Installing OVN using `engine-setup` performs the following steps:
 

@@ -41,16 +41,16 @@ Select the appropriate instructions for your environment from the following tabl
 |===
 
 |Current {engine-name} version |Target {engine-name} version |Relevant section
-|4.2 |4.3 a|*Local database environment -* xref:Upgrading_from_4-2[]
+|4.3 |4.4 a|*Local database environment -* xref:Upgrading_from_4-3[Upgrading from Red Hat Virtualization 4.3 to 4.4]
 
-*Remote database environment:* xref:Remote_Upgrading_from_4-2[]
+*Remote database environment:* xref:Remote_Upgrading_from_4-3[Upgrading a Remote Database Environment from Red Hat Virtualization 4.3 to 4.4]
 
-*Self-hosted engine, local database environment:* xref:SHE_Upgrading_from_4-2[]
+*Self-hosted engine, local database environment:* xref:SHE_Upgrading_from_4-3[Upgrading a self-Hosted engine from Red Hat Virtualization 4.3 to 4.4]
 
-|4.3 |4.4 a| *Local database environment:* xref:Upgrading_from_4-3[]
+|4.2 |4.3 a| *Local database environment:* xref:Upgrading_from_4-2[Upgrading from Red Hat Virtualization 4.2 to 4.3]
 
-*Remote database environment:* xref:Remote_Upgrading_from_4-3[]
+*Remote database environment:* xref:Remote_Upgrading_from_4-2[Upgrading a Remote Database Environment from Red Hat Virtualization 4.2 to 4.3]
 
-*Self-hosted engine, local database environment:* xref:SHE_Upgrading_from_4-3[]
+*Self-hosted engine, local database environment:* xref:SHE_Upgrading_from_4-2[Upgrading a Self-Hosted Engine from Red Hat Virtualization 4.2 to 4.3]
 
 |===

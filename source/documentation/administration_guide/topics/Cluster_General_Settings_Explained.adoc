@@ -24,6 +24,16 @@ On existing clusters, the management network can only be changed using the *Mana
 * *ppc64*: For IBM POWER CPU types.
 
 |*CPU Type* |The oldest CPU family in the cluster. For a list of CPU types, see link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning[CPU Requirements] in the _Planning and Prerequisites Guide_. You cannot change this cannot after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
+|*Chipset/Firmware Type* a|This setting is only available if the *CPU Architecture* of the cluster is set to *x86_64*. This setting specifies the chipset and firmware type. Options are:
+
+* *Auto Detect*: This setting automatically detects the chipset and firmware type.
+* *I440FX Chipset with BIOS*: Specifies the chipset to I440FX with a firmware type of legacy BIOS.
+* *Q35 Chipset with Legacy BIOS*: Specifies the Q35 chipset with a firmware type of legacy BIOS without UEFI (Default for clusters with compatibility version 4.4)
+* *Q35 Chipset with UEFI BIOS* Specifies the Q35 chipset with a firmware type of legacy BIOS with UEFI
+* *Q35 Chipset with SecureBoot* Specifies the Q35 chipset with a firmware type of UEFI with SecureBoot, which authenticates the digital signatures of the boot loader.
+
+For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
+|*Change Existing VMs/Templates from 1440fx to Q35 Chipset with Bios* |Select this check box to change  existing workloads when the cluster's chipset changes from I440FX to Q35.
 |*FIPS Mode* a|The FIPS mode used by the cluster. All hosts in the cluster must run the FIPS mode you specify or the host will fail.
 
 * *Auto Detect*: This setting automatically detects whether FIPS mode is enabled or disabled. When *Auto Detect* is selected, the FIPS mode is determined by the first host up in the cluster.
@@ -42,19 +52,18 @@ If you change an existing cluster's firewall type, you must xref:Reinstalling_Ho
 If you change the default network provider, you must xref:Reinstalling_Hosts_admin[reinstall all hosts] in the cluster to apply the change.
 
 |*Maximum Log Memory Threshold* |Specifies the logging threshold for maximum memory consumption as a percentage or as an absolute value in MB. A message is logged if a host's memory usage exceeds the percentage value or if a host's available memory falls below the absolute value in MB. The default is `95%`.
-|*Enable Virt Service* |If this radio button is selected, hosts in this cluster will be used to run virtual machines.
-|*Enable Gluster Service* |If this radio button is selected, hosts in this cluster will be used as {gluster-storage-fullname} Server nodes, and not for running virtual machines.
+|*Enable Virt Service* |If this check box is selected, hosts in this cluster will be used to run virtual machines.
+|*Enable Gluster Service* |If this check box is selected, hosts in this cluster will be used as {gluster-storage-fullname} Server nodes, and not for running virtual machines.
 |*Import existing gluster configuration* a|This check box is only available if the *Enable Gluster Service* radio button is selected. This option allows you to import an existing Gluster-enabled cluster and all its attached hosts to {virt-product-fullname} {engine-name}.
 
 The following options are required for each host in the cluster that is being imported:
 
-* *Address*: Enter the IP or fully qualified domain name of the Gluster host server.
+* *Hostname*: Enter the IP or fully qualified domain name of the Gluster host server.
 
-* *Fingerprint*: {virt-product-fullname} {engine-name} fetches the host's fingerprint, to ensure you are connecting with the correct host.
+* *Host ssh public key (PEM)*: {virt-product-fullname} {engine-name} fetches the host's ssh public key, to ensure you are connecting with the correct host.
 
-* *Root Password*: Enter the root password required for communicating with the host.
+* *Password*: Enter the root password required for communicating with the host.
 
-|*Enable to set VM maintenance reason* |If this check box is selected, an optional reason field will appear when a virtual machine in the cluster is shut down from the {engine-name}. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the virtual machine is powered on again.
-|*Enable to set Host maintenance reason* |If this check box is selected, an optional reason field will appear when a host in the cluster is moved into maintenance mode from the {engine-name}. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the host is activated again.
 |*Additional Random Number Generator source* |If the check box is selected, all hosts in the cluster have the additional random number generator device available. This enables passthrough of entropy from the random number generator device to virtual machines.
+|*Gluster Tuned Profile* |This check box is only available if the *Enable Gluster Service* check box is selected. This option specifies the *virtual-host* tuning profile to enable more aggressive writeback of dirty memory pages, which benefits the host performance.
 |===

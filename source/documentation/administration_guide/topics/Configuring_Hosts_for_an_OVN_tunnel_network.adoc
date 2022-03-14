@@ -9,14 +9,15 @@ You can update the OVN tunnel network on a single host with `vdsm-tool`:
 # vdsm-tool ovn-config OVN_Central_IP Tunneling_IP_or_Network_Name Host_FQDN
 ----
 
+[NOTE]
+====
+The Host_FQDN must match the FQDN that is specified in the engine for this host.
+====
+
 .Updating a Host with `vdsm-tool`
 ====
 [source,terminal]
 ----
 # vdsm-tool ovn-config 192.168.0.1 MyNetwork MyFQDN
 ----
-====
-[NOTE]
-====
-The Host_FQDN must match the FQDN that is specified in the engine for this host.
 ====

@@ -559,6 +559,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2774/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-vgpu-devices.html</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2774/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_nvidia_gpu_passthrough.html</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2774/develop/release-management/features/infra/asynctaskmanagerchanges-3.3.html</loc>
 </url>
 <url>
@@ -3644,6 +3647,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2774/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-11T22:26:06+00:00</lastmod>
+<lastmod>2022-03-14T20:38:40+00:00</lastmod>
 </url>
 </urlset>

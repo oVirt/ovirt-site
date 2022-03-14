@@ -11090,14 +11090,14 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">If OS supports hotplugging, no. Otherwise, yes.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>BIOS Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chipset/Firmware Type</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Specifies the chipset and BIOS type. Defaults to the cluster&#8217;s default BIOS type. Options are:</p>
+<p>Specifies the chipset and firmware type. Defaults to the cluster&#8217;s default chipset and firmware type. Options are:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Cluster default</strong> The BIOS type defined under General cluster settings.</p>
+<p><strong>I440FX Chipset with BIOS</strong> Legacy BIOS.</p>
 </li>
 <li>
 <p><strong>Q35 Chipset with Legacy BIOS</strong> Legacy BIOS without UEFI (Default for clusters with compatibility version 4.4)</p>
@@ -11107,9 +11107,6 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </li>
 <li>
 <p><strong>Q35 Chipset with SecureBoot</strong> UEFI with SecureBoot, which authenticates the digital signatures of the boot loader</p>
-</li>
-<li>
-<p><strong>Legacy</strong> i440fx chipset with legacy BIOS</p>
 </li>
 </ul>
 </div>

@@ -7,9 +7,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Release_Notes/topics/Additional_Packages_from_Red_Hat_Network.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Python_SDK_Guide/topics/Additional_resources.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Ruby_SDK_Guide/topics/Attaching_ISO_image_to_a_virtual_machine.html</loc>
 </url>
 <url>
@@ -26,6 +23,9 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Bond.html</loc>
+</url>
+<url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Bonding_Modes.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Bridge.html</loc>
@@ -58,9 +58,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Ruby_SDK_Guide/topics/Connecting_to_the_server.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/Connecting_to_virtual_machines.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Python_SDK_Guide/topics/Creating_NFS_Data_Storage.html</loc>
 </url>
 <url>
@@ -91,9 +88,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Ruby_SDK_Guide/topics/Creating_a_virtual_machine.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/Creating_virtual_machines.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Data_Centers2.html</loc>
 </url>
 <url>
@@ -107,9 +101,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Directory_Services2.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/Editing_virtual_machines.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/features/infra/Engine_vacuum.html</loc>
@@ -127,9 +118,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/dropped/gluster-hyperconverged/Gluster_Hyperconverged_Guide.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/Graphical_User_Interface_elements.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Graphics_Devices.html</loc>
 </url>
 <url>
@@ -137,9 +125,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Host_Networking_Configurations.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/Installing_the_CA_certificate.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Ruby_SDK_Guide/topics/Installing_the_Ruby_SDK.html</loc>
@@ -218,9 +203,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Python_SDK_Guide/topics/Locating_services.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/Logging_in_to_the_VM_Portal.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Logical_Networks2.html</loc>
@@ -454,9 +436,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Python_SDK_Guide/topics/Using_update_methods.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/Viewing_virtual_machines.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Virtual_LAN_VLAN.html</loc>
 </url>
 <url>
@@ -464,9 +443,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Virtualized_Hardware.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/What_is_the_VM_Portal.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/features/virt/XenToOvirt.html</loc>
@@ -581,6 +557,9 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-vgpu-devices.html</loc>
+</url>
+<url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_nvidia_gpu_passthrough.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/features/infra/asynctaskmanagerchanges-3.3.html</loc>
@@ -730,9 +709,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/networking/changing-engine-hostname.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/chap-Accessing_the_VM_Portal.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/dropped/gluster-hyperconverged/chap-Additional_Steps.html</loc>
 </url>
 <url>
@@ -761,9 +737,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/dropped/gluster-hyperconverged/chap-Maintenance_and_Upgrading_Resources.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/chap-Managing_virtual_machines.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/chap-Network.html</loc>
@@ -920,9 +893,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/con-virtual_machine_networking_types.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/conc-networking-in-rhv.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/developer-guide/events/configuration-event-subscribers.html</loc>
@@ -1738,9 +1708,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/</loc>
 </url>
 <url>
@@ -2185,7 +2152,7 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/infra/maintaining-rsvp-mail-alias.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/process/making-an-release.html</loc>
+<loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/process/making-a-release.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/features/storage/manage-storage-connections.html</loc>
@@ -2594,9 +2561,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/privacy-policy.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/administration_guide/proc_getting-information-about-the-disks-in-a-backup.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/developer-guide/profiling-javascript.html</loc>
@@ -3112,9 +3076,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Hardware_Considerations_for_Implementing_SR-IOV/common/test-sync.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/common/test-sync.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/common/test-sync.html</loc>
 </url>
 <url>
@@ -3221,6 +3182,9 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/community/user-stories/users-and-providers.html</loc>
+</url>
+<url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2739/community/users-list.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/api/design/using-rest-api-in-web-ui.html</loc>
@@ -3401,9 +3365,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/topics/</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/develop/release-management/features/infra/</loc>
@@ -3673,9 +3634,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Hardware_Considerations_for_Implementing_SR-IOV/</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Introduction_to_the_VM_Portal/common/</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/documentation/common/</loc>
 </url>
 <url>
@@ -3689,6 +3647,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2739/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-03T21:00:13+00:00</lastmod>
+<lastmod>2022-03-14T22:01:28+00:00</lastmod>
 </url>
 </urlset>

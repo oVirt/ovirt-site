@@ -390,7 +390,7 @@
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -503,7 +503,7 @@
 <p>Enable the oVirt 4.3 repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -514,7 +514,7 @@
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -523,7 +523,7 @@
 the oVirt Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -531,7 +531,7 @@ the oVirt Engine:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Execution of setup completed successfully</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Execution of setup completed successfully</code></pre>
 </div>
 </div>
 </li>
@@ -539,7 +539,7 @@ the oVirt Engine:</p>
 <p>Update the base operating system:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -751,7 +751,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">next_run_config_exists=True</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -833,7 +833,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Check whether <strong>/etc/pki/ovirt-engine/openssl.conf</strong> includes the line <code>default_md = sha256</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -841,8 +841,8 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
-# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 </li>
@@ -904,7 +904,7 @@ done</pre>
 <p>Check whether <strong>/etc/pki/ovirt-engine/openssl.conf</strong> includes the line <code>default_md = sha256</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -912,8 +912,8 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
-# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 </li>
@@ -921,8 +921,8 @@ done</pre>
 <p>Re-sign the CA certificate by backing it up and creating a new certificate in <strong>ca.pem.new</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem."$(date +"%Y%m%d%H%M%S")"
-# openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256</code></pre>
 </div>
 </div>
 </li>
@@ -930,7 +930,7 @@ done</pre>
 <p>Replace the existing certificate with the new certificate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -938,7 +938,7 @@ done</pre>
 <p>Define the certificates that should be re-signed:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># names="engine apache websocket-proxy jboss imageio-proxy"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;engine apache websocket-proxy jboss imageio-proxy&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -946,7 +946,7 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># names="engine websocket-proxy jboss imageio-proxy"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;engine websocket-proxy jboss imageio-proxy&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -957,24 +957,24 @@ done</pre>
 <p>On the Engine, save a backup of the <code>/etc/ovirt-engine/engine.conf.d</code> and <code>/etc/pki/ovirt-engine</code> directories, and re-sign the certificates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
 # for name in $names; do
-    subject="$(
+    subject=&quot;$(
         openssl \
             x509 \
-            -in /etc/pki/ovirt-engine/certs/"${name}".cer \
+            -in /etc/pki/ovirt-engine/certs/&quot;${name}&quot;.cer \
             -noout \
             -subject \
         | sed \
             's;subject= \(.*\);\1;' \
-    )"
+    )&quot;
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
-        --name="${name}" \
+        --name=&quot;${name}&quot; \
         --password=mypass \
-        --subject="${subject}" \
-        --san=DNS:"${ENGINE_FQDN}" \
+        --subject=&quot;${subject}&quot; \
+        --san=DNS:&quot;${ENGINE_FQDN}&quot; \
         --keep-key
-done</pre>
+done</code></pre>
 </div>
 </div>
 </li>
@@ -1101,7 +1101,7 @@ done</pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -1237,7 +1237,7 @@ done</pre>
 <p>Back up the oVirt Engine 4.3 environment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log</code></pre>
 </div>
 </div>
 </li>
@@ -1254,7 +1254,7 @@ done</pre>
 <p>Copy the backup file to the oVirt Engine 4.4 machine and restore it.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --file=backup.bck --provision-all-databases</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=backup.bck --provision-all-databases</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1276,7 +1276,7 @@ done</pre>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1298,7 +1298,7 @@ done</pre>
 <p>Configure the Engine by running the <code>engine-setup</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -1309,7 +1309,7 @@ done</pre>
 <p>Run <code>engine-setup</code> to configure the Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -1479,7 +1479,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># clearpart --all --drives=<em>device</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=_device_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1494,7 +1494,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>On the reinstalled host, create a directory, for example <code class="filename">/data</code> in which to recover the previous environment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /data</code></pre>
 </div>
 </div>
 </li>
@@ -1502,7 +1502,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Mount the previous local storage in the new directory. In our example, <code class="filename">/dev/sdX1</code> is the local storage:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mount /dev/sdX1 /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount /dev/sdX1 /data</code></pre>
 </div>
 </div>
 </li>
@@ -1510,8 +1510,8 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Set the following permissions for the new directory.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown -R 36:36 /data
-# chmod -R 0755 /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown -R 36:36 /data
+# chmod -R 0755 /data</code></pre>
 </div>
 </div>
 </li>
@@ -1519,10 +1519,10 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>oVirt recommends that you also automatically mount the local storage via <code class="filename">/etc/fstab</code> in case the server requires a reboot:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># blkid | grep -i sdX1
-/dev/sdX1: UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" TYPE="ext4"
+<pre class="CodeRay highlight"><code data-lang="terminal"># blkid | grep -i sdX1
+/dev/sdX1: UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; TYPE=&quot;ext4&quot;
 # vi /etc/fstab
-UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0       0</pre>
+UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; /data    ext4    defaults     0       0</code></pre>
 </div>
 </div>
 </li>
@@ -1539,9 +1539,9 @@ UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0     
 <p>On the host, create a new directory that will be used to create the initial local storage domain. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir -p /localfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /localfs
 # chown 36:36 /localfs
-# chmod -R 0755 /localfs</pre>
+# chmod -R 0755 /localfs</code></pre>
 </div>
 </div>
 </li>
@@ -1844,7 +1844,7 @@ Try to keep workloads on all virtual machines using Gluster storage as light as 
 <p>Run the following command on one of the hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># gluster volume heal &lt;volume&gt; info summary</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># gluster volume heal &lt;volume&gt; info summary</code></pre>
 </div>
 </div>
 </li>
@@ -1852,9 +1852,9 @@ Try to keep workloads on all virtual machines using Gluster storage as light as 
 <p>Stop the <code>glusterfs</code> brick process and unmount all the bricks on the first host to maintain file system consistency. Run the following on the first host:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># pkill glusterfsd; pkill glusterfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># pkill glusterfsd; pkill glusterfs
 # systemctl stop glusterd
-# umount /gluster_bricks/*</pre>
+# umount /gluster_bricks/*</code></pre>
 </div>
 </div>
 </li>
@@ -2014,27 +2014,27 @@ The following procedure is an automated method for deploying a HostedEngine VM u
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/he_gluster_vars.json
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/he_gluster_vars.json
 
 {
-  "he_appliance_password": "&lt;password&gt;",
-  "he_admin_password": "&lt;password&gt;",
-  "he_domain_type": "glusterfs",
-  "he_fqdn": "&lt;hostedengine.example.com&gt;",
-  "he_vm_mac_addr": "&lt;00:18:15:20:59:01&gt;",
-  "he_default_gateway": "&lt;19.70.12.254&gt;",
-  "he_mgmt_network": "ovirtmgmt",
-  "he_storage_domain_name": "HostedEngine",
-  "he_storage_domain_path": "&lt;/newengine&gt;",
-  "he_storage_domain_addr": "&lt;host1.example.com&gt;",
-  "he_mount_options": "backup-volfile-servers=&lt;host2.example.com&gt;:&lt;host3.example.com&gt;",
-  "he_bridge_if": "&lt;eth0&gt;",
-  "he_enable_hc_gluster_service": true,
-  "he_mem_size_MB": "16384",
-  "he_cluster": "Default",
-  "he_restore_from_file": "/root/engine-backup.tar.gz",
-  "he_vcpus": 4
-}</pre>
+  &quot;he_appliance_password&quot;: &quot;&lt;password&gt;&quot;,
+  &quot;he_admin_password&quot;: &quot;&lt;password&gt;&quot;,
+  &quot;he_domain_type&quot;: &quot;glusterfs&quot;,
+  &quot;he_fqdn&quot;: &quot;&lt;hostedengine.example.com&gt;&quot;,
+  &quot;he_vm_mac_addr&quot;: &quot;&lt;00:18:15:20:59:01&gt;&quot;,
+  &quot;he_default_gateway&quot;: &quot;&lt;19.70.12.254&gt;&quot;,
+  &quot;he_mgmt_network&quot;: &quot;ovirtmgmt&quot;,
+  &quot;he_storage_domain_name&quot;: &quot;HostedEngine&quot;,
+  &quot;he_storage_domain_path&quot;: &quot;&lt;/newengine&gt;&quot;,
+  &quot;he_storage_domain_addr&quot;: &quot;&lt;host1.example.com&gt;&quot;,
+  &quot;he_mount_options&quot;: &quot;backup-volfile-servers=&lt;host2.example.com&gt;:&lt;host3.example.com&gt;&quot;,
+  &quot;he_bridge_if&quot;: &quot;&lt;eth0&gt;&quot;,
+  &quot;he_enable_hc_gluster_service&quot;: true,
+  &quot;he_mem_size_MB&quot;: &quot;16384&quot;,
+  &quot;he_cluster&quot;: &quot;Default&quot;,
+  &quot;he_restore_from_file&quot;: &quot;/root/engine-backup.tar.gz&quot;,
+  &quot;he_vcpus&quot;: 4
+}</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -2063,10 +2063,10 @@ The following procedure is an automated method for deploying a HostedEngine VM u
 <p>For static Engine network configuration, add more options as listed below:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">  “he_vm_ip_addr”:  “&lt;engine VM ip address&gt;”
+<pre class="CodeRay highlight"><code data-lang="terminal">  “he_vm_ip_addr”:  “&lt;engine VM ip address&gt;”
   “he_vm_ip_prefix”:  “&lt;engine VM ip prefix&gt;”
   “he_dns_addr”:  “&lt;engine VM DNS server&gt;”
-  “he_default_gateway”:  “&lt;engine VM default gateway&gt;”</pre>
+  “he_default_gateway”:  “&lt;engine VM default gateway&gt;”</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -2091,8 +2091,8 @@ and
 <p>Run the playbook to deploy HostedEngine Deployment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
-ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
+ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</code></pre>
 </div>
 </div>
 </li>
@@ -2130,7 +2130,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</pre>
 <p>From the command line of the host, unmount Gluster bricks</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># umount /gluster_bricks/*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># umount /gluster_bricks/*</code></pre>
 </div>
 </div>
 </li>
@@ -2191,7 +2191,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</pre>
 <p>Reinstall the host in oVirt Node Administration Portal Copy the authorized key from the first deployed host in oVirt Node 4.4</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp <a href="mailto:root@host1.example.com">root@host1.example.com</a>:/root/.ssh/authorized_keys /root/.ssh/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp root@host1.example.com:/root/.ssh/authorized_keys /root/.ssh/</code></pre>
 </div>
 </div>
 <div class="olist lowerroman">
@@ -2212,7 +2212,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</pre>
 <p>Make sure that there are no errors in the volumes related to GFID mismatch. If there are any errors, resolve them.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">grep -i ‘gfid mismatch’ /var/log/glusterfs/*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">grep -i ‘gfid mismatch’ /var/log/glusterfs/*</code></pre>
 </div>
 </div>
 </li>
@@ -2285,7 +2285,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</pre>
 <p>There are new Gluster volume options available with oVirt Node 4.4, apply those volume options on all the volumes. Execute the following on one of the nodes in the cluster:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># for vol in <code>gluster volume list</code>; do gluster volume set $vol group virt; done</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># for vol in `gluster volume list`; do gluster volume set $vol group virt; done</code></pre>
 </div>
 </div>
 </li>
@@ -2409,7 +2409,7 @@ In the Create Volume window, do the following:</p>
 <p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">next_run_config_exists=True</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2564,7 +2564,7 @@ In the Create Volume window, do the following:</p>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -2666,7 +2666,7 @@ In the Create Volume window, do the following:</p>
 <p>When upgrading the Engine database, stop the <code>ovirt-engine</code> service on the Engine machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -2674,7 +2674,7 @@ In the Create Volume window, do the following:</p>
 <p>When upgrading the Data Warehouse database, stop the <code>ovirt-engine-dwhd</code> service on the Data Warehouse machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine-dwhd</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine-dwhd</code></pre>
 </div>
 </div>
 </li>
@@ -2689,7 +2689,7 @@ In the Create Volume window, do the following:</p>
 <p>Ensure the correct repositories are enabled:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
 </div>
 </div>
 </li>
@@ -2747,7 +2747,7 @@ enabled; vendor preset: disabled)
 <p>Copy the <code class="filename">pg_hba.conf</code> client configuration file from the PostgreSQL 9.5 environment to the PostgreSQL 10 environment:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf  /var/opt/rh/rh-postgresql10/lib/pgsql/data/pg_hba.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf  /var/opt/rh/rh-postgresql10/lib/pgsql/data/pg_hba.conf</code></pre>
 </div>
 </div>
 </li>
@@ -2755,13 +2755,13 @@ enabled; vendor preset: disabled)
 <p>Update the following parameters in <code class="filename">/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">listen_addresses='*'
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses='*'
 autovacuum_vacuum_scale_factor=0.01
 autovacuum_analyze_scale_factor=0.075
 autovacuum_max_workers=6
 maintenance_work_mem=65536
 max_connections=150
-work_mem = 8192</pre>
+work_mem = 8192</code></pre>
 </div>
 </div>
 </li>
@@ -2818,7 +2818,7 @@ work_mem = 8192</pre>
 <p>Enable the oVirt 4.3 repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2829,7 +2829,7 @@ work_mem = 8192</pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -2838,7 +2838,7 @@ work_mem = 8192</pre>
 the oVirt Engine, the remote database or remote service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2860,7 +2860,7 @@ the oVirt Engine, the remote database or remote service:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Execution of setup completed successfully</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Execution of setup completed successfully</code></pre>
 </div>
 </div>
 </li>
@@ -2868,7 +2868,7 @@ the oVirt Engine, the remote database or remote service:</p>
 <p>Update the base operating system:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -2917,9 +2917,9 @@ the oVirt Engine, the remote database or remote service:</p>
 <p>The <code>ovirt-engine-dwhd</code> service is now running on the Engine machine. If the <code>ovirt-engine-dwhd</code> service is on a remote machine, stop and disable the <code>ovirt-engine-dwhd</code> service on the Engine machine, and remove the configuration files that <code>engine-setup</code> created:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine-dwhd
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine-dwhd
 # systemctl disable ovirt-engine-dwhd
-# rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/*</pre>
+# rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/*</code></pre>
 </div>
 </div>
 </li>
@@ -3104,7 +3104,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">next_run_config_exists=True</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3186,7 +3186,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Check whether <strong>/etc/pki/ovirt-engine/openssl.conf</strong> includes the line <code>default_md = sha256</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3194,8 +3194,8 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
-# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 </li>
@@ -3257,7 +3257,7 @@ done</pre>
 <p>Check whether <strong>/etc/pki/ovirt-engine/openssl.conf</strong> includes the line <code>default_md = sha256</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3265,8 +3265,8 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
-# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 </li>
@@ -3274,8 +3274,8 @@ done</pre>
 <p>Re-sign the CA certificate by backing it up and creating a new certificate in <strong>ca.pem.new</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem."$(date +"%Y%m%d%H%M%S")"
-# openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256</code></pre>
 </div>
 </div>
 </li>
@@ -3283,7 +3283,7 @@ done</pre>
 <p>Replace the existing certificate with the new certificate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -3291,7 +3291,7 @@ done</pre>
 <p>Define the certificates that should be re-signed:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># names="engine apache websocket-proxy jboss imageio-proxy"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;engine apache websocket-proxy jboss imageio-proxy&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3299,7 +3299,7 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># names="engine websocket-proxy jboss imageio-proxy"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;engine websocket-proxy jboss imageio-proxy&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3310,24 +3310,24 @@ done</pre>
 <p>On the Engine, save a backup of the <code>/etc/ovirt-engine/engine.conf.d</code> and <code>/etc/pki/ovirt-engine</code> directories, and re-sign the certificates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
 # for name in $names; do
-    subject="$(
+    subject=&quot;$(
         openssl \
             x509 \
-            -in /etc/pki/ovirt-engine/certs/"${name}".cer \
+            -in /etc/pki/ovirt-engine/certs/&quot;${name}&quot;.cer \
             -noout \
             -subject \
         | sed \
             's;subject= \(.*\);\1;' \
-    )"
+    )&quot;
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
-        --name="${name}" \
+        --name=&quot;${name}&quot; \
         --password=mypass \
-        --subject="${subject}" \
-        --san=DNS:"${ENGINE_FQDN}" \
+        --subject=&quot;${subject}&quot; \
+        --san=DNS:&quot;${ENGINE_FQDN}&quot; \
         --keep-key
-done</pre>
+done</code></pre>
 </div>
 </div>
 </li>
@@ -3457,7 +3457,7 @@ done</pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -3593,7 +3593,7 @@ done</pre>
 <p>Back up the oVirt Engine 4.3 environment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log</code></pre>
 </div>
 </div>
 </li>
@@ -3610,7 +3610,7 @@ done</pre>
 <p>Copy the backup file to the oVirt Engine 4.4 machine and restore it.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --file=backup.bck --provision-all-databases</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=backup.bck --provision-all-databases</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3632,7 +3632,7 @@ done</pre>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3654,7 +3654,7 @@ done</pre>
 <p>Configure the Engine by running the <code>engine-setup</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -3684,7 +3684,7 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl start ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </td>
@@ -3743,7 +3743,7 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --file=<em>&lt;backupfile&gt;</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --file=__&lt;backupfile&gt;__</code></pre>
 </div>
 </div>
 </li>
@@ -3754,8 +3754,8 @@ done</pre>
 <p>Stop and disable the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine-dwhd
-# systemctl disable ovirt-engine-dwhd</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine-dwhd
+# systemctl disable ovirt-engine-dwhd</code></pre>
 </div>
 </div>
 </li>
@@ -3775,7 +3775,7 @@ done</pre>
 <p>Restore the backup file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --file=backup.bck --provision-all-databases</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=backup.bck --provision-all-databases</code></pre>
 </div>
 </div>
 </li>
@@ -3783,7 +3783,7 @@ done</pre>
 <p>On the Data Warehouse machine, run the <code>engine-setup</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -3791,7 +3791,7 @@ done</pre>
 <p>On the Engine machine, restart the Engine to connect it to the Data Warehouse database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -3957,7 +3957,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># clearpart --all --drives=<em>device</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=_device_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3972,7 +3972,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>On the reinstalled host, create a directory, for example <code class="filename">/data</code> in which to recover the previous environment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /data</code></pre>
 </div>
 </div>
 </li>
@@ -3980,7 +3980,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Mount the previous local storage in the new directory. In our example, <code class="filename">/dev/sdX1</code> is the local storage:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mount /dev/sdX1 /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount /dev/sdX1 /data</code></pre>
 </div>
 </div>
 </li>
@@ -3988,8 +3988,8 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Set the following permissions for the new directory.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown -R 36:36 /data
-# chmod -R 0755 /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown -R 36:36 /data
+# chmod -R 0755 /data</code></pre>
 </div>
 </div>
 </li>
@@ -3997,10 +3997,10 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>oVirt recommends that you also automatically mount the local storage via <code class="filename">/etc/fstab</code> in case the server requires a reboot:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># blkid | grep -i sdX1
-/dev/sdX1: UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" TYPE="ext4"
+<pre class="CodeRay highlight"><code data-lang="terminal"># blkid | grep -i sdX1
+/dev/sdX1: UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; TYPE=&quot;ext4&quot;
 # vi /etc/fstab
-UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0       0</pre>
+UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; /data    ext4    defaults     0       0</code></pre>
 </div>
 </div>
 </li>
@@ -4017,9 +4017,9 @@ UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0     
 <p>On the host, create a new directory that will be used to create the initial local storage domain. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir -p /localfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /localfs
 # chown 36:36 /localfs
-# chmod -R 0755 /localfs</pre>
+# chmod -R 0755 /localfs</code></pre>
 </div>
 </div>
 </li>
@@ -4176,7 +4176,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">next_run_config_exists=True</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4318,7 +4318,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Log in to one of the self-hosted engine nodes and enable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -4326,7 +4326,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Confirm that the environment is in global maintenance mode before proceeding:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4361,7 +4361,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -4474,7 +4474,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Enable the oVirt 4.3 repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4485,7 +4485,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -4494,7 +4494,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 the oVirt Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4502,7 +4502,7 @@ the oVirt Engine:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Execution of setup completed successfully</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Execution of setup completed successfully</code></pre>
 </div>
 </div>
 </li>
@@ -4510,7 +4510,7 @@ the oVirt Engine:</p>
 <p>Update the base operating system:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -4561,7 +4561,7 @@ the oVirt Engine:</p>
 and disable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=none</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4572,7 +4572,7 @@ and disable global maintenance mode:</p>
 <p>Confirm that the environment is running:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4786,7 +4786,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">next_run_config_exists=True</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4868,7 +4868,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Check whether <strong>/etc/pki/ovirt-engine/openssl.conf</strong> includes the line <code>default_md = sha256</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4876,8 +4876,8 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
-# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 </li>
@@ -4955,7 +4955,7 @@ done</pre>
 <p>Check whether <strong>/etc/pki/ovirt-engine/openssl.conf</strong> includes the line <code>default_md = sha256</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4963,8 +4963,8 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
-# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf</code></pre>
 </div>
 </div>
 </li>
@@ -4972,8 +4972,8 @@ done</pre>
 <p>Re-sign the CA certificate by backing it up and creating a new certificate in <strong>ca.pem.new</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem."$(date +"%Y%m%d%H%M%S")"
-# openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem.&quot;$(date +&quot;%Y%m%d%H%M%S&quot;)&quot;
+# openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256</code></pre>
 </div>
 </div>
 </li>
@@ -4981,7 +4981,7 @@ done</pre>
 <p>Replace the existing certificate with the new certificate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -4989,7 +4989,7 @@ done</pre>
 <p>Define the certificates that should be re-signed:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># names="engine apache websocket-proxy jboss imageio-proxy"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;engine apache websocket-proxy jboss imageio-proxy&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4997,7 +4997,7 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># names="engine websocket-proxy jboss imageio-proxy"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;engine websocket-proxy jboss imageio-proxy&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5016,24 +5016,24 @@ done</pre>
 <p>On the Engine, save a backup of the <code>/etc/ovirt-engine/engine.conf.d</code> and <code>/etc/pki/ovirt-engine</code> directories, and re-sign the certificates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
 # for name in $names; do
-    subject="$(
+    subject=&quot;$(
         openssl \
             x509 \
-            -in /etc/pki/ovirt-engine/certs/"${name}".cer \
+            -in /etc/pki/ovirt-engine/certs/&quot;${name}&quot;.cer \
             -noout \
             -subject \
         | sed \
             's;subject= \(.*\);\1;' \
-    )"
+    )&quot;
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
-        --name="${name}" \
+        --name=&quot;${name}&quot; \
         --password=mypass \
-        --subject="${subject}" \
-        --san=DNS:"${ENGINE_FQDN}" \
+        --subject=&quot;${subject}&quot; \
+        --san=DNS:&quot;${ENGINE_FQDN}&quot; \
         --keep-key
-done</pre>
+done</code></pre>
 </div>
 </div>
 </li>
@@ -5168,7 +5168,7 @@ done</pre>
 <p>Log in to one of the self-hosted engine nodes and enable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -5176,7 +5176,7 @@ done</pre>
 <p>Confirm that the environment is in global maintenance mode before proceeding:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5214,7 +5214,7 @@ done</pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -5370,7 +5370,7 @@ done</pre>
 <p>Log in to the Engine virtual machine and shut down the engine service.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -5378,7 +5378,7 @@ done</pre>
 <p>Back up the oVirt Engine 4.3 environment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log</code></pre>
 </div>
 </div>
 </li>
@@ -5389,7 +5389,7 @@ done</pre>
 <p>Shut down the self-hosted engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># shutdown</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># shutdown</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5411,7 +5411,7 @@ done</pre>
 <p>Make sure that the self-hosted engine is shut down.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status | grep 'Engine status|Hostname'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status | grep 'Engine status|Hostname'</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5450,7 +5450,7 @@ done</pre>
 <p>Install the self-hosted engine deployment tool.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install ovirt-hosted-engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-hosted-engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -5461,7 +5461,7 @@ done</pre>
 <p>Log in to the Engine host and deploy the self-hosted engine with the backup file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --deploy --restore-from-file=/<em>path</em>/backup.bck</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=/_path_/backup.bck</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5479,8 +5479,8 @@ done</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># tmux
-# hosted-engine --deploy --restore-from-file=backup.bck</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># tmux
+# hosted-engine --deploy --restore-from-file=backup.bck</code></pre>
 </div>
 </div>
 </td>
@@ -5498,7 +5498,7 @@ done</pre>
 <p>Log in to the Engine virtual machine and shut down the engine service.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine</code></pre>
 </div>
 </div>
 </li>
@@ -5506,7 +5506,7 @@ done</pre>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5528,7 +5528,7 @@ done</pre>
 <p>Configure the Engine by running the <code>engine-setup</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -5694,7 +5694,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># clearpart --all --drives=<em>device</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=_device_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5709,7 +5709,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>On the reinstalled host, create a directory, for example <code class="filename">/data</code> in which to recover the previous environment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /data</code></pre>
 </div>
 </div>
 </li>
@@ -5717,7 +5717,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Mount the previous local storage in the new directory. In our example, <code class="filename">/dev/sdX1</code> is the local storage:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mount /dev/sdX1 /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount /dev/sdX1 /data</code></pre>
 </div>
 </div>
 </li>
@@ -5725,8 +5725,8 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Set the following permissions for the new directory.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># chown -R 36:36 /data
-# chmod -R 0755 /data</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown -R 36:36 /data
+# chmod -R 0755 /data</code></pre>
 </div>
 </div>
 </li>
@@ -5734,10 +5734,10 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>oVirt recommends that you also automatically mount the local storage via <code class="filename">/etc/fstab</code> in case the server requires a reboot:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># blkid | grep -i sdX1
-/dev/sdX1: UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" TYPE="ext4"
+<pre class="CodeRay highlight"><code data-lang="terminal"># blkid | grep -i sdX1
+/dev/sdX1: UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; TYPE=&quot;ext4&quot;
 # vi /etc/fstab
-UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0       0</pre>
+UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; /data    ext4    defaults     0       0</code></pre>
 </div>
 </div>
 </li>
@@ -5754,9 +5754,9 @@ UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0     
 <p>On the host, create a new directory that will be used to create the initial local storage domain. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mkdir -p /localfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /localfs
 # chown 36:36 /localfs
-# chmod -R 0755 /localfs</pre>
+# chmod -R 0755 /localfs</code></pre>
 </div>
 </div>
 </li>
@@ -5910,7 +5910,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">next_run_config_exists=True</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6011,7 +6011,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -6114,7 +6114,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Log in to one of the self-hosted engine nodes and enable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -6122,7 +6122,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Confirm that the environment is in global maintenance mode before proceeding:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6155,7 +6155,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -6267,7 +6267,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 and disable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --set-maintenance --mode=none</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6278,7 +6278,7 @@ and disable global maintenance mode:</p>
 <p>Confirm that the environment is running:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --vm-status</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6492,7 +6492,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">next_run_config_exists=True</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6617,7 +6617,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
 </div>
 </div>
 </li>
@@ -6625,7 +6625,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 </li>
@@ -6742,7 +6742,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
 </div>
 </div>
 </li>
@@ -6750,7 +6750,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
 </div>
 </div>
 </li>
@@ -6771,7 +6771,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>Identify the current version of Enterprise Linux:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/redhat-release</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/redhat-release</code></pre>
 </div>
 </div>
 </li>
@@ -6779,7 +6779,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>Check which version of the redhat-release package is available:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf --refresh info --available redhat-release</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf --refresh info --available redhat-release</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6787,11 +6787,11 @@ Pinned virtual machines must be shut down before updating the host.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Available Packages
+<pre class="CodeRay highlight"><code data-lang="terminal">Available Packages
 Name         : redhat-release
 Version      : 8.3
 Release      : 1.0.el8
-&#8230;&#8203;</pre>
+...</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -6813,7 +6813,7 @@ Release      : 1.0.el8
 <p>If the Advanced Virtualization stream is available for Enterprise Linux 8.3 or later, reset the <code>virt</code> module:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module reset virt</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module reset virt</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -6841,13 +6841,19 @@ Release      : 1.0.el8
 </li>
 <li>
 <p>Enable the <code>virt</code> module in the Advanced Virtualization stream with the following command:</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>For oVirt 4.4.2:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:8.2</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:8.2</code></pre>
 </div>
 </div>
 </li>
@@ -6855,7 +6861,7 @@ Release      : 1.0.el8
 <p>For oVirt 4.4.3 to 4.4.5:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:8.3</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:8.3</code></pre>
 </div>
 </div>
 </li>
@@ -6863,7 +6869,7 @@ Release      : 1.0.el8
 <p>For oVirt 4.4.6 or later:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:av</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:av</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -6880,18 +6886,13 @@ Release      : 1.0.el8
 </tr>
 </table>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Update the host:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -6914,6 +6915,9 @@ Release      : 1.0.el8
 </li>
 </ol>
 </div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>Repeat this process for each host in the oVirt environment.</p>
 </div>
@@ -6933,7 +6937,7 @@ Release      : 1.0.el8
 <p>On the system hosting the repository, synchronize the repository to download the most recent version of each available package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># reposync --newest-only /var/ftp/pub/ovirtrepo</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># reposync --newest-only /var/ftp/pub/ovirtrepo</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6960,18 +6964,18 @@ Release      : 1.0.el8
 <p>On the system hosting the offline repository, create a file named <code>/etc/yum.repos.d/rhvh-mirror.repo</code> with contents similar to the lines that follow:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[rhvh-4-for-rhel-8-x86_64-rpms]
+<pre class="CodeRay highlight"><code data-lang="terminal">[rhvh-4-for-rhel-8-x86_64-rpms]
 name = Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)
-baseurl = <a href="https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os" class="bare">https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os</a>
+baseurl = https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os
 enabled = 0
 gpgcheck = 1
-gpgkey = <a href="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release" class="bare">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release</a>
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 sslverify = 1
 sslcacert = /etc/rhsm/ca/redhat-uep.pem
 metadata_expire = 86400
 enabled_metadata = 1
 sslclientcert =
-sslclientkey =</pre>
+sslclientkey =</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6986,7 +6990,7 @@ sslclientkey =</pre>
 <p>List all files in the <code>/etc/pki/entitlement</code> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ls -al /etc/pki/entitlement/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ls -al /etc/pki/entitlement/</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6994,16 +6998,16 @@ sslclientkey =</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">total 836
+<pre class="CodeRay highlight"><code data-lang="terminal">total 836
 drwxr-xr-x.  2 root root    202 May 28 15:18 .
 drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
--rw-r&#8212;&#8203;r--.  1 root root   3243 May 28 15:18 4522783034260408538-key.pem
--rw-r&#8212;&#8203;r--.  1 root root 152622 May 28 15:18 4522783034260408538.pem
--rw-r&#8212;&#8203;r--.  1 root root   3243 May 28 15:18 5659494963772844103-key.pem
--rw-r&#8212;&#8203;r--.  1 root root 343394 May 28 15:19 5659494963772844103.pem
--rw-r&#8212;&#8203;r--.  1 root root   3243 May 23 13:19 645832581386032208-key.pem
--rw-r&#8212;&#8203;r--.  1 root root 343389 May 23 13:19 645832581386032208.pem
-#</pre>
+-rw-r--r--.  1 root root   3243 May 28 15:18 4522783034260408538-key.pem
+-rw-r--r--.  1 root root 152622 May 28 15:18 4522783034260408538.pem
+-rw-r--r--.  1 root root   3243 May 28 15:18 5659494963772844103-key.pem
+-rw-r--r--.  1 root root 343394 May 28 15:19 5659494963772844103.pem
+-rw-r--r--.  1 root root   3243 May 23 13:19 645832581386032208-key.pem
+-rw-r--r--.  1 root root 343389 May 23 13:19 645832581386032208.pem
+#</code></pre>
 </div>
 </div>
 </li>
@@ -7011,8 +7015,8 @@ drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
 <p>Use the <code>rct cat-cert</code> command on each certificate in order to find the one that contains the RHV-H entitlement:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cd /etc/pki/entitlement/
-# rct cat-cert 5659494963772844103.pem | grep rhvh/4/ | grep URL</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cd /etc/pki/entitlement/
+# rct cat-cert 5659494963772844103.pem | grep rhvh/4/ | grep URL</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7020,10 +7024,10 @@ drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">        URL: /content/beta/rhel/server/7/$basearch/rhvh/4/os
+<pre class="CodeRay highlight"><code data-lang="terminal">        URL: /content/beta/rhel/server/7/$basearch/rhvh/4/os
         URL: /content/dist/rhel/server/7/7Server/$basearch/rhvh/4/os
         URL: /content/beta/layered/rhel8/x86_64/rhvh/4/os
-        URL: /content/dist/layered/rhel8/x86_64/rhvh/4/os</pre>
+        URL: /content/dist/layered/rhel8/x86_64/rhvh/4/os</code></pre>
 </div>
 </div>
 </li>
@@ -7034,8 +7038,8 @@ drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
 <p>Identify the correct certificate and fill in the <code>sslclientcert</code> and <code>sslclientkey</code> values in the previously mentioned <code>.repo</code> file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">sslclientcert = /etc/pki/entitlement/5659494963772844103.pem
-sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">sslclientcert = /etc/pki/entitlement/5659494963772844103.pem
+sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem</code></pre>
 </div>
 </div>
 </li>
@@ -7047,7 +7051,7 @@ sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem</pre>
 <p>Use the 'pwd' command to determine the correct path:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># pwd</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># pwd</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7055,7 +7059,7 @@ sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">/home/test/rhvh-reposync</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">/home/test/rhvh-reposync</code></pre>
 </div>
 </div>
 </li>
@@ -7063,7 +7067,7 @@ sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem</pre>
 <p>Run the <code>reposync</code> command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># reposync --repo rhvh-4-for-rhel-8-x86_64-rpms</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># reposync --repo rhvh-4-for-rhel-8-x86_64-rpms</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7071,14 +7075,14 @@ sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Updating Subscription Management repositories.
+<pre class="CodeRay highlight"><code data-lang="terminal">Updating Subscription Management repositories.
 Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                             11 kB/s | 4.0 kB     00:00
 Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                            272 kB/s | 291 kB     00:01
 .
 .
 .
 (193/194): redhat-virtualization-host-image-update-4.4.5-20210330.0.el8_3.noarc 5.4 MB/s | 822 MB     02:30
-(194/194): rhvm-appliance-4.4-20210310.0.el8ev.x86_64.rpm                       5.6 MB/s | 1.5 GB     04:34</pre>
+(194/194): rhvm-appliance-4.4-20210310.0.el8ev.x86_64.rpm                       5.6 MB/s | 1.5 GB     04:34</code></pre>
 </div>
 </div>
 </li>

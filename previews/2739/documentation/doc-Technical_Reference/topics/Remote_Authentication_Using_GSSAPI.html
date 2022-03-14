@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Remote Authentication Using GSSAPI | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Remote Authentication Using GSSAPI" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Remote_Authentication_Using_GSSAPI.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Remote Authentication Using GSSAPI" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2739/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Remote_Authentication_Using_GSSAPI.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2739/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Remote Authentication Using GSSAPI","url":"https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Remote_Authentication_Using_GSSAPI.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -114,8 +114,6 @@
         
         <section id="content" class="content container">
           
-<div class="sect2">
-<h3 id="Remote_Authentication_Using_GSSAPI">Remote Authentication Using GSSAPI</h3>
 <div class="paragraph">
 <p>In the context of {virt-product-fullname}, remote authentication refers to authentication that is handled by a remote service, not the {virt-product-fullname} {engine-name}. Remote authentication is used for user or API connections coming to the {engine-name} from within an AD, IdM, or RHDS domain. The {virt-product-fullname} {engine-name} must be configured by an administrator using the <strong>engine-manage-domains</strong> tool to be a part of an RHDS, AD, or IdM domain. This requires that the {engine-name} be provided with credentials for an account from the RHDS, AD, or IdM directory server for the domain with sufficient privileges to join a system to the domain. After domains have been added, domain users can be authenticated by the {virt-product-fullname} {engine-name} against the directory server using a password. The {engine-name} uses a framework called the Simple Authentication and Security Layer (SASL) which in turn uses the Generic Security Services Application Program Interface (GSSAPI) to securely verify the identity of a user, and ascertain the authorization level available to the user.</p>
 </div>
@@ -124,7 +122,6 @@
 <img src="1005.png" alt="1005">
 </div>
 <div class="title">Figure 1. GSSAPI Authentication</div>
-</div>
 </div>
 
 

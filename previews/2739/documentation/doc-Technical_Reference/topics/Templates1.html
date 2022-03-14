@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Templates | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Templates" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Templates1.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Templates" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2739/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Templates1.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2739/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Templates","url":"https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Templates1.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -114,8 +114,6 @@
         
         <section id="content" class="content container">
           
-<div class="sect2">
-<h3 id="Templates1">Templates</h3>
 <div class="paragraph">
 <p>To create a template, an administrator creates and customizes a virtual machine. Desired packages are installed, customized configurations are applied, the virtual machine is prepared for its intended purpose in order to minimize the changes that must be made to it after deployment. An optional but recommended step before creating a template from a virtual machine is generalization. Generalization is used to remove details like system user names, passwords, and timezone information that will change upon deployment. Generalization does not affect customized configurations. Generalization of Windows and Linux guests in the {virt-product-fullname} environment is discussed further in <a href="{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#chap-Templates">Templates</a> in the <em>Virtual Machine Management Guide</em>. {enterprise-linux} guests are generalized using <code>sys-unconfig</code>. Windows guests are generalized using <code>sys-prep</code>.</p>
 </div>
@@ -124,7 +122,6 @@
 </div>
 <div class="paragraph">
 <p>When a template has been created, it can be used as the basis for multiple virtual machines. Virtual machines are created from a given template using a <strong>Thin</strong> provisioning method or a <strong>Clone</strong> provisioning method. Virtual machines that are cloned from templates take a complete writable copy of the template base image, sacrificing the space savings of the thin creation method in exchange for no longer depending on the presence of the template. Virtual machines that are created from a template using the thin method use the read-only image from the template as a base image, requiring that the template and all virtual machines created from it be stored on the same storage domain. Changes to data and newly generated data are stored in a copy-on-write image. Each virtual machine based on a template uses the same base read-only image, as well as a copy-on-write image that is unique to the virtual machine. This provides storage savings by limiting the number of times identical data is kept in storage. Furthermore, frequent use of the read-only backing image can cause the data being accessed to be cached, resulting in a net performance increase.</p>
-</div>
 </div>
 
 

@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Load Balancing Policy: VM_Evenly_Distributed | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Load Balancing Policy: VM_Evenly_Distributed" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Load_Balancing_Policy_VM_Even_Distribution.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Load Balancing Policy: VM_Evenly_Distributed" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2739/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Load_Balancing_Policy_VM_Even_Distribution.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2739/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Load Balancing Policy: VM_Evenly_Distributed","url":"https://ovirt.github.io/ovirt-site/previews/2739/documentation/doc-Technical_Reference/topics/Load_Balancing_Policy_VM_Even_Distribution.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -114,11 +114,8 @@
         
         <section id="content" class="content container">
           
-<div class="sect2">
-<h3 id="Load_Balancing_Policy_VM_Even_Distribution">Load Balancing Policy: VM_Evenly_Distributed</h3>
 <div class="paragraph">
 <p>A virtual machine evenly distributed load balancing policy distributes virtual machines evenly between hosts based on a count of the virtual machines. The high virtual machine count is the maximum number of virtual machines that can run on each host, beyond which qualifies as overloading the host. The VM_Evenly_Distributed policy allows an administrator to set a high virtual machine count for hosts. The maximum inclusive difference in virtual machine count between the most highly-utilized host and the least-utilized host is also set by an administrator. The cluster is balanced when every host in the cluster has a virtual machine count that falls inside this migration threshold. The administrator also sets the number of slots for virtual machines to be reserved on SPM hosts. The SPM host will have a lower load than other hosts, so this variable defines how many fewer virtual machines than other hosts it can run. If any host is running more virtual machines than the high virtual machine count and at least one host has a virtual machine count that falls outside of the migration threshold, virtual machines are migrated one by one to the host in the cluster that has the lowest CPU utilization. One virtual machine is migrated at a time until every host in the cluster has a virtual machine count that falls within the migration threshold.</p>
-</div>
 </div>
 
 

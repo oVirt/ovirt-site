@@ -107,7 +107,7 @@
 <li><a href="#Storage1">1.4. Storage</a></li>
 <li><a href="#Network">1.5. Network</a></li>
 <li><a href="#Data_Centers2">1.6. Data Centers</a></li>
-<li><a href="#compatibility_levels">1.7. Data Center and Cluster Compatibility Levels</a></li>
+<li><a href="#data-center-and-cluster-compatibility-levels">1.7. Data Center and Cluster Compatibility Levels</a></li>
 </ul>
 </li>
 <li><a href="#chap-Storage">2. Storage</a>
@@ -138,7 +138,7 @@
 <li><a href="#Network_Interface_Controller_NIC">3.7. Network Interface Controller</a></li>
 <li><a href="#Bridge">3.8. Linux bridge</a></li>
 <li><a href="#Bond">3.9. Bonds</a></li>
-<li><a href="#bonding-modes">3.10. Bonding Modes</a></li>
+<li><a href="#Bonding_Modes">3.10. Bonding Modes</a></li>
 <li><a href="#Switch_Configuration_for_Bonding">3.11. Switch Configuration for Bonding</a></li>
 <li><a href="#Virtual_Network_Interface_Controller_VNIC">3.12. Virtual Network Interface Cards</a></li>
 <li><a href="#Virtual_LAN_VLAN">3.13. Virtual LAN (VLAN)</a></li>
@@ -507,7 +507,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="compatibility_levels">1.7. Data Center and Cluster Compatibility Levels</h3>
+<h3 id="data-center-and-cluster-compatibility-levels">1.7. Data Center and Cluster Compatibility Levels</h3>
 <div class="paragraph">
 <p>{virt-product-fullname} data centers and clusters have a compatibility version.</p>
 </div>
@@ -1477,7 +1477,7 @@ xleases          64f87b0f-88d6-49e9-b797-60d36c9df497 -wi-a-----   1.00g</code><
 </div>
 </div>
 <div class="sect2">
-<h3 id="bonding-modes">3.10. Bonding Modes</h3>
+<h3 id="Bonding_Modes">3.10. Bonding Modes</h3>
 <div class="paragraph">
 <p>{virt-product-fullname} uses Mode 4 by default, but supports the following common bonding modes:</p>
 </div>
@@ -1566,7 +1566,7 @@ xleases          64f87b0f-88d6-49e9-b797-60d36c9df497 -wi-a-----   1.00g</code><
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[root@rhev-host-01 ~]# ip addr show
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# ip addr show
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -1594,7 +1594,7 @@ xleases          64f87b0f-88d6-49e9-b797-60d36c9df497 -wi-a-----   1.00g</code><
     link/ether 00:21:86:a2:85:cd brd ff:ff:ff:ff:ff:ff
     inet 10.64.32.134/23 brd 10.64.33.255 scope global ovirtmgmt
     inet6 fe80::221:86ff:fea2:85cd/64 scope link
-       valid_lft forever preferred_lft forever</pre>
+       valid_lft forever preferred_lft forever</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1605,12 +1605,12 @@ xleases          64f87b0f-88d6-49e9-b797-60d36c9df497 -wi-a-----   1.00g</code><
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[root@rhev-host-01 ~]# brctl show
-bridge name	bridge id		STP enabled	interfaces
-ovirtmgmt		8000.e41f13b7fdd4	no		vnet002
-							vnet001
-							vnet000
-							eth0</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# brctl show
+bridge name        bridge id                STP enabled        interfaces
+ovirtmgmt                8000.e41f13b7fdd4        no                vnet002
+                                                        vnet001
+                                                        vnet000
+                                                        eth0</code></pre>
 </div>
 </div>
 <div class="paragraph">

@@ -196,7 +196,7 @@
 <ul class="sectlevel2">
 <li><a href="#Migrating_Data_Warehouse_to_a_Separate_Machine_SHE_cli_deploy">Migrating Data Warehouse to a Separate Machine</a>
 <ul class="sectlevel3">
-<li><a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a></li>
+<li><a href="#proc-Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine">Migrating the Data Warehouse Database to a Separate Machine</a></li>
 <li><a href="#Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Service to a Separate Machine</a></li>
 </ul>
 </li>
@@ -848,7 +848,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --deploy --ansible-extra-vars=he_ipv4_subnet_prefix=192.168.222</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --ansible-extra-vars=he_ipv4_subnet_prefix=192.168.222</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1453,7 +1453,7 @@
 <p>Install the NFS <code>utils</code> package.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install nfs-utils -y</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install nfs-utils -y</code></pre>
 </div>
 </div>
 </li>
@@ -1461,7 +1461,7 @@
 <p>To check the enabled versions:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /proc/fs/nfsd/versions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /proc/fs/nfsd/versions</code></pre>
 </div>
 </div>
 </li>
@@ -1469,8 +1469,8 @@
 <p>Enable the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl enable nfs-server
-# systemctl enable rpcbind</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable nfs-server
+# systemctl enable rpcbind</code></pre>
 </div>
 </div>
 </li>
@@ -1483,7 +1483,7 @@
 <p>Create the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># groupadd kvm -g 36</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># groupadd kvm -g 36</code></pre>
 </div>
 </div>
 </li>
@@ -1491,7 +1491,7 @@
 <p>Create the user <code>vdsm</code> in the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># useradd vdsm -u 36 -g kvm</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># useradd vdsm -u 36 -g kvm</code></pre>
 </div>
 </div>
 </li>
@@ -1509,9 +1509,9 @@
 <p>Add the <code>storage</code> directory to <code>/etc/exports</code> with the relevant permissions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/exports
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/exports
 # cat /etc/exports
- /storage *(rw)</pre>
+ /storage *(rw)</code></pre>
 </div>
 </div>
 </li>
@@ -1519,8 +1519,8 @@
 <p>Restart the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart rpcbind
-# systemctl restart nfs-server</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart rpcbind
+# systemctl restart nfs-server</code></pre>
 </div>
 </div>
 </li>
@@ -1528,10 +1528,10 @@
 <p>To see which export are available for a specific IP address:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># exportfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># exportfs
  /nfs_server/srv
                10.46.11.3/24
- /nfs_server       &lt;world&gt;</pre>
+ /nfs_server       &lt;world&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -1605,12 +1605,12 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid <em>boot_LUN_wwid</em>
+        wwid _boot_LUN_wwid_
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -1673,12 +1673,12 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid <em>boot_LUN_wwid</em>
+        wwid _boot_LUN_wwid_
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -2141,7 +2141,7 @@ Do not override this setting.
 <p>Reset the <code>virt</code> module:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module reset virt</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module reset virt</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2169,13 +2169,19 @@ Do not override this setting.
 </li>
 <li>
 <p>Enable the <code>virt</code> module in the Advanced Virtualization stream with the following command:</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>For oVirt 4.4.2:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:8.2</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:8.2</code></pre>
 </div>
 </div>
 </li>
@@ -2183,7 +2189,7 @@ Do not override this setting.
 <p>For oVirt 4.4.3 to 4.4.5:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:8.3</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:8.3</code></pre>
 </div>
 </div>
 </li>
@@ -2191,7 +2197,7 @@ Do not override this setting.
 <p>For oVirt 4.4.6 or later:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module enable virt:av</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:av</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2208,18 +2214,13 @@ Do not override this setting.
 </tr>
 </table>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Synchronize installed packages to update them to the latest available versions:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -2227,11 +2228,14 @@ Do not override this setting.
 <p>Install the Engine Appliance to the host manually:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-appliance</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install {engine-package}-appliance</code></pre>
 </div>
 </div>
 </li>
 </ol>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Now, when you deploy the self-hosted engine, the installer detects that the appliance is already installed.</p>
@@ -2257,8 +2261,8 @@ Do not override this setting.
 <p>Start <code>firewalld</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl unmask firewalld
-# systemctl start firewalld</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl unmask firewalld
+# systemctl start firewalld</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2266,7 +2270,7 @@ Do not override this setting.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl enable firewalld</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable firewalld</code></pre>
 </div>
 </div>
 </li>
@@ -2274,7 +2278,7 @@ Do not override this setting.
 <p>Ensure that firewalld is running:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl status firewalld</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl status firewalld</code></pre>
 </div>
 </div>
 </li>
@@ -2282,7 +2286,7 @@ Do not override this setting.
 <p>Ensure that your management interface is in a firewall zone via</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># firewall-cmd --get-active-zones</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --get-active-zones</code></pre>
 </div>
 </div>
 </li>
@@ -2400,7 +2404,7 @@ Do not override this setting.
 <p>Install the deployment tool:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-hosted-engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-hosted-engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -2450,10 +2454,10 @@ Do not override this setting.
 <p>When prompted, enter <strong>Yes</strong> to begin the deployment:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Continuing will configure this host for serving as hypervisor and will create a local VM with a running engine.
+<pre class="CodeRay highlight"><code data-lang="terminal">Continuing will configure this host for serving as hypervisor and will create a local VM with a running engine.
 The locally running engine will be used to configure a new storage domain and create a VM there.
 At the end the disk of the local VM will be moved to the shared storage.
-Are you sure you want to continue? (Yes, No)[Yes]:</pre>
+Are you sure you want to continue? (Yes, No)[Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -2461,7 +2465,7 @@ Are you sure you want to continue? (Yes, No)[Yes]:</pre>
 <p>Configure the network. Check that the gateway shown is correct and press <kbd>Enter</kbd>. Enter a pingable address on the same subnet so the script can check the host&#8217;s connectivity.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please indicate a pingable gateway IP address [X.X.X.X]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please indicate a pingable gateway IP address [X.X.X.X]:</code></pre>
 </div>
 </div>
 </li>
@@ -2469,7 +2473,7 @@ Are you sure you want to continue? (Yes, No)[Yes]:</pre>
 <p>The script detects possible NICs to use as a management bridge for the environment. Enter one of them or press <kbd>Enter</kbd> to accept the default.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please indicate a nic to set ovirtmgmt bridge on: (ens1, ens0) [ens1]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please indicate a nic to set ovirtmgmt bridge on: (ens1, ens0) [ens1]:</code></pre>
 </div>
 </div>
 </li>
@@ -2477,7 +2481,7 @@ Are you sure you want to continue? (Yes, No)[Yes]:</pre>
 <p>Specify how to check network connectivity. The default is <code>dns</code>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please specify which way the network connectivity should be checked (ping, dns, tcp, none) [dns]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please specify which way the network connectivity should be checked (ping, dns, tcp, none) [dns]:</code></pre>
 </div>
 </div>
 <div class="dlist">
@@ -2505,8 +2509,8 @@ Are you sure you want to continue? (Yes, No)[Yes]:</pre>
 <p>Enter a name for the data center in which to deploy the host for the self-hosted engine. The default name is <strong>Default</strong>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please enter the name of the data center where you want to deploy this hosted-engine host.
-Data center [Default]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please enter the name of the data center where you want to deploy this hosted-engine host.
+Data center [Default]:</code></pre>
 </div>
 </div>
 </li>
@@ -2514,8 +2518,8 @@ Data center [Default]:</pre>
 <p>Enter a name for the cluster in which to deploy the host for the self-hosted engine. The default name is <strong>Default</strong>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please enter the name of the cluster where you want to deploy this hosted-engine host.
-Cluster [Default]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please enter the name of the cluster where you want to deploy this hosted-engine host.
+Cluster [Default]:</code></pre>
 </div>
 </div>
 </li>
@@ -2526,9 +2530,9 @@ Cluster [Default]:</pre>
 <p>To deploy with a custom Engine Appliance appliance image, specify the path to the OVA archive. Otherwise, leave this field empty to use the Engine Appliance.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">If you want to deploy with a custom engine appliance image, please specify the path to the OVA archive you would like to use.
+<pre class="CodeRay highlight"><code data-lang="terminal">If you want to deploy with a custom engine appliance image, please specify the path to the OVA archive you would like to use.
  Entering no value will use the image from the rhvm-appliance rpm, installing it if needed.
- Appliance image path []:</pre>
+ Appliance image path []:</code></pre>
 </div>
 </div>
 </li>
@@ -2536,8 +2540,8 @@ Cluster [Default]:</pre>
 <p>Enter the CPU and memory configuration for the Engine virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please specify the number of virtual CPUs for the VM. The default is the appliance OVF value [4]:
-Please specify the memory size of the VM in MB. The default is the maximum available [6824]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please specify the number of virtual CPUs for the VM. The default is the appliance OVF value [4]:
+Please specify the memory size of the VM in MB. The default is the maximum available [6824]:</code></pre>
 </div>
 </div>
 </li>
@@ -2545,10 +2549,10 @@ Please specify the memory size of the VM in MB. The default is the maximum avail
 <p>Specify the FQDN for the Engine virtual machine, such as <code>manager.example.com</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please provide the FQDN you would like to use for the engine.
+<pre class="CodeRay highlight"><code data-lang="terminal">Please provide the FQDN you would like to use for the engine.
 Note: This will be the FQDN of the engine VM you are now going to launch,
 it should not point to the base host or to any other existing machine.
-Engine VM FQDN []:</pre>
+Engine VM FQDN []:</code></pre>
 </div>
 </div>
 </li>
@@ -2556,8 +2560,8 @@ Engine VM FQDN []:</pre>
 <p>Specify the domain of the Engine virtual machine. For example, if the FQDN is <code>manager.example.com</code>, then enter <code>example.com</code>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please provide the domain name you would like to use for the engine appliance.
-Engine VM domain: [example.com]</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please provide the domain name you would like to use for the engine appliance.
+Engine VM domain: [example.com]</code></pre>
 </div>
 </div>
 </li>
@@ -2565,8 +2569,8 @@ Engine VM domain: [example.com]</pre>
 <p>Create the root password for the Engine, and reenter it to confirm:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Enter root password that will be used for the engine appliance:
-Confirm appliance root password:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Enter root password that will be used for the engine appliance:
+Confirm appliance root password:</code></pre>
 </div>
 </div>
 </li>
@@ -2574,12 +2578,12 @@ Confirm appliance root password:</pre>
 <p>Optional: Enter an SSH public key to enable you to log in to the Engine virtual machine as the root user without entering a password, and specify whether to enable SSH access for the root user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">You may provide an SSH public key, that will be added by the deployment script to the authorized_keys file of the root user in the engine appliance.
+<pre class="CodeRay highlight"><code data-lang="terminal">You may provide an SSH public key, that will be added by the deployment script to the authorized_keys file of the root user in the engine appliance.
 This should allow you passwordless login to the engine machine after deployment.
 If you provide no key, authorized_keys will not be touched.
 SSH public key []:
 
-Do you want to enable ssh access for the root user (yes, no, without-password) [yes]:</pre>
+Do you want to enable ssh access for the root user (yes, no, without-password) [yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -2595,7 +2599,7 @@ Do you want to enable ssh access for the root user (yes, no, without-password) [
 <p>Enter a MAC address for the Engine virtual machine, or accept a randomly generated one. If you want to provide the Engine virtual machine with an IP address via DHCP, ensure that you have a valid DHCP reservation for this MAC address. The deployment script will not configure the DHCP server for you.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:3d:34:47]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:3d:34:47]:</code></pre>
 </div>
 </div>
 </li>
@@ -2603,7 +2607,7 @@ Do you want to enable ssh access for the root user (yes, no, without-password) [
 <p>Enter the Engine virtual machine&#8217;s networking details:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">How should the engine VM network be configured (DHCP, Static)[DHCP]?</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">How should the engine VM network be configured (DHCP, Static)[DHCP]?</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2632,9 +2636,9 @@ Do you want to enable ssh access for the root user (yes, no, without-password) [
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please enter the IP address to be used for the engine VM [x.x.x.x]:
+<pre class="CodeRay highlight"><code data-lang="terminal">Please enter the IP address to be used for the engine VM [x.x.x.x]:
 Please provide a comma-separated list (max 3) of IP addresses of domain name servers for the engine VM
-Engine VM DNS (leave it empty to skip):</pre>
+Engine VM DNS (leave it empty to skip):</code></pre>
 </div>
 </div>
 </li>
@@ -2642,9 +2646,9 @@ Engine VM DNS (leave it empty to skip):</pre>
 <p>Specify whether to add entries for the Engine virtual machine and the base host to the virtual machine&#8217;s <code>/etc/hosts</code> file. You must ensure that the host names are resolvable.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Add lines for the appliance itself and for this host to /etc/hosts on the engine VM?
+<pre class="CodeRay highlight"><code data-lang="terminal">Add lines for the appliance itself and for this host to /etc/hosts on the engine VM?
 Note: ensuring that this host could resolve the engine VM hostname is still up to you.
-Add lines to /etc/hosts? (Yes, No)[Yes]:</pre>
+Add lines to /etc/hosts? (Yes, No)[Yes]:</code></pre>
 </div>
 </div>
 </li>
@@ -2652,10 +2656,10 @@ Add lines to /etc/hosts? (Yes, No)[Yes]:</pre>
 <p>Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications. Alternatively, press <kbd>Enter</kbd> to accept the defaults:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please provide the name of the SMTP server through which we will send notifications [localhost]:
+<pre class="CodeRay highlight"><code data-lang="terminal">Please provide the name of the SMTP server through which we will send notifications [localhost]:
 Please provide the TCP port number of the SMTP server [25]:
 Please provide the email address from which notifications will be sent [root@localhost]:
-Please provide a comma-separated list of email addresses which will get notifications [root@localhost]:</pre>
+Please provide a comma-separated list of email addresses which will get notifications [root@localhost]:</code></pre>
 </div>
 </div>
 </li>
@@ -2663,8 +2667,8 @@ Please provide a comma-separated list of email addresses which will get notifica
 <p>Create a password for the <code>admin@internal</code> user to access the Administration Portal and reenter it to confirm:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Enter engine admin password:
-Confirm engine admin password:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Enter engine admin password:
+Confirm engine admin password:</code></pre>
 </div>
 </div>
 </li>
@@ -2672,7 +2676,7 @@ Confirm engine admin password:</pre>
 <p>Specify the hostname of the deployment host:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please provide the hostname of this host on the management network [hostname.example.com]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please provide the hostname of this host on the management network [hostname.example.com]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2683,7 +2687,7 @@ Confirm engine admin password:</pre>
 <p>Optional: If you set the variable <code>he_pause_host: true</code>, the deployment pauses after adding the deployment host to the Engine. You can now log in from the deployment host to the Engine virtual machine to customize it. You can log in with either the FQDN or the IP address of the Engine. For example, if the FQDN of the Engine is <code>manager.example.com</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ ssh root@manager.example.com</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ ssh \root@manager.example.com</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -2718,7 +2722,7 @@ Confirm engine admin password:</pre>
 <p>Select the type of storage to use:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs)[nfs]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs)[nfs]:</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -2727,9 +2731,9 @@ Confirm engine admin password:</pre>
 <p>For NFS, enter the version, full address and path to the storage, and any mount options:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please specify the nfs version you would like to use (auto, v3, v4, v4_1)[auto]:
-Please specify the full shared storage connection path to use (example: host:/path): <em>storage.example.com:/hosted_engine/nfs</em>
-If needed, specify additional mount options for the connection to the hosted-engine storage domain []:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please specify the nfs version you would like to use (auto, v3, v4, v4_1)[auto]:
+Please specify the full shared storage connection path to use (example: host:/path): _storage.example.com:/hosted_engine/nfs_
+If needed, specify additional mount options for the connection to the hosted-engine storage domain []:</code></pre>
 </div>
 </div>
 </li>
@@ -2789,12 +2793,12 @@ Please select the destination LUN (1) [1]:</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">gluster volume set <em>VOLUME_NAME</em> group virt
-gluster volume set <em>VOLUME_NAME</em> performance.strict-o-direct on
-gluster volume set <em>VOLUME_NAME</em> network.remote-dio off
-gluster volume set <em>VOLUME_NAME</em> storage.owner-uid 36
-gluster volume set <em>VOLUME_NAME</em> storage.owner-gid 36
-gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">gluster volume set _VOLUME_NAME_ group virt
+gluster volume set _VOLUME_NAME_ performance.strict-o-direct on
+gluster volume set _VOLUME_NAME_ network.remote-dio off
+gluster volume set _VOLUME_NAME_ storage.owner-uid 36
+gluster volume set _VOLUME_NAME_ storage.owner-gid 36
+gluster volume set _VOLUME_NAME_ network.ping-timeout 30</code></pre>
 </div>
 </div>
 </td>
@@ -2803,8 +2807,8 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please specify the full shared storage connection path to use (example: host:/path): <em>storage.example.com:/hosted_engine/gluster_volume</em>
-If needed, specify additional mount options for the connection to the hosted-engine storage domain []:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please specify the full shared storage connection path to use (example: host:/path): _storage.example.com:/hosted_engine/gluster_volume_
+If needed, specify additional mount options for the connection to the hosted-engine storage domain []:</code></pre>
 </div>
 </div>
 </li>
@@ -2873,11 +2877,30 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 <div class="sect2">
 <h3 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM">5.4. Enabling the oVirt Engine Repositories</h3>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled:</p>
+<p>Ensure the correct repositories are enabled.
+For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.5:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
+# dnf config-manager --set-enabled centos-ovirt45-testing
+# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2889,7 +2912,7 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -2897,7 +2920,7 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -2905,7 +2928,7 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -2913,7 +2936,7 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2964,8 +2987,8 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/ovirt-engine/engine.conf.d/99-custom-sso-setup.conf
-SSO_ALTERNATE_ENGINE_FQDNS="<em>alias1.example.com alias2.example.com</em>"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/ovirt-engine/engine.conf.d/99-custom-sso-setup.conf
+SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3218,7 +3241,7 @@ SSO_ALTERNATE_ENGINE_FQDNS="<em>alias1.example.com alias2.example.com</em>"</pre
 <div class="sect3">
 <h4 id="proc_installing-a-third-party-package-on-ovirt-node_SHE_cli_deploy">6.1.2. Installing a third-party package on oVirt-node</h4>
 <div class="paragraph _abstract">
-<p>If you need a package that is not included in the <code>ovirt-release44.rpm</code> repository, you need to provide the repository before you can install the package.</p>
+<p>If you need a package that is not included in the oVirt provided repository, you need to provide the repository before you can install the package.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -3241,14 +3264,14 @@ SSO_ALTERNATE_ENGINE_FQDNS="<em>alias1.example.com alias2.example.com</em>"</pre
 <p>Add an entry to the <code>.repo</code> file. For example, to install <code>sssd-ldap</code>, add the following entry to a new <code>.repo</code> file name <code>third-party.repo</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># imgbased: set-enabled
+<pre class="CodeRay highlight"><code data-lang="terminal"># imgbased: set-enabled
 [custom-sssd-ldap]
 name = Provides sssd-ldap
-mirrorlist = <a href="http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra" class="bare">http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra</a>
+mirrorlist = http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra
 gpgcheck = 1
 enabled = 1
-gpgkey = <a href="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial" class="bare">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial</a>
-includepkgs = sssd-ldap</pre>
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+includepkgs = sssd-ldap</code></pre>
 </div>
 </div>
 </li>
@@ -3256,7 +3279,7 @@ includepkgs = sssd-ldap</pre>
 <p>Install ` sssd-ldap`:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install sssd-ldap</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install sssd-ldap</code></pre>
 </div>
 </div>
 </li>
@@ -3347,20 +3370,20 @@ includepkgs = sssd-ldap</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">clearpart --all
+<pre class="CodeRay highlight"><code data-lang="terminal">clearpart --all
 part /boot --fstype xfs --size=1000 --ondisk=sda
 part pv.01 --size=42000 --grow
 volgroup HostVG pv.01 --reserved-percent=20
 logvol swap --vgname=HostVG --name=swap --fstype=swap --recommended
 logvol none --vgname=HostVG --name=HostPool --thinpool --size=40000 --grow
-logvol / --vgname=HostVG --name=root --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=6000 --grow
+logvol / --vgname=HostVG --name=root --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=6000 --grow
 logvol /var --vgname=HostVG --name=var --thin --fstype=ext4 --poolname=HostPool
---fsoptions="defaults,discard" --size=15000
-logvol /var/crash --vgname=HostVG --name=var_crash --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=10000
-logvol /var/log --vgname=HostVG --name=var_log --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=8000
-logvol /var/log/audit --vgname=HostVG --name=var_audit --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=2000
-logvol /home --vgname=HostVG --name=home --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=1000
-logvol /tmp --vgname=HostVG --name=tmp --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=1000</pre>
+--fsoptions=&quot;defaults,discard&quot; --size=15000
+logvol /var/crash --vgname=HostVG --name=var_crash --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=10000
+logvol /var/log --vgname=HostVG --name=var_log --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=8000
+logvol /var/log/audit --vgname=HostVG --name=var_audit --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=2000
+logvol /home --vgname=HostVG --name=home --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=1000
+logvol /tmp --vgname=HostVG --name=tmp --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=1000</code></pre>
 </div>
 </div>
 </div>
@@ -3692,10 +3715,10 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <p>Extract the <strong>squashfs.img</strong> hypervisor image file from the oVirt Node ISO:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># mount -o loop <em>/path/to/oVirt Node-ISO</em> /mnt/rhvh
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount -o loop _/path/to/{hypervisor-shortname}-ISO_ /mnt/rhvh
 # cp /mnt/rhvh/Packages/redhat-virtualization-host-image-update* /tmp
 # cd /tmp
-# rpm2cpio redhat-virtualization-host-image-update* | cpio -idmv</pre>
+# rpm2cpio redhat-virtualization-host-image-update* | cpio -idmv</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3727,7 +3750,7 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <p>Copy the oVirt Node boot images to the <code>/tftpboot</code> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp mnt/rhvh/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp mnt/rhvh/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/</code></pre>
 </div>
 </div>
 </li>
@@ -3735,10 +3758,10 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <p>Create a <code>rhvh</code> label specifying the oVirt Node boot images in the boot loader configuration:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">LABEL rhvh
-MENU LABEL Install oVirt Node
+<pre class="CodeRay highlight"><code data-lang="terminal">LABEL rhvh
+MENU LABEL Install {hypervisor-fullname}
 KERNEL /var/lib/tftpboot/pxelinux/vmlinuz
-APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/oVirt Node-ISO</em></pre>
+APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3747,9 +3770,9 @@ APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/oVirt
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">&lt;%#
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;%#
 kind: PXELinux
-name: oVirt Node PXELinux
+name: {hypervisor-shortname} PXELinux
 %&gt;
 # Created for booting new hosts
 #
@@ -3758,8 +3781,8 @@ DEFAULT rhvh
 
 LABEL rhvh
 KERNEL &lt;%= @kernel %&gt;
-APPEND initrd=&lt;%= @initrd %&gt; inst.ks=&lt;%= foreman_url("provision") %&gt; inst.stage2=&lt;%= @host.params["rhvh_image"] %&gt; intel_iommu=on console=tty0 console=ttyS1,115200n8 ssh_pwauth=1 local_boot_trigger=&lt;%= foreman_url("built") %&gt;
-IPAPPEND 2</pre>
+APPEND initrd=&lt;%= @initrd %&gt; inst.ks=&lt;%= foreman_url(&quot;provision&quot;) %&gt; inst.stage2=&lt;%= @host.params[&quot;rhvh_image&quot;] %&gt; intel_iommu=on console=tty0 console=ttyS1,115200n8 ssh_pwauth=1 local_boot_trigger=&lt;%= foreman_url(&quot;built&quot;) %&gt;
+IPAPPEND 2</code></pre>
 </div>
 </div>
 </li>
@@ -3767,8 +3790,8 @@ IPAPPEND 2</pre>
 <p>Make the content of the oVirt Node ISO locally available and export it to the network, for example, using an HTTPD server:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cp -a /mnt/rhvh/ /var/www/html/rhvh-install
-# curl <em>URL/to/oVirt Node-ISO</em>/rhvh-install</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -a /mnt/rhvh/ /var/www/html/rhvh-install
+# curl _URL/to/{hypervisor-shortname}-ISO_/rhvh-install</code></pre>
 </div>
 </div>
 </li>
@@ -3790,7 +3813,7 @@ IPAPPEND 2</pre>
 <p>The <code>%packages</code> section is not required for oVirt Node. Instead, use the <code>liveimg</code> option and specify the <strong>redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</strong> file from the oVirt Node ISO image:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">liveimg --url=<em>example.com</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=_example.com_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img</code></pre>
 </div>
 </div>
 </li>
@@ -3798,10 +3821,10 @@ IPAPPEND 2</pre>
 <p>Autopartitioning is highly recommended, but use caution: ensure that the local disk is detected first, include the <code>ignoredisk</code> command, and specify the local disk to ignore, such as <code>sda</code>.  To ensure that a particular drive is used, oVirt recommends using <code>ignoredisk --only-use=/dev/disk/&lt;<em>path</em>&gt;</code> or <code>ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">autopart --type=thinp
+<pre class="CodeRay highlight"><code data-lang="terminal">autopart --type=thinp
 ignoredisk --only-use=sda
-ignoredisk --only-use=/dev/disk/&lt;<em>path</em>&gt;
-ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</pre>
+ignoredisk --only-use=/dev/disk/&lt;__path__&gt;
+ignoredisk --only-use=/dev/disk/&lt;__ID__&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3829,9 +3852,9 @@ ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</pre>
 <p>A <code>%post</code> section that calls the <code>nodectl init</code> command is required:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">%post
+<pre class="CodeRay highlight"><code data-lang="terminal">%post
 nodectl init
-%end</pre>
+%end</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3868,7 +3891,7 @@ nodectl init
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">liveimg --url=http://<em>FQDN</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=http://_FQDN_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img
 clearpart --all
 autopart --type=thinp
 rootpw --plaintext ovirt
@@ -3880,7 +3903,7 @@ reboot
 
 %post --erroronfail
 nodectl init
-%end</pre>
+%end</code></pre>
 </div>
 </div>
 </li>
@@ -3891,7 +3914,7 @@ nodectl init
 <p>Add the Kickstart file location to the boot loader configuration file on the PXE server:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/oVirt Node-ISO</em> inst.ks=<em>URL/to/oVirt Node-ks</em>.cfg</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_ inst.ks=_URL/to/{hypervisor-shortname}-ks_.cfg</code></pre>
 </div>
 </div>
 </li>
@@ -3972,7 +3995,7 @@ nodectl init
 <p>Install the dashboard packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install cockpit-ovirt-dashboard</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install cockpit-ovirt-dashboard</code></pre>
 </div>
 </div>
 </li>
@@ -3980,8 +4003,8 @@ nodectl init
 <p>Enable and start the <code>cockpit.socket</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl enable cockpit.socket
-# systemctl start cockpit.socket</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable cockpit.socket
+# systemctl start cockpit.socket</code></pre>
 </div>
 </div>
 </li>
@@ -3989,7 +4012,7 @@ nodectl init
 <p>Check if Cockpit is an active service in the firewall:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># firewall-cmd --list-services</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --list-services</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3997,7 +4020,7 @@ nodectl init
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># firewall-cmd --permanent --add-service=cockpit</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --permanent --add-service=cockpit</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4081,8 +4104,8 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <p>Configure a VLAN on a physical NIC as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>eth0.50</em> dev <em>eth0</em> id <em>50</em>
-# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type vlan con-name __vlan50__ ifname __eth0.50__ dev __eth0__ id __50__
+# nmcli con mod __vlan50__ +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -4090,11 +4113,11 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <p>Configure a VLAN on a bond as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># nmcli connection add type bond con-name <em>bond0</em> ifname <em>bond0</em> bond.options "mode=active-backup,miimon=100" ipv4.method disabled ipv6.method ignore
-# nmcli connection add type ethernet con-name <em>eth0</em> ifname <em>eth0</em> master <em>bond0</em> slave-type bond
-# nmcli connection add type ethernet con-name <em>eth1</em> ifname <em>eth1</em> master <em>bond0</em> slave-type bond
-# nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>bond0.50</em> dev <em>bond0</em> id <em>50</em>
-# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type bond con-name __bond0__ ifname __bond0__ bond.options &quot;mode=active-backup,miimon=100&quot; ipv4.method disabled ipv6.method ignore
+# nmcli connection add type ethernet con-name __eth0__ ifname __eth0__ master __bond0__ slave-type bond
+# nmcli connection add type ethernet con-name __eth1__ ifname __eth1__ master __bond0__ slave-type bond
+# nmcli connection add type vlan con-name __vlan50__ ifname __bond0.50__ dev __bond0__ id __50__
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -4900,7 +4923,7 @@ Are you sure you want to proceed? [y/n]</pre>
 <p>To deploy the installation on the same storage domain, clean up the storage domain by running the following command in the appropriate directory on the server for NFS, Gluster, PosixFS or local storage domains:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm -rf <em>storage_location</em>/*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm -rf _storage_location_/*</code></pre>
 </div>
 </div>
 </li>
@@ -5046,99 +5069,15 @@ Are you sure you want to proceed? [y/n]</pre>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</h4>
-<div class="paragraph">
-<p>Migrate the Data Warehouse database (<code>ovirt_engine_history</code>) before you migrate the Data Warehouse service. Use <code>engine-backup</code> to create a database backup and restore it on the new database machine. For more information on <code>engine-backup</code>, run <code>engine-backup --help</code>.</p>
-</div>
-<div class="paragraph">
-<p>To migrate the Data Warehouse service, see <a href="#Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Service to a Separate Machine</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>oVirt only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The new database server must have Enterprise Linux 8 installed.
-Enable the required repositories on the new database server.</p>
-</div>
-<h5 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrate_DWH_DB" class="discrete">Enabling the oVirt Engine Repositories</h5>
-<div class="paragraph">
-<p>Ensure the correct repositories are enabled:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
-</div>
+<h4 id="proc-Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine">Migrating the Data Warehouse Database to a Separate Machine</h4>
 <div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Enable the <code>javapackages-tools</code> module.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Enable version 12 of the <code>postgresql</code> module.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Synchronize installed packages to update them to the latest available versions.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
-</div>
-</div>
-<div class="paragraph">
-<div class="title">Additional resources</div>
-<p>For information on modules and module streams, see the following sections in <em>Installing, managing, and removing user-space components</em></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#module-streams_introduction-to-modules">Module streams</a></p>
-</li>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#selecting-a-stream-before-installation-of-packages_installing-rhel-8-content">Selecting a stream before installation of packages</a></p>
-</li>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#resetting-module-streams_removing-rhel-8-content">Resetting module streams</a></p>
-</li>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content">Switching to a later stream</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<h5 id="migrating-the-data-warehouse-database-to-a-separate-machine" class="discrete">Migrating the Data Warehouse Database to a Separate Machine</h5>
-<div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Create a backup of the Data Warehouse database and configuration files on the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=_file_name_ --log=_log_file_name_</code></pre>
 </div>
 </div>
 </li>
@@ -5146,7 +5085,7 @@ Enable the required repositories on the new database server.</p>
 <p>Copy the backup file from the Engine to the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp <em>/tmp/file_name</em> <em>root@new.dwh.server.com:/tmp</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp _/tmp/file_name_ _root@new.dwh.server.com:/tmp_</code></pre>
 </div>
 </div>
 </li>
@@ -5154,7 +5093,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install <code>engine-backup</code> on the new machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-tools-backup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-tools-backup</code></pre>
 </div>
 </div>
 </li>
@@ -5162,7 +5101,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the PostgreSQL server package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install postgresql-server postgresql-contrib</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install postgresql-server postgresql-contrib</code></pre>
 </div>
 </div>
 </li>
@@ -5180,7 +5119,7 @@ Enable the required repositories on the new database server.</p>
 <p>Restore the Data Warehouse database on the new machine. <em>file_name</em> is the backup file copied from the Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -5199,7 +5138,7 @@ Enable the required repositories on the new database server.</p>
 <p>Notice that this procedure migrates the Data Warehouse service only.</p>
 </div>
 <div class="paragraph">
-<p>To migrate the Data Warehouse database (<code>ovirt_engine_history</code>) prior to migrating the Data Warehouse service, see <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a>.</p>
+<p>To migrate the Data Warehouse database (<code>ovirt_engine_history</code>) prior to migrating the Data Warehouse service, see <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">[Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH]</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5232,7 +5171,7 @@ Enable the required repositories on the new database server.</p>
 <p>Allowed access from the Data Warehouse machine to the Engine database machine&#8217;s TCP port 5432.</p>
 </li>
 <li>
-<p>The username and password for the Data Warehouse database from the Engine&#8217;s <strong>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf</strong> file. If you migrated the <code>ovirt_engine_history</code> database using <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a>, the backup includes these credentials, which you defined during the database setup on that machine.</p>
+<p>The username and password for the Data Warehouse database from the Engine&#8217;s <strong>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf</strong> file. If you migrated the <code>ovirt_engine_history</code> database using <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">[Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH]</a>, the backup includes these credentials, which you defined during the database setup on that machine.</p>
 </li>
 </ul>
 </div>
@@ -5269,7 +5208,7 @@ Enable the required repositories on the new database server.</p>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -5277,7 +5216,7 @@ Enable the required repositories on the new database server.</p>
 <p>Ensure that all packages currently installed are up to date:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf upgrade --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
 </div>
 </div>
 </li>
@@ -5285,7 +5224,7 @@ Enable the required repositories on the new database server.</p>
 <p>Install the <code>ovirt-engine-dwh-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-dwh-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-dwh-setup</code></pre>
 </div>
 </div>
 </li>
@@ -5300,7 +5239,7 @@ Enable the required repositories on the new database server.</p>
 <p>Stop the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl stop ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -5308,7 +5247,7 @@ Enable the required repositories on the new database server.</p>
 <p>If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the <code class="filename">/var/lib/pgsql/data/postgresql.conf</code> file and modify the listen_addresses line so that it matches the following:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">listen_addresses = '*'</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses = '*'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5318,14 +5257,14 @@ Enable the required repositories on the new database server.</p>
 <p>If the database is hosted on the Engine machine and was configured during a clean setup of the oVirt Engine, access is granted by default.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a> for more information on how to configure and migrate the Data Warehouse database.</p>
+<p>See <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">[Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH]</a> for more information on how to configure and migrate the Data Warehouse database.</p>
 </div>
 </li>
 <li>
 <p>Restart the postgresql service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart postgresql</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart postgresql</code></pre>
 </div>
 </div>
 </li>
@@ -5343,13 +5282,13 @@ Enable the required repositories on the new database server.</p>
 <p>If you are migrating both the <code>ovirt_engine_history</code> database and the Data Warehouse service to the <strong>same</strong> machine, run the following, otherwise proceed to the next step.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i '/^ENGINE_DB_/d' \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i '/^ENGINE_DB_/d' \
         /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_ENGINE_CORE/enable=bool\):True;\1:False;' \
      -e '/^OVESETUP_CONFIG\/fqdn/d' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -5357,7 +5296,7 @@ Enable the required repositories on the new database server.</p>
 <p>Run the <code>engine-setup</code> command to begin configuration of Data Warehouse on the machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -5365,7 +5304,7 @@ Enable the required repositories on the new database server.</p>
 <p>Press <strong>Enter</strong> to accept the automatically detected host name, or enter an alternative host name and press <strong>Enter</strong>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of this server [<em>autodetected host name</em>]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected host name_]:</code></pre>
 </div>
 </div>
 </li>
@@ -5373,9 +5312,9 @@ Enable the required repositories on the new database server.</p>
 <p>Press <code>Enter</code> to automatically configure the firewall, or type <code>No</code> and press <code>Enter</code> to maintain existing settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Setup can automatically configure the firewall on this system.
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
-Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5386,14 +5325,14 @@ Do you want Setup to configure the firewall? (Yes, No) [Yes]:</pre>
 <p>Enter the fully qualified domain name and password for the Engine. Press <strong>Enter</strong> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Host fully qualified DNS name of the engine server []: <em>engine-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of the engine server []: _engine-fqdn_
 Setup needs to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
 Please choose one of the following:
 1 - Access remote engine server using ssh as root
 2 - Perform each action manually, use files to copy content around
 (1, 2) [1]:
 ssh port on remote engine server [22]:
-root password on remote engine server <em>engine-fqdn</em>: <em>password</em></pre>
+root password on remote engine server _engine-fqdn_: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -5401,12 +5340,12 @@ root password on remote engine server <em>engine-fqdn</em>: <em>password</em></p
 <p>Enter the FQDN and password for the Engine database machine. Press <code>Enter</code> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Engine database host []: <em>manager-db-fqdn</em>
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: _manager-db-fqdn_
 Engine database port [5432]:
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
 Engine database user [engine]:
-Engine database password: <em>password</em></pre>
+Engine database password: _password_</code></pre>
 </div>
 </div>
 </li>
@@ -5414,7 +5353,7 @@ Engine database password: <em>password</em></pre>
 <p>Confirm your installation settings:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Please confirm installation settings (OK, Cancel) [OK]:</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Please confirm installation settings (OK, Cancel) [OK]:</code></pre>
 </div>
 </div>
 </li>
@@ -5432,7 +5371,7 @@ Engine database password: <em>password</em></pre>
 <p>On the Engine machine, restart the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># service ovirt-engine restart</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># service ovirt-engine restart</code></pre>
 </div>
 </div>
 </li>
@@ -5440,14 +5379,14 @@ Engine database password: <em>password</em></pre>
 <p>Run the following command to modify the file <strong>/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</strong> and set the options to <code>False</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># sed -i \
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i \
      -e 's;^\(OVESETUP_DWH_CORE/enable=bool\):True;\1:False;' \
      -e 's;^\(OVESETUP_DWH_CONFIG/remoteEngineConfigured=bool\):True;\1:False;' \
      /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 
 # sed -i \
      -e 's;^\(OVESETUP_GRAFANA_CORE/enable=bool\):True;\1:False;' \
-     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</pre>
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf</code></pre>
 </div>
 </div>
 </li>
@@ -5455,7 +5394,7 @@ Engine database password: <em>password</em></pre>
 <p>Disable the Data Warehouse service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl disable ovirt-engine-dwhd.service</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl disable ovirt-engine-dwhd.service</code></pre>
 </div>
 </div>
 </li>
@@ -5463,7 +5402,7 @@ Engine database password: <em>password</em></pre>
 <p>Remove the Data Warehouse files:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</code></pre>
 </div>
 </div>
 </li>
@@ -5586,8 +5525,8 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/modprobe.d
-options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/modprobe.d
+options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
 </div>
 </div>
 </td>
@@ -5602,12 +5541,12 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <p>Refresh the <strong>grub.cfg</strong> file and reboot the host for these changes to take effect:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># reboot</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># reboot</code></pre>
 </div>
 </div>
 </li>

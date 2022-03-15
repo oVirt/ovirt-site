@@ -12,7 +12,7 @@ Ansible is used to initiate and manage the disaster recovery failover and failba
 ** Active hosts capable of running the virtual machines and connecting to the replicated storage domains.
 ** A data center with clusters.
 ** Networks with the same general connectivity as the primary site.
-* Replicated storage. See <<storage_considerations_active-passive>> for more information.
+* Replicated storage. See xref:storage_considerations_active-passive[Storage Considerations] for more information.
 +
 [NOTE]
 ====
@@ -39,7 +39,7 @@ You can also create an optional playbook to clean the primary site before failin
 
 Create the playbooks and associated files in `/usr/share/ansible/roles/oVirt.disaster-recovery/` on the Ansible machine that is managing the failover and failback. If you have multiple Ansible machines that can manage it, ensure that you copy the files to all of them.
 
-You can test the configuration using one or more of the testing procedures in <<testing_active_passive>>.
+You can test the configuration using one or more of the testing procedures in xref:testing_active_passive[Testing the Active-Passive Configuration].
 
 include::../reference/ref_UsingOvirtDrScript.adoc[leveloffset=+1]
 include::{taskdir}/task_GenerateMapping.adoc[leveloffset=+1]

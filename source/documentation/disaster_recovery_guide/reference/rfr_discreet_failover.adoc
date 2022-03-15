@@ -21,7 +21,7 @@ Ensure that no production tasks are performed after the failover. For example, e
 # ansible-playbook _playbook_ --tags "fail_over"
 ----
 +
-For more information, see <<execute_failback>>.
+For more information, see xref:execute_failback[Executing a Failback].
 . Verify that all relevant storage domains, virtual machines, and templates are registered and running successfully.
 
 

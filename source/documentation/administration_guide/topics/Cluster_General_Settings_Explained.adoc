@@ -34,7 +34,7 @@ On existing clusters, the management network can only be changed using the *Mana
 
 For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
 |*Change Existing VMs/Templates from 1440fx to Q35 Chipset with Bios* |Select this check box to change  existing workloads when the cluster's chipset changes from I440FX to Q35.
-|*FIPS Mode* a|The FIPS mode used by the cluster. All hosts in the cluster must run the FIPS mode you specify or the host will fail.
+|*FIPS Mode* a|The FIPS mode used by the cluster. All hosts in the cluster must run the FIPS mode you specify or they will become non-operational.
 
 * *Auto Detect*: This setting automatically detects whether FIPS mode is enabled or disabled. When *Auto Detect* is selected, the FIPS mode is determined by the first host up in the cluster.
 

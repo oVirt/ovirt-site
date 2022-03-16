@@ -1,10 +1,16 @@
 :ovirt-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Python SDK Guide
 :imagesdir: images
+// attributes for legal notice
+:doc-path: python_sdk_guide
+:doc-name: Python SDK Guide
 
-include::chap-Overview.adoc[]
+include::chap-Overview.adoc[leveloffset=+1]
 
-include::chap-Using_the_Software_Development_Kit.adoc[]
+include::chap-Using_the_Software_Development_Kit.adoc[leveloffset=+1]
 
-include::chap-Python_Examples.adoc[]
+include::chap-Python_Examples.adoc[leveloffset=+1]
+
+[appendix]
+include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]

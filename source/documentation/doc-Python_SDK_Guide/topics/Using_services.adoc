@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 [id="Using_services"]
-=== Using Services
+= Using Services
 
 After you have located a service, you can call its service methods, which send requests to the server and do the real work.
 

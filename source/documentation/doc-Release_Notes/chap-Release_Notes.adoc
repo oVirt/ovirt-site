@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 [id="chap-Release_Notes"]
-== Release Information
+= Release Information
 
 These release notes highlight technology preview items, recommended practices, known issues, and deprecated functionality to be taken into consideration when deploying this release of {virt-product-fullname}.
 
@@ -28,4 +28,3 @@ include::topics/ref-ovirt-4.4.9.adoc[]
 
 
 include::topics/ref-ovirt-4.4.10-beta.adoc[]
-

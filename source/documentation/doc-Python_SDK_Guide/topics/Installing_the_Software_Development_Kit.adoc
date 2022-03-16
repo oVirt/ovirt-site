@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Installing_the_Software_Development_Kit"]
-=== Installing the Python Software Development Kit
+= Installing the Python Software Development Kit
 
 To install the Python software development kit:
 

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_Clusters"]
-=== Listing Clusters
+= Listing Clusters
 
 The `clusters` collection contains all clusters in the environment.
 

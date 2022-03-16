@@ -6,18 +6,16 @@ ifdef::context[:parent-context: {context}]
 
 :_content-type: ASSEMBLY
 [id='setting-up-and-configuring-sr-iov']
-
-:context: assembly-setting-up-and-configuring-sr-iov
-
 = Setting Up and Configuring SR-IOV
+:context: assembly-setting-up-and-configuring-sr-iov
 
 This topic summarizes the steps for setting up and configuring SR-IOV, with links out to topics that cover each step in detail.
 
-== Prerequisites
+.Prerequisites
 
 Set up your hardware in accordance with the link:{URL_downstream_virt_product_docs}hardware_considerations_for_implementing_sr-iov/index#[Hardware Considerations for Implementing SR-IOV]
 
-== Set Up and Configure SR-IOV
+.Procedure
 
 To set up and configure SR-IOV, complete the following tasks.
 

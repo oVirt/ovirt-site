@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_types"]
-=== Using Types
+= Using Types
 
 The classes in the `ovirtsdk4.types` module are pure data containers. They do not have any logic or operations. Instances of types can be created and modified at will.
 

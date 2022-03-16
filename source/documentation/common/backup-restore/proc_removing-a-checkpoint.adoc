@@ -1,5 +1,3 @@
-
-
 :_content-type: PROCEDURE
 [id="removing-a-checkpoint_{context}"]
 = Removing a checkpoint

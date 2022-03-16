@@ -1,46 +1,45 @@
 :_content-type: ASSEMBLY
 [id="chap-Python_Examples"]
-== Python Examples
+= Python Examples
 
-include::topics/Examples_overview.adoc[]
+include::topics/Examples_overview.adoc[leveloffset=+1]
 
-include::topics/Connecting_to_the_Red_Hat_Virtualization_Manager.adoc[]
+include::topics/Connecting_to_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
 
-include::topics/Listing_Data_Centers.adoc[]
+include::topics/Listing_Data_Centers.adoc[leveloffset=+1]
 
-include::topics/Listing_Clusters.adoc[]
+include::topics/Listing_Clusters.adoc[leveloffset=+1]
 
-include::topics/Listing_Hosts.adoc[]
+include::topics/Listing_Hosts.adoc[leveloffset=+1]
 
-include::topics/Listing_Logical_Networks.adoc[]
+include::topics/Listing_Logical_Networks.adoc[leveloffset=+1]
 
-include::topics/Listing_virtual_machines_and_total_disk_size.adoc[]
+include::topics/Listing_virtual_machines_and_total_disk_size.adoc[leveloffset=+1]
 
-include::topics/Creating_NFS_Data_Storage.adoc[]
+include::topics/Creating_NFS_Data_Storage.adoc[leveloffset=+1]
 
-include::topics/Creating_NFS_ISO_Storage.adoc[]
+include::topics/Creating_NFS_ISO_Storage.adoc[leveloffset=+1]
 
-include::topics/Attaching_Storage_Domains_to_a_Data_Center.adoc[]
+include::topics/Attaching_Storage_Domains_to_a_Data_Center.adoc[leveloffset=+1]
 
-include::topics/Activating_a_Storage_Domain.adoc[]
+include::topics/Activating_a_Storage_Domain.adoc[leveloffset=+1]
 
-include::topics/Listing_Files_in_an_ISO_Storage_Domain.adoc[]
+include::topics/Listing_Files_in_an_ISO_Storage_Domain.adoc[leveloffset=+1]
 
-include::topics/Creating_a_Virtual_Machine.adoc[]
+include::topics/Creating_a_Virtual_Machine.adoc[leveloffset=+1]
 
-include::topics/Creating_a_Virtual_NIC.adoc[]
+include::topics/Creating_a_Virtual_NIC.adoc[leveloffset=+1]
 
-include::topics/Creating_a_Virtual_Machine_Disk.adoc[]
+include::topics/Creating_a_Virtual_Machine_Disk.adoc[leveloffset=+1]
 
-include::topics/Attaching_an_ISO_Image_to_a_Virtual_Machine.adoc[]
+include::topics/Attaching_an_ISO_Image_to_a_Virtual_Machine.adoc[leveloffset=+1]
 
-include::topics/Detaching_a_Disk.adoc[]
+include::topics/Detaching_a_Disk.adoc[leveloffset=+1]
 
-include::topics/Starting_a_Virtual_Machine.adoc[]
+include::topics/Starting_a_Virtual_Machine.adoc[leveloffset=+1]
 
-include::topics/Starting_a_Virtual_Machine_with_Overridden_Parameters.adoc[]
+include::topics/Starting_a_Virtual_Machine_with_Overridden_Parameters.adoc[leveloffset=+1]
 
-include::topics/Starting_a_Virtual_Machine_with_Cloud-Init.adoc[]
+include::topics/Starting_a_Virtual_Machine_with_Cloud-Init.adoc[leveloffset=+1]
 
-include::topics/Checking_System_Events.adoc[]
-
+include::topics/Checking_System_Events.adoc[leveloffset=+1]

@@ -1,12 +1,12 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="upgrade-guide"]
 = Upgrade Guide
 
 :upgrade:
 [preface]
-include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[]
+include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
 
 ////
 
@@ -56,24 +56,11 @@ include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
 
 :numbered!:
 
-= Appendices
-
-:context: appendices
-:appendices:
-
 [appendix]
 include::topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Virtualization_Manager_Installation.adoc[leveloffset=+1]
 
 [appendix]
 include::topics/installing_virtual_product_hypervisors_from_local_repository.adoc[leveloffset=+1]
 
-include::common/collateral_files/legal-notice.adoc[]
-
-
-=== Additional resources
-
-* See xref:Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] for information on updating the {engine-name} between minor versions.
-* See xref:Red_Hat_Virtualization_Upgrade_Overview[{virt-product-fullname} Upgrade Overview] for information on upgrading between major versions.
-
-:context!: appendices
-:appendices!:
+[appendix]
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

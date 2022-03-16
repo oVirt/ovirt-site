@@ -1,39 +1,39 @@
 :_content-type: ASSEMBLY
 [id="chap-Ruby_Examples"]
-== Ruby Examples
+= Ruby Examples
 
-include::topics/Connecting_to_the_server.adoc[]
+include::topics/Connecting_to_the_server.adoc[leveloffset=+1]
 
-include::topics/Listing_data_centers.adoc[]
+include::topics/Listing_data_centers.adoc[leveloffset=+1]
 
-include::topics/Listing_clusters.adoc[]
+include::topics/Listing_clusters.adoc[leveloffset=+1]
 
-include::topics/Listing_logical_networks.adoc[]
+include::topics/Listing_logical_networks.adoc[leveloffset=+1]
 
-include::topics/Listing_hosts.adoc[]
+include::topics/Listing_hosts.adoc[leveloffset=+1]
 
-include::topics/Listing_ISO_files_in_ISO_storage_domain.adoc[]
+include::topics/Listing_ISO_files_in_ISO_storage_domain.adoc[leveloffset=+1]
 
-include::topics/Creating_NFS_storage_domain.adoc[]
+include::topics/Creating_NFS_storage_domain.adoc[leveloffset=+1]
 
-include::topics/Attaching_a_storage_domain_to_a_data_center.adoc[]
+include::topics/Attaching_a_storage_domain_to_a_data_center.adoc[leveloffset=+1]
 
-include::topics/Creating_a_virtual_machine.adoc[]
+include::topics/Creating_a_virtual_machine.adoc[leveloffset=+1]
 
-include::topics/Creating_a_vNIC_profile.adoc[]
+include::topics/Creating_a_vNIC_profile.adoc[leveloffset=+1]
 
-include::topics/Creating_a_vNIC.adoc[]
+include::topics/Creating_a_vNIC.adoc[leveloffset=+1]
 
-include::topics/Creating_a_virtual_disk.adoc[]
+include::topics/Creating_a_virtual_disk.adoc[leveloffset=+1]
 
-include::topics/Attaching_ISO_image_to_a_virtual_machine.adoc[]
+include::topics/Attaching_ISO_image_to_a_virtual_machine.adoc[leveloffset=+1]
 
-include::topics/Detaching_a_virtual_disk.adoc[]
+include::topics/Detaching_a_virtual_disk.adoc[leveloffset=+1]
 
-include::topics/Starting_a_virtual_machine.adoc[]
+include::topics/Starting_a_virtual_machine.adoc[leveloffset=+1]
 
-include::topics/Starting_a_virtual_machine_with_specific_boot_devices.adoc[]
+include::topics/Starting_a_virtual_machine_with_specific_boot_devices.adoc[leveloffset=+1]
 
-include::topics/Starting_a_virtual_machine_with_cloud-init.adoc[]
+include::topics/Starting_a_virtual_machine_with_cloud-init.adoc[leveloffset=+1]
 
-include::topics/Checking_system_events.adoc[]
+include::topics/Checking_system_events.adoc[leveloffset=+1]

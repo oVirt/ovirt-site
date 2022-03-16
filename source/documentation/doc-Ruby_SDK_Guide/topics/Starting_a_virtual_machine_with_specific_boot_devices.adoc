@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Starting_a_virtual_machine_with_specific_boot_devices"]
-=== Starting a Virtual Machine with Specific Boot Devices and Boot Order
+= Starting a Virtual Machine with Specific Boot Devices and Boot Order
 
 This Ruby example starts a virtual machine specifying the boot devices and boot order.
 

@@ -3,7 +3,7 @@
 = Migrating Data Warehouse to a Separate Machine
 
 ifdef::context[:parent-context: {context}]
-:context: migrate_DWH
+
 
 This section describes how to migrate the Data Warehouse database and service from the {virt-product-fullname} {engine-name} machine to a separate machine. Hosting the Data Warehouse service on a separate machine reduces the load on each individual machine, and avoids potential conflicts caused by sharing CPU and memory resources with other processes.
 

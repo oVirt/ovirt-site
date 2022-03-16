@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Checking_system_events"]
-=== Checking System Events
+= Checking System Events
 
 This Ruby example retrieves logged system events.
 

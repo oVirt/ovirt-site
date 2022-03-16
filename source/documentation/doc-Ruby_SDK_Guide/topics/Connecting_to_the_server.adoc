@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Connecting_to_the_server"]
-=== Connecting to the {virt-product-fullname} {engine-name}
+= Connecting to the {virt-product-fullname} {engine-name}
 
 The `Connection` class is the entry point of the software development kit. It provides access to the services of the {virt-product-fullname} {engine-name}'s REST API.
 

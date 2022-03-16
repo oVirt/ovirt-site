@@ -28,22 +28,24 @@ include::common/backup-restore/assembly-Recovering_a_Self-Hosted_Engine.adoc[lev
 
 include::common/backup-restore/assembly-Overwriting_a_Self-Hosted_Engine.adoc[leveloffset=+2]
 
-[id="migrating-rhv-databases"]
-== Migrating {virt-product-fullname} Databases to Remote Servers
+[id='Migrating_Data_Warehouse_to_a_Separate_Machine']
+== Migrating the Data Warehouse to a Separate Machine
 
-:context: migrate_database
-//ddacosta - removed the Migrating the Manager Database topics for BZ#1854791
-//include::common/database/proc-Migrating_the_Manager_database_to_a_remote_server.adoc[leveloffset=+2]
-//Adding back context
-//:context: migrate_database
+This section describes how to migrate the Data Warehouse database and service from the {virt-product-fullname} {engine-name} machine to a separate machine. Hosting the Data Warehouse service on a separate machine reduces the load on each individual machine, and avoids potential conflicts caused by sharing CPU and memory resources with other processes.
 
-//include::common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+2]
-//Adding back context
-//:context: migrate_database
+[NOTE]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
+====
 
-include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+2]
+You have the following migration options:
 
-:context!: migrate_database
+* You can migrate the Data Warehouse service away from the {engine-name} machine and connect it with the existing Data Warehouse database (`ovirt_engine_history`).
+* You can migrate the Data Warehouse database away from the {engine-name} machine and then migrate the Data Warehouse service.
+
+include::common/database/chap-Migrating_Data_Warehouse_Database_to_a_Separate_Machine.adoc[leveloffset=+2]
+
+include::common/database/chap-Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.adoc[leveloffset=+2]
 
 [id='sect-Backing_Up_and_Restoring_Virtual_Machines_Using_a_Backup_Domain']
 == Backing Up and Restoring Virtual Machines Using a Backup Storage Domain

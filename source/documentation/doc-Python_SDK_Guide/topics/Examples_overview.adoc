@@ -1,6 +1,6 @@
 :_content-type: CONCEPT
 [id="Examples_overview"]
-=== Overview
+= Overview
 
 This section provides examples demonstrating the steps to create a virtual machine within a basic {virt-product-fullname} environment, using the Python SDK.
 

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="attaching-a-storage-domain-to-a-data-center"]
-=== Attaching a Storage Domain to a Data Center
+= Attaching a Storage Domain to a Data Center
 
 This Ruby example attaches an existing NFS storage domain, `mydata`, to an existing data center, `mydc`. This example is used to attach both data and ISO storage domains.
 

@@ -1,5 +1,3 @@
-
-
 :_content-type: PROCEDURE
 [id="start-a-full-backup_{context}"]
 = Starting a full backup

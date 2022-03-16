@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Packages"]
-=== Packages
+= Packages
 
 The following modules are most frequently used by the Python SDK:
 

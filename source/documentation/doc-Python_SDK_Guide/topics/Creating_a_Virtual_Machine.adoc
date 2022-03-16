@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_Virtual_Machine"]
-=== Creating a Virtual Machine
+= Creating a Virtual Machine
 
 Virtual machine creation is performed in several steps. The first step, covered here, is to create the virtual machine object itself.
 

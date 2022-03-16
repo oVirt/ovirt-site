@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
 [id="chap-Introduction"]
-== Introduction
+= Introduction
 
 include::topics/Introduction_to_Red_Hat_Virtualization.adoc[]

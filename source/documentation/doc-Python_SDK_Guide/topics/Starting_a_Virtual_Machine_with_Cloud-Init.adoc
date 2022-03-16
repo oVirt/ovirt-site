@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Starting_a_Virtual_Machine_with_Cloud-Init"]
-=== Starting a Virtual Machine with Cloud-Init
+= Starting a Virtual Machine with Cloud-Init
 
 You can start a virtual machine with a specific configuration, using the `Cloud-Init` tool.
 

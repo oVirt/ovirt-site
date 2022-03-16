@@ -1,5 +1,5 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="Technical-Reference"]
 = Technical Reference
@@ -28,3 +28,5 @@ include::appe-Enumerated_Value_Translation.adoc[leveloffset=+1]
 include::appe-Event_Codes.adoc[leveloffset=+1]
 
 include::appe-Timezones.adoc[leveloffset=+1]
+
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_add_methods"]
-==== Using `add` Methods
+= Using `add` Methods
 
 These service methods add new elements to a collection. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.
 

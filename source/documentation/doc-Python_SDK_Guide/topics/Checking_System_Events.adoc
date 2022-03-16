@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Checking_System_Events"]
-=== Checking System Events
+= Checking System Events
 
 {virt-product-fullname} {engine-name} records and logs many system events. These event logs are accessible through the user interface, the system log files, and using the API. The `ovirtsdk` library exposes events using the `events` collection.
 

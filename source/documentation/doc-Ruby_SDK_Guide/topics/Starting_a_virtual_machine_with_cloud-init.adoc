@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Starting_a_virtual_machine_with_cloud-init"]
-=== Starting a Virtual Machine with Cloud-Init
+= Starting a Virtual Machine with Cloud-Init
 
 This Ruby example starts a virtual machine using the Cloud-Init tool to set the `root` password and network configuration.
 

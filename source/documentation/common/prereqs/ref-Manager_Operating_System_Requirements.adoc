@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='operating-system-requirements_{context}']
 = Operating System Requirements
 

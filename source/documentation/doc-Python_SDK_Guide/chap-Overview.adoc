@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 [id="chap-Overview"]
-== Overview
+= Overview
 
 Version 4 of the Python software development kit is a collection of classes that allows you to interact with the {virt-product-fullname} {engine-name} in Python-based projects. By downloading these classes and adding them to your project, you can access a range of functionality for high-level automation of administrative tasks.
 
@@ -40,6 +40,6 @@ dc = dc_service.update(
 This limitation applies only to Python 3.7 and later. Earlier versions of Python do not require this modification.
 ====
 
-include::topics/Python_SDK_Prerequisites.adoc[]
+include::topics/Python_SDK_Prerequisites.adoc[leveloffset=+1]
 
-include::topics/Installing_the_Software_Development_Kit.adoc[]
+include::topics/Installing_the_Software_Development_Kit.adoc[leveloffset=+1]

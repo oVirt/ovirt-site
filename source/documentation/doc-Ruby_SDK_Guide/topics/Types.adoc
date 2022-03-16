@@ -1,8 +1,8 @@
 :_content-type: PROCEDURE
 [id="Using_Types"]
-=== Types
+= Types
 
-==== Creating and Modifying Instances of Types
+== Creating and Modifying Instances of Types
 
 Creating or modifying an instance of a type does not have any effect on the server side, unless the changes are explicitly sent to the server calling a service method, as described below. Changes on the server side are not automatically reflected in instances that already exist in memory.
 
@@ -93,7 +93,7 @@ end
 In the API specification, the values of `enum` types are lower case, because that is the convention for XML and JSON. In Ruby, however, the convention is to use *upper case* for these constants.
 ====
 
-==== Retrieving Instance Attributes
+== Retrieving Instance Attributes
 
 You can retrieve instance attributes using the corresponding attribute readers.
 

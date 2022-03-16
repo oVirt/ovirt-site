@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Starting_a_Virtual_Machine_with_Overridden_Parameters"]
-=== Starting a Virtual Machine with Overridden Parameters
+= Starting a Virtual Machine with Overridden Parameters
 
 You can start a virtual machine, overriding its default parameters.
 

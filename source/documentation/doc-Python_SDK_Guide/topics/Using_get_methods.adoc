@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_get_methods"]
-==== Using `get` Methods
+= Using `get` Methods
 
 These service methods are used to retrieve the representation of a single object. The following example retrieves the representation of the virtual machine with identifier `123`:
 

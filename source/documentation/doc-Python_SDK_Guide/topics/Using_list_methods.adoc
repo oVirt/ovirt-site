@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_list_methods"]
-==== Using `list` Methods
+= Using `list` Methods
 
 These service methods retrieve the representations of the objects of a collection. This example retrieves the complete collection of virtual machines of the system:
 

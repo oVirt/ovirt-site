@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='Storage_Requirements_{context}']
 = Storage Requirements
 

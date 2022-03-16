@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Locating_services"]
-=== Locating Services
+= Locating Services
 
 The API provides a set of services, each associated with a path within the URL space of the server. For example, the service that manages the collection of virtual machines of the system is located in */vms*, and the service that manages the virtual machine with identifier `123` is located in */vms/123*.
 

@@ -1,10 +1,13 @@
 :ovirt-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Migrating from a standalone {engine-name} to a self-hosted engine
+// attributes for legal notice
+:doc-path: migrating_from_a_standalone_manager_to_a_self-hosted_engine
+:doc-name: Migrating from a standalone Manager to a self-hosted engine
 
 // Make sure Jekyll displays a guide title
 [discrete]
-= Migrating from a standalone {engine-name} to a self-hosted engine
+== Migrating from a standalone {engine-name} to a self-hosted engine
 
 :context: migrating_to_SHE
 :migrating_to_SHE:
@@ -104,6 +107,5 @@ include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automaticall
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
 
-== Legal notice
-
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}migrating_from_a_standalone_manager_to_a_self-hosted_engine/[Red Hat Virtualization {vernum_rhv} Migrating from a standalone Manager to a self-hosted engine]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].
+[appendix]
+include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]

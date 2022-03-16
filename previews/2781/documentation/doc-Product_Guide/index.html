@@ -111,31 +111,31 @@
 <li><a href="#RHV_terminology">2.2. oVirt Terminology</a></li>
 </ul>
 </li>
-<li><a href="#RHV-components">oVirt Components</a>
-<ul class="sectlevel1">
-<li><a href="#rhevm">3. oVirt Engine</a></li>
-<li><a href="#hosts">4. Hosts</a></li>
-<li><a href="#storage">5. Storage</a></li>
-<li><a href="#data-warehouse">6. Data Warehouse</a></li>
-<li><a href="#networking">7. Networking in oVirt</a></li>
-<li><a href="#installation">8. Installing oVirt</a>
+<li><a href="#RHV-components">3. oVirt Components</a>
 <ul class="sectlevel2">
-<li><a href="#RHV_installation-overview">8.1. oVirt Installation Overview</a></li>
-<li><a href="#RHV_Installation_Options_RHV_intro">8.2. oVirt Installation Options</a>
+<li><a href="#rhevm">3.1. oVirt Engine</a></li>
+<li><a href="#hosts">3.2. Hosts</a></li>
+<li><a href="#storage">3.3. Storage</a></li>
+<li><a href="#data-warehouse">3.4. Data Warehouse</a></li>
+<li><a href="#networking">3.5. Networking in oVirt</a></li>
+</ul>
+</li>
+<li><a href="#installation">4. Installing oVirt</a>
+<ul class="sectlevel2">
+<li><a href="#RHV_installation-overview">4.1. oVirt Installation Overview</a></li>
+<li><a href="#RHV_Installation_Options_RHV_intro">4.2. oVirt Installation Options</a>
 <ul class="sectlevel3">
-<li><a href="#SHE_install_options">8.2.1. Self-hosted engine (recommended)</a></li>
-<li><a href="#SM_install_options">8.2.2. Standalone Engine (manual)</a></li>
+<li><a href="#SHE_install_options">4.2.1. Self-hosted engine (recommended)</a></li>
+<li><a href="#SM_install_options">4.2.2. Standalone Engine (manual)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#accessing-rhv">Accessing oVirt</a>
-<ul class="sectlevel1">
-<li><a href="#supported-interfaces-for-read-and-write-access">9. Supported Interfaces for Read and Write Access</a></li>
-<li><a href="#supported-interfaces-for-read-access">10. Supported Interfaces for Read Access</a></li>
-<li><a href="#unsupported-interfaces">11. Unsupported Interfaces</a></li>
+<li><a href="#accessing-rhv">5. Accessing oVirt</a>
+<ul class="sectlevel2">
+<li><a href="#supported-interfaces-for-read-and-write-access">5.1. Supported Interfaces for Read and Write Access</a></li>
+<li><a href="#supported-interfaces-for-read-access">5.2. Supported Interfaces for Read Access</a></li>
+<li><a href="#unsupported-interfaces">5.3. Unsupported Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -306,10 +306,11 @@
 </div>
 </div>
 </div>
-<h1 id="RHV-components" class="sect0">oVirt Components</h1>
 <div class="sect1">
-<h2 id="rhevm">3. oVirt Engine</h2>
+<h2 id="RHV-components">3. oVirt Components</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="rhevm">3.1. oVirt Engine</h3>
 <div class="paragraph">
 <p>The oVirt Engine provides a graphical user interface and a RESTful API to manage the resources of the oVirt environment. In a standalone Engine environment, the Engine is installed on a Enterprise Linux 8 physical machine, or a virtual machine hosted in a separate environment. In a self-hosted engine environment, the Engine is installed as a virtual machine hosted on self-hosted engine nodes in the same environment it manages.</p>
 </div>
@@ -320,10 +321,8 @@
 <p>See: <a href="https://ovirt.org/documentation/administration_guide/index#"><em>Administration Guide</em></a></p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="hosts">4. Hosts</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="hosts">3.2. Hosts</h3>
 <div class="paragraph">
 <p>Hosts, also known as hypervisors, are the physical servers on which virtual machines run. Full virtualization is provided by using a loadable Linux kernel module called Kernel-based Virtual Machine (KVM). KVM can concurrently host multiple virtual machines running either Windows or Linux operating systems. Virtual machines run on the host machine and are managed remotely by the oVirt Engine.</p>
 </div>
@@ -349,10 +348,8 @@
 <p>See: <a href="https://ovirt.org/documentation/administration_guide/index#chap-Hosts">Hosts</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="storage">5. Storage</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="storage">3.3. Storage</h3>
 <div class="paragraph">
 <p>Setting up storage and attaching it to your oVirt environment is a prerequisite before you can start creating end-user virtual machines. oVirt has three types of storage domains; however, only the data domain is now fully supported:</p>
 </div>
@@ -376,10 +373,8 @@
 <p>See:  <a href="https://ovirt.org/documentation/administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="data-warehouse">6. Data Warehouse</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="data-warehouse">3.4. Data Warehouse</h3>
 <div class="paragraph">
 <p>The oVirt Engine includes a data warehouse that collects monitoring data about hosts, virtual machines, and storage. Data Warehouse, which includes a database and a service, must be installed and configured along with the Engine setup, either on the same machine or on a separate server.</p>
 </div>
@@ -403,10 +398,8 @@
 <p>See: <a href="https://ovirt.org/documentation/data_warehouse_guide/index#"><em>Data Warehouse Guide</em></a></p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="networking">7. Networking in oVirt</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="networking">3.5. Networking in oVirt</h3>
 <div class="paragraph">
 <p>Operations such as storage, host management, user connections, and virtual machine connectivity all rely on a well-planned and well-configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a oVirt environment. Planning for your projected networking requirements and implementing your network accordingly is much simpler than discovering your networking requirements through use and altering your network configuration retroactively.</p>
 </div>
@@ -440,11 +433,12 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="installation">8. Installing oVirt</h2>
+<h2 id="installation">4. Installing oVirt</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="RHV_installation-overview">8.1. oVirt Installation Overview</h3>
+<h3 id="RHV_installation-overview">4.1. oVirt Installation Overview</h3>
 <div class="paragraph">
 <p>The following diagram outlines the setup procedure for a standalone Engine deployment and a self-hosted engine deployment.</p>
 </div>
@@ -456,9 +450,9 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="RHV_Installation_Options_RHV_intro">8.2. oVirt Installation Options</h3>
+<h3 id="RHV_Installation_Options_RHV_intro">4.2. oVirt Installation Options</h3>
 <div class="sect3">
-<h4 id="SHE_install_options">8.2.1. Self-hosted engine (recommended)</h4>
+<h4 id="SHE_install_options">4.2.1. Self-hosted engine (recommended)</h4>
 <div class="paragraph">
 <p>You can install oVirt as a self-hosted engine using the command line.</p>
 </div>
@@ -470,7 +464,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="SM_install_options">8.2.2. Standalone Engine (manual)</h4>
+<h4 id="SM_install_options">4.2.2. Standalone Engine (manual)</h4>
 <div class="paragraph">
 <p>You can only install a standalone Engine using the command line.</p>
 </div>
@@ -517,15 +511,14 @@
 </div>
 </div>
 </div>
-<h1 id="accessing-rhv" class="sect0">Accessing oVirt</h1>
-<div class="openblock partintro">
-<div class="content">
-oVirt exposes a number of interfaces for interacting with the components of the virtualization environment. Many of these interfaces are fully supported.
-</div>
-</div>
 <div class="sect1">
-<h2 id="supported-interfaces-for-read-and-write-access">9. Supported Interfaces for Read and Write Access</h2>
+<h2 id="accessing-rhv">5. Accessing oVirt</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>oVirt exposes a number of interfaces for interacting with the components of the virtualization environment. Many of these interfaces are fully supported.</p>
+</div>
+<div class="sect2">
+<h3 id="supported-interfaces-for-read-and-write-access">5.1. Supported Interfaces for Read and Write Access</h3>
 <div class="paragraph">
 <p>Direct interaction with these interfaces is supported and encouraged for both read and write access:</p>
 </div>
@@ -614,10 +607,8 @@ oVirt exposes a number of interfaces for interacting with the components of the 
 </dl>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="supported-interfaces-for-read-access">10. Supported Interfaces for Read Access</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="supported-interfaces-for-read-access">5.2. Supported Interfaces for Read Access</h3>
 <div class="paragraph">
 <p>Direct interaction with these interfaces is supported and encouraged only for read access.</p>
 </div>
@@ -634,10 +625,8 @@ oVirt exposes a number of interfaces for interacting with the components of the 
 </dl>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="unsupported-interfaces">11. Unsupported Interfaces</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="unsupported-interfaces">5.3. Unsupported Interfaces</h3>
 <div class="paragraph">
 <p>Direct interaction with these interfaces is <strong>not</strong> supported
 :</p>
@@ -655,6 +644,7 @@ oVirt exposes a number of interfaces for interacting with the components of the 
 .</p>
 </dd>
 </dl>
+</div>
 </div>
 </div>
 </div>

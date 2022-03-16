@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Using the Software Development Kit | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Using the Software Development Kit" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2781/documentation/doc-Ruby_SDK_Guide/chap-Using_the_Software_Development_Kit.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Using the Software Development Kit" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2781/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2781/documentation/doc-Ruby_SDK_Guide/chap-Using_the_Software_Development_Kit.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2781/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Using the Software Development Kit","url":"https://ovirt.github.io/ovirt-site/previews/2781/documentation/doc-Ruby_SDK_Guide/chap-Using_the_Software_Development_Kit.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -105,14 +105,16 @@
         
         <section id="content" class="content container">
           
-<div class="sect1">
-<h2 id="chap-Using_the_Software_Development_Kit">Using the Software Development Kit</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter defines the modules and classes of the Ruby Software Development Kit and describes their usage.</p>
 </div>
-<div class="sect2">
-<h3 id="Classes">Classes</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Classes">Classes</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4">OvirtSDK4</a> module contains the following software development kit classes:</p>
 </div>
@@ -189,10 +191,12 @@
 </dl>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="Using_Types">Types</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="Using_Types">Types</h3>
-<div class="sect3">
-<h4 id="creating-and-modifying-instances-of-types">Creating and Modifying Instances of Types</h4>
+<h3 id="creating-and-modifying-instances-of-types">Creating and Modifying Instances of Types</h3>
 <div class="paragraph">
 <p>Creating or modifying an instance of a type does not have any effect on the server side, unless the changes are explicitly sent to the server calling a service method, as described below. Changes on the server side are not automatically reflected in instances that already exist in memory.</p>
 </div>
@@ -301,8 +305,8 @@ vm.memory = <span style="color:#00D">1073741824</span></code></pre>
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="retrieving-instance-attributes">Retrieving Instance Attributes</h4>
+<div class="sect2">
+<h3 id="retrieving-instance-attributes">Retrieving Instance Attributes</h3>
 <div class="paragraph">
 <p>You can retrieve instance attributes using the corresponding attribute readers.</p>
 </div>
@@ -359,10 +363,12 @@ attachments.each <span style="color:#080;font-weight:bold">do</span> |attachment
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="Services">Services</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="Services">Services</h3>
-<div class="sect3">
-<h4 id="Retrieving_services">Retrieving Services</h4>
+<h3 id="Retrieving_services">Retrieving Services</h3>
 <div class="paragraph">
 <p>The API provides a set of services, each associated with a server path. For example, the service that manages the collection of virtual machines in the system is located in <code>/vms</code>, and the service that manages the virtual machine with identifier <code>123</code> is located in <code>/vms/123</code>.</p>
 </div>
@@ -411,8 +417,8 @@ attachments.each <span style="color:#080;font-weight:bold">do</span> |attachment
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="Service_methods">Service Methods</h4>
+<div class="sect2">
+<h3 id="Service_methods">Service Methods</h3>
 <div class="paragraph">
 <p>After you have located the service you want, you can call its service methods. These methods send requests to the server and do the real work.</p>
 </div>
@@ -424,7 +430,6 @@ attachments.each <span style="color:#080;font-weight:bold">do</span> |attachment
 </div>
 <div class="paragraph">
 <p>Services may have additional action methods, which perform actions other than retrieving, creating, updating, or removing. These methods are most commonly found in services that manage a single object.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="get"><code>Get</code></h4>

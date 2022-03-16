@@ -137,42 +137,42 @@
 </li>
 </ul>
 </li>
-<li><a href="#considerations">Considerations</a>
-<ul class="sectlevel1">
-<li><a href="#host-types">3. Host Types</a>
+<li><a href="#considerations">3. Considerations</a>
 <ul class="sectlevel2">
-<li><a href="#hypervisor-fullnames">3.1. {hypervisor-fullname}s</a></li>
-<li><a href="#enterprise-linux-host-fullnames">3.2. {enterprise-linux-host-fullname}s</a></li>
+<li><a href="#host-types">3.1. Host Types</a>
+<ul class="sectlevel3">
+<li><a href="#hypervisor-fullnames">3.1.1. {hypervisor-fullname}s</a></li>
+<li><a href="#enterprise-linux-host-fullnames">3.1.2. {enterprise-linux-host-fullname}s</a></li>
 </ul>
 </li>
-<li><a href="#storage-types">4. Storage Types</a>
+<li><a href="#storage-types">3.2. Storage Types</a>
+<ul class="sectlevel3">
+<li><a href="#nfs">3.2.1. NFS</a></li>
+<li><a href="#iscsi">3.2.2. iSCSI</a></li>
+<li><a href="#fibre-channel">3.2.3. Fibre Channel</a></li>
+<li><a href="#fcoe">3.2.4. Fibre Channel over Ethernet</a></li>
+<li><a href="#rhhi">3.2.5. Red Hat Hyperconverged Infrastructure</a></li>
+<li><a href="#posix">3.2.6. POSIX-Compliant FS</a></li>
+<li><a href="#local-storage">3.2.7. Local Storage</a></li>
+</ul>
+</li>
+<li><a href="#networking-considerations">3.3. Networking Considerations</a></li>
+<li><a href="#directory-server-support">3.4. Directory Server Support</a></li>
+<li><a href="#infrastructure-considerations">3.5. Infrastructure Considerations</a>
+<ul class="sectlevel3">
+<li><a href="#local-or-remote-hosting">3.5.1. Local or Remote Hosting</a></li>
+<li><a href="#remote-hosting-only">3.5.2. Remote Hosting Only</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#recommendations">4. Recommendations</a>
 <ul class="sectlevel2">
-<li><a href="#nfs">4.1. NFS</a></li>
-<li><a href="#iscsi">4.2. iSCSI</a></li>
-<li><a href="#fibre-channel">4.3. Fibre Channel</a></li>
-<li><a href="#fcoe">4.4. Fibre Channel over Ethernet</a></li>
-<li><a href="#rhhi">4.5. Red Hat Hyperconverged Infrastructure</a></li>
-<li><a href="#posix">4.6. POSIX-Compliant FS</a></li>
-<li><a href="#local-storage">4.7. Local Storage</a></li>
-</ul>
-</li>
-<li><a href="#networking-considerations">5. Networking Considerations</a></li>
-<li><a href="#directory-server-support">6. Directory Server Support</a></li>
-<li><a href="#infrastructure-considerations">7. Infrastructure Considerations</a>
-<ul class="sectlevel2">
-<li><a href="#local-or-remote-hosting">7.1. Local or Remote Hosting</a></li>
-<li><a href="#remote-hosting-only">7.2. Remote Hosting Only</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#recommendations">Recommendations</a>
-<ul class="sectlevel1">
-<li><a href="#general-recommendations">8. General Recommendations</a></li>
-<li><a href="#security-recommendations">9. Security Recommendations</a></li>
-<li><a href="#host-recommendations">10. Host Recommendations</a></li>
-<li><a href="#networking-recommendations">11. Networking Recommendations</a></li>
-<li><a href="#self-hosted-engine-recommendations">12. Self-Hosted Engine Recommendations</a></li>
+<li><a href="#general-recommendations">4.1. General Recommendations</a></li>
+<li><a href="#security-recommendations">4.2. Security Recommendations</a></li>
+<li><a href="#host-recommendations">4.3. Host Recommendations</a></li>
+<li><a href="#networking-recommendations">4.4. Networking Recommendations</a></li>
+<li><a href="#self-hosted-engine-recommendations">4.5. Self-Hosted Engine Recommendations</a></li>
 </ul>
 </li>
 </ul>
@@ -1190,23 +1190,22 @@
 </div>
 </div>
 </div>
-<h1 id="considerations" class="sect0">Considerations</h1>
-<div class="openblock partintro">
-<div class="content">
-This chapter describes the advantages, limitations, and available options for various {virt-product-fullname} components.
-</div>
-</div>
 <div class="sect1">
-<h2 id="host-types">3. Host Types</h2>
+<h2 id="considerations">3. Considerations</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes the advantages, limitations, and available options for various {virt-product-fullname} components.</p>
+</div>
+<div class="sect2">
+<h3 id="host-types">3.1. Host Types</h3>
 <div class="paragraph">
 <p>Use the host type that best suits your environment. You can also use both types of host in the same cluster if required.</p>
 </div>
 <div class="paragraph">
 <p>All managed hosts within a cluster must have the same CPU type. Intel and AMD CPUs cannot co-exist within the same cluster.</p>
 </div>
-<div class="sect2">
-<h3 id="hypervisor-fullnames">3.1. {hypervisor-fullname}s</h3>
+<div class="sect3">
+<h4 id="hypervisor-fullnames">3.1.1. {hypervisor-fullname}s</h4>
 <div class="paragraph">
 <p>{hypervisor-fullname}s ({hypervisor-shortname}) have the following advantages over {enterprise-linux-host-fullname}s:</p>
 </div>
@@ -1227,8 +1226,8 @@ This chapter describes the advantages, limitations, and available options for va
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="enterprise-linux-host-fullnames">3.2. {enterprise-linux-host-fullname}s</h3>
+<div class="sect3">
+<h4 id="enterprise-linux-host-fullnames">3.1.2. {enterprise-linux-host-fullname}s</h4>
 <div class="paragraph">
 <p>{enterprise-linux-host-fullname}s have the following advantages over {hypervisor-fullname}s:</p>
 </div>
@@ -1244,10 +1243,8 @@ This chapter describes the advantages, limitations, and available options for va
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="storage-types">4. Storage Types</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="storage-types">3.2. Storage Types</h3>
 <div class="paragraph">
 <p>Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.</p>
 </div>
@@ -1287,8 +1284,8 @@ This chapter describes the advantages, limitations, and available options for va
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="nfs">4.1. NFS</h3>
+<div class="sect3">
+<h4 id="nfs">3.2.1. NFS</h4>
 <div class="paragraph">
 <p>NFS versions 3 and 4 are supported by {virt-product-fullname} 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.</p>
 </div>
@@ -1309,8 +1306,8 @@ This chapter describes the advantages, limitations, and available options for va
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="iscsi">4.2. iSCSI</h3>
+<div class="sect3">
+<h4 id="iscsi">3.2.2. iSCSI</h4>
 <div class="paragraph">
 <p>Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.</p>
 </div>
@@ -1331,8 +1328,8 @@ This chapter describes the advantages, limitations, and available options for va
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="fibre-channel">4.3. Fibre Channel</h3>
+<div class="sect3">
+<h4 id="fibre-channel">3.2.3. Fibre Channel</h4>
 <div class="paragraph">
 <p>Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.</p>
 </div>
@@ -1353,8 +1350,8 @@ This chapter describes the advantages, limitations, and available options for va
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="fcoe">4.4. Fibre Channel over Ethernet</h3>
+<div class="sect3">
+<h4 id="fcoe">3.2.4. Fibre Channel over Ethernet</h4>
 <div class="paragraph">
 <p>To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must enable the <strong>fcoe</strong> key on the {engine-name}, and install the <em>vdsm-hook-fcoe</em> package on the hosts.</p>
 </div>
@@ -1375,8 +1372,8 @@ This chapter describes the advantages, limitations, and available options for va
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="rhhi">4.5. Red Hat Hyperconverged Infrastructure</h3>
+<div class="sect3">
+<h4 id="rhhi">3.2.5. Red Hat Hyperconverged Infrastructure</h4>
 <div class="paragraph">
 <p>Red Hat Hyperconverged Infrastructure (RHHI) combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.</p>
 </div>
@@ -1397,8 +1394,8 @@ This chapter describes the advantages, limitations, and available options for va
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="posix">4.6. POSIX-Compliant FS</h3>
+<div class="sect3">
+<h4 id="posix">3.2.6. POSIX-Compliant FS</h4>
 <div class="paragraph">
 <p>Other POSIX-compliant file systems can be used as storage domains in {virt-product-fullname}, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with {virt-product-fullname}.</p>
 </div>
@@ -1416,8 +1413,8 @@ This chapter describes the advantages, limitations, and available options for va
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="local-storage">4.7. Local Storage</h3>
+<div class="sect3">
+<h4 id="local-storage">3.2.7. Local Storage</h4>
 <div class="paragraph">
 <p>Local storage is set up on an individual host, using the host&#8217;s own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.</p>
 </div>
@@ -1429,10 +1426,8 @@ This chapter describes the advantages, limitations, and available options for va
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="networking-considerations">5. Networking Considerations</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="networking-considerations">3.3. Networking Considerations</h3>
 <div class="paragraph">
 <p>Familiarity with network concepts and their use is highly recommended when planning and setting up networking in a {virt-product-fullname} environment. Read your network hardware vendor&#8217;s guides for more information on managing networking.</p>
 </div>
@@ -1493,10 +1488,8 @@ This chapter describes the advantages, limitations, and available options for va
 <p>{virt-product-fullname} is fully integrated with Cisco Application Centric Infrastructure (ACI), which provides comprehensive network management capabilities, thus mitigating the need to manually configure the {virt-product-fullname} networking infrastructure. The integration is performed by configuring {virt-product-fullname} on Cisco’s Application Policy Infrastructure Controller (APIC) version 3.1(1) and later, according to the <a href="https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b_Cisco_ACI_Red_Hat_Virtualization.html">Cisco&#8217;s documentation</a>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="directory-server-support">6. Directory Server Support</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="directory-server-support">3.4. Directory Server Support</h3>
 <div class="paragraph">
 <p>During installation, {virt-product-fullname} {engine-name} creates a default <strong>admin</strong> user in a default <strong>internal</strong> domain. This account is intended for use when initially configuring the environment, and for troubleshooting. You can create additional users on the <strong>internal</strong> domain using <code>ovirt-aaa-jdbc-tool</code>. User accounts created on local domains are known as local users. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-administering_user_tasks_from_the_commandline">Administering User Tasks From the Command Line</a> in the <em>Administration Guide</em>.</p>
 </div>
@@ -1548,12 +1541,10 @@ This chapter describes the advantages, limitations, and available options for va
 <p>See: <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Users_and_Roles">Users and Roles</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="infrastructure-considerations">7. Infrastructure Considerations</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="local-or-remote-hosting">7.1. Local or Remote Hosting</h3>
+<h3 id="infrastructure-considerations">3.5. Infrastructure Considerations</h3>
+<div class="sect3">
+<h4 id="local-or-remote-hosting">3.5.1. Local or Remote Hosting</h4>
 <div class="paragraph">
 <p>The following components can be hosted on either the {engine-name} or a remote machine. Keeping all components on the {engine-name} machine is easier and requires less maintenance, so is preferable when performance is not an issue. Moving components to a remote machine requires more maintenance, but can improve the performance of both the {engine-name} and Data Warehouse.</p>
 </div>
@@ -1607,8 +1598,8 @@ This chapter describes the advantages, limitations, and available options for va
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="remote-hosting-only">7.2. Remote Hosting Only</h3>
+<div class="sect3">
+<h4 id="remote-hosting-only">3.5.2. Remote Hosting Only</h4>
 <div class="paragraph">
 <p>The following components must be hosted on a remote machine:</p>
 </div>
@@ -1631,15 +1622,15 @@ This chapter describes the advantages, limitations, and available options for va
 </div>
 </div>
 </div>
-<h1 id="recommendations" class="sect0">Recommendations</h1>
-<div class="openblock partintro">
-<div class="content">
-This chapter describes configuration that is not strictly required, but may improve the performance or stability of your environment.
-</div>
 </div>
 <div class="sect1">
-<h2 id="general-recommendations">8. General Recommendations</h2>
+<h2 id="recommendations">4. Recommendations</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes configuration that is not strictly required, but may improve the performance or stability of your environment.</p>
+</div>
+<div class="sect2">
+<h3 id="general-recommendations">4.1. General Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1694,10 +1685,8 @@ This chapter describes configuration that is not strictly required, but may impr
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="security-recommendations">9. Security Recommendations</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="security-recommendations">4.2. Security Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1721,10 +1710,8 @@ This chapter describes configuration that is not strictly required, but may impr
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="host-recommendations">10. Host Recommendations</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="host-recommendations">4.3. Host Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1742,10 +1729,8 @@ This chapter describes configuration that is not strictly required, but may impr
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="networking-recommendations">11. Networking Recommendations</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="networking-recommendations">4.4. Networking Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1785,7 +1770,7 @@ This chapter describes configuration that is not strictly required, but may impr
 </li>
 </ul>
 </div>
-<h3 id="Recommended_practices_for_configuring_host_networks_RHV_planning" class="discrete">Recommended Practices for Configuring Host Networks</h3>
+<h4 id="Recommended_practices_for_configuring_host_networks_RHV_planning" class="discrete">Recommended Practices for Configuring Host Networks</h4>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -1880,10 +1865,8 @@ Always use the {virt-product-shortname} {engine-name} to modify the network conf
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="self-hosted-engine-recommendations">12. Self-Hosted Engine Recommendations</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="self-hosted-engine-recommendations">4.5. Self-Hosted Engine Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1905,6 +1888,7 @@ Always use the {virt-product-shortname} {engine-name} to modify the network conf
 <p>If the {engine-name} virtual machine shuts down or needs to be migrated, there must be enough memory on a self-hosted engine node for the {engine-name} virtual machine to restart on or migrate to it.</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>

@@ -118,13 +118,16 @@
 <li><a href="#Services">2.3. Services</a>
 <ul class="sectlevel3">
 <li><a href="#Retrieving_services">2.3.1. Retrieving Services</a></li>
-<li><a href="#Service_methods">2.3.2. Service Methods</a></li>
-<li><a href="#get">2.3.3. <code>Get</code></a></li>
-<li><a href="#list">2.3.4. <code>List</code></a></li>
-<li><a href="#add">2.3.5. <code>Add</code></a></li>
-<li><a href="#update">2.3.6. <code>Update</code></a></li>
-<li><a href="#remove">2.3.7. <code>Remove</code></a></li>
-<li><a href="#additional-actions">2.3.8. Additional Actions</a></li>
+<li><a href="#Service_methods">2.3.2. Service Methods</a>
+<ul class="sectlevel4">
+<li><a href="#get"><code>Get</code></a></li>
+<li><a href="#list"><code>List</code></a></li>
+<li><a href="#add"><code>Add</code></a></li>
+<li><a href="#update"><code>Update</code></a></li>
+<li><a href="#remove"><code>Remove</code></a></li>
+<li><a href="#additional-actions">Additional Actions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -608,9 +611,8 @@ attachments.each <span style="color:#080;font-weight:bold">do</span> |attachment
 <div class="paragraph">
 <p>Services may have additional action methods, which perform actions other than retrieving, creating, updating, or removing. These methods are most commonly found in services that manage a single object.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get">2.3.3. <code>Get</code></h4>
+<div class="sect4">
+<h5 id="get"><code>Get</code></h5>
 <div class="paragraph">
 <p>The <code>get</code> method retrieves the representation of a single object.</p>
 </div>
@@ -684,8 +686,8 @@ vm = vm_service.get</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="list">2.3.4. <code>List</code></h4>
+<div class="sect4">
+<h5 id="list"><code>List</code></h5>
 <div class="paragraph">
 <p>The <code>list</code> method retrieves the representations of multiple objects in a collection.</p>
 </div>
@@ -734,8 +736,8 @@ vms = vms_service.list</code></pre>
 <p>If the list of results cannot be retrieved, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="add">2.3.5. <code>Add</code></h4>
+<div class="sect4">
+<h5 id="add"><code>Add</code></h5>
 <div class="paragraph">
 <p><code>Add</code> methods add new elements to collections. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.</p>
 </div>
@@ -818,8 +820,8 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <p>If the object cannot be created, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure. It will never return <code>nil</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="update">2.3.6. <code>Update</code></h4>
+<div class="sect4">
+<h5 id="update"><code>Update</code></h5>
 <div class="paragraph">
 <p><code>Update</code> methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.</p>
 </div>
@@ -897,8 +899,8 @@ vms_service.update(vm)</code></pre>
 <p>If the update cannot be performed, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure. It will never return <code>nil</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="remove">2.3.7. <code>Remove</code></h4>
+<div class="sect4">
+<h5 id="remove"><code>Remove</code></h5>
 <div class="paragraph">
 <p><code>Remove</code> methods remove existing objects. They normally do not support parameters because they are methods of services that manage single objects, and the service already knows what object to remove.</p>
 </div>
@@ -925,8 +927,8 @@ vms_service.remove</code></pre>
 <p>If the object cannot be removed, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="additional-actions">2.3.8. Additional Actions</h4>
+<div class="sect4">
+<h5 id="additional-actions">Additional Actions</h5>
 <div class="paragraph">
 <p>There are additional action methods, apart from the methods described above. The service that manages a virtual machine has methods to start and stop it.</p>
 </div>
@@ -960,6 +962,7 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </div>
 <div class="paragraph">
 <p>See the <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4">reference documentation</a> of the software development kit to see the action methods supported by each service, their parameters, and return values.</p>
+</div>
 </div>
 </div>
 </div>

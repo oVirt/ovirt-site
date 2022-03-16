@@ -26,9 +26,9 @@ You have the following migration options:
 * You can migrate the Data Warehouse service away from the {engine-name} machine and connect it with the existing Data Warehouse database (`ovirt_engine_history`).
 * You can migrate the Data Warehouse database away from the {engine-name} machine and then migrate the Data Warehouse service.
 
-include::chap-Migrating_Data_Warehouse_Database_to_a_Separate_Machine.adoc[leveloffset=+2]
+include::common/database/chap-Migrating_Data_Warehouse_Database_to_a_Separate_Machine.adoc[leveloffset=+2]
 
-include::chap-Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.adoc[leveloffset=+2]
+include::common/database/chap-Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.adoc[leveloffset=+2]
 
 include::topics/Changing_the_Data_Warehouse_Sampling_Scale.adoc[leveloffset=+2]
 

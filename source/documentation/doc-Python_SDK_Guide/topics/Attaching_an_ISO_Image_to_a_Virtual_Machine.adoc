@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Attaching_an_ISO_Image_to_a_Virtual_Machine"]
-=== Attaching an ISO Image to a Virtual Machine
+= Attaching an ISO Image to a Virtual Machine
 
 To install a guest operating system on a newly created virtual machine, you must attach an ISO file containing the operating system installation media. To locate the ISO file, see xref:Listing_Files_in_an_ISO_Storage_Domain[].
 

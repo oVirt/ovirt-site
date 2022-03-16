@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_vNIC_profile"]
-=== Creating a vNIC Profile
+= Creating a vNIC Profile
 
 This Ruby example creates a vNIC profile.
 

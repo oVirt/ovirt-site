@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Installing {virt-product-fullname} as a self-hosted engine using the command line
 :context: SHE_cli_deploy
 :SHE_cli_deploy:
@@ -118,7 +118,24 @@ Although you cannot configure remote databases and services during the automated
 // Adding context back after assembly
 //:context: SHE_cli_deploy
 
-include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+2]
+[id='Migrating_Data_Warehouse_to_a_Separate_Machine']
+=== Migrating the Data Warehouse to a Separate Machine
+
+This section describes how to migrate the Data Warehouse database and service from the {virt-product-fullname} {engine-name} machine to a separate machine. Hosting the Data Warehouse service on a separate machine reduces the load on each individual machine, and avoids potential conflicts caused by sharing CPU and memory resources with other processes.
+
+[NOTE]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
+====
+
+You have the following migration options:
+
+* You can migrate the Data Warehouse service away from the {engine-name} machine and connect it with the existing Data Warehouse database (`ovirt_engine_history`).
+* You can migrate the Data Warehouse database away from the {engine-name} machine and then migrate the Data Warehouse service.
+
+include::common/database/chap-Migrating_Data_Warehouse_Database_to_a_Separate_Machine.adoc[leveloffset=+3]
+
+include::common/database/chap-Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.adoc[leveloffset=+3]
 // Adding context back after assembly
 // :context: SHE_cli_deploy
 
@@ -139,4 +156,4 @@ ifndef::parent-context[:!context:]
 
 [appendix]
 include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]
-include::common/collateral_files/legal-notice.adoc[]
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_virtual_machines_and_total_disk_size"]
-=== Listing Virtual Machines and Total Disk Size
+= Listing Virtual Machines and Total Disk Size
 
 The `vms` collection contains a `disks` collection that describes the details of each disk attached to a virtual machine.
 

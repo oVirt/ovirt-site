@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_Hosts"]
-=== Listing Hosts
+= Listing Hosts
 
 The `hosts` collection contains all hosts in the environment.
 

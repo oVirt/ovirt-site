@@ -1,9 +1,12 @@
 :ovirt-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Introduction to the VM Portal
 :imagesdir: images
 :context: VM_portal
 :VM_portal:
+// attributes for legal notice
+:doc-path: introduction_to_the_vm_portal
+:doc-name: Introduction to the VM Portal
 
 // Make sure Jekyll displays a guide title
 [discrete]
@@ -11,9 +14,7 @@ include::common/collateral_files/attributes.adoc[]
 
 include::chap-Accessing_the_VM_Portal.adoc[leveloffset=+1]
 
-include::chap-Managing_virtual_machines.adoc[]
+include::chap-Managing_virtual_machines.adoc[leveloffset=+1]
 
 [appendix]
-== Legal notice
-
-Certain portions of this text first appeared in the link:{URL_downstream_virt_product_docs}introduction_to_the_vm_portal/[Red Hat Virtualization 4.3 Introduction to the VM Portal]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].
+include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]

@@ -14,7 +14,7 @@ include::topics/Satellite_Host_Provider_Hosts.adoc[leveloffset=+1]
 == Host Tasks
 :context: host_tasks
 
-include::common/install/proc-Adding_standard_hosts_to_the_Manager.adoc[leveloffset=+3]
+include::common/install/proc-Adding_standard_hosts_to_the_Manager.adoc[leveloffset=+2]
 
 include::topics/Adding_a_Satellite_Host_Provider_Host.adoc[leveloffset=+2]
 

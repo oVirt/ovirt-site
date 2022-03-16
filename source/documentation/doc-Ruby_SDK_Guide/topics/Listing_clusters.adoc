@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_clusters"]
-=== Listing Clusters
+= Listing Clusters
 
 This Ruby example lists the clusters.
 

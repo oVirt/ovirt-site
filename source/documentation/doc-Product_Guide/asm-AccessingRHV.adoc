@@ -1,13 +1,14 @@
 :_content-type: ASSEMBLY
 [id="accessing-rhv"]
-== Accessing {virt-product-fullname}
+= Accessing {virt-product-fullname}
 
 {virt-product-fullname} exposes a number of interfaces for interacting with the components of the virtualization environment. Many of these interfaces are fully supported.
 ifdef::rhv-doc[]
 Some, however, are supported only for read access or only when your use of them has been explicitly requested by Red Hat Support.
 endif::[]
 
-=== Supported Interfaces for Read and Write Access
+[id="supported-interfaces-for-read-and-write-access"]
+== Supported Interfaces for Read and Write Access
 
 Direct interaction with these interfaces is supported and encouraged for both read and write access:
 
@@ -53,8 +54,8 @@ See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#administ
 +
 See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#appe-VDSM_and_Hooks[VDSM and Hooks] in the _Administration Guide_.
 
-
-=== Supported Interfaces for Read Access
+[id="supported-interfaces-for-read-access"]
+== Supported Interfaces for Read Access
 
 Direct interaction with these interfaces is supported and encouraged only for read access.
 ifdef::rhv-doc[]
@@ -66,8 +67,8 @@ endif::[]
 
 *Libvirt on Hosts*:: Read access to *libvirt* using the `virsh -r` command is a supported method of interacting with virtualization hosts. Write access is *not* supported.
 
-
-=== Unsupported Interfaces
+[id="unsupported-interfaces"]
+== Unsupported Interfaces
 
 Direct interaction with these interfaces is *not* supported
 ifdef::rhv-doc[unless your use of them is explicitly requested by Red Hat Support]

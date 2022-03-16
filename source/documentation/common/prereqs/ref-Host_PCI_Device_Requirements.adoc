@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='PCI_Device_Requirements_{context}']
 = PCI Device Requirements
 

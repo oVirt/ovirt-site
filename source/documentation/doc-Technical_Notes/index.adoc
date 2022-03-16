@@ -1,4 +1,4 @@
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Technical Notes
 :imagesdir: images
 

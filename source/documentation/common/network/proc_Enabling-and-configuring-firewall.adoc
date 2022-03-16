@@ -4,7 +4,6 @@
 
 :_content-type: PROCEDURE
 [id="Enabling-and-configuring-firewall_{context}"]
-
 = Enabling and configuring the firewall
 
 [role="_abstract"]

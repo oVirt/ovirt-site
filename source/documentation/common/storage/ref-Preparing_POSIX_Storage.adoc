@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='Preparing_POSIX_Storage_{context}']
 = Preparing POSIX-compliant File System Storage
 

@@ -1,8 +1,12 @@
+:_content-type: CONCEPT
+[id="conc-Additional_Considerations_Device_Assignment"]
+= Hardware Considerations for Device Assignment
+
 Device assignment provides the capacity to assign a virtual guest directly to a PCIe device, giving the guest full access and offering near-native performance. Implemented in conjunction with SR-IOV, a virtual guest is directly assigned a VF. In this way, multiple virtual guests can be directly assigned to VFs of a single PCIe device.
 
 SR-IOV does not need to be enabled to directly assign virtual machines to PCIe devices, nor is device assignment the only application for creating VFs, however the two features are complementary and there are additional hardware considerations if they are to be used together.
 
-Device assignment requires I/O Memory Management Unit (IOMMU) support in the CPU and firmware. The IOMMU translates between I/O Virtual Addresses (IOVA) and physical memory addresses. This allows the virtual guest to program the device with guest physical addresses, which are then translated to host physical addresses by the IOMMU. 
+Device assignment requires I/O Memory Management Unit (IOMMU) support in the CPU and firmware. The IOMMU translates between I/O Virtual Addresses (IOVA) and physical memory addresses. This allows the virtual guest to program the device with guest physical addresses, which are then translated to host physical addresses by the IOMMU.
 
 IOMMU groups are sets of devices that can be isolated from all other devices in the system. IOMMU groups represent the smallest sets of devices with both IOMMU granularity and isolation from all other IOMMU groups within the system. This allows the IOMMU to distinguish transactions to and from the IOMMU group while restricting direct memory access (DMA) between devices outside of the IOMMU group and the control of the IOMMU.
 
@@ -10,22 +14,21 @@ Isolation of transactions between the virtual guest and the virtual functions of
 
 Native ACS support is also recommended for the root ports of the server, otherwise devices installed on these ports will be grouped together. There are two varieties of root ports, processor-based (northbridge) root ports and controller hub-based (southbridge) root ports. As above, if device assignment is used in conjunction with SR-IOV, and virtual guests are being assigned to VFs, then these ports must support both ACS and ARI.
 
-Intel's Xeon Processor E5 Family, Xeon Processor E7 Family, and High End Desktop Processors include native ACS support on the processor-based root ports. 
+Intel's Xeon Processor E5 Family, Xeon Processor E7 Family, and High End Desktop Processors include native ACS support on the processor-based root ports.
 
-Intel Platform Controller Hub-based (PCH) PCI Express Root Ports currently either do not support ACS or make use of non-standard ACS implementations, making fine-grained isolation of devices connected via these Root Ports difficult. Many of these Root Ports do support ACS-equivalent functionality. The Red Hat Enterprise Linux 7.3 kernel includes support for enabling this ACS-equivalent functionality on X79, X99, 5-series though 9-series, as well as 100-series PCI Express chipsets. 
+Intel Platform Controller Hub-based (PCH) PCI Express Root Ports currently either do not support ACS or make use of non-standard ACS implementations, making fine-grained isolation of devices connected via these Root Ports difficult. Many of these Root Ports do support ACS-equivalent functionality. The Red Hat Enterprise Linux 7.3 kernel includes support for enabling this ACS-equivalent functionality on X79, X99, 5-series though 9-series, as well as 100-series PCI Express chipsets.
 
 Refer to vendor specification for determining processor-based and controller hub-based root ports when installing PCIe devices to ensure the root port supports ACS.
 
 In addition, any PCIe switch or bridge within the I/O topology also requires ACS support, otherwise it may extend the IOMMU group.
 
-:_content-type: CONCEPT
 [id='Summary_of_Hardware_Considerations_for_Device_Assignment']
-=== Summary of Hardware Considerations for Device Assignment
+== Summary
 
-* CPU must support IOMMU (for example, VT-d or AMD-Vi). IBM POWER8 supports IOMMU by default. 
+* CPU must support IOMMU (for example, VT-d or AMD-Vi). IBM POWER8 supports IOMMU by default.
 * Firmware must support IOMMU.
 * CPU root ports used must support ACS or ACS-equivalent capability.
-* PCIe device must support ACS or ACS-equivalent capability. 
+* PCIe device must support ACS or ACS-equivalent capability.
 * It is recommended that all PCIe switches and bridges between the PCIe device and the root port should support ACS. For example, if a switch does not support ACS, all devices behind that switch share the same IOMMU group, and can only be assigned to the same virtual machine.
 
 Refer to vendor specification and datasheets to confirm that hardware meets these requirements.

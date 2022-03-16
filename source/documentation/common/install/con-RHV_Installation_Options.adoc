@@ -2,7 +2,7 @@
 [id='RHV_Installation_Options_{context}']
 = {virt-product-fullname} Installation Options
 
-[[SHE_install_options]]
+[id="SHE_install_options"]
 == Self-hosted engine (recommended)
 
 You can install {virt-product-fullname} as a self-hosted engine using the command line.
@@ -11,8 +11,7 @@ Because the {engine-name} installation is automated, the {engine-name} database 
 
 To install a self-hosted engine using the command line, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#[_Installing {virt-product-fullname} as a self-hosted engine using the command line_].
 
-
-[[SM_install_options]]
+[id="SM_install_options"]
 == Standalone {engine-name} (manual)
 
 You can only install a standalone {engine-name} using the command line.

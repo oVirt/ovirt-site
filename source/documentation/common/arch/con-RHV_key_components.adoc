@@ -1,6 +1,7 @@
-:_content-type: CONCEPT
+:_content-type: REFERENCE
 [id='RHV_key_components_{context}']
-.{virt-product-fullname} Key Components
+= {virt-product-fullname} Key Components
+
 [options="header"]
 |===
 |Component Name |Description

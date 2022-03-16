@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_Virtual_Machine_Disk"]
-=== Creating a Virtual Machine Disk
+= Creating a Virtual Machine Disk
 
 To ensure that a newly created virtual machine has access to persistent storage, you must create and attach a disk.
 

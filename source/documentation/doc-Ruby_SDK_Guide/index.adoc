@@ -1,10 +1,16 @@
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Ruby SDK Guide
 :imagesdir: images
 :toclevels: 4
+// attributes for legal notice
+:doc-path: ruby_sdk_guide
+:doc-name: Ruby SDK Guide
 
-include::chap-Overview.adoc[]
+include::chap-Overview.adoc[leveloffset=+1]
 
-include::chap-Using_the_Software_Development_Kit.adoc[]
+include::chap-Using_the_Software_Development_Kit.adoc[leveloffset=+1]
 
-include::chap-Ruby_Examples.adoc[]
+include::chap-Ruby_Examples.adoc[leveloffset=+1]
+
+[appendix]
+include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]

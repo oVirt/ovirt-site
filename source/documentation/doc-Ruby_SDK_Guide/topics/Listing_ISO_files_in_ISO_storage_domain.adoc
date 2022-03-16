@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_ISO_files_in_ISO_storage_domain"]
-=== Listing ISO Files in the ISO Storage Domain
+= Listing ISO Files in the ISO Storage Domain
 
 This Ruby example lists the ISO files in the ISO storage domain, `myiso`.
 

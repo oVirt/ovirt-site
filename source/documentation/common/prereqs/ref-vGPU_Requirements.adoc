@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='vGPU_Requirements_{context}']
 = vGPU Requirements
 

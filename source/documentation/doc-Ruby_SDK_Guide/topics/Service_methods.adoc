@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="Service_methods"]
-==== Service Methods
+= Service Methods
 
 After you have located the service you want, you can call its service methods. These methods send requests to the server and do the real work.
 
@@ -10,7 +10,7 @@ Services that manage a single object usually have the `get`, `update`, and `remo
 
 Services may have additional action methods, which perform actions other than retrieving, creating, updating, or removing. These methods are most commonly found in services that manage a single object.
 
-==== `Get`
+== `Get`
 
 The `get` method retrieves the representation of a single object.
 
@@ -67,7 +67,7 @@ vm_service = vms_service.vm_service('non_existent_VM')
 vm = vm_service.get
 ----
 
-==== `List`
+== `List`
 
 The `list` method retrieves the representations of multiple objects in a collection.
 
@@ -101,7 +101,7 @@ If the list of results is empty, the returned value will be an empty Ruby array.
 
 If the list of results cannot be retrieved, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure.
 
-==== `Add`
+== `Add`
 
 `Add` methods add new elements to collections. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.
 
@@ -171,7 +171,7 @@ end
 
 If the object cannot be created, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure. It will never return `nil`.
 
-==== `Update`
+== `Update`
 
 `Update` methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.
 
@@ -233,7 +233,7 @@ vm = vm_service.update(
 
 If the update cannot be performed, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure. It will never return `nil`.
 
-==== `Remove`
+== `Remove`
 
 `Remove` methods remove existing objects. They normally do not support parameters because they are methods of services that manage single objects, and the service already knows what object to remove.
 
@@ -256,7 +256,7 @@ The `remove` method returns `nil` if the object is removed successfully. It does
 
 If the object cannot be removed, the SDK will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception containing the details of the failure.
 
-==== Additional Actions
+== Additional Actions
 
 There are additional action methods, apart from the methods described above. The service that manages a virtual machine has methods to start and stop it.
 

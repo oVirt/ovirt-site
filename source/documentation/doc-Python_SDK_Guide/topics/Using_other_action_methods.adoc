@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_other_action_methods"]
-==== Using Other Action Methods
+= Using Other Action Methods
 
 There are other service methods that perform miscellaneous operations, such as stopping and starting a virtual machine:
 

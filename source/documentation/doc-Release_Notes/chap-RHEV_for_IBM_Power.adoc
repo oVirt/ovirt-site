@@ -1,6 +1,6 @@
 :_content-type: REFERENCE
 [id="chap-RHEV_for_IBM_Power"]
-== RHV for IBM Power
+= RHV for IBM Power
 
 This release supports {enterprise-linux} 8 hosts on IBM POWER8 little endian hardware and {enterprise-linux} 7 and 8 virtual machines on emulated IBM POWER8 hardware. From {virt-product-fullname} 4.2.6 {enterprise-linux-host-fullname}s are supported on IBM POWER9 little endian hardware and {enterprise-linux} 8 virtual machines on emulated IBM POWER9 hardware.
 

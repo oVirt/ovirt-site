@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_links"]
-=== Using Links
+= Using Links
 
 Some attributes of types are defined by the API as links. This convention indicates that the values are not normally populated when retrieving the representation of that object. Rather, a link is returned instead. For example, when retrieving a virtual machine, the XML response from the server includes the `<link>` attribute:
 

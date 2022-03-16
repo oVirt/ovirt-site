@@ -1,5 +1,3 @@
-
-
 :_content-type: PROCEDURE
 [id="enabling-incremental-backup-on-a-new-disk_{context}"]
 = Enabling Incremental Backup on a new virtual disk

@@ -1,5 +1,5 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="technical-notes"]
 = Technical Notes
@@ -21,3 +21,5 @@ include::RHSA-20205179-04.adoc[leveloffset=+1]
 include::RHBA-20210312-02.adoc[leveloffset=+1]
 include::RHSA-20211169-06.adoc[leveloffset=+1]
 include::RHSA-20214626-06.adoc[leveloffset=+1]
+
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

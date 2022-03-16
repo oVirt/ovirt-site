@@ -1,8 +1,11 @@
 :ovirt-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Installing {virt-product-fullname} as a standalone {engine-name} with local databases
 :context: SM_localDB_deploy
 :SM_localDB_deploy:
+// attributes for legal notice
+:doc-path: installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases
+:doc-name: Installing Red Hat Virtualization as a standalone Manager with local databases
 
 // Make sure Jekyll displays a guide title
 [discrete]
@@ -118,6 +121,4 @@ ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
 
 [appendix]
-== Legal notice
-
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with local databases]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].
+include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]

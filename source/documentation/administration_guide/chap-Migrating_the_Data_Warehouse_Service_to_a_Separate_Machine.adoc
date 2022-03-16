@@ -1,0 +1,36 @@
+:_content-type: ASSEMBLY
+[id="Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine"]
+= Migrating the Data Warehouse Service to a Separate Machine
+
+You can migrate the Data Warehouse service installed and configured on the {virt-product-fullname} {engine-name} to a separate machine. Hosting the Data Warehouse service on a separate machine helps to reduce the load on the {engine-name} machine.
+
+Notice that this procedure migrates the Data Warehouse service only.
+
+To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:chap-Migrating_Data_Warehouse_Database_to_a_Separate_Machine.adoc#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine[Migrating the Data Warehouse Database to a Separate Machine].
+
+[NOTE]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
+====
+
+.Prerequisites
+
+* You must have installed and configured the {engine-name} and Data Warehouse on the same machine.
+* To set up the new Data Warehouse machine, you must have the following:
+** The password from the {engine-name}'s */etc/ovirt-engine/engine.conf.d/10-setup-database.conf* file.
+** Allowed access from the Data Warehouse machine to the {engine-name} database machine's TCP port 5432.
+** The username and password for the Data Warehouse database from the {engine-name}'s */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf* file.
++
+If you migrated the `ovirt_engine_history` database using the procedures described in xref:chap-Migrating_Data_Warehouse_Database_to_a_Separate_Machine.adoc#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine[Migrating the Data Warehouse Database to a Separate Machine], the backup includes these credentials, which you defined during the database setup on that machine.
+
+Installing this scenario requires four steps:
+
+. Setting up the New Data Warehouse Machine
+. Stopping the Data Warehouse service on the {engine-name} machine
+. Configuring the new Data Warehouse machine
+. Disabling the Data Warehouse package on the {engine-name} machine
+
+include::common/database/proc-setting-up-the-new-data-warehouse-machine.adoc[leveloffset=+1]
+include::common/database/proc-stopping-the-data-warehouse-service.adoc[leveloffset=+1]
+include::common/database/proc-configuring-the-new-data-warehouse-machine.adoc[leveloffset=+1]
+include::common/database/proc-disabling-the-data-warehouse-service.adoc[leveloffset=+1]

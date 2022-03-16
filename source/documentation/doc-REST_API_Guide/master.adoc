@@ -1,8 +1,12 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
+:_content-type: ASSEMBLY
+[id="rest-api-guide"]
 = REST API Guide
 
 :engine-name: Red Hat Virtualization Manager
 :product-name: Red Hat Virtualization
 
 include::model.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

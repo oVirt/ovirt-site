@@ -1,9 +1,12 @@
 :ovirt-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Data Warehouse Guide
 :imagesdir: images
 :context: DWH
 :DWH:
+// attributes for legal notice
+:doc-path: data_warehouse_guide
+:doc-name: Data Warehouse Guide
 
 // Make sure Jekyll displays a guide title
 [discrete]
@@ -16,6 +19,4 @@ include::chap-Installing_and_Configuring_Data_Warehouse.adoc[leveloffset=+1]
 include::chap-About_History_Database.adoc[leveloffset=+1]
 
 [appendix]
-== Legal notice
-
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}data_warehouse_guide/index[Red Hat Virtualization {vernum_rhv} Data Warehouse Guide]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].
+include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]

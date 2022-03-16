@@ -1,7 +1,7 @@
 // ID not required when this is a book rather than a chapter.
 // [id='Migrating_from_a_Standalone_Manager_to_a_Self-hosted_Engine']
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="setting-up-an-nvidia-gpu-for-a-virtual-machine"]
 = Setting up an NVIDIA GPU for a virtual machine in {virt-product-fullname}
@@ -36,3 +36,5 @@ For further information on using NVIDA vGPU on RHEL with KVM, see:
 * _NVIDIA Virtual GPU Software Documentation_ at https://docs.nvidia.com.
 
 :GPU_setup_on_vm_standalone_doc!:
+
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

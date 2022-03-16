@@ -1,11 +1,16 @@
 :_content-type: ASSEMBLY
 [id="chap-Using_the_Software_Development_Kit"]
-== Using the Software Development Kit
+= Using the Software Development Kit
 
 This chapter defines the modules and classes of the Ruby Software Development Kit and describes their usage.
 
-include::topics/Classes.adoc[]
+include::topics/Classes.adoc[leveloffset=+1]
 
-include::topics/Types.adoc[]
+include::topics/Types.adoc[leveloffset=+1]
 
-include::topics/Services.adoc[]
+[id="Services"]
+== Services
+
+include::topics/Retrieving_services.adoc[leveloffset=+2]
+
+include::topics/Service_methods.adoc[leveloffset=+2]

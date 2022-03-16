@@ -1,0 +1,21 @@
+:_content-type: ASSEMBLY
+[id='Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine']
+= Migrating the Data Warehouse Database to a Separate Machine
+
+Migrate the Data Warehouse database (`ovirt_engine_history`) before you migrate the Data Warehouse service. Use `engine-backup` to create a database backup and restore it on the new database machine. For more information on `engine-backup`, run `engine-backup --help`.
+
+[NOTE]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
+====
+
+The new database server must have {enterprise-linux} 8 installed.
+
+Enable the required repositories on the new database server.
+
+:context: migrate_DWH_DB
+:migrate_DWH_DB:
+include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+:migrate_DWH_DB!:
+
+include::proc-Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine.adoc[leveloffset=+1]

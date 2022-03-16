@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_remove_methods"]
-==== Using `remove` Methods
+= Using `remove` Methods
 
 These service methods remove existing objects. They usually do not take parameters, because they are methods of services that manage single objects. Therefore, the service already knows what object to remove.
 

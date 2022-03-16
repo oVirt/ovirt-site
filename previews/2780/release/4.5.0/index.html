@@ -199,6 +199,7 @@ page.</p>
               <li><a href="#ovirt-ansible-collection" id="markdown-toc-ovirt-ansible-collection">oVirt Ansible collection</a></li>
               <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a></li>
               <li><a href="#ovirt-engine-data-warehouse" id="markdown-toc-ovirt-engine-data-warehouse">oVirt Engine Data Warehouse</a></li>
+              <li><a href="#ovirt-engine-metrics" id="markdown-toc-ovirt-engine-metrics">oVirt Engine Metrics</a></li>
               <li><a href="#ovirt-host-dependencies" id="markdown-toc-ovirt-host-dependencies">oVirt Host Dependencies</a></li>
               <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a></li>
               <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a></li>
@@ -243,6 +244,7 @@ page.</p>
               <li><a href="#otopi-2" id="markdown-toc-otopi-2">OTOPI</a></li>
               <li><a href="#ovirt-engine-5" id="markdown-toc-ovirt-engine-5">oVirt Engine</a></li>
               <li><a href="#ovirt-engine-data-warehouse-1" id="markdown-toc-ovirt-engine-data-warehouse-1">oVirt Engine Data Warehouse</a></li>
+              <li><a href="#ovirt-engine-metrics-1" id="markdown-toc-ovirt-engine-metrics-1">oVirt Engine Metrics</a></li>
               <li><a href="#ovirt-hosted-engine-ha-2" id="markdown-toc-ovirt-hosted-engine-ha-2">oVirt Hosted Engine HA</a></li>
               <li><a href="#ovirt-log-collector" id="markdown-toc-ovirt-log-collector">oVirt Log Collector</a></li>
               <li><a href="#ovirt-release-host-node-2" id="markdown-toc-ovirt-release-host-node-2">oVirt Release Host Node</a></li>
@@ -408,6 +410,15 @@ In previous versions, engine-setup configured apache httpd’s SSLProtocol confi
 
 <p>With this version, engine-setup does not set this option, and removes it if it’s already set, letting it be managed by crypto-policies.</p>
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=977778">BZ 977778</a> <strong>[RFE] - Mechanism for converting disks for non-running VMS</strong>
+Feature: 
+Support the conversion of a disk’s format and allocation policy</li>
+</ul>
+
+<p>Reason: Users may want to change allocation policy or format to make reduce space usage or improve performance. As well as enable incremental backup on existing raw disks.</p>
+
+<p>Result:</p>
+<ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1878930">BZ 1878930</a> <strong>[RFE] Provide warning event if MAC Address Pool free and available addresses are below threshold</strong>
 Feature: Provide warning event if number of available MAC addresses in pool are below threshold. The threshold is configurable via engine-config. An event will be created per pool on engine start, and if the threshold is reached when consuming addresses from the pool.</li>
 </ul>
@@ -558,6 +569,17 @@ to be able to link to the admin portal when dwh is on separate machine</p>
 <p>Result:
 the engine fqdn is available in dwh, in the history_configuration table.</p>
 
+<h4 id="ovirt-engine-metrics">oVirt Engine Metrics</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1990462">BZ 1990462</a> <strong>[RFE] Add user name and password to ELK integration</strong>
+Feature: Add Elasticsearch username and password for authentication from rsyslog.</li>
+</ul>
+
+<p>Reason: Some deployments require username and password authentication from rsyslog.</p>
+
+<p>Result: rsyslog can authenticate to Elasticsearch using username and password.</p>
+
 <h4 id="ovirt-host-dependencies">oVirt Host Dependencies</h4>
 
 <ul>
@@ -623,6 +645,15 @@ Support for parallel migration connections was added.</li>
 </ul>
 
 <p>See https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html for all the important information about the feature.</p>
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=977778">BZ 977778</a> <strong>[RFE] - Mechanism for converting disks for non-running VMS</strong>
+Feature: 
+Support the conversion of a disk’s format and allocation policy</li>
+</ul>
+
+<p>Reason: Users may want to change allocation policy or format to make reduce space usage or improve performance. As well as enable incremental backup on existing raw disks.</p>
+
+<p>Result:</p>
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1944834">BZ 1944834</a> <strong>[RFE] Timer for Console Disconnect Action - Shutdown VM after N minutes of being disconnected (Webadmin-only)</strong>
 The feature adds a user-specified delay to the ‘Shutdown’ Console Disconnect Action of a VM. The shutdown won’t be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled. 
@@ -774,7 +805,7 @@ This patch removes the ability to create/use old cinder integration using the RE
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1991482">BZ 1991482</a> <strong>[RFE] add a link to Grafana in the Admin portal UI</strong></p>
   </li>
   <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1913389">BZ 1913389</a> <strong>[CBT] [RFE] Minimize scratch disk initial size</strong></p>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1913389">BZ 1913389</a> <strong>[CBT] [RFE] Provide VDSM with more information on scratch disks</strong></p>
   </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1988959">BZ 1988959</a> <strong>[Cinderlib] - The attached disk isn’t attached to the cloned VM from template</strong></p>
@@ -960,7 +991,10 @@ Add e1000e VM Nic type for cluster level 4.7. The e1000 is depracated from RHEL8
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1755801">BZ 1755801</a> <strong>[Cinderlib] Managed Block Storage: Live Migration Problems with ceph</strong></p>
   </li>
   <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1913389">BZ 1913389</a> <strong>[CBT] [RFE] Minimize scratch disk initial size</strong></p>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1913389">BZ 1913389</a> <strong>[CBT] [RFE] Provide VDSM with more information on scratch disks</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1913387">BZ 1913387</a> <strong>[CBT] [RFE] Extend backup scratch disk as needed</strong></p>
   </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2033697">BZ 2033697</a> <strong>Secret information may be leaked in Vdsm logs</strong></p>
@@ -1069,6 +1103,20 @@ Add e1000e VM Nic type for cluster level 4.7. The e1000 is depracated from RHEL8
   </li>
 </ul>
 
+<h4 id="ovirt-engine-metrics-1">oVirt Engine Metrics</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1804268">BZ 1804268</a> <strong>ovirt-engine-metrics role fails on ansible-linter</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012569">BZ 2012569</a> <strong>Update the LSR version</strong></p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2025936">BZ 2025936</a> <strong>metrics configuration playbooks failing due to rhel-system-role last refactor</strong></p>
+  </li>
+</ul>
+
 <h4 id="ovirt-hosted-engine-ha-2">oVirt Hosted Engine HA</h4>
 
 <ul>
@@ -1151,7 +1199,7 @@ Arik Hadas (Contributed to: ovirt-engine)
 Artur Socha (Contributed to: ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-wildfly, vdsm-jsonrpc-java)
 Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-setup-lib)
 Avital Pinnick (Contributed to: ovirt-site)
-Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine)
+Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine, ovirt-engine-metrics)
 Aviv Turgeman (Contributed to: ovirt-release)
 Bella Khizgiyaev (Contributed to: ovirt-engine)
 Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
@@ -1180,9 +1228,9 @@ Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)
 Marcin Sobczyk (Contributed to: ovirt-release, vdsm)
 Mark Kemel (Contributed to: ovirt-engine, python-ovirt-engine-sdk4)
 Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-release, python-ovirt-engine-sdk4)
-Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-wildfly, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
+Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-metrics, ovirt-engine-wildfly, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
 Martin Tzvetanov Grigorov (Contributed to: ovirt-engine)
-Michal Skrivanek (Contributed to: imgbased, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup, ovirt-node-ng-image)
+Michal Skrivanek (Contributed to: imgbased, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-hosted-engine-setup, ovirt-node-ng-image)
 Miguel Duarte Barroso (Contributed to: ovirt-release)
 Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 Nick Sonneveld (Contributed to: ovirt-ansible-collection)
@@ -1197,7 +1245,7 @@ Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules,
 Ravi (Contributed to: vdsm)
 Roman Bednar (Contributed to: vdsm)
 Saif Abu Saleh (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-web-ui, vdsm)
-Sandro Bonazzola (Contributed to: engine-db-query, imgbased, mom, otopi, ovirt-appliance, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-engine-wildfly, ovirt-host, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-imageio, ovirt-jboss-modules-maven-plugin, ovirt-log-collector, ovirt-node-ng, ovirt-node-ng-image, ovirt-provider-ovn, ovirt-release, ovirt-setup-lib, ovirt-site, ovirt-web-ui, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
+Sandro Bonazzola (Contributed to: engine-db-query, imgbased, mom, otopi, ovirt-appliance, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-engine-wildfly, ovirt-host, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-imageio, ovirt-jboss-modules-maven-plugin, ovirt-log-collector, ovirt-node-ng, ovirt-node-ng-image, ovirt-provider-ovn, ovirt-release, ovirt-setup-lib, ovirt-site, ovirt-web-ui, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
 Sanja Bonic (Contributed to: ovirt-node-ng-image, ovirt-release, ovirt-site)
 Scott J Dickerson (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 Shani Leviim (Contributed to: ovirt-engine, vdsm)

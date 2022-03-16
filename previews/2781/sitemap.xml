@@ -1660,9 +1660,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2781/documentation/data_warehouse_guide/</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2781/documentation/doc-Planning_and_Prerequisites_Guide/</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2781/documentation/doc-Python_SDK_Guide/</loc>
 </url>
 <url>
@@ -3424,6 +3421,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2781/develop/internal/</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2781/documentation/doc-Planning_and_Prerequisites_Guide/</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2781/documentation/assembly-Setting_up_a_gpu_on_a_vm/</loc>
 </url>
 <url>
@@ -3644,6 +3644,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2781/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-16T14:02:06+00:00</lastmod>
+<lastmod>2022-03-16T14:49:26+00:00</lastmod>
 </url>
 </urlset>

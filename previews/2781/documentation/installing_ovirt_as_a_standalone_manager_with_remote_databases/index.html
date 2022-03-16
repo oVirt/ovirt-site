@@ -139,7 +139,7 @@
 <li><a href="#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM">3.2. Enabling the oVirt Engine Repositories</a></li>
 <li><a href="#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">3.3. Preparing a Remote PostgreSQL Database</a></li>
 <li><a href="#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM">3.4. Installing and Configuring the oVirt Engine</a></li>
-<li><a href="#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine">3.5. Installing and Configuring Data Warehouse on a Separate Machine</a></li>
+<li><a href="#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">3.5. Installing and Configuring Data Warehouse on a Separate Machine</a></li>
 <li><a href="#Connecting_to_the_Administration_Portal_install_RHVM">3.6. Connecting to the Administration Portal</a></li>
 </ul>
 </li>
@@ -1802,7 +1802,7 @@ Configure ovirt-provider-ovn (Yes, No) [Yes]:</code></pre>
 </div>
 </li>
 <li>
-<p>To configure Data Warehouse on a remote server, answer <code>No</code> and see <a href="#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">[Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM]</a> after completing the Engine configuration.</p>
+<p>To configure Data Warehouse on a remote server, answer <code>No</code> and see <a href="#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">Installing and Configuring Data Warehouse on a Separate Machine</a> after completing the Engine configuration.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">Please note: Data Warehouse is required for the engine. If you choose to not configure it on this host, you have to configure it on a remote host, and then configure the engine on this host so that it can access the database of the remote Data Warehouse host.
@@ -2013,7 +2013,7 @@ Do you wish Setup to configure that, or prefer to perform that manually? (Automa
 </div>
 </div>
 <div class="sect2">
-<h3 id="Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine">3.5. Installing and Configuring Data Warehouse on a Separate Machine</h3>
+<h3 id="Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">3.5. Installing and Configuring Data Warehouse on a Separate Machine</h3>
 <div class="paragraph">
 <p>This section describes installing and configuring the Data Warehouse service on a separate machine from the oVirt Engine. Installing Data Warehouse on a separate machine helps to reduce the load on the Engine machine.</p>
 </div>

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_logical_networks"]
-=== Listing Logical Networks
+= Listing Logical Networks
 
 This Ruby example lists the logical networks.
 

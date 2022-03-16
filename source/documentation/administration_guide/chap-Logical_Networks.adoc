@@ -75,7 +75,7 @@ include::topics/Assigning_Security_Groups_to_Logical_Networks.adoc[leveloffset=+
 :Network:
 :context: hosts_networking
 
-include::topics/con-Network-Manager-Stateful-Configuration-nmstate.adoc[leveloffset=+3]
+include::topics/con-Network-Manager-Stateful-Configuration-nmstate.adoc[leveloffset=+2]
 
 include::topics/Refreshing_Host_Capabilities.adoc[leveloffset=+2]
 

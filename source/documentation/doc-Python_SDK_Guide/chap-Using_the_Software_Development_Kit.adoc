@@ -1,23 +1,39 @@
 :_content-type: ASSEMBLY
 [id="chap-Using_the_Software_Development_Kit"]
-== Using the Software Development Kit
+= Using the Software Development Kit
 
 This section describes how to use the software development kit for Version 4.
 
-include::topics/Packages.adoc[]
+include::topics/Packages.adoc[leveloffset=+1]
 
-include::topics/Connecting_to_the_server.adoc[]
+include::topics/Connecting_to_the_server.adoc[leveloffset=+1]
 
-include::topics/Using_types.adoc[]
+include::topics/Using_types.adoc[leveloffset=+1]
 
-include::topics/Using_links.adoc[]
+include::topics/Using_links.adoc[leveloffset=+1]
 
-include::topics/Locating_services.adoc[]
+include::topics/Locating_services.adoc[leveloffset=+1]
 
-include::topics/Using_services.adoc[]
+[id="using-services"]
+== Using Services
+
+After you have located a service, you can call its service methods, which send requests to the server and do the real work.
+
+Services that manage a single object usually support the `get`, `update`, and `remove` methods.
+
+Services that manage collections of objects usually support the `list` and `add` methods.
+
+Both kinds of services, especially services that manage a single object, can support additional action methods.
+
+include::topics/Using_get_methods.adoc[leveloffset=+2]
+include::topics/Using_list_methods.adoc[leveloffset=+2]
+include::topics/Using_add_methods.adoc[leveloffset=+2]
+include::topics/Using_update_methods.adoc[leveloffset=+2]
+include::topics/Using_remove_methods.adoc[leveloffset=+2]
+include::topics/Using_other_action_methods.adoc[leveloffset=+2]
 
 [id="Additional_resources"]
-=== Additional Resources
+== Additional Resources
 
 For detailed information and examples, see the following resources:
 
@@ -25,7 +41,8 @@ For detailed information and examples, see the following resources:
 * link:http://ovirt.github.io/ovirt-engine-sdk[Python SDK reference documentation]
 * link:https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk/examples[Python SDK examples]
 
-*Generating Modules*
+[id="generating-documentation-for-modules"]
+=== Generating documentation for modules
 
 You can generate documentation using link:http://docs.python.org/library/pydoc.html[pydoc] for the following modules:
 

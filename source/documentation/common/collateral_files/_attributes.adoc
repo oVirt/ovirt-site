@@ -24,6 +24,8 @@
 :experimental:
 :numbered:
 :source-highlighter: highlightjs
+// year for legal notice
+:year: 2022
 //Downstream-only
 :beta-disclaimer: This document is only provided as a preview. It is under development and is subject to substantial change. Consider the included information incomplete and use it with caution.
 // This first set of URL attributes are the 'atomic URL attributes' that we'll

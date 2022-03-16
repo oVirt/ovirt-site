@@ -82,14 +82,19 @@ The following table summarizes the automatic settings. The *Enabled (Y/N)* colum
 |*Enable VirtIO serial console* (Console tab) |Y |VM, T, P
 |*Allow manual migration only* (Host tab) |Y |VM, T, P
 |*Pass-Through Host CPU* (Host tab) |Y |VM, T, P
-|*Highly Available* footnote:[`Highly Available` is not automatically enabled. If you select it manually, high availability should be enabled for pinned hosts only.] (High Availability tab) |N |VM, T, P
+|*Highly Available* ^[1]^ (High Availability tab) |N |VM, T, P
 |*No-Watchdog* (High Availability tab) |N |VM, T, P
 |*Memory Balloon Device* (Resource Allocation tab) |N |VM, T, P
-|*I/O Threads Enabled* footnote:[Number of I/O threads = 1] (Resource Allocation tab) |Y |VM, T, P
+|*I/O Threads Enabled* ^[2]^ (Resource Allocation tab) |Y |VM, T, P
 |Paravirtualized Random Number Generator PCI (virtio-rng) device (Random Generator tab) |Y |VM, T, P
 |I/O and emulator threads pinning topology |Y |VM, T
 |CPU cache layer 3 |Y |VM, T, P
 |===
+[.small]
+--
+1. `Highly Available` is not automatically enabled. If you select it manually, high availability should be enabled for pinned hosts only.
+2. Number of I/O threads = 1.
+--
 
 [id="IO_and_Emulator_Threads_Pinning_Topology"]
 === I/O and Emulator Threads Pinning Topology (Automatic Settings)

@@ -1,5 +1,5 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="planning-and-prerequisites-guide"]
 = Planning and Prerequisites Guide
@@ -23,3 +23,5 @@ include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 include::asm-Considerations.adoc[leveloffset=+1]
 
 include::asm-Recommendations.adoc[leveloffset=+1]
+
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

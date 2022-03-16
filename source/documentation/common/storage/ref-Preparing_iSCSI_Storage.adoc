@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='Preparing_iSCSI_Storage_{context}']
 = Preparing iSCSI Storage
 

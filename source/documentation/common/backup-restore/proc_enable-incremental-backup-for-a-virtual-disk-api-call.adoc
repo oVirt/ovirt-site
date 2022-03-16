@@ -1,5 +1,3 @@
-
-
 :_content-type: PROCEDURE
 [id="enable-incremental-backup-for-a-virtual-disk-api-call_{context}"]
 = Enabling incremental backup

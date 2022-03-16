@@ -2,7 +2,7 @@
 // ID not required when this is a book rather than a chapter.
 // [id='Migrating_from_a_Standalone_Manager_to_a_Self-hosted_Engine']
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="migrating-from-a-standalone-manager-to-a-self-hosted-engine"]
 = Migrating from a standalone {engine-name} to a self-hosted engine
@@ -15,10 +15,10 @@ You can convert a standalone {virt-product-fullname} {engine-name} to a self-hos
 The difference between the two environment types is explained below:
 
 [discrete]
-include::common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+2]
+include::common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+1]
 
 [discrete]
-include::common/arch/con-Self-hosted_Engine_Architecture.adoc[leveloffset=+2]
+include::common/arch/con-Self-hosted_Engine_Architecture.adoc[leveloffset=+1]
 
 [id='Migration_overview']
 == Migration Overview
@@ -106,4 +106,4 @@ include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automaticall
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
 
-include::common/collateral_files/legal-notice.adoc[]
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

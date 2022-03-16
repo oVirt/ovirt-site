@@ -10,4 +10,5 @@ include::topics/Parameters_for_event_notifications_in_ovirt-engine-notifier.adoc
 
 include::topics/Configuring_the_Red_Hat_Virtualization_Manager_to_Send_SNMP_Traps.adoc[leveloffset=+1]
 
-include::topics/ref-Sample-SNMPv3-traps-configuration-file.adoc[leveloffset=+1]
+[discrete]
+include::topics/ref-Sample-SNMPv3-traps-configuration-file.adoc[leveloffset=+2]

@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id="Network-range-for-SHE-deployment_{context}"]
 = Network range for self-hosted engine deployment
 

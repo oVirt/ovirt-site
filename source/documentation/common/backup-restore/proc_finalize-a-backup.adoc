@@ -1,5 +1,3 @@
-
-
 :_content-type: PROCEDURE
 [id="finalize-a-backup_{context}"]
 = Finalizing a backup

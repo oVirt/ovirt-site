@@ -8,11 +8,13 @@
 
 You must enable virtualization in the BIOS. Power off and reboot the host after this change to ensure that the change is applied.
 
+.Procedure
+
 . At the {enterprise-linux} or {hypervisor-fullname} boot screen, press any key and select the *Boot* or *Boot with serial console* entry from the list.
 . Press `Tab` to edit the kernel parameters for the selected option.
 . Ensure there is a space after the last kernel parameter listed, and append the parameter `rescue`.
 . Press `Enter` to boot into rescue mode.
-. At the prompt, determine that your processor has the required extensions and that they are enabled by running this command: 
+. At the prompt, determine that your processor has the required extensions and that they are enabled by running this command:
 +
 ----
 # grep -E 'svm|vmx' /proc/cpuinfo | grep nx

@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Attaching_ISO_image_to_a_virtual_machine"]
-=== Attaching an ISO Image to a Virtual Machine
+= Attaching an ISO Image to a Virtual Machine
 
 This Ruby example attaches a CD-ROM to a virtual machine and changes it to an ISO image in order to install the guest operating system.
 

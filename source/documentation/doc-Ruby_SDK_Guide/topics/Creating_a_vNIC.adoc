@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Creating_a_vNIC"]
-=== Creating a vNIC
+= Creating a vNIC
 
 To ensure that a newly created virtual machine has network access you must create and attach a vNIC.
 

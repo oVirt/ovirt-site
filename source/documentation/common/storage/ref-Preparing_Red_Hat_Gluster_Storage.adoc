@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='Preparing_Red_Hat_Gluster_Storage_{context}']
 = Preparing {gluster-storage-fullname}
 

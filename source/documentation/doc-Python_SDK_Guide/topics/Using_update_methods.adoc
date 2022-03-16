@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Using_update_methods"]
-==== Using `update` Methods
+= Using `update` Methods
 
 These service methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.
 

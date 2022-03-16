@@ -1,13 +1,15 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 
 :_content-type: ASSEMBLY
 [id="python-sdk-guide"]
 = Python SDK Guide
 :imagesdir: images
 
-include::chap-Overview.adoc[]
+include::chap-Overview.adoc[leveloffset=+1]
 
-include::chap-Using_the_Software_Development_Kit.adoc[]
+include::chap-Using_the_Software_Development_Kit.adoc[leveloffset=+1]
 
-include::chap-Python_Examples.adoc[]
+include::chap-Python_Examples.adoc[leveloffset=+1]
+
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

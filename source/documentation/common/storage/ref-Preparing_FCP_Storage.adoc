@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: CONCEPT
 [id='Preparing_FCP_Storage_{context}']
 = Preparing FCP Storage
 

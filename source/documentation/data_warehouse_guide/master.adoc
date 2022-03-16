@@ -1,5 +1,5 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="data-warehouse-guide"]
 = Data Warehouse Guide

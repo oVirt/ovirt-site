@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_hosts"]
-=== Listing Hosts
+= Listing Hosts
 
 This Ruby example lists the hosts.
 

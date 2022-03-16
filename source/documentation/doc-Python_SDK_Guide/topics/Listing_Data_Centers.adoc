@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Listing_Data_Centers"]
-=== Listing Data Centers
+= Listing Data Centers
 
 The `datacenters` collection contains all the data centers in the environment.
 

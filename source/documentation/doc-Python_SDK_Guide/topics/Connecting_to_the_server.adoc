@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Connecting_to_the_server"]
-=== Connecting to the Server
+= Connecting to the Server
 
 To connect to the server, import the `ovirtsdk4` module, which contains the `Connection` class. This is the entry point of the SDK, and provides access to the root of the tree of services of the API:
 

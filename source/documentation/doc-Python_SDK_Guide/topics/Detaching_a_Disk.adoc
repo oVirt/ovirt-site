@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id="Detaching_a_Disk"]
-=== Detaching a Disk
+= Detaching a Disk
 
 You can detach a disk from a virtual machine.
 

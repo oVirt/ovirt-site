@@ -1,6 +1,6 @@
 :_content-type: ASSEMBLY
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 = Installing {virt-product-fullname} as a standalone {engine-name} with remote databases
 :context: SM_remoteDB_deploy
 :SM_remoteDB_deploy:
@@ -82,6 +82,7 @@ include::common/install/proc-Configuring_the_Red_Hat_Virtualization_Manager.adoc
 Install the Data Warehouse service and database on the remote server:
 
 include::common/database/proc-Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine.adoc[leveloffset=+2]
+
 // Adding context back after assembly
 :context: install_RHVM
 
@@ -122,4 +123,4 @@ ifndef::parent-context[:!context:]
 
 [appendix]
 include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]
-include::common/collateral_files/legal-notice.adoc[]
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

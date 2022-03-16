@@ -1,5 +1,3 @@
-
-
 :_content-type: REFERENCE
 [id="ref_using-the-imageio-api-to-transfer-backup-data_{context}"]
 = Using the imageio API to transfer backup data

@@ -1,13 +1,15 @@
 :rhv-doc:
-include::common/collateral_files/attributes.adoc[]
+include::common/collateral_files/_attributes.adoc[]
 :_content-type: ASSEMBLY
 [id="product-guide"]
 = Product Guide
 
 include::asm-Introduction.adoc[leveloffset=+1]
 
-include::asm-Components.adoc[]
+include::asm-Components.adoc[leveloffset=+1]
 
 include::asm-Installation.adoc[leveloffset=+1]
 
-include::asm-AccessingRHV.adoc[]
+include::asm-AccessingRHV.adoc[leveloffset=+1]
+
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

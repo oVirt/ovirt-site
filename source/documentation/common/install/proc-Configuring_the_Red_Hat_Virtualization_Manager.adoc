@@ -29,11 +29,19 @@ Reboot the machine if any kernel-related packages were updated.
 
 . Install the `{engine-package}` package and dependencies.
 +
+ifdef::rhv-doc[]
 [source,terminal]
 ----
-# dnf install {engine-package}
+# dnf install rhvm
 ----
+endif::rhv-doc[]
 
+ifdef::ovirt-doc[]
+[source,terminal]
+----
+# dnf install ovirt-engine
+----
+endif::ovirt-doc[]
 . Run the `engine-setup` command to begin configuring the {virt-product-fullname} {engine-name}:
 +
 [source,terminal]

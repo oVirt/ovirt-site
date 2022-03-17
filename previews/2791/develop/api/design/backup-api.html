@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Backup API | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Backup API" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2791/develop/api/design/backup-api.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2791/develop/api/design/backup-api.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Backup API" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2791/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Backup API","url":"https://ovirt.github.io/ovirt-site/previews/2791/develop/api/design/backup-api.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2791/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2791/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2791/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2791/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2791/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2791/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2791/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2791/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2791/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2791/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2791/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2791/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2791/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2791/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2791/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2791/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2791/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2791/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2791/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2791/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2791/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2791/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2791/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2791/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2791/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2791/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2791/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2791/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2791/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2791/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2791/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2791/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2791/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2791/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2791/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2791//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2791//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2791/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2791/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2791/develop/api/">
+              <span property="name">Api</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2791/develop/api/design/">
+              <span property="name">Design</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Maor Lipchuk</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2791/documentation/'>Documentation is available here.</a></div>
+
+<!-- TODO: Content review -->
+
+<h1 id="backup-api">Backup API</h1>
+
+<p>This document describes the design for the Backup API feature.</p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>The motivation that stands behind this idea is to provide the user an API which can be used to backup different VM disks in the system. The user will be able to use externalized backup applications which will provide the ability to backup the data of any image disk into a predefined container disk which will be used as part of a backup container (VM).</p>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release: 3.4</li>
+  <li>Status: Released</li>
+  <li>Last updated date: Fri Apr 21 2016</li>
+</ul>
+
+<h2 id="functionality">Functionality</h2>
+
+<h3 id="general-functionality">General Functionality</h3>
+
+<p>When attaching a disk to a vm only the active volume was used, if the user wanted to see the disk content at some snapshot he had to preview that snapshot.
+As part of the backup API feature, a snapshot of a disk can be attached to another vm, regardless of the disk not being marked as shareable - when doing so, VDSM should create a temp snapshot allowing read/write access above the selected snapshot, the above should happend when hotplugging a disk/ running a vm.
+In case of hot unplug of the disk snapshot vdsm should delete the temp snapshot.</p>
+
+<h3 id="backup-disk-functionality">Backup Disk Functionality</h3>
+
+<p>The new backup disk is not a regular disk and will be blocked from being exported/ use in a template/ or be part of the backup VM snapshot.</p>
+
+<p>If the user will try to remove the backup disk snapshot it will remove the disk from the entire setup (also from the original VM)</p>
+
+<p>The disk can be definied as bootable for the VM if it’s attached as bootable and the VM does not contain another bootable disk yet this mostly doesn’t make much sense.</p>
+
+<h2 id="example-using-ovirt-4x-api">Example (using oVirt 4.x API)</h2>
+
+<ol>
+  <li>
+    <p>Navigate to the wanted disk snapshot from REST by accessing: <code class="language-plaintext highlighter-rouge">SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks</code></p>
+  </li>
+  <li>
+    <p>POST a disk attachment with the disk id and the snapshot id and choose “false” for bootable and the desired disk interface <code class="language-plaintext highlighter-rouge">http://SERVER:PORT/api/vms/GUID/diskattachments/</code></p>
+  </li>
+</ol>
+
+<p>When attaching the disk you will have to pass the the disk id and the snapshot id and the disk interface as in the following example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disk_attachment&gt;
+    &lt;disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"&gt;
+       &lt;snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/&gt;
+    &lt;/disk&gt;
+    &lt;bootable&gt;false&lt;/bootable&gt;
+    &lt;interface&gt;virtio&lt;/interface&gt;
+&lt;/disk_attachment&gt;
+</code></pre></div></div>
+
+<p>After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Method = DELETE
+  URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/diskattachments/GUID
+</code></pre></div></div>
+
+<h2 id="example-legacy-ovirt-3x-api">Example (Legacy oVirt 3.X API)</h2>
+<p>Note: Since prior to version 4.0 the disks themselves are defined as bootable, if the new backup disk will be a boot disk and will have an OS installed on it then there can be one of the other use cases:</p>
+
+<ul>
+  <li>If the backup VM will already contain a boot disk with OS installed on it, then the original boot disk will be remained.</li>
+  <li>If the backup VM will not contain a boot disk with OS installed on it, then the original boot disk will act as a boot disk which the VM will start the boot from.</li>
+</ul>
+
+<ol>
+  <li>
+    <p>Navigate to the wanted disk snapshot from REST by accessing: <code class="language-plaintext highlighter-rouge">SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks</code></p>
+  </li>
+  <li>
+    <p>POST the copied disk with the disk id and the snapshot id: <code class="language-plaintext highlighter-rouge">http://SERVER:PORT/api/vms/GUID/disks/</code></p>
+  </li>
+</ol>
+
+<p>When creating a disk you will have to pass the the disk id and the snapshot id such as the following example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"&gt;
+    &lt;snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/&gt;
+&lt;/disk&gt;
+</code></pre></div></div>
+
+<p>After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Method = DELETE
+  URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/disks/GUID
+  Body=&lt;action&gt;&lt;detach&gt;true&lt;/detach&gt;&lt;/action&gt;
+</code></pre></div></div>
+
+<h2 id="the-backup-process">The Backup Process</h2>
+
+<p>User can back up a virtual machine by an externalized application by the following steps:</p>
+
+<ul>
+  <li>Choose the disk snapshot which you want to use for back up.</li>
+  <li>Attach this disk snapshot to the target virtual machine for back up</li>
+  <li>Capture the virtual disk data and virtual machine configuration information (vim.vm.ConfigInfo).</li>
+  <li>Open and read the virtual disk and snapshot files. Copy them to backup media, along with configuration information.</li>
+  <li>Detach the disk</li>
+</ul>
+
+<h2 id="future-work">Future Work</h2>
+
+<ul>
+  <li>UI - would be handled in a following patch (the information is accessible through REST)</li>
+  <li>possibly further inspection of permissions</li>
+</ul>
+
+<h2 id="future-work--limitations">Future work / Limitations</h2>
+
+<ul>
+  <li>The created temp snapshots is stored on the host local storage (the host that the vm is running on) and not on the shared storage (domains) therefore the vm can’t be migrated.</li>
+  <li>A disk snapshot can be attached to a different VM than the one of which the snapshot (VM snapshot) was taken of.</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2791/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2791/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2791/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2791/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/api/design/backup-api.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/api/design/backup-api.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

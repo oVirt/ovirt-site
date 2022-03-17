@@ -44,9 +44,18 @@ include::../install/snip-Enable_virt_module.adoc[]
 //ansible lock addition
 . Install the {engine-appliance-name} to the host manually:
 +
+ifdef::rhv-doc[]
 [source,terminal]
 ----
-# dnf install {engine-package}-appliance
+# dnf install rhvm-appliance
 ----
+endif::rhv-doc[]
+
+ifdef::ovirt-doc[]
+[source,terminal]
+----
+# dnf install ovirt-engine-appliance
+----
+endif::ovirt-doc[]
 
 Now, when you deploy the self-hosted engine, the installer detects that the appliance is already installed.

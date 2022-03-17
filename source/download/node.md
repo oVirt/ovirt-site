@@ -22,6 +22,15 @@ Once ready, see
 [Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/)
 guide for installation instructions.
 
+## oVirt Node 4.5 - Pre Release
+
+This is the site hosting oVirt Node 4.5 pre release images including the latest oVirt 4.5 pre release packages.
+
+* [Pre-Release Installation ISO site)](https://resources.ovirt.org/pub/ovirt-4.5-pre/iso/ovirt-node-ng-installer/)
+
+Note: CentOS Stream 9 based ISO are experimental!
+
+
 ## oVirt Node 4.4 - Stable Release
 
 This is the site hosting oVirt Node 4.4 images including the latest oVirt 4.4 released packages.

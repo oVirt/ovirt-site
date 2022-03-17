@@ -38,9 +38,8 @@ This is the site hosting oVirt Node 4.4 pre release images including the latest 
 
 This is the oVirt Node image build based on oVirt packages from the master branches.
 
-* [oVirt Node master experimental ISO (based on el8)](http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el8-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+* [oVirt Node master experimental ISO](https://resources.ovirt.org/repos/ovirt/github-ci/ovirt-node-ng-image/)
 
-* Jenkins job (el8): <http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el8-x86_64/>
 
 # Old releases
 

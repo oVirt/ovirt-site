@@ -1,0 +1,21 @@
+<title>Data Warehouse Guide</title>
+<productname>Red Hat Virtualization</productname>
+<productnumber>{vernum_rhv}</productnumber>
+<subtitle>How to use the Data Warehouse capabilities of Red Hat Virtualization</subtitle>
+<abstract><para>This document provides information and procedures relevant to Red Hat Virtualization Data Warehouse.</para>
+<!--<para>{beta-disclaimer}</para>--></abstract>
+<authorgroup id="Author_Group">
+	<author> 
+		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
+		<affiliation>
+			<orgname>
+				Red Hat
+			</orgname>
+			<orgdiv>
+				Customer Content Services
+			</orgdiv>
+		</affiliation><email>rhev-docs@redhat.com</email>
+	</author>
+</authorgroup>
+
+

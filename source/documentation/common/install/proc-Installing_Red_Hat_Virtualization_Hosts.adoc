@@ -6,7 +6,13 @@
 
 {hypervisor-shortname} supports NIST 800-53 partitioning requirements to improve security. {hypervisor-shortname} uses a NIST 800-53 partition layout by default.
 
+ifdef::rhv-doc[]
 The host must meet the minimum  link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-requirements[host requirements].
+endif::rhv-doc[]
+
+ifdef::ovirt-doc[]
+The host must meet the minimum  link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/index.html#host-requirements[host requirements].
+endif::ovirt-doc[]
 
 include::../upgrade/snip_WARNING-detach_data_storage.adoc[]
 

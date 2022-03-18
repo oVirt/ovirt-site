@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Manage Storage Connections | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Manage Storage Connections" />
+<meta name="author" content="Alissa Bonas" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2793/develop/release-management/features/storage/manage-storage-connections.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2793/develop/release-management/features/storage/manage-storage-connections.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Manage Storage Connections" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alissa Bonas" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Alissa Bonas"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2793/images/logo.svg"},"name":"Alissa Bonas"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Manage Storage Connections","url":"https://ovirt.github.io/ovirt-site/previews/2793/develop/release-management/features/storage/manage-storage-connections.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2793/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2793/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2793/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2793/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2793/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2793/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2793/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2793/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2793/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2793/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2793/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2793/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2793/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2793/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2793/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2793/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2793/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2793/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2793/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2793/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2793/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2793/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2793/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2793/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2793/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2793/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2793/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2793/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2793/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2793/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2793/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2793/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2793/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2793/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2793/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2793//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2793//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2793/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2793/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2793/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2793/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2793/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alissa Bonas</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Daniel Erez</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/e563929a31cef762537008247dce66fd?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/e563929a31cef762537008247dce66fd?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sergey Gotliv</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Allon Mureinik</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2793/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="manage-storage-connections">Manage storage connections</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature adds the ability to add, edit and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure.</p>
+
+<p>The storage types that are in scope of this feature are iSCSI and the file based storage types (NFS, POSIX, GlusterFS and local storage). It does not, however, allow mixing or converting between block and file based storage.</p>
+
+<h2 id="owner">Owner</h2>
+
+<p>Name: Alissa Bonas<br />
+Email: abonas@redhat.com</p>
+
+<h2 id="current-status-and-gaps">Current Status and gaps</h2>
+
+<p>Update July 3rd, 2016</p>
+
+<p>The feature was released in oVirt 3.3. Some implementation gaps still exists, though, as they were deprioritized since:</p>
+
+<h3 id="gui">GUI</h3>
+
+<ul>
+  <li>Edit ISCSI connection properties in webadmin GUI</li>
+  <li>Add “connectivity test” functionality</li>
+</ul>
+
+<h3 id="server-backend">Server (backend)</h3>
+
+<ul>
+  <li>Extract common validations regarding storage connections to the <code class="language-plaintext highlighter-rouge">StorageConnectionValidator</code> (already partially done).</li>
+  <li>Finer grained MLA control (not sure if there’s actually an interesting usecase for this).</li>
+  <li>Refactor <code class="language-plaintext highlighter-rouge">AddSANStorageDomainCommand</code> so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (<code class="language-plaintext highlighter-rouge">StorageListModel</code>) to call <code class="language-plaintext highlighter-rouge">AddStorageServerConnection</code> before <code class="language-plaintext highlighter-rouge">AddSANStorageDomainCommand</code>.</li>
+  <li>Rethink - should the “delete connection” action disconnect from just one host, or all hosts when deleting a connection?</li>
+</ul>
+
+<h3 id="rest-backend">REST (backend)</h3>
+
+<ul>
+  <li>Add connections subresource to LUN disks - For each LUN disk (Direct LUN) view (GET) its storage connections by approaching it via a specific subresource: <code class="language-plaintext highlighter-rouge">/api/disks/&lt;diskId&gt;/connections</code>.</li>
+</ul>
+
+<h1 id="detailed-description">Detailed Description</h1>
+
+<p>While the UI and REST present a storage domain and its related storage connection[s] as one united entity to the user, the backend implementation actually manages them separately. In order to allow the user to edit the connection details, there’s a need to separate the notion of storage domain from its connection details, and allow editing just the connection details without editing the storage domain itself.</p>
+
+<p>A connection may be edited whether there are no storage domains connected to it (an orphan connection), or when there are storage domains using it. The number of the storage domains using a connection can vary based on storage type. For file domains, there will be a 1:1 relation between storage domain and its connection, while for iSCSI, there can be several storage domains using the same target.</p>
+
+<p>If there are storage domains using a connection, it may only be edited when all storage domains referencing it are set to maintenance state, or the storage domain is in unattached status. During this update operation, the domains (if such exist) will become locked (status=locked) and then their statistics will be updated based on the new pointed connection’s properties (the new storage location). The domains will be unlocked once the update will be completed.</p>
+
+<p>For Direct LUN (LUN disks), in order to edit their storage connection, all VMs using those disks (disks that are plugged) should be powered off. It is the user’s responsibility to make sure that after editing the connection the system can indeed reach the data/LUNs of the relevant storage domains. To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible, although this is currently out of scope.</p>
+
+<p>Removing a connection is possible only if there are no storage domains nor LUN disks using it.</p>
+
+<p>For iSCSI domains, there’s an additional option to add (attach) an additional storage connection (target) to same domain. Similarly, there’s an option to detach a connection from iSCSI domain. The attach/detach options are available only via REST api.</p>
+
+<h1 id="gui-1">GUI</h1>
+
+<p>Storage domains and connections are managed together in the webadmin UI in under the Storage tab. Till now, s storage domain’s edit was enabled only for active storage domains and allowed to update only their name and description.</p>
+
+<p>In order to allow editing the connection details, the edit button will now be enabled when storage domain is set in maintenance or unattached mode. However, editing the domain name and description will be disabled when in this state as it requires connectivity to the storage. N.B. There will not be an option (in the scope of this feature in 3.3) to edit iSCSI connection details via the webadmin UI.</p>
+
+<h1 id="rest">REST</h1>
+
+<h2 id="get-existing-connection-get">Get existing connection (GET)</h2>
+
+<ol>
+  <li>All storage connections that exist in the oVirt setup will be accessible in a new root resource: <code class="language-plaintext highlighter-rouge">api/storageconnections</code>.</li>
+  <li>A specific storage connection can be viewed in <code class="language-plaintext highlighter-rouge">api/storageconnections/&lt;connectionid&gt;</code></li>
+  <li>For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: <code class="language-plaintext highlighter-rouge">/api/storagedomains/&lt;storageDomainId&gt;/storageconnections</code>.</li>
+</ol>
+
+<p><b>example:</b></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request type - GET
+http://host:port/api/storageconnections
+</code></pre></div></div>
+
+<h2 id="new-connection-post">New connection (POST)</h2>
+
+<p>It will be possible to create a new connection without adding a storage domain along with it, and only later reference it from any domain by providing the connection id.
+Passing host id/name is optional. Providing it will lead to attempt to connect to the storage via the host.
+Not providing host will lead to just persisting storage details in the database.</p>
+
+<p><b>Example</b></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request type - POST
+http://host:port/api/storageconnections
+</code></pre></div></div>
+
+<p>Example of request body - NFS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;storage_connection&gt;
+    &lt;type&gt;nfs&lt;/type&gt;
+    &lt;address&gt;nfsserver.lab.somecompanyname.com&lt;/address&gt;
+    &lt;path&gt;/export/storagedata/username/data20&lt;/path&gt;
+    &lt;host&gt;
+        &lt;name&gt;vdsm_host_to_use&lt;/name&gt;
+    &lt;/host&gt;
+&lt;/storage_connection&gt;
+</code></pre></div></div>
+
+<p>Example of request body - POSIX:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;storage_connection&gt;
+    &lt;type&gt;posixfs&lt;/type&gt;
+    &lt;address&gt;fileserver.lab.somecompanyname.com&lt;/address&gt;
+    &lt;path&gt;/export/storagedata/username/dataNewData&lt;/path&gt;
+    &lt;vfs_type&gt;nfs&lt;/vfs_type&gt;
+&lt;/storage_connection&gt;
+</code></pre></div></div>
+
+<h2 id="delete-connection-delete">Delete connection (DELETE)</h2>
+
+<p>Deletion of connection will be possible only if no storage domain nor LUN disks is referencing it (orphan connection).</p>
+
+<p><b>Example</b></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request type is DELETE
+http://host:port/api/storageconnections/&lt;connectionId&gt;
+</code></pre></div></div>
+
+<p>Connection ID is of format GUID, for instance - <code class="language-plaintext highlighter-rouge">ffb489f6-b144-4770-84d0-22167024bb5c</code>.
+A host is optional for the deletion process. Supplying it will disconnect (unmount) the connection from that host. If host is passed, there’s a need in request body in deletion request to contain host details.
+Example of host element structure in the body (it can contain either host id or name):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;host&gt;
+    &lt;name&gt;vdsm_host_to_use&lt;/name&gt;
+&lt;/host&gt;
+</code></pre></div></div>
+
+<p>Example passing host id (in this case - empty):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;host id="00000000-0000-0000-0000-000000000000"&gt;
+&lt;/host&gt;
+</code></pre></div></div>
+
+<h2 id="update-existing-connection-put">Update existing connection (PUT)</h2>
+
+<p>It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields.
+Host section is optional. Specifying host (vdsm) will lead the host to attempt to connect to the newly specified storage details.
+Not specifying host will lead to just update the details in the engine’s database.
+Connection ID however, will be immutable.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request type - PUT
+http://host:port/api/storageconnections
+</code></pre></div></div>
+
+<p>Example body - changing the address:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;storage_connection&gt;
+    &lt;address&gt;dhcp-1-120.my.lab.a.com&lt;/address&gt;
+    &lt;host&gt;
+        &lt;name&gt;vdsm_host_to_use&lt;/name&gt;
+    &lt;/host&gt;
+&lt;/storage_connection&gt;
+</code></pre></div></div>
+
+<h2 id="add-new-file-nfsposixlocal-storage-domain-with-existing-storage-connection-post">Add new file (nfs/posix/local) storage domain with existing storage connection (POST)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request type - POST
+http://host:port/api/storagedomains
+
+&lt;storage_domain&gt;
+    &lt;name&gt;mynewdomain&lt;/name&gt;
+    &lt;type&gt;data&lt;/type&gt;
+    &lt;storage id="ad3ca1ff-26a6-482e-ac6b-16ee23f12529"/&gt; &lt;!-- Referes to an existing connection --&gt;
+    &lt;host&gt;
+        &lt;name&gt;vdsm_host_to_use&lt;/name&gt;
+    &lt;/host&gt;
+&lt;/storage_domain&gt;
+</code></pre></div></div>
+
+<h2 id="attach-an-additional-storage-connection-to-an-existing-iscsi-storage-domain-post">Attach an additional storage connection to an existing iSCSI storage domain (POST)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request type - POST
+http://host:port/api/storagedomains/&lt;storageDomainid&gt;/storageconnections
+
+&lt;storage_connection id=""&gt;
+&lt;/storage_connection&gt;
+</code></pre></div></div>
+
+<h2 id="detach-a-storage-connection-from-iscsi-storage-domain-delete">Detach a storage connection from iSCSI storage domain (DELETE)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request type - DELETE
+http://host:port/api/storagedomains/&lt;storageDomainid&gt;/storageconnections/&lt;connection_id&gt;
+</code></pre></div></div>
+
+<h1 id="database">Database</h1>
+
+<p>This feature doesn’t require any database structure change nor upgrade. The below is a description of the existing structure as it is today, and how it will be used in the scope of this feature.</p>
+
+<p>Storage connections are managed today in <code class="language-plaintext highlighter-rouge">storage_server_connections</code> table. The edit action will update an existing record in this table. The connection id will remained unchanged, thus the references to the connection will remain correct and will not need a modification.</p>
+
+<p>For NFS/gluster/POSIX/local connections a reference to a record in this table is made in <code class="language-plaintext highlighter-rouge">storage_domain_static</code> table –&gt; column “storage” holds the connection id.</p>
+
+<p>For iSCSI, the reference to connection id is made via <code class="language-plaintext highlighter-rouge">lun_storage_server_connection_map</code> table.</p>
+
+<p><code class="language-plaintext highlighter-rouge">physical_volume_id</code> is the id used by lvm, and since it will be copied by LUN replication, it will be the same in the new (backup) LUN, so it needs no update in the database. lun_id can be the same or change during LUN replication (setup dependent) - in the scope of this feature, the lun_id will remain the same cross the source and the target system, thus there is no need to update lun_id in the database.</p>
+
+<h1 id="mla-permissions">MLA (permissions)</h1>
+
+<p>Administrative permission on the “System” level are required to directly manage connections.
+Editing the connections of an existing domain requires permissions on that domain.</p>
+
+<h1 id="testing">Testing</h1>
+
+<ol>
+  <li>NFS - edit in webadmin UI:
+Preparation: copy the contents of the storage domain manually from the current path to the new (target) path
+Scenario:</li>
+</ol>
+
+<ul>
+  <li>
+    <ul>
+      <li>maintenance the data domain</li>
+      <li>right click - edit the storage domain</li>
+      <li>change the mount path to another storage server</li>
+      <li>edit NFS advanced options: retransmissions, timeout</li>
+      <li>activate the domain</li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>POSIX - edit in webadmin UI:
+Preparation: copy the contents of the storage domain manually from the current path to the new (target) path
+Scenario:</li>
+</ol>
+
+<ul>
+  <li>
+    <ul>
+      <li>maintenance the data domain</li>
+      <li>right click - edit the storage domain</li>
+      <li>change the mount path to another storage server</li>
+      <li>edit mount options</li>
+      <li>activate the domain</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2793/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2793/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2793/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2793/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/manage-storage-connections.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/manage-storage-connections.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

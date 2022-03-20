@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Storage Types | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Storage Types" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2794/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2794/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Storage Types" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2794/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Storage Types","url":"https://ovirt.github.io/ovirt-site/previews/2794/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2794/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2794/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2794/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2794/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2794/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2794/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2794/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2794/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2794/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2794/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2794/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2794/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2794/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2794/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2794/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2794/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2794/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2794/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2794/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2794/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2794/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2794/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2794/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2794/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2794/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2794/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2794/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2794/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2794/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2794/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2794/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2794/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2794/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2794/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2794/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2794//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2794//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2794/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2794/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2794/documentation/doc-Planning_and_Prerequisites_Guide/">
+              <span property="name">Doc Planning And Prerequisites Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2794/documentation/doc-Planning_and_Prerequisites_Guide/topics/">
+              <span property="name">Topics</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.</p>
+</div>
+<div class="paragraph">
+<p>A storage domain can be made of either block devices (iSCSI or Fibre Channel) or a file system.</p>
+</div>
+<div class="paragraph">
+<p>By default, GlusterFS domains and local storage domains support 4K block size. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>{virt-product-fullname} currently does not support block storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The storage types described in the following sections are supported for use as data storage domains. ISO and export storage domains only support file-based storage types. The ISO domain supports local storage when used in a local storage data center.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index#"><em>{enterprise-linux} Storage Administration Guide</em></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nfs">NFS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NFS versions 3 and 4 are supported by {virt-product-fullname} 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.</p>
+</div>
+<div class="paragraph">
+<p>As NFS exports are grown to accommodate more storage needs, {virt-product-fullname} recognizes the larger data store immediately. No additional configuration is necessary on the hosts or from within {virt-product-fullname}. This provides NFS a slight edge over block storage from a scale and operational perspective.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index.html#ch-nfs">Network File System (NFS)</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-preparing_and_adding_nfs_storage">Preparing and Adding NFS Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="iscsi">iSCSI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management">Online Storage Management</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_iSCSI_Storage_storage_admin">Adding iSCSI Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="fibre-channel">Fibre Channel</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management">Online Storage Management</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_FCP_Storage_storage_admin">Adding FCP Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="fcoe">Fibre Channel over Ethernet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must enable the <strong>fcoe</strong> key on the {engine-name}, and install the <em>vdsm-hook-fcoe</em> package on the hosts.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management">Online Storage Management</a> in the <em>{enterprise-linux} Storage Administration Guide</em>.</p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#how_to_set_up_rhvm_to_use_fcoe">How to Set Up {virt-product-fullname} {engine-name} to Use FCoE</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rhhi">Red Hat Hyperconverged Infrastructure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Hyperconverged Infrastructure (RHHI) combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization/"><em>Deploying Red Hat Hyperconverged Infrastructure for Virtualization</em></a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization_on_a_single_node/"><em>Deploying Red Hat Hyperconverged Infrastructure for Virtualization On A Single Node</em></a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/automating_rhhi_for_virtualization_deployment/"><em>Automating RHHI for Virtualization Deployment</em></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="posix">POSIX-Compliant FS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Other POSIX-compliant file systems can be used as storage domains in {virt-product-fullname}, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with {virt-product-fullname}.</p>
+</div>
+<div class="paragraph">
+<p>See:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_rhel_docs_legacy}html/Global_File_System_2/index.html"><em>{enterprise-linux} Global File System 2</em></a></p>
+</li>
+<li>
+<p><a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage">Adding POSIX Compliant File System Storage</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="local-storage">Local Storage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Local storage is set up on an individual host, using the host&#8217;s own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.</p>
+</div>
+<div class="paragraph">
+<p>For {hypervisor-fullname}s, local storage should always be defined on a file system that is separate from / (root). Use a separate logical volume or disk.</p>
+</div>
+<div class="paragraph">
+<p>See: <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_Local_Storage">Preparing and Adding Local Storage</a> in the <em>Administration Guide</em>.</p>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2794/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2794/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2794/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2794/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

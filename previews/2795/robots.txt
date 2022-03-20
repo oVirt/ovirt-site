@@ -1,1 +1,0 @@
-Sitemap: https://ovirt.github.io/ovirt-site/previews/2795/sitemap.xml

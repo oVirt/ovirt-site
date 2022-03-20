@@ -19,7 +19,8 @@ A storage domain dedicated to the {engine-name} virtual machine is referred to a
 
 See the link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
 
-include::common/arch/con-RHV_key_components.adoc[]
+[discrete]
+include::common/arch/con-RHV_key_components.adoc[leveloffset=+1]
 
 [discrete]
 include::common/arch/con-Self-hosted_Engine_Architecture.adoc[leveloffset=+1]

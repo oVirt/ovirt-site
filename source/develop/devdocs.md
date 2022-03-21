@@ -37,6 +37,7 @@ authors:
 
 #### Developer Process
 - [Migrating a project from Gerrit to GitHub](/develop/developer-guide/migrating_to_github.html)
+- [Localization](/develop/localization.html)
 
 Obsolete:
 - [Build and Test Standards](/develop/dev-process/build-and-test-standards.html)
@@ -44,7 +45,7 @@ Obsolete:
 - [The development process](/develop/dev-process/devprocess.html)
 - [Release management](/develop/release-management/process/release-process.html)
 - [Becoming a maintainer](/develop/dev-process/becoming-a-maintainer.html)
-- [Localization](/develop/localization.html)
+
 
 #### Release process
 - [Adding a project to ovirt-master-snapshot COPR repository](/develop/release-management/process/add_a_package_to_copr.html)

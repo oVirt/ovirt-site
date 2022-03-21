@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Ruby Examples | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Ruby Examples" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2777/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Ruby Examples" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2777/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2777/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2777/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Ruby Examples","url":"https://ovirt.github.io/ovirt-site/previews/2777/documentation/doc-Ruby_SDK_Guide/chap-Ruby_Examples.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -106,10 +106,8 @@
         <section id="content" class="content container">
           
 <div class="sect1">
-<h2 id="chap-Ruby_Examples">Ruby Examples</h2>
+<h2 id="Connecting_to_the_server">Connecting to the {virt-product-fullname} {engine-name}</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="Connecting_to_the_server">Connecting to the {virt-product-fullname} {engine-name}</h3>
 <div class="paragraph">
 <p>The <code>Connection</code> class is the entry point of the software development kit. It provides access to the services of the {virt-product-fullname} {engine-name}'s REST API.</p>
 </div>
@@ -172,8 +170,10 @@
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection:initialize" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection:initialize</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Listing_data_centers">Listing Data Centers</h3>
+</div>
+<div class="sect1">
+<h2 id="Listing_data_centers">Listing Data Centers</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example lists the data centers.</p>
 </div>
@@ -206,8 +206,10 @@ dcs.each <span style="color:#080;font-weight:bold">do</span> |dc|
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DataCentersService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DataCentersService:list</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Listing_clusters">Listing Clusters</h3>
+</div>
+<div class="sect1">
+<h2 id="Listing_clusters">Listing Clusters</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example lists the clusters.</p>
 </div>
@@ -240,8 +242,10 @@ cls.each <span style="color:#080;font-weight:bold">do</span> |cl|
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/ClustersService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/ClustersService:list</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Listing_logical_networks">Listing Logical Networks</h3>
+</div>
+<div class="sect1">
+<h2 id="Listing_logical_networks">Listing Logical Networks</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example lists the logical networks.</p>
 </div>
@@ -274,8 +278,10 @@ nws.each <span style="color:#080;font-weight:bold">do</span> |nw|
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/NetworksService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/NetworksService:list</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Listing_hosts">Listing Hosts</h3>
+</div>
+<div class="sect1">
+<h2 id="Listing_hosts">Listing Hosts</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example lists the hosts.</p>
 </div>
@@ -308,8 +314,10 @@ host.each <span style="color:#080;font-weight:bold">do</span> |host|
 <p>For more information, see <a href="https://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/HostsService#list-instance_method" class="bare">https://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/HostsService#list-instance_method</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Listing_ISO_files_in_ISO_storage_domain">Listing ISO Files in the ISO Storage Domain</h3>
+</div>
+<div class="sect1">
+<h2 id="Listing_ISO_files_in_ISO_storage_domain">Listing ISO Files in the ISO Storage Domain</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example lists the ISO files in the ISO storage domain, <code>myiso</code>.</p>
 </div>
@@ -354,8 +362,10 @@ iso_sds = sds_service.list.select { |sd| sd.type == <span style="color:#036;font
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:list</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Creating_NFS_storage_domain">Creating an NFS Storage Domain</h3>
+</div>
+<div class="sect1">
+<h2 id="Creating_NFS_storage_domain">Creating an NFS Storage Domain</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example adds an NFS storage domain.</p>
 </div>
@@ -397,8 +407,10 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="attaching-a-storage-domain-to-a-data-center">Attaching a Storage Domain to a Data Center</h3>
+</div>
+<div class="sect1">
+<h2 id="attaching-a-storage-domain-to-a-data-center">Attaching a Storage Domain to a Data Center</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example attaches an existing NFS storage domain, <code>mydata</code>, to an existing data center, <code>mydc</code>. This example is used to attach both data and ISO storage domains.</p>
 </div>
@@ -446,8 +458,10 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:add</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Creating_a_virtual_machine">Creating a Virtual Machine</h3>
+</div>
+<div class="sect1">
+<h2 id="Creating_a_virtual_machine">Creating a Virtual Machine</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example creates a virtual machine. This example uses a hash with symbols and nested hashes as their values. Another method, more verbose, is to use the constructors of the corresponding objects directly. See <a href="#Creating_a_Virtual_Machine_Instance_with_Attributes">Creating a Virtual Machine Instance with Attributes</a> for more information.</p>
 </div>
@@ -477,8 +491,10 @@ vms_service.add(
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Creating_a_vNIC_profile">Creating a vNIC Profile</h3>
+</div>
+<div class="sect1">
+<h2 id="Creating_a_vNIC_profile">Creating a vNIC Profile</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example creates a vNIC profile.</p>
 </div>
@@ -515,8 +531,10 @@ profiles_service.add(
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VnicProfilesService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VnicProfilesService:add</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Creating_a_vNIC">Creating a vNIC</h3>
+</div>
+<div class="sect1">
+<h2 id="Creating_a_vNIC">Creating a vNIC</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To ensure that a newly created virtual machine has network access you must create and attach a vNIC.</p>
 </div>
@@ -569,8 +587,10 @@ nics_service.add(
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Creating_a_virtual_disk">Creating a Virtual Disk</h3>
+</div>
+<div class="sect1">
+<h2 id="Creating_a_virtual_disk">Creating a Virtual Disk</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To ensure that a newly created virtual machine has access to persistent storage you must create and attach a disk.</p>
 </div>
@@ -623,8 +643,10 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DiskAttachmentsService:add" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/DiskAttachmentsService:add</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Attaching_ISO_image_to_a_virtual_machine">Attaching an ISO Image to a Virtual Machine</h3>
+</div>
+<div class="sect1">
+<h2 id="Attaching_ISO_image_to_a_virtual_machine">Attaching an ISO Image to a Virtual Machine</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example attaches a CD-ROM to a virtual machine and changes it to an ISO image in order to install the guest operating system.</p>
 </div>
@@ -668,8 +690,10 @@ cdrom_service.update(
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FVmService:cdroms_service" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FVmService:cdroms_service</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Detaching_a_virtual_disk">Detaching a Virtual Disk</h3>
+</div>
+<div class="sect1">
+<h2 id="Detaching_a_virtual_disk">Detaching a Virtual Disk</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example detaches a disk from a virtual machine.</p>
 </div>
@@ -693,8 +717,10 @@ attachment.remove(<span style="color:#606">detach_only</span>: <span style="colo
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:disk_attachments_service" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:disk_attachments_service</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Starting_a_virtual_machine">Starting a Virtual Machine</h3>
+</div>
+<div class="sect1">
+<h2 id="Starting_a_virtual_machine">Starting a Virtual Machine</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine.</p>
 </div>
@@ -725,8 +751,10 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Starting_a_virtual_machine_with_specific_boot_devices">Starting a Virtual Machine with Specific Boot Devices and Boot Order</h3>
+</div>
+<div class="sect1">
+<h2 id="Starting_a_virtual_machine_with_specific_boot_devices">Starting a Virtual Machine with Specific Boot Devices and Boot Order</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine specifying the boot devices and boot order.</p>
 </div>
@@ -768,8 +796,10 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/BootDevice" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/BootDevice</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Starting_a_virtual_machine_with_cloud-init">Starting a Virtual Machine with Cloud-Init</h3>
+</div>
+<div class="sect1">
+<h2 id="Starting_a_virtual_machine_with_cloud-init">Starting a Virtual Machine with Cloud-Init</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine using the Cloud-Init tool to set the <code>root</code> password and network configuration.</p>
 </div>
@@ -827,8 +857,10 @@ vm_service.start(
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Checking_system_events">Checking System Events</h3>
+</div>
+<div class="sect1">
+<h2 id="Checking_system_events">Checking System Events</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Ruby example retrieves logged system events.</p>
 </div>
@@ -889,7 +921,6 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 <div class="paragraph">
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FEventsService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FEventsService:list</a>.</p>
-</div>
 </div>
 </div>
 </div>

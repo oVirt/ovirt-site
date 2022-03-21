@@ -46,23 +46,26 @@ If you are not familiar with the process, you can read about [collaborating with
 
 ##### who's my reviewer?
 
-if you don't know who is should review your patch you can either -
+If you don't know who should review your patch you can either:
 
-*   ping the devel@ovirt.org mailing list with the link to Pull request
-*   git blame your code and trace recent users who committed code that you changed
+*   Ping the devel@ovirt.org mailing list with the link to pull request or
+*   `git blame` your code and trace recent users who committed code that you changed
 
-      git blame HEAD~1 path/to/file -L {start},{end}
+```
+  git blame HEAD~1 path/to/file -L {start},{end}
+```
 
 #### Patch Format
 
 *   ovirt-engine patch format
 
-use the project template for a commit message
+Use the project template for a commit message:
 
       git commit -s -t config/engine-commit-template.txt
 
-*   other patch format (VDSM)
+*   Other patch format (VDSM)
 
+```
       short summary under 80 chars
 
        Longer description.
@@ -71,25 +74,23 @@ use the project template for a commit message
 
       Bug-Url: https://bugzilla.redhat.com/XXXXXX
       Signed-off-by: full name <mail>
-
-
+```
 
 #### Sending a Patch For Work In Progress
 
-Patches in draft are blocked from being merged until they are "published"
+Patches in draft are blocked from being merged until they are "published".
 
 Read more about [GitHub Draft Pull Requests on the GitHub site](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests).
-
 
 #### Describe your changes properly
 
 1.  Not just “what”, but “why”
 2.  Makes patches easier to review
-3.  Incredibly useful to future developers, and for you as well (don't trust your own memory)
+3.  Incredibly useful to future developers and for you as well (don't trust your own memory)
 
 #### Separate your changes
 
-1.  Each commits contain a single logical change
+1.  Each commit contains a single logical change
 2.  Keep refactoring separate from bug fixes
 
 #### Focus on details
@@ -121,8 +122,6 @@ Create a branch for everything you work on.
 
 ##### Interactive Rebase
 
-You can also interactive rebase. It is very useful when you would like to re-write your own commit objects before pushing them somewhere.
-It is an easy way to split, merge or re-order commits before sharing them with others.
-You can also use it to clean up commits you've pulled from someone when applying them locally.
+You can also rebase with `--interactive`. It is very useful when you would like to re-write your own commit objects before pushing them somewhere. It is an easy way to split, merge or re-order commits before sharing them with others. You can also use it to clean up commits you've pulled from someone when applying them locally.
 
-For more information on using interactive rebase see <https://book.git-scm.com/docs/git-rebase#_interactive_mode>
+For more information on using interactive rebase see <https://book.git-scm.com/docs/git-rebase#_interactive_mode>.

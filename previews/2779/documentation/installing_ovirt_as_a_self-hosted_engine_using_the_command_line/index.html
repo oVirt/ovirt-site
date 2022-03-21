@@ -208,7 +208,7 @@
 <li><a href="#removing-a-module-temporarily">Removing a module temporarily</a></li>
 </ul>
 </li>
-<li><a href="#legal-notice">Appendix F: Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">Appendix F: Legal notice</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -226,8 +226,8 @@
 <div class="paragraph">
 <p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index"><em>Planning and Prerequisites Guide</em></a> for information on environment options and recommended configuration. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#self-hosted-engine-recommendations">Self-Hosted Engine Recommendations</a> for configuration specific to a self-hosted engine environment.</p>
 </div>
-<table id="RHV_key_components_SHE_cli_deploy" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. oVirt Key Components</caption>
+<h2 id="RHV_key_components_SHE_cli_deploy" class="discrete">oVirt Key Components</h2>
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -441,7 +441,7 @@
 <p>The oVirt Engine runs on Enterprise Linux operating systems like <a href="https://www.centos.org/">CentOS Linux</a> or <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. oVirt Engine Hardware Requirements</caption>
+<caption class="title">Table 1. oVirt Engine Hardware Requirements</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -501,7 +501,7 @@
 </ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Browser Requirements</caption>
+<caption class="title">Table 2. Browser Requirements</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -669,6 +669,7 @@
 <p>You must enable virtualization in the BIOS. Power off and reboot the host after this change to ensure that the change is applied.</p>
 </div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>At the Enterprise Linux or oVirt Node boot screen, press any key and select the <strong>Boot</strong> or <strong>Boot with serial console</strong> entry from the list.</p>
@@ -931,7 +932,7 @@
 <p>The firewall configuration documented here assumes a default configuration.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. oVirt Engine Firewall Requirements</caption>
+<caption class="title">Table 3. oVirt Engine Firewall Requirements</caption>
 <colgroup>
 <col style="width: 12%;">
 <col style="width: 12%;">
@@ -1104,7 +1105,7 @@
 <p>To disable automatic firewall configuration when adding a new host, clear the <strong>Automatically configure host firewall</strong> check box under <strong>Advanced Parameters</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Virtualization Host Firewall Requirements</caption>
+<caption class="title">Table 4. Virtualization Host Firewall Requirements</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 14.2857%;">
@@ -1310,7 +1311,7 @@
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Database Server Firewall Requirements</caption>
+<caption class="title">Table 5. Database Server Firewall Requirements</caption>
 <colgroup>
 <col style="width: 8.3333%;">
 <col style="width: 8.3333%;">
@@ -1899,7 +1900,7 @@ Do not override this setting.
 <p>oVirt Node supports NIST 800-53 partitioning requirements to improve security. oVirt Node uses a NIST 800-53 partition layout by default.</p>
 </div>
 <div class="paragraph">
-<p>The host must meet the minimum  <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+<p>The host must meet the minimum  <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index.html#host-requirements">host requirements</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2228,7 +2229,7 @@ Do not override this setting.
 <p>Install the Engine Appliance to the host manually:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install {engine-package}-appliance</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-appliance</code></pre>
 </div>
 </div>
 </li>
@@ -3046,7 +3047,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Host Types</caption>
+<caption class="title">Table 6. Host Types</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3087,7 +3088,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <p>oVirt Node supports NIST 800-53 partitioning requirements to improve security. oVirt Node uses a NIST 800-53 partition layout by default.</p>
 </div>
 <div class="paragraph">
-<p>The host must meet the minimum  <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+<p>The host must meet the minimum  <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index.html#host-requirements">host requirements</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -5758,10 +5759,10 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="legal-notice">Appendix F: Legal notice</h2>
+<h2 id="ovirt-legal-notice">Appendix F: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a self-hosted engine using the command line</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a self-hosted engine using the command line</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

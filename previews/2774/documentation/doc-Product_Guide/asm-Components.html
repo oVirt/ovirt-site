@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>{virt-product-fullname} Components | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="{virt-product-fullname} Components" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2774/documentation/doc-Product_Guide/asm-Components.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="{virt-product-fullname} Components" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2774/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2774/documentation/doc-Product_Guide/asm-Components.html","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2774/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"{virt-product-fullname} Components","url":"https://ovirt.github.io/ovirt-site/previews/2774/documentation/doc-Product_Guide/asm-Components.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -106,10 +106,8 @@
         <section id="content" class="content container">
           
 <div class="sect1">
-<h2 id="RHV-components">{virt-product-fullname} Components</h2>
+<h2 id="rhevm">{virt-product-fullname} {engine-name}</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="virt-product-fullname-engine-name">{virt-product-fullname} {engine-name}</h3>
 <div class="paragraph">
 <p>The {virt-product-fullname} {engine-name} provides a graphical user interface and a RESTful API to manage the resources of the {virt-product-fullname} environment. In a standalone {engine-name} environment, the {engine-name} is installed on a {enterprise-linux} 8 physical machine, or a virtual machine hosted in a separate environment. In a self-hosted engine environment, the {engine-name} is installed as a virtual machine hosted on self-hosted engine nodes in the same environment it manages.</p>
 </div>
@@ -120,8 +118,10 @@
 <p>See: <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#"><em>Administration Guide</em></a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hosts">Hosts</h3>
+</div>
+<div class="sect1">
+<h2 id="hosts">Hosts</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Hosts, also known as hypervisors, are the physical servers on which virtual machines run. Full virtualization is provided by using a loadable Linux kernel module called Kernel-based Virtual Machine (KVM). KVM can concurrently host multiple virtual machines running either Windows or Linux operating systems. Virtual machines run on the host machine and are managed remotely by the {virt-product-fullname} {engine-name}.</p>
 </div>
@@ -147,8 +147,10 @@
 <p>See: <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Hosts">Hosts</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="storage">Storage</h3>
+</div>
+<div class="sect1">
+<h2 id="storage">Storage</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Setting up storage and attaching it to your {virt-product-fullname} environment is a prerequisite before you can start creating end-user virtual machines. {virt-product-fullname} has three types of storage domains; however, only the data domain is now fully supported:</p>
 </div>
@@ -172,8 +174,10 @@
 <p>See:  <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="data-warehouse">Data Warehouse</h3>
+</div>
+<div class="sect1">
+<h2 id="data-warehouse">Data Warehouse</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The {virt-product-fullname} {engine-name} includes a data warehouse that collects monitoring data about hosts, virtual machines, and storage. Data Warehouse, which includes a database and a service, must be installed and configured along with the {engine-name} setup, either on the same machine or on a separate server.</p>
 </div>
@@ -197,8 +201,10 @@
 <p>See: <a href="{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#"><em>Data Warehouse Guide</em></a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="networking-in-virt-product-fullname">Networking in {virt-product-fullname}</h3>
+</div>
+<div class="sect1">
+<h2 id="networking">Networking in {virt-product-fullname}</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Operations such as storage, host management, user connections, and virtual machine connectivity all rely on a well-planned and well-configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a {virt-product-fullname} environment. Planning for your projected networking requirements and implementing your network accordingly is much simpler than discovering your networking requirements through use and altering your network configuration retroactively.</p>
 </div>
@@ -228,8 +234,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>See: <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Logical_Networks">Logical Networks</a> in the <em>Administration Guide</em>.</p>
-</div>
+<p>See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Logical_Networks">Logical Networks</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
 </div>

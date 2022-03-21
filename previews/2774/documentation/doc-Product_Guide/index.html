@@ -99,44 +99,46 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction to oVirt</a>
+<li><a href="#introduction">1. Introduction to oVirt</a></li>
+<li><a href="#RHV_key_components_RHV_intro">2. oVirt Key Components</a>
 <ul class="sectlevel2">
-<li><a href="#RHV_Architecture">1.1. oVirt Architecture</a>
+<li><a href="#RHV_Architecture">2.1. oVirt Architecture</a>
 <ul class="sectlevel3">
-<li><a href="#Self-hosted_Engine_Architecture_RHV_intro">1.1.1. Self-Hosted Engine Architecture</a></li>
-<li><a href="#Standalone_Manager_Architecture_RHV_intro">1.1.2. Standalone Engine Architecture</a></li>
+<li><a href="#Self-hosted_Engine_Architecture_RHV_intro">2.1.1. Self-Hosted Engine Architecture</a></li>
+<li><a href="#Standalone_Manager_Architecture_RHV_intro">2.1.2. Standalone Engine Architecture</a></li>
 </ul>
 </li>
-<li><a href="#RHV_terminology">1.2. oVirt Terminology</a></li>
+<li><a href="#RHV_terminology">2.2. oVirt Terminology</a></li>
 </ul>
 </li>
-<li><a href="#RHV-components">2. oVirt Components</a>
+<li><a href="#RHV-components">3. oVirt Components</a>
 <ul class="sectlevel2">
-<li><a href="#ovirt-engine">2.1. oVirt Engine</a></li>
-<li><a href="#hosts">2.2. Hosts</a></li>
-<li><a href="#storage">2.3. Storage</a></li>
-<li><a href="#data-warehouse">2.4. Data Warehouse</a></li>
-<li><a href="#networking-in-ovirt">2.5. Networking in oVirt</a></li>
+<li><a href="#rhevm">3.1. oVirt Engine</a></li>
+<li><a href="#hosts">3.2. Hosts</a></li>
+<li><a href="#storage">3.3. Storage</a></li>
+<li><a href="#data-warehouse">3.4. Data Warehouse</a></li>
+<li><a href="#networking">3.5. Networking in oVirt</a></li>
 </ul>
 </li>
-<li><a href="#installation">3. Installing oVirt</a>
+<li><a href="#installation">4. Installing oVirt</a>
 <ul class="sectlevel2">
-<li><a href="#RHV_installation-overview">3.1. oVirt Installation Overview</a></li>
-<li><a href="#RHV_Installation_Options_RHV_intro">3.2. oVirt Installation Options</a>
+<li><a href="#RHV_installation-overview">4.1. oVirt Installation Overview</a></li>
+<li><a href="#RHV_Installation_Options_RHV_intro">4.2. oVirt Installation Options</a>
 <ul class="sectlevel3">
-<li><a href="#SHE_install_options">3.2.1. Self-hosted engine (recommended)</a></li>
-<li><a href="#SM_install_options">3.2.2. Standalone Engine (manual)</a></li>
+<li><a href="#SHE_install_options">4.2.1. Self-hosted engine (recommended)</a></li>
+<li><a href="#SM_install_options">4.2.2. Standalone Engine (manual)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#accessing-rhv">4. Accessing oVirt</a>
+<li><a href="#accessing-rhv">5. Accessing oVirt</a>
 <ul class="sectlevel2">
-<li><a href="#supported-interfaces-for-read-and-write-access">4.1. Supported Interfaces for Read and Write Access</a></li>
-<li><a href="#supported-interfaces-for-read-access">4.2. Supported Interfaces for Read Access</a></li>
-<li><a href="#unsupported-interfaces">4.3. Unsupported Interfaces</a></li>
+<li><a href="#supported-interfaces-for-read-and-write-access">5.1. Supported Interfaces for Read and Write Access</a></li>
+<li><a href="#supported-interfaces-for-read-access">5.2. Supported Interfaces for Read Access</a></li>
+<li><a href="#unsupported-interfaces">5.3. Unsupported Interfaces</a></li>
 </ul>
 </li>
+<li><a href="#ovirt-legal-notice">Appendix A: Legal notice</a></li>
 </ul>
 </div>
 <div class="sect1">
@@ -145,8 +147,12 @@
 <div class="paragraph">
 <p>oVirt is an enterprise-grade virtualization platform built on Enterprise Linux. Virtualization allows users to easily provision new virtual servers and workstations, and provides more efficient use of physical server resources. With oVirt, you can manage your entire virtual infrastructure - including hosts, virtual machines, networks, storage, and users - from a centralized graphical user interface or REST API.</p>
 </div>
-<table id="RHV_key_components_RHV_intro" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. oVirt Key Components</caption>
+</div>
+</div>
+<div class="sect1">
+<h2 id="RHV_key_components_RHV_intro">2. oVirt Key Components</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -180,12 +186,12 @@
 <p>For detailed technical information about oVirt, see the <a href="https://ovirt.org/documentation/technical_reference/index#"><em>Technical Reference</em></a>.</p>
 </div>
 <div class="sect2">
-<h3 id="RHV_Architecture">1.1. oVirt Architecture</h3>
+<h3 id="RHV_Architecture">2.1. oVirt Architecture</h3>
 <div class="paragraph">
 <p>oVirt can be deployed as a self-hosted engine, or as a standalone Engine. A self-hosted engine is the recommended deployment option.</p>
 </div>
 <div class="sect3">
-<h4 id="Self-hosted_Engine_Architecture_RHV_intro">1.1.1. Self-Hosted Engine Architecture</h4>
+<h4 id="Self-hosted_Engine_Architecture_RHV_intro">2.1.1. Self-Hosted Engine Architecture</h4>
 <div class="paragraph">
 <p>The oVirt Engine runs as a virtual machine on self-hosted engine nodes (specialized hosts) in the same environment it manages. A self-hosted engine environment requires one less physical server, but requires more administrative overhead to deploy and manage. The Engine is highly available without external HA management.</p>
 </div>
@@ -213,7 +219,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="Standalone_Manager_Architecture_RHV_intro">1.1.2. Standalone Engine Architecture</h4>
+<h4 id="Standalone_Manager_Architecture_RHV_intro">2.1.2. Standalone Engine Architecture</h4>
 <div class="paragraph">
 <p>The oVirt Engine runs on a physical server, or a virtual machine hosted in a separate virtualization environment. A standalone Engine is easier to deploy and manage, but requires an additional physical server. The Engine is only highly available when managed externally with a product such as Red Hat&#8217;s High Availability Add-On.</p>
 </div>
@@ -242,7 +248,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="RHV_terminology">1.2. oVirt Terminology</h3>
+<h3 id="RHV_terminology">2.2. oVirt Terminology</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -302,10 +308,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="RHV-components">2. oVirt Components</h2>
+<h2 id="RHV-components">3. oVirt Components</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="ovirt-engine">2.1. oVirt Engine</h3>
+<h3 id="rhevm">3.1. oVirt Engine</h3>
 <div class="paragraph">
 <p>The oVirt Engine provides a graphical user interface and a RESTful API to manage the resources of the oVirt environment. In a standalone Engine environment, the Engine is installed on a Enterprise Linux 8 physical machine, or a virtual machine hosted in a separate environment. In a self-hosted engine environment, the Engine is installed as a virtual machine hosted on self-hosted engine nodes in the same environment it manages.</p>
 </div>
@@ -317,7 +323,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="hosts">2.2. Hosts</h3>
+<h3 id="hosts">3.2. Hosts</h3>
 <div class="paragraph">
 <p>Hosts, also known as hypervisors, are the physical servers on which virtual machines run. Full virtualization is provided by using a loadable Linux kernel module called Kernel-based Virtual Machine (KVM). KVM can concurrently host multiple virtual machines running either Windows or Linux operating systems. Virtual machines run on the host machine and are managed remotely by the oVirt Engine.</p>
 </div>
@@ -344,7 +350,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="storage">2.3. Storage</h3>
+<h3 id="storage">3.3. Storage</h3>
 <div class="paragraph">
 <p>Setting up storage and attaching it to your oVirt environment is a prerequisite before you can start creating end-user virtual machines. oVirt has three types of storage domains; however, only the data domain is now fully supported:</p>
 </div>
@@ -369,7 +375,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-warehouse">2.4. Data Warehouse</h3>
+<h3 id="data-warehouse">3.4. Data Warehouse</h3>
 <div class="paragraph">
 <p>The oVirt Engine includes a data warehouse that collects monitoring data about hosts, virtual machines, and storage. Data Warehouse, which includes a database and a service, must be installed and configured along with the Engine setup, either on the same machine or on a separate server.</p>
 </div>
@@ -394,7 +400,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="networking-in-ovirt">2.5. Networking in oVirt</h3>
+<h3 id="networking">3.5. Networking in oVirt</h3>
 <div class="paragraph">
 <p>Operations such as storage, host management, user connections, and virtual machine connectivity all rely on a well-planned and well-configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a oVirt environment. Planning for your projected networking requirements and implementing your network accordingly is much simpler than discovering your networking requirements through use and altering your network configuration retroactively.</p>
 </div>
@@ -424,16 +430,16 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>See: <a href="https://ovirt.org/documentation/administration_guide/index#chap-Logical_Networks">Logical Networks</a> in the <em>Administration Guide</em>.</p>
+<p>See <a href="https://ovirt.org/documentation/administration_guide/index#chap-Logical_Networks">Logical Networks</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="installation">3. Installing oVirt</h2>
+<h2 id="installation">4. Installing oVirt</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="RHV_installation-overview">3.1. oVirt Installation Overview</h3>
+<h3 id="RHV_installation-overview">4.1. oVirt Installation Overview</h3>
 <div class="paragraph">
 <p>The following diagram outlines the setup procedure for a standalone Engine deployment and a self-hosted engine deployment.</p>
 </div>
@@ -445,9 +451,9 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="RHV_Installation_Options_RHV_intro">3.2. oVirt Installation Options</h3>
+<h3 id="RHV_Installation_Options_RHV_intro">4.2. oVirt Installation Options</h3>
 <div class="sect3">
-<h4 id="SHE_install_options">3.2.1. Self-hosted engine (recommended)</h4>
+<h4 id="SHE_install_options">4.2.1. Self-hosted engine (recommended)</h4>
 <div class="paragraph">
 <p>You can install oVirt as a self-hosted engine using the command line.</p>
 </div>
@@ -459,7 +465,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="SM_install_options">3.2.2. Standalone Engine (manual)</h4>
+<h4 id="SM_install_options">4.2.2. Standalone Engine (manual)</h4>
 <div class="paragraph">
 <p>You can only install a standalone Engine using the command line.</p>
 </div>
@@ -507,13 +513,13 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="accessing-rhv">4. Accessing oVirt</h2>
+<h2 id="accessing-rhv">5. Accessing oVirt</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>oVirt exposes a number of interfaces for interacting with the components of the virtualization environment. Many of these interfaces are fully supported.</p>
 </div>
 <div class="sect2">
-<h3 id="supported-interfaces-for-read-and-write-access">4.1. Supported Interfaces for Read and Write Access</h3>
+<h3 id="supported-interfaces-for-read-and-write-access">5.1. Supported Interfaces for Read and Write Access</h3>
 <div class="paragraph">
 <p>Direct interaction with these interfaces is supported and encouraged for both read and write access:</p>
 </div>
@@ -603,7 +609,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="supported-interfaces-for-read-access">4.2. Supported Interfaces for Read Access</h3>
+<h3 id="supported-interfaces-for-read-access">5.2. Supported Interfaces for Read Access</h3>
 <div class="paragraph">
 <p>Direct interaction with these interfaces is supported and encouraged only for read access.</p>
 </div>
@@ -621,7 +627,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="unsupported-interfaces">4.3. Unsupported Interfaces</h3>
+<h3 id="unsupported-interfaces">5.3. Unsupported Interfaces</h3>
 <div class="paragraph">
 <p>Direct interaction with these interfaces is <strong>not</strong> supported
 :</p>
@@ -640,6 +646,14 @@
 </dd>
 </dl>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/product_guide/index">Red Hat Virtualization 4.4 Product Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

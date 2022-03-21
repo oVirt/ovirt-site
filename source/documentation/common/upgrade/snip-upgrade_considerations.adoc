@@ -6,7 +6,7 @@
 
 * When upgrading from Open Virtual Network (OVN) and Open vSwitch (OvS) 2.11 to OVN 2021 and OvS 2.15, the process is transparent to the user as long as the following conditions are met:
 
-** The engine must be upgraded first.
+** The engine is upgraded first.
 ** The ovirt-provider-ovn security groups must be disabled, before the host upgrade, for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.
 ** The hosts are upgraded to match OVN version 2021 or higher and OvS version 2.15.
 

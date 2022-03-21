@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Using the Software Development Kit | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Using the Software Development Kit" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2800/documentation/doc-Python_SDK_Guide/chap-Using_the_Software_Development_Kit.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2800/documentation/doc-Python_SDK_Guide/chap-Using_the_Software_Development_Kit.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Using the Software Development Kit" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2800/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Using the Software Development Kit","url":"https://ovirt.github.io/ovirt-site/previews/2800/documentation/doc-Python_SDK_Guide/chap-Using_the_Software_Development_Kit.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2800/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2800/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2800/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2800/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2800/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2800/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2800/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2800/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2800/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2800/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2800/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2800/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2800/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2800/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2800/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2800/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2800/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2800/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2800/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2800/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2800/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2800/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2800/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2800/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2800/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2800/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2800/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2800/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2800/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2800/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2800/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2800/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2800/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2800/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2800/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2800//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2800//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2800/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2800/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2800/documentation/doc-Python_SDK_Guide/">
+              <span property="name">Python SDK Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes how to use the software development kit for Version 4.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Packages">Packages</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following modules are most frequently used by the Python SDK:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">ovirtsdk4</dt>
+<dd>
+<p>This is the top level module. It most important element is the <code>Connection</code> class, which is the mechanism to connect to the server and to obtain the reference to the root of the services tree.</p>
+<div class="paragraph">
+<p>The <code>Error</code> class is the base exception class that the SDK will raise when it needs to report an error.</p>
+</div>
+<div class="paragraph">
+<p>For certain kinds of errors, there are specific error classes, which extend the base error class:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AuthError</code> - Raised when authentication or authorization fails.</p>
+</li>
+<li>
+<p><code>ConnectionError</code> - Raised when the name of the server cannot be resolved or the server is unreachable.</p>
+</li>
+<li>
+<p><code>NotFoundError</code> - Raised when the requested object does not exist.</p>
+</li>
+<li>
+<p><code>TimeoutError</code> - Raised when an operation times out.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">ovirtsdk4.types</dt>
+<dd>
+<p>This module contains the classes that implement the types used in the API. For example, the <code>ovirtsdk4.types.Vm</code> class is the implementation of the virtual machine type. These classes are data containers and do not contain any logic.</p>
+<div class="paragraph">
+<p>Instances of these classes are used as parameters and return values of service methods. The conversion to or from the underlying representation is handled transparently by the SDK.</p>
+</div>
+</dd>
+<dt class="hdlist1">ovirtsdk4.services</dt>
+<dd>
+<p>This module contains the classes that implement the services supported by the API. For example, the <code>ovirtsdk4.services.VmsService</code> class is the implementation of the service that manages the collection of virtual machines of the system.</p>
+<div class="paragraph">
+<p>Instances of these classes are automatically created by the SDK when a service is located. For example, a new instance of the <code>VmsService</code> class is automatically created by the SDK when doing the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vms_service = connection.system_service().vms_service()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is best to avoid creating instances of these classes manually, as the parameters of the constructors and, in general, all the methods except the service locators and service methods, may change in the future.</p>
+</div>
+<div class="paragraph">
+<p>There are other modules, like <code>ovirtsdk4.http</code>, <code>ovirtsdk4.readers</code>, and <code>ovirtsdk4.writers</code>. These are used to implement the HTTP communication and for XML parsing and rendering. Avoid using them, because they are internal implementation details that may change in the future; backwards compatibility is not guaranteed.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Connecting_to_the_server">Connecting to the Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To connect to the server, import the <code>ovirtsdk4</code> module, which contains the <code>Connection</code> class. This is the entry point of the SDK, and provides access to the root of the tree of services of the API:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The connection holds critical resources, including a pool of HTTP connections to the server and an authentication token. It is very important to free these resources when they are no longer in use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once a connection is closed, it cannot be reused.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ca.pem</code> file is required when connecting to a server protected with TLS. In a normal installation, it is located in <strong>/etc/pki/ovirt-engine/</strong> on the {engine-name} machine. If you do not specify the <code>ca_file</code>, the system-wide CA certificate store will be used. For more information on obtaining the <code>ca.pem</code> file, see the  <a href="{URL_downstream_virt_product_docs}rest_api_guide/index#documents-002_authentication_and_security"><em>REST API Guide</em></a>.</p>
+</div>
+<div class="paragraph">
+<p>If the connection is not successful, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Using_types">Using Types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The classes in the <code>ovirtsdk4.types</code> module are pure data containers. They do not have any logic or operations. Instances of types can be created and modified at will.</p>
+</div>
+<div class="paragraph">
+<p>Creating or modifying an instance does not affect the server side, unless the change is explicitly passed with a call to one of the service methods described below. Changes on the server side are not automatically reflected in the instances that already exist in memory.</p>
+</div>
+<div class="paragraph">
+<p>The constructors of these classes have multiple optional arguments, one for each attribute of the type. This is intended to simplify creation of objects using nested calls to multiple constructors. This example creates an instance of a virtual machine, specifying its cluster name,  template, and memory, in bytes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">types</span>
+
+vm = types.Vm(
+    name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>,
+    cluster=types.Cluster(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Default</span><span style="color:#710">'</span></span>
+    ),
+    template=types.Template(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mytemplate</span><span style="color:#710">'</span></span>
+    ),
+    memory=<span style="color:#00D">1073741824</span>
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using the constructors in this way is recommended, but not mandatory. You can also create the instance with no arguments in the call to the constructor and populate the object step by step, using the setters, or by using a mix of both approaches:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vm = types.Vm()
+vm.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>
+vm.cluster = types.Cluster(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Default</span><span style="color:#710">'</span></span>)
+vm.template = types.Template(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mytemplate</span><span style="color:#710">'</span></span>)
+vm.memory=<span style="color:#00D">1073741824</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attributes that are defined as lists of objects in the specification of the API are implemented as Python lists. For example, the <code>custom_properties</code> attributes of the <code>Vm</code> type are defined as a list of objects of type <code>CustomProperty</code>. When the attributes are used in the SDK, they are a Python list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vm = types.Vm(
+    name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>,
+    custom_properties=[
+        types.CustomProperty(...),
+        types.CustomProperty(...),
+        ...
+    ]
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attributes that are defined as enumerated values in API are implemented as <code>enum</code> in Python, using the native support for <code>enums</code> in Python 3 and the <code>enum34</code> package in Python 2.7. In this example, the status attribute of the <code>Vm</code> type is defined using the <code>VmStatus enum</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">if</span> vm.status == types.VmStatus.DOWN:
+    ...
+<span style="color:#080;font-weight:bold">elif</span> vm.status == types.VmStatus.IMAGE_LOCKED:
+    ....</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the API specification, the values of <code>enum</code> types appear in lower case, because that is what is used for XML and JSON. The Python convention, however, is to capitalize <code>enum</code> values.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Reading the attributes of instances of types is done using the corresponding properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">vm.name: %s</span><span style="color:#710">&quot;</span></span> % vm.name)
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">vm.memory: %s</span><span style="color:#710">&quot;</span></span> % vm.memory)
+<span style="color:#080;font-weight:bold">for</span> custom_property <span style="color:#080;font-weight:bold">in</span> vm.custom_properties:
+    ...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Using_links">Using Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some attributes of types are defined by the API as links. This convention indicates that the values are not normally populated when retrieving the representation of that object. Rather, a link is returned instead. For example, when retrieving a virtual machine, the XML response from the server includes the <code>&lt;link&gt;</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>&lt;vm id=&quot;123&quot; href=&quot;/ovirt-engine/api/vms/123&quot;&gt;
+    &lt;name&gt;vm1&lt;/name&gt;
+    &lt;link rel=&quot;diskattachments&quot; href=&quot;/ovirt-engine/api/vms/123/diskattachments/&gt;
+  ...
+&lt;/vm&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The link to <code>vm.diskattachments</code> does not contain the actual disk attachments. To obtain the data, the <code>Connection</code> class provides a <code>follow_link</code> method that uses the value of the <code>href</code> XML attribute to retrieve the actual data. For example, to retrieve the details of the disks of the virtual machine, you follow the link to the disk attachments, and then to each of the disks:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Retrieve the virtual machine:</span>
+vm = vm_service.get()
+
+<span style="color:#777"># Follow the link to the disk attachments, and then to the disks:</span>
+attachments = connection.follow_link(vm.disk_attachments)
+<span style="color:#080;font-weight:bold">for</span> attachment <span style="color:#080;font-weight:bold">in</span> attachments:
+    disk = connection.follow_link(attachment.disk)
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">disk.alias: </span><span style="color:#710">&quot;</span></span> % disk.alias)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Locating_services">Locating Services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The API provides a set of services, each associated with a path within the URL space of the server. For example, the service that manages the collection of virtual machines of the system is located in <strong>/vms</strong>, and the service that manages the virtual machine with identifier <code>123</code> is located in <strong>/vms/123</strong>.</p>
+</div>
+<div class="paragraph">
+<p>In the SDK, the root of that tree of services is implemented by the system service. It is obtained calling the <code>system_service</code> method of the connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">system_service = connection.system_service()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you have the reference to this system service, you can use it to obtain references to other services, calling the <code>*_service</code> methods, called service locators, of the previous service. For example, to obtain a reference to the service that manages the collection of virtual machines of the system, you use the <code>vms_service</code> service locator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vms_service = system_service.vms_service()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain a reference to the service that manages the virtual machine with identifier <code>123</code>, you use the <code>vm_service</code> service locator of the service that manages the collection of virtual machines. It uses the identifier of the virtual machine as a parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vm_service = vms_service.vm_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123</span><span style="color:#710">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Calling service locators does not send a request to the server. The Python objects that they return are pure services, which do not contain any data. For example, the <code>vm_service</code> Python object called in this example is not the representation of a virtual machine. It is the service that is used to retrieve, update, delete, start and stop that virtual machine.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="using-services">Using Services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After you have located a service, you can call its service methods, which send requests to the server and do the real work.</p>
+</div>
+<div class="paragraph">
+<p>Services that manage a single object usually support the <code>get</code>, <code>update</code>, and <code>remove</code> methods.</p>
+</div>
+<div class="paragraph">
+<p>Services that manage collections of objects usually support the <code>list</code> and <code>add</code> methods.</p>
+</div>
+<div class="paragraph">
+<p>Both kinds of services, especially services that manage a single object, can support additional action methods.</p>
+</div>
+<div class="sect2">
+<h3 id="Using_get_methods">Using <code>get</code> Methods</h3>
+<div class="paragraph">
+<p>These service methods are used to retrieve the representation of a single object. The following example retrieves the representation of the virtual machine with identifier <code>123</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Find the service that manages the virtual machine:</span>
+vms_service = system_service.vms_service()
+vm_service = vms_service.vm_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123</span><span style="color:#710">'</span></span>)
+
+<span style="color:#777"># Retrieve the representation of the virtual machine:</span>
+vm = vm_service.get()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response is an instance of the corresponding type, in this case an instance of the Python class <code>ovirtsdk4.types.Vm</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>get</code> methods of some services support additional parameters that control how to retrieve the representation of the object or what representation to retrieve if there is more than one. For example, you may want to retrieve either the current state of a virtual machine or its state the next time it is started, as they may be different. The <code>get</code> method of the service that manages a virtual machine supports a <code>next_run</code> Boolean parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Retrieve the representation of the virtual machine, not the</span>
+<span style="color:#777"># current one, but the one that will be used after the next</span>
+<span style="color:#777"># boot:</span>
+vm = vm_service.get(next_run=<span style="color:#069">True</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the <a href="http://ovirt.github.io/ovirt-engine-sdk/master">reference documentation</a> of the SDK for details.</p>
+</div>
+<div class="paragraph">
+<p>If the object cannot be retrieved for any reason, the SDK raises an <code>ovirtsdk4.Error</code> exception, with details of the failure. This includes the situation when the object does not actually exist. Note that the exception is raised when calling the <code>get</code> service method. The call to the service locator method never fails, even if the object does not exist, because that call does not send a request to the server. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Call the service that manages a non-existent virtual machine.</span>
+<span style="color:#777"># This call will succeed.</span>
+vm_service = vms_service.vm_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">junk</span><span style="color:#710">'</span></span>)
+
+<span style="color:#777"># Retrieve the virtual machine. This call will raise an exception.</span>
+vm = vm_service.get()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Using_list_methods">Using <code>list</code> Methods</h3>
+<div class="paragraph">
+<p>These service methods retrieve the representations of the objects of a collection. This example retrieves the complete collection of virtual machines of the system:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Find the service that manages the collection of virtual</span>
+<span style="color:#777"># machines:</span>
+vms_service = system_service.vms_service()
+
+<span style="color:#777"># List the virtual machines in the collection</span>
+vms = vms_service.list()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result will be a Python list containing the instances of corresponding types. For example, in this case, the result will be a list of instances of the class <code>ovirtsdk4.types.Vm</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>list</code> methods of some services support additional parameters. For example, almost all top-level collections support a <code>search</code> parameter to filter the results or a <code>max</code> parameter to limit the number of results returned by the server. This example retrieves the names of virtual machines starting with <code>my</code>, with an upper limit of 10 results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vms = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=my*</span><span style="color:#710">'</span></span>, max=<span style="color:#00D">10</span>)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Not all <code>list</code> methods support these parameters. Some <code>list</code> methods support other parameters. See the <a href="http://ovirt.github.io/ovirt-engine-sdk/master">reference documentation</a> of the SDK for details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If a list of returned results is empty for any reason, the returned value will be an empty list. It will never be <code>None</code>.</p>
+</div>
+<div class="paragraph">
+<p>If there is an error while trying to retrieve the result, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details of the failure.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Using_add_methods">Using <code>add</code> Methods</h3>
+<div class="paragraph">
+<p>These service methods add new elements to a collection. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.</p>
+</div>
+<div class="paragraph">
+<p>This example adds a new virtual machine called <strong>vm1</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">types</span>
+
+<span style="color:#777"># Add the virtual machine:</span>
+vm = vms_service.add(
+    vm=types.Vm(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>,
+        cluster=types.Cluster(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Default</span><span style="color:#710">'</span></span>
+        ),
+        template=types.Template(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mytemplate</span><span style="color:#710">'</span></span>
+        )
+    )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the object cannot be created for any reason, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details of the failure. It will never return <code>None</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Python object returned by this <code>add</code> method is an instance of the relevant type. It is not a service but a container of data. In this particular example, the returned object is an instance of the <code>ovirtsdk4.types.Vm</code> class. If, after creating the virtual machine, you need to perform an operation such as retrieving or starting it, you will first need to find the service that manages it, and call the corresponding service locator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Add the virtual machine:</span>
+vm = vms_service.add(
+  ...
+)
+
+<span style="color:#777"># Find the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Start the virtual machine</span>
+vm_service.start()</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Objects are created asynchronously. When you create a new virtual machine, the <code>add</code> method will return a response before the virtual machine is completely created and ready to be used. It is good practice to poll the status of the object to ensure that it is completely created. For a virtual machine, you should check until its status is <code>DOWN</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Add the virtual machine:</span>
+vm = vms_service.add(
+  ...
+)
+
+<span style="color:#777"># Find the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Wait until the virtual machine is down, indicating that it is</span>
+<span style="color:#777"># completely created:</span>
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    vm = vm_service.get()
+    <span style="color:#080;font-weight:bold">if</span> vm.status == types.VmStatus.DOWN:
+        <span style="color:#080;font-weight:bold">break</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using a loop to retrieve the object status, with the <code>get</code> method, ensures that the status attribute is updated.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Using_update_methods">Using <code>update</code> Methods</h3>
+<div class="paragraph">
+<p>These service methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.</p>
+</div>
+<div class="paragraph">
+<p>This example updates the name of a virtual machine from <code>vm1</code> to <code>newvm</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">types</span>
+
+<span style="color:#777"># Find the virtual machine, and then the service that</span>
+<span style="color:#777"># manages it:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+vm_service = vm_service.vm_service(vm.id)
+
+<span style="color:#777"># Update the name:</span>
+updated_vm = vm_service.update(
+    vm=types.Vm(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">newvm</span><span style="color:#710">'</span></span>
+    )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When performing updates, avoid sending the <strong>complete</strong> representation of the object. Send only the attributes that you want to update. Do not do this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Retrieve the complete representation:</span>
+vm = vm_service.get()
+
+<span style="color:#777"># Update the representation, in memory, without sending a request</span>
+<span style="color:#777"># to the server:</span>
+vm.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">newvm</span><span style="color:#710">'</span></span>
+
+<span style="color:#777"># Send the update. Do *not* do this.</span>
+vms_service.update(vm)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sending the complete representation causes two problems:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You are sending much more information than the server needs, thus wasting resources.</p>
+</li>
+<li>
+<p>The server will try to update all the attributes of the object, even those that you did not intend to change. This may cause bugs on the server side.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>update</code> methods of some services support additional parameters that control how or what to update. For example, you may want to update either the current state of a virtual machine or the state that will be used the next time the virtual machine is started. The <code>update</code> method of the service that manages a virtual machine supports a <code>next_run</code> Boolean parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Update the memory of the virtual machine to 1 GiB,</span>
+<span style="color:#777"># not during the current run, but after next boot:</span>
+vm = vm_service.update(
+    vm=types.Vm(
+        memory=<span style="color:#00D">1073741824</span>
+    ),
+    next_run=<span style="color:#069">True</span>
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the update cannot be performed for any reason, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details of the failure. It will never return <code>None</code>.</p>
+</div>
+<div class="paragraph">
+<p>The Python object returned by this update method is an instance of the relevant type. It is not a service, but a container for data. In this particular example, the returned object will be an instance of the <code>ovirtsdk4.types.Vm</code> class.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Using_remove_methods">Using <code>remove</code> Methods</h3>
+<div class="paragraph">
+<p>These service methods remove existing objects. They usually do not take parameters, because they are methods of services that manage single objects. Therefore, the service already knows what object to remove.</p>
+</div>
+<div class="paragraph">
+<p>This example removes the virtual machine with identifier <code>123</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Find the virtual machine by name:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=123</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Find the service that manages the virtual machine using the ID:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Remove the virtual machine:</span>
+vm_service.remove()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>remove</code> methods of some services support additional parameters that control how or what to remove. For example, it is possible to remove a virtual machine while preserving its disks, using the <code>detach_only</code> Boolean parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Remove the virtual machine while preserving the disks:</span>
+vm_service.remove(detach_only=<span style="color:#069">True</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>remove</code> method returns <code>None</code> if the object is removed successfully. It does not return the removed object. If the object cannot be removed for any reason, the SDK raises an <code>ovirtsdk4.Error</code> exception containing the details of the failure.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Using_other_action_methods">Using Other Action Methods</h3>
+<div class="paragraph">
+<p>There are other service methods that perform miscellaneous operations, such as stopping and starting a virtual machine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Start the virtual machine:</span>
+vm_service.start()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Many of these methods include parameters that modify the operation. For example, the method that starts a virtual machine supports a <code>use_cloud_init</code> parameter, if you want to start it using <code>cloud-init</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Start the virtual machine:</span>
+vm_service.start(cloud_init=<span style="color:#069">True</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Most action methods return <code>None</code> when they succeed and raise an <code>ovirtsdk4.Error</code> when they fail. A few action methods return values. For example, the service that manages a storage domain has an <code>is_attached</code> action method that checks whether the storage domain is already attached to a data center and returns a Boolean value:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Check if the storage domain is attached to a data center:</span>
+sds_service = system_service.storage_domains_service()
+sd_service = sds_service.storage_domain_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123</span><span style="color:#710">'</span></span>)
+<span style="color:#080;font-weight:bold">if</span> sd_service.is_attached():
+    ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check the <a href="http://ovirt.github.io/ovirt-engine-sdk">reference documentation</a> of the SDK to see the action methods supported by each service, the parameters that they take, and the values that they return.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Additional_resources">Additional Resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For detailed information and examples, see the following resources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{URL_downstream_virt_product_docs}rest_api_guide/index">V4 REST API Guide</a></p>
+</li>
+<li>
+<p><a href="http://ovirt.github.io/ovirt-engine-sdk">Python SDK reference documentation</a></p>
+</li>
+<li>
+<p><a href="https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk/examples">Python SDK examples</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="generating-documentation-for-modules">Generating documentation for modules</h3>
+<div class="paragraph">
+<p>You can generate documentation using <a href="http://docs.python.org/library/pydoc.html">pydoc</a> for the following modules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ovirtsdk.api</p>
+</li>
+<li>
+<p>ovirtsdk.infrastructure.brokers</p>
+</li>
+<li>
+<p>ovirtsdk.infrastructure.errors</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The documentation is provided by the <code>ovirt-engine-sdk-python</code> package. Run the following command on the {engine-name} machine to view the latest version of these documents:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc _[MODULE]_</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2800/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2800/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2800/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2800/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Python_SDK_Guide/chap-Using_the_Software_Development_Kit.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Python_SDK_Guide/chap-Using_the_Software_Development_Kit.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

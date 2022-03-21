@@ -17,7 +17,7 @@ The import process uses `virt-v2v`. Only virtual machines running operating syst
 +
 [NOTE]
 ====
-The location can be a local directory or a remote nfs mount, as long as it not directly under `/root`. Ensure that it has sufficient space and is accessible to the qemu user (UID 36).
+The location can be a local directory or a remote nfs mount, as long as it is not directly under `/root`. Ensure that it has sufficient space and is accessible to the qemu user (UID 36).
 ====
 +
 . Ensure that the OVA file has permissions allowing read/write access to the *qemu* user (UID 36) and the *kvm* group (GID 36):

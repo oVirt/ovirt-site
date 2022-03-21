@@ -40,7 +40,6 @@ authors:
 - [Localization](/develop/localization.html)
 
 Obsolete:
-- [Build and Test Standards](/develop/dev-process/build-and-test-standards.html)
 - [Submitting a patch with Gerrit](/develop/dev-process/working-with-gerrit.html)
 - [The development process](/develop/dev-process/devprocess.html)
 - [Release management](/develop/release-management/process/release-process.html)

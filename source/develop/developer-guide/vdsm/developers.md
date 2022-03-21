@@ -50,15 +50,15 @@ VDSM requires Python 2 as your /usr/bin/python.
 
 ## Getting the source
 
-Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
+Our public git repository is located at: [GitHub](https://github.com/oVirt/vdsm)
 
 You can clone this repository by running the following command:
 
-      git clone "https://gerrit.ovirt.org/vdsm"
+      git clone "https://github.com/oVirt/vdsm.git"
 
 ## Installing the required packages
 
-      yum install `cat automation/check-patch.packages.el7`
+      dnf install `cat automation/check-patch.packages.el7`
 
 or if you are using Fedora (use .fc28 for Fedora 28):
 
@@ -202,7 +202,7 @@ To install packages built using "make rpm" use dnf upgrade:
 Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:
 
       # vdsm-tool configure --force
-      (for more information read "vdsm-tool --help") 
+      (for more information read "vdsm-tool --help")
 
 Finally start the vdsmd service:
 
@@ -215,7 +215,8 @@ See [Vdsm Coding Guidelines](/develop/developer-guide/vdsm/coding-guidelines.htm
 
 ## Sending patches
 
-Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](/develop/dev-process/working-with-gerrit.html)). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.
+Send them to [our GitHub repo](https://github.com/oVirt/vdsm) ([see how](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests)).
+With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.
 
 Please be verbose in your commit message. Explain the motivation for your patch, and the reasoning behind it. This information assists the reviewers of your code, before and after it is submitted to the master branch.
 
@@ -330,12 +331,6 @@ As developer you might need to add many hosts into your environment for tests. V
 *   6) The host should be UP
 
 ### Troubleshooting Fake KVM Support
-
-**Problems adding the fake Host in the engine**
-
-The vdsm bootstrapper was deprecated and replaced by ovirt-host-deploy, the /usr/share/doc/ovirt-host-deploy-1.1.0/README, file includes details about how to configure a fake host.
-
-See see [ovirt-host-deploy/README](http://gerrit.ovirt.org/gitweb?p=ovirt-host-deploy.git;a=blob;f=README;hb=HEAD) for fake qemu support.
 
 **Failed: Server does not support virtualization**
 

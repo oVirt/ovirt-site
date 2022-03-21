@@ -10,7 +10,7 @@ authors:
 
 # Communication
 
-There are a number of ways to communicate with the oVirt Community. [ Mailing lists](/community/about/mailing-lists.html), [IRC](#irc), our [bug tracker](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) and [our patch review system](http://gerrit.ovirt.org).
+There are a number of ways to communicate with the oVirt Community. [ Mailing lists](/community/about/mailing-lists.html), [IRC](#irc), our [bug tracker](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) and [oVirt GitHub](https://github.com/oVirt).
 
 ## IRC
 
@@ -20,4 +20,4 @@ We are on **irc.oftc.net** server on **#ovirt** channel.
 
 You can report bugs, or discuss possible solutions to issues, on [the project bug tracker (ovirt project)](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-We use Gerrit to review patches. To comment on a patch, or submit a patch for review, please read [working with oVirt Gerrit](/develop/dev-process/working-with-gerrit.html).
+We use GitHub to review patches. If you are not familiar with the process, you can read about [collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests) on the GitHub website.

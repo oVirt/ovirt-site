@@ -14,7 +14,7 @@ authors:
 ## Development Process
 
 The code you write, and the way you present it, are crucial for understanding and maintaining the source code.
-Please read the following sections for guidelines on Git, Gerrit, patch management and more.
+Please read the following sections for guidelines on Git, GitHub, patch management and more.
 
 ### Patch Review Process Goals
 
@@ -27,17 +27,17 @@ The patch review process goals are:
 5.  Archived discussions
 6.  Patches which can be cherry-picked
 
-The oVirt project uses gerrit in order to review patches.
-For more on Gerrit and how to use it see [Working with oVirt Gerrit](/develop/dev-process/working-with-gerrit.html)
+The oVirt project uses GitHub in order to review patches.
+If you are not familiar with the process, you can read about [collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests) on the GitHub website.
 
 ### Basic Principles
 
 #### Review Process
 
-1.  Patches sent to Gerrit for review
+1.  Patches sent to GitHub for review
 2.  A peer thoughtfully reviews the patch
 3.  Feedback gratefully received
-4.  All discussions on the patch must be done on Gerrit
+4.  All discussions on the patch must be done on GitHub
 5.  Consensus formed, ACK or NAK agreed
 
 #### Coding standards
@@ -48,7 +48,7 @@ For more on Gerrit and how to use it see [Working with oVirt Gerrit](/develop/de
 
 if you don't know who is should review your patch you can either -
 
-*   ping the engine-devel@ovirt.org mailing list with the link to gerrits request
+*   ping the devel@ovirt.org mailing list with the link to Pull request
 *   git blame your code and trace recent users who committed code that you changed
 
       git blame HEAD~1 path/to/file -L {start},{end}
@@ -66,24 +66,20 @@ use the project template for a commit message
       short summary under 80 chars
 
        Longer description.
-       With multiple paragraphs if necessary. 
+       With multiple paragraphs if necessary.
        Wrapped at ~80 chars.
 
       Bug-Url: https://bugzilla.redhat.com/XXXXXX
       Signed-off-by: full name <mail>
 
-       
+
 
 #### Sending a Patch For Work In Progress
 
-Use gerrit's draft capabilities.
-
 Patches in draft are blocked from being merged until they are "published"
 
-To push a patch to drafts:
+Read more about [GitHub Draft Pull Requests on the GitHub site](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests).
 
-      git push origin HEAD:refs/drafts/master
-       
 
 #### Describe your changes properly
 
@@ -121,11 +117,7 @@ To push a patch to drafts:
 
 ##### Topic branches
 
-Create a branch for everything you work on. It can be done by either postfixing the topic to the push link
-
-      push origin HEAD:refs/publish/master/{NAME_OF_YOUR_TOPIC}
-
-or using gerrit's review page directly by clicking on the topic
+Create a branch for everything you work on.
 
 ##### Interactive Rebase
 

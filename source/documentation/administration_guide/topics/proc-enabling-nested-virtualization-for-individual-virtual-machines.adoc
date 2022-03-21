@@ -17,7 +17,7 @@ Child virtual machines are only visible to and managed by users who have access 
 
 To enable nested virtualization _on specific virtual machines_, not all virtual machines, you configure a host or hosts to support nested virtualization. Then you configure the virtual machine or virtual machines on run on those specific hosts and enable *Pass-Through Host CPU*. This option lets the virtual machines use the nested virtualization settings you just configured on the host. This option also restricts which hosts the virtual machines can run on and requires manual migration.
 
-Otherwise, to enable nested virtualization for _all of the virtual machines_ in a cluster, see xref:proc-enabling-nested-virtualization-for-all-virtual-machines[]
+Otherwise, to enable nested virtualization for _all of the virtual machines_ in a cluster, see xref:proc-enabling-nested-virtualization-for-all-virtual-machines[Enabling nested virtualization for all virtual machines]
 
 Only run parent virtual machines on hosts that support nested virtualization. If you migrate a parent virtual machine to a host that does not support nested virtualization, its child virtual machines will fail.
 
@@ -73,5 +73,5 @@ NOTE: In RHV version 4.2, you can only enable *Pass-Through Host CPU* when *Do n
 
 .Additional resources
 
-* xref:VDSM_hooks[]
+* xref:VDSM_hooks[VDSM hooks]
 * link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/creating-nested-virtual-machines_configuring-and-managing-virtualization[Creating Child virtual Machines] in the {enterprise-linux-shortname} documentation.

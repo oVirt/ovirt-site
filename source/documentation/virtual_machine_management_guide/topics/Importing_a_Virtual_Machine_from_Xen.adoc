@@ -10,7 +10,7 @@ The `virt-v2v` package must be installed on at least one host (referred to in th
 ====
 If you are importing a Windows virtual machine from a RHEL 5 Xen host and you are using VirtIO devices, install the VirtIO drivers before importing the virtual machine. If the drivers are not installed, the virtual machine may not boot after import.
 
-The VirtIO drivers can be installed from the `virtio-win___version__.iso` or the `RHV-toolsSetup___version__.iso`. See xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[] for details.
+The VirtIO drivers can be installed from the `virtio-win___version__.iso` or the `RHV-toolsSetup___version__.iso`. See xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents and Drivers on Windows] for details.
 
 If you are not using VirtIO drivers, review the configuration of the virutal machine before first boot to ensure that VirtIO devices are not being used.
 ====
@@ -71,7 +71,7 @@ To import a virtual machine from RHEL 5 Xen, follow these steps:
 +
 [NOTE]
 ====
-Due to current limitations, Xen virtual machines with block devices do not appear in the *Virtual Machines on Source* list. They must be imported manually. See xref:Importing_Block_Based_Virtual_Machine_from_Xen_host[].
+Due to current limitations, Xen virtual machines with block devices do not appear in the *Virtual Machines on Source* list. They must be imported manually. See xref:Importing_Block_Based_Virtual_Machine_from_Xen_host[Importing Block Based Virtual Machine from Xen host].
 ====
 +
 . Click btn:[Next].
@@ -150,4 +150,4 @@ If the CPU type of the virtual machine is different, configure the imported virt
 ----
 +
 . In the Administration Portal, click menu:Storage[Domains], click the export domain's name, and click the *VM Import* tab in the details view to verify that the virtual machine is in your export domain.
-. Import the virtual machine into the destination data domain. See xref:Importing_the_virtual_machine_from_the_export_domain[] for details.
+. Import the virtual machine into the destination data domain. See xref:Importing_the_virtual_machine_from_the_export_domain[Importing the virtual machine from the export domain] for details.

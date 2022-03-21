@@ -12,7 +12,7 @@ Logical networking enables the {virt-product-fullname} environment to separate n
 
 Logical networks are defined at the data center level.
 
-If necessary, the {virt-product-fullname} {engine-name} automatically instantiates logical networks on the host, depending on the type of virtual machine network. For more information, see xref:virtual_machine_networking_types[].
+If necessary, the {virt-product-fullname} {engine-name} automatically instantiates logical networks on the host, depending on the type of virtual machine network. For more information, see xref:virtual_machine_networking_types[virtual machine networking types].
 
 [id="exam-Technical_Reference_Guide-Logical_Networks-Example_usage_of_a_logical_network."]
 .Example usage of a logical network.

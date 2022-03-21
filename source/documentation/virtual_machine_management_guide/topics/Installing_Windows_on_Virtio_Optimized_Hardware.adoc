@@ -33,7 +33,7 @@ To install the virtio-win drivers when installing Windows, complete the followin
 . Select the *Attach CD* check box, and select a Windows ISO from the drop-down list.
 . Select the *Attach Windows guest tools CD* check box.
 . Move *CD-ROM* to the top of the *Boot Sequence* field.
-. Configure other *Run Once* options as required. See xref:Virtual_Machine_Run_Once_settings_explained[] for more details.
+. Configure other *Run Once* options as required. See xref:Virtual_Machine_Run_Once_settings_explained[Virtual Machine Run Once settings explained] for more details.
 . Click btn:[OK]. The status of the virtual machine changes to *Up*, and the operating system installation begins.
 +
 Open a console to the virtual machine if one does not open automatically during the Windows installation.

@@ -2,7 +2,7 @@
 [id="VDSM_hooks_return_codes"]
 = VDSM Hook Return Codes
 
-Hook scripts must return one of the return codes shown in xref:hook-return-codes[]. The return code will determine whether further hook scripts are processed by VDSM.
+Hook scripts must return one of the return codes shown in xref:hook-return-codes[hook return codes]. The return code will determine whether further hook scripts are processed by VDSM.
 
 [id="hook-return-codes"]
 

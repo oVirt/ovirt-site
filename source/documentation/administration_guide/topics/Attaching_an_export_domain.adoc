@@ -4,7 +4,7 @@
 
 [NOTE]
 ====
-The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See xref:sect-Importing_Existing_Storage_Domains[] for information on importing storage domains.
+The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See xref:sect-Importing_Existing_Storage_Domains[Importing Existing Storage Domains] for information on importing storage domains.
 ====
 
 An export domain that is *Unattached* can be attached to a data center. Only one export domain can be attached to a data center.

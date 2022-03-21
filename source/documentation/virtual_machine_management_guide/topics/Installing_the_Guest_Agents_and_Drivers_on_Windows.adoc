@@ -102,8 +102,8 @@ D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL = FE_spice_Agent,FE_vioseria
 
 .Additional resources
 
-* xref:Updating_Win_Guest_Drivers_with_Windows_Updates[]
-* xref:Updating_the_Guest_Agents_and_Drivers_on_Windows[]
+* xref:Updating_Win_Guest_Drivers_with_Windows_Updates[Updating Win Guest Drivers with Windows Updates]
+* xref:Updating_the_Guest_Agents_and_Drivers_on_Windows[Updating the Guest Agents and Drivers on Windows]
 
 The Microsoft Developer website:
 

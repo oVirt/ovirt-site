@@ -162,6 +162,6 @@ $ sudo dnf install cyrus-sasl-scram
 .Additional resources
 
 * link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#sect-Installing_Console_Components[Installing Console Components]
-* xref:Replacing_the_Manager_CA_Certificate[]
+* xref:Replacing_the_Manager_CA_Certificate[Replacing the {engine-name} CA Certificate]
 
 endif::rhv-doc[]

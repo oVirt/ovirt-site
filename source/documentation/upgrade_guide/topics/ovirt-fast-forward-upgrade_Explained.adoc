@@ -14,7 +14,7 @@ During the upgrade process, the tool might pause and prompt you to manually comp
 
 [NOTE]
 ====
-`ovirt-fast-forward-upgrade` upgrades the {engine-name}. You need to manually upgrade the hosts, and compatibility versions of clusters and data centers, and you need to reboot any running virtual machines. See xref:Updating_all_hosts_in_a_cluster_minor_updates[] to upgrade the hosts.
+`ovirt-fast-forward-upgrade` upgrades the {engine-name}. You need to manually upgrade the hosts, and compatibility versions of clusters and data centers, and you need to reboot any running virtual machines. See xref:Updating_all_hosts_in_a_cluster_minor_updates[Updating all hosts in a cluster minor updates] to upgrade the hosts.
 ====
 
 [NOTE]

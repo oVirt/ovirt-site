@@ -10,7 +10,6 @@ The cluster compatibility version indicates the features of Red Hat Virtualizati
 
 The table below provides a compatibility matrix of {virt-product-shortname} versions and the required data center and cluster compatibility levels.
 
-[[compatibility_level_matrix]]
 .Data center and cluster levels supported with {virt-product-fullname}
 [options="header"]
 |===

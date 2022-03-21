@@ -12,7 +12,7 @@ Edit the configuration of the fence_kdump listener. This is only necessary in ca
 +
 [IMPORTANT]
 ====
-The edited values must also be changed in `engine-config` as outlined in the fence_kdump Listener Configuration Options table in xref:Configuring_fence_kdump_on_the_Manager[].
+The edited values must also be changed in `engine-config` as outlined in the fence_kdump Listener Configuration Options table in xref:Configuring_fence_kdump_on_the_Manager[Configuring fence-kdump on the {engine-name}].
 ====
 +
 . Restart the fence_kdump listener:

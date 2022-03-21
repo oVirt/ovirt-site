@@ -6,7 +6,7 @@
 ====
 Your user role must have permission to edit a virtual machine.
 
-You can edit a virtual machine's disks and network interfaces in the virtual machine's details view. See xref:Viewing_virtual_machine_details[].
+You can edit a virtual machine's disks and network interfaces in the virtual machine's details view. See xref:Viewing_virtual_machine_details[Viewing virtual machine details].
 ====
 
 *Editing a virtual machine*

@@ -70,7 +70,7 @@ For new {virt-product-fullname} installations, you must complete all of the step
 # hosted-engine --set-maintenance --mode=global
 ----
 +
-For more information, see xref:Maintaining_the_Self-Hosted_Engine[].
+For more information, see xref:Maintaining_the_Self-Hosted_Engine[Maintaining the Self-Hosted Engine].
 . Add your CA certificate to the host-wide trust store:
 +
 [source,terminal]

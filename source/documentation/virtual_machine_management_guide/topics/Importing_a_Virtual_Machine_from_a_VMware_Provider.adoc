@@ -58,7 +58,7 @@ Although the ISO storage domain has been deprecated, it is required for migratio
 ====
 If a virtual machine's network device uses the driver type e1000 or rtl8139, the virtual machine will use the same driver type after it has been imported to {virt-product-fullname}.
 
-If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see xref:Editing_network_interfaces[]. If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The *Attach VirtIO-drivers* option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
+If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see xref:Editing_network_interfaces[Editing network interfaces]. If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The *Attach VirtIO-drivers* option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
 ====
 +
 . Select the *Cluster* in which the virtual machines will reside.

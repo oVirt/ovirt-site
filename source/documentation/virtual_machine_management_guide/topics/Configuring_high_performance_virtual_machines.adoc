@@ -177,7 +177,7 @@ The following table summarizes the recommended manual settings. The *Enabled (Y/
 To pin vCPUs to a specific host's physical CPU:
 
 . In the *Host* tab, select the *Specific Host(s)* radio button.
-. In the *Resource Allocation* tab, enter the *CPU Pinning Topology*, verifying that the configuration fits the pinned host's configuration. See xref:Virtual_Machine_Resource_Allocation_settings_explained[] for information about the syntax of this field.
+. In the *Resource Allocation* tab, enter the *CPU Pinning Topology*, verifying that the configuration fits the pinned host's configuration. See xref:Virtual_Machine_Resource_Allocation_settings_explained[Virtual Machine Resource Allocation settings explained] for information about the syntax of this field.
 +
 This field is populated automatically and the CPU topology is updated when automatic NUMA pinning is activated.
 . Verify that the virtual machine configuration is compatible with the host configuration:

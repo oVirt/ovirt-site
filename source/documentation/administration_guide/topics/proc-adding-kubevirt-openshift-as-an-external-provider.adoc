@@ -49,4 +49,4 @@ The status of the control plane nodes is `down`, even if they are running, becau
 .Additional resources
 
 * link:https://docs.openshift.com/container-platform/latest/virt/about-virt.html[About OpenShift Virtualization]
-* xref:Add_Provider_General_Settings_Explained[]
+* xref:Add_Provider_General_Settings_Explained[Add Provider General Settings Explained]

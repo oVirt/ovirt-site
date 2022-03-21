@@ -11,4 +11,4 @@ adding user test1...
 user added successfully
 ----
 
-You can add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See xref:Adding_users[] for more information.
+You can add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See xref:Adding_users[Adding users] for more information.

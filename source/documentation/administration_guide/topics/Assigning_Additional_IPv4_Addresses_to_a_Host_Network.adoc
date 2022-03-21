@@ -4,7 +4,7 @@
 
 A host network, such as the *ovirtmgmt* management network, is created with only one IP address when initially set up. This means that if a NIC's configuration file is configured with multiple IP addresses, only the first listed IP address will be assigned to the host network. Additional IP addresses may be required if connecting to storage, or to a server on a separate private subnet using the same NIC.
 
-The `vdsm-hook-extra-ipv4-addrs` hook allows you to configure additional IPv4 addresses for host networks. For more information about hooks, see xref:appe-VDSM_and_Hooks[].
+The `vdsm-hook-extra-ipv4-addrs` hook allows you to configure additional IPv4 addresses for host networks. For more information about hooks, see xref:appe-VDSM_and_Hooks[VDSM and Hooks].
 
 In the following procedure, the host-specific tasks must be performed on each host for which you want to configure additional IP addresses.
 

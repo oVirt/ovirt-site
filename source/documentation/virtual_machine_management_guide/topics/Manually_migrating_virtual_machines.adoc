@@ -2,7 +2,7 @@
 [id="Manually_migrating_virtual_machines"]
 = Manually Migrating Virtual Machines
 
-A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see xref:Live_migration_prerequisites[].
+A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see xref:Live_migration_prerequisites[Live migration prerequisites].
 
 For high performance virtual machines and/or virtual machines defined with *Pass-Through Host CPU*, *CPU Pinning*, or *NUMA Pinning*, the default migration mode is *Manual*. Select *Select Host Automatically* so that the virtual machine migrates to the host that offers the best performance.
 

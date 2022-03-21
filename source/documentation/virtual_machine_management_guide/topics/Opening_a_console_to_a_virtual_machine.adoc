@@ -6,7 +6,7 @@ Use Remote Viewer to connect to a virtual machine.
 
 .Procedure
 
-. Install Remote Viewer if it is not already installed. See xref:sect-Installing_Console_Components[].
+. Install Remote Viewer if it is not already installed. See xref:sect-Installing_Console_Components[Installing Console Components].
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 
@@ -20,6 +20,6 @@ Use Remote Viewer to connect to a virtual machine.
 
 .Additional resources
 
-* xref:Automatically_connecting_to_a_Virtual_Machine[]
+* xref:Automatically_connecting_to_a_Virtual_Machine[Automatically connecting to a Virtual Machine]
 
-* xref:sect-Configuring_Console_Options[]
+* xref:sect-Configuring_Console_Options[Configuring Console Options]

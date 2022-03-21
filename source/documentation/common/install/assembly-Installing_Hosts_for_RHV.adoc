@@ -4,7 +4,7 @@
 
 {virt-product-fullname} supports two types of hosts: xref:Red_Hat_Virtualization_Hosts_{context}[{hypervisor-fullname}s ({hypervisor-shortname})] and xref:Red_Hat_Enterprise_Linux_hosts_{context}[{enterprise-linux-host-fullname}s]. Depending on your environment, you may want to use one type only, or both. At least two hosts are required for features such as migration and high availability.
 
-See xref:Recommended_practices_for_configuring_host_networks_{context}[] for networking information.
+See xref:Recommended_practices_for_configuring_host_networks_{context}[Recommended practices for configuring host networks] for networking information.
 
 [IMPORTANT]
 ====

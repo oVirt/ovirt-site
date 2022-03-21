@@ -6,7 +6,7 @@ You can migrate the Data Warehouse service installed and configured on the {virt
 
 Notice that this procedure migrates the Data Warehouse service only.
 
-To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[].
+To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[Migrating the Data Warehouse Database to a Separate Machine].
 
 [NOTE]
 ====
@@ -23,7 +23,7 @@ To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrati
 
 ** Allowed access from the Data Warehouse machine to the {engine-name} database machine's TCP port 5432.
 
-** The username and password for the Data Warehouse database from the {engine-name}'s */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf* file. If you migrated the `ovirt_engine_history` database using xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[], the backup includes these credentials, which you defined during the database setup on that machine.
+** The username and password for the Data Warehouse database from the {engine-name}'s */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf* file. If you migrated the `ovirt_engine_history` database using xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[Migrating the Data Warehouse Database to a Separate Machine], the backup includes these credentials, which you defined during the database setup on that machine.
 
 Installing this scenario requires four steps:
 
@@ -35,7 +35,7 @@ Installing this scenario requires four steps:
 
 4. xref:disabling_dwh_package[Disabling the Data Warehouse package on the {engine-name} machine]
 
-[[setting_up_machine]]
+[id="setting_up_machine"]
 == Setting up the New Data Warehouse Machine
 
 Enable the {virt-product-fullname} repositories and install the Data Warehouse setup package on a {enterprise-linux} 8 machine:
@@ -67,7 +67,7 @@ endif::[]
 # dnf install ovirt-engine-dwh-setup
 ----
 
-[[stopping_dwh_service]]
+[id="stopping_dwh_service"]
 == Stopping the Data Warehouse Service on the {engine-name} Machine
 
 . Stop the Data Warehouse service:
@@ -87,7 +87,7 @@ If the line does not exist or has been commented out, add it manually.
 +
 If the database is hosted on the {engine-name} machine and was configured during a clean setup of the {virt-product-fullname} {engine-name}, access is granted by default.
 +
-See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[] for more information on how to configure and migrate the Data Warehouse database.
+See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[Migrating the Data Warehouse Database to a Separate Machine] for more information on how to configure and migrate the Data Warehouse database.
 . Restart the postgresql service:
 +
 [source,terminal]
@@ -95,7 +95,7 @@ See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH
 # systemctl restart postgresql
 ----
 
-[[configuring_new_machine]]
+[id="configuring_new_machine"]
 == Configuring the New Data Warehouse Machine
 
 The order of the options or settings shown in this section may differ depending on your environment.
@@ -177,11 +177,11 @@ ifdef::DWH[]
 [NOTE]
 ====
 If you want to change the Data Warehouse sampling scale to the recommended scale on a remote server, see
-xref:Changing_the_Data_Warehouse_Sampling_Scale[].
+xref:Changing_the_Data_Warehouse_Sampling_Scale[Changing the Data Warehouse Sampling Scale].
 ====
 endif::DWH[]
 
-[[disabling_dwh_package]]
+[id="disabling_dwh_package"]
 == Disabling the Data Warehouse Service on the {engine-name} Machine
 
 . On the {engine-name} machine, restart the {engine-name}:

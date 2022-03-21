@@ -81,6 +81,6 @@ ifdef::DWH[]
 [NOTE]
 ====
 If you want to change the Data Warehouse sampling scale to the recommended scale on a remote server, see
-xref:Changing_the_Data_Warehouse_Sampling_Scale[].
+xref:Changing_the_Data_Warehouse_Sampling_Scale[Changing the Data Warehouse Sampling Scale].
 ====
 endif::DWH[]

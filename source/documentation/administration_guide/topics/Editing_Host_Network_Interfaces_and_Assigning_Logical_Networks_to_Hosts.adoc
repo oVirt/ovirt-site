@@ -8,7 +8,7 @@ You can change the settings of physical host network interfaces, move the manage
 ====
 The only way to change the IP address of a host in {virt-product-fullname} is to remove the host and then to add it again.
 
-To change the VLAN settings of a host, see xref:Editing-VLAN-Settings[].
+To change the VLAN settings of a host, see xref:Editing-VLAN-Settings[Editing VLAN Settings].
 ====
 
 [IMPORTANT]
@@ -77,7 +77,7 @@ Set *all* hosts in a cluster to use the same IP stack for their management netwo
 
 * *Committed Rate [Mbps]*: The minimum bandwidth required by a network. The Committed Rate requested is not guaranteed and will vary depending on the network infrastructure and the Committed Rate requested by other networks on the same logical link.
 
-.. To configure a network bridge, click the *Custom Properties* tab and select *bridge_opts* from the drop-down list. Enter a valid key and value with the following syntax: _key_=_value_. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see xref:Explanation_of_bridge_opts_Parameters[].
+.. To configure a network bridge, click the *Custom Properties* tab and select *bridge_opts* from the drop-down list. Enter a valid key and value with the following syntax: _key_=_value_. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see xref:Explanation_of_bridge_opts_Parameters[Explanation of bridge_opts Parameters].
 +
 [source,terminal]
 ----
@@ -102,28 +102,31 @@ multicast_startup_query_interval=3125
 ----
 +
 .. To configure ethernet properties, click the *Custom Properties* tab and select *ethtool_opts* from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:
+:
 +
 [source,terminal]
 ----
 --coalesce em1 rx-usecs 14 sample-interval 3 --offload em2 rx on lro on tso off --change em1 speed 1000 duplex half
 ----
-This field can accept wildcards. For example, to apply the same option to all of this network's interfaces, use:
++
+This field can accept wild cards. For example, to apply the same option to all of this network's interfaces, use:
 +
 [source,terminal]
 ----
 --coalesce * rx-usecs 14 sample-interval 3
 ----
-The *ethtool_opts* option is not available by default; you need to add it using the engine configuration tool. See xref:How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool[] for more information. For more information on ethtool properties, see the manual page by typing `man ethtool` in the command line.
-.. To configure Fibre Channel over Ethernet (FCoE), click the *Custom Properties* tab and select *fcoe* from the drop-down list. Enter a valid key and value with the following syntax: _key_=_value_. At least `enable=yes` is required. You can also add `dcb=`[yes|no]`` and `auto_vlan=`[yes|no]``. Separate multiple entries with a whitespace character. The *fcoe* option is not available by default; you need to add it using the engine configuration tool. See xref:How_to_Set_Up_RHVM_to_Use_FCoE[] for more information.
++
+The *ethtool_opts* option is not available by default; you need to add it using the engine configuration tool. See xref:How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool[How to Set Up {engine-name} to Use Ethtool] for more information. For more information on ethtool properties, see the manual page by typing `man ethtool` in the command line.
+.. To configure Fibre Channel over Ethernet (FCoE), click the *Custom Properties* tab and select *fcoe* from the drop-down list. Enter a valid key and value with the following syntax: _key_=_value_. At least `enable=yes` is required. You can also add `dcb=[yes|no]` and `auto_vlan=[yes|no]. Separate multiple entries with a whitespace character. The *fcoe* option is not available by default; you need to add it using the engine configuration tool. See xref:How_to_Set_Up_RHVM_to_Use_FCoE[How to Set Up {engine-name} to Use FCoE] for more information.
 +
 [NOTE]
 ====
 A separate, dedicated logical network is recommended for use with FCoE.
 ====
 +
-.. To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network's default route. See xref:Configuring_a_Default_Route[] for more information.
+.. To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network's default route. See xref:Configuring_a_Default_Route[Configuring a Default Route] for more information.
 
-.. If your logical network definition is not synchronized with the network configuration on the host, select the *Sync network* check box. For more information about unsynchronized hosts and how to synchronize them, see xref:Synchronizing_host_networks[].
+.. If your logical network definition is not synchronized with the network configuration on the host, select the *Sync network* check box. For more information about unsynchronized hosts and how to synchronize them, see xref:Synchronizing_host_networks[Synchronizing host networks].
 +
 . Select the *Verify connectivity between Host and Engine* check box to check network connectivity. This action only works if the host is in maintenance mode.
 . Click btn:[OK].
@@ -143,5 +146,5 @@ In some cases, making multiple concurrent changes to a host network configuratio
 ----
 
 .Additional resources
-* xref:Syntax_for_the_engine-config_Command[]
+* xref:Syntax_for_the_engine-config_Command[Syntax for the engine-config Command]
 * link:{URL_rest_api_doc}index#services-host-methods-setup_networks[setupnetworks POST]

@@ -6,7 +6,7 @@
 
 Cisco's Unified Computing System (UCS) is used to manage data center aspects such as computing, networking and storage resources.
 
-The `vdsm-hook-vmfex-dev` hook allows virtual machines to connect to Cisco's UCS-defined port profiles by configuring the vNIC profile. The UCS-defined port profiles contain the properties and settings used to configure virtual interfaces in UCS. The `vdsm-hook-vmfex-dev` hook is installed by default with VDSM. See xref:appe-VDSM_and_Hooks[] for more information.
+The `vdsm-hook-vmfex-dev` hook allows virtual machines to connect to Cisco's UCS-defined port profiles by configuring the vNIC profile. The UCS-defined port profiles contain the properties and settings used to configure virtual interfaces in UCS. The `vdsm-hook-vmfex-dev` hook is installed by default with VDSM. See xref:appe-VDSM_and_Hooks[VDSM and Hooks] for more information.
 
 When a virtual machine that uses the vNIC profile is created, it will use the Cisco vNIC.
 
@@ -47,7 +47,7 @@ A UCS port profile must be configured in Cisco UCS before configuring the vNIC p
 
 ----
 
-The vNIC profile to configure can belong to a new or existing logical network. See xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[] for instructions to configure a new logical network.
+The vNIC profile to configure can belong to a new or existing logical network. See xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[Creating a new logical network in a data center or cluster] for instructions to configure a new logical network.
 
 
 *Configuring a vNIC Profile for UCS Integration*

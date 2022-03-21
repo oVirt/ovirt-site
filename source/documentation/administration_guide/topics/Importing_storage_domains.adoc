@@ -40,4 +40,4 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.
 .Related information
 
 * link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_Data_Domain[Importing Virtual Machines from a Data Domain]
-* xref:Importing_Templates_from_Imported_Data_Storage_Domains[]
+* xref:Importing_Templates_from_Imported_Data_Storage_Domains[Importing Templates from Imported Data Storage Domains]

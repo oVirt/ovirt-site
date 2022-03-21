@@ -15,7 +15,7 @@ The table below describes the settings of a data center as displayed in the *New
 
 Different types of storage domains (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center. Local and shared domains, however, cannot be mixed.
 
-You can change the storage type after the data center is initialized. See xref:Changing_the_Data_Center_Storage_Type[].
+You can change the storage type after the data center is initialized. See xref:Changing_the_Data_Center_Storage_Type[Changing the Data Center Storage Type].
 |*Compatibility Version* |The version of {virt-product-fullname}.
 
 After upgrading the {virt-product-fullname} {engine-name}, the hosts, clusters and data centers may still be in the earlier version. Ensure that you have upgraded all the hosts, then the clusters, before you upgrade the Compatibility Level of the data center.

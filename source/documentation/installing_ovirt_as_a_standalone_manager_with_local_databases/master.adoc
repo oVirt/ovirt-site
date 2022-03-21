@@ -72,9 +72,9 @@ The {virt-product-fullname} {engine-name} must run on {enterprise-linux} 8. For 
 
 This machine must meet the minimum xref:hardware-requirements_SM_localDB_deploy[{engine-name} hardware requirements].
 
-To install the {virt-product-fullname} {engine-name} on a system that does not have access to the Content Delivery Network, see xref:Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_SM_localDB_deploy[] before configuring the {engine-name}.
+To install the {virt-product-fullname} {engine-name} on a system that does not have access to the Content Delivery Network, see xref:Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_SM_localDB_deploy[Configuring an Offline Repository for Red Hat Virtualization Manager Installation] before configuring the {engine-name}.
 
-By default, the {virt-product-fullname} {engine-name}'s configuration script, `engine-setup`, creates and configures the {engine-name} database and Data Warehouse database automatically on the {engine-name} machine. To set up either database, or both, manually, see xref:Preparing_a_Local_Manually-Configured_PostgreSQL_Database_SM_localDB_deploy[] before configuring the {engine-name}.
+By default, the {virt-product-fullname} {engine-name}'s configuration script, `engine-setup`, creates and configures the {engine-name} database and Data Warehouse database automatically on the {engine-name} machine. To set up either database, or both, manually, see xref:Preparing_a_Local_Manually-Configured_PostgreSQL_Database_SM_localDB_deploy[Preparing a Local Manually-Configured PostgreSQL Database] before configuring the {engine-name}.
 
 include::common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
 

@@ -21,7 +21,7 @@ Two NICs form a new bond. A NIC and a bond adds the NIC to the existing bond.
 If the logical networks are xref:Bond_logical_networks_compatibility[incompatible], the bonding operation is blocked.
 ====
 
-. Select the *Bond Name* and *Bonding Mode* from the drop-down menus. See xref:Bonding_Modes[] for details.
+. Select the *Bond Name* and *Bonding Mode* from the drop-down menus. See xref:Bonding_Modes[Bonding Modes] for details.
 +
 If you select the *Custom* bonding mode, you can enter bonding options in the text field, as in the following examples:
 +
@@ -32,7 +32,7 @@ If you select the *Custom* bonding mode, you can enter bonding options in the te
 For a comprehensive list of bonding options and their descriptions, see the link:https://www.kernel.org/doc/Documentation/networking/bonding.txt[_Linux Ethernet Bonding Driver HOWTO_] on Kernel.org.
 
 . Click btn:[OK].
-. Attach a logical network to the new bond and configure it. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[] for instructions.
+. Attach a logical network to the new bond and configure it. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Editing Host Network Interfaces and Assigning Logical Networks to Hosts] for instructions.
 +
 [NOTE]
 ====

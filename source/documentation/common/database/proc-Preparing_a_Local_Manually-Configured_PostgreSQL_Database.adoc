@@ -125,7 +125,7 @@ work_mem=8192
 ----
 . Optionally, set up SSL to secure database connections using the instructions at link:http://www.postgresql.org/docs/12/static/ssl-tcp.html#SSL-FILE-USAGE[].
 
-Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[], and answer `Local` and `Manual` when asked about the database.
+Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {engine-name}], and answer `Local` and `Manual` when asked about the database.
 
 :context!: manual_database_install
 :manual_database_install!:

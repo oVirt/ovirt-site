@@ -14,6 +14,6 @@ The following table details the options available on the *Foreman/Satellite* tab
 
 
 |*Provider*
-|If the virtual machine is running {enterprise-linux} and the system is configured to work with a Satellite server, select the name of the Satellite from the list. This enables you to use Satellite's content management feature to display the relevant Errata for this virtual machine. See xref:Configuring_Satellite_Errata[] for more details.
+|If the virtual machine is running {enterprise-linux} and the system is configured to work with a Satellite server, select the name of the Satellite from the list. This enables you to use Satellite's content management feature to display the relevant Errata for this virtual machine. See xref:Configuring_Satellite_Errata[Configuring Satellite Errata] for more details.
 |Yes.
 |===

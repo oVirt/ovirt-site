@@ -4,7 +4,7 @@
 
 To select which snapshot a virtual disk will be reverted to, the administrator can preview all previously created snapshots.
 
-From the available snapshots per guest, the administrator can select a snapshot volume to preview its contents. As depicted in xref:figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot[], each snapshot is saved as a COW volume, and when it is previewed, a new preview layer is copied from the snapshot being previewed. The guest interacts with the preview instead of the actual snapshot volume.
+From the available snapshots per guest, the administrator can select a snapshot volume to preview its contents. As depicted in xref:figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot[Preview Snapshot], each snapshot is saved as a COW volume, and when it is previewed, a new preview layer is copied from the snapshot being previewed. The guest interacts with the preview instead of the actual snapshot volume.
 
 After the administrator previews the selected snapshot, the preview can be committed to restore the guest data to the state captured in the snapshot. If the administrator commits the preview, the guest is attached to the preview layer.
 
@@ -13,6 +13,3 @@ After a snapshot is previewed, the administrator can select *Undo* to discard th
 [id="figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot"]
 .Preview Snapshot
 image::1002.png[]
-
-
-

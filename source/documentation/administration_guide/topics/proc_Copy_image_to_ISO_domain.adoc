@@ -8,7 +8,7 @@
 
 [NOTE]
 ====
-The ISO domain is a deprecated storage domain type. The ISO Uploader tool, `ovirt-iso-uploader`, is removed in {virt-product-fullname} 4.4. You should upload ISO images to the data domain with the Administration Portal or with the REST API. See xref:Uploading Images to a Data Storage Domain[] for details.
+The ISO domain is a deprecated storage domain type. The ISO Uploader tool, `ovirt-iso-uploader`, is removed in {virt-product-fullname} 4.4. You should upload ISO images to the data domain with the Administration Portal or with the REST API. See xref:Uploading_Images_to_a_Data_Storage_Domain[Uploading Images to a Data Storage Domain] for details.
 
 Although the ISO domain is deprecated, this information is provided in case you must use an ISO domain.
 ====

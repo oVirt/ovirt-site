@@ -28,7 +28,7 @@ To import the certificate authority, browse to `https://_engine_address_/ovirt-e
 . Click menu:Storage[Disks].
 . Select *Start* from the *Upload* menu.
 . Click *Choose File* and select the image to upload.
-. Fill in the *Disk Options* fields. See xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[] for descriptions of the relevant fields.
+. Fill in the *Disk Options* fields. See xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[Explanation of Settings in the New Virtual Disk Window] for descriptions of the relevant fields.
 . Click btn:[OK].
 +
 A progress bar indicates the status of the upload. You can pause, cancel, or resume uploads from the *Upload* menu.

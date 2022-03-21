@@ -25,6 +25,4 @@ The overlay network uses OVN, which must be installed as an external network pro
 
 The new network interface is listed in the *Network Interfaces* tab in the details view of the virtual machine. The *Link State* is set to *Up* by default when the network interface card is defined on the virtual machine and connected to the network.
 
-For more details on the fields in the *New Network Interface* window, see xref:Virtual_Machine_Network_Interface_dialogue_entries[].
-
-
+For more details on the fields in the *New Network Interface* window, see xref:Virtual_Machine_Network_Interface_dialogue_entries[Virtual Machine Network Interface dialogue entries].

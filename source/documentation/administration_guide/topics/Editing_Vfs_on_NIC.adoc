@@ -19,7 +19,7 @@ By default, all virtual networks have access to the virtual functions. You can d
 
 .Prerequisite
 
-* For a vNIC to be attached to a VF must, its passthrough property must be enabled. For details, see xref:Enabling_Passthrough_on_a_vNIC_Profile[].
+* For a vNIC to be attached to a VF must, its passthrough property must be enabled. For details, see xref:Enabling_Passthrough_on_a_vNIC_Profile[Enabling_Passthrough_on_a_vNIC_Profile].
 
 .Procedure
 

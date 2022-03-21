@@ -30,9 +30,9 @@ Changes to the following settings are applied immediately:
 
 * *Network Interfaces*
 
-* *Memory Size* (Edit this field to hot plug virtual memory. See xref:Hot_Plugging_Virtual_Memory[].)
+* *Memory Size* (Edit this field to hot plug virtual memory. See xref:Hot_Plugging_Virtual_Memory[Hot Plugging Virtual Memory].)
 
-* *Virtual Sockets* (Edit this field to hot plug CPUs. See xref:CPU_hot_plug[].)
+* *Virtual Sockets* (Edit this field to hot plug CPUs. See xref:CPU_hot_plug[CPU hot plug].)
 
 * *Highly Available*
 

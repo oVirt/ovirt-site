@@ -7,10 +7,10 @@ You can import a Red Hat-provided KVM virtual machine image. This image is a vir
 You can configure this image with the *cloud-init* tool, and use it to provision new virtual machines. This eliminates the need to install and configure the operating system and provides virtual machines that are ready for use.
 
 
-*Importing a Red Hat KVM Guest Image*
+.Procedure
 
 . Download the most recent KVM virtual machine image from the link:https://access.redhat.com/downloads/content/69/ver=/rhel---7/7.5/x86_64/product-software[Download {enterprise-linux}] list, in the Product Software tab.
 . Upload the virtual machine image using the {engine-name} or the REST API. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_a_Disk_Image_to_a_Storage_Domain[Uploading a Disk Image to a Storage Domain] in the _Administration Guide_.
-. Create a new virtual machine and attach the uploaded disk image to it. See xref:Creating_a_virtual_machine_linux_vm[].
-. Optionally, use *cloud-init* to configure the virtual machine. See xref:Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines[] for details.
+. Create a new virtual machine and attach the uploaded disk image to it. See xref:Creating_a_virtual_machine_linux_vm[Creating a Linux virtual machine].
+. Optionally, use *cloud-init* to configure the virtual machine. See xref:Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines[Using Cloud-Init to Automate the Configuration of Virtual Machines] for details.
 . Optionally, create a template from the virtual machine. You can generate new virtual machines from this template. See xref:chap-Templates[Templates] for information about creating templates and generating virtual machines from templates.

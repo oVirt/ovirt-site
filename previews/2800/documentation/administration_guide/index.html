@@ -5924,7 +5924,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="sect4">
 <h5 id="Configuring_scheduling_policy">Setting Load and Power Management Policies for Hosts in a Cluster</h5>
 <div class="paragraph">
-<p>The <strong>evenly_distributed</strong> and <strong>power_saving</strong> scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The <strong>vm_evenly_distributed</strong> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see <a href="#Cluster_Scheduling_Policy_Settings">Scheduling Policy Settings Explained</a>.</p>
+<p>The <strong>evenly_distributed</strong> and <strong>power_saving</strong> scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The <strong>vm_evenly_distributed</strong> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see <a href="#Cluster_Scheduling_Policy_Settings">Cluster Scheduling Policy Settings</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -5959,7 +5959,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Define the number of slots for virtual machines to be reserved on SPM hosts in the <strong>SpmVmGrace</strong> field.</p>
 </li>
 <li>
-<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts</a> for more information.</p>
+<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -5975,7 +5975,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the <strong>HighUtilization</strong> field.</p>
 </li>
 <li>
-<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts</a> for more information.</p>
+<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -5994,7 +5994,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the <strong>HighUtilization</strong> field.</p>
 </li>
 <li>
-<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts</a> for more information.</p>
+<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -6355,7 +6355,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </table>
 </div>
 <div class="paragraph">
-<p>To configure the <strong>Memory Optimization</strong> setting, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. See <a href="#Cluster_Optimization_Settings_Explained">Optimization Settings Explained</a>.</p>
+<p>To configure the <strong>Memory Optimization</strong> setting, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. See <a href="#Cluster_Optimization_Settings_Explained">Cluster Optimization Settings Explained</a>.</p>
 </div>
 <div class="paragraph">
 <p>Additional comments:</p>
@@ -6450,7 +6450,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </ul>
 </div>
 <div class="paragraph">
-<p>To enable memory ballooning, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable Memory Balloon Optimization</strong> checkbox. This setting enables memory overcommitment on virtual machines running on the hosts in this cluster. When this check box is selected, the MoM starts ballooning where and when possible, with a limitation of the guaranteed memory size of every virtual machine. See <a href="#Cluster_Optimization_Settings_Explained">Optimization Settings Explained</a>.</p>
+<p>To enable memory ballooning, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable Memory Balloon Optimization</strong> checkbox. This setting enables memory overcommitment on virtual machines running on the hosts in this cluster. When this check box is selected, the MoM starts ballooning where and when possible, with a limitation of the guaranteed memory size of every virtual machine. See <a href="#Cluster_Optimization_Settings_Explained">Cluster Optimization Settings Explained</a>.</p>
 </div>
 <div class="paragraph">
 <p>Each host in this cluster receives a balloon policy update when its status changes to Up. If necessary, you can manually update the balloon policy on a host without having to change the status. See <a href="#Updating_the_MoM_Policy_on_Hosts_in_a_Cluster">Updating the MoM Policy on Hosts in a Cluster</a>.</p>
@@ -6490,7 +6490,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </ul>
 </div>
 <div class="paragraph">
-<p>To enable KSM, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable KSM</strong> checkbox. This setting enables MoM to run KSM when necessary and when it can yield a memory saving benefit that outweighs its CPU cost. See <a href="#Cluster_Optimization_Settings_Explained">Optimization Settings Explained</a>.</p>
+<p>To enable KSM, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable KSM</strong> checkbox. This setting enables MoM to run KSM when necessary and when it can yield a memory saving benefit that outweighs its CPU cost. See <a href="#Cluster_Optimization_Settings_Explained">Cluster Optimization Settings Explained</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -7457,7 +7457,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <code>Disabled</code> disables the security group feature.
 <code>Enabled</code> enables the feature. When a port is created and attached to this network, it will be defined with port security enabled. This means that access to/from the virtual machines will be subject to the security groups currently being provisioned.
  <code>Inherit from Configuration</code> enables the ports to inherit the behavior from the configuration file that is defined for all networks. By default, the file disables security groups.
- See <a href="#Assigning_Security_Groups_to_Logical_Networks">Assigning Security Groups to Logical Networks and Ports</a> for details.</p></td>
+ See <a href="#Assigning_Security_Groups_to_Logical_Networks">Assigning Security Groups to Logical Networks</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8790,7 +8790,7 @@ multicast_startup_query_interval=3125</code></pre>
 <p>Use the Administration Portal to make changes rather than making changes locally on the host.</p>
 </li>
 <li>
-<p>Edit VLAN settings according to the instructions in <a href="#Editing-VLAN-Settings">Editing a Host&#8217;s VLAN Settings</a>.</p>
+<p>Edit VLAN settings according to the instructions in <a href="#Editing-VLAN-Settings">Editing VLAN Settings</a>.</p>
 </li>
 </ol>
 </div>
@@ -10605,7 +10605,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The host maintenance <strong>Reason</strong> field will only appear if it has been enabled in the cluster settings. See <a href="#Cluster_General_Settings_Explained">General Cluster Settings Explained</a> for more information.</p>
+<p>The host maintenance <strong>Reason</strong> field will only appear if it has been enabled in the cluster settings. See <a href="#Cluster_General_Settings_Explained">Cluster General Settings Explained</a> for more information.</p>
 </div>
 </td>
 </tr>
@@ -11348,7 +11348,7 @@ Release      : 1.0.el8
 <p>For more information on the hardware requirements for direct device assignment, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/index#">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
 </div>
 <div class="paragraph">
-<p>For more information on configuring the host for direct device assignment, see <a href="#Configuring_a_Host_for_PCI_Passthrough_host_tasks">Configuring a Host for PCI Passthrough</a>.</p>
+<p>For more information on configuring the host for direct device assignment, see <a href="#Configuring_a_Host_for_PCI_Passthrough_host_tasks">Configuring a Host for PCI Passthrough host tasks</a>.</p>
 </div>
 <div class="paragraph">
 <p>For more information on attaching host devices to virtual machines, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-host_devices">Host Devices</a> in the <em>Virtual Machine Management Guide</em>.</p>
@@ -14779,7 +14779,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Click <strong>Choose File</strong> and select the image to upload.</p>
 </li>
 <li>
-<p>Fill in the <strong>Disk Options</strong> fields. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a> for descriptions of the relevant fields.</p>
+<p>Fill in the <strong>Disk Options</strong> fields. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a> for descriptions of the relevant fields.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -18095,7 +18095,7 @@ oVirt OVN provider password[empty]:</pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p>To configure your hosts to use an existing, non-default network, see <a href="#Configuring_Hosts_for_an_OVN_tunnel_network">Configuring Hosts for an OVN Tunnel Network</a>.</p>
+<p>To configure your hosts to use an existing, non-default network, see <a href="#Configuring_Hosts_for_an_OVN_tunnel_network">Configuring Hosts for an OVN tunnel network</a>.</p>
 </li>
 </ul>
 </div>
@@ -26365,7 +26365,7 @@ user updated successfully</pre>
 </div>
 </li>
 <li>
-<p>Add the newly created group in the Administration Portal and assign the group appropriate roles and permissions. The users in the group inherit the roles and permissions of the group. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>Add the newly created group in the Administration Portal and assign the group appropriate roles and permissions. The users in the group inherit the roles and permissions of the group. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -26405,7 +26405,7 @@ user updated successfully</pre>
 </div>
 </li>
 <li>
-<p>Add the first group in the Administration Portal and assign the group appropriate roles and permissions. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>Add the first group in the Administration Portal and assign the group appropriate roles and permissions. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -28348,7 +28348,7 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The ISO Uploader tool has been deprecated. Upload ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> for details.</p>
+<p>The ISO Uploader tool has been deprecated. Upload ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain">Uploading Images to a Data Storage Domain</a> for details.</p>
 </div>
 </td>
 </tr>
@@ -28556,7 +28556,7 @@ Please provide the REST API password for the admin@internal oVirt Engine user (C
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been removed in oVirt 4.4. oVirt recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> for details.</p>
+<p>The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been removed in oVirt 4.4. oVirt recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain">Uploading Images to a Data Storage Domain</a> for details.</p>
 </div>
 </td>
 </tr>
@@ -30462,7 +30462,7 @@ else:
 <div class="sect2">
 <h3 id="VDSM_hooks_return_codes">VDSM Hook Return Codes</h3>
 <div class="paragraph">
-<p>Hook scripts must return one of the return codes shown in <a href="#hook-return-codes">Hook Return Codes</a>. The return code will determine whether further hook scripts are processed by VDSM.</p>
+<p>Hook scripts must return one of the return codes shown in <a href="#hook-return-codes">hook return codes</a>. The return code will determine whether further hook scripts are processed by VDSM.</p>
 </div>
 <table id="hook-return-codes" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 83. Hook Return Codes</caption>
@@ -31116,7 +31116,7 @@ api.ready();</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For more information, see <a href="#Maintaining_the_Self-Hosted_Engine">Maintaining the Self-hosted engine</a>.</p>
+<p>For more information, see <a href="#Maintaining_the_Self-Hosted_Engine">Maintaining the Self-Hosted Engine</a>.</p>
 </div>
 </li>
 <li>

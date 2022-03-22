@@ -688,9 +688,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2779/community/user-stories/brussels-airport-case-study.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2779/develop/dev-process/build-and-test-standards.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2779/develop/dev-process/build-binary-package.html</loc>
 </url>
 <url>
@@ -3301,9 +3298,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2779/develop/release-management/features/storage/wipe-volumes-using-blkdiscard.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2779/develop/dev-process/working-with-gerrit.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2779/develop/dev-process/working-with-github.html</loc>
 </url>
 <url>
@@ -3314,9 +3308,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2779/develop/release-management/features/virt/xbzrle-and-auto-convergence.html</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2779/develop/xen.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2779/events/2014.html</loc>
@@ -3644,6 +3635,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2779/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-21T23:43:23+00:00</lastmod>
+<lastmod>2022-03-22T19:19:21+00:00</lastmod>
 </url>
 </urlset>

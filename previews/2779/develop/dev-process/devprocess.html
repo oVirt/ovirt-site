@@ -239,7 +239,7 @@
 <h2 id="development-process">Development Process</h2>
 
 <p>The code you write, and the way you present it, are crucial for understanding and maintaining the source code.
-Please read the following sections for guidelines on Git, Gerrit, patch management and more.</p>
+Please read the following sections for guidelines on Git, GitHub, patch management and more.</p>
 
 <h3 id="patch-review-process-goals">Patch Review Process Goals</h3>
 
@@ -254,18 +254,18 @@ Please read the following sections for guidelines on Git, Gerrit, patch manageme
   <li>Patches which can be cherry-picked</li>
 </ol>
 
-<p>The oVirt project uses gerrit in order to review patches.
-For more on Gerrit and how to use it see <a href="/ovirt-site/previews/2779/develop/dev-process/working-with-gerrit.html">Working with oVirt Gerrit</a></p>
+<p>The oVirt project uses GitHub in order to review patches.
+If you are not familiar with the process, you can read about <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests">collaborating with pull requests</a> on the GitHub website.</p>
 
 <h3 id="basic-principles">Basic Principles</h3>
 
 <h4 id="review-process">Review Process</h4>
 
 <ol>
-  <li>Patches sent to Gerrit for review</li>
+  <li>Patches sent to GitHub for review</li>
   <li>A peer thoughtfully reviews the patch</li>
   <li>Feedback gratefully received</li>
-  <li>All discussions on the patch must be done on Gerrit</li>
+  <li>All discussions on the patch must be done on GitHub</li>
   <li>Consensus formed, ACK or NAK agreed</li>
 </ol>
 
@@ -277,16 +277,15 @@ For more on Gerrit and how to use it see <a href="/ovirt-site/previews/2779/deve
 
 <h5 id="whos-my-reviewer">who’s my reviewer?</h5>
 
-<p>if you don’t know who is should review your patch you can either -</p>
+<p>If you don’t know who should review your patch you can either:</p>
 
 <ul>
-  <li>ping the engine-devel@ovirt.org mailing list with the link to gerrits request</li>
-  <li>
-    <p>git blame your code and trace recent users who committed code that you changed</p>
-
-    <p>git blame HEAD~1 path/to/file -L {start},{end}</p>
-  </li>
+  <li>Ping the devel@ovirt.org mailing list with the link to pull request or</li>
+  <li><code class="language-plaintext highlighter-rouge">git blame</code> your code and trace recent users who committed code that you changed</li>
 </ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git blame HEAD~1 path/to/file -L {start},{end}
+</code></pre></div></div>
 
 <h4 id="patch-format">Patch Format</h4>
 
@@ -294,49 +293,43 @@ For more on Gerrit and how to use it see <a href="/ovirt-site/previews/2779/deve
   <li>ovirt-engine patch format</li>
 </ul>
 
-<p>use the project template for a commit message</p>
+<p>Use the project template for a commit message:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git commit -s -t config/engine-commit-template.txt
 </code></pre></div></div>
 
 <ul>
-  <li>
-    <p>other patch format (VDSM)</p>
-
-    <p>short summary under 80 chars</p>
-
-    <p>Longer description.
-   With multiple paragraphs if necessary. 
-   Wrapped at ~80 chars.</p>
-
-    <p>Bug-Url: https://bugzilla.redhat.com/XXXXXX
-  Signed-off-by: full name <mail></mail></p>
-  </li>
+  <li>Other patch format (VDSM)</li>
 </ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      short summary under 80 chars
+
+       Longer description.
+       With multiple paragraphs if necessary.
+       Wrapped at ~80 chars.
+
+      Bug-Url: https://bugzilla.redhat.com/XXXXXX
+      Signed-off-by: full name &lt;mail&gt;
+</code></pre></div></div>
 
 <h4 id="sending-a-patch-for-work-in-progress">Sending a Patch For Work In Progress</h4>
 
-<p>Use gerrit’s draft capabilities.</p>
+<p>Patches in draft are blocked from being merged until they are “published”.</p>
 
-<p>Patches in draft are blocked from being merged until they are “published”</p>
-
-<p>To push a patch to drafts:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git push origin HEAD:refs/drafts/master
-</code></pre></div></div>
+<p>Read more about <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests">GitHub Draft Pull Requests on the GitHub site</a>.</p>
 
 <h4 id="describe-your-changes-properly">Describe your changes properly</h4>
 
 <ol>
   <li>Not just “what”, but “why”</li>
   <li>Makes patches easier to review</li>
-  <li>Incredibly useful to future developers, and for you as well (don’t trust your own memory)</li>
+  <li>Incredibly useful to future developers and for you as well (don’t trust your own memory)</li>
 </ol>
 
 <h4 id="separate-your-changes">Separate your changes</h4>
 
 <ol>
-  <li>Each commits contain a single logical change</li>
+  <li>Each commit contains a single logical change</li>
   <li>Keep refactoring separate from bug fixes</li>
 </ol>
 
@@ -371,20 +364,13 @@ For more on Gerrit and how to use it see <a href="/ovirt-site/previews/2779/deve
 
 <h5 id="topic-branches">Topic branches</h5>
 
-<p>Create a branch for everything you work on. It can be done by either postfixing the topic to the push link</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  push origin HEAD:refs/publish/master/{NAME_OF_YOUR_TOPIC}
-</code></pre></div></div>
-
-<p>or using gerrit’s review page directly by clicking on the topic</p>
+<p>Create a branch for everything you work on.</p>
 
 <h5 id="interactive-rebase">Interactive Rebase</h5>
 
-<p>You can also interactive rebase. It is very useful when you would like to re-write your own commit objects before pushing them somewhere.
-It is an easy way to split, merge or re-order commits before sharing them with others.
-You can also use it to clean up commits you’ve pulled from someone when applying them locally.</p>
+<p>You can also rebase with <code class="language-plaintext highlighter-rouge">--interactive</code>. It is very useful when you would like to re-write your own commit objects before pushing them somewhere. It is an easy way to split, merge or re-order commits before sharing them with others. You can also use it to clean up commits you’ve pulled from someone when applying them locally.</p>
 
-<p>For more information on using interactive rebase see <a href="https://book.git-scm.com/docs/git-rebase#_interactive_mode">https://book.git-scm.com/docs/git-rebase#_interactive_mode</a></p>
+<p>For more information on using interactive rebase see <a href="https://book.git-scm.com/docs/git-rebase#_interactive_mode">https://book.git-scm.com/docs/git-rebase#_interactive_mode</a>.</p>
 
 
 

@@ -722,16 +722,16 @@
 
 <h2 id="getting-the-source">Getting the source</h2>
 
-<p>Our public git repository is located at: <a href="http://gerrit.ovirt.org/gitweb?p=vdsm.git">oVirt.org</a></p>
+<p>Our public git repository is located at: <a href="https://github.com/oVirt/vdsm">GitHub</a></p>
 
 <p>You can clone this repository by running the following command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git clone "https://gerrit.ovirt.org/vdsm"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git clone "https://github.com/oVirt/vdsm.git"
 </code></pre></div></div>
 
 <h2 id="installing-the-required-packages">Installing the required packages</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  yum install `cat automation/check-patch.packages.el7`
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  dnf install `cat automation/check-patch.packages.el7`
 </code></pre></div></div>
 
 <p>or if you are using Fedora (use .fc28 for Fedora 28):</p>
@@ -896,7 +896,7 @@ dnf upgrade */*.rpm
 <p>Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # vdsm-tool configure --force
-  (for more information read "vdsm-tool --help") 
+  (for more information read "vdsm-tool --help")
 </code></pre></div></div>
 
 <p>Finally start the vdsmd service:</p>
@@ -910,7 +910,8 @@ dnf upgrade */*.rpm
 
 <h2 id="sending-patches">Sending patches</h2>
 
-<p>Send them to <a href="http://gerrit.ovirt.org">our gerrit server</a> (<a href="/ovirt-site/previews/2800/develop/dev-process/working-with-gerrit.html">see how</a>). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.</p>
+<p>Send them to <a href="https://github.com/oVirt/vdsm">our GitHub repo</a> (<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests">see how</a>).
+With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.</p>
 
 <p>Please be verbose in your commit message. Explain the motivation for your patch, and the reasoning behind it. This information assists the reviewers of your code, before and after it is submitted to the master branch.</p>
 
@@ -1075,12 +1076,6 @@ where option_name = 'UseSecureConnectionWithServers';"
 </ul>
 
 <h3 id="troubleshooting-fake-kvm-support">Troubleshooting Fake KVM Support</h3>
-
-<p><strong>Problems adding the fake Host in the engine</strong></p>
-
-<p>The vdsm bootstrapper was deprecated and replaced by ovirt-host-deploy, the /usr/share/doc/ovirt-host-deploy-1.1.0/README, file includes details about how to configure a fake host.</p>
-
-<p>See see <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-host-deploy.git;a=blob;f=README;hb=HEAD">ovirt-host-deploy/README</a> for fake qemu support.</p>
 
 <p><strong>Failed: Server does not support virtualization</strong></p>
 

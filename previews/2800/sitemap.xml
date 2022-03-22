@@ -688,9 +688,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2800/community/user-stories/brussels-airport-case-study.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2800/develop/dev-process/build-and-test-standards.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2800/develop/dev-process/build-binary-package.html</loc>
 </url>
 <url>
@@ -3301,9 +3298,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2800/develop/release-management/features/storage/wipe-volumes-using-blkdiscard.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2800/develop/dev-process/working-with-gerrit.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2800/develop/dev-process/working-with-github.html</loc>
 </url>
 <url>
@@ -3644,6 +3638,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2800/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-21T17:23:09+00:00</lastmod>
+<lastmod>2022-03-22T08:06:13+00:00</lastmod>
 </url>
 </urlset>

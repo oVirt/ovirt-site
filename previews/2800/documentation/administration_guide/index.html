@@ -593,7 +593,7 @@
 <div class="title">Figure 1. UserManager Custom Role</div>
 </div>
 <div class="paragraph">
-<p>The <strong>UserManager</strong> custom role shown above allows manipulation of users, permissions and roles. These actions are organized under <strong>System</strong> - the top level object of the hierarchy shown in <a href="#rhev-object-hierarchy-2">oVirt Object Hierarchy</a>. This means they apply to all other objects in the system. The role is set to have an <strong>Account Type</strong> of <strong>Admin</strong>. This means that when she is assigned this role, Rachel can use both the Administration Portal and the VM Portal.</p>
+<p>The <strong>UserManager</strong> custom role shown above allows manipulation of users, permissions and roles. These actions are organized under <strong>System</strong> - the top level object of the hierarchy shown in <a href="#rhev-object-hierarchy-2">Object Hierarchy</a>. This means they apply to all other objects in the system. The role is set to have an <strong>Account Type</strong> of <strong>Admin</strong>. This means that when she is assigned this role, Rachel can use both the Administration Portal and the VM Portal.</p>
 </div>
 </div>
 </div>
@@ -7646,7 +7646,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <div class="title">Prerequisite</div>
 <ul>
 <li>
-<p>For a vNIC to be attached to a VF must, its passthrough property must be enabled. For details, see <a href="#Enabling_Passthrough_on_a_vNIC_Profile">Enabling Passthrough on a vNIC Profile</a>.</p>
+<p>For a vNIC to be attached to a VF must, its passthrough property must be enabled. For details, see <a href="#Enabling_Passthrough_on_a_vNIC_Profile">Enabling_Passthrough_on_a_vNIC_Profile</a>.</p>
 </li>
 </ul>
 </div>
@@ -7660,7 +7660,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>Click the name of an SR-IOV-capable host. This opens the details view.</p>
 </li>
 <li>
-<p>Click the <strong>Network Interfaces</strong> tab.</p>
+<p>Click the <strong>Network Interfaces</strong> tab.``</p>
 </li>
 <li>
 <p>Click <strong>Setup Host Networks</strong>.</p>
@@ -8292,7 +8292,7 @@ Technology Preview features are not supported with Red Hat production service-le
 <p>Click the <strong>Logical Networks</strong> tab.</p>
 </li>
 <li>
-<p>Click <strong>Add Network</strong> and define the properties, ensuring that you select <code>ovirt-provider-ovn</code> from the <code>External Providers</code> drop-down list. For more information, see <a href="#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a New Logical Network in a Data Center or Cluster</a>.</p>
+<p>Click <strong>Add Network</strong> and define the properties, ensuring that you select <code>ovirt-provider-ovn</code> from the <code>External Providers</code> drop-down list. For more information, see <a href="#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a new logical network in a data center or cluster</a>.</p>
 </li>
 <li>
 <p>Select <code>Enabled</code> from the <code>Security Group</code> drop-down list. For more details see <a href="#Logical_Network_General_Settings_Explained">Logical Network General Settings Explained</a>.</p>
@@ -8444,7 +8444,7 @@ Always use oVirt Engine to modify the network configuration of hosts in your clu
 <p>The only way to change the IP address of a host in oVirt is to remove the host and then to add it again.</p>
 </div>
 <div class="paragraph">
-<p>To change the VLAN settings of a host, see <a href="#Editing-VLAN-Settings">Editing a Host&#8217;s VLAN Settings</a>.</p>
+<p>To change the VLAN settings of a host, see <a href="#Editing-VLAN-Settings">Editing VLAN Settings</a>.</p>
 </div>
 </td>
 </tr>
@@ -8656,11 +8656,11 @@ multicast_startup_query_interval=3125</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <strong>ethtool_opts</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">How to Set Up oVirt Engine to Use Ethtool</a> for more information. For more information on ethtool properties, see the manual page by typing <code>man ethtool</code> in the command line.</p>
+<p>The <strong>ethtool_opts</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">How to Set Up Engine to Use Ethtool</a> for more information. For more information on ethtool properties, see the manual page by typing <code>man ethtool</code> in the command line.</p>
 </div>
 </li>
 <li>
-<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=</code><code class="yes|no"> and <code>auto_vlan=</code>[yes|no]</code>. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up oVirt Engine to Use FCoE</a> for more information.</p>
+<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=</code><code class="yes|no"> and <code>auto_vlan=</code>[yes|no]</code>. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up Engine to Use FCoE</a> for more information.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -8677,10 +8677,10 @@ multicast_startup_query_interval=3125</code></pre>
 </div>
 </li>
 <li>
-<p>To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network&#8217;s default route. See <a href="#Configuring_a_Default_Route">Configuring a Non-Management Logical Network as the Default Route</a> for more information.</p>
+<p>To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network&#8217;s default route. See <a href="#Configuring_a_Default_Route">Configuring a Default Route</a> for more information.</p>
 </li>
 <li>
-<p>If your logical network definition is not synchronized with the network configuration on the host, select the <strong>Sync network</strong> check box. For more information about unsynchronized hosts and how to synchronize them, see <a href="#Synchronizing_host_networks">Synchronizing Host Networks</a>.</p>
+<p>If your logical network definition is not synchronized with the network configuration on the host, select the <strong>Sync network</strong> check box. For more information about unsynchronized hosts and how to synchronize them, see <a href="#Synchronizing_host_networks">Synchronizing host networks</a>.</p>
 </li>
 </ol>
 </div>
@@ -9309,13 +9309,13 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Place the host into maintenance mode so the virtual machines are live migrated to another host. See <a href="#Moving_a_host_to_maintenance_mode">Moving a Host to Maintenance Mode</a> for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Manually_migrating_virtual_machines">Manually Migrating Virtual Machines</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
+<p>Place the host into maintenance mode so the virtual machines are live migrated to another host. See <a href="#Moving_a_host_to_maintenance_mode">Moving a host to maintenance mode</a> for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Manually_migrating_virtual_machines">Manually Migrating Virtual Machines</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
 </li>
 <li>
 <p>Click <strong>Remove</strong>, and click <b class="button">OK</b> to remove the host from the Administration Portal.</p>
 </li>
 <li>
-<p>Use the <code>hostnamectl</code> tool to update the host name. For more options, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Networking_Guide/ch-Configure_Host_Names.html"> Configure Host Names</a> in the <em>Enterprise Linux 7 Networking Guide</em>.</p>
+<p>Use the <code>hostnamectl</code> tool to update the host name. For more options, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Networking_Guide/ch-Configure_Host_Names.html">Configure Host Names</a> in the <em>Enterprise Linux 7 Networking Guide</em>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># hostnamectl set-hostname _NEW_FQDN_</code></pre>
@@ -9326,7 +9326,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <p>Reboot the host.</p>
 </li>
 <li>
-<p>Re-register the host with the Engine. See <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding Standard Hosts to the oVirt Engine</a> for more information.</p>
+<p>Re-register the host with the Engine. See <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding standard hosts to the Engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -12545,7 +12545,7 @@ If a host runs virtual machines that are highly available, power management must
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The edited values must also be changed in the fence_kdump listener configuration file as outlined in the <code>Kdump Configuration Options</code> table. See <a href="#fence_kdump_listener_Configuration">fence_kdump listener Configuration</a>.</p>
+<p>The edited values must also be changed in the fence_kdump listener configuration file as outlined in the <code>Kdump Configuration Options</code> table. See <a href="#fence_kdump_listener_Configuration">fence_kdump listener configuration</a>.</p>
 </div>
 </td>
 </tr>
@@ -16632,7 +16632,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p><strong>Image</strong> disk creation is managed entirely by the Engine. <strong>Direct LUN</strong> disks require externally prepared targets that already exist.</p>
 </div>
 <div class="paragraph">
-<p>You can create a virtual disk that is attached to a specific virtual machine. Additional options are available when creating an attached virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a>.</p>
+<p>You can create a virtual disk that is attached to a specific virtual machine. Additional options are available when creating an attached virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Creating a Virtual Disk Attached to a Virtual Machine</strong></p>
@@ -16655,7 +16655,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Click the appropriate button to specify whether the virtual disk will be an <strong>Image</strong> or <strong>Direct LUN</strong> disk.</p>
 </li>
 <li>
-<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a> for more details on each option for each disk type.</p>
+<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a> for more details on each option for each disk type.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -16663,7 +16663,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </ol>
 </div>
 <div class="paragraph">
-<p>You can also create a floating virtual disk that does not belong to any virtual machines. You can attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable. Some options are not available when creating a virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a>.</p>
+<p>You can also create a floating virtual disk that does not belong to any virtual machines. You can attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable. Some options are not available when creating a virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Creating a Floating Virtual Disk</strong></p>
@@ -16680,7 +16680,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Click the appropriate button to specify whether the virtual disk will be an <strong>Image</strong> or <strong>Direct LUN</strong> disk.</p>
 </li>
 <li>
-<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a> for more details on each option for each disk type.</p>
+<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a> for more details on each option for each disk type.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -16778,7 +16778,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Incremental Backup</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables incremental backup on the virtual disk. Incremental backup requires disks to be formatted in QCOW2 format instead of RAW format. See <a href="#assembly_incremental-backup-and-restore_RHV_backup_restore">[assembly_incremental-backup-and-restore_RHV_backup_restore]</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables incremental backup on the virtual disk. Incremental backup requires disks to be formatted in QCOW2 format instead of RAW format. See <a href="#assembly_incremental-backup-and-restore_RHV_backup_restore">Incremental backup and restore</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Discard</strong></p></td>
@@ -18139,7 +18139,7 @@ oVirt OVN provider password[empty]:</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>If these packages are not available from the repositories already enabled on the provider machine, they can be downloaded from the OVS website: <a href="http://openvswitch.org/download/" class="bare">http://openvswitch.org/download/</a>.</p>
+<p>If these packages are not available from the repositories already enabled on the provider machine, they can be downloaded from the <a href="http://openvswitch.org/download/">OVS website</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -18276,12 +18276,12 @@ You must also define the authentication URL of the Keystone server by defining t
 <p>Create a new cluster that uses OVN as its default network provider. See <a href="#Creating_a_New_Cluster">Creating a New Cluster</a> and select the OVN network provider from the <strong>Default Network Provider</strong> drop-down list.</p>
 </li>
 <li>
-<p>Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding Standard Hosts to the oVirt Engine</a>.</p>
+<p>Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding standard hosts to the Engine</a>.</p>
 </li>
 <li>
 <p>Import or add OVN networks to the new cluster. To import networks, see <a href="#Importing_Networks">Importing Networks</a>. To create new networks using OVN, see <a href="#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a new logical network in a data center or cluster</a>, and select the <strong>Create on external provider</strong> check box. <code>ovirt-provider-ovn</code> is selected by default.</p>
 <div class="paragraph">
-<p>To configure your hosts to use an existing, non-default network, see <a href="#Configuring_Hosts_for_an_OVN_tunnel_network">Configuring Hosts for an OVN Tunnel Network</a>.</p>
+<p>To configure your hosts to use an existing, non-default network, see <a href="#Configuring_Hosts_for_an_OVN_tunnel_network">Configuring Hosts for an OVN tunnel network</a>.</p>
 </div>
 <div class="paragraph">
 <p>To connect the OVN network to a native oVirt network, select the <strong>Connect to physical network</strong> check box and specify the oVirt network to use. See <a href="#Connecting_an_OVN_Network_to_a_Physical_Network">Connecting an OVN Network to a Physical Network</a> for more information and prerequisites.</p>
@@ -18625,7 +18625,7 @@ You must also define the authentication URL of the Keystone server by defining t
 </ol>
 </div>
 <div class="paragraph">
-<p>Before you can use networks from this provider, you must install the virtual interface driver on the hosts and import the networks. To import networks, see <a href="#Importing_Networks">Importing Networks From External Providers</a>.</p>
+<p>Before you can use networks from this provider, you must install the virtual interface driver on the hosts and import the networks. To import networks, see <a href="#Importing_Networks">Importing Networks</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -24282,7 +24282,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <p>The <strong>ovirt-engine-extension-aaa-ldap</strong> extension allows users to customize their external directory setup easily. The <strong>ovirt-engine-extension-aaa-ldap</strong> extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.</p>
 </div>
 <div class="paragraph">
-<p>If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See <a href="#Configuring_an_External_LDAP_Provider_ManualMethod">Configuring an External LDAP Provider (Manual Method)</a> for more information.</p>
+<p>If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See <a href="#Configuring_an_External_LDAP_Provider_ManualMethod">Configuring an External LDAP Provider</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>For an Active Directory example, see <a href="#Attaching_an_Active_Directory">Attaching an Active Directory</a>.</p>
@@ -24321,7 +24321,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 </div>
 </li>
 <li>
-<p>Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at <a href="#Attaching_an_Active_Directory">Attaching an Active Directory</a>.</p>
+<p>Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at <a href="#Attaching_an_Active_Directory">Attaching_an_Active_Directory</a>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">Available LDAP implementations:
@@ -24567,7 +24567,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 </div>
 </li>
 <li>
-<p>Restart the <code>ovirt-engine</code> service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Administering User Tasks From the Administration Portal</a>.</p>
+<p>Restart the <code>ovirt-engine</code> service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Engine User Tasks</a>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
@@ -24617,7 +24617,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 <p>You need to either add the DNS server that can resolve the Active Directory forest name to the <strong>/etc/resolv.conf</strong> file on the Engine, or note down the Active Directory DNS servers and enter them when prompted by the interactive setup script.</p>
 </li>
 <li>
-<p>To set up secure connection between the LDAP server and the Engine, ensure a PEM-encoded CA certificate has been prepared. See <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a> for more information.</p>
+<p>To set up secure connection between the LDAP server and the Engine, ensure a PEM-encoded CA certificate has been prepared. See <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Manager and an LDAP Server</a> for more information.</p>
 </li>
 <li>
 <p>Unless anonymous search is supported, a user with permissions to browse all users and groups must be available on the Active Directory to be used as the search user. Note down the search user&#8217;s distinguished name (DN). Do not use the administrative user for the Active Directory.</p>
@@ -24707,7 +24707,7 @@ Please enter the password:</code></pre>
 <p>LDAPS stands for Lightweight Directory Access Protocol Over Secure Socket Links. For SSL connections, select the <code>ldaps</code> option.</p>
 </div>
 <div class="paragraph">
-<p>For more information on creating a PEM-encoded CA certificate, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
+<p>For more information on creating a PEM-encoded CA certificate, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -24798,7 +24798,7 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 </div>
 </li>
 <li>
-<p>The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Administering User Tasks From the Administration Portal</a>.</p>
+<p>The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Engine User Tasks</a>.</p>
 </li>
 </ol>
 </div>
@@ -24906,7 +24906,7 @@ pool.default.auth.simple.password = ${global:vars.password}</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
+<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -24993,7 +24993,7 @@ config.profile.file.1 = ../aaa/_example_.properties</code></pre>
 </div>
 </li>
 <li>
-<p>The <em>example</em> profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Administering User Tasks From the Administration Portal</a>.</p>
+<p>The <em>example</em> profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Engine User Tasks</a>.</p>
 </li>
 </ol>
 </div>
@@ -25319,7 +25319,7 @@ pool.default.auth.simple.password = ${global:vars.password}</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
+<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -26090,7 +26090,7 @@ user added successfully</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>You can add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </div>
 </div>
 <div class="sect4">
@@ -26283,7 +26283,7 @@ user updated successfully</pre>
 <p>Log in to the machine on which the oVirt Engine is installed.</p>
 </li>
 <li>
-<p>Make sure another user with the <strong>SuperUser</strong> role has been added to the environment. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>Make sure another user with the <strong>SuperUser</strong> role has been added to the environment. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </li>
 <li>
 <p>Disable the default <strong>admin</strong> user:</p>

@@ -12,5 +12,5 @@
 
 ====
 [NOTE]
-To verify whether the provider and OVN were configured successfully on the host, check the *OVN configured* flag on the *General* tab for the host. If the host's OVN is not confiugred, you can configure it by reinstalling {engine-name} 4.5 or higher.
+To verify whether the provider and OVN were configured successfully on the host, check the *OVN configured* flag on the *General* tab for the host. If the *OVN Configured* is set to *No*, click menu:Management[Refresh Capabilities]. If refreshing the capabilities fails, you can configure OVN by reinstalling {engine-name} 4.5 or higher.
 ====

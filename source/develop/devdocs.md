@@ -92,7 +92,6 @@ Obsolete:
 #### Other
 
 - [User level query column filtering](/develop/user-level-query-column-filtering.html)
-- [Xen](/develop/xen.html)
 - [Migration from vdscli to jsonrpcvdscli](/develop/migration-from-vdscli-to-jsonrpcvdscli.html)
 </section>
 

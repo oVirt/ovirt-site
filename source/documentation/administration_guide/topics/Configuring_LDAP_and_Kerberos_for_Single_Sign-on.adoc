@@ -199,7 +199,7 @@ To use TLS or SSL protocol to interact with the LDAP server, obtain the root CA 
 +
 [NOTE]
 ====
-For more information on creating a public keystore file, see xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[].
+For more information on creating a public keystore file, see xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[Setting Up SSL or TLS Connections between the {engine-name} and an LDAP Server].
 ====
 +
 .Example profile: keystore section

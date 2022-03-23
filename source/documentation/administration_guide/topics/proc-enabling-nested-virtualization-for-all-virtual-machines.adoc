@@ -61,4 +61,4 @@ If this command returns `Y` or `1`, the feature is enabled.
 
 .Additional resources
 
-* xref:VDSM_hooks[]
+* xref:VDSM_hooks[VDSM hooks]

@@ -72,4 +72,4 @@ broker : 25, type : broker
 ----
 
 
-To verify that SMTP has been properly configured for your self-hosted engine environment, change the HA state on a self-hosted engine node and check if email notifications were sent. For example, you can change the HA state by placing HA agents into maintenance mode. See xref:Maintaining_the_Self-Hosted_Engine[] for more information.
+To verify that SMTP has been properly configured for your self-hosted engine environment, change the HA state on a self-hosted engine node and check if email notifications were sent. For example, you can change the HA state by placing HA agents into maintenance mode. See xref:Maintaining_the_Self-Hosted_Engine[Maintaining the Self-Hosted Engine] for more information.

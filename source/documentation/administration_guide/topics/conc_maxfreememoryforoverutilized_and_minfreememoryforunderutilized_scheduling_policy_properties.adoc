@@ -38,4 +38,4 @@ If you define the *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtili
 
 .Additional resources
 
-* xref:Cluster_Scheduling_Policy_Settings[]
+* xref:Cluster_Scheduling_Policy_Settings[Cluster Scheduling Policy Settings]

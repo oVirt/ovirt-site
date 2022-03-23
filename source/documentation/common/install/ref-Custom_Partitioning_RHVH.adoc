@@ -32,7 +32,7 @@ Do not create a separate partition for `/usr`. Doing so will cause the installat
 `/usr` must be on a logical volume that is able to change versions along with {hypervisor-shortname}, and therefore should be left on root (`/`).
 ====
 +
-For information about the required storage sizes for each partition, see xref:Storage_Requirements_{context}[].
+For information about the required storage sizes for each partition, see xref:Storage_Requirements_{context}[Storage Requirements].
 
 * The `/boot` directory should be defined as a standard partition.
 

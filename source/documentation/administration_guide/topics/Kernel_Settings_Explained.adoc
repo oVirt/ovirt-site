@@ -22,7 +22,7 @@ If the host is attached to the {engine-name}, you must place the host into maint
 |*Blacklist Nouveau* | Blocks the nouveau driver. Nouveau is a community driver for NVIDIA GPUs that conflicts with vendor-supplied drivers. The nouveau driver should be blocked when vendor drivers take precedence.
 |*SMT Disabled* | Disables Simultaneous Multi Threading (SMT). Disabling SMT can mitigate security vulnerabilities, such as L1TF or MDS.
 ifdef::rhv-doc[]
-|*FIPS mode* |Enables FIPS mode. For details, see xref:enabling_fips_using_the_rhv_manager_appendix_fips[].
+|*FIPS mode* |Enables FIPS mode. For details, see xref:enabling_fips_using_the_rhv_manager_appendix_fips[Enabling FIPS using the {engine-name}].
 endif::rhv-doc[]
 
 |*Kernel command line* |This field allows you to append more kernel parameters to the default parameters.

@@ -130,7 +130,7 @@ After unbinding the GPU from host kernel driver, you can add it to the virtual m
 
 . Follow the steps in link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Adding_Host_Devices_to_a_Virtual_Machine[Adding a Host Device to a Virtual Machine] in the _Virtual Machine Management Guide_.
 . Run the virtual machine and log in to it.
-. Install the NVIDIA GPU driver on the virtual machine. For details, see xref:proc_install-nvidia-vgpu-guest-driver_nvidia_gpu_passthrough[].
+. Install the NVIDIA GPU driver on the virtual machine. For details, see xref:proc_install-nvidia-vgpu-guest-driver_nvidia_gpu_passthrough[Installing the GPU driver on the virtual machine].
 . Verify that the correct kernel driver is in use for the GPU with the [command]`lspci -nnk` command. For example:
 +
 [options="nowrap" subs="+quotes,verbatim"]

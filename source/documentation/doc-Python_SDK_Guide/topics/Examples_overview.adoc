@@ -4,7 +4,7 @@
 
 This section provides examples demonstrating the steps to create a virtual machine within a basic {virt-product-fullname} environment, using the Python SDK.
 
-These examples use the `ovirtsdk` Python library provided by the `ovirt-engine-sdk-python` package. This package is available to systems attached to a `{virt-product-fullname}` subscription pool in Red Hat Subscription Manager. See xref:Installing_the_Software_Development_Kit[] for more information on subscribing your system(s) to download the software.
+These examples use the `ovirtsdk` Python library provided by the `ovirt-engine-sdk-python` package. This package is available to systems attached to a `{virt-product-fullname}` subscription pool in Red Hat Subscription Manager. See xref:Installing_the_Software_Development_Kit[Installing the Software Development Kit] for more information on subscribing your system(s) to download the software.
 
 
 You will also need:

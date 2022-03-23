@@ -19,7 +19,7 @@ Virtual machines that are pinned to the host and cannot be migrated are shut dow
 +
 [NOTE]
 ====
-The host maintenance *Reason* field will only appear if it has been enabled in the cluster settings. See xref:Cluster_General_Settings_Explained[] for more information.
+The host maintenance *Reason* field will only appear if it has been enabled in the cluster settings. See xref:Cluster_General_Settings_Explained[Cluster General Settings Explained] for more information.
 ====
 +
 . Optionally, select the required options for hosts that support Gluster.

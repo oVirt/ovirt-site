@@ -7,7 +7,7 @@ Add an OpenStack Image (Glance) instance for image management to the {virt-produ
 .Procedure
 
 . Click menu:Administration[Providers].
-. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
+. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[Add Provider General Settings Explained].
 . Enter a *Name* and *Description*.
 . Select *OpenStack Image* from the *Type* drop-down list.
 . Enter the URL or fully qualified domain name of the machine on which the OpenStack Image instance is installed in the *Provider URL* text field.

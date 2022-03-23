@@ -15,7 +15,7 @@ Create a logical network and define its use in a data center, or in clusters in 
 . Enter a *Name*, *Description*, and *Comment* for the logical network.
 . Optional: Enable *Enable VLAN tagging*.
 . Optional: Disable *VM Network*.
-. Optional: Select the *Create on external provider* checkbox. This disables the network label and the VM network. See xref:chap-External_Providers[] for details.
+. Optional: Select the *Create on external provider* checkbox. This disables the network label and the VM network. See xref:chap-External_Providers[External Providers] for details.
 .. Select the *External Provider*. The *External Provider* list does not include external providers that are in read-only mode.
 .. To create an internal, isolated network, select *ovirt-provider-ovn* on the *External Provider* list and leave *Connect to physical network* cleared.
 
@@ -32,7 +32,7 @@ After you create a network on an external provider, you cannot change the networ
 If you change the network’s *MTU* settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see link:https://access.redhat.com/solutions/4540631[] and link:https://bugzilla.redhat.com/show_bug.cgi?id=1766414[BZ#1766414].
 ====
 
-. If you selected *ovirt-provider-ovn* from the *External Provider* drop-down list, define whether the network should implement *Security Groups*. See xref:Logical_Network_General_Settings_Explained[] for details.
+. If you selected *ovirt-provider-ovn* from the *External Provider* drop-down list, define whether the network should implement *Security Groups*. See xref:Logical_Network_General_Settings_Explained[Logical Network General Settings Explained] for details.
 . From the *Cluster* tab, select the clusters to which the network will be assigned. You can also specify whether the logical network will be a required network.
 . If the *Create on external provider* checkbox is selected, the *Subnet* tab is visible. From the *Subnet* tab, select the *Create subnet* and enter a *Name*, *CIDR*, and *Gateway* address, and select an *IP Version* for the subnet that the logical network will provide. You can also add DNS servers as required.
 . From the *vNIC Profiles* tab, add vNIC profiles to the logical network as required.

@@ -6,7 +6,7 @@ You can configure a headless virtual machine when it is not necessary to access 
 
 Headless virtual machines can be administered via a Serial Console, SSH, or any other service for command line access. Headless mode is applied via the *Console* tab when creating or editing virtual machines and machine pools, and when editing templates. It is also available when creating or editing instance types.
 
-If you are creating a new headless virtual machine, you can use the *Run Once* window to access the virtual machine via a graphical console for the first run only. See xref:Virtual_Machine_Run_Once_settings_explained[] for more details.
+If you are creating a new headless virtual machine, you can use the *Run Once* window to access the virtual machine via a graphical console for the first run only. See xref:Virtual_Machine_Run_Once_settings_explained[Virtual Machine Run Once settings explained] for more details.
 
 .Prerequisites
 
@@ -37,4 +37,4 @@ Restart the virtual machine if it is running when selecting the *Headless Mode* 
 . Click the *Console* tab.
 . Select *Headless Mode*. All other fields in the *Graphical Console* section are disabled.
 . Optionally, select *Enable VirtIO serial console* to enable communicating with the virtual machine via serial console. This is highly recommended.
-. Reboot the virtual machine if it is running. See xref:Rebooting_a_Virtual_Machine[].
+. Reboot the virtual machine if it is running. See xref:Rebooting_a_Virtual_Machine[Rebooting a Virtual Machine].

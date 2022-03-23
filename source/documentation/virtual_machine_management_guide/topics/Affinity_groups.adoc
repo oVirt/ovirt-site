@@ -26,13 +26,13 @@ For example, with a positive *Host Affinity Rule* and *Enforcing* enabled (the f
 For this module to work, the *filter module* section of the scheduling policies must contain the `VmAffinityGroups` and `VmToHostsAffinityGroups` keywords.
 
 .Examples
-To see how these rules and options can be used with one another, see xref:Affinity_groups_examples[].
+To see how these rules and options can be used with one another, see xref:Affinity_groups_examples[Affinity group examples].
 
 [WARNING]
 ====
 * An _affinity label_ is functionally the same as an affinity group with a positive *Host Affinity Rule* and *Enforcing* enabled.
 * For affinity labels to work, the *filter module* section of the scheduling policies must contain `Label`.
-* If an affinity group and affinity label conflict with each other, the affected virtual machines do not run. To help prevent, troubleshoot, and resolve conflicts, see xref:Affinity_groups_troubleshooting[].
+* If an affinity group and affinity label conflict with each other, the affected virtual machines do not run. To help prevent, troubleshoot, and resolve conflicts, see xref:Affinity_groups_troubleshooting[Affinity group troubleshooting].
 
 ====
 

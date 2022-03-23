@@ -33,7 +33,7 @@ include::topics/proc_improving_disk_performance.adoc[leveloffset=+2]
 
 === Uploading Images to a Data Storage Domain
 
-You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API. See xref:Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[].
+You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API. See xref:Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain].
 
 include::topics/Importing_a_Disk_Image.adoc[leveloffset=+2]
 

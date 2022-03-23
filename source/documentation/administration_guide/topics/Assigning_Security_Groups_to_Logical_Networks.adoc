@@ -15,8 +15,8 @@ In {virt-product-fullname} 4.2.7, security groups are disabled by default.
 . Click menu:Compute[Clusters].
 . Click the cluster name. This opens the details view.
 . Click the *Logical Networks* tab.
-. Click *Add Network* and define the properties, ensuring that you select `ovirt-provider-ovn` from the `External Providers` drop-down list. For more information, see xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[].
-. Select `Enabled` from the `Security Group` drop-down list. For more details see xref:Logical_Network_General_Settings_Explained[].
+. Click *Add Network* and define the properties, ensuring that you select `ovirt-provider-ovn` from the `External Providers` drop-down list. For more information, see xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[Creating a new logical network in a data center or cluster].
+. Select `Enabled` from the `Security Group` drop-down list. For more details see xref:Logical_Network_General_Settings_Explained[Logical Network General Settings Explained].
 . Click `OK`.
 . Create security groups using either
 link:https://developer.openstack.org/api-ref/network/v2/#security-groups-security-groups[OpenStack Networking API v2.0] or

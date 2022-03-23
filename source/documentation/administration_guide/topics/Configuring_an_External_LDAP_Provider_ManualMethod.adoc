@@ -78,7 +78,7 @@ To use TLS or SSL protocol to interact with the LDAP server, obtain the root CA 
 +
 [NOTE]
 ====
-For more information on creating a public keystore file, see xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[].
+For more information on creating a public keystore file, see xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[Setting Up SSL or TLS Connections between the {engine-name} and an LDAP Server].
 ====
 +
 .Example profile: keystore section
@@ -155,7 +155,7 @@ config.profile.file.1 = ../aaa/_example_.properties
 # systemctl restart ovirt-engine.service
 ----
 +
-. The _example_ profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[].
+. The _example_ profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[{engine-name} User Tasks].
 
 
 [NOTE]

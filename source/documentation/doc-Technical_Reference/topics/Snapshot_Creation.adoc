@@ -4,7 +4,7 @@
 
 In {virt-product-fullname} the initial snapshot for a virtual machine is different from subsequent snapshots in that the initial snapshot retains its format, either QCOW2 or raw. The first snapshot for a virtual machine uses existing volumes as a base image. Additional snapshots are additional COW layers tracking the changes made to the data stored in the image since the previous snapshot.
 
-As depicted in xref:figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Creation[], the creation of a snapshot causes the volumes that comprise a virtual disk to serve as the base image for all subsequent snapshots.
+As depicted in xref:figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Creation[Initial Snapshot Creation], the creation of a snapshot causes the volumes that comprise a virtual disk to serve as the base image for all subsequent snapshots.
 
 [id="figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Creation"]
 .Initial Snapshot Creation

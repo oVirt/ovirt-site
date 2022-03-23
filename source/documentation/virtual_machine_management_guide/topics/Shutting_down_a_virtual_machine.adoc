@@ -6,7 +6,7 @@ You can turn off a virtual machine using *Shutdown* or *Power Off*. *Shutdown* g
 
 [NOTE]
 ====
-If an exclamation point appears next to the virtual machine, a snapshot deletion process has failed, and you may not be able to restart the machine after shutting it down. Try to delete the snapshot again and ensure that the explanation mark disappears before shutting down the virtual machine. See xref:Deleting_a_snapshot[] for more information.
+If an exclamation point appears next to the virtual machine, a snapshot deletion process has failed, and you may not be able to restart the machine after shutting it down. Try to delete the snapshot again and ensure that the explanation mark disappears before shutting down the virtual machine. See xref:Deleting_a_snapshot[Deleting a snapshot] for more information.
 ====
 
 .Procedure

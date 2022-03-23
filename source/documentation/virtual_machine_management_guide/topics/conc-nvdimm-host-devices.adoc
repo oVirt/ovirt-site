@@ -13,11 +13,11 @@ NVDIMM devices are Technology Preview features only. Technology Preview features
 
 You can add emulated NVDIMM devices to virtual machines. Elsewhere, this type of memory is also known as _virtual NVDIMM_ or _vNVDIMM_.
 
-The emulated NVDIMM you can attach to a virtual machine is backed by real NVDIMM on the host machine where the virtual machine runs. Therefore, when you attach NVDIMM to a virtual machine, you also pin the virtual machine to a specific host. 
+The emulated NVDIMM you can attach to a virtual machine is backed by real NVDIMM on the host machine where the virtual machine runs. Therefore, when you attach NVDIMM to a virtual machine, you also pin the virtual machine to a specific host.
 
 You can reconfigure the mode, partitioning, and other properties of the emulated NVDIMM device in the virtual machine without affecting the settings of the physical NVDIMM on the host device.
 
-To add emulated NVDIMM to a virtual machine, see xref:Adding_Host_Devices_to_a_Virtual_Machine[]
+To add emulated NVDIMM to a virtual machine, see xref:Adding_Host_Devices_to_a_Virtual_Machine[Adding Host Devices to a Virtual Machine]
 
 .Limitations
 
@@ -45,4 +45,4 @@ Avoid using NVDIMM on IBM POWER hardware. This combination is currently not expe
 .Additional resources
 
 * link:https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt[QEMU NVDIMM documentation]
-* xref:Adding_Host_Devices_to_a_Virtual_Machine[]
+* xref:Adding_Host_Devices_to_a_Virtual_Machine[Adding Host Devices to a Virtual Machine]

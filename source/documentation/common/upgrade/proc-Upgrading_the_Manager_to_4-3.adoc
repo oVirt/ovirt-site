@@ -135,6 +135,6 @@ Complete these additional steps when upgrading a remote Data Warehouse database 
 # rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/*
 ----
 
-. Repeat the steps in xref:Upgrading_the_Manager_to_4-3_4-2_remote_db[] on the machine hosting the `ovirt-engine-dwhd` service.
+. Repeat the steps in xref:Upgrading_the_Manager_to_4-3_4-2_remote_db[Upgrading the {engine-name} to 4.3] on the machine hosting the `ovirt-engine-dwhd` service.
 
 endif::4-2_remote_db[]

@@ -15,7 +15,7 @@ Restoring a self-hosted engine's previous state involves the following steps:
 
 . xref:Disabling_Global_Maintenance_Mode_SHE_overwrite[Disable global maintenance mode.]
 
-For more information about `engine-backup --mode=restore` options, see xref:sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager[].
+For more information about `engine-backup --mode=restore` options, see xref:sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager[Backing Up and Restoring the {engine-name}].
 
 include::../she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
 

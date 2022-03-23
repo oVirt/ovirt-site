@@ -29,7 +29,7 @@ When the `he_pause_host` or `he_pause_before_engine_setup` variables are set to 
 
 * FQDNs prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS.
 * When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
-* Optional: If you want to customize the {engine-name} virtual machine during deployment using automation, an Ansible playbook must be added. See xref:customizing_engine_vm_during_deployment_auto_SHE_cli_deploy[].*
+* Optional: If you want to customize the {engine-name} virtual machine during deployment using automation, an Ansible playbook must be added. See xref:customizing_engine_vm_during_deployment_auto_SHE_cli_deploy[Customizing the Engine virtual machine using automation during deployment].
 * The self-hosted engine setup script requires ssh public key access using 2048-bit RSA keys from the engine virtual machine to the root account of its bare metal host. In `/etc/ssh/sshd_config`, these values must be set as follows:
 ** `PubkeyAcceptedKeyTypes` must allow 2048-bit RSA keys or stronger.
 +
@@ -189,7 +189,7 @@ SSH public key []:
 Do you want to enable ssh access for the root user (yes, no, without-password) [yes]:
 ----
 
-. Optional: You can apply the DISA STIG security profile on the {engine-name} virtual machine. The DISA STIG profile is the default OpenSCAP profile. For more information, see xref:disa-stig-for-red-hat-linux_assembly-securing-rhv[]
+. Optional: You can apply the DISA STIG security profile on the {engine-name} virtual machine. The DISA STIG profile is the default OpenSCAP profile.
 +
 ----
 Do you want to apply a default OpenSCAP security profile? (Yes, No) [No]:

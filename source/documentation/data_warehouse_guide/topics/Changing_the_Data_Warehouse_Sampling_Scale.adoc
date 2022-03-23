@@ -4,7 +4,7 @@
 
 Data Warehouse is required in {virt-product-fullname}. It can be installed and configured on the same machine as the {engine-name}, or on a separate machine with access to the {engine-name}. The default data retention settings may not be required for all setups, so `engine-setup` offers two data sampling scales: `Basic` and `Full`.
 
-* `Full` uses the default values for the data retention settings listed in xref:Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[] (recommended when Data Warehouse is installed on a remote host).
+* `Full` uses the default values for the data retention settings listed in xref:Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[Application Settings for the Data Warehouse service] (recommended when Data Warehouse is installed on a remote host).
 
 * `Basic` reduces the values of `DWH_TABLES_KEEP_HOURLY` to `720` and `DWH_TABLES_KEEP_DAILY` to `0`, easing the load on the {engine-name} machine. Use `Basic` when the {engine-name} and Data Warehouse are installed on the same machine.
 
@@ -54,4 +54,4 @@ During execution engine service will be stopped (OK, Cancel) [OK]:
 Please confirm installation settings (OK, Cancel) [OK]:
 ----
 
-You can also adjust individual data retention settings if necessary, as documented in xref:Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[].
+You can also adjust individual data retention settings if necessary, as documented in xref:Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[Application Settings for the Data Warehouse service].

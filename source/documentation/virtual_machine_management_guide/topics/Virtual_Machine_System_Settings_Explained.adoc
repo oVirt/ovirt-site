@@ -43,7 +43,7 @@ The following table details the options available on the *System* tab of the *Ne
 
 
 |*Threads per Core*
-|The number of threads assigned to each core. Increasing the value enables simultaneous multi-threading (SMT). IBM POWER8 supports up to 8 threads per core. For x86 and x86_64 (Intel and AMD) CPU types, the recommended value is 1, unless you want to replicate the exact host topology, which you can do using CPU pinning. For more information, see xref:Pinning_CPU[].
+|The number of threads assigned to each core. Increasing the value enables simultaneous multi-threading (SMT). IBM POWER8 supports up to 8 threads per core. For x86 and x86_64 (Intel and AMD) CPU types, the recommended value is 1, unless you want to replicate the exact host topology, which you can do using CPU pinning. For more information, see xref:Pinning_CPU[Pinning CPU].
 | If OS supports hotplugging, no. Otherwise, yes.
 
 

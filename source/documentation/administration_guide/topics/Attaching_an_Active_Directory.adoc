@@ -14,7 +14,7 @@ Examples of the most common Active Directory configurations, which cannot be con
 
 * You need to either add the DNS server that can resolve the Active Directory forest name to the */etc/resolv.conf* file on the {engine-name}, or note down the Active Directory DNS servers and enter them when prompted by the interactive setup script.
 
-* To set up secure connection between the LDAP server and the {engine-name}, ensure a PEM-encoded CA certificate has been prepared. See xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[] for more information.
+* To set up secure connection between the LDAP server and the {engine-name}, ensure a PEM-encoded CA certificate has been prepared. See xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[Setting Up SSL or TLS Connections between the Manager and an LDAP Server] for more information.
 
 * Unless anonymous search is supported, a user with permissions to browse all users and groups must be available on the Active Directory to be used as the search user. Note down the search user's distinguished name (DN). Do not use the administrative user for the Active Directory.
 
@@ -88,7 +88,7 @@ Please enter the password:
 ====
 LDAPS stands for Lightweight Directory Access Protocol Over Secure Socket Links. For SSL connections, select the `ldaps` option.
 
-For more information on creating a PEM-encoded CA certificate, see xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[].
+For more information on creating a PEM-encoded CA certificate, see xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[Setting Up SSL or TLS Connections between the {engine-name} and an LDAP Server].
 ====
 +
 . Enter the search user distinguished name (DN). The user must have permissions to browse all users and groups on the directory server. The search user must be of LDAP annotation. If anonymous search is allowed, press `Enter` without any input.
@@ -158,7 +158,7 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 [ INFO  ] Stage: Termination
 ----
 +
-. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[].
+. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[{engine-name} User Tasks].
 
 
 [NOTE]

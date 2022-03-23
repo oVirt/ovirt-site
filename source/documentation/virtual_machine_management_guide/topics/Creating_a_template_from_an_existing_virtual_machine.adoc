@@ -17,7 +17,7 @@ When you create a template, you specify the format of the disk to be raw or QCOW
 
 . Click menu:Compute[Virtual Machines] and select the source virtual machine.
 . Ensure the virtual machine is powered down and has a status of `Down`.
-. Click *More Actions* (image:common/images/moreactions.png[]), then click *Make Template*. For more details on all fields in the *New Template* window, see xref:Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows[].
+. Click *More Actions* (image:common/images/moreactions.png[]), then click *Make Template*. For more details on all fields in the *New Template* window, see xref:Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows[Explanation of Settings in the New Template and Edit Template Windows].
 . Enter a *Name*, *Description*, and *Comment* for the template.
 . Select the cluster with which to associate the template from the *Cluster* drop-down list. By default, this is the same as that of the source virtual machine.
 . Optionally, select a CPU profile for the template from the *CPU Profile* drop-down list.
@@ -29,7 +29,7 @@ When you create a template, you specify the format of the disk to be raw or QCOW
 +
 [NOTE]
 ====
-Sealing, which uses the `virt-sysprep` command, removes system-specific details from a virtual machine before creating a template based on that virtual machine. This prevents the original virtual machine's details from appearing in subsequent virtual machines that are created using the same template. It also ensures the functionality of other features, such as predictable vNIC order. See xref:appe-virt_sysprep_operations[] for more information.
+Sealing, which uses the `virt-sysprep` command, removes system-specific details from a virtual machine before creating a template based on that virtual machine. This prevents the original virtual machine's details from appearing in subsequent virtual machines that are created using the same template. It also ensures the functionality of other features, such as predictable vNIC order. See xref:appe-virt_sysprep_operations[`virt-sysprep` operations] for more information.
 ====
 +
 . Click btn:[OK].

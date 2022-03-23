@@ -41,8 +41,8 @@ If you need to restore a backup, but do not have a new appliance, the restore pr
 +
 If no regular hosts are available, there are two ways to  add one:
 
-** Remove the self-hosted engine configuration from a node (but do not remove the node from the environment). See xref:Removing_a_Host_from_a_Self-Hosted_Engine_Environment[].
-** Add a new regular host. See xref:Adding_standard_hosts_to_the_Manager_host_tasks[].
+** Remove the self-hosted engine configuration from a node (but do not remove the node from the environment). See xref:Removing_a_Host_from_a_Self-Hosted_Engine_Environment[Removing a Host from a Self-Hosted Engine Environment].
+** Add a new regular host. See xref:Adding_standard_hosts_to_the_Manager_host_tasks[Adding standard hosts to the {engine-name} host tasks].
 
 include::proc-Backing_up_the_Original_Manager.adoc[leveloffset=+1]
 

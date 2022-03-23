@@ -2,6 +2,6 @@
 [id="Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template"]
 = Sealing a Linux Virtual Machine for Deployment as a Template
 
-To seal a Linux virtual machine during the template creation process, select the *Seal Template* check box in the *New Template* window. See xref:Creating_a_template_from_an_existing_virtual_machine[] for details.
+To seal a Linux virtual machine during the template creation process, select the *Seal Template* check box in the *New Template* window. See xref:Creating_a_template_from_an_existing_virtual_machine[Creating a template from an existing virtual machine] for details.
 
 include::snip-sealing-rhel-8-vms.adoc[]

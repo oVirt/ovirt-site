@@ -4,9 +4,9 @@
 
 The *ovirt-engine-extension-aaa-ldap* extension allows users to customize their external directory setup easily. The *ovirt-engine-extension-aaa-ldap* extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.
 
-If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See xref:Configuring_an_External_LDAP_Provider_ManualMethod[] for more information.
+If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See xref:Configuring_an_External_LDAP_Provider_ManualMethod[Configuring an External LDAP Provider] for more information.
 
-For an Active Directory example, see xref:Attaching_an_Active_Directory[].
+For an Active Directory example, see xref:Attaching_an_Active_Directory[Attaching an Active Directory].
 
 .Prerequisites
 
@@ -32,7 +32,7 @@ For an Active Directory example, see xref:Attaching_an_Active_Directory[].
 # ovirt-engine-extension-aaa-ldap-setup
 ----
 +
-. Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at xref:Attaching_an_Active_Directory[].
+. Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at xref:Attaching_an_Active_Directory[Attaching_an_Active_Directory].
 +
 [source,terminal]
 ----
@@ -212,7 +212,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 [ INFO  ] Stage: Termination
 ----
 
-. Restart the `ovirt-engine` service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[].
+. Restart the `ovirt-engine` service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[{engine-name} User Tasks].
 +
 [source,terminal]
 ----

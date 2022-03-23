@@ -8,7 +8,7 @@ You can disable users on the local domains including the *admin@internal* user c
 .Procedure
 
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.
-. Make sure another user with the *SuperUser* role has been added to the environment. See xref:Adding_users[] for more information.
+. Make sure another user with the *SuperUser* role has been added to the environment. See xref:Adding_users[Adding users] for more information.
 . Disable the default *admin* user:
 +
 [source,terminal]

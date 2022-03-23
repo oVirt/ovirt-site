@@ -34,11 +34,11 @@ To associate the {engine-name}, host, and virtual machine with a Red Hat Satelli
 
 .Additional resources
 
-* xref:Configuring_Satellite_Errata_Management_for_a_Host[]
-//* xref:Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[] for {enterprise-linux} virtual machines
+* xref:Configuring_Satellite_Errata_Management_for_a_Host[Configuring Satellite Errata Management for a Host]
+//* xref:Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents and Drivers on {enterprise-linux}] for {enterprise-linux} virtual machines
 * link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
-//* xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[] for Windows virtual machines
+//* xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents and Drivers on Windows virtual machines]
 * link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
-* xref:Viewing_Host_Errata[]
+* xref:Viewing_Host_Errata[Viewing Host Errata]
 * link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Configuring_Satellite_Errata[Configuring Satellite errata viewing for a virtual machine] in the _Virtual Machine Management Guide_ for more information.
 * link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Viewing_Satellite_Errata[Viewing Red Hat Satellite errata for a virtual machine] in the _Virtual Machine Management Guide_.

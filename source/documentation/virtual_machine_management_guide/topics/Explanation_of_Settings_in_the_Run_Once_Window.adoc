@@ -194,7 +194,7 @@ The options that are available in the *Initial Run* section differ depending on 
 
 
 |*Sysprep*
-|A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the */usr/share/ovirt-engine/conf/sysprep/* directory on the machine on which the {virt-product-fullname} {engine-name} is installed and alter the fields as required. The definition will overwrite any values entered in the `Initial Run` fields. See xref:chap-Templates[] for more information.
+|A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the */usr/share/ovirt-engine/conf/sysprep/* directory on the machine on which the {virt-product-fullname} {engine-name} is installed and alter the fields as required. The definition will overwrite any values entered in the `Initial Run` fields. See xref:chap-Templates[Templates] for more information.
 
 
 |*Domain*
@@ -248,7 +248,7 @@ The *Console* section defines the protocol to connect to virtual machines.
 |Description
 
 |*Headless Mode*
-|Select this option if you do not require a graphical console when running the machine for the first time. See xref:Configuring_Headless_Machines[] for more information.
+|Select this option if you do not require a graphical console when running the machine for the first time. See xref:Configuring_Headless_Machines[Configuring Headless Machines] for more information.
 
 |*VNC*
 |Requires a VNC client to connect to a virtual machine using VNC. Optionally, specify *VNC Keyboard Layout* from the drop-down list.
@@ -263,5 +263,5 @@ The *Console* section defines the protocol to connect to virtual machines.
 |Defines whether you can copy and paste content from an external host into the virtual machine's SPICE console. This option is only available for virtual machines using the SPICE protocol. This check box is selected by default.
 |===
 
-The *Custom Properties* section contains additional VDSM options for running virtual machines. See xref:New_VMs_Custom_Properties[] for details.
+The *Custom Properties* section contains additional VDSM options for running virtual machines. See xref:New_VMs_Custom_Properties[New VMs Custom Properties] for details.
 [id="Custom_Properties_Fields"]

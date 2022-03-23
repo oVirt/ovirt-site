@@ -68,7 +68,7 @@ Before you can create virtual machines that use a newly-installed OVN network, c
 . xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[Add a network to the *Default* cluster].
 .. While doing so, select the *Create on external provider* check box. This creates a network based on `ovirt-provider-ovn`.
 .. Optional: To xref:Connecting_an_OVN_Network_to_a_Physical_Network[connect the OVN network to a physical network], select the *Connect to physical network* check box and specify the {virt-product-fullname} network to use.
-.. Optional: Determine whether the network should use a security group and select one from the *Security Groups* drop-down. For more information on the available options see xref:Logical_Network_General_Settings_Explained[].
+.. Optional: Determine whether the network should use a security group and select one from the *Security Groups* drop-down. For more information on the available options see xref:Logical_Network_General_Settings_Explained[Logical Network General Settings Explained].
 
 . xref:Adding_standard_hosts_to_the_Manager_host_tasks[Add hosts to] or xref:Reinstalling_Hosts_admin[reinstall the hosts on] the Default cluster so they use the cluster's new *Default Network Provider*, `ovirt-provider-ovn`.
 
@@ -76,4 +76,4 @@ Before you can create virtual machines that use a newly-installed OVN network, c
 .. Optional: Reinstall the hosts on each non-Default cluster so they use the cluster's new *Default Network Provider*, `ovirt-provider-ovn`.
 
 .Additional resources
-* To configure your hosts to use an existing, non-default network, see xref:Configuring_Hosts_for_an_OVN_tunnel_network[].
+* To configure your hosts to use an existing, non-default network, see xref:Configuring_Hosts_for_an_OVN_tunnel_network[Configuring Hosts for an OVN tunnel network].

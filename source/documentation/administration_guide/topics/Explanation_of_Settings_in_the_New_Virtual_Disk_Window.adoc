@@ -40,7 +40,7 @@ Allows you to enable the bootable flag on the virtual disk.
 |*Read-Only* |This field only appears when creating an attached disk.
 
 Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another.
-|*Enable Incremental Backup* |Enables incremental backup on the virtual disk. Incremental backup requires disks to be formatted in QCOW2 format instead of RAW format. See xref:assembly_incremental-backup-and-restore_RHV_backup_restore[].
+|*Enable Incremental Backup* |Enables incremental backup on the virtual disk. Incremental backup requires disks to be formatted in QCOW2 format instead of RAW format. See xref:assembly_incremental-backup-and-restore_RHV_backup_restore[Incremental backup and restore].
 |*Enable Discard* |This field only appears when creating an attached disk.
 
 Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with *Wipe After Delete* unless the underlying storage supports the discard_zeroes_data property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.

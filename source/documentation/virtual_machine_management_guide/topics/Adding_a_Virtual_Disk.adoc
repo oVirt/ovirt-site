@@ -15,7 +15,7 @@ You can add multiple virtual disks to a virtual machine.
 . Click btn:[New].
 . Use the appropriate radio buttons to switch between *Image* and *Direct LUN*.
 . Enter a *Size(GB)*, *Alias*, and *Description* for the new disk.
-. Use the drop-down lists and check boxes to configure the disk. See xref:Add_Virtual_Disk_dialogue_entries[] for more details on the fields for all disk types.
+. Use the drop-down lists and check boxes to configure the disk. See xref:Add_Virtual_Disk_dialogue_entries[Add Virtual Disk dialogue entries] for more details on the fields for all disk types.
 . Click btn:[OK].
 
 

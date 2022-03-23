@@ -100,7 +100,7 @@ The WebSocket Proxy and noVNC are Technology Preview features only. Technology P
 ====
 endif::[]
 ifdef::SM_remoteDB_deploy[]
-. To configure Data Warehouse on a remote server, answer `No` and see xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[] after completing the {engine-name} configuration.
+. To configure Data Warehouse on a remote server, answer `No` and see xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Installing and Configuring Data Warehouse on a Separate Machine] after completing the {engine-name} configuration.
 +
 [source,terminal]
 ----

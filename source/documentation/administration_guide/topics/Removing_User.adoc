@@ -9,4 +9,4 @@ You can remove a user account:
 # ovirt-aaa-jdbc-tool user delete test1
 ----
 
-Remove the user from the Administration Portal. See xref:Removing_Users[] for more information.
+Remove the user from the Administration Portal. See xref:Removing_Users[Removing Users] for more information.

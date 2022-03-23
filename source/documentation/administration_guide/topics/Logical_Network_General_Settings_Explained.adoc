@@ -27,5 +27,5 @@ Note that while the name of the logical network can be longer than 15 characters
 `Disabled` disables the security group feature.
 `Enabled` enables the feature. When a port is created and attached to this network, it will be defined with port security enabled. This means that access to/from the virtual machines will be subject to the security groups currently being provisioned.
  `Inherit from Configuration` enables the ports to inherit the behavior from the configuration file that is defined for all networks. By default, the file disables security groups.
- See xref:Assigning_Security_Groups_to_Logical_Networks[] for details.
+ See xref:Assigning_Security_Groups_to_Logical_Networks[Assigning Security Groups to Logical Networks] for details.
 |===

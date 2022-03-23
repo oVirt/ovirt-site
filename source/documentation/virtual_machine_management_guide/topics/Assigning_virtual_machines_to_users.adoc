@@ -32,5 +32,5 @@ The user's name and role display in the list of users permitted to access this v
 
 [NOTE]
 ====
-If a user is assigned permissions to only one virtual machine, single sign-on (SSO) can be configured for the virtual machine. With single sign-on enabled, when a user logs in to the VM Portal, and then connects to a virtual machine through, for example, a SPICE console, users are automatically logged in to the virtual machine and do not need to type in the user name and password again. Single sign-on can be enabled or disabled on a per virtual machine basis. See xref:sect-Configuring_Single_Sign-On_for_Virtual_Machines[] for more information on how to enable and disable single sign-on for virtual machines.
+If a user is assigned permissions to only one virtual machine, single sign-on (SSO) can be configured for the virtual machine. With single sign-on enabled, when a user logs in to the VM Portal, and then connects to a virtual machine through, for example, a SPICE console, users are automatically logged in to the virtual machine and do not need to type in the user name and password again. Single sign-on can be enabled or disabled on a per virtual machine basis. See xref:sect-Configuring_Single_Sign-On_for_Virtual_Machines[Configuring Single Sign-On for Virtual Machines] for more information on how to enable and disable single sign-on for virtual machines.
 ====

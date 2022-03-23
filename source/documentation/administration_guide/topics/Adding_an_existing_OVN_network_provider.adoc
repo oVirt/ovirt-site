@@ -22,7 +22,7 @@ The following packages are required by the OVN provider and must be available on
 
 * python-openvswitch
 
-If these packages are not available from the repositories already enabled on the provider machine, they can be downloaded from the OVS website: link:http://openvswitch.org/download/[].
+If these packages are not available from the repositories already enabled on the provider machine, they can be downloaded from the link:http://openvswitch.org/download/[OVS website].
 
 .Procedure
 
@@ -77,7 +77,7 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641
 ----
 +
 . In the Administration Portal, click menu:Administration[Providers].
-. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
+. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[Add Provider General Settings Explained].
 . Enter a *Name* and *Description*.
 . From the *Type* list, select *External Network Provider*.
 . Click the *Networking Plugin* text box and select *oVirt Network Provider for OVN* from the drop-down menu.
@@ -100,12 +100,12 @@ The authentication method must be configured in the `/etc/ovirt-provider-ovn/con
 .. Click *Test* to test whether you can authenticate successfully with OVN using the provided credentials.
 .. If the OVN instance uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the OVN instance provides to ensure the {engine-name} can communicate with the instance.
 . Click btn:[OK].
-. Create a new cluster that uses OVN as its default network provider. See xref:Creating_a_New_Cluster[] and select the OVN network provider from the *Default Network Provider* drop-down list.
-. Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see xref:Adding_standard_hosts_to_the_Manager_host_tasks[].
+. Create a new cluster that uses OVN as its default network provider. See xref:Creating_a_New_Cluster[Creating a New Cluster] and select the OVN network provider from the *Default Network Provider* drop-down list.
+. Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see xref:Adding_standard_hosts_to_the_Manager_host_tasks[Adding standard hosts to the {engine-name}].
 . Import or add OVN networks to the new cluster. To import networks, see xref:Importing_Networks[Importing Networks]. To create new networks using OVN, see xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[Creating a new logical network in a data center or cluster], and select the *Create on external provider* check box. `ovirt-provider-ovn` is selected by default.
 +
-To configure your hosts to use an existing, non-default network, see xref:Configuring_Hosts_for_an_OVN_tunnel_network[].
+To configure your hosts to use an existing, non-default network, see xref:Configuring_Hosts_for_an_OVN_tunnel_network[Configuring Hosts for an OVN tunnel network].
 +
-To connect the OVN network to a native {virt-product-fullname} network, select the *Connect to physical network* check box and specify the {virt-product-fullname} network to use. See xref:Connecting_an_OVN_Network_to_a_Physical_Network[] for more information and prerequisites.
+To connect the OVN network to a native {virt-product-fullname} network, select the *Connect to physical network* check box and specify the {virt-product-fullname} network to use. See xref:Connecting_an_OVN_Network_to_a_Physical_Network[Connecting an OVN Network to a Physical Network] for more information and prerequisites.
 
 You can now create virtual machines that use OVN networks.

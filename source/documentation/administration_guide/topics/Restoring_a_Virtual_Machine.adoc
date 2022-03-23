@@ -6,7 +6,7 @@ Restore a virtual machine that has been backed up using the backup and restore A
 
 .Procedure
 
-. In the Administration Portal, create a floating disk on which to restore the backup. See xref:Creating_a_Virtual_Disk[] for details on how to create a floating disk.
+. In the Administration Portal, create a floating disk on which to restore the backup. See xref:Creating_a_Virtual_Disk[Creating a Virtual Disk] for details on how to create a floating disk.
 . Attach the disk to the backup virtual machine:
 +
 [source,terminal]

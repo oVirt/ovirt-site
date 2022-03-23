@@ -27,8 +27,8 @@ If not, click menu:Compute[Virtual Machines], click btn:[Edit], and enter the re
 *Using `Sysprep` to Prepare a Template*
 
 . Build the Windows virtual machine with the required patches and software.
-. Seal the Windows virtual machine. See xref:Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates[]
-. Create a template based on the Windows virtual machine. See xref:Creating_a_template_from_an_existing_virtual_machine[]
+. Seal the Windows virtual machine. See xref:Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates[Sealing Virtual Machines in Preparation for Deployment as Templates]
+. Create a template based on the Windows virtual machine. See xref:Creating_a_template_from_an_existing_virtual_machine[Creating a template from an existing virtual machine]
 . Update the `Sysprep` file with a text editor if additional changes are required.
 
 

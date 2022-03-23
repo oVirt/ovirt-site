@@ -97,7 +97,7 @@ do
 done
 ----
 
-Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[]. Packages are installed from the local repository, instead of from the Content Delivery Network.
+Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {engine-name}]. Packages are installed from the local repository, instead of from the Content Delivery Network.
 
 .Troubleshooting
 

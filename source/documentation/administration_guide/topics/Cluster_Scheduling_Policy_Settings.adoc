@@ -43,13 +43,13 @@ Scheduling policies allow you to specify the usage and distribution of virtual m
 
 * *MaxFreeMemoryForOverUtilized*: Specifies the minimum amount of free memory a host should have, in MB. If a host has less free memory than this amount, the {virt-product-shortname} {engine-name} considers the host overutilized. For example, if you set this property to `1000`, a host that has less than 1 GB of free memory is overutilized.
 +
-For details on how this property interacts with the *power_saving* and *evenly_distributed* policies, see xref:conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties[].
+For details on how this property interacts with the *power_saving* and *evenly_distributed* policies, see xref:conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties[MaxFreeMemoryForOverUtilized and MinFreeMemoryForUnderUtilized cluster scheduling policy properties].
 +
 You can add this property to the *power_saving* and *evenly_distributed* policies. Although it appears among the list of properties for the *vm_evenly_distributed* policy, it does not apply to that policy.
 
 * *MinFreeMemoryForUnderUtilized*: Specifies the maximum amount of free memory a host should have, in MB. If a host has more free memory than this amount, the {virt-product-shortname} {engine-name} scheduler considers the host underutilized. For example, if you set this parameter to `10000`, a host that has more than 10 GB of free memory is underutilized.
 +
-For details on how this property interacts with the *power_saving* and *evenly_distributed* policies, see xref:conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties[].
+For details on how this property interacts with the *power_saving* and *evenly_distributed* policies, see xref:conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties[MaxFreeMemoryForOverUtilized and MinFreeMemoryForUnderUtilized cluster scheduling policy properties].
 +
 You can add this property to the *power_saving* and *evenly_distributed* policies. Although it appears among the list of properties for the *vm_evenly_distributed* policy, it does not apply to that policy.
 

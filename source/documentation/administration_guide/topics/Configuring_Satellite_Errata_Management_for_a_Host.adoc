@@ -36,5 +36,5 @@ The host is now configured to show the available errata, and their importance, i
 
 .Additional resources
 
-* xref:Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning[]
+* xref:Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning[Adding a Red Hat Satellite Instance for Host Provisioning]
 * link:{URL_satellite_docs}html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts[Host Management Without Goferd and Katello Agent] in the Red Hat Satellite document _Managing Hosts_

@@ -15,7 +15,7 @@ The following prerequisites apply:
 
 * The virtual machine's operating system must support CPU hot plug. See the table below for support details.
 
-* Windows virtual machines must have the guest agents installed. See xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[].
+* Windows virtual machines must have the guest agents installed. See xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents and Drivers on Windows].
 
 
 

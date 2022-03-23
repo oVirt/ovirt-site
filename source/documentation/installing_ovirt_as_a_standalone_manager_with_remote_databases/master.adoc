@@ -68,7 +68,7 @@ This machine must meet the minimum xref:hardware-requirements_SM_remoteDB_deploy
 
 . Install a second {enterprise-linux} machine to use for the databases. This machine will be referred to as the remote server.
 
-To install the {virt-product-fullname} {engine-name} on a system that does not have access to the Content Delivery Network, see xref:Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_SM_remoteDB_deploy[] before configuring the {engine-name}.
+To install the {virt-product-fullname} {engine-name} on a system that does not have access to the Content Delivery Network, see xref:Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_SM_remoteDB_deploy[Configuring an Offline Repository for Installation] before configuring the {engine-name}.
 
 include::common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
 

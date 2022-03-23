@@ -10,11 +10,11 @@ General instructions for installing from a PXE server with a Kickstart file are 
 
 The automated {hypervisor-shortname} deployment has 3 stages:
 
-* xref:Preparing_the_Installation_Environment[]
-* xref:Configuring_the_PXE_Server_and_the_Boot_Loader[]
-* xref:Creating_and_Running_a_Kickstart_File[]
+* xref:Preparing_the_Installation_Environment[Preparing the Installation Environment]
+* xref:Configuring_the_PXE_Server_and_the_Boot_Loader[Configuring the PXE Server and the Boot Loader]
+* xref:Creating_and_Running_a_Kickstart_File[Creating and Running a Kickstart File]
 
-[[Preparing_the_Installation_Environment]]
+[id="Preparing_the_Installation_Environment"]
 == Preparing the installation environment
 
 ifdef::rhv-doc[]
@@ -43,7 +43,7 @@ endif::[]
 This *squashfs.img* file, located in the `/tmp/usr/share/redhat-virtualization-host/image/` directory, is called *redhat-virtualization-host-__version_number___version.squashfs.img*. It contains the hypervisor image for installation on the physical machine. It should not be confused with the */LiveOS/squashfs.img* file, which is used by the Anaconda `inst.stage2` option.
 ====
 
-[[Configuring_the_PXE_Server_and_the_Boot_Loader]]
+[id="Configuring_the_PXE_Server_and_the_Boot_Loader"]
 == Configuring the PXE server and the boot loader
 
 . Configure the PXE server. See link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-installation-server-setup.html[Preparing for a Network Installation] in the _{enterprise-linux} Installation Guide_.
@@ -94,7 +94,7 @@ IPAPPEND 2
 # curl _URL/to/{hypervisor-shortname}-ISO_/rhvh-install
 ----
 
-[[Creating_and_Running_a_Kickstart_File]]
+[id="Creating_and_Running_a_Kickstart_File"]
 == Creating and running a Kickstart file
 
 . Create a Kickstart file and make it available over the network. See link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-kickstart-installations.html[Kickstart Installations] in the _{enterprise-linux} Installation Guide_.
@@ -125,7 +125,7 @@ Autopartitioning requires thin provisioning.
 The `--no-home` option does not work in {hypervisor-shortname} because `/home` is a required directory.
 ====
 +
-If your installation requires manual partitioning, see xref:Custom_Partitioning_{context}[] for a list of limitations that apply to partitions and an example of manual partitioning in a Kickstart file.
+If your installation requires manual partitioning, see xref:Custom_Partitioning_{context}[Custom Partitioning] for a list of limitations that apply to partitions and an example of manual partitioning in a Kickstart file.
 
 * A `%post` section that calls the `nodectl init` command is required:
 [source,terminal]

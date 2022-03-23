@@ -7,7 +7,7 @@ Any network provider that implements the OpenStack Networking REST API can be ad
 .Procedure
 
 . Click menu:Administration[Providers].
-. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
+. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[Add Provider General Settings Explained].
 
 . Enter a *Name* and *Description*.
 . Select *External Network Provider* from the *Type* drop-down list.
@@ -39,4 +39,4 @@ Optionally, enter the *Tenant* for the external network provider.
 .. If the external network provider uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the external network provider provides to ensure the {engine-name} can communicate with the instance.
 . Click btn:[OK].
 
-Before you can use networks from this provider, you must install the virtual interface driver on the hosts and import the networks. To import networks, see xref:Importing_Networks[].
+Before you can use networks from this provider, you must install the virtual interface driver on the hosts and import the networks. To import networks, see xref:Importing_Networks[Importing Networks].

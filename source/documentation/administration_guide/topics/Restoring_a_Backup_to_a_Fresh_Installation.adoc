@@ -54,4 +54,4 @@ Done.
 # engine-setup
 ----
 
-The {virt-product-fullname} {engine-name} has been restored to the version preserved in the backup. To change the fully qualified domain name of the new {virt-product-fullname} system, see xref:The_oVirt_Engine_Rename_Tool[].
+The {virt-product-fullname} {engine-name} has been restored to the version preserved in the backup. To change the fully qualified domain name of the new {virt-product-fullname} system, see xref:The_oVirt_Engine_Rename_Tool[The oVirt Engine Rename Tool].

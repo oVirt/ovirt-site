@@ -7,7 +7,7 @@
 OpenStack Networking (Neutron) requires {enterprise-linux} 7 hosts. {enterprise-linux} 8 hosts are not compatible with Red Hat OpenStack Platform versions 10, 13, and 14.
 ====
 
-Add an OpenStack Networking (neutron) instance for network provisioning to the {virt-product-fullname} {engine-name}. To add other third-party network providers that implement the OpenStack Neutron REST API, see xref:Adding_an_External_Network_Provider[].
+Add an OpenStack Networking (neutron) instance for network provisioning to the {virt-product-fullname} {engine-name}. To add other third-party network providers that implement the OpenStack Neutron REST API, see xref:Adding_an_External_Network_Provider[Adding an External Network Provider].
 
 [IMPORTANT]
 ====
@@ -35,7 +35,7 @@ endif::[]
 # yum install vdsm-hook-openstacknet
 ----
 +
-. Add the network node to the {engine-name} as a host. See xref:Adding_standard_hosts_to_the_Manager_host_tasks[].
+. Add the network node to the {engine-name} as a host. See xref:Adding_standard_hosts_to_the_Manager_host_tasks[Adding standard hosts to the {engine-name}].
 +
 [IMPORTANT]
 ====
@@ -52,7 +52,7 @@ Do not select the OpenStack Networking provider from the *Network Provider* tab.
 .Procedure
 
 . Click menu:Administration[Providers].
-. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
+. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[Add Provider General Settings Explained].
 . Enter a *Name* and *Description*.
 . Select *OpenStack Networking* from the *Type* drop-down list.
 . Ensure that *Open vSwitch* is selected in the *Networking Plugin* field.
@@ -91,4 +91,4 @@ endif::[]
 . Enter the *Username* and *Password* of the OpenStack Networking user registered in the message broker instance.
 . Click btn:[OK].
 
-You have added the OpenStack Networking instance to the {virt-product-fullname} {engine-name}. Before you can use the networks it provides, import the networks into the {engine-name}. See xref:Importing_Networks[].
+You have added the OpenStack Networking instance to the {virt-product-fullname} {engine-name}. Before you can use the networks it provides, import the networks into the {engine-name}. See xref:Importing_Networks[Importing Networks].

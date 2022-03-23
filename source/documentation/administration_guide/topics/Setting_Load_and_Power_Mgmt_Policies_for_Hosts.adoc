@@ -2,7 +2,7 @@
 [id="Configuring_scheduling_policy"]
 = Setting Load and Power Management Policies for Hosts in a Cluster
 
-The *evenly_distributed* and *power_saving* scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The *vm_evenly_distributed* scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see xref:Cluster_Scheduling_Policy_Settings[].
+The *evenly_distributed* and *power_saving* scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The *vm_evenly_distributed* scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see xref:Cluster_Scheduling_Policy_Settings[Cluster Scheduling Policy Settings].
 
 
 .Procedure
@@ -16,16 +16,16 @@ The *evenly_distributed* and *power_saving* scheduling policies allow you to spe
 .. Set the minimum number of virtual machines that must be running on at least one host to enable load balancing in the *HighVmCount* field.
 .. Define the maximum acceptable difference between the number of virtual machines on the most highly-utilized host and the number of virtual machines on the least-utilized host in the *MigrationThreshold* field.
 .. Define the number of slots for virtual machines to be reserved on SPM hosts in the *SpmVmGrace* field.
-.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
+.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[Configuring Memory Slots Reserved for the self-hosted engine] for more information.
 * *evenly_distributed*
 .. Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the *CpuOverCommitDurationMinutes* field.
 .. Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the *HighUtilization* field.
-.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
+.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[Configuring Memory Slots Reserved for the self-hosted engine] for more information.
 * *power_saving*
 .. Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the *CpuOverCommitDurationMinutes* field.
 .. Enter the CPU utilization percentage below which the host will be considered under-utilized in the *LowUtilization* field.
 .. Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the *HighUtilization* field.
-.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
+.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[Configuring Memory Slots Reserved for the self-hosted engine] for more information.
 . Choose one of the following as the *Scheduler Optimization* for the cluster:
 * Select *Optimize for Utilization* to include weight modules in scheduling to allow best selection.
 * Select *Optimize for Speed* to skip host weighting in cases where there are more than ten pending requests.

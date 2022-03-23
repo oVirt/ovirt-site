@@ -4,7 +4,7 @@
 
 The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4[OvirtSDK4] module contains the following software development kit classes:
 
-Connection:: The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection[Connection] class is the mechanism for connecting to the server and obtaining the reference to the root of the services tree. See xref:Connecting_to_the_server[] for details.
+Connection:: The link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection[Connection] class is the mechanism for connecting to the server and obtaining the reference to the root of the services tree. See xref:Connecting_to_the_server[Connecting to the server] for details.
 
 Types:: The Type classes implement the types supported by the API. For example, the link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Vm[Vm] class is the implementation of the virtual machine type. The classes are data containers and do not contain any logic. You will be working with instances of types.
 +

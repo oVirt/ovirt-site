@@ -30,7 +30,7 @@ Following these best practices will prevent your host from becoming unsynchroniz
 
 . Use the Administration Portal to make changes rather than making changes locally on the host.
 
-. Edit VLAN settings according to the instructions in xref:Editing-VLAN-Settings[].
+. Edit VLAN settings according to the instructions in xref:Editing-VLAN-Settings[Editing VLAN Settings].
 
 .Synchronizing Hosts
 Synchronizing a host's network interface definitions involves using the definitions from the {engine-name} and applying them to the host. If these are not the definitions that you require, after synchronizing your hosts update their definitions from the Administration Portal.

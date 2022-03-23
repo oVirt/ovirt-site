@@ -20,7 +20,7 @@ Edit the {engine-name}'s kdump configuration. This is only necessary in cases wh
 +
 [IMPORTANT]
 ====
-The edited values must also be changed in the fence_kdump listener configuration file as outlined in the `Kdump Configuration Options` table. See xref:fence_kdump_listener_Configuration[].
+The edited values must also be changed in the fence_kdump listener configuration file as outlined in the `Kdump Configuration Options` table. See xref:fence_kdump_listener_Configuration[fence_kdump listener configuration].
 ====
 +
 . Restart the `ovirt-engine` service:

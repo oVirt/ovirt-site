@@ -35,7 +35,7 @@ You can now install vGPUs on the virtual machines running on this host.
 +
 Available vGPU instances appear in the *mdev* key *available_instances*.
 
-. Install the required virtual machine operating system. See xref:Installing_Red_Hat_Enterprise_Linux_Virtual_Machines[] or xref:chap-Installing_Windows_Virtual_Machines[].
+. Install the required virtual machine operating system. See xref:Installing_Red_Hat_Enterprise_Linux_Virtual_Machines[Installing Red Hat Enterprise Linux Virtual Machines] or xref:chap-Installing_Windows_Virtual_Machines[Installing Windows Virtual Machines].
 
 . Shut down the virtual machine.
 

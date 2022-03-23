@@ -7660,7 +7660,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>Click the name of an SR-IOV-capable host. This opens the details view.</p>
 </li>
 <li>
-<p>Click the <strong>Network Interfaces</strong> tab.``</p>
+<p>Click the <strong>Network Interfaces</strong> tab.</p>
 </li>
 <li>
 <p>Click <strong>Setup Host Networks</strong>.</p>
@@ -8641,14 +8641,15 @@ multicast_startup_query_interval=3125</code></pre>
 </div>
 </li>
 <li>
-<p>To configure ethernet properties, click the <strong>Custom Properties</strong> tab and select <strong>ethtool_opts</strong> from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:</p>
+<p>To configure ethernet properties, click the <strong>Custom Properties</strong> tab and select <strong>ethtool_opts</strong> from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:
+:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">--coalesce em1 rx-usecs 14 sample-interval 3 --offload em2 rx on lro on tso off --change em1 speed 1000 duplex half</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This field can accept wildcards. For example, to apply the same option to all of this network&#8217;s interfaces, use:</p>
+<p>This field can accept wild cards. For example, to apply the same option to all of this network&#8217;s interfaces, use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8660,7 +8661,7 @@ multicast_startup_query_interval=3125</code></pre>
 </div>
 </li>
 <li>
-<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=</code><code class="yes|no"> and <code>auto_vlan=</code>[yes|no]</code>. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up Engine to Use FCoE</a> for more information.</p>
+<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=[yes|no]</code> and `auto_vlan=[yes|no]. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up Engine to Use FCoE</a> for more information.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -17159,7 +17160,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>To see the mapping of disks to controllers, log into the host machine and enter the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code># virsh -r dumpxml virtual_machine_name</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># virsh -r dumpxml virtual_machine_name</code></pre>
 </div>
 </div>
 </li>

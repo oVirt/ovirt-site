@@ -45,7 +45,7 @@ The following dashboards are available in the initial Grafana setup to report Da
 
 |===
 
-\
+
 = Customized Grafana dashboards
 
 You can create customized dashboards or copy and modify existing dashboards according to your reporting needs.

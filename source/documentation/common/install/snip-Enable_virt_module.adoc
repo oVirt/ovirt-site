@@ -14,14 +14,19 @@
 ----
 # dnf module enable virt:8.3
 ----
-* For {virt-product-shortname} 4.4.6 to 4.4.9:
+* For {virt-product-shortname} 4.4.6 to 4.4.10:
 +
 [source,terminal]
 +
 ----
 # dnf module enable virt:av
 ----
-* For {virt-product-shortname} 4.4.10 and later:
+ifdef::rhv-doc[]
+* For {virt-product-shortname} 4.4 SP1 and later:
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+* For {virt-product-shortname} 4.5 and later:
+endif::ovirt-doc[]
 +
 [options="nowrap" subs="normal"]
 +

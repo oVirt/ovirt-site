@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Storage Types | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Storage Types" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2740/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Storage Types" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.html","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Storage Types","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/doc-Planning_and_Prerequisites_Guide/topics/con-Storage_Types.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -87,7 +87,7 @@
         
         <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
            <a property="item" typeof="WebPage" href="/ovirt-site/previews/2740/documentation/doc-Planning_and_Prerequisites_Guide/">
-              <span property="name">Planning and Prerequisites Guide</span>
+              <span property="name">Doc Planning And Prerequisites Guide</span>
               <meta property="position" content="3" />
            </a>
         </li>
@@ -114,8 +114,8 @@
         
         <section id="content" class="content container">
           
-<div class="sect2">
-<h3 id="storage-types">Storage Types</h3>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.</p>
 </div>
@@ -155,8 +155,11 @@
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="nfs">NFS</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nfs">NFS</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>NFS versions 3 and 4 are supported by {virt-product-fullname} 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.</p>
 </div>
@@ -177,8 +180,10 @@
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="iscsi">iSCSI</h4>
+</div>
+<div class="sect1">
+<h2 id="iscsi">iSCSI</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.</p>
 </div>
@@ -199,8 +204,10 @@
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="fibre-channel">Fibre Channel</h4>
+</div>
+<div class="sect1">
+<h2 id="fibre-channel">Fibre Channel</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.</p>
 </div>
@@ -221,8 +228,10 @@
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="fcoe">Fibre Channel over Ethernet</h4>
+</div>
+<div class="sect1">
+<h2 id="fcoe">Fibre Channel over Ethernet</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must enable the <strong>fcoe</strong> key on the {engine-name}, and install the <em>vdsm-hook-fcoe</em> package on the hosts.</p>
 </div>
@@ -243,33 +252,10 @@
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="gluster">{gluster-storage-fullname}</h4>
-<div class="paragraph">
-<p>{gluster-storage-fullname} (RHGS) is a POSIX-compliant and open source file system. Three or more servers are configured as a {gluster-storage-fullname} cluster, instead of network-attached storage (NAS) appliances or a storage area network (SAN) array.</p>
 </div>
-<div class="paragraph">
-<p>{gluster-storage-fullname} should be utilized over 10GbE and segregated with VLANs.</p>
-</div>
-<div class="paragraph">
-<p>Check the compatibility matrix in <a href="https://access.redhat.com/articles/2356261" class="bare">https://access.redhat.com/articles/2356261</a> before using RHGS with {virt-product-fullname}.</p>
-</div>
-<div class="paragraph">
-<p>See:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red-hat-gluster-storage/">{gluster-storage-fullname} Documentation</a></p>
-</li>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.2/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/"><em>Configuring {virt-product-fullname} with {gluster-storage-fullname}</em></a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="rhhi">Red Hat Hyperconverged Infrastructure</h4>
+<div class="sect1">
+<h2 id="rhhi">Red Hat Hyperconverged Infrastructure</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Red Hat Hyperconverged Infrastructure (RHHI) combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.</p>
 </div>
@@ -290,8 +276,10 @@
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="posix">POSIX-Compliant FS</h4>
+</div>
+<div class="sect1">
+<h2 id="posix">POSIX-Compliant FS</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Other POSIX-compliant file systems can be used as storage domains in {virt-product-fullname}, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with {virt-product-fullname}.</p>
 </div>
@@ -309,8 +297,10 @@
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="local-storage">Local Storage</h4>
+</div>
+<div class="sect1">
+<h2 id="local-storage">Local Storage</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Local storage is set up on an individual host, using the host&#8217;s own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.</p>
 </div>

@@ -15,7 +15,7 @@
 <meta property="twitter:title" content="Installing oVirt as a self-hosted engine using the command line" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Installing oVirt as a self-hosted engine using the command line","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Installing oVirt as a self-hosted engine using the command line","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -196,7 +196,7 @@
 <ul class="sectlevel2">
 <li><a href="#Migrating_Data_Warehouse_to_a_Separate_Machine_SHE_cli_deploy">Migrating Data Warehouse to a Separate Machine</a>
 <ul class="sectlevel3">
-<li><a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a></li>
+<li><a href="#proc-Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine">Migrating the Data Warehouse Database to a Separate Machine</a></li>
 <li><a href="#Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Service to a Separate Machine</a></li>
 </ul>
 </li>
@@ -208,7 +208,7 @@
 <li><a href="#removing-a-module-temporarily">Removing a module temporarily</a></li>
 </ul>
 </li>
-<li><a href="#legal-notice">Appendix F: Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">Appendix F: Legal notice</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -226,8 +226,8 @@
 <div class="paragraph">
 <p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index"><em>Planning and Prerequisites Guide</em></a> for information on environment options and recommended configuration. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#self-hosted-engine-recommendations">Self-Hosted Engine Recommendations</a> for configuration specific to a self-hosted engine environment.</p>
 </div>
-<table id="RHV_key_components_SHE_cli_deploy" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. oVirt Key Components</caption>
+<h2 id="RHV_key_components_SHE_cli_deploy" class="discrete">oVirt Key Components</h2>
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -441,7 +441,7 @@
 <p>The oVirt Engine runs on Enterprise Linux operating systems like <a href="https://www.centos.org/">CentOS Linux</a> or <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. oVirt Engine Hardware Requirements</caption>
+<caption class="title">Table 1. oVirt Engine Hardware Requirements</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -501,7 +501,7 @@
 </ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Browser Requirements</caption>
+<caption class="title">Table 2. Browser Requirements</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -669,6 +669,7 @@
 <p>You must enable virtualization in the BIOS. Power off and reboot the host after this change to ensure that the change is applied.</p>
 </div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>At the Enterprise Linux or oVirt Node boot screen, press any key and select the <strong>Boot</strong> or <strong>Boot with serial console</strong> entry from the list.</p>
@@ -931,7 +932,7 @@
 <p>The firewall configuration documented here assumes a default configuration.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. oVirt Engine Firewall Requirements</caption>
+<caption class="title">Table 3. oVirt Engine Firewall Requirements</caption>
 <colgroup>
 <col style="width: 12%;">
 <col style="width: 12%;">
@@ -1104,7 +1105,7 @@
 <p>To disable automatic firewall configuration when adding a new host, clear the <strong>Automatically configure host firewall</strong> check box under <strong>Advanced Parameters</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Virtualization Host Firewall Requirements</caption>
+<caption class="title">Table 4. Virtualization Host Firewall Requirements</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 14.2857%;">
@@ -1310,7 +1311,7 @@
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Database Server Firewall Requirements</caption>
+<caption class="title">Table 5. Database Server Firewall Requirements</caption>
 <colgroup>
 <col style="width: 8.3333%;">
 <col style="width: 8.3333%;">
@@ -1899,7 +1900,7 @@ Do not override this setting.
 <p>oVirt Node supports NIST 800-53 partitioning requirements to improve security. oVirt Node uses a NIST 800-53 partition layout by default.</p>
 </div>
 <div class="paragraph">
-<p>The host must meet the minimum  <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+<p>The host must meet the minimum  <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index.html#host-requirements">host requirements</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2194,7 +2195,7 @@ Do not override this setting.
 </div>
 </li>
 <li>
-<p>For oVirt 4.4.6 to 4.4.9:</p>
+<p>For oVirt 4.4.6 to 4.4.10:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:av</code></pre>
@@ -2202,7 +2203,7 @@ Do not override this setting.
 </div>
 </li>
 <li>
-<p>For oVirt 4.4.10 and later:</p>
+<p>For oVirt 4.5 and later:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># dnf module enable virt:rhel</pre>
@@ -2236,7 +2237,7 @@ Do not override this setting.
 <p>Install the Engine Appliance to the host manually:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install {engine-package}-appliance</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-appliance</code></pre>
 </div>
 </div>
 </li>
@@ -2365,7 +2366,7 @@ Do not override this setting.
 <p>When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.</p>
 </li>
 <li>
-<p>Optional: If you want to customize the Engine virtual machine during deployment using automation, an Ansible playbook must be added. See <a href="#customizing_engine_vm_during_deployment_auto_SHE_cli_deploy">Customizing the Engine virtual machine using automation during deployment</a>.*</p>
+<p>Optional: If you want to customize the Engine virtual machine during deployment using automation, an Ansible playbook must be added. See <a href="#customizing_engine_vm_during_deployment_auto_SHE_cli_deploy">Customizing the Engine virtual machine using automation during deployment</a>.</p>
 </li>
 <li>
 <p>The self-hosted engine setup script requires ssh public key access using 2048-bit RSA keys from the engine virtual machine to the root account of its bare metal host. In <code>/etc/ssh/sshd_config</code>, these values must be set as follows:</p>
@@ -2596,7 +2597,7 @@ Do you want to enable ssh access for the root user (yes, no, without-password) [
 </div>
 </li>
 <li>
-<p>Optional: You can apply the DISA STIG security profile on the Engine virtual machine. The DISA STIG profile is the default OpenSCAP profile. For more information, see <a href="#disa-stig-for-red-hat-linux_assembly-securing-rhv">[disa-stig-for-red-hat-linux_assembly-securing-rhv]</a></p>
+<p>Optional: You can apply the DISA STIG security profile on the Engine virtual machine. The DISA STIG profile is the default OpenSCAP profile.</p>
 <div class="listingblock">
 <div class="content">
 <pre>Do you want to apply a default OpenSCAP security profile? (Yes, No) [No]:</pre>
@@ -2885,11 +2886,30 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 <div class="sect2">
 <h3 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM">5.4. Enabling the oVirt Engine Repositories</h3>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled:</p>
+<p>Ensure the correct repositories are enabled.
+For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.5:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
+# dnf config-manager --set-enabled centos-ovirt45-testing
+# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3018,7 +3038,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <p>oVirt supports two types of hosts: <a href="#Red_Hat_Virtualization_Hosts_SHE_cli_deploy">oVirt Nodes (oVirt Node)</a> and <a href="#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy">Enterprise Linux hosts</a>. Depending on your environment, you may want to use one type only, or both. At least two hosts are required for features such as migration and high availability.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="#Recommended_practices_for_configuring_host_networks_SHE_cli_deploy">Recommended Practices for Configuring Host Networks</a> for networking information.</p>
+<p>See <a href="#Recommended_practices_for_configuring_host_networks_SHE_cli_deploy">Recommended practices for configuring host networks</a> for networking information.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -3035,7 +3055,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Host Types</caption>
+<caption class="title">Table 6. Host Types</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3076,7 +3096,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <p>oVirt Node supports NIST 800-53 partitioning requirements to improve security. oVirt Node uses a NIST 800-53 partition layout by default.</p>
 </div>
 <div class="paragraph">
-<p>The host must meet the minimum  <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+<p>The host must meet the minimum  <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index.html#host-requirements">host requirements</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -3230,7 +3250,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <div class="sect3">
 <h4 id="proc_installing-a-third-party-package-on-ovirt-node_SHE_cli_deploy">6.1.2. Installing a third-party package on oVirt-node</h4>
 <div class="paragraph _abstract">
-<p>If you need a package that is not included in the <code>ovirt-release44.rpm</code> repository, you need to provide the repository before you can install the package.</p>
+<p>If you need a package that is not included in the oVirt provided repository, you need to provide the repository before you can install the package.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -3677,13 +3697,13 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Preparing_the_Installation_Environment">Preparing the installation environment</a></p>
+<p><a href="#Preparing_the_Installation_Environment">Preparing the Installation Environment</a></p>
 </li>
 <li>
-<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE server and the boot loader</a></p>
+<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE Server and the Boot Loader</a></p>
 </li>
 <li>
-<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and running a Kickstart file</a></p>
+<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and Running a Kickstart File</a></p>
 </li>
 </ul>
 </div>
@@ -5058,93 +5078,9 @@ Are you sure you want to proceed? [y/n]</pre>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</h4>
-<div class="paragraph">
-<p>Migrate the Data Warehouse database (<code>ovirt_engine_history</code>) before you migrate the Data Warehouse service. Use <code>engine-backup</code> to create a database backup and restore it on the new database machine. For more information on <code>engine-backup</code>, run <code>engine-backup --help</code>.</p>
-</div>
-<div class="paragraph">
-<p>To migrate the Data Warehouse service, see <a href="#Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Service to a Separate Machine</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>oVirt only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The new database server must have Enterprise Linux 8 installed.
-Enable the required repositories on the new database server.</p>
-</div>
-<h5 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrate_DWH_DB" class="discrete">Enabling the oVirt Engine Repositories</h5>
-<div class="paragraph">
-<p>Ensure the correct repositories are enabled:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
-</div>
+<h4 id="proc-Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine">Migrating the Data Warehouse Database to a Separate Machine</h4>
 <div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Enable the <code>javapackages-tools</code> module.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Enable version 12 of the <code>postgresql</code> module.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Synchronize installed packages to update them to the latest available versions.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<div class="title">Additional resources</div>
-<p>For information on modules and module streams, see the following sections in <em>Installing, managing, and removing user-space components</em></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#module-streams_introduction-to-modules">Module streams</a></p>
-</li>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#selecting-a-stream-before-installation-of-packages_installing-rhel-8-content">Selecting a stream before installation of packages</a></p>
-</li>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#resetting-module-streams_removing-rhel-8-content">Resetting module streams</a></p>
-</li>
-<li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content">Switching to a later stream</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<h5 id="migrating-the-data-warehouse-database-to-a-separate-machine" class="discrete">Migrating the Data Warehouse Database to a Separate Machine</h5>
-<div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Create a backup of the Data Warehouse database and configuration files on the Engine:</p>
@@ -5577,10 +5513,10 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
 <p>For AMD, boot the machine, and append <code>amd_iommu=on</code> to the end of the <code>GRUB_CMDLINE_LINUX</code> line in the <strong>grub</strong> configuration file.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/default/grub
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/default/grub
 ...
-GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
-...</pre>
+GRUB_CMDLINE_LINUX=&quot;nofb splash=quiet console=tty0 ... amd_iommu=on
+...</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5598,8 +5534,8 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/modprobe.d
-options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
+<pre># vi /etc/modprobe.d
+options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </div>
 </div>
 </td>
@@ -5831,10 +5767,10 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="legal-notice">Appendix F: Legal notice</h2>
+<h2 id="ovirt-legal-notice">Appendix F: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a self-hosted engine using the command line</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a self-hosted engine using the command line</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

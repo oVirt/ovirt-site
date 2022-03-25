@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<title>Assigning virtual GPUs | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.1" />
-<meta property="og:title" content="oVirt" />
+<meta property="og:title" content="Assigning virtual GPUs" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -12,10 +12,10 @@
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2740/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.html" />
 <meta property="og:site_name" content="oVirt" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="oVirt" />
+<meta property="twitter:title" content="Assigning virtual GPUs" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.html","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Assigning virtual GPUs","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -105,408 +105,7 @@
         
         <section id="content" class="content container">
           
-<div id="assembly_managing-nvidia-vgpu-devices_{context}" class="paragraph">
-<p>You can assign a GPU to a virtual machine in one of the following ways:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>GPU passthrough</strong>: You can assign a host GPU to a single virtual machine, so the virtual machine, instead of the host, uses the GPU.</p>
-</li>
-<li>
-<p><strong>Virtual GPU (vGPU)</strong>: You can divide a physical GPU device into one or more virtual devices, referred to as <em>mediated devices</em>. You can then assign these mediated devices to one or more virtual machines as virtual GPUs. These virtual machines share the performance of a single physical GPU. For some GPUs, only one mediated device can be assigned to a single guest. vGPU support is only available on selected NVIDIA GPUs.</p>
-<div class="paragraph">
-<div class="title">Example:</div>
-<p>A host has four GPUs. Each GPU can support up to 16 vGPUs, for a total of 64 vGPUs. Some possible vGPU assignments are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>one virtual machine with 64 vGPUs</p>
-</li>
-<li>
-<p>64 virtual machines, each with one vGPU</p>
-</li>
-<li>
-<p>32 virtual machines, each with one vGPU; eight virtual machines, each with two vGPUs; 4 virtual machines, each with four vGPUs</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough">GPU device passthrough: Assigning a host GPU to a single virtual machine</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Red Hat Virtualization supports PCI VFIO, also called device passthrough, for some NVIDIA PCIe-based GPU devices as non-VGA graphics devices.</p>
-</div>
-<div class="paragraph">
-<p>You can attach one or more host GPUs to a single virtual machine by passing through the host GPU to the virtual machine, in addition to one of the standard emulated graphics interfaces. The virtual machine uses the emulated graphics device for pre-boot and installation, and the GPU takes control when its graphics drivers are loaded.</p>
-</div>
-<div class="paragraph">
-<p>For information on the exact number of host GPUs that you can pass through to a single virtual machine, see the NVIDIA website.</p>
-</div>
-<div class="paragraph">
-<p>To assign a GPU to a virtual machine, follow the steps in these procedures:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="#Enabling_IOMMU_support_in_the_host_machine_kernel_nvidia_gpu_passthrough">Enable the I/O Memory Management Unit (IOMMU) on the host machine.</a></p>
-</li>
-<li>
-<p><a href="#Detaching_the_GPU_device_from_the_host_nvidia_gpu_passthrough">Detach the GPU from the host.</a></p>
-</li>
-<li>
-<p><a href="#Attaching_the_GPU_to_a_Virtual_Machine_nvidia_gpu_passthrough">Attach the GPU to the guest.</a></p>
-</li>
-<li>
-<p><a href="#proc_install-nvidia-vgpu-guest-driver_nvidia_gpu_passthrough">Install GPU drivers on the guest.</a></p>
-</li>
-<li>
-<p><a href="#Updating_and_Enabling_xorg_nvidia_gpu_passthrough">Configure Xorg on the guest.</a></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>These steps are detailed below.</p>
-</div>
-<div id="prerequisites_nvidia_gpu_passthrough" class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>Your GPU device supports GPU passthrough mode.</p>
-</li>
-<li>
-<p>Your system is listed as a validated server hardware platform.</p>
-</li>
-<li>
-<p>Your host chipset supports Intel VT-d or AMD-Vi</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For more information about supported hardware and software, see <a href="https://docs.nvidia.com/grid/latest/grid-vgpu-release-notes-red-hat-el-kvm/index.html#validated-platforms">Validated Platforms</a> in the <em>NVIDIA GPU Software Release Notes</em>.</p>
-</div>
-<div class="sect2">
-<h3 id="Enabling_IOMMU_support_in_the_host_machine_kernel_nvidia_gpu_passthrough">Enabling host IOMMU support and blacklisting nouveau</h3>
-<div class="paragraph">
-<p>I/O Memory Management Unit (IOMMU) support on the host machine is necessary to use a GPU on a virtual machine.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span>. Select a host and click <b class="button">Edit</b>. The <strong>Edit Hosts</strong> pane appears.</p>
-</li>
-<li>
-<p>Click the <strong>Kernel</strong> tab.</p>
-</li>
-<li>
-<p>Check the <strong>Hostdev Passthrough &amp; SR-IOV</strong> checkbox. This checkbox enables IOMMU support for a host with Intel VT-d or AMD Vi by adding <code>intel_iommu=on</code> or <code>amd_iommu=on</code> to the kernel command line.</p>
-</li>
-<li>
-<p>Check the <strong>Blacklist Nouveau</strong> checkbox.</p>
-</li>
-<li>
-<p>Click <b class="button">OK</b>.</p>
-</li>
-<li>
-<p>Select the host and click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Maintenance</b></span> and <b class="button">OK</b>.</p>
-</li>
-<li>
-<p>Click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Reinstall</b></span>.</p>
-</li>
-<li>
-<p>After the reinstallation is finished, reboot the host machine.</p>
-</li>
-<li>
-<p>When the host machine has rebooted, click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Activate</b></span>.</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>To enable IOMMU support using the command line, edit the <code>grub.conf</code> file in the virtual machine (./entries/rhvh-4.4.&lt;machine id&gt;.conf) to include the option <code>intel_iommu=on</code>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Detaching_the_GPU_device_from_the_host_nvidia_gpu_passthrough">Detaching the GPU from the host</h3>
-<div class="paragraph">
-<p>You cannot add the GPU to the virtual machine if the GPU is bound to the host kernel driver, so you must unbind the GPU device from the host before you can add it to the virtual machine. Host drivers often do not support dynamic unbinding of the GPU, so it is recommended to manually exclude the device from binding to the host drivers.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>On the host, identify the device slot name and IDs of the device by running the <code class="command">lspci</code> command. In the following example, a graphics controller such as an NVIDIA Quadro or GRID card is used:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># lspci -Dnn | grep -i NVIDIA
-0000:03:00.0 VGA compatible controller [0300]: NVIDIA Corporation GK104GL [Quadro K4200] [10de:11b4] (rev a1)
-0000:03:00.1 Audio device [0403]: NVIDIA Corporation GK104 HDMI Audio Controller [10de:0e0a] (rev a1)</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The output shows that the NVIDIA GK104 device is installed. It has a graphics controller and an audio controller with the following properties:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The device slot name of the graphics controller is <code>0000:03:00.0</code>, and the vendor-id:device-id for the graphics controller are <code>10de:11b4</code>.</p>
-</li>
-<li>
-<p>The device slot name of the audio controller is <code>0000:03:00.1</code>, and the vendor-id:device-id for the audio controller are <code>10de:0e0a</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Prevent the host machine driver from using the GPU device. You can use a vendor-id:device-id with the pci-stub driver. To do this, append the <code>pci-stub.ids</code> option, with the vendor-id:device-id as its value, to the <code>GRUB_CMDLINX_LINUX</code> environment variable located in the <code>/etc/sysconfig/grub</code> configuration file, for example:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">GRUB_CMDLINE_LINUX="crashkernel=auto resume=/dev/mapper/vg0-lv_swap rd.lvm.lv=vg0/lv_root rd.lvm.lv=vg0/lv_swap rhgb quiet intel_iommu=on pci-stub.ids=10de:11b4,10de:0e0a"</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>When adding additional vendor IDs and device IDs for pci-stub, separate them with a comma.</p>
-</div>
-</li>
-<li>
-<p>Regenerate the boot loader configuration using grub2-mkconfig to include this option:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># grub2-mkconfig -o /etc/grub2.cfg</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>When using a UEFI-based host, the target file should be <code class="filename">/etc/grub2-efi.cfg</code>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Reboot the host machine.</p>
-</li>
-<li>
-<p>Confirm that IOMMU is enabled, the host device is added to the list of pci-stub.ids, and Nouveau is blacklisted:</p>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap"># cat /proc/cmdline
-BOOT_IMAGE=(hd0,msdos1)/vmlinuz-4.18.0-147.el8.x86_64 root=/dev/mapper/vg0-lv_root ro crashkernel=auto resume=/dev/mapper/vg0-lv_swap rd.lvm.lv=vg0/lv_root rd.lvm.lv=vg0/lv_swap rhgb quiet <strong>intel_iommu=on</strong> <i class="conum" data-value="1"></i><b>(1)</b>
-<strong>pci-stub.ids=10de:11b4,10de:0e0a</strong> <i class="conum" data-value="2"></i><b>(2)</b>
-<strong>rdblacklist=nouveau</strong> <i class="conum" data-value="3"></i><b>(3)</b></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>IOMMU is enabled</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>the host device is added to the list of pci-stub.ids</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Nouveau is blacklisted</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Attaching_the_GPU_to_a_Virtual_Machine_nvidia_gpu_passthrough">Attaching the GPU to a Virtual Machine</h3>
-<div class="paragraph">
-<p>After unbinding the GPU from host kernel driver, you can add it to the virtual machine and enable the correct driver.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Follow the steps in <a href="{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Adding_Host_Devices_to_a_Virtual_Machine">Adding a Host Device to a Virtual Machine</a> in the <em>Virtual Machine Management Guide</em>.</p>
-</li>
-<li>
-<p>Run the virtual machine and log in to it.</p>
-</li>
-<li>
-<p>Install the NVIDIA GPU driver on the virtual machine. For details, see <a href="#proc_install-nvidia-vgpu-guest-driver_nvidia_gpu_passthrough">Installing the GPU driver on the virtual machine</a>.</p>
-</li>
-<li>
-<p>Verify that the correct kernel driver is in use for the GPU with the <code class="command">lspci -nnk</code> command. For example:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># lspci -nnk
-00:07.0 VGA compatible controller [0300]: NVIDIA Corporation GK104GL [Quadro K4200] [10de:11b4] (rev a1)
-Subsystem: Hewlett-Packard Company Device [103c:1096]
-Kernel driver in use: nvidia
-Kernel modules: nouveau, nvidia_drm, nvidia</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proc_install-nvidia-vgpu-guest-driver_nvidia_gpu_passthrough">Installing the GPU driver on the virtual machine</h3>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Run the virtual machine and connect to it using the VNC or SPICE console.</p>
-</li>
-<li>
-<p>Download the driver to the virtual machine. For information on getting the driver, see <a href="https://www.nvidia.com/Download/index.aspx?lang=en-us">the Drivers page on the NVIDIA website</a>.</p>
-</li>
-<li>
-<p>Install the GPU driver.</p>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>Linux only:</strong> When installing the driver on a Linux guest operating system, you are prompted to update xorg.conf. If you do not update xorg.conf during the installation, you need to update it manually.
-For more information, see <a href="#Updating_and_Enabling_xorg_nvidia_gpu_passthrough">Updating and Enabling xorg (Linux Virtual Machines)</a>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>After the driver finishes installing, reboot the machine. <strong>For Windows virtual machines,</strong> fully power off the guest from the Administration portal or the VM portal, not from within the guest operating system.</p>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>Windows only:</strong> Powering off the virtual machine from within the Windows guest operating system sometimes sends the virtual machine into hibernate mode, which does not completely clear the memory, possibly leading to subsequent problems. Using the Administration portal or the VM portal to power off the virtual machine forces it to fully clean the memory.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Connect a monitor to the host GPU output interface and run the virtual machine.</p>
-</li>
-<li>
-<p>Set up NVIDIA vGPU guest software licensing for each vGPU and add the license credentials in the NVIDIA control panel. For more information, see  <a href="https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html#how-grid-licensing-works">How NVIDIA vGPU Software Licensing Is Enforced</a> in the <em>NVIDIA Virtual GPU Software Documentation</em>.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Updating_and_Enabling_xorg_nvidia_gpu_passthrough">Updating and Enabling xorg (Linux Virtual Machines)</h3>
-<div class="paragraph">
-<p>Before you can use the GPU on the virtual machine, you need to update and enable xorg on the virtual machine. The NVIDIA driver installation should do this automatically. Check if xorg is updated and enabled by viewing <code class="filename">/etc/X11/xorg.conf</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># cat /etc/X11/xorg.conf</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The first two lines say if it was generated by NVIDIA. For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># cat /etc/X11/xorg.conf
-# nvidia-xconfig: X configuration file generated by nvidia-xconfig
-# nvidia-xconfig: version 390.87 (buildmeister@swio-display-x64-rhel04-14) Tue Aug 21 17:33:38 PDT 2018</pre>
-</div>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>On the virtual machine, generate the <code>xorg.conf</code> file using following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre># X -configure</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Copy the <code>xorg.conf</code> file to <code>/etc/X11/xorg.conf</code> using the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre># cp /root/xorg.conf.new /etc/X11/xorg.conf</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Reboot the virtual machine.</p>
-</li>
-<li>
-<p>Verify that xorg is updated and enabled by viewing <code class="filename">/etc/X11/xorg.conf</code>:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># cat /etc/X11/xorg.conf</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Search for the <strong><code>Device</code></strong> section. You should see an entry similar to the following section:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">Section "Device"
-    Identifier     "Device0"
-    Driver         "nvidia"
-    VendorName     "NVIDIA Corporation"
-EndSection</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The GPU is now assigned to the virtual machine.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="related-information_nvidia_gpu_passthrough">Removing a host GPU from a virtual machine</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>For information on removing a host GPU from a virtual machine, see <a href="{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Removing_Host_Devices_from_a_Virtual_Machine">Removing Host Devices from a Virtual Machine</a> in the <em>Virtual Machine Management Guide</em>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="assigning-virtual-gpus">Assigning virtual GPUs</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>To set up NVIDIA vGPU devices, you need to:</p>
@@ -530,8 +129,11 @@ EndSection</pre>
 <div class="paragraph">
 <p>The following procedures explain this process.</p>
 </div>
-<div class="sect2">
-<h3 id="proc_setting-up-nvidia-vgpu-devices_nvidia_vgpu">Setting up NVIDIA vGPU devices on the host</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc_setting-up-nvidia-vgpu-devices_nvidia_vgpu">Setting up NVIDIA vGPU devices on the host</h2>
+<div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -668,8 +270,10 @@ nvidia-vgpu-mgr.service - NVIDIA vGPU Manager Daemon
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proc_install-nvidia-vgpu-guest-driver_nvidia_vgpu">Installing the vGPU driver on the virtual machine</h3>
+</div>
+<div class="sect1">
+<h2 id="proc_install-nvidia-vgpu-guest-driver_nvidia_vgpu">Installing the vGPU driver on the virtual machine</h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -703,8 +307,7 @@ nvidia-vgpu-mgr.service - NVIDIA vGPU Manager Daemon
 </td>
 <td class="content">
 <div class="paragraph">
-<p><strong>Linux only:</strong> When installing the driver on a Linux guest operating system, you are prompted to update xorg.conf. If you do not update xorg.conf during the installation, you need to update it manually.
-For more information, see <a href="#Updating_and_Enabling_xorg_nvidia_gpu_passthrough">Updating and Enabling xorg (Linux Virtual Machines)</a>.</p>
+<p><strong>Linux only:</strong> When installing the driver on a Linux guest operating system, you are prompted to update xorg.conf. If you do not update xorg.conf during the installation, you need to update it manually.</p>
 </div>
 </td>
 </tr>
@@ -737,8 +340,10 @@ For more information, see <a href="#Updating_and_Enabling_xorg_nvidia_gpu_passth
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proc_removing-nvidia-vgpu-devices_nvidia_vgpu">Removing NVIDIA vGPU devices</h3>
+</div>
+<div class="sect1">
+<h2 id="proc_removing-nvidia-vgpu-devices_nvidia_vgpu">Removing NVIDIA vGPU devices</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To change the configuration of assigned vGPU mediated devices, the existing devices have to be removed from the assigned guests.</p>
 </div>
@@ -766,8 +371,10 @@ For more information, see <a href="#Updating_and_Enabling_xorg_nvidia_gpu_passth
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proc_obtaining-nvidia-vgpu-information-about-your-system_nvidia_vgpu">Monitoring NVIDIA vGPUs</h3>
+</div>
+<div class="sect1">
+<h2 id="proc_obtaining-nvidia-vgpu-information-about-your-system_nvidia_vgpu">Monitoring NVIDIA vGPUs</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>For NVIDIA vGPUS, to get info on the physical GPU and vGPU, you can use the NVIDIA System Management Interface by entering the <code class="command">nvidia-smi</code> command on the host. For more information, see <a href="https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#performance-monitoring-gpu-nvidia-smi">NVIDIA System Management Interface nvidia-smi</a> in the <em>NVIDIA Virtual GPU Software Documentation</em>.</p>
 </div>
@@ -809,8 +416,10 @@ Thu Nov  1 17:40:09 2018
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="ref_remote-desktop-streaming-services-for-nvidia-vgpu_nvidia_vgpu">Remote desktop streaming services for NVIDIA vGPU</h3>
+</div>
+<div class="sect1">
+<h2 id="ref_remote-desktop-streaming-services-for-nvidia-vgpu_nvidia_vgpu">Remote desktop streaming services for NVIDIA vGPU</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The following remote desktop streaming services have been successfully tested for use with the NVIDIA vGPU feature in RHEL 8:</p>
 </div>
@@ -824,25 +433,6 @@ Thu Nov  1 17:40:09 2018
 </li>
 <li>
 <p>NICE DCV - When using this streaming service, use fixed resolution settings, because using dynamic resolution in some cases results in a black screen.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="related-information-general_nvidia_vgpu">Related information</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>For further information on using NVIDA vGPU on RHEL with KVM, see:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.nvidia.com/grid/latest/grid-vgpu-release-notes-red-hat-el-kvm/index.html">the NVIDIA GPU Software Release Notes</a>.</p>
-</li>
-<li>
-<p><em>NVIDIA Virtual GPU Software Documentation</em> at <a href="https://docs.nvidia.com" class="bare">https://docs.nvidia.com</a>.</p>
 </li>
 </ul>
 </div>

@@ -15,7 +15,7 @@
 <meta property="twitter:title" content="Virtual Machine Management Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Virtual Machine Management Guide","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/virtual_machine_management_guide/","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Virtual Machine Management Guide","url":"https://ovirt.github.io/ovirt-site/previews/2740/documentation/virtual_machine_management_guide/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2740/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -107,7 +107,6 @@
 <li><a href="#sect-Installing_Supporting_Components">1.4. Installing Supporting Components on Client Machines</a>
 <ul class="sectlevel3">
 <li><a href="#sect-Installing_Console_Components">1.4.1. Installing Console Components</a></li>
-<li><a href="#Installing_usbdk_on_Windows">1.4.2. Installing usbdk on Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -119,6 +118,8 @@
 <ul class="sectlevel3">
 <li><a href="#Powering_on_a_virtual_machine">2.2.1. Starting a Virtual Machine</a></li>
 <li><a href="#Opening_a_Console_to_a_Virtual_Machine_linux_vm">2.2.2. Opening a console to a virtual machine</a></li>
+<li><a href="#Opening_a_Serial_Console_to_a_Virtual_Machine">2.2.3. Opening a Serial Console to a Virtual Machine</a></li>
+<li><a href="#Automatically_connecting_to_a_Virtual_Machine">2.2.4. Automatically Connecting to a Virtual Machine</a></li>
 </ul>
 </li>
 <li><a href="#Enabling_the_Required_Repositories">2.3. Enabling the Required Repositories</a></li>
@@ -143,6 +144,7 @@
 <ul class="sectlevel3">
 <li><a href="#Red_Hat_Virtualization_Guest_Agents_and_Drivers_windows_vm">3.3.1. oVirt Guest agents, tools, and drivers</a></li>
 <li><a href="#Installing_the_Guest_Agents_and_Drivers_on_Windows">3.3.2. Installing the guest agents, tools, and drivers on Windows</a></li>
+<li><a href="#values-for-addlocal-to-customize-virtio-win-command-line-installation">3.3.3. Values for ADDLOCAL to customize virtio-win command-line installation</a></li>
 </ul>
 </li>
 </ul>
@@ -275,20 +277,22 @@
 <li><a href="#conc-nvdimm-host-devices">6.10.4. NVDIMM host devices</a></li>
 </ul>
 </li>
-<li><a href="#affinity-groups">6.11. Affinity Groups</a>
+<li><a href="#sect-Affinity_Groups">6.11. Affinity Groups</a>
 <ul class="sectlevel3">
-<li><a href="#Creating_an_Affinity_Group">6.11.1. Creating an Affinity Group</a></li>
-<li><a href="#Editing_an_Affinity_Group">6.11.2. Editing an Affinity Group</a></li>
-<li><a href="#Removing_an_Affinity_Group">6.11.3. Removing an Affinity Group</a></li>
-<li><a href="#Affinity_groups_examples">6.11.4. Affinity Groups Examples</a></li>
-<li><a href="#Affinity_groups_troubleshooting">6.11.5. Affinity Groups Troubleshooting</a></li>
+<li><a href="#affinity-groups">6.11.1. Affinity Groups</a></li>
+<li><a href="#Creating_an_Affinity_Group">6.11.2. Creating an Affinity Group</a></li>
+<li><a href="#Editing_an_Affinity_Group">6.11.3. Editing an Affinity Group</a></li>
+<li><a href="#Removing_an_Affinity_Group">6.11.4. Removing an Affinity Group</a></li>
+<li><a href="#Affinity_groups_examples">6.11.5. Affinity Groups Examples</a></li>
+<li><a href="#Affinity_groups_troubleshooting">6.11.6. Affinity Groups Troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#Affinity_Labels">6.12. Affinity Labels</a>
+<li><a href="#sect-Affinity_Labels">6.12. Affinity Labels</a>
 <ul class="sectlevel3">
-<li><a href="#Creating_an_Affinity_Label">6.12.1. Creating an Affinity Label</a></li>
-<li><a href="#Editing_an_Affinity_Label">6.12.2. Editing an Affinity Label</a></li>
-<li><a href="#Removing_an_Affinity_Label">6.12.3. Removing an Affinity Label</a></li>
+<li><a href="#About_Affinity_Labels">6.12.1. About Affinity Labels</a></li>
+<li><a href="#Creating_an_Affinity_Label">6.12.2. Creating an Affinity Label</a></li>
+<li><a href="#Editing_an_Affinity_Label">6.12.3. Editing an Affinity Label</a></li>
+<li><a href="#Removing_an_Affinity_Label">6.12.4. Removing an Affinity Label</a></li>
 </ul>
 </li>
 <li><a href="#sect-Exporting_and_Importing_Virtual_Machines_and_Templates">6.13. Exporting and Importing Virtual Machines and Templates</a>
@@ -337,53 +341,54 @@
 </li>
 </ul>
 </li>
-<li><a href="#Templates">7. Templates</a>
+<li><a href="#chap-Templates">7. Templates</a>
 <ul class="sectlevel2">
-<li><a href="#Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates">7.1. Sealing Virtual Machines in Preparation for Deployment as Templates</a>
+<li><a href="#About_Templates">7.1. About Templates</a></li>
+<li><a href="#Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates">7.2. Sealing Virtual Machines in Preparation for Deployment as Templates</a>
 <ul class="sectlevel3">
-<li><a href="#Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template">7.1.1. Sealing a Linux Virtual Machine for Deployment as a Template</a></li>
-<li><a href="#Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template">7.1.2. Sealing a Windows Virtual Machine for Deployment as a Template</a></li>
+<li><a href="#Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template">7.2.1. Sealing a Linux Virtual Machine for Deployment as a Template</a></li>
+<li><a href="#Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template">7.2.2. Sealing a Windows Virtual Machine for Deployment as a Template</a></li>
 </ul>
 </li>
-<li><a href="#Creating_a_template_from_an_existing_virtual_machine">7.2. Creating a Template</a></li>
-<li><a href="#Editing_a_Template">7.3. Editing a Template</a></li>
-<li><a href="#Deleting_a_template">7.4. Deleting a Template</a></li>
-<li><a href="#sect-Exporting_Templates">7.5. Exporting Templates</a>
+<li><a href="#Creating_a_template_from_an_existing_virtual_machine">7.3. Creating a Template</a></li>
+<li><a href="#Editing_a_Template">7.4. Editing a Template</a></li>
+<li><a href="#Deleting_a_template">7.5. Deleting a Template</a></li>
+<li><a href="#sect-Exporting_Templates">7.6. Exporting Templates</a>
 <ul class="sectlevel3">
-<li><a href="#Migrating_Templates_to_the_Export_Domain">7.5.1. Migrating Templates to the Export Domain</a></li>
-<li><a href="#Copying_a_Templates_Virtual_Hard_Disk">7.5.2. Copying a Template&#8217;s Virtual Hard Disk</a></li>
+<li><a href="#Migrating_Templates_to_the_Export_Domain">7.6.1. Migrating Templates to the Export Domain</a></li>
+<li><a href="#Copying_a_Templates_Virtual_Hard_Disk">7.6.2. Copying a Template&#8217;s Virtual Hard Disk</a></li>
 </ul>
 </li>
-<li><a href="#sect-Importing_Templates">7.6. Importing Templates</a>
+<li><a href="#sect-Importing_Templates">7.7. Importing Templates</a>
 <ul class="sectlevel3">
-<li><a href="#Importing_a_template_into_a_data_center">7.6.1. Importing a Template into a Data Center</a></li>
-<li><a href="#Importing_a_Virtual_Disk_from_an_OpenStack_Image_Service_as_a_Template">7.6.2. Importing a Virtual Disk from an OpenStack Image Service as a Template</a></li>
+<li><a href="#Importing_a_template_into_a_data_center">7.7.1. Importing a Template into a Data Center</a></li>
+<li><a href="#Importing_a_Virtual_Disk_from_an_OpenStack_Image_Service_as_a_Template">7.7.2. Importing a Virtual Disk from an OpenStack Image Service as a Template</a></li>
 </ul>
 </li>
-<li><a href="#sect-Templates_and_Permissions">7.7. Templates and Permissions</a>
+<li><a href="#sect-Templates_and_Permissions">7.8. Templates and Permissions</a>
 <ul class="sectlevel3">
-<li><a href="#Managing_System_Permissions_for_a_Template">7.7.1. Managing System Permissions for a Template</a></li>
-<li><a href="#Template_Administrator_Roles_Explained">7.7.2. Template Administrator Roles Explained</a></li>
-<li><a href="#Assigning_an_Administrator_or_User_Role_to_a_Resource">7.7.3. Assigning an Administrator or User Role to a Resource</a></li>
-<li><a href="#Removing_an_Administrator_or_User_Role_from_a_Resource">7.7.4. Removing an Administrator or User Role from a Resource</a></li>
+<li><a href="#Managing_System_Permissions_for_a_Template">7.8.1. Managing System Permissions for a Template</a></li>
+<li><a href="#Template_Administrator_Roles_Explained">7.8.2. Template Administrator Roles Explained</a></li>
+<li><a href="#Assigning_an_Administrator_or_User_Role_to_a_Resource">7.8.3. Assigning an Administrator or User Role to a Resource</a></li>
+<li><a href="#Removing_an_Administrator_or_User_Role_from_a_Resource">7.8.4. Removing an Administrator or User Role from a Resource</a></li>
 </ul>
 </li>
-<li><a href="#Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines">7.8. Using Cloud-Init to Automate the Configuration of Virtual Machines</a>
+<li><a href="#Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines">7.9. Using Cloud-Init to Automate the Configuration of Virtual Machines</a>
 <ul class="sectlevel3">
-<li><a href="#Cloud-Init_Use_Case_Scenarios">7.8.1. Cloud-Init Use Case Scenarios</a></li>
-<li><a href="#Installing_Cloud-Init">7.8.2. Installing Cloud-Init</a></li>
-<li><a href="#Using_Cloud-Init_to_Prepare_a_Template">7.8.3. Using Cloud-Init to Prepare a Template</a></li>
-<li><a href="#Using_Cloud-Init">7.8.4. Using Cloud-Init to Initialize a Virtual Machine</a></li>
+<li><a href="#Cloud-Init_Use_Case_Scenarios">7.9.1. Cloud-Init Use Case Scenarios</a></li>
+<li><a href="#Installing_Cloud-Init">7.9.2. Installing Cloud-Init</a></li>
+<li><a href="#Using_Cloud-Init_to_Prepare_a_Template">7.9.3. Using Cloud-Init to Prepare a Template</a></li>
+<li><a href="#Using_Cloud-Init">7.9.4. Using Cloud-Init to Initialize a Virtual Machine</a></li>
 </ul>
 </li>
-<li><a href="#Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines">7.9. Using Sysprep to Automate the Configuration of Virtual Machines</a>
+<li><a href="#Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines">7.10. Using Sysprep to Automate the Configuration of Virtual Machines</a>
 <ul class="sectlevel3">
-<li><a href="#Configuring_Sysprep_on_a_Template">7.9.1. Configuring Sysprep on a Template</a></li>
-<li><a href="#Using_Sysprep_to_Initialize_a_Virtual_Machine">7.9.2. Using Sysprep to Initialize a Virtual Machine</a></li>
+<li><a href="#Configuring_Sysprep_on_a_Template">7.10.1. Configuring Sysprep on a Template</a></li>
+<li><a href="#Using_Sysprep_to_Initialize_a_Virtual_Machine">7.10.2. Using Sysprep to Initialize a Virtual Machine</a></li>
 </ul>
 </li>
-<li><a href="#Creating_a_Virtual_Machine_Based_on_a_Template">7.10. Creating a Virtual Machine Based on a Template</a></li>
-<li><a href="#Creating_a_cloned_virtual_machine_based_on_a_template">7.11. Creating a Cloned Virtual Machine Based on a Template</a></li>
+<li><a href="#Creating_a_Virtual_Machine_Based_on_a_Template">7.11. Creating a Virtual Machine Based on a Template</a></li>
+<li><a href="#Creating_a_cloned_virtual_machine_based_on_a_template">7.12. Creating a Cloned Virtual Machine Based on a Template</a></li>
 </ul>
 </li>
 <li><a href="#appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows">Appendix A: Reference: Settings in Administration Portal and VM Portal Windows</a>
@@ -411,7 +416,7 @@
 </ul>
 </li>
 <li><a href="#appe-virt_sysprep_operations">Appendix B: <code>virt-sysprep</code> Operations</a></li>
-<li><a href="#legal-notice">Appendix C: Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">Appendix C: Legal notice</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -426,8 +431,7 @@
 <p>A virtual machine is a software implementation of a computer. The oVirt environment enables you to create virtual desktops and virtual servers.</p>
 </div>
 <div class="paragraph">
-<p>Virtual machines consolidate computing tasks and workloads. In traditional computing environments, workloads usually run on individually administered and upgraded servers. Virtual machines reduce the amount of hardware and administration required to run the same computing tasks and workloads.
-:_content-type: CONCEPT</p>
+<p>Virtual machines consolidate computing tasks and workloads. In traditional computing environments, workloads usually run on individually administered and upgraded servers. Virtual machines reduce the amount of hardware and administration required to run the same computing tasks and workloads.</p>
 </div>
 <div class="sect2">
 <h3 id="Audience">1.1. Audience</h3>
@@ -464,8 +468,7 @@
 <div class="sect3">
 <h4 id="sect-Installing_Console_Components">1.4.1. Installing Console Components</h4>
 <div class="paragraph">
-<p>A console is a graphical window that allows you to view the start up screen, shut down screen, and desktop of a virtual machine, and to interact with that virtual machine in a similar way to a physical machine. In oVirt, the default application for opening a console to a virtual machine is Remote Viewer, which must be installed on the client machine prior to use.
-:_content-type: PROCEDURE</p>
+<p>A console is a graphical window that allows you to view the start up screen, shut down screen, and desktop of a virtual machine, and to interact with that virtual machine in a similar way to a physical machine. In oVirt, the default application for opening a console to a virtual machine is Remote Viewer, which must be installed on the client machine prior to use.</p>
 </div>
 <div class="sect4">
 <h5 id="Installing_Remote_Viewer_on_Linux">Installing Remote Viewer on Enterprise Linux</h5>
@@ -543,9 +546,8 @@
 <p>Remote Viewer is installed and can be accessed via <code>Remote Viewer</code> in the <strong>VirtViewer</strong> folder of <strong>All Programs</strong> in the start menu.</p>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="Installing_usbdk_on_Windows">1.4.2. Installing usbdk on Windows</h4>
+<div class="sect4">
+<h5 id="Installing_usbdk_on_Windows">Installing usbdk on Windows</h5>
 <div class="paragraph">
 <p><code>usbdk</code> is a driver that enables <code>remote-viewer</code> exclusive access to USB devices on Windows operating systems. Installing <code>usbdk</code> requires Administrator privileges. Note that the previously supported <code>USB Clerk</code> option has been deprecated and is no longer supported.</p>
 </div>
@@ -590,6 +592,7 @@
 <p>Click <strong>Yes</strong> if prompted by User Account Control.</p>
 </li>
 </ol>
+</div>
 </div>
 </div>
 </div>
@@ -894,15 +897,16 @@
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#Automatically_connecting_to_a_Virtual_Machine">Automatically Connecting to a Virtual Machine</a></p>
+<p><a href="#Automatically_connecting_to_a_Virtual_Machine">Automatically connecting to a Virtual Machine</a></p>
 </li>
 <li>
 <p><a href="#sect-Configuring_Console_Options">Configuring Console Options</a></p>
 </li>
 </ul>
 </div>
-<div class="sect4">
-<h5 id="Opening_a_Serial_Console_to_a_Virtual_Machine">Opening a Serial Console to a Virtual Machine</h5>
+</div>
+<div class="sect3">
+<h4 id="Opening_a_Serial_Console_to_a_Virtual_Machine">2.2.3. Opening a Serial Console to a Virtual Machine</h4>
 <div class="paragraph">
 <p>You can access a virtual machine&#8217;s serial console from the command line instead of opening a console from the Administration Portal or the VM Portal. The serial console is emulated through VirtIO channels, using SSH and key pairs. The Engine acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. You can add public keys for each user from either the Administration Portal or the VM Portal. You can access serial consoles for only those virtual machines for which you have appropriate permissions.</p>
 </div>
@@ -1079,15 +1083,13 @@ _USER_ login:</code></pre>
 <p>If the serial console session is disconnected abnormally, a TCP timeout occurs. You will be unable to reconnect to the virtual machine&#8217;s serial console until the timeout period expires.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="Automatically_connecting_to_a_Virtual_Machine">Automatically Connecting to a Virtual Machine</h5>
+<div class="sect3">
+<h4 id="Automatically_connecting_to_a_Virtual_Machine">2.2.4. Automatically Connecting to a Virtual Machine</h4>
 <div class="paragraph">
 <p>Once you have logged in, you can automatically connect to a single running virtual machine. This can be configured in the VM Portal.</p>
 </div>
-<div class="paragraph">
-<p><strong>Automatically Connecting to a Virtual Machine</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>In the Virtual Machines page, click the name of the virtual machine to go to the details view.</p>
@@ -1099,7 +1101,6 @@ _USER_ login:</code></pre>
 </div>
 <div class="paragraph">
 <p>The next time you log into the VM Portal, if you have only one running virtual machine, you will automatically connect to that machine.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1604,7 +1605,7 @@ _USER_ login:</code></pre>
 <p>Move <strong>CD-ROM</strong> to the top of the <strong>Boot Sequence</strong> field.</p>
 </li>
 <li>
-<p>Configure other <strong>Run Once</strong> options as required. See <a href="#Virtual_Machine_Run_Once_settings_explained">Explanation of settings in the Run Once window</a> for more details.</p>
+<p>Configure other <strong>Run Once</strong> options as required. See <a href="#Virtual_Machine_Run_Once_settings_explained">Virtual Machine Run Once settings explained</a> for more details.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>. The status of the virtual machine changes to <strong>Up</strong>, and the operating system installation begins.</p>
@@ -1664,7 +1665,7 @@ _USER_ login:</code></pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#Automatically_connecting_to_a_Virtual_Machine">Automatically Connecting to a Virtual Machine</a></p>
+<p><a href="#Automatically_connecting_to_a_Virtual_Machine">Automatically connecting to a Virtual Machine</a></p>
 </li>
 <li>
 <p><a href="#sect-Configuring_Console_Options">Configuring Console Options</a></p>
@@ -1865,8 +1866,9 @@ _USER_ login:</code></pre>
 <div class="paragraph">
 <p>After installation completes, the guest agents and drivers pass usage information to the oVirt Engine and enable you to access USB devices and other functionality.</p>
 </div>
-<div class="sect4">
-<h5 id="values-for-addlocal-to-customize-virtio-win-command-line-installation">Values for ADDLOCAL to customize virtio-win command-line installation</h5>
+</div>
+<div class="sect3">
+<h4 id="values-for-addlocal-to-customize-virtio-win-command-line-installation">3.3.3. Values for ADDLOCAL to customize virtio-win command-line installation</h4>
 <div class="paragraph">
 <p>When installing <code class="filename">virtio-win-gt-x64.msi</code> or <code class="filename">virtio-win-gt-x32.msi</code> with the command line, you can install any one driver, or any combination of drivers.</p>
 </div>
@@ -1994,10 +1996,10 @@ _USER_ login:</code></pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#Updating_Win_Guest_Drivers_with_Windows_Updates">Updating Windows drivers with Windows Update</a></p>
+<p><a href="#Updating_Win_Guest_Drivers_with_Windows_Updates">Updating Win Guest Drivers with Windows Updates</a></p>
 </li>
 <li>
-<p><a href="#Updating_the_Guest_Agents_and_Drivers_on_Windows">Updating Windows guest agents and drivers using the command prompt</a></p>
+<p><a href="#Updating_the_Guest_Agents_and_Drivers_on_Windows">Updating the Guest Agents and Drivers on Windows</a></p>
 </li>
 </ul>
 </div>
@@ -2016,7 +2018,6 @@ _USER_ login:</code></pre>
 <p><a href="https://docs.microsoft.com/en-us/windows/win32/msi/property-reference">Property Reference</a> for the Windows installer</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -2607,10 +2608,8 @@ _USER_ login:</code></pre>
 <div class="paragraph">
 <p>You can configure several options for opening graphical consoles for virtual machines in the Administration Portal.</p>
 </div>
-<div class="paragraph">
-<p><strong>Accessing Console Options</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a running virtual machine.</p>
@@ -2628,7 +2627,7 @@ _USER_ login:</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can configure the connection protocols and video type in the <strong>Console</strong> tab of the <strong>Edit Virtual Machine</strong> window in the Administration Portal. Additional options specific to each of the connection protocols, such as the keyboard layout when using the VNC connection protocol, can be configured. See <a href="#Virtual_Machine_Console_settings_explained">Virtual Machine Console Settings Explained</a> for more information.</p>
+<p>You can configure the connection protocols and video type in the <strong>Console</strong> tab of the <strong>Edit Virtual Machine</strong> window in the Administration Portal. Additional options specific to each of the connection protocols, such as the keyboard layout when using the VNC connection protocol, can be configured. See <a href="#Virtual_Machine_Console_settings_explained">Virtual Machine Console settings explained</a> for more information.</p>
 </div>
 </td>
 </tr>
@@ -2918,10 +2917,8 @@ _USER_ login:</code></pre>
 <div class="paragraph">
 <p>You can add a watchdog card to a virtual machine to monitor the operating system&#8217;s responsiveness.</p>
 </div>
-<div class="paragraph">
-<p><strong>Adding Watchdog Cards to Virtual Machines</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a virtual machine.</p>
@@ -3388,12 +3385,10 @@ _USER_ login:</code></pre>
 <p>Headless virtual machines can be administered via a Serial Console, SSH, or any other service for command line access. Headless mode is applied via the <strong>Console</strong> tab when creating or editing virtual machines and machine pools, and when editing templates. It is also available when creating or editing instance types.</p>
 </div>
 <div class="paragraph">
-<p>If you are creating a new headless virtual machine, you can use the <strong>Run Once</strong> window to access the virtual machine via a graphical console for the first run only. See <a href="#Virtual_Machine_Run_Once_settings_explained">Explanation of settings in the Run Once window</a> for more details.</p>
-</div>
-<div class="paragraph">
-<p>Prerequisites</p>
+<p>If you are creating a new headless virtual machine, you can use the <strong>Run Once</strong> window to access the virtual machine via a graphical console for the first run only. See <a href="#Virtual_Machine_Run_Once_settings_explained">Virtual Machine Run Once settings explained</a> for more details.</p>
 </div>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
 <p>If you are editing an existing virtual machine, and the oVirt guest agent has not been installed, note the machine&#8217;s IP prior to selecting <strong>Headless Mode</strong>.</p>
@@ -3443,7 +3438,7 @@ _USER_ login:</code></pre>
 <p>Optionally, select <strong>Enable VirtIO serial console</strong> to enable communicating with the virtual machine via serial console. This is highly recommended.</p>
 </li>
 <li>
-<p>Reboot the virtual machine if it is running. See <a href="#Rebooting_a_Virtual_Machine">Rebooting or Resetting a Virtual Machine</a>.</p>
+<p>Reboot the virtual machine if it is running. See <a href="#Rebooting_a_Virtual_Machine">Rebooting a Virtual Machine</a>.</p>
 </li>
 </ol>
 </div>
@@ -3643,7 +3638,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>VM, T, P</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Highly Available</strong> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> (High Availability tab)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Highly Available</strong> <sup>[1]</sup> (High Availability tab)</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>N</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>VM, T, P</code></p></td>
 </tr>
@@ -3658,7 +3653,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>VM, T, P</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>I/O Threads Enabled</strong> <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> (Resource Allocation tab)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>I/O Threads Enabled</strong> <sup>[2]</sup> (Resource Allocation tab)</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Y</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>VM, T, P</code></p></td>
 </tr>
@@ -3679,6 +3674,20 @@ Support for instance types is now deprecated, and will be removed in a future re
 </tr>
 </tbody>
 </table>
+<div class="openblock small">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Highly Available</code> is not automatically enabled. If you select it manually, high availability should be enabled for pinned hosts only.</p>
+</li>
+<li>
+<p>Number of I/O threads = 1.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="IO_and_Emulator_Threads_Pinning_Topology">I/O and Emulator Threads Pinning Topology (Automatic Settings)</h5>
@@ -3813,7 +3822,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 </ul>
 </div>
 <div class="sect4">
-<h5 id="manual-high-performance-configuration-settings-idmanual_high_performance_configuration_settings">Manual High Performance Configuration Settings [id="Manual_High_Performance_Configuration_Settings"]</h5>
+<h5 id="Manual_High_Performance_Configuration_Settings">Manual High Performance Configuration Settings</h5>
 <div class="paragraph">
 <p>The following table summarizes the recommended manual settings. The <strong>Enabled (Y/N)</strong> column indicates configurations that should be enabled or disabled. The <strong>Applies to</strong> column indicates the relevant resources:</p>
 </div>
@@ -3897,7 +3906,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 <p>In the <strong>Host</strong> tab, select the <strong>Specific Host(s)</strong> radio button.</p>
 </li>
 <li>
-<p>In the <strong>Resource Allocation</strong> tab, enter the <strong>CPU Pinning Topology</strong>, verifying that the configuration fits the pinned host&#8217;s configuration. See <a href="#Virtual_Machine_Resource_Allocation_settings_explained">Virtual Machine Resource Allocation Settings Explained</a> for information about the syntax of this field.</p>
+<p>In the <strong>Resource Allocation</strong> tab, enter the <strong>CPU Pinning Topology</strong>, verifying that the configuration fits the pinned host&#8217;s configuration. See <a href="#Virtual_Machine_Resource_Allocation_settings_explained">Virtual Machine Resource Allocation settings explained</a> for information about the syntax of this field.</p>
 <div class="paragraph">
 <p>This field is populated automatically and the CPU topology is updated when automatic NUMA pinning is activated.</p>
 </div>
@@ -4315,7 +4324,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p><strong>Memory Size</strong> (Edit this field to hot plug virtual memory. See <a href="#Hot_Plugging_Virtual_Memory">Hot Plugging Virtual Memory</a>.)</p>
 </li>
 <li>
-<p><strong>Virtual Sockets</strong> (Edit this field to hot plug CPUs. See <a href="#CPU_hot_plug">Hot Plugging vCPUs</a>.)</p>
+<p><strong>Virtual Sockets</strong> (Edit this field to hot plug CPUs. See <a href="#CPU_hot_plug">CPU hot plug</a>.)</p>
 </li>
 <li>
 <p><strong>Highly Available</strong></p>
@@ -4368,10 +4377,8 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Adding Network Interfaces to Virtual Machines</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
@@ -4403,7 +4410,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>The new network interface is listed in the <strong>Network Interfaces</strong> tab in the details view of the virtual machine. The <strong>Link State</strong> is set to <strong>Up</strong> by default when the network interface card is defined on the virtual machine and connected to the network.</p>
 </div>
 <div class="paragraph">
-<p>For more details on the fields in the <strong>New Network Interface</strong> window, see <a href="#Virtual_Machine_Network_Interface_dialogue_entries">Explanation of Settings in the New Network Interface and Edit Network Interface Windows</a>.</p>
+<p>For more details on the fields in the <strong>New Network Interface</strong> window, see <a href="#Virtual_Machine_Network_Interface_dialogue_entries">Virtual Machine Network Interface dialogue entries</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4429,7 +4436,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Click <b class="button">Edit</b>.</p>
 </li>
 <li>
-<p>Change settings as required. You can specify the <strong>Name</strong>, <strong>Profile</strong>, <strong>Type</strong>, and <strong>Custom MAC address</strong>. See <a href="#Adding_a_Network_Interface">Adding a New Network Interface</a>.</p>
+<p>Change settings as required. You can specify the <strong>Name</strong>, <strong>Profile</strong>, <strong>Type</strong>, and <strong>Custom MAC address</strong>. See <a href="#Adding_a_Network_Interface">Adding a Network Interface</a>.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -4526,10 +4533,8 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Blacklisting Network Interfaces</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>In the <code>/etc/ovirt-guest-agent.conf</code> configuration file on the virtual machine, insert the following line, with the NICs to be ignored separated by spaces:</p>
@@ -4560,7 +4565,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Some virtual machine operating systems automatically start the guest agent during installation.</p>
 </div>
 <div class="paragraph">
-<p>If your virtual machine&#8217;s operating system automatically starts the guest agent or if you need to configure the blacklist on many virtual machines, use the configured virtual machine as a template for creating additional virtual machines. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a Template</a> for details.</p>
+<p>If your virtual machine&#8217;s operating system automatically starts the guest agent or if you need to configure the blacklist on many virtual machines, use the configured virtual machine as a template for creating additional virtual machines. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a template from an existing virtual machine</a> for details.</p>
 </div>
 </td>
 </tr>
@@ -4602,7 +4607,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Enter a <strong>Size(GB)</strong>, <strong>Alias</strong>, and <strong>Description</strong> for the new disk.</p>
 </li>
 <li>
-<p>Use the drop-down lists and check boxes to configure the disk. See <a href="#Add_Virtual_Disk_dialogue_entries">Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows</a> for more details on the fields for all disk types.</p>
+<p>Use the drop-down lists and check boxes to configure the disk. See <a href="#Add_Virtual_Disk_dialogue_entries">Add Virtual Disk dialogue entries</a> for more details on the fields for all disk types.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -4627,10 +4632,8 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <div class="paragraph">
 <p>Once a floating disk is attached to a virtual machine, the virtual machine can access it.</p>
 </div>
-<div class="paragraph">
-<p><strong>Attaching Virtual Disks to Virtual Machines</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
@@ -5031,7 +5034,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>The virtual machine&#8217;s operating system must support CPU hot plug. See the table below for support details.</p>
 </li>
 <li>
-<p>Windows virtual machines must have the guest agents installed. See <a href="#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the guest agents, tools, and drivers on Windows</a>.</p>
+<p>Windows virtual machines must have the guest agents installed. See <a href="#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the Guest Agents and Drivers on Windows</a>.</p>
 </li>
 </ul>
 </div>
@@ -5231,10 +5234,8 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <div class="paragraph">
 <p>You can change the CD accessible to a virtual machine while that virtual machine is running, using ISO images that have been uploaded to the data domain of the virtual machine&#8217;s cluster. See <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em> for details.</p>
 </div>
-<div class="paragraph">
-<p><strong>Changing the CD for a Virtual Machine</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a running virtual machine.</p>
@@ -5247,10 +5248,8 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <div class="ulist">
 <ul>
 <li>
-<p>Select an ISO file from the list to eject the CD currently accessible to the virtual machine and mount that ISO file as a CD.</p>
-</li>
-<li>
-<p>Select <strong>[Eject]</strong> from the list to eject the CD currently accessible to the virtual machine.</p>
+<p>Select an ISO file from the list to eject the CD currently accessible to the virtual machine and mount that ISO file as a CD.
+.Procedure from the list to eject the CD currently accessible to the virtual machine.</p>
 </li>
 </ul>
 </div>
@@ -5418,7 +5417,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If an exclamation point appears next to the virtual machine, a snapshot deletion process has failed, and you may not be able to restart the machine after shutting it down. Try to delete the snapshot again and ensure that the explanation mark disappears before shutting down the virtual machine. See <a href="#Deleting_a_snapshot">Deleting a Snapshot</a> for more information.</p>
+<p>If an exclamation point appears next to the virtual machine, a snapshot deletion process has failed, and you may not be able to restart the machine after shutting it down. Try to delete the snapshot again and ensure that the explanation mark disappears before shutting down the virtual machine. See <a href="#Deleting_a_snapshot">Deleting a snapshot</a> for more information.</p>
 </div>
 </td>
 </tr>
@@ -5603,10 +5602,8 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Cloning Virtual Machines</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select the virtual machine to clone.</p>
@@ -5805,7 +5802,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Errata for each virtual machine can be viewed after the oVirt virtual machine has been configured to receive errata information from the Red Hat Satellite server.</p>
 </div>
 <div class="paragraph">
-<p>For more information on configuring a virtual machine to display available errata see <a href="#Configuring_Satellite_Errata">Configuring Satellite errata viewing for a virtual machine</a></p>
+<p>For more information on configuring a virtual machine to display available errata see <a href="#Configuring_Satellite_Errata">Configuring Satellite Errata</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Viewing Red Hat Satellite Errata</strong></p>
@@ -5980,10 +5977,8 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <div class="paragraph">
 <p>When you create a virtual machine, you automatically inherit <strong>UserVmManager</strong> privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See the  <a href="https://ovirt.org/documentation/administration_guide/index#Introduction_to_Directory_Servers"><em>Administration Guide</em></a> for more information.</p>
 </div>
-<div class="paragraph">
-<p><strong>Assigning Permissions to Users</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a virtual machine.</p>
@@ -6325,7 +6320,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>nvdimm</code> option is a technical preview feature. For more information, see <a href="#conc-nvdimm-host-devices">NVDIMM host devices</a>.</p>
+<p>The <code>nvdimm</code> option is a technical preview feature. For more information, see <a href="#conc-nvdimm-host-devices"><code>nvdimm</code> host devices</a>.</p>
 </div>
 </td>
 </tr>
@@ -6421,7 +6416,7 @@ Error while executing action:
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
 </li>
 <li>
-<p><a href="#conc-nvdimm-host-devices">NVDIMM host devices</a></p>
+<p><a href="#conc-nvdimm-host-devices"><code>nvdimm</code> host devices</a></p>
 </li>
 </ul>
 </div>
@@ -6506,7 +6501,7 @@ Error while executing action:
 <p>You can reconfigure the mode, partitioning, and other properties of the emulated NVDIMM device in the virtual machine without affecting the settings of the physical NVDIMM on the host device.</p>
 </div>
 <div class="paragraph">
-<p>To add emulated NVDIMM to a virtual machine, see <a href="#Adding_Host_Devices_to_a_Virtual_Machine">Adding a Host Device to a Virtual Machine</a></p>
+<p>To add emulated NVDIMM to a virtual machine, see <a href="#Adding_Host_Devices_to_a_Virtual_Machine">Adding Host Devices to a Virtual Machine</a></p>
 </div>
 <div class="ulist">
 <div class="title">Limitations</div>
@@ -6558,15 +6553,16 @@ Error while executing action:
 <p><a href="https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt">QEMU NVDIMM documentation</a></p>
 </li>
 <li>
-<p><a href="#Adding_Host_Devices_to_a_Virtual_Machine">Adding a Host Device to a Virtual Machine</a></p>
+<p><a href="#Adding_Host_Devices_to_a_Virtual_Machine">Adding Host Devices to a Virtual Machine</a></p>
 </li>
 </ul>
 </div>
-<h3 id="sect-Affinity_Groups" class="discrete">Affinity Groups</h3>
 </div>
 </div>
 <div class="sect2">
-<h3 id="affinity-groups">6.11. Affinity Groups</h3>
+<h3 id="sect-Affinity_Groups">6.11. Affinity Groups</h3>
+<div class="sect3">
+<h4 id="affinity-groups">6.11.1. Affinity Groups</h4>
 <div class="paragraph">
 <p>Affinity groups help you determine where selected virtual machines run in relation to each other and specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
 </div>
@@ -6600,7 +6596,7 @@ Error while executing action:
 </div>
 <div class="paragraph">
 <div class="title">Examples</div>
-<p>To see how these rules and options can be used with one another, see <a href="#Affinity_groups_examples">Affinity Groups Examples</a>.</p>
+<p>To see how these rules and options can be used with one another, see <a href="#Affinity_groups_examples">Affinity group examples</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -6618,7 +6614,7 @@ Error while executing action:
 <p>For affinity labels to work, the <strong>filter module</strong> section of the scheduling policies must contain <code>Label</code>.</p>
 </li>
 <li>
-<p>If an affinity group and affinity label conflict with each other, the affected virtual machines do not run. To help prevent, troubleshoot, and resolve conflicts, see <a href="#Affinity_groups_troubleshooting">Affinity Groups Troubleshooting</a>.</p>
+<p>If an affinity group and affinity label conflict with each other, the affected virtual machines do not run. To help prevent, troubleshoot, and resolve conflicts, see <a href="#Affinity_groups_troubleshooting">Affinity group troubleshooting</a>.</p>
 </li>
 </ul>
 </div>
@@ -6674,8 +6670,9 @@ Error while executing action:
 </tr>
 </table>
 </div>
+</div>
 <div class="sect3">
-<h4 id="Creating_an_Affinity_Group">6.11.1. Creating an Affinity Group</h4>
+<h4 id="Creating_an_Affinity_Group">6.11.2. Creating an Affinity Group</h4>
 <div class="paragraph">
 <p>You can create new affinity groups in the Administration Portal.</p>
 </div>
@@ -6715,7 +6712,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Editing_an_Affinity_Group">6.11.2. Editing an Affinity Group</h4>
+<h4 id="Editing_an_Affinity_Group">6.11.3. Editing an Affinity Group</h4>
 <div class="paragraph">
 <p><strong>Editing Affinity Groups</strong></p>
 </div>
@@ -6743,7 +6740,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Removing_an_Affinity_Group">6.11.3. Removing an Affinity Group</h4>
+<h4 id="Removing_an_Affinity_Group">6.11.4. Removing an Affinity Group</h4>
 <div class="paragraph">
 <p><strong>Removing Affinity Groups</strong></p>
 </div>
@@ -6771,7 +6768,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Affinity_groups_examples">6.11.4. Affinity Groups Examples</h4>
+<h4 id="Affinity_groups_examples">6.11.5. Affinity Groups Examples</h4>
 <div class="paragraph">
 <p>The following examples illustrate how to apply affinity rules for various scenarios, using the different features of the affinity group capability described in this chapter.</p>
 </div>
@@ -6858,7 +6855,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Affinity_groups_troubleshooting">6.11.5. Affinity Groups Troubleshooting</h4>
+<h4 id="Affinity_groups_troubleshooting">6.11.6. Affinity Groups Troubleshooting</h4>
 <div class="ulist">
 <div class="title">To help prevent problems with affinity groups</div>
 <ul>
@@ -6939,7 +6936,9 @@ Error while executing action:
 </div>
 </div>
 <div class="sect2">
-<h3 id="Affinity_Labels">6.12. Affinity Labels</h3>
+<h3 id="sect-Affinity_Labels">6.12. Affinity Labels</h3>
+<div class="sect3">
+<h4 id="About_Affinity_Labels">6.12.1. About Affinity Labels</h4>
 <div class="paragraph">
 <p>You can create and modify affinity labels in the Administration Portal.</p>
 </div>
@@ -6963,8 +6962,9 @@ Error while executing action:
 </tr>
 </table>
 </div>
+</div>
 <div class="sect3">
-<h4 id="Creating_an_Affinity_Label">6.12.1. Creating an Affinity Label</h4>
+<h4 id="Creating_an_Affinity_Label">6.12.2. Creating an Affinity Label</h4>
 <div class="paragraph">
 <p>You can create affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.</p>
 </div>
@@ -6998,7 +6998,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Editing_an_Affinity_Label">6.12.2. Editing an Affinity Label</h4>
+<h4 id="Editing_an_Affinity_Label">6.12.3. Editing an Affinity Label</h4>
 <div class="paragraph">
 <p>You can edit affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.</p>
 </div>
@@ -7032,7 +7032,7 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Removing_an_Affinity_Label">6.12.3. Removing an Affinity Label</h4>
+<h4 id="Removing_an_Affinity_Label">6.12.4. Removing an Affinity Label</h4>
 <div class="paragraph">
 <p>You can remove affinity labels only from the details view of a cluster.</p>
 </div>
@@ -7567,7 +7567,7 @@ Error while executing action:
 <p>If a virtual machine&#8217;s network device uses the driver type e1000 or rtl8139, the virtual machine will use the same driver type after it has been imported to oVirt.</p>
 </div>
 <div class="paragraph">
-<p>If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see <a href="#Editing_network_interfaces">Editing a Network Interface</a>. If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The <strong>Attach VirtIO-drivers</strong> option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.</p>
+<p>If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see <a href="#Editing_network_interfaces">Editing network interfaces</a>. If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The <strong>Attach VirtIO-drivers</strong> option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.</p>
 </div>
 </td>
 </tr>
@@ -7713,7 +7713,7 @@ Error while executing action:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The location can be a local directory or a remote nfs mount, as long as it has sufficient space and is accessible to the qemu user (UID 36).</p>
+<p>The location can be a local directory or a remote nfs mount, as long as it is not directly under <code>/root</code>. Ensure that it has sufficient space and is accessible to the qemu user (UID 36).</p>
 </div>
 </td>
 </tr>
@@ -7812,7 +7812,7 @@ Error while executing action:
 <p>If you are importing a Windows virtual machine from a RHEL 5 Xen host and you are using VirtIO devices, install the VirtIO drivers before importing the virtual machine. If the drivers are not installed, the virtual machine may not boot after import.</p>
 </div>
 <div class="paragraph">
-<p>The VirtIO drivers can be installed from the <code>virtio-win<em>_version</em>.iso</code> or the <code>RHV-toolsSetup<em>_version</em>.iso</code>. See <a href="#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the guest agents, tools, and drivers on Windows</a> for details.</p>
+<p>The VirtIO drivers can be installed from the <code>virtio-win<em>_version</em>.iso</code> or the <code>RHV-toolsSetup<em>_version</em>.iso</code>. See <a href="#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the Guest Agents and Drivers on Windows</a> for details.</p>
 </div>
 <div class="paragraph">
 <p>If you are not using VirtIO drivers, review the configuration of the virutal machine before first boot to ensure that VirtIO devices are not being used.</p>
@@ -7940,7 +7940,7 @@ Error while executing action:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Due to current limitations, Xen virtual machines with block devices do not appear in the <strong>Virtual Machines on Source</strong> list. They must be imported manually. See <a href="#Importing_Block_Based_Virtual_Machine_from_Xen_host">Importing a Block-Based Virtual Machine from a RHEL 5 Xen Host</a>.</p>
+<p>Due to current limitations, Xen virtual machines with block devices do not appear in the <strong>Virtual Machines on Source</strong> list. They must be imported manually. See <a href="#Importing_Block_Based_Virtual_Machine_from_Xen_host">Importing Block Based Virtual Machine from Xen host</a>.</p>
 </div>
 </td>
 </tr>
@@ -8096,7 +8096,7 @@ Error while executing action:
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Domains</b></span>, click the export domain&#8217;s name, and click the <strong>VM Import</strong> tab in the details view to verify that the virtual machine is in your export domain.</p>
 </li>
 <li>
-<p>Import the virtual machine into the destination data domain. See <a href="#Importing_the_virtual_machine_from_the_export_domain">Importing a Virtual Machine from the Export Domain</a> for details.</p>
+<p>Import the virtual machine into the destination data domain. See <a href="#Importing_the_virtual_machine_from_the_export_domain">Importing the virtual machine from the export domain</a> for details.</p>
 </li>
 </ol>
 </div>
@@ -8307,10 +8307,8 @@ Error while executing action:
 <div class="paragraph">
 <p>You can configure this image with the <strong>cloud-init</strong> tool, and use it to provision new virtual machines. This eliminates the need to install and configure the operating system and provides virtual machines that are ready for use.</p>
 </div>
-<div class="paragraph">
-<p><strong>Importing a Red Hat KVM Guest Image</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Download the most recent KVM virtual machine image from the <a href="https://access.redhat.com/downloads/content/69/ver=/rhel---7/7.5/x86_64/product-software">Download Enterprise Linux</a> list, in the Product Software tab.</p>
@@ -8319,7 +8317,7 @@ Error while executing action:
 <p>Upload the virtual machine image using the Engine or the REST API. See <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_a_Disk_Image_to_a_Storage_Domain">Uploading a Disk Image to a Storage Domain</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
-<p>Create a new virtual machine and attach the uploaded disk image to it. See <a href="#Creating_a_virtual_machine_linux_vm">Creating a virtual machine</a>.</p>
+<p>Create a new virtual machine and attach the uploaded disk image to it. See <a href="#Creating_a_virtual_machine_linux_vm">Creating a Linux virtual machine</a>.</p>
 </li>
 <li>
 <p>Optionally, use <strong>cloud-init</strong> to configure the virtual machine. See <a href="#Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines">Using Cloud-Init to Automate the Configuration of Virtual Machines</a> for details.</p>
@@ -8758,7 +8756,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <div class="sect3">
 <h4 id="Manually_migrating_virtual_machines">6.14.8. Manually Migrating Virtual Machines</h4>
 <div class="paragraph">
-<p>A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see <a href="#Live_migration_prerequisites">Live Migration Prerequisites</a>.</p>
+<p>A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see <a href="#Live_migration_prerequisites">Live migration prerequisites</a>.</p>
 </div>
 <div class="paragraph">
 <p>For high performance virtual machines and/or virtual machines defined with <strong>Pass-Through Host CPU</strong>, <strong>CPU Pinning</strong>, or <strong>NUMA Pinning</strong>, the default migration mode is <strong>Manual</strong>. Select <strong>Select Host Automatically</strong> so that the virtual machine migrates to the host that offers the best performance.</p>
@@ -8862,10 +8860,8 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <div class="paragraph">
 <p>A virtual machine migration is taking longer than you expected. You&#8217;d like to be sure where all virtual machines are running before you make any changes to your environment.</p>
 </div>
-<div class="paragraph">
-<p><strong>Canceling Ongoing Virtual Machine Migrations</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Select the migrating virtual machine. It is displayed in <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> with a status of <strong>Migrating from</strong>.</p>
@@ -8954,7 +8950,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <p><strong>High Availability and Storage I/O Errors</strong></p>
 </div>
 <div class="paragraph">
-<p>If a storage I/O error occurs, the virtual machine is paused. You can define how the host handles highly available virtual machines after the connection with the storage domain is reestablished; they can either be resumed, ungracefully shut down, or remain paused. For more information about these options, see <a href="#Virtual_Machine_High_Availability_settings_explained">Virtual Machine High Availability Settings Explained</a>.</p>
+<p>If a storage I/O error occurs, the virtual machine is paused. You can define how the host handles highly available virtual machines after the connection with the storage domain is reestablished; they can either be resumed, ungracefully shut down, or remain paused. For more information about these options, see <a href="#Virtual_Machine_High_Availability_settings_explained">Virtual Machine High Availability settings explained</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -8993,10 +8989,8 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <div class="paragraph">
 <p>High availability must be configured individually for each virtual machine.</p>
 </div>
-<div class="paragraph">
-<p><strong>Configuring a Highly Available Virtual Machine</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a virtual machine.</p>
@@ -9011,7 +9005,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <p>Select the <strong>Highly Available</strong> check box to enable high availability for the virtual machine.</p>
 </li>
 <li>
-<p>Select the storage domain to hold the virtual machine lease, or select <strong>No VM Lease</strong> to disable the functionality, from the <strong>Target Storage Domain for VM Lease</strong> drop-down list. See <a href="#What_is_high_availability">What is High Availability?</a> for more information about virtual machine leases.</p>
+<p>Select the storage domain to hold the virtual machine lease, or select <strong>No VM Lease</strong> to disable the functionality, from the <strong>Target Storage Domain for VM Lease</strong> drop-down list. See <a href="#What_is_high_availability">What is high availability</a> for more information about virtual machine leases.</p>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -9028,7 +9022,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </li>
 <li>
-<p>Select <strong>AUTO_RESUME</strong>, <strong>LEAVE_PAUSED</strong>, or <strong>KILL</strong> from the <strong>Resume Behavior</strong> drop-down list. If you defined a virtual machine lease, <strong>KILL</strong> is the only option available. For more information see <a href="#Virtual_Machine_High_Availability_settings_explained">Virtual Machine High Availability Settings Explained</a>.</p>
+<p>Select <strong>AUTO_RESUME</strong>, <strong>LEAVE_PAUSED</strong>, or <strong>KILL</strong> from the <strong>Resume Behavior</strong> drop-down list. If you defined a virtual machine lease, <strong>KILL</strong> is the only option available. For more information see <a href="#Virtual_Machine_High_Availability_settings_explained">Virtual Machine High Availability settings explained</a>.</p>
 </li>
 <li>
 <p>Select <strong>Low</strong>, <strong>Medium</strong>, or <strong>High</strong> from the <strong>Priority</strong> drop-down list. When migration is triggered, a queue is created in which the high priority virtual machines are migrated first. If a cluster is running low on resources, only the high priority virtual machines are migrated.</p>
@@ -9532,14 +9526,15 @@ EndSection</code></pre>
 </li>
 </ul>
 </div>
-<h1 id="chap-Templates" class="discrete">Templates</h1>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Templates">7. Templates</h2>
+<h2 id="chap-Templates">7. Templates</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="About_Templates">7.1. About Templates</h3>
 <div class="paragraph">
 <p>A template is a copy of a virtual machine that you can use to simplify the subsequent, repeated creation of similar virtual machines. Templates capture the configuration of software, configuration of hardware, and the software installed on the virtual machine on which the template is based. The virtual machine on which a template is based is known as the source virtual machine.</p>
 </div>
@@ -9550,17 +9545,18 @@ EndSection</code></pre>
 <p>Virtual machines created based on a template use the same NIC type and driver as the original virtual machine, but are assigned separate, unique MAC addresses.</p>
 </div>
 <div class="paragraph">
-<p>You can create a virtual machine directly from <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Templates</b></span>, as well as from <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>. In <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Templates</b></span>, select the required template and click <strong>New VM</strong>. For more information on selecting the settings and controls for the new virtual machine see <a href="#Virtual_Machine_General_settings_explained">Virtual Machine General Settings Explained</a>.</p>
+<p>You can create a virtual machine directly from <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Templates</b></span>, as well as from <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>. In <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Templates</b></span>, select the required template and click <strong>New VM</strong>. For more information on selecting the settings and controls for the new virtual machine see <a href="#Virtual_Machine_General_settings_explained">Virtual Machine General settings explained</a>.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates">7.1. Sealing Virtual Machines in Preparation for Deployment as Templates</h3>
+<h3 id="Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates">7.2. Sealing Virtual Machines in Preparation for Deployment as Templates</h3>
 <div class="paragraph">
 <p>This section describes procedures for sealing Linux and Windows virtual machines. Sealing is the process of removing all system-specific details from a virtual machine before creating a template based on that virtual machine. Sealing is necessary to prevent the same details from appearing on multiple virtual machines created based on the same template. It is also necessary to ensure the functionality of other features, such as predictable vNIC order.</p>
 </div>
 <div class="sect3">
-<h4 id="Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template">7.1.1. Sealing a Linux Virtual Machine for Deployment as a Template</h4>
+<h4 id="Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template">7.2.1. Sealing a Linux Virtual Machine for Deployment as a Template</h4>
 <div class="paragraph">
-<p>To seal a Linux virtual machine during the template creation process, select the <strong>Seal Template</strong> check box in the <strong>New Template</strong> window. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a Template</a> for details.</p>
+<p>To seal a Linux virtual machine during the template creation process, select the <strong>Seal Template</strong> check box in the <strong>New Template</strong> window. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a template from an existing virtual machine</a> for details.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -9579,7 +9575,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template">7.1.2. Sealing a Windows Virtual Machine for Deployment as a Template</h4>
+<h4 id="Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template">7.2.2. Sealing a Windows Virtual Machine for Deployment as a Template</h4>
 <div class="paragraph">
 <p>A template created for Windows virtual machines must be generalized (sealed) before being used to deploy virtual machines. This ensures that machine-specific settings are not reproduced in the template.</p>
 </div>
@@ -9656,10 +9652,8 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 <div class="paragraph">
 <p>Seal a Windows 7, Windows 2008, or Windows 2012 virtual machine before creating a template to use to deploy virtual machines.</p>
 </div>
-<div class="paragraph">
-<p><strong>Sealing a Windows 7, Windows 2008, or Windows 2012 Virtual Machine for Deployment as a Template</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>On the Windows virtual machine, launch <code>Sysprep</code> from <strong>C:\Windows\System32\sysprep\sysprep.exe</strong>.</p>
@@ -9692,7 +9686,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Creating_a_template_from_an_existing_virtual_machine">7.2. Creating a Template</h3>
+<h3 id="Creating_a_template_from_an_existing_virtual_machine">7.3. Creating a Template</h3>
 <div class="paragraph">
 <p>Create a template from an existing virtual machine to use as a blueprint for creating additional virtual machines.</p>
 </div>
@@ -9739,7 +9733,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <p>Ensure the virtual machine is powered down and has a status of <code>Down</code>.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Make Template</strong>. For more details on all fields in the <strong>New Template</strong> window, see <a href="#Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows">Explanation of Settings in the New Template Window</a>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Make Template</strong>. For more details on all fields in the <strong>New Template</strong> window, see <a href="#Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows">Explanation of Settings in the New Template and Edit Template Windows</a>.</p>
 </li>
 <li>
 <p>Enter a <strong>Name</strong>, <strong>Description</strong>, and <strong>Comment</strong> for the template.</p>
@@ -9772,7 +9766,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Sealing, which uses the <code>virt-sysprep</code> command, removes system-specific details from a virtual machine before creating a template based on that virtual machine. This prevents the original virtual machine&#8217;s details from appearing in subsequent virtual machines that are created using the same template. It also ensures the functionality of other features, such as predictable vNIC order. See <a href="#appe-virt_sysprep_operations"><code>virt-sysprep</code> Operations</a> for more information.</p>
+<p>Sealing, which uses the <code>virt-sysprep</code> command, removes system-specific details from a virtual machine before creating a template based on that virtual machine. This prevents the original virtual machine&#8217;s details from appearing in subsequent virtual machines that are created using the same template. It also ensures the functionality of other features, such as predictable vNIC order. See <a href="#appe-virt_sysprep_operations"><code>virt-sysprep</code> operations</a> for more information.</p>
 </div>
 </td>
 </tr>
@@ -9803,14 +9797,12 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Editing_a_Template">7.3. Editing a Template</h3>
+<h3 id="Editing_a_Template">7.4. Editing a Template</h3>
 <div class="paragraph">
 <p>Once a template has been created, its properties can be edited. Because a template is a copy of a virtual machine, the options available when editing a template are identical to those in the <strong>Edit Virtual Machine</strong> window.</p>
 </div>
-<div class="paragraph">
-<p><strong>Editing a Template</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Templates</b></span> and select a template.</p>
@@ -9828,7 +9820,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Deleting_a_template">7.4. Deleting a Template</h3>
+<h3 id="Deleting_a_template">7.5. Deleting a Template</h3>
 <div class="paragraph">
 <p>If you have used a template to create a virtual machine using the thin provisioning storage allocation option, the template cannot be deleted as the virtual machine needs it to continue running. However, cloned virtual machines do not depend on the template they were cloned from and the template can be deleted.</p>
 </div>
@@ -9850,9 +9842,9 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect2">
-<h3 id="sect-Exporting_Templates">7.5. Exporting Templates</h3>
+<h3 id="sect-Exporting_Templates">7.6. Exporting Templates</h3>
 <div class="sect3">
-<h4 id="Migrating_Templates_to_the_Export_Domain">7.5.1. Migrating Templates to the Export Domain</h4>
+<h4 id="Migrating_Templates_to_the_Export_Domain">7.6.1. Migrating Templates to the Export Domain</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -9907,7 +9899,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Copying_a_Templates_Virtual_Hard_Disk">7.5.2. Copying a Template&#8217;s Virtual Hard Disk</h4>
+<h4 id="Copying_a_Templates_Virtual_Hard_Disk">7.6.2. Copying a Template&#8217;s Virtual Hard Disk</h4>
 <div class="paragraph">
 <p>If you are moving a virtual machine that was created from a template with the thin provisioning storage allocation option selected, the template&#8217;s disks must be copied to the same storage domain as that of the virtual disk. This procedure requires access to the Administration Portal.</p>
 </div>
@@ -9939,9 +9931,9 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect2">
-<h3 id="sect-Importing_Templates">7.6. Importing Templates</h3>
+<h3 id="sect-Importing_Templates">7.7. Importing Templates</h3>
 <div class="sect3">
-<h4 id="Importing_a_template_into_a_data_center">7.6.1. Importing a Template into a Data Center</h4>
+<h4 id="Importing_a_template_into_a_data_center">7.7.1. Importing a Template into a Data Center</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -10001,7 +9993,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Importing_a_Virtual_Disk_from_an_OpenStack_Image_Service_as_a_Template">7.6.2. Importing a Virtual Disk from an OpenStack Image Service as a Template</h4>
+<h4 id="Importing_a_Virtual_Disk_from_an_OpenStack_Image_Service_as_a_Template">7.7.2. Importing a Virtual Disk from an OpenStack Image Service as a Template</h4>
 <div class="paragraph">
 <p>Virtual disks managed by an OpenStack Image Service can be imported into the oVirt Engine if that OpenStack Image Service has been added to the Engine as an external provider. This procedure requires access to the Administration Portal.</p>
 </div>
@@ -10059,9 +10051,9 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect2">
-<h3 id="sect-Templates_and_Permissions">7.7. Templates and Permissions</h3>
+<h3 id="sect-Templates_and_Permissions">7.8. Templates and Permissions</h3>
 <div class="sect3">
-<h4 id="Managing_System_Permissions_for_a_Template">7.7.1. Managing System Permissions for a Template</h4>
+<h4 id="Managing_System_Permissions_for_a_Template">7.8.1. Managing System Permissions for a Template</h4>
 <div class="paragraph">
 <p>As the <strong>SuperUser</strong>, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a <strong>DataCenterAdmin</strong> role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a <strong>ClusterAdmin</strong> has administrator privileges only for the assigned cluster.</p>
 </div>
@@ -10097,7 +10089,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Template_Administrator_Roles_Explained">7.7.2. Template Administrator Roles Explained</h4>
+<h4 id="Template_Administrator_Roles_Explained">7.8.2. Template Administrator Roles Explained</h4>
 <div class="paragraph">
 <p>The table below describes the administrator roles and privileges applicable to template administration.</p>
 </div>
@@ -10130,14 +10122,12 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </table>
 </div>
 <div class="sect3">
-<h4 id="Assigning_an_Administrator_or_User_Role_to_a_Resource">7.7.3. Assigning an Administrator or User Role to a Resource</h4>
+<h4 id="Assigning_an_Administrator_or_User_Role_to_a_Resource">7.8.3. Assigning an Administrator or User Role to a Resource</h4>
 <div class="paragraph">
 <p>Assign administrator or user roles to resources to allow users to access or manage that resource.</p>
 </div>
-<div class="paragraph">
-<p><strong>Assigning a Role to a Resource</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.</p>
@@ -10167,7 +10157,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Removing_an_Administrator_or_User_Role_from_a_Resource">7.7.4. Removing an Administrator or User Role from a Resource</h4>
+<h4 id="Removing_an_Administrator_or_User_Role_from_a_Resource">7.8.4. Removing an Administrator or User Role from a Resource</h4>
 <div class="paragraph">
 <p>Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.</p>
 </div>
@@ -10202,7 +10192,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines">7.8. Using Cloud-Init to Automate the Configuration of Virtual Machines</h3>
+<h3 id="Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines">7.9. Using Cloud-Init to Automate the Configuration of Virtual Machines</h3>
 <div class="paragraph">
 <p>Cloud-Init is a tool for automating the initial setup of virtual machines such as configuring the host name, network interfaces, and authorized keys. It can be used when provisioning virtual machines that have been deployed based on a template to avoid conflicts on the network.</p>
 </div>
@@ -10224,7 +10214,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </table>
 </div>
 <div class="sect3">
-<h4 id="Cloud-Init_Use_Case_Scenarios">7.8.1. Cloud-Init Use Case Scenarios</h4>
+<h4 id="Cloud-Init_Use_Case_Scenarios">7.9.1. Cloud-Init Use Case Scenarios</h4>
 <div class="paragraph">
 <p>Cloud-Init can be used to automate the configuration of virtual machines in a variety of scenarios. Several common scenarios are as follows:</p>
 </div>
@@ -10252,7 +10242,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Installing_Cloud-Init">7.8.2. Installing Cloud-Init</h4>
+<h4 id="Installing_Cloud-Init">7.9.2. Installing Cloud-Init</h4>
 <div class="paragraph">
 <p>This procedure describes how to install Cloud-Init on a virtual machine. Once Cloud-Init is installed, you can create a template based on this virtual machine. Virtual machines created based on this template can leverage Cloud-Init functions, such as configuring the host name, time zone, root password, authorized keys, network interfaces, DNS service, etc on boot.</p>
 </div>
@@ -10320,7 +10310,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Using_Cloud-Init_to_Prepare_a_Template">7.8.3. Using Cloud-Init to Prepare a Template</h4>
+<h4 id="Using_Cloud-Init_to_Prepare_a_Template">7.9.3. Using Cloud-Init to Prepare a Template</h4>
 <div class="paragraph">
 <p>As long as the <code>cloud-init</code> package is installed on a Linux virtual machine, you can use the virtual machine to make a cloud-init enabled template. Specify a set of standard settings to be included in a template as described in the following procedure or, alternatively, skip the Cloud-Init settings steps and configure them when creating a virtual machine based on this template.</p>
 </div>
@@ -10420,7 +10410,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect3">
-<h4 id="Using_Cloud-Init">7.8.4. Using Cloud-Init to Initialize a Virtual Machine</h4>
+<h4 id="Using_Cloud-Init">7.9.4. Using Cloud-Init to Initialize a Virtual Machine</h4>
 <div class="paragraph">
 <p>Use Cloud-Init to automate the initial configuration of a Linux virtual machine. You can use the Cloud-Init fields to configure a virtual machine&#8217;s host name, time zone, root password, authorized keys, network interfaces, and DNS service. You can also specify a custom script, a script in YAML format, to run on boot. The custom script allows for additional Cloud-Init configuration that is supported by Cloud-Init but not available in the Cloud-Init fields. For more information on custom script examples, see <a href="http://cloudinit.readthedocs.org/en/latest/topics/examples.html">Cloud config examples</a>.</p>
 </div>
@@ -10504,7 +10494,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines">7.9. Using Sysprep to Automate the Configuration of Virtual Machines</h3>
+<h3 id="Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines">7.10. Using Sysprep to Automate the Configuration of Virtual Machines</h3>
 <div class="paragraph">
 <p><code>Sysprep</code> is a tool used to automate the setup of Windows virtual machines, for example, configuring host names, network interfaces, authorized keys, set up users, or to connect to Active Directory. <code>Sysprep</code> is installed with every version of Windows.</p>
 </div>
@@ -10544,7 +10534,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Configuring_Sysprep_on_a_Template">7.9.1. Configuring Sysprep on a Template</h4>
+<h4 id="Configuring_Sysprep_on_a_Template">7.10.1. Configuring Sysprep on a Template</h4>
 <div class="paragraph">
 <p>You can use this procedure to specify a set of standard <code>Sysprep</code> settings to include in the template, alternatively you can configure the <code>Sysprep</code> settings when creating a virtual machine based on this template.</p>
 </div>
@@ -10565,10 +10555,8 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong></p>
-</div>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
 <p>The Windows virtual machine parameters have been correctly defined.</p>
@@ -10593,7 +10581,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 <p>Seal the Windows virtual machine. See <a href="#Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates">Sealing Virtual Machines in Preparation for Deployment as Templates</a></p>
 </li>
 <li>
-<p>Create a template based on the Windows virtual machine. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a Template</a></p>
+<p>Create a template based on the Windows virtual machine. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a template from an existing virtual machine</a></p>
 </li>
 <li>
 <p>Update the <code>Sysprep</code> file with a text editor if additional changes are required.</p>
@@ -10605,7 +10593,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Using_Sysprep_to_Initialize_a_Virtual_Machine">7.9.2. Using Sysprep to Initialize a Virtual Machine</h4>
+<h4 id="Using_Sysprep_to_Initialize_a_Virtual_Machine">7.10.2. Using Sysprep to Initialize a Virtual Machine</h4>
 <div class="paragraph">
 <p>Use <code>Sysprep</code> to automate the initial configuration of a Windows virtual machine. You can use the <strong>Sysprep</strong> fields to configure a virtual machine&#8217;s host name, time zone, root password, authorized keys, network interfaces, and DNS service.</p>
 </div>
@@ -10634,7 +10622,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 <p>Move the <strong>CD-ROM</strong> to the top of the <strong>Boot Sequence</strong> field.</p>
 </li>
 <li>
-<p>Configure any further <strong>Run Once</strong> options as required. See <a href="#Virtual_Machine_Run_Once_settings_explained">Explanation of settings in the Run Once window</a> for more details.</p>
+<p>Configure any further <strong>Run Once</strong> options as required. See <a href="#Virtual_Machine_Run_Once_settings_explained">Virtual Machine Run Once settings explained</a> for more details.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -10644,7 +10632,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Creating_a_Virtual_Machine_Based_on_a_Template">7.10. Creating a Virtual Machine Based on a Template</h3>
+<h3 id="Creating_a_Virtual_Machine_Based_on_a_Template">7.11. Creating a Virtual Machine Based on a Template</h3>
 <div class="paragraph">
 <p>Create a virtual machine from a template to enable the virtual machines to be pre-configured with an operating system, network interfaces, applications and other resources.</p>
 </div>
@@ -10717,7 +10705,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 <div class="title">Additional Resources</div>
 <ul>
 <li>
-<p><a href="#Creating_a_cloned_virtual_machine_based_on_a_template">Creating a Cloned Virtual Machine Based on a Template</a></p>
+<p><a href="#Creating_a_cloned_virtual_machine_based_on_a_template">Creating a cloned virtual machine based on a template</a></p>
 </li>
 <li>
 <p><a href="https://ovirt.org/documentation/administration_guide/index#About_UEFI_Q35-cluster_opt_settings">UEFI and the Q35 chipset</a> in the <em>Administration Guide</em>.</p>
@@ -10726,7 +10714,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Creating_a_cloned_virtual_machine_based_on_a_template">7.11. Creating a Cloned Virtual Machine Based on a Template</h3>
+<h3 id="Creating_a_cloned_virtual_machine_based_on_a_template">7.12. Creating a Cloned Virtual Machine Based on a Template</h3>
 <div class="paragraph">
 <p>Cloned virtual machines are based on templates and inherit the settings of the template. A cloned virtual machine does not depend on the template on which it was based after it has been created. This means the template can be deleted if no other dependencies exist.</p>
 </div>
@@ -10888,7 +10876,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Optimized for</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The type of system for which the virtual machine is to be optimized. There are three options: <strong>Server</strong>, <strong>Desktop</strong>, and <strong>High Performance</strong>; by default, the field is set to <strong>Server</strong>. Virtual machines optimized to act as servers have no sound card, use a cloned disk image, and are not stateless. Virtual machines optimized to act as desktop machines do have a sound card, use an image (thin allocation), and are stateless. Virtual machines optimized for high performance have a number of configuration changes. See <a href="#Configuring_High_Performance_Virtual_Machines_Templates_and_Pools">Configuring High Performance Virtual Machines, Templates, and Pools</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of system for which the virtual machine is to be optimized. There are three options: <strong>Server</strong>, <strong>Desktop</strong>, and <strong>High Performance</strong>; by default, the field is set to <strong>Server</strong>. Virtual machines optimized to act as servers have no sound card, use a cloned disk image, and are not stateless. Virtual machines optimized to act as desktop machines do have a sound card, use an image (thin allocation), and are stateless. Virtual machines optimized for high performance have a number of configuration changes. See <a href="#Configuring_High_Performance_Virtual_Machines_Templates_and_Pools">Configuring High Performance Virtual Machines Templates and Pools</a>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes.</p></td>
 </tr>
 <tr>
@@ -11021,7 +11009,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Threads per Core</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of threads assigned to each core. Increasing the value enables simultaneous multi-threading (SMT). IBM POWER8 supports up to 8 threads per core. For x86 and x86_64 (Intel and AMD) CPU types, the recommended value is 1, unless you want to replicate the exact host topology, which you can do using CPU pinning. For more information, see <a href="#Pinning_CPU">Pinning CPUs</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of threads assigned to each core. Increasing the value enables simultaneous multi-threading (SMT). IBM POWER8 supports up to 8 threads per core. For x86 and x86_64 (Intel and AMD) CPU types, the recommended value is 1, unless you want to replicate the exact host topology, which you can do using CPU pinning. For more information, see <a href="#Pinning_CPU">Pinning CPU</a>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">If OS supports hotplugging, no. Otherwise, yes.</p></td>
 </tr>
 <tr>
@@ -11308,7 +11296,7 @@ This table does not include information on whether a power cycle is required bec
 </td>
 <td class="content">
 <div class="paragraph">
-<p>See <a href="#Configuring_Headless_Machines">Configuring Headless Virtual Machines</a> for more details and prerequisites for using headless mode.</p>
+<p>See <a href="#Configuring_Headless_Machines">Configuring Headless Machines</a> for more details and prerequisites for using headless mode.</p>
 </div>
 </td>
 </tr>
@@ -12242,7 +12230,7 @@ This table does not include information on whether a power cycle is required bec
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Provider</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the virtual machine is running Enterprise Linux and the system is configured to work with a Satellite server, select the name of the Satellite from the list. This enables you to use Satellite&#8217;s content management feature to display the relevant Errata for this virtual machine. See <a href="#Configuring_Satellite_Errata">Configuring Satellite errata viewing for a virtual machine</a> for more details.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the virtual machine is running Enterprise Linux and the system is configured to work with a Satellite server, select the name of the Satellite from the list. This enables you to use Satellite&#8217;s content management feature to display the relevant Errata for this virtual machine. See <a href="#Configuring_Satellite_Errata">Configuring Satellite Errata</a> for more details.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes.</p></td>
 </tr>
 </tbody>
@@ -12564,7 +12552,7 @@ The following tables do not include information on whether a power cycle is requ
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Headless Mode</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select this option if you do not require a graphical console when running the machine for the first time. See <a href="#Configuring_Headless_Machines">Configuring Headless Virtual Machines</a> for more information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select this option if you do not require a graphical console when running the machine for the first time. See <a href="#Configuring_Headless_Machines">Configuring Headless Machines</a> for more information.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VNC</strong></p></td>
@@ -12585,7 +12573,7 @@ The following tables do not include information on whether a power cycle is requ
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <strong>Custom Properties</strong> section contains additional VDSM options for running virtual machines. See <a href="#New_VMs_Custom_Properties">Virtual Machine Custom Properties Settings</a> for details.</p>
+<p>The <strong>Custom Properties</strong> section contains additional VDSM options for running virtual machines. See <a href="#New_VMs_Custom_Properties">New VMs Custom Properties</a> for details.</p>
 </div>
 </div>
 <div class="sect2">
@@ -13126,20 +13114,11 @@ yum-uuid * Remove the yum UUID</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="legal-notice">Appendix C: Legal notice</h2>
+<h2 id="ovirt-legal-notice">Appendix C: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4 Virtual Machine Management Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4 Virtual Machine Management Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
-</div>
-</div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <code>Highly Available</code> is not automatically enabled. If you select it manually, high availability should be enabled for pinned hosts only.
-</div>
-<div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. Number of I/O threads = 1
 </div>
 </div>
 

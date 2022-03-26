@@ -20,7 +20,7 @@ The Quality Assurance project is engaged in the following activities:
 
 *   Testing of software as it is released into nightly, updates-testing, or as it appears in a supported public release
 *   Developing and executing test plans and [Test Cases](/develop/qa/test-cases/) to test important functionality in a systematic way, usually with multiple cooperating testers
-*   Developing and running tools that use automation to find potential bugs ( <http://jenkins.ovirt.org/> )
+*   Developing and running tools that use automation to find potential bugs ( <https://docs.github.com/en/actions> )
 *   Running test days to coordinate focused testing on a specific feature or component
 *   Working with developers to maintain the release criteria, which are used to determine what bugs should be fixed before a release of oVirt is made
 *   Verifying bugs fixed by oVirt developers

@@ -25,11 +25,6 @@ If you enable or disable *Kdump integration* on an existing host, you must  xref
 . Enter the *Address*, *User Name*, and *Password* of the power management device.
 . Select the power management device *Type* from the drop-down list.
 +
-[NOTE]
-====
-For more information on how to set up a custom power management device, see link:https://access.redhat.com/articles/1238743[].
-====
-+
 . Enter the *SSH Port* number used by the power management device to communicate with the host.
 . Enter the *Slot* number used to identify the blade of the power management device.
 . Enter the *Options* for the power management device. Use a comma-separated list of _'key=value'_ entries.

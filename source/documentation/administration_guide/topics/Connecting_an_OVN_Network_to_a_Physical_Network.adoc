@@ -6,7 +6,7 @@ ifdef::rhv-doc[]
 ====
 This feature relies on Open vSwitch support, which is available only as a Technology Preview in {virt-product-fullname}. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
 
-For more information on Red Hat Technology Preview features support scope, see https://access.redhat.com/support/offerings/techpreview/.
+For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 ====
 endif::[]
 

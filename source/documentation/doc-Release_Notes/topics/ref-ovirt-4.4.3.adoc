@@ -113,7 +113,7 @@ Advanced Virtualization 8.3.
 
 ==== Technology Preview
 
-The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to https://access.redhat.com/support/offerings/techpreview/.
+The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 
 BZ#link:https://bugzilla.redhat.com/1361718[1361718]::
 This enhancement provides support for attaching an emulated NVDIMM to virtual machines that are backed by NVDIMM on the host machine. For details, see https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#conc-nvdimm-host-devices_vm_guide_administrative_tasks

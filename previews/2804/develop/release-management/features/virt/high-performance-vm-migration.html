@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Live migration for High Performance VMs | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Live migration for High Performance VMs" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2804/develop/release-management/features/virt/high-performance-vm-migration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2804/develop/release-management/features/virt/high-performance-vm-migration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Live migration for High Performance VMs" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Live migration for High Performance VMs","url":"https://ovirt.github.io/ovirt-site/previews/2804/develop/release-management/features/virt/high-performance-vm-migration.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2804/images/logo.svg"}},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2804/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2804/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2804/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2804/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2804/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2804/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2804/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2804/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2804/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2804/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2804/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2804/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2804/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2804/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2804/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2804/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2804/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2804/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2804/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2804/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2804/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2804/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2804/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2804/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2804/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2804/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2804/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2804/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2804/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2804/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2804/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2804/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2804/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2804/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2804/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2804//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2804//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2804/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2804/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2804/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2804/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2804/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/66944de7822454bc51eac3d78f314b2b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/66944de7822454bc51eac3d78f314b2b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sharon Gratch</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2804/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="live-migration-for-high-performance-vms">Live migration for High Performance VMs</h1>
+
+<h2 id="summary">Summary</h2>
+<p>In oVirt 4.2 we added a new “High Performance” VM profile type. 
+By choosing This High Performance (HP) VM type, the VM is pre-configured with a set of suggested and recommended configuration settings for reaching the best efficiency.</p>
+
+<p>This required configuration settings includes pinning the VM to a host based on the host specific configuration. Due to that pinning settings, the migration option for the HP VM type was automatically forced to be disabled.</p>
+
+<p>This feature provides the ability to enable the live migration for those HP VMs (and in general for all VM types with pinning settings).</p>
+
+<h2 id="owner">Owner</h2>
+<ul>
+  <li>Name: Sharon Gratch (sgratch)</li>
+  <li>Email: <a href="mailto:sgratch@redhat.com">sgratch@redhat.com</a></li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+<ol>
+  <li>
+    <p>Setting a new or an existing VM to run as a HP VM, by selecting the “High Performance” type in the “Optimized for” pull down menu field displayed in VM new/edit dialog, will now automatically set the migration mode to be “Allow manual migration only”.</p>
+  </li>
+  <li>
+    <p>Setting a new or an existing VM to run as Server/Desktop type with pinning configuration, will now automatically set the migration mode to be “Allow manual migration only”. 
+ A VM with pinning configuration (aka “a pinned VM”) is referring to any VM that is configured with at least one of the following settings: Pass-Through Host CPU enabled, CPU Pinning topology setting, or NUMA nodes pinning setting for that VM.</p>
+  </li>
+  <li>
+    <p>For both HP/pinned VMs - All migration modes are now supported. The default is set to manual migration but the user can manually change the migration to automatic (by changing migration mode to “Allow manual and automatic migration”).</p>
+
+    <p>Nevertheless, doing that should be considered with a great care since auto migration means that migration triggered by internal events like Load Balancer or non-operational hosts/High Availability may occur for those VMs and since migration of HP/pinned VMs may result in performance decreasing of those VMs, the user may want to control it by leaving the manual migration option.</p>
+  </li>
+  <li>
+    <p>A HP/pinned VM Template or Pool will be created in the same way as a VM and the migration option will be manually enabled as default for those also. In case the user wants to create a HP/Pinned migratable VM, he can also choose a Template or a Pool which are configured as HP type and “inherit” this property for that specific VM.</p>
+  </li>
+  <li>
+    <p>When a user will chose to migrate the HP/pinned VM, he will need to manually activate the migration (click “Migrate” on the VMs tab) and then via the “Migrate VM(s)” popup dialog to choose the destination host to migrate to, or let the engine to auto select it for him. This is the same as done for all other VM types.</p>
+
+    <p><img src="../../../../images/wiki/Screenshot-2018-12-13-15-05-32.png" alt="" /></p>
+
+    <p>The displayed list of destination hosts to choose from in the “Migrate VM(s)” popup dialog is filtered by the scheduler policies to fit the HP/pinned VM required settings, so that it will include only hosts the have the configuration required for running this specific HP/pinned VM.</p>
+
+    <p>However, not all hosts in that list will supply the same level of performance results for the HP/pinned VM running on it, so the user is recommended to let the scheduler choose the most preferable host by choosing the “Automatically choose host” option. Since A fully automatic destination host selection is now supported for those HP/pinned VMs then it is the preferable way.</p>
+
+    <p>By choosing the “Automatically choose host” option, the destination host will be chosen to fit the migrated VM and in case no such host existed in the cluster, the most suitable, less loaded (CPU and memory) and less pinned one will be chosen. Both source and destination hosts should not be necessarily identical.</p>
+  </li>
+  <li>
+    <p>Another scenario that may trigger migration of HP/Pinned VMs that are configured to run with manual/auto migration mode  is when the host they are running on is manually set to maintenance mode by the user. A new behavior added in 4.3 is that In that case all migrateable VMs running on that host, including the ones configured as manual migration,  will be migrated.</p>
+
+    <p>For letting the user know about the existence of HP/Pinned VMs that are going to be migrated in that scenario, a new notification message will be displayed in the “Maintenance host(s)” dialog, only in case such such VMs run on selected hosts. This message warns that after migration of those VMs, their performance may be decreased. The user can choose if to ignore or continue the switching to maintenance process and migrating those VMs as a result:</p>
+
+    <p><img src="../../../../images/wiki/Screenshot-2018-12-13-11-53-23.png" alt="" /></p>
+  </li>
+</ol>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<h3 id="migration-constraints-removal">Migration constraints removal</h3>
+
+<h5 id="the-following-constraints-existed-in-ovirt-42-were-changed-in-ui-and-backend-for-supporting-hppinned-vms-migration">The following constraints, existed in oVirt 4.2, were changed in UI and backend for supporting HP/pinned VMs migration:</h5>
+
+<ul>
+  <li>
+    <p>A VM set with “Pass-Through Host CPU” can now be migrateable.</p>
+  </li>
+  <li>
+    <p>A VM set with virtual NUMA nodes topology can now be migratable.</p>
+  </li>
+  <li>
+    <p>A VM set with CPU pinning can now be migratable.</p>
+  </li>
+  <li>
+    <p>A VM set with High-Availability enabled can now be manually migratable (manual migration was not allowed in 4.2 because High-Availability requires the ability to automatically migrate the VM).</p>
+  </li>
+  <li>
+    <p>A limitation that only one host (and not more than one) can be assigned to a VM,  in case of NUMA nodes pinning enabled, was removed:</p>
+
+    <p>The HP/pinned VM can now be configured to run on a set of assigned/pinned hosts, one or more (by selecting the “Start running on: Specific Host” in “Host” side-tab). Each one of this hosts is verified by the user so that the VM configuration fits the host configuration for pinning settings.
+This change is crucial for supporting High Availability since if  the VM is assigned to only one host then the VM can be highly available (restart/rerun) only on that host and If that host is in maintenance/shutted down then the VM can’t run - so there is no real HA support.</p>
+  </li>
+</ul>
+
+<h5 id="the-following-flags-existed-in-ovirt-42-were-totally-removed-from-vds_options-table-in-db">The following flags, existed in oVirt 4.2, were totally removed from vds_options table in DB:</h5>
+
+<ul>
+  <li>
+    <p>The “SupportNUMAMigration” flag.</p>
+  </li>
+  <li>
+    <p>The “CpuPinMigrationEnabled” flag.</p>
+  </li>
+</ul>
+
+<h3 id="scheduler-requirements">Scheduler requirements</h3>
+
+<p>The requirements from the scheduler manager for enabling HP/Pinned VMs migration are to schedule a destination host that will support all HP/pinned VM’s settings, including pinning setting.</p>
+
+<p>That doesn’t mean that both source and destination hosts must have identical settings but it does mean that they should have suitable number of CPUs (sockets, cores, threads), suitable CPU pinning capacity, suitable declaration of huge pages and memory, suitable NUMA nodes topology and suitable host CPU model and hardware.</p>
+
+<p>All those checks are done by the scheduler, including verifying that the destination host current existing load and pinning status fits the migrated HP/pinned VM. In case more than one host fits, we set the weights so that the most appropriate, less loaded host is chosen.</p>
+
+<p>We added new policy units and updated existing ones for checking that the source and destination hosts have a suitable (not necessarily identical) hardware and configuration for supporting HP/pinned VMs migration:</p>
+
+<ul>
+  <li>
+    <p>CpuLevelFilterPolicyUnit - was updated for running VMs with Pass-Through Host CPU enabled only on hosts with a proper CPU level.</p>
+  </li>
+  <li>
+    <p>NumaPolicyUnit - added for running VMs with at least one possible assignment of VM’s NUMA nodes pinned to host nodes in away that satisfies pinning and memory requirements.</p>
+  </li>
+  <li>
+    <p>CpuAndNumaPinningWeightPolicyUnit -added for preferring running VMs on hosts where CPU pinning is compatible with NUMA node pinning.</p>
+  </li>
+  <li>
+    <p>HighPerformanceCpuPolicyUnit - added for preferring running HP/pinned VMs on hosts that have more or equal number of sockets, cores and threads.</p>
+  </li>
+</ul>
+
+<h3 id="live-migration-process">Live Migration process</h3>
+
+<p>No changes were required.</p>
+
+<h3 id="webadmin-ui">WebAdmin UI</h3>
+
+<p>The following main changes were done in web-admin UI:</p>
+
+<ul>
+  <li>
+    <p>The migration mode default for HP/Pinned VMs was changed to manual migration mode.</p>
+  </li>
+  <li>
+    <p>All migration constraints were removed as described above and defaults/ validations/ tool-tips/ messages were changed or added accordingly.</p>
+  </li>
+  <li>
+    <p>A notification message was added to the “Maintenance host(s)” dialog for informing the user on HP/Pinned VMs that are going to be migrated as a result of switching selected host(s) status to “Maintenance”.</p>
+  </li>
+  <li>
+    <p>Changing the “NUMA Topology” dialog for enabling pinning the VM to more than one host and displaying only relevant VMs in that dialog. 
+The “NUMA pinning” dialog is now displaying the configuration relevant to the first host in “Specific Host(s)” list, in case there is more than one host, but the NUMA configuration is anyway relevant for all hosts in list since all hosts should have similar NUMA configuration.</p>
+  </li>
+</ul>
+
+<h3 id="rest-api">REST API</h3>
+
+<p>No changes were required.</p>
+
+<h2 id="status">Status</h2>
+
+<ul>
+  <li>Target Release: Ovirt 4.3</li>
+  <li>Status: Merged</li>
+</ul>
+
+<h2 id="limitations">Limitations</h2>
+
+<ul>
+  <li>
+    <p>Setting the migration mode to be “Allow manual migration only” for HP/pinned VMs via REST api is not done automatically. The default value for those VMs set via REST api is “Allow manual and automatic migration”, so the user should explicitly change it to manual migration if required.</p>
+  </li>
+  <li>
+    <p>In case of a VM set with NUMA pinning but without specifically setting the CPU pinning policy, migrating the VM to a destination host with less CPUs then in source host will always fail. 
+The reason is that in case the NUMA pinning policy is set and CPU pinning policy is not specifically mentioned by the user then an automatic CPU pinning is calculated, using all CPUs in host. 
+The workaround for this issue, which is anyway the recommended option, is 
+to always set CPU pinning manually to override the automatic pinning.</p>
+  </li>
+  <li>
+    <p>No special support for easy creation of Affinity Groups for HP/Pinned VMs via the UI. Since HP VMs are limited by the hosts to run on and by the number of VMs to run together on the same host (due to enabling Pass-Through Host CPU, CPU pinning, NUMA pinning, IO thread pinning, huge pages..etc) then it is required to apply affinity rules on those VMs. 
+Currently the user will need to manually apply that since there is no automatic filtering in Affinity UI dialog for that.
+This will be implemented in future versions.</p>
+  </li>
+  <li>
+    <p>Templates and Pools can’t be set as HP but can’t be set as pinned since pinning configuration (Pass-Through Host CPU, CPU Pinning topology and NUMA nodes pinning) is missing for those entities in both UI and REST api.
+This will be implemented in future versions.</p>
+  </li>
+</ul>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+<p><a href="/ovirt-site/previews/2804/develop/release-management/features/virt/high-performance-vm.html">High Performance VM</a></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2804/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2804/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2804/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2804/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/high-performance-vm-migration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/high-performance-vm-migration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -9,12 +9,12 @@ The active-active failover configuration includes a stretch cluster in which hos
 This configuration requires replicated storage that is writeable on both sites so virtual machines can migrate between the two sites and continue running on both sites' storage.
 
 .Stretch Cluster Configuration
-image::StretchCluster.png[]
+image::StretchCluster.png[Title="Stretch Cluster Configuration"]
 
 Virtual machines migrate to the secondary site if the primary site becomes unavailable. The virtual machines automatically failback to the primary site when the site becomes available and the storage is replicated in both sites.
 
 .Failed Over Stretch Cluster
-image::StretchClusterFailover.png[]
+image::StretchClusterFailover.png[Title="Failed Over Stretch Cluster"]
 
 
 [IMPORTANT]

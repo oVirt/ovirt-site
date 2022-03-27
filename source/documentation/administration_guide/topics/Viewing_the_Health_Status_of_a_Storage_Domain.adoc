@@ -6,13 +6,13 @@ Storage domains have an external health status in addition to their regular *Sta
 
 * *OK*: No icon
 
-* *Info*: image:images/Info.png[]
+* *Info*: image:images/Info.png[Title="Info"]
 
-* *Warning*: image:images/Warning.png[]
+* *Warning*: image:images/Warning.png[Title="Warning"]
 
-* *Error*: image:images/Error.png[]
+* *Error*: image:images/Error.png[Title="Error"]
 
-* *Failure*: image:images/Failure.png[]
+* *Failure*: image:images/Failure.png[Title="Failure"]
 
 To view further details about the storage domain's health status, click the storage domain's name. This opens the details view, and click the *Events* tab.
 

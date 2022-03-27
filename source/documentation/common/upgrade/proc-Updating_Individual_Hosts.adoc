@@ -61,7 +61,7 @@ endif::[]
 
 . Click menu:Installation[Check for Upgrade] and click btn:[OK].
 +
-Open the *Notification Drawer* (image:common/images/EventsIcon.png[]) and expand the *Events* section to see the result.
+Open the *Notification Drawer* (image:common/images/EventsIcon.png[Title="Events icon"]) and expand the *Events* section to see the result.
 
 . If an update is available, click menu:Installation[Upgrade].
 

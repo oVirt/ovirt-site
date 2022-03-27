@@ -14,4 +14,4 @@ Clusters run virtual machines or {gluster-storage-fullname} Servers. These two p
 
 [id="cluster_tab"]
 .Cluster
-image::images/223.png[]
+image::images/223.png[Title="Cluster"]

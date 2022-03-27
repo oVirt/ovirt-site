@@ -4,7 +4,7 @@
 
 The {engine-name} defines a network interface as `out-of-sync` when the definition of the interface on the host differs from the definitions stored by the {engine-name}.
 
-Out-of-sync networks appear with an Out-of-sync icon image:images/out-of-sync.png[] in the host's *Network Interfaces* tab and with this icon image:images/out-of-sync-setup.png[] in the *Setup Host Networks* window.
+Out-of-sync networks appear with an Out-of-sync icon image:images/out-of-sync.png[Title="Out-of-sync icon"] in the host's *Network Interfaces* tab and with this icon image:images/out-of-sync-setup.png[Title="Out-of-sync setup icon"] in the *Setup Host Networks* window.
 
 When a host's network is out of sync, the only activities that you can perform on the unsynchronized network in the *Setup Host Networks* window are detaching the logical network from the network interface or synchronizing the network.
 

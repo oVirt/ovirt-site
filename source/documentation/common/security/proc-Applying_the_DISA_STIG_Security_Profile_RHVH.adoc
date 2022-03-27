@@ -15,7 +15,7 @@ When installing {hypervisor-shortname}, you can select the DISA STIG profile wit
 .Procedure
 
 . On the *Installation Summary* screen, select *Security Policy*.
-image:common/images/security-policy.png[]
+image:common/images/security-policy.png[Title="Security Policy"]
 
 . On the *Security Policy* screen that opens, toggle the *Apply security policy* setting to *On*.
 
@@ -23,7 +23,7 @@ image:common/images/security-policy.png[]
 
 . Click the btn:[Select profile] button. This action adds a green checkmark next to the profile and adds packages to the list of *Changes that were done or need to be done*. Follow the onscreen instructions if they direct you to make any changes.
 +
-image:common/images/security-policy-selected.png[]
+image:common/images/security-policy-selected.png[Title="Security Policy"]
 +
 [NOTE]
 ====
@@ -39,4 +39,4 @@ These packages are already part of the {hypervisor-shortname} image. {hypervisor
 .Next steps
 
 When you log into {hypervisor-shortname}, the command line displays the following information.
-image:common/images/security-policy-rhvh-login.png[]
+image:common/images/security-policy-rhvh-login.png[Title="Login notice"]

@@ -6,7 +6,7 @@ You can modify the name and search string of a bookmark.
 
 .Procedure
 
-. Click the *Bookmarks* icon (image:images/Bookmark.png[]) in the header bar.
+. Click the *Bookmarks* icon (image:images/Bookmark.png[Title="Bookmarks icon"]) in the header bar.
 . Select a bookmark and click *Edit*.
 . Change the *Name* and *Search string* fields as necessary.
 . Click btn:[OK].

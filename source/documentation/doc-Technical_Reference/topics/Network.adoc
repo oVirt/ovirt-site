@@ -7,7 +7,7 @@ The {virt-product-fullname} network architecture facilitates connectivity betwee
 
 [id="figu-Technical_Reference_Guide-Network-Network_Architecture"]
 .Network Architecture
-image::180.png[]
+image::180.png[Title="Network Architecture"]
 
 
 

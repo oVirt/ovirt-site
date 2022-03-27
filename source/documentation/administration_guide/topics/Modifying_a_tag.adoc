@@ -7,7 +7,7 @@ You can edit the name and description of a tag.
 
 *Modifying a Tag*
 
-. Click the *Tags* icon (image:images/Tag.png[]) in the header bar.
+. Click the *Tags* icon (image:images/Tag.png[Title="Tags icon"]) in the header bar.
 . Select the tag you want to modify and click *Edit*.
 . Change the *Name* and *Description* fields as necessary.
 . Click btn:[OK].

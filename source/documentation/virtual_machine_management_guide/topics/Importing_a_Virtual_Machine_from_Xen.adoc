@@ -60,7 +60,7 @@ To import a virtual machine from RHEL 5 Xen, follow these steps:
 +
 . Log in to the Administration Portal.
 . Click menu:Compute[Virtual Machines].
-. Click *More Actions* (image:common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
+. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
 . Select the *Data Center* that contains the proxy host.
 . Select *XEN (via RHEL)* from the *Source* drop-down list.
 . Optionally, select a RHEL 5 Xen *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_Xen_as_an_External_Provider[Adding a RHEL 5 Xen Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.

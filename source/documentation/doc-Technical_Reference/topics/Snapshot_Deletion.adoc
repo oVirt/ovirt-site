@@ -6,7 +6,7 @@ You can delete individual snapshots that are no longer required. Deleting a snap
 
 [id="figu-Technical_Reference_Guide-Snapshots-Snapshot_Deletion"]
 .Snapshot Deletion
-image::993.png[]
+image::993.png[Title="Snapshot Deletion"]
 
 Snapshot deletion is handled as an asynchronous block job in which VDSM maintains a record of the operation in the recovery file for the virtual machine so that the job can be tracked even if VDSM is restarted or the virtual machine is shut down during the operation. Once the operation begins, the snapshot being deleted cannot be previewed or used as a restoration point, even if the operation fails or is interrupted. In operations in which the active layer is to be merged with its parent, the operation is split into a two-stage process during which data is copied from the active layer to the parent layer, and disk writes are mirrored to both the active layer and the parent. Finally, the job is considered complete once the data in the snapshot being deleted has been merged with its parent snapshot and VDSM synchronizes the changes throughout the image chain.
 
@@ -14,4 +14,3 @@ Snapshot deletion is handled as an asynchronous block job in which VDSM maintain
 ====
 If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or even a temporary network issue) and try again.
 ====
-

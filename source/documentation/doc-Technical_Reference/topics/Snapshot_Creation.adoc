@@ -8,10 +8,10 @@ As depicted in xref:figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Cr
 
 [id="figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Creation"]
 .Initial Snapshot Creation
-image::991.png[]
+image::991.png[Title="Initial Snapshot Creation"]
 
 Snapshots taken after the initial snapshot result in the creation of new COW volumes in which data that is created or changed after the snapshot is taken will be stored. Each newly created COW layer contains only COW metadata. Data that is created by using and operating the virtual machine after a snapshot is taken is written to this new COW layer. When a virtual machine is used to modify data that exists in a previous COW layer, the data is read from the previous layer, and written into the newest layer. Virtual machines locate data by checking each COW layer from most recent to oldest, transparently to the virtual machine.
 
 [id="figu-Technical_Reference_Guide-Snapshots-Additional_Snapshot_Creation"]
 .Additional Snapshot Creation
-image::982.png[]
+image::982.png[Title="Additional Snapshot Creation"]

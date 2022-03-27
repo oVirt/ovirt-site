@@ -7,7 +7,7 @@ Export a virtual machine to the export domain so that it can be imported into a 
 *Exporting a Virtual Machine to the Export Domain*
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
-. Click *More Actions* (image:common/images/moreactions.png[]), then click *Export to Export Domain*.
+. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Export to Export Domain*.
 . Optionally, select the following check boxes in the *Export Virtual Machine* window:
 
 * *Force Override*: overrides existing images of the virtual machine on the export domain.

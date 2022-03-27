@@ -15,5 +15,5 @@ The guest operating system must support hot plugging virtual disks.
 . Click menu:Compute[Virtual Machines].
 . Click a virtual machine name to go to the details view.
 . Click the *Disks* tab and select the virtual disk to hot plug.
-. Click *More Actions* (image:common/images/moreactions.png[]), then click *Activate* to enable the disk, or *Deactivate* to disable the disk.
+. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Activate* to enable the disk, or *Deactivate* to disable the disk.
 . Click btn:[OK].

@@ -12,4 +12,4 @@ After a snapshot is previewed, the administrator can select *Undo* to discard th
 
 [id="figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot"]
 .Preview Snapshot
-image::1002.png[]
+image::1002.png[Title="Preview Snapshot"]

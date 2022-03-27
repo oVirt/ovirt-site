@@ -126,12 +126,12 @@ The following icons indicate the states of a high performance virtual machine in
 .High Performance Icons
 |===
 |Icon |Description
-|image:images/hp_vm.png[] |High performance virtual machine
-|image:images/hp_vm_next_run.png[] |High performance virtual machine with Next Run configuration
-|image:images/stateless_hp_vm.png[] |Stateless, high performance virtual machine
-|image:images/stateless_hp_vm_next_run.png[] |Stateless, high performance virtual machine with Next Run configuration
-|image:images/vm_hp_pool.png[] |Virtual machine in a high performance pool
-|image:images/vm_hp_pool_next_run.png[] |Virtual machine in a high performance pool with Next Run configuration
+|image:images/hp_vm.png[Title="High performance VM"] |High performance virtual machine
+|image:images/hp_vm_next_run.png[Title="High performance VM machine with Next Run configuration"] |High performance virtual machine with Next Run configuration
+|image:images/stateless_hp_vm.png[Title="Stateless, high performance VM"] |Stateless, high performance virtual machine
+|image:images/stateless_hp_vm_next_run.png[Title="Stateless high performance VM with Next Run configuration"] |Stateless, high performance virtual machine with Next Run configuration
+|image:images/vm_hp_pool.png[Title="VM in high performance pool"] |Virtual machine in a high performance pool
+|image:images/vm_hp_pool_next_run.png[Title="VM in high performance pool with Next Run configuration"] |Virtual machine in a high performance pool with Next Run configuration
 |===
 
 [id="Configuring_Recommended_Manual_Settings"]

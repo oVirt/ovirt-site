@@ -46,4 +46,4 @@ Changes to the following settings are applied immediately:
 . If the *Next Start Configuration* pop-up window appears, click btn:[OK].
 
 
-Some changes are applied immediately. All other changes are applied when you shut down and restart your virtual machine. Until then, the pending changes icon (image:common/images/pendingchanges.png[]) appears as a reminder to restart the virtual machine.
+Some changes are applied immediately. All other changes are applied when you shut down and restart your virtual machine. Until then, the pending changes icon (image:common/images/pendingchanges.png[Title="Pending Changes icon"]) appears as a reminder to restart the virtual machine.

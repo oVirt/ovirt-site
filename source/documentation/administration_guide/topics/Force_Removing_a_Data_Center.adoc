@@ -12,7 +12,7 @@ It may be necessary to *Destroy* a corrupted storage domain before you can *Forc
 .Procedure
 
 . Click menu:Compute[Data Centers] and select the data center to remove.
-. Click *More Actions* (image:common/images/moreactions.png[]), then click *Force Remove*.
+. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Force Remove*.
 . Select the *Approve operation* check box.
 . Click btn:[OK]
 

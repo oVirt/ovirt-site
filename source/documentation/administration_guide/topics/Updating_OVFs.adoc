@@ -7,6 +7,6 @@ By default, OVFs are updated every 60 minutes. However, if you have imported an 
 .Procedure
 
 . Click menu:Storage[Domains].
-. Select the storage domain and click *More Actions* (image:common/images/moreactions.png[]), then click *Update OVFs*.
+. Select the storage domain and click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Update OVFs*.
 +
 The OVFs are updated and a message appears in *Events*.

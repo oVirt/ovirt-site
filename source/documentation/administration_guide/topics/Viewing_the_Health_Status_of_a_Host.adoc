@@ -6,13 +6,13 @@ Hosts have an external health status in addition to their regular *Status*. The 
 
 * *OK*: No icon
 
-* *Info*: image:images/Info.png[]
+* *Info*: image:images/Info.png[Title="Info"]
 
-* *Warning*: image:images/Warning.png[]
+* *Warning*: image:images/Warning.png[Title="Warning"]
 
-* *Error*: image:images/Error.png[]
+* *Error*: image:images/Error.png[Title="Error"]
 
-* *Failure*: image:images/Failure.png[]
+* *Failure*: image:images/Failure.png[Title="Failure"]
 
 To view further details about the host's health status, click the host's name. This opens the details view, and click the *Events* tab.
 

@@ -27,7 +27,7 @@ To find the optimal number of threads, benchmark the performance of your virtual
 . To the right of *I/O Threads Enabled*, increase the number of threads, but do not exceed number of controllers whose type is `virtio` or `virtio-scsi`.
 . Click btn:[OK].
 . In the details pane, click the *Disks* tab.
-. For each disk, use *More Actions* (image:common/images/moreactions.png[]) to *Deactivate* and *Activate* the disk. This action remaps the disks to the controllers.
+. For each disk, use *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]) to *Deactivate* and *Activate* the disk. This action remaps the disks to the controllers.
 . Click btn:[Run] to start the virtual machine.
 
 .Verification steps

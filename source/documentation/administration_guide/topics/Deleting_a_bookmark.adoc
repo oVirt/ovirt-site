@@ -6,6 +6,6 @@ When a bookmark is no longer needed, remove it.
 
 .Procedure
 
-. Click the *Bookmarks* icon (image:images/Bookmark.png[]) in the header bar.
+. Click the *Bookmarks* icon (image:images/Bookmark.png[Title="Bookmarks icon"]) in the header bar.
 . Select a bookmark and click *Remove*.
 . Click btn:[OK].

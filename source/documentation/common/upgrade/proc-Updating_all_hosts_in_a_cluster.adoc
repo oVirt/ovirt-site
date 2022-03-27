@@ -30,7 +30,7 @@ You can track the progress of host updates:
 
 * in the menu:Compute[Clusters] view, the *Upgrade Status* column shows *Upgrade in progress*.
 * in the menu:Compute[Hosts] view
-* in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[]).
+* in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[Title="Events icon"]).
 
 
 You can track the progress of individual virtual machine migrations in the *Status* column of the menu:Compute[Virtual Machines] view. In large environments, you may need to filter the results to show a particular group of virtual machines.

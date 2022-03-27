@@ -28,7 +28,7 @@ An error message might warn that some virtual machines and templates are incorre
 ====
 
 ifdef::admin[]
-After updating a cluster's compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (image:common/images/pendingchanges.png[]). You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.
+After updating a cluster's compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (image:common/images/pendingchanges.png[Title="Pending Changes icon"]). You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.
 
 In a self-hosted engine environment, the {engine-name} virtual machine does not need to be restarted.
 

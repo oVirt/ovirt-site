@@ -19,7 +19,7 @@ The following diagram shows the structure of these three approaches, where:
 * *Host 3* represents OVN
 
 
-image::103_RHV_Networking_Overview_0720.png[]
+image::103_RHV_Networking_Overview_0720.png[Title="Network types"]
 
 .Comparison of network types
 |===

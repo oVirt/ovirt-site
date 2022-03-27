@@ -7,7 +7,7 @@ You can assign tags to and remove tags from hosts, virtual machines, and users.
 .Procedure
 
 . Select the object(s) you want to tag or untag.
-. Click *More Actions* (image:common/images/moreactions.png[]), then click *Assign Tags*.
+. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Assign Tags*.
 . Select the check box to assign a tag to the object, or clear the check box to detach the tag from the object.
 . Click btn:[OK].
 

@@ -18,7 +18,7 @@ Click btn:[OK] to add the selected filter rule to the list and close the window.
 ====
 The following is an example of how to add USB Class `Smartcard`, device `EP-1427X-2 Ethernet Adapter`, from manufacturer `Acer Communications &amp; Multimedia` to the list of allowed devices.
 
-image::images/306.png[]
+image::images/306.png[Title="Adding a Device"]
 
 ====
 +

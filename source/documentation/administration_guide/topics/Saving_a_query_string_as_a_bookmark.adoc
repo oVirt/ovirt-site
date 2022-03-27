@@ -12,4 +12,4 @@ A bookmark can be used to remember a search query, and shared with other users.
 . Edit the *Search string* field, if required.
 . Click btn:[OK].
 
-Click the *Bookmarks* icon (image:images/Bookmark.png[]) in the header bar to find and select the bookmark.
+Click the *Bookmarks* icon (image:images/Bookmark.png[Title="Bookmarks icon"]) in the header bar to find and select the bookmark.

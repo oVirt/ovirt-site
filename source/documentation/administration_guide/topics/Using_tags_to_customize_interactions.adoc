@@ -6,7 +6,7 @@ After your {virt-product-fullname} platform is set up and configured to your req
 
 This section describes how to create and edit tags, assign them to hosts or virtual machines and search using the tags as criteria. Tags can be arranged in a hierarchy that matches a structure, to fit the needs of the enterprise.
 
-To create, modify, and remove Administration Portal tags, click the *Tags* icon (image:images/Tag.png[]) in the header bar. 
+To create, modify, and remove Administration Portal tags, click the *Tags* icon (image:images/Tag.png[Title="Tags icon"]) in the header bar. 
 
 
 

@@ -13,6 +13,6 @@ The *Clone VM* button is disabled while virtual machines are running; you must s
 .Procedure
 
 . Click menu:Compute[Virtual Machines] and select the virtual machine to clone.
-. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Clone VM*.
+. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then click *Clone VM*.
 . Enter a *Clone Name* for the new virtual machine.
 . Click btn:[OK].

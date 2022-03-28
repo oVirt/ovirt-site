@@ -19,7 +19,7 @@ If you might need to later hot unplug the memory that you are now hot plugging, 
 . Click menu:Compute[Virtual Machines] and select a running virtual machine.
 . Click btn:[Edit].
 . Click the *System* tab.
-. Increase the *Memory Size* by entering the total amount required. Memory can be added in multiples of 256 MB. By default, the maximum memory allowed for the virtual machine is set to 4x the memory size specified. Though the value is changed in the user interface, the maximum value is not hot plugged, and you will see the pending changes icon (image:common/images/pendingchanges.png[Title="Pending Changes icon"]). To avoid that, you can change the maximum memory back to the original value.
+. Increase the *Memory Size* by entering the total amount required. Memory can be added in multiples of 256 MB. By default, the maximum memory allowed for the virtual machine is set to 4x the memory size specified. Though the value is changed in the user interface, the maximum value is not hot plugged, and you will see the pending changes icon (image:common/images/pendingchanges.png[title="Pending Changes icon"]). To avoid that, you can change the maximum memory back to the original value.
 . Click btn:[OK].
 +
 This action opens the *Pending Virtual Machine changes* window, as some values such as *maxMemorySizeMb* and *minAllocatedMem* will not change until the virtual machine is restarted. However, the hot plug action is triggered by the change to the *Memory Size* value, which can be applied immediately.

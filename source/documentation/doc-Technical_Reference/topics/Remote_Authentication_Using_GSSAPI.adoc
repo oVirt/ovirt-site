@@ -7,4 +7,4 @@ In the context of {virt-product-fullname}, remote authentication refers to authe
 
 [id="figu-Technical_Reference_Guide-Remote_Authentication_Using_GSSAPI-GSSAPI_Authentication"]
 .GSSAPI Authentication
-image::1005.png[Title="GSSAPI Authentication"]
+image:1005.png[title="GSSAPI Authentication"]

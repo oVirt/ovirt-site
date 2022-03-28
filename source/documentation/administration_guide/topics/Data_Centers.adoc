@@ -10,6 +10,6 @@ All data centers are managed from the single Administration Portal.
 
 [id="data_center_fig"]
 .Data Centers
-image::images/523.png[Title="Data Centers"]
+image:images/523.png[title="Data Centers"]
 
 {virt-product-fullname} creates a default data center during installation. You can configure the default data center, or set up new appropriately named data centers.

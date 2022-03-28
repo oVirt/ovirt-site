@@ -8,6 +8,6 @@ A virtual machine migration is taking longer than you expected. You'd like to be
 .Procedure
 
 . Select the migrating virtual machine. It is displayed in menu:Compute[Virtual Machines] with a status of *Migrating from*.
-. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Cancel Migration*.
+. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then click *Cancel Migration*.
 
 The virtual machine status returns from *Migrating from* to *Up*.

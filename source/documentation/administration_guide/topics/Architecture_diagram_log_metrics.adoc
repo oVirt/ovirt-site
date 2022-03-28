@@ -13,4 +13,4 @@ Logs and engine metrics are obtained using the following services:
 
 
 //.Architecture
-//image::../images/24_0519_rsyslog.png[Architecture]
+//image:../images/24_0519_rsyslog.png[Architecture]

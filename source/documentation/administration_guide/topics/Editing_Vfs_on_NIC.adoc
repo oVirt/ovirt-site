@@ -27,7 +27,7 @@ By default, all virtual networks have access to the virtual functions. You can d
 . Click the name of an SR-IOV-capable host. This opens the details view.
 . Click the *Network Interfaces* tab.
 . Click *Setup Host Networks*.
-. Select an SR-IOV-capable NIC, marked with a image:images/SR-IOV-icon.png[Title="SR-IOV icon"]
+. Select an SR-IOV-capable NIC, marked with a image:images/SR-IOV-icon.png[title="SR-IOV icon"]
 , and click the pencil icon.
 . Optional: To change the number of virtual functions, click the *Number of VFs setting* drop-down button and edit the *Number of VFs* text field.
 +

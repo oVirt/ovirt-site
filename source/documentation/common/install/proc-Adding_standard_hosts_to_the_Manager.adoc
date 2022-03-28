@@ -22,4 +22,4 @@ Adding a host to your {virt-product-fullname} environment can take some time, as
 . Click btn:[OK].
 
 
-The new host displays in the list of hosts with a status of `Installing`, and you can view the progress of the installation in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[Title="Events"]). After a brief delay the host status changes to `Up`.
+The new host displays in the list of hosts with a status of `Installing`, and you can view the progress of the installation in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[title="Events"]). After a brief delay the host status changes to `Up`.

@@ -2,7 +2,7 @@
 [id='Changing_Virtual_Machine_Cluster_Compatibility_{context}']
 = Changing Virtual Machine Cluster Compatibility
 
-After updating a cluster's compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (image:common/images/pendingchanges.png[Title="Pending Changes icon"]).
+After updating a cluster's compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (image:common/images/pendingchanges.png[title="Pending Changes icon"]).
 
 ifdef::SHE_upgrade[The {engine-name} virtual machine does not need to be rebooted.]
 

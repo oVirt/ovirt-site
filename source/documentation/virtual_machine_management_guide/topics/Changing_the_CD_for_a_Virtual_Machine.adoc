@@ -7,7 +7,7 @@ You can change the CD accessible to a virtual machine while that virtual machine
 .Procedure
 
 . Click menu:Compute[Virtual Machines] and select a running virtual machine.
-. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Change CD*.
+. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then click *Change CD*.
 . Select an option from the drop-down list:
 * Select an ISO file from the list to eject the CD currently accessible to the virtual machine and mount that ISO file as a CD.
 .Procedure from the list to eject the CD currently accessible to the virtual machine.

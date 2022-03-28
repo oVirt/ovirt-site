@@ -6,11 +6,11 @@ The {virt-product-fullname} {engine-name} runs as a virtual machine on self-host
 
 The minimum setup of a self-hosted engine environment includes:
 
-* One {virt-product-fullname} {engine-name} virtual machine that is hosted on the self-hosted engine nodes. The {engine-appliance-name} is used to automate the installation of a {enterprise-linux} 8 virtual machine, and the {engine-name} on that virtual machine. 
+* One {virt-product-fullname} {engine-name} virtual machine that is hosted on the self-hosted engine nodes. The {engine-appliance-name} is used to automate the installation of a {enterprise-linux} 8 virtual machine, and the {engine-name} on that virtual machine.
 
 * A minimum of two self-hosted engine nodes for virtual machine high availability. You can use {enterprise-linux-host-fullname}s or {hypervisor-fullname}s ({hypervisor-shortname}). VDSM (the host agent) runs on all hosts to facilitate communication with the {virt-product-fullname} {engine-name}. The HA services run on all self-hosted engine nodes to manage the high availability of the {engine-name} virtual machine.
 
 * One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.
 
 .Self-Hosted Engine {virt-product-fullname} Architecture
-image::common/images/RHV_SHE_ARCHITECTURE1.png[Self-Hosted Engine {virt-product-fullname} Architecture]
+image:common/images/RHV_SHE_ARCHITECTURE1.png[Self-Hosted Engine Architecture]

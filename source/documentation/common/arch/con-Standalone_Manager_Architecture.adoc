@@ -13,4 +13,4 @@ The minimum setup for a standalone {engine-name} environment includes:
 * One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.
 
 .Standalone {engine-name} {virt-product-fullname} Architecture
-image::common/images/RHV_STANDARD_ARCHITECTURE1.png[Standalone {engine-name} {virt-product-fullname} Architecture]
+image:common/images/RHV_STANDARD_ARCHITECTURE1.png[Standalone Architecture]

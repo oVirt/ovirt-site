@@ -6,4 +6,4 @@ The following diagram outlines the setup procedure for a standalone {engine-name
 
 [id="img-installation_overview"]
 .Setup Overview of {virt-product-fullname}
-image::images/RHEV_SHE_454569_0717_JCS_deployment_02.png[Setup Overview of {virt-product-fullname}]
+image:images/RHEV_SHE_454569_0717_JCS_deployment_02.png[Setup Overview]

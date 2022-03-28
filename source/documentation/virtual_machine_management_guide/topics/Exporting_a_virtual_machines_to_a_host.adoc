@@ -7,7 +7,7 @@ You can export a virtual machine to a specific path or mounted NFS shared storag
 *Exporting a Virtual Machine to a Host*
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
-. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Export to OVA*.
+. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then click *Export to OVA*.
 . Select the host from the *Host* drop-down list.
 . Enter the absolute path to the export directory in the *Directory* field, including the trailing slash. For example: [filename]`/images2/ova/`
 . Optionally change the default name of the file in the *Name* field.

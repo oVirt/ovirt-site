@@ -13,6 +13,6 @@ The *Console* settings table details the information required on the *Console* t
 |*Display address* |The display address specified here will be used for all virtual machines running on this host. The address must be in the format of a fully qualified domain name or IP.
 |*vGPU Placement* a|Specifies the preferred placement of vGPUs:
 
-* *Consolodated*: Select this option if you prefer to run more vGPUs on available physical cards.
+* *Consolidated*: Select this option if you prefer to run more vGPUs on available physical cards.
 * *Separated*: Select this option if you prefer to run each vGPU on a separate physical card.
 |===

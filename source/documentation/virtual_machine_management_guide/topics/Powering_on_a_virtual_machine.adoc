@@ -32,3 +32,29 @@ Possible solutions to this problem:
 * Create a new virtual machine with a local boot disk managed by {virt-product-shortname} that contains the OS and application binaries.
 
 * Install the OS by booting from the *Network (PXE)* boot option.
+
+Scenario - the virtual machine on IBM POWER9 fails to boot with the following error message:
+
+[source,terminal]
+----
+qemu-kvm: Requested count cache flush assist capability level not supported by kvm, try appending -machine cap-ccf-assist=off
+----
+
+Default risk level protections can prevent VMs from starting on IBM POWER9. To resolve this issue:
+
+. Create or edit the `/var/lib/obmc/cfam_overrides` on the BMC.
+. Set the firmware risk level to `0`:
++
+[options="nowrap" subs="quotes"]
+----
+# Control speculative execution mode
+0 0x283a 0x00000001  # bits 28:31 are used for init level -- in this case 1 (Kernel protection only)
+0 0x283F 0x20000000  # Indicate override register is valid
+----
++
+. Reboot the host system for the changes to take affect.
+
+[NOTE]
+====
+Overriding the risk level can cause unexpected behavior when running virtual machines.
+====

@@ -7,7 +7,7 @@ You can use tags to store information about your hosts. You can then search for 
 .Procedure
 
 . Click menu:Compute[Hosts] and select a host.
-. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Assign Tags*.
+. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then click *Assign Tags*.
 . Select the check boxes of applicable tags.
 . Click btn:[OK].
 

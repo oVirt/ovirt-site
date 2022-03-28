@@ -12,7 +12,7 @@ Both methods of host installation result in hosts that interact with the rest of
 
 [id="figu-Technical_Reference_Guide-Red_Hat_Virtualization_Hypervisor-Host_Architecture"]
 .Host Architecture
-image::983.png[Title="Host Architecture"]
+image:983.png[title="Host Architecture"]
 
 
 *Kernel-based Virtual Machine (KVM)*:: The Kernel-based Virtual Machine (KVM) is a loadable kernel module that provides full virtualization through the use of the Intel VT or AMD-V hardware extensions. Though KVM itself runs in kernel space, the guests running upon it run as individual QEMU processes in user space. KVM allows a host to make its physical hardware available to virtual machines.

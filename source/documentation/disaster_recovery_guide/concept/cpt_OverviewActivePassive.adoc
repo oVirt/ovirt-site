@@ -23,12 +23,12 @@ The failover and failback process must be executed manually. To do this you must
 The following diagram describes an active-passive setup where the machine running Red Hat Ansible Engine is highly available, and has access to the `oVirt.disaster-recovery` Ansible role, configured playbooks, and mapping file. The storage domains that store the virtual machine disks in Site A is replicated. Site B has no virtual machines or attached storage domains.
 
 .Active-Passive Configuration
-image::SiteToSite.png[Title="Active-Passive Configuration"]
+image:SiteToSite.png[title="Active-Passive Configuration"]
 
 
 When the environment fails over to Site B, the storage domains are first attached and activated in Site B's data center, and then the virtual machines are registered. Highly available virtual machines will fail over first.
 
 .Failover to Backup Site
-image::SiteToSiteFailover.png[Title="Failover to Backup Site"]
+image:SiteToSiteFailover.png[title="Failover to Backup Site"]
 
 You must manually fail back to the primary site (Site A) when it is running again.

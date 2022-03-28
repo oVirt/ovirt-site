@@ -35,7 +35,7 @@ After you have enabled FIPS mode on each host machine, you need to configure the
 
 . After rebooting, select the host and click menu:Installation[Enroll certificate]
 
-. Click the *Notification Drawer* (image:common/images/EventsIcon.png[Title="Notification Drawer"]) and check the *Events* section. Wait until enrolling the certificate for the host completes successfully.
+. Click the *Notification Drawer* (image:common/images/EventsIcon.png[title="Notification Drawer"]) and check the *Events* section. Wait until enrolling the certificate for the host completes successfully.
 
 . Select the host and click menu:Management[Activate].
 

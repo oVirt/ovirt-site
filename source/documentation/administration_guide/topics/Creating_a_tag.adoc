@@ -7,7 +7,7 @@ Create tags so you can filter search results using tags.
 
 .Procedure
 
-. Click the *Tags* icon (image:images/Tag.png[Title="Tags icon"]) in the header bar.
+. Click the *Tags* icon (image:images/Tag.png[title="Tags icon"]) in the header bar.
 . Click *Add* to create a new tag, or select a tag and click *New* to create a descendant tag.
 . Enter the *Name* and *Description* of the new tag.
 . Click btn:[OK].

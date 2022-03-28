@@ -40,7 +40,7 @@ Although the ISO storage domain has been deprecated, it is required for migratio
 .Procedure
 
 . Click menu:Compute[Virtual Machines].
-. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
+. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
 . Select *VMware* from the *Source* list.
 . If you have configured a VMware provider as an external provider, select it from the *External Provider* list. Verify that the provider credentials are correct. If you did not specify a destination data center or proxy host when configuring the external provider, select those options now.
 . If you have not configured a VMware provider, or want to import from a new VMware provider, provide the following details:

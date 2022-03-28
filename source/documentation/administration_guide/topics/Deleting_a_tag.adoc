@@ -7,7 +7,7 @@ When a tag is no longer needed, remove it.
 
 .Procedure
 
-. Click the *Tags* icon (image:images/Tag.png[Title="Tags icon"]) in the header bar.
+. Click the *Tags* icon (image:images/Tag.png[title="Tags icon"]) in the header bar.
 . Select the tag you want to delete and click *Remove*. A message warns you that removing the tag will also remove all descendants of the tag.
 . Click btn:[OK].
 

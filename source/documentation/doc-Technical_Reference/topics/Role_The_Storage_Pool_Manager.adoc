@@ -20,4 +20,4 @@ The {engine-name} moves the SPM role to another host if:
 
 
 .The Storage Pool Manager Exclusively Writes Structural Metadata.
-image::992.png[Title="Storage Pool Manager"]
+image:992.png[title="Storage Pool Manager"]

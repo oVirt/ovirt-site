@@ -8,10 +8,10 @@ Enabling global maintenance mode stops the high-availability agents on all self-
 
 . Put all of the self-hosted engine nodes into global maintenance mode:
 .. In the Administration Portal, click menu:Compute[Hosts] and select any self-hosted engine node.
-.. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Enable Global HA Maintenance*.
+.. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then click *Enable Global HA Maintenance*.
 . After you have completed any maintenance tasks, disable the maintenance mode:
 .. In the Administration Portal, click menu:Compute[Hosts] and select any self-hosted engine node.
-.. Click *More Actions* (image:common/images/moreactions.png[Title="More Actions menu"]), then click *Disable Global HA Maintenance*.
+.. Click *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then click *Disable Global HA Maintenance*.
 
 .Setting the global maintenance mode from the command line
 

@@ -21,6 +21,6 @@ The {engine-name} sets up the local data center with a local cluster, local stor
 . Click menu:Storage[Domains].
 . Locate the local storage domain you just added.
 
-The domain's status should be *Active* (image:common/images/status_active_icon.png[Title="Active icon"]), and the value in the *Storage Type* column should be *Local on Host*.
+The domain's status should be *Active* (image:common/images/status_active_icon.png[title="Active icon"]), and the value in the *Storage Type* column should be *Local on Host*.
 
 You can now upload a disk image in the new local storage domain.

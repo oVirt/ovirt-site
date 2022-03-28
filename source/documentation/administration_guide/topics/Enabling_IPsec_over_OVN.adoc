@@ -1,0 +1,24 @@
+:_content-type: PROCEDURE
+[id="Enabling_IPsec_over_OVN"]
+= Enabling IPSec over OVN
+
+Enabling IPsec encryption for tunnel traffic in the OVN prevents data from being monitored or manipulated.
+
+.Procedure
+
+. Verify that all relevant hosts are configured for OVN:
+.. From the Administration Portal, click menu:Compute[Hosts] and select the host.
+.. On the *General* tab, verify that the *OVN Configured* setting is set to *Yes*.
+.. Alternatively, verify that `ovn_configured` is set to *true* in the REST API model.
+. Enable IPSec over OVN on the engine:
++
+[source,terminal]
+----
+# ovn-nbctl set nb_global . ipsec=true
+----
++
+[NOTE]
+====
+The IPSec configuration is global per the network provider OVN setup and can only be enabled or disabled for all hosts in the setup.
+====
+All tunnel traffic in the OVN is now encrypted with IPsec.

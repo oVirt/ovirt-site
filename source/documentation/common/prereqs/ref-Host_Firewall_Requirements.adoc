@@ -100,7 +100,10 @@ Client machines |{hypervisor-fullname}s
 |No
 |H14 |123 |UDP |{hypervisor-fullname}s
 
-{enterprise-linux-host-fullname}s | NTP Server |NTP requests from ports above 1023 to port 123, and responses. This port is required and open by default.
+{enterprise-linux-host-fullname}s | NTP Server |NTP requests from ports above 1023 to port 123, and responses. This port is required and open by default. |
+|H14 |4500 |TCP, UDP | {hypervisor-fullname}s | {hypervisor-fullname}s | Internet Security Protocol (IPSec)|Yes
+|H15 |500 |UDP | {hypervisor-fullname}s | {hypervisor-fullname}s | Internet Security Protocol (IPSec)|Yes
+|H16 |- |AH, ESP | {hypervisor-fullname}s | {hypervisor-fullname}s | Internet Security Protocol (IPSec)|Yes
 |===
 
 [NOTE]

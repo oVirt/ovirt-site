@@ -44,7 +44,7 @@ With this release, running virtual machines is supported for up to 16TB of RAM o
 
 ==== Technology Preview
 
-The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to https://access.redhat.com/support/offerings/techpreview/.
+The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 
 BZ#link:https://bugzilla.redhat.com/1688177[1688177]::
 Failover vNIC profiles. 

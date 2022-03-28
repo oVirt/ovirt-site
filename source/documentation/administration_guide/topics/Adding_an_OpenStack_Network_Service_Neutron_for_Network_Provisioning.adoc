@@ -24,7 +24,7 @@ Although network nodes and regular hosts can be used in the same cluster, virtua
 
 .Adding a Network Node as a Host
 
-. Use the Red Hat OpenStack Platform director to deploy the Networker role on the network node. See link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#sect-Creating_a_New_Role[Creating a New Role] and https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#Standalone-Networker[Networker] in the _Red Hat OpenStack Platform Advanced Overcloud Customization Guide_.
+. Use the Red Hat OpenStack Platform director to deploy the Networker role on the network node. See link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#sect-Creating_a_New_Role[Creating a New Role] and link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#Standalone-Networker[Networker] in the _Red Hat OpenStack Platform Advanced Overcloud Customization Guide_.
 ifdef::rhv-doc[]
 include::../common/install/snip-RHEL_repo_steps.adoc[]
 endif::[]

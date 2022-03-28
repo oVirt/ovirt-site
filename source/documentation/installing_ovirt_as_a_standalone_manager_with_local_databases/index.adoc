@@ -52,7 +52,7 @@ Installing a standalone {engine-name} environment with local databases involves 
 
 [IMPORTANT]
 ====
-Keep the environment up to date. See link:https://access.redhat.com/articles/2974891[] for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
+Keep the environment up to date. See link:https://access.redhat.com/articles/2974891[How do I update my Red Hat Virtualization system?] for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
 
 

@@ -29,7 +29,7 @@ After you create a network on an external provider, you cannot change the networ
 +
 [IMPORTANT]
 ====
-If you change the network’s *MTU* settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see link:https://access.redhat.com/solutions/4540631[] and link:https://bugzilla.redhat.com/show_bug.cgi?id=1766414[BZ#1766414].
+If you change the network’s *MTU* settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see link:https://access.redhat.com/solutions/4540631[After network MTU change, some VMs and bridges have the old MTU and seeing packet drops] and link:https://bugzilla.redhat.com/show_bug.cgi?id=1766414[BZ#1766414].
 ====
 
 . If you selected *ovirt-provider-ovn* from the *External Provider* drop-down list, define whether the network should implement *Security Groups*. See xref:Logical_Network_General_Settings_Explained[Logical Network General Settings Explained] for details.

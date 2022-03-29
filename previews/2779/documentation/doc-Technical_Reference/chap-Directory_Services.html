@@ -15,7 +15,7 @@
 <meta property="twitter:title" content="Directory Services" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Directory Services","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/doc-Technical_Reference/chap-Directory_Services.html","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Directory Services","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/doc-Technical_Reference/chap-Directory_Services.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -152,11 +152,9 @@
 <div class="paragraph">
 <p>In the context of {virt-product-fullname}, remote authentication refers to authentication that is handled by a remote service, not the {virt-product-fullname} {engine-name}. Remote authentication is used for user or API connections coming to the {engine-name} from within an AD, IdM, or RHDS domain. The {virt-product-fullname} {engine-name} must be configured by an administrator using the <strong>engine-manage-domains</strong> tool to be a part of an RHDS, AD, or IdM domain. This requires that the {engine-name} be provided with credentials for an account from the RHDS, AD, or IdM directory server for the domain with sufficient privileges to join a system to the domain. After domains have been added, domain users can be authenticated by the {virt-product-fullname} {engine-name} against the directory server using a password. The {engine-name} uses a framework called the Simple Authentication and Security Layer (SASL) which in turn uses the Generic Security Services Application Program Interface (GSSAPI) to securely verify the identity of a user, and ascertain the authorization level available to the user.</p>
 </div>
-<div id="figu-Technical_Reference_Guide-Remote_Authentication_Using_GSSAPI-GSSAPI_Authentication" class="imageblock">
-<div class="content">
-<img src="1005.png" alt="1005">
-</div>
-<div class="title">Figure 1. GSSAPI Authentication</div>
+<div id="figu-Technical_Reference_Guide-Remote_Authentication_Using_GSSAPI-GSSAPI_Authentication" class="paragraph">
+<div class="title">GSSAPI Authentication</div>
+<p><span class="image"><img src="1005.png" alt="1005" title="GSSAPI Authentication"></span></p>
 </div>
 </div>
 </div>

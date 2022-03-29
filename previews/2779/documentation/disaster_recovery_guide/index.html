@@ -15,7 +15,7 @@
 <meta property="twitter:title" content="Disaster Recovery Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Disaster Recovery Guide","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/disaster_recovery_guide/","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Disaster Recovery Guide","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/disaster_recovery_guide/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -173,20 +173,16 @@
 <div class="paragraph">
 <p>This configuration requires replicated storage that is writeable on both sites so virtual machines can migrate between the two sites and continue running on both sites' storage.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/StretchCluster.png" alt="StretchCluster">
-</div>
-<div class="title">Figure 1. Stretch Cluster Configuration</div>
+<div class="paragraph">
+<div class="title">Stretch Cluster Configuration</div>
+<p><span class="image"><img src="images/StretchCluster.png" alt="StretchCluster" title="Stretch Cluster Configuration"></span></p>
 </div>
 <div class="paragraph">
 <p>Virtual machines migrate to the secondary site if the primary site becomes unavailable. The virtual machines automatically failback to the primary site when the site becomes available and the storage is replicated in both sites.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/StretchClusterFailover.png" alt="StretchClusterFailover">
-</div>
-<div class="title">Figure 2. Failed Over Stretch Cluster</div>
+<div class="paragraph">
+<div class="title">Failed Over Stretch Cluster</div>
+<p><span class="image"><img src="images/StretchClusterFailover.png" alt="StretchClusterFailover" title="Failed Over Stretch Cluster"></span></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -456,20 +452,16 @@
 <div class="paragraph">
 <p>The following diagram describes an active-passive setup where the machine running Red Hat Ansible Engine is highly available, and has access to the <code>oVirt.disaster-recovery</code> Ansible role, configured playbooks, and mapping file. The storage domains that store the virtual machine disks in Site A is replicated. Site B has no virtual machines or attached storage domains.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/SiteToSite.png" alt="SiteToSite">
-</div>
-<div class="title">Figure 3. Active-Passive Configuration</div>
+<div class="paragraph">
+<div class="title">Active-Passive Configuration</div>
+<p><span class="image"><img src="images/SiteToSite.png" alt="SiteToSite" title="Active-Passive Configuration"></span></p>
 </div>
 <div class="paragraph">
 <p>When the environment fails over to Site B, the storage domains are first attached and activated in Site B&#8217;s data center, and then the virtual machines are registered. Highly available virtual machines will fail over first.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/SiteToSiteFailover.png" alt="SiteToSiteFailover">
-</div>
-<div class="title">Figure 4. Failover to Backup Site</div>
+<div class="paragraph">
+<div class="title">Failover to Backup Site</div>
+<p><span class="image"><img src="images/SiteToSiteFailover.png" alt="SiteToSiteFailover" title="Failover to Backup Site"></span></p>
 </div>
 <div class="paragraph">
 <p>You must manually fail back to the primary site (Site A) when it is running again.</p>

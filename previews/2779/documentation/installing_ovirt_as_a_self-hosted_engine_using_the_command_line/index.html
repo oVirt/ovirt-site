@@ -15,7 +15,7 @@
 <meta property="twitter:title" content="Installing oVirt as a self-hosted engine using the command line" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Installing oVirt as a self-hosted engine using the command line","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Installing oVirt as a self-hosted engine using the command line","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -277,11 +277,9 @@
 </li>
 </ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine oVirt Architecture">
-</div>
-<div class="title">Figure 1. Self-Hosted Engine oVirt Architecture</div>
+<div class="paragraph">
+<div class="title">Self-Hosted Engine oVirt Architecture</div>
+<p><span class="image"><img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine Architecture"></span></p>
 </div>
 </div>
 </div>
@@ -2358,7 +2356,7 @@ Do not override this setting.
 <p>When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.</p>
 </li>
 <li>
-<p>Optional: If you want to customize the Engine virtual machine during deployment using automation, an Ansible playbook must be added. See <a href="#customizing_engine_vm_during_deployment_auto_SHE_cli_deploy">Customizing the Engine virtual machine using automation during deployment</a>.*</p>
+<p>Optional: If you want to customize the Engine virtual machine during deployment using automation, an Ansible playbook must be added. See <a href="#customizing_engine_vm_during_deployment_auto_SHE_cli_deploy">Customizing the Engine virtual machine using automation during deployment</a>.</p>
 </li>
 <li>
 <p>The self-hosted engine setup script requires ssh public key access using 2048-bit RSA keys from the engine virtual machine to the root account of its bare metal host. In <code>/etc/ssh/sshd_config</code>, these values must be set as follows:</p>
@@ -2589,7 +2587,7 @@ Do you want to enable ssh access for the root user (yes, no, without-password) [
 </div>
 </li>
 <li>
-<p>Optional: You can apply the DISA STIG security profile on the Engine virtual machine. The DISA STIG profile is the default OpenSCAP profile. For more information, see <a href="#disa-stig-for-red-hat-linux_assembly-securing-rhv">[disa-stig-for-red-hat-linux_assembly-securing-rhv]</a></p>
+<p>Optional: You can apply the DISA STIG security profile on the Engine virtual machine. The DISA STIG profile is the default OpenSCAP profile.</p>
 <div class="listingblock">
 <div class="content">
 <pre>Do you want to apply a default OpenSCAP security profile? (Yes, No) [No]:</pre>
@@ -3030,7 +3028,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <p>oVirt supports two types of hosts: <a href="#Red_Hat_Virtualization_Hosts_SHE_cli_deploy">oVirt Nodes (oVirt Node)</a> and <a href="#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy">Enterprise Linux hosts</a>. Depending on your environment, you may want to use one type only, or both. At least two hosts are required for features such as migration and high availability.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="#Recommended_practices_for_configuring_host_networks_SHE_cli_deploy">Recommended Practices for Configuring Host Networks</a> for networking information.</p>
+<p>See <a href="#Recommended_practices_for_configuring_host_networks_SHE_cli_deploy">Recommended practices for configuring host networks</a> for networking information.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -3689,13 +3687,13 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Preparing_the_Installation_Environment">Preparing the installation environment</a></p>
+<p><a href="#Preparing_the_Installation_Environment">Preparing the Installation Environment</a></p>
 </li>
 <li>
-<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE server and the boot loader</a></p>
+<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE Server and the Boot Loader</a></p>
 </li>
 <li>
-<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and running a Kickstart file</a></p>
+<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and Running a Kickstart File</a></p>
 </li>
 </ul>
 </div>
@@ -4260,7 +4258,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 </ol>
 </div>
 <div class="paragraph">
-<p>The new host displays in the list of hosts with a status of <code>Installing</code>, and you can view the progress of the installation in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>). After a brief delay the host status changes to <code>Up</code>.</p>
+<p>The new host displays in the list of hosts with a status of <code>Installing</code>, and you can view the progress of the installation in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events"></span>). After a brief delay the host status changes to <code>Up</code>.</p>
 </div>
 </div>
 </div>
@@ -5139,7 +5137,7 @@ Are you sure you want to proceed? [y/n]</pre>
 <p>Notice that this procedure migrates the Data Warehouse service only.</p>
 </div>
 <div class="paragraph">
-<p>To migrate the Data Warehouse database (<code>ovirt_engine_history</code>) prior to migrating the Data Warehouse service, see <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">[Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH]</a>.</p>
+<p>To migrate the Data Warehouse database (<code>ovirt_engine_history</code>) prior to migrating the Data Warehouse service, see <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5172,7 +5170,7 @@ Are you sure you want to proceed? [y/n]</pre>
 <p>Allowed access from the Data Warehouse machine to the Engine database machine&#8217;s TCP port 5432.</p>
 </li>
 <li>
-<p>The username and password for the Data Warehouse database from the Engine&#8217;s <strong>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf</strong> file. If you migrated the <code>ovirt_engine_history</code> database using <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">[Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH]</a>, the backup includes these credentials, which you defined during the database setup on that machine.</p>
+<p>The username and password for the Data Warehouse database from the Engine&#8217;s <strong>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf</strong> file. If you migrated the <code>ovirt_engine_history</code> database using <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a>, the backup includes these credentials, which you defined during the database setup on that machine.</p>
 </li>
 </ul>
 </div>
@@ -5258,7 +5256,7 @@ Are you sure you want to proceed? [y/n]</pre>
 <p>If the database is hosted on the Engine machine and was configured during a clean setup of the oVirt Engine, access is granted by default.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">[Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH]</a> for more information on how to configure and migrate the Data Warehouse database.</p>
+<p>See <a href="#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH">Migrating the Data Warehouse Database to a Separate Machine</a> for more information on how to configure and migrate the Data Warehouse database.</p>
 </div>
 </li>
 <li>
@@ -5505,10 +5503,10 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
 <p>For AMD, boot the machine, and append <code>amd_iommu=on</code> to the end of the <code>GRUB_CMDLINE_LINUX</code> line in the <strong>grub</strong> configuration file.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/default/grub
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/default/grub
 ...
-GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
-...</pre>
+GRUB_CMDLINE_LINUX=&quot;nofb splash=quiet console=tty0 ... amd_iommu=on
+...</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5526,8 +5524,8 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/modprobe.d
-options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
+<pre># vi /etc/modprobe.d
+options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </div>
 </div>
 </td>

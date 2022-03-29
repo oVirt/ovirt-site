@@ -15,7 +15,7 @@
 <meta property="twitter:title" content="Installing oVirt as a standalone Engine with local databases" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Installing oVirt as a standalone Engine with local databases","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Installing oVirt as a standalone Engine with local databases","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -254,11 +254,9 @@
 </li>
 </ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Engine oVirt Architecture">
-</div>
-<div class="title">Figure 1. Standalone Engine oVirt Architecture</div>
+<div class="paragraph">
+<div class="title">Standalone Engine oVirt Architecture</div>
+<p><span class="image"><img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Architecture"></span></p>
 </div>
 </div>
 </div>
@@ -350,7 +348,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Keep the environment up to date. See <a href="https://access.redhat.com/articles/2974891" class="bare">https://access.redhat.com/articles/2974891</a> for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the Engine.</p>
+<p>Keep the environment up to date. See <a href="https://access.redhat.com/articles/2974891">How do I update my Red Hat Virtualization system?</a> for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the Engine.</p>
 </div>
 </td>
 </tr>
@@ -1306,7 +1304,7 @@
 <p>This machine must meet the minimum <a href="#hardware-requirements_SM_localDB_deploy">Engine hardware requirements</a>.</p>
 </div>
 <div class="paragraph">
-<p>By default, the oVirt Engine&#8217;s configuration script, <code>engine-setup</code>, creates and configures the Engine database and Data Warehouse database automatically on the Engine machine. To set up either database, or both, manually, see <a href="#Preparing_a_Local_Manually-Configured_PostgreSQL_Database_SM_localDB_deploy">Preparing a Local Manually Configured PostgreSQL Database</a> before configuring the Engine.</p>
+<p>By default, the oVirt Engine&#8217;s configuration script, <code>engine-setup</code>, creates and configures the Engine database and Data Warehouse database automatically on the Engine machine. To set up either database, or both, manually, see <a href="#Preparing_a_Local_Manually-Configured_PostgreSQL_Database_SM_localDB_deploy">Preparing a Local Manually-Configured PostgreSQL Database</a> before configuring the Engine.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1481,7 +1479,7 @@ For oVirt 4.4:</p>
 <p>Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.</p>
 </div>
 <div class="paragraph">
-<p>For more information on Red Hat Technology Preview features support scope, see <a href="https://access.redhat.com/support/offerings/techpreview/" class="bare">https://access.redhat.com/support/offerings/techpreview/</a>.</p>
+<p>For more information on Red Hat Technology Preview features support scope, see <a href="https://access.redhat.com/support/offerings/techpreview/">Red Hat Technology Preview Features Support Scope</a>.</p>
 </div>
 </td>
 </tr>
@@ -1915,7 +1913,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <p>oVirt supports two types of hosts: <a href="#Red_Hat_Virtualization_Hosts_SM_localDB_deploy">oVirt Nodes (oVirt Node)</a> and <a href="#Red_Hat_Enterprise_Linux_hosts_SM_localDB_deploy">Enterprise Linux hosts</a>. Depending on your environment, you may want to use one type only, or both. At least two hosts are required for features such as migration and high availability.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="#Recommended_practices_for_configuring_host_networks_SM_localDB_deploy">Recommended Practices for Configuring Host Networks</a> for networking information.</p>
+<p>See <a href="#Recommended_practices_for_configuring_host_networks_SM_localDB_deploy">Recommended practices for configuring host networks</a> for networking information.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -2574,13 +2572,13 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Preparing_the_Installation_Environment">Preparing the installation environment</a></p>
+<p><a href="#Preparing_the_Installation_Environment">Preparing the Installation Environment</a></p>
 </li>
 <li>
-<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE server and the boot loader</a></p>
+<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE Server and the Boot Loader</a></p>
 </li>
 <li>
-<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and running a Kickstart file</a></p>
+<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and Running a Kickstart File</a></p>
 </li>
 </ul>
 </div>
@@ -3083,7 +3081,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 </ol>
 </div>
 <div class="paragraph">
-<p>The new host displays in the list of hosts with a status of <code>Installing</code>, and you can view the progress of the installation in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>). After a brief delay the host status changes to <code>Up</code>.</p>
+<p>The new host displays in the list of hosts with a status of <code>Installing</code>, and you can view the progress of the installation in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events"></span>). After a brief delay the host status changes to <code>Up</code>.</p>
 </div>
 </div>
 </div>
@@ -4120,7 +4118,7 @@ Do not override this setting.
 </ol>
 </div>
 <div class="paragraph">
-<p>The domain&#8217;s status should be <strong>Active</strong> (<span class="image"><img src="common/images/status_active_icon.png" alt="status active icon"></span>), and the value in the <strong>Storage Type</strong> column should be <strong>Local on Host</strong>.</p>
+<p>The domain&#8217;s status should be <strong>Active</strong> (<span class="image"><img src="common/images/status_active_icon.png" alt="status active icon" title="Active icon"></span>), and the value in the <strong>Storage Type</strong> column should be <strong>Local on Host</strong>.</p>
 </div>
 <div class="paragraph">
 <p>You can now upload a disk image in the new local storage domain.</p>
@@ -4373,7 +4371,7 @@ work_mem=8192</code></pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>Return to <a href="#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM">Installing and Configuring the oVirt Engine</a>, and answer <code>Local</code> and <code>Manual</code> when asked about the database.</p>
+<p>Return to <a href="#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM">Configuring the Engine</a>, and answer <code>Local</code> and <code>Manual</code> when asked about the database.</p>
 </div>
 </div>
 </div>
@@ -4465,10 +4463,10 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
 <p>For AMD, boot the machine, and append <code>amd_iommu=on</code> to the end of the <code>GRUB_CMDLINE_LINUX</code> line in the <strong>grub</strong> configuration file.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/default/grub
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/default/grub
 ...
-GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
-...</pre>
+GRUB_CMDLINE_LINUX=&quot;nofb splash=quiet console=tty0 ... amd_iommu=on
+...</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -4486,8 +4484,8 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/modprobe.d
-options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
+<pre># vi /etc/modprobe.d
+options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </div>
 </div>
 </td>

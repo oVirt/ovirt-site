@@ -15,7 +15,7 @@
 <meta property="twitter:title" content="Administration Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Administration Guide","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/administration_guide/","@context":"https://schema.org"}</script>
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Administration Guide","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/administration_guide/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -586,14 +586,12 @@
 <div class="paragraph">
 <p>Rachel works in the IT department, and is responsible for managing user accounts in oVirt. She needs permission to add user accounts and assign them the appropriate roles and permissions. She does not use any virtual machines herself, and should not have access to administration of hosts, virtual machines, clusters or data centers. There is no built-in role which provides her with this specific set of permissions. A custom role must be created to define the set of permissions appropriate to Rachel&#8217;s position.</p>
 </div>
-<div id="rhv-object-hierarchy" class="imageblock">
-<div class="content">
-<img src="images/UserManagerRole.png" alt="UserManagerRole">
-</div>
-<div class="title">Figure 1. UserManager Custom Role</div>
+<div id="rhv-object-hierarchy" class="paragraph">
+<div class="title">UserManager Custom Role</div>
+<p><span class="image"><img src="images/UserManagerRole.png" alt="UserManagerRole" title="UserManager Custom Role"></span></p>
 </div>
 <div class="paragraph">
-<p>The <strong>UserManager</strong> custom role shown above allows manipulation of users, permissions and roles. These actions are organized under <strong>System</strong> - the top level object of the hierarchy shown in <a href="#rhev-object-hierarchy-2">oVirt Object Hierarchy</a>. This means they apply to all other objects in the system. The role is set to have an <strong>Account Type</strong> of <strong>Admin</strong>. This means that when she is assigned this role, Rachel can use both the Administration Portal and the VM Portal.</p>
+<p>The <strong>UserManager</strong> custom role shown above allows manipulation of users, permissions and roles. These actions are organized under <strong>System</strong> - the top level object of the hierarchy shown in <a href="#rhev-object-hierarchy-2">Object Hierarchy</a>. This means they apply to all other objects in the system. The role is set to have an <strong>Account Type</strong> of <strong>Admin</strong>. This means that when she is assigned this role, Rachel can use both the Administration Portal and the VM Portal.</p>
 </div>
 </div>
 </div>
@@ -604,17 +602,13 @@
 <div class="paragraph">
 <p>Permissions enable users to perform actions on objects, where objects are either individual objects or container objects. Any permissions that apply to a container object also apply to all members of that container.</p>
 </div>
-<div id="rhev-roles-permissions" class="imageblock">
-<div class="content">
-<img src="images/496.png" alt="496">
+<div id="rhev-roles-permissions" class="paragraph">
+<div class="title">Permissions &amp; Roles</div>
+<p><span class="image"><img src="images/496.png" alt="496" title="Permissions and Roles"></span></p>
 </div>
-<div class="title">Figure 2. Permissions &amp; Roles</div>
-</div>
-<div id="rhev-object-hierarchy-2" class="imageblock">
-<div class="content">
-<img src="images/492.png" alt="492">
-</div>
-<div class="title">Figure 3. oVirt Object Hierarchy</div>
+<div id="rhev-object-hierarchy-2" class="paragraph">
+<div class="title">oVirt Object Hierarchy</div>
+<p><span class="image"><img src="images/492.png" alt="492" title="Object Hierarchy"></span></p>
 </div>
 <div class="sect4">
 <h5 id="User_properties">User Properties</h5>
@@ -1496,11 +1490,9 @@ roles:
 <div class="paragraph">
 <p>The oVirt Engine provides five default scheduling policies: <strong>Evenly_Distributed</strong>, <strong>Cluster_Maintenance</strong>, <strong>None</strong>, <strong>Power_Saving</strong>, and <strong>VM_Evenly_Distributed</strong>. You can also define new scheduling policies that provide fine-grained control over the distribution of virtual machines. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host&#8217;s CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See <a href="https://ovirt.org/documentation/administration_guide/index#sect-Scheduling_Policies">Scheduling Policies</a> in the <em>Administration Guide</em> for more information about the properties of each scheduling policy.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png" alt="RHV SchedulingPolicies 444396 0417 ECE EvenlyDistributed">
-</div>
-<div class="title">Figure 4. Evenly Distributed Scheduling Policy</div>
+<div class="paragraph">
+<div class="title">Evenly Distributed Scheduling Policy</div>
+<p><span class="image"><img src="images/RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png" alt="RHV SchedulingPolicies 444396 0417 ECE EvenlyDistributed" title="Evenly Distributed Scheduling Policy"></span></p>
 </div>
 <div class="paragraph">
 <p>The <strong>Evenly_Distributed</strong> scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
@@ -1508,11 +1500,9 @@ roles:
 <div class="paragraph">
 <p>The <strong>VM_Evenly_Distributed</strong> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the <strong>HighVmCount</strong> and there is at least one host with a virtual machine count that falls outside of the <strong>MigrationThreshold</strong>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/RHV_SchedulingPolicies_444396_0417_ECE_PowerSaving.png" alt="RHV SchedulingPolicies 444396 0417 ECE PowerSaving">
-</div>
-<div class="title">Figure 5. Power Saving Scheduling Policy</div>
+<div class="paragraph">
+<div class="title">Power Saving Scheduling Policy</div>
+<p><span class="image"><img src="images/RHV_SchedulingPolicies_444396_0417_ECE_PowerSaving.png" alt="RHV SchedulingPolicies 444396 0417 ECE PowerSaving" title="Power Saving Scheduling Policy"></span></p>
 </div>
 <div class="paragraph">
 <p>The <strong>Power_Saving</strong> scheduling policy distributes the memory and CPU processing load across a subset of available hosts to reduce power consumption on underutilized hosts. Hosts with a CPU load below the low utilization value for longer than the defined time interval will migrate all virtual machines to other hosts so that it can be powered down. Additional virtual machines attached to a host will not start if that host has reached the defined high utilization value.</p>
@@ -1829,7 +1819,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 <p>Administrators can also create, edit, and remove instance types from the <strong>Instance Types</strong> tab of the <strong>Configure</strong> window.</p>
 </div>
 <div class="paragraph">
-<p>Fields in the <strong>New Virtual Machine</strong> and <strong>Edit Virtual Machine</strong> windows that are bound to an instance type have a chain link image next to them (<span class="image"><img src="images/6121.png" alt="6121"></span>). If the value of one of these fields is changed, the virtual machine will be detached from the instance type, changing to <strong>Custom</strong>, and the chain will appear broken (<span class="image"><img src="images/6122.png" alt="6122"></span>). However, if the value is changed back, the chain will relink and the instance type will move back to the selected one.</p>
+<p>Fields in the <strong>New Virtual Machine</strong> and <strong>Edit Virtual Machine</strong> windows that are bound to an instance type have a chain link image next to them (<span class="image"><img src="images/6121.png" alt="6121" title="Chain link"></span>). If the value of one of these fields is changed, the virtual machine will be detached from the instance type, changing to <strong>Custom</strong>, and the chain will appear broken (<span class="image"><img src="images/6122.png" alt="6122" title="Broken chain link"></span>). However, if the value is changed back, the chain will relink and the instance type will move back to the selected one.</p>
 </div>
 <div class="sect4">
 <h5 id="Creating_Instance_Types">Creating Instance Types</h5>
@@ -2137,11 +2127,9 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The information in the dashboard is updated every 15 minutes by default from Data Warehouse, and every 15 seconds by default by the Engine API, or whenever the Dashboard is refreshed. The Dashboard is refreshed when the user changes back from another page or when manually refreshed. The Dashboard does not automatically refresh. The inventory card information is supplied by the Engine API and the utilization information is supplied by Data Warehouse. The Dashboard is implemented as a UI plugin component, which is automatically installed and upgraded alongside the Engine.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/RHVdashboard.png" alt="RHVdashboard">
-</div>
-<div class="title">Figure 6. The Dashboard</div>
+<div class="paragraph">
+<div class="title">The Dashboard</div>
+<p><span class="image"><img src="images/RHVdashboard.png" alt="RHVdashboard" title="Dashboard"></span></p>
 </div>
 <div class="sect3">
 <h4 id="sect-Prerequisites">1.2.1. Prerequisites</h4>
@@ -2154,11 +2142,9 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The top section of the Dashboard provides a global inventory of the oVirt resources and includes items for data centers, clusters, hosts, storage domains, virtual machines, and events. Icons show the status of each resource and numbers show the quantity of the each resource with that status.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Dashboard_Inventory.png" alt="Dashboard Inventory">
-</div>
-<div class="title">Figure 7. Global Inventory</div>
+<div class="paragraph">
+<div class="title">Global Inventory</div>
+<p><span class="image"><img src="images/Dashboard_Inventory.png" alt="Dashboard Inventory" title="Dashboard Inventory"></span></p>
 </div>
 <div class="paragraph">
 <p>The title shows the number of a type of resource and their status is displayed below the title. Clicking on the resource title navigates to the related page in the oVirt Engine. The status for <strong>Clusters</strong> is always displayed as N/A.</p>
@@ -2177,11 +2163,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_No_Items.png" alt="Dashboard No Items"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_No_Items.png" alt="Dashboard No Items" title="No Items icon"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">None of that resource added to oVirt.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Warning.png" alt="Dashboard Warning"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Warning.png" alt="Dashboard Warning" title="Warning icon"></span></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Shows the number of a resource with a warning status. Clicking on the icon navigates to the appropriate page with the search limited to that resource with a warning status. The search is limited differently for each resource:</p>
 </div>
@@ -2209,11 +2195,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Up.png" alt="Dashboard Up"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Up.png" alt="Dashboard Up" title="Up icon"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shows the number of a resource with an up status. Clicking on the icon navigates to the appropriate page with the search limited to resources that are up.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Down.png" alt="Dashboard Down"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Down.png" alt="Dashboard Down" title="Down icon"></span></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Shows the number of a resource with a down status. Clicking on the icon navigates to the appropriate page with the search limited to resources with a down status. The search is limited differently for each resource:</p>
 </div>
@@ -2238,11 +2224,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Alert.png" alt="Dashboard Alert"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Alert.png" alt="Dashboard Alert" title="Alert icon"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shows the number of events with an alert status. Clicking on the icon navigates to <strong>Events</strong> with the search limited to events with the severity of alert.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Error.png" alt="Dashboard Error"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/Dashboard_Error.png" alt="Dashboard Error" title="Error icon"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shows the number of events with an error status. Clicking on the icon navigates to <strong>Events</strong> with the search limited to events with the severity of error.</p></td>
 </tr>
 </tbody>
@@ -2253,11 +2239,9 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The <strong>Global Utilization</strong> section shows the system utilization of the CPU, Memory and Storage.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Dashboard_Global_Utilization.png" alt="Dashboard Global Utilization">
-</div>
-<div class="title">Figure 8. Global Utilization</div>
+<div class="paragraph">
+<div class="title">Global Utilization</div>
+<p><span class="image"><img src="images/Dashboard_Global_Utilization.png" alt="Dashboard Global Utilization" title="Dashboard Global Utilization"></span></p>
 </div>
 <div class="ulist">
 <ul>
@@ -2274,11 +2258,9 @@ Support for instance types is now deprecated, and will be removed in a future re
 </div>
 <div class="sect4">
 <h5 id="sect-Top_Utilized_Resources">Top Utilized Resources</h5>
-<div class="imageblock">
-<div class="content">
-<img src="images/Dashboard_Pop_Up.png" alt="Dashboard Pop Up">
-</div>
-<div class="title">Figure 9. Top Utilized Resources (Memory)</div>
+<div class="paragraph">
+<div class="title">Top Utilized Resources (Memory)</div>
+<p><span class="image"><img src="images/Dashboard_Pop_Up.png" alt="Dashboard Pop Up" title="Top Utilized Resources"></span></p>
 </div>
 <div class="paragraph">
 <p>Clicking the donut in the global utilization section of the Dashboard will display a list of the top utilized resources for the CPU, memory or storage. For CPU and memory the pop-up shows a list of the ten hosts and virtual machines with the highest usage. For storage the pop-up shows a list of the top ten utilized storage domains and virtual machines. The arrow to the right of the usage bar shows the trend of usage for that resource in the last minute.</p>
@@ -2290,11 +2272,9 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The <strong>Cluster Utilization</strong> section shows the cluster utilization for the CPU and memory in a heatmap.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Dashboard_Cluster_Utilization.png" alt="Dashboard Cluster Utilization">
-</div>
-<div class="title">Figure 10. Cluster Utilization</div>
+<div class="paragraph">
+<div class="title">Cluster Utilization</div>
+<p><span class="image"><img src="images/Dashboard_Cluster_Utilization.png" alt="Dashboard Cluster Utilization" title="Dashboard Cluster Utilization"></span></p>
 </div>
 <div class="sect4">
 <h5 id="sect-Cluster_CPU_Utilization">CPU</h5>
@@ -2314,11 +2294,9 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The <strong>Storage Utilization</strong> section shows the storage utilization in a heatmap.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Dashboard_Storage_Utilization.png" alt="Dashboard Storage Utilization">
-</div>
-<div class="title">Figure 11. Storage Utilization</div>
+<div class="paragraph">
+<div class="title">Storage Utilization</div>
+<p><span class="image"><img src="images/Dashboard_Storage_Utilization.png" alt="Dashboard Storage Utilization" title="Storage Utilization"></span></p>
 </div>
 <div class="paragraph">
 <p>The heatmap shows the average utilization of the storage for the last 24 hours. The formula used to calculate the storage usage by the cluster is the total utilization of the storage in the cluster. This is calculated by using the average storage utilization for each host over the last 24 hours to find the total average usage of the storage by the cluster. Hovering over the heatmap displays the storage domain name. Clicking on the heatmap navigates to <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Domains</b></span> with the storage domains sorted by utilization.</p>
@@ -3964,7 +3942,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 </ol>
 </div>
 <div class="paragraph">
-<p>Click the <strong>Bookmarks</strong> icon (<span class="image"><img src="images/Bookmark.png" alt="Bookmark"></span>) in the header bar to find and select the bookmark.</p>
+<p>Click the <strong>Bookmarks</strong> icon (<span class="image"><img src="images/Bookmark.png" alt="Bookmark" title="Bookmarks icon"></span>) in the header bar to find and select the bookmark.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3976,7 +3954,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click the <strong>Bookmarks</strong> icon (<span class="image"><img src="images/Bookmark.png" alt="Bookmark"></span>) in the header bar.</p>
+<p>Click the <strong>Bookmarks</strong> icon (<span class="image"><img src="images/Bookmark.png" alt="Bookmark" title="Bookmarks icon"></span>) in the header bar.</p>
 </li>
 <li>
 <p>Select a bookmark and click <strong>Edit</strong>.</p>
@@ -3999,7 +3977,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click the <strong>Bookmarks</strong> icon (<span class="image"><img src="images/Bookmark.png" alt="Bookmark"></span>) in the header bar.</p>
+<p>Click the <strong>Bookmarks</strong> icon (<span class="image"><img src="images/Bookmark.png" alt="Bookmark" title="Bookmarks icon"></span>) in the header bar.</p>
 </li>
 <li>
 <p>Select a bookmark and click <strong>Remove</strong>.</p>
@@ -4022,7 +4000,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <p>This section describes how to create and edit tags, assign them to hosts or virtual machines and search using the tags as criteria. Tags can be arranged in a hierarchy that matches a structure, to fit the needs of the enterprise.</p>
 </div>
 <div class="paragraph">
-<p>To create, modify, and remove Administration Portal tags, click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag"></span>) in the header bar.</p>
+<p>To create, modify, and remove Administration Portal tags, click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag" title="Tags icon"></span>) in the header bar.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4034,7 +4012,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag"></span>) in the header bar.</p>
+<p>Click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag" title="Tags icon"></span>) in the header bar.</p>
 </li>
 <li>
 <p>Click <strong>Add</strong> to create a new tag, or select a tag and click <strong>New</strong> to create a descendant tag.</p>
@@ -4059,7 +4037,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag"></span>) in the header bar.</p>
+<p>Click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag" title="Tags icon"></span>) in the header bar.</p>
 </li>
 <li>
 <p>Select the tag you want to modify and click <strong>Edit</strong>.</p>
@@ -4082,7 +4060,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag"></span>) in the header bar.</p>
+<p>Click the <strong>Tags</strong> icon (<span class="image"><img src="images/Tag.png" alt="Tag" title="Tags icon"></span>) in the header bar.</p>
 </li>
 <li>
 <p>Select the tag you want to delete and click <strong>Remove</strong>. A message warns you that removing the tag will also remove all descendants of the tag.</p>
@@ -4108,7 +4086,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <p>Select the object(s) you want to tag or untag.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Assign Tags</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Assign Tags</strong>.</p>
 </li>
 <li>
 <p>Select the check box to assign a tag to the object, or clear the check box to detach the tag from the object.</p>
@@ -4157,7 +4135,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select a host.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Assign Tags</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Assign Tags</strong>.</p>
 </li>
 <li>
 <p>Select the check boxes of applicable tags.</p>
@@ -4632,11 +4610,9 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="paragraph">
 <p>All data centers are managed from the single Administration Portal.</p>
 </div>
-<div id="data_center_fig" class="imageblock">
-<div class="content">
-<img src="images/523.png" alt="523">
-</div>
-<div class="title">Figure 12. Data Centers</div>
+<div id="data_center_fig" class="paragraph">
+<div class="title">Data Centers</div>
+<p><span class="image"><img src="images/523.png" alt="523" title="Data Centers"></span></p>
 </div>
 <div class="paragraph">
 <p>oVirt creates a default data center during installation. You can configure the default data center, or set up new appropriately named data centers.</p>
@@ -4706,7 +4682,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <p>Click <b class="button">OK</b> to create the data center and open the <strong>Data Center - Guide Me</strong> window.</p>
 </li>
 <li>
-<p>The <strong>Guide Me</strong> window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the <strong>Configure Later</strong> button. Configuration can be resumed by selecting the data center and clicking <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then clicking <strong>Guide Me</strong>.</p>
+<p>The <strong>Guide Me</strong> window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the <strong>Configure Later</strong> button. Configuration can be resumed by selecting the data center and clicking <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then clicking <strong>Guide Me</strong>.</p>
 </li>
 </ol>
 </div>
@@ -4795,7 +4771,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <p>Ensure that any storage domains attached to the data center are in maintenance mode.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Re-Initialize Data Center</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Re-Initialize Data Center</strong>.</p>
 </li>
 <li>
 <p>The <strong>Data Center Re-Initialize</strong> window lists all available (detached; in maintenance mode) storage domains. Click the radio button for the storage domain you are adding to the data center.</p>
@@ -4853,7 +4829,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Data Centers</b></span> and select the data center to remove.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Force Remove</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Force Remove</strong>.</p>
 </li>
 <li>
 <p>Select the <strong>Approve operation</strong> check box.</p>
@@ -5126,11 +5102,9 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="paragraph">
 <p>oVirt creates a default cluster in the default data center during installation.</p>
 </div>
-<div id="cluster_tab" class="imageblock">
-<div class="content">
-<img src="images/223.png" alt="223">
-</div>
-<div class="title">Figure 13. Cluster</div>
+<div id="cluster_tab" class="paragraph">
+<div class="title">Cluster</div>
+<p><span class="image"><img src="images/223.png" alt="223" title="Cluster"></span></p>
 </div>
 </div>
 <div class="sect3">
@@ -5186,7 +5160,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <td class="content">
 <div class="paragraph">
 <p>A hosts whose CPU processor family is older than the one you specify with <strong>CPU Type</strong> cannot be part of this cluster.
-For details, see <a href="https://access.redhat.com/solutions/634853" class="bare">https://access.redhat.com/solutions/634853</a>.</p>
+For details, see <a href="https://access.redhat.com/solutions/634853">Which CPU family should a RHEV3 or RHV4 cluster be set to?</a>.</p>
 </div>
 </td>
 </tr>
@@ -5250,7 +5224,7 @@ For details, see <a href="https://access.redhat.com/solutions/634853" class="bar
 <p>Click <b class="button">OK</b> to create the cluster and open the <strong>Cluster - Guide Me</strong> window.</p>
 </li>
 <li>
-<p>The <strong>Guide Me</strong> window lists the entities that need to be configured for the cluster. Configure these entities or postpone configuration by clicking the <strong>Configure Later</strong> button. Configuration can be resumed by selecting the cluster and clicking <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then clicking <strong>Guide Me</strong>.</p>
+<p>The <strong>Guide Me</strong> window lists the entities that need to be configured for the cluster. Configure these entities or postpone configuration by clicking the <strong>Configure Later</strong> button. Configuration can be resumed by selecting the cluster and clicking <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then clicking <strong>Guide Me</strong>.</p>
 </li>
 </ol>
 </div>
@@ -5839,7 +5813,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#Cluster_Scheduling_Policy_Settings">Scheduling Policy Settings Explained</a></p>
+<p><a href="#Cluster_Scheduling_Policy_Settings">Cluster Scheduling Policy Settings</a></p>
 </li>
 </ul>
 </div>
@@ -5924,7 +5898,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="sect4">
 <h5 id="Configuring_scheduling_policy">Setting Load and Power Management Policies for Hosts in a Cluster</h5>
 <div class="paragraph">
-<p>The <strong>evenly_distributed</strong> and <strong>power_saving</strong> scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The <strong>vm_evenly_distributed</strong> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see <a href="#Cluster_Scheduling_Policy_Settings">Scheduling Policy Settings Explained</a>.</p>
+<p>The <strong>evenly_distributed</strong> and <strong>power_saving</strong> scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The <strong>vm_evenly_distributed</strong> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see <a href="#Cluster_Scheduling_Policy_Settings">Cluster Scheduling Policy Settings</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -5959,7 +5933,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Define the number of slots for virtual machines to be reserved on SPM hosts in the <strong>SpmVmGrace</strong> field.</p>
 </li>
 <li>
-<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts</a> for more information.</p>
+<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -5975,7 +5949,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the <strong>HighUtilization</strong> field.</p>
 </li>
 <li>
-<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts</a> for more information.</p>
+<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -5994,7 +5968,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the <strong>HighUtilization</strong> field.</p>
 </li>
 <li>
-<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts</a> for more information.</p>
+<p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -6355,7 +6329,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </table>
 </div>
 <div class="paragraph">
-<p>To configure the <strong>Memory Optimization</strong> setting, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. See <a href="#Cluster_Optimization_Settings_Explained">Optimization Settings Explained</a>.</p>
+<p>To configure the <strong>Memory Optimization</strong> setting, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. See <a href="#Cluster_Optimization_Settings_Explained">Cluster Optimization Settings Explained</a>.</p>
 </div>
 <div class="paragraph">
 <p>Additional comments:</p>
@@ -6450,7 +6424,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </ul>
 </div>
 <div class="paragraph">
-<p>To enable memory ballooning, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable Memory Balloon Optimization</strong> checkbox. This setting enables memory overcommitment on virtual machines running on the hosts in this cluster. When this check box is selected, the MoM starts ballooning where and when possible, with a limitation of the guaranteed memory size of every virtual machine. See <a href="#Cluster_Optimization_Settings_Explained">Optimization Settings Explained</a>.</p>
+<p>To enable memory ballooning, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable Memory Balloon Optimization</strong> checkbox. This setting enables memory overcommitment on virtual machines running on the hosts in this cluster. When this check box is selected, the MoM starts ballooning where and when possible, with a limitation of the guaranteed memory size of every virtual machine. See <a href="#Cluster_Optimization_Settings_Explained">Cluster Optimization Settings Explained</a>.</p>
 </div>
 <div class="paragraph">
 <p>Each host in this cluster receives a balloon policy update when its status changes to Up. If necessary, you can manually update the balloon policy on a host without having to change the status. See <a href="#Updating_the_MoM_Policy_on_Hosts_in_a_Cluster">Updating the MoM Policy on Hosts in a Cluster</a>.</p>
@@ -6490,7 +6464,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </ul>
 </div>
 <div class="paragraph">
-<p>To enable KSM, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable KSM</strong> checkbox. This setting enables MoM to run KSM when necessary and when it can yield a memory saving benefit that outweighs its CPU cost. See <a href="#Cluster_Optimization_Settings_Explained">Optimization Settings Explained</a>.</p>
+<p>To enable KSM, click the <strong>Optimization</strong> tab in the <strong>New Cluster</strong> or <strong>Edit Cluster</strong> windows. Then select the <strong>Enable KSM</strong> checkbox. This setting enables MoM to run KSM when necessary and when it can yield a memory saving benefit that outweighs its CPU cost. See <a href="#Cluster_Optimization_Settings_Explained">Cluster Optimization Settings Explained</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -6741,7 +6715,7 @@ The next time you start the virtual machine, it will run with the new BIOS type 
 </table>
 </div>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>). You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>). You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.</p>
 </div>
 <div class="paragraph">
 <p>In a self-hosted engine environment, the Engine virtual machine does not need to be restarted.</p>
@@ -6907,7 +6881,7 @@ The next time you start the virtual machine, it will run with the new BIOS type 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you change the network’s <strong>MTU</strong> settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see <a href="https://access.redhat.com/solutions/4540631" class="bare">https://access.redhat.com/solutions/4540631</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1766414">BZ#1766414</a>.</p>
+<p>If you change the network’s <strong>MTU</strong> settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see <a href="https://access.redhat.com/solutions/4540631">After network MTU change, some VMs and bridges have the old MTU and seeing packet drops</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1766414">BZ#1766414</a>.</p>
 </div>
 </td>
 </tr>
@@ -7445,7 +7419,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MTU</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Choose either <strong>Default</strong>, which sets the maximum transmission unit (MTU) to the value given in the parenthesis (), or <strong>Custom</strong> to set a custom MTU for the logical network. You can use this to match the MTU supported by your new logical network to the MTU supported by the hardware it interfaces with. Enter a numeric value in the text entry field if <strong>Custom</strong> is selected.
-<strong>IMPORTANT</strong>: If you change the network’s <strong>MTU</strong> settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see <a href="https://access.redhat.com/solutions/4540631" class="bare">https://access.redhat.com/solutions/4540631</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1766414">BZ#1766414</a>.</p></td>
+<strong>IMPORTANT</strong>: If you change the network’s <strong>MTU</strong> settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see <a href="https://access.redhat.com/solutions/4540631">After network MTU change, some VMs and bridges have the old MTU and seeing packet drops</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1766414">BZ#1766414</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Network Label</strong></p></td>
@@ -7457,7 +7431,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <code>Disabled</code> disables the security group feature.
 <code>Enabled</code> enables the feature. When a port is created and attached to this network, it will be defined with port security enabled. This means that access to/from the virtual machines will be subject to the security groups currently being provisioned.
  <code>Inherit from Configuration</code> enables the ports to inherit the behavior from the configuration file that is defined for all networks. By default, the file disables security groups.
- See <a href="#Assigning_Security_Groups_to_Logical_Networks">Assigning Security Groups to Logical Networks and Ports</a> for details.</p></td>
+ See <a href="#Assigning_Security_Groups_to_Logical_Networks">Assigning Security Groups to Logical Networks</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7646,7 +7620,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <div class="title">Prerequisite</div>
 <ul>
 <li>
-<p>For a vNIC to be attached to a VF must, its passthrough property must be enabled. For details, see <a href="#Enabling_Passthrough_on_a_vNIC_Profile">Enabling Passthrough on a vNIC Profile</a>.</p>
+<p>For a vNIC to be attached to a VF must, its passthrough property must be enabled. For details, see <a href="#Enabling_Passthrough_on_a_vNIC_Profile">Enabling_Passthrough_on_a_vNIC_Profile</a>.</p>
 </li>
 </ul>
 </div>
@@ -7666,7 +7640,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>Click <strong>Setup Host Networks</strong>.</p>
 </li>
 <li>
-<p>Select an SR-IOV-capable NIC, marked with a <span class="image"><img src="images/SR-IOV-icon.png" alt="SR IOV icon"></span>
+<p>Select an SR-IOV-capable NIC, marked with a <span class="image"><img src="images/SR-IOV-icon.png" alt="SR IOV icon" title="SR-IOV icon"></span>
 , and click the pencil icon.</p>
 </li>
 <li>
@@ -8292,7 +8266,7 @@ Technology Preview features are not supported with Red Hat production service-le
 <p>Click the <strong>Logical Networks</strong> tab.</p>
 </li>
 <li>
-<p>Click <strong>Add Network</strong> and define the properties, ensuring that you select <code>ovirt-provider-ovn</code> from the <code>External Providers</code> drop-down list. For more information, see <a href="#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a New Logical Network in a Data Center or Cluster</a>.</p>
+<p>Click <strong>Add Network</strong> and define the properties, ensuring that you select <code>ovirt-provider-ovn</code> from the <code>External Providers</code> drop-down list. For more information, see <a href="#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a new logical network in a data center or cluster</a>.</p>
 </li>
 <li>
 <p>Select <code>Enabled</code> from the <code>Security Group</code> drop-down list. For more details see <a href="#Logical_Network_General_Settings_Explained">Logical Network General Settings Explained</a>.</p>
@@ -8444,7 +8418,7 @@ Always use oVirt Engine to modify the network configuration of hosts in your clu
 <p>The only way to change the IP address of a host in oVirt is to remove the host and then to add it again.</p>
 </div>
 <div class="paragraph">
-<p>To change the VLAN settings of a host, see <a href="#Editing-VLAN-Settings">Editing a Host&#8217;s VLAN Settings</a>.</p>
+<p>To change the VLAN settings of a host, see <a href="#Editing-VLAN-Settings">Editing VLAN Settings</a>.</p>
 </div>
 </td>
 </tr>
@@ -8641,14 +8615,15 @@ multicast_startup_query_interval=3125</code></pre>
 </div>
 </li>
 <li>
-<p>To configure ethernet properties, click the <strong>Custom Properties</strong> tab and select <strong>ethtool_opts</strong> from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:</p>
+<p>To configure ethernet properties, click the <strong>Custom Properties</strong> tab and select <strong>ethtool_opts</strong> from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:
+:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">--coalesce em1 rx-usecs 14 sample-interval 3 --offload em2 rx on lro on tso off --change em1 speed 1000 duplex half</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This field can accept wildcards. For example, to apply the same option to all of this network&#8217;s interfaces, use:</p>
+<p>This field can accept wild cards. For example, to apply the same option to all of this network&#8217;s interfaces, use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8656,11 +8631,11 @@ multicast_startup_query_interval=3125</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <strong>ethtool_opts</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">How to Set Up oVirt Engine to Use Ethtool</a> for more information. For more information on ethtool properties, see the manual page by typing <code>man ethtool</code> in the command line.</p>
+<p>The <strong>ethtool_opts</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">How to Set Up Engine to Use Ethtool</a> for more information. For more information on ethtool properties, see the manual page by typing <code>man ethtool</code> in the command line.</p>
 </div>
 </li>
 <li>
-<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=</code><code class="yes|no"> and <code>auto_vlan=</code>[yes|no]</code>. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up oVirt Engine to Use FCoE</a> for more information.</p>
+<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=[yes|no]</code> and `auto_vlan=[yes|no]. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up Engine to Use FCoE</a> for more information.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -8677,10 +8652,10 @@ multicast_startup_query_interval=3125</code></pre>
 </div>
 </li>
 <li>
-<p>To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network&#8217;s default route. See <a href="#Configuring_a_Default_Route">Configuring a Non-Management Logical Network as the Default Route</a> for more information.</p>
+<p>To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network&#8217;s default route. See <a href="#Configuring_a_Default_Route">Configuring a Default Route</a> for more information.</p>
 </li>
 <li>
-<p>If your logical network definition is not synchronized with the network configuration on the host, select the <strong>Sync network</strong> check box. For more information about unsynchronized hosts and how to synchronize them, see <a href="#Synchronizing_host_networks">Synchronizing Host Networks</a>.</p>
+<p>If your logical network definition is not synchronized with the network configuration on the host, select the <strong>Sync network</strong> check box. For more information about unsynchronized hosts and how to synchronize them, see <a href="#Synchronizing_host_networks">Synchronizing host networks</a>.</p>
 </li>
 </ol>
 </div>
@@ -8734,7 +8709,7 @@ multicast_startup_query_interval=3125</code></pre>
 <p>The Engine defines a network interface as <code>out-of-sync</code> when the definition of the interface on the host differs from the definitions stored by the Engine.</p>
 </div>
 <div class="paragraph">
-<p>Out-of-sync networks appear with an Out-of-sync icon <span class="image"><img src="images/out-of-sync.png" alt="out of sync"></span> in the host&#8217;s <strong>Network Interfaces</strong> tab and with this icon <span class="image"><img src="images/out-of-sync-setup.png" alt="out of sync setup"></span> in the <strong>Setup Host Networks</strong> window.</p>
+<p>Out-of-sync networks appear with an Out-of-sync icon <span class="image"><img src="images/out-of-sync.png" alt="out of sync" title="Out-of-sync icon"></span> in the host&#8217;s <strong>Network Interfaces</strong> tab and with this icon <span class="image"><img src="images/out-of-sync-setup.png" alt="out of sync setup" title="Out-of-sync setup icon"></span> in the <strong>Setup Host Networks</strong> window.</p>
 </div>
 <div class="paragraph">
 <p>When a host&#8217;s network is out of sync, the only activities that you can perform on the unsynchronized network in the <strong>Setup Host Networks</strong> window are detaching the logical network from the network interface or synchronizing the network.</p>
@@ -8774,7 +8749,7 @@ multicast_startup_query_interval=3125</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you change the network’s <strong>MTU</strong> settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see <a href="https://access.redhat.com/solutions/4540631" class="bare">https://access.redhat.com/solutions/4540631</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1766414">BZ#1766414</a>.</p>
+<p>If you change the network’s <strong>MTU</strong> settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see <a href="https://access.redhat.com/solutions/4540631">After network MTU change, some VMs and bridges have the old MTU and seeing packet drops</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1766414">BZ#1766414</a>.</p>
 </div>
 </td>
 </tr>
@@ -8790,7 +8765,7 @@ multicast_startup_query_interval=3125</code></pre>
 <p>Use the Administration Portal to make changes rather than making changes locally on the host.</p>
 </li>
 <li>
-<p>Edit VLAN settings according to the instructions in <a href="#Editing-VLAN-Settings">Editing a Host&#8217;s VLAN Settings</a>.</p>
+<p>Edit VLAN settings according to the instructions in <a href="#Editing-VLAN-Settings">Editing VLAN Settings</a>.</p>
 </li>
 </ol>
 </div>
@@ -9309,13 +9284,13 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Place the host into maintenance mode so the virtual machines are live migrated to another host. See <a href="#Moving_a_host_to_maintenance_mode">Moving a Host to Maintenance Mode</a> for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Manually_migrating_virtual_machines">Manually Migrating Virtual Machines</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
+<p>Place the host into maintenance mode so the virtual machines are live migrated to another host. See <a href="#Moving_a_host_to_maintenance_mode">Moving a host to maintenance mode</a> for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Manually_migrating_virtual_machines">Manually Migrating Virtual Machines</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
 </li>
 <li>
 <p>Click <strong>Remove</strong>, and click <b class="button">OK</b> to remove the host from the Administration Portal.</p>
 </li>
 <li>
-<p>Use the <code>hostnamectl</code> tool to update the host name. For more options, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Networking_Guide/ch-Configure_Host_Names.html"> Configure Host Names</a> in the <em>Enterprise Linux 7 Networking Guide</em>.</p>
+<p>Use the <code>hostnamectl</code> tool to update the host name. For more options, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Networking_Guide/ch-Configure_Host_Names.html">Configure Host Names</a> in the <em>Enterprise Linux 7 Networking Guide</em>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># hostnamectl set-hostname _NEW_FQDN_</code></pre>
@@ -9326,7 +9301,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <p>Reboot the host.</p>
 </li>
 <li>
-<p>Re-register the host with the Engine. See <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding Standard Hosts to the oVirt Engine</a> for more information.</p>
+<p>Re-register the host with the Engine. See <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding standard hosts to the Engine</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -9781,7 +9756,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>See <a href="https://access.redhat.com/solutions/67546" class="bare">https://access.redhat.com/solutions/67546</a>.</p>
+<p>See <a href="https://access.redhat.com/solutions/67546">Which bonding modes work when used with a bridge that virtual machine guests or containers connect to?</a>.</p>
 </div>
 </td>
 </tr>
@@ -10021,7 +9996,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 </ol>
 </div>
 <div class="paragraph">
-<p>The new host displays in the list of hosts with a status of <code>Installing</code>, and you can view the progress of the installation in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>). After a brief delay the host status changes to <code>Up</code>.</p>
+<p>The new host displays in the list of hosts with a status of <code>Installing</code>, and you can view the progress of the installation in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events"></span>). After a brief delay the host status changes to <code>Up</code>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -10278,10 +10253,10 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
 <p>For AMD, boot the machine, and append <code>amd_iommu=on</code> to the end of the <code>GRUB_CMDLINE_LINUX</code> line in the <strong>grub</strong> configuration file.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/default/grub
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/default/grub
 ...
-GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
-...</pre>
+GRUB_CMDLINE_LINUX=&quot;nofb splash=quiet console=tty0 ... amd_iommu=on
+...</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -10299,8 +10274,8 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/modprobe.d
-options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
+<pre># vi /etc/modprobe.d
+options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </div>
 </div>
 </td>
@@ -10415,7 +10390,7 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</code></pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">VDSM Hooks</a></p>
+<p><a href="#VDSM_hooks">VDSM hooks</a></p>
 </li>
 </ul>
 </div>
@@ -10553,7 +10528,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">VDSM Hooks</a></p>
+<p><a href="#VDSM_hooks">VDSM hooks</a></p>
 </li>
 <li>
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/creating-nested-virtual-machines_configuring-and-managing-virtualization">Creating Child virtual Machines</a> in the EL documentation.</p>
@@ -10605,7 +10580,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The host maintenance <strong>Reason</strong> field will only appear if it has been enabled in the cluster settings. See <a href="#Cluster_General_Settings_Explained">General Cluster Settings Explained</a> for more information.</p>
+<p>The host maintenance <strong>Reason</strong> field will only appear if it has been enabled in the cluster settings. See <a href="#Cluster_General_Settings_Explained">Cluster General Settings Explained</a> for more information.</p>
 </div>
 </td>
 </tr>
@@ -10847,7 +10822,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>in the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> view</p>
 </li>
 <li>
-<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>).</p>
+<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>).</p>
 </li>
 </ul>
 </div>
@@ -10931,7 +10906,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <li>
 <p>Click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Check for Upgrade</b></span> and click <b class="button">OK</b>.</p>
 <div class="paragraph">
-<p>Open the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>) and expand the <strong>Events</strong> section to see the result.</p>
+<p>Open the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>) and expand the <strong>Events</strong> section to see the result.</p>
 </div>
 </li>
 <li>
@@ -11288,7 +11263,7 @@ Release      : 1.0.el8
 <div class="sect4">
 <h5 id="Viewing_Host_Errata">Viewing Host Errata</h5>
 <div class="paragraph">
-<p>Errata for each host can be viewed after the host has been configured to receive errata information from the Red Hat Satellite server. For more information on configuring a host to receive errata information see <a href="#Configuring_Satellite_Errata_Management_for_a_Host">Setting up Satellite errata viewing for a host</a></p>
+<p>Errata for each host can be viewed after the host has been configured to receive errata information from the Red Hat Satellite server. For more information on configuring a host to receive errata information see <a href="#Configuring_Satellite_Errata_Management_for_a_Host">Configuring Satellite Errata Management for a Host</a></p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -11316,16 +11291,16 @@ Release      : 1.0.el8
 <p><strong>OK</strong>: No icon</p>
 </li>
 <li>
-<p><strong>Info</strong>: <span class="image"><img src="images/Info.png" alt="Info"></span></p>
+<p><strong>Info</strong>: <span class="image"><img src="images/Info.png" alt="Info" title="Info"></span></p>
 </li>
 <li>
-<p><strong>Warning</strong>: <span class="image"><img src="images/Warning.png" alt="Warning"></span></p>
+<p><strong>Warning</strong>: <span class="image"><img src="images/Warning.png" alt="Warning" title="Warning"></span></p>
 </li>
 <li>
-<p><strong>Error</strong>: <span class="image"><img src="images/Error.png" alt="Error"></span></p>
+<p><strong>Error</strong>: <span class="image"><img src="images/Error.png" alt="Error" title="Error"></span></p>
 </li>
 <li>
-<p><strong>Failure</strong>: <span class="image"><img src="images/Failure.png" alt="Failure"></span></p>
+<p><strong>Failure</strong>: <span class="image"><img src="images/Failure.png" alt="Failure" title="Failure"></span></p>
 </li>
 </ul>
 </div>
@@ -11348,7 +11323,7 @@ Release      : 1.0.el8
 <p>For more information on the hardware requirements for direct device assignment, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/index#">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
 </div>
 <div class="paragraph">
-<p>For more information on configuring the host for direct device assignment, see <a href="#Configuring_a_Host_for_PCI_Passthrough_host_tasks">Configuring a Host for PCI Passthrough</a>.</p>
+<p>For more information on configuring the host for direct device assignment, see <a href="#Configuring_a_Host_for_PCI_Passthrough_host_tasks">Configuring a Host for PCI Passthrough host tasks</a>.</p>
 </div>
 <div class="paragraph">
 <p>For more information on attaching host devices to virtual machines, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-host_devices">Host Devices</a> in the <em>Virtual Machine Management Guide</em>.</p>
@@ -12020,6 +11995,22 @@ roles:
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display address</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The display address specified here will be used for all virtual machines running on this host. The address must be in the format of a fully qualified domain name or IP.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>vGPU Placement</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies the preferred placement of vGPUs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Consolidated</strong>: Select this option if you prefer to run more vGPUs on available physical cards.</p>
+</li>
+<li>
+<p><strong>Separated</strong>: Select this option if you prefer to run each vGPU on a separate physical card.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -12303,20 +12294,6 @@ If a host runs virtual machines that are highly available, power management must
 </li>
 <li>
 <p>Select the power management device <strong>Type</strong> from the drop-down list.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>For more information on how to set up a custom power management device, see <a href="https://access.redhat.com/articles/1238743" class="bare">https://access.redhat.com/articles/1238743</a>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 </li>
 <li>
 <p>Enter the <strong>SSH Port</strong> number used by the power management device to communicate with the host.</p>
@@ -12441,7 +12418,7 @@ If a host runs virtual machines that are highly available, power management must
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The edited values must also be changed in <code>engine-config</code> as outlined in the fence_kdump Listener Configuration Options table in <a href="#Configuring_fence_kdump_on_the_Manager">Configuring fence_kdump on the Engine</a>.</p>
+<p>The edited values must also be changed in <code>engine-config</code> as outlined in the fence_kdump Listener Configuration Options table in <a href="#Configuring_fence_kdump_on_the_Manager">Configuring fence-kdump on the Engine</a>.</p>
 </div>
 </td>
 </tr>
@@ -12545,7 +12522,7 @@ If a host runs virtual machines that are highly available, power management must
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The edited values must also be changed in the fence_kdump listener configuration file as outlined in the <code>Kdump Configuration Options</code> table. See <a href="#fence_kdump_listener_Configuration">fence_kdump listener Configuration</a>.</p>
+<p>The edited values must also be changed in the fence_kdump listener configuration file as outlined in the <code>Kdump Configuration Options</code> table. See <a href="#fence_kdump_listener_Configuration">fence_kdump listener configuration</a>.</p>
 </div>
 </td>
 </tr>
@@ -12750,7 +12727,7 @@ If a host runs virtual machines that are highly available, power management must
 <p>Manually reboot the host. This could mean physically entering the lab and rebooting the host.</p>
 </li>
 <li>
-<p>In the Administration Portal, select the host and click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Confirm 'Host has been Rebooted'</strong>.</p>
+<p>In the Administration Portal, select the host and click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Confirm 'Host has been Rebooted'</strong>.</p>
 </li>
 <li>
 <p>Select the <strong>Approve Operation</strong> check box and click <b class="button">OK</b>.</p>
@@ -13205,7 +13182,7 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 </ol>
 </div>
 <div class="paragraph">
-<p>The domain&#8217;s status should be <strong>Active</strong> (<span class="image"><img src="common/images/status_active_icon.png" alt="status active icon"></span>), and the value in the <strong>Storage Type</strong> column should be <strong>Local on Host</strong>.</p>
+<p>The domain&#8217;s status should be <strong>Active</strong> (<span class="image"><img src="common/images/status_active_icon.png" alt="status active icon" title="Active icon"></span>), and the value in the <strong>Storage Type</strong> column should be <strong>Local on Host</strong>.</p>
 </div>
 <div class="paragraph">
 <p>You can now upload a disk image in the new local storage domain.</p>
@@ -14779,7 +14756,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Click <strong>Choose File</strong> and select the image to upload.</p>
 </li>
 <li>
-<p>Fill in the <strong>Disk Options</strong> fields. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a> for descriptions of the relevant fields.</p>
+<p>Fill in the <strong>Disk Options</strong> fields. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a> for descriptions of the relevant fields.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -15079,7 +15056,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Click <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Domains</b></span>.</p>
 </li>
 <li>
-<p>Select the storage domain and click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Update OVFs</strong>.</p>
+<p>Select the storage domain and click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Update OVFs</strong>.</p>
 <div class="paragraph">
 <p>The OVFs are updated and a message appears in <strong>Events</strong>.</p>
 </div>
@@ -15247,7 +15224,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>Click <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Domains</b></span>.</p>
 </li>
 <li>
-<p>Select the storage domain and click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Destroy</strong>.</p>
+<p>Select the storage domain and click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Destroy</strong>.</p>
 </li>
 <li>
 <p>Select the <strong>Approve operation</strong> check box.</p>
@@ -15336,16 +15313,16 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p><strong>OK</strong>: No icon</p>
 </li>
 <li>
-<p><strong>Info</strong>: <span class="image"><img src="images/Info.png" alt="Info"></span></p>
+<p><strong>Info</strong>: <span class="image"><img src="images/Info.png" alt="Info" title="Info"></span></p>
 </li>
 <li>
-<p><strong>Warning</strong>: <span class="image"><img src="images/Warning.png" alt="Warning"></span></p>
+<p><strong>Warning</strong>: <span class="image"><img src="images/Warning.png" alt="Warning" title="Warning"></span></p>
 </li>
 <li>
-<p><strong>Error</strong>: <span class="image"><img src="images/Error.png" alt="Error"></span></p>
+<p><strong>Error</strong>: <span class="image"><img src="images/Error.png" alt="Error" title="Error"></span></p>
 </li>
 <li>
-<p><strong>Failure</strong>: <span class="image"><img src="images/Failure.png" alt="Failure"></span></p>
+<p><strong>Failure</strong>: <span class="image"><img src="images/Failure.png" alt="Failure" title="Failure"></span></p>
 </li>
 </ul>
 </div>
@@ -16632,7 +16609,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p><strong>Image</strong> disk creation is managed entirely by the Engine. <strong>Direct LUN</strong> disks require externally prepared targets that already exist.</p>
 </div>
 <div class="paragraph">
-<p>You can create a virtual disk that is attached to a specific virtual machine. Additional options are available when creating an attached virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a>.</p>
+<p>You can create a virtual disk that is attached to a specific virtual machine. Additional options are available when creating an attached virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Creating a Virtual Disk Attached to a Virtual Machine</strong></p>
@@ -16655,7 +16632,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Click the appropriate button to specify whether the virtual disk will be an <strong>Image</strong> or <strong>Direct LUN</strong> disk.</p>
 </li>
 <li>
-<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a> for more details on each option for each disk type.</p>
+<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a> for more details on each option for each disk type.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -16663,7 +16640,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </ol>
 </div>
 <div class="paragraph">
-<p>You can also create a floating virtual disk that does not belong to any virtual machines. You can attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable. Some options are not available when creating a virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a>.</p>
+<p>You can also create a floating virtual disk that does not belong to any virtual machines. You can attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable. Some options are not available when creating a virtual disk, as specified in <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Creating a Floating Virtual Disk</strong></p>
@@ -16680,7 +16657,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Click the appropriate button to specify whether the virtual disk will be an <strong>Image</strong> or <strong>Direct LUN</strong> disk.</p>
 </li>
 <li>
-<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of settings in the New Virtual Disk window</a> for more details on each option for each disk type.</p>
+<p>Select the options required for your virtual disk. The options change based on the disk type selected. See <a href="#Explanation_of_Settings_in_the_New_Virtual_Disk_Window">Explanation of Settings in the New Virtual Disk Window</a> for more details on each option for each disk type.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -16778,7 +16755,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Incremental Backup</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables incremental backup on the virtual disk. Incremental backup requires disks to be formatted in QCOW2 format instead of RAW format. See <a href="#assembly_incremental-backup-and-restore_RHV_backup_restore">[assembly_incremental-backup-and-restore_RHV_backup_restore]</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables incremental backup on the virtual disk. Incremental backup requires disks to be formatted in QCOW2 format instead of RAW format. See <a href="#assembly_incremental-backup-and-restore_RHV_backup_restore">Incremental backup and restore</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Discard</strong></p></td>
@@ -17142,7 +17119,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>In the details pane, click the <strong>Disks</strong> tab.</p>
 </li>
 <li>
-<p>For each disk, use <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>) to <strong>Deactivate</strong> and <strong>Activate</strong> the disk. This action remaps the disks to the controllers.</p>
+<p>For each disk, use <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>) to <strong>Deactivate</strong> and <strong>Activate</strong> the disk. This action remaps the disks to the controllers.</p>
 </li>
 <li>
 <p>Click <b class="button">Run</b> to start the virtual machine.</p>
@@ -17159,7 +17136,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>To see the mapping of disks to controllers, log into the host machine and enter the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code># virsh -r dumpxml virtual_machine_name</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># virsh -r dumpxml virtual_machine_name</code></pre>
 </div>
 </div>
 </li>
@@ -17180,7 +17157,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <div class="sect4">
 <h5 id="uploading-images-to-a-data-storage-domain">Uploading Images to a Data Storage Domain</h5>
 <div class="paragraph">
-<p>You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a>.</p>
+<p>You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> for details.</p>
 </div>
 </div>
 <div class="sect4">
@@ -17255,7 +17232,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Click the storage domain&#8217;s name. This opens the details view.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Scan Disks</strong> so that the Engine can identify unregistered disks.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Scan Disks</strong> so that the Engine can identify unregistered disks.</p>
 </li>
 <li>
 <p>Click the <strong>Disk Import</strong> tab.</p>
@@ -17334,7 +17311,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Click <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Disks</b></span> and select the disks to export.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Export</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Export</strong>.</p>
 </li>
 <li>
 <p>From the <strong>Domain Name</strong> drop-down list, select the OpenStack Image Service to which the disks will be exported.</p>
@@ -17390,7 +17367,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Click the <strong>Disks</strong> tab. Ensure that the disk&#8217;s status is <code>OK</code>.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Sparsify</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Sparsify</strong>.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -18067,7 +18044,7 @@ oVirt OVN provider password[empty]:</pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p>To configure your hosts to use an existing, non-default network, see <a href="#Configuring_Hosts_for_an_OVN_tunnel_network">Updating the OVN Tunnel Network on a Single Host</a>.</p>
+<p>To configure your hosts to use an existing, non-default network, see <a href="#Configuring_Hosts_for_an_OVN_tunnel_network">Configuring Hosts for an OVN tunnel network</a>.</p>
 </li>
 </ul>
 </div>
@@ -18607,7 +18584,7 @@ oVirt OVN provider password[empty]:</pre>
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select any self-hosted engine node.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Enable Global HA Maintenance</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Enable Global HA Maintenance</strong>.</p>
 </li>
 </ol>
 </div>
@@ -18620,7 +18597,7 @@ oVirt OVN provider password[empty]:</pre>
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select any self-hosted engine node.</p>
 </li>
 <li>
-<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions"></span>), then click <strong>Disable Global HA Maintenance</strong>.</p>
+<p>Click <strong>More Actions</strong> (<span class="image"><img src="common/images/moreactions.png" alt="moreactions" title="More Actions menu"></span>), then click <strong>Disable Global HA Maintenance</strong>.</p>
 </li>
 </ol>
 </div>
@@ -18777,7 +18754,7 @@ broker : 25, type : broker</pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>To verify that SMTP has been properly configured for your self-hosted engine environment, change the HA state on a self-hosted engine node and check if email notifications were sent. For example, you can change the HA state by placing HA agents into maintenance mode. See <a href="#Maintaining_the_Self-Hosted_Engine">Maintaining the Self-hosted engine</a> for more information.</p>
+<p>To verify that SMTP has been properly configured for your self-hosted engine environment, change the HA state on a self-hosted engine node and check if email notifications were sent. For example, you can change the HA state by placing HA agents into maintenance mode. See <a href="#Maintaining_the_Self-Hosted_Engine">Maintaining the Self-Hosted Engine</a> for more information.</p>
 </div>
 </div>
 </div>
@@ -18787,7 +18764,7 @@ broker : 25, type : broker</pre>
 <p>If the Engine virtual machine shuts down or needs to be migrated, there must be enough memory on a self-hosted engine node for the Engine virtual machine to restart on or migrate to it. This memory can be reserved on multiple self-hosted engine nodes by using a scheduling policy. The scheduling policy checks if enough memory to start the Engine virtual machine will remain on the specified number of additional self-hosted engine nodes before starting or migrating any virtual machines. See <a href="https://ovirt.org/documentation/administration_guide/index#Creating_a_Scheduling_Policy">Creating a Scheduling Policy</a> in the <em>Administration Guide</em> for more information about scheduling policies.</p>
 </div>
 <div class="paragraph">
-<p>To add more self-hosted engine nodes to the oVirt Engine, see <a href="#Adding_self-hosted_engine_nodes_to_the_Manager_SHE_admin">Adding Self-Hosted Engine Nodes to the oVirt Engine</a>.</p>
+<p>To add more self-hosted engine nodes to the oVirt Engine, see <a href="#Adding_self-hosted_engine_nodes_to_the_Manager_SHE_admin">Adding self-hosted engine nodes to the Engine</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts</strong></p>
@@ -19296,7 +19273,7 @@ and disable global maintenance mode:</p>
 <p>You can use the <code>ovirt-engine-rename</code> command to update records of the fully qualified domain name (FQDN) of the Engine.</p>
 </div>
 <div class="paragraph">
-<p>For details see <a href="#Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool">Renaming the Engine with the oVirt Engine Rename Tool</a>.</p>
+<p>For details see <a href="#Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool">Renaming the Engine with the Ovirt Engine Rename Tool</a>.</p>
 </div>
 </div>
 </div>
@@ -19921,7 +19898,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>Remove the self-hosted engine configuration from a node (but do not remove the node from the environment). See <a href="#Removing_a_Host_from_a_Self-Hosted_Engine_Environment">Removing a Host from a Self-Hosted Engine Environment</a>.</p>
 </li>
 <li>
-<p>Add a new regular host. See <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding Standard Hosts to the oVirt Engine</a>.</p>
+<p>Add a new regular host. See <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding standard hosts to the Engine host tasks</a>.</p>
 </li>
 </ul>
 </div>
@@ -21036,7 +21013,7 @@ For oVirt 4.4:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>For more information about <code>engine-backup --mode=restore</code> options, see <a href="#sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager">Backing Up and Restoring the oVirt Engine</a>.</p>
+<p>For more information about <code>engine-backup --mode=restore</code> options, see <a href="#sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager">Backing Up and Restoring the Engine</a>.</p>
 </div>
 <div class="sect5">
 <h6 id="Enabling_Global_Maintenance_Mode_SHE_overwrite">Enabling global maintenance mode</h6>
@@ -21821,7 +21798,7 @@ Engine database password: _password_</code></pre>
 <div class="title">Procedure: Backing Up a Virtual Machine</div>
 <ol class="arabic">
 <li>
-<p>Create a backup domain. See <a href="#Setting_a_storage_domain_to_be_a_backup_domain_backup_domain">Setting a data storage domain to be a backup domain</a>.</p>
+<p>Create a backup domain. See <a href="#Setting_a_storage_domain_to_be_a_backup_domain_backup_domain">Setting a storage domain to be a backup domain backup domain</a>.</p>
 </li>
 <li>
 <p>Create a new virtual machine based on the virtual machine you want to back up:</p>
@@ -21859,10 +21836,10 @@ Engine database password: _password_</code></pre>
 <p><a href="#Importing_storage_domains">Importing storage domains</a></p>
 </li>
 <li>
-<p><a href="#Migrating_SD_between_DC_Same_Env">Migrating Storage Domains between Data Centers in the Same Environment</a></p>
+<p><a href="#Migrating_SD_between_DC_Same_Env">Migrating storage domains between data centers in same environment</a></p>
 </li>
 <li>
-<p><a href="#Migrating_SD_between_DC_different_env">Migrating Storage Domains between Data Centers in Different Environments</a></p>
+<p><a href="#Migrating_SD_between_DC_different_env">Migrating storage domains between data centers in different environments</a></p>
 </li>
 </ul>
 </div>
@@ -23449,7 +23426,7 @@ transfer URL.</p>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#Configuring_Satellite_Errata_Management_for_a_Host">Setting up Satellite errata viewing for a host</a></p>
+<p><a href="#Configuring_Satellite_Errata_Management_for_a_Host">Configuring Satellite Errata Management for a Host</a></p>
 </li>
 <li>
 <p><a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux">Installing the Guest Agents, Tools, and Drivers on Linux</a> in the <em>Virtual Machine Management Guide</em> for Enterprise Linux virtual machines.</p>
@@ -23779,7 +23756,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <p>The <strong>ovirt-engine-extension-aaa-ldap</strong> extension allows users to customize their external directory setup easily. The <strong>ovirt-engine-extension-aaa-ldap</strong> extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.</p>
 </div>
 <div class="paragraph">
-<p>If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See <a href="#Configuring_an_External_LDAP_Provider_ManualMethod">Configuring an External LDAP Provider (Manual Method)</a> for more information.</p>
+<p>If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See <a href="#Configuring_an_External_LDAP_Provider_ManualMethod">Configuring an External LDAP Provider</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>For an Active Directory example, see <a href="#Attaching_an_Active_Directory">Attaching an Active Directory</a>.</p>
@@ -23818,7 +23795,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 </div>
 </li>
 <li>
-<p>Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at <a href="#Attaching_an_Active_Directory">Attaching an Active Directory</a>.</p>
+<p>Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at <a href="#Attaching_an_Active_Directory">Attaching_an_Active_Directory</a>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">Available LDAP implementations:
@@ -23980,11 +23957,9 @@ Enter search user password:</code></pre>
 <pre class="CodeRay highlight"><code data-lang="terminal">Please specify profile name that will be visible to users: _redhat.com_</code></pre>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AAA_login_profile.png" alt="AAA login profile">
-</div>
-<div class="title">Figure 14. The Administration Portal Login Page</div>
+<div class="paragraph">
+<div class="title">The Administration Portal Login Page</div>
+<p><span class="image"><img src="images/AAA_login_profile.png" alt="AAA login profile" title="Administration Portal Login Page"></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -24064,7 +24039,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 </div>
 </li>
 <li>
-<p>Restart the <code>ovirt-engine</code> service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Administering User Tasks From the Administration Portal</a>.</p>
+<p>Restart the <code>ovirt-engine</code> service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Engine User Tasks</a>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
@@ -24114,7 +24089,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 <p>You need to either add the DNS server that can resolve the Active Directory forest name to the <strong>/etc/resolv.conf</strong> file on the Engine, or note down the Active Directory DNS servers and enter them when prompted by the interactive setup script.</p>
 </li>
 <li>
-<p>To set up secure connection between the LDAP server and the Engine, ensure a PEM-encoded CA certificate has been prepared. See <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a> for more information.</p>
+<p>To set up secure connection between the LDAP server and the Engine, ensure a PEM-encoded CA certificate has been prepared. See <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Manager and an LDAP Server</a> for more information.</p>
 </li>
 <li>
 <p>Unless anonymous search is supported, a user with permissions to browse all users and groups must be available on the Active Directory to be used as the search user. Note down the search user&#8217;s distinguished name (DN). Do not use the administrative user for the Active Directory.</p>
@@ -24204,7 +24179,7 @@ Please enter the password:</code></pre>
 <p>LDAPS stands for Lightweight Directory Access Protocol Over Secure Socket Links. For SSL connections, select the <code>ldaps</code> option.</p>
 </div>
 <div class="paragraph">
-<p>For more information on creating a PEM-encoded CA certificate, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
+<p>For more information on creating a PEM-encoded CA certificate, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -24235,11 +24210,9 @@ Enter search user password:</code></pre>
 <pre class="CodeRay highlight"><code data-lang="terminal">Please specify profile name that will be visible to users:__redhat.com__</code></pre>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AAA_login_profile.png" alt="AAA login profile">
-</div>
-<div class="title">Figure 15. The Administration Portal Login Page</div>
+<div class="paragraph">
+<div class="title">The Administration Portal Login Page</div>
+<p><span class="image"><img src="images/AAA_login_profile.png" alt="AAA login profile" title="Administration Portal Login Page"></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -24295,7 +24268,7 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 </div>
 </li>
 <li>
-<p>The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Administering User Tasks From the Administration Portal</a>.</p>
+<p>The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Engine User Tasks</a>.</p>
 </li>
 </ol>
 </div>
@@ -24403,7 +24376,7 @@ pool.default.auth.simple.password = ${global:vars.password}</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
+<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -24490,7 +24463,7 @@ config.profile.file.1 = ../aaa/_example_.properties</code></pre>
 </div>
 </li>
 <li>
-<p>The <em>example</em> profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Administering User Tasks From the Administration Portal</a>.</p>
+<p>The <em>example</em> profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see <a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">Engine User Tasks</a>.</p>
 </li>
 </ol>
 </div>
@@ -24816,7 +24789,7 @@ pool.default.auth.simple.password = ${global:vars.password}</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
+<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up SSL or TLS Connections between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -25587,7 +25560,7 @@ user added successfully</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>You can add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </div>
 </div>
 <div class="sect4">
@@ -25780,7 +25753,7 @@ user updated successfully</pre>
 <p>Log in to the machine on which the oVirt Engine is installed.</p>
 </li>
 <li>
-<p>Make sure another user with the <strong>SuperUser</strong> role has been added to the environment. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>Make sure another user with the <strong>SuperUser</strong> role has been added to the environment. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </li>
 <li>
 <p>Disable the default <strong>admin</strong> user:</p>
@@ -25862,7 +25835,7 @@ user updated successfully</pre>
 </div>
 </li>
 <li>
-<p>Add the newly created group in the Administration Portal and assign the group appropriate roles and permissions. The users in the group inherit the roles and permissions of the group. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>Add the newly created group in the Administration Portal and assign the group appropriate roles and permissions. The users in the group inherit the roles and permissions of the group. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -25902,7 +25875,7 @@ user updated successfully</pre>
 </div>
 </li>
 <li>
-<p>Add the first group in the Administration Portal and assign the group appropriate roles and permissions. See <a href="#Adding_users">Adding Users and Assigning VM Portal Permissions</a> for more information.</p>
+<p>Add the first group in the Administration Portal and assign the group appropriate roles and permissions. See <a href="#Adding_users">Adding users</a> for more information.</p>
 </li>
 </ol>
 </div>
@@ -27688,10 +27661,8 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <div class="paragraph">
 <p>The following is an example of how to add USB Class <code>Smartcard</code>, device <code>EP-1427X-2 Ethernet Adapter</code>, from manufacturer <code>Acer Communications &amp; Multimedia</code> to the list of allowed devices.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/306.png" alt="306">
-</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/306.png" alt="306" title="Adding a Device"></span></p>
 </div>
 </div>
 </div>
@@ -28306,7 +28277,7 @@ For example, run:</p>
 <div class="sect4">
 <h5 id="Grafana_overview">Grafana overview</h5>
 <div class="paragraph">
-<p>Grafana is a web-based UI tool used to display reports based on data collected from the oVirt Data Warehouse PostgreSQL database under the database name <code>ovirt_engine_history</code>. See <a href="https://grafana.com/grafana/dashboards">Grafana dashboards</a>.</p>
+<p>Grafana is a web-based UI tool used to display reports based on data collected from the oVirt Data Warehouse PostgreSQL database under the database name <code>ovirt_engine_history</code>. For details of the available report dashboards, see <a href="#Grafana_dashboards">Grafana dashboards</a> and <a href="https://grafana.com/grafana/dashboards">Grafana website - dashboards</a>.</p>
 </div>
 <div class="paragraph">
 <p>Data from the Engine is collected every minute and aggregated in hourly and daily aggregations. The data is retained according to the scale setting defined in the Data Warehouse configuration during engine-setup (Basic or Full scale):</p>
@@ -28616,10 +28587,9 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>\
-= Customized Grafana dashboards</p>
 </div>
+<div class="sect4">
+<h5 id="customized-grafana-dashboards">Customized Grafana dashboards</h5>
 <div class="paragraph">
 <p>You can create customized dashboards or copy and modify existing dashboards according to your reporting needs.</p>
 </div>
@@ -29959,7 +29929,7 @@ else:
 <div class="sect2">
 <h3 id="VDSM_hooks_return_codes">VDSM Hook Return Codes</h3>
 <div class="paragraph">
-<p>Hook scripts must return one of the return codes shown in <a href="#hook-return-codes">Hook Return Codes</a>. The return code will determine whether further hook scripts are processed by VDSM.</p>
+<p>Hook scripts must return one of the return codes shown in <a href="#hook-return-codes">hook return codes</a>. The return code will determine whether further hook scripts are processed by VDSM.</p>
 </div>
 <table id="hook-return-codes" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 83. Hook Return Codes</caption>
@@ -30487,11 +30457,9 @@ api.ready();</code></pre>
 <div class="paragraph">
 <p>If you have successfully implemented the <strong>Hello World!</strong> plug-in, you will see this screen when you sign in to the Administration Portal:</p>
 </div>
-<div id="ui-plugin-hello-world-success" class="imageblock">
-<div class="content">
-<img src="images/1475.png" alt="1475">
-</div>
-<div class="title">Figure 16. A Successful Implementation of the <strong>Hello World!</strong> Plug-in</div>
+<div id="ui-plugin-hello-world-success" class="paragraph">
+<div class="title">A Successful Implementation of the <strong>Hello World!</strong> Plug-in</div>
+<p><span class="image"><img src="images/1475.png" alt="1475" title="Successful Implementation notice"></span></p>
 </div>
 </div>
 </div>
@@ -30613,7 +30581,7 @@ api.ready();</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For more information, see <a href="#Maintaining_the_Self-Hosted_Engine">Maintaining the Self-hosted engine</a>.</p>
+<p>For more information, see <a href="#Maintaining_the_Self-Hosted_Engine">Maintaining the Self-Hosted Engine</a>.</p>
 </div>
 </li>
 <li>

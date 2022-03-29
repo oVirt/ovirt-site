@@ -16,7 +16,7 @@ include::topics/Read_Only_Disks.adoc[leveloffset=+1]
 == Virtual Disk Tasks
 
 :context: virtual_disk_tasks
-
+:virtual_disk_tasks:
 include::topics/Creating_a_Virtual_Disk.adoc[leveloffset=+2]
 
 include::topics/Explanation_of_Settings_in_the_New_Virtual_Disk_Window.adoc[leveloffset=+2]
@@ -31,9 +31,13 @@ include::topics/Copying_a_Virtual_Disk.adoc[leveloffset=+2]
 
 include::topics/proc_improving_disk_performance.adoc[leveloffset=+2]
 
+:virtual_disk_tasks!:
 === Uploading Images to a Data Storage Domain
 
-You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] for details.
+:context: storage_tasks
+:storage_tasks:
+
+You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API. See xref:Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] for details.
 
 include::topics/Importing_a_Disk_Image.adoc[leveloffset=+2]
 
@@ -44,3 +48,5 @@ include::topics/Importing_a_Disk_Image_from_an_OpenStack_Image_Service.adoc[leve
 include::topics/Exporting_a_Virtual_Disk_to_an_OpenStack_Image_Service.adoc[leveloffset=+2]
 
 include::topics/Reclaiming_Virtual_Disk_Space.adoc[leveloffset=+2]
+
+:storage_tasks!:

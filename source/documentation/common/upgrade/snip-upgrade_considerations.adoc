@@ -6,11 +6,11 @@
 
 * When upgrading from Open Virtual Network (OVN) and Open vSwitch (OvS) 2.11 to OVN 2021 and OvS 2.15, the process is transparent to the user as long as the following conditions are met:
 
-** The engine must be upgraded first.
+** The engine is upgraded first.
 ** The ovirt-provider-ovn security groups must be disabled, before the host upgrade, for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.
-** The hosts are upgraded to match OVN version 2021 or higher and OvS version 2.15.
+** The hosts are upgraded to match OVN version 2021 or higher and OvS version 2.15. Complete this step in the Administration Portal, so you can reconfigure OVN and refresh the certificates.
 
 ====
 [NOTE]
-To verify whether the provider and OVN were configured successfully on the host, check the *OVN configured* flag on the *General* tab for the host. If the host's OVN is not confiugred, you can configure it by reinstalling {engine-name} 4.5 or higher.
+To verify whether the provider and OVN were configured successfully on the host, check the *OVN configured* flag on the *General* tab for the host. This value is also available in the REST API. The *OVN configured* flag might remain with a setting of *No* until capabilities are refreshed for the host. If the OVN host's OVN is not configured, you can fix it by reinstalling {engine-name} 4.5 or higher.
 ====

@@ -4,7 +4,7 @@
 
 [NOTE]
 ====
-The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been removed in {virt-product-fullname} 4.4. {org-fullname} recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. See xref:Uploading_Images_to_a_Data_Storage_Domain[Uploading Images to a Data Storage Domain] for details.
+The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been removed in {virt-product-fullname} 4.4. {org-fullname} recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] for details.
 ====
 
 The `virtio-win___version__.iso` image contains the following for Windows virtual machines to improve performance and usability:

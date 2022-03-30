@@ -114,7 +114,7 @@ Please specify profile name that will be visible to users:__redhat.com__
 ----
 +
 .The Administration Portal Login Page
-image:images/AAA_login_profile.png[title="Administration Portal Login Page"]
+image::images/AAA_login_profile.png[Administration Portal Login Page]
 +
 [NOTE]
 ====

@@ -6,6 +6,6 @@ The {virt-product-fullname} {engine-name} provides centralized management for a 
 
 [id="figu-Technical_Reference_Guide-Manager-Red_Hat_Enterprise_Virtualization_Manager_Architecture"]
 .{virt-product-fullname} {engine-name} Architecture
-image:984.png[title="Architecture"]
+image::984.png[Architecture]
 
 The {virt-product-fullname} {engine-name} provides graphical interfaces and an Application Programming Interface (API). Each interface connects to the {engine-name}, an application delivered by an embedded instance of the Red Hat JBoss Enterprise Application Platform. There are a number of other components which support the {virt-product-fullname} {engine-name} in addition to Red Hat JBoss Enterprise Application Platform.

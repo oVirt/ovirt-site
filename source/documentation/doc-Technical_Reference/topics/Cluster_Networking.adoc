@@ -12,7 +12,7 @@ Cluster level networking objects include:
 
 [id="figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster"]
 .Networking within a cluster
-image:1009.png[title="Networking within a cluster"]
+image::1009.png[Networking within a cluster]
 
 A data center is a logical grouping of multiple clusters and each cluster is a logical group of multiple hosts. xref:figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster[Networking within a cluster] depicts the contents of a single cluster.
 

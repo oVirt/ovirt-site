@@ -24,11 +24,11 @@ Permissions enable users to perform actions on objects, where objects are either
 
 [id="rhev-roles-permissions"]
 .Permissions &amp; Roles
-image:images/496.png[title="Permissions and Roles"]
+image::images/496.png[Permissions and Roles]
 
 [id="rhev-object-hierarchy-2"]
 .{virt-product-fullname} Object Hierarchy
-image:images/492.png[title="Object Hierarchy"]
+image::images/492.png[Object Hierarchy]
 
 include::topics/User_properties.adoc[leveloffset=+2]
 
@@ -86,14 +86,14 @@ For detailed information about how scheduling policies work, see link:https://ac
 endif::rhv-doc[]
 
 .Evenly Distributed Scheduling Policy
-image:images/RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png[title="Evenly Distributed Scheduling Policy"]
+image::images/RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png[Evenly Distributed Scheduling Policy]
 
 The *Evenly_Distributed* scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, or *MaxFreeMemoryForOverUtilized*.
 
 The *VM_Evenly_Distributed* scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the *HighVmCount* and there is at least one host with a virtual machine count that falls outside of the *MigrationThreshold*.
 
 .Power Saving Scheduling Policy
-image:images/RHV_SchedulingPolicies_444396_0417_ECE_PowerSaving.png[title="Power Saving Scheduling Policy"]
+image::images/RHV_SchedulingPolicies_444396_0417_ECE_PowerSaving.png[Power Saving Scheduling Policy]
 
 The *Power_Saving* scheduling policy distributes the memory and CPU processing load across a subset of available hosts to reduce power consumption on underutilized hosts. Hosts with a CPU load below the low utilization value for longer than the defined time interval will migrate all virtual machines to other hosts so that it can be powered down. Additional virtual machines attached to a host will not start if that host has reached the defined high utilization value.
 

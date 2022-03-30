@@ -226,9 +226,10 @@ and [Browser Support](/download/browsers_and_mobile.html) for more information.
 
 ## RPM Repositories and GPG keys
 
-### oVirt 4.5 ALPHA
+### oVirt 4.5 BETA
 
 oVirt 4.5 is shipped via CentOS repositories.
+If you are going to install on RHEL 8.6 Beta please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
 In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:
 ```bash

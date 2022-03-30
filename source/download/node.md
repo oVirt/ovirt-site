@@ -14,9 +14,6 @@ Before you start installing oVirt Node be sure to meet requirements on your virt
 [Host Requirements](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#host-requirements) in the
 [Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/) guide.
 
-<!--- You should also check your workstation has a supported web browser for using cockpit, see [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html)
-for the minimum browser requirements. --->
-
 Once ready, see
 [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy) in the
 [Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/)
@@ -37,11 +34,6 @@ This is the site hosting oVirt Node 4.4 images including the latest oVirt 4.4 re
 
 * [Released Installation ISO site](https://resources.ovirt.org/pub/ovirt-4.4/iso/ovirt-node-ng-installer/)
 
-## oVirt Node 4.4 - Pre Release
-
-This is the site hosting oVirt Node 4.4 pre release images including the latest oVirt 4.4 pre release packages.
-
-* [Pre-Release Installation ISO site)](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/ovirt-node-ng-installer/)
 
 ## oVirt Node Master - Latest master, experimental
 

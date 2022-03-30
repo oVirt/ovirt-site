@@ -27,21 +27,21 @@ Examples of the most common Active Directory configurations, which cannot be con
 
 . On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-engine-extension-aaa-ldap-setup
 ----
 +
 . Run `ovirt-engine-extension-aaa-ldap-setup` to start the interactive setup:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-engine-extension-aaa-ldap-setup
 ----
 +
 . Select an LDAP type by entering the corresponding number. The LDAP-related questions after this step are different for different LDAP types.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Available LDAP implementations:
  1 - 389ds
@@ -63,7 +63,7 @@ Please select: 3
 +
 . Enter the Active Directory forest name. If the forest name is not resolvable by your {engine-name}'s DNS, the script prompts you to enter a space-separated list of Active Directory DNS server names.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please enter Active Directory Forest name: _ad-example.redhat.com_
 [ INFO  ] Resolving Global Catalog SRV record for _ad-example.redhat.com_
@@ -72,7 +72,7 @@ Please enter Active Directory Forest name: _ad-example.redhat.com_
 +
 . Select the secure connection method your LDAP server supports and specify the method to obtain a PEM-encoded CA certificate. The file option allows you to provide the full path to the certificate. The URL option allows you to specify a URL to the certificate. Use the inline option to paste the content of the certificate in the terminal. The system option allows you to specify the location for all CA files. The insecure option allows you to use startTLS in insecure mode.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 NOTE:
 It is highly recommended to use secure protocol to access the LDAP server.
@@ -93,7 +93,7 @@ For more information on creating a PEM-encoded CA certificate, see xref:Setting_
 +
 . Enter the search user distinguished name (DN). The user must have permissions to browse all users and groups on the directory server. The search user must be of LDAP annotation. If anonymous search is allowed, press `Enter` without any input.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Enter search user DN (empty for anonymous): _cn=user1,ou=Users,dc=test,dc=redhat,dc=com_
 Enter search user password:
@@ -101,14 +101,14 @@ Enter search user password:
 +
 . Specify whether to use single sign-on for virtual machines. This feature is enabled by default, but cannot be used if single sign-on to the Administration Portal is enabled. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Configuring_Single_Sign-On_for_Virtual_Machines[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:
 ----
 +
 . Specify a profile name. The profile name is visible to users on the login page. This example uses `redhat.com`.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please specify profile name that will be visible to users:__redhat.com__
 ----

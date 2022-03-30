@@ -14,7 +14,7 @@ Although you can wait to reboot the virtual machines at a convenient time, reboo
 
 . Check which virtual machines require a reboot. In the *Vms:* search bar, enter the following query:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 next_run_config_exists=True
 ----

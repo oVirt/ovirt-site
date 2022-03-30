@@ -37,7 +37,7 @@ A progress bar indicates the status of the upload. You can pause, cancel, or res
 ====
 If the upload times out with the message, *Reason: timeout due to transfer inactivity*, increase the timeout value and restart the `ovirt-engine` service:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000
 # systemctl restart ovirt-engine

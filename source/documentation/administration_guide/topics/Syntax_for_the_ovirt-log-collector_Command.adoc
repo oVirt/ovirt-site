@@ -4,7 +4,7 @@
 
 The basic syntax for the log collector command is:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-log-collector _options_  list _all|clusters|datacenters_
 # ovirt-log-collector _options_ collect

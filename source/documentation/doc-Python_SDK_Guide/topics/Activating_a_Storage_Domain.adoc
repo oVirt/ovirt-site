@@ -59,7 +59,7 @@ connection.close()
 
 If the `activate` requests are successful, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Activated storage domain 'mydata' in data center 'Default' (Status: active).
 ----

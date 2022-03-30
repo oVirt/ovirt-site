@@ -6,14 +6,14 @@
 
 . Stop the Data Warehouse service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl stop ovirt-engine-dwhd.service
 ----
 +
 . If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the [filename]`/var/lib/pgsql/data/postgresql.conf` file and modify the listen_addresses line so that it matches the following:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 listen_addresses = '*'
 ----
@@ -23,7 +23,7 @@ If the database is hosted on the {engine-name} machine and was configured during
 
 . Restart the postgresql service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart postgresql
 ----

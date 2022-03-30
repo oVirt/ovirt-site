@@ -4,7 +4,7 @@
 
 You can set the user timeout period:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config --set UserSessionTimeOutInterval=_integer_
 ----

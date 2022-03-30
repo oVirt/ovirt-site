@@ -6,7 +6,7 @@ The order of the options or settings shown in this section may differ depending 
 
 . If you are migrating both the `ovirt_engine_history` database and the Data Warehouse service to the *same* machine, run the following, otherwise proceed to the next step.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sed -i '/^ENGINE_DB_/d' \
         /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
@@ -19,21 +19,21 @@ The order of the options or settings shown in this section may differ depending 
 
 . Run the `engine-setup` command to begin configuration of Data Warehouse on the machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-setup
 ----
 
 . Press *Enter* to accept the automatically detected host name, or enter an alternative host name and press *Enter*:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Host fully qualified DNS name of this server [_autodetected host name_]:
 ----
 
 . Press `Enter` to automatically configure the firewall, or type `No` and press `Enter` to maintain existing settings:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 
 ----
 Setup can automatically configure the firewall on this system.
@@ -44,7 +44,7 @@ If you choose to automatically configure the firewall, and no firewall managers 
 
 . Enter the fully qualified domain name and password for the {engine-name}. Press *Enter* to accept the default values in each other field:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Host fully qualified DNS name of the engine server []: _engine-fqdn_
 Setup needs to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
@@ -58,7 +58,7 @@ root password on remote engine server _engine-fqdn_: _password_
 
 . Enter the FQDN and password for the {engine-name} database machine. Press `Enter` to accept the default values in each other field:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Engine database host []: _manager-db-fqdn_
 Engine database port [5432]:
@@ -70,7 +70,7 @@ Engine database password: _password_
 
 . Confirm your installation settings:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please confirm installation settings (OK, Cancel) [OK]:
 ----

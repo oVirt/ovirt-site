@@ -11,13 +11,13 @@
 . Stop the service running on the machine:
 * When upgrading the {engine-name} database, stop the `ovirt-engine` service on the {engine-name} machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl stop ovirt-engine
 ----
 * When upgrading the Data Warehouse database, stop the `ovirt-engine-dwhd` service on the Data Warehouse machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl stop ovirt-engine-dwhd
 ----
@@ -27,14 +27,14 @@
 ifdef::rhv-doc[]
 Enable either the {virt-product-fullname} {engine-name} repository:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos --enable=rhel-7-server-rhv-4.3-manager-rpms
 ----
 +
 or the SCL repository:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos --enable rhel-server-rhscl-7-rpms
 ----
@@ -42,7 +42,7 @@ endif::[]
 ifdef::ovirt-doc[]
 * Ensure the correct repositories are enabled:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 ----
@@ -88,14 +88,14 @@ enabled; vendor preset: disabled)
 
 . Copy the [filename]`pg_hba.conf` client configuration file from the PostgreSQL 9.5 environment to the PostgreSQL 10 environment:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp -p /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf  /var/opt/rh/rh-postgresql10/lib/pgsql/data/pg_hba.conf
 ----
 
 . Update the following parameters in [filename]`/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 listen_addresses='*'
 autovacuum_vacuum_scale_factor=0.01

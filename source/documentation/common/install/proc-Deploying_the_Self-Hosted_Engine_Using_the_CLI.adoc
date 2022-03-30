@@ -48,7 +48,7 @@ By default, this setting uses system-wide crypto policies. For more information,
 
 . Install the deployment tool:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-hosted-engine-setup
 ----
@@ -83,7 +83,7 @@ To escape the script at any time, use the kbd:[Ctrl+D] keyboard combination to a
 
 . When prompted, enter *Yes* to begin the deployment:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Continuing will configure this host for serving as hypervisor and will create a local VM with a running engine.
 The locally running engine will be used to configure a new storage domain and create a VM there.
@@ -93,21 +93,21 @@ Are you sure you want to continue? (Yes, No)[Yes]:
 
 . Configure the network. Check that the gateway shown is correct and press kbd:[Enter]. Enter a pingable address on the same subnet so the script can check the host's connectivity.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please indicate a pingable gateway IP address [X.X.X.X]:
 ----
 
 . The script detects possible NICs to use as a management bridge for the environment. Enter one of them or press kbd:[Enter] to accept the default.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please indicate a nic to set ovirtmgmt bridge on: (ens1, ens0) [ens1]:
 ----
 
 . Specify how to check network connectivity. The default is `dns`.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please specify which way the network connectivity should be checked (ping, dns, tcp, none) [dns]:
 ----
@@ -119,7 +119,7 @@ Please specify which way the network connectivity should be checked (ping, dns, 
 
 . Enter a name for the data center in which to deploy the host for the self-hosted engine. The default name is *Default*.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please enter the name of the data center where you want to deploy this hosted-engine host.
 Data center [Default]:
@@ -127,7 +127,7 @@ Data center [Default]:
 
 . Enter a name for the cluster in which to deploy the host for the self-hosted engine. The default name is *Default*.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please enter the name of the cluster where you want to deploy this hosted-engine host.
 Cluster [Default]:
@@ -136,7 +136,7 @@ Cluster [Default]:
 . If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
 . To deploy with a custom {engine-appliance-name} appliance image, specify the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 If you want to deploy with a custom engine appliance image, please specify the path to the OVA archive you would like to use.
  Entering no value will use the image from the rhvm-appliance rpm, installing it if needed.
@@ -145,7 +145,7 @@ If you want to deploy with a custom engine appliance image, please specify the p
 
 . Enter the CPU and memory configuration for the {engine-name} virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please specify the number of virtual CPUs for the VM. The default is the appliance OVF value [4]:
 Please specify the memory size of the VM in MB. The default is the maximum available [6824]:
@@ -153,7 +153,7 @@ Please specify the memory size of the VM in MB. The default is the maximum avail
 
 . Specify the FQDN for the {engine-name} virtual machine, such as `manager.example.com`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please provide the FQDN you would like to use for the engine.
 Note: This will be the FQDN of the engine VM you are now going to launch,
@@ -163,7 +163,7 @@ Engine VM FQDN []:
 
 . Specify the domain of the {engine-name} virtual machine. For example, if the FQDN is `manager.example.com`, then enter `example.com`.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please provide the domain name you would like to use for the engine appliance.
 Engine VM domain: [example.com]
@@ -171,7 +171,7 @@ Engine VM domain: [example.com]
 
 . Create the root password for the {engine-name}, and reenter it to confirm:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Enter root password that will be used for the engine appliance:
 Confirm appliance root password:
@@ -179,7 +179,7 @@ Confirm appliance root password:
 +
 . Optional: Enter an SSH public key to enable you to log in to the {engine-name} virtual machine as the root user without entering a password, and specify whether to enable SSH access for the root user:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 You may provide an SSH public key, that will be added by the deployment script to the authorized_keys file of the root user in the engine appliance.
 This should allow you passwordless login to the engine machine after deployment.
@@ -197,14 +197,14 @@ Do you want to apply a default OpenSCAP security profile? (Yes, No) [No]:
 
 . Enter a MAC address for the {engine-name} virtual machine, or accept a randomly generated one. If you want to provide the {engine-name} virtual machine with an IP address via DHCP, ensure that you have a valid DHCP reservation for this MAC address. The deployment script will not configure the DHCP server for you.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:3d:34:47]:
 ----
 
 . Enter the {engine-name} virtual machine's networking details:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 How should the engine VM network be configured (DHCP, Static)[DHCP]?
 ----
@@ -217,7 +217,7 @@ If you specified *Static*, enter the IP address of the {engine-name} virtual mac
 * For IPv6, {virt-product-fullname} supports only static addressing.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please enter the IP address to be used for the engine VM [x.x.x.x]:
 Please provide a comma-separated list (max 3) of IP addresses of domain name servers for the engine VM
@@ -226,7 +226,7 @@ Engine VM DNS (leave it empty to skip):
 
 . Specify whether to add entries for the {engine-name} virtual machine and the base host to the virtual machine's `/etc/hosts` file. You must ensure that the host names are resolvable.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Add lines for the appliance itself and for this host to /etc/hosts on the engine VM?
 Note: ensuring that this host could resolve the engine VM hostname is still up to you.
@@ -235,7 +235,7 @@ Add lines to /etc/hosts? (Yes, No)[Yes]:
 
 . Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications. Alternatively, press kbd:[Enter] to accept the defaults:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please provide the name of the SMTP server through which we will send notifications [localhost]:
 Please provide the TCP port number of the SMTP server [25]:
@@ -245,7 +245,7 @@ Please provide a comma-separated list of email addresses which will get notifica
 
 . Create a password for the `admin@internal` user to access the Administration Portal and reenter it to confirm:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Enter engine admin password:
 Confirm engine admin password:
@@ -253,7 +253,7 @@ Confirm engine admin password:
 
 . Specify the hostname of the deployment host:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please provide the hostname of this host on the management network [hostname.example.com]:
 ----
@@ -262,7 +262,7 @@ The script creates the virtual machine. By default, the script first downloads a
 
 . Optional: If you set the variable `he_pause_host: true`, the deployment pauses after adding the deployment host to the {engine-name}. You can now log in from the deployment host to the {engine-name} virtual machine to customize it. You can log in with either the FQDN or the IP address of the {engine-name}. For example, if the FQDN of the {engine-name} is `manager.example.com`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ ssh \root@manager.example.com
 ----
@@ -278,14 +278,14 @@ In the installation log, the IP address is in `local_vm_ip`. The installation lo
 
 .  Select the type of storage to use:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs)[nfs]:
 ----
 +
 * For NFS, enter the version, full address and path to the storage, and any mount options:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please specify the nfs version you would like to use (auto, v3, v4, v4_1)[auto]:
 Please specify the full shared storage connection path to use (example: host:/path): _storage.example.com:/hosted_engine/nfs_
@@ -329,7 +329,7 @@ Please select the destination LUN (1) [1]:
 ====
 Only replica 1 and replica 3 Gluster storage are supported. Ensure you configure the volume as follows:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 gluster volume set _VOLUME_NAME_ group virt
 gluster volume set _VOLUME_NAME_ performance.strict-o-direct on
@@ -340,7 +340,7 @@ gluster volume set _VOLUME_NAME_ network.ping-timeout 30
 ----
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please specify the full shared storage connection path to use (example: host:/path): _storage.example.com:/hosted_engine/gluster_volume_
 If needed, specify additional mount options for the connection to the hosted-engine storage domain []:

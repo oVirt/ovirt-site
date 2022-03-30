@@ -35,7 +35,7 @@ To find the optimal number of threads, benchmark the performance of your virtual
 * To see which controllers have an I/O thread, click *Vm Devices* in the details pane and look for `ioThreadid=` in the *Spec Params* column.
 * To see the mapping of disks to controllers, log into the host machine and enter the following command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # virsh -r dumpxml virtual_machine_name
 ----

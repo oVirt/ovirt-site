@@ -22,7 +22,7 @@ These problems exist on other virtualization platforms and timing should always 
 The Network Time Protocol (NTP) daemon should be running on the host and the virtual machines. Enable the `ntpd` service and add it to the default startup sequence:
 
 * For {enterprise-linux} 6						
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # service ntpd start
 # chkconfig ntpd on
@@ -30,7 +30,7 @@ The Network Time Protocol (NTP) daemon should be running on the host and the vir
 
 
 * For {enterprise-linux} 7						
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl start ntpd.service
 # systemctl enable ntpd.service
@@ -47,7 +47,7 @@ The NTP servers you are trying to use must be operational and accessible to your
 
 Your CPU has a constant Time Stamp Counter if the `constant_tsc` flag is present. To determine if your CPU has the `constant_tsc` flag run the following command:
 	
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ cat /proc/cpuinfo | grep constant_tsc
 
@@ -65,7 +65,7 @@ These instructions are for AMD revision F CPUs only.
 ====
 If the CPU lacks the `constant_tsc` bit, disable all power management features (link:https://bugzilla.redhat.com/show_bug.cgi?id=513138[BZ#513138]). Each system has several timers it uses to keep time. The TSC is not stable on the host, which is sometimes caused by `cpufreq` changes, deep C state, or migration to a host with a faster TSC. Deep C sleep states can stop the TSC. To prevent the kernel using deep C states append "`processor.max_cstate=1`" to the kernel boot options in the `grub.conf` file on the host:
 	
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 term {enterprise-linux} Server (2.6.18-159.el5)
         root (hd0,0)

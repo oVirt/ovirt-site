@@ -11,7 +11,7 @@ You can disable users on the local domains including the *admin@internal* user c
 . Make sure another user with the *SuperUser* role has been added to the environment. See xref:Adding_users[Adding users] for more information.
 . Disable the default *admin* user:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool user edit `admin` --flag=+disabled
 ----

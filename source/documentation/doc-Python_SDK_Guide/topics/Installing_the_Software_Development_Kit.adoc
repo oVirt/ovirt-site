@@ -6,7 +6,7 @@ To install the Python software development kit:
 
 . Enable the repositories that are link:{URL_downstream_virt_product_docs}package_manifest/index[appropriate for your hardware platform]. For example, for x86-64 hardware, enable:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos \
     --enable=rhel-8-for-x86_64-baseos-rpms \
@@ -16,7 +16,7 @@ To install the Python software development kit:
 
 . Install the required packages:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install python3-ovirt-engine-sdk4
 ----

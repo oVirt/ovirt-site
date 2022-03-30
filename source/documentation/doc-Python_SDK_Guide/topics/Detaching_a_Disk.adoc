@@ -47,7 +47,7 @@ connection.close()
 
 If the `delete` or `remove` request is successful, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Detached disk vm1_disk1 successfully!
 ----

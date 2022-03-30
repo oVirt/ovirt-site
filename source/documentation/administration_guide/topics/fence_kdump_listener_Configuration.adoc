@@ -17,7 +17,7 @@ The edited values must also be changed in `engine-config` as outlined in the fen
 +
 . Restart the fence_kdump listener:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-fence-kdump-listener.service
 ----

@@ -13,7 +13,7 @@
 ifdef::4-3_SHE[that has the 4.4 {engine-name} running on it]
  and disable global maintenance mode:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=none
 ----
@@ -31,7 +31,7 @@ endif::4-3_SHE[]
 
 . Confirm that the environment is running:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --vm-status
 ----

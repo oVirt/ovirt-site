@@ -16,21 +16,21 @@ The `virt-v2v` package is not available on ppc64le architecture; these hosts can
 . Enable public key authentication between the proxy host and the RHEL 5 Xen host:
 .. Log in to the proxy host and generate SSH keys for the *vdsm* user.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh-keygen
 ----
 +
 .. Copy the *vdsm* user's public key to the RHEL 5 Xen host. The proxy host's *known_hosts* file will also be updated to include the host key of the RHEL 5 Xen host.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh-copy-id root@_xenhost.example.com_
 ----
 +
 .. Log in to the RHEL 5 Xen host to verify that the login works correctly.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh root@_xenhost.example.com_
 ----

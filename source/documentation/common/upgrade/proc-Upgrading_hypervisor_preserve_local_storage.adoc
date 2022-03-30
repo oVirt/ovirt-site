@@ -30,7 +30,7 @@ When selecting the device on which to install {hypervisor-shortname} from the *I
 
 If you are using Kickstart to install the host, ensure that you preserve the devices containing the virtual machines by adding the following to the Kickstart file, replacing _`device`_ with the relevant device.
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # clearpart --all --drives=_device_
 ----
@@ -40,21 +40,21 @@ For more information on using Kickstart, see link:{URL_rhel_docs_latest}html-sin
 
 . On the reinstalled host, create a directory, for example [filename]`/data` in which to recover the previous environment.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mkdir /data
 ----
 
 . Mount the previous local storage in the new directory. In our example, [filename]`/dev/sdX1` is the local storage:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mount /dev/sdX1 /data
 ----
 
 . Set the following permissions for the new directory.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown -R 36:36 /data
 # chmod -R 0755 /data
@@ -62,7 +62,7 @@ For more information on using Kickstart, see link:{URL_rhel_docs_latest}html-sin
 
 . {org-fullname} recommends that you also automatically mount the local storage via [filename]`/etc/fstab` in case the server requires a reboot:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # blkid | grep -i sdX1
 /dev/sdX1: UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" TYPE="ext4"
@@ -78,7 +78,7 @@ UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0     
 
 . On the host, create a new directory that will be used to create the initial local storage domain. For example:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mkdir -p /localfs
 # chown 36:36 /localfs

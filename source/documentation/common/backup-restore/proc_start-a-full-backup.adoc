@@ -13,14 +13,14 @@ Starting a full backup requires a request call with a body, and includes a respo
 
 . Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id `123` like this:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 POST /ovirt-engine/api/vms/123/backups
 ----
 
 . In the request body, specify a disk to back up. For example, to start a full backup of a disk with id `456`, send the following request body:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 <backup>
     <disks>
@@ -32,7 +32,7 @@ POST /ovirt-engine/api/vms/123/backups
 +
 The response body should look similar to this:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 <backup id="789">
     <disks>

@@ -10,7 +10,7 @@ endif::[]
 
 . Enable the `pki-deps` module.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 # dnf module -y enable pki-deps
@@ -18,7 +18,7 @@ endif::[]
 
 . Ensure that all packages currently installed are up to date:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf upgrade --nobest
 ----
@@ -26,7 +26,7 @@ endif::[]
 +
 . Install the `ovirt-engine-dwh-setup` package:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-engine-dwh-setup
 ----

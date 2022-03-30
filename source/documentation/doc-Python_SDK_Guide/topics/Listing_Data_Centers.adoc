@@ -34,7 +34,7 @@ connection.close()
 
 In an environment where only the `Default` data center exists, and it is not activated, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Default (00000000-0000-0000-0000-000000000000)
 ----

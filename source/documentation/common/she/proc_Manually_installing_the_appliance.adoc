@@ -15,7 +15,7 @@ However, you can install the appliance manually on the deployment host beforehan
 . On {enterprise-linux-host-fullname}s:
 .. Reset the `virt` module:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 # dnf module reset virt
@@ -37,7 +37,7 @@ include::../install/snip-Enable_virt_module.adoc[]
 +
 . Synchronize installed packages to update them to the latest available versions:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf distro-sync --nobest
 ----
@@ -45,14 +45,14 @@ include::../install/snip-Enable_virt_module.adoc[]
 . Install the {engine-appliance-name} to the host manually:
 +
 ifdef::rhv-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install rhvm-appliance
 ----
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-engine-appliance
 ----

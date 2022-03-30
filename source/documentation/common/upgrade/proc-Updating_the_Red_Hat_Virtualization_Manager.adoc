@@ -56,13 +56,13 @@ endif::upgrade[]
 . Update the setup packages:
 +
 ifdef::rhv-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum update ovirt\\*setup\* rh\*vm-setup-plugins
 ----
 endif::[]
 ifdef::ovirt-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum update ovirt\\*setup\*
 ----

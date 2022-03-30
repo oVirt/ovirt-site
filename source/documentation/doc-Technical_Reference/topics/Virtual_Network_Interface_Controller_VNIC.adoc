@@ -19,7 +19,7 @@ Once created, vNICs are added to a network bridge device. The network bridge dev
 Running the `ip addr show` command on a virtualization host shows all of the vNICs that are associated with virtual machines on that host. Also visible are any network bridges that have been created to back logical networks, and any NICs used by the host.
 
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 [root@rhev-host-01 ~]# ip addr show
@@ -60,7 +60,7 @@ The console output from the command shows several devices: one loop back device 
 vNICs are all members of a network bridge device and logical network. Bridge membership can be displayed using the `brctl show` command:
 
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 [root@rhev-host-01 ~]# brctl show

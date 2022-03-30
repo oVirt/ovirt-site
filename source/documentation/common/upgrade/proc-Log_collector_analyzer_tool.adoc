@@ -38,7 +38,7 @@ By default, the report is saved to a file called `analyzer_report.html`.
 +
 To save the file to a specific location, use the `--html` flag and specify the location:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # rhv-log-collector-analyzer --live --html=/_directory_/_filename_.html
 ----

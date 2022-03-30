@@ -8,21 +8,21 @@ To use a {enterprise-linux} machine as a host, you must register the system with
 
 . Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager register
 ----
 +
 . Find the `{enterprise-linux} Server` and `{virt-product-fullname}` subscription pools and record the pool IDs:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager list --available
 ----
 +
 . Use the pool IDs to attach the subscriptions to the system:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager attach --pool=_poolid_
 ----
@@ -30,12 +30,12 @@ To use a {enterprise-linux} machine as a host, you must register the system with
 [NOTE]
 ====
 To view currently attached subscriptions:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager list --consumed
 ----
 To list all enabled repositories:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf repolist
 ----
@@ -43,7 +43,7 @@ To list all enabled repositories:
 
 . Configure the repositories:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos \
     --disable='*' \
@@ -60,7 +60,7 @@ ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
 //Not supported for SHE (doesn't appear as an option in the deployment)
 For {enterprise-linux} 8 hosts, little endian, on IBM POWER8 or IBM POWER9 hardware:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos \
     --disable='*' \
@@ -75,7 +75,7 @@ endif::SM_localDB_deploy,SM_remoteDB_deploy[]
 ifdef::SHE_deployment_host[]
 . Reset the `virt` module:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 # dnf module reset virt
@@ -99,7 +99,7 @@ endif::SHE_deployment_host[]
 +
 . Ensure that all packages currently installed are up to date:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf upgrade --nobest
 ----

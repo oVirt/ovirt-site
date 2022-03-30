@@ -47,7 +47,7 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
 +
 * For AMD, boot the machine, and append `amd_iommu=on` to the end of the `GRUB_CMDLINE_LINUX` line in the *grub* configuration file.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # vi /etc/default/grub
 ...
@@ -70,12 +70,12 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1
 
 . Refresh the *grub.cfg* file and reboot the host for these changes to take effect:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # reboot
 ----

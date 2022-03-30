@@ -9,21 +9,21 @@ Edit the `/etc/X11/xorg.conf` file to enable SPICE for your virtual machine's ta
 
 . Verify that the tablet device is available on your guest:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # /sbin/lsusb -v | grep 'QEMU USB Tablet'
 ----
  If there is no output from the command, do not continue configuring the tablet.
 . Back up `/etc/X11/xorg.conf`: 
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
 ----
 +
 . Make the following changes to `/etc/X11/xorg.conf`:				
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Section "ServerLayout"
 Identifier     "single head configuration"

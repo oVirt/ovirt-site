@@ -14,7 +14,7 @@ You can enable FIPS in a self-hosted engine during deployment when using the com
 
 Verify that FIPS is enabled by entering the command `fips-mode-setup --check` on the host. The command should return `FIPS mode is enabled`:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # fips-mode-setup --check
 FIPS mode is enabled.

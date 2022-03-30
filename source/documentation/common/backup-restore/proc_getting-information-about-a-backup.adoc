@@ -19,14 +19,14 @@ When the value of <status> is `ready`, the response includes <to_checkpoint_id> 
 
 * To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 GET /ovirt-engine/api/vms/456/backups/123
 ----
 +
 The response includes the backup with id 456, with <from_checkpoint_id> 999 and <to_checkpoint_id> 666. The disks included in the backup are referenced in the <link> element.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 <backup id="456">
     <from_checkpoint_id>999</from_checkpoint_id>

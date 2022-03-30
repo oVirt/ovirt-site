@@ -13,7 +13,7 @@ Changing the `firewalld` zone is not supported.
 
 . On the {engine-name} machine, edit *ovirt-host-deploy-post-tasks.yml.example* to add a custom firewall port:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # vi /etc/ovirt-engine/ansible/ovirt-host-deploy-post-tasks.yml.example
 ---

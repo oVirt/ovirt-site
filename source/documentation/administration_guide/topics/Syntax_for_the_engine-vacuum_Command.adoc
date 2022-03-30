@@ -4,12 +4,12 @@
 
 The basic syntax for the `engine-vacuum` command is:
 	
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-vacuum
 ----
 	
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-vacuum _option_
 ----
@@ -37,7 +37,7 @@ There are several parameters to further refine the `engine-vacuum` command.
 
 *`-t _table_name_`*:: Vacuums a specific table or tables.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-vacuum -f -v -t vm_dynamic -t vds_dynamic
 ----

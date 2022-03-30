@@ -63,7 +63,7 @@ connection.close()
 
 If the `add` request is successful, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Attached CD to 'vm1'.
 ----
@@ -116,7 +116,7 @@ connection.close()
 
 If the `delete` or `remove` request is successful, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Removed CD from 'vm1'.
 ----

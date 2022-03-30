@@ -58,7 +58,7 @@ connection.close()
 
 For a full list of supported methods, you can generate the documentation for the `ovirtsdk.api` module on the {engine-name} machine:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ pydoc ovirtsdk.api
 ----

@@ -21,7 +21,7 @@ If not, copy the default values for your Windows operating system from */etc/ovi
 .Windows 7 Default Configuration Values
 ====
 							
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # Windows7(11, OsType.Windows, false),false
 os.windows_7.id.value = 11

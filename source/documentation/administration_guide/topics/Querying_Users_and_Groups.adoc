@@ -13,14 +13,14 @@ This procedure shows you how to list all account information.
 . List the account details.
 * All user account details: 
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool query --what=user
 ----
 +
 * All group account details: 
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool query --what=group
 ----
@@ -34,14 +34,14 @@ This procedure shows you how to apply filters when listing account information.
 . Filter account details using the `--pattern` parameter.
 * List user account details with names that start with the character _j_. 
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool query --what=user --pattern="name=_j*_"
 ----
 +
 * List groups that have the department attribute set to _marketing_: 
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool query --what=group --pattern="department=_marketing_"
 ----

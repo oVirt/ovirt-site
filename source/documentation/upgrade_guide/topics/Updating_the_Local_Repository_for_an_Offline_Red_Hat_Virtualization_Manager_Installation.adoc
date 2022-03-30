@@ -8,14 +8,14 @@ If your {virt-product-fullname} {engine-name} is hosted on a machine that receiv
 . On the system hosting the repository, synchronize the repository to download the most recent version of each available package:
 +
 ifdef::rhv-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # reposync --newest-only /var/ftp/pub/rhevrepo
 
 ----
 endif::[]
 ifdef::ovirt-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # reposync --newest-only /var/ftp/pub/ovirtrepo
 

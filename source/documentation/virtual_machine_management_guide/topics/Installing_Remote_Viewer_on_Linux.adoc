@@ -9,7 +9,7 @@ The Remote Viewer application provides users with a graphical console for connec
 
 . Install the `virt-viewer` package:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install virt-viewer
 ----

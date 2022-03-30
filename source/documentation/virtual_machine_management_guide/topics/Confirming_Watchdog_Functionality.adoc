@@ -15,7 +15,7 @@ This procedure is provided for testing the functionality of watchdogs only and m
 . Log in to the virtual machine on which the watchdog card is attached.
 . Confirm that the watchdog card has been identified by the virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # lspci | grep watchdog -i
 ----
@@ -23,14 +23,14 @@ This procedure is provided for testing the functionality of watchdogs only and m
 . Run one of the following commands to confirm that the watchdog is active:
 * Trigger a kernel panic:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # echo c > /proc/sysrq-trigger
 ----
 +
 * Terminate the `watchdog` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # kill -9 `pgrep watchdog`
 ----

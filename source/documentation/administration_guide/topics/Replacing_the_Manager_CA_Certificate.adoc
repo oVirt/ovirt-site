@@ -33,21 +33,21 @@ The internal CA stores the internally generated key and certificate in a P12 fil
 
 . Back up the current `apache.p12` file:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp -p /etc/pki/ovirt-engine/keys/apache.p12 /etc/pki/ovirt-engine/keys/apache.p12.bck
 ----
 +
 . Replace the current file with the new file:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /tmp/apache.p12 /etc/pki/ovirt-engine/keys/apache.p12
 ----
 +
 . Extract the private key and certificate to the required locations. If the file is password protected, you must add `-passin pass:_password_`, replacing _password_ with the required password.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes > /tmp/apache.key
 # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys > /tmp/apache.cer
@@ -65,7 +65,7 @@ For new {virt-product-fullname} installations, you must complete all of the step
 
 .  If you are using a self-hosted engine, put the environment into global maintenance mode.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
@@ -73,7 +73,7 @@ For new {virt-product-fullname} installations, you must complete all of the step
 For more information, see xref:Maintaining_the_Self-Hosted_Engine[Maintaining the Self-Hosted Engine].
 . Add your CA certificate to the host-wide trust store:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /tmp/_3rd-party-ca-cert_.pem /etc/pki/ca-trust/source/anchors
 # update-ca-trust
@@ -81,21 +81,21 @@ For more information, see xref:Maintaining_the_Self-Hosted_Engine[Maintaining th
 +
 . The {engine-name} has been configured to use `/etc/pki/ovirt-engine/apache-ca.pem`, which is symbolically linked to `/etc/pki/ovirt-engine/ca.pem`. Remove the symbolic link:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # rm /etc/pki/ovirt-engine/apache-ca.pem
 ----
 +
 . Save your CA certificate as `/etc/pki/ovirt-engine/apache-ca.pem`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /tmp/_3rd-party-ca-cert_.pem /etc/pki/ovirt-engine/apache-ca.pem
 ----
 +
 . Back up the existing private key and certificate:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /etc/pki/ovirt-engine/keys/apache.key.nopass /etc/pki/ovirt-engine/keys/apache.key.nopass.bck
 # cp /etc/pki/ovirt-engine/certs/apache.cer /etc/pki/ovirt-engine/certs/apache.cer.bck
@@ -103,13 +103,13 @@ For more information, see xref:Maintaining_the_Self-Hosted_Engine[Maintaining th
 +
 . Copy the private key to the required location:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /tmp/apache.key /etc/pki/ovirt-engine/keys/apache.key.nopass
 ----
 . Set the private key owner to root and set the permissions to `0640`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown root:ovirt  /etc/pki/ovirt-engine/keys/apache.key.nopass
 # chmod 640 /etc/pki/ovirt-engine/keys/apache.key.nopass
@@ -117,14 +117,14 @@ For more information, see xref:Maintaining_the_Self-Hosted_Engine[Maintaining th
 +
 . Copy the certificate to the required location:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /tmp/apache.cer /etc/pki/ovirt-engine/certs/apache.cer
 ----
 
 . Set the certificate owner to root and set the permissions to `0644`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown root:ovirt /etc/pki/ovirt-engine/certs/apache.cer
 # chmod 644 /etc/pki/ovirt-engine/certs/apache.cer
@@ -132,14 +132,14 @@ For more information, see xref:Maintaining_the_Self-Hosted_Engine[Maintaining th
 +
 . Restart the Apache server:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart httpd.service
 ----
 +
 . Create a new trust store configuration file, `/etc/ovirt-engine/engine.conf.d/99-custom-truststore.conf`, with the following parameters:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 ENGINE_HTTPS_PKI_TRUST_STORE="/etc/pki/java/cacerts"
 ENGINE_HTTPS_PKI_TRUST_STORE_PASSWORD=""
@@ -154,7 +154,7 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass
 +
 . Restart the `websocket-proxy` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-websocket-proxy.service
 ----
@@ -163,7 +163,7 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass
 
 . Enable `engine-backup` to update the system on restore by creating a new file, `/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh`, with the following content:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 BACKUP_PATHS="${BACKUP_PATHS}
 /etc/ovirt-engine-backup"
@@ -173,25 +173,25 @@ update-ca-trust
 ----
 . Restart the `ovirt-provider-ovn` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-provider-ovn.service
 ----
 . Restart the `ovirt-imageio` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-imageio.service
 ----
 . Restart the `ovirt-engine` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-engine.service
 ----
 . If you are using a self-hosted engine, turn off global maintenance mode.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=none
 ----

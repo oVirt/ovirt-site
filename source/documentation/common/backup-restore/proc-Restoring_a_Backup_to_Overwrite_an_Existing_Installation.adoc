@@ -13,7 +13,7 @@ Changes made to the environment since the backup was taken, such as adding or re
 
 . Remove the configuration files and clean the database associated with the {engine-name}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-cleanup
 ----
@@ -24,14 +24,14 @@ The `engine-cleanup` command only cleans the {engine-name} database; it does not
 
 * Restore a full backup:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --restore-permissions
 ----
 +
 * Restore a database-only backup by restoring the configuration files and the database backup:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --mode=restore --scope=files --scope=db --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --restore-permissions
 ----
@@ -43,7 +43,7 @@ To restore only the {engine-name} database (for example, if the Data Warehouse d
 +
 If successful, the following output displays:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 You should now run engine-setup.
 Done.
@@ -51,7 +51,7 @@ Done.
 
 . Reconfigure the {engine-name}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-setup
 ----

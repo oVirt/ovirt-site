@@ -55,7 +55,7 @@ connection.close()
 
 If the `add` request is successful, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Virtual machine 'vm1' added.
 ----

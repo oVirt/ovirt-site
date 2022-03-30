@@ -44,7 +44,7 @@ if len(virtual_machines) > 0:
 
 The examples output the virtual machine names and their disk sizes:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Name                          Disk Size
 ==================================================

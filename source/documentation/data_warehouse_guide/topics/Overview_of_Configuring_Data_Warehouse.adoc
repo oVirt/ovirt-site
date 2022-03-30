@@ -22,7 +22,7 @@ The following behavior is expected in `engine-setup`:
 
 * Install the Data Warehouse package, run `engine-setup`, and answer `No` to configuring Data Warehouse:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure Data Warehouse on this host (Yes, No) [Yes]: No
 ----

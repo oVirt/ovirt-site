@@ -40,7 +40,7 @@ Enter the *Tenant* for the OpenStack Block Storage instance.
 .. Copy the automatically generated *UUID*, or enter an existing UUID in the text field.
 .. On your Cinder server, add the UUID from the previous step and the `cinder` user to */etc/cinder/cinder.conf*:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 rbd_secret_uuid = _UUID_
 rbd_user = cinder

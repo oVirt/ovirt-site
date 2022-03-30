@@ -10,14 +10,14 @@ To activate a watchdog card attached to a virtual machine, you must install the 
 . Log in to the virtual machine on which the watchdog card is attached.
 . Install the `watchdog` package and dependencies:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum install watchdog
 ----
 +
 . Edit the */etc/watchdog.conf* file and uncomment the following line:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 watchdog-device = /dev/watchdog
 ----
@@ -26,7 +26,7 @@ watchdog-device = /dev/watchdog
 . Start the `watchdog` service and ensure this service starts on boot:
 * {enterprise-linux} 6:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # service watchdog start
 # chkconfig watchdog on
@@ -34,7 +34,7 @@ watchdog-device = /dev/watchdog
 
 * {enterprise-linux} 7:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl start watchdog.service
 # systemctl enable watchdog.service

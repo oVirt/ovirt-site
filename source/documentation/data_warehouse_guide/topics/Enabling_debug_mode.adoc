@@ -7,14 +7,14 @@ You can enable debug mode to record log sampling, hourly, and daily job times in
 . Log in to the {engine-name} machine and create a configuration file (for example, */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/logging.conf*).
 . Add the following line to the configuration file:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 DWH_AGGREGATION_DEBUG=true
 ----
 
 . Restart the *ovirt-engine-dwhd* service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-engine-dwhd.service
 ----

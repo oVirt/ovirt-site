@@ -17,7 +17,7 @@
 
 . Start `firewalld`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl unmask firewalld
 # systemctl start firewalld
@@ -25,21 +25,21 @@
 +
 To ensure firewalld starts automatically at system start, enter the following command as root:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl enable firewalld
 ----
 
 . Ensure that firewalld is running:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl status firewalld
 ----
 
 . Ensure that your management interface is in a firewall zone via
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # firewall-cmd --get-active-zones
 ----

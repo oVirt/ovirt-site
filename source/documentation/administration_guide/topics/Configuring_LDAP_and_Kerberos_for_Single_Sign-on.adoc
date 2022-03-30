@@ -35,7 +35,7 @@ This procedure involves the following components:
 
 . On the KDC server, use the `kadmin` utility to create a service principal for the Apache service on the {virt-product-fullname} {engine-name}. The service principal is a reference ID to the KDC for the Apache service.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # kadmin
 kadmin> addprinc -randkey _HTTP/fqdn-of-rhevm_@_REALM.COM_
@@ -48,7 +48,7 @@ kadmin> addprinc -randkey _HTTP/fqdn-of-rhevm_@_REALM.COM_
 The `engine-backup` command includes the file [filename]`/etc/httpd/http.keytab` when backing up and  restoring. If you use a different name for the *keytab* file, make sure you back up and restore it.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 kadmin> ktadd -k /tmp/http.keytab _HTTP/fqdn-of-rhevm_@_REALM.COM_
 kadmin> quit
@@ -56,7 +56,7 @@ kadmin> quit
 +
 . Copy the *keytab* file from the KDC server to the {virt-product-fullname} {engine-name}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # scp /tmp/http.keytab root@_rhevm.example.com_:/etc/httpd
 ----
@@ -65,7 +65,7 @@ kadmin> quit
 
 . On the {virt-product-fullname} {engine-name}, ensure that the ownership and permissions for the keytab are appropriate:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown apache /etc/httpd/http.keytab
 # chmod 400 /etc/httpd/http.keytab
@@ -73,14 +73,14 @@ kadmin> quit
 +
 . Install the authentication extension package, LDAP extension package, and the `mod_auth_gssapi` and  `mod_session` Apache modules:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session
 ----
 +
 . Copy the SSO configuration template file into the */etc/ovirt-engine* directory. Template files are available for Active Directory (*ad-sso*) and other directory types (*simple-sso*). This example uses the simple SSO configuration template.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp -r /usr/share/ovirt-engine-extension-aaa-ldap/examples/simple-sso/. /etc/ovirt-engine
 ----
@@ -92,14 +92,14 @@ kadmin> quit
 The `engine-backup` command includes the file [filename]`/etc/httpd/conf.d/ovirt-sso.conf` when backing up and  restoring. If you use a different name for this file, make sure you back up and restore it.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mv /etc/ovirt-engine/aaa/ovirt-sso.conf /etc/httpd/conf.d
 ----
 +
 . Review the authentication method file. You do not need to edit this file, as the realm is automatically fetched from the *keytab* file.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # vi /etc/httpd/conf.d/ovirt-sso.conf
 ----
@@ -135,29 +135,29 @@ The `engine-backup` command includes the file [filename]`/etc/httpd/conf.d/ovirt
 +
 . Rename the configuration files to match the profile name you want visible to users on the Administration Portal and the VM Portal login pages:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mv /etc/ovirt-engine/aaa/profile1.properties /etc/ovirt-engine/aaa/_example_.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mv /etc/ovirt-engine/extensions.d/profile1-http-authn.properties /etc/ovirt-engine/extensions.d/_example_-http-authn.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mv /etc/ovirt-engine/extensions.d/profile1-http-mapping.properties /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mv /etc/ovirt-engine/extensions.d/profile1-authz.properties /etc/ovirt-engine/extensions.d/_example_-authz.properties
 ----
 +
 . Edit the LDAP property configuration file by uncommenting an LDAP server type and updating the domain and passwords fields:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 #  vi /etc/ovirt-engine/aaa/_example_.properties
 ----
@@ -165,7 +165,7 @@ The `engine-backup` command includes the file [filename]`/etc/httpd/conf.d/ovirt
 .Example profile: LDAP server section
 ====
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # Select one
 include = <openldap.properties>
@@ -205,7 +205,7 @@ For more information on creating a public keystore file, see xref:Setting_Up_SSL
 .Example profile: keystore section
 ====
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # Create keystore, import certificate chain and uncomment
 # if using ssl/tls.
@@ -218,7 +218,7 @@ pool.default.ssl.truststore.password = _password_
 +
 . Review the authentication configuration file. The profile name visible to users on the Administration Portal and the VM Portal login pages is defined by *ovirt.engine.aaa.authn.profile.name*. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # vi /etc/ovirt-engine/extensions.d/_example_-http-authn.properties
 ----
@@ -226,7 +226,7 @@ pool.default.ssl.truststore.password = _password_
 .Example authentication configuration file
 ====
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 ovirt.engine.extension.name = _example_-http-authn
 ovirt.engine.extension.bindings.method = jbossmodule
@@ -244,7 +244,7 @@ config.artifact.arg = X-Remote-User
 +
 . Review the authorization configuration file. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 #  vi /etc/ovirt-engine/extensions.d/_example_-authz.properties
 ----
@@ -252,7 +252,7 @@ config.artifact.arg = X-Remote-User
 .Example authorization configuration file
 ====
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 ovirt.engine.extension.name = _example_-authz
 ovirt.engine.extension.bindings.method = jbossmodule
@@ -266,7 +266,7 @@ config.profile.file.1 = ../aaa/_example_.properties
 +
 . Review the authentication mapping configuration file. The configuration profile location must match the LDAP configuration file location. The configuration profile extension name must match the `ovirt.engine.aaa.authn.mapping.plugin` value in the authentication configuration file. All fields can be left as default.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # vi /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties
 ----
@@ -291,49 +291,49 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}
 +
 . Ensure that the ownership and permissions of the configuration files are appropriate:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown ovirt:ovirt /etc/ovirt-engine/aaa/_example_.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-http-authn.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown ovirt:ovirt /etc/ovirt-engine/extensions.d/_example_-authz.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chmod 600 /etc/ovirt-engine/aaa/_example_.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chmod 640 /etc/ovirt-engine/extensions.d/_example_-http-authn.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chmod 640 /etc/ovirt-engine/extensions.d/_example_-http-mapping.properties
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chmod 640 /etc/ovirt-engine/extensions.d/_example_-authz.properties
 ----
 +
 . Restart the Apache service and the `ovirt-engine` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart httpd.service
 # systemctl restart ovirt-engine.service

@@ -24,7 +24,7 @@ Changing the `wipe_after_delete` flag's default setting will not affect the *Wip
 
 . Run the `engine-config` tool with the `--set` action:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 # engine-config --set SANWipeAfterDelete=true
@@ -33,7 +33,7 @@ Changing the `wipe_after_delete` flag's default setting will not affect the *Wip
 +
 . Restart the `ovirt-engine` service for the change to take effect:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 # systemctl restart ovirt-engine.service
@@ -45,7 +45,7 @@ The */var/log/vdsm/vdsm.log* file located on the host can be checked to confirm 
 
 For a successful wipe, the log file will contain the entry, `_storage_domain_id_/_volume_id_ was zeroed and will be deleted`. For example:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 a9cb0625-d5dc-49ab-8ad1-72722e82b0bf/a49351a7-15d8-4932-8d67-512a369f9d61 was zeroed and will be deleted
@@ -53,7 +53,7 @@ a9cb0625-d5dc-49ab-8ad1-72722e82b0bf/a49351a7-15d8-4932-8d67-512a369f9d61 was ze
 ----
 For a successful deletion, the log file will contain the entry, `finished with VG:__storage_domain_id__ LVs: _list_of_volume_ids_, img: _image_id_`. For example:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 finished with VG:a9cb0625-d5dc-49ab-8ad1-72722e82b0bf LVs: {'a49351a7-15d8-4932-8d67-512a369f9d61': ImgsPar(imgs=['11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d'], parent='00000000-0000-0000-0000-000000000000')}, img: 11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d

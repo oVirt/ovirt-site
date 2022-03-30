@@ -51,7 +51,7 @@ connection.close()
 
 If the `start` request is successful, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Started 'vm1'.
 ----

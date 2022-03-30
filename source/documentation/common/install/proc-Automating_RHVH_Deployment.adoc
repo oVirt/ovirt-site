@@ -30,7 +30,7 @@ endif::[]
 . Make the {hypervisor-shortname} ISO image available over the network. See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-media-additional-sources.html#sect-making-media-sources-network[Installation Source on a Network] in the _{enterprise-linux} Installation Guide_.
 . Extract the *squashfs.img* hypervisor image file from the {hypervisor-shortname} ISO:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mount -o loop _/path/to/{hypervisor-shortname}-ISO_ /mnt/rhvh
 # cp /mnt/rhvh/Packages/redhat-virtualization-host-image-update* /tmp
@@ -50,14 +50,14 @@ This *squashfs.img* file, located in the `/tmp/usr/share/redhat-virtualization-h
 
 . Copy the {hypervisor-shortname} boot images to the `/tftpboot` directory:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp mnt/rhvh/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/
 ----
 
 . Create a `rhvh` label specifying the {hypervisor-shortname} boot images in the boot loader configuration:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 LABEL rhvh
 MENU LABEL Install {hypervisor-fullname}
@@ -69,7 +69,7 @@ APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervi
 +
 If you are using information from Red Hat Satellite to provision the host, you must create a global or host group level parameter called `rhvh_image` and populate it with the directory URL where the ISO is mounted or extracted:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 <%#
 kind: PXELinux
@@ -88,7 +88,7 @@ IPAPPEND 2
 
 . Make the content of the {hypervisor-shortname} ISO locally available and export it to the network, for example, using an HTTPD server:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp -a /mnt/rhvh/ /var/www/html/rhvh-install
 # curl _URL/to/{hypervisor-shortname}-ISO_/rhvh-install
@@ -103,14 +103,14 @@ IPAPPEND 2
 
 * The `%packages` section is not required for {hypervisor-shortname}. Instead, use the `liveimg` option and specify the *redhat-virtualization-host-__version_number___version.squashfs.img* file from the {hypervisor-shortname} ISO image:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 liveimg --url=_example.com_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img
 ----
 
 * Autopartitioning is highly recommended, but use caution: ensure that the local disk is detected first, include the `ignoredisk` command, and specify the local disk to ignore, such as `sda`.  To ensure that a particular drive is used, {org-fullname} recommends using `ignoredisk --only-use=/dev/disk/<__path__>` or `ignoredisk --only-use=/dev/disk/<__ID__>`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 autopart --type=thinp
 ignoredisk --only-use=sda
@@ -128,7 +128,7 @@ The `--no-home` option does not work in {hypervisor-shortname} because `/home` i
 If your installation requires manual partitioning, see xref:Custom_Partitioning_{context}[Custom Partitioning] for a list of limitations that apply to partitions and an example of manual partitioning in a Kickstart file.
 
 * A `%post` section that calls the `nodectl init` command is required:
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 %post
@@ -150,7 +150,7 @@ This Kickstart example shows you how to deploy {hypervisor-shortname}. You can i
 This example assumes that all disks are empty and can be initialized. If you have attached disks with data, either remove them or add them to the `ignoredisks` property.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 liveimg --url=http://_FQDN_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img
 clearpart --all
@@ -177,7 +177,7 @@ This Kickstart example uses information from Red Hat Satellite to configure the 
 This example assumes that all disks are empty and can be initialized. If you have attached disks with data, either remove them or add them to the `ignoredisks` property.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 <%#
 kind: provision
@@ -222,7 +222,7 @@ systemctl reboot
 endif::[]
 
 . Add the Kickstart file location to the boot loader configuration file on the PXE server:
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_ inst.ks=_URL/to/{hypervisor-shortname}-ks_.cfg

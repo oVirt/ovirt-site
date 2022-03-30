@@ -12,7 +12,7 @@ Virtual disks managed by an OpenStack Image Service can be imported into the {vi
 +
 [NOTE]
 ====
-If you are importing an image from a Glance storage domain, you have the option of specifying the template name.
+If you are importing an image from a Glance storage domain, you have the option of specifying the template name. OpenStack Glance is now deprecated. This functionality will be removed in a later release.
 ====
 
 . Select the *Data Center* into which the virtual disk will be imported.

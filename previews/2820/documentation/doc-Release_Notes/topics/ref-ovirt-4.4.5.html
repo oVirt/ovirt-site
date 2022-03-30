@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="oVirt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2820/documentation/doc-Release_Notes/topics/ref-ovirt-4.4.5.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2820/documentation/doc-Release_Notes/topics/ref-ovirt-4.4.5.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"oVirt","url":"https://ovirt.github.io/ovirt-site/previews/2820/documentation/doc-Release_Notes/topics/ref-ovirt-4.4.5.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2820/images/logo.svg"}},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2820/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2820/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2820/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2820/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2820/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2820/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2820/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2820/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2820/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2820/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2820/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2820/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2820/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2820/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2820/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2820/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2820/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2820/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2820/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2820/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2820/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2820/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2820/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2820/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2820/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2820/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2820/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2820/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2820/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2820/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2820/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2820/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2820/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2820/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2820/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2820//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2820//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2820/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2820/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2820/documentation/doc-Release_Notes/">
+              <span property="name">Doc Release Notes</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2820/documentation/doc-Release_Notes/topics/">
+              <span property="name">Topics</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div class="sect2">
+<h3 id="red-hat-virtualization-4-4-batch-update-4-ovirt-4-4-5">Red Hat Virtualization 4.4 Batch Update 4 (ovirt-4.4.5)</h3>
+<div class="sect3">
+<h4 id="bug-fix">Bug Fix</h4>
+<div class="paragraph">
+<p>These bugs were fixed in this release of Red Hat Virtualization:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1145658">1145658</a></dt>
+<dd>
+<p>This release allows the proper removal of a storage domain containing memory dumps, either by moving the memory dumps to another storage domain or deleting the memory dumps from the snapshot.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1815589">1815589</a></dt>
+<dd>
+<p>Previously, following a successful migration on the Self-hosted Engine, he HA agent on the source host immediately moved to the state EngineDown, and shorly thereafter tried to start the engine locally, if the destination host didn&#8217;t update the shared storage quickly enough, marking the Manager virtual machine as being up.
+As a result, starting the virtual machine failed due to a shared lock held by the destination host. This also resulted in generating false alarms and notifications.
+In this release, the HA agent first moves to the state EngineMaybeAway, providing the destination host more time to update the shared storage with the updated state. As a result, no notifications or false alarms are generated.
+Note: in scenarios where the virtual machine needs to be started on the source host, this fix slightly increases the time it takes the Manager virtual
+machine on the source host to start.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1860492">1860492</a></dt>
+<dd>
+<p>Previously, if the Seal option was used when creating a template for Linux virtual machines, the original host name was not removed from the template.
+In this release, the host name is set to localhost or the new virtual machine host name.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1895217">1895217</a></dt>
+<dd>
+<p>Previously, after a host that virtual machines were pinned to  was removed, the Manager failed to start. As a result,the setup of the self-hosted engine failed.
+In this release, when a host is removed, virtual machines no longer remain pinned to that host and the Manager can start successfully.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1905108">1905108</a></dt>
+<dd>
+<p>Previously, plugging several virtual disks to a running virtual machine over a short time interval could cause a failure to plug some of the disks, and issued an error message: "Domain already contains a disk with that address".
+In this release, this is avoided by making sure that a disk that is being plugged to a running virtual machine is not assigned with an address that has already been assigned to another disk that was previously plugged to the virtual machine.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1916032">1916032</a></dt>
+<dd>
+<p>Previously, if a host in the Self-hosted Engine had an ID number higher than 64, other hosts did not recognize that host, and the host did not appear in 'hosted-engine --vm-status'.
+In this release, the Self-hosted Engine allows host ID numbers  of up to 2000.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1916519">1916519</a></dt>
+<dd>
+<p>Previously, the used memory of the host didn&#8217;t take the SReclaimable memory into consideration while it did for free memory. As a result, there were discrepancies in the host statistics.
+In this release, the SReclaimable memory is a part of the used memory calculation.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1921119">1921119</a></dt>
+<dd>
+<p>Previously, a cluster page indicated an out-of-sync cluster when in fact all networks were in sync. This was due to a logical error in the code when a host QoS was assigned to two networks on same host.
+In this release, the cluster page does not show out-of-sync for this setup.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1931786">1931786</a></dt>
+<dd>
+<p>Previously, the Red Hat Virtualization Manager missed the <code>SkuToAVLevel</code> configuration for 4.5 clusters.
+In this release, the <code>SkuToAVLevel</code> is available for these clusters and allows Windows updates to update Red Hat related drivers for the guest host.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1940672">1940672</a></dt>
+<dd>
+<p>Previously, when Red Hat Virtualization Manager 4.4.3+ upgraded a host in a cluster that is set with Skylake/Cascadelake CPU type and compatibility level 4.4 (or lower), the host could become non-operational.
+In this release, the Red Hat Virtualization Manager blocks the upgrade of a host when the cluster is set with a secured Skylake/Cascadelake CPU type 1 (Secure Intel Skylake Client Family, Secure Intel Skylake Server Family, or Secure Intel Cascadelake Server Family) where the upgrade is likely to make the host non-operational.
+If the cluster is set with an insecure Skylake/Cascadelake CPU type 2 (Intel Skylake Client Family, Intel Skylake Server Family, or Intel Cascadelake Server Family) the user is notified with a recommendation to change the cluster to a secure Skylake/Cascadelake CPU type, but is allowed to proceed with the host upgrade. In order to make the upgraded host operational, the user must enable TSX at the operating system level.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="enhancements">Enhancements</h4>
+<div class="paragraph">
+<p>This release of Red Hat Virtualization features the following enhancements:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1080725">1080725</a></dt>
+<dd>
+<p>Setting static IPv6 addresses on hosts is now supported.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1155275">1155275</a></dt>
+<dd>
+<p>With this update, you can synchronize a LUN&#8217;s disk size on all hosts that are connected to the LUN&#8217;s disk, and update its size on all running virtual machines to which it is attached.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>To refresh a LUN&#8217;s disk size:
+1. In the Administration portal, go to Compute&gt;Virtual Machines and select a virtual machine.
+2. In the Disks tab, click Refresh LUN.</p>
+</div>
+<div class="paragraph">
+<p>For connected virtual machines that are not running, update the disk on the virtual machines once they are running.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1431792">1431792</a></dt>
+<dd>
+<p>This feature allows adding emulated TPM (Trusted Platform Module) devices to Virtual Machines.
+TPM devices are useful in cryptographic operations (generating cryptographic keys, random numbers, hashes, etc.) or for storing data that can be used to verify software configurations securely. QEMU and libvirt implement support for emulated TPM 2.0 devices, which is what Red Hat Virtualization uses to add TPM devices to Virtual Machines.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Once an emulated TPM device is added to the Virtual Machine, it can be used as a normal TPM 2.0 device in the guest OS.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1688186">1688186</a></dt>
+<dd>
+<p>Previously, the CPU and NUMA pinning were done manually or automatically only by using the REST API when adding a new virtual machine.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>With this update, you can update the CPU and NUMA pinning using the Administration portal and when updating a virtual machine.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1755156">1755156</a></dt>
+<dd>
+<p>In this release, it is now possible to enter a path to the OVA archive for local appliance installation using the cockpit-ovirt UI.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1836661">1836661</a></dt>
+<dd>
+<p>Previously the logical names for disks without a mounted filesystem were not displayed in the Red Hat Virtualization Manager.
+In this release, logical names for such disks are properly reported provided the version of QEMU Guest Agent in the virtual machine is 5.2 or higher.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1837221">1837221</a></dt>
+<dd>
+<p>Previously, the Manager was able to connect to hypervisors only using RSA public keys for SSH connection. With this update, the Manager can also use EcDSA and EdDSA public keys for SSH.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Previously, RHV used only the fingerprint of an SSH public key to verify the host. Now that RHV can use EcDSA and EdDSA public keys for SSH, the whole public SSH key must be stored in the RHV database. As a result, using the fingerprint of an SSH public key is deprecated.</p>
+</div>
+<div class="paragraph">
+<p>When adding a new host to the Manager, the Manager will always use the strongest public key that the host offers, unless an administrator provides another specific public key to use.</p>
+</div>
+<div class="paragraph">
+<p>For existing hosts, the Manager stores the entire RSA public key in its database on the next SSH connection. For example, if an administrator moves the host to maintenance mode and executes an enroll certificate or reinstalls the host, to use a different public key for the host, the administrator can provide a custom public key using the REST API or by fetching the strongest public key in the <strong>Edit host</strong> dialog in the Administration Portal.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1884233">1884233</a></dt>
+<dd>
+<p>The authz name is now used as the user domain on the RHVM (Red hat Virtualization Manager) home page. It replaces the profile name. Additionally, several log statements related to authorization/authentication flow have been made consistent by presenting both the user authz name and the profile name where applicable.
+In this release, &lt;username&gt;@&lt;authz name&gt; is displayed on the home page once the user is successfully logged in to the RHVM. In addition, the log statements now contain both the authz name and the profile name as well as the username.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1899583">1899583</a></dt>
+<dd>
+<p>With this update, live updating of vNIC filter parameters is possible.
+When adding\deleting\editing the filter parameters of a virtual machine&#8217;s vNIC in the Manager, the changes are applied immediately on the device on the virtual machine.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1910302">1910302</a></dt>
+<dd>
+<p>Previously, the storage pool manager (SPM) failed to switch to another host if the SPM had uncleared tasks.
+With this enhancement, a new UI menu has been added to enable cleaning up finished tasks.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1922200">1922200</a></dt>
+<dd>
+<p>Previously, records in the <code>event_notification_hist</code> table were erased only during regular cleanup of the <code>audit_log</code> table By default <code>audit_log</code> table records that are older than 30 days are removed.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>With this update, records in the <code>event_notification_hist</code> table are kept for 7 days. You can override this limit by creating a custom configuration file <code>/etc/ovirt-engine/notifier/notifier.conf.d/history.conf</code> with the following content:</p>
+</div>
+<div class="paragraph">
+<p>DAYS_TO_KEEP_HISTORY=&lt;number_of_days&gt;</p>
+</div>
+<div class="paragraph">
+<p>Where &lt;number_of_days&gt; is the number of days to keep records in the <code>event_notification_hist</code> table.
+After adding this file the first time or after changing this value, you need to restart the ovirt-engine-notifier service:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl restart ovirt-engine-notifier</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1927851">1927851</a></dt>
+<dd>
+<p>The timezone AUS Eastern Standard Time has been added to cover daylight saving time in Canberra, Melbourne and Sydney.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="technology-preview">Technology Preview</h4>
+<div class="paragraph">
+<p>The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to <a href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1919805">1919805</a></dt>
+<dd>
+<p>With this update, support for the Bochs display video card emulator has been added for UEFI guest machines.
+This feature is now the default for a guest UEFI server that uses cluster-level 4.6 or above, where BOCHS is the default value of Video Type.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes">Release Notes</h4>
+<div class="paragraph">
+<p>This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1917409">1917409</a></dt>
+<dd>
+<p>Red Hat Virtualization (RHV) 4.4.5+ includes Ansible within its own channels. Therefore, the ansible-2.9-for-rhel-8-x86_64-rpms channel does not need to be enabled on either the RHV Manager or RHEL-H hosts. Customers upgrading from RHV releases 4.4.0 through 4.4.4 or 4.3.z, should remove that channel from their RHV Manager and RHEL-H hosts.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1921104">1921104</a></dt>
+<dd>
+<p>Ansible-2.9.17 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.5.</p>
+</dd>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1921108">1921108</a></dt>
+<dd>
+<p>ovirt-hosted-engine-setup now requires Ansible-2.9.17.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="known-issues">Known Issues</h4>
+<div class="paragraph">
+<p>These known issues exist in Red Hat Virtualization at this time:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BZ#<a href="https://bugzilla.redhat.com/1923169">1923169</a></dt>
+<dd>
+<p>Limiting package subscriptions to the Ansible 2.9 channel is not required for Red Hat Virtualization 4.4.5 installation.
+Workaround: Remove the Ansible 2.9 channel subscription on Red Hat Virtualization Manager and Red Hat Virtualization hosts when upgrading from Red Hat Virtualization version 4.4.4 or lower.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2820/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2820/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2820/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2820/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Release_Notes/topics/ref-ovirt-4.4.5.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Release_Notes/topics/ref-ovirt-4.4.5.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

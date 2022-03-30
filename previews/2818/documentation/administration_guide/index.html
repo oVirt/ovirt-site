@@ -2127,9 +2127,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The information in the dashboard is updated every 15 minutes by default from Data Warehouse, and every 15 seconds by default by the Engine API, or whenever the Dashboard is refreshed. The Dashboard is refreshed when the user changes back from another page or when manually refreshed. The Dashboard does not automatically refresh. The inventory card information is supplied by the Engine API and the utilization information is supplied by Data Warehouse. The Dashboard is implemented as a UI plugin component, which is automatically installed and upgraded alongside the Engine.</p>
 </div>
-<div class="paragraph">
-<div class="title">The Dashboard</div>
-<p>images::images/RHVdashboard.png[Dashboard]</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/RHVdashboard.png" alt="Dashboard">
+</div>
+<div class="title">Figure 1. The Dashboard</div>
 </div>
 <div class="sect3">
 <h4 id="sect-Prerequisites">1.2.1. Prerequisites</h4>
@@ -2142,9 +2144,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The top section of the Dashboard provides a global inventory of the oVirt resources and includes items for data centers, clusters, hosts, storage domains, virtual machines, and events. Icons show the status of each resource and numbers show the quantity of the each resource with that status.</p>
 </div>
-<div class="paragraph">
-<div class="title">Global Inventory</div>
-<p>images::images/Dashboard_Inventory.png[Dashboard Inventory]</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Dashboard_Inventory.png" alt="Dashboard Inventory">
+</div>
+<div class="title">Figure 2. Global Inventory</div>
 </div>
 <div class="paragraph">
 <p>The title shows the number of a type of resource and their status is displayed below the title. Clicking on the resource title navigates to the related page in the oVirt Engine. The status for <strong>Clusters</strong> is always displayed as N/A.</p>
@@ -2239,9 +2243,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The <strong>Global Utilization</strong> section shows the system utilization of the CPU, Memory and Storage.</p>
 </div>
-<div class="paragraph">
-<div class="title">Global Utilization</div>
-<p>images::images/Dashboard_Global_Utilization.png[Dashboard Global Utilization]</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Dashboard_Global_Utilization.png" alt="Dashboard Global Utilization">
+</div>
+<div class="title">Figure 3. Global Utilization</div>
 </div>
 <div class="ulist">
 <ul>
@@ -2258,9 +2264,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 </div>
 <div class="sect4">
 <h5 id="sect-Top_Utilized_Resources">Top Utilized Resources</h5>
-<div class="paragraph">
-<div class="title">Top Utilized Resources (Memory)</div>
-<p>images::images/Dashboard_Pop_Up.png[Top Utilized Resources]</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Dashboard_Pop_Up.png" alt="Top Utilized Resources">
+</div>
+<div class="title">Figure 4. Top Utilized Resources (Memory)</div>
 </div>
 <div class="paragraph">
 <p>Clicking the donut in the global utilization section of the Dashboard will display a list of the top utilized resources for the CPU, memory or storage. For CPU and memory the pop-up shows a list of the ten hosts and virtual machines with the highest usage. For storage the pop-up shows a list of the top ten utilized storage domains and virtual machines. The arrow to the right of the usage bar shows the trend of usage for that resource in the last minute.</p>
@@ -2272,9 +2280,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The <strong>Cluster Utilization</strong> section shows the cluster utilization for the CPU and memory in a heatmap.</p>
 </div>
-<div class="paragraph">
-<div class="title">Cluster Utilization</div>
-<p>images::images/Dashboard_Cluster_Utilization.png[Dashboard Cluster Utilization]</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Dashboard_Cluster_Utilization.png" alt="Dashboard Cluster Utilization">
+</div>
+<div class="title">Figure 5. Cluster Utilization</div>
 </div>
 <div class="sect4">
 <h5 id="sect-Cluster_CPU_Utilization">CPU</h5>
@@ -2294,9 +2304,11 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="paragraph">
 <p>The <strong>Storage Utilization</strong> section shows the storage utilization in a heatmap.</p>
 </div>
-<div class="paragraph">
-<div class="title">Storage Utilization</div>
-<p>images::images/Dashboard_Storage_Utilization.png[Storage Utilization]</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Dashboard_Storage_Utilization.png" alt="Storage Utilization">
+</div>
+<div class="title">Figure 6. Storage Utilization</div>
 </div>
 <div class="paragraph">
 <p>The heatmap shows the average utilization of the storage for the last 24 hours. The formula used to calculate the storage usage by the cluster is the total utilization of the storage in the cluster. This is calculated by using the average storage utilization for each host over the last 24 hours to find the total average usage of the storage by the cluster. Hovering over the heatmap displays the storage domain name. Clicking on the heatmap navigates to <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Domains</b></span> with the storage domains sorted by utilization.</p>

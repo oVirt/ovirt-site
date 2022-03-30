@@ -7,7 +7,7 @@ The Dashboard provides an overview of the {virt-product-fullname} system status 
 The information in the dashboard is updated every 15 minutes by default from Data Warehouse, and every 15 seconds by default by the {engine-name} API, or whenever the Dashboard is refreshed. The Dashboard is refreshed when the user changes back from another page or when manually refreshed. The Dashboard does not automatically refresh. The inventory card information is supplied by the {engine-name} API and the utilization information is supplied by Data Warehouse. The Dashboard is implemented as a UI plugin component, which is automatically installed and upgraded alongside the {engine-name}.
 
 .The Dashboard
-image:images/RHVdashboard.png[title="Dashboard"]
+image::images/RHVdashboard.png[Dashboard]
 
 [id="sect-Prerequisites"]
 == Prerequisites
@@ -20,7 +20,7 @@ The Dashboard requires that Data Warehouse is installed and configured. See link
 The top section of the Dashboard provides a global inventory of the {virt-product-fullname} resources and includes items for data centers, clusters, hosts, storage domains, virtual machines, and events. Icons show the status of each resource and numbers show the quantity of the each resource with that status.
 
 .Global Inventory
-image:images/Dashboard_Inventory.png[title="Dashboard Inventory"]
+image::images/Dashboard_Inventory.png[Dashboard Inventory]
 
 The title shows the number of a type of resource and their status is displayed below the title. Clicking on the resource title navigates to the related page in the {virt-product-fullname} {engine-name}. The status for *Clusters* is always displayed as N/A.
 
@@ -56,8 +56,8 @@ The title shows the number of a type of resource and their status is displayed b
 
 * *Virtual Machines*: The search is limited to virtual machines that are down, not responding, or rebooting.
 
-|image:images/Dashboard_Alert.png[title="Alert icon"] |Shows the number of events with an alert status. Clicking on the icon navigates to *Events* with the search limited to events with the severity of alert.
-|image:images/Dashboard_Error.png[title="Error icon"] |Shows the number of events with an error status. Clicking on the icon navigates to *Events* with the search limited to events with the severity of error.
+|images:images/Dashboard_Alert.png[title="Alert icon"] |Shows the number of events with an alert status. Clicking on the icon navigates to *Events* with the search limited to events with the severity of alert.
+|images:images/Dashboard_Error.png[title="Error icon"] |Shows the number of events with an error status. Clicking on the icon navigates to *Events* with the search limited to events with the severity of error.
 |===
 
 [id="sect-Global_Utilization"]
@@ -66,7 +66,7 @@ The title shows the number of a type of resource and their status is displayed b
 The *Global Utilization* section shows the system utilization of the CPU, Memory and Storage.
 
 .Global Utilization
-image:images/Dashboard_Global_Utilization.png[title="Dashboard Global Utilization"]
+image::images/Dashboard_Global_Utilization.png[Dashboard Global Utilization]
 
 * The top section shows the percentage of the available CPU, memory or storage and the over commit ratio. For example, the over commit ratio for the CPU is calculated by dividing the number of virtual cores by the number of physical cores that are available for the running virtual machines based on the latest data in Data Warehouse.
 
@@ -78,7 +78,7 @@ image:images/Dashboard_Global_Utilization.png[title="Dashboard Global Utilizatio
 === Top Utilized Resources
 
 .Top Utilized Resources (Memory)
-image:images/Dashboard_Pop_Up.png[title="Top Utilized Resources"]
+image::images/Dashboard_Pop_Up.png[Top Utilized Resources]
 
 Clicking the donut in the global utilization section of the Dashboard will display a list of the top utilized resources for the CPU, memory or storage. For CPU and memory the pop-up shows a list of the ten hosts and virtual machines with the highest usage. For storage the pop-up shows a list of the top ten utilized storage domains and virtual machines. The arrow to the right of the usage bar shows the trend of usage for that resource in the last minute.
 
@@ -88,7 +88,7 @@ Clicking the donut in the global utilization section of the Dashboard will displ
 The *Cluster Utilization* section shows the cluster utilization for the CPU and memory in a heatmap.
 
 .Cluster Utilization
-image:images/Dashboard_Cluster_Utilization.png[title="Dashboard Cluster Utilization"]
+image::images/Dashboard_Cluster_Utilization.png[Dashboard Cluster Utilization]
 
 [id="sect-Cluster_CPU_Utilization"]
 === CPU
@@ -106,6 +106,6 @@ The heatmap of the memory utilization for a specific cluster that shows the aver
 The *Storage Utilization* section shows the storage utilization in a heatmap.
 
 .Storage Utilization
-image:images/Dashboard_Storage_Utilization.png[title="Storage Utilization"]
+image::images/Dashboard_Storage_Utilization.png[Storage Utilization]
 
 The heatmap shows the average utilization of the storage for the last 24 hours. The formula used to calculate the storage usage by the cluster is the total utilization of the storage in the cluster. This is calculated by using the average storage utilization for each host over the last 24 hours to find the total average usage of the storage by the cluster. Hovering over the heatmap displays the storage domain name. Clicking on the heatmap navigates to menu:Storage[Domains] with the storage domains sorted by utilization.

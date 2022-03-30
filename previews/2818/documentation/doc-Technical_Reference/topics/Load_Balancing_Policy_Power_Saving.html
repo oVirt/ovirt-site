@@ -114,9 +114,11 @@
         
         <section id="content" class="content container">
           
-<div class="paragraph">
-<div class="title">Power Saving Scheduling Policy</div>
-<p><span class="image"><img src="RHV_SchedulingPolicies_444396_0417_ECE_PowerSaving.png" alt="RHV SchedulingPolicies 444396 0417 ECE PowerSaving" title="Power Saving Scheduling Policy"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="RHV_SchedulingPolicies_444396_0417_ECE_PowerSaving.png" alt="Power Saving Scheduling Policy">
+</div>
+<div class="title">Figure 1. Power Saving Scheduling Policy</div>
 </div>
 <div class="paragraph">
 <p>A power saving load balancing policy selects the host for a new virtual machine according to lowest CPU or highest available memory. The maximum CPU load and minimum available memory that is allowed for hosts in a cluster for a set amount of time is defined by the power saving scheduling policy&#8217;s parameters. Beyond these limits the environment&#8217;s performance will degrade. The power saving parameters also define the minimum CPU load and maximum available memory allowed for hosts in a cluster for a set amount of time before the continued operation of a host is considered an inefficient use of electricity. If a host has reached the maximum CPU load or minimum available memory and stays there for more than the set time, the virtual machines on that host are migrated one by one to the host that has the lowest CPU or highest available memory depending on which parameter is being utilized. Host resources are checked once per minute, and one virtual machine is migrated at a time until the host CPU load is below the defined limit or the host available memory is above the defined limit. If the host&#8217;s CPU load falls below the defined minimum level or the host&#8217;s available memory rises above the defined maximum level the virtual machines on that host are migrated to other hosts in the cluster as long as the other hosts in the cluster remain below maximum CPU load and above minimum available memory. When an under-utilized host is cleared of its remaining virtual machines, the {engine-name} will automatically power down the host machine, and restart it again when load balancing requires or there are not enough free hosts in the cluster.</p>

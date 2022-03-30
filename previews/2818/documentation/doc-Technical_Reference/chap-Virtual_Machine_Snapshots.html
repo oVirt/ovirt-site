@@ -187,16 +187,20 @@
 <div class="paragraph">
 <p>As depicted in <a href="#figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Creation">Initial Snapshot Creation</a>, the creation of a snapshot causes the volumes that comprise a virtual disk to serve as the base image for all subsequent snapshots.</p>
 </div>
-<div id="figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Creation" class="paragraph">
-<div class="title">Initial Snapshot Creation</div>
-<p><span class="image"><img src="991.png" alt="991" title="Initial Snapshot Creation"></span></p>
+<div id="figu-Technical_Reference_Guide-Snapshots-Initial_Snapshot_Creation" class="imageblock">
+<div class="content">
+<img src="991.png" alt="Initial Snapshot Creation">
+</div>
+<div class="title">Figure 1. Initial Snapshot Creation</div>
 </div>
 <div class="paragraph">
 <p>Snapshots taken after the initial snapshot result in the creation of new COW volumes in which data that is created or changed after the snapshot is taken will be stored. Each newly created COW layer contains only COW metadata. Data that is created by using and operating the virtual machine after a snapshot is taken is written to this new COW layer. When a virtual machine is used to modify data that exists in a previous COW layer, the data is read from the previous layer, and written into the newest layer. Virtual machines locate data by checking each COW layer from most recent to oldest, transparently to the virtual machine.</p>
 </div>
-<div id="figu-Technical_Reference_Guide-Snapshots-Additional_Snapshot_Creation" class="paragraph">
-<div class="title">Additional Snapshot Creation</div>
-<p><span class="image"><img src="982.png" alt="982" title="Additional Snapshot Creation"></span></p>
+<div id="figu-Technical_Reference_Guide-Snapshots-Additional_Snapshot_Creation" class="imageblock">
+<div class="content">
+<img src="982.png" alt="Additional Snapshot Creation">
+</div>
+<div class="title">Figure 2. Additional Snapshot Creation</div>
 </div>
 </div>
 </div>
@@ -215,9 +219,11 @@
 <div class="paragraph">
 <p>After a snapshot is previewed, the administrator can select <strong>Undo</strong> to discard the preview layer of the viewed snapshot. The layer that contains the snapshot itself is preserved despite the preview layer being discarded.</p>
 </div>
-<div id="figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot" class="paragraph">
-<div class="title">Preview Snapshot</div>
-<p><span class="image"><img src="1002.png" alt="1002" title="Preview Snapshot"></span></p>
+<div id="figu-Technical_Reference_Guide-Snapshots-Preview_Snapshot" class="imageblock">
+<div class="content">
+<img src="1002.png" alt="Preview Snapshot">
+</div>
+<div class="title">Figure 3. Preview Snapshot</div>
 </div>
 </div>
 </div>
@@ -227,9 +233,11 @@
 <div class="paragraph">
 <p>You can delete individual snapshots that are no longer required. Deleting a snapshot removes the ability to restore a virtual disk to that particular restoration point. It does not necessarily reclaim the disk space consumed by the snapshot, nor does it delete the data. The disk space will only be reclaimed if a subsequent snapshot has overwritten the data of the deleted snapshot. For example, if the third snapshot out of five snapshots is deleted, the unchanged data in the third snapshot must be preserved on the disk for the fourth and fifth snapshots to be usable; however, if the fourth or fifth snapshot has overwritten the data of the third, then the third snapshot has been made redundant and the disk space can be reclaimed. Aside from potential disk space reclamation, deleting a snapshot may also improve the performance of the virtual machine.</p>
 </div>
-<div id="figu-Technical_Reference_Guide-Snapshots-Snapshot_Deletion" class="paragraph">
-<div class="title">Snapshot Deletion</div>
-<p><span class="image"><img src="993.png" alt="993" title="Snapshot Deletion"></span></p>
+<div id="figu-Technical_Reference_Guide-Snapshots-Snapshot_Deletion" class="imageblock">
+<div class="content">
+<img src="993.png" alt="Snapshot Deletion">
+</div>
+<div class="title">Figure 4. Snapshot Deletion</div>
 </div>
 <div class="paragraph">
 <p>Snapshot deletion is handled as an asynchronous block job in which VDSM maintains a record of the operation in the recovery file for the virtual machine so that the job can be tracked even if VDSM is restarted or the virtual machine is shut down during the operation. Once the operation begins, the snapshot being deleted cannot be previewed or used as a restoration point, even if the operation fails or is interrupted. In operations in which the active layer is to be merged with its parent, the operation is split into a two-stage process during which data is copied from the active layer to the parent layer, and disk writes are mirrored to both the active layer and the parent. Finally, the job is considered complete once the data in the snapshot being deleted has been merged with its parent snapshot and VDSM synchronizes the changes throughout the image chain.</p>

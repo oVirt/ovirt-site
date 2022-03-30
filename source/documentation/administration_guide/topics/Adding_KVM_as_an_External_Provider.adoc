@@ -9,21 +9,21 @@ Add a KVM host to import virtual machines from KVM to {virt-product-fullname} {e
 . Enable public key authentication between the proxy host and the KVM host:
 .. Log in to the proxy host and generate SSH keys for the *vdsm* user.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh-keygen
 ----
 +
 .. Copy the *vdsm* user's public key to the KVM host. The proxy host's *known_hosts* file will also be updated to include the host key of the KVM host.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh-copy-id root@_kvmhost.example.com_
 ----
 +
 .. Log in to the KVM host to verify that the login works correctly.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh root@_kvmhost.example.com_
 ----
@@ -35,7 +35,7 @@ Add a KVM host to import virtual machines from KVM to {virt-product-fullname} {e
 . Select the *Data Center* into which KVM virtual machines will be imported, or select *Any Data Center* to specify the destination data center during individual import operations.
 . Enter the URI of the KVM host in the *URI* field.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 qemu+ssh://root@host.example.com/system
 ----

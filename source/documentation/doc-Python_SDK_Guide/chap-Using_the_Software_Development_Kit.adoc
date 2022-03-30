@@ -52,7 +52,7 @@ You can generate documentation using link:http://docs.python.org/library/pydoc.h
 
 The documentation is provided by the `ovirt-engine-sdk-python` package. Run the following command on the {engine-name} machine to view the latest version of these documents:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ pydoc _[MODULE]_
 ----

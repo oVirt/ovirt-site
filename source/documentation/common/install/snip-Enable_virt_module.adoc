@@ -2,21 +2,21 @@
 
 * For {virt-product-shortname} 4.4.2:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 # dnf module enable virt:8.2
 ----
 * For {virt-product-shortname} 4.4.3 to 4.4.5:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 # dnf module enable virt:8.3
 ----
 * For {virt-product-shortname} 4.4.6 or later:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 # dnf module enable virt:av

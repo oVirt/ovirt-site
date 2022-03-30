@@ -25,21 +25,21 @@ If the import fails, refer to the relevant log file in */var/log/vdsm/import/* a
 . Enable public key authentication between the proxy host and the KVM host:
 .. Log in to the proxy host and generate SSH keys for the *vdsm* user.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh-keygen
 ----
 +
 .. Copy the *vdsm* user's public key to the KVM host. The proxy host's *known_hosts* file will also be updated to include the host key of the KVM host.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh-copy-id root@_kvmhost.example.com_
 ----
 +
 .. Log in to the KVM host to verify that the login works correctly.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # sudo -u vdsm ssh root@_kvmhost.example.com_
 ----
@@ -52,7 +52,7 @@ If the import fails, refer to the relevant log file in */var/log/vdsm/import/* a
 . Optionally, select a KVM provider *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_KVM_as_an_External_Provider[Adding a KVM Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.
 . Enter the *URI* of the KVM host in the following format:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 qemu+ssh://root@_kvmhost.example.com_/system
 ----

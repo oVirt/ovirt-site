@@ -13,7 +13,7 @@ You can disable 4K block support.
 
 . Ensure that 4K block support is enabled.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ vdsm-client Host getCapabilities
 ...
@@ -28,7 +28,7 @@ $ vdsm-client Host getCapabilities
 
 . Edit [filename]`/etc/vdsm/vdsm.conf.d/gluster.conf` and set `enable_4k_storage` to `*false*`. For example:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ vi  /etc/vdsm/vdsm.conf.d/gluster.conf
 

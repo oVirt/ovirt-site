@@ -36,7 +36,7 @@ connection.close()
 
 In an environment where only one host, `MyHost`, has been attached, the examples output the text:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 MyHost (00000000-0000-0000-0000-000000000000)
 ----

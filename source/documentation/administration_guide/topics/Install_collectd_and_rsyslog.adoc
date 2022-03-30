@@ -15,7 +15,7 @@ You do not need to repeat this procedure for new hosts. Every new host that is a
 
 . Copy `/etc/ovirt-engine-metrics/config.yml.example` to create `/etc/ovirt-engine-metrics/config.yml.d/config.yml`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml.d/config.yml
 ----
@@ -33,7 +33,7 @@ rsyslog_elasticsearch_usehttps_logs: !!str off
 +
 . Deploy `collectd` and `rsyslog` on the hosts:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
 ----

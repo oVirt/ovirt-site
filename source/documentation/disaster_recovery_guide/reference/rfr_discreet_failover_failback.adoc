@@ -15,7 +15,7 @@ For more information about failing over the environment, cleaning the environmen
 . Place the test primary storage domains into read-only mode.
 . Run the command to fail over to the secondary site:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ansible-playbook _playbook_ --tags "fail_over"
 ----
@@ -25,13 +25,13 @@ For more information about failing over the environment, cleaning the environmen
 
 . Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ansible-playbook _playbook_ --tags "clean_engine"
 ----
  . Run the failback command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ansible-playbook _playbook_ --tags "fail_back"
 ----

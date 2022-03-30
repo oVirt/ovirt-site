@@ -24,28 +24,28 @@ Configuring Single Sign-On for {enterprise-linux} Virtual Machines
 
 * For {enterprise-linux} 6:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms
 ----
 
 * For {enterprise-linux} 7:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos --enable=rhel-7-server-rh-common-rpms
 ----
 
 . Download and install the guest agent, single sign-on, and IPA packages:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum install ovirt-guest-agent-common ovirt-guest-agent-pam-module ovirt-guest-agent-gdm-plugin ipa-client
 ----
 
 . Run the following command and follow the prompts to configure `ipa-client` and join the virtual machine to the domain:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ipa-client-install --permit --mkhomedir
 ----
@@ -54,7 +54,7 @@ Configuring Single Sign-On for {enterprise-linux} Virtual Machines
 ====
 In environments that use DNS obfuscation, this command should be:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ipa-client-install --domain=_FQDN_ --server=_FQDN_
 ----
@@ -62,7 +62,7 @@ In environments that use DNS obfuscation, this command should be:
 +
 . For {enterprise-linux} 7.2 and later:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # authconfig --enablenis --update
 ----
@@ -74,28 +74,28 @@ In environments that use DNS obfuscation, this command should be:
 
 . Fetch the details of an IPA user:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # getent passwd _ipa-user_
 ----
 
 . Record the IPA user's UID and GID:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 _ipa-user_:*:936600010:936600001::/home/_ipa-user_:/bin/sh
 ----
 
 . Create a home directory for the IPA user:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mkdir /home/_ipa-user_
 ----
 
 . Assign ownership of the directory to the IPA user:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # chown 936600010:936600001 /home/_ipa-user_
 ----

@@ -59,7 +59,7 @@ To set up encrypted VNC consoles, you complete the following procedures:
 +
 * If the Manager is running on a stand-alone machine, connect to that machine's command line. For example, enter:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ssh root@rhvm
 ----
@@ -68,7 +68,7 @@ To set up encrypted VNC consoles, you complete the following procedures:
 
 . On the Manager machine, run the VNC SASL ansible playbook for each host.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cd /usr/share/ovirt-engine/ansible-runner-service-project/project/
 # ansible-playbook --ask-pass --inventory=<hostname>, ovirt-vnc-sasl.yml
@@ -84,7 +84,7 @@ For `<hostname>`, enter the complete *Hostname* shown on menu:Compute[Hosts].
 
 When running the VNC SASL Ansible playbook, the task might fail with the following error message:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host.
 ----
@@ -93,14 +93,14 @@ To solve this problem, disable host key checking by doing one of the following:
 
 * Disable host key checking permanently by uncommenting the following line in [filename]`/etc/ansible/ansible.cfg`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 #host_key_checking = False
 ----
 
 * Disable host key checking temporarily by running the following command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 export ANSIBLE_HOST_KEY_CHECKING=False.
 ----
@@ -124,7 +124,7 @@ Configure the Remote Viewer console on your client machine, `virt-viewer` or `re
 
 . On the client machine where you plan to run the VNC console, create a directory for the certificate file:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ mkdir ~/.pki/CA
 ----
@@ -135,7 +135,7 @@ If this step generates an error such as `mkdir: cannot create directory ‘/home
 ====
 . Download the certificate:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ curl -k -o ~/.pki/CA/cacert-<today's date>.pem '\https://<engine_address>/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA'
 ----
@@ -148,7 +148,7 @@ $ curl -k -o ~/.pki/CA/cacert-<today's date>.pem '\https://<engine_address>/ovir
 
 Install the SASL SCRAM libraries on the client machine:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ sudo dnf install cyrus-sasl-scram
 ----

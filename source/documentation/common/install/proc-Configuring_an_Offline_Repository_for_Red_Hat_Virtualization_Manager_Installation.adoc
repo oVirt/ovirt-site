@@ -24,14 +24,14 @@ include::proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leve
 . Servers that are not connected to the Internet can access software repositories on other systems using File Transfer Protocol (FTP). To create the FTP repository, install and configure `vsftpd` on the intended {engine-name} machine:
 .. Install the `vsftpd` package:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install vsftpd
 ----
 
 .. Enable ftp access for an anonymous user to have access to rpm files from the intended {engine-name} machine, and to keep it secure, disable write on ftp server. Edit the `/etc/vsftpd/vsftpd.conf` file and change the values for `anonymous_enable` and `write_enable` as follows:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 anonymous_enable=YES
 write_enable=NO
@@ -39,7 +39,7 @@ write_enable=NO
 
 .. Start the *vsftpd* service, and ensure the service starts on boot:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl start vsftpd.service
 # systemctl enable vsftpd.service
@@ -47,7 +47,7 @@ write_enable=NO
 
 .. Create a firewall rule to allow FTP service and reload the `firewalld` service to apply changes:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # firewall-cmd --permanent --add-service=ftp
 # firewall-cmd --reload
@@ -55,21 +55,21 @@ write_enable=NO
 
 .. {enterprise-linux} 8 enforces SELinux by default, so configure SELinux to allow FTP access:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # setsebool -P allow_ftpd_full_access=1
 ----
 
 .. Create a sub-directory inside the `/var/ftp/pub/` directory, where the downloaded packages are made available:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mkdir /var/ftp/pub/rhvrepo
 ----
 +
 . Download packages from all configured software repositories to the `rhvrepo` directory. This includes repositories for all Content Delivery Network subscription pools attached to the system, and any locally configured repositories:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # reposync -p /var/ftp/pub/rhvrepo --download-metadata
 ----

@@ -20,14 +20,14 @@ include::topics/Allowing_Read_Only_Access_to_the_History_Database.adoc[leveloffs
 Statistics data is available in `hourly`, `daily`, and `samples` views.
 
 To query a statistics view, run `SELECT * FROM _view_name__[hourly|daily|samples];`. For example:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;
 ----
 
 
 To list all available views, run:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # \dv
 ----
@@ -50,14 +50,14 @@ include::topics/Virtual_machine_disk_hourly_and_samples_history_views.adoc[level
 == Configuration History Views
 
 To query a configuration view, run `SELECT * FROM _view_name_;`. For example:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # SELECT * FROM v4_4_configuration_history_datacenters;
 ----
 
 
 To list all available views, run:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # \dv
 ----

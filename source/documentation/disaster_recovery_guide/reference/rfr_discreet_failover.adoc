@@ -16,7 +16,7 @@ Ensure that no production tasks are performed after the failover. For example, e
 . Disable storage replication between the primary and replicated storage domains, and ensure that all replicated storage domains are in read/write mode.
 . Run the command to fail over to the secondary site:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ansible-playbook _playbook_ --tags "fail_over"
 ----

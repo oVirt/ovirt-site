@@ -3,28 +3,28 @@
 . Enable the required repositories:
 .. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager register
 ----
 +
 .. Find the `{enterprise-linux} Server` and `{virt-product-fullname}` subscription pools and record the pool IDs:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager list --available
 ----
 +
 .. Use the pool IDs to attach the subscriptions to the system:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager attach --pool=_poolid_
 ----
 +
 .. Configure the repositories:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos \
     --disable='*' \
@@ -35,7 +35,7 @@
 +
 .. Ensure that all packages currently installed are up to date:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum update
 ----

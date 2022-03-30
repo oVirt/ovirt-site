@@ -12,14 +12,14 @@
 
 . Check whether */etc/pki/ovirt-engine/openssl.conf* includes the line `default_md = sha256`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cat /etc/pki/ovirt-engine/openssl.conf
 ----
 +
 If it still includes `default_md = sha1`, back up the existing configuration and change the default to `sha256`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
 # sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf
@@ -86,14 +86,14 @@ endif::SHE_upgrade[]
 
 . Check whether */etc/pki/ovirt-engine/openssl.conf* includes the line `default_md = sha256`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cat /etc/pki/ovirt-engine/openssl.conf
 ----
 +
 If it still includes `default_md = sha1`, back up the existing configuration and change the default to `sha256`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
 # sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf
@@ -101,7 +101,7 @@ If it still includes `default_md = sha1`, back up the existing configuration and
 
 . Re-sign the CA certificate by backing it up and creating a new certificate in *ca.pem.new*:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem."$(date +"%Y%m%d%H%M%S")"
 # openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256
@@ -109,21 +109,21 @@ If it still includes `default_md = sha1`, back up the existing configuration and
 
 . Replace the existing certificate with the new certificate:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem
 ----
 
 . Define the certificates that should be re-signed:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # names="engine apache websocket-proxy jboss imageio-proxy"
 ----
 +
 If you replaced the {virt-product-fullname} {engine-name} SSL Certificate after the upgrade, run the following instead:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # names="engine websocket-proxy jboss imageio-proxy"
 ----
@@ -140,7 +140,7 @@ endif::SHE_upgrade[]
 
 . On the {engine-name}, save a backup of the `/etc/ovirt-engine/engine.conf.d` and `/etc/pki/ovirt-engine` directories, and re-sign the certificates:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
 # for name in $names; do

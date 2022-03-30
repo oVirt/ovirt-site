@@ -6,35 +6,35 @@ This topic describes how to boot the {engine-name} virtual machine into rescue m
 
 . Connect to one of the hosted-engine nodes:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ ssh root@__host_address__
 ----
 
 . Put the self-hosted engine in global maintenance mode:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
 
 . Check if there is already a running instance of the {engine-name} virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --vm-status
 ----
 +
 If a {engine-name} virtual machine instance is running, connect to its host:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ssh root@__host_address__
 ----
 
 . Shut down the virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --vm-shutdown
 ----
@@ -50,14 +50,14 @@ If the virtual machine does not shut down, execute the following command:
 
 . Start the {engine-name} virtual machine in pause mode:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 hosted-engine --vm-start-paused
 ----
 
 . Set a temporary VNC password:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 hosted-engine --add-console-password
 ----
@@ -73,7 +73,7 @@ The command outputs the necessary information you need to log in to the Manger v
 After running the following command, the boot loader menu appears. You need to enter into rescue mode before the boot loader proceeds with the normal boot process. Read the next step about entering into rescue mode before proceeding with this command.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # /usr/bin/virsh -c qemu:///system?authfile=/etc/ovirt-hosted-engine/virsh_auth.conf resume HostedEngine
 ----
@@ -82,7 +82,7 @@ After running the following command, the boot loader menu appears. You need to e
 
 . Disable global maintenance mode
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=none
 ----

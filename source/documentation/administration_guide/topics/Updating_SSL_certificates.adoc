@@ -5,12 +5,12 @@
 
 Run the following commands after the `ovirt-engine-rename` command to update the SSL certificates:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # names="websocket-proxy"
 ----
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subject="$(\
     openssl x509 \
@@ -22,12 +22,12 @@ Run the following commands after the `ovirt-engine-rename` command to update the
   )"
 ----
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # . /usr/share/ovirt-engine/bin/engine-prolog.sh
 ----
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # for name in $names; do
     /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \

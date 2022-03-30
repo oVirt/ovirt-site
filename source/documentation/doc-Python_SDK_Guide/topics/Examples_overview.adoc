@@ -21,7 +21,7 @@ The examples include placeholders for authentication details (`admin@internal` f
 
 The examples contain only basic exception and error handling logic. For more information on the exception handling specific to the SDK, see the pydoc for the `ovirtsdk.infrastructure.errors` module:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ pydoc ovirtsdk.infrastructure.errors
 ----

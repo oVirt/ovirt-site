@@ -9,7 +9,7 @@ You can list information for a specific checkpoint for a virtual machine by send
 
 * Send a request specifying a virtual machine. For example, specify a virtual machine with id `123` and checkpoint id `456` like this:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 GET /vms/123/checkpoints/456
 ----
@@ -23,7 +23,7 @@ The response includes the following information for the checkpoint:
 
 For example:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 <checkpoint id="456">

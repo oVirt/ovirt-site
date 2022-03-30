@@ -11,7 +11,7 @@ Creating an image transfer object requires a request call with a body.
 
 . Send a request like this:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 POST /ovirt-engine/api/imagetransfers
 ----
@@ -25,7 +25,7 @@ POST /ovirt-engine/api/imagetransfers
 +
 For example, to transfer a backup of a disk where the id of the disk is `123` and the id of the backup is `456`, send the following request body:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 <image_transfer>
     <disk id="123"/>

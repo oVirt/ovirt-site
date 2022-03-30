@@ -14,7 +14,7 @@ In this example the `sudo` command will be configured to allow the *vdsm* user t
 . Open the */etc/sudoers* file in a text editor.
 . Add this line to the file:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 vdsm ALL=(ALL) NOPASSWD: /bin/chown
 ----
@@ -23,7 +23,7 @@ This specifies that the *vdsm* user has the ability to run the `/bin/chown` comm
 
 Once this configuration change has been made VDSM hooks are able to use the `sudo` command to run `/bin/chown` as *root*. This Python code uses `sudo` to execute `/bin/chown` as *root* on the file */my_file*.
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 retcode = subprocess.call( ["/usr/bin/sudo", "/bin/chown", "root", "/my_file"] )
 ----

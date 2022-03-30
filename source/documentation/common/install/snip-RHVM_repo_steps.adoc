@@ -3,28 +3,28 @@
 . Enable the required repositories:
 .. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager register
 ----
 +
 .. Find the `{virt-product-fullname} {engine-name}` subscription pool and record the pool ID:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager list --available
 ----
 +
 .. Use the pool ID to attach the subscription to the system:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager attach --pool=_pool_id_
 ----
 +
 .. Configure the repositories:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos \
     --disable='*' \

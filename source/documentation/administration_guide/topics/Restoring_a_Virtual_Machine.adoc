@@ -9,7 +9,7 @@ Restore a virtual machine that has been backed up using the backup and restore A
 . In the Administration Portal, create a floating disk on which to restore the backup. See xref:Creating_a_Virtual_Disk[Creating a Virtual Disk] for details on how to create a floating disk.
 . Attach the disk to the backup virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
 Accept: application/xml
@@ -28,7 +28,7 @@ Replace `{disk:id}` with the disk ID you got while backing up the virtual machin
 . Use the backup software to restore the backup to the disk.
 . Detach the disk from the backup virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 DELETE /api/vms/`_{vm:id}_`/disks/_{disk:id}_ HTTP/1.1
 Accept: application/xml
@@ -77,7 +77,7 @@ To override any of the values in the ovf while creating the virtual machine,  re
 +
 . Attach the disk to the new virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
 Accept: application/xml

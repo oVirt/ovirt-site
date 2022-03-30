@@ -14,21 +14,21 @@ The tool checks whether the {engine-name} provides a local ISO or Data storage d
 . Update the host name on the {engine-name}.
 . Run the following command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
 ----
 +
 . When prompted, press `Enter` to stop the engine service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 During execution engine service will be stopped (OK, Cancel) [OK]:
 ----
 +
 . When prompted, enter the new FQDN for the {engine-name}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 New fully qualified server name:__new_engine_fqdn__
 ----
@@ -39,7 +39,7 @@ The `ovirt-engine-rename` command updates records of the FQDN of the {engine-nam
 
 . Run the following command on every existing self-hosted engine node:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_local
 ----
@@ -49,7 +49,7 @@ This command modifies the FQDN in each self-hosted engine node's local copy of [
 
 . Run the following command on one of the self-hosted engine nodes:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_shared
 ----

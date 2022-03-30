@@ -20,21 +20,21 @@ Both options are disabled globally by default.
 .Procedure
 . Enable auto-convergence at the global level:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config -s DefaultAutoConvergence=True
 ----
 +
 .. Enable migration compression at the global level:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config -s DefaultMigrationCompression=True
 ----
 +
 .. Restart the *ovirt-engine* service to apply the changes:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-engine.service
 ----

@@ -21,13 +21,13 @@ include::snip-Host_update_limitations.adoc[]
 ifdef::rhv-doc[]
 * For {hypervisor-fullname}s:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos --enable=rhvh-4-for-rhel-8-x86_64-rpms
 ----
 * For {enterprise-linux-host-fullname}s:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos \
     --enable=rhel-8-for-x86_64-baseos-rpms \
@@ -40,14 +40,14 @@ endif::[]
 ifdef::ovirt-doc[]
 * For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf update -y ovirt-release44
 ----
 
 * For {enterprise-linux-host-fullname}s:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
@@ -61,20 +61,20 @@ endif::[]
 
 .. Identify the current version of {enterprise-linux}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cat /etc/redhat-release
 ----
 .. Check which version of the redhat-release package is available:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf --refresh info --available redhat-release
 ----
 +
 This command shows any available updates. For example, when upgrading from {enterprise-linux} 8.2._z_ to 8.3, compare the version of the package with the currently installed version:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Available Packages
 Name         : redhat-release
@@ -89,7 +89,7 @@ The {enterprise-linux} Advanced Virtualization module is usually released later 
 ====
 .. If the Advanced Virtualization stream is available for {enterprise-linux} 8.3 or later, reset the `virt` module:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 +
 ----
 # dnf module reset virt
@@ -112,7 +112,7 @@ include::../install/snip-Enable_virt_module.adoc[]
 // END FOR RHEL HOSTS ONLY
 . Update the host:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf upgrade --nobest
 ----

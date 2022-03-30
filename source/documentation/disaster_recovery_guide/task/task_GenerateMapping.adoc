@@ -39,7 +39,7 @@ For extra security, you can encrypt your {engine-name} password in a `.yml` file
 
 . Run the Ansible command to generate the mapping file. The primary site’s configuration will be prepopulated.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ansible-playbook dr-rhv-setup.yml --tags "generate_mapping"
 ----

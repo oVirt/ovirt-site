@@ -38,7 +38,7 @@ ifdef::DWH[]
 
 ** You must manually grant access by editing the `postgresql.conf` file. Edit the `/var/lib/pgsql/data/postgresql.conf` file and modify the `listen_addresses` line so that it matches the following:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 listen_addresses = '*'
 ----
@@ -57,49 +57,49 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Ensure that all packages are up to date:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf upgrade --nobest
 ----
 //ansible lock addition
 . Install the `ovirt-engine-dwh-setup` package:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-engine-dwh-setup
 ----
 
 . Run the `engine-setup` command to begin the installation:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-setup
 ----
 
 . Answer `Yes` to install Data Warehouse on this machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure Data Warehouse on this host (Yes, No) [Yes]:
 ----
 
 . Answer `Yes` to install Grafana on this machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure Grafana on this host (Yes, No) [Yes]:
 ----
 
 . Press `Enter` to accept the automatically-detected host name, or enter an alternative host name and press `Enter`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Host fully qualified DNS name of this server [_autodetected hostname_]:
 ----
 
 . Press `Enter` to automatically configure the firewall, or type `No` and press `Enter` to maintain existing settings:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
@@ -109,14 +109,14 @@ If you choose to automatically configure the firewall, and no firewall managers 
 
 . Enter the fully qualified domain name of the {engine-name} machine, and then press `Enter`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Host fully qualified DNS name of the engine server []:
 ----
 
 . Press `Enter` to allow setup to sign the certificate on the {engine-name} via SSH:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
 Please choose one of the following:
@@ -127,14 +127,14 @@ Please choose one of the following:
 
 . Press `Enter` to accept the default SSH port, or enter an alternative port number and then press `Enter`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 ssh port on remote engine server [22]:
 ----
 
 . Enter the root password for the {engine-name} machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 root password on remote engine server _manager.example.com_:
 ----
@@ -146,14 +146,14 @@ root password on remote engine server _manager.example.com_:
 {org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Where is the DWH database located? (Local, Remote) [Local]:
 ----
 
 ** If you select `Local`, the `engine-setup` script can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
 Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
@@ -162,7 +162,7 @@ Would you like Setup to automatically configure postgresql and create DWH databa
 *** If you select `Automatic` by pressing `Enter`, no further action is required here.
 *** If you select `Manual`, input the following values for the manually-configured local database:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 DWH database secured connection (Yes, No) [No]:
 DWH database name [ovirt_engine_history]:
@@ -173,7 +173,7 @@ DWH database password:
 ifdef::SM_remoteDB_deploy[]
 ** If you select `Remote`, you are prompted to provide details about the remote database host. Input the following values for the preconfigured remote database host:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 DWH database host []: _dwh-db-fqdn_
 DWH database port [5432]:
@@ -185,7 +185,7 @@ DWH database password: _password_
 
 ** If you select `Remote`, you are prompted to enter the username and password for the Grafana database user:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Grafana database user [ovirt_engine_history_grafana]:
 Grafana database password:
@@ -194,7 +194,7 @@ endif::SM_remoteDB_deploy[]
 
 . Enter the fully qualified domain name and password for the {engine-name} database machine. If you are installing the Data Warehouse database on the same machine where the {engine-name} database is installed, use the same FQDN. Press `Enter` to accept the default values in each other field:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Engine database host []: _engine-db-fqdn_
 Engine database port [5432]:
@@ -206,7 +206,7 @@ Engine database password: _password_
 
 . Choose how long Data Warehouse will retain collected data:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please choose Data Warehouse sampling scale:
 (1) Basic
@@ -219,14 +219,14 @@ Please choose Data Warehouse sampling scale:
 
 . Confirm your installation settings:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please confirm installation settings (OK, Cancel) [OK]:
 ----
 
 . After the Data Warehouse configuration is complete, on the {virt-product-fullname} {engine-name}, restart the `ovirt-engine` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-engine
 ----

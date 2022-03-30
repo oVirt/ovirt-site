@@ -8,7 +8,7 @@ If the name of a logical network is longer than 15 characters or contains non-AS
 . The first time you run the tool, define a PASSWORD environment variable, which is the password of a database user with read access to the {engine-name} database. 
 For example, run:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # export PASSWORD=_DatabaseUserPassword_
 ----

@@ -18,7 +18,7 @@ A virtual machine will not start on a host with an overloaded CPU. By default, a
 
 Scenario - the virtual machine fails to boot with the following error message:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Boot failed: not a bootable disk - No Bootable device
 ----

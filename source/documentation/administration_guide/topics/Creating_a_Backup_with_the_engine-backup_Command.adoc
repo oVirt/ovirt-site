@@ -33,7 +33,7 @@ For a complete explanation of the [command]`engine-backup` command, enter `engin
 
 . Create a backup:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_
 ----
@@ -48,7 +48,7 @@ The following examples demonstrate several different backup scenarios.
 .Full backup
 ====
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_
 ----
@@ -58,7 +58,7 @@ The following examples demonstrate several different backup scenarios.
 .{engine-name} database backup
 ====
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --scope=files --scope=db --mode=backup --file=_file_name_ --log=_log_file_name_
 ----
@@ -68,7 +68,7 @@ The following examples demonstrate several different backup scenarios.
 .Data Warehouse database backup
 ====
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --scope=files --scope=dwhdb --mode=backup --file=_file_name_ --log=_log_file_name_
 ----
@@ -80,13 +80,13 @@ The following examples demonstrate several different backup scenarios.
 
 . Make a directory to store configuration customizations for the [command]`engine-backup` command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d
 ----
 . Create a text file in the new directory named `ntp-chrony.sh` with the following contents:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 BACKUP_PATHS="${BACKUP_PATHS}
 /etc/chrony.conf

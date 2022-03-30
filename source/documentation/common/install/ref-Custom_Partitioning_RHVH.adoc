@@ -45,7 +45,7 @@ For information about the required storage sizes for each partition, see xref:St
 ====
 The following example demonstrates how to configure manual partitioning in a Kickstart file.
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 clearpart --all
 part /boot --fstype xfs --size=1000 --ondisk=sda

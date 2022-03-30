@@ -14,7 +14,7 @@ Once the configuration key has been updated, the *ovirt-engine* service must be 
 ====
 . Check the existing custom properties defined by the `UserDefinedVMProperties` configuration key using the following command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config -g UserDefinedVMProperties
 ----

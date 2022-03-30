@@ -4,7 +4,7 @@
 
 Edit the {engine-name}'s kdump configuration. This is only necessary in cases where the default configuration is not sufficient. The current configuration values can be found using:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config -g _OPTION_
 ----
@@ -13,7 +13,7 @@ Edit the {engine-name}'s kdump configuration. This is only necessary in cases wh
 
 . Edit kdump's configuration using the `engine-config` command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config -s _OPTION_=_value_
 ----
@@ -25,7 +25,7 @@ The edited values must also be changed in the fence_kdump listener configuration
 +
 . Restart the `ovirt-engine` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-engine.service
 ----

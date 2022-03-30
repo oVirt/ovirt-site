@@ -8,7 +8,7 @@ Each key set in the *Custom Properties* field for a virtual machine is appended 
 ====
 This short Python example checks for the existence of the custom property `key1`. If the custom property is set then the value is printed to standard error. If the custom property is not set then no action is taken.
 		
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 
 #!/usr/bin/python

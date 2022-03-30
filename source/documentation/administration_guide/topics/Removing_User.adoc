@@ -4,7 +4,7 @@
 
 You can remove a user account:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool user delete test1
 ----

@@ -16,7 +16,7 @@ You can run `engine-setup --accept-defaults` to automatically accept all questio
 
 . Ensure all packages are up to date:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf upgrade --nobest
 ----
@@ -30,27 +30,27 @@ Reboot the machine if any kernel-related packages were updated.
 . Install the `{engine-package}` package and dependencies.
 +
 ifdef::rhv-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install rhvm
 ----
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-engine
 ----
 endif::ovirt-doc[]
 . Run the `engine-setup` command to begin configuring the {virt-product-fullname} {engine-name}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-setup
 ----
 . Optional: Type *Yes* and press `Enter` to set up Cinderlib integration on this machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Set up Cinderlib integration
 (Currently in tech preview)
@@ -66,7 +66,7 @@ For more information on Red Hat Technology Preview features support scope, see l
 
 . Press `Enter` to configure the {engine-name} on this machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure Engine on this host (Yes, No) [Yes]:
 ----
@@ -77,7 +77,7 @@ Configure Engine on this host (Yes, No) [Yes]:
 Also see the "Next steps" in link:{URL_virt_product_docs}{URL_format}administration_guide/index#Installing-OVN-next-steps[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
 ====
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configuring ovirt-provider-ovn also sets the Default cluster's default network provider to ovirt-provider-ovn.
 Non-Default clusters may be configured with an OVN after installation.
@@ -88,7 +88,7 @@ For more information on using OVN networks in {virt-product-fullname}, see link:
 
 . Optional: Allow `engine-setup` to configure a WebSocket Proxy server for allowing users to connect to virtual machines through the `noVNC` console:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
 ----
@@ -102,7 +102,7 @@ endif::[]
 ifdef::SM_remoteDB_deploy[]
 . To configure Data Warehouse on a remote server, answer `No` and see xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Installing and Configuring Data Warehouse on a Separate Machine] after completing the {engine-name} configuration.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please note: Data Warehouse is required for the engine. If you choose to not configure it on this host, you have to configure it on a remote host, and then configure the engine on this host so that it can access the database of the remote Data Warehouse host.
 Configure Data Warehouse on this host (Yes, No) [Yes]:
@@ -115,7 +115,7 @@ Configure Data Warehouse on this host (Yes, No) [Yes]:
 +
 . To configure Grafana on the same machine as the Data Warehouse service, enter `No`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure Grafana on this host (Yes, No) [Yes]:
 ----
@@ -124,7 +124,7 @@ endif::SM_remoteDB_deploy[]
 ifdef::SM_localDB_deploy[]
 . Choose whether to configure Data Warehouse on this machine.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please note: Data Warehouse is required for the engine. If you choose to not configure it on this host, you have to configure it on a remote host, and then configure the engine on this host so that it can access the database of the remote Data Warehouse host.
 Configure Data Warehouse on this host (Yes, No) [Yes]:
@@ -137,7 +137,7 @@ Configure Data Warehouse on this host (Yes, No) [Yes]:
 +
 . Press `Enter` to configure Grafana on the {engine-name}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure Grafana on this host (Yes, No) [Yes]:
 ----
@@ -145,7 +145,7 @@ endif::SM_localDB_deploy[]
 +
 . Optional: Allow access to a virtual machine's serial console from the command line.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Configure VM Console Proxy on this host (Yes, No) [Yes]:
 ----
@@ -153,14 +153,14 @@ Additional configuration is required on the client machine to use this feature. 
 
 . Press `Enter` to accept the automatically detected host name, or enter an alternative host name and press `Enter`. Note that the automatically detected host name may be incorrect if you are using virtual hosts.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Host fully qualified DNS name of this server [_autodetected host name_]:
 ----
 
 . The `engine-setup` command checks your firewall configuration and offers to open the ports used by the {engine-name} for external communication, such as ports 80 and 443. If you do not allow `engine-setup` to modify your firewall configuration, you must manually open the ports used by the {engine-name}. `firewalld` is configured as the firewall manager.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
@@ -173,14 +173,14 @@ ifdef::SM_localDB_deploy[]
 //Only appears if you answer Yes to installing DWH on the {engine-name}
 . Specify whether to configure the Data Warehouse database on this machine, or on another machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Where is the DWH database located? (Local, Remote) [Local]:
 ----
 
 ** If you select `Local`, the `engine-setup` script can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
 Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
@@ -189,7 +189,7 @@ Would you like Setup to automatically configure postgresql and create DWH databa
 *** If you select `Automatic` by pressing `Enter`, no further action is required here.
 *** If you select `Manual`, input the following values for the manually configured local database:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 DWH database secured connection (Yes, No) [No]:
 DWH database name [ovirt_engine_history]:
@@ -204,7 +204,7 @@ DWH database password:
 
 ** If you select `Remote` (for example, if you are installing the Data Warehouse service on the {engine-name} machine, but have configured a remote Data Warehouse database), input the following values for the remote database server:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 DWH database host [localhost]:
 DWH database port [5432]:
@@ -221,7 +221,7 @@ DWH database password:
 
 ** If you select `Remote`, you are prompted to enter the username and password for the Grafana database user:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Grafana database user [ovirt_engine_history_grafana]:
 Grafana database password:
@@ -230,7 +230,7 @@ endif::SM_localDB_deploy[]
 
 . Specify whether to configure the {engine-name} database on this machine, or on another machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Where is the Engine database located? (Local, Remote) [Local]:
 ----
@@ -238,7 +238,7 @@ Where is the Engine database located? (Local, Remote) [Local]:
 ifdef::SM_localDB_deploy[]
 ** If you select `Local`, the `engine-setup` command can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup can configure the local postgresql server automatically for the engine to run. This may conflict with existing applications.
 Would you like Setup to automatically configure postgresql and create Engine database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
@@ -247,7 +247,7 @@ Would you like Setup to automatically configure postgresql and create Engine dat
 ***  If you select `Automatic` by pressing `Enter`, no further action is required here.
 *** If you select `Manual`, input the following values for the manually configured local database:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
@@ -265,7 +265,7 @@ Deployment with a remote engine database is now deprecated. This functionality w
 +
 If you select `Remote`, input the following values for the preconfigured remote database server. Replace `localhost` with the ip address or FQDN of the remote database server:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Engine database host [localhost]:
 Engine database port [5432]:
@@ -278,7 +278,7 @@ endif::SM_remoteDB_deploy[]
 
 . Set a password for the automatically created administrative user of the {virt-product-fullname} {engine-name}:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Engine admin password:
 Confirm engine admin password:
@@ -286,7 +286,7 @@ Confirm engine admin password:
 
 . Select *Gluster*, *Virt*, or *Both*:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Application mode (Both, Virt, Gluster) [Both]:
 ----
@@ -296,7 +296,7 @@ Application mode (Both, Virt, Gluster) [Both]:
 
 . If you installed the OVN provider, you can choose to use the default credentials, or specify an alternative.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Use default credentials (admin@internal) for ovirt-provider-ovn (Yes, No) [Yes]:
 oVirt OVN provider user[admin@internal]:
@@ -305,21 +305,21 @@ oVirt OVN provider password:
 
 . Set the default value for the `wipe_after_delete` flag, which wipes the blocks of a virtual disk when the disk is deleted.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Default SAN wipe after delete (Yes, No) [No]:
 ----
 
 . The {engine-name} uses certificates to communicate securely with its hosts. This certificate can also optionally be used to secure HTTPS communications with the {engine-name}. Provide the organization name for the certificate:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Organization name for certificate [_autodetected domain-based name_]:
 ----
 
 . Optionally allow `engine-setup` to make the landing page of the {engine-name} the default page presented by the Apache web server:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup can configure the default page of the web server to present the application home page. This may conflict with existing applications.
 Do you wish to set the application as the default web page of the server? (Yes, No) [Yes]:
@@ -327,7 +327,7 @@ Do you wish to set the application as the default web page of the server? (Yes, 
 
 . By default, external SSL (HTTPS) communication with the {engine-name} is secured with the self-signed certificate created earlier in the configuration to securely communicate with hosts. Alternatively, choose another certificate for external HTTPS connections; this does not affect how the {engine-name} communicates with hosts:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Setup can configure apache to use SSL using a certificate issued from the internal CA.
 Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
@@ -335,7 +335,7 @@ Do you wish Setup to configure that, or prefer to perform that manually? (Automa
 +
 . You can specify a unique password for the Grafana admin user, or use same one as the {engine-name} admin password:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Use Engine admin password as initial Grafana admin password (Yes, No) [Yes]:
 ----
@@ -344,7 +344,7 @@ ifdef::SM_localDB_deploy[]
 //Only appears if you answer Yes to installing DWH on the {engine-name} machine
 . Choose how long Data Warehouse will retain collected data:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please choose Data Warehouse sampling scale:
 (1) Basic
@@ -357,7 +357,7 @@ Please choose Data Warehouse sampling scale:
 endif::SM_localDB_deploy[]
 . Review the installation settings, and press `Enter` to accept the values and proceed with the installation:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Please confirm installation settings (OK, Cancel) [OK]:
 ----

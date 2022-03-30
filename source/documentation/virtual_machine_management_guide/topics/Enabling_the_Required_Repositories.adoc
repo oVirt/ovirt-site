@@ -9,35 +9,35 @@ To install packages signed by Red Hat you must register the target system to the
 
 . Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager register
 ----
 +
 . Locate the relevant subscription pools and note down the pool identifiers:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager list --available
 ----
 +
 . Use the pool identifiers to attach the required subscriptions:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager attach --pool=_pool_id_
 ----
 +
 . When a system is attached to a subscription pool with multiple repositories, only the main repository is enabled by default. Others are available, but disabled. Enable any additional repositories:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # subscription-manager repos --enable=_repository_
 ----
 +
 . Ensure that all packages currently installed are up to date:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf upgrade --nobest
 ----
@@ -46,7 +46,7 @@ To install packages signed by Red Hat you must register the target system to the
 [NOTE]
 ====
 For versions of {enterprise-linux} earlier than 8, use the command `yum update` instead of `dnf upgrade`:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum update
 ----

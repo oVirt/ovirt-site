@@ -15,7 +15,7 @@ This example uses the `dr-cleanup.yml` playbook created earlier to clean the env
 
 . Clean up the primary site with the following command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ansible-playbook dr-cleanup.yml --tags "clean_engine"
 ----

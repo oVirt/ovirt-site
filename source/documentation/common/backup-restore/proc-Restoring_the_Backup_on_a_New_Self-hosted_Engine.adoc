@@ -23,7 +23,7 @@ Note that the IQN can be updated on the host side (iSCSI initiator), or on the s
 
 . Copy the backup file to the new host. In the following example, `host.example.com` is the FQDN for the host, and `/backup/` is any designated folder or path.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # scp -p __file_name__ host.example.com:/backup/
 ----
@@ -32,7 +32,7 @@ Note that the IQN can be updated on the host side (iSCSI initiator), or on the s
 
 . If you are deploying on {hypervisor-fullname}, `ovirt-hosted-engine-setup` is already installed, so skip this step. If you are deploying on {enterprise-linux}, install the `ovirt-hosted-engine-setup` package:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install ovirt-hosted-engine-setup
 ----
@@ -41,7 +41,7 @@ Note that the IQN can be updated on the host side (iSCSI initiator), or on the s
 +
 Install and run `tmux`:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf -y install tmux
 # tmux
@@ -49,7 +49,7 @@ Install and run `tmux`:
 +
 . Run the `hosted-engine` script, specifying the path to the backup file:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --deploy --restore-from-file=backup/__file_name__
 ----
@@ -144,7 +144,7 @@ endif::SHE_backup_restore,SHE_restore_only[]
 ====
 Only replica 1 and replica 3 Gluster storage are supported. Ensure you configure the volume as follows:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 gluster volume set _VOLUME_NAME_ group virt
 gluster volume set _VOLUME_NAME_ performance.strict-o-direct on

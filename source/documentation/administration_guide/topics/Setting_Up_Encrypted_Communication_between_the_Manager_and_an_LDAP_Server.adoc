@@ -16,7 +16,7 @@ For more information on creating a PEM-encoded CA certificate and importing cert
 
 . On the {virt-product-fullname} {engine-name}, copy the root CA certificate of the LDAP server to the */tmp* directory and import the root CA certificate using `keytool` to create a PEM-encoded CA certificate. The following command imports the root CA certificate at _/tmp/myrootca.pem_ and creates a PEM-encoded CA certificate _myrootca.jks_ under _/etc/ovirt-engine/aaa/_. Note down the certificate's location and password. If you are using the interactive setup tool, this is all the information you need. If you are configuring the LDAP server manually, follow the rest of the procedure to update the configuration files.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 $ keytool -importcert -noprompt -trustcacerts -alias _myrootca_ -file _/tmp/myrootca.pem_ -keystore _/etc/ovirt-engine/aaa/myrootca.jks_ -storepass _password_
 ----
@@ -30,7 +30,7 @@ $ keytool -importcert -noprompt -trustcacerts -alias _myrootca_ -file _/tmp/myro
 +
 * To use startTLS (recommended):
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # Create keystore, import certificate chain and uncomment
 pool.default.ssl.startTLS = true
@@ -40,7 +40,7 @@ pool.default.ssl.truststore.password = _password_
 +
 * To use SSL:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # Create keystore, import certificate chain and uncomment
 pool.default.serverset.single.port = 636

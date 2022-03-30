@@ -21,7 +21,7 @@ The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmcons
 
 . On the virtual machine whose serial console you are accessing, add the following lines to */etc/default/grub*:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"
 GRUB_TERMINAL="console serial"
@@ -39,14 +39,14 @@ If these lines already exist in */etc/default/grub*, update them. Do not duplica
 +
 ** BIOS-based machines:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 ----
 
 ** UEFI-based machines:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
 ----
@@ -55,7 +55,7 @@ See link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-working_with_
 
 . On the client machine from which you are accessing the virtual machine serial console, generate an SSH key pair. The {engine-name} supports standard SSH key types, for example, an RSA key:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ssh-keygen -t rsa -b 2048 -C "_user@domain_" -f .ssh/serialconsolekey
 ----
@@ -72,7 +72,7 @@ On the client machine, connect to the virtual machine's serial console:
 
 * If a single virtual machine is available, this command connects the user to that virtual machine:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey
 {enterprise-linux} Server release 6.7 (Santiago)
@@ -82,7 +82,7 @@ _USER_ login:
 ----
 * If more than one virtual machine is available, this command lists the available virtual machines and their IDs:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey list
 1. vm1 [vmid1]
@@ -98,12 +98,12 @@ Enter the number of the machine to which you want to connect, and press `Enter`.
 
 * Alternatively, connect directly to a virtual machine using its unique identifier or its name:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-id _vmid1_
 ----
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-name _vm1_
 ----

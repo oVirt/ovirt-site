@@ -17,14 +17,14 @@ The `list` method of the VmBackupDisks service returns the following information
 
 * To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 GET /ovirt-engine/api/vms/456/backups/123/disks
 ----
 +
 The response includes the disk with id 789, and the id of the disk image is 555.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 <disks>
     <disk id="789">

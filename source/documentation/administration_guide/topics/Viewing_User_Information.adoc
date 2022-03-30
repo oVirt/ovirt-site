@@ -4,7 +4,7 @@
 
 You can view detailed user account information:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool user show test1
 ----

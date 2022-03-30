@@ -11,7 +11,7 @@ Access the Administration Portal using a web browser.
 ====
 You can access the Administration Portal using alternate host names or IP addresses. To do so, you need to add a configuration file under */etc/ovirt-engine/engine.conf.d/*. For example:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # vi /etc/ovirt-engine/engine.conf.d/99-custom-sso-setup.conf
 SSO_ALTERNATE_ENGINE_FQDNS="_alias1.example.com alias2.example.com_"

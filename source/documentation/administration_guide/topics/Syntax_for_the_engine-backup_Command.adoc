@@ -4,12 +4,12 @@
 
 The `engine-backup` command works in one of two basic modes:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --mode=backup
 ----
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-backup --mode=restore
 ----

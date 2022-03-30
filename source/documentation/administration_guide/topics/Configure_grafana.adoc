@@ -13,7 +13,7 @@ To enable Grafana integration manually:
 
 . Put the environment in global maintenance mode:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
@@ -31,7 +31,7 @@ Configure Grafana on this host (Yes, No) [Yes]:
 ----
 . Disable global maintenance mode:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=none
 ----

@@ -43,7 +43,7 @@ If the Smart card hardware is not correctly installed, enabling the Smart card f
 
 . To install the `Smart card support` group, run the following command:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf groupinstall "Smart card support"
 ----
@@ -54,7 +54,7 @@ If the Smart card hardware is not correctly installed, enabling the Smart card f
 ////
 Register the library in the system's NSS database. Run the following command as root:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # modutil -dbdir /etc/pki/nssdb -add "_module name_" -libfile _/path/to/library_.so
 ----
@@ -80,7 +80,7 @@ Red Hat does not provide PKCS #11 support to Windows clients. Libraries that pro
 
 . When such libraries are obtained, register them by running the following command as a user with elevated privileges:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 modutil -dbdir %PROGRAMDATA%\pki\nssdb -add "_module name_" -libfile C:_\Path\to\module_.dll
 ----

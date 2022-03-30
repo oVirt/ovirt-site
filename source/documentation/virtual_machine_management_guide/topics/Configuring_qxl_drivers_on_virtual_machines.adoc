@@ -10,7 +10,7 @@ You must manually install QXL drivers on virtual machines running {enterprise-li
 . Log in to a {enterprise-linux} virtual machine.
 . Install the QXL drivers:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # yum install xorg-x11-drv-qxl
 ----
@@ -37,14 +37,14 @@ You can configure QXL drivers using either a graphical interface or the command 
 
 . Back up */etc/X11/xorg.conf*: 
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
 ----
 +
 . Make the following change to the Device section of */etc/X11/xorg.conf*:
 +			
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 Section 	"Device"
 Identifier	"Videocard0"

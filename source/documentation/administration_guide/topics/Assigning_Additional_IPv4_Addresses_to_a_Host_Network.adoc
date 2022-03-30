@@ -13,21 +13,21 @@ In the following procedure, the host-specific tasks must be performed on each ho
 
 . On the host that you want to configure additional IPv4 addresses for, install the VDSM hook package. The package is available by default on {hypervisor-fullname}s but needs to be installed on {enterprise-linux-host-fullname}s.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # dnf install vdsm-hook-extra-ipv4-addrs
 ----
 +
 . On the {engine-name}, run the following command to add the key:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # engine-config -s 'UserDefinedNetworkCustomProperties=ipv4_addrs=.*'
 ----
 +
 . Restart the `ovirt-engine` service:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # systemctl restart ovirt-engine.service
 ----

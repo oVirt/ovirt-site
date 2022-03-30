@@ -12,7 +12,7 @@ To see the current configuration values, use the `hosted-engine --get-shared-con
 
 To see a list of all available configuration keys and their corresponding types, enter the following command:
 
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-shared-config _key_ --type=_type_ --help
 ----
@@ -33,7 +33,7 @@ You can configure email notifications using SMTP for any HA state transitions on
 
 . On a self-hosted engine node, set the `smtp-server` key to the desired SMTP server address:
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-shared-config smtp-server __smtp.example.com__ --type=broker
 ----
@@ -41,7 +41,7 @@ You can configure email notifications using SMTP for any HA state transitions on
 [NOTE]
 ====
 To verify that the self-hosted engine configuration file has been updated, run:
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --get-shared-config smtp-server --type=broker
 broker : smtp.example.com, type : broker
@@ -59,14 +59,14 @@ broker : 25, type : broker
 
 . Specify an email address you want the SMTP server to use to send out email notifications. Only one address can be specified.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-shared-config source-email _source@example.com_ --type=broker
 ----
 
 . Specify the destination email address to receive email notifications. To specify multiple email addresses, separate each address by a comma.
 +
-[source,terminal]
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-shared-config destination-emails _destination1@example.com_,_destination2@example.com_ --type=broker
 ----

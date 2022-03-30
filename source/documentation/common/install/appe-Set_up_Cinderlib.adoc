@@ -20,15 +20,6 @@ endif::[]
 # subscription-manager repos --enable=openstack-16.2-cinderlib-for-rhel-8-x86_64-rpms
 ----
 
-ifdef::ovirt-doc[]
-. Enable the `centos-release-openstack-ussuri` repositories on CentOS Stream:
-+
-----
-
-# yum install centos-release-openstack-ussuri.noarch
-----
-endif::[]
-
 . Install the `OpenStack Cinderlib` package:
 +
 ----
@@ -53,14 +44,6 @@ endif::[]
 # subscription-manager repos --enable=openstack-16.2-cinderlib-for-rhel-8-x86_64-rpms
 ----
 
-ifdef::ovirt-doc[]
-. Enable the `centos-release-openstack-ussuri` repositories on CentOS Stream:
-+
-----
-# yum install -y centos-release-openstack-ussuri.noarch
-----
-endif::[]
-
 . Install the Python `brick` package:
 +
 ----
@@ -83,13 +66,6 @@ If you are using Cinderlib together with a ceph driver:
 # subscription-manager repos --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
 ----
 
-ifdef::ovirt-doc[]
-. Enable the `centos-release-ceph-nautilus` repositories on CentOS Stream:
-+
-----
-# yum install -y centos-release-ceph-nautilus.noarch
-----
-endif::[]
 
 . Run the following command on the {engine-name} and on the hosts:
 +

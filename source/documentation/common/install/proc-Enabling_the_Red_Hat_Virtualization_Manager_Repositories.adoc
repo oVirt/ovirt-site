@@ -104,6 +104,7 @@ For oVirt 4.4:
 ----
 
 For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
 
 [source,terminal,subs="normal"]
 ----

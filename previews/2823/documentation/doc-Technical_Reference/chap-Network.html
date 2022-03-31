@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Networking | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Networking" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2823/documentation/doc-Technical_Reference/chap-Network.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2823/documentation/doc-Technical_Reference/chap-Network.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Networking" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Networking","url":"https://ovirt.github.io/ovirt-site/previews/2823/documentation/doc-Technical_Reference/chap-Network.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2823/images/logo.svg"}},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2823/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2823/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2823/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2823/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2823/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2823/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2823/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2823/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2823/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2823/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2823/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2823/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2823/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2823/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2823/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2823/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2823/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2823/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2823/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2823/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2823/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2823/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2823/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2823/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2823/documentation/doc-Technical_Reference/">
+              <span property="name">Technical Reference</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div class="sect1">
+<h2 id="overview-of-networking-in-rhv">Host networking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On the data link layer (layer 2), {virt-product-shortname} enables the configuration of Linux bonds to connect to VLANs and define the MTU for network interfaces. These networks can be shared via Linux bridges to virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>For SR-IOV, you can configure the number of virtual functions and their mapping to logical networks.</p>
+</div>
+<div class="paragraph">
+<p>FCoE manages its own VLANs. These FCoE managed VLANs are used exclusively for storage access. They are invisible to the {engine-name} and any virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>iSCSI manages iSCSI bonds. They are not part of {virt-product-shortname}'s visible host network configuration. You can use iSCSI without iSCSI bonds, which are useful only to improve the reliability of iSCSI storage.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All hosts in a cluster must use either IPv4 or IPv6 as the IP stack for their management network. Dual stack is not supported.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can configure the DNS resolver that the host uses.</p>
+</div>
+<div class="paragraph">
+<p>It is also possible to manage network roles and QoS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="virtual_machine_networking_types">Virtual machine networking types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In {virt-product-shortname}, virtual NICs of virtual machines can connect to the following types of networks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux bridges</p>
+</li>
+<li>
+<p>SR-IOV NICs</p>
+</li>
+<li>
+<p>{virt-product-shortname}'s internal OVN</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following diagram shows the structure of these three approaches, where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Host 1</strong> represents Linux bridges</p>
+</li>
+<li>
+<p><strong>Host 2</strong> represents SR-IOV NICs</p>
+</li>
+<li>
+<p><strong>Host 3</strong> represents OVN</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="103_RHV_Networking_Overview_0720.png" alt="Network types">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Comparison of network types</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Linux bridge</th>
+<th class="tableblock halign-left valign-top">SR-IOV</th>
+<th class="tableblock halign-left valign-top">{virt-product-shortname} internal OVN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Isolation from physical host networks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layer 3, Separate IP network possible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layer 2, Separate VLANs possible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Isolated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Live Migration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QoS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Port Mirroring</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configuration of plugged vNIC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MAC address management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MTU propagation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VLAN filtering, might require configuration on the physical switch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Technology Preview</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MAC Spoofing Protection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IP Spoofing Protection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Predefined Network Filters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom Layer 3/4 Filtering</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NAT</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP/Router Advertisements</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layer 3 Router</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>**</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>***</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">virtual machine network data encapsulation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flat, VLAN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flat, VLAN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stable: GENEVE; Technology Preview: flat, VLAN</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<div class="title">Networking choices for various scenarios</div>
+<p>Linux bridge is the default, and the most proven option. It fits most use cases.</p>
+</div>
+<div class="paragraph">
+<p>For scenarios that require very low network latency or a large number of Ethernet frames, consider investing in SR-IOV. Keep in mind, however, that SR-IOV requires hardware support and additional configuration steps.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-shortname}'s internal OVN networks enable virtual machines to communicate with each other without any manual network configuration.</p>
+</div>
+<div class="paragraph">
+<p>The {engine-name} provides only a subset of software-defined networking (SDN) features and user interfaces. To use all SDN features, similar to {virt-product-shortname}'s internal OVN or a third-party SDN, you need to use an additional client, such as CloudForms.</p>
+</div>
+<div class="paragraph">
+<p>You can combine all network types on a single host and connect them to the same virtual machine.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="interaction-with-guest-operating-system">Interaction with guest operating system</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-shortname} supports the initial configuration of a virtual machine by providing configuration data via cloud-init. If the qemu-guest-agent runs inside the virtual machine, {virt-product-shortname} can report the IP addresses of the virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>If the virtual machine uses a VirtIO NIC, the MTU of the {virt-product-shortname} logical networks are provided to the guest operating system. The guest operating system can pick up the MTU from DHCPv4 or IPv6 router advertisements if the logical network supports these advertisements.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="host-and-virtual-machine-networking">Host and virtual machine networking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Linux bridge networking separates virtual machine and host networking on OSI layer 3. Therefore the networking configuration, including VLAN, bonding, and MTU, is shared between the host and its virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>To reduce their surface, hosts should not assign IP addresses to VLANs that are connected to virtual machines. By not assigning IP addresses, the hosts can avoid potential confusion caused by virtual machine traffic.</p>
+</div>
+<div class="paragraph">
+<p>The IP address associated with the Linux bridge is not required to be within the same subnet as the virtual machines that use the bridge for connectivity. If the bridge is assigned an IP address on the same subnet as the virtual machines that use it, the host is addressable within the logical network by virtual machines. As a rule, it is not recommended to run network exposed services on a virtualization host.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Network_Architecture">Network Architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Networking in {virt-product-fullname} includes basic networking, networking within a cluster, and host networking configurations.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Basic networking</dt>
+<dd>
+<p>The basic hardware and software elements that facilitate networking.</p>
+</dd>
+<dt class="hdlist1">Networking within a cluster</dt>
+<dd>
+<p>Network interactions among cluster objects such as hosts, logical networks and virtual machines.</p>
+</dd>
+<dt class="hdlist1">Host networking configurations</dt>
+<dd>
+<p>Supported configurations for networking within a host.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>A well designed and built network ensures that high bandwidth tasks receive adequate bandwidth, that latency does not impact user interactions, and that virtual machines can be successfully migrated within a migration domain. A poorly built network can cause unacceptable latency, and migration and cloning failures that result from network flooding.</p>
+</div>
+<div class="paragraph">
+<p>An alternative method of managing your network is by integrating with Cisco Application Centric Infrastructure (ACI), by configuring {virt-product-fullname} on Cisco&#8217;s Application Policy Infrastructure Controller (APIC) version 3.1(1) and later according to <a href="https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b_Cisco_ACI_Red_Hat_Virtualization.html">Cisco&#8217;s documentation</a>. On the {virt-product-fullname} side, all that is required is connecting the hosts' NICs to the network and the virtual machines' vNICs to the required network. The remaining configuration tasks are managed by Cisco ACI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Introduction_Basic_Networking_Terms">Basic Networking Terms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-fullname} provides networking functionality between virtual machines, virtualization hosts, and wider networks using:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Logical networks</p>
+</li>
+<li>
+<p>A network interface controller (NIC)</p>
+</li>
+<li>
+<p>A Linux bridge</p>
+</li>
+<li>
+<p>A Bond</p>
+</li>
+<li>
+<p>A virtual network interface controller (vNIC)</p>
+</li>
+<li>
+<p>A virtual LAN (VLAN)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>NICs, Linux bridges, and vNICs enable network communication between hosts, virtual machines, local area networks, and the Internet. Bonds and VLANs are optionally implemented to enhance security, fault tolerance, and network capacity.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Network_Interface_Controller_NIC">Network Interface Controller</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The network interface controller (NIC) is a network adapter or LAN adapter that connects a computer to a computer network. The NIC operates on both the physical and data link layers of the machine and enables network connectivity. All virtualization hosts in a {virt-product-fullname} environment have at least one NIC, though it is more common for a host to have two or more NICs.</p>
+</div>
+<div class="paragraph">
+<p>One physical NIC can have multiple virtual NICs (vNICs) logically connected to it. A virtual NIC acts as a network interface for a virtual machine. To distinguish between a vNIC and the NIC that supports it, the {virt-product-fullname} {engine-name} assigns each vNIC a unique MAC address.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bridge">Linux bridge</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Linux bridge is a software device that uses packet forwarding in a packet-switched network. Bridging allows multiple network interface devices to share the connectivity of one NIC and appear on a network as separate physical devices. The bridge examines a packet&#8217;s source addresses to determine relevant target addresses. Once the target address is determined, the bridge adds the location to a table for future reference. This allows a host to redirect network traffic to virtual machine associated vNICs that are members of a bridge.</p>
+</div>
+<div class="paragraph">
+<p>Custom properties can be defined for both the bridge and the Ethernet connection. VDSM passes the network definition and custom properties to the setup network hook script.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bond">Bonds</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A bond is a collection of multiple network interface cards into a single software-defined device. Because bonded network interfaces combine the transmission capability of the network interface cards included in the bond to act as a single network interface, they can provide greater transmission speed than that of a single network interface card. Also, because all network interface cards in the bond must fail for the bond itself to fail, bonding provides increased fault tolerance. However, one limitation is that the network interface cards that form a bonded network interface must be of the same make and model to ensure that all network interface cards in the bond support the same options and modes.</p>
+</div>
+<div class="paragraph">
+<p>The packet dispersal algorithm for a bond is determined by the bonding mode used.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modes 1, 2, 3 and 4 support both virtual machine (bridged) and non-virtual machine (bridgeless) network types. Modes 0, 5 and 6 support non-virtual machine (bridgeless) networks only.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bonding_Modes">Bonding Modes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-fullname} uses Mode 4 by default, but supports the following common bonding modes:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong><code>Mode 0 (round-robin policy)</code></strong></dt>
+<dd>
+<p>Transmits packets through network interface cards in sequential order. Packets are transmitted in a loop that begins with the first available network interface card in the bond and ends with the last available network interface card in the bond. All subsequent loops then start with the first available network interface card. Mode 0 offers fault tolerance and balances the load across all network interface cards in the bond. However, Mode 0 cannot be used in conjunction with bridges, and is therefore not compatible with virtual machine logical networks.</p>
+</dd>
+<dt class="hdlist1"><strong><code>Mode 1 (active-backup policy)</code></strong></dt>
+<dd>
+<p>Sets all network interface cards to a backup state while one network interface card remains active. In the event of failure in the active network interface card, one of the backup network interface cards replaces that network interface card as the only active network interface card in the bond. The MAC address of the bond in Mode 1 is visible on only one port to prevent any confusion that might otherwise be caused if the MAC address of the bond changed to reflect that of the active network interface card. Mode 1 provides fault tolerance and is supported in {virt-product-fullname}.</p>
+</dd>
+<dt class="hdlist1"><strong><code>Mode 2 (XOR policy)</code></strong></dt>
+<dd>
+<p>Selects the network interface card through which to transmit packets based on the result of an XOR operation on the source and destination MAC addresses modulo network interface card slave count. This calculation ensures that the same network interface card is selected for each destination MAC address used. Mode 2 provides fault tolerance and load balancing and is supported in {virt-product-fullname}.</p>
+</dd>
+<dt class="hdlist1"><strong><code>Mode 3 (broadcast policy)</code></strong></dt>
+<dd>
+<p>Transmits all packets to all network interface cards. Mode 3 provides fault tolerance and is supported in {virt-product-fullname}.</p>
+</dd>
+<dt class="hdlist1"><strong><code>Mode 4 (IEEE 802.3ad policy)</code></strong></dt>
+<dd>
+<p>Creates aggregation groups in which the interfaces share the same speed and duplex settings. Mode 4 uses all network interface cards in the active aggregation group in accordance with the IEEE 802.3ad specification and is supported in {virt-product-fullname}.</p>
+</dd>
+<dt class="hdlist1"><strong><code>Mode 5 (adaptive transmit load balancing policy)</code></strong></dt>
+<dd>
+<p>Ensures the distribution of outgoing traffic accounts for the load on each network interface card in the bond and that the current network interface card receives all incoming traffic. If the network interface card assigned to receive traffic fails, another network interface card is assigned to the role of receiving incoming traffic. Mode 5 cannot be used in conjunction with bridges, therefore it is not compatible with virtual machine logical networks.</p>
+</dd>
+<dt class="hdlist1"><strong><code>Mode 6 (adaptive load balancing policy)</code></strong></dt>
+<dd>
+<p>Combines Mode 5 (adaptive transmit load balancing policy) with receive load balancing for IPv4 traffic without any special switch requirements. ARP negotiation is used for balancing the receive load. Mode 6 cannot be used in conjunction with bridges, therefore it is not compatible with virtual machine logical networks.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Switch_Configuration_for_Bonding">Switch Configuration for Bonding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Switch configurations vary per the requirements of your hardware. Refer to the deployment and networking configuration guides for your operating system.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For every type of switch it is important to set up the switch bonding with the Link Aggregation Control Protocol (LACP) protocol and <strong>not</strong> the Cisco Port Aggregation Protocol (PAgP) protocol.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Virtual_Network_Interface_Controller_VNIC">Virtual Network Interface Cards</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Virtual network interface cards (vNICs) are virtual network interfaces that are based on the physical NICs of a host. Each host can have multiple NICs, and each NIC can be a base for multiple vNICs.</p>
+</div>
+<div class="paragraph">
+<p>When you attach a vNIC to a virtual machine, the {virt-product-fullname} {engine-name} creates several associations between the virtual machine to which the vNIC is being attached, the vNIC itself, and the physical host NIC on which the vNIC is based. Specifically, when a vNIC is attached to a virtual machine, a new vNIC and MAC address are created on the physical host NIC on which the vNIC is based. Then, the first time the virtual machine starts after that vNIC is attached, <code>libvirt</code> assigns the vNIC a PCI address. The MAC address and PCI address are then used to obtain the name of the vNIC (for example, <code>eth0</code>) in the virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>The process for assigning MAC addresses and associating those MAC addresses with PCI addresses is slightly different when creating virtual machines based on templates or snapshots:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If PCI addresses have already been created for a template or snapshot, the vNICs on virtual machines created based on that template or snapshot are ordered in accordance with those PCI addresses. MAC addresses are then allocated to the vNICs in that order.</p>
+</li>
+<li>
+<p>If PCI addresses have not already been created for a template, the vNICs on virtual machines created based on that template are ordered alphabetically. MAC addresses are then allocated to the vNICs in that order.</p>
+</li>
+<li>
+<p>If PCI addresses have not already been created for a snapshot, the {virt-product-fullname} {engine-name} allocates new MAC addresses to the vNICs on virtual machines based on that snapshot.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once created, vNICs are added to a network bridge device. The network bridge devices connect virtual machines to virtual logical networks.</p>
+</div>
+<div class="paragraph">
+<p>Running the <code>ip addr show</code> command on a virtualization host shows all of the vNICs that are associated with virtual machines on that host. Also visible are any network bridges that have been created to back logical networks, and any NICs used by the host.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# ip addr show
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:21:86:a2:85:cd brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::221:86ff:fea2:85cd/64 scope link
+       valid_lft forever preferred_lft forever
+3: wlan0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc mq state DOWN qlen 1000
+    link/ether 00:21:6b:cc:14:6c brd ff:ff:ff:ff:ff:ff
+5: ;vdsmdummy;: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 4a:d5:52:c2:7f:4b brd ff:ff:ff:ff:ff:ff
+6: bond0: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+7: bond4: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+8: bond1: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+9: bond2: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+10: bond3: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+11: ovirtmgmt: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UNKNOWN
+    link/ether 00:21:86:a2:85:cd brd ff:ff:ff:ff:ff:ff
+    inet 10.64.32.134/23 brd 10.64.33.255 scope global ovirtmgmt
+    inet6 fe80::221:86ff:fea2:85cd/64 scope link
+       valid_lft forever preferred_lft forever</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The console output from the command shows several devices: one loop back device (<strong>lo</strong>), one Ethernet device (<strong>eth0</strong>), one wireless device (<strong>wlan0</strong>), one VDSM dummy device (<strong>;vdsmdummy;</strong>), five bond devices (<strong>bond0</strong>, <strong>bond4</strong>, <strong>bond1</strong>, <strong>bond2</strong>, <strong>bond3</strong>), and one network bridge (<strong>ovirtmgmt</strong>).</p>
+</div>
+<div class="paragraph">
+<p>vNICs are all members of a network bridge device and logical network. Bridge membership can be displayed using the <code>brctl show</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# brctl show
+bridge name        bridge id                STP enabled        interfaces
+ovirtmgmt                8000.e41f13b7fdd4        no                vnet002
+                                                        vnet001
+                                                        vnet000
+                                                        eth0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The console output from the <code>brctl show</code> command shows that the virtio vNICs are members of the <strong>ovirtmgmt</strong> bridge. All of the virtual machines that the vNICs are associated with are connected to the <strong>ovirtmgmt</strong> logical network. The <strong>eth0</strong> NIC is also a member of the <strong>ovirtmgmt</strong> bridge. The <strong>eth0</strong> device is cabled to a switch that provides connectivity beyond the host.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Virtual_LAN_VLAN">Virtual LAN (VLAN)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A VLAN (Virtual LAN) is an attribute that can be applied to network packets. Network packets can be "tagged" into a numbered VLAN. A VLAN is a security feature used to isolate network traffic at the switch level. VLANs are separate and mutually exclusive. The {virt-product-fullname} {engine-name} is VLAN-aware and able to tag and redirect VLAN traffic, however VLAN implementation requires a switch that supports VLANs.</p>
+</div>
+<div class="paragraph">
+<p>At the switch level, ports are assigned a VLAN designation. A switch applies a VLAN tag to traffic originating from a particular port, marking the traffic as part of a VLAN, and ensures that responses carry the same VLAN tag. A VLAN can extend across multiple switches. VLAN tagged network traffic on a switch is undetectable except by machines connected to a port designated with the correct VLAN. A given port can be tagged into multiple VLANs, which allows traffic from multiple VLANs to be sent to a single port, to be deciphered using software on the machine that receives the traffic.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Network_Labels">Network Labels</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use network labels to simplify several administrative tasks associated with creating and administering logical networks and associating those logical networks with physical host network interfaces and bonds.</p>
+</div>
+<div class="paragraph">
+<p>A network label is a plain text, human readable label that you can attach to a logical network or a physical host network interface. Follow these rules when creating a label:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is no limit on the length of a label.</p>
+</li>
+<li>
+<p>You must use a combination of lowercase and uppercase letters, underscores and hyphens.</p>
+</li>
+<li>
+<p>You cannot use use spaces or special characters.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Attaching a label to a logical network or physical host network interface creates an association with other logical networks or physical host network interfaces to which the same label has been attached:</p>
+</div>
+<div class="ulist">
+<div class="title">Network Label Associations</div>
+<ul>
+<li>
+<p>When you attach a label to a logical network, that logical network will be automatically associated with any physical host network interfaces with the given label.</p>
+</li>
+<li>
+<p>When you attach a label to a physical host network interface, any logical networks with the given label will be automatically associated with that physical host network interface.</p>
+</li>
+<li>
+<p>Changing the label attached to a logical network or physical host network interface is the same as removing a label and adding a new label. The association between related logical networks or physical host network interfaces is updated.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Network Labels and Clusters</div>
+<ul>
+<li>
+<p>When a labeled logical network is added to a cluster and there is a physical host network interface in that cluster with the same label, the logical network is automatically added to that physical host network interface.</p>
+</li>
+<li>
+<p>When a labeled logical network is detached from a cluster and there is a physical host network interface in that cluster with the same label, the logical network is automatically detached from that physical host network interface.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Network Labels and Logical Networks With Roles</div>
+<ul>
+<li>
+<p>When a labeled logical network is assigned to act as a display network or migration network, that logical network is then configured on the physical host network interface using DHCP so that the logical network can be assigned an IP address.</p>
+<div class="paragraph">
+<p>Setting a label on a role network (for instance, "a migration network" or "a display network") causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Cluster_Networking">Cluster Networking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cluster level networking objects include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clusters</p>
+</li>
+<li>
+<p>Logical Networks</p>
+</li>
+</ul>
+</div>
+<div id="figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster" class="imageblock">
+<div class="content">
+<img src="1009.png" alt="Networking within a cluster">
+</div>
+<div class="title">Figure 1. Networking within a cluster</div>
+</div>
+<div class="paragraph">
+<p>A data center is a logical grouping of multiple clusters and each cluster is a logical group of multiple hosts. <a href="figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster">Networking within a cluster</a> depicts the contents of a single cluster.</p>
+</div>
+<div class="paragraph">
+<p>Hosts in a cluster all have access to the same storage domains. Hosts in a cluster also have logical networks applied to the cluster. For a virtual machine logical network to become operational for use with virtual machines, the network must be defined and implemented for each host in the cluster using the {virt-product-fullname} {engine-name}. Other logical network types can be implemented on only the hosts that use them.</p>
+</div>
+<div class="paragraph">
+<p>Multi-host network configuration automatically applies any updated network settings to all of the hosts within the data center to which the network is assigned.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Logical_Networks2">Logical Networks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Logical networking enables the {virt-product-fullname} environment to separate network traffic by type. For example, the <strong>ovirtmgmt</strong> network is created by default during the installation of {virt-product-fullname} to be used for management communication between the {engine-name} and hosts. A typical use for logical networks is to group network traffic with similar requirements and usage together. In many cases, a storage network and a display network are created by an administrator to isolate traffic of each respective type for optimization and troubleshooting.</p>
+</div>
+<div class="paragraph">
+<p>{virt-product-fullname} supports the following logical network types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Logical networks that carry only host network traffic, such as storage or migration traffic</p>
+</li>
+<li>
+<p>Logical networks that carry host and virtual machine network traffic</p>
+</li>
+<li>
+<p>Logical networks that carry only virtual machine network traffic, such as OVN networks</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Logical networks are defined at the data center level.</p>
+</div>
+<div class="paragraph">
+<p>If necessary, the {virt-product-fullname} {engine-name} automatically instantiates logical networks on the host, depending on the type of virtual machine network. For more information, see <a href="#virtual_machine_networking_types">virtual machine networking types</a>.</p>
+</div>
+<div id="exam-Technical_Reference_Guide-Logical_Networks-Example_usage_of_a_logical_network." class="exampleblock">
+<div class="title">Example 1. Example usage of a logical network.</div>
+<div class="content">
+<div class="paragraph">
+<p>A system administrator wants to use a logical network to test a web server.</p>
+</div>
+<div class="paragraph">
+<p>There are two hosts called Red Host and White Host in a cluster called Pink Cluster in a data center called Purple Data Center. Both Red Host and White Host have been using the default logical network, <strong>ovirtmgmt</strong>, for all networking functions. The system administrator responsible for Pink Cluster decides to isolate network testing for a web server by placing the web server and some client virtual machines on a separate logical network. She decides to call the new logical network <strong>test_logical_network</strong>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>She creates a new logical network, named <strong>test_logical_network</strong>, for the Purple Data Center with VLAN tagging enabled. VLAN tagging is necessary when you have two logical networks connected to the same physical NIC. She applies <strong>test_logical_network</strong> to the Pink Cluster.</p>
+</li>
+<li>
+<p>In Red Host, she attaches <strong>test_logical_network</strong> to a physical NIC that will be included in the bridge that {virt-product-shortname} creates. The network is non-operational until she sets up the corresponding bridge in all hosts in the cluster by adding a physical network interface on each host in the Pink cluster to <strong>test_logical_network</strong>. She repeats this step for White Host. When both White Host and Red Host have the <strong>test_logical_network</strong> logical network bridged to a physical network interface, the <strong>test_logical_network</strong> becomes operational and is ready to be used by virtual machines.</p>
+</li>
+<li>
+<p>She associates the virtual machines on the Red Host and White Host with the new network.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Virtual_Machine_Networks_and_Optional_Networks">Required Networks, Optional Networks, and Virtual Machine Networks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A required network is a logical network that must be available to all hosts in a cluster. When a host&#8217;s required network becomes non-operational, virtual machines running on that host are migrated to another host; the extent of this migration is dependent upon the chosen scheduling policy. This is beneficial if you have virtual machines running mission critical workloads.</p>
+</div>
+<div class="paragraph">
+<p>An optional network is a logical network that has not been explicitly declared as <strong>Required</strong>. Optional networks can be implemented on only the hosts that use them. The presence or absence of optional networks does not affect the <strong>Operational</strong> status of a host. When a non-required network becomes non-operational, the virtual machines running on the network are not migrated to another host. This prevents unnecessary I/O overload caused by mass migrations. Note that when a logical network is created and added to clusters, the <strong>Required</strong> box is selected by default.</p>
+</div>
+<div class="paragraph">
+<p>To change a network&#8217;s <strong>Required</strong> designation, from the Administration Portal, select a network, click the <strong>Cluster</strong> tab, and click the <strong>Manage Networks</strong> button.</p>
+</div>
+<div class="paragraph">
+<p>A virtual machine network, called a <strong>VM network</strong> in the user interface, is a logical network designated to carry only virtual machine network traffic. A virtual machine network can be required or optional. Virtual machines that use an optional virtual machine network only start on hosts with that network.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Port_Mirroring">Port Mirroring</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Port mirroring copies layer 3 network traffic on a given logical network and host to a virtual interface on a virtual machine. This virtual machine can be used for network debugging and tuning, intrusion detection, and monitoring the behavior of other virtual machines on the same host and logical network.</p>
+</div>
+<div class="paragraph">
+<p>The only traffic copied is internal to one logical network on one host. There is no increase in traffic on the network external to the host. However, a virtual machine with port mirroring enabled uses more host CPU and RAM than other virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>Port mirroring is enabled or disabled in the vNIC profiles of logical networks, and has the following limitations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hot plugging vNICs with a profile that has port mirroring enabled is not supported.</p>
+</li>
+<li>
+<p>Port mirroring cannot be altered when the vNIC profile is attached to a virtual machine.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given the above limitations, it is recommended that you enable port mirroring on an additional, dedicated vNIC profile.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Enabling port mirroring reduces the privacy of other network users.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Host_Networking_Configurations">Host Networking Configurations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster">Networking within a cluster</a> can be helpful to understand these networking configurations.</p>
+</div>
+<div class="paragraph">
+<p>Common types of networking configurations for virtualization hosts include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bridge and NIC configuration.</strong></p>
+<div class="paragraph">
+<p>This configuration uses a Linux bridge to connect one or more virtual machines to the host&#8217;s NIC.</p>
+</div>
+<div class="paragraph">
+<p>An example of this configuration is the automatic creation of the <code>ovirtmgmt</code> network when installing the {virt-product-fullname} {engine-name}. Then, during host installation, the {virt-product-fullname} {engine-name} installs <strong>VDSM</strong> on the host. The <strong>VDSM</strong> installation process creates the <code>ovirtmgmt</code> bridge which obtains the host&#8217;s IP address to enable communication with the {engine-name}.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All hosts in a cluster must use either IPv4 or IPv6 as the IP stack for their management network. Dual stack is not supported.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>Bridge, VLAN, and NIC configuration.</strong></p>
+<div class="paragraph">
+<p>A VLAN can be included in the bridge and NIC configuration to provide a secure channel for data transfer over the network and supports connecting multiple bridges to a single NIC using multiple VLANs.</p>
+</div>
+</li>
+<li>
+<p><strong>Bridge, Bond, and VLAN configuration.</strong></p>
+<div class="paragraph">
+<p>A bond creates a logical link that combines the two (or more) physical Ethernet links. The resultant benefits include NIC fault tolerance and potential bandwidth extension, depending on the bonding mode.</p>
+</div>
+</li>
+<li>
+<p><strong>Multiple Bridge, Multiple VLAN, and NIC configuration.</strong></p>
+<div class="paragraph">
+<p>This configuration connects a NIC to multiple VLANs.</p>
+</div>
+<div class="paragraph">
+<p>For example, to connect a single NIC to two VLANs, the network switch can be configured to pass network traffic that has been tagged into one of the two VLANs to one NIC on the host. The host uses two vNICs to separate VLAN traffic, one for each VLAN. Traffic tagged into either VLAN then connects to a separate bridge by having the appropriate vNIC as a bridge member. Each bridge, in turn, connects to multiple virtual machines.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also bond multiple NICs to facilitate a connection with multiple VLANs. Each VLAN in this configuration is defined over the bond comprising the multiple NICs. Each VLAN connects to an individual bridge and each bridge connects to one or more guests.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2823/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2823/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2823/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2823/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Technical_Reference/chap-Network.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Technical_Reference/chap-Network.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

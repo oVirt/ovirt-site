@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Virtual Network Interface Cards | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Virtual Network Interface Cards" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2823/documentation/doc-Technical_Reference/topics/Virtual_Network_Interface_Controller_VNIC.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2823/documentation/doc-Technical_Reference/topics/Virtual_Network_Interface_Controller_VNIC.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Virtual Network Interface Cards" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Virtual Network Interface Cards","url":"https://ovirt.github.io/ovirt-site/previews/2823/documentation/doc-Technical_Reference/topics/Virtual_Network_Interface_Controller_VNIC.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2823/images/logo.svg"}},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2823/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2823/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2823/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2823/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2823/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2823/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2823/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2823/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2823/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2823/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2823/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2823/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2823/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2823/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2823/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2823/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2823/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2823/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2823/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2823/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2823/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2823/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2823/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2823/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2823//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2823/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2823/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2823/documentation/doc-Technical_Reference/">
+              <span property="name">Technical Reference</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2823/documentation/doc-Technical_Reference/topics/">
+              <span property="name">Topics</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div class="paragraph">
+<p>Virtual network interface cards (vNICs) are virtual network interfaces that are based on the physical NICs of a host. Each host can have multiple NICs, and each NIC can be a base for multiple vNICs.</p>
+</div>
+<div class="paragraph">
+<p>When you attach a vNIC to a virtual machine, the {virt-product-fullname} {engine-name} creates several associations between the virtual machine to which the vNIC is being attached, the vNIC itself, and the physical host NIC on which the vNIC is based. Specifically, when a vNIC is attached to a virtual machine, a new vNIC and MAC address are created on the physical host NIC on which the vNIC is based. Then, the first time the virtual machine starts after that vNIC is attached, <code>libvirt</code> assigns the vNIC a PCI address. The MAC address and PCI address are then used to obtain the name of the vNIC (for example, <code>eth0</code>) in the virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>The process for assigning MAC addresses and associating those MAC addresses with PCI addresses is slightly different when creating virtual machines based on templates or snapshots:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If PCI addresses have already been created for a template or snapshot, the vNICs on virtual machines created based on that template or snapshot are ordered in accordance with those PCI addresses. MAC addresses are then allocated to the vNICs in that order.</p>
+</li>
+<li>
+<p>If PCI addresses have not already been created for a template, the vNICs on virtual machines created based on that template are ordered alphabetically. MAC addresses are then allocated to the vNICs in that order.</p>
+</li>
+<li>
+<p>If PCI addresses have not already been created for a snapshot, the {virt-product-fullname} {engine-name} allocates new MAC addresses to the vNICs on virtual machines based on that snapshot.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once created, vNICs are added to a network bridge device. The network bridge devices connect virtual machines to virtual logical networks.</p>
+</div>
+<div class="paragraph">
+<p>Running the <code>ip addr show</code> command on a virtualization host shows all of the vNICs that are associated with virtual machines on that host. Also visible are any network bridges that have been created to back logical networks, and any NICs used by the host.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# ip addr show
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:21:86:a2:85:cd brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::221:86ff:fea2:85cd/64 scope link
+       valid_lft forever preferred_lft forever
+3: wlan0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc mq state DOWN qlen 1000
+    link/ether 00:21:6b:cc:14:6c brd ff:ff:ff:ff:ff:ff
+5: ;vdsmdummy;: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 4a:d5:52:c2:7f:4b brd ff:ff:ff:ff:ff:ff
+6: bond0: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+7: bond4: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+8: bond1: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+9: bond2: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+10: bond3: &lt;BROADCAST,MULTICAST,MASTER&gt; mtu 1500 qdisc noop state DOWN
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+11: ovirtmgmt: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UNKNOWN
+    link/ether 00:21:86:a2:85:cd brd ff:ff:ff:ff:ff:ff
+    inet 10.64.32.134/23 brd 10.64.33.255 scope global ovirtmgmt
+    inet6 fe80::221:86ff:fea2:85cd/64 scope link
+       valid_lft forever preferred_lft forever</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The console output from the command shows several devices: one loop back device (<strong>lo</strong>), one Ethernet device (<strong>eth0</strong>), one wireless device (<strong>wlan0</strong>), one VDSM dummy device (<strong>;vdsmdummy;</strong>), five bond devices (<strong>bond0</strong>, <strong>bond4</strong>, <strong>bond1</strong>, <strong>bond2</strong>, <strong>bond3</strong>), and one network bridge (<strong>ovirtmgmt</strong>).</p>
+</div>
+<div class="paragraph">
+<p>vNICs are all members of a network bridge device and logical network. Bridge membership can be displayed using the <code>brctl show</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">[root@rhev-host-01 ~]# brctl show
+bridge name        bridge id                STP enabled        interfaces
+ovirtmgmt                8000.e41f13b7fdd4        no                vnet002
+                                                        vnet001
+                                                        vnet000
+                                                        eth0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The console output from the <code>brctl show</code> command shows that the virtio vNICs are members of the <strong>ovirtmgmt</strong> bridge. All of the virtual machines that the vNICs are associated with are connected to the <strong>ovirtmgmt</strong> logical network. The <strong>eth0</strong> NIC is also a member of the <strong>ovirtmgmt</strong> bridge. The <strong>eth0</strong> device is cabled to a switch that provides connectivity beyond the host.</p>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2823/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2823/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2823/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2823/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Technical_Reference/topics/Virtual_Network_Interface_Controller_VNIC.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Technical_Reference/topics/Virtual_Network_Interface_Controller_VNIC.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

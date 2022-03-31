@@ -211,9 +211,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2827/documentation/doc-Python_SDK_Guide/topics/Using_remove_methods.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2827/documentation/doc-Python_SDK_Guide/topics/Using_services.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2827/documentation/doc-Python_SDK_Guide/topics/Using_types.html</loc>
 </url>
 <url>
@@ -3185,6 +3182,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2827/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-03-31T15:41:09+00:00</lastmod>
+<lastmod>2022-03-31T15:41:18+00:00</lastmod>
 </url>
 </urlset>

@@ -14,7 +14,7 @@
           {% if page.authors %}
             <header class="post-header col-md-4 pad-sides well well-lg">
               <h2 class="post-title entry-title">Authors:</h2>
-              <header class="post-meta">
+              <div class="post-meta">
                 {% for author_id in page.authors %}
                   {% assign author = site.data.authors[author_id] %}
                   {% unless author %}
@@ -42,7 +42,7 @@
                     </section>
                   </span>
                 {% endfor %}
-              </header>
+                </div>
             </header>
           {% endif %}
         {% endunless %}

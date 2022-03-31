@@ -160,6 +160,10 @@ exclude:
   - documentation/virtual_machine_management_guide/chap*
   - documentation/virtual_machine_management_guide/topics
   - documentation/virtual_machine_management_guide/assembly*
+  - documentation/doc-Technical_Reference/topics
+  - documentation/doc-Technical_Reference/chap*
+  - documentation/doc-Release_Notes/topics
+  - documentation/doc-Release_Notes/chap*
 sass:
   add_charset: true
   style: :compressed

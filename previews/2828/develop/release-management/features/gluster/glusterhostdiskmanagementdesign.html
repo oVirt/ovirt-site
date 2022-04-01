@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GlusterHostDiskManagement | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="GlusterHostDiskManagement" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2828/develop/release-management/features/gluster/glusterhostdiskmanagementdesign.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2828/develop/release-management/features/gluster/glusterhostdiskmanagementdesign.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GlusterHostDiskManagement" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"GlusterHostDiskManagement","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2828/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2828/develop/release-management/features/gluster/glusterhostdiskmanagementdesign.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2828/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2828/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2828/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2828/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2828/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2828/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2828/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2828/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2828/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2828/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2828/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2828/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2828/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2828/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2828/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2828/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2828/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2828/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2828/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2828/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2828/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2828/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2828//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2828//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2828/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2828/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2828/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2828/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2828/develop/release-management/features/gluster/">
+              <span property="name">Gluster</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c375d2a16de823ba0f5ca7e4e11ad929?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c375d2a16de823ba0f5ca7e4e11ad929?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ramesh N</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2828/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="gluster-host-disk-management-design">Gluster Host Disk Management: Design</h1>
+
+<h1 id="summary">Summary</h1>
+
+<p>This document describes the design of Disk Management feature for Gluster in oVirt.
+Refer <a href="/ovirt-site/previews/2828/develop/release-management/features/gluster/glusterhostdiskmanagement.html">Features/GlusterHostDiskManagement</a></p>
+
+<h1 id="design">Design</h1>
+
+<h2 id="new-entities">New Entities</h2>
+
+<h3 id="storagedevice">StorageDevice</h3>
+
+<p>This entity helps to store the details of a storage device in the host. A host will nave multiple instance of this storage device to represent the storage devices in the host.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>UUID</td>
+      <td>Id generated by engine (Primary Key)</td>
+    </tr>
+    <tr>
+      <td>device_uuid</td>
+      <td>String</td>
+      <td>Dev UUID Given by the system to device</td>
+    </tr>
+    <tr>
+      <td>vds_id</td>
+      <td>UUID</td>
+      <td>Host ID (Foreign Key to Host).</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>Name of the device</td>
+    </tr>
+    <tr>
+      <td>model</td>
+      <td>String</td>
+      <td>Description about the device</td>
+    </tr>
+    <tr>
+      <td>device_path</td>
+      <td>String</td>
+      <td>Device Path</td>
+    </tr>
+    <tr>
+      <td>parent</td>
+      <td>String</td>
+      <td>Parent Device</td>
+    </tr>
+    <tr>
+      <td>mount_point</td>
+      <td>String</td>
+      <td>Mount Point</td>
+    </tr>
+    <tr>
+      <td>filesystem_type</td>
+      <td>String</td>
+      <td>File system type</td>
+    </tr>
+    <tr>
+      <td>fs_uuid</td>
+      <td>String</td>
+      <td>UUID for the file system in the device.</td>
+    </tr>
+    <tr>
+      <td>is_free</td>
+      <td>boolean</td>
+      <td>Is device is already used or its free for usage.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="sync-job">Sync Job</h2>
+
+<p>Information about the storage devices in the host will be fetched periodically and stored in the DB by a sync job.
+This sync job will run for once in 24 hours. There will be an option in the UI to force sync the storage device details.</p>
+
+<h2 id="bll-commands">BLL commands</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CreateBrick</code> - creates a logical volume with the given set of storage devices and format it with XFS file system and mounts the LV at a pre configured path.</li>
+  <li><code class="language-plaintext highlighter-rouge">ExtendBrick</code> - Add the selected block devices to the given LV to increase the storage space available in the LV.</li>
+  <li><code class="language-plaintext highlighter-rouge">SyncStorageDevices</code> - Force sync the storage devices from host.</li>
+</ul>
+
+<h2 id="engine-queries">Engine Queries</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GetStorageDevices</code> - lists all the Storage Devices available in the Host</li>
+  <li><code class="language-plaintext highlighter-rouge">HostGetUnusedBricksQuery</code> - lists all the Unused LVs in the Host.</li>
+</ul>
+
+<h2 id="vdsm-verbs">VDSM Verbs</h2>
+
+<h3 id="vdsm-verbs-for-disk-provisioning">VDSM verbs for Disk Provisioning</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GlusterStorageDevicesList</code> - Returns all the storage devices in the host</li>
+</ul>
+
+<p>« TODO: explain verb’s parameters and return structure »</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GlusterBrickCreate</code> - Create an LV which can be to create gluster volume</li>
+</ul>
+
+<p>« TODO: explain verb’s parameters and return structure »</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GlusterBrickExpand</code> - Expand the given LV by adding the selected disk</li>
+</ul>
+
+<p>« TODO: explain verb’s parameters and return structure »</p>
+
+<h2 id="rest-apis">REST APIs</h2>
+
+<p>The details of the REST APIs for Disk Provisioning feature are as below -</p>
+
+<h3 id="storagedevices-sub-collection-of-the-host-resource">storagedevices sub-collection of the host resource</h3>
+
+<ul>
+  <li>
+    <p>Description: a collection of storage devices that are attached to a specific host.</p>
+  </li>
+  <li>
+    <p>Endpoint: <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/storagedevices</code></p>
+  </li>
+  <li>Supported actions:
+    <ol>
+      <li><strong>GET</strong> returns a list of storage devices attached to the host</li>
+    </ol>
+  </li>
+  <li>Output:</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;storage_devices&gt;</span>
+ <span class="nt">&lt;storage_device&gt;</span>
+   <span class="nt">&lt;id&gt;</span>Storage device guid<span class="nt">&lt;/id&gt;</span>
+   <span class="nt">&lt;host&gt;</span>Host ID<span class="nt">&lt;/host&gt;</span>
+   <span class="nt">&lt;name&gt;</span>Device Name<span class="nt">&lt;/name&gt;</span>
+   <span class="nt">&lt;device_uuid&gt;</span>Device UUID<span class="nt">&lt;/device_uuid&gt;</span>
+   <span class="nt">&lt;file_system_uuid&gt;</span>Device UUID<span class="nt">&lt;/file_system_uuid&gt;</span>
+   <span class="nt">&lt;model&gt;</span>Device Model information<span class="nt">&lt;/model&gt;</span>
+   <span class="nt">&lt;device_path&gt;</span>device_path<span class="nt">&lt;/device_path&gt;</span>
+   <span class="nt">&lt;parent&gt;</span>Parent Device<span class="nt">&lt;/parent&gt;</span>
+   <span class="nt">&lt;mount_point&gt;</span>mount point if mounted<span class="nt">&lt;/mount_point&gt;</span>
+   <span class="nt">&lt;file_system_type&gt;</span>File System type<span class="nt">&lt;/file_system_type&gt;</span>
+   <span class="nt">&lt;is_free&gt;</span>Is Device is Free for use<span class="nt">&lt;is_free&gt;</span>
+ <span class="nt">&lt;/storage_device&gt;</span>
+<span class="nt">&lt;/storage_devices&gt;</span>
+</code></pre></div></div>
+
+<h3 id="storagedevice-resource-under-host">storagedevice resource under host</h3>
+
+<ul>
+  <li>
+    <p>Endpoint: <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/storagedevices/{storagedeviceuuid}</code></p>
+  </li>
+  <li>Supported actions:
+    <ol>
+      <li><strong>GET</strong> returns the details about the given storage device by uuid</li>
+    </ol>
+  </li>
+  <li>Output:</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;storage_device&gt;</span>
+   <span class="nt">&lt;id&gt;</span>Storage device guid<span class="nt">&lt;/id&gt;</span>
+   <span class="nt">&lt;host&gt;</span>Host ID<span class="nt">&lt;/host&gt;</span>
+   <span class="nt">&lt;name&gt;</span>Device Name<span class="nt">&lt;/name&gt;</span>
+   <span class="nt">&lt;device_uuid&gt;</span>Device UUID<span class="nt">&lt;/device_uuid&gt;</span>
+   <span class="nt">&lt;file_system_uuid&gt;</span>Device UUID<span class="nt">&lt;/file_system_uuid&gt;</span>
+   <span class="nt">&lt;model&gt;</span>Device Model information<span class="nt">&lt;/model&gt;</span>
+   <span class="nt">&lt;device_path&gt;</span>device_path<span class="nt">&lt;/device_path&gt;</span>
+   <span class="nt">&lt;parent&gt;</span>Parent Device<span class="nt">&lt;/parent&gt;</span>
+   <span class="nt">&lt;mount_point&gt;</span>mount point if mounted<span class="nt">&lt;/mount_point&gt;</span>
+   <span class="nt">&lt;file_system_type&gt;</span>File System type<span class="nt">&lt;/file_system_type&gt;</span>
+   <span class="nt">&lt;is_free&gt;</span>Is Device is Free for use<span class="nt">&lt;is_free&gt;</span>
+<span class="nt">&lt;/storage_device&gt;</span>
+</code></pre></div></div>
+
+<h3 id="create-gluster-brick-of-the-host-resource">Create Gluster Brick of the Host resource</h3>
+
+<ul>
+  <li>
+    <p>Description: an action to create gluster brick</p>
+  </li>
+  <li>
+    <p>Endpoint: <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/createbrick</code></p>
+  </li>
+  <li>Supported actions:
+    <ul>
+      <li><strong>POST</strong> - executes CreateBrick action on the host</li>
+    </ul>
+  </li>
+  <li>Input:</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;action&gt;</span>
+     <span class="nt">&lt;name&gt;</span> Brick Name <span class="nt">&lt;/name&gt;</span>
+     <span class="nt">&lt;storage_devices&gt;</span>
+         <span class="nt">&lt;storage_device&gt;</span>
+            <span class="nt">&lt;id&gt;</span>Device Id <span class="nt">&lt;/id&gt;</span>
+         <span class="nt">&lt;/storage_device&gt;</span>
+    <span class="nt">&lt;/storage_devices&gt;</span>
+ <span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<h3 id="extend-gluster-brick-of-the-host-resource">Extend Gluster Brick of the Host resource</h3>
+
+<ul>
+  <li>
+    <p>Description: An action to extand the given gluster brick</p>
+  </li>
+  <li>
+    <p>Endpoint: <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/storagedevices/{storagedeviceuuid}/extendbrick</code></p>
+  </li>
+  <li>Supported actions:
+    <ul>
+      <li><strong>POST</strong> - executes ExtendBrick action on the given storage device. It extends the give LV with the specified storage devices.</li>
+    </ul>
+  </li>
+  <li>Input:</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;action&gt;</span>
+    <span class="nt">&lt;storage_devices&gt;</span>
+        <span class="nt">&lt;storage_device&gt;</span>
+           <span class="nt">&lt;id&gt;</span> Device Id <span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;/storage_device&gt;</span>
+   <span class="nt">&lt;/storage_devices&gt;</span>
+<span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<h1 id="documentation--external-references">Documentation / External references</h1>
+
+<p><a href="/ovirt-site/previews/2828/develop/release-management/features/gluster/glusterhostdiskmanagement.html">Gluster Host Disk Management</a></p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2828/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2828/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2828/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2828/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/gluster/glusterhostdiskmanagementdesign.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/gluster/glusterhostdiskmanagementdesign.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

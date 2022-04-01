@@ -50,3 +50,21 @@ The resilience policy defines how the virtual machines are prioritized in the mi
 |*Migrate only Highly Available Virtual Machines* |Migrates only highly available virtual machines to prevent overloading other hosts.
 |*Do Not Migrate Virtual Machines* |Prevents virtual machines from being migrated.
 |===
+
+.Additional Properties Settings
+[options="header"]
+|===
+|Field |Description/Action
+|*Enable Migration Encryption* a|Allows the virtual machine to be encrypted during migration.
+
+* Cluster default (Don’t encrypt)
+* Encrypt
+* Don’t encrypt
+|*Parallel Migrations* a|Allows you to specify whether and how many parallel migration connections to use.
+
+* *Disabled*: Parallel migrations are disabled.
+* *Auto*: The number of parallel connections is automatically determined. This setting can also be used to automatically disable parallel connections.
+* *Auto Parallel*: The number of parallel connections is automatically determined.
+* *Custom*: Allows you to specify the preferred number of parallel connections, between 2 and 255.
+|*Number of VM Migration Connections* |Allows you to specify the number of virtual machine migration connections.
+|===

@@ -78,6 +78,18 @@ a| Allows the virtual machine to be encrypted during migration.
 * *Don't encrypt*
 |No
 
+|
+|*Parallel Migrations* a|Allows you to specify whether and how many parallel migration connections to use.
+
+* *Disabled*: Parallel migrations are disabled.
+* *Auto*: The number of parallel connections is automatically determined. This setting can also be used to automatically disable parallel connections.
+* *Auto Parallel*: The number of parallel connections is automatically determined.
+* *Custom*: Allows you to specify the preferred number of parallel connections, between 2 and 255.
+|
+|
+|*Number of VM Migration Connections* |Allows you to specify the number of virtual machine migration connections.
+
+|
 |*Configure NUMA*
 |*NUMA Node Count*
 |The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.

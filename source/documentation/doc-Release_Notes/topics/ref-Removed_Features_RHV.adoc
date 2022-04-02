@@ -65,4 +65,5 @@ Removing this neither affects the ability to manage {virt-product-fullname} virt
 // Also, remove Deprecation notice for this feature for same release.
 // | oVirt Scheduler Proxy | The `ovirt-scheduler-proxy` package is removed in {virt-product-fullname} 4.4.z SP1.
 
+|Ruby software development kit (SDK) |The Ruby SDK is no longer supported.
 |===

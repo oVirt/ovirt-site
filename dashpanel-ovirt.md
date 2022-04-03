@@ -7,7 +7,7 @@
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [46](https://github.com/ovirt/ovirt-ansible-collection/issues) | 49 | 68 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [44](https://github.com/ovirt/ovirt-site/issues) | 71 | 294 |
 | [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [35](https://github.com/ovirt/ovirt-engine/issues) | 345 | 213 |
-| [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [25](https://github.com/ovirt/go-ovirt-client/issues) | 8 | 9 |
+| [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [25](https://github.com/ovirt/go-ovirt-client/issues) | 9 | 9 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [25](https://github.com/ovirt/terraform-provider-ovirt/issues) | 126 | 62 |
 | [ovirt-system-tests](https://github.com/oVirt/ovirt-system-tests) | This is a mirror for http://gerrit.ovirt.org, for issues use http://jira.ovirt.org, and choose OST project | [19](https://github.com/ovirt/ovirt-system-tests/issues) | 16 | 34 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 32 | 16 |

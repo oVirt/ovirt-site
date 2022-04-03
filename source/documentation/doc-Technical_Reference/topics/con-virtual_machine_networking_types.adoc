@@ -122,13 +122,13 @@ The {engine-name} provides only a subset of software-defined networking (SDN) fe
 
 You can combine all network types on a single host and connect them to the same virtual machine.
 
-= Interaction with guest operating system
+== Interaction with guest operating system
 
 {virt-product-shortname} supports the initial configuration of a virtual machine by providing configuration data via cloud-init. If the qemu-guest-agent runs inside the virtual machine, {virt-product-shortname} can report the IP addresses of the virtual machine.
 
 If the virtual machine uses a VirtIO NIC, the MTU of the {virt-product-shortname} logical networks are provided to the guest operating system. The guest operating system can pick up the MTU from DHCPv4 or IPv6 router advertisements if the logical network supports these advertisements.
 
-= Host and virtual machine networking
+== Host and virtual machine networking
 
 Linux bridge networking separates virtual machine and host networking on OSI layer 3. Therefore the networking configuration, including VLAN, bonding, and MTU, is shared between the host and its virtual machines.
 

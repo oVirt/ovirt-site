@@ -11,6 +11,11 @@ oVirt community presented at several conferences in the past years. In this page
 Please note that presentation may refer to obsoleted or deprecated features and shouldn't be considered valid for latest oVirt release.
 Templates and resources for creating new presentations can be found in [oVirt Slide Decks](/community/get-involved/resources/slide-decks.html) page
 
+## 2022-03 RHV Demo
+
+* Nir Soffer, Benny Zlotnik - Hybrid backup - the snapshot is dead, long live the snapshot!
+  [[Slides - PDF]](/media/Hybrid-backup-v8.pdf)
+
 ## 2022-02 - FOSDEM
 * Milan Zamazal - The story of adding TPM support to oVirt
   [[Slides]](https://fosdem.org/2022/schedule/event/vai_story_tpm/attachments/slides/5065/export/events/attachments/vai_story_tpm/slides/5065/tpm_fosdem.pdf)

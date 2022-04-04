@@ -6,7 +6,7 @@ Use Remote Viewer to connect to a virtual machine.
 
 [NOTE]
 ====
-When you are finished using the console, you must restart the Virtual Machine. Otherwise, the console session continues and is unavailable to other users.
+To allow other users to connect to the VM, make sure you restart the virtual machine when you are finished using the console.
 ====
 
 .Procedure

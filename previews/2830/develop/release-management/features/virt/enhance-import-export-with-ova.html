@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Enhance import-export with OVA | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Enhance import-export with OVA" />
+<meta name="author" content="Arik Hadas" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2830/develop/release-management/features/virt/enhance-import-export-with-ova.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2830/develop/release-management/features/virt/enhance-import-export-with-ova.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Enhance import-export with OVA" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Arik Hadas" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Arik Hadas"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Enhance import-export with OVA","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2830/images/logo.svg"},"name":"Arik Hadas"},"url":"https://ovirt.github.io/ovirt-site/previews/2830/develop/release-management/features/virt/enhance-import-export-with-ova.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2830/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2830/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2830/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2830/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2830/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2830/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2830/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2830/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2830/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2830/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2830/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2830/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2830/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2830/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2830/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2830/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2830/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2830/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2830/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2830/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2830/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2830/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2830//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2830//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2830/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2830/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2830/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2830/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2830/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/caae839088b8920542bbc7f6492f7034?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/caae839088b8920542bbc7f6492f7034?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Arik Hadas</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nir Soffer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Daniel Erez</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2830/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="background">Background</h1>
+<p>Open Virtual Appliance (OVA) is a package that contains the different
+elements of a virtual machine (VM). OVA is typically a tar archive file
+that includes the configuration of the VM in the form of the Open
+Virtualization Format (OVF) as well as virtual disks and other
+VM-related data.</p>
+
+<p>OVF is a known format that is used by different organizations and
+virtualization platforms. Its specification can be found
+<a href="http://www.dmtf.org/standards/ovf">here</a>. The
+<a href="https://en.wikipedia.org/wiki/Open_Virtualization_Format">OVF standard</a>
+provides an open, secure, portable, efficient and extensible format for
+the packaging and distribution of software to be run in virtual
+machines.</p>
+
+<p>Recently, oVirt was enhanced with support for importing OVAs that were
+generated by VMware. oVirt also makes extensive use of the OVF standard
+to describe VM configurations, such as VM snapshots and exported VMs.</p>
+
+<p>The ability to package all the VM data, optionally compressed, in one
+file eases the processes of backing up a VM and porting a VM to a
+different platform or hypervisor. Unfortunately, the portability is
+limited by compatibility issues. Different disk formats, drivers,
+guest-agents, and OVF structure, hinder the ability to import any OVA to
+any platform. Therefore, different organizations develop their own
+conversions tools, like Red Hat’s
+<a href="http://libguestfs.org/virt-v2v.1.html">virt-v2v</a>, for converting VMs
+from other platforms to their platform.</p>
+
+<h1 id="scope">Scope</h1>
+<p>This feature enhances import VM and export VM processes in oVirt, by
+making a broader use of the OVA format.</p>
+
+<h2 id="uploading-an-ova">Uploading an OVA</h2>
+<p>Today, the process of importing an OVA is limited to OVA files
+compatible with those produced by VMware and requires to make the OVA
+file accessible, with the right file permissions (vdsm:kvm), to one of
+the hosts managed by oVirt. It is a cumbersome and error-prone process.</p>
+
+<p>This feature provides a broader and more user-friendly alternative that
+enables one to upload a local OVA file directly from a client (the
+client can be a browser or based on rest-api, like the clients supported
+for the upload-image functionality that was recently added to oVirt).</p>
+
+<p>This feature allows the uploading of OVA files that were generated
+either by oVirt or by external sources. Officially, the only external
+source being supported is VMware. In practice, the process could work
+with OVA files generated by other source, as long as their OVF
+configuration contains the data oVirt consumes (in the expected form),
+and virt-v2v knows how to convert them.</p>
+
+<h2 id="exporting-a-vm-or-template-as-an-ova">Exporting a VM or Template as an OVA</h2>
+<p>Currently, users are provided with two ways to migrate VMs and templates
+between environments. One option is to use an export domain. However,
+this approach is suitable only for migration between separated oVirt
+environments. Moreover, there is a plan to drop the support for export
+domains. A second option is to detach a data domain and attach it to
+another setup. This option was desiged with disaster recovery in mind.
+However, because of the side effects associated with detaching a data
+domain, it is less suited to this migration flow.</p>
+
+<p>This feature provides an alternative way for a migration between
+environments by generating an OVA from an existing VM or template. By
+encapsulating all VM/template data in a single file, we achieve an
+improved portability. By being aligned with the common OVA specification
+(rather than our unique structure of a storage domain), we achieve
+better compatibility with other platforms.</p>
+
+<p>The OVA file would be stored on a variety of locations: path on host 
+in the data-center, NFS share, etc (we don’t handle mounting the path).
+TBD: build the OVA on the fly and stream its content using ovirt-imageio.
+in addition, it will include neither snapshots nor the template that the 
+VM may be based on.</p>
+
+<p>Moreover, this feature enables a running VM to be exported without the
+need for any downtime. Today, VM shutdown is required.</p>
+
+<h2 id="an-enhancement-for-importing-ovas">An Enhancement for Importing OVAs</h2>
+<p>This feature enhances the existing support for importing OVA files that
+are accessible to the host, by enabling to specify a path to an OVA file
+that was generated by oVirt. Importing an OVA file that was generated by
+oVirt does not involve the adaptation needed for OVA files generated by
+other platforms (e.g., installing kvm-specific drivers) and thus, should
+be faster than importing of such OVA files.</p>
+
+<h2 id="downloading-an-ova">Downloading an OVA</h2>
+<p>This feature will leverage the implementation of the planned
+download-image to provide similar functionality for OVA files (i.e.,
+download a VM/template as OVA on the client’s machine).</p>
+
+<h1 id="design">Design</h1>
+<p>The following section describes the high-level design for the different
+aspects described in the previous section.</p>
+
+<h2 id="uploading-an-ova-1">Uploading an OVA</h2>
+<p>In principle, uploading an OVA is similar to uploading an image.
+However, it is more challenging because OVA is a more complex resource
+than an image.</p>
+
+<p>The upload process would be implemented differently depending on whether
+the OVA was generated by oVirt (or more accurately, that the disks
+within the OVA are of type raw or qcow) or by other source (and thus
+requires adaptation). In both cases, the user will be able to select
+a file and then be provided with the VM configuration that allows him to
+configure the parameters for the import process.</p>
+
+<h3 id="uploading-an-ova-generated-by-ovirt">Uploading an OVA Generated by oVirt</h3>
+<p>The following figure depicts the import process of an OVA that was
+generated by oVirt:</p>
+
+<p><img src="../../../../images/wiki/upload-ova.png" alt="" /></p>
+
+<ol>
+  <li>The front end retrieves the OVF configuration from the OVA.</li>
+  <li>The front end sends the OVF configuration to the back end.</li>
+  <li>The back end parses the OVF configuration and returns a VM object
+to the front end.</li>
+  <li>The front end sends back the VM (optionally customized) to the back end.</li>
+  <li>The back end persists the VM into the database and lock it.</li>
+  <li>The back end sends the list of disks metadata to the front end,
+which starts the process of uploading the disks.</li>
+  <li>From this point the disks upload is identical the regular image
+upload process (the upload process creates the target disks).</li>
+  <li>Upon finishing the last disk upload, releases the VM lock.</li>
+</ol>
+
+<p>Notes:</p>
+
+<ol>
+  <li>The described process assumes that the disks are not compressed
+within the OVA. In order to support this, the back end would need to
+pass an indication to the front end as to whether or not each disk is
+compressed (step 6), so the ovirt-imageio-daemon can decompress the
+data on-the-fly while streaming it to the destination volume (step 7).</li>
+  <li>The upload process supports handling both raw and qcow images in the OVA.</li>
+  <li>Currently, we support resuming a single image upload. 
+TBD: whether to support resuming for upload OVA.</li>
+  <li>The upload OVA flow can be implemented using ovirt SDK, so it will be 
+possible to integrate it with Ansible.</li>
+  <li>This process streams data directly from OVA file from the machine without
+creating any temp files.</li>
+</ol>
+
+<h3 id="uploading-an-ova-generated-by-an-external-source">Uploading an OVA Generated by an External Source</h3>
+<p>The following figure depicts the import process of an OVA file that was
+generated by an external source:</p>
+
+<p><img src="../../../../images/wiki/upload-external-ova.png" alt="" /></p>
+
+<p>The process is similar to importing an OVA file generated by oVirt,
+except for the following steps:</p>
+<ol>
+  <li>Only one temporary disk is created on the storage domain.</li>
+  <li>The complete OVA file is streamed into the disk that has just been
+created.</li>
+  <li>Convert the temporary disk to a VM, using virt-v2v.</li>
+  <li>Remove the temporary disk.</li>
+</ol>
+
+<p>Note:</p>
+
+<ol>
+  <li>This process is not efficient in time and space, due to the creation
+of the temporary disk. Therefore, we suggest to make the OVA
+accessible to the host instead, especially in the case of mass import
+of OVA files. However, this process can be handy for importing one
+OVA file with loose time and space constraints.</li>
+  <li>Therefore, it is a second-priority task.</li>
+</ol>
+
+<h2 id="exporting-a-vm-or-template-as-an-ova-1">Exporting a VM or Template as an OVA</h2>
+<p>The user will be able to select a VM (or a template) to be exported as
+an OVA file. In such cases, the user needs to specify a path on a host
+or a disk on shared storage where the OVA file will be created.</p>
+
+<p>The following figure depicts the process of exporting a VM with a single
+disk as an OVA file:</p>
+
+<p><img src="../../../../images/wiki/export-ova.png" alt="" /></p>
+
+<ol>
+  <li>The front end sends the back end a VM and an export destination.</li>
+  <li>The back end creates new disk (for the ova) if the destination requires,
+and prepares the VM source disks.</li>
+  <li>The back end asks VDSM to create an OVA file with the complete OVF 
+specification and export destination.</li>
+  <li>VDSM runs ovirt-ova tool - creates the OVA in the destination
+(using qemu-img convert which may include file format conversion).</li>
+  <li>The back end teardowns the VM source disks.</li>
+</ol>
+
+<p>Notes:</p>
+
+<ol>
+  <li>Step 4 is equivalent to <code class="language-plaintext highlighter-rouge">qemu-img convert</code> with the collapse option
+set and the target format set to QCOW.</li>
+  <li>Only after building the OVA file we could update the OVF with the
+export size.</li>
+  <li>If possible, we’ll consider using streaming the disk data directly
+from the qemu chain into OVA.</li>
+  <li>In future openshift env we could use the ovirt-ova tool to run it
+as an openshift job witout depending on VDSM, or using ansible.</li>
+</ol>
+
+<h2 id="an-enhancement-for-import-ovas">An Enhancement for Import OVAs</h2>
+<p>Importing an OVA that was generated by oVirt won’t involve virt-v2v and
+will be similar to the upload-ova process:</p>
+
+<p><img src="../../../../images/wiki/import-ova.png" alt="" /></p>
+
+<ol>
+  <li>The front end sends the back end a VM and a path on a host.</li>
+  <li>The back end retrieves the OVF configuration from the OVA using vdsm.
+vdsm will run the ova-ovirt tool.</li>
+  <li>The back end parses the OVF configuration and returns a VM to the
+front end.</li>
+  <li>The front end sends (optionally customized) parameters of the import
+process to the back end.</li>
+  <li>The back end persists the VM into the database.</li>
+  <li>The back end triggers the creation of the target VM disks on the
+storage domain.</li>
+  <li>The back end sends the import parameters, including the destination
+disks to vdsm.</li>
+  <li>vdsm runs the ova-ovirt tool that reads the disks from the OVA and
+according to the import parameters streams the data into the 
+corresponding target disks.</li>
+</ol>
+
+<h2 id="downloading-an-ova-1">Downloading an OVA</h2>
+<p>This part depends on the implementation of the download-image flow. In
+theory, it should look like this:</p>
+
+<p><img src="../../../../images/wiki/download-ova.png" alt="" /></p>
+
+<ol>
+  <li>The front end passes the back end a VM (or template) to download.</li>
+  <li>The back end starts exporting to OVA flow (as described in 
+‘Exporting a VM or Template as an OVA’)</li>
+  <li>The front end displays a link for downloading the OVA.
+TODO: discuss UX regarding progress indication.</li>
+  <li>Press on the download link will start an ovirt-imageio download
+to the browser (not implemented yet in the front end).</li>
+</ol>
+
+<p>Notes:</p>
+
+<ol>
+  <li>It’s not possible so we don’t do that at the moment.
+TBD: to allow that (using streaming the disk data directly
+from the qemu chain to the browser).</li>
+  <li>The flow would be created as a reusable component (e.g. for future
+automation using Ansible).</li>
+  <li>This solution should allow resuming a download at any point.</li>
+</ol>
+
+<h2 id="tbd-streaming">TBD: Streaming</h2>
+<p>We want to avoid unneeded data copy, to minimize upload/download time.
+We prefer QCOW as the format for OVA.</p>
+
+<h3 id="upload-use-cases">Upload use-cases</h3>
+
+<ul>
+  <li>OVA with qcow disks to qcow disks
+    <ul>
+      <li>planned</li>
+    </ul>
+  </li>
+  <li>OVA with qcow disks to raw disks - for enhanced performance
+    <ul>
+      <li>May be supported if NBD supports it.</li>
+    </ul>
+  </li>
+  <li>OVA with raw disks to raw disks - possible but probably irrelevant.
+    <ul>
+      <li>supported as image upload can upload any format</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="download-use-cases">Download use-cases</h3>
+
+<ul>
+  <li>VM with raw disks to OVA with qcow disks (for more compact OVA).
+    <ul>
+      <li>Not supported, as qemu-img convert doesn’t support
+streaming to qcow format.</li>
+    </ul>
+  </li>
+  <li>VM with qcow disks with chain of snapshots to OVA with qcow
+    <ul>
+      <li>Not supported, as qemu-img convert doesn’t support
+streaming to qcow format.</li>
+    </ul>
+  </li>
+  <li>VM with qcow disks without snapshots to OVA with qcow disks
+    <ul>
+      <li>Possible</li>
+    </ul>
+  </li>
+  <li>VM with raw disk to OVA with raw disks
+    <ul>
+      <li>Possible but not interesting (qcow format is preferred)</li>
+    </ul>
+  </li>
+  <li>VM with qcow disks with chain of snapshots to OVA with raw disks
+    <ul>
+      <li>Not interesting (qcow format is preferred), maybe be possible
+if NBD supports this.</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2830/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2830/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2830/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2830/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/enhance-import-export-with-ova.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/enhance-import-export-with-ova.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

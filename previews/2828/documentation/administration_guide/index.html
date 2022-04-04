@@ -5587,7 +5587,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="ulist">
 <ul>
 <li>
-<p>Cluster default (Don’t encrypt)</p>
+<p>Cluster default</p>
 </li>
 <li>
 <p>Encrypt</p>
@@ -5606,23 +5606,23 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Disabled</strong>: Parallel migrations are disabled.</p>
+<p><strong>Disabled</strong>: The virtual machine is migrated using a single, non-parallel connection.</p>
 </li>
 <li>
-<p><strong>Auto</strong>: The number of parallel connections is automatically determined. This setting can also be used to automatically disable parallel connections.</p>
+<p><strong>Auto</strong>: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.</p>
 </li>
 <li>
 <p><strong>Auto Parallel</strong>: The number of parallel connections is automatically determined.</p>
 </li>
 <li>
-<p><strong>Custom</strong>: Allows you to specify the preferred number of parallel connections, between 2 and 255.</p>
+<p><strong>Custom</strong>: Allows you to specify the preferred number of parallel connection, the actual number may be lower.</p>
 </li>
 </ul>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Number of VM Migration Connections</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows you to specify the number of virtual machine migration connections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This setting is only available when <strong>Custom</strong> is selected. The preferred number of custom parallel migrations, between 2 and 255.</p></td>
 </tr>
 </tbody>
 </table>
@@ -16220,7 +16220,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Cluster default (Don&#8217;t encrypt)</strong></p>
+<p><strong>Cluster default</strong></p>
 </li>
 <li>
 <p><strong>Encrypt</strong></p>
@@ -16240,16 +16240,16 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Disabled</strong>: Parallel migrations are disabled.</p>
+<p><strong>Disabled</strong>: The virtual machine is migrated using a single, non-parallel connection.</p>
 </li>
 <li>
-<p><strong>Auto</strong>: The number of parallel connections is automatically determined. This setting can also be used to automatically disable parallel connections.</p>
+<p><strong>Auto</strong>: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.</p>
 </li>
 <li>
 <p><strong>Auto Parallel</strong>: The number of parallel connections is automatically determined.</p>
 </li>
 <li>
-<p><strong>Custom</strong>: Allows you to specify the preferred number of parallel connections, between 2 and 255.</p>
+<p><strong>Custom</strong>: Allows you to specify the preferred number of parallel connection, the actual number may be lower.</p>
 </li>
 </ul>
 </div></div></td>
@@ -16257,7 +16257,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Number of VM Migration Connections</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows you to specify the number of virtual machine migration connections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This setting is only available when <strong>Custom</strong> is selected. The preferred number of custom parallel migrations, between 2 and 255.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>

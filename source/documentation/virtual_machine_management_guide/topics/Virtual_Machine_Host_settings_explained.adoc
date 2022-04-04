@@ -84,7 +84,7 @@ a| Allows the virtual machine to be encrypted during migration.
 * *Disabled*: The virtual machine is migrated using a single, non-parallel connection.
 * *Auto*: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.
 * *Auto Parallel*: The number of parallel connections is automatically determined.
-* *Custom*: Allows you to specify the preferred number of parallel connection, the actual number may be lower.
+* *Custom*: Allows you to specify the preferred number of parallel connections, the actual number may be lower.
 |
 |
 |*Number of VM Migration Connections* |This setting is only available when *Custom* is selected. The preferred number of custom parallel migrations, between 2 and 255.

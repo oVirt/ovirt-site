@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Virtual Machine Management Guide | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Virtual Machine Management Guide" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2779/documentation/virtual_machine_management_guide/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2779/documentation/virtual_machine_management_guide/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Virtual Machine Management Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Virtual Machine Management Guide","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/virtual_machine_management_guide/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Virtual Machine Management Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/virtual_machine_management_guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2779/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2779/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2779/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2779/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2779/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2779/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2779/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2779/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2779/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2779/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2779/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2779/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2779/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2779/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2779/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2779/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2779/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2779/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2779/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2779/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2779/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2779/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2779/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2779/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2779/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2779/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2779/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2779/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2779/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -513,7 +495,7 @@
 <p>Virt Viewer for 32-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x86.msi</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>your-manager-fqdn</em>/ovirt-engine/services/files/spice/virt-viewer-x86.msi</code></pre>
 </div>
 </div>
 </li>
@@ -521,7 +503,7 @@
 <p>Virt Viewer for 64-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x64.msi</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>your-manager-fqdn</em>/ovirt-engine/services/files/spice/virt-viewer-x64.msi</code></pre>
 </div>
 </div>
 </li>
@@ -564,7 +546,7 @@
 <p><code>usbdk</code> for 32-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x86.msi</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>[your manager&#8217;s address]</em>/ovirt-engine/services/files/spice/usbdk-x86.msi</code></pre>
 </div>
 </div>
 </li>
@@ -572,7 +554,7 @@
 <p><code>usbdk</code> for 64-bit Windows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x64.msi</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>[your manager&#8217;s address]</em>/ovirt-engine/services/files/spice/usbdk-x64.msi</code></pre>
 </div>
 </div>
 </li>
@@ -1033,10 +1015,10 @@ GRUB_SERIAL_COMMAND=&quot;serial --speed=115200 --unit=0 --word=8 --parity=no --
 <p>If a single virtual machine is available, this command connects the user to that virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey
-{enterprise-linux} Server release 6.7 (Santiago)
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> -i .ssh/serialconsolekey
+Enterprise Linux Server release 6.7 (Santiago)
 Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
-_USER_ login:</code></pre>
+<em>USER</em> login:</code></pre>
 </div>
 </div>
 </li>
@@ -1044,14 +1026,14 @@ _USER_ login:</code></pre>
 <p>If more than one virtual machine is available, this command lists the available virtual machines and their IDs:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey list
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> -i .ssh/serialconsolekey list
 1. vm1 [vmid1]
 2. vm2 [vmid2]
 3. vm3 [vmid3]
 &gt; 2
-{enterprise-linux} Server release 6.7 (Santiago)
+Enterprise Linux Server release 6.7 (Santiago)
 Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
-_USER_ login:</code></pre>
+<em>USER</em> login:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1062,12 +1044,12 @@ _USER_ login:</code></pre>
 <p>Alternatively, connect directly to a virtual machine using its unique identifier or its name:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-id _vmid1_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> connect --vm-id <em>vmid1</em></code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-name _vm1_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh -t -p 2222 ovirt-vmconsole@<em>Manager_FQDN</em> connect --vm-name <em>vm1</em></code></pre>
 </div>
 </div>
 </li>
@@ -1134,7 +1116,7 @@ _USER_ login:</code></pre>
 <p>Use the pool identifiers to attach the required subscriptions:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager attach --pool=_pool_id_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager attach --pool=<em>pool_id</em></code></pre>
 </div>
 </div>
 </li>
@@ -1142,7 +1124,7 @@ _USER_ login:</code></pre>
 <p>When a system is attached to a subscription pool with multiple repositories, only the main repository is enabled by default. Others are available, but disabled. Enable any additional repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=_repository_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=<em>repository</em></code></pre>
 </div>
 </div>
 </li>
@@ -1483,7 +1465,7 @@ _USER_ login:</code></pre>
 <p>You can change the default virtual machine name length with the <code>engine-config</code> tool. Run the following command on the Engine machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set MaxVmNameLength=_integer_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config --set MaxVmNameLength=<em>integer</em></code></pre>
 </div>
 </div>
 </li>
@@ -2198,7 +2180,7 @@ _USER_ login:</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ipa-client-install --domain=_FQDN_ --server=_FQDN_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ipa-client-install --domain=<em>FQDN</em> --server=<em>FQDN</em></code></pre>
 </div>
 </div>
 </td>
@@ -2232,7 +2214,7 @@ _USER_ login:</code></pre>
 <p>Fetch the details of an IPA user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># getent passwd _ipa-user_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># getent passwd <em>ipa-user</em></code></pre>
 </div>
 </div>
 </li>
@@ -2240,7 +2222,7 @@ _USER_ login:</code></pre>
 <p>Record the IPA user&#8217;s UID and GID:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">_ipa-user_:*:936600010:936600001::/home/_ipa-user_:/bin/sh</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"><em>ipa-user</em>:*:936600010:936600001::/home/<em>ipa-user</em>:/bin/sh</code></pre>
 </div>
 </div>
 </li>
@@ -2248,7 +2230,7 @@ _USER_ login:</code></pre>
 <p>Create a home directory for the IPA user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /home/_ipa-user_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /home/<em>ipa-user</em></code></pre>
 </div>
 </div>
 </li>
@@ -2256,7 +2238,7 @@ _USER_ login:</code></pre>
 <p>Assign ownership of the directory to the IPA user:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># chown 936600010:936600001 /home/_ipa-user_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown 936600010:936600001 /home/<em>ipa-user</em></code></pre>
 </div>
 </div>
 </li>
@@ -3052,7 +3034,7 @@ _USER_ login:</code></pre>
 <p>Terminate the <code>watchdog</code> service:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># kill -9 `pgrep watchdog`</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># kill -9 <code>pgrep watchdog</code></code></pre>
 </div>
 </div>
 </li>
@@ -4540,7 +4522,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>In the <code>/etc/ovirt-guest-agent.conf</code> configuration file on the virtual machine, insert the following line, with the NICs to be ignored separated by spaces:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">ignored_nics = _first_NIC_to_ignore_ _second_NIC_to_ignore_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">ignored_nics = <em>first_NIC_to_ignore</em> <em>second_NIC_to_ignore</em></code></pre>
 </div>
 </div>
 </li>
@@ -7724,7 +7706,7 @@ Error while executing action:
 <p>Ensure that the OVA file has permissions allowing read/write access to the <strong>qemu</strong> user (UID 36) and the <strong>kvm</strong> group (GID 36):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># chown 36:36 _path_to_OVA_file/file.OVA_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown 36:36 <em>path_to_OVA_file/file.OVA</em></code></pre>
 </div>
 </div>
 </li>
@@ -7888,7 +7870,7 @@ Error while executing action:
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the RHEL 5 Xen host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_xenhost.example.com_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@<em>xenhost.example.com</em></code></pre>
 </div>
 </div>
 </li>
@@ -7896,7 +7878,7 @@ Error while executing action:
 <p>Log in to the RHEL 5 Xen host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_xenhost.example.com_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@<em>xenhost.example.com</em></code></pre>
 </div>
 </div>
 </li>
@@ -8058,7 +8040,7 @@ Error while executing action:
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the RHEL 5 Xen host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_xenhost.example.com_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@<em>xenhost.example.com</em></code></pre>
 </div>
 </div>
 </li>
@@ -8066,7 +8048,7 @@ Error while executing action:
 <p>Log in to the RHEL 5 Xen host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_xenhost.example.com_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@<em>xenhost.example.com</em></code></pre>
 </div>
 </div>
 </li>
@@ -8080,7 +8062,7 @@ Error while executing action:
 <p>On the proxy host, copy the virtual machine from the RHEL 5 Xen host:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># virt-v2v-copy-to-local -ic xen+ssh://root@_xenhost.example.com_ _vmname_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># virt-v2v-copy-to-local -ic xen+ssh://root@<em>xenhost.example.com</em> <em>vmname</em></code></pre>
 </div>
 </div>
 </li>
@@ -8088,7 +8070,7 @@ Error while executing action:
 <p>Convert the virtual machine to libvirt XML and move the file to your export domain:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># virt-v2v -i libvirtxml _vmname_.xml -o rhev -of raw -os _storage.example.com:/exportdomain_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># virt-v2v -i libvirtxml <em>vmname</em>.xml -o rhev -of raw -os <em>storage.example.com:/exportdomain</em></code></pre>
 </div>
 </div>
 </li>
@@ -8169,7 +8151,7 @@ Error while executing action:
 <p>Copy the <strong>vdsm</strong> user&#8217;s public key to the KVM host. The proxy host&#8217;s <strong>known_hosts</strong> file will also be updated to include the host key of the KVM host.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@_kvmhost.example.com_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh-copy-id root@<em>kvmhost.example.com</em></code></pre>
 </div>
 </div>
 </li>
@@ -8177,7 +8159,7 @@ Error while executing action:
 <p>Log in to the KVM host to verify that the login works correctly.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@_kvmhost.example.com_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># sudo -u vdsm ssh root@<em>kvmhost.example.com</em></code></pre>
 </div>
 </div>
 </li>
@@ -8206,7 +8188,7 @@ Error while executing action:
 <p>Enter the <strong>URI</strong> of the KVM host in the following format:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">qemu+ssh://root@_kvmhost.example.com_/system</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">qemu+ssh://root@<em>kvmhost.example.com</em>/system</code></pre>
 </div>
 </div>
 </li>
@@ -9348,9 +9330,9 @@ EndSection</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">term {enterprise-linux} Server (2.6.18-159.el5)
+<pre class="CodeRay highlight"><code data-lang="terminal">term Enterprise Linux Server (2.6.18-159.el5)
         root (hd0,0)
-        kernel /vmlinuz-2.6.18-159.el5 ro root=/dev/VolGroup00/LogVol00 rhgb quiet `processor.max_cstate=1`</code></pre>
+        kernel /vmlinuz-2.6.18-159.el5 ro root=/dev/VolGroup00/LogVol00 rhgb quiet <code>processor.max_cstate=1</code></code></pre>
 </div>
 </div>
 <div class="paragraph">

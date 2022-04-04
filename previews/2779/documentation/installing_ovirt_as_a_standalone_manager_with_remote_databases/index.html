@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Installing oVirt as a standalone Engine with remote databases | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Installing oVirt as a standalone Engine with remote databases" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Installing oVirt as a standalone Engine with remote databases" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Installing oVirt as a standalone Engine with remote databases","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Installing oVirt as a standalone Engine with remote databases","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2779/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2779/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2779/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2779/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2779/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2779/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2779/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2779/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2779/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2779/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2779/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2779/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2779/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2779/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2779/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2779/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2779/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2779/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2779/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2779/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2779/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2779/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2779/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2779/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2779/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2779/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2779/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2779/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2779/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -255,9 +237,11 @@
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<div class="title">Standalone Engine oVirt Architecture</div>
-<p><span class="image"><img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Architecture"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Architecture">
+</div>
+<div class="title">Figure 1. Standalone Engine oVirt Architecture</div>
 </div>
 </div>
 </div>
@@ -1307,7 +1291,7 @@ For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1434,7 +1418,7 @@ For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1546,7 +1530,7 @@ For oVirt 4.4:</p>
 <p>Create a default user. The Engine&#8217;s default user is <code>engine</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">postgres=# create role _user_name_ with login encrypted password '_password_';</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">postgres=# create role <em>user_name</em> with login encrypted password '<em>password</em>';</code></pre>
 </div>
 </div>
 </li>
@@ -1554,7 +1538,7 @@ For oVirt 4.4:</p>
 <p>Create a database. The Engine&#8217;s default database name is <code>engine</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">postgres=# create database _database_name_ owner _user_name_ template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">postgres=# create database <em>database_name</em> owner <em>user_name</em> template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';</code></pre>
 </div>
 </div>
 </li>
@@ -1562,7 +1546,7 @@ For oVirt 4.4:</p>
 <p>Connect to the new database:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">postgres=# \c _database_name_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">postgres=# \c <em>database_name</em></code></pre>
 </div>
 </div>
 </li>
@@ -1570,7 +1554,7 @@ For oVirt 4.4:</p>
 <p>Add the <code>uuid-ossp</code> extension:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">_database_name_=# CREATE EXTENSION &quot;uuid-ossp&quot;;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"><em>database_name</em>=# CREATE EXTENSION &quot;uuid-ossp&quot;;</code></pre>
 </div>
 </div>
 </li>
@@ -1578,7 +1562,7 @@ For oVirt 4.4:</p>
 <p>Add the <code>plpgsql</code> language if it does not exist:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">_database_name_=# CREATE LANGUAGE plpgsql;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"><em>database_name</em>=# CREATE LANGUAGE plpgsql;</code></pre>
 </div>
 </div>
 </li>
@@ -1586,7 +1570,7 @@ For oVirt 4.4:</p>
 <p>Quit the <code>psql</code> interface:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">_database_name_=# \q</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"><em>database_name</em>=# \q</code></pre>
 </div>
 </div>
 </li>
@@ -1594,8 +1578,8 @@ For oVirt 4.4:</p>
 <p>Edit the <code>/var/lib/pgsql/data/pg_hba.conf</code> file to enable md5 client authentication, so that the engine can access the database remotely. Add the following line immediately below the line that starts with <code>local</code> at the bottom of the file. Replace <code>X.X.X.X</code> with the IP address of the Engine or Data Warehouse machine, and replace <code>0-32</code> or <code>0-128</code> with the CIDR mask length:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">host    _database_name_    _user_name_    _X.X.X.X/0-32_    md5
-host    _database_name_    _user_name_    _X.X.X.X::/0-128_   md5</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">host    <em>database_name</em>    <em>user_name</em>    <em>X.X.X.X/0-32</em>    md5
+host    <em>database_name</em>    <em>user_name</em>    <em>X.X.X.X::/0-128</em>   md5</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1774,7 +1758,7 @@ work_mem=8192</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">Configuring ovirt-provider-ovn also sets the Default cluster's default network provider to ovirt-provider-ovn.
+<pre class="CodeRay highlight"><code data-lang="terminal">Configuring ovirt-provider-ovn also sets the Default cluster&#8217;s default network provider to ovirt-provider-ovn.
 Non-Default clusters may be configured with an OVN after installation.
 Configure ovirt-provider-ovn (Yes, No) [Yes]:</code></pre>
 </div>
@@ -1837,7 +1821,7 @@ Configure Data Warehouse on this host (Yes, No) [Yes]:</code></pre>
 <p>Press <code>Enter</code> to accept the automatically detected host name, or enter an alternative host name and press <code>Enter</code>. Note that the automatically detected host name may be incorrect if you are using virtual hosts.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected host name_]:</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [<em>autodetected host name</em>]:</code></pre>
 </div>
 </div>
 </li>
@@ -1941,7 +1925,7 @@ oVirt OVN provider password:</code></pre>
 <p>The Engine uses certificates to communicate securely with its hosts. This certificate can also optionally be used to secure HTTPS communications with the Engine. Provide the organization name for the certificate:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">Organization name for certificate [_autodetected domain-based name_]:</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Organization name for certificate [<em>autodetected domain-based name</em>]:</code></pre>
 </div>
 </div>
 </li>
@@ -2042,7 +2026,7 @@ For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2173,7 +2157,7 @@ For oVirt 4.4:</p>
 <p>Press <code>Enter</code> to accept the automatically-detected host name, or enter an alternative host name and press <code>Enter</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [_autodetected hostname_]:</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [<em>autodetected hostname</em>]:</code></pre>
 </div>
 </div>
 </li>
@@ -2222,7 +2206,7 @@ Please choose one of the following:
 <p>Enter the root password for the Engine machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">root password on remote engine server _manager.example.com_:</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">root password on remote engine server <em>manager.example.com</em>:</code></pre>
 </div>
 </div>
 </li>
@@ -2280,12 +2264,12 @@ DWH database password:</code></pre>
 <p>If you select <code>Remote</code>, you are prompted to provide details about the remote database host. Input the following values for the preconfigured remote database host:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">DWH database host []: _dwh-db-fqdn_
+<pre class="CodeRay highlight"><code data-lang="terminal">DWH database host []: <em>dwh-db-fqdn</em>
 DWH database port [5432]:
 DWH database secured connection (Yes, No) [No]:
 DWH database name [ovirt_engine_history]:
 DWH database user [ovirt_engine_history]:
-DWH database password: _password_</code></pre>
+DWH database password: <em>password</em></code></pre>
 </div>
 </div>
 </li>
@@ -2305,12 +2289,12 @@ Grafana database password:</code></pre>
 <p>Enter the fully qualified domain name and password for the Engine database machine. If you are installing the Data Warehouse database on the same machine where the Engine database is installed, use the same FQDN. Press <code>Enter</code> to accept the default values in each other field:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: _engine-db-fqdn_
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: <em>engine-db-fqdn</em>
 Engine database port [5432]:
 Engine database secured connection (Yes, No) [No]:
 Engine database name [engine]:
 Engine database user [engine]:
-Engine database password: _password_</code></pre>
+Engine database password: <em>password</em></code></pre>
 </div>
 </div>
 </li>
@@ -2657,10 +2641,10 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <pre class="CodeRay highlight"><code data-lang="terminal"># imgbased: set-enabled
 [custom-sssd-ldap]
 name = Provides sssd-ldap
-mirrorlist = http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra
+mirrorlist = <a href="http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra" class="bare">http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra</a>
 gpgcheck = 1
 enabled = 1
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+gpgkey = <a href="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial" class="bare">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial</a>
 includepkgs = sssd-ldap</code></pre>
 </div>
 </div>
@@ -3105,7 +3089,7 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <p>Extract the <strong>squashfs.img</strong> hypervisor image file from the oVirt Node ISO:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># mount -o loop _/path/to/{hypervisor-shortname}-ISO_ /mnt/rhvh
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount -o loop <em>/path/to/oVirt Node-ISO</em> /mnt/rhvh
 # cp /mnt/rhvh/Packages/redhat-virtualization-host-image-update* /tmp
 # cd /tmp
 # rpm2cpio redhat-virtualization-host-image-update* | cpio -idmv</code></pre>
@@ -3149,9 +3133,9 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">LABEL rhvh
-MENU LABEL Install {hypervisor-fullname}
+MENU LABEL Install oVirt Node
 KERNEL /var/lib/tftpboot/pxelinux/vmlinuz
-APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_</code></pre>
+APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/oVirt Node-ISO</em></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3162,7 +3146,7 @@ APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervi
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">&lt;%#
 kind: PXELinux
-name: {hypervisor-shortname} PXELinux
+name: oVirt Node PXELinux
 %&gt;
 # Created for booting new hosts
 #
@@ -3181,7 +3165,7 @@ IPAPPEND 2</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># cp -a /mnt/rhvh/ /var/www/html/rhvh-install
-# curl _URL/to/{hypervisor-shortname}-ISO_/rhvh-install</code></pre>
+# curl <em>URL/to/oVirt Node-ISO</em>/rhvh-install</code></pre>
 </div>
 </div>
 </li>
@@ -3203,7 +3187,7 @@ IPAPPEND 2</code></pre>
 <p>The <code>%packages</code> section is not required for oVirt Node. Instead, use the <code>liveimg</code> option and specify the <strong>redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</strong> file from the oVirt Node ISO image:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=_example.com_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=<em>example.com</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</code></pre>
 </div>
 </div>
 </li>
@@ -3213,8 +3197,8 @@ IPAPPEND 2</code></pre>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">autopart --type=thinp
 ignoredisk --only-use=sda
-ignoredisk --only-use=/dev/disk/&lt;__path__&gt;
-ignoredisk --only-use=/dev/disk/&lt;__ID__&gt;</code></pre>
+ignoredisk --only-use=/dev/disk/&lt;<em>path</em>&gt;
+ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3281,7 +3265,7 @@ nodectl init
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=http://_FQDN_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=http://<em>FQDN</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img
 clearpart --all
 autopart --type=thinp
 rootpw --plaintext ovirt
@@ -3304,7 +3288,7 @@ nodectl init
 <p>Add the Kickstart file location to the boot loader configuration file on the PXE server:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_ inst.ks=_URL/to/{hypervisor-shortname}-ks_.cfg</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/oVirt Node-ISO</em> inst.ks=<em>URL/to/oVirt Node-ks</em>.cfg</code></pre>
 </div>
 </div>
 </li>
@@ -3494,8 +3478,8 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <p>Configure a VLAN on a physical NIC as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type vlan con-name __vlan50__ ifname __eth0.50__ dev __eth0__ id __50__
-# nmcli con mod __vlan50__ +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>eth0.50</em> dev <em>eth0</em> id <em>50</em>
+# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -3503,11 +3487,11 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <p>Configure a VLAN on a bond as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type bond con-name __bond0__ ifname __bond0__ bond.options &quot;mode=active-backup,miimon=100&quot; ipv4.method disabled ipv6.method ignore
-# nmcli connection add type ethernet con-name __eth0__ ifname __eth0__ master __bond0__ slave-type bond
-# nmcli connection add type ethernet con-name __eth1__ ifname __eth1__ master __bond0__ slave-type bond
-# nmcli connection add type vlan con-name __vlan50__ ifname __bond0.50__ dev __bond0__ id __50__
-# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type bond con-name <em>bond0</em> ifname <em>bond0</em> bond.options &quot;mode=active-backup,miimon=100&quot; ipv4.method disabled ipv6.method ignore
+# nmcli connection add type ethernet con-name <em>eth0</em> ifname <em>eth0</em> master <em>bond0</em> slave-type bond
+# nmcli connection add type ethernet con-name <em>eth1</em> ifname <em>eth1</em> master <em>bond0</em> slave-type bond
+# nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>bond0.50</em> dev <em>bond0</em> id <em>50</em>
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -3817,7 +3801,7 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 <pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid _boot_LUN_wwid_
+        wwid <em>boot_LUN_wwid</em>
         no_path_retry queue
     }</code></pre>
 </div>
@@ -3885,7 +3869,7 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 <pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
-        wwid _boot_LUN_wwid_
+        wwid <em>boot_LUN_wwid</em>
         no_path_retry queue
     }</code></pre>
 </div>
@@ -4730,9 +4714,9 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/default/grub
-...
-GRUB_CMDLINE_LINUX=&quot;nofb splash=quiet console=tty0 ... amd_iommu=on
-...</code></pre>
+&#8230;&#8203;
+GRUB_CMDLINE_LINUX=&quot;nofb splash=quiet console=tty0 &#8230;&#8203; amd_iommu=on
+&#8230;&#8203;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -4852,7 +4836,7 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <p>Remove the oVirt packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf remove {engine-package}* vdsm-bootstrap</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf remove ovirt-engine* vdsm-bootstrap</code></pre>
 </div>
 </div>
 </li>

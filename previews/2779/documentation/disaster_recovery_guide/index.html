@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Disaster Recovery Guide | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Disaster Recovery Guide" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2779/documentation/disaster_recovery_guide/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2779/documentation/disaster_recovery_guide/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Disaster Recovery Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Disaster Recovery Guide","url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/disaster_recovery_guide/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Disaster Recovery Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2779/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2779/documentation/disaster_recovery_guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2779/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2779/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2779/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2779/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2779/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2779/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2779/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2779/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2779/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2779/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2779/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2779/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2779/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2779/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2779/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2779/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2779/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2779/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2779/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2779/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2779/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2779/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2779/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2779/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2779/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2779/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2779/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2779/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2779/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2779//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -173,16 +155,20 @@
 <div class="paragraph">
 <p>This configuration requires replicated storage that is writeable on both sites so virtual machines can migrate between the two sites and continue running on both sites' storage.</p>
 </div>
-<div class="paragraph">
-<div class="title">Stretch Cluster Configuration</div>
-<p><span class="image"><img src="images/StretchCluster.png" alt="StretchCluster" title="Stretch Cluster Configuration"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/StretchCluster.png" alt="Stretch Cluster Configuration">
+</div>
+<div class="title">Figure 1. Stretch Cluster Configuration</div>
 </div>
 <div class="paragraph">
 <p>Virtual machines migrate to the secondary site if the primary site becomes unavailable. The virtual machines automatically failback to the primary site when the site becomes available and the storage is replicated in both sites.</p>
 </div>
-<div class="paragraph">
-<div class="title">Failed Over Stretch Cluster</div>
-<p><span class="image"><img src="images/StretchClusterFailover.png" alt="StretchClusterFailover" title="Failed Over Stretch Cluster"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/StretchClusterFailover.png" alt="Failed Over Stretch Cluster">
+</div>
+<div class="title">Figure 2. Failed Over Stretch Cluster</div>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -452,16 +438,20 @@
 <div class="paragraph">
 <p>The following diagram describes an active-passive setup where the machine running Red Hat Ansible Engine is highly available, and has access to the <code>oVirt.disaster-recovery</code> Ansible role, configured playbooks, and mapping file. The storage domains that store the virtual machine disks in Site A is replicated. Site B has no virtual machines or attached storage domains.</p>
 </div>
-<div class="paragraph">
-<div class="title">Active-Passive Configuration</div>
-<p><span class="image"><img src="images/SiteToSite.png" alt="SiteToSite" title="Active-Passive Configuration"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/SiteToSite.png" alt="Active-Passive Configuration">
+</div>
+<div class="title">Figure 3. Active-Passive Configuration</div>
 </div>
 <div class="paragraph">
 <p>When the environment fails over to Site B, the storage domains are first attached and activated in Site B&#8217;s data center, and then the virtual machines are registered. Highly available virtual machines will fail over first.</p>
 </div>
-<div class="paragraph">
-<div class="title">Failover to Backup Site</div>
-<p><span class="image"><img src="images/SiteToSiteFailover.png" alt="SiteToSiteFailover" title="Failover to Backup Site"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/SiteToSiteFailover.png" alt="Failover to Backup Site">
+</div>
+<div class="title">Figure 4. Failover to Backup Site</div>
 </div>
 <div class="paragraph">
 <p>You must manually fail back to the primary site (Site A) when it is running again.</p>
@@ -629,10 +619,10 @@
 <div class="listingblock">
 <div class="title">Usage</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ./ovirt-dr _generate/validate/failover/failback_
+<pre class="CodeRay highlight"><code data-lang="terminal"># ./ovirt-dr <em>generate/validate/failover/failback</em>
               [--conf-file=dr.conf]
-              [--log-file=ovirt-dr-_log_number_.log]
-              [--log-level=_DEBUG/INFO/WARNING/ERROR_]</code></pre>
+              [--log-file=ovirt-dr-<em>log_number</em>.log]
+              [--log-level=<em>DEBUG/INFO/WARNING/ERROR</em>]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1009,12 +999,12 @@ These locks should be released automatically approximately 80 seconds after the 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">dr_sites_primary_url: https://manager1.example.redhat.com/ovirt-engine/api
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_sites_primary_url: <a href="https://manager1.example.redhat.com/ovirt-engine/api" class="bare">https://manager1.example.redhat.com/ovirt-engine/api</a>
 dr_sites_primary_username: admin@internal
 dr_sites_primary_ca_file: /etc/pki/ovirt-engine/ca.pem
 
 # Please fill in the following properties for the secondary site:
-dr_sites_secondary_url: https://manager2.example.redhat.com/ovirt-engine/api
+dr_sites_secondary_url: <a href="https://manager2.example.redhat.com/ovirt-engine/api" class="bare">https://manager2.example.redhat.com/ovirt-engine/api</a>
 dr_sites_secondary_username: admin@internal
 dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</code></pre>
 </div>
@@ -1243,7 +1233,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</code></pre>
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_over&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1305,7 +1295,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_over&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1321,7 +1311,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;clean_engine&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1329,7 +1319,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the failback command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_back&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1360,7 +1350,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_over&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1379,7 +1369,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;clean_engine&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1387,7 +1377,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the failback command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook _playbook_ --tags &quot;fail_back&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>

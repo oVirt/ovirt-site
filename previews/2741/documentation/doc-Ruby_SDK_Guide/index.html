@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Ruby SDK Guide | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Ruby SDK Guide" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Ruby_SDK_Guide/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Ruby_SDK_Guide/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Ruby SDK Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Ruby SDK Guide","url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Ruby_SDK_Guide/","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Ruby SDK Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Ruby_SDK_Guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2741/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2741/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2741/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2741/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2741/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2741/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2741/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2741/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2741/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2741/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2741/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2741/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2741/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2741/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2741/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2741/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2741/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2741/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2741/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2741/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2741/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2741/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2741/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2741/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2741/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -115,16 +97,19 @@
 <li><a href="#retrieving-instance-attributes">2.2.2. Retrieving Instance Attributes</a></li>
 </ul>
 </li>
-<li><a href="#services">2.3. Services</a>
+<li><a href="#Services">2.3. Services</a>
 <ul class="sectlevel3">
 <li><a href="#Retrieving_services">2.3.1. Retrieving Services</a></li>
-<li><a href="#Service_methods">2.3.2. Service Methods</a></li>
-<li><a href="#get">2.3.3. <code>Get</code></a></li>
-<li><a href="#list">2.3.4. <code>List</code></a></li>
-<li><a href="#add">2.3.5. <code>Add</code></a></li>
-<li><a href="#update">2.3.6. <code>Update</code></a></li>
-<li><a href="#remove">2.3.7. <code>Remove</code></a></li>
-<li><a href="#additional-actions">2.3.8. Additional Actions</a></li>
+<li><a href="#Service_methods">2.3.2. Service Methods</a>
+<ul class="sectlevel4">
+<li><a href="#get"><code>Get</code></a></li>
+<li><a href="#list"><code>List</code></a></li>
+<li><a href="#add"><code>Add</code></a></li>
+<li><a href="#update"><code>Update</code></a></li>
+<li><a href="#remove"><code>Remove</code></a></li>
+<li><a href="#additional-actions">Additional Actions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -132,25 +117,26 @@
 <li><a href="#chap-Ruby_Examples">3. Ruby Examples</a>
 <ul class="sectlevel2">
 <li><a href="#Connecting_to_the_server">3.1. Connecting to the {virt-product-fullname} {engine-name}</a></li>
-<li><a href="#listing-data-centers">3.2. Listing Data Centers</a></li>
-<li><a href="#listing-clusters">3.3. Listing Clusters</a></li>
-<li><a href="#listing-logical-networks">3.4. Listing Logical Networks</a></li>
-<li><a href="#listing-hosts">3.5. Listing Hosts</a></li>
-<li><a href="#listing-iso-files-in-the-iso-storage-domain">3.6. Listing ISO Files in the ISO Storage Domain</a></li>
-<li><a href="#creating-an-nfs-storage-domain">3.7. Creating an NFS Storage Domain</a></li>
+<li><a href="#Listing_data_centers">3.2. Listing Data Centers</a></li>
+<li><a href="#Listing_clusters">3.3. Listing Clusters</a></li>
+<li><a href="#Listing_logical_networks">3.4. Listing Logical Networks</a></li>
+<li><a href="#Listing_hosts">3.5. Listing Hosts</a></li>
+<li><a href="#Listing_ISO_files_in_ISO_storage_domain">3.6. Listing ISO Files in the ISO Storage Domain</a></li>
+<li><a href="#Creating_NFS_storage_domain">3.7. Creating an NFS Storage Domain</a></li>
 <li><a href="#attaching-a-storage-domain-to-a-data-center">3.8. Attaching a Storage Domain to a Data Center</a></li>
-<li><a href="#creating-a-virtual-machine">3.9. Creating a Virtual Machine</a></li>
-<li><a href="#creating-a-vnic-profile">3.10. Creating a vNIC Profile</a></li>
-<li><a href="#creating-a-vnic">3.11. Creating a vNIC</a></li>
-<li><a href="#creating-a-virtual-disk">3.12. Creating a Virtual Disk</a></li>
-<li><a href="#attaching-an-iso-image-to-a-virtual-machine">3.13. Attaching an ISO Image to a Virtual Machine</a></li>
-<li><a href="#detaching-a-virtual-disk">3.14. Detaching a Virtual Disk</a></li>
-<li><a href="#starting-a-virtual-machine">3.15. Starting a Virtual Machine</a></li>
-<li><a href="#starting-a-virtual-machine-with-specific-boot-devices-and-boot-order">3.16. Starting a Virtual Machine with Specific Boot Devices and Boot Order</a></li>
-<li><a href="#starting-a-virtual-machine-with-cloud-init">3.17. Starting a Virtual Machine with Cloud-Init</a></li>
-<li><a href="#checking-system-events">3.18. Checking System Events</a></li>
+<li><a href="#Creating_a_virtual_machine">3.9. Creating a Virtual Machine</a></li>
+<li><a href="#Creating_a_vNIC_profile">3.10. Creating a vNIC Profile</a></li>
+<li><a href="#Creating_a_vNIC">3.11. Creating a vNIC</a></li>
+<li><a href="#Creating_a_virtual_disk">3.12. Creating a Virtual Disk</a></li>
+<li><a href="#Attaching_ISO_image_to_a_virtual_machine">3.13. Attaching an ISO Image to a Virtual Machine</a></li>
+<li><a href="#Detaching_a_virtual_disk">3.14. Detaching a Virtual Disk</a></li>
+<li><a href="#Starting_a_virtual_machine">3.15. Starting a Virtual Machine</a></li>
+<li><a href="#Starting_a_virtual_machine_with_specific_boot_devices">3.16. Starting a Virtual Machine with Specific Boot Devices and Boot Order</a></li>
+<li><a href="#Starting_a_virtual_machine_with_cloud-init">3.17. Starting a Virtual Machine with Cloud-Init</a></li>
+<li><a href="#Checking_system_events">3.18. Checking System Events</a></li>
 </ul>
 </li>
+<li><a href="#ovirt-legal-notice">Appendix A: Legal notice</a></li>
 </ul>
 </div>
 <div class="sect1">
@@ -303,7 +289,7 @@
 <dl>
 <dt class="hdlist1">Connection</dt>
 <dd>
-<p>The <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection">Connection</a> class is the mechanism for connecting to the server and obtaining the reference to the root of the services tree. See <a href="#Connecting_to_the_server">Connecting to the {virt-product-fullname} {engine-name}</a> for details.</p>
+<p>The <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection">Connection</a> class is the mechanism for connecting to the server and obtaining the reference to the root of the services tree. See <a href="#Connecting_to_the_server">Connecting to the server</a> for details.</p>
 </dd>
 <dt class="hdlist1">Types</dt>
 <dd>
@@ -543,7 +529,7 @@ attachments.each <span style="color:#080;font-weight:bold">do</span> |attachment
 </div>
 </div>
 <div class="sect2">
-<h3 id="services">2.3. Services</h3>
+<h3 id="Services">2.3. Services</h3>
 <div class="sect3">
 <h4 id="Retrieving_services">2.3.1. Retrieving Services</h4>
 <div class="paragraph">
@@ -608,9 +594,8 @@ attachments.each <span style="color:#080;font-weight:bold">do</span> |attachment
 <div class="paragraph">
 <p>Services may have additional action methods, which perform actions other than retrieving, creating, updating, or removing. These methods are most commonly found in services that manage a single object.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get">2.3.3. <code>Get</code></h4>
+<div class="sect4">
+<h5 id="get"><code>Get</code></h5>
 <div class="paragraph">
 <p>The <code>get</code> method retrieves the representation of a single object.</p>
 </div>
@@ -684,8 +669,8 @@ vm = vm_service.get</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="list">2.3.4. <code>List</code></h4>
+<div class="sect4">
+<h5 id="list"><code>List</code></h5>
 <div class="paragraph">
 <p>The <code>list</code> method retrieves the representations of multiple objects in a collection.</p>
 </div>
@@ -734,8 +719,8 @@ vms = vms_service.list</code></pre>
 <p>If the list of results cannot be retrieved, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="add">2.3.5. <code>Add</code></h4>
+<div class="sect4">
+<h5 id="add"><code>Add</code></h5>
 <div class="paragraph">
 <p><code>Add</code> methods add new elements to collections. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.</p>
 </div>
@@ -818,8 +803,8 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <p>If the object cannot be created, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure. It will never return <code>nil</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="update">2.3.6. <code>Update</code></h4>
+<div class="sect4">
+<h5 id="update"><code>Update</code></h5>
 <div class="paragraph">
 <p><code>Update</code> methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.</p>
 </div>
@@ -897,8 +882,8 @@ vms_service.update(vm)</code></pre>
 <p>If the update cannot be performed, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure. It will never return <code>nil</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="remove">2.3.7. <code>Remove</code></h4>
+<div class="sect4">
+<h5 id="remove"><code>Remove</code></h5>
 <div class="paragraph">
 <p><code>Remove</code> methods remove existing objects. They normally do not support parameters because they are methods of services that manage single objects, and the service already knows what object to remove.</p>
 </div>
@@ -925,8 +910,8 @@ vms_service.remove</code></pre>
 <p>If the object cannot be removed, the SDK will raise an <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error">Error</a> exception containing the details of the failure.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="additional-actions">2.3.8. Additional Actions</h4>
+<div class="sect4">
+<h5 id="additional-actions">Additional Actions</h5>
 <div class="paragraph">
 <p>There are additional action methods, apart from the methods described above. The service that manages a virtual machine has methods to start and stop it.</p>
 </div>
@@ -960,6 +945,7 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </div>
 <div class="paragraph">
 <p>See the <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4">reference documentation</a> of the software development kit to see the action methods supported by each service, their parameters, and return values.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1033,7 +1019,7 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-data-centers">3.2. Listing Data Centers</h3>
+<h3 id="Listing_data_centers">3.2. Listing Data Centers</h3>
 <div class="paragraph">
 <p>This Ruby example lists the data centers.</p>
 </div>
@@ -1067,7 +1053,7 @@ dcs.each <span style="color:#080;font-weight:bold">do</span> |dc|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-clusters">3.3. Listing Clusters</h3>
+<h3 id="Listing_clusters">3.3. Listing Clusters</h3>
 <div class="paragraph">
 <p>This Ruby example lists the clusters.</p>
 </div>
@@ -1101,7 +1087,7 @@ cls.each <span style="color:#080;font-weight:bold">do</span> |cl|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-logical-networks">3.4. Listing Logical Networks</h3>
+<h3 id="Listing_logical_networks">3.4. Listing Logical Networks</h3>
 <div class="paragraph">
 <p>This Ruby example lists the logical networks.</p>
 </div>
@@ -1135,7 +1121,7 @@ nws.each <span style="color:#080;font-weight:bold">do</span> |nw|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-hosts">3.5. Listing Hosts</h3>
+<h3 id="Listing_hosts">3.5. Listing Hosts</h3>
 <div class="paragraph">
 <p>This Ruby example lists the hosts.</p>
 </div>
@@ -1169,7 +1155,7 @@ host.each <span style="color:#080;font-weight:bold">do</span> |host|
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-iso-files-in-the-iso-storage-domain">3.6. Listing ISO Files in the ISO Storage Domain</h3>
+<h3 id="Listing_ISO_files_in_ISO_storage_domain">3.6. Listing ISO Files in the ISO Storage Domain</h3>
 <div class="paragraph">
 <p>This Ruby example lists the ISO files in the ISO storage domain, <code>myiso</code>.</p>
 </div>
@@ -1215,7 +1201,7 @@ iso_sds = sds_service.list.select { |sd| sd.type == <span style="color:#036;font
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-an-nfs-storage-domain">3.7. Creating an NFS Storage Domain</h3>
+<h3 id="Creating_NFS_storage_domain">3.7. Creating an NFS Storage Domain</h3>
 <div class="paragraph">
 <p>This Ruby example adds an NFS storage domain.</p>
 </div>
@@ -1307,7 +1293,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-virtual-machine">3.9. Creating a Virtual Machine</h3>
+<h3 id="Creating_a_virtual_machine">3.9. Creating a Virtual Machine</h3>
 <div class="paragraph">
 <p>This Ruby example creates a virtual machine. This example uses a hash with symbols and nested hashes as their values. Another method, more verbose, is to use the constructors of the corresponding objects directly. See <a href="#Creating_a_Virtual_Machine_Instance_with_Attributes">Creating a Virtual Machine Instance with Attributes</a> for more information.</p>
 </div>
@@ -1338,7 +1324,7 @@ vms_service.add(
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-vnic-profile">3.10. Creating a vNIC Profile</h3>
+<h3 id="Creating_a_vNIC_profile">3.10. Creating a vNIC Profile</h3>
 <div class="paragraph">
 <p>This Ruby example creates a vNIC profile.</p>
 </div>
@@ -1376,7 +1362,7 @@ profiles_service.add(
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-vnic">3.11. Creating a vNIC</h3>
+<h3 id="Creating_a_vNIC">3.11. Creating a vNIC</h3>
 <div class="paragraph">
 <p>To ensure that a newly created virtual machine has network access you must create and attach a vNIC.</p>
 </div>
@@ -1430,7 +1416,7 @@ nics_service.add(
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-virtual-disk">3.12. Creating a Virtual Disk</h3>
+<h3 id="Creating_a_virtual_disk">3.12. Creating a Virtual Disk</h3>
 <div class="paragraph">
 <p>To ensure that a newly created virtual machine has access to persistent storage you must create and attach a disk.</p>
 </div>
@@ -1484,7 +1470,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="attaching-an-iso-image-to-a-virtual-machine">3.13. Attaching an ISO Image to a Virtual Machine</h3>
+<h3 id="Attaching_ISO_image_to_a_virtual_machine">3.13. Attaching an ISO Image to a Virtual Machine</h3>
 <div class="paragraph">
 <p>This Ruby example attaches a CD-ROM to a virtual machine and changes it to an ISO image in order to install the guest operating system.</p>
 </div>
@@ -1529,7 +1515,7 @@ cdrom_service.update(
 </div>
 </div>
 <div class="sect2">
-<h3 id="detaching-a-virtual-disk">3.14. Detaching a Virtual Disk</h3>
+<h3 id="Detaching_a_virtual_disk">3.14. Detaching a Virtual Disk</h3>
 <div class="paragraph">
 <p>This Ruby example detaches a disk from a virtual machine.</p>
 </div>
@@ -1554,7 +1540,7 @@ attachment.remove(<span style="color:#606">detach_only</span>: <span style="colo
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-virtual-machine">3.15. Starting a Virtual Machine</h3>
+<h3 id="Starting_a_virtual_machine">3.15. Starting a Virtual Machine</h3>
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine.</p>
 </div>
@@ -1586,7 +1572,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-virtual-machine-with-specific-boot-devices-and-boot-order">3.16. Starting a Virtual Machine with Specific Boot Devices and Boot Order</h3>
+<h3 id="Starting_a_virtual_machine_with_specific_boot_devices">3.16. Starting a Virtual Machine with Specific Boot Devices and Boot Order</h3>
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine specifying the boot devices and boot order.</p>
 </div>
@@ -1629,7 +1615,7 @@ loop <span style="color:#080;font-weight:bold">do</span>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-virtual-machine-with-cloud-init">3.17. Starting a Virtual Machine with Cloud-Init</h3>
+<h3 id="Starting_a_virtual_machine_with_cloud-init">3.17. Starting a Virtual Machine with Cloud-Init</h3>
 <div class="paragraph">
 <p>This Ruby example starts a virtual machine using the Cloud-Init tool to set the <code>root</code> password and network configuration.</p>
 </div>
@@ -1688,7 +1674,7 @@ vm_service.start(
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-system-events">3.18. Checking System Events</h3>
+<h3 id="Checking_system_events">3.18. Checking System Events</h3>
 <div class="paragraph">
 <p>This Ruby example retrieves logged system events.</p>
 </div>
@@ -1750,6 +1736,14 @@ loop <span style="color:#080;font-weight:bold">do</span>
 <div class="paragraph">
 <p>For more information, see <a href="http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FEventsService:list" class="bare">http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FEventsService:list</a>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/ruby_sdk_guide/index">Red Hat Virtualization 4.4 Ruby SDK Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

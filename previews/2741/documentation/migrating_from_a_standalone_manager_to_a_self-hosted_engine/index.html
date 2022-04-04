@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Migrating from a standalone Engine to a self-hosted engine | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Migrating from a standalone Engine to a self-hosted engine" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2741/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2741/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Migrating from a standalone Engine to a self-hosted engine" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Migrating from a standalone Engine to a self-hosted engine","url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Migrating from a standalone Engine to a self-hosted engine","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2741/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2741/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2741/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2741/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2741/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2741/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2741/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2741/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2741/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2741/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2741/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2741/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2741/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2741/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2741/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2741/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2741/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2741/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2741/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2741/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2741/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2741/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2741/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2741/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2741/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -126,12 +108,12 @@
 <li><a href="#removing-a-module-temporarily">A.1. Removing a module temporarily</a></li>
 </ul>
 </li>
-<li><a href="#legal-notice">9. Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">Appendix B: Legal notice</a></li>
 </ul>
 </div>
 <div id="preamble">
 <div class="sectionbody">
-<h1 id="migrating-from-a-standalone-engine-to-a-self-hosted-engine" class="discrete">Migrating from a standalone Engine to a self-hosted engine</h1>
+<h2 id="migrating-from-a-standalone-engine-to-a-self-hosted-engine" class="discrete">Migrating from a standalone Engine to a self-hosted engine</h2>
 <div class="paragraph">
 <p>You can convert a standalone oVirt Engine to a self-hosted engine by backing up the standalone Engine and restoring it in a new self-hosted environment.</p>
 </div>
@@ -160,7 +142,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Engine oVirt Architecture">
+<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Architecture">
 </div>
 <div class="title">Figure 1. Standalone Engine oVirt Architecture</div>
 </div>
@@ -186,7 +168,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine oVirt Architecture">
+<img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine Architecture">
 </div>
 <div class="title">Figure 2. Self-Hosted Engine oVirt Architecture</div>
 </div>
@@ -300,7 +282,7 @@
 <p>oVirt Node supports NIST 800-53 partitioning requirements to improve security. oVirt Node uses a NIST 800-53 partition layout by default.</p>
 </div>
 <div class="paragraph">
-<p>The host must meet the minimum  <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+<p>The host must meet the minimum  <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index.html#host-requirements">host requirements</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -605,7 +587,7 @@
 <p>Install the NFS <code>utils</code> package.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install nfs-utils -y</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install nfs-utils -y</code></pre>
 </div>
 </div>
 </li>
@@ -613,7 +595,7 @@
 <p>To check the enabled versions:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /proc/fs/nfsd/versions</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /proc/fs/nfsd/versions</code></pre>
 </div>
 </div>
 </li>
@@ -621,8 +603,8 @@
 <p>Enable the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl enable nfs-server
-# systemctl enable rpcbind</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable nfs-server
+# systemctl enable rpcbind</code></pre>
 </div>
 </div>
 </li>
@@ -635,7 +617,7 @@
 <p>Create the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># groupadd kvm -g 36</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># groupadd kvm -g 36</code></pre>
 </div>
 </div>
 </li>
@@ -643,7 +625,7 @@
 <p>Create the user <code>vdsm</code> in the group <code>kvm</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># useradd vdsm -u 36 -g kvm</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># useradd vdsm -u 36 -g kvm</code></pre>
 </div>
 </div>
 </li>
@@ -661,9 +643,9 @@
 <p>Add the <code>storage</code> directory to <code>/etc/exports</code> with the relevant permissions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># vi /etc/exports
+<pre class="CodeRay highlight"><code data-lang="terminal"># vi /etc/exports
 # cat /etc/exports
- /storage *(rw)</pre>
+ /storage *(rw)</code></pre>
 </div>
 </div>
 </li>
@@ -671,8 +653,8 @@
 <p>Restart the following services:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart rpcbind
-# systemctl restart nfs-server</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart rpcbind
+# systemctl restart nfs-server</code></pre>
 </div>
 </div>
 </li>
@@ -680,10 +662,10 @@
 <p>To see which export are available for a specific IP address:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># exportfs
+<pre class="CodeRay highlight"><code data-lang="terminal"># exportfs
  /nfs_server/srv
                10.46.11.3/24
- /nfs_server       &lt;world&gt;</pre>
+ /nfs_server       &lt;world&gt;</code></pre>
 </div>
 </div>
 </li>
@@ -757,12 +739,12 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
         wwid <em>boot_LUN_wwid</em>
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -825,12 +807,12 @@ See <a href="https://ovirt.org/documentation/administration_guide/index#Creating
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+<pre class="CodeRay highlight"><code data-lang="terminal"># cat /etc/multipath/conf.d/host.conf
 multipaths {
     multipath {
         wwid <em>boot_LUN_wwid</em>
         no_path_retry queue
-    }</pre>
+    }</code></pre>
 </div>
 </div>
 </td>
@@ -1045,7 +1027,7 @@ Do not override this setting.
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -1172,7 +1154,7 @@ Do not override this setting.
 <p>Run the <code>engine-backup</code> command, specifying the name of the backup file to create, and the name of the log file to create to store the backup log:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-backup --mode=backup --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --file=<em>file_name</em> --log=<em>log_file_name</em></code></pre>
 </div>
 </div>
 </li>
@@ -1180,7 +1162,7 @@ Do not override this setting.
 <p>Copy the files to an external server. In the following example, <code>storage.example.com</code> is the fully qualified domain name of a network storage server that will store the backup until it is needed, and <code>/backup/</code> is any designated folder or path.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp -p <em>file_name</em> <em>log_file_name</em> storage.example.com:/backup/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p <em>file_name</em> <em>log_file_name</em> storage.example.com:/backup/</code></pre>
 </div>
 </div>
 </li>
@@ -1231,7 +1213,7 @@ Do not override this setting.
 <p>Copy the backup file to the new host. In the following example, <code>host.example.com</code> is the FQDN for the host, and <code>/backup/</code> is any designated folder or path.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># scp -p <em>file_name</em> host.example.com:/backup/</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p <em>file_name</em> host.example.com:/backup/</code></pre>
 </div>
 </div>
 </li>
@@ -1242,7 +1224,7 @@ Do not override this setting.
 <p>If you are deploying on oVirt Node, <code>ovirt-hosted-engine-setup</code> is already installed, so skip this step. If you are deploying on Enterprise Linux, install the <code>ovirt-hosted-engine-setup</code> package:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-hosted-engine-setup</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-hosted-engine-setup</code></pre>
 </div>
 </div>
 </li>
@@ -1253,8 +1235,8 @@ Do not override this setting.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf -y install tmux
-# tmux</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install tmux
+# tmux</code></pre>
 </div>
 </div>
 </li>
@@ -1262,7 +1244,7 @@ Do not override this setting.
 <p>Run the <code>hosted-engine</code> script, specifying the path to the backup file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># hosted-engine --deploy --restore-from-file=backup/<em>file_name</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=backup/<em>file_name</em></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1412,12 +1394,12 @@ For example, if this deployment was restored from a backup, and the backup inclu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">gluster volume set <em>VOLUME_NAME</em> group virt
+<pre class="CodeRay highlight"><code data-lang="terminal">gluster volume set <em>VOLUME_NAME</em> group virt
 gluster volume set <em>VOLUME_NAME</em> performance.strict-o-direct on
 gluster volume set <em>VOLUME_NAME</em> network.remote-dio off
 gluster volume set <em>VOLUME_NAME</em> storage.owner-uid 36
 gluster volume set <em>VOLUME_NAME</em> storage.owner-gid 36
-gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
+gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 </div>
 </div>
 </td>
@@ -1451,11 +1433,30 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <h2 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrating_to_SHE">7. Enabling the oVirt Engine Repositories</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled:</p>
+<p>Ensure the correct repositories are enabled.
+For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.5:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
+# dnf config-manager --set-enabled centos-ovirt45-testing
+# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1467,7 +1468,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>javapackages-tools</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
 </div>
 </div>
 </li>
@@ -1475,7 +1476,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable the <code>pki-deps</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
 </div>
 </div>
 </li>
@@ -1483,7 +1484,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Enable version 12 of the <code>postgresql</code> module.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
 </div>
 </div>
 </li>
@@ -1491,7 +1492,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf distro-sync --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1782,10 +1783,10 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="legal-notice">9. Legal notice</h2>
+<h2 id="ovirt-legal-notice">Appendix B: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/migrating_from_a_standalone_manager_to_a_self-hosted_engine/">Red Hat Virtualization 4.4 Migrating from a standalone Manager to a self-hosted engine</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/migrating_from_a_standalone_manager_to_a_self-hosted_engine/index">Red Hat Virtualization 4.4 Migrating from a standalone Manager to a self-hosted engine</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

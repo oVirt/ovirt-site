@@ -6,34 +6,25 @@ Here you can find a template (be sure to replace links and names accordingly).
 
 
 ```markdown
-# oVirt Hosted Engine Setup
+# oVirt PROJECTNAME
 
-Welcome to the oVirt Hosted Engine Setup source repository.
-
-This repository is hosted on [gerrit.ovirt.org:ovirt-hosted-engine-setup](https://gerrit.ovirt.org/#/admin/projects/ovirt-hosted-engine-setup)
-and a **backup** of it is hosted on [GitHub:ovirt-hosted-engine-setup](https://github.com/oVirt/ovirt-hosted-engine-setup)
-
+Welcome to the oVirt PROJECTNAME source repository. This repository is hosted on [GitHub:PROJECTNAME](https://github.com/oVirt/PROJECTNAME).
 
 ## How to contribute
 
+All contributions are welcome - patches, bug reports, and documentation issues.
+
 ### Submitting patches
 
-Patches are welcome!
-
-Please submit patches to [gerrit.ovirt.org:ovirt-hosted-engine-setup](https://gerrit.ovirt.org/#/admin/projects/ovirt-hosted-engine-setup).
-If you are not familiar with the review process for Gerritt patches you can read about [Working with oVirt Gerrit](https://ovirt.org/develop/dev-process/working-with-gerrit.html)
-on the [oVirt](https://ovirt.org/) website.
-
-**NOTE**: We might not notice pull requests that you create on Github, because we only use Github for backups.
-
+Please submit patches to [GitHub:PROJECTNAME](https://github.com/oVirt/PROJECTNAME). If you are not familiar with the process, you can read about [collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests) on the GitHub website.
 
 ### Found a bug or documentation issue?
-To submit a bug or suggest an enhancement for oVirt Hosted Engine Setup please use
-[oVirt Bugzilla for ovirt-hosted-engine-setup product](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-hosted-engine-setup).
 
-If you find a documentation issue on the oVirt website please navigate and click "Report an issue on GitHub" in the page footer.
+To submit a bug or suggest an enhancement for oVirt PROJECTNAME please use [oVirt Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=PROJECTNAME).
 
+If you don't have a Bugzilla account, you can still report [issues](https://github.com/oVirt/PROJECTNAME/issues). If you find a documentation issue on the oVirt website, please navigate to the page footer and click "Report an issue on GitHub".
 
 ## Still need help?
-If you have any other questions, please join [oVirt Users forum / mailing list](https://lists.ovirt.org/admin/lists/users.ovirt.org/) and ask there.
+
+If you have any other questions or suggestions, you can join and contact us on the [oVirt Users forum / mailing list](https://lists.ovirt.org/admin/lists/users.ovirt.org/).
 ```

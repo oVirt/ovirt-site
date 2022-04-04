@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Python SDK Guide | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Python SDK Guide" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Python_SDK_Guide/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Python_SDK_Guide/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Python SDK Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Python SDK Guide","url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Python_SDK_Guide/","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Python SDK Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/doc-Python_SDK_Guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2741/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2741/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2741/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2741/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2741/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2741/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2741/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2741/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2741/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2741/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2741/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2741/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2741/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2741/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2741/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2741/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2741/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2741/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2741/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2741/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2741/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2741/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2741/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2741/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2741/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -107,12 +89,12 @@
 </li>
 <li><a href="#chap-Using_the_Software_Development_Kit">2. Using the Software Development Kit</a>
 <ul class="sectlevel2">
-<li><a href="#packages">2.1. Packages</a></li>
+<li><a href="#Packages">2.1. Packages</a></li>
 <li><a href="#Connecting_to_the_server">2.2. Connecting to the Server</a></li>
 <li><a href="#Using_types">2.3. Using Types</a></li>
 <li><a href="#Using_links">2.4. Using Links</a></li>
 <li><a href="#Locating_services">2.5. Locating Services</a></li>
-<li><a href="#Using_services">2.6. Using Services</a>
+<li><a href="#using-services">2.6. Using Services</a>
 <ul class="sectlevel3">
 <li><a href="#Using_get_methods">2.6.1. Using <code>get</code> Methods</a></li>
 <li><a href="#Using_list_methods">2.6.2. Using <code>list</code> Methods</a></li>
@@ -122,7 +104,11 @@
 <li><a href="#Using_other_action_methods">2.6.6. Using Other Action Methods</a></li>
 </ul>
 </li>
-<li><a href="#Additional_resources">2.7. Additional Resources</a></li>
+<li><a href="#Additional_resources">2.7. Additional Resources</a>
+<ul class="sectlevel3">
+<li><a href="#generating-documentation-for-modules">2.7.1. Generating documentation for modules</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#chap-Python_Examples">3. Python Examples</a>
@@ -150,6 +136,7 @@
 <li><a href="#Checking_System_Events">3.21. Checking System Events</a></li>
 </ul>
 </li>
+<li><a href="#ovirt-legal-notice">Appendix A: Legal notice</a></li>
 </ul>
 </div>
 <div class="sect1">
@@ -254,10 +241,10 @@
 <p>Enable the repositories that are <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/package_manifest/index">appropriate for your hardware platform</a>. For example, for x86-64 hardware, enable:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># subscription-manager repos \
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos \
     --enable=rhel-8-for-x86_64-baseos-rpms \
     --enable=rhel-8-for-x86_64-appstream-rpms \
-    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms</pre>
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms</code></pre>
 </div>
 </div>
 </li>
@@ -265,7 +252,7 @@
 <p>Install the required packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install python3-ovirt-engine-sdk4</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install python3-ovirt-engine-sdk4</code></pre>
 </div>
 </div>
 </li>
@@ -284,7 +271,7 @@
 <p>This section describes how to use the software development kit for Version 4.</p>
 </div>
 <div class="sect2">
-<h3 id="packages">2.1. Packages</h3>
+<h3 id="Packages">2.1. Packages</h3>
 <div class="paragraph">
 <p>The following modules are most frequently used by the Python SDK:</p>
 </div>
@@ -545,7 +532,7 @@ attachments = connection.follow_link(vm.disk_attachments)
 </div>
 </div>
 <div class="sect2">
-<h3 id="Using_services">2.6. Using Services</h3>
+<h3 id="using-services">2.6. Using Services</h3>
 <div class="paragraph">
 <p>After you have located a service, you can call its service methods, which send requests to the server and do the real work.</p>
 </div>
@@ -898,9 +885,8 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Generating Modules</strong></p>
-</div>
+<div class="sect3">
+<h4 id="generating-documentation-for-modules">2.7.1. Generating documentation for modules</h4>
 <div class="paragraph">
 <p>You can generate documentation using <a href="http://docs.python.org/library/pydoc.html">pydoc</a> for the following modules:</p>
 </div>
@@ -922,7 +908,8 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ pydoc <em>[MODULE]</em></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc <em>[MODULE]</em></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -937,7 +924,7 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 <p>This section provides examples demonstrating the steps to create a virtual machine within a basic oVirt environment, using the Python SDK.</p>
 </div>
 <div class="paragraph">
-<p>These examples use the <code>ovirtsdk</code> Python library provided by the <code>ovirt-engine-sdk-python</code> package. This package is available to systems attached to a <code>oVirt</code> subscription pool in Red Hat Subscription Manager. See <a href="#Installing_the_Software_Development_Kit">Installing the Python Software Development Kit</a> for more information on subscribing your system(s) to download the software.</p>
+<p>These examples use the <code>ovirtsdk</code> Python library provided by the <code>ovirt-engine-sdk-python</code> package. This package is available to systems attached to a <code>oVirt</code> subscription pool in Red Hat Subscription Manager. See <a href="#Installing_the_Software_Development_Kit">Installing the Software Development Kit</a> for more information on subscribing your system(s) to download the software.</p>
 </div>
 <div class="paragraph">
 <p>You will also need:</p>
@@ -972,7 +959,7 @@ sd_service = sds_service.storage_domain_service(<span style="background-color:hs
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ pydoc ovirtsdk.infrastructure.errors</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc ovirtsdk.infrastructure.errors</code></pre>
 </div>
 </div>
 </div>
@@ -1102,7 +1089,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ pydoc ovirtsdk.api</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc ovirtsdk.api</code></pre>
 </div>
 </div>
 </div>
@@ -1147,7 +1134,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Default (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Default (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1194,7 +1181,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Default (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Default (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1243,7 +1230,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">MyHost (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">MyHost (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1288,7 +1275,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ovirtmgmt (00000000-0000-0000-0000-000000000000)</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">ovirtmgmt (00000000-0000-0000-0000-000000000000)</code></pre>
 </div>
 </div>
 </div>
@@ -1345,9 +1332,9 @@ virtual_machines = vms_service.list()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Name                          Disk Size
+<pre class="CodeRay highlight"><code data-lang="terminal">Name                          Disk Size
 ==================================================
-vm1                           50000000000</pre>
+vm1                           50000000000</code></pre>
 </div>
 </div>
 </div>
@@ -1457,7 +1444,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Storage Domain 'mydata' added (00000000-0000-0000-0000-000000000000).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Storage Domain 'mydata' added (00000000-0000-0000-0000-000000000000).</code></pre>
 </div>
 </div>
 </div>
@@ -1564,7 +1551,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Storage Domain 'myiso' added (00000000-0000-0000-0000-000000000000).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Storage Domain 'myiso' added (00000000-0000-0000-0000-000000000000).</code></pre>
 </div>
 </div>
 </div>
@@ -1643,7 +1630,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Attached data storage domain 'data1' to data center 'Default' (Status: maintenance).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Attached data storage domain 'data1' to data center 'Default' (Status: maintenance).</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1718,7 +1705,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Activated storage domain 'mydata' in data center 'Default' (Status: active).</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Activated storage domain 'mydata' in data center 'Default' (Status: active).</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1855,7 +1842,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Virtual machine 'vm1' added.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Virtual machine 'vm1' added.</code></pre>
 </div>
 </div>
 </div>
@@ -1926,7 +1913,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Network interface 'nic1' added to 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Network interface 'nic1' added to 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2030,7 +2017,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Disk 'vm1_Disk1' added to 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Disk 'vm1_Disk1' added to 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2106,7 +2093,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Attached CD to 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Attached CD to 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2163,7 +2150,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Removed CD from 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Removed CD from 'vm1'.</code></pre>
 </div>
 </div>
 </div>
@@ -2220,7 +2207,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Detached disk vm1_disk1 successfully!</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Detached disk vm1_disk1 successfully!</code></pre>
 </div>
 </div>
 </div>
@@ -2282,7 +2269,7 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Started 'vm1'.</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">Started 'vm1'.</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2513,13 +2500,21 @@ connection.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
+<pre class="CodeRay highlight"><code data-lang="terminal">YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
 YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 153 - VM vm1 was started by admin@internal (Host: MyHost).
-YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.</pre>
+YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.</code></pre>
 </div>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/python_sdk_guide/index">Red Hat Virtualization 4.4 Python SDK Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

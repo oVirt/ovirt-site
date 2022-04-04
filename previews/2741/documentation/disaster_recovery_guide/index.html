@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Disaster Recovery Guide | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Disaster Recovery Guide" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2741/documentation/disaster_recovery_guide/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2741/documentation/disaster_recovery_guide/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Disaster Recovery Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Disaster Recovery Guide","url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/disaster_recovery_guide/","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Disaster Recovery Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2741/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2741/documentation/disaster_recovery_guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2741/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2741/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2741/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2741/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2741/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2741/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2741/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2741/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2741/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2741/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2741/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2741/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2741/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2741/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2741/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2741/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2741/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2741/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2741/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2741/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2741/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2741/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2741/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2741/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2741/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2741/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2741/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2741//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -135,7 +117,7 @@
 <li><a href="#non_discreet_failover_failback">B.3. Full Failover and Failback test</a></li>
 </ul>
 </li>
-<li><a href="#legal-notice">Appendix C: Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">Appendix C: Legal notice</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -175,7 +157,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StretchCluster.png" alt="StretchCluster">
+<img src="images/StretchCluster.png" alt="Stretch Cluster Configuration">
 </div>
 <div class="title">Figure 1. Stretch Cluster Configuration</div>
 </div>
@@ -184,7 +166,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StretchClusterFailover.png" alt="StretchClusterFailover">
+<img src="images/StretchClusterFailover.png" alt="Failed Over Stretch Cluster">
 </div>
 <div class="title">Figure 2. Failed Over Stretch Cluster</div>
 </div>
@@ -300,6 +282,10 @@
 <li>
 <p>Optionally, install additional standard hosts. See <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Adding_standard_hosts_to_the_Manager_SHE_cli_deploy">Adding Standard Hosts to the oVirt Engine</a> in <em>Installing oVirt as a self-hosted engine using the command line</em>.</p>
 </li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Configure the SPM priority to be higher on all hosts in the primary site to ensure SPM failover to the secondary site occurs only when all hosts in the primary site are unavailable. See <a href="https://ovirt.org/documentation/administration_guide/index#SPM_Priority">SPM Priority</a> in the <em>Administration Guide</em>.</p>
 </li>
@@ -381,6 +367,10 @@
 <li>
 <p>Install the hosts in each site and add them to the cluster. See <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in <em>Installing oVirt as a standalone Engine with local databases</em>.</p>
 </li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Configure the SPM priority to be higher on all hosts in the primary site to ensure SPM failover to the secondary site occurs only when all hosts in the primary site are unavailable. See <a href="https://ovirt.org/documentation/administration_guide/index#SPM_Priority">SPM Priority</a> in the <em>Administration Guide</em>.</p>
 </li>
@@ -450,7 +440,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SiteToSite.png" alt="SiteToSite">
+<img src="images/SiteToSite.png" alt="Active-Passive Configuration">
 </div>
 <div class="title">Figure 3. Active-Passive Configuration</div>
 </div>
@@ -459,7 +449,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SiteToSiteFailover.png" alt="SiteToSiteFailover">
+<img src="images/SiteToSiteFailover.png" alt="Failover to Backup Site">
 </div>
 <div class="title">Figure 4. Failover to Backup Site</div>
 </div>
@@ -629,10 +619,10 @@
 <div class="listingblock">
 <div class="title">Usage</div>
 <div class="content">
-<pre class="nowrap"># ./ovirt-dr <em>generate/validate/failover/failback</em>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ./ovirt-dr <em>generate/validate/failover/failback</em>
               [--conf-file=dr.conf]
               [--log-file=ovirt-dr-<em>log_number</em>.log]
-              [--log-level=<em>DEBUG/INFO/WARNING/ERROR</em>]</pre>
+              [--log-level=<em>DEBUG/INFO/WARNING/ERROR</em>]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -674,20 +664,20 @@
 <p>Create an Ansible playbook to generate the mapping file. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="yaml">---
-- name: Generate mapping
-  hosts: localhost
-  connection: local
+<pre class="CodeRay highlight"><code data-lang="yaml"><span style="color:#f8f;background:#505"><span style="color:#f4f">---</span></span>
+- <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">name: Generate mapping</span></span>
+  <span style="color:#606">hosts</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">localhost</span></span>
+  <span style="color:#606">connection</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">local</span></span>
 
-  vars:
-    site: https://example.engine.redhat.com/ovirt-engine/api
-    username: admin@internal
-    password: my_password
-    ca: /etc/pki/ovirt-engine/ca.pem
-    var_file: disaster_recovery_vars.yml
+  <span style="color:#606">vars</span>:
+    <span style="color:#606">site</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">https://example.engine.redhat.com/ovirt-engine/api</span></span>
+    <span style="color:#606">username</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">admin@internal</span></span>
+    <span style="color:#606">password</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">my_password</span></span>
+    <span style="color:#606">ca</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">/etc/pki/ovirt-engine/ca.pem</span></span>
+    <span style="color:#606">var_file</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">disaster_recovery_vars.yml</span></span>
 
-  roles:
-    - oVirt.disaster-recovery</code></pre>
+  <span style="color:#606">roles</span>:
+    - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">oVirt.disaster-recovery</span></span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -709,7 +699,7 @@
 <p>Run the Ansible command to generate the mapping file. The primary site’s configuration will be prepopulated.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook dr-rhv-setup.yml --tags "generate_mapping"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook dr-rhv-setup.yml --tags &quot;generate_mapping&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -732,7 +722,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
+<pre class="CodeRay highlight"><code data-lang="terminal">---
 # This file is in plain text, if you want to
 # encrypt this file, please execute following command:
 #
@@ -744,7 +734,7 @@
 # $ ansible-playbook myplaybook.yml --ask-vault-pass
 #
 dr_sites_primary_password: primary_password
-dr_sites_secondary_password: secondary_password</pre>
+dr_sites_secondary_password: secondary_password</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -769,7 +759,7 @@ dr_sites_secondary_password: secondary_password</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
+<pre class="CodeRay highlight"><code data-lang="terminal">---
 - name: Failover RHV
   hosts: localhost
   connection: local
@@ -780,7 +770,7 @@ dr_sites_secondary_password: secondary_password</pre>
     - disaster_recovery_vars.yml
     - passwords.yml
   roles:
-    - oVirt.disaster-recovery</pre>
+    - oVirt.disaster-recovery</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -788,7 +778,7 @@ dr_sites_secondary_password: secondary_password</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
+<pre class="CodeRay highlight"><code data-lang="terminal">---
 - name: Failback RHV
   hosts: localhost
   connection: local
@@ -799,7 +789,7 @@ dr_sites_secondary_password: secondary_password</pre>
     - disaster_recovery_vars.yml
     - passwords.yml
   roles:
-    - oVirt.disaster-recovery</pre>
+    - oVirt.disaster-recovery</code></pre>
 </div>
 </div>
 </div>
@@ -809,20 +799,20 @@ dr_sites_secondary_password: secondary_password</pre>
 <p>Before you fail back to the primary site, you must ensure that the primary site is cleaned of all storage domains to be imported. You can do so manually on the Engine, or optionally you can create an Ansible playbook to do it for you.</p>
 </div>
 <div class="paragraph">
-<p>The Ansible playbook to clean the primary site is named <code>dr-cleanup.yml</code> in this example, and it uses the mapping file created in <a href="#generate_mapping">Creating the Playbook to Generate the Mapping File</a>:</p>
+<p>The Ansible playbook to clean the primary site is named <code>dr-cleanup.yml</code> in this example, and it uses the mapping file generated by another Ansible playbook:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">---
-- name: clean RHV
-  hosts: localhost
-  connection: local
-  vars:
-    dr_source_map: primary
-  vars_files:
-    - disaster_recovery_vars.yml
-  roles:
-    - oVirt.disaster-recovery</pre>
+<pre class="CodeRay highlight"><code data-lang="yaml"><span style="color:#f8f;background:#505"><span style="color:#f4f">---</span></span>
+- <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">name: clean RHV</span></span>
+  <span style="color:#606">hosts</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">localhost</span></span>
+  <span style="color:#606">connection</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">local</span></span>
+  <span style="color:#606">vars</span>:
+    <span style="color:#606">dr_source_map</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">primary</span></span>
+  <span style="color:#606">vars_files</span>:
+    - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">disaster_recovery_vars.yml</span></span>
+  <span style="color:#606">roles</span>:
+    - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">oVirt.disaster-recovery</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -881,7 +871,7 @@ These locks should be released automatically approximately 80 seconds after the 
 <p>Run the failover playbook with the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook dr-rhv-failover.yml --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook dr-rhv-failover.yml --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -922,7 +912,7 @@ These locks should be released automatically approximately 80 seconds after the 
 <p>Clean up the primary site with the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook dr-cleanup.yml --tags "clean_engine"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook dr-cleanup.yml --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -971,7 +961,7 @@ These locks should be released automatically approximately 80 seconds after the 
 <p>Run the failback playbook with the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#  ansible-playbook dr-rhv-failback.yml --tags "fail_back"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">#  ansible-playbook dr-rhv-failback.yml --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1009,14 +999,14 @@ These locks should be released automatically approximately 80 seconds after the 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_sites_primary_url: https://manager1.example.redhat.com/ovirt-engine/api
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_sites_primary_url: <a href="https://manager1.example.redhat.com/ovirt-engine/api" class="bare">https://manager1.example.redhat.com/ovirt-engine/api</a>
 dr_sites_primary_username: admin@internal
 dr_sites_primary_ca_file: /etc/pki/ovirt-engine/ca.pem
 
 # Please fill in the following properties for the secondary site:
-dr_sites_secondary_url: https://manager2.example.redhat.com/ovirt-engine/api
+dr_sites_secondary_url: <a href="https://manager2.example.redhat.com/ovirt-engine/api" class="bare">https://manager2.example.redhat.com/ovirt-engine/api</a>
 dr_sites_secondary_username: admin@internal
-dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
+dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1027,7 +1017,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_import_storages:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_import_storages:
 - dr_domain_type: nfs
   dr_primary_name: DATA
   dr_master_domain: True
@@ -1043,7 +1033,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
   dr_secondary_dc_name: Default
   dr_secondary_path: /storage/data2
   dr_secondary_address:10.64.90.xxx
-  dr_secondary_name: DATA</pre>
+  dr_secondary_name: DATA</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1054,11 +1044,11 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_cluster_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_cluster_mappings:
   - primary_name: cluster_prod
     secondary_name: cluster_recovery
   - primary_name: fc_cluster
-    secondary_name: recovery_fc_cluster</pre>
+    secondary_name: recovery_fc_cluster</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1069,9 +1059,9 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_affinity_group_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_affinity_group_mappings:
 - primary_name: affinity_prod
-  secondary_name: affinity_recovery</pre>
+  secondary_name: affinity_recovery</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1082,9 +1072,9 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_affinity_label_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_affinity_label_mappings:
 - primary_name: affinity_label_prod
-  secondary_name: affinity_label_recovery</pre>
+  secondary_name: affinity_label_recovery</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1095,11 +1085,11 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_domain_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_domain_mappings:
 - primary_name: internal-authz
   secondary_name: recovery-authz
 - primary_name: external-authz
-  secondary_name: recovery2-authz</pre>
+  secondary_name: recovery2-authz</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1110,9 +1100,9 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_role_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_role_mappings:
 - primary_name: VmCreator
-  Secondary_name: NewVmCreator</pre>
+  Secondary_name: NewVmCreator</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1123,14 +1113,14 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_network_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_network_mappings:
 - primary_network_name: ovirtmgmt
   primary_profile_name: ovirtmgmt
   primary_profile_id: 0000000a-000a-000a-000a-000000000398
   # Fill in the correlated vnic profile properties in the secondary site for profile 'ovirtmgmt'
   secondary_network_name: ovirtmgmt
   secondary_profile_name: ovirtmgmt
-  secondary_profile_id:  0000000a-000a-000a-000a-000000000410</pre>
+  secondary_profile_id:  0000000a-000a-000a-000a-000000000410</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1138,8 +1128,8 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_network_mappings:
-# No mapping should be here</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_network_mappings:
+# No mapping should be here</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1150,7 +1140,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dr_lun_mappings:
+<pre class="CodeRay highlight"><code data-lang="terminal">dr_lun_mappings:
 - primary_logical_unit_id: 460014069b2be431c0fd46c4bdce29b66
   primary_logical_unit_alias: Fedora_Disk
   primary_wipe_after_delete: False
@@ -1168,7 +1158,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
   secondary_logical_unit_address: 10.35.x.xxx
   secondary_logical_unit_port: 3260
   secondary_logical_unit_portal: 1
-  secondary_logical_unit_target: iqn.2017-12.com.recovery.example:444</pre>
+  secondary_logical_unit_target: iqn.2017-12.com.recovery.example:444</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1243,7 +1233,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1305,7 +1295,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1321,7 +1311,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "clean_engine"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1329,7 +1319,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the failback command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_back"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1360,7 +1350,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to fail over to the secondary site:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_over"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_over&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1379,7 +1369,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "clean_engine"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;clean_engine&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1387,7 +1377,7 @@ You should define the testable storage domains on a separate storage server that
 <p>Run the failback command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># ansible-playbook <em>playbook</em> --tags "fail_back"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook <em>playbook</em> --tags &quot;fail_back&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1403,10 +1393,10 @@ You should define the testable storage domains on a separate storage server that
 </div>
 </div>
 <div class="sect1">
-<h2 id="legal-notice">Appendix C: Legal notice</h2>
+<h2 id="ovirt-legal-notice">Appendix C: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/disaster_recovery_guide/index">Red Hat Virtualization 4.4 Disaster Recovery Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/disaster_recovery_guide/index">Red Hat Virtualization 4.4 Disaster Recovery Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

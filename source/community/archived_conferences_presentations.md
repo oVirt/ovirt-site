@@ -161,7 +161,7 @@ See conference report on [oVirt Blog](https://blogs.ovirt.org/2019/10/ovirt-conf
 
 ## 2019-01 - oVirt 4.3 Deep Dives
 
-* Simone Tiraboschi - Hosted Engine 4.3 Deep Dive [[Slides - PDF]](/images/Hosted-Engine-4.3-deep-dive.pdf)
+* Simone Tiraboschi - Hosted Engine 4.3 Deep Dive [[Slides - PDF]](/media/Hosted-Engine-4.3-deep-dive.pdf)
 
 
 ## 2015-11 - oVirt 3.6.0 meetups / release parties

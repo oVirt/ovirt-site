@@ -172,6 +172,7 @@ page.</p>
       <li><a href="#whats-new-in-450" id="markdown-toc-whats-new-in-450">What’s New in 4.5.0?</a>        <ol>
           <li><a href="#release-note" id="markdown-toc-release-note">Release Note</a>            <ol>
               <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+              <li><a href="#ovirt-engine-metrics" id="markdown-toc-ovirt-engine-metrics">oVirt Engine Metrics</a></li>
               <li><a href="#ovirt-open-vswitch" id="markdown-toc-ovirt-open-vswitch">oVirt Open vSwitch</a></li>
               <li><a href="#ovirt-provider-ovn" id="markdown-toc-ovirt-provider-ovn">oVirt Provider OVN</a></li>
               <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
@@ -182,7 +183,7 @@ page.</p>
               <li><a href="#ovirt-ansible-collection" id="markdown-toc-ovirt-ansible-collection">oVirt Ansible collection</a></li>
               <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a></li>
               <li><a href="#ovirt-engine-data-warehouse" id="markdown-toc-ovirt-engine-data-warehouse">oVirt Engine Data Warehouse</a></li>
-              <li><a href="#ovirt-engine-metrics" id="markdown-toc-ovirt-engine-metrics">oVirt Engine Metrics</a></li>
+              <li><a href="#ovirt-engine-metrics-1" id="markdown-toc-ovirt-engine-metrics-1">oVirt Engine Metrics</a></li>
               <li><a href="#ovirt-engine-ui-extensions" id="markdown-toc-ovirt-engine-ui-extensions">oVirt Engine UI Extensions</a></li>
               <li><a href="#ovirt-host-dependencies" id="markdown-toc-ovirt-host-dependencies">oVirt Host Dependencies</a></li>
               <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a></li>
@@ -229,9 +230,10 @@ page.</p>
           <li><a href="#no-doc-update" id="markdown-toc-no-doc-update">No Doc Update</a>            <ol>
               <li><a href="#mom-1" id="markdown-toc-mom-1">MOM</a></li>
               <li><a href="#otopi-2" id="markdown-toc-otopi-2">OTOPI</a></li>
+              <li><a href="#ovirt-ansible-collection-3" id="markdown-toc-ovirt-ansible-collection-3">oVirt Ansible collection</a></li>
               <li><a href="#ovirt-engine-5" id="markdown-toc-ovirt-engine-5">oVirt Engine</a></li>
               <li><a href="#ovirt-engine-data-warehouse-2" id="markdown-toc-ovirt-engine-data-warehouse-2">oVirt Engine Data Warehouse</a></li>
-              <li><a href="#ovirt-engine-metrics-1" id="markdown-toc-ovirt-engine-metrics-1">oVirt Engine Metrics</a></li>
+              <li><a href="#ovirt-engine-metrics-2" id="markdown-toc-ovirt-engine-metrics-2">oVirt Engine Metrics</a></li>
               <li><a href="#ovirt-hosted-engine-ha-2" id="markdown-toc-ovirt-hosted-engine-ha-2">oVirt Hosted Engine HA</a></li>
               <li><a href="#ovirt-imageio" id="markdown-toc-ovirt-imageio">ovirt-imageio</a></li>
               <li><a href="#ovirt-log-collector" id="markdown-toc-ovirt-log-collector">oVirt Log Collector</a></li>
@@ -306,23 +308,42 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
 
     <p>Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.</p>
 
-    <p>The upgrade is transparent to user as long as few conditions are met:</p>
+    <p>The upgrade is transparent to the user as long as few conditions are met:</p>
 
     <ol>
-      <li>The engine must be upgraded first.</li>
-      <li>Before any host upgrade the ovirt-provider-ovn security groups must be disabled for all OVN networks that are expected to work between host with OVN/OvS version 2.11.</li>
-      <li>Upgrade hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done via the UI, in order to reconfigure OVN and refresh certificates.</li>
-      <li>Reboot the host after upgrade</li>
+      <li>
+        <p>Upgrade the engine first.</p>
+      </li>
+      <li>
+        <p>Before you upgrade the hosts, disable the ovirt-provider-ovn security groups for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.</p>
+      </li>
+      <li>
+        <p>Upgrade the hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done with the web console, in order to reconfigure OVN and to refresh the certificates.</p>
+      </li>
+      <li>
+        <p>Reboot the host after upgrade.</p>
+      </li>
+      <li>
+        <p>Verify that the provider and OVN were configured successfully by launching the web console and checking the “OVN configured” field on the “General” tab for each host. (You can also obtain the value using the REST API.) Note that the value might be “No” if the host configuration has not been refreshed.</p>
+      </li>
     </ol>
 
-    <p>To check if provider and OVN was configured successfully on the host, webadmin includes OVN configured flag in General tab for every host, at the same time this value is available via REST API. Please note that this value might say “No” until capabilities are refreshed for the host.</p>
-
-    <p>Fixing the host’s OVN not being configured can be done by reinstalling it from engine 4.5 or higher.</p>
+    <p>If the host’s OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.</p>
   </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1782056">BZ 1782056</a> <strong>[RFE] Integration of built-in ipsec feature in oVirt with OVN</strong></p>
 
     <p>The IPSec for OVN feature is available on hosts with configured ovirt-provider-ovn, OVN version 2021 or higher and OvS version 2.15 or higher.</p>
+  </li>
+</ul>
+
+<h4 id="ovirt-engine-metrics">oVirt Engine Metrics</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2059521">BZ 2059521</a> <strong>[RFE] Upgrade to ansible-core-2.12 in ovirt-engine-metrics</strong></p>
+
+    <p>oVirt Engine 4.5 requires ansible-core-2.12 from RHEL 8.6 and doesn’t work anymore with previous ansible-2.9.z versions.</p>
   </li>
 </ul>
 
@@ -339,18 +360,27 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
 
     <p>Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.</p>
 
-    <p>The upgrade is transparent to user as long as few conditions are met:</p>
+    <p>The upgrade is transparent to the user as long as few conditions are met:</p>
 
     <ol>
-      <li>The engine must be upgraded first.</li>
-      <li>Before any host upgrade the ovirt-provider-ovn security groups must be disabled for all OVN networks that are expected to work between host with OVN/OvS version 2.11.</li>
-      <li>Upgrade hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done via the UI, in order to reconfigure OVN and refresh certificates.</li>
-      <li>Reboot the host after upgrade</li>
+      <li>
+        <p>Upgrade the engine first.</p>
+      </li>
+      <li>
+        <p>Before you upgrade the hosts, disable the ovirt-provider-ovn security groups for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.</p>
+      </li>
+      <li>
+        <p>Upgrade the hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done with the web console, in order to reconfigure OVN and to refresh the certificates.</p>
+      </li>
+      <li>
+        <p>Reboot the host after upgrade.</p>
+      </li>
+      <li>
+        <p>Verify that the provider and OVN were configured successfully by launching the web console and checking the “OVN configured” field on the “General” tab for each host. (You can also obtain the value using the REST API.) Note that the value might be “No” if the host configuration has not been refreshed.</p>
+      </li>
     </ol>
 
-    <p>To check if provider and OVN was configured successfully on the host, webadmin includes OVN configured flag in General tab for every host, at the same time this value is available via REST API. Please note that this value might say “No” until capabilities are refreshed for the host.</p>
-
-    <p>Fixing the host’s OVN not being configured can be done by reinstalling it from engine 4.5 or higher.</p>
+    <p>If the host’s OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.</p>
   </li>
 </ul>
 
@@ -367,18 +397,27 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
 
     <p>Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.</p>
 
-    <p>The upgrade is transparent to user as long as few conditions are met:</p>
+    <p>The upgrade is transparent to the user as long as few conditions are met:</p>
 
     <ol>
-      <li>The engine must be upgraded first.</li>
-      <li>Before any host upgrade the ovirt-provider-ovn security groups must be disabled for all OVN networks that are expected to work between host with OVN/OvS version 2.11.</li>
-      <li>Upgrade hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done via the UI, in order to reconfigure OVN and refresh certificates.</li>
-      <li>Reboot the host after upgrade</li>
+      <li>
+        <p>Upgrade the engine first.</p>
+      </li>
+      <li>
+        <p>Before you upgrade the hosts, disable the ovirt-provider-ovn security groups for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.</p>
+      </li>
+      <li>
+        <p>Upgrade the hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done with the web console, in order to reconfigure OVN and to refresh the certificates.</p>
+      </li>
+      <li>
+        <p>Reboot the host after upgrade.</p>
+      </li>
+      <li>
+        <p>Verify that the provider and OVN were configured successfully by launching the web console and checking the “OVN configured” field on the “General” tab for each host. (You can also obtain the value using the REST API.) Note that the value might be “No” if the host configuration has not been refreshed.</p>
+      </li>
     </ol>
 
-    <p>To check if provider and OVN was configured successfully on the host, webadmin includes OVN configured flag in General tab for every host, at the same time this value is available via REST API. Please note that this value might say “No” until capabilities are refreshed for the host.</p>
-
-    <p>Fixing the host’s OVN not being configured can be done by reinstalling it from engine 4.5 or higher.</p>
+    <p>If the host’s OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.</p>
   </li>
 </ul>
 
@@ -405,18 +444,27 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
 
     <p>Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.</p>
 
-    <p>The upgrade is transparent to user as long as few conditions are met:</p>
+    <p>The upgrade is transparent to the user as long as few conditions are met:</p>
 
     <ol>
-      <li>The engine must be upgraded first.</li>
-      <li>Before any host upgrade the ovirt-provider-ovn security groups must be disabled for all OVN networks that are expected to work between host with OVN/OvS version 2.11.</li>
-      <li>Upgrade hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done via the UI, in order to reconfigure OVN and refresh certificates.</li>
-      <li>Reboot the host after upgrade</li>
+      <li>
+        <p>Upgrade the engine first.</p>
+      </li>
+      <li>
+        <p>Before you upgrade the hosts, disable the ovirt-provider-ovn security groups for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.</p>
+      </li>
+      <li>
+        <p>Upgrade the hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done with the web console, in order to reconfigure OVN and to refresh the certificates.</p>
+      </li>
+      <li>
+        <p>Reboot the host after upgrade.</p>
+      </li>
+      <li>
+        <p>Verify that the provider and OVN were configured successfully by launching the web console and checking the “OVN configured” field on the “General” tab for each host. (You can also obtain the value using the REST API.) Note that the value might be “No” if the host configuration has not been refreshed.</p>
+      </li>
     </ol>
 
-    <p>To check if provider and OVN was configured successfully on the host, webadmin includes OVN configured flag in General tab for every host, at the same time this value is available via REST API. Please note that this value might say “No” until capabilities are refreshed for the host.</p>
-
-    <p>Fixing the host’s OVN not being configured can be done by reinstalling it from engine 4.5 or higher.</p>
+    <p>If the host’s OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.</p>
   </li>
 </ul>
 
@@ -693,7 +741,7 @@ the engine fqdn is available in dwh, in the history_configuration table.</p>
   </li>
 </ul>
 
-<h4 id="ovirt-engine-metrics">oVirt Engine Metrics</h4>
+<h4 id="ovirt-engine-metrics-1">oVirt Engine Metrics</h4>
 
 <ul>
   <li>
@@ -1147,6 +1195,12 @@ images containing large zeroed areas is usually faster now.</p>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2047260">BZ 2047260</a> <strong>DNF on otopi is logging UNKNOWN for packages on some actions</strong></li>
 </ul>
 
+<h4 id="ovirt-ansible-collection-3">oVirt Ansible collection</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1932147">BZ 1932147</a> <strong>[RFE] Support specifying storage domain format (V3, V4, V5…) in ansible ovirt_storage_domain module</strong></li>
+</ul>
+
 <h4 id="ovirt-engine-5">oVirt Engine</h4>
 
 <ul>
@@ -1177,7 +1231,7 @@ images containing large zeroed areas is usually faster now.</p>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2030663">BZ 2030663</a> <strong>Update Network statistics types in DWH</strong></li>
 </ul>
 
-<h4 id="ovirt-engine-metrics-1">oVirt Engine Metrics</h4>
+<h4 id="ovirt-engine-metrics-2">oVirt Engine Metrics</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1804268">BZ 1804268</a> <strong>ovirt-engine-metrics role fails on ansible-linter</strong></li>
@@ -1284,7 +1338,7 @@ Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)
 Marcin Sobczyk (Contributed to: ovirt-release, vdsm)
 Mark Kemel (Contributed to: ovirt-engine, ovirt-engine-ui-extensions, python-ovirt-engine-sdk4, vdsm)
 Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-release, python-ovirt-engine-sdk4)
-Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-metrics, ovirt-engine-wildfly, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
+Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-metrics, ovirt-engine-wildfly, ovirt-imageio, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
 Martin Tzvetanov Grigorov (Contributed to: ovirt-engine)
 Michal Skrivanek (Contributed to: imgbased, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-engine-ui-extensions, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-web-ui)
 Miguel Duarte Barroso (Contributed to: ovirt-release)
@@ -1310,7 +1364,7 @@ Shmuel Melamud (Contributed to: ovirt-engine)
 Simone Tiraboschi (Contributed to: ovirt-ansible-collection)
 Tomáš Golembiovský (Contributed to: mom, ovirt-ansible-collection, ovirt-release, vdsm)
 Vojtěch Juránek (Contributed to: ovirt-imageio, vdsm)
-Yedidyah Bar David (Contributed to: cockpit-ovirt, imgbased, otopi, ovirt-ansible-collection, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-setup-lib, ovirt-site)
+Yedidyah Bar David (Contributed to: cockpit-ovirt, imgbased, otopi, ovirt-ansible-collection, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-node-ng, ovirt-node-ng-image, ovirt-release, ovirt-setup-lib, ovirt-site)
 Yuval Turgeman (Contributed to: ovirt-release)
 drokath (Contributed to: ovirt-ansible-collection)
 </code></pre></div></div>

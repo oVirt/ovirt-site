@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Upgrade Guide | oVirt</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Upgrade Guide" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -11,11 +11,12 @@
 <link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2774/documentation/upgrade_guide/" />
 <meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2774/documentation/upgrade_guide/" />
 <meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Upgrade Guide" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2774/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Upgrade Guide","url":"https://ovirt.github.io/ovirt-site/previews/2774/documentation/upgrade_guide/","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Upgrade Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2774/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2774/documentation/upgrade_guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -31,31 +32,12 @@
   <script src="/ovirt-site/previews/2774/javascripts/vendor/moment.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2774/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
   <script src="/ovirt-site/previews/2774/javascripts/lib/cal-widget.js" type="text/javascript"></script>
-  <!-- Begin Jekyll Favicon tag v0.2.9 -->
-<!-- Classic -->
-<link rel="shortcut icon" href="/ovirt-site/previews/2774/favicon.ico">
-<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2774/favicon.ico">
-  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2774/images/favicon-16x16.png">
-  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2774/images/favicon-32x32.png">
-  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2774/images/favicon-64x64.png">
-  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2774/images/favicon-144x144.png">
-<!-- Safari -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2774/images/favicon-57x57.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2774/images/favicon-76x76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2774/images/favicon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2774/images/favicon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2774/images/favicon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2774/images/favicon-180x180.png">
-<!-- Chrome -->
-  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2774/images/favicon-192x192.png">
-  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2774/images/favicon-96x96.png">
-  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2774/images/favicon-48x48.png">
-<link rel="manifest" href="/ovirt-site/previews/2774/manifest.webmanifest">
-<!-- IE -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ovirt-site/previews/2774/images/favicon-144x144.png">
-<meta name='msapplication-config' content="/ovirt-site/previews/2774/browserconfig.xml">
-<!-- End Jekyll Favicon tag -->
+  <link href='/ovirt-site/previews/2774/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2774/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2774/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2774/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2774/browserconfig.xml' name='msapplication-config'/>
 </head>
 <body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2774/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2774/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2774/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2774/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2774/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2774/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2774//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2774//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
@@ -385,7 +367,7 @@
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -763,7 +745,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=_device_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=<em>device</em></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1475,7 +1457,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</code></pre>
 <p>Reinstall the host in oVirt Node Administration Portal Copy the authorized key from the first deployed host in oVirt Node 4.4</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># scp root@host1.example.com:/root/.ssh/authorized_keys /root/.ssh/</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp <a href="mailto:root@host1.example.com">root@host1.example.com</a>:/root/.ssh/authorized_keys /root/.ssh/</code></pre>
 </div>
 </div>
 <div class="olist lowerroman">
@@ -1569,7 +1551,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</code></pre>
 <p>There are new Gluster volume options available with oVirt Node 4.4, apply those volume options on all the volumes. Execute the following on one of the nodes in the cluster:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># for vol in `gluster volume list`; do gluster volume set $vol group virt; done</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># for vol in <code>gluster volume list</code>; do gluster volume set $vol group virt; done</code></pre>
 </div>
 </div>
 </li>
@@ -1678,7 +1660,7 @@ In the Create Volume window, do the following:</p>
 <div class="sect2">
 <h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-3_local_db">2.8. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>).</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
 <div class="paragraph">
 <p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
@@ -1841,7 +1823,7 @@ In the Create Volume window, do the following:</p>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -1954,7 +1936,7 @@ In the Create Volume window, do the following:</p>
 <p>Enable the oVirt 4.3 repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1965,7 +1947,7 @@ In the Create Volume window, do the following:</p>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -2117,7 +2099,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>in the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> view</p>
 </li>
 <li>
-<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>).</p>
+<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>).</p>
 </li>
 </ul>
 </div>
@@ -2187,7 +2169,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <div class="sect2">
 <h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-2_local_db">3.6. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>).</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
 <div class="paragraph">
 <p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
@@ -2556,7 +2538,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -2842,7 +2824,7 @@ done</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --file=__&lt;backupfile&gt;__</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --file=<em>&lt;backupfile&gt;</em></code></pre>
 </div>
 </div>
 </li>
@@ -3056,7 +3038,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=_device_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=<em>device</em></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3260,7 +3242,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="sect2">
 <h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-3_remote_db">4.8. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>).</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
 <div class="paragraph">
 <p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
@@ -3429,7 +3411,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -3554,7 +3536,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Ensure the correct repositories are enabled:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></code></pre>
 </div>
 </div>
 </li>
@@ -3683,7 +3665,7 @@ work_mem = 8192</code></pre>
 <p>Enable the oVirt 4.3 repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3694,7 +3676,7 @@ work_mem = 8192</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -3789,7 +3771,7 @@ the oVirt Engine, the remote database or remote service:</p>
 </div>
 </li>
 <li>
-<p>Repeat the steps in <a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">Upgrading the oVirt Engine from 4.2 to 4.3</a> on the machine hosting the <code>ovirt-engine-dwhd</code> service.</p>
+<p>Repeat the steps in <a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">Upgrading the Engine to 4.3</a> on the machine hosting the <code>ovirt-engine-dwhd</code> service.</p>
 </li>
 </ol>
 </div>
@@ -3884,7 +3866,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>in the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> view</p>
 </li>
 <li>
-<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>).</p>
+<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>).</p>
 </li>
 </ul>
 </div>
@@ -3954,7 +3936,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <div class="sect2">
 <h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-2_remote_db">5.7. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>).</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
 <div class="paragraph">
 <p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
@@ -4366,7 +4348,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -4613,7 +4595,7 @@ done</code></pre>
 <p>Log in to the Engine host and deploy the self-hosted engine with the backup file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=/_path_/backup.bck</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=/<em>path</em>/backup.bck</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -4846,7 +4828,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=_device_</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=<em>device</em></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5044,7 +5026,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="sect2">
 <h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-3_SHE">6.9. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>).</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
 <div class="paragraph">
 <p>The Engine virtual machine does not need to be rebooted.</p>
@@ -5243,7 +5225,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -5356,7 +5338,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Enable the oVirt 4.3 repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</a></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5367,7 +5349,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -5580,7 +5562,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>in the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> view</p>
 </li>
 <li>
-<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>).</p>
+<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>).</p>
 </li>
 </ul>
 </div>
@@ -5650,7 +5632,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <div class="sect2">
 <h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-2_SHE">7.8. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>).</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
 <div class="paragraph">
 <p>The Engine virtual machine does not need to be rebooted.</p>
@@ -6003,7 +5985,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -6147,7 +6129,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -6393,7 +6375,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>in the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> view</p>
 </li>
 <li>
-<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>).</p>
+<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>).</p>
 </li>
 </ul>
 </div>
@@ -6469,7 +6451,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <div class="sect2">
 <h3 id="Changing_Virtual_Machine_Cluster_Compatibility_minor_updates">8.5. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges"></span>).</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
 <div class="paragraph">
 <p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
@@ -6617,7 +6599,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
 </div>
 </li>
@@ -6630,7 +6612,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <li>
 <p>Click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Check for Upgrade</b></span> and click <b class="button">OK</b>.</p>
 <div class="paragraph">
-<p>Open the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon"></span>) and expand the <strong>Events</strong> section to see the result.</p>
+<p>Open the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>) and expand the <strong>Events</strong> section to see the result.</p>
 </div>
 </li>
 <li>
@@ -6742,7 +6724,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
 </div>
 </li>
@@ -6783,7 +6765,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 Name         : redhat-release
 Version      : 8.3
 Release      : 1.0.el8
-...</code></pre>
+&#8230;&#8203;</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -6957,10 +6939,10 @@ Release      : 1.0.el8
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">[rhvh-4-for-rhel-8-x86_64-rpms]
 name = Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)
-baseurl = https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os
+baseurl = <a href="https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os" class="bare">https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os</a>
 enabled = 0
 gpgcheck = 1
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+gpgkey = <a href="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release" class="bare">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release</a>
 sslverify = 1
 sslcacert = /etc/rhsm/ca/redhat-uep.pem
 metadata_expire = 86400
@@ -6992,12 +6974,12 @@ sslclientkey =</code></pre>
 <pre class="CodeRay highlight"><code data-lang="terminal">total 836
 drwxr-xr-x.  2 root root    202 May 28 15:18 .
 drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
--rw-r--r--.  1 root root   3243 May 28 15:18 4522783034260408538-key.pem
--rw-r--r--.  1 root root 152622 May 28 15:18 4522783034260408538.pem
--rw-r--r--.  1 root root   3243 May 28 15:18 5659494963772844103-key.pem
--rw-r--r--.  1 root root 343394 May 28 15:19 5659494963772844103.pem
--rw-r--r--.  1 root root   3243 May 23 13:19 645832581386032208-key.pem
--rw-r--r--.  1 root root 343389 May 23 13:19 645832581386032208.pem
+-rw-r&#8212;&#8203;r--.  1 root root   3243 May 28 15:18 4522783034260408538-key.pem
+-rw-r&#8212;&#8203;r--.  1 root root 152622 May 28 15:18 4522783034260408538.pem
+-rw-r&#8212;&#8203;r--.  1 root root   3243 May 28 15:18 5659494963772844103-key.pem
+-rw-r&#8212;&#8203;r--.  1 root root 343394 May 28 15:19 5659494963772844103.pem
+-rw-r&#8212;&#8203;r--.  1 root root   3243 May 23 13:19 645832581386032208-key.pem
+-rw-r&#8212;&#8203;r--.  1 root root 343389 May 23 13:19 645832581386032208.pem
 #</code></pre>
 </div>
 </div>

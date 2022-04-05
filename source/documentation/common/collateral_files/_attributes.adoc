@@ -10,8 +10,8 @@
 :vernum_rhv: 4.4
 :vernum_rhv_legacy: 4.3
 :vernum_satellite: 6.7
-:vernum_rhel: 8.0
-:vernum_rhel_legacy: 7.6
+:vernum_rhel: 8
+:vernum_rhel_legacy: 7
 :vernum_gluster: 3.3
 :vernum_cloudforms: 4.6
 :vernum_rhhi: 1.0

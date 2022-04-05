@@ -19,6 +19,8 @@ The following table describes deprecated features to be removed in a future vers
 |===
 |Deprecated Feature |Details
 
+
+=======
 |OpenStack Glance |Support for OpenStack Glance is now deprecated. This functionality will be removed in a future release.
 
 |Ruby software development kit (SDK) |The Ruby SDK is now deprecated. This functionality will be removed in a future release.

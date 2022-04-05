@@ -23,13 +23,13 @@ On existing clusters, the management network can only be changed using the *Mana
 
 * *ppc64*: For IBM POWER CPU types.
 
-|*CPU Type* |The oldest CPU family in the cluster. For a list of CPU types, see link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning[CPU Requirements] in the _Planning and Prerequisites Guide_. You cannot change this cannot after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
+|*CPU Type* |The oldest CPU family in the cluster. For a list of CPU types, see link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning[CPU Requirements] in the _Planning and Prerequisites Guide_. You cannot change this after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
 |*Chipset/Firmware Type* a|This setting is only available if the *CPU Architecture* of the cluster is set to *x86_64*. This setting specifies the chipset and firmware type. Options are:
 
-* *Auto Detect*: This setting automatically detects the chipset and firmware type. When *Auto Detect* is selected, the chipset and firmware are determined by the first host up in the cluster
+* *Auto Detect*: This setting automatically detects the chipset and firmware type. When *Auto Detect* is selected, the chipset and firmware are determined by the first host up in the cluster.
 * *I440FX Chipset with BIOS*: Specifies the chipset to I440FX with a firmware type of BIOS.
-* *Q35 Chipset with BIOS*: Specifies the Q35 chipset with a firmware type of BIOS without UEFI (Default for clusters with compatibility version 4.4)
-* *Q35 Chipset with UEFI* Specifies the Q35 chipset with a firmware type of BIOS with UEFI
+* *Q35 Chipset with BIOS*: Specifies the Q35 chipset with a firmware type of BIOS without UEFI (Default for clusters with compatibility version 4.4).
+* *Q35 Chipset with UEFI* Specifies the Q35 chipset with a firmware type of BIOS with UEFI.
 * *Q35 Chipset with UEFI SecureBoot* Specifies the Q35 chipset with a firmware type of UEFI with SecureBoot, which authenticates the digital signatures of the boot loader.
 
 For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
@@ -60,7 +60,7 @@ The following options are required for each host in the cluster that is being im
 
 * *Hostname*: Enter the IP or fully qualified domain name of the Gluster host server.
 
-* *Host ssh public key (PEM)*: {virt-product-fullname} {engine-name} fetches the host's ssh public key, to ensure you are connecting with the correct host.
+* *Host ssh public key (PEM)*: {virt-product-fullname} {engine-name} fetches the host's SSH public key, to ensure you are connecting with the correct host.
 
 * *Password*: Enter the root password required for communicating with the host.
 

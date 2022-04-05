@@ -50,7 +50,7 @@ The following table details the options available on the *System* tab of the *Ne
 |*Chipset/Firmware Type*
 a|Specifies the chipset and firmware type. Defaults to the cluster's default chipset and firmware type. Options are:
 
-* *I440FX Chipset with BIOS* Legacy BIOS.
+* *I440FX Chipset with BIOS* Legacy BIOS
 * *Q35 Chipset with BIOS* BIOS without UEFI (Default for clusters with compatibility version 4.4)
 * *Q35 Chipset with UEFI* BIOS with UEFI
 * *Q35 Chipset with UEFI SecureBoot* UEFI with SecureBoot, which authenticates the digital signatures of the boot loader

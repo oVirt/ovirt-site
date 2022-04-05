@@ -13,6 +13,11 @@ In addition to resources managed by the {virt-product-fullname} {engine-name} it
 
 *OpenStack Image Service (Glance) for Image Management*:: OpenStack Image Service provides a catalog of virtual machine images. In {virt-product-fullname}, these images can be imported into the {virt-product-fullname} {engine-name} and used as floating disks or attached to virtual machines and converted into templates. After you add an OpenStack Image Service to the {engine-name}, it appears as a storage domain that is not attached to any data center. Virtual disks in a {virt-product-fullname} environment can also be exported to an OpenStack Image Service as virtual disks.
 
+[NOTE]
+====
+Support for OpenStack Glance is now deprecated. This functionality will be removed in a later release.
+====
+
 *VMware for Virtual Machine Provisioning*:: Virtual machines created in VMware can be converted using V2V (`virt-v2v`) and imported into a {virt-product-fullname} environment. After you add a VMware provider to the {engine-name}, you can import the virtual machines it provides. V2V conversion is performed on a designated proxy host as part of the import operation.
 
 

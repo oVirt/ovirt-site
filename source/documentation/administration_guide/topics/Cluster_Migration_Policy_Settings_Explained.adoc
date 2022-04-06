@@ -57,9 +57,9 @@ The resilience policy defines how the virtual machines are prioritized in the mi
 |Field |Description/Action
 |*Enable Migration Encryption* a|Allows the virtual machine to be encrypted during migration.
 
-* Cluster default
-* Encrypt
-* Don’t encrypt
+* *Cluster default*
+* *Encrypt*
+* *Don’t encrypt*
 |*Parallel Migrations* a|Allows you to specify whether and how many parallel migration connections to use.
 
 * *Disabled*: The virtual machine is migrated using a single, non-parallel connection.

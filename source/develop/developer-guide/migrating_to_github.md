@@ -154,6 +154,7 @@ jobs:
           yum module enable -y maven:3.5
           yum module enable -y pki-deps:10.6
           yum module enable -y postgresql:12
+          yum module enable -y mod_auth_openidc:2.3
           yum --downloadonly install -y exported-artifacts/*noarch.rpm
           yum --downloadonly install -y ovirt-engine ovirt-engine-setup-plugin-websocket-proxy
     - name: Upload artifacts

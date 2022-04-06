@@ -148,6 +148,15 @@ endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DW
 ----
 # dnf module -y enable postgresql:12
 ----
+ifdef::ovirt-doc[]
+. Enable version 2.3 of the `mod_auth_openidc` module.
++
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable mod_auth_openidc:2.3
+----
+endif::ovirt-doc[]
 . Synchronize installed packages to update them to the latest available versions.
 +
 [source,terminal,subs="normal"]

@@ -311,7 +311,8 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2828/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -354,6 +355,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>

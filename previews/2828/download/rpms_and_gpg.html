@@ -108,8 +108,9 @@
 <h1 id="rpms-and-gpg">RPMs and GPG</h1>
 
 <h2 id="rpm-repositories">RPM Repositories</h2>
-<h3 id="ovirt-45-alpha">oVirt 4.5 ALPHA</h3>
-<p>oVirt 4.5 is shipped via CentOS repositories.</p>
+<h3 id="ovirt-45-beta">oVirt 4.5 BETA</h3>
+<p>oVirt 4.5 is shipped via CentOS repositories.
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2828/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 
 <p>In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
@@ -141,12 +142,6 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
   <li><a href="https://resources.ovirt.org/pub/ovirt-3.3/">ovirt-3.3</a></li>
 </ul>
 
-<h3 id="nightly-builds-of-ovirt">Nightly builds of oVirt</h3>
-
-<ul>
-  <li><a href="https://resources.ovirt.org/pub/ovirt-master-snapshot">ovirt-4.4 Nightly</a></li>
-</ul>
-
 <h2 id="mirrors-for-ovirt-downloads">Mirrors for oVirt Downloads</h2>
 
 <h3 id="europe">Europe</h3>
@@ -155,28 +150,23 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
   <li><a href="http://ovirt.repo.nfrance.com/">NFRANCE</a> (
 <a href="http://ovirt.repo.nfrance.com/ovirt-4.4/">oVirt 4.4</a>
 <a href="http://ovirt.repo.nfrance.com/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://ovirt.repo.nfrance.com/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://ovirt.repo.nfrance.com/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://ovirt.repo.nfrance.com/ovirt-4.2/">oVirt 4.2</a></li>
   <li><a href="https://ftp.nluug.nl/os/Linux/virtual/ovirt/">NLUUG</a> (
 <a href="https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.4/">oVirt 4.4</a>
 <a href="https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.3/">oVirt 4.3</a>
-<a href="https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.2/">oVirt 4.2</a></li>
   <li><a href="http://www.plusline.net/en/">Plus.line AG</a> (
 <a href="http://ftp.plusline.net/ovirt/ovirt-4.4/">oVirt 4.4</a>
 <a href="http://ftp.plusline.net/ovirt/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://ftp.plusline.net/ovirt/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://ftp.plusline.net/ovirt/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://ftp.plusline.net/ovirt/ovirt-4.2/">oVirt 4.2</a></li>
   <li><a href="http://ftp.snt.utwente.nl/pub/software/ovirt/">SNT - University of Twente</a> (
 <a href="http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.4/">oVirt 4.4</a>
 <a href="http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.2/">oVirt 4.2</a></li>
   <li><a href="http://mirror.slu.cz/ovirt/">Slezská Univerzita</a>(
 <a href="http://mirror.slu.cz/ovirt/ovirt-4.4/">oVirt 4.4</a>
 <a href="http://mirror.slu.cz/ovirt/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://mirror.slu.cz/ovirt/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://mirror.slu.cz/ovirt/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://mirror.slu.cz/ovirt/ovirt-4.2/">oVirt 4.2</a></li>
 </ul>
 
 <h3 id="north-america">North America</h3>
@@ -185,29 +175,24 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
   <li><a href="http://archive.linux.duke.edu/ovirt/">Duke University</a> (
 <a href="http://archive.linux.duke.edu/ovirt/pub/ovirt-4.4">oVirt 4.4</a>
 <a href="http://archive.linux.duke.edu/ovirt/pub/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://archive.linux.duke.edu/ovirt/pub/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://archive.linux.duke.edu/ovirt/pub/ovirt-4.2/">oVirt 4.2</a></li>
   <li><a href="http://www.gtlib.gatech.edu/pub/oVirt">Georgia Institute of Technology</a> (
 <a href="http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.4/">oVirt 4.4</a>
 <a href="http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.3/">oVirt 4.3</a>
 <a href="http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>
 <a href="ftp://ftp.gtlib.gatech.edu/pub/oVirt">FTP Site</a>)</li>
   <li><a href="http://mirrors.ibiblio.org/ovirt/">ibiblio</a> (
-<a href="http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.3/">oVirt 4.4</a>
-<a href="http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://mirrors.ibiblio.org/ovirt/ovirt-4.4/">oVirt 4.4</a>
+<a href="http://mirrors.ibiblio.org/ovirt/ovirt-4.3/">oVirt 4.3</a>
+<a href="http://mirrors.ibiblio.org/ovirt/ovirt-4.2/">oVirt 4.2</a></li>
   <li><a href="http://mirrors.rit.edu/ovirt">Rochester Institute of Technology</a>(
-<a href="http://mirrors.rit.edu/ovirt/pub/ovirt-4.3/">oVirt 4.4</a>
-<a href="http://mirrors.rit.edu/ovirt/pub/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://mirrors.rit.edu/ovirt/pub/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://mirrors.rit.edu/ovirt/pub/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://mirrors.rit.edu/ovirt/ovirt-4.4/">oVirt 4.4</a>
+<a href="http://mirrors.rit.edu/ovirt/ovirt-4.3/">oVirt 4.3</a>
+<a href="http://mirrors.rit.edu/ovirt/ovirt-4.2/">oVirt 4.2</a></li>
   <li><a href="http://mirror.rackspace.com/ovirt/">Rackspace</a>(
-<a href="http://mirror.rackspace.com/ovirt/ovirt-4.3/">oVirt 4.4</a>
+<a href="http://mirror.rackspace.com/ovirt/ovirt-4.4/">oVirt 4.4</a>
 <a href="http://mirror.rackspace.com/ovirt/ovirt-4.3/">oVirt 4.3</a>
-<a href="http://mirror.rackspace.com/ovirt/ovirt-4.2/">oVirt 4.2</a>
-<a href="http://mirror.rackspace.com/ovirt/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://mirror.rackspace.com/ovirt/ovirt-4.2/">oVirt 4.2</a></li>
 </ul>
 
 <h3 id="asia">Asia</h3>
@@ -216,13 +201,11 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
   <li><a href="http://mirror.isoc.org.il/pub/ovirt/">Hamakor</a> (
 <a href="http://mirror.isoc.org.il/pub/ovirt/ovirt-4.4/">ovirt 4.4</a>
 <a href="http://mirror.isoc.org.il/pub/ovirt/ovirt-4.3/">ovirt 4.3</a>
-<a href="http://mirror.isoc.org.il/pub/ovirt/ovirt-4.2/">ovirt 4.2</a>
-<a href="http://mirror.isoc.org.il/pub/ovirt/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://mirror.isoc.org.il/pub/ovirt/ovirt-4.2/">ovirt 4.2</a></li>
   <li><a href="http://mirror.massclouds.com/ovirt/">Massclouds</a>(
 <a href="http://mirror.massclouds.com/ovirt/ovirt-4.4/">ovirt 4.4</a>
 <a href="http://mirror.massclouds.com/ovirt/ovirt-4.3/">ovirt 4.3</a>
-<a href="http://mirror.massclouds.com/ovirt/ovirt-4.2/">ovirt 4.2</a>
-<a href="http://mirror.massclouds.com/ovirt/ovirt-master-snapshot/">oVirt 4.4 Development Nightly</a>)</li>
+<a href="http://mirror.massclouds.com/ovirt/ovirt-4.2/">ovirt 4.2</a></li>
 </ul>
 
 <h2 id="gpg-keys-used-by-ovirt">GPG Keys used by oVirt</h2>
@@ -253,7 +236,7 @@ $ gpg --export --armor FE590CB7 &gt; ovirt-infra.pub
 # rpm --import ovirt-infra.pub
 </code></pre></div></div>
 
-<p>Importing keys Automatically</p>
+<p>Importing keys Automatically for oVirt 4.4:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 </code></pre></div></div>

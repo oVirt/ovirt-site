@@ -277,33 +277,6 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
 
 <ul>
   <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2056126">BZ 2056126</a> <strong>[RFE] Extend time to warn of upcoming certificate expiration</strong></p>
-
-    <p>oVirt Engine 4.5 certificate expiration check will warn of upcoming certificate expiration earlier:</p>
-
-    <ol>
-      <li>If a certificate is going to expire in the upcoming 120 days, then WARNING event is raised in the audit log</li>
-      <li>If a certificate is going to expired in the upcoming 30 days, then ALERT event is raised in the audit log</li>
-    </ol>
-
-    <p>This checks for internal oVirt certificates (for example certificate for oVirt Engine &lt;-&gt; hypervisor communication), but it doesn’t check for custom certificates configured for HTTPS access to oVirt Engine as configured according to https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate</p>
-  </li>
-  <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2021545">BZ 2021545</a> <strong>[RFE] Add cluster-level 4.7</strong></p>
-
-    <p>In this release we have added DataCenter/Cluster compatibility level 4.7, which is available only on hosts with RHEL 8.6+, latest CentOS Stream 8 and CentOS Stream/RHEL 9 with libvirt &gt;= 8.0.0 installed.</p>
-  </li>
-  <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2015093">BZ 2015093</a> <strong>[RFE] Implement hypervisors core dump related configuration to work on EL8 and EL9</strong></p>
-
-    <p>oVirt 4.5 has moved from abrt to systemd-coredump to gather crash dumps on the hypervisors</p>
-  </li>
-  <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2023250">BZ 2023250</a> <strong>[RFE] Use virt:rhel module instead of virt:av in RHEL 8.6+ to get advanced virtualization packages</strong></p>
-
-    <p>Advanced Virtualization module (virt:av) has been merged into standard RHEL virtualization module (virt:rhel) as a part of RHEL 8.6 release. Due to this change the host deploy and host upgrade flows has been updated to properly enable virt:rhel module during new installation of RHEL 8.6 host and during upgrade of existing RHEL &lt;= 8.5 to RHEL 8.6 host.</p>
-  </li>
-  <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1940824">BZ 1940824</a> <strong>[RFE] Upgrade OVN/OVS 2.11 in oVirt to OVN/OVS 2.15</strong></p>
 
     <p>Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.</p>
@@ -329,6 +302,33 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
     </ol>
 
     <p>If the host’s OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2056126">BZ 2056126</a> <strong>[RFE] Extend time to warn of upcoming certificate expiration</strong></p>
+
+    <p>oVirt Engine 4.5 certificate expiration check will warn of upcoming certificate expiration earlier:</p>
+
+    <ol>
+      <li>If a certificate is going to expire in the upcoming 120 days, then WARNING event is raised in the audit log</li>
+      <li>If a certificate is going to expired in the upcoming 30 days, then ALERT event is raised in the audit log</li>
+    </ol>
+
+    <p>This checks for internal oVirt certificates (for example certificate for oVirt Engine &lt;-&gt; hypervisor communication), but it doesn’t check for custom certificates configured for HTTPS access to oVirt Engine as configured according to https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2021545">BZ 2021545</a> <strong>[RFE] Add cluster-level 4.7</strong></p>
+
+    <p>In this release we have added DataCenter/Cluster compatibility level 4.7, which is available only on hosts with RHEL 8.6+, latest CentOS Stream 8 and CentOS Stream/RHEL 9 with libvirt &gt;= 8.0.0 installed.</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2015093">BZ 2015093</a> <strong>[RFE] Implement hypervisors core dump related configuration to work on EL8 and EL9</strong></p>
+
+    <p>oVirt 4.5 has moved from abrt to systemd-coredump to gather crash dumps on the hypervisors</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2023250">BZ 2023250</a> <strong>[RFE] Use virt:rhel module instead of virt:av in RHEL 8.6+ to get advanced virtualization packages</strong></p>
+
+    <p>Advanced Virtualization module (virt:av) has been merged into standard RHEL virtualization module (virt:rhel) as a part of RHEL 8.6 release. Due to this change the host deploy and host upgrade flows has been updated to properly enable virt:rhel module during new installation of RHEL 8.6 host and during upgrade of existing RHEL &lt;= 8.5 to RHEL 8.6 host.</p>
   </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1782056">BZ 1782056</a> <strong>[RFE] Integration of built-in ipsec feature in oVirt with OVN</strong></p>
@@ -512,6 +512,31 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
 
 <ul>
   <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2040474">BZ 2040474</a> <strong>[RFE] Add progress tracking for Cluster Upgrade</strong></p>
+
+    <p>If this bug requires documentation, please select an appropriate Doc Type value.</p>
+  </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1922977">BZ 1922977</a> <strong>[RFE] VM shared disks are not part of the OVF_STORE</strong></p>
+
+    <p>Feature:
+Make Virtual Machines’ shared disks to be part of the “OVF_STORE” configuration.</p>
+
+    <p>Reason:
+Until now the VM shared disks were not part of the “OVF_STORE” configuration (only non-shared disks were part of it).
+Thus, when moving Storage Domain to another environment (Detach &amp; Attach), and after importing VMs, those shared disks’ configuration was “lost along the way”.</p>
+
+    <p>Result:
+After the fix, the shared disks are part of the ‘OVF_STORE’ configuration.
+That allows VMs to share disks, move Storage Domain to another environment, and after importing VMs, the VMs correctly share the same disks without any additional manual configuration.</p>
+  </li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2055666">BZ 2055666</a> <strong>[RFE] Timer for Console Disconnect Action - Shutdown VM after N minutes of being disconnected</strong></li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1782077">BZ 1782077</a> <strong>[RFE] More Flexible oVirt CPU Allocation Policy with HyperThreading</strong></p>
+
+    <p>Added a CPU pinning policy named DEDICATED that exclusively pin virtual CPUs to physical CPUs. With this policy, a complete physical core can be used as a virtual core of a single virtual machine.</p>
+  </li>
+  <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1987121">BZ 1987121</a> <strong>[RFE] Support enabling nVidia Unified Memory on mdev vGPU</strong></p>
 
     <p>The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. “enable_uvm=1”. The given text will be used for all the vGPUs of a given VM.</p>
@@ -521,11 +546,6 @@ dnf config-manager <span class="nt">--set-enabled</span> ovirt-45-upstream-testi
     <p>vGPU properties are no longer specified using mdev_type VM custom property. They are specified as VM devices now. This change is transparent when using the vGPU editing dialog. In the REST API, the vGPU properties can be manipulated using a newly introduced <code class="language-plaintext highlighter-rouge">.../vms/.../mediateddevices</code> endpoint. The new API permits setting “nodisplay” and driver parameters for each of the vGPUs individually, but note that this is not supported in the vGPU editing dialog where they can be set only to a single value common for all the vGPUs of a given VM.</p>
   </li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2054681">BZ 2054681</a> <strong>[RFE] Make VM sealing configurable</strong></li>
-  <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1782077">BZ 1782077</a> <strong>[RFE] More Flexible oVirt CPU Allocation Policy with HyperThreading</strong></p>
-
-    <p>Added a CPU pinning policy named DEDICATED that exclusively pin virtual CPUs to physical CPUs. With this policy, a complete physical core can be used as a virtual core of a single virtual machine.</p>
-  </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1999698">BZ 1999698</a> <strong>ssl.conf modifications of engine-setup do not conform to best practices (according to red hat insights)</strong></p>
 
@@ -923,6 +943,11 @@ images containing large zeroed areas is usually faster now.</p>
 
 <ul>
   <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070582">BZ 2070582</a> <strong>Include packages needed by DISA STIG</strong></p>
+
+    <p>rng-tools, rsyslog-gnutls, usbguard packages have been added to ovirt-appliance to satisfy DISA-STIG profile requirements</p>
+  </li>
+  <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2000066">BZ 2000066</a> <strong>[RFE] Include a manifest in the rpm</strong></p>
 
     <p>A manifest of the packages included in the ova has been added to the ovirt-appliance rpm.</p>
@@ -976,6 +1001,10 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-3">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2007384">BZ 2007384</a> <strong>Failed to parse ‘writeRate’ value xxxx to integer: For input string: xxxx</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2041544">BZ 2041544</a> <strong>Admin GUI: Making selection of host while uploading disk it will immediately replace it with the first active host in the list.</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2052557">BZ 2052557</a> <strong>oVirt fails to release mdev vGPU device after VM shutdown</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2051462">BZ 2051462</a> <strong>Unable to correctly search for User field in Advanced view of Events pane</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1994144">BZ 1994144</a> <strong>[oVirt 4.4.6] Mail recipient is not updated while configuring Event Notifications</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2010903">BZ 2010903</a> <strong>I/O operations/sec reporting wrong values</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1982083">BZ 1982083</a> <strong>[Cinderlib][MBS] Cloning VM with managed block storage raise a NPE</strong></li>
@@ -1068,6 +1097,14 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-4">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1989121">BZ 1989121</a> <strong>[CBT][Veeam] Block backup of hosted-engine vm</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069670">BZ 2069670</a> <strong>NPE when converting ISCSI disk during the copy_data action</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070536">BZ 2070536</a> <strong>The same host CPUs are assigned twice when we run dedicated&amp;none&amp;resize VMs on the same host</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070184">BZ 2070184</a> <strong>Hybrid Backup - Specifying disks for backup doesn’t work, backup is created for all disks</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2068104">BZ 2068104</a> <strong>hybrid backup VM after a snapshot fails - start_nbd_server error=Bitmap does not exist</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1979277">BZ 1979277</a> <strong>[RFE] Migration - Apply automatic CPU and NUMA pinning based on the migrated host</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2065152">BZ 2065152</a> <strong>Implicit CPU pinning for NUMA VMs destroyed because of invalid CPU policy</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2043984">BZ 2043984</a> <strong>Cannot move any host to maintenance mode</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2037779">BZ 2037779</a> <strong>VM name is displayed as &lt;UNKNOWN&gt; in disk properties update notification</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1991482">BZ 1991482</a> <strong>[RFE] add a link to Grafana in the Admin portal UI</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1913389">BZ 1913389</a> <strong>[CBT] [RFE] Provide VDSM with more information on scratch disks</strong></li>
@@ -1204,6 +1241,7 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-5">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070053">BZ 2070053</a> <strong>Removal of a labeled long network(more than 15 characters)  is incomplete</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2032917">BZ 2032917</a> <strong>Restapi: after migrating Jackson to com.fasterxml.jackson, REST API’s JSON default serializing mode is not ignoring properties with null values anymore</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1700460">BZ 1700460</a> <strong>Let the user eventually skip HE global maintenance mode check on upgrades</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2061904">BZ 2061904</a> <strong>Unable to attach a oVirt Host back into cluster after removing due to networking</strong></li>
@@ -1290,20 +1328,23 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-node-ng-image">oVirt Node NG Image</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2056596">BZ 2056596</a> <strong>CVE-2021-4083 kernel: fget: check that the fd still exists after getting a ref to it [ovirt-4.5]</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2061694">BZ 2061694</a> <strong>CVE-2022-0847 - kernel: improper initialization of the “flags” member of the new pipe_buffer [ovirt-4.5]</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2005045">BZ 2005045</a> <strong>ovirt-node-ng iso build relies on genisoimage</strong></li>
 </ul>
 
 <h4 id="ovirt-engine-appliance-1">oVirt Engine Appliance</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2067982">BZ 2067982</a> <strong>CVE-2022-24302 python-paramiko: Race condition in the write_private_key_file function [ovirt-4.5]</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2050071">BZ 2050071</a> <strong>Use authselect in oVirt Node and appliance images</strong></li>
 </ul>
 
 <h4 id="contributors">Contributors</h4>
 
-<p>64 people contributed to this release:</p>
+<p>65 people contributed to this release:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Aleš Musil (Contributed to: ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
 Andrej Krejcir (Contributed to: mom)
 Arik Hadas (Contributed to: ovirt-engine)
 Artur Socha (Contributed to: ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-wildfly, vdsm-jsonrpc-java)
@@ -1321,6 +1362,7 @@ Dusan Fodor (Contributed to: ovirt-openvswitch)
 Edward Haas (Contributed to: ovirt-release)
 Ehud Yonasi (Contributed to: ovirt-appliance)
 Eitan Raviv (Contributed to: ovirt-engine, ovirt-provider-ovn)
+Eli Marcus (Contributed to: ovirt-site)
 Eli Mesika (Contributed to: ovirt-dwh, ovirt-engine)
 Evgheni Dereveanchin (Contributed to: ovirt-engine, ovirt-release)
 Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
@@ -1346,7 +1388,7 @@ Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 Nick Sonneveld (Contributed to: ovirt-ansible-collection)
 Nijin Ashok (Contributed to: ovirt-ansible-collection, ovirt-log-collector)
 Nir Levy (Contributed to: ovirt-node-ng-image)
-Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, ovirt-release, python-ovirt-engine-sdk4, vdsm)
+Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, ovirt-release, ovirt-site, python-ovirt-engine-sdk4, vdsm)
 Oli (Contributed to: ovirt-ansible-collection)
 Ondra Machacek (Contributed to: ovirt-release)
 Ori Liel (Contributed to: ovirt-engine)

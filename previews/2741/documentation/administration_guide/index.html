@@ -17416,6 +17416,24 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <dd>
 <p>OpenStack Image Service provides a catalog of virtual machine images. In oVirt, these images can be imported into the oVirt Engine and used as floating disks or attached to virtual machines and converted into templates. After you add an OpenStack Image Service to the Engine, it appears as a storage domain that is not attached to any data center. Virtual disks in a oVirt environment can also be exported to an OpenStack Image Service as virtual disks.</p>
 </dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Support for OpenStack Glance is now deprecated. This functionality will be removed in a later release.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1"><strong>VMware for Virtual Machine Provisioning</strong></dt>
 <dd>
 <p>Virtual machines created in VMware can be converted using V2V (<code>virt-v2v</code>) and imported into a oVirt environment. After you add a VMware provider to the Engine, you can import the virtual machines it provides. V2V conversion is performed on a designated proxy host as part of the import operation.</p>
@@ -17501,6 +17519,20 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </div>
 <div class="sect4">
 <h5 id="Adding_an_OpenStack_Image_Service_Glance_for_Image_Management">Adding an OpenStack Image (Glance) Instance for Image Management</h5>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Support for OpenStack Glance is now deprecated. This functionality will be removed in a later release.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Add an OpenStack Image (Glance) instance for image management to the oVirt Engine.</p>
 </div>
@@ -20768,7 +20800,8 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -20811,6 +20844,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>
@@ -21294,7 +21335,8 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21337,6 +21379,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>
@@ -21773,7 +21823,8 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21808,6 +21859,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>

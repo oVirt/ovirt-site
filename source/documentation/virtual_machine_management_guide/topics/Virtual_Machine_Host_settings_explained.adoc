@@ -81,6 +81,7 @@ a| Allows the virtual machine to be encrypted during migration.
 |
 |*Parallel Migrations* a|Allows you to specify whether and how many parallel migration connections to use.
 
+* *Cluster default*: Parallel migration connections are determined by the cluster default.
 * *Disabled*: The virtual machine is migrated using a single, non-parallel connection.
 * *Auto*: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.
 * *Auto Parallel*: The number of parallel connections is automatically determined.

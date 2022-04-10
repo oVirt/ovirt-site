@@ -26,5 +26,4 @@ include::topics/ref-ovirt-4.4.8.adoc[]
 
 include::topics/ref-ovirt-4.4.9.adoc[]
 
-
-include::topics/ref-ovirt-4.4.10-beta.adoc[]
+include::topics/ref-ovirt-4.10.adoc[]

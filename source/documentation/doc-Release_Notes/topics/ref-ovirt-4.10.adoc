@@ -2,4 +2,68 @@
 
 
 
+==== Bug Fix
 
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1898049[1898049]::
+Previously, the default disk configuration did not propagate disk errors to the client, which caused the virtual machine to stop. As a result, the Windows high availability cluster validator failed and one of the virtual machines in the cluster was paused. In this release, disk errors are propagated to the client using the "engine-config -s PropagateDiskErrors=true" setting. The Windows high availability cluster validator works and all tests, including iSCSI reservations, have passed.
+
+BZ#link:https://bugzilla.redhat.com/1978655[1978655]::
+Previously, ELK integration failed due to missing configuration parameters when using certificates.
+In this release, the missing parameters were added, and updated to the correct names according to the logging role. ELK integration now works with or without certificates.
+
+BZ#link:https://bugzilla.redhat.com/2014882[2014882]::
+Previously, the VM memory/CPU overcommit panels in the Ovirt Executive Dashboard/Cluster Dashboard displayed the average memory for a single hypervisor and the average memory of all virtual machines in a cluster.
+In this release, the dashboard panels show the correct overcommit rates between all the hosts in the cluster and all the virtual machines in the cluster.
+
+BZ#link:https://bugzilla.redhat.com/2022660[2022660]::
+Previously, when unassigning a storage connection from a storage domain for a LUN associated with another storage server connection, all storage connections for that LUN were removed and the LUN was also removed.
+In this release, only the specified storage connection is removed. The LUN is removed only if it has no storage connections.
+
+BZ#link:https://bugzilla.redhat.com/2025872[2025872]::
+Previously, certain CPU topologies caused virtual machines with PCI host devices to fail. In this release, the issue has been fixed.
+
+BZ#link:https://bugzilla.redhat.com/2026625[2026625]::
+Previously, the timeout setting on the broker socket in the 'ovirt-hosted-engine-ha' library was ignored because the timeout was set after the connection was opened. This caused the VDSM threads to be blocked if the broker did not respond. Now the timeout setting is established before the connection is opened, resolving this issue.
+
+BZ#link:https://bugzilla.redhat.com/2032919[2032919]::
+Previously, RHEL 7 hosts could not be added to the Red Hat Virtualization Manager in clusters with level 4.3 or 4.2.
+In this release, RHEL 7 hosts can be added to the Red Hat Virtualization Manager successfully in clusters with level 4.3 or 4.2. For additional details, see BZ#2019807.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1897114[1897114]::
+In this release, monitoring of host refresh capabilities functionality was improved to help debug very rare production issues that sometimes caused the Red Hat Virtualization Manager to lose connectivity with the Red Hat Virtualization hosts.
+
+BZ#link:https://bugzilla.redhat.com/2012135[2012135]::
+Previously, multiple stale LUNs had to be removed individually, after removing a storage domain, by calling the 'ovirt_remove_stale_lun' Ansible role multiple times. In the current release, multiple LUN WWIDs for stale links can be included in the 'ovirt_remove_stale_lun' role, which only needs to be called once.
+
+BZ#link:https://bugzilla.redhat.com/2023224[2023224]::
+Previously, when running the 'ovirt_remove_stale_lun' Ansible role, the removal of the multipath device map could fail because of a conflict with a VGS scan. In the current release, the 'ovirt_remove_stale_lun' role for removing multipath is retried six times to allow the removal to succeed.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/2007286[2007286]::
+Previously, a non-responding host was first soft-fenced by the Engine, but this did not fix the connectivity issue. The engine did not initiate a hard fence and the host was left in an non-responding state.
+In this release, soft fencing has been fixed so that if the soft fencing does not make the host responsive again, then the non-responding host treatment process continues correctly with the additional steps.
+
+==== Deprecated Functionality
+
+The items in this section are either no longer supported, or will no longer be supported in a future release.
+
+BZ#link:https://bugzilla.redhat.com/2017068[2017068]::
+The 'manageiq' Ansible role has been deprecated in 'ovirt-ansible-collection-1.6.6' and will be removed in 'ovirt-ansible-collection-2.0.0'
+
+BZ#link:https://bugzilla.redhat.com/2056934[2056934]::
+The Red Hat Virtualization Manager (RHVM) appliance is being retired. The last supported build of the RHVM appliance will be shipped with the release of Red Hat Virtualization 4.4 SP1.
+Following the Red Hat Virtualization 4.4 SP1 release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.
+
+==== Removed Functionality
+
+BZ#link:https://bugzilla.redhat.com/2045913[2045913]::
+The log manager extension ovirt-engine-extension-logger-log4j has been removed in this release. It has been replaced by the JBoss EAP SyslogHandler log manager.

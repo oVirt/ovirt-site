@@ -1,0 +1,50 @@
+// Module included in the following assemblies:
+//
+// Upgrading from 4.4 to {virt-product-fullname} 4.5
+//
+:_content-type: PROCEDURE
+[id="Upgrading_hosts_to_4-5_{context}"]
+
+= Migrating hosts {virt-product-shortname} 4.4 to 4.5
+
+.Prerequisites
+
+* Hosts for {virt-product-shortname} 4.5 require {enterprise-linux} 8.6 or later.
+* {virt-product-fullname} {engine-name} 4.5 is installed and running.
+* The compatibility level of the data center and cluster to which the hosts belong is set to 4.3 or higher.
+* All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 higher before you start the procedure.
+
+[IMPORTANT]
+====
+If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
+====
+
+
+.Procedure for {enterprise-linux-host-fullname}s
+
+. Enable oVirt 4.5 repositories
+[source,terminal,subs="normal"]
+----
+# dnf install -y centos-release-ovirt45
+----
+
+.Procedure for {enterprise-linux-host-fullname}s {hypervisor-fullname}s:
+
+. Enable oVirt 4.5 repositories
+[source,terminal,subs="normal"]
+----
+# dnf install centos-release-ovirt45 --enablerepo=extras
+----
+
+.Common procedure
+
+. Follow the procedure for updates between minor releases.
+
+. Follow the procedure for updating the cluster compatibility version.
+
+[IMPORTANT]
+====
+If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to version 10.
+Please refer to link:https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/[Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x]
+for more details.
+====

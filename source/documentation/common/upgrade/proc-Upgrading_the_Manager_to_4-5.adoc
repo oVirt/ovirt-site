@@ -1,0 +1,44 @@
+:_content-type: PROCEDURE
+[id="Upgrading_the_Manager_to_4-5_{context}"]
+= Upgrading the {virt-product-fullname} {engine-name} from 4.4 to 4.5
+
+// Included in:
+// Upgrade Guide
+
+ifndef::SHE_upgrade[]
+{virt-product-fullname} {engine-name} 4.5 is only supported on {enterprise-linux} 8.6 or later.
+endif::SHE_upgrade[]
+
+.Prerequisites
+
+* All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 or higher.
+* All virtual machines in the environment must have the cluster compatibility level set to version 4.3 or higher.
+
+[NOTE]
+====
+Connected hosts and virtual machines can continue to work while the {engine-name} is being upgraded.
+====
+
+[IMPORTANT]
+====
+If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
+====
+
+
+.Procedure
+
+. Enable oVirt 4.5 repositories
++
+[source,terminal,subs="normal"]
+----
+# dnf install -y centos-release-ovirt45
+----
++
+. Enable version 2.3 of the `mod_auth_openidc` module.
++
+[source,terminal,subs="normal"]
+----
+# dnf module -y enable mod_auth_openidc:2.3
+----
+
+Then follow the procedure for updates between minor releases.

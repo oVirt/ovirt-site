@@ -20,6 +20,10 @@ include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
 = Upgrading a standalone {engine-name} local database environment
 :local_database_upgrade:
 
+ifdef::ovirt-doc[]
+include::assembly-Upgrading_from_4-4.adoc[leveloffset=+1]
+endif::ovirt-doc[]
+
 include::assembly-Upgrading_from_4-3.adoc[leveloffset=+1]
 
 include::assembly-Upgrading_from_4-2.adoc[leveloffset=+1]
@@ -28,6 +32,10 @@ include::assembly-Upgrading_from_4-2.adoc[leveloffset=+1]
 = Upgrading a standalone {engine-name} remote database environment
 :remote_database_upgrade:
 
+ifdef::ovirt-doc[]
+include::assembly-Remote_Upgrading_from_4-4.adoc[leveloffset=+1]
+endif::ovirt-doc[]
+
 include::assembly-Remote_Upgrading_from_4-3.adoc[leveloffset=+1]
 
 include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
@@ -35,6 +43,10 @@ include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
 
 = Upgrading a self-hosted engine environment
 :SHE_upgrade:
+ifdef::ovirt-doc[]
+include::assembly-SHE_Upgrading_from_4-4.adoc[leveloffset=+1]
+endif::ovirt-doc[]
+
 include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+1]
 
 include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+1]
@@ -49,8 +61,10 @@ include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
 [appendix]
 include::topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Virtualization_Manager_Installation.adoc[leveloffset=+1]
 
+ifdef::rhv-doc[]
 [appendix]
 include::topics/installing_virtual_product_hypervisors_from_local_repository.adoc[leveloffset=+1]
+endif::rhv-doc[]
 
 [appendix]
 include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]

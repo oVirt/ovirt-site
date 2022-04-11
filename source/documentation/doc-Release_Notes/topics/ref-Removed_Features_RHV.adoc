@@ -61,7 +61,7 @@ Removing this neither affects the ability to manage {virt-product-fullname} virt
 
 | Cockpit installation for Self-hosted engine| Using Cockpit to install the self-hosted engine is no longer supported. Use the command line installation.
 
-| oVirt Scheduler Proxy | The `ovirt-scheduler-proxy` package is removed in {virt-product-fullname} 4.4 SP1.
+//| oVirt Scheduler Proxy | The `ovirt-scheduler-proxy` package is removed in {virt-product-fullname} 4.4 SP1.
 
 |Ruby software development kit (SDK) |The Ruby SDK is no longer supported.
 |===

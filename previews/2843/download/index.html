@@ -121,6 +121,23 @@
 
 <p>See the <a href="/ovirt-site/previews/2843/release/4.5.0/">Release Notes for oVirt 4.5.0</a>.</p>
 
+<h2 id="upgrade-to-45-from-44">Upgrade to 4.5 from 4.4</h2>
+
+<h3 id="on-ovirt-engine-side">On oVirt Engine side:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
+dnf update <span class="nt">-y</span> <span class="nt">--nobest</span>
+engine-setup
+</code></pre></div></div>
+
+<h3 id="on-ovirt-node-side">on oVirt Node side:</h3>
+
+<p>bash</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf install centos-release-ovirt45 --enablerepo=extras
+</code></pre></div></div>
+
+<p>and then upgrade the host from the oVirt Engine administation portal.</p>
+
 <h2 id="install-ovirt-using-the-command-line">Install oVirt using the command line</h2>
 
 <p>oVirt is installed using the command line.</p>

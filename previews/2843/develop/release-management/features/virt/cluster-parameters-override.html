@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cluster parameters override | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Cluster parameters override" />
+<meta name="author" content="Eldan Shachar" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2843/develop/release-management/features/virt/cluster-parameters-override.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2843/develop/release-management/features/virt/cluster-parameters-override.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cluster parameters override" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Eldan Shachar" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eldan Shachar"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Cluster parameters override","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2843/images/logo.svg"},"name":"Eldan Shachar"},"url":"https://ovirt.github.io/ovirt-site/previews/2843/develop/release-management/features/virt/cluster-parameters-override.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2843/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2843/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2843/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2843/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2843/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2843/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2843/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2843/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2843/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2843/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2843/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2843/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2843/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2843/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2843/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2843/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2843/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2843/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2843/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2843/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2843/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2843/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2843//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2843//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2843/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2843/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2843/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2843/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2843/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/4bcba414ca4f85467f208d1ca3ce5824?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/4bcba414ca4f85467f208d1ca3ce5824?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eldan Shachar</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/b1766f2c8efbe055218f5ccdae3bc8da?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/b1766f2c8efbe055218f5ccdae3bc8da?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Omer Frenkel</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2843/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="cluster-parameters-override">Cluster parameters override</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature allows to configure the ‘emulated machine’ and ‘cpu model’ parameters for each VM separately instead of relying on the cluster default.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Eldan Shachar (eshachar)</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>Currently, every VM inherits its machine-type value(‘-M’ flag in QEMU) and its cpu-model value from the cluster. This feature will allow to override these settings by manually configuring them for each VM. The change will also enable a user to set these properties to values which are unsupported by the cluster compatibility level, in that case the VM will only run on hosts which support its requirements. The cluster level properties will still exist, every new VM will inherit its cluster settings unless specifically stated otherwise.</p>
+
+<h2 id="design">Design</h2>
+
+<p>The new properties will be added to the VM objects (affecting templates as well) and controlled by the user via the different interfaces. When executing a VM, the engine will use the VM level property and will fallback to the cluster level only if the VM property was not set.</p>
+
+<h3 id="database">Database</h3>
+
+<ul>
+  <li>Add the field ‘custom_emulated_machine’ to the vm_static table. the field default value will be null (use cluster property).</li>
+  <li>Add the field ‘custom_cpu_name’ to the vm_static table. the field default value will be null (use cluster property).</li>
+  <li>Add the field ‘emulated_machine’ to the vm_dynamic table.</li>
+</ul>
+
+<h3 id="backend">Backend</h3>
+
+<ul>
+  <li>Add properties to the various VM objects.</li>
+  <li>Add properties to the ovf reader\writer.</li>
+  <li>Change VDSBroker to use the new VM properties and fallback to the cluster only if the VM property was not set.</li>
+  <li>Add support for commands for the following actions: Add VM, Edit VM, Create Template, Edit template, Add Instance, Edit instance, Add pool, Edit pool. The setting will take effect only at the next run of the VM.</li>
+  <li>Add a scheduler filter for emulated-machine property, the scheduler will scan the cluster for hosts which supports the specified machine-type, if none is found the execution will be aborted.</li>
+  <li>Fix the cpu-level scheduler filter to ignore cluster compatibility version. (the VM object patch mentioned above will allow the existing filter to use the static cpu_model property in addition to the existing dynamic one)</li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<p>No need for changes in the VDSM.</p>
+
+<h3 id="user-interface">User Interface</h3>
+
+<p>Support the new settings for the following actions: Add VM, Edit VM, Create Template, Edit template, Add Instance, Edit instance, Add pool, Edit pool.
+*Each host has a limited set of possible machine-types/cpu-models but this information is sometimes unavailable (e.g a cluster without hosts), from this reason these properties can’t be validated by the engine until the VM execution stage.</p>
+
+<h4 id="web---user-and-admin">WEB - (User and Admin)</h4>
+
+<ul>
+  <li>Add an editable combo-box labeled ‘Emulated machine’ in the ‘System tab’ for each of the specified actions.</li>
+  <li>Add an editable combo-box labeled ‘CPU model’ in the ‘System tab’ for each of the specified actions.</li>
+  <li>Add an editable combo-box for the two fields in the ‘System tab’ under run-once.</li>
+</ul>
+
+<h4 id="rest">REST</h4>
+
+<ul>
+  <li>Add REST properties - ‘custom_emulated_machine’ and ‘custom_cpu_model’ for the entities VM\Template\Instance.</li>
+  <li>Add RSDL properties for each of the actions mentioned above.</li>
+</ul>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>A more flexible host specific preferences - a setup which consists of VMs running under different host parameters currently needs a cluster for each subset of parameters, this change will allow the user to customize each VM with its own host parameters.
+This will allow a user to provide a backward-compatibility for certain VMs and test new emulation settings before changing them for the whole cluster.</p>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<ul>
+  <li>RFE: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=838487">https://bugzilla.redhat.com/show_bug.cgi?id=838487</a></li>
+  <li>RFE: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=838490">https://bugzilla.redhat.com/show_bug.cgi?id=838490</a></li>
+  <li>RFE: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=952238">https://bugzilla.redhat.com/show_bug.cgi?id=952238</a></li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2843/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2843/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2843/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2843/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/cluster-parameters-override.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/cluster-parameters-override.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

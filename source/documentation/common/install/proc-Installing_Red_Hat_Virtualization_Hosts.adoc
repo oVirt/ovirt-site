@@ -29,7 +29,7 @@ ifdef::ovirt-doc[]
 . Write the {hypervisor-fullname} Installation ISO disk image to a USB, CD, or DVD.
 endif::[]
 . Start the machine on which you are installing {hypervisor-shortname}, booting from the prepared installation media.
-. From the boot menu, select *Install {hypervisor-shortname} 4.4* and press `Enter`.
+. From the boot menu, select *Install {hypervisor-shortname} {vername_rhv}* and press `Enter`.
 +
 [NOTE]
 ====

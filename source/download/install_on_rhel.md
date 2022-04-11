@@ -7,8 +7,8 @@ page_classes: download
 
 # Installing on RHEL
 
-In order to install oVirt 4.5 beta on RHEL 8.6 beta you'll need to provide CentOS Stream required configuration.
-The following bash code is needed before starting to install oVirt 4.5 beta on top of RHEL 8.6 beta
+In order to install oVirt 4.5 on RHEL 8.6 beta you'll need to provide CentOS Stream required configuration.
+The following bash code is needed before starting to install oVirt 4.5 on top of RHEL 8.6 beta
 
 
 ```bash

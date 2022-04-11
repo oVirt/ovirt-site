@@ -96,12 +96,6 @@ endif::rhv-doc[]
 ifdef::ovirt-doc[]
 
 Ensure the correct repositories are enabled.
-For oVirt 4.4:
-
-[source,terminal,subs="normal"]
-----
-# dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
-----
 
 For oVirt 4.5:
 If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
@@ -111,14 +105,14 @@ If you are going to install on RHEL 8.6 Beta please follow link:/download/instal
 # dnf install -y centos-release-ovirt45
 ----
 
-After that, for oVirt 4.5 pre-release testing you'll need to execute:
+For oVirt 4.4:
 
 [source,terminal,subs="normal"]
 ----
-# dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing
+# dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
+
+Common procedure valid for both 4.4 and 4.5:
 
 You can check which repositories are currently enabled by running `dnf repolist`.
 

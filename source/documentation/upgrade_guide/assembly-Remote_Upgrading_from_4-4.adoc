@@ -1,0 +1,57 @@
+:_content-type: ASSEMBLY
+[id="Remote_Upgrading_from_4-4"]
+= Upgrading a Remote Database Environment from {virt-product-fullname} 4.4 to 4.5
+
+:context: 4-4_remote_db
+:4-4_remote_db:
+
+Upgrading your environment from 4.4 to 4.5 involves the following steps:
+
+. xref:Upgrade_Prerequisites_4-4_remote_db[Make sure you meet the prerequisites, including enabling the correct repositories.]
+
+. xref:Updating_the_Red_Hat_Virtualization_Manager_4-4_remote_db[Update the 4.4 {engine-name} to the latest version of 4.4.]
+
+. xref:Upgrading_the_Manager_to_4-5_4-4_remote_db[Upgrade the {engine-name} from 4.4 to 4.5.]
+
+. xref:proc_upgrading-the-remote-data-warehouse-service-and-database_4-4_remote_db[Upgrade the remote Data Warehouse service and database.]
+
+. xref:Upgrading_hosts_to_4-5_4-4_remote_db[Migrate hosts and virtual machines while reducing virtual machine downtime.]
+
+. xref:Changing_the_Cluster_Compatibility_Version_4-4_remote_db[Update the compatibility version of the clusters.]
+. xref:Changing_Virtual_Machine_Cluster_Compatibility_4-4_remote_db[Reboot any running or suspended virtual machines to update their configuration.]
+. xref:Changing_the_Data_Center_Compatibility_Version_4-4_remote_db[Update the compatibility version of the data centers.]
+
+// Prerequisites
+include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
+
+You can now update the {engine-name} to the latest version of 4.4.
+
+include::common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+
+You can now upgrade the {engine-name} to 4.5.
+
+include::common/upgrade/proc-Upgrading_the_Manager_to_4-5.adoc[leveloffset=+1]
+
+
+// Add new {engine-name} upgrade versions here
+
+You can now update the hosts.
+
+include::common/upgrade/proc-Upgrading_hosts_to_4-5.adoc[leveloffset=+1]
+
+
+// include::common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
+
+You can now update the cluster compatibility version.
+
+include::common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+
+You can now update the cluster compatibility version for virtual machines in the cluster.
+
+include::common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+
+You can now update the data center compatibility version.
+
+include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+
+:4-4_remote_db!:

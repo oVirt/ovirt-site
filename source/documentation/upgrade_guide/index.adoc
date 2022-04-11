@@ -9,6 +9,8 @@ include::common/collateral_files/_attributes.adoc[]
 [discrete]
 = Upgrade Guide
 
+= {virt-product-fullname} Upgrade Overview
+
 :upgrade:
 
 include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]

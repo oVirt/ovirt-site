@@ -9,37 +9,13 @@ include::common/collateral_files/_attributes.adoc[]
 [discrete]
 = Upgrade Guide
 
-= {virt-product-fullname} Upgrade Overview
+
 :upgrade:
 
+= {virt-product-fullname} Upgrade Overview
 include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
 
-////
 
->> Fast-forward does not work with migration from 4.3 to 4.4, because the migration path requires installing RHEL 8.2 or later before you can install RHV 4.4.
-
-= Fast-forward Upgrading a Local Database Environment
-
-:local_database_upgrade_ff:
-
-This section applies to both self-hosted engine and standalone {engine-name} environments.
-
-include::topics/ovirt-fast-forward-upgrade_Explained.adoc[leveloffset=+1]
-
-include::assembly-Upgrading_from_4-2_ff.adoc[leveloffset=+1]
-
-:local_database_upgrade_ff!:
-////
-
-////
-= Fast-forward Upgrading a Self-hosted Engine Environment
-:SHE_upgrade_ff:
-
-include::topics/ovirt-fast-forward-upgrade_Explained.adoc[leveloffset=+1]
-
-include::assembly-SHE_Upgrading_from_4-2_ff.adoc[leveloffset=+1]
-:SHE_upgrade_ff!:
-////
 
 = Upgrading a standalone {engine-name} local database environment
 :local_database_upgrade:

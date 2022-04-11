@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Gluster Self-Heal Monitoring | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Gluster Self-Heal Monitoring" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2841/develop/release-management/features/gluster/gluster-self-heal-monitoring.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2841/develop/release-management/features/gluster/gluster-self-heal-monitoring.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gluster Self-Heal Monitoring" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Gluster Self-Heal Monitoring","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2841/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2841/develop/release-management/features/gluster/gluster-self-heal-monitoring.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2841/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2841/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2841/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2841/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2841/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2841/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2841/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2841/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2841/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2841/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2841/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2841/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2841/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2841/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2841/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2841/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2841/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2841/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2841/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2841/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2841/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2841/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2841//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2841//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2841/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2841/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2841/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2841/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2841/develop/release-management/features/gluster/">
+              <span property="name">Gluster</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c375d2a16de823ba0f5ca7e4e11ad929?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c375d2a16de823ba0f5ca7e4e11ad929?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ramesh N</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2841/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="gluster-self-heal-monitoring">Gluster Self Heal Monitoring</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Gluster Self Heal helps to heal data on the gluster bricks when there are some inconsistencies among the replica pairs in the volume. Pro-active self-heal daemon runs in the background, diagnoses issues and automatically initiates self-healing every 10 minutes on the files which require healing. oVirt needs to monitor gluster self heal status so that user can know that his volume needs healing. Also it is important to prevent hosts from moving to maintenance when there are some unsynced entries in the bricks which needs to be healed. This document talks about the design of Gluster Self Heal monitoring from oVirt and how this can be used in host maintenance and fencing flows.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Ramesh Nachimuthu (rnachimu)</li>
+  <li>Email: <a href="mailto:rnachimu@redhat.com">rnachimu@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+<ul>
+  <li>Target Release: 4.0</li>
+  <li>Status: In development.</li>
+</ul>
+
+<h2 id="monitoring-self-heal">Monitoring Self Heal</h2>
+<p>We will monitor self heal status at the volume level. ‘gluster volume heal VOLNAME info’ command will be used to get the heal info. If there are some unsynced entries in the volume then volume will be marked as ‘Needs Healing’ and bricks which are having unsynced entries will be marked accordingly. oVirt will sync self heal info for all the gluster volumes with frequency of 10 minutes. Synchronization frequency can be changed using engine-config option ‘GlusterRefreshRateHealInfo’.</p>
+
+<h2 id="entity-changes">Entity Changes</h2>
+<p>Following entities will be changed as part of Gluster self heal monitoring.</p>
+
+<h3 id="gluster_volume_bricks">Gluster_volume_bricks</h3>
+<p>Following columns will be added to gluster_volume_bricks table.</p>
+
+<p>unsynced_entries  - integer - No.of unsynced entries in the brick.</p>
+
+<p>unsynced_entries_history - text - History of unsynced entries in the brick. It will be a list of comma separated values. By default, last 40 entries will be stored in the field. The limit can be changed using engine-config option ‘GlusterUnSyncedEntriesHistoryLimit’.</p>
+
+<h2 id="host-fencing">Host Fencing</h2>
+<p>New fencing policies will be added for Gluster Quorum and Brick Status. These policies can be enabled at Cluster level.
+These policies will be checked after all other existing policies. Similar to existing fencing policies, these policies will not prevent SSH Soft fencing. These police information will be passed to ‘fenceNode’ VDSM verb and following check will be executed before fencing the host.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (host supports both gluster &amp; virt services)
+  if(all bricks are down)
+    allow host fencing
+  else(some || all bricks are up)
+    if ('skip fencing if Bricks are up is enforced)
+      skip host fencing
+    else
+      if (quorum is not maintained without this host &amp;&amp; 'skip fencing if Quorum is not met' is enforced)
+        skip host fencing
+      else
+        allow host fencing
+</code></pre></div></div>
+
+<h4 id="note">Note:</h4>
+<p>Current Self-Heal info command takes long time to respond so ware working on a better way to determine if a host is source of self healing. Until then, we will check just the brick status.</p>
+
+<p>More info about standard host fencing is available at http://old.ovirt.org/Automatic_Fencing#Automatic_Fencing http://old.ovirt.org/Fence_kdump https://www.youtube.com/watch?v=V1JQtmdleaM</p>
+
+<h2 id="host-maintenance">Host Maintenance</h2>
+<p>Self-Heal status and Cluster quorum should be considered while moving the host to maintenance or fencing the host. Host will not be allowed to move to maintenance/fence when there are some unsynced entries present on the bricks from the particular host. Considering Heal info sync interval is 10 minutes, we will fetch heal info before moving the host to maintenance. If brick processes are down on the node then maintenance will be allowed. Also, we will provide a force option in the UI which can be used to move the host to maintenance even when there are some unsynced entries in the host.</p>
+
+<p>Host Maintenance will be enabled/disabled based on the following criteria.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Heal Status</th>
+      <th>Quorum Status</th>
+      <th>Maintenance/Fencing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bricks are Down</td>
+      <td>—</td>
+      <td>Allowed</td>
+    </tr>
+    <tr>
+      <td>Unsynced Entries present</td>
+      <td>—</td>
+      <td>Not Allowed</td>
+    </tr>
+    <tr>
+      <td>No Unsynced Entries</td>
+      <td>Quorum available without this Node</td>
+      <td>Allowed</td>
+    </tr>
+    <tr>
+      <td>No Unsynced Entries</td>
+      <td>Quorum not available without this Node</td>
+      <td>Not Allowed</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>###MaintenanceNumberOfVdssCommand (for Host Maintenance)
+  MaintenanceNumberOfVdssCommand is used for moving one or more number of hosts to maintenance. It will be enhanced to consider gluster self-heal and quorum before moving the host to maintenance. Following validations will be added to MaintenanceNumberOfVdssCommand.validate() method.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> if (host supports both gluster &amp; virt services &amp; not force-maintenance)
+  if(all bricks are down)
+    allow host maintenance
+  else(some || all bricks are up)
+    if (unsynced entries  &gt; 0 for any up brick) //Entries needs to be healed from this host
+      disable host maintenance
+    else
+      if (quorum is maintained (bricks and nodes for ALL volumes) with this host down)
+        allow host maintenance
+      else
+        disable host maintenance
+</code></pre></div></div>
+
+<h2 id="ui-changes">UI Changes</h2>
+
+<h3 id="volumes-tab">Volumes Tab</h3>
+<p>New icon with warning symbol will be shown on the status column for the volumes with unsynced entries and tool tip will show the text ‘UP/Some Bricks Down, Unsynced entries present - Needs healing’</p>
+
+<h3 id="bricks-sub-tab">Bricks Sub Tab</h3>
+<p>New icon with warning symbol will be shown on the status column for the bricks with unsynced entries and tool tip will show the text ‘UP,  X unsynced entries present’</p>
+
+<p>‘Self-Heal Info’ column will be added to bricks sub tab under Volumes and Hosts tab. This will show one of the following details based the available information.</p>
+
+<ul>
+  <li>‘N/A’ when there self-heal info is not available</li>
+  <li>‘OK’ when there is no unsynced entry present in the volume</li>
+  <li>‘X unsynced entries present’ when unsynced entries present and its not getting reduced (healed)</li>
+  <li>Expected time to heal all the unsynced entries will be shown if more then two values found in ‘unsynced_entries_history’ for the brick and it shows.</li>
+</ul>
+
+<p>#####Note: 
+Expected time to heal is computed as follows:</p>
+
+<ol>
+  <li>Calculate the average heal rate using ‘unsynced_entries_history’. For example, if we have values ‘1000, 800, 600’ in 
+‘unsynced_entries_history’ and self-heal info sync frequency is 10 minutes then average heal rate will be 20 minutes.</li>
+  <li>Expected time to heal is calculated using unSyncedEntries/average heal rate.</li>
+</ol>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2841/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2841/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2841/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2841/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/gluster/gluster-self-heal-monitoring.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/gluster/gluster-self-heal-monitoring.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

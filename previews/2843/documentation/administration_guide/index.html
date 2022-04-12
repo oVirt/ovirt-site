@@ -10170,7 +10170,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <p><a href="#Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning">Adding a Red Hat Satellite Instance for Host Provisioning</a></p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.7/html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts">Host Management Without Goferd and Katello Agent</a> in the Red Hat Satellite document <em>Managing Hosts</em></p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts">Host Management Without Goferd and Katello Agent</a> in the Red Hat Satellite document <em>Managing Hosts</em></p>
 </li>
 </ul>
 </div>
@@ -10890,21 +10890,16 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-</li>
-<li>
-<p>For oVirt Nodes, the <code>centos-release-ovirt45</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
-</div>
-</div>
+<p>For oVirt Nodes the <code>centos-release-ovirt45`</code> RPM package enabling the correct repositories is already installed.</p>
 </li>
 <li>
 <p>For Enterprise Linux hosts:</p>
+</li>
+<li>
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
 </div>
 </div>
 </li>
@@ -11015,30 +11010,53 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <ol class="arabic">
 <li>
 <p>Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Upgrading from an older 4.5 to latest 4.5:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<p>For oVirt Nodes, the <code>centos-release-ovirt45</code> RPM package enabling the correct repositories is already installed.</p>
 </li>
 <li>
-<p>For oVirt Nodes, the <code>centos-release-ovirt45</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
+<p>For Enterprise Linux hosts:</p>
+</li>
+<li>
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
 </div>
 </div>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Upgrading from an older 4.4 to latest 4.4:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>For Enterprise Linux hosts:</p>
+<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed.</p>
+</li>
+<li>
+<p>For Enterprise Linux hosts ensure <code>ovirt-release44</code> RPM package is updated to the latest version:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
 </div>
 </div>
 </li>
 </ul>
 </div>
-</li>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select the host to be updated.</p>
 </li>
@@ -17408,7 +17426,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <dl>
 <dt class="hdlist1"><strong>Red Hat Satellite for Host Provisioning</strong></dt>
 <dd>
-<p>Satellite is a tool for managing all aspects of the life cycle of both physical and virtual hosts. In oVirt, hosts managed by Satellite can be added to and used by the oVirt Engine as virtualization hosts. After you add a Satellite instance to the Engine, the hosts managed by the Satellite instance can be added by searching for available hosts on that Satellite instance when adding a new host. For more information on installing Red Hat Satellite and managing hosts using Red Hat Satellite, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.2/html/installation_guide/"><em>Red Hat Satellite Installation Guide</em></a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.2/html/host_configuration_guide/"><em>Red Hat Satellite Host Configuration Guide</em></a>.</p>
+<p>Satellite is a tool for managing all aspects of the life cycle of both physical and virtual hosts. In oVirt, hosts managed by Satellite can be added to and used by the oVirt Engine as virtualization hosts. After you add a Satellite instance to the Engine, the hosts managed by the Satellite instance can be added by searching for available hosts on that Satellite instance when adding a new host. For more information on installing Red Hat Satellite and managing hosts using Red Hat Satellite, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/quick_start_guide/"><em>Red Hat Satellite Quick Start Guide</em></a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/managing_hosts/"><em>Red Hat Satellite Managing Hosts</em></a>.</p>
 </dd>
 </dl>
 </div>
@@ -17416,7 +17434,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <dl>
 <dt class="hdlist1"><strong>KubeVirt/Openshift Virtualization</strong></dt>
 <dd>
-<p>Openshift Virtualization (formerly container-native virtualization or "CNV") enables you to bring virtual machines (VMs) into containerized workflows so you can develop, manage, and deploy virtual machines side-by-side with containers and serverless. In oVirt Engine, adding this provider is one of the requirements for using {container-platform-virt}. For details, see <a href="#proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">Adding KubeVirt/Openshift Virtualization as an external provider</a>.</p>
+<p>Openshift Virtualization (formerly container-native virtualization or "CNV") enables you to bring virtual machines (VMs) into containerized workflows so you can develop, manage, and deploy virtual machines side-by-side with containers and serverless. In oVirt Engine, adding this provider is one of the requirements for using Openshift Virtualization. For details, see <a href="#proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">Adding KubeVirt/Openshift Virtualization as an external provider</a>.</p>
 </dd>
 <dt class="hdlist1"><strong>OpenStack Image Service (Glance) for Image Management</strong></dt>
 <dd>
@@ -19656,7 +19674,7 @@ broker : 25, type : broker</pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -20800,12 +20818,24 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 <p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.4:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -21318,12 +21348,24 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 <p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.4:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -21789,12 +21831,24 @@ and disable global maintenance mode:</p>
 <p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.4:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -23886,7 +23940,7 @@ transfer URL.</p>
 <div class="sect2">
 <h3 id="chap-Errata_Management_with_Satellite">3.3. Setting up errata viewing with Red Hat Satellite</h3>
 <div class="paragraph">
-<p>In the Administration Portal, you can configure oVirt to view errata from Red Hat Satellite in the oVirt Engine. After you associate your hosts, virtual machines, and the Engine with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.7/">Red Hat Satellite Documentation</a>.</p>
+<p>In the Administration Portal, you can configure oVirt to view errata from Red Hat Satellite in the oVirt Engine. After you associate your hosts, virtual machines, and the Engine with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/">Red Hat Satellite Documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>oVirt 4.4 supports viewing errata with Red Hat Satellite 6.6.</p>

@@ -177,7 +177,7 @@ Make sure that the installation does not format the other disks, as bricks are c
 # yum install <appliance>
 ----
 +
-. Blacklist the devices used for Gluster bricks.
+. Disable the devices used for Gluster bricks.
 
 .. Create the new SSH private and public key pairs.
 
@@ -344,7 +344,7 @@ If there are any failures during self-hosted engine deployment, find the problem
 Make sure that the installation does not format the other disks, as bricks are created on top of those disks.
 ====
 
-.. If multipath configuration is not available on the newly installed host, blacklist the Gluster devices. The inventory file is already created in the first host as part of the step _Blacklist the devices used for Gluster bricks_.
+.. If multipath configuration is not available on the newly installed host, denylist the Gluster devices. The inventory file is already created in the first host as part of the step _Disable the devices used for Gluster bricks_.
 +
 ... Set up SSH public key authentication from the first host to the newly installed host.
 ... Update the inventory with the new host name.

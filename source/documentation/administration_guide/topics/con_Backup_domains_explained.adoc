@@ -31,6 +31,6 @@ Some reasons to use a backup domain, rather than an export domain, are listed he
 * A backup domain cannot be the target of memory volumes because memory volumes are only supported for active virtual machines.
 * You cannot preview a virtual machine on a backup domain.
 * Live migration of a virtual machine to a backup domain is not possible.
-* You cannot set a backup domain to be the master domain.
+* You cannot set a backup domain to be the `master` domain.
 * You cannot set a Self-hosted engine's domain to be a backup domain.
 * Do not use the default storage domain as a backup domain.

@@ -43,7 +43,7 @@ Virtual machines with vNICs that are directly connected to a virtual function (V
 +
 The bond and vNIC profiles can be configured in one of the following ways:
 
-* The bond is not configured with `fail_over_mac=active` and the VF vNIC is the primary slave (recommended).
+* The bond is not configured with `fail_over_mac=active` and the VF vNIC is the primary `slave` (recommended).
 +
 Disable the VirtIO vNIC profile's MAC-spoofing filter to ensure that traffic passing through the VirtIO vNIC is not dropped because it uses the VF vNIC MAC address.
 //See link:{URL_rhel_docs_legacy}html-single/virtualization_deployment_and_administration_guide/index#sect-Virtual_Networking-Applying_network_filtering[Applying Network Filtering] in the _RHEL 7 Virtualization Deployment and Administration Guide_.
@@ -82,4 +82,4 @@ The virtual machine has three network interfaces: a controller interface and two
   RUN+="/bin/sh -c '/sbin/ip link set up $INTERFACE'"
 ----
 +
-This `udev` rule works only on systems that manage interfaces with `NetworkManager`. This rule ensures that only the master interface is activated.
+This `udev` rule works only on systems that manage interfaces with `NetworkManager`. This rule ensures that only the `master` interface is activated.

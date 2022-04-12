@@ -6,13 +6,13 @@
 
 The host that can make changes to the structure of the data domain is known as the Storage Pool Manager (SPM). The SPM coordinates all metadata changes in the data center, such as creating and deleting disk images, creating and merging snapshots, copying images between storage domains, creating templates and storage allocation for block devices. There is one SPM for every data center. All other hosts can only read storage domain structural metadata.
 
-A host can be manually selected as the SPM, or it can be assigned by the {virt-product-fullname} {engine-name}. The {engine-name} assigns the SPM role by causing a potential SPM host to attempt to assume a storage-centric lease. The lease allows the SPM host to write storage metadata. It is storage-centric because it is written to the storage domain rather than being tracked by the {engine-name} or hosts. Storage-centric leases are written to a special logical volume in the master storage domain called *leases*. Metadata about the structure of the data domain is written to a special logical volume called *metadata*. The *leases* logical volume protects the *metadata* logical volume from changes.
+A host can be manually selected as the SPM, or it can be assigned by the {virt-product-fullname} {engine-name}. The {engine-name} assigns the SPM role by causing a potential SPM host to attempt to assume a storage-centric lease. The lease allows the SPM host to write storage metadata. It is storage-centric because it is written to the storage domain rather than being tracked by the {engine-name} or hosts. Storage-centric leases are written to a special logical volume in the `master` storage domain called *leases*. Metadata about the structure of the data domain is written to a special logical volume called *metadata*. The *leases* logical volume protects the *metadata* logical volume from changes.
 
 The {engine-name} uses VDSM to issue the *spmStart* command to a host, causing VDSM on that host to attempt to assume the storage-centric lease. If the host is successful it becomes the SPM and retains the storage-centric lease until the {virt-product-fullname} {engine-name} requests that a new host assume the role of SPM.
 
 The {engine-name} moves the SPM role to another host if:
 
-* The SPM host can not access all storage domains, but can access the master storage domain
+* The SPM host can not access all storage domains, but can access the `master` storage domain
 
 * The SPM host is unable to renew the lease because of a loss of storage connectivity or the lease volume is full and no write operation can be performed
 

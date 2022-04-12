@@ -53,14 +53,16 @@ This failover policy ensures that the MAC address of the bond is always the MAC 
 
 [id="Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime"]
 = Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime
+
 To configure virtual machines for migration with SR-IOV enabled vNICs and minimal downtime follow the procedure described below.
+
 [NOTE]
 ====
 The following steps are provided only as a Technology Preview. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
 ====
 
 . Create a vNIC profile with SR-IOV enabled vNICS.
-See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Creating_a_VNIC_Profile[Creating a vNIC profile] and link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/administration_guide/sect-hosts_and_networking#setting-up-and-configuring-sr-iov[Setting up and configuring SR-IOV].
+See link:{URL_downstream_virt_product_docs}administration_guide/index#Creating_a_VNIC_Profile[Creating a vNIC profile] and link:{URL_downstream_virt_product_docs}administration_guide/index#setting-up-and-configuring-sr-iov[Setting up and configuring SR-IOV].
 . In the Administration Portal, go to menu:Network[VNIC profiles], select the vNIC profile, click btn:[Edit] and select a `Failover vNIC profile` from the drop down list.
 . Click btn:[OK] to save the profile settings.
 . Hotplug a network interface with the failover vNIC profile you created into the virtual machine, or start a virtual machine with this network interface plugged in.

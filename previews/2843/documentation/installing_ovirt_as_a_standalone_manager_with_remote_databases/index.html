@@ -2505,7 +2505,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <p>Start the machine on which you are installing oVirt Node, booting from the prepared installation media.</p>
 </li>
 <li>
-<p>From the boot menu, select <strong>Install oVirt Node 4.4</strong> and press <code>Enter</code>.</p>
+<p>From the boot menu, select <strong>Install oVirt Node 4.5</strong> and press <code>Enter</code>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2653,10 +2653,11 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <pre class="CodeRay highlight"><code data-lang="terminal"># imgbased: set-enabled
 [custom-sssd-ldap]
 name = Provides sssd-ldap
-mirrorlist = <a href="http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra" class="bare">http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra</a>
-gpgcheck = 1
-enabled = 1
-gpgkey = <a href="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial" class="bare">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial</a>
+mirrorlist=http://mirrorlist.centos.org/?release=$stream&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra
+#baseurl=http://mirror.centos.org/$contentdir/$stream/BaseOS/$basearch/os/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 includepkgs = sssd-ldap</code></pre>
 </div>
 </div>
@@ -3986,7 +3987,7 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <div class="sect2">
 <h3 id="Preparing_Red_Hat_Gluster_Storage_SM_remoteDB_deploy">5.6. Preparing Gluster Storage</h3>
 <div class="paragraph">
-<p>For information on setting up and configuring Gluster Storage, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5/html/installation_guide/"><em>Gluster Storage Installation Guide</em></a>.</p>
+<p>For information on setting up and configuring Gluster Storage, see the <a href="https://docs.gluster.org/en/latest/Install-Guide/Overview/"><em>Gluster Storage Installation Guide</em></a>.</p>
 </div>
 </div>
 <div class="sect2">

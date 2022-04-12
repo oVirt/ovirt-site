@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Assigning virtual GPUs | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Assigning virtual GPUs" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2849/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2849/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Assigning virtual GPUs" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Assigning virtual GPUs","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2849/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2849/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2849/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2849/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2849/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2849/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2849/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2849/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2849/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2849/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2849/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2849/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2849/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2849/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2849/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2849/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2849/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2849/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2849/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2849/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2849/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2849/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2849/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2849/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2849//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2849//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2849/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2849/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2849/documentation/assembly-Setting_up_a_gpu_on_a_vm/">
+              <span property="name">Assembly Setting Up A Gpu On A Vm</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To set up NVIDIA vGPU devices, you need to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Obtain and install the correct NVIDIA vGPU driver for your GPU device</p>
+</li>
+<li>
+<p>Create mediated devices</p>
+</li>
+<li>
+<p>Assign each mediated device to a virtual machine</p>
+</li>
+<li>
+<p>Install guest drivers on each virtual machine.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following procedures explain this process.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc_setting-up-nvidia-vgpu-devices_nvidia_vgpu">Setting up NVIDIA vGPU devices on the host</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Before installing the NVIDIA vGPU driver on the guest operating system, you need to understand the licensing requirements and obtain the correct license credentials.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="prerequisites-nvidia_vgpu" class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Your GPU device supports virtual GPU (vGPU) functionality.</p>
+</li>
+<li>
+<p>Your system is listed as a validated server hardware platform.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information about supported GPUs and validated platforms, see <a href="https://www.nvidia.com/en-us/data-center/resources/vgpu-certified-servers/">NVIDIA vGPU CERTIFIED SERVERS</a> on www.nvidia.com.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Download and install the NVIDIA driver for the host. For information on getting the driver, see <a href="https://www.nvidia.com/Download/index.aspx?lang=en-us">the Drivers page on the NVIDIA website</a>.</p>
+</li>
+<li>
+<p>If the NVIDIA software installer did not create the <code class="filename">/etc/modprobe.d/nvidia-installer-disable-nouveau.conf</code> file, create it manually.</p>
+</li>
+<li>
+<p>Open <code class="filename">/etc/modprobe.d/nvidia-installer-disable-nouveau.conf</code> file in a text editor and add the following lines to the end of the file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">blacklist nouveau
+options nouveau modeset=0</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Regenerate the initial ramdisk for the current kernel, then reboot:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># <strong>dracut --force</strong>
+# <strong>reboot</strong></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, if you need to use a prior supported kernel version with mediated devices, regenerate the initial ramdisk for all installed kernel versions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># <strong>dracut --regenerate-all --force</strong>
+# <strong>reboot</strong></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check that the kernel loaded the <code class="filename">nvidia_vgpu_vfio</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># lsmod | grep nvidia_vgpu_vfio</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check that the <code>nvidia-vgpu-mgr.service</code> service is running:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># systemctl status nvidia-vgpu-mgr.service</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># lsmod | grep nvidia_vgpu_vfio
+nvidia_vgpu_vfio 45011 0
+nvidia 14333621 10 nvidia_vgpu_vfio
+mdev 20414 2 vfio_mdev,nvidia_vgpu_vfio
+vfio 32695 3 vfio_mdev,nvidia_vgpu_vfio,vfio_iommu_type1
+# systemctl status nvidia-vgpu-mgr.service
+nvidia-vgpu-mgr.service - NVIDIA vGPU Manager Daemon
+   Loaded: loaded (/usr/lib/systemd/system/nvidia-vgpu-mgr.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2018-03-16 10:17:36 CET; 5h 8min ago
+ Main PID: 1553 (nvidia-vgpu-mgr)
+ [...]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
+</li>
+<li>
+<p>Click the name of the virtual machine to go to the details view.</p>
+</li>
+<li>
+<p>Click the <strong>Host Devices</strong> tab.</p>
+</li>
+<li>
+<p>Click the <b class="button">Manage vGPU</b> button. The <strong>Manage vGPU</strong> dialog box opens.</p>
+</li>
+<li>
+<p>Select a vGPU type and the number of instances that you would like to use with this virtual machine.</p>
+</li>
+<li>
+<p>Select <strong>On</strong> for <strong>Secondary display adapter for VNC</strong> to add a second emulated QXL or VGA graphics adapter as the primary graphics adapter for the console in addition to the vGPU.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>On cluster levels 4.5 and later, when a vGPU is used and the <strong>Secondary display adapter for VNC</strong> is set to <strong>On</strong>, an additional framebuffer display device is automatically added to the virtual machine. This allows the virtual machine console to be displayed before the vGPU is initialized, instead of a blank screen.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <b class="button">Save</b>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc_install-nvidia-vgpu-guest-driver_nvidia_vgpu">Installing the vGPU driver on the virtual machine</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Run the virtual machine and connect to it using the VNC console.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>SPICE is not supported on vGPU.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Download the driver to the virtual machine. For information on getting the driver, see <a href="https://www.nvidia.com/Download/index.aspx?lang=en-us">the Drivers page on the NVIDIA website</a>.</p>
+</li>
+<li>
+<p>Install the vGPU driver, following the instructions in <a href="https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#installing-grid-vgpu-display-drivers">Installing the NVIDIA vGPU Software Graphics Driver</a> in the <em>NVIDIA Virtual GPU software documentation</em>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Linux only:</strong> When installing the driver on a Linux guest operating system, you are prompted to update xorg.conf. If you do not update xorg.conf during the installation, you need to update it manually.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>After the driver finishes installing, reboot the machine. <strong>For Windows virtual machines,</strong> fully power off the guest from the Administration portal or the VM portal, not from within the guest operating system.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Windows only:</strong> Powering off the virtual machine from within the Windows guest operating system sometimes sends the virtual machine into hibernate mode, which does not completely clear the memory, possibly leading to subsequent problems. Using the Administration portal or the VM portal to power off the virtual machine forces it to fully clean the memory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Run the virtual machine and connect to it using one of the supported remote desktop protocols, such as Mechdyne TGX, and verify that the vGPU is recognized by opening the NVIDIA Control Panel. On Windows, you can alternatively open the Windows Device Manager. The vGPU should appear under <strong>Display adapters</strong>. For more information, see the <a href="https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#installing-grid-vgpu-display-drivers">NVIDIA vGPU Software Graphics Driver</a> in the <em>NVIDIA Virtual GPU software documentation</em>.</p>
+</li>
+<li>
+<p>Set up NVIDIA vGPU guest software licensing for each vGPU and add the license credentials in the NVIDIA control panel. For more information, see  <a href="https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html#how-grid-licensing-works">How NVIDIA vGPU Software Licensing Is Enforced</a> in the <em>NVIDIA Virtual GPU Software Documentation</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc_removing-nvidia-vgpu-devices_nvidia_vgpu">Removing NVIDIA vGPU devices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To change the configuration of assigned vGPU mediated devices, the existing devices have to be removed from the assigned guests.</p>
+</div>
+<div class="olist discrete">
+<div class="title">Procedure</div>
+<ol class="discrete">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
+</li>
+<li>
+<p>Click the name of the virtual machine to go to the details view.</p>
+</li>
+<li>
+<p>Click the <strong>Host Devices</strong> tab.</p>
+</li>
+<li>
+<p>Click the <b class="button">Manage vGPU</b> button. The <strong>Manage vGPU</strong> dialog box opens.</p>
+</li>
+<li>
+<p>Click the <b class="button">x</b> button next to <strong>Selected vGPU Type Instances</strong> to detach the vGPU from the virtual machine.</p>
+</li>
+<li>
+<p>Click <b class="button">SAVE</b>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc_obtaining-nvidia-vgpu-information-about-your-system_nvidia_vgpu">Monitoring NVIDIA vGPUs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For NVIDIA vGPUS, to get info on the physical GPU and vGPU, you can use the NVIDIA System Management Interface by entering the <code class="command">nvidia-smi</code> command on the host. For more information, see <a href="https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#performance-monitoring-gpu-nvidia-smi">NVIDIA System Management Interface nvidia-smi</a> in the <em>NVIDIA Virtual GPU Software Documentation</em>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># nvidia-smi
+Thu Nov  1 17:40:09 2018
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 410.62                 Driver Version: 410.62                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla M60           On   | 00000000:84:00.0 Off |                  Off |
+| N/A   40C    P8    24W / 150W |   1034MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla M60           On   | 00000000:85:00.0 Off |                  Off |
+| N/A   33C    P8    23W / 150W |   8146MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla M60           On   | 00000000:8B:00.0 Off |                  Off |
+| N/A   34C    P8    24W / 150W |   8146MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla M60           On   | 00000000:8C:00.0 Off |                  Off |
+| N/A   45C    P8    24W / 150W |     18MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0     34432    C+G   vgpu                                         508MiB |
+|    0     34718    C+G   vgpu                                         508MiB |
+|    1     35032    C+G   vgpu                                        8128MiB |
+|    2     35032    C+G   vgpu                                        8128MiB |
++-----------------------------------------------------------------------------+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ref_remote-desktop-streaming-services-for-nvidia-vgpu_nvidia_vgpu">Remote desktop streaming services for NVIDIA vGPU</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following remote desktop streaming services have been successfully tested for use with the NVIDIA vGPU feature in RHEL 8:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HP-RGS</p>
+</li>
+<li>
+<p>Mechdyne TGX - It is currently not possible to use Mechdyne TGX with Windows Server 2016 guests.</p>
+</li>
+<li>
+<p>NICE DCV - When using this streaming service, use fixed resolution settings, because using dynamic resolution in some cases results in a black screen.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2849/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2849/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2849/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2849/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-nvidia-vgpu-devices.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

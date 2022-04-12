@@ -55,4 +55,6 @@ In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 
  SSO is not supported for virtual machines running {enterprise-linux} 8 or later, or for Windows operating systems.
 
+|oVirt Scheduler Proxy | `ovirt-scheduler-proxy` is deprecated. Development has been discontinued. It will be removed in a future release.
+
 |===

@@ -76,6 +76,6 @@ You can find us on both our mailing list and IRC if you run into trouble when se
 # Setting up a development environment
 
 Each subproject should have instructions on how to setup your development environment to be able to develop and test your changes.
-If you don't find adeguate documentation and you need help, please contact us on IRC or on the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
+If you don't find adequate documentation and you need help, please contact us on IRC or on the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
 
 </section>

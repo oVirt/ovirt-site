@@ -10170,7 +10170,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <p><a href="#Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning">Adding a Red Hat Satellite Instance for Host Provisioning</a></p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts">Host Management Without Goferd and Katello Agent</a> in the Red Hat Satellite document <em>Managing Hosts</em></p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts">Host Management Without Goferd and Katello Agent</a> in the Red Hat Satellite document <em>Managing Hosts</em></p>
 </li>
 </ul>
 </div>
@@ -17402,7 +17402,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <dl>
 <dt class="hdlist1"><strong>Red Hat Satellite for Host Provisioning</strong></dt>
 <dd>
-<p>Satellite is a tool for managing all aspects of the life cycle of both physical and virtual hosts. In oVirt, hosts managed by Satellite can be added to and used by the oVirt Engine as virtualization hosts. After you add a Satellite instance to the Engine, the hosts managed by the Satellite instance can be added by searching for available hosts on that Satellite instance when adding a new host. For more information on installing Red Hat Satellite and managing hosts using Red Hat Satellite, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/quick_start_guide/"><em>Red Hat Satellite Quick Start Guide</em></a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/managing_hosts/"><em>Red Hat Satellite Managing Hosts</em></a>.</p>
+<p>Satellite is a tool for managing all aspects of the life cycle of both physical and virtual hosts. In oVirt, hosts managed by Satellite can be added to and used by the oVirt Engine as virtualization hosts. After you add a Satellite instance to the Engine, the hosts managed by the Satellite instance can be added by searching for available hosts on that Satellite instance when adding a new host. For more information on installing Red Hat Satellite and managing hosts using Red Hat Satellite, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/quick_start_guide/"><em>Red Hat Satellite Quick Start Guide</em></a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/managing_hosts/"><em>Red Hat Satellite Managing Hosts</em></a>.</p>
 </dd>
 </dl>
 </div>
@@ -20800,7 +20800,8 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2833/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -20843,6 +20844,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>
@@ -21326,7 +21335,8 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2833/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21369,6 +21379,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>
@@ -21805,7 +21823,8 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2833/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21840,6 +21859,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>
@@ -23904,7 +23931,7 @@ transfer URL.</p>
 <div class="sect2">
 <h3 id="chap-Errata_Management_with_Satellite">3.3. Setting up errata viewing with Red Hat Satellite</h3>
 <div class="paragraph">
-<p>In the Administration Portal, you can configure oVirt to view errata from Red Hat Satellite in the oVirt Engine. After you associate your hosts, virtual machines, and the Engine with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/">Red Hat Satellite Documentation</a>.</p>
+<p>In the Administration Portal, you can configure oVirt to view errata from Red Hat Satellite in the oVirt Engine. After you associate your hosts, virtual machines, and the Engine with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/">Red Hat Satellite Documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>oVirt 4.4 supports viewing errata with Red Hat Satellite 6.6.</p>

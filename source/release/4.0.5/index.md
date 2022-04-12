@@ -18,7 +18,7 @@ This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
 
-An updated documentation has been provided by our downstream 
+An updated documentation has been provided by our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)
 
 
@@ -74,10 +74,10 @@ Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should foll
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please follow
-Red Hat Virtualization [Self Hosted Engine Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/self-hosted-engine-guide/)
+Red Hat Virtualization [Self Hosted Engine Guide](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.0/html/self-hosted_engine_guide/)
 
 If you're upgrading an existing Hosted Engine setup, please follow
-Red Hat Virtualization [Upgrade Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/)
+Red Hat Virtualization [Upgrade Guide](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.0/html/upgrade_guide/)
 
 ## Known issues
 
@@ -322,4 +322,3 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 #### Team: SLA
 
  - [BZ 1388394](https://bugzilla.redhat.com/show_bug.cgi?id=1388394) <b>Cancel optimizer/ start here buttons doesn't work properly</b><br>
-

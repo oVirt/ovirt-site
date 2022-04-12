@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Python SDK Guide | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Python SDK Guide" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2846/documentation/doc-Python_SDK_Guide/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2846/documentation/doc-Python_SDK_Guide/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Python SDK Guide" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Python SDK Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2846/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2846/documentation/doc-Python_SDK_Guide/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2846/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2846/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2846/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2846/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2846/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2846/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2846/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2846/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2846/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2846/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2846/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2846/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2846/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2846/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2846/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2846/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2846/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2846/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2846/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2846/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2846/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2846/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2846//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2846//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2846/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2846/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#chap-Overview">1. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#Python_SDK_Prerequisites">1.1. Prerequisites</a></li>
+<li><a href="#Installing_the_Software_Development_Kit">1.2. Installing the Python Software Development Kit</a></li>
+</ul>
+</li>
+<li><a href="#chap-Using_the_Software_Development_Kit">2. Using the Software Development Kit</a>
+<ul class="sectlevel2">
+<li><a href="#Packages">2.1. Packages</a></li>
+<li><a href="#Connecting_to_the_server">2.2. Connecting to the Server</a></li>
+<li><a href="#Using_types">2.3. Using Types</a></li>
+<li><a href="#Using_links">2.4. Using Links</a></li>
+<li><a href="#Locating_services">2.5. Locating Services</a></li>
+<li><a href="#using-services">2.6. Using Services</a>
+<ul class="sectlevel3">
+<li><a href="#Using_get_methods">2.6.1. Using <code>get</code> Methods</a></li>
+<li><a href="#Using_list_methods">2.6.2. Using <code>list</code> Methods</a></li>
+<li><a href="#Using_add_methods">2.6.3. Using <code>add</code> Methods</a></li>
+<li><a href="#Using_update_methods">2.6.4. Using <code>update</code> Methods</a></li>
+<li><a href="#Using_remove_methods">2.6.5. Using <code>remove</code> Methods</a></li>
+<li><a href="#Using_other_action_methods">2.6.6. Using Other Action Methods</a></li>
+</ul>
+</li>
+<li><a href="#Additional_resources">2.7. Additional Resources</a>
+<ul class="sectlevel3">
+<li><a href="#generating-documentation-for-modules">2.7.1. Generating documentation for modules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-Python_Examples">3. Python Examples</a>
+<ul class="sectlevel2">
+<li><a href="#Examples_overview">3.1. Overview</a></li>
+<li><a href="#Connecting_to_the_Red_Hat_Virtualization_Manager">3.2. Connecting to the oVirt Engine in Version 4</a></li>
+<li><a href="#Listing_Data_Centers">3.3. Listing Data Centers</a></li>
+<li><a href="#Listing_Clusters">3.4. Listing Clusters</a></li>
+<li><a href="#Listing_Hosts">3.5. Listing Hosts</a></li>
+<li><a href="#Listing_Logical_Networks">3.6. Listing Logical Networks</a></li>
+<li><a href="#Listing_virtual_machines_and_total_disk_size">3.7. Listing Virtual Machines and Total Disk Size</a></li>
+<li><a href="#Creating_NFS_Data_Storage">3.8. Creating NFS Data Storage</a></li>
+<li><a href="#Creating_NFS_ISO_Storage">3.9. Creating NFS ISO Storage</a></li>
+<li><a href="#Attaching_Storage_Domains_to_a_Data_Center">3.10. Attaching a Storage Domain to a Data Center</a></li>
+<li><a href="#Activating_a_Storage_Domain">3.11. Activating a Storage Domain</a></li>
+<li><a href="#Listing_Files_in_an_ISO_Storage_Domain">3.12. Listing Files in an ISO Storage Domain</a></li>
+<li><a href="#Creating_a_Virtual_Machine">3.13. Creating a Virtual Machine</a></li>
+<li><a href="#Creating_a_Virtual_NIC">3.14. Creating a Virtual NIC</a></li>
+<li><a href="#Creating_a_Virtual_Machine_Disk">3.15. Creating a Virtual Machine Disk</a></li>
+<li><a href="#Attaching_an_ISO_Image_to_a_Virtual_Machine">3.16. Attaching an ISO Image to a Virtual Machine</a></li>
+<li><a href="#Detaching_a_Disk">3.17. Detaching a Disk</a></li>
+<li><a href="#Starting_a_Virtual_Machine">3.18. Starting a Virtual Machine</a></li>
+<li><a href="#Starting_a_Virtual_Machine_with_Overridden_Parameters">3.19. Starting a Virtual Machine with Overridden Parameters</a></li>
+<li><a href="#Starting_a_Virtual_Machine_with_Cloud-Init">3.20. Starting a Virtual Machine with Cloud-Init</a></li>
+<li><a href="#Checking_System_Events">3.21. Checking System Events</a></li>
+</ul>
+</li>
+<li><a href="#ovirt-legal-notice">Appendix A: Legal notice</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="chap-Overview">1. Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Version 4 of the Python software development kit is a collection of classes that allows you to interact with the oVirt Engine in Python-based projects. By downloading these classes and adding them to your project, you can access a range of functionality for high-level automation of administrative tasks.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Version 3 of the SDK is no longer supported. For more information, consult <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/python_sdk_guide/">the RHV 4.3 version of this guide</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Python 3.7 and <code>async</code></div>
+<p>In Python 3.7 and later versions, <a href="https://docs.python.org/3/reference/compound_stmts.html#async"><code>async</code></a> is a reserved keyword. You cannot use the <code>async</code> parameter in methods of services that previously supported it, as in the following example, because <code>async=True</code> will cause an error:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">dc = dc_service.update(
+    types.DataCenter(
+        description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Updated description</span><span style="color:#710">'</span></span>,
+    ),
+    async=<span style="color:#069">True</span>,
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The solution is to add an underscore to the parameter (<code>async_</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">dc = dc_service.update(
+    types.DataCenter(
+        description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Updated description</span><span style="color:#710">'</span></span>,
+    ),
+    async_=<span style="color:#069">True</span>,
+)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This limitation applies only to Python 3.7 and later. Earlier versions of Python do not require this modification.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="Python_SDK_Prerequisites">1.1. Prerequisites</h3>
+<div class="paragraph">
+<p>To install the Python software development kit, you must have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A system where Enterprise Linux 8 is installed. Both the Server and Workstation variants are supported.</p>
+</li>
+<li>
+<p>A subscription to oVirt entitlements.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The software development kit is an interface for the oVirt REST API. Use the version of the software development kit that corresponds to the version of your oVirt environment. For example, if you are using oVirt 4.3, use V4 Python software development kit.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Installing_the_Software_Development_Kit">1.2. Installing the Python Software Development Kit</h3>
+<div class="paragraph">
+<p>To install the Python software development kit:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enable the repositories that are <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/package_manifest/index">appropriate for your hardware platform</a>. For example, for x86-64 hardware, enable:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos \
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the required packages:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install python3-ovirt-engine-sdk4</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The Python software development kit is installed into the Python 3 site-packages directory, and the accompanying documentation and example are installed to <code class="filename">/usr/share/doc/python3-ovirt-engine-sdk4</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap-Using_the_Software_Development_Kit">2. Using the Software Development Kit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes how to use the software development kit for Version 4.</p>
+</div>
+<div class="sect2">
+<h3 id="Packages">2.1. Packages</h3>
+<div class="paragraph">
+<p>The following modules are most frequently used by the Python SDK:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">ovirtsdk4</dt>
+<dd>
+<p>This is the top level module. It most important element is the <code>Connection</code> class, which is the mechanism to connect to the server and to obtain the reference to the root of the services tree.</p>
+<div class="paragraph">
+<p>The <code>Error</code> class is the base exception class that the SDK will raise when it needs to report an error.</p>
+</div>
+<div class="paragraph">
+<p>For certain kinds of errors, there are specific error classes, which extend the base error class:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AuthError</code> - Raised when authentication or authorization fails.</p>
+</li>
+<li>
+<p><code>ConnectionError</code> - Raised when the name of the server cannot be resolved or the server is unreachable.</p>
+</li>
+<li>
+<p><code>NotFoundError</code> - Raised when the requested object does not exist.</p>
+</li>
+<li>
+<p><code>TimeoutError</code> - Raised when an operation times out.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">ovirtsdk4.types</dt>
+<dd>
+<p>This module contains the classes that implement the types used in the API. For example, the <code>ovirtsdk4.types.Vm</code> class is the implementation of the virtual machine type. These classes are data containers and do not contain any logic.</p>
+<div class="paragraph">
+<p>Instances of these classes are used as parameters and return values of service methods. The conversion to or from the underlying representation is handled transparently by the SDK.</p>
+</div>
+</dd>
+<dt class="hdlist1">ovirtsdk4.services</dt>
+<dd>
+<p>This module contains the classes that implement the services supported by the API. For example, the <code>ovirtsdk4.services.VmsService</code> class is the implementation of the service that manages the collection of virtual machines of the system.</p>
+<div class="paragraph">
+<p>Instances of these classes are automatically created by the SDK when a service is located. For example, a new instance of the <code>VmsService</code> class is automatically created by the SDK when doing the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vms_service = connection.system_service().vms_service()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is best to avoid creating instances of these classes manually, as the parameters of the constructors and, in general, all the methods except the service locators and service methods, may change in the future.</p>
+</div>
+<div class="paragraph">
+<p>There are other modules, like <code>ovirtsdk4.http</code>, <code>ovirtsdk4.readers</code>, and <code>ovirtsdk4.writers</code>. These are used to implement the HTTP communication and for XML parsing and rendering. Avoid using them, because they are internal implementation details that may change in the future; backwards compatibility is not guaranteed.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Connecting_to_the_server">2.2. Connecting to the Server</h3>
+<div class="paragraph">
+<p>To connect to the server, import the <code>ovirtsdk4</code> module, which contains the <code>Connection</code> class. This is the entry point of the SDK, and provides access to the root of the tree of services of the API:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The connection holds critical resources, including a pool of HTTP connections to the server and an authentication token. It is very important to free these resources when they are no longer in use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once a connection is closed, it cannot be reused.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ca.pem</code> file is required when connecting to a server protected with TLS. In a normal installation, it is located in <strong>/etc/pki/ovirt-engine/</strong> on the Engine machine. If you do not specify the <code>ca_file</code>, the system-wide CA certificate store will be used. For more information on obtaining the <code>ca.pem</code> file, see the  <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#documents-002_authentication_and_security"><em>REST API Guide</em></a>.</p>
+</div>
+<div class="paragraph">
+<p>If the connection is not successful, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Using_types">2.3. Using Types</h3>
+<div class="paragraph">
+<p>The classes in the <code>ovirtsdk4.types</code> module are pure data containers. They do not have any logic or operations. Instances of types can be created and modified at will.</p>
+</div>
+<div class="paragraph">
+<p>Creating or modifying an instance does not affect the server side, unless the change is explicitly passed with a call to one of the service methods described below. Changes on the server side are not automatically reflected in the instances that already exist in memory.</p>
+</div>
+<div class="paragraph">
+<p>The constructors of these classes have multiple optional arguments, one for each attribute of the type. This is intended to simplify creation of objects using nested calls to multiple constructors. This example creates an instance of a virtual machine, specifying its cluster name,  template, and memory, in bytes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">types</span>
+
+vm = types.Vm(
+    name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>,
+    cluster=types.Cluster(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Default</span><span style="color:#710">'</span></span>
+    ),
+    template=types.Template(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mytemplate</span><span style="color:#710">'</span></span>
+    ),
+    memory=<span style="color:#00D">1073741824</span>
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using the constructors in this way is recommended, but not mandatory. You can also create the instance with no arguments in the call to the constructor and populate the object step by step, using the setters, or by using a mix of both approaches:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vm = types.Vm()
+vm.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>
+vm.cluster = types.Cluster(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Default</span><span style="color:#710">'</span></span>)
+vm.template = types.Template(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mytemplate</span><span style="color:#710">'</span></span>)
+vm.memory=<span style="color:#00D">1073741824</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attributes that are defined as lists of objects in the specification of the API are implemented as Python lists. For example, the <code>custom_properties</code> attributes of the <code>Vm</code> type are defined as a list of objects of type <code>CustomProperty</code>. When the attributes are used in the SDK, they are a Python list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vm = types.Vm(
+    name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>,
+    custom_properties=[
+        types.CustomProperty(...),
+        types.CustomProperty(...),
+        ...
+    ]
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attributes that are defined as enumerated values in API are implemented as <code>enum</code> in Python, using the native support for <code>enums</code> in Python 3 and the <code>enum34</code> package in Python 2.7. In this example, the status attribute of the <code>Vm</code> type is defined using the <code>VmStatus enum</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">if</span> vm.status == types.VmStatus.DOWN:
+    ...
+<span style="color:#080;font-weight:bold">elif</span> vm.status == types.VmStatus.IMAGE_LOCKED:
+    ....</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the API specification, the values of <code>enum</code> types appear in lower case, because that is what is used for XML and JSON. The Python convention, however, is to capitalize <code>enum</code> values.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Reading the attributes of instances of types is done using the corresponding properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">vm.name: %s</span><span style="color:#710">&quot;</span></span> % vm.name)
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">vm.memory: %s</span><span style="color:#710">&quot;</span></span> % vm.memory)
+<span style="color:#080;font-weight:bold">for</span> custom_property <span style="color:#080;font-weight:bold">in</span> vm.custom_properties:
+    ...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Using_links">2.4. Using Links</h3>
+<div class="paragraph">
+<p>Some attributes of types are defined by the API as links. This convention indicates that the values are not normally populated when retrieving the representation of that object. Rather, a link is returned instead. For example, when retrieving a virtual machine, the XML response from the server includes the <code>&lt;link&gt;</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>&lt;vm id=&quot;123&quot; href=&quot;/ovirt-engine/api/vms/123&quot;&gt;
+    &lt;name&gt;vm1&lt;/name&gt;
+    &lt;link rel=&quot;diskattachments&quot; href=&quot;/ovirt-engine/api/vms/123/diskattachments/&gt;
+  ...
+&lt;/vm&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The link to <code>vm.diskattachments</code> does not contain the actual disk attachments. To obtain the data, the <code>Connection</code> class provides a <code>follow_link</code> method that uses the value of the <code>href</code> XML attribute to retrieve the actual data. For example, to retrieve the details of the disks of the virtual machine, you follow the link to the disk attachments, and then to each of the disks:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Retrieve the virtual machine:</span>
+vm = vm_service.get()
+
+<span style="color:#777"># Follow the link to the disk attachments, and then to the disks:</span>
+attachments = connection.follow_link(vm.disk_attachments)
+<span style="color:#080;font-weight:bold">for</span> attachment <span style="color:#080;font-weight:bold">in</span> attachments:
+    disk = connection.follow_link(attachment.disk)
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">disk.alias: </span><span style="color:#710">&quot;</span></span> % disk.alias)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Locating_services">2.5. Locating Services</h3>
+<div class="paragraph">
+<p>The API provides a set of services, each associated with a path within the URL space of the server. For example, the service that manages the collection of virtual machines of the system is located in <strong>/vms</strong>, and the service that manages the virtual machine with identifier <code>123</code> is located in <strong>/vms/123</strong>.</p>
+</div>
+<div class="paragraph">
+<p>In the SDK, the root of that tree of services is implemented by the system service. It is obtained calling the <code>system_service</code> method of the connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">system_service = connection.system_service()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you have the reference to this system service, you can use it to obtain references to other services, calling the <code>*_service</code> methods, called service locators, of the previous service. For example, to obtain a reference to the service that manages the collection of virtual machines of the system, you use the <code>vms_service</code> service locator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vms_service = system_service.vms_service()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain a reference to the service that manages the virtual machine with identifier <code>123</code>, you use the <code>vm_service</code> service locator of the service that manages the collection of virtual machines. It uses the identifier of the virtual machine as a parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vm_service = vms_service.vm_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123</span><span style="color:#710">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Calling service locators does not send a request to the server. The Python objects that they return are pure services, which do not contain any data. For example, the <code>vm_service</code> Python object called in this example is not the representation of a virtual machine. It is the service that is used to retrieve, update, delete, start and stop that virtual machine.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-services">2.6. Using Services</h3>
+<div class="paragraph">
+<p>After you have located a service, you can call its service methods, which send requests to the server and do the real work.</p>
+</div>
+<div class="paragraph">
+<p>Services that manage a single object usually support the <code>get</code>, <code>update</code>, and <code>remove</code> methods.</p>
+</div>
+<div class="paragraph">
+<p>Services that manage collections of objects usually support the <code>list</code> and <code>add</code> methods.</p>
+</div>
+<div class="paragraph">
+<p>Both kinds of services, especially services that manage a single object, can support additional action methods.</p>
+</div>
+<div class="sect3">
+<h4 id="Using_get_methods">2.6.1. Using <code>get</code> Methods</h4>
+<div class="paragraph">
+<p>These service methods are used to retrieve the representation of a single object. The following example retrieves the representation of the virtual machine with identifier <code>123</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Find the service that manages the virtual machine:</span>
+vms_service = system_service.vms_service()
+vm_service = vms_service.vm_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123</span><span style="color:#710">'</span></span>)
+
+<span style="color:#777"># Retrieve the representation of the virtual machine:</span>
+vm = vm_service.get()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response is an instance of the corresponding type, in this case an instance of the Python class <code>ovirtsdk4.types.Vm</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>get</code> methods of some services support additional parameters that control how to retrieve the representation of the object or what representation to retrieve if there is more than one. For example, you may want to retrieve either the current state of a virtual machine or its state the next time it is started, as they may be different. The <code>get</code> method of the service that manages a virtual machine supports a <code>next_run</code> Boolean parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Retrieve the representation of the virtual machine, not the</span>
+<span style="color:#777"># current one, but the one that will be used after the next</span>
+<span style="color:#777"># boot:</span>
+vm = vm_service.get(next_run=<span style="color:#069">True</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the <a href="http://ovirt.github.io/ovirt-engine-sdk/master">reference documentation</a> of the SDK for details.</p>
+</div>
+<div class="paragraph">
+<p>If the object cannot be retrieved for any reason, the SDK raises an <code>ovirtsdk4.Error</code> exception, with details of the failure. This includes the situation when the object does not actually exist. Note that the exception is raised when calling the <code>get</code> service method. The call to the service locator method never fails, even if the object does not exist, because that call does not send a request to the server. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Call the service that manages a non-existent virtual machine.</span>
+<span style="color:#777"># This call will succeed.</span>
+vm_service = vms_service.vm_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">junk</span><span style="color:#710">'</span></span>)
+
+<span style="color:#777"># Retrieve the virtual machine. This call will raise an exception.</span>
+vm = vm_service.get()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Using_list_methods">2.6.2. Using <code>list</code> Methods</h4>
+<div class="paragraph">
+<p>These service methods retrieve the representations of the objects of a collection. This example retrieves the complete collection of virtual machines of the system:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Find the service that manages the collection of virtual</span>
+<span style="color:#777"># machines:</span>
+vms_service = system_service.vms_service()
+
+<span style="color:#777"># List the virtual machines in the collection</span>
+vms = vms_service.list()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result will be a Python list containing the instances of corresponding types. For example, in this case, the result will be a list of instances of the class <code>ovirtsdk4.types.Vm</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>list</code> methods of some services support additional parameters. For example, almost all top-level collections support a <code>search</code> parameter to filter the results or a <code>max</code> parameter to limit the number of results returned by the server. This example retrieves the names of virtual machines starting with <code>my</code>, with an upper limit of 10 results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python">vms = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=my*</span><span style="color:#710">'</span></span>, max=<span style="color:#00D">10</span>)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Not all <code>list</code> methods support these parameters. Some <code>list</code> methods support other parameters. See the <a href="http://ovirt.github.io/ovirt-engine-sdk/master">reference documentation</a> of the SDK for details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If a list of returned results is empty for any reason, the returned value will be an empty list. It will never be <code>None</code>.</p>
+</div>
+<div class="paragraph">
+<p>If there is an error while trying to retrieve the result, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details of the failure.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Using_add_methods">2.6.3. Using <code>add</code> Methods</h4>
+<div class="paragraph">
+<p>These service methods add new elements to a collection. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.</p>
+</div>
+<div class="paragraph">
+<p>This example adds a new virtual machine called <strong>vm1</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">types</span>
+
+<span style="color:#777"># Add the virtual machine:</span>
+vm = vms_service.add(
+    vm=types.Vm(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>,
+        cluster=types.Cluster(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Default</span><span style="color:#710">'</span></span>
+        ),
+        template=types.Template(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mytemplate</span><span style="color:#710">'</span></span>
+        )
+    )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the object cannot be created for any reason, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details of the failure. It will never return <code>None</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Python object returned by this <code>add</code> method is an instance of the relevant type. It is not a service but a container of data. In this particular example, the returned object is an instance of the <code>ovirtsdk4.types.Vm</code> class. If, after creating the virtual machine, you need to perform an operation such as retrieving or starting it, you will first need to find the service that manages it, and call the corresponding service locator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Add the virtual machine:</span>
+vm = vms_service.add(
+  ...
+)
+
+<span style="color:#777"># Find the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Start the virtual machine</span>
+vm_service.start()</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Objects are created asynchronously. When you create a new virtual machine, the <code>add</code> method will return a response before the virtual machine is completely created and ready to be used. It is good practice to poll the status of the object to ensure that it is completely created. For a virtual machine, you should check until its status is <code>DOWN</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Add the virtual machine:</span>
+vm = vms_service.add(
+  ...
+)
+
+<span style="color:#777"># Find the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Wait until the virtual machine is down, indicating that it is</span>
+<span style="color:#777"># completely created:</span>
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    vm = vm_service.get()
+    <span style="color:#080;font-weight:bold">if</span> vm.status == types.VmStatus.DOWN:
+        <span style="color:#080;font-weight:bold">break</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using a loop to retrieve the object status, with the <code>get</code> method, ensures that the status attribute is updated.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Using_update_methods">2.6.4. Using <code>update</code> Methods</h4>
+<div class="paragraph">
+<p>These service methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.</p>
+</div>
+<div class="paragraph">
+<p>This example updates the name of a virtual machine from <code>vm1</code> to <code>newvm</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">types</span>
+
+<span style="color:#777"># Find the virtual machine, and then the service that</span>
+<span style="color:#777"># manages it:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+vm_service = vm_service.vm_service(vm.id)
+
+<span style="color:#777"># Update the name:</span>
+updated_vm = vm_service.update(
+    vm=types.Vm(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">newvm</span><span style="color:#710">'</span></span>
+    )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When performing updates, avoid sending the <strong>complete</strong> representation of the object. Send only the attributes that you want to update. Do not do this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Retrieve the complete representation:</span>
+vm = vm_service.get()
+
+<span style="color:#777"># Update the representation, in memory, without sending a request</span>
+<span style="color:#777"># to the server:</span>
+vm.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">newvm</span><span style="color:#710">'</span></span>
+
+<span style="color:#777"># Send the update. Do *not* do this.</span>
+vms_service.update(vm)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sending the complete representation causes two problems:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You are sending much more information than the server needs, thus wasting resources.</p>
+</li>
+<li>
+<p>The server will try to update all the attributes of the object, even those that you did not intend to change. This may cause bugs on the server side.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>update</code> methods of some services support additional parameters that control how or what to update. For example, you may want to update either the current state of a virtual machine or the state that will be used the next time the virtual machine is started. The <code>update</code> method of the service that manages a virtual machine supports a <code>next_run</code> Boolean parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Update the memory of the virtual machine to 1 GiB,</span>
+<span style="color:#777"># not during the current run, but after next boot:</span>
+vm = vm_service.update(
+    vm=types.Vm(
+        memory=<span style="color:#00D">1073741824</span>
+    ),
+    next_run=<span style="color:#069">True</span>
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the update cannot be performed for any reason, the SDK will raise an <code>ovirtsdk4.Error</code> exception containing the details of the failure. It will never return <code>None</code>.</p>
+</div>
+<div class="paragraph">
+<p>The Python object returned by this update method is an instance of the relevant type. It is not a service, but a container for data. In this particular example, the returned object will be an instance of the <code>ovirtsdk4.types.Vm</code> class.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Using_remove_methods">2.6.5. Using <code>remove</code> Methods</h4>
+<div class="paragraph">
+<p>These service methods remove existing objects. They usually do not take parameters, because they are methods of services that manage single objects. Therefore, the service already knows what object to remove.</p>
+</div>
+<div class="paragraph">
+<p>This example removes the virtual machine with identifier <code>123</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Find the virtual machine by name:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=123</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Find the service that manages the virtual machine using the ID:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Remove the virtual machine:</span>
+vm_service.remove()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>remove</code> methods of some services support additional parameters that control how or what to remove. For example, it is possible to remove a virtual machine while preserving its disks, using the <code>detach_only</code> Boolean parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Remove the virtual machine while preserving the disks:</span>
+vm_service.remove(detach_only=<span style="color:#069">True</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>remove</code> method returns <code>None</code> if the object is removed successfully. It does not return the removed object. If the object cannot be removed for any reason, the SDK raises an <code>ovirtsdk4.Error</code> exception containing the details of the failure.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Using_other_action_methods">2.6.6. Using Other Action Methods</h4>
+<div class="paragraph">
+<p>There are other service methods that perform miscellaneous operations, such as stopping and starting a virtual machine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Start the virtual machine:</span>
+vm_service.start()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Many of these methods include parameters that modify the operation. For example, the method that starts a virtual machine supports a <code>use_cloud_init</code> parameter, if you want to start it using <code>cloud-init</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Start the virtual machine:</span>
+vm_service.start(cloud_init=<span style="color:#069">True</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Most action methods return <code>None</code> when they succeed and raise an <code>ovirtsdk4.Error</code> when they fail. A few action methods return values. For example, the service that manages a storage domain has an <code>is_attached</code> action method that checks whether the storage domain is already attached to a data center and returns a Boolean value:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#777"># Check if the storage domain is attached to a data center:</span>
+sds_service = system_service.storage_domains_service()
+sd_service = sds_service.storage_domain_service(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123</span><span style="color:#710">'</span></span>)
+<span style="color:#080;font-weight:bold">if</span> sd_service.is_attached():
+    ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check the <a href="http://ovirt.github.io/ovirt-engine-sdk">reference documentation</a> of the SDK to see the action methods supported by each service, the parameters that they take, and the values that they return.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Additional_resources">2.7. Additional Resources</h3>
+<div class="paragraph">
+<p>For detailed information and examples, see the following resources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index">V4 REST API Guide</a></p>
+</li>
+<li>
+<p><a href="http://ovirt.github.io/ovirt-engine-sdk">Python SDK reference documentation</a></p>
+</li>
+<li>
+<p><a href="https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk/examples">Python SDK examples</a></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="generating-documentation-for-modules">2.7.1. Generating documentation for modules</h4>
+<div class="paragraph">
+<p>You can generate documentation using <a href="http://docs.python.org/library/pydoc.html">pydoc</a> for the following modules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ovirtsdk.api</p>
+</li>
+<li>
+<p>ovirtsdk.infrastructure.brokers</p>
+</li>
+<li>
+<p>ovirtsdk.infrastructure.errors</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The documentation is provided by the <code>ovirt-engine-sdk-python</code> package. Run the following command on the Engine machine to view the latest version of these documents:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc <em>[MODULE]</em></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap-Python_Examples">3. Python Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Examples_overview">3.1. Overview</h3>
+<div class="paragraph">
+<p>This section provides examples demonstrating the steps to create a virtual machine within a basic oVirt environment, using the Python SDK.</p>
+</div>
+<div class="paragraph">
+<p>These examples use the <code>ovirtsdk</code> Python library provided by the <code>ovirt-engine-sdk-python</code> package. This package is available to systems attached to a <code>oVirt</code> subscription pool in Red Hat Subscription Manager. See <a href="#Installing_the_Software_Development_Kit">Installing the Software Development Kit</a> for more information on subscribing your system(s) to download the software.</p>
+</div>
+<div class="paragraph">
+<p>You will also need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A networked installation of oVirt Engine.</p>
+</li>
+<li>
+<p>A networked and configured oVirt Node.</p>
+</li>
+<li>
+<p>An ISO image file containing an operating system for installation on a virtual machine.</p>
+</li>
+<li>
+<p>A working understanding of both the logical and physical objects that make up a oVirt environment.</p>
+</li>
+<li>
+<p>A working understanding of the Python programming language.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The examples include placeholders for authentication details (<code>admin@internal</code> for user name, and <code>password</code> for password). Replace the placeholders with the authentication requirements of your environment.</p>
+</div>
+<div class="paragraph">
+<p>oVirt Engine generates a globally unique identifier (GUID) for the <code>id</code> attribute for each resource. Identifier codes in these examples differ from the identifier codes in your oVirt environment.</p>
+</div>
+<div class="paragraph">
+<p>The examples contain only basic exception and error handling logic. For more information on the exception handling specific to the SDK, see the pydoc for the <code>ovirtsdk.infrastructure.errors</code> module:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc ovirtsdk.infrastructure.errors</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Connecting_to_the_Red_Hat_Virtualization_Manager">3.2. Connecting to the oVirt Engine in Version 4</h3>
+<div class="paragraph">
+<p>To connect to the oVirt Engine, you must create an instance of the <strong>Connection</strong> class from the <code>ovirtsdk4.sdk</code> module by importing the class at the start of the script:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The constructor of the <strong>Connection</strong> class takes a number of arguments. Supported arguments are:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>url</code></dt>
+<dd>
+<p>A string containing the base URL of the Engine, such as <code>https://server.example.com/ovirt-engine/api</code>.</p>
+</dd>
+<dt class="hdlist1"><code>username</code></dt>
+<dd>
+<p>Specifies the user name to connect, such as <code>admin@internal</code>. This parameter is mandatory.</p>
+</dd>
+<dt class="hdlist1"><code>password</code></dt>
+<dd>
+<p>Specifies the password for the user name provided by the <code>username</code> parameter. This parameter is mandatory.</p>
+</dd>
+<dt class="hdlist1"><code>token</code></dt>
+<dd>
+<p>An optional token to access the API, instead of a user name and password. If the <code>token</code> parameter is not specified, the SDK will create one  automatically.</p>
+</dd>
+<dt class="hdlist1"><code>insecure</code></dt>
+<dd>
+<p>A Boolean flag that indicates whether the server&#8217;s TLS certificate and host name should be checked.</p>
+</dd>
+<dt class="hdlist1"><code>ca_file</code></dt>
+<dd>
+<p>A PEM file containing the trusted CA certificates. The certificate presented by the server will be verified using these CA certificates. If <code>ca_file</code> parameter is not set, the system-wide CA certificate store is used.</p>
+</dd>
+<dt class="hdlist1"><code>debug</code></dt>
+<dd>
+<p>A Boolean flag indicating whether debug output should be generated. If the value is <code>True</code> and the <code>log</code> parameter is not <code>None</code>, the data sent to and received from the server will be written to the log.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>User names and passwords are written to the debug log, so handle it with care.</p>
+</div>
+<div class="paragraph">
+<p>Compression is disabled in debug mode, which means that debug messages are sent as plain text.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1"><code>log</code></dt>
+<dd>
+<p>The logger where the log messages will be written.</p>
+</dd>
+<dt class="hdlist1"><code>kerberos</code></dt>
+<dd>
+<p>A Boolean flag indicating whether Kerberos authentication should be used instead of the default basic authentication.</p>
+</dd>
+<dt class="hdlist1"><code>timeout</code></dt>
+<dd>
+<p>The maximum total time to wait for the response, in seconds. A value of <code>0</code> (default) means to wait forever. If the timeout expires before the response is received, an exception is raised.</p>
+</dd>
+<dt class="hdlist1"><code>compress</code></dt>
+<dd>
+<p>A Boolean flag indicating whether the SDK should ask the server to send compressed responses. The default is <code>True</code>. This is a hint for the server, which may return uncompressed data even when this parameter is set to <code>True</code>. Compression is disabled in debug mode, which means that debug messages are sent as plain text.</p>
+</dd>
+<dt class="hdlist1"><code>sso_url</code></dt>
+<dd>
+<p>A string containing the base SSO URL of the server. The default SSO URL is computed from the <code>url</code> if no <code>sso_url</code> is provided.</p>
+</dd>
+<dt class="hdlist1"><code>sso_revoke_url</code></dt>
+<dd>
+<p>A string containing the base URL of the SSO revoke service. This needs to be specified only when using an external authentication service. By default, this URL is automatically calculated from the value of the <code>url</code> parameter, so that SSO token revoke will be performed using the SSO service, which is part of the Engine.</p>
+</dd>
+<dt class="hdlist1"><code>sso_token_name</code></dt>
+<dd>
+<p>The token name in the JSON SSO response returned from the SSO server. Default value is <code>access_token</code>.</p>
+</dd>
+<dt class="hdlist1"><code>headers</code></dt>
+<dd>
+<p>A dictionary with headers, which should be sent with every request.</p>
+</dd>
+<dt class="hdlist1"><code>connections</code></dt>
+<dd>
+<p>The maximum number of connections to open to the host. If the value is <code>0</code> (default), the number of connections is unlimited.</p>
+</dd>
+<dt class="hdlist1"><code>pipeline</code></dt>
+<dd>
+<p>The maximum number of requests to put in an HTTP pipeline without waiting for the response. If the value is <code>0</code> (default), pipelining is disabled.</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+
+<span style="color:#777"># Create a connection to the server:</span>
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+connection.test()
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Connected successfully!</span><span style="color:#710">&quot;</span></span>)
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a full list of supported methods, you can generate the documentation for the <code>ovirtsdk.api</code> module on the Engine machine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">$ pydoc ovirtsdk.api</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Listing_Data_Centers">3.3. Listing Data Centers</h3>
+<div class="paragraph">
+<p>The <code>datacenters</code> collection contains all the data centers in the environment.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Listing data centers</div>
+<div class="content">
+<div class="paragraph">
+<p>This example lists the data centers in the <code>datacenters</code> collection and output some basic information about each data center in the collection.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+dcs_service = connection.system_service().dcs_service()
+
+dcs = dcs_service.list()
+
+<span style="color:#080;font-weight:bold">for</span> dc <span style="color:#080;font-weight:bold">in</span> dcs:
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s (%s)</span><span style="color:#710">&quot;</span></span> % (dc.name, dc.id))
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment where only the <code>Default</code> data center exists, and it is not activated, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Default (00000000-0000-0000-0000-000000000000)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Listing_Clusters">3.4. Listing Clusters</h3>
+<div class="paragraph">
+<p>The <code>clusters</code> collection contains all clusters in the environment.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Listing clusters</div>
+<div class="content">
+<div class="paragraph">
+<p>This example lists the clusters in the <code>clusters</code> collection and output some basic information about each cluster in the collection.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+cls_service = connection.system_service().clusters_service()
+
+cls = cls_service.list()
+
+<span style="color:#080;font-weight:bold">for</span> cl <span style="color:#080;font-weight:bold">in</span> cls:
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s (%s)</span><span style="color:#710">&quot;</span></span> % (cl.name, cl.id))
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment where only the <code>Default</code> cluster exists, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Default (00000000-0000-0000-0000-000000000000)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Listing_Hosts">3.5. Listing Hosts</h3>
+<div class="paragraph">
+<p>The <code>hosts</code> collection contains all hosts in the environment.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. Listing hosts</div>
+<div class="content">
+<div class="paragraph">
+<p>This example lists the hosts in the <code>hosts</code> collection and their IDs.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+host_service = connection.system_service().hosts_service()
+
+hosts = host_service.list()
+
+<span style="color:#080;font-weight:bold">for</span> host <span style="color:#080;font-weight:bold">in</span> hosts:
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s (%s)</span><span style="color:#710">&quot;</span></span> % (host.name, host.id))
+
+connection.close()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment where only one host, <code>MyHost</code>, has been attached, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">MyHost (00000000-0000-0000-0000-000000000000)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Listing_Logical_Networks">3.6. Listing Logical Networks</h3>
+<div class="paragraph">
+<p>The <code>networks</code> collection contains all logical networks in the environment.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 4. Listing logical networks</div>
+<div class="content">
+<div class="paragraph">
+<p>This example lists the logical networks in the <code>networks</code> collection and outputs some basic information about each network in the collection.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+nws_service = connection.system_service().networks_service()
+
+nws = nws_service.list()
+
+<span style="color:#080;font-weight:bold">for</span> nw <span style="color:#080;font-weight:bold">in</span> nws:
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s (%s)</span><span style="color:#710">&quot;</span></span> % (nw.name, nw.id))
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In an environment where only the default management network exists, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">ovirtmgmt (00000000-0000-0000-0000-000000000000)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Listing_virtual_machines_and_total_disk_size">3.7. Listing Virtual Machines and Total Disk Size</h3>
+<div class="paragraph">
+<p>The <code>vms</code> collection contains a <code>disks</code> collection that describes the details of each disk attached to a virtual machine.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 5. Listing virtual machines and total disk size</div>
+<div class="content">
+<div class="paragraph">
+<p>This example prints a list of virtual machines and their total disk size in bytes:</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+vms_service = connection.system_service().vms_service()
+
+virtual_machines = vms_service.list()
+
+<span style="color:#080;font-weight:bold">if</span> <span style="color:#369;font-weight:bold">len</span>(virtual_machines) &gt; <span style="color:#00D">0</span>:
+
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%-30s  %s</span><span style="color:#710">&quot;</span></span> % (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Name</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Disk Size</span><span style="color:#710">&quot;</span></span>))
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">==================================================</span><span style="color:#710">&quot;</span></span>)
+
+    <span style="color:#080;font-weight:bold">for</span> virtual_machine <span style="color:#080;font-weight:bold">in</span> virtual_machines:
+        vm_service = vms_service.vm_service(virtual_machine.id)
+        disk_attachments = vm_service.disk_attachments_service().list()
+        disk_size = <span style="color:#00D">0</span>
+        <span style="color:#080;font-weight:bold">for</span> disk_attachment <span style="color:#080;font-weight:bold">in</span> disk_attachments:
+            disk = connection.follow_link(disk_attachment.disk)
+            disk_size += disk.provisioned_size
+
+            print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%-30s: %d</span><span style="color:#710">&quot;</span></span> % (virtual_machine.name, disk_size))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The examples output the virtual machine names and their disk sizes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Name                          Disk Size
+==================================================
+vm1                           50000000000</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Creating_NFS_Data_Storage">3.8. Creating NFS Data Storage</h3>
+<div class="paragraph">
+<p>When a oVirt environment is first created, it is necessary to define at least a data storage domain and an ISO storage domain. The data storage domain stores virtual disks while the ISO storage domain stores the installation media for guest operating systems.</p>
+</div>
+<div class="paragraph">
+<p>The <code>storagedomains</code> collection contains all the storage domains in the environment and can be used to add and remove storage domains.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The code provided in this example assumes that the remote NFS share has been pre-configured for use with oVirt. See the <a href="https://ovirt.org/documentation/administration_guide/index#sect-preparing_and_adding_nfs_storage"><em>Administration Guide</em></a> for more information on preparing NFS shares.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 6. Creating NFS data storage</div>
+<div class="content">
+<div class="paragraph">
+<p>This example adds an NFS data domain to the <code>storagedomains</code> collection.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="paragraph">
+<p>For V4, the <code>add</code> method is used to add the new storage domain and the <code>types</code> class is used to pass the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A name for the storage domain.</p>
+</li>
+<li>
+<p>The data center object that was retrieved from the <code>datacenters</code> collection.</p>
+</li>
+<li>
+<p>The host object that was retrieved from the <code>hosts</code> collection.</p>
+</li>
+<li>
+<p>The type of storage domain being added (<code>data</code>, <code>iso</code>, or <code>export</code>).</p>
+</li>
+<li>
+<p>The storage format to use (<code>v1</code>, <code>v2</code>, or <code>v3</code>).</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+<span style="color:#777"># Create the connection to the server:</span>
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the storage domains service:</span>
+sds_service = connection.system_service().storage_domains_service()
+
+<span style="color:#777"># Create a new NFS storage domain:</span>
+sd = sds_service.add(
+    types.StorageDomain(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mydata</span><span style="color:#710">'</span></span>,
+        description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">My data</span><span style="color:#710">'</span></span>,
+        type=types.StorageDomainType.DATA,
+        host=types.Host(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myhost</span><span style="color:#710">'</span></span>,
+        ),
+        storage=types.HostStorage(
+            type=types.StorageType.NFS,
+            address=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">_FQDN_</span><span style="color:#710">'</span></span>,
+            path=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/nfs/ovirt/path/to/mydata</span><span style="color:#710">'</span></span>,
+        ),
+    ),
+)
+
+<span style="color:#777"># Wait until the storage domain is unattached:</span>
+sd_service = sds_service.storage_domain_service(sd.id)
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    sd = sd_service.get()
+    <span style="color:#080;font-weight:bold">if</span> sd.status == types.StorageDomainStatus.UNATTACHED:
+        <span style="color:#080;font-weight:bold">break</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Storage Domain '%s' added (%s).</span><span style="color:#710">&quot;</span></span> % (sd.name(), sd.id()))
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>add</code> method call is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Storage Domain 'mydata' added (00000000-0000-0000-0000-000000000000).</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Creating_NFS_ISO_Storage">3.9. Creating NFS ISO Storage</h3>
+<div class="paragraph">
+<p>To create a virtual machine, you need installation media for the guest operating system. The installation media are stored in an ISO storage domain.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The code provided in this example assumes that the remote NFS share has been pre-configured for use with oVirt. See the <a href="https://ovirt.org/documentation/administration_guide/index#sect-preparing_and_adding_nfs_storage"><em>Administration Guide</em></a> for more information on preparing NFS shares.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 7. Creating NFS ISO storage</div>
+<div class="content">
+<div class="paragraph">
+<p>This example adds an NFS ISO domain to the <code>storagedomains</code> collection.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="paragraph">
+<p>For V4, the <code>add</code> method is used to add the new storage domain and the <code>types</code> class is used to pass the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A name for the storage domain.</p>
+</li>
+<li>
+<p>The data center object that was retrieved from the <code>datacenters</code> collection.</p>
+</li>
+<li>
+<p>The host object that was retrieved from the <code>hosts</code> collection.</p>
+</li>
+<li>
+<p>The type of storage domain being added (<code>data</code>, <code>iso</code>, or <code>export</code>).</p>
+</li>
+<li>
+<p>The storage format to use (<code>v1</code>, <code>v2</code>, or <code>v3</code>).</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the storage domains service:</span>
+sds_service = connection.system_service().storage_domains_service()
+
+<span style="color:#777"># Use the &quot;add&quot; method to create a new NFS storage domain:</span>
+sd = sds_service.add(
+    types.StorageDomain(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myiso</span><span style="color:#710">'</span></span>,
+        description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">My ISO</span><span style="color:#710">'</span></span>,
+        type=types.StorageDomainType.ISO,
+        host=types.Host(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myhost</span><span style="color:#710">'</span></span>,
+        ),
+        storage=types.HostStorage(
+            type=types.StorageType.NFS,
+            address=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">FQDN</span><span style="color:#710">'</span></span>,
+            path=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/nfs/ovirt/path/to/myiso</span><span style="color:#710">'</span></span>,
+        ),
+    ),
+)
+
+<span style="color:#777"># Wait until the storage domain is unattached:</span>
+sd_service = sds_service.storage_domain_service(sd.id)
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    sd = sd_service.get()
+    <span style="color:#080;font-weight:bold">if</span> sd.status == types.StorageDomainStatus.UNATTACHED:
+        <span style="color:#080;font-weight:bold">break</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Storage Domain '%s' added (%s).</span><span style="color:#710">&quot;</span></span> % (sd.name(), sd.id()))
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>add</code> method call is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Storage Domain 'myiso' added (00000000-0000-0000-0000-000000000000).</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Attaching_Storage_Domains_to_a_Data_Center">3.10. Attaching a Storage Domain to a Data Center</h3>
+<div class="paragraph">
+<p>Once you have added a storage domain to oVirt, you must attach it to a data center and activate it before it will be ready for use.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 8. Attaching a storage domain to a data center</div>
+<div class="content">
+<div class="paragraph">
+<p>This example attaches an existing NFS storage domain, <code>mydata</code>, to the an existing data center, <code>Default</code>. The attach action is facilitated by the <code>add</code> method of the data center&#8217;s <code>storagedomains</code> collection. These examples may be used to attach both data and ISO storage domains.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+<span style="color:#777"># Create the connection to the server:</span>
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Locate the service that manages the storage domains and use it to</span>
+<span style="color:#777"># search for the storage domain:</span>
+sds_service = connection.system_service().storage_domains_service()
+sd = sds_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=mydata</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the data centers and use it to</span>
+<span style="color:#777"># search for the data center:</span>
+dcs_service = connection.system_service().data_centers_service()
+dc = dcs_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=Default</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the data center where we want to</span>
+<span style="color:#777"># attach the storage domain:</span>
+dc_service = dcs_service.data_center_service(dc.id)
+
+<span style="color:#777"># Locate the service that manages the storage domains that are attached</span>
+<span style="color:#777"># to the data centers:</span>
+attached_sds_service = dc_service.storage_domains_service()
+
+<span style="color:#777"># Use the &quot;add&quot; method of service that manages the attached storage</span>
+<span style="color:#777"># domains to attach it:</span>
+attached_sds_service.add(
+    types.StorageDomain(
+        id=sd.id,
+    ),
+)
+
+<span style="color:#777"># Wait until the storage domain is active:</span>
+attached_sd_service = attached_sds_service.storage_domain_service(sd.id)
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    sd = attached_sd_service.get()
+    <span style="color:#080;font-weight:bold">if</span> sd.status == types.StorageDomainStatus.ACTIVE:
+        <span style="color:#080;font-weight:bold">break</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Attached data storage domain '%s' to data center '%s' (Status: %s).</span><span style="color:#710">&quot;</span></span> %
+  (sd.name(), dc.name(), sd.status.state()))
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the calls to the <code>add</code> methods are successful, the examples output the following text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Attached data storage domain 'data1' to data center 'Default' (Status: maintenance).</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Status: maintenance</code> indicates that the storage domains still need to be activated.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Activating_a_Storage_Domain">3.11. Activating a Storage Domain</h3>
+<div class="paragraph">
+<p>Once you have added a storage domain to oVirt and attached it to a data center, you must activate it before it will be ready for use.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 9. Activating a storage domain</div>
+<div class="content">
+<div class="paragraph">
+<p>This example activates an NFS storage domain, <code>mydata</code>, attached to the data center, <code>Default</code>. The <code>activate</code> action is facilitated by the <code>activate</code> method of the storage domain.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+
+connection = sdk.Connection
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Locate the service that manages the storage domains and use it to</span>
+<span style="color:#777"># search for the storage domain:</span>
+sds_service = connection.system_service().storage_domains_service()
+sd = sds_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=mydata</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the data centers and use it to</span>
+<span style="color:#777"># search for the data center:</span>
+dcs_service = connection.system_service().data_centers_service()
+dc = dcs_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=Default</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the data center where we want to</span>
+<span style="color:#777"># attach the storage domain:</span>
+dc_service = dcs_service.data_center_service(dc.id)
+
+<span style="color:#777"># Locate the service that manages the storage domains that are attached</span>
+<span style="color:#777"># to the data centers:</span>
+attached_sds_service = dc_service.storage_domains_service()
+
+<span style="color:#777"># Activate storage domain:</span>
+attached_sd_service = attached_sds_service.storage_domain_service(sd.id)
+attached_sd_service.activate()
+
+<span style="color:#777"># Wait until the storage domain is active:</span>
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    sd = attached_sd_service.get()
+    <span style="color:#080;font-weight:bold">if</span> sd.status == types.StorageDomainStatus.ACTIVE:
+        <span style="color:#080;font-weight:bold">break</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Attached data storage domain '%s' to data center '%s' (Status: %s).</span><span style="color:#710">&quot;</span></span> %
+  (sd.name(), dc.name(), sd.status.state()))
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>activate</code> requests are successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Activated storage domain 'mydata' in data center 'Default' (Status: active).</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Status: active</code> indicates that the storage domains have been activated.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Listing_Files_in_an_ISO_Storage_Domain">3.12. Listing Files in an ISO Storage Domain</h3>
+<div class="paragraph">
+<p>The <code>storagedomains</code> collection contains a <code>files</code> collection that describes the files in a storage domain.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 10. Listing Files in an ISO Storage Domain</div>
+<div class="content">
+<div class="paragraph">
+<p>This example prints a list of the ISO files in each ISO storage domain:</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+storage_domains_service = connection.system_service().storage_domains_service()
+
+storage_domains = storage_domains_service.list()
+
+<span style="color:#080;font-weight:bold">for</span> storage_domain <span style="color:#080;font-weight:bold">in</span> storage_domains:
+    <span style="color:#080;font-weight:bold">if</span>(storage_domain.type == types.StorageDomainType.ISO):
+        print(storage_domain.name + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">:</span><span style="color:#b0b">\n</span><span style="color:#710">&quot;</span></span>)
+        files = storage_domain.files_service().list()
+
+        <span style="color:#080;font-weight:bold">for</span> <span style="color:#369;font-weight:bold">file</span> <span style="color:#080;font-weight:bold">in</span> files:
+            print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s</span><span style="color:#710">&quot;</span></span> % <span style="color:#369;font-weight:bold">file</span>.name + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\n</span><span style="color:#710">&quot;</span></span>)
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ISO_storage_domain:
+file1
+file2</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Creating_a_Virtual_Machine">3.13. Creating a Virtual Machine</h3>
+<div class="paragraph">
+<p>Virtual machine creation is performed in several steps. The first step, covered here, is to create the virtual machine object itself.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 11. Creating a virtual machine</div>
+<div class="content">
+<div class="paragraph">
+<p>This example creates a virtual machine, <code>vm1</code>, with the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>512 MB of memory, expressed in bytes.</p>
+</li>
+<li>
+<p>Attached to the <code>Default</code> cluster, and therefore the <code>Default</code> data center.</p>
+</li>
+<li>
+<p>Based on the default <code>Blank</code> template.</p>
+</li>
+<li>
+<p>Boots from the virtual hard disk drive.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="paragraph">
+<p>In V4, the options are added as <code>types</code>, using the <code>add</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service().vms_service()
+
+<span style="color:#777"># Use the &quot;add&quot; method to create a new virtual machine:</span>
+vms_service.add(
+    types.Vm(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vm1</span><span style="color:#710">'</span></span>,
+        memory = <span style="color:#00D">512</span>*<span style="color:#00D">1024</span>*<span style="color:#00D">1024</span>
+        cluster=types.Cluster(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Default</span><span style="color:#710">'</span></span>,
+        ),
+        template=types.Template(
+            name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Blank</span><span style="color:#710">'</span></span>,
+        ),
+        os=types.OperatingSystem(boot=types.Boot(devices=[types.BootDevice.HD)]
+    ),
+)
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Virtual machine '%s' added.</span><span style="color:#710">&quot;</span></span> % vm.name)
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>add</code> request is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Virtual machine 'vm1' added.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Creating_a_Virtual_NIC">3.14. Creating a Virtual NIC</h3>
+<div class="paragraph">
+<p>To ensure that a newly created virtual machine has network access, you must create and attach a virtual NIC.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 12. Creating a virtual NIC</div>
+<div class="content">
+<div class="paragraph">
+<p>This example creates a NIC, <code>nic1</code>, and attach it to a virtual machine, <code>vm1</code>. The NIC in this example is a <code>virtio</code> network device and attached to the <code>ovirtmgmt</code> management network.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Locate the virtual machines service and use it to find the virtual</span>
+<span style="color:#777"># machine:</span>
+vms_service = connection.system_service().vms_service()
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the network interface cards of the</span>
+<span style="color:#777"># virtual machine:</span>
+nics_service = vms_service.vm_service(vm.id).nics_service()
+
+<span style="color:#777"># Locate the vnic profiles service and use it to find the ovirmgmt</span>
+<span style="color:#777"># network's profile id:</span>
+profiles_service = connection.system_service().vnic_profiles_service()
+profile_id = <span style="color:#069">None</span>
+<span style="color:#080;font-weight:bold">for</span> profile <span style="color:#080;font-weight:bold">in</span> profiles_service.list():
+    <span style="color:#080;font-weight:bold">if</span> profile.name == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ovirtmgmt</span><span style="color:#710">'</span></span>:
+        profile_id = profile.id
+        <span style="color:#080;font-weight:bold">break</span>
+
+<span style="color:#777"># Use the &quot;add&quot; method of the network interface cards service to add the</span>
+<span style="color:#777"># new network interface card:</span>
+
+nic = nics_service.add(
+    types.Nic(
+        name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">nic1</span><span style="color:#710">'</span></span>,
+        interface=types.NicInterface.VIRTIO,
+        vnic_profile=types.VnicProfile(id=profile_id),
+    ),
+)
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Network interface '%s' added to '%s'.</span><span style="color:#710">&quot;</span></span> % (nic.name, vm.name))
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>add</code> request is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Network interface 'nic1' added to 'vm1'.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Creating_a_Virtual_Machine_Disk">3.15. Creating a Virtual Machine Disk</h3>
+<div class="paragraph">
+<p>To ensure that a newly created virtual machine has access to persistent storage, you must create and attach a disk.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 13. Creating a virtual machine disk</div>
+<div class="content">
+<div class="paragraph">
+<p>This example creates an 8 GB <code>virtio</code> disk and attach it to a virtual machine, <code>vm1</code>. The disk has the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Stored on the storage domain named <code>data1</code>.</p>
+</li>
+<li>
+<p>8 GB in size.</p>
+</li>
+<li>
+<p><code>system</code> type disk (as opposed to <code>data</code>).</p>
+</li>
+<li>
+<p><code>virtio</code> storage device.</p>
+</li>
+<li>
+<p><code>COW</code> format.</p>
+</li>
+<li>
+<p>Marked as a usable boot device.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Locate the virtual machines service and use it to find the virtual</span>
+<span style="color:#777"># machine:</span>
+vms_service = connection.system_service().vms_service()
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the disk attachments of the virtual</span>
+<span style="color:#777"># machine:</span>
+disk_attachments_service = vms_service.vm_service(vm.id).disk_attachments_service()
+
+<span style="color:#777"># Use the &quot;add&quot; method of the disk attachments service to add the disk.</span>
+<span style="color:#777"># Note that the size of the disk, the `provisioned_size` attribute, is</span>
+<span style="color:#777"># specified in bytes, so to create a disk of 10 GiB the value should</span>
+<span style="color:#777"># be 10 * 2^30.</span>
+disk_attachment = disk_attachments_service.add(
+    types.DiskAttachment(
+        disk=types.Disk(
+            format=types.DiskFormat.COW,
+            provisioned_size=<span style="color:#00D">8</span>*<span style="color:#00D">1024</span>*<span style="color:#00D">1024</span>,
+            storage_domains=[
+                types.StorageDomain(
+                    name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">data1</span><span style="color:#710">'</span></span>,
+                ),
+            ],
+        ),
+        interface=types.DiskInterface.VIRTIO,
+        bootable=<span style="color:#069">True</span>,
+        active=<span style="color:#069">True</span>,
+    ),
+)
+
+<span style="color:#777"># Wait until the disk status is OK:</span>
+disks_service = connection.system_service().disks_service()
+disk_service = disks_service.disk_service(disk_attachment.disk.id)
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    disk = disk_service.get()
+    <span style="color:#080;font-weight:bold">if</span> disk.status == types.DiskStatus.OK:
+        <span style="color:#080;font-weight:bold">break</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Disk '%s' added to '%s'.</span><span style="color:#710">&quot;</span></span> % (disk.name(), vm.name()))
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>add</code> request is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Disk 'vm1_Disk1' added to 'vm1'.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Attaching_an_ISO_Image_to_a_Virtual_Machine">3.16. Attaching an ISO Image to a Virtual Machine</h3>
+<div class="paragraph">
+<p>To install a guest operating system on a newly created virtual machine, you must attach an ISO file containing the operating system installation media. To locate the ISO file, see <a href="#Listing_Files_in_an_ISO_Storage_Domain">Listing Files in an ISO Storage Domain</a>.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 14. Attaching an ISO image to a virtual machine</div>
+<div class="content">
+<div class="paragraph">
+<p>This example attaches <strong>my_iso_file.iso</strong> to the <code>vm1</code> virtual machine, using the <code>add</code> method of the virtual machine&#8217;s <code>cdroms</code> collection.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service().vms_service()
+
+<span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Locate the service that manages the CDROM devices of the virtual machine:</span>
+cdroms_service = vm_service.cdroms_service()
+
+<span style="color:#777"># Get the first CDROM:</span>
+cdrom = cdroms_service.list()[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the CDROM device found in previous step:</span>
+cdrom_service = cdroms_service.cdrom_service(cdrom.id)
+
+<span style="color:#777"># Change the CD of the VM to 'my_iso_file.iso'. By default the</span>
+<span style="color:#777"># operation permanently changes the disk that is visible to the</span>
+<span style="color:#777"># virtual machine after the next boot, but has no effect</span>
+<span style="color:#777"># on the currently running virtual machine. If you want to change the</span>
+<span style="color:#777"># disk that is visible to the current running virtual machine, change</span>
+<span style="color:#777"># the `current` parameter's value to `True`.</span>
+cdrom_service.update(
+    cdrom=types.Cdrom(
+        file=types.File(
+            id=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my_iso_file.iso</span><span style="color:#710">'</span></span>
+        ),
+    ),
+    current=<span style="color:#069">False</span>,
+)
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Attached CD to '%s'.</span><span style="color:#710">&quot;</span></span> % vm.name())
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>add</code> request is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Attached CD to 'vm1'.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 15. Ejecting a cdrom from a virtual machine</div>
+<div class="content">
+<div class="paragraph">
+<p>This example ejects an ISO image from a virtual machine&#8217;s <code>cdrom</code> collection.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service().vms_service()
+
+<span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Locate the service that manages the CDROM devices of the VM:</span>
+cdroms_service = vm_service.cdroms_service()
+
+<span style="color:#777"># Get the first found CDROM:</span>
+cdrom = cdroms_service.list()[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the CDROM device found in previous step</span>
+<span style="color:#777"># of the VM:</span>
+cdrom_service = cdroms_service.cdrom_service(cdrom.id)
+
+cdrom_service.remove()
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Removed CD from '%s'.</span><span style="color:#710">&quot;</span></span> % vm.name())
+
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>delete</code> or <code>remove</code> request is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Removed CD from 'vm1'.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Detaching_a_Disk">3.17. Detaching a Disk</h3>
+<div class="paragraph">
+<p>You can detach a disk from a virtual machine.</p>
+</div>
+<div class="paragraph">
+<div class="title">Detaching a disk</div>
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service().vms_service()
+
+<span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+attachments_service = vm_service.disk_attachments_service()
+attachment = <span style="color:#369;font-weight:bold">next</span>(
+    (a <span style="color:#080;font-weight:bold">for</span> a <span style="color:#080;font-weight:bold">in</span> disk_attachments <span style="color:#080;font-weight:bold">if</span> a.disk.id == disk.id), <span style="color:#069">None</span>
+)
+
+<span style="color:#777"># Remove the attachment. The default behavior is that the disk is detached</span>
+<span style="color:#777"># from the virtual machine, but not deleted from the system. If you wish to</span>
+<span style="color:#777"># delete the disk, change the detach_only parameter to &quot;False&quot;.</span>
+attachment.remove(detach_only=<span style="color:#069">True</span>)
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Detached disk %s successfully!</span><span style="color:#710">&quot;</span></span> % attachment)
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>delete</code> or <code>remove</code> request is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Detached disk vm1_disk1 successfully!</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Starting_a_Virtual_Machine">3.18. Starting a Virtual Machine</h3>
+<div class="paragraph">
+<p>You can start a virtual machine.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 16. Starting a virtual machine</div>
+<div class="content">
+<div class="paragraph">
+<p>This example starts the virtual machine using the <code>start</code> method.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">time</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service().vms_service()
+
+<span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the virtual machine, as that is where</span>
+<span style="color:#777"># the action methods are defined:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Call the &quot;start&quot; method of the service to start it:</span>
+vm_service.start()
+
+<span style="color:#777"># Wait until the virtual machine is up:</span>
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    vm = vm_service.get()
+    <span style="color:#080;font-weight:bold">if</span> vm.status == types.VmStatus.UP:
+        <span style="color:#080;font-weight:bold">break</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Started '%s'.</span><span style="color:#710">&quot;</span></span> % vm.name())
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>start</code> request is successful, the examples output the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Started 'vm1'.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>UP</code> status indicates that the virtual machine is running.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Starting_a_Virtual_Machine_with_Overridden_Parameters">3.19. Starting a Virtual Machine with Overridden Parameters</h3>
+<div class="paragraph">
+<p>You can start a virtual machine, overriding its default parameters.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 17. Starting a virtual machine with overridden parameters</div>
+<div class="content">
+<div class="paragraph">
+<p>This example boots a virtual machine with a Windows ISO and attach the <code>virtio-win_x86.vfd</code> floppy disk, which contains Windows drivers. This action is equivalent to using the <strong>Run Once</strong> window in the Administration Portal to start a virtual machine.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">time</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Get the reference to the &quot;vms&quot; service:</span>
+vms_service = connection.system_service().vms_service()
+
+<span style="color:#777"># Find the virtual machine:</span>
+vm = vms_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Locate the service that manages the CDROM devices of the virtual machine:</span>
+cdroms_service = vm_service.cdroms_service()
+
+<span style="color:#777"># Get the first CDROM:</span>
+cdrom = cdroms_service.list()[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Locate the service that manages the CDROM device found in previous step:</span>
+cdrom_service = cdroms_service.cdrom_service(cdrom.id)
+
+<span style="color:#777"># Change the CD of the VM to 'windows_example.iso':</span>
+cdrom_service.update(
+    cdrom=types.Cdrom(
+        file=types.File(
+            id=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">windows_example.iso</span><span style="color:#710">'</span></span>
+        ),
+    ),
+    current=<span style="color:#069">False</span>,
+)
+
+<span style="color:#777"># Call the &quot;start&quot; method of the service to start it:</span>
+vm_service.start(
+    vm=types.Vm(
+        os=types.OperatingSystem(
+            boot=types.Boot(
+                devices=[
+                    types.BootDevice.CDROM,
+                ]
+            )
+        ),
+    )
+)
+
+<span style="color:#777"># Wait until the virtual machine's status is &quot;UP&quot;:</span>
+<span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+    time.sleep(<span style="color:#00D">5</span>)
+    vm = vm_service.get()
+    <span style="color:#080;font-weight:bold">if</span> vm.status == types.VmStatus.UP:
+        <span style="color:#080;font-weight:bold">break</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Started '%s'.</span><span style="color:#710">&quot;</span></span> % vm.name())
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The CD image and floppy disk file must be available to the virtual machine. See <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain">Uploading Images to a Data Storage Domain</a> for details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Starting_a_Virtual_Machine_with_Cloud-Init">3.20. Starting a Virtual Machine with Cloud-Init</h3>
+<div class="paragraph">
+<p>You can start a virtual machine with a specific configuration, using the <code>Cloud-Init</code> tool.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 18. Starting a virtual machine with Cloud-Init</div>
+<div class="content">
+<div class="paragraph">
+<p>This example shows you how to start a virtual machine using the Cloud-Init tool to set a host name and a static IP for the <code>eth0</code> interface.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Find the virtual machine:</span>
+vms_service = connection.system_service().vms_service()
+vm = vms_service.list(search = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name=vm1</span><span style="color:#710">'</span></span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#777"># Find the service that manages the virtual machine:</span>
+vm_service = vms_service.vm_service(vm.id)
+
+<span style="color:#777"># Start the virtual machine enabling cloud-init and providing the</span>
+<span style="color:#777"># password for the `root` user and the network configuration:</span>
+vm_service.start(
+    use_cloud_init=<span style="color:#069">True</span>,
+    vm=types.Vm(
+        initialization=types.Initialization(
+        user_name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>,
+        root_password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+        host_name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">MyHost.example.com</span><span style="color:#710">'</span></span>,
+        nic_configurations=[
+            types.NicConfiguration(
+                name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">eth0</span><span style="color:#710">'</span></span>,
+                on_boot=<span style="color:#069">True</span>,
+                boot_protocol=types.BootProtocol.STATIC,
+                ip=types.Ip(
+                    version=types.IpVersion.V4,
+                    address=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">10.10.10.1</span><span style="color:#710">'</span></span>,
+                    netmask=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">255.255.255.0</span><span style="color:#710">'</span></span>,
+                    gateway=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">10.10.10.1</span><span style="color:#710">'</span></span>
+                )
+            )
+        )
+    )
+)
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Checking_System_Events">3.21. Checking System Events</h3>
+<div class="paragraph">
+<p>oVirt Engine records and logs many system events. These event logs are accessible through the user interface, the system log files, and using the API. The <code>ovirtsdk</code> library exposes events using the <code>events</code> collection.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 19. Checking system events</div>
+<div class="content">
+<div class="paragraph">
+<p>In this example the <code>events</code> collection is listed.</p>
+</div>
+<div class="paragraph">
+<p>The <code>query</code> parameter of the <code>list</code> method is used to ensure that all available pages of results are returned. By default the <code>list</code> method returns only the first page of results, which is <code>100</code> records in length.</p>
+</div>
+<div class="paragraph">
+<p>The returned list is sorted in reverse chronological order, to display the events in the order in which they occurred.</p>
+</div>
+<div class="paragraph">
+<p><strong>V4</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4</span> <span style="color:#080;font-weight:bold">as</span> sdk
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ovirtsdk4.types</span> <span style="color:#080;font-weight:bold">as</span> types
+
+connection = sdk.Connection(
+    url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://engine.example.com/ovirt-engine/api</span><span style="color:#710">'</span></span>,
+    username=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@internal</span><span style="color:#710">'</span></span>,
+    password=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>,
+    ca_file=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ca.pem</span><span style="color:#710">'</span></span>,
+)
+
+<span style="color:#777"># Find the service that manages the collection of events:</span>
+events_service = connection.system_service().events_service()
+
+page_number = <span style="color:#00D">1</span>
+events = events_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">page %s</span><span style="color:#710">'</span></span> % page_number)
+<span style="color:#080;font-weight:bold">while</span> events:
+    <span style="color:#080;font-weight:bold">for</span> event <span style="color:#080;font-weight:bold">in</span> events:
+        print(
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s %s CODE %s - %s</span><span style="color:#710">&quot;</span></span> % (
+                event.time,
+                event.severity,
+                event.code,
+                event.description,
+            )
+        )
+    page_number = page_number + <span style="color:#00D">1</span>
+    events = events_service.list(search=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">page %s</span><span style="color:#710">'</span></span> % page_number)
+
+<span style="color:#777"># Close the connection to the server:</span>
+connection.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These examples output events in the following format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
+YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 153 - VM vm1 was started by admin@internal (Host: MyHost).
+YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/python_sdk_guide/index">Red Hat Virtualization 4.4 Python SDK Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2846/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2846/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2846/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2846/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/doc-Python_SDK_Guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/doc-Python_SDK_Guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

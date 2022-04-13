@@ -14,6 +14,8 @@ The table below provides a compatibility matrix of {virt-product-shortname} vers
 [options="header"]
 |===
 |Compatibility Level |{virt-product-shortname} Version |Description
+|4.7 |4.4 SP1 | Compatibility Level 4.7 was introduced in RHV 4.4 SP1 to support new features introduced by RHEL 8.6 hypervisors.
+|Compatibility Level |{virt-product-shortname} Version |Description
 |4.6 |4.4.6 | Compatibility Level 4.6 was introduced in RHV 4.4.6 to support new features introduced by RHEL 8.4 hypervisors with Advanced Virtualization 8.4 packages.
 |4.5 |4.4.3 | Compatibility Level 4.5 was introduced in RHV 4.4.3 to support new features introduced by RHEL 8.3 hypervisors with Advanced Virtualization 8.3 packages.
 |===

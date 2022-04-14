@@ -164,13 +164,12 @@ exclude:
   - documentation/doc-Technical_Reference/chap*
   - documentation/doc-Release_Notes/topics
   - documentation/doc-Release_Notes/chap*
-  - documentation/doc-Product_Guide/topics
-  - documentation/doc-Product_Guide/chap*
-  - documentation/doc-Product_Guide/asm-*
+  - documentation/doc-Product_Guide/**
   - documentation/doc-Python_SDK_Guide/topics
   - documentation/doc-Python_SDK_Guide/chap*
   - documentation/doc-Planning_and_Prerequisites_Guide/topics
   - documentation/doc-Planning_and_Prerequisites_Guide/asm-*
+  - documentation/doc-Technical_Notes/**
 sass:
   add_charset: true
   style: :compressed

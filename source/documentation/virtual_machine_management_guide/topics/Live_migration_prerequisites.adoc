@@ -82,4 +82,4 @@ The virtual machine has three network interfaces: a controller interface and two
   RUN+="/bin/sh -c '/sbin/ip link set up $INTERFACE'"
 ----
 +
-This `udev` rule works only on systems that manage interfaces with `NetworkManager`. This rule ensures that only the `master` interface is activated.
+This `udev` rule works only on systems that manage interfaces with `NetworkManager`. This rule ensures that only the controller interface is activated.

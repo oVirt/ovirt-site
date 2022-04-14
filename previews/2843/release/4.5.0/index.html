@@ -1174,10 +1174,13 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-4">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075037">BZ 2075037</a> <strong>Wrong pinning in the dedicated virsh dumpxml after migration</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075435">BZ 2075435</a> <strong>Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2072881">BZ 2072881</a> <strong>Upgrade via backup and restore from 4.4 to 4.5 is blocked</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1989121">BZ 1989121</a> <strong>[CBT][Veeam] Block backup of hosted-engine vm</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069670">BZ 2069670</a> <strong>NPE when converting ISCSI disk during the copy_data action</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070536">BZ 2070536</a> <strong>The same host CPUs are assigned twice when we run dedicated&amp;none&amp;resize VMs on the same host</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070184">BZ 2070184</a> <strong>Hybrid Backup - Specifying disks for backup doesn’t work, backup is created for all disks</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2068104">BZ 2068104</a> <strong>hybrid backup VM after a snapshot fails - start_nbd_server error=Bitmap does not exist</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1979277">BZ 1979277</a> <strong>[RFE] Migration - Apply automatic CPU and NUMA pinning based on the migrated host</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2065152">BZ 2065152</a> <strong>Implicit CPU pinning for NUMA VMs destroyed because of invalid CPU policy</strong></li>
@@ -1857,13 +1860,13 @@ We want the user to be able to see the operation result, but also not over-polut
 
 <h3 id="contributors">Contributors</h3>
 
-<p>67 people contributed to this release:</p>
+<p>66 people contributed to this release:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Albert Esteve (Contributed to: ovirt-engine, vdsm)
 Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
 Andrej Krejcir (Contributed to: mom)
 Arik Hadas (Contributed to: ovirt-engine)
-Artur Socha (Contributed to: ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-wildfly, vdsm-jsonrpc-java)
+Artur Socha (Contributed to: ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-wildfly, vdsm-jsonrpc-java)
 Asaf Rachmani (Contributed to: cockpit-ovirt, ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-setup-lib)
 Avital Pinnick (Contributed to: ovirt-site)
 Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-host)
@@ -1871,7 +1874,6 @@ Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-release)
 Bella Khizgiyaev (Contributed to: ovirt-engine)
 Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
 Dana Elfassy (Contributed to: ovirt-engine)
-Denis Volkov (Contributed to: ovirt-engine-keycloak)
 Dominik Holler (Contributed to: ovirt-openvswitch, ovirt-release)
 Donna DaCosta (Contributed to: ovirt-site)
 Dusan Fodor (Contributed to: ovirt-openvswitch)
@@ -1897,7 +1899,7 @@ Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)
 Marcin Sobczyk (Contributed to: ovirt-release, vdsm)
 Mark Kemel (Contributed to: ovirt-engine, ovirt-engine-ui-extensions, python-ovirt-engine-sdk4, vdsm)
 Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-release, python-ovirt-engine-sdk4)
-Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-metrics, ovirt-engine-wildfly, ovirt-imageio, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
+Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-engine-wildfly, ovirt-imageio, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
 Martin Tzvetanov Grigorov (Contributed to: ovirt-engine)
 Michal Skrivanek (Contributed to: imgbased, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-engine-ui-extensions, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-web-ui)
 Miguel Duarte Barroso (Contributed to: ovirt-release)

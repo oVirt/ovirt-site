@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Better vurti | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Better vurti" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2854/develop/release-management/proposals/better-vurti.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2854/develop/release-management/proposals/better-vurti.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Better vurti" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Better vurti","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2854/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2854/develop/release-management/proposals/better-vurti.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2854/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2854/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2854/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2854/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2854/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2854/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2854/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2854/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2854/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2854/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2854/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2854/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2854/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2854/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2854/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2854/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2854/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2854/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2854/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2854/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2854/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2854/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2854//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2854//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2854/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2854/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2854/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2854/develop/release-management/proposals/">
+              <span property="name">Proposals</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<!-- TODO: Content review -->
+
+<h1 id="better-vurti">Better vurti</h1>
+
+<h2 id="motivation">Motivation</h2>
+
+<ul>
+  <li>We want to scale easily</li>
+  <li>Limited number of host and VMs</li>
+  <li>High performance costs with large deployment</li>
+  <li>Want to prepare for the 2-way messaging with hosts</li>
+  <li>write better loosely coupled code - more testable, maintainable, easy to add</li>
+</ul>
+
+<h2 id="problem-statement">Problem statement</h2>
+
+<ul>
+  <li>unparalleled code - code uses closed calls (syncing objects, using locks) - not parallel</li>
+  <li>thread waste - we keep a thread per host connection, pooled. Most of the threads in the system are busy doing VURTI</li>
+  <li>thread bound - large deployments needs more threads to cope with</li>
+  <li>latency in updates - large deployments cause each VURTI cycle to last longer - meaning we deal with state change later then expected.</li>
+  <li>many reads and writes - although been thorough an optimisation cycle, system relies heavily on db round-trips.</li>
+  <li>code around VM life-cycle and Host life-cycle is intestable, period. this means longer verification cycle, no unit testing of new,modified code etc.</li>
+</ul>
+
+<h2 id="approach">Approach</h2>
+
+<p>Lets break this conceptually first to 2 parts, the communication and the actual update cycle. Update cycle is the actual stop-the-world list of checks</p>
+
+<p>and loops on data structures, which then we assume state change upon. Communication is everything from the http connection pool when the host is added</p>
+
+<p>and the direct blocking calls we do to fetch aggregated data from our agents (also take actions on but less relevant for now)</p>
+
+<p>current situation a high-level</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                        *
+                        | [exclusive lock]
+                        * 
+                        | ----------[if status is Up or going to Maintenance...]
+                                           |
+                                           | VDSM::GetVdsStats
+                                           | ----------------------------[Failed]--------- Non Oper
+                                           | [sucess]
+                                           | DB::save VdsDynamic and Statistics
+                        |
+                        | ----------[other status, Unassigned]
+                                           | refresh HW caps and cluster checks
+                        |
+                        | refresh VM stats
+                                           | ------[time for stats]----
+                                                                   |
+                                                                   | VDSM::GetAllVmStats
+                                           |[list only]
+                                           | VDSM::GetVMsList
+                                           |
+                                           | compare list of db vms and running vms
+                                                                    | migration ended?
+                                                                    | vm is up?
+                                                                    | vm is down?
+                                                                    | memory checks
+                                                                    | watchdog events,network checks etc...
+                          | free exclusive lock
+</code></pre></div></div>
+
+<h3 id="poll-to-push---reactive-programming">poll to push - Reactive Programming</h3>
+
+<p>while not ready 2 way communication can lead us to get rid of polling. this would eliminate the need for a constant thread</p>
+
+<p>per abstract in this layer adopting to simulate the poll to push by programming event driven style, using CDI events.</p>
+
+<h3 id="phase-1---abstract-the-communication-layer">Phase 1 - Abstract the communication layer</h3>
+
+<p>today the sequence of action is linear - we lock, poll data from vdsm, iterate, take actions, do state change, save all to db and free lock.</p>
+
+<p>the communication layer is coupled inside, we don’t have a way around it. to overcome this we introduce another level of indirection - the PushAdapter.</p>
+
+<h4 id="pushadapter">PushAdapter</h4>
+
+<p>Typically the PushAdapter will poll for data exactly as made today but instead of just iterating and doing the regular stuff it will throw events.</p>
+
+<p>The adapter main role is to crunch the fetch data and dispatch events accordingaly, i.e</p>
+
+<p>VMStateChanged is an example of an aggregating event the will be fired. multiple subscribers(a.k.a observers) can react to that (ordering of events is</p>
+
+<h3 id="phase-2---repository-updater-fetcher">Phase 2 - Repository, Updater, Fetcher</h3>
+
+<p>The main idea is to separate completely the responsibility of each component. instead of 2 classes today which area responsible for all monitoring vds, do state transition, care for migration and other side handling + monitoring the VMs + doing their state transion, migration etc we’ll divide the responsibility to components and sub components.</p>
+
+<p>We need to manage 2 types, VDS and VM. Instead of managing a single VDS and its VMs, well manage (configurable) set of VDS. could be cluster scope or system scope or divided.</p>
+
+<p>This would be the <strong>Repository</strong> - VdsRepository and VmRepository.</p>
+
+<p>For each VdsRepository there would be a single VmRepository.</p>
+
+<p>Every Repository has to manage the lifecycle of its objects as well the create/retrieve/update/delete actions. This is the responsibility of the <strong>Updater</strong> - VdsUpdater and VmUpdater</p>
+
+<p>Each entity in the repository is fetched from an external resource and we must de-couple this details since we want to keep it flex and open for changes. This would be the responsibility of the <strong>Fetcher</strong> - VdsFetcher and VmFetcher</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2854/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2854/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2854/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2854/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/proposals/better-vurti.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/proposals/better-vurti.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

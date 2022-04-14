@@ -513,28 +513,40 @@
 </tr>
 </table>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Enable oVirt 4.5 repositories</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For oVirt Engine:</p>
-</li>
-<li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
 </div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Then follow the procedure for updates between minor releases.</p>
@@ -562,51 +574,72 @@
 </li>
 </ul>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
-<div class="title">Procedure</div>
+<div class="title">Procedure for Enterprise Linux hosts</div>
 <ol class="arabic">
 <li>
 <p>Enable oVirt 4.5 repositories</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For Enterprise Linux hosts:</p>
-</li>
-<li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-</li>
-</ul>
-</div>
 </li>
 </ol>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+<pre># dnf install -y centos-release-ovirt45</pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts oVirt Nodes:</div>
+<ol class="arabic">
 <li>
-<p>For oVirt Nodes:</p>
+<p>Enable oVirt 4.5 repositories</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre># dnf install centos-release-ovirt45 --enablerepo=extras</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Then follow the procedure for updates between minor releases.</p>
+<div class="olist arabic">
+<div class="title">Common procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the procedure for updates between minor releases.</p>
+</li>
+<li>
+<p>Follow the procedure for updating the cluster compatibility version.</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>Once finished, follow the procedure for updating the cluster compatibility version.</p>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to version 10.
 Please refer to <a href="https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/">Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x</a>
 for more details.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You can now update the cluster compatibility version.</p>
@@ -3107,28 +3140,40 @@ done</code></pre>
 </tr>
 </table>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Enable oVirt 4.5 repositories</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For oVirt Engine:</p>
-</li>
-<li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
 </div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Then follow the procedure for updates between minor releases.</p>
@@ -3156,51 +3201,72 @@ done</code></pre>
 </li>
 </ul>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
-<div class="title">Procedure</div>
+<div class="title">Procedure for Enterprise Linux hosts</div>
 <ol class="arabic">
 <li>
 <p>Enable oVirt 4.5 repositories</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For Enterprise Linux hosts:</p>
-</li>
-<li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-</li>
-</ul>
-</div>
 </li>
 </ol>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+<pre># dnf install -y centos-release-ovirt45</pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts oVirt Nodes:</div>
+<ol class="arabic">
 <li>
-<p>For oVirt Nodes:</p>
+<p>Enable oVirt 4.5 repositories</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre># dnf install centos-release-ovirt45 --enablerepo=extras</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Then follow the procedure for updates between minor releases.</p>
+<div class="olist arabic">
+<div class="title">Common procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the procedure for updates between minor releases.</p>
+</li>
+<li>
+<p>Follow the procedure for updating the cluster compatibility version.</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>Once finished, follow the procedure for updating the cluster compatibility version.</p>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to version 10.
 Please refer to <a href="https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/">Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x</a>
 for more details.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You can now update the cluster compatibility version.</p>
@@ -3738,10 +3804,10 @@ for more details.</p>
 <p>Reinstall the Data Warehouse machine with Enterprise Linux 8.2 or later, or oVirt Node 4.4.</p>
 </li>
 <li>
-<p>Prepare a PostgreSQL database. For information, see <a href="https://ovirt.org/documentation/installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">Preparing a Remote PostgreSQL Database</a> in <em>Installing oVirt as a standalone Engine with remote databases</em>.</p>
+<p>Prepare a PostgreSQL database. For information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">Preparing a Remote PostgreSQL Database</a> in <em>Installing oVirt as a standalone Engine with remote databases</em>.</p>
 </li>
 <li>
-<p>Enable the correct repositories on the server and install the Data Warehouse service. For detailed instructions, see <a href="https://ovirt.org/documentation/installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">Installing and Configuring Data Warehouse on a Separate Machine</a> for oVirt 4.4. Complete the steps in that procedure up to and including the <code>dnf install ovirt-engine-dwh-setup</code> command. Then continue to the next step in this procedure.</p>
+<p>Enable the correct repositories on the server and install the Data Warehouse service. For detailed instructions, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">Installing and Configuring Data Warehouse on a Separate Machine</a> for oVirt 4.4. Complete the steps in that procedure up to and including the <code>dnf install ovirt-engine-dwh-setup</code> command. Then continue to the next step in this procedure.</p>
 </li>
 <li>
 <p>Copy the backup file from the storage device to the Data Warehouse machine.</p>
@@ -5340,28 +5406,40 @@ done</code></pre>
 </tr>
 </table>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Enable oVirt 4.5 repositories</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For oVirt Engine:</p>
-</li>
-<li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
 </div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Then follow the procedure for updates between minor releases.</p>
@@ -5389,51 +5467,72 @@ done</code></pre>
 </li>
 </ul>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
-<div class="title">Procedure</div>
+<div class="title">Procedure for Enterprise Linux hosts</div>
 <ol class="arabic">
 <li>
 <p>Enable oVirt 4.5 repositories</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For Enterprise Linux hosts:</p>
-</li>
-<li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-</li>
-</ul>
-</div>
 </li>
 </ol>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+<pre># dnf install -y centos-release-ovirt45</pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts oVirt Nodes:</div>
+<ol class="arabic">
 <li>
-<p>For oVirt Nodes:</p>
+<p>Enable oVirt 4.5 repositories</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre># dnf install centos-release-ovirt45 --enablerepo=extras</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Then follow the procedure for updates between minor releases.</p>
+<div class="olist arabic">
+<div class="title">Common procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the procedure for updates between minor releases.</p>
+</li>
+<li>
+<p>Follow the procedure for updating the cluster compatibility version.</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>Once finished, follow the procedure for updating the cluster compatibility version.</p>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to version 10.
 Please refer to <a href="https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/">Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x</a>
 for more details.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">

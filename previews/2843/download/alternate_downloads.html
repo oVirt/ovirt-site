@@ -131,14 +131,6 @@
 
 <p><img class="screenshot" src="download_1.png" /></p>
 
-<p>For production installations, we recommend installing oVirt in the
-<a href="/ovirt-site/previews/2843/download">Self-Hosted Engine configuration</a>. In this configuration, oVirt Engine and a Host are installed
-together with the Engine running as a Virtual Machine on that Host. This configuration is
-preferred because the Engine Virtual Machine will be highly available (once a second Host is added).</p>
-
-<p>However, if you prefer to run the oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
-and Nodes / Hosts separately.</p>
-
 <p>oVirt 4.5.0 is intended for production use and is available for the following platforms:</p>
 
 <p>Engine:</p>
@@ -161,7 +153,7 @@ and Nodes / Hosts separately.</p>
 <h2 id="install-ovirt-engine-using-rpm">Install oVirt Engine using RPM</h2>
 
 <p>oVirt Engine is installed using RPM packages on a supported Enterprise Linux 8 distribution,
-such as CentOS Linux or Red Hat Enterprise Linux.</p>
+such as CentOS Stream or Red Hat Enterprise Linux.</p>
 
 <p class="alert alert-warning">Users can also compile from source, using the guides found under the <a href="/ovirt-site/previews/2843/develop">Developers</a> section. This is not recommended
 unless you are a developer or need to customize the source code.</p>
@@ -171,7 +163,23 @@ unless you are a developer or need to customize the source code.</p>
 
 <p>As an exception you can upgrade from 4.3 to 4.5 without upgrading to 4.4 first.</p>
 
-<h3 id="upgrading-from-43">Upgrading from 4.3</h3>
+<h2 id="upgrade-to-45-from-44">Upgrade to 4.5 from 4.4</h2>
+
+<h3 id="on-ovirt-engine-side">On oVirt Engine side:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
+dnf update <span class="nt">-y</span> <span class="nt">--nobest</span>
+engine-setup
+</code></pre></div></div>
+
+<h3 id="on-ovirt-node-side">on oVirt Node side:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45 <span class="nt">--enablerepo</span><span class="o">=</span>extras
+</code></pre></div></div>
+
+<p>and then upgrade the host from the oVirt Engine administation portal.</p>
+
+<h2 id="upgrading-from-43">Upgrading from 4.3</h2>
 
 <p>For a standalone engine this means basically:</p>
 
@@ -192,23 +200,17 @@ unless you are a developer or need to customize the source code.</p>
     <p>If you are going to install on Red Hat Enterprise Linux 8.6 Beta,
 please read <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
   </li>
-  <li>
-    <p>Add the official oVirt repository.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install -y centos-release-ovirt45
-sudo dnf module enable -y javapackages-tools pki-deps postgresql:12 389-ds mod_auth_openidc
+  <li>Add the official oVirt repository.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
+<span class="nb">sudo </span>dnf module <span class="nb">enable</span> <span class="nt">-y</span> javapackages-tools pki-deps postgresql:12 389-ds mod_auth_openidc
 </code></pre></div>    </div>
   </li>
-  <li>
-    <p>Install oVirt Engine.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install -y ovirt-engine
+  <li>Install oVirt Engine.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> ovirt-engine
 </code></pre></div>    </div>
   </li>
-  <li>
-    <p>Set up oVirt Engine.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo engine-setup
+  <li>Set up oVirt Engine.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>engine-setup
 </code></pre></div>    </div>
   </li>
   <li>
@@ -262,17 +264,13 @@ basic installation of an Enterprise Linux operating system on a physical server 
 packages are installed.</p>
 
 <ol class="instructions">
-  <li>
-    <p>Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL 8.6 Beta, please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf update -y
-# reboot if the kernel was updated
+  <li>Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf update <span class="nt">-y</span>
+<span class="c"># reboot if the kernel was updated</span>
 </code></pre></div>    </div>
   </li>
-  <li>
-    <p>Add the official oVirt repository:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install -y centos-release-ovirt45
+  <li>Add the official oVirt repository:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -318,11 +316,12 @@ storage must be attached.</p>
 
 <p>Using the oVirt Administration Portal, navigate to Storage → Domains → New and enter the Storage details.
 See <a href="/ovirt-site/previews/2843/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy">Configuring Storage</a> and
-<a href="/ovirt-site/previews/2843/documentation/administration_guide/#chap-Storage">Storage Administration</a> for guidance on configuring storage for your environment.</p>
+<a href="/ovirt-site/previews/2843/documentation/administration_guide/#chap-Storage">Storage Administration</a> for guidance on configuring storage for your
+environment.</p>
 
 <h2 id="install-virtual-machines">Install Virtual Machines</h2>
 
-<p>Once oVirt Engine is installed, you have added Hosts and <a href="/ovirt-site/previews/2843/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy">configured storage</a>,
+<p>Once oVirt Engine is installed and you have added Hosts and <a href="/ovirt-site/previews/2843/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy">configured storage</a>,
 you can now install Virtual Machines!</p>
 
 <p>See the <a href="/ovirt-site/previews/2843/documentation/virtual_machine_management_guide/">Virtual Machine Management Guide</a>
@@ -335,7 +334,7 @@ in each Virtual Machine.</p>
 
 <p>The following virtual machine guest operating systems are supported:</p>
 
-<table>
+<table class="bordered">
   <thead>
     <tr>
       <th style="text-align: left">Operating System</th>
@@ -350,9 +349,24 @@ in each Virtual Machine.</p>
       <td style="text-align: left">Yes</td>
     </tr>
     <tr>
-      <td style="text-align: left">Red Hat Enterprise Linux 7+</td>
+      <td style="text-align: left">Red Hat Atomic 7.x</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Red Hat Enterprise Linux 7 - 8</td>
       <td style="text-align: left">64-bit</td>
       <td style="text-align: left">Yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Red Hat Enterprise Linux 9</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Red Hat Enterprise Linux CoreOS</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
     </tr>
     <tr>
       <td style="text-align: left">SUSE Linux Enterprise Server 10+ [2]</td>
@@ -385,6 +399,11 @@ in each Virtual Machine.</p>
       <td style="text-align: left">Yes</td>
     </tr>
     <tr>
+      <td style="text-align: left">Windows 11</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">Yes</td>
+    </tr>
+    <tr>
       <td style="text-align: left">Windows Server 2003 Service Pack 2 and newer</td>
       <td style="text-align: left">32-bit, 64-bit</td>
       <td style="text-align: left">Yes</td>
@@ -407,6 +426,21 @@ in each Virtual Machine.</p>
     <tr>
       <td style="text-align: left">Windows Server 2016</td>
       <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Windows Server 2019</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Windows Server 2022</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FreeBSD 9.2</td>
+      <td style="text-align: left">32-bit, 64-bit</td>
       <td style="text-align: left">No</td>
     </tr>
   </tbody>
@@ -432,7 +466,7 @@ and <a href="/ovirt-site/previews/2843/download/browsers_and_mobile.html">Browse
 <h3 id="ovirt-45">oVirt 4.5</h3>
 
 <p>oVirt 4.5 is shipped via CentOS repositories.
-If you are going to install on RHEL 8.6 Beta, please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 
 <p>In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45

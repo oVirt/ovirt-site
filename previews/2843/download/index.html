@@ -121,6 +121,8 @@
 
 <p>See the <a href="/ovirt-site/previews/2843/release/4.5.0/">Release Notes for oVirt 4.5.0</a>.</p>
 
+<div class="row"></div>
+
 <h2 id="upgrade-to-45-from-44">Upgrade to 4.5 from 4.4</h2>
 
 <h3 id="on-ovirt-engine-side">On oVirt Engine side:</h3>
@@ -132,7 +134,7 @@ engine-setup
 
 <h3 id="on-ovirt-node-side">on oVirt Node side:</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install </span>centos-release-ovirt45 <span class="nt">--enablerepo</span><span class="o">=</span>extras
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45 <span class="nt">--enablerepo</span><span class="o">=</span>extras
 </code></pre></div></div>
 
 <p>and then upgrade the host from the oVirt Engine administation portal.</p>
@@ -184,17 +186,13 @@ basic installation of an Enterprise Linux operating system on a physical server 
 packages are installed.</p>
 
 <ol class="instructions">
-  <li>
-    <p>Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf update -y
-# reboot if the kernel was updated
+  <li>Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2843/download/install_on_rhel.html">Installing on RHEL</a> first.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf update <span class="nt">-y</span>
+<span class="c"># reboot if the kernel was updated</span>
 </code></pre></div>    </div>
   </li>
-  <li>
-    <p>Add the official oVirt repository:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install -y centos-release-ovirt45
+  <li>Add the official oVirt repository:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -271,7 +269,7 @@ in each Virtual Machine.</p>
 
 <p>The following virtual machine guest operating systems are supported:</p>
 
-<table>
+<table class="bordered">
   <thead>
     <tr>
       <th style="text-align: left">Operating System</th>
@@ -286,9 +284,24 @@ in each Virtual Machine.</p>
       <td style="text-align: left">Yes</td>
     </tr>
     <tr>
-      <td style="text-align: left">Red Hat Enterprise Linux 7+</td>
+      <td style="text-align: left">Red Hat Atomic 7.x</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Red Hat Enterprise Linux 7 - 8</td>
       <td style="text-align: left">64-bit</td>
       <td style="text-align: left">Yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Red Hat Enterprise Linux 9</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Red Hat Enterprise Linux CoreOS</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
     </tr>
     <tr>
       <td style="text-align: left">SUSE Linux Enterprise Server 10+ [2]</td>
@@ -321,6 +334,11 @@ in each Virtual Machine.</p>
       <td style="text-align: left">Yes</td>
     </tr>
     <tr>
+      <td style="text-align: left">Windows 11</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">Yes</td>
+    </tr>
+    <tr>
       <td style="text-align: left">Windows Server 2003 Service Pack 2 and newer</td>
       <td style="text-align: left">32-bit, 64-bit</td>
       <td style="text-align: left">Yes</td>
@@ -343,6 +361,21 @@ in each Virtual Machine.</p>
     <tr>
       <td style="text-align: left">Windows Server 2016</td>
       <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Windows Server 2019</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Windows Server 2022</td>
+      <td style="text-align: left">64-bit</td>
+      <td style="text-align: left">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FreeBSD 9.2</td>
+      <td style="text-align: left">32-bit, 64-bit</td>
       <td style="text-align: left">No</td>
     </tr>
   </tbody>

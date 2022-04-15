@@ -1292,12 +1292,20 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 6</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install -y <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm</a></code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 7</p>
+<p>For CentOS Linux 7</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install -y centos-release-ovirt43</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For Red Hat Enterprise Linux 7</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</code></pre>
@@ -1305,12 +1313,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 8</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms</code></pre>
-</div>
-</div>
+<p>For Enterprise Linux 8 and 9 the AppStream repository is enabled by default</p>
 </li>
 </ul>
 </div>
@@ -1328,7 +1331,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 8, install the qemu guest agent:</p>
+<p>For Enterprise Linux 8 and 9, install the qemu guest agent:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># yum install qemu-guest-agent</code></pre>
@@ -1377,7 +1380,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 7 or 8</p>
+<p>For Enterprise Linux 7, 8 or 9</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start qemu-guest-agent
@@ -1391,7 +1394,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </ol>
 </div>
 <div class="paragraph">
-<p>The guest agent now passes usage information to the oVirt Engine. You can configure the guest agent in the <code>/etc/ovirt-guest-agent.conf</code> file.</p>
+<p>The guest agent now passes usage information to the oVirt Engine. You can configure the oVirt guest agent in the <code>/etc/ovirt-guest-agent.conf</code> file.</p>
 </div>
 </div>
 </div>

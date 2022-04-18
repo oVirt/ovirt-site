@@ -8,7 +8,7 @@ Data, such as virtual machines and templates, remains attached to the storage do
 
 [NOTE]
 ====
-The master storage, if it is the last available storage domain, cannot be removed.
+The `master` storage, if it is the last available storage domain, cannot be removed.
 ====
 
 

@@ -107,7 +107,7 @@ When using a UEFI-based host, the target file should be [filename]`/etc/grub2-ef
 ====
 
 . Reboot the host machine.
-. Confirm that IOMMU is enabled, the host device is added to the list of pci-stub.ids, and Nouveau is blacklisted:
+. Confirm that IOMMU is enabled, the host device is added to the list of pci-stub.ids and Nouveau is disabled:
 +
 [literal,options="nowrap" subs="+quotes,verbatim,+macros"]
 --

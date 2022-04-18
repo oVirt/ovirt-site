@@ -10,7 +10,7 @@
 *`Mode 1 (active-backup policy)`*:: Sets all network interface cards to a backup state while one network interface card remains active. In the event of failure in the active network interface card, one of the backup network interface cards replaces that network interface card as the only active network interface card in the bond. The MAC address of the bond in Mode 1 is visible on only one port to prevent any confusion that might otherwise be caused if the MAC address of the bond changed to reflect that of the active network interface card. Mode 1 provides fault tolerance and is supported in {virt-product-fullname}.
 
 
-*`Mode 2 (XOR policy)`*:: Selects the network interface card through which to transmit packets based on the result of an XOR operation on the source and destination MAC addresses modulo network interface card slave count. This calculation ensures that the same network interface card is selected for each destination MAC address used. Mode 2 provides fault tolerance and load balancing and is supported in {virt-product-fullname}.
+*`Mode 2 (XOR policy)`*:: Selects the network interface card through which to transmit packets based on the result of an XOR operation on the source and destination MAC addresses modulo network interface card `slave` count. This calculation ensures that the same network interface card is selected for each destination MAC address used. Mode 2 provides fault tolerance and load balancing and is supported in {virt-product-fullname}.
 
 
 *`Mode 3 (broadcast policy)`*:: Transmits all packets to all network interface cards. Mode 3 provides fault tolerance and is supported in {virt-product-fullname}.

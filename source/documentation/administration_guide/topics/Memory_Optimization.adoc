@@ -65,7 +65,7 @@ When a host's free memory drops below 20%, ballooning commands like `mom.Control
 = Memory Ballooning
 Virtual machines start with the full amount of virtual memory you have assigned to them. As virtual memory usage exceeds RAM, the host relies more on swap space. If enabled, _memory ballooning_ lets virtual machines give up the unused portion of that memory. The freed memory can be reused by other processes and virtual machines on the host. The reduced memory footprint makes swapping less likely and improves performance.
 
-The _virtio-balloon_ package that provides the memory balloon device and drivers ships as a loadable kernel module (LKM). By default, it is configured to load automatically. Blacklisting the module or unloading it disables ballooning.
+The _virtio-balloon_ package that provides the memory balloon device and drivers ships as a loadable kernel module (LKM). By default, it is configured to load automatically. Adding the module to the denyist or unloading it disables ballooning.
 // Where does it ship? With the {hypervisor-fullname} and {enterprise-linux-host-fullname}s? ("host" being the Red Hat term for hypervisor)
 
 The memory balloon devices do not coordinate directly with each other; they rely on the host's Memory Overcommit Manager (MoM) process to continuously monitor each virtual machine needs and instruct the balloon device to increase or decrease virtual memory.

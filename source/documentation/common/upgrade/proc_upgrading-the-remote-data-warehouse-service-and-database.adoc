@@ -39,9 +39,9 @@ Grafana is not supported on {virt-product-shortname} 4.3, but on {virt-product-s
 
 . Reinstall the Data Warehouse machine with {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4.
 
-. Prepare a PostgreSQL database. For information, see link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database] in _Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_.
+. Prepare a PostgreSQL database. For information, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database] in _Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_.
 
-. Enable the correct repositories on the server and install the Data Warehouse service. For detailed instructions, see link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Installing and Configuring Data Warehouse on a Separate Machine] for {virt-product-fullname} 4.4. Complete the steps in that procedure up to and including the `dnf install ovirt-engine-dwh-setup` command. Then continue to the next step in this procedure.
+. Enable the correct repositories on the server and install the Data Warehouse service. For detailed instructions, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Installing and Configuring Data Warehouse on a Separate Machine] for {virt-product-fullname} 4.4. Complete the steps in that procedure up to and including the `dnf install ovirt-engine-dwh-setup` command. Then continue to the next step in this procedure.
 
 . Copy the backup file from the storage device to the Data Warehouse machine.
 

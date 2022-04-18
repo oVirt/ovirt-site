@@ -54,6 +54,6 @@ This command modifies the FQDN in each self-hosted engine node's local copy of [
 # hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_shared
 ----
 +
-This command modifies the FQDN in the master copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf` on the shared storage domain.
+This command modifies the FQDN in the main copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf` on the shared storage domain.
 
 Now, all new and existing self-hosted engine nodes use the new FQDN.

@@ -27,11 +27,11 @@ If the host is attached to the {engine-name} already, ensure you place the host 
 pci-stub.ids=10de:13ba,10de:0fbc
 ----
 +
-. Blacklist the corresponding drivers on the host. For example, to blacklist nVidia's nouveau driver, next to _pci-stub.ids=xxxx:xxxx_, enter *rdblacklist=nouveau*.
+. Add the corresponding driver to the denylist by entering *rdblacklist=<driver>* after the driver ID:
 +
 [source,terminal,subs="normal"]
 ----
-pci-stub.ids=10de:13ba,10de:0fbc rdblacklist=nouveau
+pci-stub.ids=10de:13ba,10de:0fbc rdblacklist=<driver-name>
 ----
 +
 . Click btn:[OK].

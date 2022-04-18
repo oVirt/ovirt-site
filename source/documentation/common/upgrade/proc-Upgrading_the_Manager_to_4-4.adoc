@@ -85,7 +85,7 @@ If you want to reuse the self-hosted engine virtual machine to deploy the {virt-
 +
 [source,terminal,subs="normal"]
 ----
-# hosted-engine --vm-status | grep 'Engine status|Hostname'
+# hosted-engine --vm-status | grep -E 'Engine status|Hostname'
 ----
 +
 [NOTE]

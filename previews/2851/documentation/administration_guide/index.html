@@ -4762,10 +4762,10 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="sect4">
 <h5 id="Re-initializing_a_Data_Center">Re-Initializing a Data Center: Recovery Procedure</h5>
 <div class="paragraph">
-<p>This recovery procedure replaces the master data domain of your data center with a new master data domain. You must re-initialize your master data domain if its data is corrupted. Re-initializing a data center allows you to restore all other resources associated with the data center, including clusters, hosts, and non-problematic storage domains.</p>
+<p>This recovery procedure replaces the <code>master</code> data domain of your data center with a new <code>master</code> data domain. You must re-initialize your <code>master</code> data domain if its data is corrupted. Re-initializing a data center allows you to restore all other resources associated with the data center, including clusters, hosts, and non-problematic storage domains.</p>
 </div>
 <div class="paragraph">
-<p>You can import any backup or exported virtual machines or templates into your new master data domain.</p>
+<p>You can import any backup or exported virtual machines or templates into your new <code>master</code> data domain.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -4791,7 +4791,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 </ol>
 </div>
 <div class="paragraph">
-<p>The storage domain is attached to the data center as the master data domain and activated. You can now import any backup or exported virtual machines or templates into your new master data domain.</p>
+<p>The storage domain is attached to the data center as the <code>master</code> data domain and activated. You can now import any backup or exported virtual machines or templates into your new <code>master</code> data domain.</p>
 </div>
 </div>
 <div class="sect4">
@@ -5051,7 +5051,7 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The master storage, if it is the last available storage domain, cannot be removed.</p>
+<p>The <code>master</code> storage, if it is the last available storage domain, cannot be removed.</p>
 </div>
 </td>
 </tr>
@@ -6410,7 +6410,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Virtual machines start with the full amount of virtual memory you have assigned to them. As virtual memory usage exceeds RAM, the host relies more on swap space. If enabled, <em>memory ballooning</em> lets virtual machines give up the unused portion of that memory. The freed memory can be reused by other processes and virtual machines on the host. The reduced memory footprint makes swapping less likely and improves performance.</p>
 </div>
 <div class="paragraph">
-<p>The <em>virtio-balloon</em> package that provides the memory balloon device and drivers ships as a loadable kernel module (LKM). By default, it is configured to load automatically. Blacklisting the module or unloading it disables ballooning.</p>
+<p>The <em>virtio-balloon</em> package that provides the memory balloon device and drivers ships as a loadable kernel module (LKM). By default, it is configured to load automatically. Adding the module to the denyist or unloading it disables ballooning.</p>
 </div>
 <div class="paragraph">
 <p>The memory balloon devices do not coordinate directly with each other; they rely on the host&#8217;s Memory Overcommit Manager (MoM) process to continuously monitor each virtual machine needs and instruct the balloon device to increase or decrease virtual memory.</p>
@@ -14887,7 +14887,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <div class="sect4">
 <h5 id="Moving_storage_domains_to_maintenance_mode">Moving Storage Domains to Maintenance Mode</h5>
 <div class="paragraph">
-<p>A storage domain must be in maintenance mode before it can be detached and removed. This is required to redesignate another data domain as the master data domain.</p>
+<p>A storage domain must be in maintenance mode before it can be detached and removed. This is required to redesignate another data domain as the <code>master</code> data domain.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -22325,7 +22325,7 @@ Engine database password: <em>password</em></code></pre>
 <p>Live migration of a virtual machine to a backup domain is not possible.</p>
 </li>
 <li>
-<p>You cannot set a backup domain to be the master domain.</p>
+<p>You cannot set a backup domain to be the <code>master</code> domain.</p>
 </li>
 <li>
 <p>You cannot set a Self-hosted engine&#8217;s domain to be a backup domain.</p>
@@ -28027,7 +28027,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </div>
 </div>
 <div class="paragraph">
-<p>This command modifies the FQDN in the master copy of <code class="filename">/etc/ovirt-hosted-engine-ha/hosted-engine.conf</code> on the shared storage domain.</p>
+<p>This command modifies the FQDN in the main copy of <code class="filename">/etc/ovirt-hosted-engine-ha/hosted-engine.conf</code> on the shared storage domain.</p>
 </div>
 </li>
 </ol>

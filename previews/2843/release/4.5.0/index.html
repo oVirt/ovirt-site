@@ -271,13 +271,12 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
           </li>
           <li><a href="#other-1" id="markdown-toc-other-1">Other</a>            <ol>
               <li><a href="#ovirt-ansible-collection-6" id="markdown-toc-ovirt-ansible-collection-6">oVirt Ansible collection</a></li>
-              <li><a href="#vdsm-6" id="markdown-toc-vdsm-6">VDSM</a></li>
             </ol>
           </li>
           <li><a href="#no-doc-update-1" id="markdown-toc-no-doc-update-1">No Doc Update</a>            <ol>
               <li><a href="#ovirt-distribution-1" id="markdown-toc-ovirt-distribution-1">ovirt-distribution</a></li>
               <li><a href="#ovirt-engine-9" id="markdown-toc-ovirt-engine-9">oVirt Engine</a></li>
-              <li><a href="#vdsm-7" id="markdown-toc-vdsm-7">VDSM</a></li>
+              <li><a href="#vdsm-6" id="markdown-toc-vdsm-6">VDSM</a></li>
               <li><a href="#ovirt-hosted-engine-setup-2" id="markdown-toc-ovirt-hosted-engine-setup-2">oVirt Hosted Engine Setup</a></li>
               <li><a href="#ovirt-engine-sdk-4-java" id="markdown-toc-ovirt-engine-sdk-4-java">oVirt Engine SDK 4 Java</a></li>
               <li><a href="#ovirt-engine-dwh-1" id="markdown-toc-ovirt-engine-dwh-1">ovirt-engine-dwh</a></li>
@@ -1272,6 +1271,7 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="vdsm-3">VDSM</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2076545">BZ 2076545</a> <strong>Mailbox logs are too noisy, no way to silence them</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2066285">BZ 2066285</a> <strong>Copying from an Image domain to a Managed Block Storage domain fails</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1881832">BZ 1881832</a> <strong>[CinderLib] - remove managed block disks from storage domain which have a VM snapshot fails - EVENT_ID: USER_FINISHED_FAILED_REMOVE_DISK(2,015)</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1755801">BZ 1755801</a> <strong>[Cinderlib] Managed Block Storage: Live Migration Problems with ceph</strong></li>
@@ -1752,12 +1752,6 @@ We want the user to be able to see the operation result, but also not over-polut
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2020624">BZ 2020624</a> <strong>[RFE] support satellite registration with repositories role</strong></li>
 </ul>
 
-<h4 id="vdsm-6">VDSM</h4>
-
-<ul>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2076545">BZ 2076545</a> <strong>Mailbox logs are too noisy, no way to silence them</strong></li>
-</ul>
-
 <h3 id="no-doc-update-1">No Doc Update</h3>
 
 <h4 id="ovirt-distribution-1">ovirt-distribution</h4>
@@ -1790,7 +1784,7 @@ We want the user to be able to see the operation result, but also not over-polut
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2073120">BZ 2073120</a> <strong>The CPU resources are not properly freed upon dedicated VM hibernation .</strong></li>
 </ul>
 
-<h4 id="vdsm-7">VDSM</h4>
+<h4 id="vdsm-6">VDSM</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1835105">BZ 1835105</a> <strong>[4.3] Unable to add a host to oVirt over BOND management interfaces created by IBM cloud</strong></li>

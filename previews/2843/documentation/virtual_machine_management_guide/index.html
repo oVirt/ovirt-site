@@ -192,7 +192,7 @@
 <li><a href="#Editing_network_interfaces">5.2.2. Editing a Network Interface</a></li>
 <li><a href="#Hot_Plugging_Network_Interfaces">5.2.3. Hot Plugging a Network Interface</a></li>
 <li><a href="#Removing_a_Network_Interface">5.2.4. Removing a Network Interface</a></li>
-<li><a href="#Blacklisting_Network_Interfaces">5.2.5. Blacklisting Network Interfaces</a></li>
+<li><a href="#Blacklisting_Network_Interfaces">5.2.5. Configuring a virtual machine to ignore NICs</a></li>
 </ul>
 </li>
 <li><a href="#sect-Virtual_Disks">5.3. Virtual Disks</a>
@@ -4500,23 +4500,9 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </div>
 </div>
 <div class="sect3">
-<h4 id="Blacklisting_Network_Interfaces">5.2.5. Blacklisting Network Interfaces</h4>
+<h4 id="Blacklisting_Network_Interfaces">5.2.5. Configuring a virtual machine to ignore NICs</h4>
 <div class="paragraph">
-<p>You can configure the <code>ovirt-guest-agent</code> on a virtual machine to ignore certain NICs. This prevents IP addresses associated with network interfaces created by certain software from appearing in reports. You must specify the name and number of the network interface you want to blacklist (for example, <code>eth0</code>, <code>docker0</code>).</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You must blacklist NICs on the virtual machine before the guest agent is started for the first time.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>You can configure the <code>ovirt-guest-agent</code> on a virtual machine to ignore certain NICs. This prevents IP addresses associated with network interfaces created by certain software from appearing in reports. You must specify the name and number of the network interface you want to ignore (for example, <code>eth0</code>, <code>docker0</code>).</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -4550,7 +4536,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Some virtual machine operating systems automatically start the guest agent during installation.</p>
 </div>
 <div class="paragraph">
-<p>If your virtual machine&#8217;s operating system automatically starts the guest agent or if you need to configure the blacklist on many virtual machines, use the configured virtual machine as a template for creating additional virtual machines. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a template from an existing virtual machine</a> for details.</p>
+<p>If your virtual machine&#8217;s operating system automatically starts the guest agent or if you need to configure the denylist on many virtual machines, use the configured virtual machine as a template for creating additional virtual machines. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a template from an existing virtual machine</a> for details.</p>
 </div>
 </td>
 </tr>
@@ -8432,7 +8418,7 @@ Error while executing action:
 <div class="ulist">
 <ul>
 <li>
-<p>The bond is not configured with <code>fail_over_mac=active</code> and the VF vNIC is the primary slave (recommended).</p>
+<p>The bond is not configured with <code>fail_over_mac=active</code> and the VF vNIC is the primary <code>slave</code> (recommended).</p>
 <div class="paragraph">
 <p>Disable the VirtIO vNIC profile&#8217;s MAC-spoofing filter to ensure that traffic passing through the VirtIO vNIC is not dropped because it uses the VF vNIC MAC address.</p>
 </div>
@@ -8509,7 +8495,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="paragraph">
-<p>This <code>udev</code> rule works only on systems that manage interfaces with <code>NetworkManager</code>. This rule ensures that only the master interface is activated.</p>
+<p>This <code>udev</code> rule works only on systems that manage interfaces with <code>NetworkManager</code>. This rule ensures that only the controller interface is activated.</p>
 </div>
 </li>
 </ol>

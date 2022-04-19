@@ -185,6 +185,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
               <li><a href="#ovirt-host-dependencies" id="markdown-toc-ovirt-host-dependencies">oVirt Host Dependencies</a></li>
               <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a></li>
               <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a></li>
+              <li><a href="#ovirt-setup-lib" id="markdown-toc-ovirt-setup-lib">oVirt Setup Lib</a></li>
               <li><a href="#vdsm-1" id="markdown-toc-vdsm-1">VDSM</a></li>
               <li><a href="#ovirt-engine-appliance-1" id="markdown-toc-ovirt-engine-appliance-1">oVirt Engine Appliance</a></li>
             </ol>
@@ -209,16 +210,14 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
               <li><a href="#ovirt-engine-ui-extensions-1" id="markdown-toc-ovirt-engine-ui-extensions-1">oVirt Engine UI Extensions</a></li>
               <li><a href="#ovirt-hosted-engine-ha-1" id="markdown-toc-ovirt-hosted-engine-ha-1">oVirt Hosted Engine HA</a></li>
               <li><a href="#ovirt-hosted-engine-setup-1" id="markdown-toc-ovirt-hosted-engine-setup-1">oVirt Hosted Engine Setup</a></li>
-              <li><a href="#ovirt-setup-lib" id="markdown-toc-ovirt-setup-lib">oVirt Setup Lib</a></li>
+              <li><a href="#ovirt-setup-lib-1" id="markdown-toc-ovirt-setup-lib-1">oVirt Setup Lib</a></li>
               <li><a href="#vdsm-2" id="markdown-toc-vdsm-2">VDSM</a></li>
             </ol>
           </li>
           <li><a href="#other" id="markdown-toc-other">Other</a>            <ol>
               <li><a href="#ovirt-engine-4" id="markdown-toc-ovirt-engine-4">oVirt Engine</a></li>
               <li><a href="#ovirt-engine-ui-extensions-2" id="markdown-toc-ovirt-engine-ui-extensions-2">oVirt Engine UI Extensions</a></li>
-              <li><a href="#ovirt-hosted-engine-setup-2" id="markdown-toc-ovirt-hosted-engine-setup-2">oVirt Hosted Engine Setup</a></li>
               <li><a href="#ovirt-provider-ovn-1" id="markdown-toc-ovirt-provider-ovn-1">oVirt Provider OVN</a></li>
-              <li><a href="#ovirt-setup-lib-1" id="markdown-toc-ovirt-setup-lib-1">oVirt Setup Lib</a></li>
               <li><a href="#vdsm-3" id="markdown-toc-vdsm-3">VDSM</a></li>
             </ol>
           </li>
@@ -256,6 +255,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
               <li><a href="#ovirt-engine-7" id="markdown-toc-ovirt-engine-7">oVirt Engine</a></li>
               <li><a href="#ovirt-web-ui" id="markdown-toc-ovirt-web-ui">oVirt Web UI</a></li>
               <li><a href="#ovirt-ansible-collection-4" id="markdown-toc-ovirt-ansible-collection-4">oVirt Ansible collection</a></li>
+              <li><a href="#ovirt-engine-sdk-python" id="markdown-toc-ovirt-engine-sdk-python">ovirt-engine-sdk-python</a></li>
             </ol>
           </li>
           <li><a href="#bug-fixes-1" id="markdown-toc-bug-fixes-1">Bug Fixes</a>            <ol>
@@ -270,15 +270,15 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
             </ol>
           </li>
           <li><a href="#other-1" id="markdown-toc-other-1">Other</a>            <ol>
-              <li><a href="#ovirt-engine-sdk-python" id="markdown-toc-ovirt-engine-sdk-python">ovirt-engine-sdk-python</a></li>
               <li><a href="#ovirt-ansible-collection-6" id="markdown-toc-ovirt-ansible-collection-6">oVirt Ansible collection</a></li>
+              <li><a href="#vdsm-6" id="markdown-toc-vdsm-6">VDSM</a></li>
             </ol>
           </li>
           <li><a href="#no-doc-update-1" id="markdown-toc-no-doc-update-1">No Doc Update</a>            <ol>
               <li><a href="#ovirt-distribution-1" id="markdown-toc-ovirt-distribution-1">ovirt-distribution</a></li>
               <li><a href="#ovirt-engine-9" id="markdown-toc-ovirt-engine-9">oVirt Engine</a></li>
-              <li><a href="#vdsm-6" id="markdown-toc-vdsm-6">VDSM</a></li>
-              <li><a href="#ovirt-hosted-engine-setup-3" id="markdown-toc-ovirt-hosted-engine-setup-3">oVirt Hosted Engine Setup</a></li>
+              <li><a href="#vdsm-7" id="markdown-toc-vdsm-7">VDSM</a></li>
+              <li><a href="#ovirt-hosted-engine-setup-2" id="markdown-toc-ovirt-hosted-engine-setup-2">oVirt Hosted Engine Setup</a></li>
               <li><a href="#ovirt-engine-sdk-4-java" id="markdown-toc-ovirt-engine-sdk-4-java">oVirt Engine SDK 4 Java</a></li>
               <li><a href="#ovirt-engine-dwh-1" id="markdown-toc-ovirt-engine-dwh-1">ovirt-engine-dwh</a></li>
               <li><a href="#ovirt-node-1" id="markdown-toc-ovirt-node-1">ovirt-node</a></li>
@@ -591,6 +591,11 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 <h4 id="ovirt-engine-1">oVirt Engine</h4>
 
 <ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2072881">BZ 2072881</a> <strong>Allow upgrade via backup and restore from 4.4 to 4.5</strong></p>
+
+    <p>Usually oVirt Engine can restore backups taken only from the same version. For oVirt 4.5 it has been made possible to restore a backup taken from oVirt 4.4 into an oVirt 4.5 Engine.</p>
+  </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2040474">BZ 2040474</a> <strong>[RFE] Add progress tracking for Cluster Upgrade</strong></p>
 
@@ -944,6 +949,21 @@ the engine fqdn is available in dwh, in the history_configuration table.</p>
 
     <p>Hosted Engine installation now supports selecting either DISA STIG or PCI-DSS security profiles for the Hosted Engine VM</p>
   </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1616158">BZ 1616158</a> <strong>Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.</strong></p>
+
+    <p>A check has been added to Self Hosted Engine Setup to ensure that the IP address resolved from oVirt Engine FQDN belongs to the same Subnet of the host which will run the Self Hosted Engine Agent.</p>
+  </li>
+</ul>
+
+<h4 id="ovirt-setup-lib">oVirt Setup Lib</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1616158">BZ 1616158</a> <strong>Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.</strong></p>
+
+    <p>A check has been added to Self Hosted Engine Setup to ensure that the IP address resolved from oVirt Engine FQDN belongs to the same Subnet of the host which will run the Self Hosted Engine Agent.</p>
+  </li>
 </ul>
 
 <h4 id="vdsm-1">VDSM</h4>
@@ -1157,12 +1177,14 @@ images containing large zeroed areas is usually faster now.</p>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2026770">BZ 2026770</a> <strong>host deployment fails on fips-enabled host</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012742">BZ 2012742</a> <strong>Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1768969">BZ 1768969</a> <strong>Duplicate iSCSI sessions in the hosted-engine deployment host when the tpgt is not 1</strong></li>
 </ul>
 
-<h4 id="ovirt-setup-lib">oVirt Setup Lib</h4>
+<h4 id="ovirt-setup-lib-1">oVirt Setup Lib</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012742">BZ 2012742</a> <strong>Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1971863">BZ 1971863</a> <strong>Queries of type ‘ANY’ are deprecated - RFC8482</strong></li>
 </ul>
 
@@ -1180,9 +1202,9 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-4">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074582">BZ 2074582</a> <strong>VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075037">BZ 2075037</a> <strong>Wrong pinning in the dedicated virsh dumpxml after migration</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075435">BZ 2075435</a> <strong>Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage</strong></li>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2072881">BZ 2072881</a> <strong>Upgrade via backup and restore from 4.4 to 4.5 is blocked</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1989121">BZ 1989121</a> <strong>[CBT][Veeam] Block backup of hosted-engine vm</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069670">BZ 2069670</a> <strong>NPE when converting ISCSI disk during the copy_data action</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070536">BZ 2070536</a> <strong>The same host CPUs are assigned twice when we run dedicated&amp;none&amp;resize VMs on the same host</strong></li>
@@ -1241,24 +1263,10 @@ images containing large zeroed areas is usually faster now.</p>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1980331">BZ 1980331</a> <strong>manage vGPU dialog: maximum value of available mdev instances to attach is incorrect.</strong></li>
 </ul>
 
-<h4 id="ovirt-hosted-engine-setup-2">oVirt Hosted Engine Setup</h4>
-
-<ul>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1616158">BZ 1616158</a> <strong>Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.</strong></li>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012742">BZ 2012742</a> <strong>Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host</strong></li>
-</ul>
-
 <h4 id="ovirt-provider-ovn-1">oVirt Provider OVN</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012850">BZ 2012850</a> <strong>Cannot add router port with IPv6</strong></li>
-</ul>
-
-<h4 id="ovirt-setup-lib-1">oVirt Setup Lib</h4>
-
-<ul>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1616158">BZ 1616158</a> <strong>Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.</strong></li>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012742">BZ 2012742</a> <strong>Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host</strong></li>
 </ul>
 
 <h4 id="vdsm-3">VDSM</h4>
@@ -1303,6 +1311,7 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-5">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2076474">BZ 2076474</a> <strong>OVA import: importing VM OVA  failed with “async task did not complete within the requested time - 120s”</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1868372">BZ 1868372</a> <strong>collectd-virt plugin doesn’t work with latest libvirt</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070053">BZ 2070053</a> <strong>Removal of a labeled long network(more than 15 characters)  is incomplete</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2032917">BZ 2032917</a> <strong>Restapi: after migrating Jackson to com.fasterxml.jackson, REST API’s JSON default serializing mode is not ignoring properties with null values anymore</strong></li>
@@ -1669,6 +1678,16 @@ We want the user to be able to see the operation result, but also not over-polut
   </li>
 </ul>
 
+<h4 id="ovirt-engine-sdk-python">ovirt-engine-sdk-python</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1973278">BZ 1973278</a> <strong>[RFE] Add an SDK example for importing templates from OVAs</strong></p>
+
+    <p>Added an example that demonstrates importing of a template from an OVA file that is located on a host</p>
+  </li>
+</ul>
+
 <h3 id="bug-fixes-1">Bug Fixes</h3>
 
 <h4 id="ovirt-distribution">ovirt-distribution</h4>
@@ -1727,16 +1746,16 @@ We want the user to be able to see the operation result, but also not over-polut
 
 <h3 id="other-1">Other</h3>
 
-<h4 id="ovirt-engine-sdk-python">ovirt-engine-sdk-python</h4>
-
-<ul>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1973278">BZ 1973278</a> <strong>[RFE] Add an SDK example for importing templates from OVAs</strong></li>
-</ul>
-
 <h4 id="ovirt-ansible-collection-6">oVirt Ansible collection</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2020624">BZ 2020624</a> <strong>[RFE] support satellite registration with repositories role</strong></li>
+</ul>
+
+<h4 id="vdsm-6">VDSM</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2076545">BZ 2076545</a> <strong>Mailbox logs are too noisy, no way to silence them</strong></li>
 </ul>
 
 <h3 id="no-doc-update-1">No Doc Update</h3>
@@ -1771,14 +1790,14 @@ We want the user to be able to see the operation result, but also not over-polut
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2073120">BZ 2073120</a> <strong>The CPU resources are not properly freed upon dedicated VM hibernation .</strong></li>
 </ul>
 
-<h4 id="vdsm-6">VDSM</h4>
+<h4 id="vdsm-7">VDSM</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1835105">BZ 1835105</a> <strong>[4.3] Unable to add a host to oVirt over BOND management interfaces created by IBM cloud</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1929099">BZ 1929099</a> <strong>Disks remain in locked status</strong></li>
 </ul>
 
-<h4 id="ovirt-hosted-engine-setup-3">oVirt Hosted Engine Setup</h4>
+<h4 id="ovirt-hosted-engine-setup-2">oVirt Hosted Engine Setup</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1857815">BZ 1857815</a> <strong>Copying HE-VM’s disk to iSCSI storage volume, during deployment of 4.4 HE takes too long.</strong></li>

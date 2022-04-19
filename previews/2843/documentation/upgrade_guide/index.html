@@ -1651,7 +1651,7 @@ Try to keep workloads on all virtual machines using Gluster storage as light as 
 </div>
 </li>
 <li>
-<p>Blacklist the devices used for Gluster bricks.</p>
+<p>Disable the devices used for Gluster bricks.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1919,7 +1919,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</code></pre>
 </div>
 </li>
 <li>
-<p>If multipath configuration is not available on the newly installed host, blacklist the Gluster devices. The inventory file is already created in the first host as part of the step <em>Blacklist the devices used for Gluster bricks</em>.</p>
+<p>If multipath configuration is not available on the newly installed host, disable the Gluster devices. The inventory file is already created in the first host as part of the step <em>Disable the devices used for Gluster bricks</em>.</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>

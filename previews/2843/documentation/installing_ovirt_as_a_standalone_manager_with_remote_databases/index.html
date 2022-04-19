@@ -3492,7 +3492,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>eth0.50</em> dev <em>eth0</em> id <em>50</em>
-# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</code></pre>
+# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ipv4.gateway <em>123.123</em>.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -3504,7 +3504,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 # nmcli connection add type ethernet con-name <em>eth0</em> ifname <em>eth0</em> master <em>bond0</em> slave-type bond
 # nmcli connection add type ethernet con-name <em>eth1</em> ifname <em>eth1</em> master <em>bond0</em> slave-type bond
 # nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>bond0.50</em> dev <em>bond0</em> id <em>50</em>
-# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</code></pre>
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ipv4.gateway <em>123.123</em>.0.254</code></pre>
 </div>
 </div>
 </li>

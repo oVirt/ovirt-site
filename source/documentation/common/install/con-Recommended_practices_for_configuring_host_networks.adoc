@@ -32,7 +32,7 @@ Consider the following practices for configuring a host network:
 [source,terminal,subs="normal"]
 ----
 # nmcli connection add type vlan con-name __vlan50__ ifname __eth0.50__ dev __eth0__ id __50__
-# nmcli con mod __vlan50__ +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254
+# nmcli con mod __vlan50__ +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ipv4.gateway __123.123__.0.254
 ----
 
 * Configure a VLAN on a bond as in the following example (although `nmcli` is used, you can use any tool):
@@ -43,7 +43,7 @@ Consider the following practices for configuring a host network:
 # nmcli connection add type ethernet con-name __eth0__ ifname __eth0__ master __bond0__ slave-type bond
 # nmcli connection add type ethernet con-name __eth1__ ifname __eth1__ master __bond0__ slave-type bond
 # nmcli connection add type vlan con-name __vlan50__ ifname __bond0.50__ dev __bond0__ id __50__
-# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ivp4.gateway __123.123__.0.254
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses __123.123__.0.1/24 +ipv4.gateway __123.123__.0.254
 ----
 
 * Do not disable `firewalld`.

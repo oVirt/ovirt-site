@@ -22,16 +22,15 @@ The first step will be to create an image with the correct functionality, in a s
 *   Name: Fabian Deutsch (fabiand)
 *   Email: fabiand@redhat.com
 *   Tracker <https://bugzilla.redhat.com/show_bug.cgi?id=1053435>
-*   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
+*   GitHub: <https://github.com/oVirt/ovirt-appliance>
 
 ## Current status
 
-Builds are stable, built daily, and based on latest stable packages.
+Builds are stable and based on latest packages.
 
 Availability:
 
-*  4.3 nightly builds: <https://jenkins.ovirt.org/job/ovirt-appliance_4.3_build-artifacts-el7-x86_64/>
-*  master / 4.4 nightly builds: <https://jenkins.ovirt.org/job/ovirt-appliance_master_build-artifacts-el8-x86_64/>
+*  master nightly builds: <https://resources.ovirt.org/repos/ovirt/github-ci/ovirt-appliance/>
 
 
 ## Details

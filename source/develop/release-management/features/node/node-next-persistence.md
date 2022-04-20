@@ -51,7 +51,7 @@ A reliable mechanism must be written in order to capture packages as they are in
 
 [yum.PackageObject](http://yum.baseurl.org/api/yum/yum/packages.html?highlight=yum.packages.packageobjec#yum.packages.PackageObject) is able to immediately provide the location of a cached RPM (after downloading or from localinstall), and this is available as part of yum plugin hooks.
 
-It _may_ be possible to [extend RPM](http://rpm.org/devel_doc/plugins.html), but some research must be done in order to discover whether RPM's plugin interface is as informative as yum.PackageObject. It is possible that RPM's plugin mechanism only triggers during the execution of the RPM specfile, and cannot be used to pin down the location of the actual package. This also provides the additional burden of maintaining a small codebase in C, though that may be an acceptable tradeoff.
+It _may_ be possible to [extend RPM](https://rpm-software-management.github.io/rpm/manual/plugins.html), but some research must be done in order to discover whether RPM's plugin interface is as informative as yum.PackageObject. It is possible that RPM's plugin mechanism only triggers during the execution of the RPM specfile, and cannot be used to pin down the location of the actual package. This also provides the additional burden of maintaining a small codebase in C, though that may be an acceptable tradeoff.
 
 ## Implementation
 

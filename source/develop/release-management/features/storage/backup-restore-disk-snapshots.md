@@ -16,17 +16,17 @@ using [ovirt-imageio](https://github.com/oVirt/ovirt-imageio)
 The following backup/restore examples are facilitated using oVirt Python-SDK.
 oVirt REST-API/SDKs can be used in a similar manner.
 
-## Backup 
+## Backup
 
 ### Download a VM OVF
 
-[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_vm_ovf.py)
+[Full Example](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_vm_ovf.py)
 
 In order to fetch a VM configuration data, 'all_content' flag should be specified.
-Then, it can be written into a new file - that's the OVF. 
+Then, it can be written into a new file - that's the OVF.
 Note: The OVF contains sufficient information about disks and snapshots to restore
 the VM to original state (e.g. alias/description/date). However, it isn't automatically
-parsed by the system, but rather should be done by the SDK user.  
+parsed by the system, but rather should be done by the SDK user.
 
 ```python
 vm_name = 'myvm'
@@ -38,11 +38,11 @@ with open(ovf_filename, "wb") as ovf_file:
 
 ### Download Disks
 
-[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_all_disk_snapshots.py)
+[Full Example](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_all_disk_snapshots.py)
 
 The following example demonstrates the procedure of downloading the non-active disk-snapshots
 of a specified disk. Hence, in order to include the active layer as well, either create
-a new snapshot for the disk in advance, or download the active disk-snapshot using the[Download Disk Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py)
+a new snapshot for the disk in advance, or download the active disk-snapshot using the[Download Disk Example](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_disk.py)
 
 
 In order to download the active
@@ -53,25 +53,25 @@ In order to download the active
     # Set relevant disk and stroage domain IDs
     disk_id = 'ccdd6487-0a8f-40c8-9f45-40e0e2b30d79'
     sd_name = 'mydata'
-        
+
     # Get a reference to the storage domains service:
     storage_domains_service = system_service.storage_domains_service()
-        
+
     # Look up for the storage domain by name:
     storage_domain = storage_domains_service.list(search='name=%s' % sd_name)[0]
-        
+
     # Get a reference to the storage domain service in which the disk snapshots reside:
     storage_domain_service = storage_domains_service.storage_domain_service(storage_domain.id)
-        
+
     # Get a reference to the disk snapshots service:
     disk_snapshot_service = storage_domain_service.disk_snapshots_service()
-        
+
     # Get a list of disk snapshots by a disk ID
     all_disk_snapshots = disk_snapshot_service.list()
-        
+
     # Filter disk snapshots list by disk id
     disk_snapshots = [s for s in all_disk_snapshots if s.disk.id == disk_id]
-        
+
     # Download disk snapshots
     for disk_snapshot in disk_snapshots:
         download_disk_snapshot(disk_snapshot)
@@ -90,7 +90,7 @@ In order to download the active
 
 ## Restore
 
-[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py)
+[Full Example](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/upload_disk_snapshots.py)
 
 ### Compose disk-snapshots chain
 
@@ -109,7 +109,7 @@ construct the chain, starting from base volume.
             volumes_info[file_name] = volume_info
             if 'full-backing-filename' in volume_info:
                 backing_files[volume_info['full-backing-filename']] = volume_info
-    
+
     base_volume = [v for v in volumes_info.values() if 'full-backing-filename' not in v ][0]
     child = backing_files[base_volume['filename']]
     images_chain = [base_volume]
@@ -120,13 +120,13 @@ construct the chain, starting from base volume.
             child = backing_files[parent['filename']]
         else:
             child = None
-    
+
     return images_chain
 ```
 
 ### Create disks
 
-For each disk, invoke disk creation for the base image using 
+For each disk, invoke disk creation for the base image using
 the generated images chain from previous step. The content of
 the disks will be uploaded in a later step.
 
@@ -203,7 +203,7 @@ For each disk-snapshot in the chain, create a snapshot using the disk ID and ima
 
 ### Upload disks
 
-For each disk-snapshot in the chain, start an upload transfer. 
+For each disk-snapshot in the chain, start an upload transfer.
 
 ```python
     # Get a reference to the service that manages the image transfer:
@@ -266,12 +266,12 @@ For each disk-snapshot in the chain, start an upload transfer.
 
 ### Python SDK examples
 
-* [Download VM OVF](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_vm_ovf.py)
+* [Download VM OVF](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_vm_ovf.py)
 
-* [Download Disk Snapshots](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_all_disk_snapshots.py)
+* [Download Disk Snapshots](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_all_disk_snapshots.py)
 
-* [Upload Disk Snapshots](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py)
+* [Upload Disk Snapshots](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/upload_disk_snapshots.py)
 
-* [Download Disk](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py)
+* [Download Disk](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_disk.py)
 
-* [Upload Disk](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk.py)
+* [Upload Disk](https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/upload_disk.py)

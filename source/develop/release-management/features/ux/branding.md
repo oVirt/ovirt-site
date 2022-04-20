@@ -138,7 +138,7 @@ As the oVirt default branding is itself a branding theme you can look at the oVi
 
 ## CSS
 
-Because this is a GWT application most of the styles are compiled into the application when the application is built. As part of this process the style class names are obfuscated and they change each time the application is build. GWT provides some guidance on how to solve this problem [here](https://developers.google.com/web-toolkit/doc/latest/DevGuideClientBundle#External_and_legacy_scopes). In order to add new brand-able style classes the following will have to be considered:
+Because this is a GWT application most of the styles are compiled into the application when the application is built. As part of this process the style class names are obfuscated and they change each time the application is build. GWT provides some guidance on how to solve this problem [here](https://www.gwtproject.org/doc/latest/DevGuideClientBundle.html#External_and_legacy_scopes). In order to add new brand-able style classes the following will have to be considered:
 
 *   Any class name you define needs to marked with @external
 *   All the class names should start with obrand_ this is signify to theme authors that the class can be used to override styles.

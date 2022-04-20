@@ -440,7 +440,7 @@ Works out of the box.
        # grep -m1 svm /proc/cpuinfo
         flags           : fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm up nopl pni cx16 popcnt hypervisor lahf_lm svm abm sse4a
 
-More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virt/kvm/nested-vmx.rst>
+More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virt/kvm/x86/nested-vmx.rst>
 
 ## Building new releases for Fedora or EPEL with fedpkg
 

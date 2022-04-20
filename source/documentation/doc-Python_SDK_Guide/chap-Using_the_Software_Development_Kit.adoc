@@ -39,7 +39,7 @@ For detailed information and examples, see the following resources:
 
 * link:{URL_downstream_virt_product_docs}rest_api_guide/index[V4 REST API Guide]
 * link:http://ovirt.github.io/ovirt-engine-sdk[Python SDK reference documentation]
-* link:https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk/examples[Python SDK examples]
+* link:https://github.com/oVirt/python-ovirt-engine-sdk4/tree/main/examples[Python SDK examples]
 
 [id="generating-documentation-for-modules"]
 === Generating documentation for modules

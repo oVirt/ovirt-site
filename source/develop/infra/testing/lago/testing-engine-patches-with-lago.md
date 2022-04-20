@@ -11,7 +11,7 @@ authors: rafaelmartins
 
 This guide will describe how to adapt ovirt-system-tests test suites, that are mainly designed for CI testing, to manually test ovirt-engine patches.
 
-This guide assumes that you have lago and all the ovirt-system-tests requirements installed on your machine, [according to the documentation](https://ovirt-system-tests.readthedocs.io/en/latest/general/installation/index.html), and that you got yourself previously familiarized with ovirt-system-tests.
+This guide assumes that you have lago and all the ovirt-system-tests requirements installed on your machine, [according to the documentation](https://ovirt-system-tests.readthedocs.io/en/latest/), and that you got yourself previously familiarized with ovirt-system-tests.
 
 ## Creating the test suite
 

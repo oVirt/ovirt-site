@@ -58,7 +58,7 @@ At first, we should separate Async Task manager logic from bll, and create a new
 
 1.  Create a new maven project (the compilation result should be jar)
 2.  Create a new package - org.ovirt.engine.core.bll.tasks
-3.  Create a new JBoss module - (read about JBoss modules [here](https://docs.jboss.org/author/display/MODULES/Introduction?focusedCommentId=23036152#comment-23036152))
+3.  Create a new JBoss module
 
 At this point, the modularization diagram should look like: ![](/images/wiki/Async_task_modules_diagram_alternative_a.png)
 

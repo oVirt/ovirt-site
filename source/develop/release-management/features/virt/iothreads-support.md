@@ -39,6 +39,6 @@ In case the IO Threads are enabled, all the disks which have VirtIO interface wi
 
 ### External Sources
 
-* [nice explanation](http://wiki.mikejung.biz/KVM_/_Xen)
+* [nice explanation](https://web.archive.org/web/20201018182456/https://wiki.mikejung.biz/KVM_/_Xen)
 * [patches](https://gerrit.ovirt.org/#/q/topic:iothreads)
 * [Bugzilla tracking](https://bugzilla.redhat.com/show_bug.cgi?id=1214311)

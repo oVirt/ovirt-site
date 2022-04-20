@@ -11,13 +11,15 @@ News and Review contacts who cover virtualization:
 
 ## Reviews
 
-| Author         | Magazine              | Author page                                                     | Twitter            |
-|----------------|-----------------------|-----------------------------------------------------------------|--------------------|
-| Paul Venezia   | Infoworld             | [author page](https://www.infoworld.com/author/Paul-Venezia/)   | [@pvenezia]        |
-| Frank Ohlhorst | eWEEK                 | [author page](https://www.eweek.com/author/frank-j-ohlhorst/)   | [@fjo_writes_tech] |
-| Tom Henderson  | Network World         |                                                                 | [@extremelabs]     |
-| Paul Ferrill   | Serverwatch           | [author page](https://www.serverwatch.com/author/paul-ferrill/) | [@paulferrill]     |
-| Brien Posey    | Virtualization Review | [author page](http://www.brienposey.com/)                       | [@BrienPosey]      |
+| Author              | Magazine              | Author page                                                           | Twitter            |
+|---------------------|-----------------------|-----------------------------------------------------------------------|--------------------|
+| Paul Venezia        | Infoworld             | [author page](https://www.infoworld.com/blog/the-deep-end/)           | [@pvenezia]        |
+| Frank Ohlhorst      | eWEEK                 | [author page](https://www.eweek.com/author/frank-j-ohlhorst/)         | [@fjo_writes_tech] |
+| Tom Henderson       | Network World         |                                                                       | [@extremelabs]     |
+| Paul Ferrill        | Serverwatch           | [author page](https://www.serverwatch.com/author/paul-ferrill/)       | [@paulferrill]     |
+| Brien Posey         | Virtualization Review | [author page](http://www.brienposey.com/)                             | [@BrienPosey]      |
+| Charles Babcock     | InformationWeek       | [author page](https://www.informationweek.com/author/charles-babcock) | [@babcockcw]       |
+| Chris Preimesberger | eWEEK                 | [author page](https://www.eweek.com/author/cpreimesberger/)           | [@editingwhiz]     |
 {: .bordered}
 
 [@pvenezia]: https://twitter.com/pvenezia
@@ -25,12 +27,10 @@ News and Review contacts who cover virtualization:
 [@extremelabs]: https://twitter.com/extremelabs
 [@paulferrill]: https://twitter.com/paulferrill
 [@BrienPosey]: https://twitter.com/BrienPosey
+[@babcockcw]: https://twitter.com/babcockcw
+[@editingwhiz]: https://twitter.com/editingwhiz
 
 ## News
-
-Charles Babcock, InformationWeek <http://www.informationweek.com/authors/Charles-Babcock>
-
-Chris Preimesberger, eWEEK <https://www.eweek.com/author/cpreimesberger/>
 
 Kevin McLaughlin, CRN <mailto:kevin.mclaughlin@ubm.com>
 
@@ -64,7 +64,7 @@ Ashlee Vance, Businessweek <https://twitter.com/valleyhack>
 
 Eric Knorr, InfoWorld <https://www.infoworld.com/author/Eric-Knorr/>
 
-Robert Mullins, InformationWeek <http://www.informationweek.com/authors/7032>
+Robert Mullins, InformationWeek <https://www.informationweek.com/author/robert-mullins>
 
 Brandon Butler, Network World <http://www.networkworld.com/Home/bbutler.html>
 

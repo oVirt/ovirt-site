@@ -1,11 +1,6 @@
 :_content-type: PROCEDURE
-[id="Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain"]
-= Uploading the VirtIO and guest tool image files to a storage domain
-
-[NOTE]
-====
-The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been removed in {virt-product-fullname} 4.4. {org-fullname} recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. See xref:Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] for details.
-====
+[id="Uploading_the_VirtIO_Image_Files_to_aStorage_Domain"]
+= Uploading the VirtIO image files to a storage domain
 
 The `virtio-win___version__.iso` image contains the following for Windows virtual machines to improve performance and usability:
 

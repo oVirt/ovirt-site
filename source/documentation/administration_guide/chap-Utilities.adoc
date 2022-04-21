@@ -53,19 +53,6 @@ include::topics/Syntax_for_the_ovirt-log-collector_Command.adoc[leveloffset=+2]
 
 include::topics/Basic_Log_Collector_Usage.adoc[leveloffset=+2]
 
-[id="sect-The_ISO_Uploader_Tool"]
-== The ISO Uploader Tool
-
-include::topics/The_ISO_Uploader_Tool.adoc[leveloffset=+2]
-
-include::topics/Syntax_for_the_engine-iso-uploader_Command.adoc[leveloffset=+2]
-
-include::topics/Specifying_an_NFS_Server.adoc[leveloffset=+2]
-
-include::topics/Basic_ISO_Uploader_Usage.adoc[leveloffset=+2]
-
-include::topics/Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain.adoc[leveloffset=+2]
-
 [id="sect-The_Engine_Vacuum_Tool"]
 == The Engine Vacuum Tool
 

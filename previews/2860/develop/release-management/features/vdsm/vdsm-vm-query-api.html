@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>VDSM VM Query API | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="VDSM VM Query API" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2860/develop/release-management/features/vdsm/vdsm-vm-query-api.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2860/develop/release-management/features/vdsm/vdsm-vm-query-api.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="VDSM VM Query API" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"VDSM VM Query API","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2860/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2860/develop/release-management/features/vdsm/vdsm-vm-query-api.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2860/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2860/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2860/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2860/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2860/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2860/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2860/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2860/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2860/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2860/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2860/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2860/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2860/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2860/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2860/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2860/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2860/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2860/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2860/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2860/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2860/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2860/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2860//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2860//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2860/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2860/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2860/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2860/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2860/develop/release-management/features/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/469b83a72384b6c5feffe3f7ebc1e853?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/469b83a72384b6c5feffe3f7ebc1e853?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vinzenz Feenstra</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2860/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="vdsm-vm-data-query-api">VDSM VM Data Query API</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature proposes a new API verb for VDSM for querying the data fields of VMs via the RPC interface. The feature allows to get differences since the last request, asking for specific fields and/or excluding fields from the data retrieved.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Vinzenz Feenstra (Evilissimo)</li>
+  <li>Email: <a href="mailto:evilissimo@redhat.com">evilissimo@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Last updated on – by (WIKI)</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p><strong>new verb:</strong> <em>Host.queryVms(vmIds=[], fields=[], exclude=[], changedSince=’ ‘)</em>
+<strong>vmIds:</strong> queries the vms specified or all when the list is empty
+<strong>fields:</strong> queries only for the fields specified or all when empty
+<strong>exclude:</strong> excludes the fields specified or none if empty
+<strong>changedSince:</strong> queries only for the fields which changed since the given stamp. (fields and exclude parameters are respected, so only fields matching will be checked and returned)
+ The call returns a structure like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   {'dataList': [{
+     vmId: "`&lt;uuid&gt;`",
+  `    `fields queried for`... `
+    }],
+    'queryStamp': 'a string value indicating the lastest changes and passed to changedSince in a follow up request'}
+</code></pre></div></div>
+
+<p><em>Boilerplate status/message omitted in the result for simplification reasons</em></p>
+
+<h3 id="queryable-fields">Queryable fields</h3>
+
+<ul>
+  <li><strong>acpiEnable</strong>: Indicates if ACPI is enabled inside the VM</li>
+  <li><strong>appsList</strong>: A list of installed applications with their versions</li>
+  <li><strong>balloonInfo</strong> Guest memory balloon information</li>
+  <li><strong>boot</strong> An alias for the type of device used toboot the VM</li>
+  <li><strong>cdrom</strong> The path to an ISO image used in the VM’s CD-ROM device</li>
+  <li><strong>clientIp</strong> The IP address of the client connected to the display</li>
+  <li><strong>copyPasteEnable</strong> Specify if copy and paste is enabled. Currently relevant for @qxl devices only.</li>
+  <li><strong>cpuShares</strong>: The host scheduling priority (relative to other VMs). In case both cpuShares and nice are present, cpuShares will be used.</li>
+  <li><strong>cpuSys</strong>: Ratio of CPU time spent by qemu on other than guest time</li>
+  <li><strong>cpuType</strong>: The type of CPU being emulated special values ‘hostPassthrough’ and ‘hostModel’ are reserved for host-passthrough and host-mode cpu mode</li>
+  <li><strong>cpuUser</strong>: Ratio of CPU time spent by the guest VM</li>
+  <li><strong>custom</strong>: A dictionary of custom, free-form properties</li>
+  <li><strong>devices</strong>: An array of VM devices present</li>
+  <li><strong>disks</strong>: Disk bandwidth/utilization statistics</li>
+  <li><strong>disksUsage</strong>: Info about mounted filesystems as reported by the agent</li>
+  <li><strong>display</strong>: The type of display</li>
+  <li><strong>displayInfo</strong>: Display and graphics device informations.</li>
+  <li><strong>displayIp</strong>: The IP address to use for accessing the VM display</li>
+  <li><strong>displayPort</strong>: The port in use for unencrypted display data</li>
+  <li><strong>displaySecurePort</strong>: The port in use for encrypted display data</li>
+  <li><strong>displayType</strong>: The type of display in use</li>
+  <li><strong>elapsedTime</strong>: The number of seconds that the VM has been running</li>
+  <li><strong>emulatedMachine</strong>: The machine specification being emulated</li>
+  <li><strong>exitCode</strong>: The exit code f the VM process has ended</li>
+  <li><strong>exitMessage</strong>: Explains the reason that the VM process has exited</li>
+  <li><strong>guestCPUCount</strong>: The number of CPU cores are visible as online on the guest OS. This value is -1 if not supported to report</li>
+  <li><strong>guestFQDN</strong>: Fully qualified domain name of the guest OS. (Reported by the guest agent)</li>
+  <li><strong>guestIPs</strong>: A space separated string of assigned IPv4 addresses</li>
+  <li><strong>keyboardLayout</strong>: The keyboard layout string (eg. ‘en-us’)</li>
+  <li><strong>kvmEnable</strong>: Indicates if KVM hardware acceleration is enabled</li>
+  <li><strong>maxVCpus</strong>: Maximum number of CPU available for the guest. It is the upper boundry for hot plug CPU action</li>
+  <li><strong>memGuaranteedSize</strong>: The amount of memory guaranteed to the VM in MB</li>
+  <li><strong>memSize</strong>: The amount of memory assigned to the VM in MB</li>
+  <li><strong>memUsage</strong>: The percent of memory in use by the guest</li>
+  <li><strong>memoryStats</strong>: Memory statistics as reported by the guest agent</li>
+  <li><strong>migrationProgress</strong>: Indicates the percentage progress of a Migration, when there is one active.</li>
+  <li><strong>monitorResponse</strong>: Indicates if the qemu monitor is responsive</li>
+  <li><strong>netIfaces</strong>: Network device address info as reported by the agent</li>
+  <li><strong>network</strong>: Network bandwidth/utilization statistics</li>
+  <li><strong>nicModel</strong>: A comma-separated list of NIC models in use by the VM</li>
+  <li><strong>nice</strong>: The host scheduling priority</li>
+  <li><strong>pauseCode</strong>: Indicates the reason a VM has been paused</li>
+  <li><strong>pid</strong>: The process ID of the underlying qemu process</li>
+  <li><strong>serial</strong>: Serial number for the VM.</li>
+  <li><strong>session</strong>: The current state of user interaction with the VM</li>
+  <li><strong>smp</strong>: The number of CPUs presented to the VM</li>
+  <li><strong>smpCoresPerSocket</strong>: Indicates the number of CPU cores per socket</li>
+  <li><strong>smpThreadsPerCore</strong>: Indicates the number of CPU threads per core</li>
+  <li><strong>statsAge</strong>: The age of these statistics in seconds</li>
+  <li><strong>status</strong>: The current VM status</li>
+  <li><strong>timeOffset</strong>: The time difference from host to the VM in seconds</li>
+  <li><strong>transparentHugePages</strong>: Indicates if the Transparent Huge Pages feature is enabled for this virtual machine</li>
+  <li><strong>username</strong>: The username associated with the current session</li>
+  <li><strong>vNodeRuntimeInfo</strong>: Information about the vm numa node runtime pinning to host numa node.</li>
+  <li><strong>vmId</strong> #required The VM UUID</li>
+  <li><strong>vmJobs</strong>: Info about active vm jobs</li>
+  <li><strong>vmName</strong>: The VM name</li>
+  <li><strong>vmType</strong>: The type of VM</li>
+  <li><strong>watchdogEvent</strong>: Information about the most recent watchdog event</li>
+</ul>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>The proposed API verb can reduce the required volume of data sent over the management network to in a range of 75-90% <strong>without using compression</strong>. Please see the <a href="/ovirt-site/previews/2860/develop/release-management/features/vdsm/measurements.html">Measurements Page</a> for the actual results of the tests performed using this API in comparison to the current way.</p>
+
+<p>This proposal introduces a more flexible way of changing the API by adding new fields or deprecating them by exclusion from the callers side. Additionally fields are only sent when they have been really changed since the last request.</p>
+
+<p>Another big benefit to oVirt is that we can improve the responsiveness but still reduce the overall traffic and load for marshalling the data between engine and vdsm.</p>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<p>TODO</p>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p>TODO</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>TODO</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2860/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2860/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2860/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2860/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/vdsm/vdsm-vm-query-api.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/vdsm/vdsm-vm-query-api.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

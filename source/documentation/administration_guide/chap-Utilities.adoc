@@ -44,7 +44,6 @@ include::common/upgrade/proc-Image_discrepancies_tool.adoc[leveloffset=+2]
 :context!: admin
 endif::[]
 
-ifdef::rhv-doc[]
 [id="sect-The_Log_Collector_Tool"]
 == The Log Collector Tool
 
@@ -53,7 +52,6 @@ include::topics/Log_Collector.adoc[leveloffset=+2]
 include::topics/Syntax_for_the_ovirt-log-collector_Command.adoc[leveloffset=+2]
 
 include::topics/Basic_Log_Collector_Usage.adoc[leveloffset=+2]
-endif::[]
 
 [id="sect-The_ISO_Uploader_Tool"]
 == The ISO Uploader Tool

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Adding a new system administrator to a host | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Adding a new system administrator to a host" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2863/develop/infra/adding-a-new-system-administrator-to-a-host.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2863/develop/infra/adding-a-new-system-administrator-to-a-host.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Adding a new system administrator to a host" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Adding a new system administrator to a host","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2863/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2863/develop/infra/adding-a-new-system-administrator-to-a-host.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2863/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2863/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2863/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2863/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2863/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2863/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2863/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2863/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2863/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2863/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2863/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2863/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2863/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2863/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2863/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2863/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2863/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2863/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2863/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2863/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2863/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2863/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2863//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2863//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2863/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2863/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2863/develop/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Karsten 'quaid' Wade</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2863/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="adding-a-new-system-administrator-to-a-host">Adding a new system administrator to a host</h1>
+
+<p>Here are the general steps for adding a new system administrator with ‘sudo’ access to a host.</p>
+
+<p>Modify these steps for giving specific ‘sudo’ access, such as to backups, restarting web services, etc. when the team is ready to sub-divide admin tasks.</p>
+
+<ul>
+  <li>Switch to the root user or use ‘sudo’ (preferable):</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su -                    ## Or do all this with sudo, preferably
+</code></pre></div></div>
+
+<ul>
+  <li>Add the new user to the system:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd foo
+</code></pre></div></div>
+
+<ul>
+  <li>If the system uses e.g. the <code class="language-plaintext highlighter-rouge">wheel</code> group for sudo permissions, add the user to the appropriate group for sudo permission:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usermod -a -G wheel foo
+</code></pre></div></div>
+
+<ul>
+  <li>Create the user’s password to activate the account; the user will not use this password to login, but they need it for ‘sudo’:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd foo
+</code></pre></div></div>
+
+<ul>
+  <li>Create the user’s SSH config directory:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir /home/foo/.ssh
+</code></pre></div></div>
+
+<ul>
+  <li>Change ownership of the user’s SSH config directory:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown foo:foo /home/foo/.ssh
+</code></pre></div></div>
+
+<ul>
+  <li>Change directory permissions to read/write/execute for the user only:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 700 /home/foo/.ssh
+</code></pre></div></div>
+
+<ul>
+  <li>Either paste the ‘id_rsa.pub’ contents in to ‘authorized_keys’ or …</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /home/foo/.ssh/authorized_keys       ## Then paste the id_rsa.pub
+                    ## contents in to the
+                    ## 'authorized_keys' file
+                    ##
+                    ## Or if no file exists ...
+</code></pre></div></div>
+
+<ul>
+  <li>… move the ‘id_rsa.pub’ file in to the directory with the new name of ‘authorized_keys’:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /tmp/foo-id_rsa.pub /home/foo/.ssh/authorized_keys
+</code></pre></div></div>
+
+<ul>
+  <li>Change the file’s ownership to the new user:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown foo:foo /home/foo/.ssh/authorized_keys
+</code></pre></div></div>
+
+<ul>
+  <li>Confirm the file’s permissions are read/write for the user, read for everyone else, by changing them:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 644 /home/foo/.ssh/authorized_keys
+</code></pre></div></div>
+
+<ul>
+  <li>Add the user to the ‘sudoers’ file:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>visudo                  ## Add the following stanza
+                    ## for 'foo' below the one for
+                    ## 'root':
+
+#* Allow root to run any commands anywhere
+root    ALL=(ALL)       ALL
+foo   ALL=(ALL)       ALL
+</code></pre></div></div>
+
+<ul>
+  <li>The final permissions:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls /home/foo/.ssh/ -hal
+total 12K
+drwx------ 2 foo foo 4.0K Dec  3 19:38 .                 
+drwx------ 3 foo foo 4.0K Dec  3 19:34 ..                ## ~/.ssh is correct
+-rw-r--r-- 1 foo foo  604 Dec  3 19:33 authorized_keys   ## authorized_keys file is correct
+</code></pre></div></div>
+
+<p>Here are the final commands as run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd foo
+passwd foo
+## If using the wheel group use the following command:
+usermod -a -G wheel foo
+mkdir /home/foo/.ssh
+chown foo:foo /home/foo/.ssh
+chmod 700 /home/foo/.ssh
+## One of the following two methods for creating the authorized_keys file
+vi /home/foo/.ssh/authorized_keys
+cp /tmp/foo-id_rsa.pub /home/foo/.ssh/authorized_keys
+chown foo:foo /home/foo/.ssh/authorized_keys
+chmod 644 /home/foo/.ssh/authorized_keys
+## If not using the wheel group, add directly to sudoers file with the following command:
+visudo
+ls -hal /home/foo/.ssh
+</code></pre></div></div>
+
+<p><a href="/ovirt-site/previews/2863/develop/infra/infrastructure-documentation.html">Category:Infrastructure documentation</a> <a href="/ovirt-site/previews/2863/develop/infra/infrastructure-sop.html">Category:Infrastructure SOP</a></p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2863/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2863/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2863/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2863/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/infra/adding-a-new-system-administrator-to-a-host.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/infra/adding-a-new-system-administrator-to-a-host.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

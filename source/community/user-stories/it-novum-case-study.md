@@ -53,7 +53,7 @@ Moving forward, it-novum is integrating their open cloud management system, with
 <div class="well well-lg">
 ![](/images/logos/It-novum.png)
 
-**Name:** [it-novum](//www.it-novum.com/)<br>
+**Name:** [it-novum](//it-novum.com/)<br>
 **Activity:** IT Business Solutions<br>
 **Location:** Fulda, Germany<br>
 **Size:** Approx. 75 staff

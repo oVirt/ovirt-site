@@ -26,7 +26,7 @@ The following tables do not include information on whether a power cycle is requ
 
 |*Attach Windows guest tools CD*
 |Attaches a secondary virtual CD-ROM to the virtual machine with the virtio-win ISO image.
- Use this option to install Windows drivers. For information on installing the image, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain[Uploading the VirtIO and Guest Tool Image Files to a Storage Domain] in the _Administration Guide_.
+ Use this option to install Windows drivers. For information on installing the image, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_the_VirtIO_Image_Files_to_a_Storage_Domain[Uploading the VirtIO Image Files to a Storage Domain] in the _Administration Guide_.
 
 |*Enable menu to select boot device*
 |Enables a menu to select the boot device. After the virtual machine starts and connects to the console, but before the virtual machine starts booting, a menu displays that allows you to select the boot device. This option should be enabled before the initial boot to allow you to select the required installation media.

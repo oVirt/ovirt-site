@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Uploading_the_VirtIO_Image_Files_to_aStorage_Domain"]
+[id="Uploading_the_VirtIO_Image_Files_to_a_Storage_Domain"]
 = Uploading the VirtIO image files to a storage domain
 
 The `virtio-win___version__.iso` image contains the following for Windows virtual machines to improve performance and usability:

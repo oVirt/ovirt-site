@@ -12,7 +12,7 @@ authors:
 
 You want to talk high traffic? Try these numbers on for size: 1.57 million travelers. 15,505 flights. 40,481 tons of cargo.
 
-Those are just the stats for March 2014 at the [Brussels Airport](http://www.brusselsairport.be/), a major global travel center that got an average of 50,502 passengers a day to and from their destinations on 500 daily flights in March. Keeping track of that kind of comings and goings is not exactly a picnic, but it's a challenge that the Brussels Airport team succeeds at every day.
+Those are just the stats for March 2014 at the [Brussels Airport](https://www.brusselsairport.be/en/our-airport), a major global travel center that got an average of 50,502 passengers a day to and from their destinations on 500 daily flights in March. Keeping track of that kind of comings and goings is not exactly a picnic, but it's a challenge that the Brussels Airport team succeeds at every day.
 
 Keeping an airport running is more than just rolling out the runway and letting planes come and go. Tens of thousands of scheduling changes and updates are made daily for passengers and aircraft alike, and as the infrastructure provider for the airlines that frequent Brussels Airport, the IT team is responsible for providing the systems that will enable airlines to do just that.
 

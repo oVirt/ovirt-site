@@ -19,21 +19,19 @@ Once ready, see
 [Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/)
 guide for installation instructions.
 
+## oVirt Node 4.5 - Stable Release
+
+This is the site hosting oVirt Node 4.5 images including the latest oVirt 4.5 released packages.
+
+* [Released Installation ISO site](https://resources.ovirt.org/pub/ovirt-4.5/iso/ovirt-node-ng-installer/)
+
 ## oVirt Node 4.5 - Pre Release
 
-oVirt Node 4.5 pre release images are available here:
+This is the site hosting oVirt Node 4.5 pre release images including the latest oVirt 4.5 pre release packages.
 
-* [Pre-Release Installation ISO images](https://resources.ovirt.org/pub/ovirt-4.5-pre/iso/ovirt-node-ng-installer/)
+* [Pre-Release Installation ISO site](https://resources.ovirt.org/pub/ovirt-4.5-pre/iso/ovirt-node-ng-installer/)
 
 Note: CentOS Stream 9 based ISO images are experimental!
-
-
-## oVirt Node 4.4 - Stable Release
-
-This is the site hosting oVirt Node 4.4 images including the latest oVirt 4.4 released packages.
-
-* [Released Installation ISO site](https://resources.ovirt.org/pub/ovirt-4.4/iso/ovirt-node-ng-installer/)
-
 
 ## oVirt Node Master - Latest master, experimental
 
@@ -43,6 +41,12 @@ This is the oVirt Node image build based on oVirt packages from the master branc
 
 
 # Old releases
+
+## oVirt Node 4.4
+
+This is the oVirt Node 4.4 image including the latest oVirt 4.4 packages.
+
+* [Installation ISO (4.4.10 based on el8)](https://resources.ovirt.org/pub/ovirt-4.4/iso/ovirt-node-ng-installer/4.4.10-2022030308/el8/ovirt-node-ng-installer-4.4.10-2022030308.el8.iso)
 
 ## oVirt Node 4.3
 

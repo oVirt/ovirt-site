@@ -4,15 +4,15 @@
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
 | [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [55](https://github.com/ovirt/ovirt-web-ui/issues) | 86 | 67 |
-| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [45](https://github.com/ovirt/ovirt-ansible-collection/issues) | 49 | 70 |
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [42](https://github.com/ovirt/ovirt-engine/issues) | 346 | 220 |
+| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [46](https://github.com/ovirt/ovirt-ansible-collection/issues) | 49 | 70 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [44](https://github.com/ovirt/ovirt-engine/issues) | 346 | 220 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [39](https://github.com/ovirt/ovirt-site/issues) | 72 | 296 |
-| [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [31](https://github.com/ovirt/vdsm/issues) | 111 | 139 |
+| [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [32](https://github.com/ovirt/vdsm/issues) | 112 | 139 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [24](https://github.com/ovirt/terraform-provider-ovirt/issues) | 126 | 62 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 32 | 16 |
 | [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [17](https://github.com/ovirt/go-ovirt-client/issues) | 9 | 11 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 1 | 2 |
-| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [13](https://github.com/ovirt/ovirt-imageio/issues) | 14 | 16 |
+| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [14](https://github.com/ovirt/ovirt-imageio/issues) | 14 | 16 |
 | [ovirt-engine-keycloak](https://github.com/oVirt/ovirt-engine-keycloak) | Package that provides Keycloak overlay configuration to be run on oVirt Engine&#39;s Widlfly/EAP instance | [10](https://github.com/ovirt/ovirt-engine-keycloak/issues) | 2 | 4 |
 | [ovirt-system-tests](https://github.com/oVirt/ovirt-system-tests) | This is a mirror for http://gerrit.ovirt.org, for issues use http://jira.ovirt.org, and choose OST project | [8](https://github.com/ovirt/ovirt-system-tests/issues) | 15 | 34 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |
@@ -20,10 +20,10 @@
 | [ovirt-engine-ui-extensions](https://github.com/oVirt/ovirt-engine-ui-extensions) | UI Plugins that provides various extensions to the oVirt Administration Portal. | [6](https://github.com/ovirt/ovirt-engine-ui-extensions/issues) | 5 | 15 |
 | [python-ovirt-engine-sdk4](https://github.com/oVirt/python-ovirt-engine-sdk4) | Python SDK for version 4 of the oVirt Engine API | [5](https://github.com/ovirt/python-ovirt-engine-sdk4/issues) | 6 | 17 |
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | oVirt Python SDK | [5](https://github.com/ovirt/ovirt-engine-sdk/issues) | 79 | 79 |
+| [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | oVirt Engine API Model | [5](https://github.com/ovirt/ovirt-engine-api-model/issues) | 17 | 29 |
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 20 | 26 |
 | [imgbased](https://github.com/oVirt/imgbased) | imgbased provides a specific management method to derive writeable filesystem layers from read-only base images. | [3](https://github.com/ovirt/imgbased/issues) | 7 | 6 |
 | [ovirt-node-ng-image](https://github.com/oVirt/ovirt-node-ng-image) | The source for oVirt Node NG installer ISO and RPM image | [3](https://github.com/ovirt/ovirt-node-ng-image/issues) | 10 | 8 |
-| [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | oVirt Engine API Model | [3](https://github.com/ovirt/ovirt-engine-api-model/issues) | 17 | 29 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [3](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 2 | 2 |
 | [ovirt-hosted-engine-setup](https://github.com/oVirt/ovirt-hosted-engine-setup) | Hosted Engine setup tool for the oVirt project. For issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-hosted-engine-setup/issues) | 16 | 29 |
 | [ocp-on-ovirt](https://github.com/oVirt/ocp-on-ovirt) | this repo contains all the tools and automations for ocp-on-rhv CI. | [2](https://github.com/ovirt/ocp-on-ovirt/issues) | 9 | 9 |

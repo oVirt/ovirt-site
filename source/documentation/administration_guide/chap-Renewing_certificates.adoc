@@ -1,5 +1,5 @@
 :_content-type: ASSEMBLY
-[id="chap-Renewing-certificates_{context}"]
+[id="chap-Renewing_certificates_{context}"]
 = Renewing certificates before they expire
 
 [role="_abstract"]

@@ -8,7 +8,7 @@ include::chap-Backups_and_Migration.adoc[leveloffset=+1]
 
 include::chap-Errata_Management_with_Satellite.adoc[leveloffset=+1]
 
-include::chap-Renewing-certificates.adoc[leveloffset=+1]
+include::chap-Renewing_certificates.adoc[leveloffset=+1]
 
 include::chap-Automating_RHV_Configuration_using_Ansible.adoc[leveloffset=+1]
 

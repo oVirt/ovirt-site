@@ -29,7 +29,7 @@ On existing clusters, the management network can only be changed using the *Mana
 * *Auto Detect*: This setting automatically detects the chipset and firmware type. When *Auto Detect* is selected, the chipset and firmware are determined by the first host up in the cluster.
 * *I440FX Chipset with BIOS*: Specifies the chipset to I440FX with a firmware type of BIOS.
 * *Q35 Chipset with BIOS*: Specifies the Q35 chipset with a firmware type of BIOS without UEFI (Default for clusters with compatibility version 4.4).
-* *Q35 Chipset with UEFI* Specifies the Q35 chipset with a firmware type of BIOS with UEFI.
+* *Q35 Chipset with UEFI* Specifies the Q35 chipset with a firmware type of BIOS with UEFI. (Default for clusters with compatibility version 4.7)
 * *Q35 Chipset with UEFI SecureBoot* Specifies the Q35 chipset with a firmware type of UEFI with SecureBoot, which authenticates the digital signatures of the boot loader.
 
 For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.

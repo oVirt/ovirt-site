@@ -192,7 +192,7 @@
 <li><a href="#Editing_network_interfaces">5.2.2. Editing a Network Interface</a></li>
 <li><a href="#Hot_Plugging_Network_Interfaces">5.2.3. Hot Plugging a Network Interface</a></li>
 <li><a href="#Removing_a_Network_Interface">5.2.4. Removing a Network Interface</a></li>
-<li><a href="#Blacklisting_Network_Interfaces">5.2.5. Blacklisting Network Interfaces</a></li>
+<li><a href="#Blacklisting_Network_Interfaces">5.2.5. Configuring a virtual machine to ignore NICs</a></li>
 </ul>
 </li>
 <li><a href="#sect-Virtual_Disks">5.3. Virtual Disks</a>
@@ -1292,12 +1292,20 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>For Enterprise Linux 6</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install -y <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm</a></code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 7</p>
+<p>For CentOS Linux 7</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install -y centos-release-ovirt43</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For Red Hat Enterprise Linux 7</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</code></pre>
@@ -1305,12 +1313,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 8</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms</code></pre>
-</div>
-</div>
+<p>For Enterprise Linux 8 and 9 the AppStream repository is enabled by default</p>
 </li>
 </ul>
 </div>
@@ -1328,7 +1331,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 8, install the qemu guest agent:</p>
+<p>For Enterprise Linux 8 and 9, install the qemu guest agent:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># yum install qemu-guest-agent</code></pre>
@@ -1377,7 +1380,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </div>
 </li>
 <li>
-<p>For Enterprise Linux 7 or 8</p>
+<p>For Enterprise Linux 7, 8 or 9</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start qemu-guest-agent
@@ -1391,7 +1394,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </ol>
 </div>
 <div class="paragraph">
-<p>The guest agent now passes usage information to the oVirt Engine. You can configure the guest agent in the <code>/etc/ovirt-guest-agent.conf</code> file.</p>
+<p>The guest agent now passes usage information to the oVirt Engine. You can configure the oVirt guest agent in the <code>/etc/ovirt-guest-agent.conf</code> file.</p>
 </div>
 </div>
 </div>
@@ -4497,23 +4500,9 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </div>
 </div>
 <div class="sect3">
-<h4 id="Blacklisting_Network_Interfaces">5.2.5. Blacklisting Network Interfaces</h4>
+<h4 id="Blacklisting_Network_Interfaces">5.2.5. Configuring a virtual machine to ignore NICs</h4>
 <div class="paragraph">
-<p>You can configure the <code>ovirt-guest-agent</code> on a virtual machine to ignore certain NICs. This prevents IP addresses associated with network interfaces created by certain software from appearing in reports. You must specify the name and number of the network interface you want to blacklist (for example, <code>eth0</code>, <code>docker0</code>).</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You must blacklist NICs on the virtual machine before the guest agent is started for the first time.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>You can configure the <code>ovirt-guest-agent</code> on a virtual machine to ignore certain NICs. This prevents IP addresses associated with network interfaces created by certain software from appearing in reports. You must specify the name and number of the network interface you want to ignore (for example, <code>eth0</code>, <code>docker0</code>).</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -4547,7 +4536,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <p>Some virtual machine operating systems automatically start the guest agent during installation.</p>
 </div>
 <div class="paragraph">
-<p>If your virtual machine&#8217;s operating system automatically starts the guest agent or if you need to configure the blacklist on many virtual machines, use the configured virtual machine as a template for creating additional virtual machines. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a template from an existing virtual machine</a> for details.</p>
+<p>If your virtual machine&#8217;s operating system automatically starts the guest agent or if you need to configure the denylist on many virtual machines, use the configured virtual machine as a template for creating additional virtual machines. See <a href="#Creating_a_template_from_an_existing_virtual_machine">Creating a template from an existing virtual machine</a> for details.</p>
 </div>
 </td>
 </tr>
@@ -8429,7 +8418,7 @@ Error while executing action:
 <div class="ulist">
 <ul>
 <li>
-<p>The bond is not configured with <code>fail_over_mac=active</code> and the VF vNIC is the primary slave (recommended).</p>
+<p>The bond is not configured with <code>fail_over_mac=active</code> and the VF vNIC is the primary <code>slave</code> (recommended).</p>
 <div class="paragraph">
 <p>Disable the VirtIO vNIC profile&#8217;s MAC-spoofing filter to ensure that traffic passing through the VirtIO vNIC is not dropped because it uses the VF vNIC MAC address.</p>
 </div>
@@ -8469,7 +8458,7 @@ Error while executing action:
 <ol class="arabic">
 <li>
 <p>Create a vNIC profile with SR-IOV enabled vNICS.
-See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Creating_a_VNIC_Profile">Creating a vNIC profile</a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/administration_guide/sect-hosts_and_networking#setting-up-and-configuring-sr-iov">Setting up and configuring SR-IOV</a>.</p>
+See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Creating_a_VNIC_Profile">Creating a vNIC profile</a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#setting-up-and-configuring-sr-iov">Setting up and configuring SR-IOV</a>.</p>
 </li>
 <li>
 <p>In the Administration Portal, go to <span class="menuseq"><b class="menu">Network</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">VNIC profiles</b></span>, select the vNIC profile, click <b class="button">Edit</b> and select a <code>Failover vNIC profile</code> from the drop down list.</p>
@@ -8506,7 +8495,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="paragraph">
-<p>This <code>udev</code> rule works only on systems that manage interfaces with <code>NetworkManager</code>. This rule ensures that only the master interface is activated.</p>
+<p>This <code>udev</code> rule works only on systems that manage interfaces with <code>NetworkManager</code>. This rule ensures that only the controller interface is activated.</p>
 </div>
 </li>
 </ol>
@@ -11008,7 +10997,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 <p><strong>Q35 Chipset with BIOS</strong> BIOS without UEFI (Default for clusters with compatibility version 4.4)</p>
 </li>
 <li>
-<p><strong>Q35 Chipset with UEFI</strong> BIOS with UEFI</p>
+<p><strong>Q35 Chipset with UEFI</strong> BIOS with UEFI (Default for clusters with compatibility version 4.7)</p>
 </li>
 <li>
 <p><strong>Q35 Chipset with UEFI SecureBoot</strong> UEFI with SecureBoot, which authenticates the digital signatures of the boot loader</p>
@@ -12259,7 +12248,7 @@ The following tables do not include information on whether a power cycle is requ
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Attach Windows guest tools CD</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attaches a secondary virtual CD-ROM to the virtual machine with the virtio-win ISO image.
- Use this option to install Windows drivers. For information on installing the image, see <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain">Uploading the VirtIO and Guest Tool Image Files to a Storage Domain</a> in the <em>Administration Guide</em>.</p></td>
+ Use this option to install Windows drivers. For information on installing the image, see <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_the_VirtIO_Image_Files_to_a_Storage_Domain">Uploading the VirtIO Image Files to a Storage Domain</a> in the <em>Administration Guide</em>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable menu to select boot device</strong></p></td>

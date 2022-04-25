@@ -1,0 +1,13 @@
+:_content-type: ASSEMBLY
+[id='sect-Certificates']
+= Managing certificates
+
+[role="_abstract"]
+{virt-product-fullname} {engine-name} uses certificates to enable encrypted communications. These {virt-product-shortname} certificates follow a standard 398 day lifetime and *must* be renewed once per year.
+
+[WARNING]
+====
+Do _NOT_ let certificates expire because once expired, the environment becomes non-operational and recovery is an error prone and time consuming process.
+====
+
+Starting in {virt-product-shortname} {vername_rhv}, you will receive warning notifications 120 days before expiration and error notifications 30 days before expiration. Do not ignore these notifications. For information on renewing certificates, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Renewing-certificates_{context}[Renewing certificates before they expire] in the _Administration Guide_.

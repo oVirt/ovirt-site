@@ -8,6 +8,8 @@ include::topics/Introduction_to_Red_Hat_Virtualization.adoc[leveloffset=+1]
 
 include::chap-Subscriptions.adoc[leveloffset=+1]
 
+include::chap-Certificates.adoc[leveloffset=+1]
+
 include::chap-RHEV_for_IBM_Power.adoc[leveloffset=+1]
 
 include::chap-Tech_Preview_and_Deprecated_Features.adoc[leveloffset=+1]

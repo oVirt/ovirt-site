@@ -10,4 +10,4 @@
 Do _NOT_ let certificates expire because once expired, the environment becomes non-operational and recovery is an error prone and time consuming process.
 ====
 
-Starting in {virt-product-shortname} {vername_rhv}, you will receive warning notifications 120 days before expiration and error notifications 30 days before expiration. Do not ignore these notifications. For information on renewing certificates, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Renewing_certificates_{context}[Renewing certificates before they expire] in the _Administration Guide_.
+Starting in {virt-product-shortname} {vername_rhv}, you will receive warning notifications 120 days before expiration and error notifications 30 days before expiration. Do not ignore these notifications. For information on renewing certificates, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Renewing_certificates_RHV_backup_restore[Renewing certificates before they expire] in the _Administration Guide_.

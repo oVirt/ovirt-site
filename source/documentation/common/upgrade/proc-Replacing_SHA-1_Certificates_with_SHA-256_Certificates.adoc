@@ -6,7 +6,7 @@
 
 [WARNING]
 ====
-Do _NOT_ let certificates expire because once expired, the environment becomes non-operational and recovery is an error prone and time consuming process. For information on renewing certificates, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Renewing_certificates_{context}[Renewing certificates before they expire] in the _Administration Guide_.
+Do _NOT_ let certificates expire because once expired, the environment becomes non-operational and recovery is an error prone and time consuming process. For information on renewing certificates, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Renewing_certificates_RHV_backup_restore[Renewing certificates before they expire] in the _Administration Guide_.
 ====
 
 [id='Preventing_Warning_Messages_from_Appearing_in_the_Browser_{context}']

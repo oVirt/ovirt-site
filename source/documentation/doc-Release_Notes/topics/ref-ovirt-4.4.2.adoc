@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 Batch Update 1 (ovirt-4.4.2)
+= Red Hat Virtualization 4.4 Batch Update 1 (ovirt-4.4.2)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -57,7 +57,7 @@ Firefox 68 ESR does not support several standard units in the <svg> tag. (For mo
 
 This update uses supported units to size icons, and as a result, icons appear correctly in FireFox 68 ESR and later.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -78,7 +78,7 @@ For example , you can use now the following in the Storage Domains tab:
 
 "free_size > 6 GB and total_size < 20 GB"
 
-==== Known Issues
+== Known Issues
 
 These known issues exist in Red Hat Virtualization at this time:
 

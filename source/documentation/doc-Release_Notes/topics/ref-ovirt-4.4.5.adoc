@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 Batch Update 4 (ovirt-4.4.5)
+= Red Hat Virtualization 4.4 Batch Update 4 (ovirt-4.4.5)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -49,7 +49,7 @@ Previously, when Red Hat Virtualization Manager 4.4.3+ upgraded a host in a clus
 In this release, the Red Hat Virtualization Manager blocks the upgrade of a host when the cluster is set with a secured Skylake/Cascadelake CPU type 1 (Secure Intel Skylake Client Family, Secure Intel Skylake Server Family, or Secure Intel Cascadelake Server Family) where the upgrade is likely to make the host non-operational.
 If the cluster is set with an insecure Skylake/Cascadelake CPU type 2 (Intel Skylake Client Family, Intel Skylake Server Family, or Intel Cascadelake Server Family) the user is notified with a recommendation to change the cluster to a secure Skylake/Cascadelake CPU type, but is allowed to proceed with the host upgrade. In order to make the upgraded host operational, the user must enable TSX at the operating system level.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -121,7 +121,7 @@ After adding this file the first time or after changing this value, you need to 
 BZ#link:https://bugzilla.redhat.com/1927851[1927851]::
 The timezone AUS Eastern Standard Time has been added to cover daylight saving time in Canberra, Melbourne and Sydney.
 
-==== Technology Preview
+== Technology Preview
 
 The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 
@@ -129,7 +129,7 @@ BZ#link:https://bugzilla.redhat.com/1919805[1919805]::
 With this update, support for the Bochs display video card emulator has been added for UEFI guest machines.
 This feature is now the default for a guest UEFI server that uses cluster-level 4.6 or above, where BOCHS is the default value of Video Type.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -142,7 +142,7 @@ Ansible-2.9.17 is required for proper setup and functioning of Red Hat Virtualiz
 BZ#link:https://bugzilla.redhat.com/1921108[1921108]::
 ovirt-hosted-engine-setup now requires Ansible-2.9.17.
 
-==== Known Issues
+== Known Issues
 
 These known issues exist in Red Hat Virtualization at this time:
 

@@ -4,26 +4,26 @@
 
 These release notes highlight technology preview items, recommended practices, known issues, and deprecated functionality to be taken into consideration when deploying this release of {virt-product-fullname}.
 
-Notes for updates released during the support lifecycle of this {virt-product-fullname} release will appear in the advisory text associated with each update or the _{virt-product-fullname} Technical Notes_. This document is available from the following page:
+Notes for updates released during the support lifecycle of this {virt-product-fullname} release will appear in the advisory text associated with each update or in the _{virt-product-fullname} Technical Notes_. This document is available on the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization[Red Hat documentation page].
 
-link:https://access.redhat.com/documentation/en-us/red_hat_virtualization[]
+// RN should be in descending order of release.
 
-include::topics/ref-ovirt-4.4.1.adoc[]
+include::topics/ref-ovirt-4.4.10.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.2.adoc[]
+include::topics/ref-ovirt-4.4.9.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.3.adoc[]
+include::topics/ref-ovirt-4.4.8.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.4.adoc[]
+include::topics/ref-ovirt-4.4.7.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.5.adoc[]
+include::topics/ref-ovirt-4.4.6.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.6.adoc[]
+include::topics/ref-ovirt-4.4.5.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.7.adoc[]
+include::topics/ref-ovirt-4.4.4.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.8.adoc[]
+include::topics/ref-ovirt-4.4.3.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.9.adoc[]
+include::topics/ref-ovirt-4.4.2.adoc[leveloffset=+1]
 
-include::topics/ref-ovirt-4.4.10.adoc[]
+include::topics/ref-ovirt-4.4.1.adoc[leveloffset=+1]

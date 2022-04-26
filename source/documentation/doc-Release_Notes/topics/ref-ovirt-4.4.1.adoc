@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 General Availability (ovirt-4.4.1)
+= Red Hat Virtualization 4.4 General Availability (ovirt-4.4.1)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -634,7 +634,7 @@ Previously, the`hosted-engine --set-shared-config storage` command failed to upd
 
 Old virtual machines that have not been restarted since user aliases were introduced in RHV version 4.2 use old device aliases created by libvirt. The current release adds support for those old device aliases and links them to the new user-aliases to prevent correlation issues and devices being unplugged.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -1150,7 +1150,7 @@ https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-si
 
 The current release adds a panel to the beginning of each Grafana dashboard describing the reports it displays and their purposes.
 
-==== Rebase: Bug Fixes and Enhancements
+== Rebase: Bug Fixes and Enhancements
 
 These items are rebases of bug fixes and enhancements included in this release of Red Hat Virtualization:
 
@@ -1218,7 +1218,7 @@ The m2crypto package has been built for use with the current version of RHV Mana
 
 With this release, Red Hat Virtualization is ported to Python 3. It no longer depends on Python 2.
 
-==== Rebase: Enhancements Only
+== Rebase: Enhancements Only
 
 These items are rebases of enhancements included in this release of Red Hat Virtualization:
 
@@ -1233,7 +1233,7 @@ The openstack-java-sdk package has been rebased to version: 3.2.8. Highlights an
 
 With this rebase ovirt-scheduler-proxy packages have been updated to version 0.1.9 introducing support for RHEL 8 and a refactor of the code for Python3 and Java 11 support.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -1249,7 +1249,7 @@ With this release, you can add hosts to RHV Manager that do not provide standard
 
 On non-production systems, you can use CentOS Stream as an alternative to CentOS Linux.
 
-==== Known Issues
+== Known Issues
 
 These known issues exist in Red Hat Virtualization at this time:
 
@@ -1301,7 +1301,7 @@ When you upgrade Red Hat Virtualization with a storage domain that is locally mo
 
 Use a separate logical volume or disk to prevent possible loss of data during upgrades. If you are using / (root) as the locally mounted storage domain, migrate your data to a separate logical volume or disk prior to upgrading.
 
-==== Removed Functionality
+== Removed Functionality
 
 *BZ#link:https://bugzilla.redhat.com/1399714[1399714]*
 

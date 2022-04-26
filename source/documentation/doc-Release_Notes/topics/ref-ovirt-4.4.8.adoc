@@ -1,11 +1,11 @@
-=== Red Hat Virtualization 4.4 Batch Update 7 (ovirt-4.4.8)
+= Red Hat Virtualization 4.4 Batch Update 7 (ovirt-4.4.8)
 
 [NOTE]
 ====
 BZ#link:https://bugzilla.redhat.com/1947709[1947709] was included in the advisory (link:https://access.redhat.com/errata/RHBA-2021:3464[RHBA-2021:3464]) in error and remains a known issue. The fix is scheduled for a future release.
 ====
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -37,7 +37,7 @@ In this release, when not specified, the calculation for guaranteed memory takes
 BZ#link:https://bugzilla.redhat.com/1999754[1999754]::
 Previously, the origin disks of the virtual machine would become locked after doing a live snapshot to a vitual machine  with disks and then making a copy of them. The current release fixes this issue in ovirt-engine.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -58,14 +58,14 @@ BZ#link:https://bugzilla.redhat.com/1991171[1991171]::
 Since Red Hat Virtualization 4.4.7, the engine-backup refuses to restore to a version older than the one used for backup. This causes 'hosted-engine --restore-from-file' to fail if the latest appliance is older than the latest Manager.
 In this release, such a scenario does not fail, but prompts the user to connect via SSH to the Manager virtual machine and fix the restore issue.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
 BZ#link:https://bugzilla.redhat.com/1983039[1983039]::
 Red Hat Virtualization 4.4.8 is tested and supported with Ansible-2.9.23
 
-==== Removed Functionality
+== Removed Functionality
 
 BZ#link:https://bugzilla.redhat.com/1989823[1989823]::
 OTOPI Java bindings have been removed as they are no longer used within the product (see oVirt bug BZ#1983047).

@@ -13,6 +13,8 @@ page_classes: releases
 
 The oVirt Project is pleased to announce the availability of the 4.5.0 release as of April 20, 2022.
 
+On April 26th, 2022 the oVirt Porject released an [oVirt Node 4.5.0.1 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/)
+
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
@@ -613,6 +615,12 @@ To learn about features introduced before 4.5.0, see the
 
    This patch removes the ability to create/use old cinder integration using the REST API.
 
+#### oVirt Web Site
+
+ - [BZ 2077545](https://bugzilla.redhat.com/show_bug.cgi?id=2077545) **[DOCS] Remove references to ovirt-iso-uploader / engine-iso-uploader**
+
+   ovirt-iso-uploader package was deprecated in 4.3 and removed in 4.4.
+
 ### Bug Fixes
 
 #### OTOPI
@@ -955,6 +963,21 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2068507](https://bugzilla.redhat.com/show_bug.cgi?id=2068507) **CVE-2022-0778 openssl: Infinite loop in BN_mod_sqrt() reachable when parsing certificates [ovirt-4.5]**
 
    oVirt Node includes updated openssl packages providing fixes for [CVE-2022-0778](https://bugzilla.redhat.com/show_bug.cgi?id=2062202)
+ - [BZ 2056588](https://bugzilla.redhat.com/show_bug.cgi?id=2056588) **CVE-2021-4028 kernel: use-after-free in RDMA listen() [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2021-4028](https://bugzilla.redhat.com/show_bug.cgi?id=2027201)
+ - [BZ 2056597](https://bugzilla.redhat.com/show_bug.cgi?id=2056597) **CVE-2022-0435 kernel: remote stack overflow via kernel panic on systems using TIPC may lead to DoS [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-0435](https://bugzilla.redhat.com/show_bug.cgi?id=2048738)
+ - [BZ 2065576](https://bugzilla.redhat.com/show_bug.cgi?id=2065576) **CVE-2022-25636 kernel: heap out of bounds write in nf_dup_netdev.c [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-25636](https://bugzilla.redhat.com/show_bug.cgi?id=2056830)
+ - [BZ 2070051](https://bugzilla.redhat.com/show_bug.cgi?id=2070051) **CVE-2022-1015 kernel: arbitrary code execution in linux/net/netfilter/nf_tables_api.c [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1015](https://bugzilla.redhat.com/show_bug.cgi?id=2065323)
+ - [BZ 2070067](https://bugzilla.redhat.com/show_bug.cgi?id=2070067) **CVE-2022-1016 - kernel: uninitialized registers on stack in nft_do_chain can cause kernel pointer leakage to UM [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1016](https://bugzilla.redhat.com/show_bug.cgi?id=2066614)
 
 ### Enhancements
 
@@ -966,6 +989,17 @@ To learn about features introduced before 4.5.0, see the
    The limit of maximum 16 CPU sockets has been removed in cluster versions &gt;= 4.6. It's possible to use any number of CPU sockets now, up to the number of maximum vCPUs. Before using a high number of CPU sockets, it's advisable to check whether the guest OS is fine with such a configuration.
  - [BZ 2049782](https://bugzilla.redhat.com/show_bug.cgi?id=2049782) **[RFE] Admin portal user preferences/settings with server-side storage**
  - [BZ 2053669](https://bugzilla.redhat.com/show_bug.cgi?id=2053669) **[RFE] Allow changing vm powerstate during backup operation without interrupting the backup**
+
+   Feature: 
+   Use a temporary snapshot during a backup to decouple the backup
+   operation from the VM.
+
+   Reason: 
+   Backup can take lot of time. Preventing changes in VM power
+   state or migration during a backup is a problem for users.
+
+   Result:
+   A VM can be started, stopped, or migrated during backup.
 
 #### oVirt Web UI
 
@@ -1108,7 +1142,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2062754](https://bugzilla.redhat.com/show_bug.cgi?id=2062754) **VM with resize and pin cpu policy fails to start on host CPUs:48,Threads:2,Cores:24, Sockets:1,NUMA:4**
  - [BZ 2063802](https://bugzilla.redhat.com/show_bug.cgi?id=2063802) **When converting disk allocation type the disk is being removed instead**
  - [BZ 2063875](https://bugzilla.redhat.com/show_bug.cgi?id=2063875) **Not possible to make disk convert to all disks possibilities**
- - [BZ 2066084](https://bugzilla.redhat.com/show_bug.cgi?id=2066084) **vmconsole-proxy-user certificate expired - cannot serial console**
  - [BZ 2066628](https://bugzilla.redhat.com/show_bug.cgi?id=2066628) **[UI] UI exception when updating or enabling number of VFs via the webadmin**
  - [BZ 2070008](https://bugzilla.redhat.com/show_bug.cgi?id=2070008) **The Console Disconnect Action Delay property isn't included in the OVF**
  - [BZ 2070119](https://bugzilla.redhat.com/show_bug.cgi?id=2070119) **Dedicated VM (topology: Threads:2 Cores:7 Sockets:2) starts without vCPU-pCPU mapping**
@@ -1155,7 +1188,7 @@ To learn about features introduced before 4.5.0, see the
 
 66 people contributed to this release:
 
-	Albert Esteve (Contributed to: ovirt-engine, vdsm)
+	Albert Esteve (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
 	Andrej Krejcir (Contributed to: mom)
 	Arik Hadas (Contributed to: ovirt-engine)

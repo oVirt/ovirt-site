@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 Batch Update 2 (ovirt-4.4.3)
+= Red Hat Virtualization 4.4 Batch Update 2 (ovirt-4.4.3)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -67,7 +67,7 @@ In this release, the VDSM identifies the migration destination status correctly.
 BZ#link:https://bugzilla.redhat.com/1878005[1878005]::
 Previously, when a RHV-H 4.4 host was being prepared as a conversion host for Infrastructure Migration (IMS) using CloudForms 5, installing the v2v-conversion-host-wrapper failed due to a dependency on the missing libcgroup-tools package. The current release fixes this issue. It ships the missing package in the rhvh-4-for-rhel-8-x86_64-rpms repository.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -111,14 +111,14 @@ installation, are created with 4.5 compatibility level by default in Red Hat Vir
 4.4.3. Please be aware that compatibility level 4.5 requires RHEL 8.3 with
 Advanced Virtualization 8.3.
 
-==== Technology Preview
+== Technology Preview
 
 The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 
 BZ#link:https://bugzilla.redhat.com/1361718[1361718]::
 This enhancement provides support for attaching an emulated NVDIMM to virtual machines that are backed by NVDIMM on the host machine. For details, see https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#conc-nvdimm-host-devices_vm_guide_administrative_tasks
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -128,14 +128,14 @@ Ansible-2.9.14 is required for proper setup and functioning of Red Hat Virtualiz
 BZ#link:https://bugzilla.redhat.com/1888628[1888628]::
 Ansible-2.9.14 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.3.
 
-==== Known Issues
+== Known Issues
 
 These known issues exist in Red Hat Virtualization at this time:
 
 BZ#link:https://bugzilla.redhat.com/1886487[1886487]::
 RHV-H 4.4.3 is based on RHEL 8.3, which uses a new version of Anaconda (BZ#1691319).  This new combination introduces a regression that breaks the features that BZ#1777886 "[RFE] Support minimal storage layout for RHVH" added to RHV-H 4.4 GA. This regression affects only new installations of RHV-H 4.4.3. To work around this issue, first install the RHV-H 4.4 GA ISO and then upgrade the host to RHV-H 4.4.3.
 
-==== Removed Functionality
+== Removed Functionality
 
 BZ#link:https://bugzilla.redhat.com/1884146[1884146]::
 The ovirt-engine-api-explorer package has been deprecated and removed in Red Hat Virtualization Manager 4.4.3.

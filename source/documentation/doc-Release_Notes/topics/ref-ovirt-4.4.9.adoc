@@ -1,13 +1,13 @@
-=== Red Hat Virtualization 4.4 Batch Update 8 (ovirt-4.4.9)
+= Red Hat Virtualization 4.4 Batch Update 8 (ovirt-4.4.9)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
 BZ#link:https://bugzilla.redhat.com/1940991[1940991]::
-Previously, when hot unplugging memory in rapid succession using REST API, the same DIMMs could be hot unplugged multiple times instead of using different DIMMs for different hot unplug actions. This resulted in failed hot unplugs and could lead to invalid assumptions about the amount of RAM in the virtual machine. 
+Previously, when hot unplugging memory in rapid succession using REST API, the same DIMMs could be hot unplugged multiple times instead of using different DIMMs for different hot unplug actions. This resulted in failed hot unplugs and could lead to invalid assumptions about the amount of RAM in the virtual machine.
 In this release, this issue is fixed, and DIMMs that are hot unplugged are no longer used in followup hot unplugs.
 
 BZ#link:https://bugzilla.redhat.com/1947709[1947709]::
@@ -44,7 +44,7 @@ BZ#link:https://bugzilla.redhat.com/2014017[2014017]::
 Previously, the status of the operation (download VM disks) was changed to one of the final statuses (FINISHED_SUCCESS / FINISHED_FAILURE) before the disk locks were actually released. As a result, in  some scenarios, the operation following  this one failed with a Disk is locked error.
 In this release, the locks are released immediately before changing the command status to one of the final phases. AS a result, the operation that follows this one and uses the same disk will succeed.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -68,7 +68,7 @@ BZ#link:https://bugzilla.redhat.com/1984886[1984886]::
 Previously, manual installation of the rsyslog-openssl package was required to setup remote encrypted logging. In the current release, the rsyslog-openssl package is installed by default on both the oVirt Node and RHV-H.
 
 BZ#link:https://bugzilla.redhat.com/1992690[1992690]::
-Previously, the Inventory dashboard showed CPU overcommit rates for each data center. 
+Previously, the Inventory dashboard showed CPU overcommit rates for each data center.
 In this release, CPU overcommit rates are available in the Inventory dashboard for each cluster as well.
 
 BZ#link:https://bugzilla.redhat.com/2001551[2001551]::
@@ -76,7 +76,7 @@ In this release, rhv-image-discrepancies now allows more granular checks.
 Two new options have been added to rhv-image-discrepancies command line to restrict the run to specific data centers or storage domains. If both are specified it is restricted to the intersection of both.
  -p --pool-uuid: limit run to data centers, can be specified multiple times
  -s --storage-uuid: limit run to storage domains, can be specified multiple times
-For example: 
+For example:
 # rhv-image-discrepancies -p=5bbe9966-ea58-475f-863f -s=977ba581-23e5-460a-b1de
 
 BZ#link:https://bugzilla.redhat.com/2007550[2007550]::
@@ -85,7 +85,7 @@ In this release, the data type for the virtual machines disk write/read rate was
 BZ#link:https://bugzilla.redhat.com/2009659[2009659]::
 Previously, users were required to manually install Cinderlib and Ceph dependencies, such as, python3-cinderlb or python3-ox-brick on each host. In the current release, these dependencies are automatically installed and provided within RHV-H. Please note that for standard RHEL hosts, this feature requires the proper subscription to be enabled.
 
-==== Rebase: Bug Fixes and Enhancements
+== Rebase: Bug Fixes and Enhancements
 
 These items are rebases of bug fixes and enhancements included in this release of Red Hat Virtualization:
 
@@ -98,7 +98,7 @@ Red Hat Virtualization Host now includes openvswitch related packages from Fast 
 BZ#link:https://bugzilla.redhat.com/2002945[2002945]::
 The ovirt-hosted-engine-ha package has been rebased to version: 2.4.9. This update fixes the issue of incorrect CPU load scores causing the engine virtual machine to shut down.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -122,5 +122,3 @@ Previously it was not possible to upgrade RHVH to version 4.4.8 when custom VDSM
 
 BZ#link:https://bugzilla.redhat.com/2004913[2004913]::
 The Red Hat OpenStack Platform (RHOSP) cinderlib repository has been upgraded from RHOSP 16.1 to 16.2.
-
-

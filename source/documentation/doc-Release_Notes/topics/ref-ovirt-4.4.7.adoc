@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 Batch Update 6 (ovirt-4.4.7)
+= Red Hat Virtualization 4.4 Batch Update 6 (ovirt-4.4.7)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -25,7 +25,7 @@ BZ#link:https://bugzilla.redhat.com/1958145[1958145]::
 Previously, rhsmcertd was not enabled by default on the Red Hat Virtualization Host. As a result, the systems did not regularly report to RHSM while the subscription-manager reported no obvious issues and repositories were properly enabled.
 In this release, rhsmcertd is enabled by default in RHVH, and as a result, RHSM now receives reports regularly.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -44,7 +44,7 @@ To use vdsm hooks, you must install the appropriate hook for the specific functi
 BZ#link:https://bugzilla.redhat.com/1976095[1976095]::
 The redhat-release-virtualization-host package no longer requires vdsm-hooks. In this release, the installation of vdsm-hooks is not mandatory for the Red Hat Virtualization Host.
 
-==== Rebase: Bug Fixes and Enhancements
+== Rebase: Bug Fixes and Enhancements
 
 These items are rebases of bug fixes and enhancements included in this release of Red Hat Virtualization:
 
@@ -54,7 +54,7 @@ The RHVM Appliance has been rebased on top of the RHEL 8.4.0 Batch #1 update. Pl
 BZ#link:https://bugzilla.redhat.com/1957242[1957242]::
 In this release, the Red Hat Virtualization Host has been rebased on top of the RHEL 8.4.0 Batch #1 update. For more information, see the RHEL release notes.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -81,7 +81,7 @@ The ovirt-hosted-engine-setup in RHV 4.4.7 requires Ansible 2.9.21 or higher. Al
 BZ#link:https://bugzilla.redhat.com/1969763[1969763]::
 In this release, the new package ovirt-openvswitch provides all the requirements for OVN/OVS for oVirt, and replaces the existing rhv-openvswitch package.
 
-==== Known Issues
+== Known Issues
 
 These known issues exist in Red Hat Virtualization at this time:
 
@@ -90,7 +90,7 @@ There is a known issue in the VM Portal in Red Hat Virtualization 4.4.7 wherein 
 +
 Avoid editing any existing disks in the VM Portal. If it is necessary to edit a disk, use the Administration Portal.
 
-==== Deprecated Functionality
+== Deprecated Functionality
 
 The items in this section are either no longer supported, or will no longer be supported in a future release.
 
@@ -102,7 +102,7 @@ In the Data Warehouse, the old name will be retained as an additional alias, res
 BZ#link:https://bugzilla.redhat.com/1961520[1961520]::
 Using Cockpit to install the self-hosted engine is deprecated. Support for this installation method will be removed in a later release.
 
-==== Removed Functionality
+== Removed Functionality
 
 BZ#link:https://bugzilla.redhat.com/1947944[1947944]::
 Previously, VDSM hooks were installed by default, as a dependency, when installing a RHEL host or a RHV-H host. Starting with Red Hat Virtualization 4.4.7, VDSM hooks are not installed by default.

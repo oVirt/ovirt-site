@@ -4,7 +4,7 @@ include::common/collateral_files/_attributes.adoc[]
 = Release Notes
 :imagesdir: images
 
-include::chap-Introduction.adoc[leveloffset=+1]
+include::topics/Introduction_to_Red_Hat_Virtualization.adoc[leveloffset=+1]
 
 include::chap-Subscriptions.adoc[leveloffset=+1]
 

@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 Batch Update 9 (ovirt-4.4.10)
+= Red Hat Virtualization 4.4 Batch Update 9 (ovirt-4.4.10)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -31,7 +31,7 @@ BZ#link:https://bugzilla.redhat.com/2032919[2032919]::
 Previously, RHEL 7 hosts could not be added to the Red Hat Virtualization Manager in clusters with level 4.3 or 4.2.
 In this release, RHEL 7 hosts can be added to the Red Hat Virtualization Manager successfully in clusters with level 4.3 or 4.2. For additional details, see BZ#2019807.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -44,7 +44,7 @@ Previously, multiple stale LUNs had to be removed individually, after removing a
 BZ#link:https://bugzilla.redhat.com/2023224[2023224]::
 Previously, when running the 'ovirt_remove_stale_lun' Ansible role, the removal of the multipath device map could fail because of a conflict with a VGS scan. In the current release, the 'ovirt_remove_stale_lun' role for removing multipath is retried six times to allow the removal to succeed.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -52,7 +52,7 @@ BZ#link:https://bugzilla.redhat.com/2007286[2007286]::
 Previously, a non-responding host was first soft-fenced by the Engine, but this did not fix the connectivity issue. The engine did not initiate a hard fence and the host was left in an non-responding state.
 In this release, soft fencing has been fixed so that if the soft fencing does not make the host responsive again, then the non-responding host treatment process continues correctly with the additional steps.
 
-==== Deprecated Functionality
+== Deprecated Functionality
 
 The items in this section are either no longer supported, or will no longer be supported in a future release.
 
@@ -63,7 +63,7 @@ BZ#link:https://bugzilla.redhat.com/2056934[2056934]::
 The Red Hat Virtualization Manager (RHVM) appliance is being retired. The last supported build of the RHVM appliance will be shipped with the release of Red Hat Virtualization 4.4 SP1.
 Following the Red Hat Virtualization 4.4 SP1 release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.
 
-==== Removed Functionality
+== Removed Functionality
 
 BZ#link:https://bugzilla.redhat.com/2045913[2045913]::
 The log manager extension ovirt-engine-extension-logger-log4j has been removed in this release. It has been replaced by the JBoss EAP SyslogHandler log manager.

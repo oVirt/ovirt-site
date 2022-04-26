@@ -19,8 +19,6 @@ The following table describes deprecated features to be removed in a future vers
 |===
 |Deprecated Feature |Details
 
-
-=======
 |Red Hat Virtualization Manager (RHVM) appliance |The Red Hat Virtualization Manager (RHVM) appliance is being retired. The last supported build of the RHVM appliance will be shipped with the release of Red Hat Virtualization 4.4 SP1.
 Following the Red Hat Virtualization 4.4 SP1 release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.
 

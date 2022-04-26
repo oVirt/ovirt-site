@@ -1,13 +1,13 @@
-=== Red Hat Virtualization 4.4 Batch Update 5 (ovirt-4.4.6)
+= Red Hat Virtualization 4.4 Batch Update 5 (ovirt-4.4.6)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
 BZ#link:https://bugzilla.redhat.com/1932284[1932284]::
-Previously, the engine-config value LiveSnapshotPerformFreezeInEngine was set by default to false and was supposed to be uses in cluster compatibility levels below 4.4. The value was set to general version. 
+Previously, the engine-config value LiveSnapshotPerformFreezeInEngine was set by default to false and was supposed to be uses in cluster compatibility levels below 4.4. The value was set to general version.
 With this release, each cluster level has it's own value, defaulting to false for 4.4 and above. This will reduce unnecessary overhead in removing time outs of the file system freeze command.
 
 BZ#link:https://bugzilla.redhat.com/1936972[1936972]::
@@ -18,7 +18,7 @@ The new version will also auto-heal the broken system by removing RPM packages w
 BZ#link:https://bugzilla.redhat.com/1940484[1940484]::
 Previously, libvirtd could crash resulting in non-responsive  hosts. The current release fixes this issue.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -42,15 +42,15 @@ It is now possible to migrate disks between Managed Block Storage Domains and re
 BZ#link:https://bugzilla.redhat.com/1944723[1944723]::
 With this release, running virtual machines is supported for up to 16TB of RAM on x86_64 architectures.
 
-==== Technology Preview
+== Technology Preview
 
 The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 
 BZ#link:https://bugzilla.redhat.com/1688177[1688177]::
-Failover vNIC profiles. 
+Failover vNIC profiles.
 This feature allows users to migrate a virtual machine connected via SR-IOV with minimal downtime by using a failover network that is activated during migration.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -60,7 +60,7 @@ Red Hat Virtualization 4.4.6 now requires Ansible 2.9.18
 BZ#link:https://bugzilla.redhat.com/1950348[1950348]::
 The default DataCenter/Cluster will be set to compatibility level 4.6 on new installations of Red Hat Virtualization 4.4.6.
 
-==== Deprecated Functionality
+== Deprecated Functionality
 
 The items in this section are either no longer supported, or will no longer be supported in a future release.
 
@@ -69,5 +69,3 @@ Support for SSO for virtual machines on RHEL 7 or earlier and Windows guest oper
 
 BZ#link:https://bugzilla.redhat.com/1948962[1948962]::
 Support for the Cisco Virtual Machine Fabric Extender (VM-FEX) is now deprecated. This functionality will be removed in a future release.
-
-

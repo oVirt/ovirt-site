@@ -4,6 +4,15 @@ category: feature
 authors: alonbl
 ---
 
+> IMPORTANT: The oVirt SSO support for VMs has been deprecated starting with oVirt 4.4 release.
+> The oVirt Guest Agent (which was providing this functionality) development has been discontinued.
+>
+> See also:
+> - https://bugzilla.redhat.com/show_bug.cgi?id=1683617
+>
+> Keeping the following section only for reference.
+
+
 # SSO
 
 ## oVirt SSO

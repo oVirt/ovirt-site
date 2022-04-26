@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 4.0.6 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 4.0.6 Release Notes" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2867/release/4.0.6/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2867/release/4.0.6/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 4.0.6 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 4.0.6 Release Notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2867/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2867/release/4.0.6/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2867/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2867/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2867/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2867/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2867/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2867/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2867/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2867/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2867/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2867/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2867/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2867/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2867/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2867/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2867/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2867/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class="releases"><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2867/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2867/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2867/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2867/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2867/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2867/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2867//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2867//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2867/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2867/release/">
+              <span property="name">Release</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-406-release-notes">oVirt 4.0.6 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of 4.0.6
+Release as
+of January 10, 2017.</p>
+
+<p>oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
+KVM management interface for multi-node virtualization.
+This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
+(or similar).</p>
+
+<p>To find out more about features which were added in previous oVirt releases,
+check out the <a href="/ovirt-site/previews/2867/develop/release-management/releases/">previous versions release notes</a>.</p>
+
+<p>An updated documentation has been provided by our downstream
+<a href="https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/">Red Hat Virtualization</a></p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-406-release-notes" id="markdown-toc-ovirt-406-release-notes">oVirt 4.0.6 Release Notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+          <li><a href="#enhancement" id="markdown-toc-enhancement">Enhancement</a>            <ol>
+              <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a>                <ol>
+                  <li><a href="#team-sla" id="markdown-toc-team-sla">Team: SLA</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#no-doc-update" id="markdown-toc-no-doc-update">No Doc Update</a>            <ol>
+              <li><a href="#vdsm-1" id="markdown-toc-vdsm-1">VDSM</a>                <ol>
+                  <li><a href="#team-sla-1" id="markdown-toc-team-sla-1">Team: SLA</a></li>
+                  <li><a href="#team-storage" id="markdown-toc-team-storage">Team: Storage</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#unclassified" id="markdown-toc-unclassified">Unclassified</a>            <ol>
+              <li><a href="#vdsm-2" id="markdown-toc-vdsm-2">VDSM</a>                <ol>
+                  <li><a href="#team-gluster" id="markdown-toc-team-gluster">Team: Gluster</a></li>
+                  <li><a href="#team-infra" id="markdown-toc-team-infra">Team: Infra</a></li>
+                  <li><a href="#team-network" id="markdown-toc-team-network">Team: Network</a></li>
+                  <li><a href="#team-storage-1" id="markdown-toc-team-storage-1">Team: Storage</a></li>
+                  <li><a href="#team-virt" id="markdown-toc-team-virt">Team: Virt</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-engine-sdk-4-python" id="markdown-toc-ovirt-engine-sdk-4-python">oVirt Engine SDK 4 Python</a>                <ol>
+                  <li><a href="#team-infra-1" id="markdown-toc-team-infra-1">Team: Infra</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a>                <ol>
+                  <li><a href="#team-gluster-1" id="markdown-toc-team-gluster-1">Team: Gluster</a></li>
+                  <li><a href="#team-infra-2" id="markdown-toc-team-infra-2">Team: Infra</a></li>
+                  <li><a href="#team-metrics" id="markdown-toc-team-metrics">Team: Metrics</a></li>
+                  <li><a href="#team-network-1" id="markdown-toc-team-network-1">Team: Network</a></li>
+                  <li><a href="#team-sla-2" id="markdown-toc-team-sla-2">Team: SLA</a></li>
+                  <li><a href="#team-storage-2" id="markdown-toc-team-storage-2">Team: Storage</a></li>
+                  <li><a href="#team-virt-1" id="markdown-toc-team-virt-1">Team: Virt</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-engine-extension-aaa-jdbc" id="markdown-toc-ovirt-engine-extension-aaa-jdbc">oVirt Engine Extension AAA JDBC</a>                <ol>
+                  <li><a href="#team-infra-3" id="markdown-toc-team-infra-3">Team: Infra</a></li>
+                </ol>
+              </li>
+              <li><a href="#vdsm-json-rpc-java" id="markdown-toc-vdsm-json-rpc-java">VDSM JSON-RPC Java</a>                <ol>
+                  <li><a href="#team-infra-4" id="markdown-toc-team-infra-4">Team: Infra</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a>                <ol>
+                  <li><a href="#team-docs" id="markdown-toc-team-docs">Team: Docs</a></li>
+                  <li><a href="#team-integration" id="markdown-toc-team-integration">Team: Integration</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a>                <ol>
+                  <li><a href="#team-integration-1" id="markdown-toc-team-integration-1">Team: Integration</a></li>
+                  <li><a href="#team-sla-3" id="markdown-toc-team-sla-3">Team: SLA</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-engine-dashboard" id="markdown-toc-ovirt-engine-dashboard">oVirt Engine Dashboard</a>                <ol>
+                  <li><a href="#team-ux" id="markdown-toc-team-ux">Team: UX</a></li>
+                </ol>
+              </li>
+              <li><a href="#ovirt-engine-dwh" id="markdown-toc-ovirt-engine-dwh">oVirt Engine DWH</a>                <ol>
+                  <li><a href="#team-integration-2" id="markdown-toc-team-integration-2">Team: Integration</a></li>
+                  <li><a href="#team-metrics-1" id="markdown-toc-team-metrics-1">Team: Metrics</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug fixes</a>        <ol>
+          <li><a href="#vdsm-3" id="markdown-toc-vdsm-3">VDSM</a>            <ol>
+              <li><a href="#team-sla-4" id="markdown-toc-team-sla-4">Team: SLA</a></li>
+              <li><a href="#team-storage-3" id="markdown-toc-team-storage-3">Team: Storage</a></li>
+            </ol>
+          </li>
+          <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a>            <ol>
+              <li><a href="#team-sla-5" id="markdown-toc-team-sla-5">Team: SLA</a></li>
+              <li><a href="#team-virt-2" id="markdown-toc-team-virt-2">Team: Virt</a></li>
+            </ol>
+          </li>
+          <li><a href="#vdsm-json-rpc-java-1" id="markdown-toc-vdsm-json-rpc-java-1">VDSM JSON-RPC Java</a>            <ol>
+              <li><a href="#team-infra-5" id="markdown-toc-team-infra-5">Team: Infra</a></li>
+            </ol>
+          </li>
+          <li><a href="#ovirt-hosted-engine-setup-1" id="markdown-toc-ovirt-hosted-engine-setup-1">oVirt Hosted Engine Setup</a>            <ol>
+              <li><a href="#team-integration-3" id="markdown-toc-team-integration-3">Team: Integration</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<p>Users upgrading from 3.6 should be aware of following 4.0 changes around
+authentication and certificates handling:</p>
+
+<ol>
+  <li>
+    <p>Single Sign-On using OAUTH2 protocol has been implemented in engine to
+allow SSO between webadmin, userportal and RESTAPI. More information can
+be found at https://bugzilla.redhat.com/show_bug.cgi?id=1092744</p>
+  </li>
+  <li>
+    <p>Due to SSO it’s required to access engine only using the same FQDN which
+was specified during engine-setup invocation. If your engine FQDN is not
+accessible from all engine clients, you will not be able to login. Please
+use ovirt-engine-rename tool to fix your FQDN, more information can be
+found at /documentation/how-to/networking/changing-engine-hostname/ .
+If you try to access engine using IP or DNS alias, an error will be
+thrown. Please consult following bugs targeted to oVirt 4.0.4 which
+should fix this limitation:
+  https://bugzilla.redhat.com/show_bug.cgi?id=1325746
+  https://bugzilla.redhat.com/show_bug.cgi?id=1362196</p>
+  </li>
+  <li>
+    <p>If you have used Kerberos SSO to access engine, please consult
+https://bugzilla.redhat.com/show_bug.cgi?id=1342192 how to update your Apache
+configuration after upgrade to 4.0</p>
+  </li>
+  <li>
+    <p>If you are using HTTPS certificate signed by custom certificate
+authority, please take a look at https://bugzilla.redhat.com/show_bug.cgi?id=1336838
+for steps which need to be done after migration to 4.0. Also please
+consult https://bugzilla.redhat.com/show_bug.cgi?id=1313379 how to setup this custom
+CA for use with virt-viewer clients.</p>
+  </li>
+</ol>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p>In order to install it on a clean system, you need to install</p>
+
+<p><code class="language-plaintext highlighter-rouge"># yum install </code><a href="http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm</code></a></p>
+
+<p>and then follow documentation from our downstream
+<a href="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/">Red Hat Virtualization</a></p>
+
+<p>If you’re upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+  # yum update "ovirt-*-setup*"
+  # engine-setup
+</code></pre></div></div>
+
+<p>Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should
+follow our <a href="https://web.archive.org/web/20170723145830/http://www.ovirt.org/documentation/migration-engine-36-to-40/">Migration Guide</a> in
+order to migrate to Enterprise Linux 7 or Fedora 23.</p>
+
+<h3 id="enhancement">Enhancement</h3>
+
+<h4 id="vdsm">VDSM</h4>
+
+<h5 id="team-sla">Team: SLA</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1374988">BZ 1374988</a> <b>MOM causes Vdsm to slow down, high number of ‘vmGetIoTunePolicy’ API calls - vdsm</b><br />Feature: <br /><br />Use just one request (instead one per VM) to retrieve the ioTune configuration and status.<br /><br />Reason: <br /><br />The amount of requests needed was causing high load on VDSM.<br /><br />Result: <br /><br />MOM can now use much more efficient data retrieval method that would lower the load imposed on VDSM.</li>
+</ul>
+
+<h3 id="no-doc-update">No Doc Update</h3>
+
+<h4 id="vdsm-1">VDSM</h4>
+
+<h5 id="team-sla-1">Team: SLA</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348255">BZ 1348255</a> <b>sla: fix schema validation warnings</b><br />undefined</li>
+</ul>
+
+<h5 id="team-storage">Team: Storage</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1401540">BZ 1401540</a> <b>[z-stream clone - 4.0.6] HE VM shutdown abruptly when master storage domain is put into maintenance mode</b><br />undefined</li>
+</ul>
+
+<h3 id="unclassified">Unclassified</h3>
+
+<h4 id="vdsm-2">VDSM</h4>
+
+<h5 id="team-gluster">Team: Gluster</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1368474">BZ 1368474</a> <b>Creation of gluster bricks should also set the proper selinux labels on them</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1402248">BZ 1402248</a> <b>Gluster Brick Creation fails while running restorecon on the brick mount point</b><br /></li>
+</ul>
+
+<h5 id="team-infra">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391877">BZ 1391877</a> <b>[z-stream clone - 4.0.6] After ovirt-engine is restarted, hypervisors stop listening on 54321 until vdsm is restarted.</b><br /></li>
+</ul>
+
+<h5 id="team-network">Team: Network</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1390474">BZ 1390474</a> <b>vdsm should handle ifcfg files that have PHYSDEV= instead DEVICE= for vlan connection created with nmcli</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1392989">BZ 1392989</a> <b>vdsmd start fails due to dead symlink /etc/resolv.conf</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1372798">BZ 1372798</a> <b>Setupnetworks not removing the “BRIDGE=” entry in ifcfg file  when changing a untagged network to tagged</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1374194">BZ 1374194</a> <b>[OVS] - Allow to configure also a prefix for a network static ip</b><br /></li>
+</ul>
+
+<h5 id="team-storage-1">Team: Storage</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1399688">BZ 1399688</a> <b>Snapshot delete on HSM fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1377849">BZ 1377849</a> <b>LV is not deactivated after live merge when the VM is running on HSM</b><br /></li>
+</ul>
+
+<h5 id="team-virt">Team: Virt</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1401583">BZ 1401583</a> <b>[z-stream clone - 4.0.6] Numa sampling causes very high load on the hypervisor.</b><br />Numa sampling could previously cause unnecessarily high load on complex host. We therefore reduced the sample interval to 10 minutes as that is enough for rarely-changing NUMA topology.</li>
+</ul>
+
+<h4 id="ovirt-engine-sdk-4-python">oVirt Engine SDK 4 Python</h4>
+
+<h5 id="team-infra-1">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1392878">BZ 1392878</a> <b>Debug mode raises UnicodeDecodeError: ‘utf8’ codec can’t decode byte 0x8d in position 7: invalid start byte</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1382644">BZ 1382644</a> <b>Examples are not packaged in the RPM (but are mentioned in the README file)</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine">oVirt Engine</h4>
+
+<h5 id="team-gluster-1">Team: Gluster</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1368474">BZ 1368474</a> <b>Creation of gluster bricks should also set the proper selinux labels on them</b><br /></li>
+</ul>
+
+<h5 id="team-infra-2">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1374171">BZ 1374171</a> <b>Commands are not polled properly</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1401585">BZ 1401585</a> <b>The pendingOperation task processing will lose tasks in case an exception is thrown</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1398550">BZ 1398550</a> <b>[z-stream clone - 4.0.6] Postgres DB overloads the CPU when specific bookmarks queries are triggered.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1392487">BZ 1392487</a> <b>First Name not displayed for admin under users tab</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1394508">BZ 1394508</a> <b>[z-stream clone - 4.0.6] RHVH-NG is automatically activated after upgrade.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1394184">BZ 1394184</a> <b>No error message is shown on login with missing username</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391643">BZ 1391643</a> <b>SSO token expiration should be returned as long</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391646">BZ 1391646</a> <b>auth domains used to be sorted alphabetically in the past in login screens</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391146">BZ 1391146</a> <b>[User Portal] opening spice console for an AD user without GA running causes ‘VmLogon: Internal Engine Error’</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1389251">BZ 1389251</a> <b>User is not able to edit her profile - Connect Automatically and SSH Public Key options</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391370">BZ 1391370</a> <b>[z-stream clone - 4.0.6] Engine commands stuck on hosts with: Unrecognized protocol: ‘SUBSCRI’.</b><br /></li>
+</ul>
+
+<h5 id="team-metrics">Team: Metrics</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1398944">BZ 1398944</a> <b>users_details_history table is being updated too much</b><br /></li>
+</ul>
+
+<h5 id="team-network-1">Team: Network</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1382341">BZ 1382341</a> <b>Network is resolved in NetworkAttachment</b><br /></li>
+</ul>
+
+<h5 id="team-sla-2">Team: SLA</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1358383">BZ 1358383</a> <b>The engine VM doesn’t restart on Conroe hosts regardless of cluster CPU level</b><br /></li>
+</ul>
+
+<h5 id="team-storage-2">Team: Storage</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1362464">BZ 1362464</a> <b>REST-API v4 is ignoring disk attributes requested when thin cloning a vm from a template</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1395793">BZ 1395793</a> <b>Cloning VM will cause both source VM’s and cloned VM’s disks to stay in locked state</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1396108">BZ 1396108</a> <b>[z-stream clone - 4.0.6] Migration of HE Disk ends up in Locked State</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1383264">BZ 1383264</a> <b>[v4 REST-API only] diskattachments link missing from /api/storagedomains/{export-domain:id}/vms/{vm:id}</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1397866">BZ 1397866</a> <b>Creating a pool of 5 VM’s from template fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1392380">BZ 1392380</a> <b>Importing VMs from storage domain not working if the template does not have a disk</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1390305">BZ 1390305</a> <b>Remove deprecated message when trying to move a disk from webadmin</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1382357">BZ 1382357</a> <b>Error when creating a disk from within the VM dialog</b><br /></li>
+</ul>
+
+<h5 id="team-virt-1">Team: Virt</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1392903">BZ 1392903</a> <b>VM is not monitored by engine, NPE @ org.ovirt.engine.core.vdsbroker.monitoring.VmAnalyzer.isVdsNonResponsive</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391466">BZ 1391466</a> <b>multi-dialog use in the VM dialog is incorrect and causing cleanup issues</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1340722">BZ 1340722</a> <b>Redundant saves of vms in stable state</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1373573">BZ 1373573</a> <b>Enhance error reporting when cluster compatibility update fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1390254">BZ 1390254</a> <b>[z-stream clone - 4.0.5] Upgrade from 3.6 to 4.0 fails on 04_00_0140_convert_memory_snapshots_to_disks.sql</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1369521">BZ 1369521</a> <b>After cluster upgrade from 3.6 to 4.0 with running HA vm, if vm is killed outside engine it starts as a 3.6 vm</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391933">BZ 1391933</a> <b>Do not block the VM monitoring thread when something unexpected shows up</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1397279">BZ 1397279</a> <b>Memory, CPU and Network  utilization graphs are no longer displaying info for VMs under VMs main tab</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine-extension-aaa-jdbc">oVirt Engine Extension AAA JDBC</h4>
+
+<h5 id="team-infra-3">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391154">BZ 1391154</a> <b>Option –password=file does not reset the password</b><br /></li>
+</ul>
+
+<h4 id="vdsm-json-rpc-java">VDSM JSON-RPC Java</h4>
+
+<h5 id="team-infra-4">Team: Infra</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1401585">BZ 1401585</a> <b>The pendingOperation task processing will lose tasks in case an exception is thrown</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1391370">BZ 1391370</a> <b>[z-stream clone - 4.0.6] Engine commands stuck on hosts with: Unrecognized protocol: ‘SUBSCRI’.</b><br /></li>
+</ul>
+
+<h4 id="ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</h4>
+
+<h5 id="team-docs">Team: Docs</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1387146">BZ 1387146</a> <b>Proxy set when running hosted-engine may prevent completion</b><br />Adding from https://gerrit.ovirt.org/#/c/65955/<br />network: <br />Add a warning if a proxy is in use, since a not properly configured proxy could prevent the host to reach the engine VM.</li>
+</ul>
+
+<h5 id="team-integration">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1397810">BZ 1397810</a> <b>The rollback will be uncorrected prevented if the 4.0 appliance disk is smaller than the on of 3.6 custom VM</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1396193">BZ 1396193</a> <b>Hosted Engine upgrade is failing during engine-setup if the db backup file is not in /root/</b><br /></li>
+</ul>
+
+<h4 id="ovirt-hosted-engine-ha">oVirt Hosted Engine HA</h4>
+
+<h5 id="team-integration-1">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1397572">BZ 1397572</a> <b>The upgrade procedure fails if a 4.0 is added to a HE 3.5 cluster just partially upgraded to 3.6</b><br /></li>
+</ul>
+
+<h5 id="team-sla-3">Team: SLA</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1376559">BZ 1376559</a> <b>ovirt hosted agent and broker logs duplicating</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine-dashboard">oVirt Engine Dashboard</h4>
+
+<h5 id="team-ux">Team: UX</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1356909">BZ 1356909</a> <b>Tooltip of Sparkline shows wrong time (UTC TimeZone)</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1371893">BZ 1371893</a> <b>sparkline for CPU shows some changes, but tooltip says 0%</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine-dwh">oVirt Engine DWH</h4>
+
+<h5 id="team-integration-2">Team: Integration</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1364062">BZ 1364062</a> <b>[TEXT] - After remote DWH install prompt user to restart engine explaining that dashboard will not work until this is done.</b><br /></li>
+</ul>
+
+<h5 id="team-metrics-1">Team: Metrics</h5>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1399162">BZ 1399162</a> <b>history_configuration table is being updated too much</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1398944">BZ 1398944</a> <b>users_details_history table is being updated too much</b><br /></li>
+</ul>
+
+<h2 id="bug-fixes">Bug fixes</h2>
+
+<h3 id="vdsm-3">VDSM</h3>
+
+<h4 id="team-sla-4">Team: SLA</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1393012">BZ 1393012</a> <b>when restarting vdsm, mom also restarting, and immediately failed.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1346926">BZ 1346926</a> <b>[scale] - momd memory leakage</b><br /></li>
+</ul>
+
+<h4 id="team-storage-3">Team: Storage</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1321018">BZ 1321018</a> <b>The snapshot disk links are not removed after deleted.</b><br /></li>
+</ul>
+
+<h3 id="ovirt-engine-1">oVirt Engine</h3>
+
+<h4 id="team-sla-5">Team: SLA</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1372000">BZ 1372000</a> <b>[Re opening] Support update of the HE OVF ad-hoc</b><br /></li>
+</ul>
+
+<h4 id="team-virt-2">Team: Virt</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1402401">BZ 1402401</a> <b>Accessing the VMs tab causes an InvocationTargetException</b><br /></li>
+</ul>
+
+<h3 id="vdsm-json-rpc-java-1">VDSM JSON-RPC Java</h3>
+
+<h4 id="team-infra-5">Team: Infra</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1401976">BZ 1401976</a> <b>100% cpu when a even a single host is out</b><br /></li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-setup-1">oVirt Hosted Engine Setup</h3>
+
+<h4 id="team-integration-3">Team: Integration</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1386293">BZ 1386293</a> <b>Host stuck in installing state during ovirt-hosted-engine-setup run</b><br /></li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2867/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2867/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2867/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2867/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/4.0.6/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/release/4.0.6/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

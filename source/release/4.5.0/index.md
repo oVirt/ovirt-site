@@ -53,6 +53,12 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2077387](https://bugzilla.redhat.com/show_bug.cgi?id=2077387) **Update to 4.5 failed due to failed database schema refresh**
+
+   If vdc_options table contains records with NULL default value (most probably as a remains from ancient versions), the upgrade to ovirt-engine-4.5.0 fails. This bug fixes the issue, so upgrade to ovirt-engine-4.5.0 is successfull.
+ - [BZ 2071468](https://bugzilla.redhat.com/show_bug.cgi?id=2071468) **Engine fenced host that was already reconnected and set to Up status.**
+
+   If SSH soft fencing needs to be executed on a problematic host, oVirt Engine now waits expected time interval before it continues with fencing, so VDSM has enough time to start and respond to oVirt Engine.
  - [BZ 2052690](https://bugzilla.redhat.com/show_bug.cgi?id=2052690) **[RFE] Upgrade to ansible-core-2.12 in ovirt-engine**
 
    oVirt Engine 4.5 requires ansible-core-2.12 from RHEL 8.6 and doesn't work anymore with previous ansible-2.9.z versions
@@ -694,6 +700,7 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2074916](https://bugzilla.redhat.com/show_bug.cgi?id=2074916) **Failed to upload OVA as template via upload_ova_as_vm_or_template.py**
  - [BZ 2074582](https://bugzilla.redhat.com/show_bug.cgi?id=2074582) **VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin**
  - [BZ 2075037](https://bugzilla.redhat.com/show_bug.cgi?id=2075037) **Wrong pinning in the dedicated virsh dumpxml after migration**
  - [BZ 2075435](https://bugzilla.redhat.com/show_bug.cgi?id=2075435) **Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage**
@@ -790,6 +797,7 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2075486](https://bugzilla.redhat.com/show_bug.cgi?id=2075486) **VM with Q35 UEFI and 64 CPUs is running but without boot screen, console and network.**
  - [BZ 2076474](https://bugzilla.redhat.com/show_bug.cgi?id=2076474) **OVA import: importing VM OVA  failed with "async task did not complete within the requested time - 120s"**
  - [BZ 1868372](https://bugzilla.redhat.com/show_bug.cgi?id=1868372) **collectd-virt plugin doesn't work with latest libvirt**
  - [BZ 2070053](https://bugzilla.redhat.com/show_bug.cgi?id=2070053) **Removal of a labeled long network(more than 15 characters)  is incomplete**
@@ -1067,6 +1075,26 @@ To learn about features introduced before 4.5.0, see the
    2. Cancel DB cleanup of the 'vm_backups' &amp; 'image_transfers' DB tables when the backup / image transfer finishes to allow DB &amp; API status retrieval by user.
    3. Scheduled execution of the cleanup - 15 minutes for success entries, 30 minutes for the failure. Separate values for backup &amp; for image transfer operations, an additional value for the cleanup thread rate (all 5 values are configurable).
    4. Some minor user experience improvements.
+ - [BZ 1937408](https://bugzilla.redhat.com/show_bug.cgi?id=1937408) **[RFE] Add ability to import template from OVA in image_template role**
+
+   Following options has been added to ovirt_template module:
+
+    kvm:
+      - Dictionary of values to be used to connect to kvm and import a template to oVirt.
+      - Following keys can be specified within the dictionary
+
+        url:
+          - The URL to be passed to the I(virt-v2v) tool for conversion.
+          - For example I(qemu:///system). This is required parameter.
+
+        storage_domain:
+          - Specifies the target storage domain for converted disks. This is required parameter.
+
+        host:
+          - The host name from which the template will be imported.
+ 
+        clone:
+          - Indicates if the identifiers of the imported template should be regenerated.
 
 #### ovirt-engine-sdk-python
 
@@ -1186,7 +1214,7 @@ To learn about features introduced before 4.5.0, see the
 
 ### Contributors
 
-66 people contributed to this release:
+67 people contributed to this release:
 
 	Albert Esteve (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
@@ -1254,3 +1282,4 @@ To learn about features introduced before 4.5.0, see the
 	Yedidyah Bar David (Contributed to: cockpit-ovirt, imgbased, otopi, ovirt-ansible-collection, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-node-ng, ovirt-node-ng-image, ovirt-release, ovirt-setup-lib, ovirt-site)
 	Yuval Turgeman (Contributed to: ovirt-release)
 	drokath (Contributed to: ovirt-ansible-collection)
+	kurokobo (Contributed to: ovirt-site)

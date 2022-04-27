@@ -14,5 +14,5 @@ You can now use the virtual machine in the same way you would use a physical des
 
 [NOTE]
 ====
-To allow other users to connect to the VM, make sure you restart the virtual machine when you are finished using the console. Alternatively, the administrator can *Disable strict user checking* to eliminate the need for reboot between users. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_Console_settings_explained[Virtual Machine Console Settings Explained] in the _Virtual Machine Management Guide_ for more information.
+To allow other users to connect to the VM, make sure you shutdown and restart the virtual machine when you are finished using the console. Alternatively, the administrator can *Disable strict user checking* to eliminate the need for reboot between users. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_Console_settings_explained[Virtual Machine Console Settings Explained] in the _Virtual Machine Management Guide_ for more information.
 ====

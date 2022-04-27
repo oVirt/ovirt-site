@@ -22,7 +22,7 @@ include::topics/Adding_KVM_as_an_External_Provider.adoc[leveloffset=+2]
 
 include::topics/Adding_OVN_as_an_External_Network_Provider.adoc[leveloffset=+2]
 
-include::topics/Adding_an_External_Network_Provider.adoc[leveloffset=+2]
+////Removing for BZ2006228 include::topics/Adding_an_External_Network_Provider.adoc[leveloffset=+2]
 
 include::topics/Add_Provider_General_Settings_Explained.adoc[leveloffset=+2]
 

@@ -2,11 +2,6 @@
 [id="Installing_a_new_OVN_network_provider"]
 = Installing a New OVN Network Provider
 
-[WARNING]
-====
-If the `openvswitch` package is already installed and if the version is 1:2.6.1 (version 2.6.1, epoch 1), the OVN installation will fail when it tries to install the latest `openvswitch` package. See the Doc Text in link:https://bugzilla.redhat.com/show_bug.cgi?id=1505398[BZ#1505398] for the details and a workaround.
-====
-
 Installing OVN using `engine-setup` performs the following steps:
 
 * Sets up an OVN central server on the {engine-name} machine.

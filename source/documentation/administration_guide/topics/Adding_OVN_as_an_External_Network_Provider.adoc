@@ -29,6 +29,8 @@ include::Installing_a_new_OVN_network_provider.adoc[]
 
 include::Adding_an_existing_OVN_network_provider.adoc[]
 
+include::Enabling_IPsec_over_OVN.adoc[]
+
 include::Using_an_Ansible_playbook_to_modify_an_OVN_tunnel_network.adoc[]
 
 include::Configuring_Hosts_for_an_OVN_tunnel_network.adoc[]

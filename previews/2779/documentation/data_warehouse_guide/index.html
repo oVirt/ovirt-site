@@ -302,16 +302,11 @@
 </div>
 <h4 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_DWH_remote" class="discrete">Enabling the oVirt Engine Repositories</h4>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled.
-For oVirt 4.4:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
+<p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
-<p>For oVirt 4.5:</p>
+<p>For oVirt 4.5:
+If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2779/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -319,14 +314,15 @@ For oVirt 4.4:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+<p>For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -354,6 +350,14 @@ For oVirt 4.4:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
 </div>
 </div>
 </li>

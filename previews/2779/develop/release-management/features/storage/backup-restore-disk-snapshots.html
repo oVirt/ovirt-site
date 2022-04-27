@@ -149,10 +149,10 @@ oVirt REST-API/SDKs can be used in a similar manner.</p>
 
 <h3 id="download-a-vm-ovf">Download a VM OVF</h3>
 
-<p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_vm_ovf.py">Full Example</a></p>
+<p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_vm_ovf.py">Full Example</a></p>
 
 <p>In order to fetch a VM configuration data, ‘all_content’ flag should be specified.
-Then, it can be written into a new file - that’s the OVF. 
+Then, it can be written into a new file - that’s the OVF.
 Note: The OVF contains sufficient information about disks and snapshots to restore
 the VM to original state (e.g. alias/description/date). However, it isn’t automatically
 parsed by the system, but rather should be done by the SDK user.</p>
@@ -166,11 +166,11 @@ parsed by the system, but rather should be done by the SDK user.</p>
 
 <h3 id="download-disks">Download Disks</h3>
 
-<p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_all_disk_snapshots.py">Full Example</a></p>
+<p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_all_disk_snapshots.py">Full Example</a></p>
 
 <p>The following example demonstrates the procedure of downloading the non-active disk-snapshots
 of a specified disk. Hence, in order to include the active layer as well, either create
-a new snapshot for the disk in advance, or download the active disk-snapshot using the<a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py">Download Disk Example</a></p>
+a new snapshot for the disk in advance, or download the active disk-snapshot using the<a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_disk.py">Download Disk Example</a></p>
 
 <p>In order to download the active</p>
 
@@ -181,25 +181,25 @@ a new snapshot for the disk in advance, or download the active disk-snapshot usi
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># Set relevant disk and stroage domain IDs
 </span>  <span class="n">disk_id</span> <span class="o">=</span> <span class="s">'ccdd6487-0a8f-40c8-9f45-40e0e2b30d79'</span>
   <span class="n">sd_name</span> <span class="o">=</span> <span class="s">'mydata'</span>
-        
+
   <span class="c1"># Get a reference to the storage domains service:
 </span>  <span class="n">storage_domains_service</span> <span class="o">=</span> <span class="n">system_service</span><span class="p">.</span><span class="n">storage_domains_service</span><span class="p">()</span>
-        
+
   <span class="c1"># Look up for the storage domain by name:
 </span>  <span class="n">storage_domain</span> <span class="o">=</span> <span class="n">storage_domains_service</span><span class="p">.</span><span class="nb">list</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s">'name=%s'</span> <span class="o">%</span> <span class="n">sd_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        
+
   <span class="c1"># Get a reference to the storage domain service in which the disk snapshots reside:
 </span>  <span class="n">storage_domain_service</span> <span class="o">=</span> <span class="n">storage_domains_service</span><span class="p">.</span><span class="n">storage_domain_service</span><span class="p">(</span><span class="n">storage_domain</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>
-        
+
   <span class="c1"># Get a reference to the disk snapshots service:
 </span>  <span class="n">disk_snapshot_service</span> <span class="o">=</span> <span class="n">storage_domain_service</span><span class="p">.</span><span class="n">disk_snapshots_service</span><span class="p">()</span>
-        
+
   <span class="c1"># Get a list of disk snapshots by a disk ID
 </span>  <span class="n">all_disk_snapshots</span> <span class="o">=</span> <span class="n">disk_snapshot_service</span><span class="p">.</span><span class="nb">list</span><span class="p">()</span>
-        
+
   <span class="c1"># Filter disk snapshots list by disk id
 </span>  <span class="n">disk_snapshots</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">all_disk_snapshots</span> <span class="k">if</span> <span class="n">s</span><span class="p">.</span><span class="n">disk</span><span class="p">.</span><span class="nb">id</span> <span class="o">==</span> <span class="n">disk_id</span><span class="p">]</span>
-        
+
   <span class="c1"># Download disk snapshots
 </span>  <span class="k">for</span> <span class="n">disk_snapshot</span> <span class="ow">in</span> <span class="n">disk_snapshots</span><span class="p">:</span>
       <span class="n">download_disk_snapshot</span><span class="p">(</span><span class="n">disk_snapshot</span><span class="p">)</span>
@@ -220,7 +220,7 @@ a new snapshot for the disk in advance, or download the active disk-snapshot usi
 
 <h2 id="restore">Restore</h2>
 
-<p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py">Full Example</a></p>
+<p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/upload_disk_snapshots.py">Full Example</a></p>
 
 <h3 id="compose-disk-snapshots-chain">Compose disk-snapshots chain</h3>
 
@@ -238,7 +238,7 @@ construct the chain, starting from base volume.</p>
             <span class="n">volumes_info</span><span class="p">[</span><span class="n">file_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume_info</span>
             <span class="k">if</span> <span class="s">'full-backing-filename'</span> <span class="ow">in</span> <span class="n">volume_info</span><span class="p">:</span>
                 <span class="n">backing_files</span><span class="p">[</span><span class="n">volume_info</span><span class="p">[</span><span class="s">'full-backing-filename'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">volume_info</span>
-    
+
     <span class="n">base_volume</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">volumes_info</span><span class="p">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="s">'full-backing-filename'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span> <span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">child</span> <span class="o">=</span> <span class="n">backing_files</span><span class="p">[</span><span class="n">base_volume</span><span class="p">[</span><span class="s">'filename'</span><span class="p">]]</span>
     <span class="n">images_chain</span> <span class="o">=</span> <span class="p">[</span><span class="n">base_volume</span><span class="p">]</span>
@@ -249,13 +249,13 @@ construct the chain, starting from base volume.</p>
             <span class="n">child</span> <span class="o">=</span> <span class="n">backing_files</span><span class="p">[</span><span class="n">parent</span><span class="p">[</span><span class="s">'filename'</span><span class="p">]]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">child</span> <span class="o">=</span> <span class="bp">None</span>
-    
+
     <span class="k">return</span> <span class="n">images_chain</span>
 </code></pre></div></div>
 
 <h3 id="create-disks">Create disks</h3>
 
-<p>For each disk, invoke disk creation for the base image using 
+<p>For each disk, invoke disk creation for the base image using
 the generated images chain from previous step. The content of
 the disks will be uploaded in a later step.</p>
 
@@ -393,19 +393,19 @@ the disks will be uploaded in a later step.</p>
 
 <ul>
   <li>
-    <p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_vm_ovf.py">Download VM OVF</a></p>
+    <p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_vm_ovf.py">Download VM OVF</a></p>
   </li>
   <li>
-    <p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_all_disk_snapshots.py">Download Disk Snapshots</a></p>
+    <p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_all_disk_snapshots.py">Download Disk Snapshots</a></p>
   </li>
   <li>
-    <p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py">Upload Disk Snapshots</a></p>
+    <p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/upload_disk_snapshots.py">Upload Disk Snapshots</a></p>
   </li>
   <li>
-    <p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py">Download Disk</a></p>
+    <p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/download_disk.py">Download Disk</a></p>
   </li>
   <li>
-    <p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk.py">Upload Disk</a></p>
+    <p><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/upload_disk.py">Upload Disk</a></p>
   </li>
 </ul>
 

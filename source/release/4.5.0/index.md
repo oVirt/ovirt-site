@@ -742,7 +742,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 1940494](https://bugzilla.redhat.com/show_bug.cgi?id=1940494) **provide better information for windows guest-agent mark**
  - [BZ 1950321](https://bugzilla.redhat.com/show_bug.cgi?id=1950321) **SSH public key Ok button is not enabled automatically**
  - [BZ 1679935](https://bugzilla.redhat.com/show_bug.cgi?id=1679935) **Administration Configure user role does not shows scrollbar**
- - [BZ 1913764](https://bugzilla.redhat.com/show_bug.cgi?id=1913764) **GlusterFS - Failing to assign new Master SD within the same storage type leads to infinite (or long) reconstruction**
  - [BZ 1913843](https://bugzilla.redhat.com/show_bug.cgi?id=1913843) **Disable NUMA Tuning for non-pinned vNUMA nodes**
  - [BZ 1683098](https://bugzilla.redhat.com/show_bug.cgi?id=1683098) **ovirt-provider-ovn service is not stopped/disabled by engine-cleanup**
  - [BZ 2001565](https://bugzilla.redhat.com/show_bug.cgi?id=2001565) **VM OVA import fails if loop device doesn't exist in the host during the import**
@@ -777,7 +776,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2025527](https://bugzilla.redhat.com/show_bug.cgi?id=2025527) **Refreshing LVs fail:  "locking_type (4) is deprecated, using --sysinit --readonly.\', \'  Operation prohibited while --readonly is set.\', "  Can\'t get lock for ...."**
  - [BZ 1949475](https://bugzilla.redhat.com/show_bug.cgi?id=1949475) **If pivot failed during live merge, top volume is left illegal, requires manual fix if vm is stopped**
  - [BZ 2018947](https://bugzilla.redhat.com/show_bug.cgi?id=2018947) **vm: do not ignore errors when syncing volume chain**
- - [BZ 1913764](https://bugzilla.redhat.com/show_bug.cgi?id=1913764) **GlusterFS - Failing to assign new Master SD within the same storage type leads to infinite (or long) reconstruction**
 
 ### No Doc Update
 
@@ -1147,6 +1145,10 @@ To learn about features introduced before 4.5.0, see the
 #### oVirt Ansible collection
 
  - [BZ 2020624](https://bugzilla.redhat.com/show_bug.cgi?id=2020624) **[RFE] support satellite registration with repositories role**
+
+#### oVirt Engine
+
+ - [BZ 2073005](https://bugzilla.redhat.com/show_bug.cgi?id=2073005) **ui-extensions dialogs are flashing when they are rendered on a chrome browser**
 
 ### No Doc Update
 

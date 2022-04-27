@@ -3,15 +3,30 @@
 [appendix]
 :_content-type: ASSEMBLY
 [id="appe-VDSM_and_Hooks"]
-= VDSM and Hooks
+= VDSM Service and Hooks
 
-include::topics/VDSM.adoc[leveloffset=+1]
+The VDSM service is used by the {virt-product-fullname} {engine-name} to manage {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-host-fullname}s. VDSM manages and monitors the host's storage, memory, and network resources. It also coordinates virtual machine creation, statistics gathering, log collection and other host administration tasks. VDSM is run as a daemon on each host managed by {virt-product-fullname} {engine-name}. It answers XML-RPC calls from clients. The {virt-product-fullname} {engine-name} functions as a VDSM client.
 
-include::topics/VDSM_hooks.adoc[leveloffset=+1]
+VDSM is extensible via hooks. Hooks are scripts executed on the host when key events occur. When a supported event occurs VDSM runs any executable hook scripts in */usr/libexec/vdsm/hooks/_nn_event-name_/* on the host in alphanumeric order. By convention each hook script is assigned a two digit number, included at the front of the file name, to ensure that the order in which the scripts will be run in is clear. You are able to create hook scripts in any programming language, Python will however be used for the examples contained in this chapter.
 
-include::topics/Extending_VDSM_with_hooks.adoc[leveloffset=+1]
+Note that all scripts defined on the host for the event are executed. If you require that a given hook is only executed for a subset of the virtual machines which run on the host then you must ensure that the hook script itself handles this requirement by evaluating the *Custom Properties* associated with the virtual machine.
+
+[WARNING]
+====
+VDSM hooks can interfere with the operation of {virt-product-fullname}. A bug in a VDSM hook has the potential to cause virtual machine crashes and loss of data. VDSM hooks should be implemented with caution and tested rigorously. The Hooks API is new and subject to significant change in the future.
+====
+
+You can extend VDSM with event-driven hooks. Extending VDSM with hooks is an experimental technology, and this chapter is intended for experienced developers.
+
+By setting custom properties on virtual machines it is possible to pass additional parameters, specific to a given virtual machine, to the hook scripts.
 
 include::common/install/proc_installing-a-vdsm-hook.adoc[leveloffset=+1]
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_RHVH_repository_SHE_cli_deploy[Enabling the {hypervisor-fullname} Repository]
+* link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories_SHE_cli_deploy[Enabling the {enterprise-linux-host-fullname} Repositories]
 
 include::topics/Supported_VDSM_events.adoc[leveloffset=+1]
 

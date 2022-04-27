@@ -80,10 +80,21 @@
           
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#Red_Hat_Virtualization_Upgrade_Overview">1. oVirt Upgrade Overview</a></li>
+<ul class="sectlevel0">
+<li><a href="#ovirt-upgrade-overview">oVirt Upgrade Overview</a></li>
 <li><a href="#upgrading-a-standalone-engine-local-database-environment">Upgrading a standalone Engine local database environment</a>
 <ul class="sectlevel1">
+<li><a href="#Upgrading_from_4-4">1. Upgrading from oVirt 4.4 to 4.5</a>
+<ul class="sectlevel2">
+<li><a href="#Upgrade_Prerequisites_4-4_local_db">1.1. Prerequisites</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-4_local_db">1.2. Updating the oVirt Engine</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-5_4-4_local_db">1.3. Upgrading the oVirt Engine from 4.4 to 4.5</a></li>
+<li><a href="#Upgrading_hosts_to_4-5_4-4_local_db">1.4. Migrating hosts oVirt 4.4 to 4.5</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-4_local_db">1.5. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-4_local_db">1.6. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-4_local_db">1.7. Changing the Data Center Compatibility Version</a></li>
+</ul>
+</li>
 <li><a href="#Upgrading_from_4-3">2. Upgrading from oVirt 4.3 to 4.4</a>
 <ul class="sectlevel2">
 <li><a href="#Upgrade_Prerequisites_4-3_local_db">2.1. Prerequisites</a></li>
@@ -113,87 +124,110 @@
 </li>
 <li><a href="#upgrading-a-standalone-engine-remote-database-environment">Upgrading a standalone Engine remote database environment</a>
 <ul class="sectlevel1">
-<li><a href="#Remote_Upgrading_from_4-3">4. Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</a>
+<li><a href="#Remote_Upgrading_from_4-4">4. Upgrading a Remote Database Environment from oVirt 4.4 to 4.5</a>
 <ul class="sectlevel2">
-<li><a href="#Upgrade_Prerequisites_4-3_remote_db">4.1. Prerequisites</a></li>
-<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-3_remote_db">4.2. Updating the oVirt Engine</a></li>
-<li><a href="#Upgrading_the_Manager_to_4-4_4-3_remote_db">4.3. Upgrading the oVirt Engine from 4.3 to 4.4</a></li>
-<li><a href="#proc_upgrading-the-remote-data-warehouse-service-and-database_4-3_remote_db">4.4. Upgrading the remote Data Warehouse service and database</a></li>
-<li><a href="#Upgrading_hosts_to_4-4_4-3_remote_db">4.5. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</a></li>
-<li><a href="#Upgrading_hypervisor_preserving_local_storage_4-3_remote_db">4.6. Upgrading oVirt Node while preserving local storage</a></li>
-<li><a href="#Changing_the_Cluster_Compatibility_Version_4-3_remote_db">4.7. Changing the Cluster Compatibility Version</a></li>
-<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-3_remote_db">4.8. Changing Virtual Machine Cluster Compatibility</a></li>
-<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-3_remote_db">4.9. Changing the Data Center Compatibility Version</a></li>
+<li><a href="#Upgrade_Prerequisites_4-4_remote_db">4.1. Prerequisites</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-4_remote_db">4.2. Updating the oVirt Engine</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-5_4-4_remote_db">4.3. Upgrading the oVirt Engine from 4.4 to 4.5</a></li>
+<li><a href="#Upgrading_hosts_to_4-5_4-4_remote_db">4.4. Migrating hosts oVirt 4.4 to 4.5</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-4_remote_db">4.5. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-4_remote_db">4.6. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-4_remote_db">4.7. Changing the Data Center Compatibility Version</a></li>
 </ul>
 </li>
-<li><a href="#Remote_Upgrading_from_4-2">5. Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</a>
+<li><a href="#Remote_Upgrading_from_4-3">5. Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</a>
 <ul class="sectlevel2">
-<li><a href="#Upgrade_Prerequisites_4-2_remote_db">5.1. Prerequisites</a></li>
-<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-2_remote_db">5.2. Updating the oVirt Engine</a></li>
-<li><a href="#Upgrading_Remote_Databases_from_PG95_to_PG10_4-2_remote_db">5.3. Upgrading remote databases from PostgreSQL 9.5 to 10</a></li>
-<li><a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">5.4. Upgrading the oVirt Engine from 4.2 to 4.3</a>
+<li><a href="#Upgrade_Prerequisites_4-3_remote_db">5.1. Prerequisites</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-3_remote_db">5.2. Updating the oVirt Engine</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-4_4-3_remote_db">5.3. Upgrading the oVirt Engine from 4.3 to 4.4</a></li>
+<li><a href="#proc_upgrading-the-remote-data-warehouse-service-and-database_4-3_remote_db">5.4. Upgrading the remote Data Warehouse service and database</a></li>
+<li><a href="#Upgrading_hosts_to_4-4_4-3_remote_db">5.5. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</a></li>
+<li><a href="#Upgrading_hypervisor_preserving_local_storage_4-3_remote_db">5.6. Upgrading oVirt Node while preserving local storage</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-3_remote_db">5.7. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-3_remote_db">5.8. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-3_remote_db">5.9. Changing the Data Center Compatibility Version</a></li>
+</ul>
+</li>
+<li><a href="#Remote_Upgrading_from_4-2">6. Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</a>
+<ul class="sectlevel2">
+<li><a href="#Upgrade_Prerequisites_4-2_remote_db">6.1. Prerequisites</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-2_remote_db">6.2. Updating the oVirt Engine</a></li>
+<li><a href="#Upgrading_Remote_Databases_from_PG95_to_PG10_4-2_remote_db">6.3. Upgrading remote databases from PostgreSQL 9.5 to 10</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-3_4-2_remote_db">6.4. Upgrading the oVirt Engine from 4.2 to 4.3</a>
 <ul class="sectlevel3">
-<li><a href="#completing-the-remote-data-warehouse-database-upgrade">5.4.1. Completing the remote Data Warehouse database upgrade</a></li>
+<li><a href="#completing-the-remote-data-warehouse-database-upgrade">6.4.1. Completing the remote Data Warehouse database upgrade</a></li>
 </ul>
 </li>
-<li><a href="#Updating_all_hosts_in_a_cluster_4-2_remote_db">5.5. Updating All Hosts in a Cluster</a></li>
-<li><a href="#Changing_the_Cluster_Compatibility_Version_4-2_remote_db">5.6. Changing the Cluster Compatibility Version</a></li>
-<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-2_remote_db">5.7. Changing Virtual Machine Cluster Compatibility</a></li>
-<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-2_remote_db">5.8. Changing the Data Center Compatibility Version</a></li>
-<li><a href="#Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_remote_db">5.9. Replacing SHA-1 Certificates with SHA-256 Certificates</a></li>
+<li><a href="#Updating_all_hosts_in_a_cluster_4-2_remote_db">6.5. Updating All Hosts in a Cluster</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-2_remote_db">6.6. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-2_remote_db">6.7. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-2_remote_db">6.8. Changing the Data Center Compatibility Version</a></li>
+<li><a href="#Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_remote_db">6.9. Replacing SHA-1 Certificates with SHA-256 Certificates</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#upgrading-a-self-hosted-engine-environment">Upgrading a self-hosted engine environment</a>
 <ul class="sectlevel1">
-<li><a href="#SHE_Upgrading_from_4-3">6. Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</a>
+<li><a href="#SHE_Upgrading_from_4-4">7. Upgrading a self-Hosted engine from oVirt 4.4 to 4.5</a>
 <ul class="sectlevel2">
-<li><a href="#Upgrade_Prerequisites_4-3_SHE">6.1. Prerequisites</a></li>
-<li><a href="#Migrating_VMs_from_SHE_host">6.2. Migrating virtual machines from the self-hosted engine host</a></li>
-<li><a href="#Enabling_Global_Maintenance_Mode_4-3_SHE">6.3. Enabling global maintenance mode</a></li>
-<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-3_SHE">6.4. Updating the oVirt Engine</a></li>
-<li><a href="#Upgrading_the_Manager_to_4-4_4-3_SHE">6.5. Upgrading the oVirt Engine from 4.3 to 4.4</a></li>
-<li><a href="#Upgrading_hosts_to_4-4_4-3_SHE">6.6. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</a></li>
-<li><a href="#Upgrading_hypervisor_preserving_local_storage_4-3_SHE">6.7. Upgrading oVirt Node while preserving local storage</a></li>
-<li><a href="#Changing_the_Cluster_Compatibility_Version_4-3_SHE">6.8. Changing the Cluster Compatibility Version</a></li>
-<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-3_SHE">6.9. Changing Virtual Machine Cluster Compatibility</a></li>
-<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-3_SHE">6.10. Changing the Data Center Compatibility Version</a></li>
+<li><a href="#Upgrade_Prerequisites_4-4_SHE">7.1. Prerequisites</a></li>
+<li><a href="#Migrating_VMs_from_SHE_host_4-4">7.2. Migrating virtual machines from the self-hosted engine host</a></li>
+<li><a href="#Enabling_Global_Maintenance_Mode_4-4_SHE">7.3. Enabling global maintenance mode</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-4_SHE">7.4. Updating the oVirt Engine</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-5_4-4_SHE">7.5. Upgrading the oVirt Engine from 4.4 to 4.5</a></li>
+<li><a href="#Upgrading_hosts_to_4-5_4-4_SHE">7.6. Migrating hosts oVirt 4.4 to 4.5</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-4_SHE">7.7. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-4_SHE">7.8. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-4_SHE">7.9. Changing the Data Center Compatibility Version</a></li>
 </ul>
 </li>
-<li><a href="#SHE_Upgrading_from_4-2">7. Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</a>
+<li><a href="#SHE_Upgrading_from_4-3">8. Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</a>
 <ul class="sectlevel2">
-<li><a href="#Upgrade_Prerequisites_4-2_SHE">7.1. Prerequisites</a></li>
-<li><a href="#Enabling_Global_Maintenance_Mode_4-2_SHE">7.2. Enabling global maintenance mode</a></li>
-<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-2_SHE">7.3. Updating the oVirt Engine</a></li>
-<li><a href="#Upgrading_the_Manager_to_4-3_4-2_SHE">7.4. Upgrading the oVirt Engine from 4.2 to 4.3</a></li>
-<li><a href="#Disabling_Global_Maintenance_Mode_4-2_SHE">7.5. Disabling global maintenance mode</a></li>
-<li><a href="#Updating_all_hosts_in_a_cluster_4-2_SHE">7.6. Updating All Hosts in a Cluster</a></li>
-<li><a href="#Changing_the_Cluster_Compatibility_Version_4-2_SHE">7.7. Changing the Cluster Compatibility Version</a></li>
-<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-2_SHE">7.8. Changing Virtual Machine Cluster Compatibility</a></li>
-<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-2_SHE">7.9. Changing the Data Center Compatibility Version</a></li>
-<li><a href="#Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_SHE">7.10. Replacing SHA-1 Certificates with SHA-256 Certificates</a></li>
+<li><a href="#Upgrade_Prerequisites_4-3_SHE">8.1. Prerequisites</a></li>
+<li><a href="#Migrating_VMs_from_SHE_host">8.2. Migrating virtual machines from the self-hosted engine host</a></li>
+<li><a href="#Enabling_Global_Maintenance_Mode_4-3_SHE">8.3. Enabling global maintenance mode</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-3_SHE">8.4. Updating the oVirt Engine</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-4_4-3_SHE">8.5. Upgrading the oVirt Engine from 4.3 to 4.4</a></li>
+<li><a href="#Upgrading_hosts_to_4-4_4-3_SHE">8.6. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</a></li>
+<li><a href="#Upgrading_hypervisor_preserving_local_storage_4-3_SHE">8.7. Upgrading oVirt Node while preserving local storage</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-3_SHE">8.8. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-3_SHE">8.9. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-3_SHE">8.10. Changing the Data Center Compatibility Version</a></li>
+</ul>
+</li>
+<li><a href="#SHE_Upgrading_from_4-2">9. Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</a>
+<ul class="sectlevel2">
+<li><a href="#Upgrade_Prerequisites_4-2_SHE">9.1. Prerequisites</a></li>
+<li><a href="#Enabling_Global_Maintenance_Mode_4-2_SHE">9.2. Enabling global maintenance mode</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-2_SHE">9.3. Updating the oVirt Engine</a></li>
+<li><a href="#Upgrading_the_Manager_to_4-3_4-2_SHE">9.4. Upgrading the oVirt Engine from 4.2 to 4.3</a></li>
+<li><a href="#Disabling_Global_Maintenance_Mode_4-2_SHE">9.5. Disabling global maintenance mode</a></li>
+<li><a href="#Updating_all_hosts_in_a_cluster_4-2_SHE">9.6. Updating All Hosts in a Cluster</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-2_SHE">9.7. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-2_SHE">9.8. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-2_SHE">9.9. Changing the Data Center Compatibility Version</a></li>
+<li><a href="#Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_SHE">9.10. Replacing SHA-1 Certificates with SHA-256 Certificates</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#updates-between-minor-releases">Updates between minor releases</a>
 <ul class="sectlevel1">
-<li><a href="#Minor_Release_Updates">8. Updating oVirt between minor releases</a>
+<li><a href="#Minor_Release_Updates">10. Updating oVirt between minor releases</a>
 <ul class="sectlevel2">
-<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_minor_updates">8.1. Updating the oVirt Engine</a></li>
-<li><a href="#Updating_a_self-hosted_engine_minor_updates">8.2. Updating a Self-Hosted Engine</a></li>
-<li><a href="#Updating_all_hosts_in_a_cluster_minor_updates">8.3. Updating All Hosts in a Cluster</a></li>
-<li><a href="#Changing_the_Cluster_Compatibility_Version_minor_updates">8.4. Changing the Cluster Compatibility Version</a></li>
-<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_minor_updates">8.5. Changing Virtual Machine Cluster Compatibility</a></li>
-<li><a href="#Changing_the_Data_Center_Compatibility_Version_minor_updates">8.6. Changing the Data Center Compatibility Version</a></li>
-<li><a href="#Updating_Individual_Hosts_minor_updates">8.7. Updating Individual Hosts</a></li>
-<li><a href="#Manually_Updating_Hosts_minor_updates">8.8. Manually Updating Hosts</a></li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_minor_updates">10.1. Updating the oVirt Engine</a></li>
+<li><a href="#Updating_a_self-hosted_engine_minor_updates">10.2. Updating a Self-Hosted Engine</a></li>
+<li><a href="#Updating_all_hosts_in_a_cluster_minor_updates">10.3. Updating All Hosts in a Cluster</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_minor_updates">10.4. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_minor_updates">10.5. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_minor_updates">10.6. Changing the Data Center Compatibility Version</a></li>
+<li><a href="#Updating_Individual_Hosts_minor_updates">10.7. Updating Individual Hosts</a></li>
+<li><a href="#Manually_Updating_Hosts_minor_updates">10.8. Manually Updating Hosts</a></li>
 </ul>
 </li>
 <li><a href="#Updating_the_Local_Repository_for_an_Offline_Red_Hat_Enterprise_Virtualization_Manager_Installation">Appendix A: Updating the Local Repository for an Offline oVirt Engine Installation</a></li>
-<li><a href="#installing_virtual_product_hypervisors_from_local_repository_4-2_SHE">Appendix B: Installing oVirt hypervisors from a local repository</a></li>
-<li><a href="#ovirt-legal-notice">Appendix C: Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">Appendix B: Legal notice</a></li>
 </ul>
 </li>
 </ul>
@@ -203,10 +237,10 @@
 <h1 id="upgrade-guide" class="discrete">Upgrade Guide</h1>
 </div>
 </div>
-<div class="sect1">
-<h2 id="Red_Hat_Virtualization_Upgrade_Overview">1. oVirt Upgrade Overview</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="ovirt-upgrade-overview" class="sect0">oVirt Upgrade Overview</h1>
+<div class="openblock partintro">
+<div class="content">
+<div id="Red_Hat_Virtualization_Upgrade_Overview" class="paragraph">
 <p>This guide explains how to upgrade the following environments to oVirt 4.3 or 4.4 :</p>
 </div>
 <div class="ulist">
@@ -258,26 +292,26 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.4</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Local database environment -</strong> <a href="#Upgrading_from_4-3">Upgrading from Red Hat Virtualization 4.3 to 4.4</a></p>
+<p><strong>Local database environment -</strong> <a href="#Upgrading_from_4-3">Upgrading from oVirt 4.3 to 4.4</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-3">Upgrading a Remote Database Environment from Red Hat Virtualization 4.3 to 4.4</a></p>
+<p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-3">Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-3">Upgrading a self-Hosted engine from Red Hat Virtualization 4.3 to 4.4</a></p>
+<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-3">Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</a></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Local database environment:</strong> <a href="#Upgrading_from_4-2">Upgrading from Red Hat Virtualization 4.2 to 4.3</a></p>
+<p><strong>Local database environment:</strong> <a href="#Upgrading_from_4-2">Upgrading from oVirt 4.2 to 4.3</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-2">Upgrading a Remote Database Environment from Red Hat Virtualization 4.2 to 4.3</a></p>
+<p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-2">Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-2">Upgrading a Self-Hosted Engine from Red Hat Virtualization 4.2 to 4.3</a></p>
+<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-2">Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -285,6 +319,481 @@
 </div>
 </div>
 <h1 id="upgrading-a-standalone-engine-local-database-environment" class="sect0">Upgrading a standalone Engine local database environment</h1>
+<div class="sect1">
+<h2 id="Upgrading_from_4-4">1. Upgrading from oVirt 4.4 to 4.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upgrading your environment from 4.4 to 4.5 involves the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#Upgrade_Prerequisites_4-4_local_db">Make sure you meet the prerequisites, including enabling the correct repositories</a></p>
+</li>
+<li>
+<p><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-4_remote_db">Update the 4.4 Engine to the latest version of 4.4</a></p>
+</li>
+<li>
+<p><a href="#Upgrading_the_Manager_to_4-5_4-4_local_db">Upgrade the Engine from 4.4 to 4.5</a></p>
+</li>
+<li>
+<p><a href="#Upgrading_hosts_to_4-5_4-4_local_db">Migrate hosts and virtual machines while reducing virtual machine downtime</a></p>
+</li>
+<li>
+<p><a href="#Upgrading_hypervisor_preserving_local_storage_4-4_local_db">(Optional) Upgrade oVirt Node while preserving local storage</a></p>
+</li>
+<li>
+<p><a href="#Changing_the_Cluster_Compatibility_Version_4-4_local_db">Update the compatibility version of the clusters</a></p>
+</li>
+<li>
+<p><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-4_local_db">Reboot any running or suspended virtual machines to update their configuration</a></p>
+</li>
+<li>
+<p><a href="#Changing_the_Data_Center_Compatibility_Version_4-4_local_db">Update the compatibility version of the data centers</a></p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="Upgrade_Prerequisites_4-4_local_db">1.1. Prerequisites</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Plan for any necessary virtual machine downtime. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended virtual machines as soon as possible to apply the configuration changes.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
+</li>
+<li>
+<p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can now update the Engine to the latest version of 4.4.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-4_local_db">1.2. Updating the oVirt Engine</h3>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>On the Engine machine, check if updated packages are available:</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-upgrade-check</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the setup packages:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the oVirt Engine with the <code>engine-setup</code> script. The <code>engine-setup</code> script prompts you with some configuration questions, then stops the <code>ovirt-engine</code> service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the <code>ovirt-engine</code> service.</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-setup</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the script completes successfully, the following message appears:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Execution of setup completed successfully</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>engine-setup</code> script is also used during the oVirt Engine installation process, and it stores the configuration values supplied. During an update, the stored values are displayed when previewing the configuration, and might not be up to date if <code>engine-config</code> was used to update configuration after installation. For example, if <code>engine-config</code> was used to update <code>SANWipeAfterDelete</code> to <code>true</code> after installation, <code>engine-setup</code> will output "Default SAN wipe after delete: False" in the configuration preview. However, the updated values will not be overwritten by <code>engine-setup</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The update process might take some time. Do not stop the process before it completes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Update the base operating system and any optional packages installed on the Engine:</p>
+<div class="listingblock">
+<div class="content">
+<pre># yum update</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you encounter a required Ansible package conflict during the update, see <a href="https://access.redhat.com/solutions/5480561">Cannot perform yum update on my RHV manager (ansible conflict)</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If any kernel packages were updated, reboot the machine to complete the update.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can now upgrade the Engine to 4.5.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Upgrading_the_Manager_to_4-5_4-4_local_db">1.3. Upgrading the oVirt Engine from 4.4 to 4.5</h3>
+<div class="paragraph">
+<p>oVirt Engine 4.5 is only supported on Enterprise Linux 8.6 or later.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 or higher.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3 or higher.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Connected hosts and virtual machines can continue to work while the Engine is being upgraded.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Then follow the procedure for updates between minor releases.</p>
+</div>
+<div class="paragraph">
+<p>You can now update the hosts.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Upgrading_hosts_to_4-5_4-4_local_db">1.4. Migrating hosts oVirt 4.4 to 4.5</h3>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Hosts for oVirt 4.5 require Enterprise Linux 8.6 or later.</p>
+</li>
+<li>
+<p>oVirt Engine 4.5 is installed and running.</p>
+</li>
+<li>
+<p>The compatibility level of the data center and cluster to which the hosts belong is set to 4.3 or higher.</p>
+</li>
+<li>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 higher before you start the procedure.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># dnf install -y centos-release-ovirt45</pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts oVirt Nodes:</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># dnf install centos-release-ovirt45 --enablerepo=extras</pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Common procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the procedure for updates between minor releases.</p>
+</li>
+<li>
+<p>Follow the procedure for updating the cluster compatibility version.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to version 10.
+Please refer to <a href="https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/">Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x</a>
+for more details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can now update the cluster compatibility version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-4_local_db">1.5. Changing the Cluster Compatibility Version</h3>
+<div class="paragraph">
+<p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>To change the cluster compatibility level, you must first update all the hosts in your cluster to a level that supports your desired compatibility level. Check if there is an icon next to the host indicating an update is available.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Limitations</div>
+<ul>
+<li>
+<p>Virtio NICs are enumerated as a different device after upgrading the cluster compatibility level to 4.6. Therefore, the NICs might need to be reconfigured. oVirt recommends that you test the virtual machines before you upgrade the cluster by setting the cluster compatibility level to 4.6 on the virtual machine and verifying the network connection.</p>
+<div class="paragraph">
+<p>If the network connection for the virtual machine fails, configure the virtual machine with a custom emulated machine that matches the current emulated machine, for example pc-q35-rhel8.3.0 for 4.5 compatibility version, before upgrading the cluster.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span>.</p>
+</li>
+<li>
+<p>Select the cluster to change and click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>On the <strong>General</strong> tab, change the <strong>Compatibility Version</strong> to the desired value.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>. The <strong>Change Cluster Compatibility Version</strong> confirmation dialog opens.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> to confirm.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An error message might warn that some virtual machines and templates are incorrectly configured. To fix this error, edit each virtual machine manually. The <strong>Edit Virtual Machine</strong> window provides additional validations and warnings that show what to correct. Sometimes the issue is automatically corrected and the virtual machine&#8217;s configuration just needs to be saved again. After editing each virtual machine, you will be able to change the cluster compatibility version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can now update the cluster compatibility version for virtual machines in the cluster.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-4_local_db">1.6. Changing Virtual Machine Cluster Compatibility</h3>
+<div class="paragraph">
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
+</div>
+<div class="paragraph">
+<p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
+</li>
+<li>
+<p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The search results show all virtual machines with pending changes.</p>
+</div>
+</li>
+<li>
+<p>Select each virtual machine and click <strong>Restart</strong>. Alternatively, if necessary you can reboot a virtual machine from within the virtual machine itself.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the virtual machine starts, the new compatibility version is automatically applied.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can now update the data center compatibility version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-4_local_db">1.7. Changing the Data Center Compatibility Version</h3>
+<div class="paragraph">
+<p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>To change the data center compatibility level, you must first update the compatibility version of all clusters and virtual machines in the data center.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Data Centers</b></span>.</p>
+</li>
+<li>
+<p>Select the data center to change and click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>Change the <strong>Compatibility Version</strong> to the desired value.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>. The <strong>Change Data Center Compatibility Version</strong> confirmation dialog opens.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> to confirm.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="Upgrading_from_4-3">2. Upgrading from oVirt 4.3 to 4.4</h2>
 <div class="sectionbody">
@@ -331,7 +840,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Ensure your environment meets the requirements for oVirt 4.4. For a complete list of prerequisites, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#RHV_requirements"><em>Planning and Prerequisites Guide</em></a>.</p>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
 </li>
 <li>
 <p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
@@ -344,14 +853,6 @@
 </div>
 <div class="sect2">
 <h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-3_local_db">2.2. Updating the oVirt Engine</h3>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
-</li>
-</ul>
-</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -367,7 +868,7 @@
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -1150,7 +1651,7 @@ Try to keep workloads on all virtual machines using Gluster storage as light as 
 </div>
 </li>
 <li>
-<p>Blacklist the devices used for Gluster bricks.</p>
+<p>Disable the devices used for Gluster bricks.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1418,7 +1919,7 @@ ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'</code></pre>
 </div>
 </li>
 <li>
-<p>If multipath configuration is not available on the newly installed host, blacklist the Gluster devices. The inventory file is already created in the first host as part of the step <em>Blacklist the devices used for Gluster bricks</em>.</p>
+<p>If multipath configuration is not available on the newly installed host, disable the Gluster devices. The inventory file is already created in the first host as part of the step <em>Disable the devices used for Gluster bricks</em>.</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
@@ -1790,7 +2291,7 @@ In the Create Volume window, do the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Ensure your environment meets the requirements for oVirt 4.4. For a complete list of prerequisites, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#RHV_requirements"><em>Planning and Prerequisites Guide</em></a>.</p>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
 </li>
 <li>
 <p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
@@ -1800,14 +2301,6 @@ In the Create Volume window, do the following:</p>
 </div>
 <div class="sect2">
 <h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-2_local_db">3.2. Updating the oVirt Engine</h3>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
-</li>
-</ul>
-</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -1823,7 +2316,7 @@ In the Create Volume window, do the following:</p>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -2454,7 +2947,482 @@ done</code></pre>
 </div>
 <h1 id="upgrading-a-standalone-engine-remote-database-environment" class="sect0">Upgrading a standalone Engine remote database environment</h1>
 <div class="sect1">
-<h2 id="Remote_Upgrading_from_4-3">4. Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</h2>
+<h2 id="Remote_Upgrading_from_4-4">4. Upgrading a Remote Database Environment from oVirt 4.4 to 4.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upgrading your environment from 4.4 to 4.5 involves the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#Upgrade_Prerequisites_4-4_remote_db">Make sure you meet the prerequisites, including enabling the correct repositories.</a></p>
+</li>
+<li>
+<p><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-4_remote_db">Update the 4.4 Engine to the latest version of 4.4.</a></p>
+</li>
+<li>
+<p><a href="#Upgrading_the_Manager_to_4-5_4-4_remote_db">Upgrade the Engine from 4.4 to 4.5.</a></p>
+</li>
+<li>
+<p><a href="#proc_upgrading-the-remote-data-warehouse-service-and-database_4-4_remote_db">Upgrade the remote Data Warehouse service and database.</a></p>
+</li>
+<li>
+<p><a href="#Upgrading_hosts_to_4-5_4-4_remote_db">Migrate hosts and virtual machines while reducing virtual machine downtime.</a></p>
+</li>
+<li>
+<p><a href="#Changing_the_Cluster_Compatibility_Version_4-4_remote_db">Update the compatibility version of the clusters.</a></p>
+</li>
+<li>
+<p><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-4_remote_db">Reboot any running or suspended virtual machines to update their configuration.</a></p>
+</li>
+<li>
+<p><a href="#Changing_the_Data_Center_Compatibility_Version_4-4_remote_db">Update the compatibility version of the data centers.</a></p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="Upgrade_Prerequisites_4-4_remote_db">4.1. Prerequisites</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Plan for any necessary virtual machine downtime. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended virtual machines as soon as possible to apply the configuration changes.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
+</li>
+<li>
+<p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can now update the Engine to the latest version of 4.4.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-4_remote_db">4.2. Updating the oVirt Engine</h3>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>On the Engine machine, check if updated packages are available:</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-upgrade-check</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the setup packages:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the oVirt Engine with the <code>engine-setup</code> script. The <code>engine-setup</code> script prompts you with some configuration questions, then stops the <code>ovirt-engine</code> service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the <code>ovirt-engine</code> service.</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-setup</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the script completes successfully, the following message appears:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Execution of setup completed successfully</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>engine-setup</code> script is also used during the oVirt Engine installation process, and it stores the configuration values supplied. During an update, the stored values are displayed when previewing the configuration, and might not be up to date if <code>engine-config</code> was used to update configuration after installation. For example, if <code>engine-config</code> was used to update <code>SANWipeAfterDelete</code> to <code>true</code> after installation, <code>engine-setup</code> will output "Default SAN wipe after delete: False" in the configuration preview. However, the updated values will not be overwritten by <code>engine-setup</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The update process might take some time. Do not stop the process before it completes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Update the base operating system and any optional packages installed on the Engine:</p>
+<div class="listingblock">
+<div class="content">
+<pre># yum update</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you encounter a required Ansible package conflict during the update, see <a href="https://access.redhat.com/solutions/5480561">Cannot perform yum update on my RHV manager (ansible conflict)</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If any kernel packages were updated, reboot the machine to complete the update.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can now upgrade the Engine to 4.5.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Upgrading_the_Manager_to_4-5_4-4_remote_db">4.3. Upgrading the oVirt Engine from 4.4 to 4.5</h3>
+<div class="paragraph">
+<p>oVirt Engine 4.5 is only supported on Enterprise Linux 8.6 or later.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 or higher.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3 or higher.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Connected hosts and virtual machines can continue to work while the Engine is being upgraded.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Then follow the procedure for updates between minor releases.</p>
+</div>
+<div class="paragraph">
+<p>You can now update the hosts.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Upgrading_hosts_to_4-5_4-4_remote_db">4.4. Migrating hosts oVirt 4.4 to 4.5</h3>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Hosts for oVirt 4.5 require Enterprise Linux 8.6 or later.</p>
+</li>
+<li>
+<p>oVirt Engine 4.5 is installed and running.</p>
+</li>
+<li>
+<p>The compatibility level of the data center and cluster to which the hosts belong is set to 4.3 or higher.</p>
+</li>
+<li>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 higher before you start the procedure.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># dnf install -y centos-release-ovirt45</pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts oVirt Nodes:</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># dnf install centos-release-ovirt45 --enablerepo=extras</pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Common procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the procedure for updates between minor releases.</p>
+</li>
+<li>
+<p>Follow the procedure for updating the cluster compatibility version.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to version 10.
+Please refer to <a href="https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/">Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x</a>
+for more details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can now update the cluster compatibility version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-4_remote_db">4.5. Changing the Cluster Compatibility Version</h3>
+<div class="paragraph">
+<p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>To change the cluster compatibility level, you must first update all the hosts in your cluster to a level that supports your desired compatibility level. Check if there is an icon next to the host indicating an update is available.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Limitations</div>
+<ul>
+<li>
+<p>Virtio NICs are enumerated as a different device after upgrading the cluster compatibility level to 4.6. Therefore, the NICs might need to be reconfigured. oVirt recommends that you test the virtual machines before you upgrade the cluster by setting the cluster compatibility level to 4.6 on the virtual machine and verifying the network connection.</p>
+<div class="paragraph">
+<p>If the network connection for the virtual machine fails, configure the virtual machine with a custom emulated machine that matches the current emulated machine, for example pc-q35-rhel8.3.0 for 4.5 compatibility version, before upgrading the cluster.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span>.</p>
+</li>
+<li>
+<p>Select the cluster to change and click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>On the <strong>General</strong> tab, change the <strong>Compatibility Version</strong> to the desired value.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>. The <strong>Change Cluster Compatibility Version</strong> confirmation dialog opens.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> to confirm.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An error message might warn that some virtual machines and templates are incorrectly configured. To fix this error, edit each virtual machine manually. The <strong>Edit Virtual Machine</strong> window provides additional validations and warnings that show what to correct. Sometimes the issue is automatically corrected and the virtual machine&#8217;s configuration just needs to be saved again. After editing each virtual machine, you will be able to change the cluster compatibility version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can now update the cluster compatibility version for virtual machines in the cluster.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-4_remote_db">4.6. Changing Virtual Machine Cluster Compatibility</h3>
+<div class="paragraph">
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
+</div>
+<div class="paragraph">
+<p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
+</li>
+<li>
+<p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The search results show all virtual machines with pending changes.</p>
+</div>
+</li>
+<li>
+<p>Select each virtual machine and click <strong>Restart</strong>. Alternatively, if necessary you can reboot a virtual machine from within the virtual machine itself.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the virtual machine starts, the new compatibility version is automatically applied.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can now update the data center compatibility version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-4_remote_db">4.7. Changing the Data Center Compatibility Version</h3>
+<div class="paragraph">
+<p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>To change the data center compatibility level, you must first update the compatibility version of all clusters and virtual machines in the data center.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Data Centers</b></span>.</p>
+</li>
+<li>
+<p>Select the data center to change and click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>Change the <strong>Compatibility Version</strong> to the desired value.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>. The <strong>Change Data Center Compatibility Version</strong> confirmation dialog opens.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> to confirm.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Remote_Upgrading_from_4-3">5. Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading your environment from 4.3 to 4.4 involves the following steps:</p>
@@ -2491,7 +3459,7 @@ done</code></pre>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="Upgrade_Prerequisites_4-3_remote_db">4.1. Prerequisites</h3>
+<h3 id="Upgrade_Prerequisites_4-3_remote_db">5.1. Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2502,7 +3470,7 @@ done</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Ensure your environment meets the requirements for oVirt 4.4. For a complete list of prerequisites, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#RHV_requirements"><em>Planning and Prerequisites Guide</em></a>.</p>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
 </li>
 <li>
 <p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
@@ -2514,15 +3482,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-3_remote_db">4.2. Updating the oVirt Engine</h3>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
-</li>
-</ul>
-</div>
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-3_remote_db">5.2. Updating the oVirt Engine</h3>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -2538,7 +3498,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -2629,7 +3589,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_the_Manager_to_4-4_4-3_remote_db">4.3. Upgrading the oVirt Engine from 4.3 to 4.4</h3>
+<h3 id="Upgrading_the_Manager_to_4-4_4-3_remote_db">5.3. Upgrading the oVirt Engine from 4.3 to 4.4</h3>
 <div class="paragraph">
 <p>oVirt Engine 4.4 is only supported on Enterprise Linux 8.2 or later. You need to do a clean installation of Enterprise Linux 8.2 or later and oVirt Engine 4.4, even if you are using the same physical machine that you use to run oVirt Engine 4.3.</p>
 </div>
@@ -2785,7 +3745,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proc_upgrading-the-remote-data-warehouse-service-and-database_4-3_remote_db">4.4. Upgrading the remote Data Warehouse service and database</h3>
+<h3 id="proc_upgrading-the-remote-data-warehouse-service-and-database_4-3_remote_db">5.4. Upgrading the remote Data Warehouse service and database</h3>
 <div class="paragraph _abstract">
 <p>Run this procedure on the remote machine with the Data Warehouse service and database.</p>
 </div>
@@ -2844,10 +3804,10 @@ done</code></pre>
 <p>Reinstall the Data Warehouse machine with Enterprise Linux 8.2 or later, or oVirt Node 4.4.</p>
 </li>
 <li>
-<p>Prepare a PostgreSQL database. For information, see <a href="https://ovirt.org/documentation/installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">Preparing a Remote PostgreSQL Database</a> in <em>Installing oVirt as a standalone Engine with remote databases</em>.</p>
+<p>Prepare a PostgreSQL database. For information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">Preparing a Remote PostgreSQL Database</a> in <em>Installing oVirt as a standalone Engine with remote databases</em>.</p>
 </li>
 <li>
-<p>Enable the correct repositories on the server and install the Data Warehouse service. For detailed instructions, see <a href="https://ovirt.org/documentation/installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">Installing and Configuring Data Warehouse on a Separate Machine</a> for oVirt 4.4. Complete the steps in that procedure up to and including the <code>dnf install ovirt-engine-dwh-setup</code> command. Then continue to the next step in this procedure.</p>
+<p>Enable the correct repositories on the server and install the Data Warehouse service. For detailed instructions, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM">Installing and Configuring Data Warehouse on a Separate Machine</a> for oVirt 4.4. Complete the steps in that procedure up to and including the <code>dnf install ovirt-engine-dwh-setup</code> command. Then continue to the next step in this procedure.</p>
 </li>
 <li>
 <p>Copy the backup file from the storage device to the Data Warehouse machine.</p>
@@ -2894,7 +3854,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_hosts_to_4-4_4-3_remote_db">4.5. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</h3>
+<h3 id="Upgrading_hosts_to_4-4_4-3_remote_db">5.5. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</h3>
 <div class="paragraph">
 <p>You can migrate hosts and virtual machines from oVirt 4.3 to 4.4 such that you minimize the downtime of virtual machines in your environment.</p>
 </div>
@@ -2987,7 +3947,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_hypervisor_preserving_local_storage_4-3_remote_db">4.6. Upgrading oVirt Node while preserving local storage</h3>
+<h3 id="Upgrading_hypervisor_preserving_local_storage_4-3_remote_db">5.6. Upgrading oVirt Node while preserving local storage</h3>
 <div class="paragraph">
 <p>Environments with local storage cannot migrate virtual machines to a host in another cluster because the local storage is not shared with other storage domains. To upgrade oVirt Node 4.3 hosts that have a local storage domain, reinstall the host while preserving the local storage, create a new local storage domain in the 4.4 environment, and import the previous local storage into the new domain.</p>
 </div>
@@ -3178,7 +4138,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Cluster_Compatibility_Version_4-3_remote_db">4.7. Changing the Cluster Compatibility Version</h3>
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-3_remote_db">5.7. Changing the Cluster Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
 </div>
@@ -3240,7 +4200,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-3_remote_db">4.8. Changing Virtual Machine Cluster Compatibility</h3>
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-3_remote_db">5.8. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
 <p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
@@ -3291,7 +4251,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Data_Center_Compatibility_Version_4-3_remote_db">4.9. Changing the Data Center Compatibility Version</h3>
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-3_remote_db">5.9. Changing the Data Center Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
 </div>
@@ -3327,7 +4287,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect1">
-<h2 id="Remote_Upgrading_from_4-2">5. Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</h2>
+<h2 id="Remote_Upgrading_from_4-2">6. Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading your environment from 4.2 to 4.3 involves the following steps:</p>
@@ -3364,7 +4324,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </ol>
 </div>
 <div class="sect2">
-<h3 id="Upgrade_Prerequisites_4-2_remote_db">5.1. Prerequisites</h3>
+<h3 id="Upgrade_Prerequisites_4-2_remote_db">6.1. Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3375,7 +4335,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="ulist">
 <ul>
 <li>
-<p>Ensure your environment meets the requirements for oVirt 4.4. For a complete list of prerequisites, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#RHV_requirements"><em>Planning and Prerequisites Guide</em></a>.</p>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
 </li>
 <li>
 <p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
@@ -3387,15 +4347,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-2_remote_db">5.2. Updating the oVirt Engine</h3>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
-</li>
-</ul>
-</div>
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-2_remote_db">6.2. Updating the oVirt Engine</h3>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -3411,7 +4363,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -3499,7 +4451,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_Remote_Databases_from_PG95_to_PG10_4-2_remote_db">5.3. Upgrading remote databases from PostgreSQL 9.5 to 10</h3>
+<h3 id="Upgrading_Remote_Databases_from_PG95_to_PG10_4-2_remote_db">6.3. Upgrading remote databases from PostgreSQL 9.5 to 10</h3>
 <div class="paragraph">
 <p>oVirt 4.3 uses PostgreSQL 10 instead of PostgreSQL 9.5. If your databases are installed locally, the upgrade script automatically upgrades them from version 9.5 to 10. However, if either of your databases (Engine or Data Warehouse) is installed on a separate machine, you must perform the following procedure on each remote database before upgrading the Engine.</p>
 </div>
@@ -3627,7 +4579,7 @@ work_mem = 8192</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_the_Manager_to_4-3_4-2_remote_db">5.4. Upgrading the oVirt Engine from 4.2 to 4.3</h3>
+<h3 id="Upgrading_the_Manager_to_4-3_4-2_remote_db">6.4. Upgrading the oVirt Engine from 4.2 to 4.3</h3>
 <div class="paragraph">
 <p>Follow these same steps when upgrading any of the following:</p>
 </div>
@@ -3753,7 +4705,7 @@ the oVirt Engine, the remote database or remote service:</p>
 <p>The Engine is now upgraded to version 4.3.</p>
 </div>
 <div class="sect3">
-<h4 id="completing-the-remote-data-warehouse-database-upgrade">5.4.1. Completing the remote Data Warehouse database upgrade</h4>
+<h4 id="completing-the-remote-data-warehouse-database-upgrade">6.4.1. Completing the remote Data Warehouse database upgrade</h4>
 <div class="paragraph">
 <p>Complete these additional steps when upgrading a remote Data Warehouse database from PostgreSQL 9.5 to 10.</p>
 </div>
@@ -3781,7 +4733,7 @@ the oVirt Engine, the remote database or remote service:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_all_hosts_in_a_cluster_4-2_remote_db">5.5. Updating All Hosts in a Cluster</h3>
+<h3 id="Updating_all_hosts_in_a_cluster_4-2_remote_db">6.5. Updating All Hosts in a Cluster</h3>
 <div class="paragraph">
 <p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
@@ -3875,7 +4827,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Cluster_Compatibility_Version_4-2_remote_db">5.6. Changing the Cluster Compatibility Version</h3>
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-2_remote_db">6.6. Changing the Cluster Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
 </div>
@@ -3934,7 +4886,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-2_remote_db">5.7. Changing Virtual Machine Cluster Compatibility</h3>
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-2_remote_db">6.7. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
 <p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
@@ -3982,7 +4934,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Data_Center_Compatibility_Version_4-2_remote_db">5.8. Changing the Data Center Compatibility Version</h3>
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-2_remote_db">6.8. Changing the Data Center Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
 </div>
@@ -4019,7 +4971,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_remote_db">5.9. Replacing SHA-1 Certificates with SHA-256 Certificates</h3>
+<h3 id="Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_remote_db">6.9. Replacing SHA-1 Certificates with SHA-256 Certificates</h3>
 <div class="paragraph">
 <p>oVirt 4.4 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
 </div>
@@ -4221,7 +5173,516 @@ done</code></pre>
 </div>
 <h1 id="upgrading-a-self-hosted-engine-environment" class="sect0">Upgrading a self-hosted engine environment</h1>
 <div class="sect1">
-<h2 id="SHE_Upgrading_from_4-3">6. Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</h2>
+<h2 id="SHE_Upgrading_from_4-4">7. Upgrading a self-Hosted engine from oVirt 4.4 to 4.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upgrading a self-hosted engine environment from version 4.4 to 4.5 involves the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#Upgrade_Prerequisites_4-4_SHE">Make sure you meet the prerequisites, including enabling the correct repositories</a></p>
+</li>
+<li>
+<p><a href="#Migrating_VMs_from_SHE_host_4-4">Migrate any virtual machines that are running on the same host as the Engine virtual machine to another host in the same cluster</a></p>
+</li>
+<li>
+<p><a href="#Enabling_Global_Maintenance_Mode_4-4_SHE">Place the environment in global maintenance mode</a></p>
+</li>
+<li>
+<p><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-4_SHE">Update the 4.4 Engine to the latest version of 4.4</a></p>
+</li>
+<li>
+<p><a href="#Upgrading_the_Manager_to_4-5_4-4_SHE">Upgrade the Engine from 4.4 to 4.5</a></p>
+</li>
+<li>
+<p><a href="#Upgrading_hosts_to_4-5_4-4_SHE">Upgrade the self-hosted engine nodes, and any standard hosts, while reducing virtual machine downtime</a></p>
+</li>
+<li>
+<p><a href="#Changing_the_Cluster_Compatibility_Version_4-4_SHE">Update the compatibility version of the clusters</a></p>
+</li>
+<li>
+<p><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-4_SHE">Reboot any running or suspended virtual machines to update their configuration</a></p>
+</li>
+<li>
+<p><a href="#Changing_the_Data_Center_Compatibility_Version_4-4_SHE">Update the compatibility version of the data centers</a></p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="Upgrade_Prerequisites_4-4_SHE">7.1. Prerequisites</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Plan for any necessary virtual machine downtime. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended virtual machines as soon as possible to apply the configuration changes.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
+</li>
+<li>
+<p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Migrating_VMs_from_SHE_host_4-4">7.2. Migrating virtual machines from the self-hosted engine host</h3>
+<div class="paragraph">
+<p>Only the Engine virtual machine should remain on the host until after you have finished upgrading the host. Migrate any virtual machines other than the Engine virtual machine to another host in the same cluster.</p>
+</div>
+<div class="paragraph">
+<p>You can use Live Migration to minimize virtual machine down-time. For more information, see
+<a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts">Migrating Virtual Machines Between Hosts</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Enabling_Global_Maintenance_Mode_4-4_SHE">7.3. Enabling global maintenance mode</h3>
+<div class="paragraph">
+<p>You must place the self-hosted engine environment in global maintenance mode before performing any setup or upgrade tasks on the Engine virtual machine.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to one of the self-hosted engine nodes and enable global maintenance mode:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Confirm that the environment is in global maintenance mode before proceeding:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see a message indicating that the cluster is in global maintenance mode.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can now update the Engine to the latest version of 4.4.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-4_SHE">7.4. Updating the oVirt Engine</h3>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>On the Engine machine, check if updated packages are available:</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-upgrade-check</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the setup packages:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the oVirt Engine with the <code>engine-setup</code> script. The <code>engine-setup</code> script prompts you with some configuration questions, then stops the <code>ovirt-engine</code> service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the <code>ovirt-engine</code> service.</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-setup</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the script completes successfully, the following message appears:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Execution of setup completed successfully</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>engine-setup</code> script is also used during the oVirt Engine installation process, and it stores the configuration values supplied. During an update, the stored values are displayed when previewing the configuration, and might not be up to date if <code>engine-config</code> was used to update configuration after installation. For example, if <code>engine-config</code> was used to update <code>SANWipeAfterDelete</code> to <code>true</code> after installation, <code>engine-setup</code> will output "Default SAN wipe after delete: False" in the configuration preview. However, the updated values will not be overwritten by <code>engine-setup</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The update process might take some time. Do not stop the process before it completes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Update the base operating system and any optional packages installed on the Engine:</p>
+<div class="listingblock">
+<div class="content">
+<pre># yum update</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you encounter a required Ansible package conflict during the update, see <a href="https://access.redhat.com/solutions/5480561">Cannot perform yum update on my RHV manager (ansible conflict)</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If any kernel packages were updated, reboot the machine to complete the update.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can now upgrade the Engine to 4.5.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Upgrading_the_Manager_to_4-5_4-4_SHE">7.5. Upgrading the oVirt Engine from 4.4 to 4.5</h3>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 or higher.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3 or higher.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Connected hosts and virtual machines can continue to work while the Engine is being upgraded.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Then follow the procedure for updates between minor releases.</p>
+</div>
+<div class="paragraph">
+<p>You can now update the self-hosted engine nodes, and then any standard hosts. The procedure is the same for both host types.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Upgrading_hosts_to_4-5_4-4_SHE">7.6. Migrating hosts oVirt 4.4 to 4.5</h3>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Hosts for oVirt 4.5 require Enterprise Linux 8.6 or later.</p>
+</li>
+<li>
+<p>oVirt Engine 4.5 is installed and running.</p>
+</li>
+<li>
+<p>The compatibility level of the data center and cluster to which the hosts belong is set to 4.3 or higher.</p>
+</li>
+<li>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 higher before you start the procedure.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># dnf install -y centos-release-ovirt45</pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure for Enterprise Linux hosts oVirt Nodes:</div>
+<ol class="arabic">
+<li>
+<p>Enable oVirt 4.5 repositories</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># dnf install centos-release-ovirt45 --enablerepo=extras</pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Common procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the procedure for updates between minor releases.</p>
+</li>
+<li>
+<p>Follow the procedure for updating the cluster compatibility version.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to version 10.
+Please refer to <a href="https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/">Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x</a>
+for more details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-4_SHE">7.7. Changing the Cluster Compatibility Version</h3>
+<div class="paragraph">
+<p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>To change the cluster compatibility level, you must first update all the hosts in your cluster to a level that supports your desired compatibility level. Check if there is an icon next to the host indicating an update is available.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Limitations</div>
+<ul>
+<li>
+<p>Virtio NICs are enumerated as a different device after upgrading the cluster compatibility level to 4.6. Therefore, the NICs might need to be reconfigured. oVirt recommends that you test the virtual machines before you upgrade the cluster by setting the cluster compatibility level to 4.6 on the virtual machine and verifying the network connection.</p>
+<div class="paragraph">
+<p>If the network connection for the virtual machine fails, configure the virtual machine with a custom emulated machine that matches the current emulated machine, for example pc-q35-rhel8.3.0 for 4.5 compatibility version, before upgrading the cluster.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span>.</p>
+</li>
+<li>
+<p>Select the cluster to change and click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>On the <strong>General</strong> tab, change the <strong>Compatibility Version</strong> to the desired value.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>. The <strong>Change Cluster Compatibility Version</strong> confirmation dialog opens.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> to confirm.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An error message might warn that some virtual machines and templates are incorrectly configured. To fix this error, edit each virtual machine manually. The <strong>Edit Virtual Machine</strong> window provides additional validations and warnings that show what to correct. Sometimes the issue is automatically corrected and the virtual machine&#8217;s configuration just needs to be saved again. After editing each virtual machine, you will be able to change the cluster compatibility version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-4_SHE">7.8. Changing Virtual Machine Cluster Compatibility</h3>
+<div class="paragraph">
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
+</div>
+<div class="paragraph">
+<p>The Engine virtual machine does not need to be rebooted.</p>
+</div>
+<div class="paragraph">
+<p>Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Any virtual machine that has not been rebooted runs with the previous configuration, and subsequent configuration changes made to the virtual machine might overwrite its pending cluster compatibility changes.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
+</li>
+<li>
+<p>Check which virtual machines require a reboot. In the <strong>Vms:</strong> search bar, enter the following query:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">next_run_config_exists=True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The search results show all virtual machines with pending changes.</p>
+</div>
+</li>
+<li>
+<p>Select each virtual machine and click <strong>Restart</strong>. Alternatively, if necessary you can reboot a virtual machine from within the virtual machine itself.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the virtual machine starts, the new compatibility version is automatically applied.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-4_SHE">7.9. Changing the Data Center Compatibility Version</h3>
+<div class="paragraph">
+<p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>To change the data center compatibility level, you must first update the compatibility version of all clusters and virtual machines in the data center.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Data Centers</b></span>.</p>
+</li>
+<li>
+<p>Select the data center to change and click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>Change the <strong>Compatibility Version</strong> to the desired value.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>. The <strong>Change Data Center Compatibility Version</strong> confirmation dialog opens.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> to confirm.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="SHE_Upgrading_from_4-3">8. Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading a self-hosted engine environment from version 4.3 to 4.4 involves the following steps:</p>
@@ -4261,7 +5722,7 @@ done</code></pre>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="Upgrade_Prerequisites_4-3_SHE">6.1. Prerequisites</h3>
+<h3 id="Upgrade_Prerequisites_4-3_SHE">8.1. Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -4272,7 +5733,7 @@ done</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Ensure your environment meets the requirements for oVirt 4.4. For a complete list of prerequisites, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#RHV_requirements"><em>Planning and Prerequisites Guide</em></a>.</p>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
 </li>
 <li>
 <p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
@@ -4281,7 +5742,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Migrating_VMs_from_SHE_host">6.2. Migrating virtual machines from the self-hosted engine host</h3>
+<h3 id="Migrating_VMs_from_SHE_host">8.2. Migrating virtual machines from the self-hosted engine host</h3>
 <div class="paragraph">
 <p>Only the Engine virtual machine should remain on the host until after you have finished upgrading the host. Migrate any virtual machines other than the Engine virtual machine to another host in the same cluster.</p>
 </div>
@@ -4291,7 +5752,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Enabling_Global_Maintenance_Mode_4-3_SHE">6.3. Enabling global maintenance mode</h3>
+<h3 id="Enabling_Global_Maintenance_Mode_4-3_SHE">8.3. Enabling global maintenance mode</h3>
 <div class="paragraph">
 <p>You must place the self-hosted engine environment in global maintenance mode before performing any setup or upgrade tasks on the Engine virtual machine.</p>
 </div>
@@ -4324,15 +5785,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-3_SHE">6.4. Updating the oVirt Engine</h3>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
-</li>
-</ul>
-</div>
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-3_SHE">8.4. Updating the oVirt Engine</h3>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -4348,7 +5801,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -4439,7 +5892,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_the_Manager_to_4-4_4-3_SHE">6.5. Upgrading the oVirt Engine from 4.3 to 4.4</h3>
+<h3 id="Upgrading_the_Manager_to_4-4_4-3_SHE">8.5. Upgrading the oVirt Engine from 4.3 to 4.4</h3>
 <div class="paragraph">
 <p>The oVirt Engine 4.4 is only supported on Enterprise Linux 8.2 or later. You need to do a clean installation of Enterprise Linux 8.2 or later, or oVirt Node on the self-hosted engine host, even if you are using the same physical machine that you use to run the oVirt 4.3 self-hosted engine.</p>
 </div>
@@ -4545,7 +5998,7 @@ done</code></pre>
 <p>Make sure that the self-hosted engine is shut down.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status | grep 'Engine status|Hostname'</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status | grep -E 'Engine status|Hostname'</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -4684,7 +6137,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_hosts_to_4-4_4-3_SHE">6.6. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</h3>
+<h3 id="Upgrading_hosts_to_4-4_4-3_SHE">8.6. Migrating hosts and virtual machines from oVirt 4.3 to 4.4</h3>
 <div class="paragraph">
 <p>You can migrate hosts and virtual machines from oVirt 4.3 to 4.4 such that you minimize the downtime of virtual machines in your environment.</p>
 </div>
@@ -4777,7 +6230,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_hypervisor_preserving_local_storage_4-3_SHE">6.7. Upgrading oVirt Node while preserving local storage</h3>
+<h3 id="Upgrading_hypervisor_preserving_local_storage_4-3_SHE">8.7. Upgrading oVirt Node while preserving local storage</h3>
 <div class="paragraph">
 <p>Environments with local storage cannot migrate virtual machines to a host in another cluster because the local storage is not shared with other storage domains. To upgrade oVirt Node 4.3 hosts that have a local storage domain, reinstall the host while preserving the local storage, create a new local storage domain in the 4.4 environment, and import the previous local storage into the new domain.</p>
 </div>
@@ -4965,7 +6418,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Cluster_Compatibility_Version_4-3_SHE">6.8. Changing the Cluster Compatibility Version</h3>
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-3_SHE">8.8. Changing the Cluster Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
 </div>
@@ -5024,7 +6477,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-3_SHE">6.9. Changing Virtual Machine Cluster Compatibility</h3>
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-3_SHE">8.9. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
 <p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
@@ -5075,7 +6528,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Data_Center_Compatibility_Version_4-3_SHE">6.10. Changing the Data Center Compatibility Version</h3>
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-3_SHE">8.10. Changing the Data Center Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
 </div>
@@ -5111,7 +6564,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect1">
-<h2 id="SHE_Upgrading_from_4-2">7. Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</h2>
+<h2 id="SHE_Upgrading_from_4-2">9. Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Upgrading a self-hosted engine environment from version 4.2 to 4.3 involves the following steps:</p>
@@ -5151,7 +6604,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </ol>
 </div>
 <div class="sect2">
-<h3 id="Upgrade_Prerequisites_4-2_SHE">7.1. Prerequisites</h3>
+<h3 id="Upgrade_Prerequisites_4-2_SHE">9.1. Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5162,7 +6615,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="ulist">
 <ul>
 <li>
-<p>Ensure your environment meets the requirements for oVirt 4.4. For a complete list of prerequisites, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#RHV_requirements"><em>Planning and Prerequisites Guide</em></a>.</p>
+<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
 </li>
 <li>
 <p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
@@ -5171,7 +6624,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Enabling_Global_Maintenance_Mode_4-2_SHE">7.2. Enabling global maintenance mode</h3>
+<h3 id="Enabling_Global_Maintenance_Mode_4-2_SHE">9.2. Enabling global maintenance mode</h3>
 <div class="paragraph">
 <p>You must place the self-hosted engine environment in global maintenance mode before performing any setup or upgrade tasks on the Engine virtual machine.</p>
 </div>
@@ -5201,15 +6654,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-2_SHE">7.3. Updating the oVirt Engine</h3>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
-</li>
-</ul>
-</div>
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-2_SHE">9.3. Updating the oVirt Engine</h3>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -5225,7 +6670,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -5313,7 +6758,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 </div>
 </div>
 <div class="sect2">
-<h3 id="Upgrading_the_Manager_to_4-3_4-2_SHE">7.4. Upgrading the oVirt Engine from 4.2 to 4.3</h3>
+<h3 id="Upgrading_the_Manager_to_4-3_4-2_SHE">9.4. Upgrading the oVirt Engine from 4.2 to 4.3</h3>
 <div class="paragraph">
 <p>You need to be logged into the machine that you are upgrading.</p>
 </div>
@@ -5413,7 +6858,7 @@ the oVirt Engine:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Disabling_Global_Maintenance_Mode_4-2_SHE">7.5. Disabling global maintenance mode</h3>
+<h3 id="Disabling_Global_Maintenance_Mode_4-2_SHE">9.5. Disabling global maintenance mode</h3>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -5477,7 +6922,7 @@ and disable global maintenance mode:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_all_hosts_in_a_cluster_4-2_SHE">7.6. Updating All Hosts in a Cluster</h3>
+<h3 id="Updating_all_hosts_in_a_cluster_4-2_SHE">9.6. Updating All Hosts in a Cluster</h3>
 <div class="paragraph">
 <p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
@@ -5571,7 +7016,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Cluster_Compatibility_Version_4-2_SHE">7.7. Changing the Cluster Compatibility Version</h3>
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-2_SHE">9.7. Changing the Cluster Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
 </div>
@@ -5630,7 +7075,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-2_SHE">7.8. Changing Virtual Machine Cluster Compatibility</h3>
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-2_SHE">9.8. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
 <p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
@@ -5681,7 +7126,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Data_Center_Compatibility_Version_4-2_SHE">7.9. Changing the Data Center Compatibility Version</h3>
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-2_SHE">9.9. Changing the Data Center Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
 </div>
@@ -5718,7 +7163,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_SHE">7.10. Replacing SHA-1 Certificates with SHA-256 Certificates</h3>
+<h3 id="Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_SHE">9.10. Replacing SHA-1 Certificates with SHA-256 Certificates</h3>
 <div class="paragraph">
 <p>oVirt 4.4 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
 </div>
@@ -5952,21 +7397,21 @@ done</code></pre>
 </div>
 <h1 id="updates-between-minor-releases" class="sect0">Updates between minor releases</h1>
 <div class="sect1">
-<h2 id="Minor_Release_Updates">8. Updating oVirt between minor releases</h2>
+<h2 id="Minor_Release_Updates">10. Updating oVirt between minor releases</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To update from your current version of 4.4 to the latest version of 4.4, update the Engine,  update the hosts, and then change the compatibility version for the cluster, virtual machines, and data center.</p>
+<p>To update from your current version of 4.5 to the latest version of 4.5, update the Engine,  update the hosts, and then change the compatibility version for the cluster, virtual machines, and data center.</p>
 </div>
 <div class="paragraph">
 <p>To update a standalone Engine, follow the standard procedure for minor updates:</p>
 </div>
 <div class="sect2">
-<h3 id="Updating_the_Red_Hat_Virtualization_Manager_minor_updates">8.1. Updating the oVirt Engine</h3>
+<h3 id="Updating_the_Red_Hat_Virtualization_Manager_minor_updates">10.1. Updating the oVirt Engine</h3>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
+<p>The centos-release-ovirt45 RPM package is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -5985,7 +7430,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -6073,7 +7518,7 @@ done</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_a_self-hosted_engine_minor_updates">8.2. Updating a Self-Hosted Engine</h3>
+<h3 id="Updating_a_self-hosted_engine_minor_updates">10.2. Updating a Self-Hosted Engine</h3>
 <div class="paragraph">
 <p>To update a self-hosted engine from your current version to the latest version, you must place the environment in global maintenance mode and then follow the standard procedure for updating between minor versions.</p>
 </div>
@@ -6110,7 +7555,7 @@ done</code></pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
+<p>The centos-release-ovirt45 RPM package is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -6129,7 +7574,7 @@ done</code></pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -6290,7 +7735,7 @@ and disable global maintenance mode:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_all_hosts_in_a_cluster_minor_updates">8.3. Updating All Hosts in a Cluster</h3>
+<h3 id="Updating_all_hosts_in_a_cluster_minor_updates">10.3. Updating All Hosts in a Cluster</h3>
 <div class="paragraph">
 <p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
@@ -6387,7 +7832,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Cluster_Compatibility_Version_minor_updates">8.4. Changing the Cluster Compatibility Version</h3>
+<h3 id="Changing_the_Cluster_Compatibility_Version_minor_updates">10.4. Changing the Cluster Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
 </div>
@@ -6449,7 +7894,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_minor_updates">8.5. Changing Virtual Machine Cluster Compatibility</h3>
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_minor_updates">10.5. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
 <p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
@@ -6500,7 +7945,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Data_Center_Compatibility_Version_minor_updates">8.6. Changing the Data Center Compatibility Version</h3>
+<h3 id="Changing_the_Data_Center_Compatibility_Version_minor_updates">10.6. Changing the Data Center Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
 </div>
@@ -6537,7 +7982,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Updating_Individual_Hosts_minor_updates">8.7. Updating Individual Hosts</h3>
+<h3 id="Updating_Individual_Hosts_minor_updates">10.7. Updating Individual Hosts</h3>
 <div class="paragraph">
 <p>Use the host upgrade manager to update individual hosts directly from the Administration Portal.</p>
 </div>
@@ -6588,18 +8033,16 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
-</div>
-</div>
+<p>For oVirt Nodes the <code>centos-release-ovirt45`</code> RPM package enabling the correct repositories is already installed.</p>
 </li>
 <li>
 <p>For Enterprise Linux hosts:</p>
+</li>
+<li>
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
 </div>
 </div>
 </li>
@@ -6662,7 +8105,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Manually_Updating_Hosts_minor_updates">8.8. Manually Updating Hosts</h3>
+<h3 id="Manually_Updating_Hosts_minor_updates">10.8. Manually Updating Hosts</h3>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -6710,27 +8153,53 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <ol class="arabic">
 <li>
 <p>Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Upgrading from an older 4.5 to latest 4.5:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
+<p>For oVirt Nodes, the <code>centos-release-ovirt45</code> RPM package enabling the correct repositories is already installed.</p>
+</li>
+<li>
+<p>For Enterprise Linux hosts:</p>
+</li>
+<li>
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2741/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Upgrading from an older 4.4 to latest 4.4:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed.</p>
+</li>
+<li>
+<p>For Enterprise Linux hosts ensure <code>ovirt-release44</code> RPM package is updated to the latest version:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
 </div>
 </div>
 </li>
-<li>
-<p>For Enterprise Linux hosts:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
-</div>
-</li>
 </ul>
 </div>
-</li>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select the host to be updated.</p>
 </li>
@@ -6840,10 +8309,18 @@ Release      : 1.0.el8
 </div>
 </li>
 <li>
-<p>For oVirt 4.4.6 or later:</p>
+<p>For oVirt 4.4.6 to 4.4.10:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module enable virt:av</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For oVirt 4.5 and later:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf module enable virt:rhel</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -6854,7 +8331,7 @@ Release      : 1.0.el8
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Starting with EL 8.4, only one Advanced Virtualization stream is used, <code>rhel:av</code>.</p>
+<p>Starting with EL 8.6 the Advanced virtualization packages will use the standard <code>virt:rhel</code> module. For EL 8.4 and 8.5, only one Advanced Virtualization stream is used, <code>rhel:av</code>.</p>
 </div>
 </td>
 </tr>
@@ -6925,152 +8402,7 @@ Release      : 1.0.el8
 </div>
 </div>
 <div class="sect1">
-<h2 id="installing_virtual_product_hypervisors_from_local_repository_4-2_SHE">Appendix B: Installing oVirt hypervisors from a local repository</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If your system uses a private oVirt (oVirt) environment, but without Red Hat Satellite, you might need to install oVirt hypervisors (RHV-H) from a repository hosted on a local RHEL system instead of the Red Hat hosted Content Delivery Network (CDN).</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>On the system hosting the offline repository, create a file named <code>/etc/yum.repos.d/rhvh-mirror.repo</code> with contents similar to the lines that follow:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">[rhvh-4-for-rhel-8-x86_64-rpms]
-name = Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)
-baseurl = <a href="https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os" class="bare">https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os</a>
-enabled = 0
-gpgcheck = 1
-gpgkey = <a href="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release" class="bare">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release</a>
-sslverify = 1
-sslcacert = /etc/rhsm/ca/redhat-uep.pem
-metadata_expire = 86400
-enabled_metadata = 1
-sslclientcert =
-sslclientkey =</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You must populate the <code>sslclientcert</code> and <code>sslclientkey</code> fields with full path names to the correct files containing the appropriate certificate and key. The <code>/etc/pki/entitlement</code> directory contains one or more pairs of certificate and key files, but only one pair contains the RHV-H entitlement you need.</p>
-</div>
-</li>
-<li>
-<p>To find the certificate file:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>List all files in the <code>/etc/pki/entitlement</code> directory:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ls -al /etc/pki/entitlement/</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Output similar to the following is displayed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">total 836
-drwxr-xr-x.  2 root root    202 May 28 15:18 .
-drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
--rw-r&#8212;&#8203;r--.  1 root root   3243 May 28 15:18 4522783034260408538-key.pem
--rw-r&#8212;&#8203;r--.  1 root root 152622 May 28 15:18 4522783034260408538.pem
--rw-r&#8212;&#8203;r--.  1 root root   3243 May 28 15:18 5659494963772844103-key.pem
--rw-r&#8212;&#8203;r--.  1 root root 343394 May 28 15:19 5659494963772844103.pem
--rw-r&#8212;&#8203;r--.  1 root root   3243 May 23 13:19 645832581386032208-key.pem
--rw-r&#8212;&#8203;r--.  1 root root 343389 May 23 13:19 645832581386032208.pem
-#</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Use the <code>rct cat-cert</code> command on each certificate in order to find the one that contains the RHV-H entitlement:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cd /etc/pki/entitlement/
-# rct cat-cert 5659494963772844103.pem | grep rhvh/4/ | grep URL</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Output similar to the following is displayed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">        URL: /content/beta/rhel/server/7/$basearch/rhvh/4/os
-        URL: /content/dist/rhel/server/7/7Server/$basearch/rhvh/4/os
-        URL: /content/beta/layered/rhel8/x86_64/rhvh/4/os
-        URL: /content/dist/layered/rhel8/x86_64/rhvh/4/os</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Identify the correct certificate and fill in the <code>sslclientcert</code> and <code>sslclientkey</code> values in the previously mentioned <code>.repo</code> file:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">sslclientcert = /etc/pki/entitlement/5659494963772844103.pem
-sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Run the <code>reposync</code> command in the appropriate directory:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Use the 'pwd' command to determine the correct path:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># pwd</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Output similar to the following is displayed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">/home/test/rhvh-reposync</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Run the <code>reposync</code> command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># reposync --repo rhvh-4-for-rhel-8-x86_64-rpms</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Output similar to the following is displayed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">Updating Subscription Management repositories.
-Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                             11 kB/s | 4.0 kB     00:00
-Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                            272 kB/s | 291 kB     00:01
-.
-.
-.
-(193/194): redhat-virtualization-host-image-update-4.4.5-20210330.0.el8_3.noarc 5.4 MB/s | 822 MB     02:30
-(194/194): rhvm-appliance-4.4-20210310.0.el8ev.x86_64.rpm                       5.6 MB/s | 1.5 GB     04:34</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Check the certificate and key file pairs each time you run the <code>reposync</code> command because the Subscription Manager subsystem periodically regenerates them.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ovirt-legal-notice">Appendix C: Legal notice</h2>
+<h2 id="ovirt-legal-notice">Appendix B: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/upgrade_guide/index">Red Hat Virtualization 4.4 Upgrade Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>

@@ -847,6 +847,20 @@
 <div class="paragraph">
 <p>Use Remote Viewer to connect to a virtual machine.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To allow other users to connect to the VM, make sure you shutdown and restart the virtual machine when you are finished using the console. Alternatively, the administrator can <strong>Disable strict user checking</strong> to eliminate the need for reboot between users. See <a href="#Virtual_Machine_Console_settings_explained">Virtual Machine Console Settings Explained</a> for more information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -1617,6 +1631,20 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <h4 id="Opening_a_Console_to_a_Virtual_Machine_windows_vm">3.2.2. Opening a console to a virtual machine</h4>
 <div class="paragraph">
 <p>Use Remote Viewer to connect to a virtual machine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To allow other users to connect to the VM, make sure you shutdown and restart the virtual machine when you are finished using the console. Alternatively, the administrator can <strong>Disable strict user checking</strong> to eliminate the need for reboot between users. See <a href="#Virtual_Machine_Console_settings_explained">Virtual Machine Console Settings Explained</a> for more information.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -10984,26 +11012,23 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">If OS supports hotplugging, no. Otherwise, yes.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>BIOS Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chipset/Firmware Type</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Specifies the chipset and BIOS type. Defaults to the cluster&#8217;s default BIOS type. Options are:</p>
+<p>Specifies the chipset and firmware type. Defaults to the cluster&#8217;s default chipset and firmware type. Options are:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Cluster default</strong> The BIOS type defined under General cluster settings.</p>
+<p><strong>I440FX Chipset with BIOS</strong> Legacy BIOS</p>
 </li>
 <li>
-<p><strong>Q35 Chipset with Legacy BIOS</strong> Legacy BIOS without UEFI (Default for clusters with compatibility version 4.4)</p>
+<p><strong>Q35 Chipset with BIOS</strong> BIOS without UEFI (Default for clusters with compatibility version 4.4)</p>
 </li>
 <li>
-<p><strong>Q35 Chipset with UEFI BIOS</strong> BIOS with UEFI</p>
+<p><strong>Q35 Chipset with UEFI</strong> BIOS with UEFI (Default for clusters with compatibility version 4.7)</p>
 </li>
 <li>
-<p><strong>Q35 Chipset with SecureBoot</strong> UEFI with SecureBoot, which authenticates the digital signatures of the boot loader</p>
-</li>
-<li>
-<p><strong>Legacy</strong> i440fx chipset with legacy BIOS</p>
+<p><strong>Q35 Chipset with UEFI SecureBoot</strong> UEFI with SecureBoot, which authenticates the digital signatures of the boot loader</p>
 </li>
 </ul>
 </div>
@@ -11525,7 +11550,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Cluster default (Don&#8217;t encrypt)</strong></p>
+<p><strong>Cluster default</strong></p>
 </li>
 <li>
 <p><strong>Encrypt</strong></p>
@@ -11536,6 +11561,39 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </ul>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parallel Migrations</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows you to specify whether and how many parallel migration connections to use.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cluster default</strong>: Parallel migration connections are determined by the cluster default.</p>
+</li>
+<li>
+<p><strong>Disabled</strong>: The virtual machine is migrated using a single, non-parallel connection.</p>
+</li>
+<li>
+<p><strong>Auto</strong>: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.</p>
+</li>
+<li>
+<p><strong>Auto Parallel</strong>: The number of parallel connections is automatically determined.</p>
+</li>
+<li>
+<p><strong>Custom</strong>: Allows you to specify the preferred number of parallel connections, the actual number may be lower.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Number of VM Migration Connections</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This setting is only available when <strong>Custom</strong> is selected. The preferred number of custom parallel migrations, between 2 and 255.</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>

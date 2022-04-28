@@ -24,7 +24,7 @@ Red Hat recommends installing Red Hat Enterprise Linux 8 with FIPS mode enabled 
 
 = Enabling FIPS in a self-hosted engine
 
-To create a FIPS-enabled self-hosted engine in RHV version 4.4, link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[deploy the self-hosted engine using the command line]. When the deployment script prompts `Do you want to apply a default OpenSCAP security profile?`, enter `Yes` and follow the on-screen instructions to select the _VPP - Protection Profile for Virtualization 1.0 for Red Hat Enterprise Linux Hypervisor (RHELH)_ profile.
+To create a FIPS-enabled self-hosted engine in RHV version 4.4, link:{URL_downstream_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[deploy the self-hosted engine using the command line]. When the deployment script prompts `Do you want to apply a default OpenSCAP security profile?`, enter `Yes` and follow the on-screen instructions to select the _VPP - Protection Profile for Virtualization 1.0 for Red Hat Enterprise Linux Hypervisor (RHELH)_ profile.
 
 = Enabling FIPS in RHEL hosts and the standalone Manager
 

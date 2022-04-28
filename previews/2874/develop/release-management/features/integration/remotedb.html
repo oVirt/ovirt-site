@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>RemoteDB | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="RemoteDB" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2874/develop/release-management/features/integration/remotedb.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2874/develop/release-management/features/integration/remotedb.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="RemoteDB" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"RemoteDB","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2874/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2874/develop/release-management/features/integration/remotedb.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2874/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2874/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2874/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2874/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2874/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2874/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2874/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2874/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2874/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2874/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2874/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2874/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2874/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2874/develop/release-management/features/integration/">
+              <span property="name">Integration</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5bfaac88736a0cf76b09e06ebe4dd665?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5bfaac88736a0cf76b09e06ebe4dd665?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alex Lourie</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2874/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="remote-db">Remote DB</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Remote DB feature means working with a Postgres instance on a remote host.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Alex Lourie (Alourie)</li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<p>The code is developed and is a part of the upstream code.</p>
+
+<h2 id="design-and-flow">Design and flow</h2>
+
+<h3 id="setup">Setup</h3>
+
+<ul>
+  <li>
+    <p>During the engine-setup operation, user is asked to select ‘remote’ or ‘local’ installation. Default value ‘local’ is offered.</p>
+
+    <ul>
+      <li>If entered ‘local’, the installation will continue and perform installation on the local machine.</li>
+      <li>If entered ‘remote’, the additional set of questions will be presented.
+        <ul>
+          <li>Additional questions include: DB Admin username, DB Port, Remote Db password and “Security usage” parameters.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Installation proceeds with normal flow.</li>
+  <li>During the normal flow, additional parameters (if entered by user) are used during DB creation and JBoss configuration.</li>
+</ul>
+
+<p>DB configuration parameters are stored in <strong>~/.pgpass file</strong>, including remote host, port and username/password. JBoss configuration is stored in <strong>/usr/share/jboss-as/standalone/configuration/standalone.xml</strong> file.</p>
+
+<ul>
+  <li>If setup is rerun, the same parameters are used in “upgradeDb” function. Also, see next section for the upgrade logic.</li>
+</ul>
+
+<h3 id="upgrade">Upgrade</h3>
+
+<ul>
+  <li>During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.</li>
+  <li>
+    <p>The upgrade works as follows:</p>
+
+    <ul>
+      <li>First, the packages are upgraded if necessary.</li>
+      <li>Before performing the DB upgrade, a backup is taken.
+<code class="language-plaintext highlighter-rouge">* After the backup, the default DB (engine) is renamed to engine-</code><date></date></li>
+      <li>If renaming fails, yum rollback is performed, and user is notified about possible active connections.</li>
+      <li>If renaming succeeds, DB upgrade is started.</li>
+      <li>If upgrade fails, the renamed DB is removed and yum rollback is performed.</li>
+      <li>If upgrade succeeds, the engine-<code class="language-plaintext highlighter-rouge">&lt;date&gt;</code> is renamed back to ‘engine’.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cleanup">Cleanup</h3>
+
+<ul>
+  <li>During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.</li>
+  <li>If DB drop fails user is notified about possible active connections.</li>
+</ul>
+
+<h3 id="unattended-silent-installation">Unattended (silent) installation</h3>
+
+<p>It is possible to use an answer file for the silent installation. The values for the RemoteDb are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  DB_REMOTE_INSTALL=local
+  DB_HOST=10.1.1.1
+  DB_PORT=5433
+  DB_ADMIN=remotedb_test
+  DB_REMOTE_PASS=54321
+  DB_SECURE_CONNECTION=no
+  DB_LOCAL_PASS=admin!ad
+</code></pre></div></div>
+
+<p>To use with local installation, only DB_REMOTE_INSTALL=local and DB_LOCAL_PASS values are required.</p>
+
+<p>To use with remote installation, use DB_REMOTE_INSTALL=remote and configure DB_HOST, DB_PORT, DB_ADMIN, DB_REMOTE_PASS and DB_SECURE_CONNECTION values as needed.</p>
+
+<p>It is recommended to generate the answer file automatically:</p>
+
+<p><code class="language-plaintext highlighter-rouge">engine-setup --gen-answer-file=</code><answer file="" full="" path=""></answer></p>
+
+<p>…and then update its parameters accordingly with the installation requirements. After that, proceed with installation using the answer file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">engine-setup --answer-file=</code><answer file="" full="" path=""></answer></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2874/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2874/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2874/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2874/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/integration/remotedb.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/integration/remotedb.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to write patches for dwh | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="How to write patches for dwh" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2874/develop/write-patches-for-dwh.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2874/develop/write-patches-for-dwh.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to write patches for dwh" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"How to write patches for dwh","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2874/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2874/develop/write-patches-for-dwh.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2874/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2874/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2874/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2874/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2874/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2874/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2874/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2874/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2874/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2874/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2874/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2874//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2874/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2874/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7994226372822da5ac75322d097186c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7994226372822da5ac75322d097186c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Shirly Radco</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<!-- TODO: Content review -->
+
+<h1 id="how-to-write-patches-for-dwh">How to write patches for DWH</h1>
+
+<h2 id="install-talend-di-and-import-the-project">Install Talend DI and import the project</h2>
+
+<ul>
+  <li>
+    <p>Download and install the latest Talend DI version.</p>
+
+    <p>Available from: <code class="language-plaintext highlighter-rouge">[</code>http://www.talend.com/download.php<code class="language-plaintext highlighter-rouge">](http://www.talend.com/download.php)</code></p>
+  </li>
+  <li>
+    <p>Import the oVirt DWH project from the path:</p>
+
+    <p>&lt; repository folder path &gt;/ovirt-dwh/tos_project</p>
+  </li>
+  <li>You may now edit the project using the studio.</li>
+  <li>Setup connections context in the Talend DI for the ovirt_engine_history database.</li>
+</ul>
+
+<p>For details on this refer to Talend’s documentation.</p>
+
+<ul>
+  <li>You may now run the project and test it in the Talend DI.</li>
+</ul>
+
+<h2 id="if-a-change-to-the-engine-views-is-required">If a change to the engine views is required</h2>
+
+<p>Follow the following steps:</p>
+
+<ul>
+  <li>Have a cloned ovirt-engine git repository</li>
+  <li>Setup a postgreSQL “engine” DB.</li>
+  <li>
+    <p>Make the necessary changes in:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ovirt-engine/packaging/dbscripts/create_dwh_views.sql
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="if-a-change-to-the-ovirt_engine_history-db-is-required">If a change to the “ovirt_engine_history” DB is required</h2>
+
+<p>Follow the following steps:</p>
+
+<ul>
+  <li>Have a cloned ovirt-dwh git repository</li>
+  <li>Setup a postgreSQL “ovirt_engine_history” DB.</li>
+  <li>
+    <p>Create an upgrade sql file in the following folder:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ./ovirt-dwh/packaging/dbscripts/upgrade/
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>When needed, update the new column values before removing a related column.</p>
+
+<ul>
+  <li>Test to verify the expected results</li>
+</ul>
+
+<p>Please not the following :</p>
+
+<ul>
+  <li>Upgrade runs are written to “schema_version” table.</li>
+</ul>
+
+<p>In order to rerun an upgrade file, please remove from the “schema_version” table the corresponding line</p>
+
+<p>and change for the previous line the “current” column to TRUE.</p>
+
+<h2 id="if-a-change-to-the-history-views-is-required">If a change to the history views is required</h2>
+
+<p>Follow the following steps:</p>
+
+<ul>
+  <li>Have a cloned ovirt-engine git repository</li>
+  <li>Setup a postgreSQL “engine” DB.</li>
+  <li>
+    <p>Make the necessary changes for the latest views:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ovirt-dwh/packaging/dbscripts/create_views_X_Y.sql
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="maintain-legacy-views---make-the-necessary-changes-to-former-views">Maintain Legacy views - Make the necessary changes to former views</h3>
+
+<ul>
+  <li>If a column that existed in former versions was <strong>removed</strong> or its <strong>type was changed</strong>,</li>
+</ul>
+
+<p>It is <strong>mandatory</strong> to make the change to former views so the API will not brake.</p>
+
+<ul>
+  <li>
+    <ul>
+      <li>If Removed , add the column as Null value casted to the column type</li>
+      <li>If the type of the column changed, make sure to cast the column to the previous type.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="update-etl-process-in-talend-open-studio">Update ETL process in Talend Open Studio</h2>
+
+<ul>
+  <li>Have the Talend open Studio installed in the project version.</li>
+  <li>Update the Jobs with the required changes.</li>
+  <li>Close all open jobs.</li>
+</ul>
+
+<p>First,</p>
+
+<ul>
+  <li>Build the Job from the “History ETL” job.</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2874/images/wiki/BuildJob.png" alt="" /></p>
+
+<ul>
+  <li>
+    <ul>
+      <li>Open the zip file and copy the java files from:</li>
+    </ul>
+
+    <p>./HistoryETL/src/ovirt_engine_dwh</p>
+  </li>
+</ul>
+
+<p>To the git repository :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ./ovirt-dwh/etl_export/src/ovirt_engine_dwh
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <ul>
+      <li>When changing the context - for example added a variable ,</li>
+    </ul>
+  </li>
+</ul>
+
+<p>copy the context from the zip file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ./HistoryETL/ovirt_engine_dwh/
+</code></pre></div></div>
+
+<p>To the git repository:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ./ovirt-dwh/etl_export/ovirt_engine_dwh
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <ul>
+      <li>When upgrading a Talend version, copy the routines from the zip file:</li>
+    </ul>
+
+    <p>./HistoryETL/src/routines/</p>
+  </li>
+</ul>
+
+<p>To the git repository:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ./ovirt-dwh/etl_export/src/routines
+</code></pre></div></div>
+
+<p>Second,</p>
+
+<ul>
+  <li>Export the project :</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2874/images/wiki/ExportTalendProject.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Copy from the zip file to the git repository :</p>
+
+    <p>./ovirt-dwh/tos_project</p>
+  </li>
+</ul>
+
+<p>Important ! Copy only into the folders that already exist in the tos_project folder. Do not copy : Metadata, sqlPatterns and temp.</p>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2874/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2874/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2874/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2874/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/write-patches-for-dwh.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/write-patches-for-dwh.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

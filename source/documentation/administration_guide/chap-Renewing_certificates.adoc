@@ -7,21 +7,21 @@
 
 [WARNING]
 ====
-Do _NOT_ let certificates expire because once expired, the environment becomes non-operational and recovery is an error prone and time consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
+Do _NOT_ let certificates expire. If they expire, the environment becomes non-responsive and recovery is an error prone and time consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
 ====
 
 .Procedure
 
 . In the Administration Portal, click menu:Compute[Hosts].
-. Migrate the VMs away from the host.
+. Migrate the virtual machines away from the host.
 . Click menu:Management[Maintenance] and btn:[OK].
 . Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
 . Once enrollment is complete, click menu:Management[Activate].
 
 .Next steps
-You must also renew {engine-appliance-name} certificates.
+You must also renew Engine certificates.
 
-. Run `engine-setup` from an ssh or console session on the {engine-appliance-name} system. The `engine-setup` script prompts you with some configuration questions.
+. Run `engine-setup` from an SSH or console session on the {engine-appliance-name} system. The `engine-setup` script prompts you with some configuration questions.
 +
 ----
 # engine-setup

@@ -61,8 +61,6 @@ from the API server. For example:
 
 ** The https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk[oVirt Python SDK].
 
-** The https://github.com/oVirt/ovirt-engine-sdk-ruby/tree/master/sdk[oVirt Ruby SDK].
-
 ** The https://github.com/oVirt/ovirt-engine-sdk-java/tree/master/sdk[oVirt Java SDK].
 
 ** The https://curl.haxx.se[cURL] command line tool.
@@ -2569,6 +2567,7 @@ This section enumerates all the requests that are available in the API.
 * <<services-host-methods-approve,POST>> /<<services-hosts,hosts>>/<<services-host,{host:id}>>/<<services-host,approve>>
 * <<services-host-methods-commit_net_config,POST>> /<<services-hosts,hosts>>/<<services-host,{host:id}>>/<<services-host,commitnetconfig>>
 * <<services-host-methods-copy_host_networks,POST>> /<<services-hosts,hosts>>/<<services-host,{host:id}>>/<<services-host,copyhostnetworks>>
+* <<services-host_cpu_units-methods-list,GET>> /<<services-hosts,hosts>>/<<services-host,{host:id}>>/<<services-host_cpu_units,cpuunits>>
 * <<services-host-methods-deactivate,POST>> /<<services-hosts,hosts>>/<<services-host,{host:id}>>/<<services-host,deactivate>>
 * <<services-host_devices-methods-list,GET>> /<<services-hosts,hosts>>/<<services-host,{host:id}>>/<<services-host_devices,devices>>
 * <<services-host_device-methods-get,GET>> /<<services-hosts,hosts>>/<<services-host,{host:id}>>/<<services-host_devices,devices>>/<<services-host_device,{device:id}>>
@@ -2888,6 +2887,11 @@ This section enumerates all the requests that are available in the API.
 * <<services-template_graphics_consoles-methods-list,GET>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_graphics_consoles,graphicsconsoles>>
 * <<services-template_graphics_console-methods-get,GET>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_graphics_consoles,graphicsconsoles>>/<<services-template_graphics_console,{console:id}>>
 * <<services-template_graphics_console-methods-remove,DELETE>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_graphics_consoles,graphicsconsoles>>/<<services-template_graphics_console,{console:id}>>
+* <<services-template_mediated_devices-methods-add,POST>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_mediated_devices,mediateddevices>>
+* <<services-template_mediated_devices-methods-list,GET>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_mediated_devices,mediateddevices>>
+* <<services-template_mediated_device-methods-get,GET>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_mediated_devices,mediateddevices>>/<<services-template_mediated_device,{device:id}>>
+* <<services-template_mediated_device-methods-update,PUT>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_mediated_devices,mediateddevices>>/<<services-template_mediated_device,{device:id}>>
+* <<services-template_mediated_device-methods-remove,DELETE>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_mediated_devices,mediateddevices>>/<<services-template_mediated_device,{device:id}>>
 * <<services-template_nics-methods-add,POST>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_nics,nics>>
 * <<services-template_nics-methods-list,GET>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_nics,nics>>
 * <<services-template_nic-methods-get,GET>> /<<services-templates,templates>>/<<services-template,{template:id}>>/<<services-template_nics,nics>>/<<services-template_nic,{nic:id}>>
@@ -3004,6 +3008,11 @@ This section enumerates all the requests that are available in the API.
 * <<services-katello_erratum-methods-get,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-katello_errata,katelloerrata>>/<<services-katello_erratum,{katelloerratum:id}>>
 * <<services-vm-methods-logon,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm,logon>>
 * <<services-vm-methods-maintenance,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm,maintenance>>
+* <<services-vm_mediated_devices-methods-add,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_mediated_devices,mediateddevices>>
+* <<services-vm_mediated_devices-methods-list,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_mediated_devices,mediateddevices>>
+* <<services-vm_mediated_device-methods-get,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_mediated_devices,mediateddevices>>/<<services-vm_mediated_device,{device:id}>>
+* <<services-vm_mediated_device-methods-update,PUT>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_mediated_devices,mediateddevices>>/<<services-vm_mediated_device,{device:id}>>
+* <<services-vm_mediated_device-methods-remove,DELETE>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_mediated_devices,mediateddevices>>/<<services-vm_mediated_device,{device:id}>>
 * <<services-vm-methods-migrate,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm,migrate>>
 * <<services-vm_nics-methods-add,POST>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_nics,nics>>
 * <<services-vm_nics-methods-list,GET>> /<<services-vms,vms>>/<<services-vm,{vm:id}>>/<<services-vm_nics,nics>>
@@ -6040,7 +6049,7 @@ A service to manage a specific cluster.
 |Updates information about the cluster.
 
 |`upgrade`
-|Start or finish upgrade process for the cluster based on the action value.
+|Start, update or finish upgrade process for the cluster based on the action value.
 
 |===
 
@@ -6277,9 +6286,9 @@ With a request body like this:
 [id="services-cluster-methods-upgrade"]
 ==== upgrade [small]#POST#
 
-Start or finish upgrade process for the cluster based on the action value. This action marks the cluster for
-upgrade or clears the upgrade running flag on the cluster based on the action value which takes values of
-start or stop.
+Start, update or finish upgrade process for the cluster based on the action value. This action marks the
+cluster for upgrade, updates the progress, or clears the upgrade running flag on the cluster based on the
+action value which takes values of `start`, `stop` or `update_progress`.
 
 [source]
 ----
@@ -6297,6 +6306,20 @@ With a request body like this to mark the cluster for upgrade:
 </action>
 ----
 
+After starting the upgrade, use a request body like this to update the progress to 15%:
+
+[source,xml]
+----
+<action>
+    <upgrade_action>
+        update_progress
+    </upgrade_action>
+    <upgrade_percent_complete>
+        15
+    </upgrade_percent_complete>
+</action>
+----
+
 .Parameters summary
 [cols="15,15,20,50"]
 |===
@@ -6307,12 +6330,29 @@ With a request body like this to mark the cluster for upgrade:
 |In
 |Indicates if the action should be performed asynchronously.
 
+|`correlation_id`
+|<<types-string,String>>
+|In
+|Explicitly set the upgrade correlation identifier.
+
 |`upgrade_action`
 |<<types-cluster_upgrade_action,ClusterUpgradeAction>>
 |In
 |The action to be performed.
 
+|`upgrade_percent_complete`
+|<<types-integer,Integer>>
+|In
+|Update the upgrade's progress as a percent complete of the total process.
+
 |===
+
+[id="services-cluster-methods-upgrade-parameters-correlation_id"]
+===== correlation_id
+
+Explicitly set the upgrade correlation identifier.  Use to correlate events
+detailing the cluster upgrade to the upgrade itself.  If not specificed, the
+correlation id from `Correlation-Id` http header will be used.
 
 [id="services-cluster_enabled_feature"]
 === ClusterEnabledFeature
@@ -7911,7 +7951,7 @@ Manages a single disk.
 
 Converts disk format and/or preallocation mode.
 
-For example, to convert the disk format from preallocated-cow to a sparse-raw image, 
+For example, to convert the disk format from preallocated-cow to a sparse-raw image,
 send a request like the following:
 
 [source]
@@ -14699,6 +14739,51 @@ Check if there are upgrades available for the host. If there are upgrades availa
 next to host status icon in the Administration Portal. Audit log messages are also added to indicate the
 availability of upgrades. The upgrade can be started from the webadmin or by using the
 <<services-host-methods-upgrade, upgrade>> host action.
+
+[id="services-host_cpu_units"]
+=== HostCpuUnits
+
+.Methods summary
+[cols="20,80"]
+|===
+|Name |Summary
+
+|`list`
+|Returns the List of all host's CPUs with detailed information
+about the topology (socket, core) and with information
+about the current CPU pinning.
+
+|===
+
+[id="services-host_cpu_units-methods-list"]
+==== list [small]#GET#
+
+Returns the List of all host's CPUs with detailed information
+about the topology (socket, core) and with information
+about the current CPU pinning.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`cpu_units`
+|<<types-host_cpu_unit,HostCpuUnit[]>>
+|Out
+|
+
+|`follow`
+|<<types-string,String>>
+|In
+|Indicates which inner links should be _followed_.
+
+|===
+
+[id="services-host_cpu_units-methods-list-parameters-follow"]
+===== follow
+
+Indicates which inner links should be _followed_. The objects referenced by these links will be fetched as part
+of the current request. See <<documents-003_common_concepts-follow, here>> for details.
 
 [id="services-host_device"]
 === HostDevice
@@ -27173,6 +27258,209 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 
 Sets the maximum number of consoles to return. If not specified all the consoles are returned.
 
+[id="services-template_mediated_device"]
+=== TemplateMediatedDevice
+
+.Methods summary
+[cols="20,80"]
+|===
+|Name |Summary
+
+|`get`
+|Gets mediated device configuration of the template.
+
+|`remove`
+|Remove the mediated device from the template.
+
+|`update`
+|Updates the information about the mediated device.
+
+|===
+
+[id="services-template_mediated_device-methods-get"]
+==== get [small]#GET#
+
+Gets mediated device configuration of the template.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`device`
+|<<types-vm_mediated_device,VmMediatedDevice>>
+|Out
+|The information about the mediated device of the template.
+
+|`follow`
+|<<types-string,String>>
+|In
+|Indicates which inner links should be _followed_.
+
+|===
+
+[id="services-template_mediated_device-methods-get-parameters-follow"]
+===== follow
+
+Indicates which inner links should be _followed_. The objects referenced by these links will be fetched as part
+of the current request. See <<documents-003_common_concepts-follow, here>> for details.
+
+[id="services-template_mediated_device-methods-remove"]
+==== remove [small]#DELETE#
+
+Remove the mediated device from the template.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`async`
+|<<types-boolean,Boolean>>
+|In
+|Indicates if the remove should be performed asynchronously.
+
+|===
+
+[id="services-template_mediated_device-methods-update"]
+==== update [small]#PUT#
+
+Updates the information about the mediated device.
+
+You can update the information using `specParams` element.
+
+For example, to update a mediated device, send a request like this:
+
+[source]
+----
+PUT /ovirt-engine/api/templates/123/mediateddevices/00000000-0000-0000-0000-000000000000
+<vm_mediated_device>
+  <spec_params>
+    <property>
+      <name>mdevType</name>
+      <value>nvidia-11</value>
+    </property>
+  </spec_params>
+</vm_mediated_device>
+----
+
+with response body:
+
+[source,xml]
+----
+<vm_mediated_device href="/ovirt-engine/api/templates/123/mediateddevices/00000000-0000-0000-0000-000000000000" id="00000000-0000-0000-0000-000000000000">
+  <template href="/ovirt-engine/api/templates/123" id="123"/>
+  <spec_params>
+    <property>
+      <name>mdevType</name>
+      <value>nvidia-11</value>
+    </property>
+  </spec_params>
+</vm_mediated_device>
+----
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`async`
+|<<types-boolean,Boolean>>
+|In
+|Indicates if the update should be performed asynchronously.
+
+|`devices`
+|<<types-vm_mediated_device,VmMediatedDevice>>
+|In/Out
+|The information about the mediated device.
+
+|===
+
+[id="services-template_mediated_device-methods-update-parameters-devices"]
+===== devices
+
+The information about the mediated device.
+
+The request data must contain `specParams` properties.
+The response data contains complete information about the
+updated mediated device.
+
+[id="services-template_mediated_devices"]
+=== TemplateMediatedDevices
+
+A service that manages mediated devices of a template.
+
+.Methods summary
+[cols="20,80"]
+|===
+|Name |Summary
+
+|`add`
+|Add new mediated device to the template.
+
+|`list`
+|Lists all the configured mediated devices of the template.
+
+|===
+
+[id="services-template_mediated_devices-methods-add"]
+==== add [small]#POST#
+
+Add new mediated device to the template.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`device`
+|<<types-vm_mediated_device,VmMediatedDevice>>
+|In/Out
+|
+
+|===
+
+[id="services-template_mediated_devices-methods-list"]
+==== list [small]#GET#
+
+Lists all the configured mediated devices of the template.
+
+The order of the returned list of mediated devices isn't guaranteed.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`devices`
+|<<types-vm_mediated_device,VmMediatedDevice[]>>
+|Out
+|The list of mediated devices of the template.
+
+|`follow`
+|<<types-string,String>>
+|In
+|Indicates which inner links should be _followed_.
+
+|`max`
+|<<types-integer,Integer>>
+|In
+|Sets the maximum number of mediated devices to return.
+
+|===
+
+[id="services-template_mediated_devices-methods-list-parameters-follow"]
+===== follow
+
+Indicates which inner links should be _followed_. The objects referenced by these links will be fetched as part
+of the current request. See <<documents-003_common_concepts-follow, here>> for details.
+
+[id="services-template_mediated_devices-methods-list-parameters-max"]
+===== max
+
+Sets the maximum number of mediated devices to return.
+If not specified all the mediated devices are returned.
+
 [id="services-template_nic"]
 === TemplateNic
 
@@ -30222,6 +30510,11 @@ With a request body like this:
 |In
 |Indicates if the backup will fail if VM failed to freeze or not.
 
+|`use_active`
+|<<types-boolean,Boolean>>
+|In
+|Indicate whether to use the active volume for performing the backup.
+
 |===
 
 [id="services-vm_backups-methods-add-parameters-require_consistency"]
@@ -30239,6 +30532,21 @@ POST /ovirt-engine/api/vms/123/backups?require_consistency=true
 ....
 
 The default value of the requireConsistency flag is `false`.
+
+[id="services-vm_backups-methods-add-parameters-use_active"]
+===== use_active
+
+Indicate whether to use the active volume for performing the backup.
+
+If useActive=False a snapshot will be created for the backup operation.
+
+The REST API call should look like this:
+
+....
+POST /ovirt-engine/api/vms/123/backups?use_active=false
+....
+
+The default value of the useActive flag is `false`.
 
 [id="services-vm_backups-methods-list"]
 ==== list [small]#GET#
@@ -31622,6 +31930,209 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 
 Sets the maximum number of devices to return. If not specified all the devices are returned.
 
+[id="services-vm_mediated_device"]
+=== VmMediatedDevice
+
+.Methods summary
+[cols="20,80"]
+|===
+|Name |Summary
+
+|`get`
+|Retrieves the configuration of mediated devices in the virtual machine.
+
+|`remove`
+|Remove the mediated device from the virtual machine.
+
+|`update`
+|Updates the information about the mediated device.
+
+|===
+
+[id="services-vm_mediated_device-methods-get"]
+==== get [small]#GET#
+
+Retrieves the configuration of mediated devices in the virtual machine.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`device`
+|<<types-vm_mediated_device,VmMediatedDevice>>
+|Out
+|The information about the mediated device of the virtual machine.
+
+|`follow`
+|<<types-string,String>>
+|In
+|Indicates which inner links should be _followed_.
+
+|===
+
+[id="services-vm_mediated_device-methods-get-parameters-follow"]
+===== follow
+
+Indicates which inner links should be _followed_. The objects referenced by these links will be fetched as part
+of the current request. See <<documents-003_common_concepts-follow, here>> for details.
+
+[id="services-vm_mediated_device-methods-remove"]
+==== remove [small]#DELETE#
+
+Remove the mediated device from the virtual machine.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`async`
+|<<types-boolean,Boolean>>
+|In
+|Indicates if the remove should be performed asynchronously.
+
+|===
+
+[id="services-vm_mediated_device-methods-update"]
+==== update [small]#PUT#
+
+Updates the information about the mediated device.
+
+You can update the information using `specParams` element.
+
+For example, to update a mediated device, send a request like this:
+
+[source]
+----
+PUT /ovirt-engine/api/vms/123/mediateddevices/00000000-0000-0000-0000-000000000000
+<vm_mediated_device>
+  <spec_params>
+    <property>
+      <name>mdevType</name>
+      <value>nvidia-11</value>
+    </property>
+  </spec_params>
+</vm_mediated_device>
+----
+
+with response body:
+
+[source,xml]
+----
+<vm_mediated_device href="/ovirt-engine/api/vms/123/mediateddevices/00000000-0000-0000-0000-000000000000" id="00000000-0000-0000-0000-000000000000">
+  <vm href="/ovirt-engine/api/vms/123" id="123"/>
+  <spec_params>
+    <property>
+      <name>mdevType</name>
+      <value>nvidia-11</value>
+    </property>
+  </spec_params>
+</vm_mediated_device>
+----
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`async`
+|<<types-boolean,Boolean>>
+|In
+|Indicates if the update should be performed asynchronously.
+
+|`device`
+|<<types-vm_mediated_device,VmMediatedDevice>>
+|In/Out
+|The information about the mediated device.
+
+|===
+
+[id="services-vm_mediated_device-methods-update-parameters-device"]
+===== device
+
+The information about the mediated device.
+
+The request data must contain `specParams` properties.
+The response data contains complete information about the
+updated mediated device.
+
+[id="services-vm_mediated_devices"]
+=== VmMediatedDevices
+
+A service that manages mediated devices of a VM.
+
+.Methods summary
+[cols="20,80"]
+|===
+|Name |Summary
+
+|`add`
+|Add a new mediated device to the virtual machine.
+
+|`list`
+|Lists all the configured mediated devices of the virtual machine.
+
+|===
+
+[id="services-vm_mediated_devices-methods-add"]
+==== add [small]#POST#
+
+Add a new mediated device to the virtual machine.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`device`
+|<<types-vm_mediated_device,VmMediatedDevice>>
+|In/Out
+|
+
+|===
+
+[id="services-vm_mediated_devices-methods-list"]
+==== list [small]#GET#
+
+Lists all the configured mediated devices of the virtual machine.
+
+The order of the returned list of mediated devices is not guaranteed.
+
+.Parameters summary
+[cols="15,15,20,50"]
+|===
+|Name |Type |Direction |Summary
+
+|`devices`
+|<<types-vm_mediated_device,VmMediatedDevice[]>>
+|Out
+|The list of mediated devices of the virtual machine.
+
+|`follow`
+|<<types-string,String>>
+|In
+|Indicates which inner links should be _followed_.
+
+|`max`
+|<<types-integer,Integer>>
+|In
+|Sets the maximum number of mediated devices to return.
+
+|===
+
+[id="services-vm_mediated_devices-methods-list-parameters-follow"]
+===== follow
+
+Indicates which inner links should be _followed_. The objects referenced by these links will be fetched as part
+of the current request. See <<documents-003_common_concepts-follow, here>> for details.
+
+[id="services-vm_mediated_devices-methods-list-parameters-max"]
+===== max
+
+Sets the maximum number of mediated devices to return.
+If not specified all the mediated devices are returned.
+
 [id="services-vm_nic"]
 === VmNic
 
@@ -32299,7 +32810,42 @@ created.
 |In/Out
 |The virtual machine pool that is being updated.
 
+|`seal`
+|<<types-boolean,Boolean>>
+|In
+|Specifies if virtual machines created for the pool should be sealed after creation.
+
 |===
+
+[id="services-vm_pool-methods-update-parameters-seal"]
+===== seal
+
+Specifies if virtual machines created for the pool should be sealed after creation.
+
+If this optional parameter is provided, and its value is `true`, virtual machines created for the pool
+will be sealed after creation. If the value is 'false', the virtual machines will not be sealed.
+If the parameter is not provided, the virtual machines will be sealed, only if they are created from
+a sealed template and their guest OS is not set to Windows. This parameter affects only the virtual machines
+created when the pool is updated.
+
+For example, to update a virtual machine pool and to seal the additional virtual machines that are created,
+send a request like this:
+
+[source]
+----
+PUT /ovirt-engine/api/vmpools/123?seal=true
+----
+
+With the following body:
+
+[source,xml]
+----
+<vmpool>
+  <name>VM_Pool_B</name>
+  <description>Virtual Machine Pool B</description>
+  <size>7</size>
+</vmpool>
+----
 
 [id="services-vm_pools"]
 === VmPools
@@ -32353,7 +32899,43 @@ With the following body:
 |In/Out
 |Pool to add.
 
+|`seal`
+|<<types-boolean,Boolean>>
+|In
+|Specifies if virtual machines created for the pool should be sealed after creation.
+
 |===
+
+[id="services-vm_pools-methods-add-parameters-seal"]
+===== seal
+
+Specifies if virtual machines created for the pool should be sealed after creation.
+
+If this optional parameter is provided, and its value is `true`, virtual machines created for the pool
+will be sealed after creation. If the value is 'false', the virtual machines will not be sealed.
+If the parameter is not provided, the virtual machines will be sealed, only if they are created from
+a sealed template and their guest OS is not set to Windows. This parameter affects only the virtual machines
+created when the pool is created.
+
+For example, to create a virtual machine pool with 5 virtual machines and to seal them, send a request
+like this:
+
+[source]
+----
+POST /ovirt-engine/api/vmpools?seal=true
+----
+
+With the following body:
+
+[source,xml]
+----
+<vmpool>
+  <name>mypool</name>
+  <cluster id="123"/>
+  <template id="456"/>
+  <size>5</size>
+</vmpool>
+----
 
 [id="services-vm_pools-methods-list"]
 ==== list [small]#GET#
@@ -33115,6 +33697,11 @@ In all cases the name or identifier of the cluster where the virtual machine wil
 |In
 |Relevant for admin users only.
 
+|`seal`
+|<<types-boolean,Boolean>>
+|In
+|Specifies if the virtual machine should be sealed after creation.
+
 |`vm`
 |<<types-vm,Vm>>
 |In/Out
@@ -33233,6 +33820,39 @@ the Virtual Machine as though he were a non-admin user, foregoing his admin perm
 NOTE: admin-as-user (meaning providing filter=true) POST requests on an existing Virtual
 Machine will fail unless the Virtual Machine has been previously created by the admin as
 a user (meaning with filter=true).
+
+[id="services-vms-methods-add-parameters-seal"]
+===== seal
+
+Specifies if the virtual machine should be sealed after creation.
+
+If this optional parameter is provided, and its value is `true`, the virtual machine will be sealed after
+creation. If the value is 'false', the virtual machine will not be sealed. If the parameter is not provided,
+the virtual machine will be sealed, only if it is created from a sealed template and its guest OS is not set
+to Windows.
+
+For example, to create a virtual machine from the `mytemplate` template and to seal it, send a request
+like this:
+
+[source]
+----
+POST /ovirt-engine/api/vms?seal=true
+----
+
+With a request body like this:
+
+[source,xml]
+----
+<vm>
+  <name>myvm<name>
+  <template>
+    <name>mytemplate<name>
+  </template>
+  <cluster>
+    <name>mycluster<name>
+  </cluster>
+</vm>
+----
 
 [id="services-vms-methods-list"]
 ==== list [small]#GET#
@@ -33809,6 +34429,10 @@ Represents the access protocols supported by Gluster volumes.
 |<<types-integer,Integer>>
 |
 
+|`correlation_id`
+|<<types-string,String>>
+|
+
 |`data_center`
 |<<types-data_center,DataCenter>>
 |
@@ -34087,6 +34711,10 @@ Represents the access protocols supported by Gluster volumes.
 
 |`upgrade_action`
 |<<types-cluster_upgrade_action,ClusterUpgradeAction>>
+|
+
+|`upgrade_percent_complete`
+|<<types-integer,Integer>>
 |
 
 |`use_cloud_init`
@@ -34912,6 +35540,10 @@ This id can be used as the `fromCheckpointId` in the next incremental backup.
 |`host`
 |<<types-host,Host>>
 |The host that was used to start the backup.
+
+|`snapshot`
+|<<types-snapshot,Snapshot>>
+|A reference to the snapshot created if the backup is using a snapshot.
 
 |`vm`
 |<<types-vm,Vm>>
@@ -35866,6 +36498,18 @@ A JSON representation of a cluster:
 |<<types-boolean,Boolean>>
 |
 
+|`upgrade_correlation_id`
+|<<types-string,String>>
+|The upgrade correlation identifier.
+
+|`upgrade_in_progress`
+|<<types-boolean,Boolean>>
+|Indicates if an upgrade has been started for the cluster.
+
+|`upgrade_percent_complete`
+|<<types-integer,Integer>>
+|If an upgrade is in progress, the upgrade's reported percent complete.
+
 |`version`
 |<<types-version,Version>>
 |The compatibility version of the cluster.
@@ -36018,6 +36662,12 @@ the `urandom` and `random` sources will always be part of the set, and can't be 
 Engine version 4.1 introduces a new RNG source `urandom` that replaces `random` RNG source in clusters with
 compatibility version 4.1 or higher.
 ====
+
+[id="types-cluster-attributes-upgrade_correlation_id"]
+==== upgrade_correlation_id
+
+The upgrade correlation identifier. Use to correlate events detailing the cluster
+upgrade to the upgrade itself.
 
 [id="types-cluster-attributes-version"]
 ==== version
@@ -36266,6 +36916,9 @@ upgrade_running flag to false.
 |The upgrade action to be passed to start the cluster upgrade process by marking the cluster's
 upgrade_running flag to true.
 
+|`update_progress`
+|The upgrade action to be passed to update the cluster upgrade progress.
+
 |===
 
 [id="types-cluster_upgrade_action-values-finish"]
@@ -36279,6 +36932,12 @@ upgrade_running flag to false. This should be used at the end of the cluster upg
 
 The upgrade action to be passed to start the cluster upgrade process by marking the cluster's
 upgrade_running flag to true. This should used at the beginning of the cluster upgrade process.
+
+[id="types-cluster_upgrade_action-values-update_progress"]
+==== update_progress
+
+The upgrade action to be passed to update the cluster upgrade progress. This should be used
+as the upgrade progresses.
 
 [id="types-configuration"]
 === Configuration [small]#struct#
@@ -36535,6 +37194,9 @@ Type representing the CPU and NUMA pinning policy.
 |===
 |Name |Summary
 
+|`dedicated`
+|The CPU pinning will be automatically calculated by the engine when a vm starts and it will be dropped when the vm stops.
+
 |`manual`
 |The CPU pinning will be manually configured.
 
@@ -36545,6 +37207,13 @@ Type representing the CPU and NUMA pinning policy.
 |The CPU and NUMA pinning will be configured by the dedicated host.
 
 |===
+
+[id="types-cpu_pinning_policy-values-dedicated"]
+==== dedicated
+
+The CPU pinning will be automatically calculated by the engine when a vm starts and it will be dropped when the vm stops.
+
+The pinning is exclusive, that means that no other VM can use the pinned physical CPU.
 
 [id="types-cpu_pinning_policy-values-manual"]
 ==== manual
@@ -38147,6 +38816,10 @@ Represents a graphic console configuration.
 |<<types-string,String>>
 |Returns the action that will take place when the graphic console is disconnected.
 
+|`disconnect_action_delay`
+|<<types-integer,Integer>>
+|Delay (in minutes) before the graphic console disconnect action is carried out.
+
 |`file_transfer_enabled`
 |<<types-boolean,Boolean>>
 |Indicates if a user is able to drag and drop files from an external host into the graphic console.
@@ -38218,6 +38891,12 @@ reboot:: Initiates a graceful virtual machine reboot.
 shutdown:: Initiates a graceful virtual machine shutdown.
 
 This option is only available for the SPICE console type.
+
+[id="types-display-attributes-disconnect_action_delay"]
+==== disconnect_action_delay
+
+Delay (in minutes) before the graphic console disconnect action is carried out.
+This option is only available for Shutdown disconnect action.
 
 [id="types-display-attributes-file_transfer_enabled"]
 ==== file_transfer_enabled
@@ -41400,6 +42079,12 @@ This `GET` request will return the following output:
 |<<types-cluster,Cluster>>
 |
 
+|`cpu_units`
+|<<types-host_cpu_unit,HostCpuUnit[]>>
+|List of all host's CPUs with detailed information
+about the topology (socket, core) and with information
+about the current CPU pinning.
+
 |`devices`
 |<<types-host_device,HostDevice[]>>
 |
@@ -41457,6 +42142,45 @@ This `GET` request will return the following output:
 |
 
 |===
+
+[id="types-host-links-cpu_units"]
+==== cpu_units
+
+List of all host's CPUs with detailed information
+about the topology (socket, core) and with information
+about the current CPU pinning.
+
+[source]
+----
+GET /ovirt-engine/api/hosts/123/cpuunits
+----
+
+You will receive response in XML like this one:
+
+[source,xml]
+----
+<host_cpu_units>
+  <host_cpu_unit>
+    <core_id>0</core_id>
+    <cpu_id>0</cpu_id>
+    <socket_id>0</socket_id>
+    <vms>
+      <vm href="/ovirt-engine/api/vms/def" id="def" />
+    </vms>
+  </host_cpu_unit>
+  <host_cpu_unit>
+    <core_id>0</core_id>
+    <cpu_id>1</cpu_id>
+    <socket_id>1</socket_id>
+    <runs_vdsm>true</runs_vdsm>
+  </host_cpu_unit>
+  <host_cpu_unit>
+    <core_id>0</core_id>
+    <cpu_id>2</cpu_id>
+    <socket_id>2</socket_id>
+  </host_cpu_unit>
+</host_cpu_units>
+----
 
 [id="types-host-links-external_network_provider_configurations"]
 ==== external_network_provider_configurations
@@ -41582,6 +42306,63 @@ The following list shows the statistic types for hosts:
 
 |`boot.time`
 |Boot time of the machine.
+|===
+
+[id="types-host_cpu_unit"]
+=== HostCpuUnit [small]#struct#
+
+Type representing a physical CPU of a host with
+the current pinning status.
+
+.Attributes summary
+[cols="20,20,60"]
+|===
+|Name |Type |Summary
+
+|`comment`
+|<<types-string,String>>
+|Free text containing comments about this object.
+
+|`core_id`
+|<<types-integer,Integer>>
+|The id of the core the CPU belongs to.
+
+|`cpu_id`
+|<<types-integer,Integer>>
+|The id of the CPU.
+
+|`description`
+|<<types-string,String>>
+|A human-readable description in plain text.
+
+|`id`
+|<<types-string,String>>
+|A unique identifier.
+
+|`name`
+|<<types-string,String>>
+|A human-readable name in plain text.
+
+|`runs_vdsm`
+|<<types-boolean,Boolean>>
+|A flag indicating that the CPU runs the VDSM
+
+|`socket_id`
+|<<types-integer,Integer>>
+|The id of the socket the CPU belongs to.
+
+|===
+
+[id="types-host_cpu_unit-links_summary"]
+.Links summary
+[cols="20,20,60"]
+|===
+|Name |Type |Summary
+
+|`vms`
+|<<types-vm,Vm[]>>
+|A list of VMs that has its virtual CPU pinned to this physical CPU.
+
 |===
 
 [id="types-host_device"]
@@ -43129,8 +43910,7 @@ of these two types are as follows:
 |===
 
 For more details on how to use _cloud-init_ see the examples in
-https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/start_vm_with_cloud_init.py[Python],
-https://github.com/oVirt/ovirt-engine-sdk-ruby/blob/master/sdk/examples/start_vm_with_cloud_init.rb[Ruby] and
+https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/start_vm_with_cloud_init.py[Python] and
 https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java[Java].
 
 [id="types-initialization-attributes-cloud_init_network_protocol"]
@@ -43635,6 +44415,10 @@ This property is only visible when fetching if "All-Content=true" header is set.
 |`graphics_consoles`
 |<<types-graphics_console,GraphicsConsole[]>>
 |Reference to the graphic consoles attached to the template.
+
+|`mediated_devices`
+|<<types-vm_mediated_device,VmMediatedDevice[]>>
+|Mediated devices configuration.
 
 |`nics`
 |<<types-nic,Nic[]>>
@@ -50496,6 +51280,10 @@ This property is only visible when fetching if "All-Content=true" header is set.
 |<<types-katello_erratum,KatelloErratum[]>>
 |Lists all the Katello errata assigned to the virtual machine.
 
+|`mediated_devices`
+|<<types-vm_mediated_device,VmMediatedDevice[]>>
+|Mediated devices configuration.
+
 |`nics`
 |<<types-nic,Nic[]>>
 |References the list of network interface devices on the virtual machine.
@@ -52550,6 +53338,10 @@ This property is only visible when fetching if "All-Content=true" header is set.
 |<<types-graphics_console,GraphicsConsole[]>>
 |Reference to the graphic consoles attached to the template.
 
+|`mediated_devices`
+|<<types-vm_mediated_device,VmMediatedDevice[]>>
+|Mediated devices configuration.
+
 |`nics`
 |<<types-nic,Nic[]>>
 |Reference to the network interfaces attached to the template.
@@ -53916,6 +54708,10 @@ This property is only visible when fetching if "All-Content=true" header is set.
 |<<types-katello_erratum,KatelloErratum[]>>
 |Lists all the Katello errata assigned to the virtual machine.
 
+|`mediated_devices`
+|<<types-vm_mediated_device,VmMediatedDevice[]>>
+|Mediated devices configuration.
+
 |`nics`
 |<<types-nic,Nic[]>>
 |References the list of network interface devices on the virtual machine.
@@ -54523,6 +55319,70 @@ This property is only visible when fetching if "All-Content=true" header is set.
 
 |===
 
+[id="types-vm_mediated_device"]
+=== VmMediatedDevice [small]#struct#
+
+VM mediated device is a fake device specifying properties of vGPU mediated devices.
+It is not an actual device, it just serves as a specification how to configure a part
+of a host device.
+
+.Attributes summary
+[cols="20,20,60"]
+|===
+|Name |Type |Summary
+
+|`comment`
+|<<types-string,String>>
+|Free text containing comments about this object.
+
+|`description`
+|<<types-string,String>>
+|A human-readable description in plain text.
+
+|`id`
+|<<types-string,String>>
+|A unique identifier.
+
+|`name`
+|<<types-string,String>>
+|A human-readable name in plain text.
+
+|`spec_params`
+|<<types-property,Property[]>>
+|Properties of the device.
+
+|===
+
+[id="types-vm_mediated_device-links_summary"]
+.Links summary
+[cols="20,20,60"]
+|===
+|Name |Type |Summary
+
+|`instance_type`
+|<<types-instance_type,InstanceType>>
+|Optionally references to an instance type the device is used by.
+
+|`template`
+|<<types-template,Template>>
+|Optionally references to a template the device is used by.
+
+|`vm`
+|<<types-vm,Vm>>
+|Don't use this element, use `vms` instead.
+
+|`vms`
+|<<types-vm,Vm[]>>
+|References to the virtual machines that are using this device.
+
+|===
+
+[id="types-vm_mediated_device-links-vms"]
+==== vms
+
+References to the virtual machines that are using this device. A device may be used by several virtual machines;
+for example, a shared disk my be used simultaneously by two or more virtual machines.
+
 [id="types-vm_placement_policy"]
 === VmPlacementPolicy [small]#struct#
 
@@ -54552,7 +55412,7 @@ This property is only visible when fetching if "All-Content=true" header is set.
 [id="types-vm_pool"]
 === VmPool [small]#struct#
 
-Type represeting a virtual machines pool.
+Type representing a virtual machines pool.
 
 .Attributes summary
 [cols="20,20,60"]
@@ -54702,7 +55562,7 @@ the pool's template.
 [id="types-vm_pool_type"]
 === VmPoolType [small]#enum#
 
-Type represeting the deallocation policy of virtual machines in a virtual machines pool.
+Type representing the deallocation policy of virtual machines in a virtual machines pool.
 
 .Values summary
 [cols="20,80"]
@@ -54738,7 +55598,7 @@ explicitly by removing the user's permissions on that virtual machine.
 [id="types-vm_status"]
 === VmStatus [small]#enum#
 
-Type represeting a status of a virtual machine.
+Type representing a status of a virtual machine.
 
 .Values summary
 [cols="20,80"]

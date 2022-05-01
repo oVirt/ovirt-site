@@ -7,7 +7,7 @@
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [46](https://github.com/ovirt/ovirt-ansible-collection/issues) | 50 | 70 |
 | [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [42](https://github.com/ovirt/ovirt-engine/issues) | 349 | 222 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [30](https://github.com/ovirt/ovirt-site/issues) | 72 | 296 |
-| [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [30](https://github.com/ovirt/vdsm/issues) | 112 | 139 |
+| [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [30](https://github.com/ovirt/vdsm/issues) | 113 | 139 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [24](https://github.com/ovirt/terraform-provider-ovirt/issues) | 125 | 62 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 32 | 16 |
 | [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [14](https://github.com/ovirt/ovirt-imageio/issues) | 14 | 16 |
@@ -21,7 +21,7 @@
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | oVirt Python SDK | [5](https://github.com/ovirt/ovirt-engine-sdk/issues) | 79 | 79 |
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 20 | 26 |
 | [ovirt-dwh](https://github.com/oVirt/ovirt-dwh) | oVirt Engine Data Warehouse | [3](https://github.com/ovirt/ovirt-dwh/issues) | 6 | 20 |
-| [ovirt-node-ng-image](https://github.com/oVirt/ovirt-node-ng-image) | The source for oVirt Node NG installer ISO and RPM image | [3](https://github.com/ovirt/ovirt-node-ng-image/issues) | 11 | 8 |
+| [ovirt-node-ng-image](https://github.com/oVirt/ovirt-node-ng-image) | The source for oVirt Node NG installer ISO and RPM image | [3](https://github.com/ovirt/ovirt-node-ng-image/issues) | 11 | 10 |
 | [imgbased](https://github.com/oVirt/imgbased) | imgbased provides a specific management method to derive writeable filesystem layers from read-only base images. | [3](https://github.com/ovirt/imgbased/issues) | 7 | 6 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [3](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 2 | 2 |
 | [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | oVirt Engine API Model | [2](https://github.com/ovirt/ovirt-engine-api-model/issues) | 17 | 29 |

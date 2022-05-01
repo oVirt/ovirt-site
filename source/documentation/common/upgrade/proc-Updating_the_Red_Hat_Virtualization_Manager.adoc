@@ -97,7 +97,7 @@ The update process might take some time. Do not stop the process before it compl
 . Update the base operating system and any optional packages installed on the {engine-name}:
 +
 ----
-# yum update
+# yum update --nobest
 ----
 +
 [IMPORTANT]

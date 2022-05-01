@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Gluster Volume Performance Statistics | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Gluster Volume Performance Statistics" />
+<meta name="author" content="Kanagaraj Mayilsamy" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2877/develop/release-management/features/gluster/gluster-volume-performance-statistics.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2877/develop/release-management/features/gluster/gluster-volume-performance-statistics.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gluster Volume Performance Statistics" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Kanagaraj Mayilsamy" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kanagaraj Mayilsamy"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Gluster Volume Performance Statistics","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2877/images/logo.svg"},"name":"Kanagaraj Mayilsamy"},"url":"https://ovirt.github.io/ovirt-site/previews/2877/develop/release-management/features/gluster/gluster-volume-performance-statistics.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2877/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2877/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2877/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2877/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2877/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2877/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2877/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2877/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2877/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2877/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2877/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2877/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2877/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2877/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2877/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2877/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2877/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2877/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2877/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2877/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2877/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2877/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2877//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2877//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2877/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2877/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2877/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2877/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2877/develop/release-management/features/gluster/">
+              <span property="name">Gluster</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ad6a629dcee77b9544df139f8407510f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ad6a629dcee77b9544df139f8407510f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Kanagaraj Mayilsamy</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sahina Bose</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2877/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="gluster-volume-performance-statistics">Gluster Volume Performance Statistics</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature provides the support for monitoring and measuring the performance of Gluster volumes and bricks.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Feature owner: Sahina Bose <a href="mailto:sabose@redhat.com">sabose@redhat.com</a>
+    <ul>
+      <li>GUI Component owner: Anmol Babu <a href="mailto:anbabu@redhat.com">anbabu@redhat.com</a></li>
+      <li>Engine Component owner: Sahina Bose <a href="mailto:sabose@redhat.com">sabose@redhat.com</a></li>
+      <li>QA Owner: Sudhir Dharanendraiah <a href="mailto:sdharane@redhat.com">sdharane@redhat.com</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="current-status">Current Status</h2>
+
+<ul>
+  <li>Status:
+    <ul>
+      <li>Gluster Volume Profile: Completed. Available from 3.5</li>
+      <li>Gluster Volume Top: In Progress</li>
+    </ul>
+  </li>
+  <li>Last updated date: ,</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<h3 id="top">Top</h3>
+
+<p>Display results of the ‘gluster volume top’ command on GUI. GlusterFS Volume Top command allows you to view the glusterfs bricks’ performance metrics like read, write, file open calls, file read calls, file write calls, directory open calls, and directory read calls.</p>
+
+<p><a href="https://web.archive.org/web/20160310222215/http://gluster.org/community/documentation/index.php/Gluster_3.2:_Running_GlusterFS_Volume_Top_Command">Gluster Volume Top</a> has further details on this</p>
+
+<h4 id="vdsm-changes">VDSM Changes</h4>
+
+<ol>
+  <li>glusterVolumeTopOpen (volumeName, brickName=None, nfs=False, listCount=None/100?)</li>
+</ol>
+
+<p>This receives volume-name, brick-name, list-count as a input and executes gluster volume top open command and return a dictionary which contains a list of file names (top number of list-count items) and its call count values. List count is an optional numeric parameter which helps to filter the number of items to be returned. Brick-name is also an optional parameter. If brick-name is not given, it returns all bricks info of the volume.</p>
+
+<p>If nfs is True, then the top open output is per NFS server.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Output dictionary which contains open fd count and maximum fd count: ```python
+     {'statusCode' : CODE,
+         'brickCount': BRICK-COUNT,
+         'bricks': {BRICK-NAME: {'count':FILE-COUNT,
+                                               'currentOpenFds': CURRENT-OPEN-FDS-COUNT, 
+                                                         'maxOpen': MAX-OPEN, 
+                                                         'maxOpenTime': MAX-OPEN-TIME, 
+                                                         'files': [{FILE-NAME: FILE-OPEN-COUNT}, ...]
+                                                      }, ...} } ``` 2. glusterVolumeTopRead (volumeName,brickName=[ ], nfs=True/False?, listCount=None/100?)
+</code></pre></div></div>
+
+<p>This gives an output dictionary of a list of highest read calls on each brick. If brick name or list count is not given it works with the default value (all bricks, 100 files). This will use gluster volume top read gluster cli command internally.</p>
+
+<ul>
+  <li>We can get the list of values either for all bricks or a specific brick</li>
+</ul>
+
+<ol>
+  <li>glusterVolumeTopWrite (volumeName,brickName=[ ], nfs=True/False?, listCount=None/100?)</li>
+</ol>
+
+<p>This provides the list of highest file write calls on a specific brick or the list of bricks based on the input request. This calls gluster volume top write gluster cli command internally to fetch the values.</p>
+
+<ol>
+  <li>glusterVolumeTopOpenDir (volumeName, brickName=None, listCount=None)</li>
+</ol>
+
+<p>This returns list of files which has highest open calls on directories of each brick. If brick name is not specified, then the metrics of all the bricks belonging to that volume will be displayed. This uses gluster volume top opendir gluster cli command.</p>
+
+<ol>
+  <li>glusterVolumeTopReadDir (volumeName, brickName=None, listCount=None)</li>
+</ol>
+
+<p>Uses gluster volume top readdir gluster cli command and returns the dictionary as below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         Output dictionary: ```python
+         {'statusCode': CODE,
+                 'brickCount': BRICK-COUNT,
+                 'topOp': TOP-OP,
+                 'bricks': {BRICK-NAME: {  'count':READ-DIR-COUNT,
+                                                              'files': [{DIR-NAME: DIR-READ-COUNT}, ...]
+                                                           }, ...} } ``` 6. glusterVolumeTopReadPerf (volumeName, blockSize=None, count=None, brickName=None, listCount=None)
+</code></pre></div></div>
+
+<p>This functionality helps to identify disk performance based on specific block size</p>
+
+<ul>
+  <li>if the block size and the count is not specified, it will give the output based on historical data.</li>
+  <li>Proper validation is required before passing blockSize and count value to this function.</li>
+</ul>
+
+<p>the output will be dictionary which contains a list of read throughput of files on each brick. (What if the (dd) file size (blockSize * count) exceeds the size limit of the brick?)</p>
+
+<ul>
+  <li>The brick name parameter is an optional one. This will not accept a list of brick names.</li>
+</ul>
+
+<p>The values of blockSize and count will be passed to an appropriate gluster cli command and the gluster cli command will initiate a dd for the specified count and block size and measures the corresponding throughput.</p>
+
+<ol>
+  <li>glusterVolumeTopWritePerf (volumeName, blockSize=None, count=None, brickName=[], listCount=100)</li>
+</ol>
+
+<p>This provides write throughput of files on a specific brick/brick-wise</p>
+
+<h4 id="entities">Entities</h4>
+
+<p><img src="/ovirt-site/previews/2877/images/wiki/TopClassDiagram.png" alt="" /></p>
+
+<p><strong>\1</strong></p>
+
+<ul>
+  <li>OPEN</li>
+  <li>READ</li>
+  <li>WRITE</li>
+  <li>OPENDIR</li>
+  <li>READDIR</li>
+  <li>READ-PERF</li>
+  <li>WRITE-PERF</li>
+</ul>
+
+<h4 id="rest-api">REST API</h4>
+
+<ul>
+  <li>GET: <code class="language-plaintext highlighter-rouge">/api/clusters/&lt;cluster-id&gt;/glustervolumes/&lt;volume-id&gt;/top;type=&lt;TopStatisticType&gt;</code>
+    <ul>
+      <li>Other matrix parameters
+        <ul>
+          <li>nfs=true/false</li>
+          <li>blocksize</li>
+          <li>count</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>GET: <code class="language-plaintext highlighter-rouge">/api/clusters/&lt;cluster-id&gt;/glustervolumes/&lt;volume-id&gt;/bricks/&lt;brick-id&gt;/top;type=&lt;TopStatisticType&gt;</code></li>
+</ul>
+
+<h3 id="profile">Profile</h3>
+
+<p>Display results of ‘gluster volume profile’ command on the GUI.</p>
+
+<p>Gluster volume profile can be used to diagnose performance issues with any gluster volume. To start diagnosis, the user needs to start profiling on the volume</p>
+
+<p>Once profiling is enabled, the profile info can be viewed at intervals and can be used for diagnosis.</p>
+
+<p>Once diagnosis is complete, profiling needs to be stopped on the volume.</p>
+
+<p>See <a href="https://web.archive.org/web/20150902153931/http://gluster.org/community/documentation/index.php/Gluster_3.2:_Displaying_the_I/0_Information">Gluster Volume Profile</a> for detailed information on gluster volume profile</p>
+
+<h4 id="user-flows">User Flows</h4>
+
+<p>Volume profiling can be started from the Volumes tab, by selecting a volume</p>
+
+<p><img src="/ovirt-site/previews/2877/images/wiki/Vol-profile-start.png" alt="" /></p>
+
+<p>User can start profiling, view profile info and stop profiling using this sub menu</p>
+
+<p>To view the profile info, “Details” sub-menu of the Profiling menu needs to be clicked. This will show a pop-up dialog like below</p>
+
+<p><img src="/ovirt-site/previews/2877/images/wiki/Vol-Profile-Details-Bricks.png" alt="" /> <img src="/ovirt-site/previews/2877/images/wiki/Vol-Profile-Details-NFS.png" alt="" /></p>
+
+<ul>
+  <li>User can choose to export the data returned for the sampling interval using the “Export” button</li>
+  <li>User can refresh the profile data using the “Refresh” icon</li>
+</ul>
+
+<h4 id="rest-api-1">REST API</h4>
+
+<ul>
+  <li>GET: <code class="language-plaintext highlighter-rouge">/api/clusters/&lt;cluster_id&gt;/glustervolumes/&lt;volume_id&gt;/profilestatistics</code></li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;profileinfo&gt;</span>
+      <span class="nt">&lt;profilestatstype&gt;</span>CUMULATIVE|INTERVAL<span class="nt">&lt;/profilestatstype&gt;</span>
+      <span class="nt">&lt;duration&gt;</span>..<span class="nt">&lt;/duration&gt;</span>
+      <span class="nt">&lt;totalbytesread&gt;</span>..<span class="nt">&lt;totalbytesread&gt;</span>
+      <span class="nt">&lt;totalbyteswrite&gt;</span>..<span class="nt">&lt;totalbyteswrite&gt;</span>
+      <span class="nt">&lt;blockinfo&gt;</span>
+      <span class="nt">&lt;blockstatistics&gt;</span>../<span class="nt">&lt;/blockstatistics&gt;</span>
+      <span class="nt">&lt;blockstatistics&gt;</span>../<span class="nt">&lt;/blockstatistics&gt;</span>
+      <span class="nt">&lt;/blockinfo&gt;</span>
+      <span class="nt">&lt;fopinfo&gt;</span>
+            <span class="nt">&lt;fopstatistics&gt;</span>...<span class="nt">&lt;/fopstatistics&gt;</span>  
+      <span class="nt">&lt;fopstatistics&gt;</span>...<span class="nt">&lt;/fopstatistics&gt;</span>
+      <span class="nt">&lt;/fopinfo&gt;</span>
+<span class="nt">&lt;/profileinfo&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>POST: <code class="language-plaintext highlighter-rouge">/api/clusters/&lt;cluster_id&gt;/glustervolumes/&lt;volume_id&gt;/startprofiling</code></li>
+  <li>POST: <code class="language-plaintext highlighter-rouge">/api/clusters/&lt;cluster_id&gt;/glustervolumes/&lt;volume_id&gt;/stopprofiling</code></li>
+</ul>
+
+<h4 id="how-to">HOW TO</h4>
+
+<ol>
+  <li>Create a gluster volume using the Volumes tab or you can use an existing volume</li>
+  <li>Start profiling on the volume by clicking on “Profiling” sub tab after selecting the volume</li>
+  <li>Mount the volume using NFS or any other client if not already mounted and perform some read/write operations on it</li>
+  <li>You can now view the profile statistics using “Profiling” sub tab or the API</li>
+</ol>
+
+<h2 id="design">Design</h2>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2877/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2877/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2877/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2877/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/gluster/gluster-volume-performance-statistics.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/gluster/gluster-volume-performance-statistics.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

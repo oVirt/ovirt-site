@@ -84,7 +84,7 @@ nvidia-vgpu-mgr.service - NVIDIA vGPU Manager Daemon
  Main PID: 1553 (nvidia-vgpu-mgr)
  [...]
 ----
-// ############## From here to the end of the procedure is unique to RHV and needs to be conditionalized as such.
+// From here to the end of the procedure is unique to RHV and needs to be conditionalized as such. The entire NVIDIA topic set is unique to downstream/RHV.
 
 . In the Administration Portal, click menu:Compute[Virtual Machines].
 
@@ -92,7 +92,7 @@ nvidia-vgpu-mgr.service - NVIDIA vGPU Manager Daemon
 
 . Click the *Host Devices* tab.
 
-. Click the btn:[Manage vGPU] button. The *Manage vGPU* dialog box opens.
+. Click btn:[Manage vGPU]. The *Manage vGPU* dialog box opens.
 
 . Select a vGPU type and the number of instances that you would like to use with this virtual machine.
 

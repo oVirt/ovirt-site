@@ -18,6 +18,6 @@ To change the configuration of assigned vGPU mediated devices, the existing devi
 . In the Administration Portal, click menu:Compute[Virtual Machines].
 . Click the name of the virtual machine to go to the details view.
 . Click the *Host Devices* tab.
-. Click the btn:[Manage vGPU] button. The *Manage vGPU* dialog box opens.
+. Click btn:[Manage vGPU]. The *Manage vGPU* dialog box opens.
 . Click the btn:[x] button next to *Selected vGPU Type Instances* to detach the vGPU from the virtual machine.
 . Click btn:[SAVE].

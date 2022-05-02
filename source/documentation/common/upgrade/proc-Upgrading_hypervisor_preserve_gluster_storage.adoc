@@ -313,8 +313,7 @@ and
 +
 [source,terminal,subs="normal"]
 ----
-# cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
-ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'
+# cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment ansible-playbook he.yml --extra-vars "@he_gluster_vars.json"
 ----
 
 .. Wait for the self-hosted engine deployment to complete.

@@ -78,6 +78,17 @@ Reporting bugs is one of the most valuable ways you can contribute! Ideas for ne
 * [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
 * Security issues follow a [special reporting procedure](/community/security.html).
 
+## Monitor security reports for oVirt Node
+
+oVirt Node contains hundreds of packages: some of them may be affected by vulnerabilities which may have critical impact.
+You can help keeping oVirt Node secure by monitoring [security reports](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3A%22security%20response%22)
+and open oVirt Node trackers using [Bug 2074469](https://bugzilla.redhat.com/show_bug.cgi?id=2074469) as template.
+
+Once the tracker is open you can help monitoring progress of the security fix.
+Look at [existing security reports in oVirt Node](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt-node%20keyword%3Asecurity)
+and check corresponding package on [CentOS Stream 8 Koji](https://koji.mbox.centos.org/koji/packages).
+If a fix for the CVE is available, update Bugzilla accordingly. As an example you can see [Bug 2074469 handling](https://bugzilla.redhat.com/show_bug.cgi?id=2074469#c1)
+
 ## Participate in the oVirt infrastructure
 
 Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [hosting a public mirror](/community/get-involved/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](/community/becoming-an-infrastructure-team-member.html) or [donate hardware](/community/get-involved/donate-hardware.html) to the project to improve our capacity and redundancy.

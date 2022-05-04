@@ -29,22 +29,18 @@ FIPS mode is enabled.
 ////
 [IMPORTANT]
 ====
-Red Hat recommends installing Red Hat Enterprise Linux 8 with FIPS mode enabled as opposed to enabling FIPS mode later. Enabling FIPS mode during the installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
+Red Hat recommends installing {enterprise-linux-shortname} 8 with FIPS mode enabled as opposed to enabling FIPS mode later. Enabling FIPS mode during the installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
 ====
 
 You enable FIPS first on each bare metal machine, and then in the Manager.
 
 * xref:enabling_fips_she_appendix_fips[Enabling FIPS in a self-hosted engine]
-* xref:enabling_fips_rhvh_appendix_fips[Enabling FIPS in RHVH]
-* xref:enabling_fips_rhel_hosts_and_rhvm_appendix_fips[Enabling FIPS in RHEL hosts and the standalone Manager]
-* xref:enabling_fips_using_the_rhv_manager_appendix_fips[Configuring FIPS hosts using the Manager]
+* xref:enabling_fips_rhel_hosts_and_rhvm_appendix_fips[Enabling FIPS in {enterprise-linux-shortname} hosts and the standalone Manager]
 
 
 
 include::topics/proc-enabling-fips_she.adoc[leveloffset=+1]
 include::topics/proc-enabling-fips_rhel_hosts_and_rhvm.adoc[leveloffset=+1]
-include::topics/proc-enabling-fips_rhvh.adoc[leveloffset=+1]
-include::topics/proc-enabling-fips-using-the-rhv-manager.adoc[leveloffset=+1]
 
 == Additional resources
 

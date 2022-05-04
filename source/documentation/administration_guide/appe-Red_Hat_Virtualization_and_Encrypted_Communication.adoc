@@ -30,7 +30,6 @@ To set up encrypted VNC consoles, you complete the following procedures:
 * xref:configuring_remote_viewer_trust_rhvm_ca_certificate[Configure the Remote Viewer to trust the Manager's CA certificate.]
 
 // include::topics/proc-enabling-fips_in_rhv.adoc[leveloffset=+1]
-//include::topics/proc-enabling-fips-using-the-rhv-manager.adoc[leveloffset=+1]
 
 [id="configuring_cluster_to_enable_vnc_encryption"]
 === Configuring the cluster to enable VNC Encryption

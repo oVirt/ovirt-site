@@ -14,6 +14,7 @@ The {virt-product-fullname} guest agents and drivers are provided by the {virt-p
 . Log in to the {enterprise-linux} virtual machine.
 
 . Enable the {virt-product-fullname} Agent repository:
+ifdef::rhv-doc[]
 * For {enterprise-linux} 6
 +
 [source,terminal,subs="normal"]
@@ -32,6 +33,29 @@ The {virt-product-fullname} guest agents and drivers are provided by the {virt-p
 ----
 # subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
 ----
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+* For {enterprise-linux} 6
++
+[source,terminal,subs="normal"]
+----
+# yum install -y https://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+----
+* For CentOS Linux 7
++
+[source,terminal,subs="normal"]
+----
+# yum install -y centos-release-ovirt43
+----
+* For Red Hat {enterprise-linux} 7
++
+[source,terminal,subs="normal"]
+----
+# subscription-manager repos --enable=rhel-7-server-rh-common-rpms
+----
+* For {enterprise-linux} 8 and 9 the AppStream repository is enabled by default
+endif::ovirt-doc[]
+
 . Install the guest agent and dependencies:
 * For {enterprise-linux} 6 or 7, install the ovirt guest agent:
 +
@@ -39,7 +63,7 @@ The {virt-product-fullname} guest agents and drivers are provided by the {virt-p
 ----
 # yum install ovirt-guest-agent-common
 ----
-* For {enterprise-linux} 8, install the qemu guest agent:
+* For {enterprise-linux} 8 and 9, install the qemu guest agent:
 +
 [source,terminal,subs="normal"]
 ----
@@ -69,7 +93,7 @@ The {virt-product-fullname} guest agents and drivers are provided by the {virt-p
 # service qemu-ga start
 # chkconfig qemu-ga on
 ----
-* For {enterprise-linux} 7 or 8
+* For {enterprise-linux} 7, 8 or 9
 +
 [source,terminal,subs="normal"]
 ----
@@ -77,4 +101,4 @@ The {virt-product-fullname} guest agents and drivers are provided by the {virt-p
 # systemctl enable qemu-guest-agent
 ----
 
-The guest agent now passes usage information to the {virt-product-fullname} {engine-name}. You can configure the guest agent in the `/etc/ovirt-guest-agent.conf` file.
+The guest agent now passes usage information to the {virt-product-fullname} {engine-name}. You can configure the oVirt guest agent in the `/etc/ovirt-guest-agent.conf` file.

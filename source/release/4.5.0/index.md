@@ -9,19 +9,11 @@ page_classes: releases
 ---
 
 
-# oVirt 4.5.0 release planning
-
-The oVirt 4.5.0 code freeze is planned for April 06, 2022.
-
-If no critical issues are discovered while testing this compose it will be released on April 20, 2022.
-
-It has been planned to include in this release the content from this query:
-[Bugzilla tickets targeted to 4.5.0](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.5.0%22%20-target_milestone%3A%22ovirt-4.5.0-%22)
-
-
 # oVirt 4.5.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.5.0 First Beta release as of April 06, 2022.
+The oVirt Project is pleased to announce the availability of the 4.5.0 release as of April 20, 2022.
+
+On April 26th, 2022 the oVirt Porject released an [oVirt Node 4.5.0.1 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/)
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -35,10 +27,10 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
+
+If you'd like to try oVirt as quickly as possible, follow the instructions on
+the [Download](/download/) page.
 
 
 For complete installation, administration, and usage instructions, see
@@ -48,25 +40,11 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.5.0, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## BETA RELEASE
-
-In order to install this Beta Release you will need to enable pre-release repository.
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 > IMPORTANT
 > If you are going to install on RHEL 8.6 Beta please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
-```bash
-dnf install -y centos-release-ovirt45
-```
-
-```bash
-dnf install -y python3-dnf-plugins-core
-dnf config-manager --set-enabled centos-ovirt45-testing
-dnf config-manager --set-enabled ovirt-45-upstream-testing
-```
 
 
 ## What's New in 4.5.0?
@@ -75,6 +53,15 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
 #### oVirt Engine
 
+ - [BZ 2077387](https://bugzilla.redhat.com/show_bug.cgi?id=2077387) **Update to 4.5 failed due to failed database schema refresh**
+
+   If vdc_options table contains records with NULL default value (most probably as a remains from ancient versions), the upgrade to ovirt-engine-4.5.0 fails. This bug fixes the issue, so upgrade to ovirt-engine-4.5.0 is successfull.
+ - [BZ 2071468](https://bugzilla.redhat.com/show_bug.cgi?id=2071468) **Engine fenced host that was already reconnected and set to Up status.**
+
+   If SSH soft fencing needs to be executed on a problematic host, oVirt Engine now waits expected time interval before it continues with fencing, so VDSM has enough time to start and respond to oVirt Engine.
+ - [BZ 2052690](https://bugzilla.redhat.com/show_bug.cgi?id=2052690) **[RFE] Upgrade to ansible-core-2.12 in ovirt-engine**
+
+   oVirt Engine 4.5 requires ansible-core-2.12 from RHEL 8.6 and doesn't work anymore with previous ansible-2.9.z versions
  - [BZ 1940824](https://bugzilla.redhat.com/show_bug.cgi?id=1940824) **[RFE] Upgrade OVN/OVS 2.11 in oVirt to OVN/OVS 2.15**
 
    Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.
@@ -99,16 +86,16 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
    1. If a certificate is going to expire in the upcoming 120 days, then WARNING event is raised in the audit log
    2. If a certificate is going to expired in the upcoming 30 days, then ALERT event is raised in the audit log
 
-   This checks for internal oVirt certificates (for example certificate for oVirt Engine &lt;-&gt; hypervisor communication), but it doesn't check for custom certificates configured for HTTPS access to oVirt Engine as configured according to https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate
- - [BZ 2021545](https://bugzilla.redhat.com/show_bug.cgi?id=2021545) **[RFE] Add cluster-level 4.7**
-
-   In this release we have added DataCenter/Cluster compatibility level 4.7, which is available only on hosts with RHEL 8.6+, latest CentOS Stream 8 and CentOS Stream/RHEL 9 with libvirt &gt;= 8.0.0 installed.
+   This checks for internal oVirt certificates (for example certificate for oVirt Engine &lt;-&gt; hypervisor communication), but it doesn't check for custom certificates configured for HTTPS access to oVirt Engine as configured according to [https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate](https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate)
  - [BZ 2015093](https://bugzilla.redhat.com/show_bug.cgi?id=2015093) **[RFE] Implement hypervisors core dump related configuration to work on EL8 and EL9**
 
    oVirt 4.5 has moved from abrt to systemd-coredump to gather crash dumps on the hypervisors
  - [BZ 2023250](https://bugzilla.redhat.com/show_bug.cgi?id=2023250) **[RFE] Use virt:rhel module instead of virt:av in RHEL 8.6+ to get advanced virtualization packages**
 
    Advanced Virtualization module (virt:av) has been merged into standard RHEL virtualization module (virt:rhel) as a part of RHEL 8.6 release. Due to this change the host deploy and host upgrade flows has been updated to properly enable virt:rhel module during new installation of RHEL 8.6 host and during upgrade of existing RHEL &lt;= 8.5 to RHEL 8.6 host.
+ - [BZ 2015802](https://bugzilla.redhat.com/show_bug.cgi?id=2015802) **[RFE] oVirt hypervisors should support running on host with DISA STIG security profile applied**
+
+   oVirt Hypervisor 4.5, with exception to oVirt Node, is able to run on a host with RHEL 8.6 DISA STIG openscap profile applied.
  - [BZ 1782056](https://bugzilla.redhat.com/show_bug.cgi?id=1782056) **[RFE] Integration of built-in ipsec feature in oVirt with OVN**
 
    The IPSec for OVN feature is available on hosts with configured ovirt-provider-ovn, OVN version 2021 or higher and OvS version 2.15 or higher.
@@ -167,15 +154,15 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
 #### VDSM
 
- - [BZ 2021545](https://bugzilla.redhat.com/show_bug.cgi?id=2021545) **[RFE] Add cluster-level 4.7**
-
-   In this release we have added DataCenter/Cluster compatibility level 4.7, which is available only on hosts with RHEL 8.6+, latest CentOS Stream 8 and CentOS Stream/RHEL 9 with libvirt &gt;= 8.0.0 installed.
  - [BZ 2015093](https://bugzilla.redhat.com/show_bug.cgi?id=2015093) **[RFE] Implement hypervisors core dump related configuration to work on EL8 and EL9**
 
    oVirt 4.5 has moved from abrt to systemd-coredump to gather crash dumps on the hypervisors
  - [BZ 2010205](https://bugzilla.redhat.com/show_bug.cgi?id=2010205) **vm_kill_paused_time value should be determined from io_timeout**
 
    Vdsm configuration option vars.vm_kill_paused_time was removed. The corresponding value is directly dependent on the value of recently introduced sanlock.io_timeout option and needn't be configured separately.
+ - [BZ 2015802](https://bugzilla.redhat.com/show_bug.cgi?id=2015802) **[RFE] oVirt hypervisors should support running on host with DISA STIG security profile applied**
+
+   oVirt Hypervisor 4.5, with exception to oVirt Node, is able to run on a host with RHEL 8.6 DISA STIG openscap profile applied.
  - [BZ 1940824](https://bugzilla.redhat.com/show_bug.cgi?id=1940824) **[RFE] Upgrade OVN/OVS 2.11 in oVirt to OVN/OVS 2.15**
 
    Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.
@@ -194,9 +181,24 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
    If the host's OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.
 
+#### oVirt Node NG Image
+
+ - [BZ 2056596](https://bugzilla.redhat.com/show_bug.cgi?id=2056596) **CVE-2021-4083 kernel: fget: check that the fd still exists after getting a ref to it [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2021-4083](https://bugzilla.redhat.com/show_bug.cgi?id=2029923)
+ - [BZ 2061694](https://bugzilla.redhat.com/show_bug.cgi?id=2061694) **CVE-2022-0847 - kernel: improper initialization of the "flags" member of the new pipe_buffer [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-0847](https://bugzilla.redhat.com/show_bug.cgi?id=2060795)
+
+#### oVirt Engine Appliance
+
+ - [BZ 2067982](https://bugzilla.redhat.com/show_bug.cgi?id=2067982) **CVE-2022-24302 python-paramiko: Race condition in the write_private_key_file function [ovirt-4.5]**
+
+   CVE-2022-24302: Creation of new private key files using `~paramiko.pkey.PKey` subclasses was subject to a race condition between file creation and mode modification, which could be exploited by an attacker with knowledge of where the Paramiko-using code would write out such files; this has been patched by using `os.open` and `os.fdopen` to ensure new files are opened with the correct mode immediately (we've left the subsequent explicit `chmod` in place to minimize any possible disruption).
+
 ### Enhancements
 
-#### cockpit-ovirt
+#### oVirt Cockpit Plugin
 
  - [BZ 2066042](https://bugzilla.redhat.com/show_bug.cgi?id=2066042) **Require ansible-core instead of ansible in cockpit-ovirt**
 
@@ -205,6 +207,18 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
    Reason: oVirt 4.5 is upgraded to use ansible-core
 
    Result: Ansible-core is used in oVirt 4.5
+
+#### imgbased
+
+ - [BZ 2055829](https://bugzilla.redhat.com/show_bug.cgi?id=2055829) **[RFE] /var/tmp should be on its own partition**
+
+   `/var/tmp` is now on a separate lvm partition for DISA-STIG support.
+
+#### OTOPI
+
+ - [BZ 2060006](https://bugzilla.redhat.com/show_bug.cgi?id=2060006) **dnf packager on AlmaLinux**
+
+   OTOPI packager detection has been extended to implicitly support all RHEL rebuilds, such as AlmaLinux.
 
 #### oVirt Ansible collection
 
@@ -218,12 +232,18 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
    Reason: Support DISA STIG profile in oVirt
 
    Result: Hosted Engine deployment works on a host with DISA STIG is profile
+ - [BZ 2022620](https://bugzilla.redhat.com/show_bug.cgi?id=2022620) **[RFE] adapt the current hosted_engine_setup role to work within ansible-core 2.12**
+
+   Self Hosted Engine Setup role has been adapted to work with ansible-core 2.12
  - [BZ 2029830](https://bugzilla.redhat.com/show_bug.cgi?id=2029830) **[RFE] Hosted engine should accept OpenSCAP profile name instead of bool**
 
    Hosted Engine installation now supports selecting either DISA STIG or PCI-DSS security profiles for the Hosted Engine VM
 
 #### oVirt Engine
 
+ - [BZ 2072881](https://bugzilla.redhat.com/show_bug.cgi?id=2072881) **Allow upgrade via backup and restore from 4.4 to 4.5**
+
+   Usually oVirt Engine can restore backups taken only from the same version. For oVirt 4.5 it has been made possible to restore a backup taken from oVirt 4.4 into an oVirt 4.5 Engine.
  - [BZ 2040474](https://bugzilla.redhat.com/show_bug.cgi?id=2040474) **[RFE] Add progress tracking for Cluster Upgrade**
 
    If this bug requires documentation, please select an appropriate Doc Type value.
@@ -240,20 +260,20 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
    After the fix, the shared disks are part of the 'OVF_STORE' configuration.
    That allows VMs to share disks, move Storage Domain to another environment, and after importing VMs, the VMs correctly share the same disks without any additional manual configuration.
  - [BZ 2055666](https://bugzilla.redhat.com/show_bug.cgi?id=2055666) **[RFE] Timer for Console Disconnect Action - Shutdown VM after N minutes of being disconnected**
- - [BZ 1782077](https://bugzilla.redhat.com/show_bug.cgi?id=1782077) **[RFE] More Flexible oVirt CPU Allocation Policy with HyperThreading**
-
-   Added a CPU pinning policy named DEDICATED that exclusively pin virtual CPUs to physical CPUs. With this policy, a complete physical core can be used as a virtual core of a single virtual machine.
  - [BZ 1987121](https://bugzilla.redhat.com/show_bug.cgi?id=1987121) **[RFE] Support enabling nVidia Unified Memory on mdev vGPU**
 
-   The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. "enable_uvm=1". The given text will be used for all the vGPUs of a given VM.
+   The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. "`enable_uvm=1`". The given text will be used for all the vGPUs of a given VM.
 
    The vGPU editing dialog was moved from the host devices tab to the VM devices tab.
 
    vGPU properties are no longer specified using mdev_type VM custom property. They are specified as VM devices now. This change is transparent when using the vGPU editing dialog. In the REST API, the vGPU properties can be manipulated using a newly introduced `.../vms/.../mediateddevices` endpoint. The new API permits setting "nodisplay" and driver parameters for each of the vGPUs individually, but note that this is not supported in the vGPU editing dialog where they can be set only to a single value common for all the vGPUs of a given VM.
  - [BZ 2054681](https://bugzilla.redhat.com/show_bug.cgi?id=2054681) **[RFE] Make VM sealing configurable**
+ - [BZ 1991482](https://bugzilla.redhat.com/show_bug.cgi?id=1991482) **[RFE] add a link to Grafana in the Admin portal UI**
+
+   A link to Monitoring Portal has been added within the Administration Portal
  - [BZ 1999698](https://bugzilla.redhat.com/show_bug.cgi?id=1999698) **ssl.conf modifications of engine-setup do not conform to best practices (according to red hat insights)**
 
-   In previous versions, engine-setup configured apache httpd's SSLProtocol configuration option to be '-all +TLSv1.2'.
+   In previous versions, engine-setup configured apache httpd's SSLProtocol configuration option to be `-all +TLSv1.2`.
 
    In RHEL 8, this isn't needed, because this option is managed by crypto-policies.
 
@@ -266,6 +286,9 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
    Reason: Users may want to change allocation policy or format to make reduce space usage or improve performance. As well as enable incremental backup on existing raw disks.
 
    Result:
+ - [BZ 2021545](https://bugzilla.redhat.com/show_bug.cgi?id=2021545) **[RFE] Add cluster-level 4.7**
+
+   With this release, DataCenter/Cluster compatibility level 4.7 has been added, which is available only on hosts with RHEL 8.6 or later, on the latest CentOS Stream 8 and CentOS Stream/RHEL 9 with libvirt 8.0.0 or later installed.
  - [BZ 1878930](https://bugzilla.redhat.com/show_bug.cgi?id=1878930) **[RFE] Provide warning event if MAC Address Pool free and available addresses are below threshold**
 
    Feature: Provide warning event if number of available MAC addresses in pool are below threshold. The threshold is configurable via engine-config. An event will be created per pool on engine start, and if the threshold is reached when consuming addresses from the pool.
@@ -281,7 +304,7 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
    If administrators have a strong reason to change that 7 hosts limit, they could create `/etc/ovirt-engine/engine.conf.d/99-max-he-hosts.conf` file with following content:
 
-     MAX_RECOMMENDED_HE_HOSTS=NNN
+     `MAX_RECOMMENDED_HE_HOSTS=NNN`
 
    where `NNN` represents the maximum number of hosts with active hosted engine configuration before above warning is raised.
 
@@ -312,7 +335,7 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
    Support for parallel migration connections was added.
 
-   See https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html for all the important information about the feature.
+   See [Parallel migration connections](https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html) for all the important information about the feature.
  - [BZ 2011768](https://bugzilla.redhat.com/show_bug.cgi?id=2011768) **Add an option to show only direct permissions (filter inherited permissions)**
 
    Feature: 
@@ -326,9 +349,18 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
    Result: 
 
    Adding "ALL" and "Direct" buttons that controls the permission list
+ - [BZ 2021217](https://bugzilla.redhat.com/show_bug.cgi?id=2021217) **[RFE] Windows 2022 support**
+
+   Add Windows 2022 as a guest operating system
+ - [BZ 1998866](https://bugzilla.redhat.com/show_bug.cgi?id=1998866) **[RFE] Windows 11 support**
+
+   Add Windows 11 as a guest operating system
  - [BZ 1821018](https://bugzilla.redhat.com/show_bug.cgi?id=1821018) **[RFE] Use only "engine-backup --mode=restore" for restoration of every possible databases by default instead of "--provision-all-databases"**
 
    If this bug requires documentation, please select an appropriate Doc Type value.
+ - [BZ 2033185](https://bugzilla.redhat.com/show_bug.cgi?id=2033185) **[RFE] Add e1000e driver on cluster level &gt;=4.7**
+
+   Add e1000e VM Nic type for cluster level 4.7. The e1000 is depracated from RHEL8.0 and users should switch to e1000e when possible.
  - [BZ 2024157](https://bugzilla.redhat.com/show_bug.cgi?id=2024157) **engine-setup should prevent upgrade to an engine that does not match its own version**
 
    engine-setup now requires the version of the setup package to be the same as the version of the engine package.
@@ -349,9 +381,6 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 2002283](https://bugzilla.redhat.com/show_bug.cgi?id=2002283) **Make NumOfPciExpressPorts configurable via engine-config**
 
    It is now possible to set the number of PCI Express ports virtual machines are configured with by setting the NumOfPciExpressPorts configuration using engine-config
- - [BZ 1927985](https://bugzilla.redhat.com/show_bug.cgi?id=1927985) **[RFE] Speed up export-to-OVA on NFS by aligning loopback device offset**
-
-   Padding between files is now added when exporting a VM to OVA. The goal is to align disks in the OVA to the edge of a block of the underlying filesystem. In this case disks are written faster during the export, especially to an NFS partition.
  - [BZ 1849169](https://bugzilla.redhat.com/show_bug.cgi?id=1849169) **[RFE] add virtualCPUs/physicalCPUs ratio property to evenly_distributed policy**
 
    Feature: 
@@ -431,7 +460,7 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
  - [BZ 1987121](https://bugzilla.redhat.com/show_bug.cgi?id=1987121) **[RFE] Support enabling nVidia Unified Memory on mdev vGPU**
 
-   The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. "enable_uvm=1". The given text will be used for all the vGPUs of a given VM.
+   The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. "`enable_uvm=1`". The given text will be used for all the vGPUs of a given VM.
 
    The vGPU editing dialog was moved from the host devices tab to the VM devices tab.
 
@@ -439,6 +468,9 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 2040474](https://bugzilla.redhat.com/show_bug.cgi?id=2040474) **[RFE] Add progress tracking for Cluster Upgrade**
 
    If this bug requires documentation, please select an appropriate Doc Type value.
+ - [BZ 1991482](https://bugzilla.redhat.com/show_bug.cgi?id=1991482) **[RFE] add a link to Grafana in the Admin portal UI**
+
+   A link to Monitoring Portal has been added within the Administration Portal
 
 #### oVirt Host Dependencies
 
@@ -472,18 +504,21 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 2029830](https://bugzilla.redhat.com/show_bug.cgi?id=2029830) **[RFE] Hosted engine should accept OpenSCAP profile name instead of bool**
 
    Hosted Engine installation now supports selecting either DISA STIG or PCI-DSS security profiles for the Hosted Engine VM
+ - [BZ 1616158](https://bugzilla.redhat.com/show_bug.cgi?id=1616158) **Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.**
 
-#### oVirt Release Host Node
+   A check has been added to Self Hosted Engine Setup to ensure that the IP address resolved from oVirt Engine FQDN belongs to the same Subnet of the host which will run the Self Hosted Engine Agent.
 
- - [BZ 1986775](https://bugzilla.redhat.com/show_bug.cgi?id=1986775) **[RFE] introduce support for CentOS Stream 9 on oVirt releases**
+#### oVirt Setup Lib
 
-   oVirt release package now provides YUM repositories configuration also for CentOS Stream 9.
+ - [BZ 1616158](https://bugzilla.redhat.com/show_bug.cgi?id=1616158) **Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.**
+
+   A check has been added to Self Hosted Engine Setup to ensure that the IP address resolved from oVirt Engine FQDN belongs to the same Subnet of the host which will run the Self Hosted Engine Agent.
 
 #### VDSM
 
  - [BZ 1987121](https://bugzilla.redhat.com/show_bug.cgi?id=1987121) **[RFE] Support enabling nVidia Unified Memory on mdev vGPU**
 
-   The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. "enable_uvm=1". The given text will be used for all the vGPUs of a given VM.
+   The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. "`enable_uvm=1`". The given text will be used for all the vGPUs of a given VM.
 
    The vGPU editing dialog was moved from the host devices tab to the VM devices tab.
 
@@ -508,11 +543,14 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
    Result:
    With this feature, vdsm use LVM devices file for managing storage devices and LVM filter is not needed any more.
+ - [BZ 2021545](https://bugzilla.redhat.com/show_bug.cgi?id=2021545) **[RFE] Add cluster-level 4.7**
+
+   With this release, DataCenter/Cluster compatibility level 4.7 has been added, which is available only on hosts with RHEL 8.6 or later, on the latest CentOS Stream 8 and CentOS Stream/RHEL 9 with libvirt 8.0.0 or later installed.
  - [BZ 1975720](https://bugzilla.redhat.com/show_bug.cgi?id=1975720) **[RFE] Huge VMs require an additional migration parameter**
 
    Support for parallel migration connections was added.
 
-   See https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html for all the important information about the feature.
+   See [Parallel migration connections](https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html) for all the important information about the feature.
  - [BZ 977778](https://bugzilla.redhat.com/show_bug.cgi?id=977778) **[RFE] - Mechanism for converting disks for non-running VMS**
 
    Feature: 
@@ -532,9 +570,6 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
    Add screenshot API that captures the current screen of a VM, and then returns PPM file screenshot
 
    the user can then download the screenshot and view it content
- - [BZ 1782077](https://bugzilla.redhat.com/show_bug.cgi?id=1782077) **[RFE] More Flexible oVirt CPU Allocation Policy with HyperThreading**
-
-   Added a CPU pinning policy named DEDICATED that exclusively pin virtual CPUs to physical CPUs. With this policy, a complete physical core can be used as a virtual core of a single virtual machine.
  - [BZ 1616436](https://bugzilla.redhat.com/show_bug.cgi?id=1616436) **[RFE] Sparsify uploads**
 
    Feature: 
@@ -560,9 +595,17 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
 #### oVirt Release Host Node
 
- - [BZ 2012747](https://bugzilla.redhat.com/show_bug.cgi?id=2012747) **Add Gluster 10 repos**
+ - [BZ 2012747](https://bugzilla.redhat.com/show_bug.cgi?id=2012747) **Add Gluster 10 repositories**
 
-   oVirt release package now enables by default GlusterFS 10 repositories. Please follow the Gluster 10 upgrade guide at https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/
+   oVirt release package now enables by default GlusterFS 10 repositories. Please follow the [Gluster 10 upgrade guide](https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/)
+
+### Technology Preview
+
+#### oVirt Release Host Node
+
+ - [BZ 1986775](https://bugzilla.redhat.com/show_bug.cgi?id=1986775) **[RFE] introduce support for CentOS Stream 9 on oVirt releases**
+
+   oVirt release package now provides YUM repositories configuration also for CentOS Stream 9.
 
 ### Removed functionality
 
@@ -574,6 +617,12 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 1950730](https://bugzilla.redhat.com/show_bug.cgi?id=1950730) **Remove old Cinder integration from the REST-API**
 
    This patch removes the ability to create/use old cinder integration using the REST API.
+
+#### oVirt Web Site
+
+ - [BZ 2077545](https://bugzilla.redhat.com/show_bug.cgi?id=2077545) **[DOCS] Remove references to ovirt-iso-uploader / engine-iso-uploader**
+
+   ovirt-iso-uploader package was deprecated in 4.3 and removed in 4.4.
 
 ### Bug Fixes
 
@@ -599,6 +648,7 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 1648985](https://bugzilla.redhat.com/show_bug.cgi?id=1648985) **VM from VM-pool which is already in use by a SuperUser is presented to another User with UserRole permission who can shutdown the VM.**
  - [BZ 1999028](https://bugzilla.redhat.com/show_bug.cgi?id=1999028) **TPM device can't be marked in added status when VM is running**
  - [BZ 2000031](https://bugzilla.redhat.com/show_bug.cgi?id=2000031) **SPM host is rebooted multiple times when engine recovers the host**
+ - [BZ 2040361](https://bugzilla.redhat.com/show_bug.cgi?id=2040361) **Hotplug VirtIO-SCSI disk fails with error "Domain already contains a disk with that address" when IO threads &gt; 1**
  - [BZ 1931812](https://bugzilla.redhat.com/show_bug.cgi?id=1931812) **VMs in a pool are created with different memory values than those provided in the update-pool request**
  - [BZ 1986726](https://bugzilla.redhat.com/show_bug.cgi?id=1986726) **VM imported from OVA gets thin provisioned disk despite of allocation policy set as 'preallocated'**
  - [BZ 2006745](https://bugzilla.redhat.com/show_bug.cgi?id=2006745) **[MBS] Template disk Copy from data storage domain to Managed Block Storage domain is failing**
@@ -628,10 +678,12 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 #### oVirt Hosted Engine Setup
 
  - [BZ 2026770](https://bugzilla.redhat.com/show_bug.cgi?id=2026770) **host deployment fails on fips-enabled host**
+ - [BZ 2012742](https://bugzilla.redhat.com/show_bug.cgi?id=2012742) **Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host**
  - [BZ 1768969](https://bugzilla.redhat.com/show_bug.cgi?id=1768969) **Duplicate iSCSI sessions in the hosted-engine deployment host when the tpgt is not 1**
 
 #### oVirt Setup Lib
 
+ - [BZ 2012742](https://bugzilla.redhat.com/show_bug.cgi?id=2012742) **Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host**
  - [BZ 1971863](https://bugzilla.redhat.com/show_bug.cgi?id=1971863) **Queries of type 'ANY' are deprecated - RFC8482**
 
 #### VDSM
@@ -643,25 +695,13 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
 ### Other
 
-#### imgbased
-
- - [BZ 2055829](https://bugzilla.redhat.com/show_bug.cgi?id=2055829) **[RFE] /var/tmp should be on its own partition**
-
-#### MOM
-
- - [BZ 2001759](https://bugzilla.redhat.com/show_bug.cgi?id=2001759) **mom requires python-nose**
-
-#### OTOPI
-
- - [BZ 2060006](https://bugzilla.redhat.com/show_bug.cgi?id=2060006) **dnf packager on AlmaLinux**
- - [BZ 1916144](https://bugzilla.redhat.com/show_bug.cgi?id=1916144) **[RFE] Check otopi's dnf package with signatures during CI automation/check-patch.sh**
-
-#### oVirt Ansible collection
-
- - [BZ 2022620](https://bugzilla.redhat.com/show_bug.cgi?id=2022620) **[RFE] adapt the current hosted_engine_setup role to work within ansible-core 2.12**
-
 #### oVirt Engine
 
+ - [BZ 2074112](https://bugzilla.redhat.com/show_bug.cgi?id=2074112) **[Veeam] VM does not have a disk after restored from backup**
+ - [BZ 2074916](https://bugzilla.redhat.com/show_bug.cgi?id=2074916) **Failed to upload OVA as template via upload_ova_as_vm_or_template.py**
+ - [BZ 2074582](https://bugzilla.redhat.com/show_bug.cgi?id=2074582) **VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin**
+ - [BZ 2075037](https://bugzilla.redhat.com/show_bug.cgi?id=2075037) **Wrong pinning in the dedicated virsh dumpxml after migration**
+ - [BZ 2075435](https://bugzilla.redhat.com/show_bug.cgi?id=2075435) **Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage**
  - [BZ 1989121](https://bugzilla.redhat.com/show_bug.cgi?id=1989121) **[CBT][Veeam] Block backup of hosted-engine vm**
  - [BZ 2069670](https://bugzilla.redhat.com/show_bug.cgi?id=2069670) **NPE when converting ISCSI disk during the copy_data action**
  - [BZ 2070536](https://bugzilla.redhat.com/show_bug.cgi?id=2070536) **The same host CPUs are assigned twice when we run dedicated&amp;none&amp;resize VMs on the same host**
@@ -671,7 +711,6 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 2065152](https://bugzilla.redhat.com/show_bug.cgi?id=2065152) **Implicit CPU pinning for NUMA VMs destroyed because of invalid CPU policy**
  - [BZ 2043984](https://bugzilla.redhat.com/show_bug.cgi?id=2043984) **Cannot move any host to maintenance mode**
  - [BZ 2037779](https://bugzilla.redhat.com/show_bug.cgi?id=2037779) **VM name is displayed as &lt;UNKNOWN&gt; in disk properties update notification**
- - [BZ 1991482](https://bugzilla.redhat.com/show_bug.cgi?id=1991482) **[RFE] add a link to Grafana in the Admin portal UI**
  - [BZ 1913389](https://bugzilla.redhat.com/show_bug.cgi?id=1913389) **[CBT] [RFE] Provide VDSM with more information on scratch disks**
  - [BZ 1988959](https://bugzilla.redhat.com/show_bug.cgi?id=1988959) **[Cinderlib] - The attached disk isn't attached to the cloned VM from template**
  - [BZ 2001904](https://bugzilla.redhat.com/show_bug.cgi?id=2001904) **[RFE] Admin portal: add ability to choose a tab item by arrow keys**
@@ -682,19 +721,7 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 2034531](https://bugzilla.redhat.com/show_bug.cgi?id=2034531) **Cloning a VM from a QCOW based template on a block-based storage domain, results with a VM that has a disk with the same actual and virtual size**
  - [BZ 2043283](https://bugzilla.redhat.com/show_bug.cgi?id=2043283) **Use the transfer id as the nbd server id**
  - [BZ 1912967](https://bugzilla.redhat.com/show_bug.cgi?id=1912967) **Unexpected Threads per core on guest for VM when setting NUMA pinning**
- - [BZ 2040361](https://bugzilla.redhat.com/show_bug.cgi?id=2040361) **Hotplug VirtIO-SCSI disk fails with error "Domain already contains a disk with that address" when IO threads &gt; 1**
-
-   Previously, when hot plugging multiple disks with VIRTIO SCSI interface to virtual machine that are defined with more than one IO thread, this would have failed due to allocation of a duplicate PCI address.
-
-   Now, each disk is assigned with a unique PCI address in this process, which enabled to plug multiple disks with VIRTIO SCSI to virtual machines also when they are set with more than one IO thread.
- - [BZ 2021217](https://bugzilla.redhat.com/show_bug.cgi?id=2021217) **[RFE] Windows 2022 support**
-
-   Add Windows 2022 as a guest operating system
  - [BZ 2024529](https://bugzilla.redhat.com/show_bug.cgi?id=2024529) **Creating a template from a VM with TPM in the REST API without specifying the TPM property results in a template without TPM**
- - [BZ 1998866](https://bugzilla.redhat.com/show_bug.cgi?id=1998866) **[RFE] Windows 11 support**
- - [BZ 2033185](https://bugzilla.redhat.com/show_bug.cgi?id=2033185) **[RFE] Add e1000e driver on cluster level &gt;=4.7**
-
-   Add e1000e VM Nic type for cluster level 4.7. The e1000 is depracated from RHEL8.0 and users should switch to e1000e when possible.
  - [BZ 1936430](https://bugzilla.redhat.com/show_bug.cgi?id=1936430) **Auto_pinning Next Run configuration changes are cancelled after VM re-start.**
  - [BZ 1929260](https://bugzilla.redhat.com/show_bug.cgi?id=1929260) **Fails validation of action 'UpdateVm' when changing VM (set with auto pinning policy) type to High Performance**
  - [BZ 2038887](https://bugzilla.redhat.com/show_bug.cgi?id=2038887) **Make Chipset/Firmware Type setting more visible**
@@ -713,7 +740,6 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 1940494](https://bugzilla.redhat.com/show_bug.cgi?id=1940494) **provide better information for windows guest-agent mark**
  - [BZ 1950321](https://bugzilla.redhat.com/show_bug.cgi?id=1950321) **SSH public key Ok button is not enabled automatically**
  - [BZ 1679935](https://bugzilla.redhat.com/show_bug.cgi?id=1679935) **Administration Configure user role does not shows scrollbar**
- - [BZ 1913764](https://bugzilla.redhat.com/show_bug.cgi?id=1913764) **GlusterFS - Failing to assign new Master SD within the same storage type leads to infinite (or long) reconstruction**
  - [BZ 1913843](https://bugzilla.redhat.com/show_bug.cgi?id=1913843) **Disable NUMA Tuning for non-pinned vNUMA nodes**
  - [BZ 1683098](https://bugzilla.redhat.com/show_bug.cgi?id=1683098) **ovirt-provider-ovn service is not stopped/disabled by engine-cleanup**
  - [BZ 2001565](https://bugzilla.redhat.com/show_bug.cgi?id=2001565) **VM OVA import fails if loop device doesn't exist in the host during the import**
@@ -726,31 +752,17 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 #### oVirt Engine UI Extensions
 
  - [BZ 1979052](https://bugzilla.redhat.com/show_bug.cgi?id=1979052) **Move and rename the 'Export' button**
- - [BZ 1991482](https://bugzilla.redhat.com/show_bug.cgi?id=1991482) **[RFE] add a link to Grafana in the Admin portal UI**
  - [BZ 1992568](https://bugzilla.redhat.com/show_bug.cgi?id=1992568) **Dashboard - pop-up messages are not localized**
  - [BZ 1771925](https://bugzilla.redhat.com/show_bug.cgi?id=1771925) **Improve error handling when calling REST API**
  - [BZ 1980331](https://bugzilla.redhat.com/show_bug.cgi?id=1980331) **manage vGPU dialog: maximum value of available mdev instances to attach is incorrect.**
-
-#### oVirt Host Dependencies
-
- - [BZ 2001537](https://bugzilla.redhat.com/show_bug.cgi?id=2001537) **mailx -&gt; s-nail replacement in CentOS Stream 9**
-
-#### oVirt Hosted Engine Setup
-
- - [BZ 1616158](https://bugzilla.redhat.com/show_bug.cgi?id=1616158) **Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.**
- - [BZ 2012742](https://bugzilla.redhat.com/show_bug.cgi?id=2012742) **Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host**
 
 #### oVirt Provider OVN
 
  - [BZ 2012850](https://bugzilla.redhat.com/show_bug.cgi?id=2012850) **Cannot add router port with IPv6**
 
-#### oVirt Setup Lib
-
- - [BZ 1616158](https://bugzilla.redhat.com/show_bug.cgi?id=1616158) **Check that DHCP assigned IP of the hosted-engine belongs to the same subnet, that ha-hosts belongs to.**
- - [BZ 2012742](https://bugzilla.redhat.com/show_bug.cgi?id=2012742) **Host name is not valid: FQDNofyourhost resolves to IPV6 IPV4 and not all of them can be mapped to non loopback devices on this host**
-
 #### VDSM
 
+ - [BZ 2076545](https://bugzilla.redhat.com/show_bug.cgi?id=2076545) **Mailbox logs are too noisy, no way to silence them**
  - [BZ 2066285](https://bugzilla.redhat.com/show_bug.cgi?id=2066285) **Copying from an Image domain to a Managed Block Storage domain fails**
  - [BZ 1881832](https://bugzilla.redhat.com/show_bug.cgi?id=1881832) **[CinderLib] - remove managed block disks from storage domain which have a VM snapshot fails - EVENT_ID: USER_FINISHED_FAILED_REMOVE_DISK(2,015)**
  - [BZ 1755801](https://bugzilla.redhat.com/show_bug.cgi?id=1755801) **[Cinderlib] Managed Block Storage: Live Migration Problems with ceph**
@@ -762,17 +774,18 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 2025527](https://bugzilla.redhat.com/show_bug.cgi?id=2025527) **Refreshing LVs fail:  "locking_type (4) is deprecated, using --sysinit --readonly.\', \'  Operation prohibited while --readonly is set.\', "  Can\'t get lock for ...."**
  - [BZ 1949475](https://bugzilla.redhat.com/show_bug.cgi?id=1949475) **If pivot failed during live merge, top volume is left illegal, requires manual fix if vm is stopped**
  - [BZ 2018947](https://bugzilla.redhat.com/show_bug.cgi?id=2018947) **vm: do not ignore errors when syncing volume chain**
- - [BZ 1913764](https://bugzilla.redhat.com/show_bug.cgi?id=1913764) **GlusterFS - Failing to assign new Master SD within the same storage type leads to infinite (or long) reconstruction**
 
 ### No Doc Update
 
 #### MOM
 
  - [BZ 2001789](https://bugzilla.redhat.com/show_bug.cgi?id=2001789) **mom uses deprecated API SafeConfigParser**
+ - [BZ 2001759](https://bugzilla.redhat.com/show_bug.cgi?id=2001759) **mom requires python-nose**
 
 #### OTOPI
 
  - [BZ 2047260](https://bugzilla.redhat.com/show_bug.cgi?id=2047260) **DNF on otopi is logging UNKNOWN for packages on some actions**
+ - [BZ 1916144](https://bugzilla.redhat.com/show_bug.cgi?id=1916144) **[RFE] Check otopi's dnf package with signatures during CI automation/check-patch.sh**
 
 #### oVirt Ansible collection
 
@@ -780,6 +793,9 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
 #### oVirt Engine
 
+ - [BZ 2075486](https://bugzilla.redhat.com/show_bug.cgi?id=2075486) **VM with Q35 UEFI and 64 CPUs is running but without boot screen, console and network.**
+ - [BZ 2076474](https://bugzilla.redhat.com/show_bug.cgi?id=2076474) **OVA import: importing VM OVA  failed with "async task did not complete within the requested time - 120s"**
+ - [BZ 1868372](https://bugzilla.redhat.com/show_bug.cgi?id=1868372) **collectd-virt plugin doesn't work with latest libvirt**
  - [BZ 2070053](https://bugzilla.redhat.com/show_bug.cgi?id=2070053) **Removal of a labeled long network(more than 15 characters)  is incomplete**
  - [BZ 2032917](https://bugzilla.redhat.com/show_bug.cgi?id=2032917) **Restapi: after migrating Jackson to com.fasterxml.jackson, REST API's JSON default serializing mode is not ignoring properties with null values anymore**
  - [BZ 1700460](https://bugzilla.redhat.com/show_bug.cgi?id=1700460) **Let the user eventually skip HE global maintenance mode check on upgrades**
@@ -810,6 +826,11 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
  - [BZ 1804268](https://bugzilla.redhat.com/show_bug.cgi?id=1804268) **ovirt-engine-metrics role fails on ansible-linter**
  - [BZ 2012569](https://bugzilla.redhat.com/show_bug.cgi?id=2012569) **Update the LSR version**
  - [BZ 2025936](https://bugzilla.redhat.com/show_bug.cgi?id=2025936) **metrics configuration playbooks failing due to rhel-system-role last refactor**
+
+#### oVirt Host Dependencies
+
+ - [BZ 1868372](https://bugzilla.redhat.com/show_bug.cgi?id=1868372) **collectd-virt plugin doesn't work with latest libvirt**
+ - [BZ 2001537](https://bugzilla.redhat.com/show_bug.cgi?id=2001537) **mailx -&gt; s-nail replacement in CentOS Stream 9**
 
 #### oVirt Hosted Engine HA
 
@@ -847,31 +868,370 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
 #### oVirt Node NG Image
 
- - [BZ 2056596](https://bugzilla.redhat.com/show_bug.cgi?id=2056596) **CVE-2021-4083 kernel: fget: check that the fd still exists after getting a ref to it [ovirt-4.5]**
- - [BZ 2061694](https://bugzilla.redhat.com/show_bug.cgi?id=2061694) **CVE-2022-0847 - kernel: improper initialization of the "flags" member of the new pipe_buffer [ovirt-4.5]**
  - [BZ 2005045](https://bugzilla.redhat.com/show_bug.cgi?id=2005045) **ovirt-node-ng iso build relies on genisoimage**
 
 #### oVirt Engine Appliance
 
- - [BZ 2067982](https://bugzilla.redhat.com/show_bug.cgi?id=2067982) **CVE-2022-24302 python-paramiko: Race condition in the write_private_key_file function [ovirt-4.5]**
  - [BZ 2050071](https://bugzilla.redhat.com/show_bug.cgi?id=2050071) **Use authselect in oVirt Node and appliance images**
 
-#### Contributors
 
-65 people contributed to this release:
 
+## Also includes
+
+### Release Note
+
+#### oVirt Engine SDK 4 Python
+
+ - [BZ 1933555](https://bugzilla.redhat.com/show_bug.cgi?id=1933555) **[RFE] Release python-ovirt-engine-sdk4 package on RHEL 9**
+
+   Python SDK for oVirt is going to be released also for RHEL 9
+
+#### oVirt Ansible collection
+
+ - [BZ 2004018](https://bugzilla.redhat.com/show_bug.cgi?id=2004018) **Modify ovirt_disk Ansible module to allow setting the bootable flag only if disk is attached to a virtual machine**
+
+   Error message has been added to ovirt_disk module, that parameters 'interface', 'activate', 'bootable', 'uses_scsi_reservation' and 'pass_discard' cannot be used without specifying a VM.
+ - [BZ 2004852](https://bugzilla.redhat.com/show_bug.cgi?id=2004852) **[RFE] include option to enable/disable virtio scsi support in ovirt_vm module**
+
+   Following parameters has been added to ovirt_vm module:
+
+     * virtio_scsi_enabled:
+         - If true, it enable Virtio SCSI support
+
+     * multi_queues_enabled:
+          - If true, each virtual interface will get the optimal number of queues, depending on the available virtual CPUs.
+ - [BZ 2006721](https://bugzilla.redhat.com/show_bug.cgi?id=2006721) **uploading image using ovirt_disk always fails for the first time and works in second attempt**
+
+   ovirt_disk module released as a part of ovirt-ansible-collection 2.0.0 uses imageio python client to upload images into oVirt Engine.
+ - [BZ 2017070](https://bugzilla.redhat.com/show_bug.cgi?id=2017070) **Remove manageiq role from oVirt Ansible Collection**
+
+   manageiq role has been removed from oVirt Ansible Collection 2.0.0
+ - [BZ 2049286](https://bugzilla.redhat.com/show_bug.cgi?id=2049286) **when upgrading all hosts in cluster, all pinned VMs are stopped, even on hosts that are skipped.**
+
+   cluster_upgrade role in ovirt-ansible-collection 2.0.0 contains a fix, that only VMs pinned to hosts, which are selected to be upgraded during cluster upgrade, are stopped during the cluster upgrade. VMs pinned to other hosts (not selected for upgrade) are left untouched
+ - [BZ 2071365](https://bugzilla.redhat.com/show_bug.cgi?id=2071365) **[RFE] Require ansible-core-2.12 in ovirt-ansible-collection**
+
+   oVirt Ansible Collection 2.0.0 requires ansible-core-2.12 from RHEL 8.6 and doesn't work anymore with previous ansible-2.9.z versions
+
+#### oVirt Engine
+
+ - [BZ 2015796](https://bugzilla.redhat.com/show_bug.cgi?id=2015796) **[RFE] oVirt Engine should support running on a host with DISA STIG security profile applied**
+
+   oVirt Engine 4.5 is able to run on a host with RHEL 8.6 DISA STIG openscap profile applied
+ - [BZ 2022323](https://bugzilla.redhat.com/show_bug.cgi?id=2022323) **[RFE] Upgrade emulated machine**
+
+   oVirt 4.5 will use following machine types for cluster level 4.7:
+
+   * x86_64
+     - pc-q35-rhel8.6.0 
+     - pc-q35-4.1
+     - pc-i440fx-rhel7.6.0
+     - pc-i440fx-2.12
+
+   * ppc64le
+     - pseries-rhel8.4.0
+ - [BZ 2022326](https://bugzilla.redhat.com/show_bug.cgi?id=2022326) **[RFE] Upgrade emulated machine**
+
+   oVirt 4.5 will use following machine types for cluster level 4.7:
+
+   * x86_64
+     - pc-q35-rhel8.6.0 
+     - pc-i440fx-rhel7.6.0
+
+   * ppc64le
+     - pseries-rhel8.4.0
+ - [BZ 2030596](https://bugzilla.redhat.com/show_bug.cgi?id=2030596) **[RFE] oVirt Engine should support running on a host with the PCI-DSS security profile applied**
+
+   The oVirt Engine is now capable of running on machine with PCI-DSS security profile.
+ - [BZ 2043146](https://bugzilla.redhat.com/show_bug.cgi?id=2043146) **Expired /etc/pki/vdsm/libvirt-vnc/server-cert.pem certificate is skipped during Enroll Certificate**
+
+   Renewing of libvirt-vnc certificate has been omitted during Enroll Certificate flow. This has been fixed in oVirt 4.5 and also libvirt-vnc certificates are renewed during Enroll Certificate
+ - [BZ 2056021](https://bugzilla.redhat.com/show_bug.cgi?id=2056021) **[BUG]: "Enroll Certificate" operation not updating libvirt-vnc cert and key**
+
+   Renewing of libvirt-vnc certificate has been omitted during Enroll Certificate flow. This has been fixed in oVirt 4.5 and also libvirt-vnc certificates are renewed during Enroll Certificate
+ - [BZ 2055136](https://bugzilla.redhat.com/show_bug.cgi?id=2055136) **virt module is not changed to the correct stream during host upgrade**
+
+   Version of virt DNF module is now correctly set according to the RHEL version the host is upgraded to during host upgrade flow.
+
+#### VDSM
+
+ - [BZ 2030226](https://bugzilla.redhat.com/show_bug.cgi?id=2030226) **[RFE] oVirt hypervisors should support running on hosts with the PCI-DSS security profile applied**
+
+   The oVirt Hypervisor is now capable of running on machine with PCI-DSS security profile.
+
+#### ovirt-node
+
+ - [BZ 2065579](https://bugzilla.redhat.com/show_bug.cgi?id=2065579) **CVE-2022-25235 CVE-2022-25236 CVE-2022-25315 expat: various flaws [ovirt-4.5]**
+
+   oVirt Node includes updated expat package providing fixes for multiple CVEs:
+   [CVE-2022-25315](https://bugzilla.redhat.com/show_bug.cgi?id=2056363)
+   [CVE-2022-25235](https://bugzilla.redhat.com/show_bug.cgi?id=2056366)
+   [CVE-2022-25236](https://bugzilla.redhat.com/show_bug.cgi?id=2056370)
+ - [BZ 2068507](https://bugzilla.redhat.com/show_bug.cgi?id=2068507) **CVE-2022-0778 openssl: Infinite loop in BN_mod_sqrt() reachable when parsing certificates [ovirt-4.5]**
+
+   oVirt Node includes updated openssl packages providing fixes for [CVE-2022-0778](https://bugzilla.redhat.com/show_bug.cgi?id=2062202)
+ - [BZ 2056588](https://bugzilla.redhat.com/show_bug.cgi?id=2056588) **CVE-2021-4028 kernel: use-after-free in RDMA listen() [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2021-4028](https://bugzilla.redhat.com/show_bug.cgi?id=2027201)
+ - [BZ 2056597](https://bugzilla.redhat.com/show_bug.cgi?id=2056597) **CVE-2022-0435 kernel: remote stack overflow via kernel panic on systems using TIPC may lead to DoS [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-0435](https://bugzilla.redhat.com/show_bug.cgi?id=2048738)
+ - [BZ 2065576](https://bugzilla.redhat.com/show_bug.cgi?id=2065576) **CVE-2022-25636 kernel: heap out of bounds write in nf_dup_netdev.c [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-25636](https://bugzilla.redhat.com/show_bug.cgi?id=2056830)
+ - [BZ 2070051](https://bugzilla.redhat.com/show_bug.cgi?id=2070051) **CVE-2022-1015 kernel: arbitrary code execution in linux/net/netfilter/nf_tables_api.c [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1015](https://bugzilla.redhat.com/show_bug.cgi?id=2065323)
+ - [BZ 2070067](https://bugzilla.redhat.com/show_bug.cgi?id=2070067) **CVE-2022-1016 - kernel: uninitialized registers on stack in nft_do_chain can cause kernel pointer leakage to UM [ovirt-4.5]**
+
+   oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1016](https://bugzilla.redhat.com/show_bug.cgi?id=2066614)
+
+### Enhancements
+
+#### oVirt Engine
+
+ - [BZ 1563552](https://bugzilla.redhat.com/show_bug.cgi?id=1563552) **[RFE] Add Virtio-1.1 support in oVirt (depends in CentOS/RHEL 8.5)**
+ - [BZ 1995455](https://bugzilla.redhat.com/show_bug.cgi?id=1995455) **Increase the maximum number of CPU sockets**
+
+   The limit of maximum 16 CPU sockets has been removed in cluster versions &gt;= 4.6. It's possible to use any number of CPU sockets now, up to the number of maximum vCPUs. Before using a high number of CPU sockets, it's advisable to check whether the guest OS is fine with such a configuration.
+ - [BZ 2049782](https://bugzilla.redhat.com/show_bug.cgi?id=2049782) **[RFE] Admin portal user preferences/settings with server-side storage**
+ - [BZ 2053669](https://bugzilla.redhat.com/show_bug.cgi?id=2053669) **[RFE] Allow changing vm powerstate during backup operation without interrupting the backup**
+
+   Feature: 
+   Use a temporary snapshot during a backup to decouple the backup
+   operation from the VM.
+
+   Reason: 
+   Backup can take lot of time. Preventing changes in VM power
+   state or migration during a backup is a problem for users.
+
+   Result:
+   A VM can be started, stopped, or migrated during backup.
+
+#### oVirt Web UI
+
+ - [BZ 1667517](https://bugzilla.redhat.com/show_bug.cgi?id=1667517) **[RFE] add VM Portal setting for set screen mode**
+
+   Feature: 
+   console options including set screen mode is added to VM Portal
+
+   Reason: 
+   There was no option to set screen mode in VM Portal
+
+   Result: 
+   The following console options can now be set in VM Portal:
+   default console type to use (Spice, VNC, noVNC, RDP for Windows), 
+   full screen mode (on/off) per console type, 
+   smartcard enabled/disabled
+   Ctrl+Alt+Del mapping 
+   SSH key
+
+   A new dialog was added: VM portal -&gt; Account Settings -&gt; Console options dialog. 
+
+   Those console options settings are now persisted on engine server, so deleting cookies and website data won't reset those settings.
+
+   Few limitations with current implementation:
+   1. The console settings via VM Portal are global for all VMs and can't be set per VM (as opposed to Admin Portal where console options are set per VM). 
+
+   2. There is no sync between Admin Portal console options and VM portal console options. I.e. the console options configuration done by Create/Edit VM/Pool dialog (supported console types and smartcard enabled) are synced, but the 'console options' run time settings done for running VMs via Console -&gt; Console options are not synced with Admin Portal. 
+
+   3. The console settings are part of Account settings and therefore are set per user. Each user logged in to the VM Portal can have it's own console settings, defaults are taken from the vdc_options config parameters.
+ - [BZ 1781241](https://bugzilla.redhat.com/show_bug.cgi?id=1781241) **missing “connect automatically” option in vm portal**
+
+   Feature: 
+   Adding back the support for automatically connecting to a Virtual Machine option. This is now enabled as part of the Account Setting console options dialog. 
+
+   Reason: 
+   This feature enables to connect automatically to a running Virtual Machine every time the user logs into the VM Portal. 
+   This functionality was supported by old VM Portal and also by the User Portal and was requested to be supported by current VM Portal as well. 
+
+   Result: 
+   The current feature is now supported while usage is a bit different than how it was on previous User and VM portals:
+   - Each user can choose a VM to auto connect to from a list on a global level, as part of Account Setting's console dialog. 
+   - Only if the chosen VM exists and on a running state then the auto connect will be enforced next time the user logs in. 
+   - The Console type for connecting will be chosen based on Account Setting's console options.
+   - This auto connect VM setting is persisted per user on the engine.
+
+#### oVirt Ansible collection
+
+ - [BZ 1883949](https://bugzilla.redhat.com/show_bug.cgi?id=1883949) **ovirt_disk Ansible module uses the physical size of a qcow2 file instead of the virtual size**
+
+   Feature:
+   1. Add 2 new backup phases:
+   - SUCCEEDED
+   - FAILED
+   2. Disable 'vm_backups' &amp; 'image_transfers' DB tables cleanup after backup / image transfer operation is over.
+   3. Add DB cleanup scheduled thread to automatically clean backups and image transfers once in a while.
+
+   Reason:
+   After backup / image transfer operation finishes, all the execution data disappeared.
+   That means, that the user didn't know the final execution state of the operation that was visible via DB and API while the backup / image transfer execution was still in progress.
+   In case of backup operation, the situation was even worse - there was no indication for success/failure, the last thing the user might be able to see is the 'FINALIZING' status.
+   We want the user to be able to see the operation result, but also not over-polute the database with too old data.
+
+   Result:
+   1. Added 2 new backup phases to show possible execution statuses (success/failure) for backup operations.
+   2. Cancel DB cleanup of the 'vm_backups' &amp; 'image_transfers' DB tables when the backup / image transfer finishes to allow DB &amp; API status retrieval by user.
+   3. Scheduled execution of the cleanup - 15 minutes for success entries, 30 minutes for the failure. Separate values for backup &amp; for image transfer operations, an additional value for the cleanup thread rate (all 5 values are configurable).
+   4. Some minor user experience improvements.
+ - [BZ 1937408](https://bugzilla.redhat.com/show_bug.cgi?id=1937408) **[RFE] Add ability to import template from OVA in image_template role**
+
+   Following options has been added to ovirt_template module:
+
+    kvm:
+      - Dictionary of values to be used to connect to kvm and import a template to oVirt.
+      - Following keys can be specified within the dictionary
+
+        url:
+          - The URL to be passed to the I(virt-v2v) tool for conversion.
+          - For example I(qemu:///system). This is required parameter.
+
+        storage_domain:
+          - Specifies the target storage domain for converted disks. This is required parameter.
+
+        host:
+          - The host name from which the template will be imported.
+ 
+        clone:
+          - Indicates if the identifiers of the imported template should be regenerated.
+
+#### ovirt-engine-sdk-python
+
+ - [BZ 1973278](https://bugzilla.redhat.com/show_bug.cgi?id=1973278) **[RFE] Add an SDK example for importing templates from OVAs**
+
+   Added an example that demonstrates importing of a template from an OVA file that is located on a host
+
+### Bug Fixes
+
+#### ovirt-distribution
+
+ - [BZ 1810032](https://bugzilla.redhat.com/show_bug.cgi?id=1810032) **[Docs][API] Default value of network-filter for vnic-profile entity is not documented**
+
+#### oVirt Engine
+
+ - [BZ 1834542](https://bugzilla.redhat.com/show_bug.cgi?id=1834542) **"engine-setup" does not manage DNF configured proxy**
+ - [BZ 1974741](https://bugzilla.redhat.com/show_bug.cgi?id=1974741) **Disk images remain in locked state if the HE VM is rebooted during a image transfer**
+ - [BZ 1976333](https://bugzilla.redhat.com/show_bug.cgi?id=1976333) **Memory guaranteed size not live updated when changed alone**
+ - [BZ 2064380](https://bugzilla.redhat.com/show_bug.cgi?id=2064380) **VNC Console: Operation Cancelled "Setting vm ticket failed" on engine 4.4.10.7**
+
+#### oVirt Ansible collection
+
+ - [BZ 1932149](https://bugzilla.redhat.com/show_bug.cgi?id=1932149) **Create hosted_storage with the correct storage_format based on the Data-Center level of the backup**
+ - [BZ 2066811](https://bugzilla.redhat.com/show_bug.cgi?id=2066811) **Hosted engine deployment fails when DISA STIG profile is selected for the engine VM**
+ - [BZ 2069658](https://bugzilla.redhat.com/show_bug.cgi?id=2069658) **Unable to deploy HE, couldn't resolve module/action 'firewalld'.**
+
+#### oVirt Web UI
+
+ - [BZ 1991240](https://bugzilla.redhat.com/show_bug.cgi?id=1991240) **Assign user quota when provisioning from a non-blank template via web-ui**
+
+#### ovirt-imageio
+
+ - [BZ 2010067](https://bugzilla.redhat.com/show_bug.cgi?id=2010067) **Downloading prellocated disk created preallocated image**
+
+#### ovirt-engine-dwh
+
+ - [BZ 2014888](https://bugzilla.redhat.com/show_bug.cgi?id=2014888) **oVirt executive dashboard/Virtual Machine dashboard does not actually show disk I/O operations per second, but it shows sum of I/o operations since the boot time of VM**
+
+#### oVirt Log Collector
+
+ - [BZ 2040402](https://bugzilla.redhat.com/show_bug.cgi?id=2040402) **unable to use --log-size=0 option**
+ - [BZ 2048546](https://bugzilla.redhat.com/show_bug.cgi?id=2048546) **sosreport command should be replaced by sos report**
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 2050108](https://bugzilla.redhat.com/show_bug.cgi?id=2050108) **hosted-engine-setup fails to start ovirt-ha-broker service on RHEL-H with DISA STIG**
+
+### Other
+
+#### oVirt Ansible collection
+
+ - [BZ 2020624](https://bugzilla.redhat.com/show_bug.cgi?id=2020624) **[RFE] support satellite registration with repositories role**
+
+#### oVirt Engine
+
+ - [BZ 2073005](https://bugzilla.redhat.com/show_bug.cgi?id=2073005) **ui-extensions dialogs are flashing when they are rendered on a chrome browser**
+ - [BZ 2076465](https://bugzilla.redhat.com/show_bug.cgi?id=2076465) **OVA import: importing OVA of Q35/UEFI VM failed with 'Duplicate key nvram'**
+
+### No Doc Update
+
+#### ovirt-distribution
+
+ - [BZ 1713633](https://bugzilla.redhat.com/show_bug.cgi?id=1713633) **Kdump file is captured in local filesystem when setting "Location" to "Remote over NFS"**
+ - [BZ 1978582](https://bugzilla.redhat.com/show_bug.cgi?id=1978582) **[RFE] Create follow parameter documentation**
+ - [BZ 2000520](https://bugzilla.redhat.com/show_bug.cgi?id=2000520) **Explicitly require ovirt-openvswitch instead of implicit Provides**
+ - [BZ 2065294](https://bugzilla.redhat.com/show_bug.cgi?id=2065294) **ceph support via cinderlib is failing due to too old python-psycopg2**
+
+#### oVirt Engine
+
+ - [BZ 1809463](https://bugzilla.redhat.com/show_bug.cgi?id=1809463) **engine-setup should set the permissions of private key files more restrictive**
+ - [BZ 1913269](https://bugzilla.redhat.com/show_bug.cgi?id=1913269) **The allocation of vCPUs to NUMA nodes is incorrect/sub-optimal**
+ - [BZ 1954041](https://bugzilla.redhat.com/show_bug.cgi?id=1954041) **Remove support for SHA-1 in ticket modules**
+ - [BZ 1981079](https://bugzilla.redhat.com/show_bug.cgi?id=1981079) **Expected condition after migration is logged as an error and try to set threshold to migrated VM's disk.**
+ - [BZ 1986834](https://bugzilla.redhat.com/show_bug.cgi?id=1986834) **oVirt Engine 4.4.7 using nodejs 10 appstream which went out of support in April 2021**
+ - [BZ 1990298](https://bugzilla.redhat.com/show_bug.cgi?id=1990298) **[CinderLib] Block cloning a vm from vm snapshot**
+ - [BZ 2003883](https://bugzilla.redhat.com/show_bug.cgi?id=2003883) **Failed to update the VFs configuration of network interface card type 82599ES and X520**
+ - [BZ 2041165](https://bugzilla.redhat.com/show_bug.cgi?id=2041165) **Finalization of a backup after the VM was powered off from guest fails with non-informative response**
+ - [BZ 2062754](https://bugzilla.redhat.com/show_bug.cgi?id=2062754) **VM with resize and pin cpu policy fails to start on host CPUs:48,Threads:2,Cores:24, Sockets:1,NUMA:4**
+ - [BZ 2063802](https://bugzilla.redhat.com/show_bug.cgi?id=2063802) **When converting disk allocation type the disk is being removed instead**
+ - [BZ 2063875](https://bugzilla.redhat.com/show_bug.cgi?id=2063875) **Not possible to make disk convert to all disks possibilities**
+ - [BZ 2066628](https://bugzilla.redhat.com/show_bug.cgi?id=2066628) **[UI] UI exception when updating or enabling number of VFs via the webadmin**
+ - [BZ 2070008](https://bugzilla.redhat.com/show_bug.cgi?id=2070008) **The Console Disconnect Action Delay property isn't included in the OVF**
+ - [BZ 2070119](https://bugzilla.redhat.com/show_bug.cgi?id=2070119) **Dedicated VM (topology: Threads:2 Cores:7 Sockets:2) starts without vCPU-pCPU mapping**
+ - [BZ 2073120](https://bugzilla.redhat.com/show_bug.cgi?id=2073120) **The CPU resources are not properly freed upon dedicated VM hibernation .**
+
+#### VDSM
+
+ - [BZ 1835105](https://bugzilla.redhat.com/show_bug.cgi?id=1835105) **[4.3] Unable to add a host to oVirt over BOND management interfaces created by IBM cloud**
+ - [BZ 1929099](https://bugzilla.redhat.com/show_bug.cgi?id=1929099) **Disks remain in locked status**
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1857815](https://bugzilla.redhat.com/show_bug.cgi?id=1857815) **Copying HE-VM's disk to iSCSI storage volume, during deployment of 4.4 HE takes too long.**
+ - [BZ 2044034](https://bugzilla.redhat.com/show_bug.cgi?id=2044034) **Failed to deploy HE due to deprecations in ansible.**
+ - [BZ 2066623](https://bugzilla.redhat.com/show_bug.cgi?id=2066623) **Drop dependency on  python-dateutil**
+
+#### oVirt Engine SDK 4 Java
+
+ - [BZ 2024698](https://bugzilla.redhat.com/show_bug.cgi?id=2024698) **build failure in copr**
+
+#### ovirt-engine-dwh
+
+ - [BZ 2026362](https://bugzilla.redhat.com/show_bug.cgi?id=2026362) **moved major version to 4.5.0**
+ - [BZ 2065195](https://bugzilla.redhat.com/show_bug.cgi?id=2065195) **ETL service sampling has encountered an error**
+
+#### ovirt-node
+
+ - [BZ 2027287](https://bugzilla.redhat.com/show_bug.cgi?id=2027287) **Explore building oVirt Node with GitHub Actions and self-hosted runners**
+ - [BZ 2057958](https://bugzilla.redhat.com/show_bug.cgi?id=2057958) **oVirt Node 4.5 el9 iso doesn't boot anymore**
+
+#### oVirt Engine Appliance
+
+ - [BZ 2027289](https://bugzilla.redhat.com/show_bug.cgi?id=2027289) **Explore building oVirt Engine Appliance with GitHub Actions and self-hosted runners**
+
+#### oVirt Release Host Node
+
+ - [BZ 2032850](https://bugzilla.redhat.com/show_bug.cgi?id=2032850) **Make ovirt-release-host-node build working on CBS**
+
+#### oVirt Provider OVN
+
+ - [BZ 2049059](https://bugzilla.redhat.com/show_bug.cgi?id=2049059) **[4.5.0-3] Add PPC host failed in "Configure OVN for oVirt" task**
+
+### Contributors
+
+67 people contributed to this release:
+
+	Albert Esteve (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
 	Andrej Krejcir (Contributed to: mom)
 	Arik Hadas (Contributed to: ovirt-engine)
-	Artur Socha (Contributed to: ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-wildfly, vdsm-jsonrpc-java)
+	Artur Socha (Contributed to: ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-wildfly, vdsm-jsonrpc-java)
 	Asaf Rachmani (Contributed to: cockpit-ovirt, ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-setup-lib)
 	Avital Pinnick (Contributed to: ovirt-site)
-	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine, ovirt-engine-metrics)
+	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-host)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-release)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
-	Denis Volkov (Contributed to: ovirt-engine-keycloak)
 	Dominik Holler (Contributed to: ovirt-openvswitch, ovirt-release)
 	Donna DaCosta (Contributed to: ovirt-site)
 	Dusan Fodor (Contributed to: ovirt-openvswitch)
@@ -884,6 +1244,7 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Filip Januska (Contributed to: ovirt-engine, python-ovirt-engine-sdk4, vdsm)
 	Gal Zaidman (Contributed to: ovirt-release)
+	Germano Veit Michel (Contributed to: vdsm)
 	Harel Braha (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine, vdsm)
 	Hilda Stastna (Contributed to: ovirt-web-ui)
 	Jake Reynolds (Contributed to: ovirt-hosted-engine-ha)
@@ -896,9 +1257,9 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 	Marcin Sobczyk (Contributed to: ovirt-release, vdsm)
 	Mark Kemel (Contributed to: ovirt-engine, ovirt-engine-ui-extensions, python-ovirt-engine-sdk4, vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-release, python-ovirt-engine-sdk4)
-	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-keycloak, ovirt-engine-metrics, ovirt-engine-wildfly, ovirt-imageio, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-dependencies, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-engine-wildfly, ovirt-imageio, ovirt-jboss-modules-maven-plugin, ovirt-release, python-ovirt-engine-sdk4, vdsm, vdsm-jsonrpc-java)
 	Martin Tzvetanov Grigorov (Contributed to: ovirt-engine)
-	Michal Skrivanek (Contributed to: imgbased, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-engine-ui-extensions, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-web-ui)
+	Michal Skrivanek (Contributed to: imgbased, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovirt-engine-ui-extensions, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-web-ui)
 	Miguel Duarte Barroso (Contributed to: ovirt-release)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nick Sonneveld (Contributed to: ovirt-ansible-collection)
@@ -925,3 +1286,4 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 	Yedidyah Bar David (Contributed to: cockpit-ovirt, imgbased, otopi, ovirt-ansible-collection, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-node-ng, ovirt-node-ng-image, ovirt-release, ovirt-setup-lib, ovirt-site)
 	Yuval Turgeman (Contributed to: ovirt-release)
 	drokath (Contributed to: ovirt-ansible-collection)
+	kurokobo (Contributed to: ovirt-site)

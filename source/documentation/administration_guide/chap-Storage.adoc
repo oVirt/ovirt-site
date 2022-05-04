@@ -88,6 +88,8 @@ include::topics/Importing_Templates_from_Imported_Data_Storage_Domains.adoc[leve
 
 include::topics/Uploading_Images_to_a_Data_Storage_Domain.adoc[leveloffset=+2]
 
+include::topics/Uploading_the_VirtIO_Image_Files_to_a_Storage_Domain.adoc[leveloffset=+2]
+
 include::topics/proc_Copy_image_to_ISO_domain.adoc[leveloffset=+2]
 
 include::topics/Moving_storage_domains_to_maintenance_mode.adoc[leveloffset=+2]

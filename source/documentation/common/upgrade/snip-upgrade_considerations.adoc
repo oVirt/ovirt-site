@@ -2,4 +2,16 @@
 :_content-type: SNIPPET
 .Upgrade Considerations
 
-When planning to upgrade, see link:https://access.redhat.com/articles/5268351[Red Hat Virtualization 4.4 upgrade considerations and known issues].
+* When planning to upgrade, see link:https://access.redhat.com/articles/5268351[Red Hat Virtualization 4.4 upgrade considerations and known issues].
+
+* When upgrading from Open Virtual Network (OVN) and Open vSwitch (OvS) 2.11 to OVN 2021 and OvS 2.15, the process is transparent to the user as long as the following conditions are met:
+
+** The {engine-name} is upgraded first.
+** The ovirt-provider-ovn security groups must be disabled, before the host upgrade, for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.
+** The hosts are upgraded to match OVN version 2021 or higher and OvS version 2.15. You must complete this step in the Administration Portal, so you can properly reconfigure OVN and refresh the certificates.
+** The host is rebooted after an upgrade.
+
+====
+[NOTE]
+To verify whether the provider and OVN were configured successfully on the host, check the *OVN configured* flag on the *General* tab for the host. If the *OVN Configured* is set to *No*, click menu:Management[Refresh Capabilities]. This setting is also available in the REST API. If refreshing the capabilities fails, you can configure OVN by reinstalling the host from {engine-name} 4.5 or higher.
+====

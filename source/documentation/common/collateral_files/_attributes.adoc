@@ -64,7 +64,7 @@ endif::ovirt-doc[]
 :URL_rhel_docs_legacy: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}{URL_vernum_rhel_legacy}
 :URL_rhel_docs_latest: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}{URL_vernum_rhel_latest}
 :URL_gluster_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_gluster}
-:URL_satellite_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_satellite}{URL_vernum_satellite}html/
+:URL_satellite_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_satellite}{URL_vernum_satellite}
 // For example, the section "Managing searches saved as"
 // Managing searches saved as
 // RHV:   link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Bookmarks[public bookmarks].

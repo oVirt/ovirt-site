@@ -6,7 +6,7 @@ authors: sandrobonazzola
 # RPMs and GPG
 
 ## RPM Repositories
-### oVirt 4.5 BETA
+### oVirt 4.5
 oVirt 4.5 is shipped via CentOS repositories.
 If you are going to install on RHEL 8.6 Beta please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
@@ -15,20 +15,9 @@ In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:
 dnf install -y centos-release-ovirt45
 ```
 
-After that, for pre-release testing you'll need to execute:
-
-```bash
-dnf install -y python3-dnf-plugins-core
-dnf config-manager --set-enabled centos-ovirt45-testing
-dnf config-manager --set-enabled ovirt-45-upstream-testing
-```
-
-### oVirt 4.4
-
--   **[ovirt-4.4 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.4/)**
-
 ### Older releases of oVirt which reached End of Life and are no longer supported
 
+-   [ovirt-4.4](https://resources.ovirt.org/pub/ovirt-4.4/)
 -   [ovirt-4.3](https://resources.ovirt.org/pub/ovirt-4.3/)
 -   [ovirt-4.2](https://resources.ovirt.org/pub/ovirt-4.2/)
 -   [ovirt-4.1](https://resources.ovirt.org/pub/ovirt-4.1/)
@@ -40,66 +29,10 @@ dnf config-manager --set-enabled ovirt-45-upstream-testing
 
 ## Mirrors for oVirt Downloads
 
-### Europe
+**NOTE**: most of the oVirt 4.5 packages are shipped via CentOS Virtualization SIG mirrors.
 
-- [NFRANCE](http://ovirt.repo.nfrance.com/) (
-[oVirt 4.4](http://ovirt.repo.nfrance.com/ovirt-4.4/)
-[oVirt 4.3](http://ovirt.repo.nfrance.com/ovirt-4.3/)
-[oVirt 4.2](http://ovirt.repo.nfrance.com/ovirt-4.2/)
-- [NLUUG](https://ftp.nluug.nl/os/Linux/virtual/ovirt/) (
-[oVirt 4.4](https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.4/)
-[oVirt 4.3](https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.3/)
-[oVirt 4.2](https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.2/)
-- [Plus.line AG](http://www.plusline.net/en/) (
-[oVirt 4.4](http://ftp.plusline.net/ovirt/ovirt-4.4/)
-[oVirt 4.3](http://ftp.plusline.net/ovirt/ovirt-4.3/)
-[oVirt 4.2](http://ftp.plusline.net/ovirt/ovirt-4.2/)
-- [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) (
-[oVirt 4.4](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.4/)
-[oVirt 4.3](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.3/)
-[oVirt 4.2](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.2/)
-- [Slezská Univerzita](http://mirror.slu.cz/ovirt/)(
-[oVirt 4.4](http://mirror.slu.cz/ovirt/ovirt-4.4/)
-[oVirt 4.3](http://mirror.slu.cz/ovirt/ovirt-4.3/)
-[oVirt 4.2](http://mirror.slu.cz/ovirt/ovirt-4.2/)
-
-
-### North America
-
-- [Duke University](http://archive.linux.duke.edu/ovirt/) (
-[oVirt 4.4](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.4)
-[oVirt 4.3](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.3/)
-[oVirt 4.2](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.2/)
-- [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt) (
-[oVirt 4.4](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.4/)
-[oVirt 4.3](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.3/)
-[oVirt 4.2](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.2/)
-[FTP Site](ftp://ftp.gtlib.gatech.edu/pub/oVirt))
-- [ibiblio](http://mirrors.ibiblio.org/ovirt/) (
-[oVirt 4.4](http://mirrors.ibiblio.org/ovirt/ovirt-4.4/)
-[oVirt 4.3](http://mirrors.ibiblio.org/ovirt/ovirt-4.3/)
-[oVirt 4.2](http://mirrors.ibiblio.org/ovirt/ovirt-4.2/)
-- [Rochester Institute of Technology](http://mirrors.rit.edu/ovirt)(
-[oVirt 4.4](http://mirrors.rit.edu/ovirt/ovirt-4.4/)
-[oVirt 4.3](http://mirrors.rit.edu/ovirt/ovirt-4.3/)
-[oVirt 4.2](http://mirrors.rit.edu/ovirt/ovirt-4.2/)
-- [Rackspace](http://mirror.rackspace.com/ovirt/)(
-[oVirt 4.4](http://mirror.rackspace.com/ovirt/ovirt-4.4/)
-[oVirt 4.3](http://mirror.rackspace.com/ovirt/ovirt-4.3/)
-[oVirt 4.2](http://mirror.rackspace.com/ovirt/ovirt-4.2/)
-
-
-### Asia
-
-- [Hamakor](http://mirror.isoc.org.il/pub/ovirt/) (
-[ovirt 4.4](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.4/)
-[ovirt 4.3](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.3/)
-[ovirt 4.2](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.2/)
-- [Massclouds](http://mirror.massclouds.com/ovirt/)(
-[ovirt 4.4](http://mirror.massclouds.com/ovirt/ovirt-4.4/)
-[ovirt 4.3](http://mirror.massclouds.com/ovirt/ovirt-4.3/)
-[ovirt 4.2](http://mirror.massclouds.com/ovirt/ovirt-4.2/)
-
+Previous releases and packages which couldn't build within CentOS Community Build System are available on
+[oVirt](https://resources.ovirt.org/pub/) repository and its [mirrors](/community/get-involved/repository-mirrors.html)
 
 
 ## GPG Keys used by oVirt
@@ -131,7 +64,7 @@ To get the public key:
 
 Importing keys Automatically for oVirt 4.4:
 
-    yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+    dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 
 **Important:** yum will prompt sysadmin to acknowledge import of key, make sure key id is FE590CB7.
 

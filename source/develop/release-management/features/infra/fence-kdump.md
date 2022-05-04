@@ -233,27 +233,36 @@ Following config values are used:
 
 ### Testing notes
 
-1.  Host should be booted with *crashkernel* command line parameter otherwise kdump service will not start. For more info about this parameter please take a look at [Configuring the Memory Usage](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-kdump-configuration-cli.html).
+1.  Host should be booted with *crashkernel* command line parameter otherwise kdump service will not start. For more info about this parameter please take a look at [Configuring the Memory Usage](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-kdump-configuration-cli).
 2.  If you need to slow down kdump flow for testing purposes (in the case you have a host with small amount of RAM or crashdump destination is on local disk), you can do this:
-    -   Create simple shell script */usr/bin/delay-kdump*:
-            #!/bin/sh
+    -   Create simple shell script `/usr/bin/delay-kdump`:
 
-            TIMEOUT=90
+        ```bash
+        #!/bin/sh
 
-            echo "Sleeping ..."
-            /bin/sleep ${TIMEOUT}s
+        TIMEOUT=90
 
-    -   Update */etc/kdump.conf* with those options and restart kdump service:
+        echo "Sleeping ..."
+        /bin/sleep ${TIMEOUT}s
+        ```
+
+    -   Update `/etc/kdump.conf` with those options and restart kdump service:
             kdump_post /usr/bin/delay-kdump
             extra_bins /bin/sleep
 
 3.  Progress of kdump flow on host can be seen on host's console with possible remote access using IPMI.
 4.  If you want to simulate kernel crash dump, you have to:
     -   Enable kernel SysRQ mechanism:
-            sysctl -w kernel.sysrq=1
+
+        ```bash
+        sysctl -w kernel.sysrq=1
+        ```
 
     -   Initiate kernel crashdump:
-            echo c > /proc/sysrq-trigger
+
+        ```bash
+        echo c > /proc/sysrq-trigger
+        ```
 
 ### Testing scenarios
 

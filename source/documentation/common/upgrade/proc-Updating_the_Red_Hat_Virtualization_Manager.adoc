@@ -18,7 +18,11 @@ endif::migrating_to_SHE[]
 ifdef::upgrade[]
 .Prerequisites
 ifdef::ovirt-doc[]
-* The RPM package link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm] is installed and updated to the latest version. This package includes the necessary repositories.
+
+ifdef::minor_updates[]
+* The centos-release-ovirt45 RPM package is installed and updated to the latest version. This package includes the necessary repositories.
+endif::minor_updates[]
+
 endif::ovirt-doc[]
 
 ifdef::rhv-doc[]
@@ -64,7 +68,7 @@ endif::[]
 ifdef::ovirt-doc[]
 [source,terminal,subs="normal"]
 ----
-# yum update ovirt\\*setup\*
+# dnf update ovirt\\*setup\*
 ----
 endif::[]
 
@@ -93,7 +97,7 @@ The update process might take some time. Do not stop the process before it compl
 . Update the base operating system and any optional packages installed on the {engine-name}:
 +
 ----
-# yum update
+# yum update --nobest
 ----
 +
 [IMPORTANT]

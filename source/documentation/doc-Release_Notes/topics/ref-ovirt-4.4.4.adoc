@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 Batch Update 3 (ovirt-4.4.4)
+= Red Hat Virtualization 4.4 Batch Update 3 (ovirt-4.4.4)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -52,7 +52,7 @@ BZ#link:https://bugzilla.redhat.com/1899768[1899768]::
 Previously, live-merge failed on snapshots of virtual machines that are set with bios-type = CLUSTER-DEFAULT.
 In this release, live-merge works on snapshots of virtual machines that are set with bios-type = CLUSTER-DEFAULT.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -74,7 +74,7 @@ This release also allows supplying a custom hook to fix such issues automaticall
 BZ#link:https://bugzilla.redhat.com/1897399[1897399]::
 The vdsm-hook related packages have been updated in the RHV-H x86_64 repository.
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -84,14 +84,14 @@ Red Hat Virtualization Manager now requires Ansible 2.9.15.
 BZ#link:https://bugzilla.redhat.com/1901947[1901947]::
 In this release, Red Hat Virtualization Self-Hosted Engine Manager setup requires ansible-2.9.15.
 
-==== Known Issues
+== Known Issues
 
 These known issues exist in Red Hat Virtualization at this time:
 
 BZ#link:https://bugzilla.redhat.com/1846256[1846256]::
 Grafana now allows Single-Sign-On (SSO) using oVirt engine users, but does not allow automatic creation of them. A future version (see bugs 1835163 and 1807323) will allow automatic creation of admin users. For now, users must be created manually, but following that, they can login using SSO.
 
-==== Deprecated Functionality
+== Deprecated Functionality
 
 The items in this section are either no longer supported, or will no longer be supported in a future release.
 
@@ -107,7 +107,7 @@ Support for third party websocket proxy deployment is now deprecated, and will b
 BZ#link:https://bugzilla.redhat.com/1901211[1901211]::
 Support for instance types that can be used to define the hardware configuration of a virtual machine is now deprecated. This functionality will be removed in a future release.
 
-==== Removed Functionality
+== Removed Functionality
 
 BZ#link:https://bugzilla.redhat.com/1899865[1899865]::
 Experimental support for DPDK has been removed in Red Hat Virtualization 4.4.4.

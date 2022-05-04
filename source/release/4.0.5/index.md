@@ -74,10 +74,10 @@ Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should foll
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please follow
-Red Hat Virtualization [Self Hosted Engine Guide](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.0/html/self-hosted_engine_guide/)
+Red Hat Virtualization [Self Hosted Engine Guide](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.0/html/self-hosted_engine_guide/index)
 
 If you're upgrading an existing Hosted Engine setup, please follow
-Red Hat Virtualization [Upgrade Guide](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.0/html/upgrade_guide/)
+Red Hat Virtualization [Upgrade Guide](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.0/html/upgrade_guide/index)
 
 ## Known issues
 

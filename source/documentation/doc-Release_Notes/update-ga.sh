@@ -64,33 +64,7 @@ then
   exit
 fi
 
-echo
-
-echo -ne "Enter your Bugzilla user name, including the \e[4m@redhat.com\e[0m part: "
-
-read username
-
-if [ -z "$username" ]
-then
-  echo -e "\nNo user name specified. Exiting." >&2
-  exit 1
-fi
-
-echo
-
-echo -n "Enter your Bugzilla password: "
-
-read -s password
-
-if [ -z "$password" ]
-then
-  echo -e "\nNo password specified. Exiting." >&2
-  exit 1
-else
-  echo -e "\n\nAll values specified, running the \e[1mrelnotes\e[0m tool...\n"
-fi
-
-relnotes --username=${username} --password=${password} --product-set="Red Hat Virtualization" \
+relnotes --product-set="Red Hat Virtualization" \
          --flags=rhevm-${release}-ga?,rhevm-${release}-ga+,ovirt-${release}?,ovirt-${release}+ \
          --file=topics/ref-${milestone}.adoc --milestones=${milestones} \
          --releases= --verbose --force --section --asciidoc --include-all --next \
@@ -106,7 +80,7 @@ echo -e "Updating the \e[1m$MASTER\e[0m file.\n"
 
 cat >> $MASTER <<EOF
 
-include::topics/ref-${milestone}.adoc[]
+include::topics/ref-${milestone}.adoc[leveloffset=+1]
 
 EOF
 

@@ -21,12 +21,7 @@
 ----
 # dnf module enable virt:av
 ----
-ifdef::rhv-doc[]
-* For {virt-product-shortname} 4.4 SP1 and later:
-endif::rhv-doc[]
-ifdef::ovirt-doc[]
-* For {virt-product-shortname} 4.5 and later:
-endif::ovirt-doc[]
+* For {virt-product-shortname} {vername_rhv} and later:
 +
 [options="nowrap" subs="normal"]
 +

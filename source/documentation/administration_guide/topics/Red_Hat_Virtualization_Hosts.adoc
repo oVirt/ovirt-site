@@ -8,7 +8,15 @@
 
 Access the Cockpit web interface at https://_HostFQDNorIP_:9090 in your web browser. Cockpit for {hypervisor-shortname} includes a custom *Virtualization* dashboard that displays the host's health status, SSH Host Key, self-hosted engine status, virtual machines, and virtual machine statistics.
 
-{hypervisor-shortname} uses the Automatic Bug Reporting Tool (ABRT) to collect meaningful debug information about application crashes. For more information, see the link:{URL_rhel_docs_legacy}html-single/system_administrators_guide/index#ch-abrt[_{enterprise-linux} System Administrator's Guide_].
+ifdef::[rhv-doc]
+Starting in {virt-product-fullname} version 4.4 SP1 the {hypervisor-shortname} uses `systemd-coredump` to gather, save and process core dumps. For more information, see the documentation for link:https://www.freedesktop.org/software/systemd/man/coredump.conf.html[core dump storage configuration files] and link:https://www.freedesktop.org/software/systemd/man/systemd-coredump.html[systemd-coredump service].
+endif::[rhv-doc]
+
+ifdef::[ovirt-doc]
+Starting in {virt-product-fullname} version 4.5 the {hypervisor-shortname} uses `systemd-coredump` to gather, save and process core dumps. For more information, see the documentation for link:https://www.freedesktop.org/software/systemd/man/coredump.conf.html[core dump storage configuration files] and link:https://www.freedesktop.org/software/systemd/man/systemd-coredump.html[systemd-coredump service].
+endif::[ovirt-doc]
+
+In {virt-product-fullname} 4.4 and earlier {hypervisor-shortname} uses the Automatic Bug Reporting Tool (ABRT) to collect meaningful debug information about application crashes. For more information, see the link:{URL_rhel_docs_legacy}html-single/system_administrators_guide/index#ch-abrt[_{enterprise-linux} System Administrator's Guide_].
 
 [NOTE]
 ====

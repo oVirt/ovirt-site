@@ -302,7 +302,7 @@
 <li><a href="#sect-The_oVirt_Engine_Rename_Tool">3.8.1. The oVirt Engine Rename Tool</a></li>
 <li><a href="#sect-The_Engine_Configuration_Tool">3.8.2. The Engine Configuration Tool</a></li>
 <li><a href="#sect-The_USB_Filter_Editor">3.8.3. The USB Filter Editor</a></li>
-<li><a href="#sect-The_ISO_Uploader_Tool">3.8.4. The ISO Uploader Tool</a></li>
+<li><a href="#sect-The_Log_Collector_Tool">3.8.4. The Log Collector Tool</a></li>
 <li><a href="#sect-The_Engine_Vacuum_Tool">3.8.5. The Engine Vacuum Tool</a></li>
 <li><a href="#sect-The_VDSM_To_Network_Name_Tool">3.8.6. The VDSM to Network Name Mapping Tool</a></li>
 </ul>
@@ -331,11 +331,8 @@
 </li>
 </ul>
 </li>
-<li><a href="#appe-VDSM_and_Hooks">Appendix A: VDSM and Hooks</a>
+<li><a href="#appe-VDSM_and_Hooks">Appendix A: VDSM Service and Hooks</a>
 <ul class="sectlevel2">
-<li><a href="#VDSM">VDSM</a></li>
-<li><a href="#VDSM_hooks">VDSM Hooks</a></li>
-<li><a href="#Extending_VDSM_with_hooks">Extending VDSM with Hooks</a></li>
 <li><a href="#proc_installing-a-vdsm-hook">Installing a VDSM hook</a></li>
 <li><a href="#Supported_VDSM_events">Supported VDSM Events</a></li>
 <li><a href="#VDSM_hooks_environment">The VDSM Hook Environment</a></li>
@@ -5176,6 +5173,9 @@ For details, see <a href="https://access.redhat.com/solutions/634853">Which CPU 
 </div>
 </li>
 <li>
+<p>Select the <strong>FIPS Mode</strong> of the cluster from the drop-down list.</p>
+</li>
+<li>
 <p>Select the <strong>Compatibility Version</strong> of the cluster from the drop-down list.</p>
 </li>
 <li>
@@ -5293,7 +5293,58 @@ For details, see <a href="https://access.redhat.com/solutions/634853">Which CPU 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU Type</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The oldest CPU family in the cluster. For a list of CPU types, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning">CPU Requirements</a> in the <em>Planning and Prerequisites Guide</em>. You cannot change this cannot after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The oldest CPU family in the cluster. For a list of CPU types, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning">CPU Requirements</a> in the <em>Planning and Prerequisites Guide</em>. You cannot change this after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chipset/Firmware Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This setting is only available if the <strong>CPU Architecture</strong> of the cluster is set to <strong>x86_64</strong>. This setting specifies the chipset and firmware type. Options are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Auto Detect</strong>: This setting automatically detects the chipset and firmware type. When <strong>Auto Detect</strong> is selected, the chipset and firmware are determined by the first host up in the cluster.</p>
+</li>
+<li>
+<p><strong>I440FX Chipset with BIOS</strong>: Specifies the chipset to I440FX with a firmware type of BIOS.</p>
+</li>
+<li>
+<p><strong>Q35 Chipset with BIOS</strong>: Specifies the Q35 chipset with a firmware type of BIOS without UEFI (Default for clusters with compatibility version 4.4).</p>
+</li>
+<li>
+<p><strong>Q35 Chipset with UEFI</strong> Specifies the Q35 chipset with a firmware type of BIOS with UEFI. (Default for clusters with compatibility version 4.7)</p>
+</li>
+<li>
+<p><strong>Q35 Chipset with UEFI SecureBoot</strong> Specifies the Q35 chipset with a firmware type of UEFI with SecureBoot, which authenticates the digital signatures of the boot loader.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#About_UEFI_Q35-cluster_opt_settings">UEFI and the Q35 chipset</a> in the <em>Administration Guide</em>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Change Existing VMs/Templates from 1440fx to Q35 Chipset with Bios</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select this check box to change existing workloads when the cluster&#8217;s chipset changes from I440FX to Q35.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>FIPS Mode</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The FIPS mode used by the cluster. All hosts in the cluster must run the FIPS mode you specify or they will become non-operational.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Auto Detect</strong>: This setting automatically detects whether FIPS mode is enabled or disabled. When <strong>Auto Detect</strong> is selected, the FIPS mode is determined by the first host up in the cluster.</p>
+</li>
+<li>
+<p><strong>Disabled</strong>: This setting disables FIPS on the cluster.</p>
+</li>
+<li>
+<p><strong>Enabled</strong>:  This setting enables FIPS on the cluster.</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compatibility Version</strong></p></td>
@@ -5320,11 +5371,11 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Virt Service</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If this radio button is selected, hosts in this cluster will be used to run virtual machines.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this check box is selected, hosts in this cluster will be used to run virtual machines.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Gluster Service</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If this radio button is selected, hosts in this cluster will be used as Gluster Storage Server nodes, and not for running virtual machines.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this check box is selected, hosts in this cluster will be used as Gluster Storage Server nodes, and not for running virtual machines.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Import existing gluster configuration</strong></p></td>
@@ -5337,28 +5388,24 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Address</strong>: Enter the IP or fully qualified domain name of the Gluster host server.</p>
+<p><strong>Hostname</strong>: Enter the IP or fully qualified domain name of the Gluster host server.</p>
 </li>
 <li>
-<p><strong>Fingerprint</strong>: oVirt Engine fetches the host&#8217;s fingerprint, to ensure you are connecting with the correct host.</p>
+<p><strong>Host ssh public key (PEM)</strong>: oVirt Engine fetches the host&#8217;s SSH public key, to ensure you are connecting with the correct host.</p>
 </li>
 <li>
-<p><strong>Root Password</strong>: Enter the root password required for communicating with the host.</p>
+<p><strong>Password</strong>: Enter the root password required for communicating with the host.</p>
 </li>
 </ul>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable to set VM maintenance reason</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If this check box is selected, an optional reason field will appear when a virtual machine in the cluster is shut down from the Engine. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the virtual machine is powered on again.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable to set Host maintenance reason</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If this check box is selected, an optional reason field will appear when a host in the cluster is moved into maintenance mode from the Engine. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the host is activated again.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Additional Random Number Generator source</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">If the check box is selected, all hosts in the cluster have the additional random number generator device available. This enables passthrough of entropy from the random number generator device to virtual machines.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Gluster Tuned Profile</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This check box is only available if the <strong>Enable Gluster Service</strong> check box is selected. This option specifies the <strong>virtual-host</strong> tuning profile to enable more aggressive writeback of dirty memory pages, which benefits the host performance.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5566,6 +5613,66 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </tr>
 </tbody>
 </table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 38. Additional Properties Settings</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description/Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Migration Encryption</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows the virtual machine to be encrypted during migration.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cluster default</strong></p>
+</li>
+<li>
+<p><strong>Encrypt</strong></p>
+</li>
+<li>
+<p><strong>Don’t encrypt</strong></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parallel Migrations</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows you to specify whether and how many parallel migration connections to use.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Disabled</strong>: The virtual machine is migrated using a single, non-parallel connection.</p>
+</li>
+<li>
+<p><strong>Auto</strong>: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.</p>
+</li>
+<li>
+<p><strong>Auto Parallel</strong>: The number of parallel connections is automatically determined.</p>
+</li>
+<li>
+<p><strong>Custom</strong>: Allows you to specify the preferred number of parallel Connections, the actual number may be lower.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Number of VM Migration Connections</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This setting is only available when <strong>Custom</strong> is selected. The preferred number of custom parallel migrations, between 2 and 255.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect4">
 <h5 id="Cluster_Scheduling_Policy_Settings">Scheduling Policy Settings Explained</h5>
@@ -5573,7 +5680,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Scheduling policies allow you to specify the usage and distribution of virtual machines between available hosts. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host&#8217;s CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See <a href="https://ovirt.org/documentation/administration_guide/index#sect-Scheduling_Policies">Scheduling Policies</a> in the <em>Administration Guide</em> for more information.</p>
 </div>
 <table id="Cluster-General" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 38. Scheduling Policy Tab Properties</caption>
+<caption class="title">Table 39. Scheduling Policy Tab Properties</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -5832,7 +5939,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>The table below describes the settings for the <strong>Console</strong> tab in the <strong>New Cluster</strong> and <strong>Edit Cluster</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 39. Console Settings</caption>
+<caption class="title">Table 40. Console Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5868,7 +5975,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>The table below describes the settings for the <strong>Fencing Policy</strong> tab in the <strong>New Cluster</strong> and <strong>Edit Cluster</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 40. Fencing Policy Settings</caption>
+<caption class="title">Table 41. Fencing Policy Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6194,7 +6301,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>The <strong>Add Hosts</strong> window allows you to specify the details of the hosts imported as part of a Gluster-enabled cluster. This window appears after you have selected the <strong>Enable Gluster Service</strong> check box in the <strong>New Cluster</strong> window and provided the necessary host details.</p>
 </div>
 <table id="Add_Gluster_Hosts" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 41. Add Gluster Hosts Settings</caption>
+<caption class="title">Table 42. Add Gluster Hosts Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6503,7 +6610,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>To use UEFI on a virtual machine, you must configure the virtual machine’s cluster for 4.4 compatibility or later. Then you can set UEFI for any existing virtual machine, or to be the default BIOS type for new virtual machines in the cluster. The following options are available:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 42. Available BIOS Types</caption>
+<caption class="title">Table 43. Available BIOS Types</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7382,7 +7489,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>General</strong> tab of the <strong>New Logical Network</strong> and <strong>Edit Logical Network</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 43. <strong>New Logical Network</strong> and <strong>Edit Logical Network</strong> Settings</caption>
+<caption class="title">Table 44. <strong>New Logical Network</strong> and <strong>Edit Logical Network</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7450,7 +7557,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>Cluster</strong> tab of the <strong>New Logical Network</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 44. <strong>New Logical Network</strong> Settings</caption>
+<caption class="title">Table 45. <strong>New Logical Network</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7478,7 +7585,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>vNIC Profiles</strong> tab of the <strong>New Logical Network</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 45. <strong>New Logical Network</strong> Settings</caption>
+<caption class="title">Table 46. <strong>New Logical Network</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7548,7 +7655,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>Manage Networks</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 46. Manage Networks Settings</caption>
+<caption class="title">Table 47. Manage Networks Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7763,7 +7870,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <div class="sect4">
 <h5 id="Explanation_of_Settings_in_the_VM_Interface_Profile_Window">Explanation of Settings in the VM Interface Profile Window</h5>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 47. VM Interface Profile Window</caption>
+<caption class="title">Table 48. VM Interface Profile Window</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -10170,7 +10277,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <p><a href="#Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning">Adding a Red Hat Satellite Instance for Host Provisioning</a></p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts">Host Management Without Goferd and Katello Agent</a> in the Red Hat Satellite document <em>Managing Hosts</em></p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9/html-single/managing_hosts/index#host-management-without-goferd-and-katello-agent_managing-hosts">Host Management Without Goferd and Katello Agent</a> in the Red Hat Satellite document <em>Managing Hosts</em></p>
 </li>
 </ul>
 </div>
@@ -10890,18 +10997,16 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
-</div>
-</div>
+<p>For oVirt Nodes the <code>centos-release-ovirt45`</code> RPM package enabling the correct repositories is already installed.</p>
 </li>
 <li>
 <p>For Enterprise Linux hosts:</p>
+</li>
+<li>
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2851/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
 </div>
 </div>
 </li>
@@ -11012,27 +11117,53 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <ol class="arabic">
 <li>
 <p>Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Upgrading from an older 4.5 to latest 4.5:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
+<p>For oVirt Nodes, the <code>centos-release-ovirt45</code> RPM package enabling the correct repositories is already installed.</p>
+</li>
+<li>
+<p>For Enterprise Linux hosts:</p>
+</li>
+<li>
+<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2851/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Upgrading from an older 4.4 to latest 4.4:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed.</p>
+</li>
+<li>
+<p>For Enterprise Linux hosts ensure <code>ovirt-release44</code> RPM package is updated to the latest version:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y ovirt-release44</code></pre>
 </div>
 </div>
 </li>
-<li>
-<p>For Enterprise Linux hosts:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
-</div>
-</li>
 </ul>
 </div>
-</li>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select the host to be updated.</p>
 </li>
@@ -11667,7 +11798,7 @@ roles:
 <p>The <strong>General</strong> settings table contains the information required on the <strong>General</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 48. <strong>General</strong> settings</caption>
+<caption class="title">Table 49. <strong>General</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -11800,7 +11931,7 @@ roles:
 <p>The <strong>Power Management</strong> settings table contains the information required on the <strong>Power Management</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> windows. You can configure power management if the host has a supported power management card.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 49. <strong>Power Management</strong> Settings</caption>
+<caption class="title">Table 50. <strong>Power Management</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -11860,7 +11991,7 @@ roles:
 <p>The following table contains the information required in the <strong>Edit fence agent</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 50. <strong>Edit fence agent</strong> Settings</caption>
+<caption class="title">Table 51. <strong>Edit fence agent</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -11966,7 +12097,7 @@ roles:
 <p>The <strong>SPM</strong> settings table details the information required on the <strong>SPM</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 51. <strong>SPM</strong> settings</caption>
+<caption class="title">Table 52. <strong>SPM</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -11991,7 +12122,7 @@ roles:
 <p>The <strong>Console</strong> settings table details the information required on the <strong>Console</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 52. <strong>Console</strong> settings</caption>
+<caption class="title">Table 53. <strong>Console</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12036,7 +12167,7 @@ roles:
 <p>The <strong>Network Provider</strong> settings table details the information required on the <strong>Network Provider</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 53. <strong>Network Provider</strong> settings</caption>
+<caption class="title">Table 54. <strong>Network Provider</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12078,7 +12209,7 @@ roles:
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 54. <strong>Kernel</strong> Settings</caption>
+<caption class="title">Table 55. <strong>Kernel</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12141,7 +12272,7 @@ roles:
 <p>The <strong>Hosted Engine</strong> settings table details the information required on the <strong>Hosted Engine</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 55. <strong>Hosted Engine</strong> Settings</caption>
+<caption class="title">Table 56. <strong>Hosted Engine</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12455,7 +12586,7 @@ If a host runs virtual machines that are highly available, power management must
 <p>The following options can be customized if required:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 56. fence_kdump Listener Configuration Options</caption>
+<caption class="title">Table 57. fence_kdump Listener Configuration Options</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -12562,7 +12693,7 @@ If a host runs virtual machines that are highly available, power management must
 <p>The following options can be configured using <code>engine-config</code>:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 57. Kdump Configuration Options</caption>
+<caption class="title">Table 58. Kdump Configuration Options</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -14281,7 +14412,7 @@ Vdsm cannot configure the filter automatically.</pre>
 <div class="sect4">
 <h5 id="Preparing_Red_Hat_Gluster_Storage_storage_admin">Preparing Gluster Storage</h5>
 <div class="paragraph">
-<p>For information on setting up and configuring Gluster Storage, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5/html/installation_guide/"><em>Gluster Storage Installation Guide</em></a>.</p>
+<p>For information on setting up and configuring Gluster Storage, see the <a href="https://docs.gluster.org/en/latest/Install-Guide/Overview/"><em>Gluster Storage Installation Guide</em></a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -14801,6 +14932,55 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="Uploading_the_VirtIO_Image_Files_to_a_Storage_Domain">Uploading the VirtIO image files to a storage domain</h5>
+<div class="paragraph">
+<p>The <code>virtio-win<em>_version</em>.iso</code> image contains the following for Windows virtual machines to improve performance and usability:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>VirtIO drivers</p>
+</li>
+<li>
+<p>an installer for the guest agents</p>
+</li>
+<li>
+<p>an installer for the drivers</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To install and upload the most recent version of <code>virtio-win<em>_version</em>.iso</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install the image files on the Engine machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install virtio-win</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After you install it on the Engine machine, the image file is <code class="filename">/usr/share/virtio-win/virtio-win<em>_version</em>.iso</code></p>
+</div>
+</li>
+<li>
+<p>Upload the image file to a data storage domain that was not created locally during installation. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p>Attach the image file to virtual machines.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The virtual machines can now use the virtio drivers and agents.</p>
+</div>
+<div class="paragraph">
+<p>For information on attaching the image files to a virtual machine, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the Guest Agents, Tools, and Drivers on Windows</a> in the <em>Virtual Machine Management Guide</em>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -15921,7 +16101,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the information required on the <strong>General</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows that are specific to virtual machine pools. All other settings are identical to those in the <strong>New Virtual Machine</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 58. <strong>General</strong> settings</caption>
+<caption class="title">Table 59. <strong>General</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -15974,7 +16154,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the information required on the <strong>Type</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 59. <strong>Type</strong> settings</caption>
+<caption class="title">Table 60. <strong>Type</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -16015,7 +16195,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the information required on the <strong>Console</strong> tab of the <strong>New Pool</strong> or <strong>Edit Pool</strong> window that is specific to virtual machine pools. All other settings are identical to those in the <strong>New Virtual Machine</strong> and <strong>Edit Virtual Machine</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 60. <strong>Console</strong> settings</caption>
+<caption class="title">Table 61. <strong>Console</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -16051,7 +16231,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the options available on the <strong>Host</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows.</p>
 </div>
 <table id="New_VMs_Host" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 61. Virtual Machine Pool: Host Settings</caption>
+<caption class="title">Table 62. Virtual Machine Pool: Host Settings</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -16168,7 +16348,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Cluster default (Don&#8217;t encrypt)</strong></p>
+<p><strong>Cluster default</strong></p>
 </li>
 <li>
 <p><strong>Encrypt</strong></p>
@@ -16181,13 +16361,49 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Node Count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parallel Migrations</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows you to specify whether and how many parallel migration connections to use.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cluster default</strong>: Parallel migration connections are determined by the cluster default.</p>
+</li>
+<li>
+<p><strong>Disabled</strong>: The virtual machine is migrated using a single, non-parallel connection.</p>
+</li>
+<li>
+<p><strong>Auto</strong>: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.</p>
+</li>
+<li>
+<p><strong>Auto Parallel</strong>: The number of parallel connections is automatically determined.</p>
+</li>
+<li>
+<p><strong>Custom</strong>: Allows you to specify the preferred number of parallel connections, the actual number may be lower.</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Number of VM Migration Connections</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This setting is only available when <strong>Custom</strong> is selected. The preferred number of custom parallel migrations, between 2 and 255.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Node Count</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Pinning</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens the <strong>NUMA Topology</strong> window. This window shows the host&#8217;s total CPUs, memory, and NUMA nodes, and the virtual machine&#8217;s virtual NUMA nodes. You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragging each vNUMA from the box on the right to a NUMA node on the left.</p>
+<p class="tableblock">You can also set <strong>Tune Mode</strong> for memory allocation:</p>
+<p class="tableblock"><strong>Strict</strong> - Memory allocation will fail if the memory cannot be allocated on the target node.</p>
+<p class="tableblock"><strong>Preferred</strong> - Memory is allocated from a single preferred node. If sufficient memory is not available, memory can be allocated from other nodes.</p>
+<p class="tableblock"><strong>Interleave</strong> - Memory is allocated across nodes in a round-robin algorithm.</p>
+<p class="tableblock">If you define NUMA pinning, <strong>Migration Options</strong> is set to <strong>Allow manual migration only</strong>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -16198,7 +16414,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>The following table details the information required on the <strong>Resource Allocation</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows that are specific to virtual machine pools. All other settings are identical to those in the <strong>New Virtual Machine</strong> window. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide#Virtual_Machine_Resource_Allocation_settings_explained">Virtual Machine Resource Allocation Settings Explained</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 62. <strong>Resource Allocation</strong> settings</caption>
+<caption class="title">Table 63. <strong>Resource Allocation</strong> settings</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -16442,7 +16658,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>The possible combinations of storage types and formats are described in the following table.</p>
 </div>
 <table id="vdisk-combos" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 63. Permitted Storage Combinations</caption>
+<caption class="title">Table 64. Permitted Storage Combinations</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -16687,7 +16903,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <p>Because the New Virtual Disk windows for creating floating and attached virtual disks are very similar, their settings are described in a single section.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 64. New Virtual Disk and Edit Virtual Disk settings: <strong>Image</strong></caption>
+<caption class="title">Table 65. New Virtual Disk and Edit Virtual Disk settings: <strong>Image</strong></caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -16806,7 +17022,7 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 </ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 65. New Virtual Disk and Edit Virtual Disk settings: <strong>Direct LUN</strong></caption>
+<caption class="title">Table 66. New Virtual Disk and Edit Virtual Disk settings: <strong>Direct LUN</strong></caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -17945,40 +18161,12 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <div class="paragraph">
 <p>The <code>ovirt-provider-ovn</code> exposes an OpenStack Networking REST API. You can use this API to create networks, subnets, ports, and routers. For details, see <a href="https://developer.openstack.org/api-ref/network/v2/"><em>OpenStack Networking API v2.0</em></a>.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>CloudForms supports OVN as an external provider using the OpenStack Networking API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html/managing_providers/network_providers">Network Managers</a> in <em>Red Hat CloudForms: Managing Providers</em> for details.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>For more details, see the <a href="http://docs.openvswitch.org/en/latest/">Open vSwitch Documentation</a> and <a href="http://openvswitch.org/support/dist-docs/">Open vSwitch Manpages</a>.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="Installing_a_new_OVN_network_provider">Installing a New OVN Network Provider</h5>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If the <code>openvswitch</code> package is already installed and if the version is 1:2.6.1 (version 2.6.1, epoch 1), the OVN installation will fail when it tries to install the latest <code>openvswitch</code> package. See the Doc Text in <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1505398">BZ#1505398</a> for the details and a workaround.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Installing OVN using <code>engine-setup</code> performs the following steps:</p>
 </div>
@@ -18126,358 +18314,35 @@ oVirt OVN provider password[empty]:</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="Adding_an_existing_OVN_network_provider">Adding an Existing OVN Network Provider</h5>
-<div class="paragraph">
-<p>Adding an existing OVN central server as an external network provider in oVirt involves the following key steps:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Install the OVN provider, a proxy used by the Engine to interact with OVN. The OVN provider can be installed on any machine, but must be able to communicate with the OVN central server and the Engine.</p>
-</li>
-<li>
-<p>Add the OVN provider to oVirt as an external network provider.</p>
-</li>
-<li>
-<p>Create a new cluster that uses OVN as its default network provider. Hosts added to this cluster are automatically configured to communicate with OVN.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<div class="title">Prerequisites</div>
-<p>The following packages are required by the OVN provider and must be available on the provider machine:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>openvswitch-ovn-central</p>
-</li>
-<li>
-<p>openvswitch</p>
-</li>
-<li>
-<p>openvswitch-ovn-common</p>
-</li>
-<li>
-<p>python-openvswitch</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If these packages are not available from the repositories already enabled on the provider machine, they can be downloaded from the <a href="http://openvswitch.org/download/">OVS website</a>.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Install and configure the OVN provider.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Install the provider on the provider machine:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-provider-ovn</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>If you are not installing the provider on the same machine as the Engine, add the following entry to the <code>/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf</code> file (create this file if it does not already exist):</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">[OVIRT]
-ovirt-host=https://<em>Manager_host_name</em></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This is used for authentication, if authentication is enabled.</p>
-</div>
-</li>
-<li>
-<p>If you are not installing the provider on the same machine as the OVN central server, add the following entry to the <code>/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf</code> file (create this file if it does not already exist):</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">[OVN REMOTE]
-ovn-remote=tcp:<em>OVN_central_server_IP</em>:6641</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Open ports 9696, 6641, and 6642 in the firewall to allow communication between the OVN provider, the OVN central server, and the Engine. This can be done either manually or by adding the <code>ovirt-provider-ovn</code> and <code>ovirt-provider-ovn-central</code> services to the appropriate zone:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --zone=<em>ZoneName</em> --add-service=ovirt-provider-ovn --permanent
-# firewall-cmd --zone=<em>ZoneName</em> --add-service=ovirt-provider-ovn-central --permanent
-# firewall-cmd --reload</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Start and enable the service:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl start ovirt-provider-ovn
-# systemctl enable ovirt-provider-ovn</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Configure the OVN central server to listen to requests from ports 6642 and 6641:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ovn-sbctl set-connection ptcp:6642
-# ovn-nbctl set-connection ptcp:6641</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Administration</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Providers</b></span>.</p>
-</li>
-<li>
-<p>Click <strong>Add</strong> and enter the details in the <strong>General Settings</strong> tab. For more information on these fields, see <a href="#Add_Provider_General_Settings_Explained">Add Provider General Settings Explained</a>.</p>
-</li>
-<li>
-<p>Enter a <strong>Name</strong> and <strong>Description</strong>.</p>
-</li>
-<li>
-<p>From the <strong>Type</strong> list, select <strong>External Network Provider</strong>.</p>
-</li>
-<li>
-<p>Click the <strong>Networking Plugin</strong> text box and select <strong>oVirt Network Provider for OVN</strong> from the drop-down menu.</p>
-</li>
-<li>
-<p>Optionally, select the <strong>Automatic Synchronization</strong> check box. This enables automatic synchronization of the external network provider with existing networks.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Automatic synchronization is enabled by default on the <strong>ovirt-provider-ovn</strong> network provider created by the <strong>engine-setup</strong> tool.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Enter the URL or fully qualified domain name of the OVN provider in the <strong>Provider URL</strong> text field, followed by the port number. If the OVN provider and the OVN central server are on separate machines, this is the URL of the provider machine, not the central server. If the OVN provider is on the same machine as the Engine, the URL can remain the default <code>http://localhost:9696</code>.</p>
-</li>
-<li>
-<p>Clear the <strong>Read-Only</strong> check box to allow creating new OVN networks from the oVirt Engine.</p>
-</li>
-<li>
-<p>Optionally, select the <strong>Requires Authentication</strong> check box and enter the <strong>Username</strong> and <strong>Password</strong> for the for the external network provider user registered in Keystone.
-You must also define the authentication URL of the Keystone server by defining the <strong>Protocol</strong>, <strong>Hostname</strong>, and <strong>API Port</strong>.</p>
-<div class="paragraph">
-<p>Optionally, enter the <strong>Tenant</strong> for the external network provider.</p>
-</div>
-<div class="paragraph">
-<p>The authentication method must be configured in the <code>/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf</code> file (create this file if it does not already exist). Restart the <code>ovirt-provider-ovn</code> service for the change to take effect. See <a href="https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc" class="bare">https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc</a> for more information about OVN authentication.</p>
-</div>
-</li>
-<li>
-<p>Test the credentials:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <strong>Test</strong> to test whether you can authenticate successfully with OVN using the provided credentials.</p>
-</li>
-<li>
-<p>If the OVN instance uses SSL, the <strong>Import provider certificates</strong> window opens; click <b class="button">OK</b> to import the certificate that the OVN instance provides to ensure the Engine can communicate with the instance.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Click <b class="button">OK</b>.</p>
-</li>
-<li>
-<p>Create a new cluster that uses OVN as its default network provider. See <a href="#Creating_a_New_Cluster">Creating a New Cluster</a> and select the OVN network provider from the <strong>Default Network Provider</strong> drop-down list.</p>
-</li>
-<li>
-<p>Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see <a href="#Adding_standard_hosts_to_the_Manager_host_tasks">Adding standard hosts to the Engine</a>.</p>
-</li>
-<li>
-<p>Import or add OVN networks to the new cluster. To import networks, see <a href="#Importing_Networks">Importing Networks</a>. To create new networks using OVN, see <a href="#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a new logical network in a data center or cluster</a>, and select the <strong>Create on external provider</strong> check box. <code>ovirt-provider-ovn</code> is selected by default.</p>
-<div class="paragraph">
-<p>To configure your hosts to use an existing, non-default network, see <a href="#Configuring_Hosts_for_an_OVN_tunnel_network">Configuring Hosts for an OVN tunnel network</a>.</p>
-</div>
-<div class="paragraph">
-<p>To connect the OVN network to a native oVirt network, select the <strong>Connect to physical network</strong> check box and specify the oVirt network to use. See <a href="#Connecting_an_OVN_Network_to_a_Physical_Network">Connecting an OVN Network to a Physical Network</a> for more information and prerequisites.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>You can now create virtual machines that use OVN networks.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="Using_an_Ansible_playbook_to_modify_an_OVN_tunnel_network">Using an Ansible playbook to modify an OVN tunnel network</h5>
-<div class="paragraph">
-<p>You can use the <code>ovirt-provider-ovn-driver</code> Ansible playbook to use long names to modify the tunnel network for OVN controllers.</p>
-</div>
-<div class="paragraph">
-<p><strong>Ansible playbook to modify an OVN tunnel network</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook --key-file &lt;path_to_key_file&gt; -i &lt;path_to_inventory&gt; --extra-vars &quot; cluster_name=&lt;cluster_name&gt; ovn_central=&lt;ovn_central_ip_address&gt; ovirt_network=&lt;ovirt network name&gt; ovn_tunneling_interface=&lt;vdsm_network_name&gt;&quot; ovirt-provider-ovn-driver.yml</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Parameters</strong></p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">key-file</dt>
-<dd>
-<p>The key file to log into the host. The default key file is usually found in the <code>/etc/pki/ovirt-engine/keys</code> directory.</p>
-</dd>
-<dt class="hdlist1">inventory</dt>
-<dd>
-<p>The oVirt VM inventory. To locate the inventory value, use this script: <code>/usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory</code>.</p>
-</dd>
-<dt class="hdlist1">cluster_name</dt>
-<dd>
-<p>The name of the cluster on which to update the name.</p>
-</dd>
-<dt class="hdlist1">ovn_central</dt>
-<dd>
-<p>The IP address to the OVN central server. This IP address must be accessible to all hosts.</p>
-</dd>
-<dt class="hdlist1">ovirt_network</dt>
-<dd>
-<p>The oVirt network name.</p>
-</dd>
-<dt class="hdlist1">ovn_tunneling_interface</dt>
-<dd>
-<p>The VDSM network name.</p>
-</dd>
-</dl>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>ovirt-provider-ovn-driver</code> Ansible playbook supports using either the <code>ovirt_network</code> parameter or the <code>ovn_tunneling_interface</code> parameter. This playbook fails if both parameters are present in the same playbook.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Playbook with <code>ovirt_network</code> parameter</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars &quot; cluster_name=test-cluster ovn_central=192.168.200.2 ovirt_network=\&quot;Long\ Network\ Name\ with\ \Ascii\ character\ \☺\&quot;&quot; ovirt-provider-ovn-driver.yml</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Playbook with <code>ovn_tunneling_interface</code> parameter</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars &quot; cluster_name=test-cluster ovn_central=192.168.200.2 ovn_tunneling_interface=on703ea21ddbc34&quot; ovirt-provider-ovn-driver.yml</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>On the Engine machine, navigate to the <code>/usr/share/ovirt-engine/playbooks</code> directory to run the Ansible playbooks.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="Configuring_Hosts_for_an_OVN_tunnel_network">Configuring Hosts for an OVN Tunnel Network</h5>
-<div class="paragraph">
-<p>You can configure your hosts to use an existing network, other than the default <code>ovirtmgmt</code> network, with the <code>ovirt-provider-ovn-driver</code> Ansible playbook. The network must be accessible to all the hosts in the cluster.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>ovirt-provider-ovn-driver</code> Ansible playbook updates existing hosts. If you add new hosts to the cluster, you must run the playbook again.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>On the Engine machine, go to the <strong>playbooks</strong> directory:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cd /usr/share/ovirt-engine/playbooks</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Run the <code>ansible-playbook</code> command with the following parameters:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># ansible-playbook --private-key=/etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars "&#160;cluster_name=<em>Cluster_Name</em> ovn_central=<em>OVN_Central_IP</em> ovn_tunneling_interface=<em>VDSM_Network_Name</em>" ovirt-provider-ovn-driver.yml</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># ansible-playbook --private-key=/etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars "&#160;cluster_name=MyCluster ovn_central=192.168.0.1 ovn_tunneling_interface=MyNetwork" ovirt-provider-ovn-driver.yml</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <em>OVN_Central_IP</em> can be on the new network, but this is not a requirement. The <em>OVN_Central_IP</em> must be accessible to all hosts.</p>
-</div>
-<div class="paragraph">
-<p>The <em>VDSM_Network_Name</em> is limited to 15 characters. If you defined a logical network name that was longer than 15 characters or contained non-ASCII characters, a 15-character name is automatically generated. See <a href="#Vdsm_To_Network_Mapping_Tool">Mapping VDSM Names to Logical Network Names</a> for instructions on displaying a mapping of these names.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Updating the OVN Tunnel Network on a Single Host</strong></p>
-</div>
+<h5 id="Configuring_Hosts_for_an_OVN_tunnel_network">Updating the OVN Tunnel Network on a Single Host</h5>
 <div class="paragraph">
 <p>You can update the OVN tunnel network on a single host with <code>vdsm-tool</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># vdsm-tool ovn-config <em>OVN_Central_IP</em> <em>Tunneling_IP_or_Network_Name</em></code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vdsm-tool ovn-config OVN_Central_IP Tunneling_IP_or_Network_Name Host_FQDN</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Host_FQDN must match the FQDN that is specified in the engine for this host.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="exampleblock">
 <div class="title">Example 9. Updating a Host with <code>vdsm-tool</code></div>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># vdsm-tool ovn-config 192.168.0.1 MyNetwork</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># vdsm-tool ovn-config 192.168.0.1 MyNetwork MyFQDN</code></pre>
 </div>
 </div>
 </div>
@@ -18566,91 +18431,8 @@ You must also define the authentication URL of the Keystone server by defining t
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="Adding_an_External_Network_Provider">Adding an External Network Provider</h5>
 <div class="paragraph">
-<p>Any network provider that implements the OpenStack Networking REST API can be added to oVirt. The virtual interface driver needs to be provided by the implementer of the external network provider.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Click <span class="menuseq"><b class="menu">Administration</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Providers</b></span>.</p>
-</li>
-<li>
-<p>Click <strong>Add</strong> and enter the details in the <strong>General Settings</strong> tab. For more information on these fields, see <a href="#Add_Provider_General_Settings_Explained">Add Provider General Settings Explained</a>.</p>
-</li>
-<li>
-<p>Enter a <strong>Name</strong> and <strong>Description</strong>.</p>
-</li>
-<li>
-<p>Select <strong>External Network Provider</strong> from the <strong>Type</strong> drop-down list.</p>
-</li>
-<li>
-<p>Optionally, click the <strong>Networking Plugin</strong> text box and select the appropriate driver from the drop-down menu.</p>
-</li>
-<li>
-<p>Optionally, select the <strong>Automatic Synchronization</strong> check box. This enables automatic synchronization of the external network provider with existing networks. This feature is disabled by default when adding external network providers.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Automatic synchronization is enabled by default on the <strong>ovirt-provider-ovn</strong> network provider created by the <strong>engine-setup</strong> tool.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Enter the URL or fully qualified domain name of the machine on which the external network provider is installed in the <strong>Provider URL</strong> text field, followed by the port number. The <strong>Read-Only</strong> check box is selected by default. This prevents users from modifying the external network provider.</p>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You must leave the <strong>Read-Only</strong> check box selected for your setup to be supported by Red Hat.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Optionally, select the <strong>Requires Authentication</strong> check box and enter the <strong>Username</strong> and <strong>Password</strong> for the external network provider user registered in Keystone.
-You must also define the authentication URL of the Keystone server by defining the <strong>Protocol</strong>, <strong>Hostname</strong>, and <strong>API Port</strong>.</p>
-<div class="paragraph">
-<p>Optionally, enter the <strong>Tenant</strong> for the external network provider.</p>
-</div>
-</li>
-<li>
-<p>Test the credentials:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <strong>Test</strong> to test whether you can authenticate successfully with the external network provider using the provided credentials.</p>
-</li>
-<li>
-<p>If the external network provider uses SSL, the <strong>Import provider certificates</strong> window opens; click <b class="button">OK</b> to import the certificate that the external network provider provides to ensure the Engine can communicate with the instance.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Click <b class="button">OK</b>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Before you can use networks from this provider, you must install the virtual interface driver on the hosts and import the networks. To import networks, see <a href="#Importing_Networks">Importing Networks</a>.</p>
+<p>////Removing for BZ2006228 include::topics/Adding_an_External_Network_Provider.adoc[leveloffset=+2]</p>
 </div>
 </div>
 <div class="sect4">
@@ -18659,7 +18441,7 @@ You must also define the authentication URL of the Keystone server by defining t
 <p>The <strong>General</strong> tab in the <strong>Add Provider</strong> window allows you to register the core details of the external provider.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 66. Add Provider: General Settings</caption>
+<caption class="title">Table 67. Add Provider: General Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -18799,75 +18581,6 @@ You must also define the authentication URL of the Keystone server by defining t
 </li>
 <li>
 <p><strong>Tenant Name</strong>: The name of the OpenStack tenant of which the OpenStack Image service is a member.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>OpenStack Networking</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Networking Plugin</strong>: The networking plugin with which to connect to the OpenStack Networking server. For OpenStack Networking, <strong>Open vSwitch</strong> is the only option, and is selected by default.</p>
-</li>
-<li>
-<p><strong>Automatic Synchronization</strong>: Allows you to specify whether the provider will be automatically synchronized with existing networks.</p>
-</li>
-<li>
-<p><strong>Provider URL</strong>: The URL or fully qualified domain name of the machine on which the OpenStack Networking instance is hosted. You must add the port number for the OpenStack Networking instance to the end of the URL or fully qualified domain name. By default, this port number is 9696.</p>
-</li>
-<li>
-<p><strong>Read Only</strong>: Allows you to specify whether the OpenStack Networking instance can be modified from the Administration Portal.</p>
-</li>
-<li>
-<p><strong>Requires Authentication</strong>: Allows you to specify whether authentication is required to access the OpenStack Networking service.</p>
-</li>
-<li>
-<p><strong>Username</strong>: A user name for connecting to the OpenStack Networking instance. This user name must be the user name for OpenStack Networking registered in the Keystone instance of which the OpenStack Networking instance is a member.</p>
-</li>
-<li>
-<p><strong>Password</strong>: The password against which the above user name is to be authenticated. This password must be the password for OpenStack Networking registered in the Keystone instance of which the OpenStack Networking instance is a member.</p>
-</li>
-<li>
-<p><strong>Protocol</strong>: The protocol used to communicate with the Keystone server. The default is <strong>HTTPS</strong>.</p>
-</li>
-<li>
-<p><strong>Hostname</strong>: The IP address or hostname of the Keystone server.</p>
-</li>
-<li>
-<p><strong>API port</strong>: The API port number of the Keystone server.</p>
-</li>
-<li>
-<p><strong>API Version</strong>: The version of the Keystone server. This appears in the URL. If v2.0 appears, select <strong>v2.0</strong>. If v3 appears select <code>v3</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following fields appear when you select <code>v3</code> from the <strong>API Version</strong> field:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>User Domain Name</strong>: The name of the user defined in the domain.</p>
-<div class="paragraph">
-<p>With Keystone API v3, domains are used to determine administrative boundaries of service entities in OpenStack. Domains allow you to group users together for various purposes, such as setting domain-specific configuration or security options. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/11/html-single/architecture_guide/index#comp-identity">OpenStack Identity (keystone)</a> in the Red Hat OpenStack Platform <em>Architecture Guide</em>.</p>
-</div>
-</li>
-<li>
-<p><strong>Project Name</strong>: Defines the project name for OpenStack Identity API v3.</p>
-</li>
-<li>
-<p><strong>Project Domain Name</strong>: Defines the project’s domain name for OpenStack Identity API v3.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following field appears when you select <strong>v2.0</strong> from the <strong>API Version</strong> field:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Tenant Name</strong>: Appears only when v2 is selected from the <strong>API Version</strong> field. The name of the OpenStack tenant of which the OpenStack Networking instance is a member.</p>
 </li>
 </ul>
 </div>
@@ -19658,7 +19371,7 @@ broker : 25, type : broker</pre>
 <p>Update the setup packages:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum update ovirt\*setup\*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
 </div>
 </div>
 </li>
@@ -19710,7 +19423,7 @@ broker : 25, type : broker</pre>
 <p>Update the base operating system and any optional packages installed on the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre># yum update</pre>
+<pre># yum update --nobest</pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -20799,13 +20512,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 <div class="sect5">
 <h6 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_SHE_backup_restore">Enabling the oVirt Engine Repositories</h6>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled.
-For oVirt 4.4:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
+<p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
@@ -20817,14 +20524,15 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 </div>
 <div class="paragraph">
-<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+<p>For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -21334,13 +21042,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 <div class="sect5">
 <h6 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_SHE_restore_only">Enabling the oVirt Engine Repositories</h6>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled.
-For oVirt 4.4:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
+<p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
@@ -21352,14 +21054,15 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 </div>
 <div class="paragraph">
-<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+<p>For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -21822,13 +21525,7 @@ and disable global maintenance mode:</p>
 <div class="sect5">
 <h6 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrate_DWH_DB">Enabling the oVirt Engine Repositories</h6>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled.
-For oVirt 4.4:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
+<p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
@@ -21840,14 +21537,15 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 </div>
 <div class="paragraph">
-<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+<p>For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -22246,7 +21944,7 @@ Engine database password: <em>password</em></code></pre>
 <p>Remove the Data Warehouse files:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/*.conf /var/lib/ovirt-engine-dwh/backups/*</code></pre>
 </div>
 </div>
 </li>
@@ -22827,7 +22525,7 @@ Content-type: application/xml
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 67. Supported disk configurations for incremental backup</caption>
+<caption class="title">Table 68. Supported disk configurations for incremental backup</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -23873,7 +23571,7 @@ transfer URL.</p>
 <p>For complete information on using the imageio API, see the <a href="http://ovirt.github.io/ovirt-imageio/images.html">ovirt-imageio Images API reference</a>.</p>
 </div>
 <table id="imageio-Image-API-methods-used-in-incremental-backup-and-restore" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 68. imageio Image API methods used in incremental backup and restore</caption>
+<caption class="title">Table 69. imageio Image API methods used in incremental backup and restore</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -23939,7 +23637,7 @@ transfer URL.</p>
 <div class="sect2">
 <h3 id="chap-Errata_Management_with_Satellite">3.3. Setting up errata viewing with Red Hat Satellite</h3>
 <div class="paragraph">
-<p>In the Administration Portal, you can configure oVirt to view errata from Red Hat Satellite in the oVirt Engine. After you associate your hosts, virtual machines, and the Engine with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/">Red Hat Satellite Documentation</a>.</p>
+<p>In the Administration Portal, you can configure oVirt to view errata from Red Hat Satellite in the oVirt Engine. After you associate your hosts, virtual machines, and the Engine with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the <a href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/">Red Hat Satellite Documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>oVirt 4.4 supports viewing errata with Red Hat Satellite 6.6.</p>
@@ -26632,7 +26330,7 @@ user updated successfully</pre>
 <p>There are two different kinds of Quota:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 69. The Two Different Kinds of Quota</caption>
+<caption class="title">Table 70. The Two Different Kinds of Quota</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -26658,7 +26356,7 @@ user updated successfully</pre>
 <p>Quota, like SELinux, has three modes:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 70. Quota Modes</caption>
+<caption class="title">Table 71. Quota Modes</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -26860,7 +26558,7 @@ user updated successfully</pre>
 <div class="sect3">
 <h4 id="Explanation_of_Quota_Threshold_Settings">3.6.6. Explanation of Quota Threshold Settings</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 71. Quota thresholds and grace</caption>
+<caption class="title">Table 72. Quota thresholds and grace</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -27232,7 +26930,7 @@ MAIL_RETRIES=4</pre>
 <p>The event notifier configuration file can be found in <strong>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 72. ovirt-engine-notifier.conf variables</caption>
+<caption class="title">Table 73. ovirt-engine-notifier.conf variables</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -28180,7 +27878,7 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <p>The <strong>Red Hat USB Filter Editor</strong> interface displays the <strong>Class</strong>, <strong>Vendor</strong>, <strong>Product</strong>, <strong>Revision</strong>, and <strong>Action</strong> for each USB device. Permitted USB devices are set to <strong>Allow</strong> in the <strong>Action</strong> column; prohibited devices are set to <strong>Block</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 73. USB Editor Fields</caption>
+<caption class="title">Table 74. USB Editor Fields</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -28389,276 +28087,215 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </div>
 </div>
 <div class="sect3">
-<h4 id="sect-The_ISO_Uploader_Tool">3.8.4. The ISO Uploader Tool</h4>
+<h4 id="sect-The_Log_Collector_Tool">3.8.4. The Log Collector Tool</h4>
 <div class="sect4">
-<h5 id="The_ISO_Uploader_Tool">The ISO Uploader Tool</h5>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<h5 id="Log_Collector">Log Collector</h5>
 <div class="paragraph">
-<p>The ISO Uploader tool has been deprecated. Upload ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> for details.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>A log collection tool is included in the oVirt Engine. This allows you to easily collect relevant logs from across the oVirt environment when requesting support.</p>
 </div>
 <div class="paragraph">
-<p>The ISO uploader is a tool for uploading ISO images to the ISO storage domain. It is installed as part of the oVirt Engine.</p>
-</div>
-<div class="paragraph">
-<p>The ISO uploader command is <code>engine-iso-uploader</code>. You must log in as the <strong>root</strong> user and provide the administration credentials for the oVirt environment to use this command. The <code>engine-iso-uploader -h</code> command displays usage information, including a list of all valid options for the <code>engine-iso-uploader</code> command.</p>
+<p>The log collection command is <code>ovirt-log-collector</code>. You are required to log in as the <strong>root</strong> user and provide the administration credentials for the oVirt environment. The <code>ovirt-log-collector -h</code> command displays usage information, including a list of all valid options for the <code>ovirt-log-collector</code> command.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="Syntax_for_the_engine-iso-uploader_Command">Syntax for the engine-iso-uploader Command</h5>
+<h5 id="Syntax_for_the_ovirt-log-collector_Command">Syntax for the ovirt-log-collector Command</h5>
 <div class="paragraph">
-<p>The basic syntax for the ISO uploader command is:</p>
+<p>The basic syntax for the log collector command is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-iso-uploader <em>options</em> list
-# engine-iso-uploader <em>options</em> upload <em>file file file</em></code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ovirt-log-collector <em>options</em>  list <em>all|clusters|datacenters</em>
+# ovirt-log-collector <em>options</em> collect</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The ISO uploader command supports two actions - <code>list</code>, and <code>upload</code>.</p>
+<p>The two supported modes of operation are <code>list</code> and <code>collect</code>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>list</code> action lists the ISO storage domains to which ISO files can be uploaded. The oVirt Engine creates this list on the machine on which the Engine is installed during the installation process.</p>
+<p>The <code>list</code> parameter lists either the hosts, clusters, or data centers attached to the oVirt Engine. You are able to filter the log collection based on the listed objects.</p>
 </li>
 <li>
-<p>The <code>upload</code> action uploads a single ISO file or multiple ISO files separated by spaces to the specified ISO storage domain. NFS is used by default, but SSH is also available.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you use SSH, you are prompted multiple times to enter the SSH user password. You can avoid these prompts by uploading the public SSH key to the iso domain server before uploading an ISO file, and then using the <code>--key-file=<em>KEYFILE</em></code> option. One way to upload the public SSH key is to use the <code>ssh-copy-id -i ~/.ssh/<em>mykey</em> <em>user@host</em></code> command.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
+<p>The <code>collect</code> parameter performs log collection from the oVirt Engine. The collected logs are placed in an archive file under the <strong>/tmp/logcollector</strong> directory. The <code>ovirt-log-collector</code> command assigns each log a specific file name.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>You must specify one of the above actions when you use the ISO uploader command. Moreover, you must specify at least one local file to use the <code>upload</code> action.</p>
+<p>Unless another parameter is specified, the default action is to list the available hosts together with the data center and cluster to which they belong. You will be prompted to enter user names and passwords to retrieve certain logs.</p>
 </div>
 <div class="paragraph">
-<p>There are several parameters to further refine the <code>engine-iso-uploader</code> command.</p>
+<p>There are numerous parameters to further refine the <code>ovirt-log-collector</code> command.</p>
 </div>
 <div class="paragraph">
-<p><strong>General Options</strong></p>
+<p><strong>General options</strong></p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong><code>--version</code></strong></dt>
 <dd>
-<p>Displays the version of the ISO uploader command.</p>
+<p>Displays the version number of the command in use and returns to prompt.</p>
 </dd>
 <dt class="hdlist1"><strong><code>-h</code>, <code>--help</code></strong></dt>
 <dd>
-<p>Displays information on how to use the ISO uploader command.</p>
+<p>Displays command usage information and returns to prompt.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--conf-file=<em>PATH</em></code></strong></dt>
 <dd>
-<p>Sets <em>PATH</em> as the configuration file the command will to use. The default is <strong>/etc/ovirt-engine/isouploader.conf</strong>.</p>
+<p>Sets <em>PATH</em> as the configuration file the tool is to use.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--local-tmp=<em>PATH</em></code></strong></dt>
+<dd>
+<p>Sets <em>PATH</em> as the directory in which logs are saved. The default directory is <strong>/tmp/logcollector</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--ticket-number=<em>TICKET</em></code></strong></dt>
+<dd>
+<p>Sets <em>TICKET</em> as the ticket, or case number, to associate with the SOS report.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--upload=<em>FTP_SERVER</em></code></strong></dt>
+<dd>
+<p>Sets <em>FTP_SERVER</em> as the destination for retrieved logs to be sent using FTP.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--log-file=<em>PATH</em></code></strong></dt>
 <dd>
-<p>Sets <em>PATH</em> as the specific file name the command will use to write log output. The default is <strong>/var/log/ovirt-engine/ovirt-iso-uploader/ovirt-iso-uploader<em>_date</em>.log</strong>.</p>
-</dd>
-<dt class="hdlist1"><strong><code>--cert-file=<em>PATH</em></code></strong></dt>
-<dd>
-<p>Sets <em>PATH</em> as the certificate for validating the engine. The default is <strong>/etc/pki/ovirt-engine/ca.pem</strong>.</p>
-</dd>
-<dt class="hdlist1"><strong><code>--insecure</code></strong></dt>
-<dd>
-<p>Specifies that no attempt will be made to verify the engine.</p>
-</dd>
-<dt class="hdlist1"><strong><code>--nossl</code></strong></dt>
-<dd>
-<p>Specifies that SSL will not be used to connect to the engine.</p>
+<p>Sets <em>PATH</em> as the specific file name the command should use for the log output.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--quiet</code></strong></dt>
 <dd>
-<p>Sets quiet mode, reducing console output to a minimum.</p>
+<p>Sets quiet mode, reducing console output to a minimum. Quiet mode is off by default.</p>
 </dd>
 <dt class="hdlist1"><strong><code>-v</code>, <code>--verbose</code></strong></dt>
 <dd>
-<p>Sets verbose mode, providing more console output.</p>
+<p>Sets verbose mode, providing more console output. Verbose mode is off by default.</p>
 </dd>
-<dt class="hdlist1"><strong><code>-f</code>, <code>--force</code></strong></dt>
+<dt class="hdlist1"><strong><code>--time-only</code></strong></dt>
 <dd>
-<p>Force mode is necessary when the source file being uploaded has the same file name as an existing file in the destination ISO domain. This option forces the existing file to be overwritten.</p>
+<p>Displays only information about time differences between hosts, without generating a full SOS report.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
 <p><strong>oVirt Engine Options</strong></p>
 </div>
+<div class="paragraph">
+<p>These options filter the log collection and specify authentication details for the oVirt Engine.</p>
+</div>
+<div class="paragraph">
+<p>These parameters can be combined for specific commands. For example, <code>ovirt-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts "SalesHost"*</code> specifies the user as <code>admin@internal</code> and limits the log collection to only <code>SalesHost</code> hosts in clusters <code>A</code> and <code>B</code>.</p>
+</div>
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><strong><code>--no-hypervisors</code></strong></dt>
+<dd>
+<p>Omits virtualization hosts from the log collection.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--one-hypervisor-per-cluster</code></strong></dt>
+<dd>
+<p>Collects the logs of one host (the SPM, if there is one) from each cluster.</p>
+</dd>
 <dt class="hdlist1"><strong><code>-u <em>USER</em></code>, <code>--user=<em>USER</em></code></strong></dt>
 <dd>
-<p>Specifies the user whose credentials will be used to execute the command. The <em>USER</em> is specified in the format <em>username</em>@<em>domain</em>. The user must exist in the specified domain and be known to the oVirt Engine.</p>
+<p>Sets the user name for login. The <em>USER</em> is specified in the format <em>user</em>@<em>domain</em>, where <em>user</em> is the user name and <em>domain</em> is the directory services domain in use. The user must exist in directory services and be known to the oVirt Engine.</p>
 </dd>
-<dt class="hdlist1"><strong><code>-r <em>FQDN</em></code>, <code>--engine=<em>FQDN</em></code></strong></dt>
+<dt class="hdlist1"><strong><code>-r <em>FQDN</em></code>, <code>--rhevm=<em>FQDN</em></code></strong></dt>
 <dd>
-<p>Specifies the IP address or fully qualified domain name of the oVirt Engine from which the images will be uploaded. It is assumed that the image uploader is being run from the same machine on which the oVirt Engine is installed. The default value is <code>localhost:443</code>.</p>
+<p>Sets the fully qualified domain name of the oVirt Engine from which to collect logs, where <em>FQDN</em> is replaced by the fully qualified domain name of the Engine. It is assumed that the log collector is being run on the same local host as the oVirt Engine; the default value is <code>localhost</code>.</p>
+</dd>
+<dt class="hdlist1"><strong><code>-c <em>CLUSTER</em></code>, <code>--cluster=<em>CLUSTER</em></code></strong></dt>
+<dd>
+<p>Collects logs from the virtualization hosts in the nominated <em>CLUSTER</em> in addition to logs from the oVirt Engine. The cluster(s) for inclusion must be specified in a comma-separated list of cluster names or match patterns.</p>
+</dd>
+<dt class="hdlist1"><strong><code>-d <em>DATACENTER</em></code>, <code>--data-center=<em>DATACENTER</em></code></strong></dt>
+<dd>
+<p>Collects logs from the virtualization hosts in the nominated <em>DATACENTER</em> in addition to logs from the oVirt Engine. The data center(s) for inclusion must be specified in a comma-separated list of data center names or match patterns.</p>
+</dd>
+<dt class="hdlist1"><strong><code>-H <em>HOSTS_LIST</em></code>, <code>--hosts=<em>HOSTS_LIST</em></code></strong></dt>
+<dd>
+<p>Collects logs from the virtualization hosts in the nominated <em>HOSTS_LIST</em> in addition to logs from the oVirt Engine. The hosts for inclusion must be specified in a comma-separated list of host names, fully qualified domain names, or IP addresses. Match patterns are also valid.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p><strong>ISO Storage Domain Options</strong></p>
-</div>
-<div class="paragraph">
-<p>The following options specify the ISO domain to which the images will be uploaded. These options cannot be used together; you must used either the <code>-i</code> option or the <code>-n</code> option.</p>
+<p><strong>SSH Configuration</strong></p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><strong><code>-i</code>, <code>--iso-domain=<em>ISODOMAIN</em></code></strong></dt>
-<dd>
-<p>Sets the storage domain <em>ISODOMAIN</em> as the destination for uploads.</p>
-</dd>
-<dt class="hdlist1"><strong><code>-n</code>, <code>--nfs-server=<em>NFSSERVER</em></code></strong></dt>
-<dd>
-<p>Sets the NFS path <em>NFSSERVER</em> as the destination for uploads.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p><strong>Connection Options</strong></p>
-</div>
-<div class="paragraph">
-<p>The ISO uploader uses NFS as default to upload files. These options specify SSH file transfer instead.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><strong><code>--ssh-user=<em>USER</em></code></strong></dt>
-<dd>
-<p>Sets <em>USER</em> as the SSH user name to use for the upload. The default is <code>root</code>.</p>
-</dd>
 <dt class="hdlist1"><strong><code>--ssh-port=<em>PORT</em></code></strong></dt>
 <dd>
-<p>Sets <em>PORT</em> as the port to use when connecting to SSH.</p>
+<p>Sets <em>PORT</em> as the port to use for SSH connections with virtualization hosts.</p>
 </dd>
 <dt class="hdlist1"><strong><code>-k <em>KEYFILE</em></code>, <code>--key-file=<em>KEYFILE</em></code></strong></dt>
 <dd>
-<p>Sets <em>KEYFILE</em> as the private key to use for SSH authentication. If you don&#8217;t set a key, you are prompted to enter the password of the user specified by <code>--ssh-user=<em>USER</em></code>. You must upload the public SSH key to the ISO domain server before uploading an ISO file. One way to do this is to use the <code>ssh-copy-id -i ~/.ssh/<em>mykey</em> <em>user@host</em></code> command.</p>
+<p>Sets <em>KEYFILE</em> as the public SSH key to be used for accessing the virtualization hosts.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--max-connections=<em>MAX_CONNECTIONS</em></code></strong></dt>
+<dd>
+<p>Sets <em>MAX_CONNECTIONS</em> as the maximum concurrent SSH connections for logs from virtualization hosts. The default is <code>10</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><strong>PostgreSQL Database Options</strong></p>
+</div>
+<div class="paragraph">
+<p>The database user name and database name must be specified, using the <code>pg-user</code> and <code>dbname</code> parameters, if they have been changed from the default values.</p>
+</div>
+<div class="paragraph">
+<p>Use the <code>pg-dbhost</code> parameter if the database is not on the local host. Use the optional <code>pg-host-key</code> parameter to collect remote logs. The PostgreSQL SOS plugin must be installed on the database server for remote log collection to be successful.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong><code>--no-postgresql</code></strong></dt>
+<dd>
+<p>Disables collection of database. The log collector will connect to the oVirt Engine PostgreSQL database and include the data in the log report unless the <code>--no-postgresql</code> parameter is specified.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--pg-user=<em>USER</em></code></strong></dt>
+<dd>
+<p>Sets <em>USER</em> as the user name to use for connections with the database server. The default is <strong>postgres</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--pg-dbname=<em>DBNAME</em></code></strong></dt>
+<dd>
+<p>Sets <em>DBNAME</em> as the database name to use for connections with the database server. The default is <strong>rhevm</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--pg-dbhost=<em>DBHOST</em></code></strong></dt>
+<dd>
+<p>Sets <em>DBHOST</em> as the host name for the database server. The default is <strong>localhost</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong><code>--pg-host-key=<em>KEYFILE</em></code></strong></dt>
+<dd>
+<p>Sets <em>KEYFILE</em> as the public identity file (private key) for the database server. This value is not set by default; it is required only where the database does not exist on the local host.</p>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect4">
-<h5 id="Specifying_an_NFS_Server">Specifying an NFS Server</h5>
-<div class="exampleblock">
-<div class="title">Example 27. Uploading to an NFS Server</div>
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># <code>engine-iso-uploader --nfs-server=<em>storage.demo.redhat.com:/iso/path</em> upload <em>RHEL6.0.iso</em></code></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="Basic_ISO_Uploader_Usage">Basic ISO Uploader Usage</h5>
+<h5 id="Basic_Log_Collector_Usage">Basic Log Collector Usage</h5>
 <div class="paragraph">
-<p>The example below demonstrates the ISO uploader and the list parameter. The first command lists the available ISO storage domains; the <code>admin@internal</code> user is used because no user was specified in the command. The second command uploads an ISO file over NFS to the specified ISO domain.</p>
+<p>When the <code>ovirt-log-collector</code> command is run without specifying any additional parameters, its default behavior is to collect all logs from the oVirt Engine and its attached hosts. It will also collect database logs unless the <code>--no-postgresql</code> parameter is added. In the following example, log collector is run to collect all logs from the oVirt Engine and three attached hosts.</p>
 </div>
 <div class="exampleblock">
-<div class="title">Example 28. List Domains and Upload Image</div>
+<div class="title">Example 27. Log Collector Usage</div>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># <code>engine-iso-uploader list</code>
-Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
-ISO Storage Domain Name   | Datacenter          | ISO Domain Status
-ISODomain                 | Default             | active</code></pre>
+<pre class="nowrap"># ovirt-log-collector
+INFO: Gathering oVirt Engine information...
+INFO: Gathering PostgreSQL the oVirt Engine database and log files from localhost...
+Please provide REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
+About to collect information from 3 hypervisors. Continue? (Y/n):
+INFO: Gathering information from selected hypervisors...
+INFO: collecting information from 192.168.122.250
+INFO: collecting information from 192.168.122.251
+INFO: collecting information from 192.168.122.252
+INFO: finished collecting information from 192.168.122.250
+INFO: finished collecting information from 192.168.122.251
+INFO: finished collecting information from 192.168.122.252
+Creating compressed archive...
+INFO Log files have been collected and placed in /tmp/logcollector/sosreport-rhn-account-20110804121320-ce2a.tar.xz.
+The MD5 for this file is 6d741b78925998caff29020df2b2ce2a and its size is 26.7M</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># <code>engine-iso-uploader --iso-domain=<em>[ISODomain]</em> upload <em>[RHEL6.iso]</em></code>
-Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):</code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain">Uploading the VirtIO and guest tool image files to a storage domain</h5>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been removed in oVirt 4.4. oVirt recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> for details.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>virtio-win<em>_version</em>.iso</code> image contains the following for Windows virtual machines to improve performance and usability:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>VirtIO drivers</p>
-</li>
-<li>
-<p>an installer for the guest agents</p>
-</li>
-<li>
-<p>an installer for the drivers</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To install and upload the most recent version of <code>virtio-win<em>_version</em>.iso</code>:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Install the image files on the Engine machine:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install virtio-win</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>After you install it on the Engine machine, the image file is <code class="filename">/usr/share/virtio-win/virtio-win<em>_version</em>.iso</code></p>
-</div>
-</li>
-<li>
-<p>Upload the image file to a data storage domain that was not created locally during installation. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em>.</p>
-</li>
-<li>
-<p>Attach the image file to virtual machines.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The virtual machines can now use the virtio drivers and agents.</p>
-</div>
-<div class="paragraph">
-<p>For information on attaching the image files to a virtual machine, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the Guest Agents, Tools, and Drivers on Windows</a> in the <em>Virtual Machine Management Guide</em>.</p>
 </div>
 </div>
 </div>
@@ -29062,7 +28699,7 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 <p>The following dashboards are available in the initial Grafana setup to report Data Center, Cluster, Host, and Virtual Machine data:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 74. Built-in Grafana dashboards</caption>
+<caption class="title">Table 75. Built-in Grafana dashboards</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -29389,7 +29026,7 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 <div class="sect3">
 <h4 id="Manager_Installation_Log_Files">4.2.1. Engine Installation Log Files</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 75. Installation</caption>
+<caption class="title">Table 76. Installation</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -29423,7 +29060,7 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 <div class="sect3">
 <h4 id="Manager_Log_Files">4.2.2. oVirt Engine Log Files</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 76. Service Activity</caption>
+<caption class="title">Table 77. Service Activity</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -29471,7 +29108,7 @@ For information about Open vSwitch logs, see the <a href="http://openvswitch.org
 <div class="sect4">
 <h5 id="SPICE_Logs_for_Hypervisor_SPICE_Servers">SPICE Logs for Hypervisor SPICE Servers</h5>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 77. SPICE Logs for Hypervisor SPICE Servers</caption>
+<caption class="title">Table 78. SPICE Logs for Hypervisor SPICE Servers</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -29496,7 +29133,7 @@ For information about Open vSwitch logs, see the <a href="http://openvswitch.org
 <div class="sect4">
 <h5 id="SPICE_Logs_for_Guest_Machines">SPICE Logs for Guest Machines</h5>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 78. spice-vdagent Logs for Guest Machines</caption>
+<caption class="title">Table 79. spice-vdagent Logs for Guest Machines</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -29639,7 +29276,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>You can set the logs of the following oVirt (oVirt) services to debug-level by modifying the <code>sysconfig</code> file of each service.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 79. oVirt services and <code>sysconfig</code> file paths</caption>
+<caption class="title">Table 80. oVirt services and <code>sysconfig</code> file paths</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -29717,7 +29354,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>In addition to a <code>sysconfig</code> file, each of these oVirt (oVirt) services has another configuration file that is used more often.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 80. oVirt services and configuration files</caption>
+<caption class="title">Table 81. oVirt services and configuration files</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -29929,16 +29566,11 @@ input(type="imudp" port="514")</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="appe-VDSM_and_Hooks">Appendix A: VDSM and Hooks</h2>
+<h2 id="appe-VDSM_and_Hooks">Appendix A: VDSM Service and Hooks</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="VDSM">VDSM</h3>
 <div class="paragraph">
-<p>The VDSM service is used by the oVirt Engine to manage oVirt Nodes (oVirt Node) and Enterprise Linux hosts. VDSM manages and monitors the host&#8217;s storage, memory and network resources. It also co-ordinates virtual machine creation, statistics gathering, log collection and other host administration tasks. VDSM is run as a daemon on each host managed by oVirt Engine. It answers XML-RPC calls from clients. The oVirt Engine functions as a VDSM client.</p>
+<p>The VDSM service is used by the oVirt Engine to manage oVirt Nodes (oVirt Node) and Enterprise Linux hosts. VDSM manages and monitors the host&#8217;s storage, memory, and network resources. It also coordinates virtual machine creation, statistics gathering, log collection and other host administration tasks. VDSM is run as a daemon on each host managed by oVirt Engine. It answers XML-RPC calls from clients. The oVirt Engine functions as a VDSM client.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="VDSM_hooks">VDSM Hooks</h3>
 <div class="paragraph">
 <p>VDSM is extensible via hooks. Hooks are scripts executed on the host when key events occur. When a supported event occurs VDSM runs any executable hook scripts in <strong>/usr/libexec/vdsm/hooks/<em>nn_event-name</em>/</strong> on the host in alphanumeric order. By convention each hook script is assigned a two digit number, included at the front of the file name, to ensure that the order in which the scripts will be run in is clear. You are able to create hook scripts in any programming language, Python will however be used for the examples contained in this chapter.</p>
 </div>
@@ -29959,12 +29591,11 @@ input(type="imudp" port="514")</pre>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="Extending_VDSM_with_hooks">Extending VDSM with Hooks</h3>
 <div class="paragraph">
-<p>This chapter describes how to extend VDSM with event-driven hooks. Extending VDSM with hooks is an experimental technology, and this chapter is intended for experienced developers. By setting custom properties on virtual machines it is possible to pass additional parameters, specific to a given virtual machine, to the hook scripts.</p>
+<p>You can extend VDSM with event-driven hooks. Extending VDSM with hooks is an experimental technology, and this chapter is intended for experienced developers.</p>
 </div>
+<div class="paragraph">
+<p>By setting custom properties on virtual machines it is possible to pass additional parameters, specific to a given virtual machine, to the hook scripts.</p>
 </div>
 <div class="sect2">
 <h3 id="proc_installing-a-vdsm-hook">Installing a VDSM hook</h3>
@@ -30015,10 +29646,10 @@ input(type="imudp" port="514")</pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="https://ovirt.org/documentation/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_RHVH_repository_SHE_cli_deploy">Enabling the oVirt Node Repository</a></p>
+<p><a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_RHVH_repository_SHE_cli_deploy">Enabling the oVirt Node Repository</a></p>
 </li>
 <li>
-<p><a href="https://ovirt.org/documentation/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories_SHE_cli_deploy">Enabling the Enterprise Linux host Repositories</a></p>
+<p><a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories_SHE_cli_deploy">Enabling the Enterprise Linux host Repositories</a></p>
 </li>
 </ul>
 </div>
@@ -30026,7 +29657,7 @@ input(type="imudp" port="514")</pre>
 <div class="sect2">
 <h3 id="Supported_VDSM_events">Supported VDSM Events</h3>
 <table id="vdsm-hook-names" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 81. Supported VDSM Events</caption>
+<caption class="title">Table 82. Supported VDSM Events</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -30269,7 +29900,7 @@ The _hook_domxml variable of the following hooks contains the XML representation
 <p>Once the configuration key has been updated, the <strong>ovirt-engine</strong> service must be restarted for the new values to take effect.</p>
 </div>
 <div class="exampleblock">
-<div class="title">Example 29. Virtual Machine Properties - Defining the <code>smartcard</code> Custom Property</div>
+<div class="title">Example 28. Virtual Machine Properties - Defining the <code>smartcard</code> Custom Property</div>
 <div class="content">
 <div class="olist arabic">
 <ol class="arabic">
@@ -30324,7 +29955,7 @@ UserDefinedVMProperties : memory=^[0-9]+$;smartcard=^(true|false)$ version: 4.4<
 </div>
 </div>
 <div class="exampleblock">
-<div class="title">Example 30. Device Properties - Defining the <code>interface</code> Custom Property</div>
+<div class="title">Example 29. Device Properties - Defining the <code>interface</code> Custom Property</div>
 <div class="content">
 <div class="olist arabic">
 <ol class="arabic">
@@ -30396,7 +30027,7 @@ UserDefinedVMProperties : {type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(fu
 <p>Each key set in the <strong>Custom Properties</strong> field for a virtual machine is appended as an environment variable when calling hook scripts. Although the regular expressions used to validate the <strong>Custom Properties</strong> field provide some protection you should ensure that your scripts also validate that the inputs provided match their expectations.</p>
 </div>
 <div class="exampleblock">
-<div class="title">Example 31. Evaluating Custom Properties</div>
+<div class="title">Example 30. Evaluating Custom Properties</div>
 <div class="content">
 <div class="paragraph">
 <p>This short Python example checks for the existence of the custom property <code>key1</code>. If the custom property is set then the value is printed to standard error. If the custom property is not set then no action is taken.</p>
@@ -30429,7 +30060,7 @@ else:
 <p>The modified object can then be saved back to libvirt XML using the hooking module. The hooking module provides the following functions to support hook development:</p>
 </div>
 <table id="hooking-module-functions" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 82. Hooking module functions</caption>
+<caption class="title">Table 83. Hooking module functions</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -30470,7 +30101,7 @@ else:
 <p>Both <strong>before_vdsm_start</strong> and <strong>after_vdsm_stop</strong> hook scripts are run as the <strong>root</strong> user. Other hook scripts that require <strong>root</strong> access to the system must be written to use the <code>sudo</code> command for privilege escalation. To support this the <strong>/etc/sudoers</strong> must be updated to allow the <strong>vdsm</strong> user to use <code>sudo</code> without reentering a password. This is required as hook scripts are executed non-interactively.</p>
 </div>
 <div class="exampleblock">
-<div class="title">Example 32. Configuring <code>sudo</code> for VDSM Hooks</div>
+<div class="title">Example 31. Configuring <code>sudo</code> for VDSM Hooks</div>
 <div class="content">
 <div class="paragraph">
 <p>In this example the <code>sudo</code> command will be configured to allow the <strong>vdsm</strong> user to run the <code>/bin/chown</code> command as <strong>root</strong>.</p>
@@ -30516,7 +30147,7 @@ else:
 <p>Hook scripts must return one of the return codes shown in <a href="#hook-return-codes">hook return codes</a>. The return code will determine whether further hook scripts are processed by VDSM.</p>
 </div>
 <table id="hook-return-codes" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 83. Hook Return Codes</caption>
+<caption class="title">Table 84. Hook Return Codes</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -30553,7 +30184,7 @@ else:
 <p>The example hook scripts provided in this section are strictly not supported by Red Hat. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.</p>
 </div>
 <div id="VDSM_Hooks-example-numaset" class="exampleblock">
-<div class="title">Example 33. NUMA Node Tuning</div>
+<div class="title">Example 32. NUMA Node Tuning</div>
 <div class="content">
 <div class="paragraph">
 <p><strong>Purpose:</strong></p>
@@ -30661,7 +30292,7 @@ if os.environ.has_key('numa'):
 <div class="sect2">
 <h3 id="Explanation_of_bridge_opts_Parameters">Explanation of bridge_opts Parameters</h3>
 <table id="Table-Explanation_of_bridge_opts_Parameters" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 84. bridge_opts parameters</caption>
+<caption class="title">Table 85. bridge_opts parameters</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -30966,7 +30597,7 @@ api.ready();</code></pre>
 <div class="sect2">
 <h3 id="UI_Plugin-related_Files_and_their_Locations">User Interface Plugin-related Files and Their Locations</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 85. UI Plugin-related Files and their Locations</caption>
+<caption class="title">Table 86. UI Plugin-related Files and their Locations</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">

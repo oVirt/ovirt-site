@@ -1173,6 +1173,43 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS lookup requests from ports above 1023 to port 53, and responses. This port is required and open by default.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p>
+<p class="tableblock">Enterprise Linux hosts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NTP Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NTP requests from ports above 1023 to port 123, and responses. This port is required and open by default.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internet Security Protocol (IPSec)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internet Security Protocol (IPSec)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AH, ESP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oVirt Nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internet Security Protocol (IPSec)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonitionblock note">
@@ -1286,13 +1323,7 @@
 <div class="sect2">
 <h3 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM">3.2. Enabling the oVirt Engine Repositories</h3>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled.
-For oVirt 4.4:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
+<p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
@@ -1304,14 +1335,15 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 </div>
 <div class="paragraph">
-<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+<p>For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -1422,13 +1454,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 <h4 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_remote_database_install" class="discrete">Enabling the oVirt Engine Repositories</h4>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled.
-For oVirt 4.4:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
+<p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
@@ -1440,14 +1466,15 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 </div>
 <div class="paragraph">
-<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+<p>For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -2039,13 +2066,7 @@ Do you wish Setup to configure that, or prefer to perform that manually? (Automa
 </div>
 <h4 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_DWH_remote" class="discrete">Enabling the oVirt Engine Repositories</h4>
 <div class="paragraph">
-<p>Ensure the correct repositories are enabled.
-For oVirt 4.4:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
-</div>
+<p>Ensure the correct repositories are enabled.</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
@@ -2057,14 +2078,15 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 </div>
 <div class="paragraph">
-<p>After that, for oVirt 4.5 pre-release testing you&#8217;ll need to execute:</p>
+<p>For oVirt 4.4:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y python3-dnf-plugins-core
-# dnf config-manager --set-enabled centos-ovirt45-testing
-# dnf config-manager --set-enabled ovirt-45-upstream-testing</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
 </div>
 <div class="paragraph">
 <p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
@@ -2520,7 +2542,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <p>Start the machine on which you are installing oVirt Node, booting from the prepared installation media.</p>
 </li>
 <li>
-<p>From the boot menu, select <strong>Install oVirt Node 4.4</strong> and press <code>Enter</code>.</p>
+<p>From the boot menu, select <strong>Install oVirt Node 4.5</strong> and press <code>Enter</code>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2668,10 +2690,11 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 <pre class="CodeRay highlight"><code data-lang="terminal"># imgbased: set-enabled
 [custom-sssd-ldap]
 name = Provides sssd-ldap
-mirrorlist = <a href="http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra" class="bare">http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra</a>
-gpgcheck = 1
-enabled = 1
-gpgkey = <a href="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial" class="bare">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial</a>
+mirrorlist=http://mirrorlist.centos.org/?release=$stream&amp;arch=$basearch&amp;repo=BaseOS&amp;infra=$infra
+#baseurl=http://mirror.centos.org/$contentdir/$stream/BaseOS/$basearch/os/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 includepkgs = sssd-ldap</code></pre>
 </div>
 </div>
@@ -3506,7 +3529,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>eth0.50</em> dev <em>eth0</em> id <em>50</em>
-# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</code></pre>
+# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ipv4.gateway <em>123.123</em>.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -3518,7 +3541,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 # nmcli connection add type ethernet con-name <em>eth0</em> ifname <em>eth0</em> master <em>bond0</em> slave-type bond
 # nmcli connection add type ethernet con-name <em>eth1</em> ifname <em>eth1</em> master <em>bond0</em> slave-type bond
 # nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>bond0.50</em> dev <em>bond0</em> id <em>50</em>
-# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ivp4.gateway <em>123.123</em>.0.254</code></pre>
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ipv4.gateway <em>123.123</em>.0.254</code></pre>
 </div>
 </div>
 </li>
@@ -4001,7 +4024,7 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <div class="sect2">
 <h3 id="Preparing_Red_Hat_Gluster_Storage_SM_remoteDB_deploy">5.6. Preparing Gluster Storage</h3>
 <div class="paragraph">
-<p>For information on setting up and configuring Gluster Storage, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5/html/installation_guide/"><em>Gluster Storage Installation Guide</em></a>.</p>
+<p>For information on setting up and configuring Gluster Storage, see the <a href="https://docs.gluster.org/en/latest/Install-Guide/Overview/"><em>Gluster Storage Installation Guide</em></a>.</p>
 </div>
 </div>
 <div class="sect2">

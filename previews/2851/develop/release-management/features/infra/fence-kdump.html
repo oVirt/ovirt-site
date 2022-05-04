@@ -589,21 +589,22 @@
 <h3 id="testing-notes">Testing notes</h3>
 
 <ol>
-  <li>Host should be booted with <em>crashkernel</em> command line parameter otherwise kdump service will not start. For more info about this parameter please take a look at <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-kdump-configuration-cli.html">Configuring the Memory Usage</a>.</li>
+  <li>Host should be booted with <em>crashkernel</em> command line parameter otherwise kdump service will not start. For more info about this parameter please take a look at <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-kdump-configuration-cli">Configuring the Memory Usage</a>.</li>
   <li>If you need to slow down kdump flow for testing purposes (in the case you have a host with small amount of RAM or crashdump destination is on local disk), you can do this:
     <ul>
       <li>
-        <p>Create simple shell script <em>/usr/bin/delay-kdump</em>:
-    #!/bin/sh</p>
+        <p>Create simple shell script <code class="language-plaintext highlighter-rouge">/usr/bin/delay-kdump</code>:</p>
 
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TIMEOUT=90
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
-echo "Sleeping ..."
-/bin/sleep ${TIMEOUT}s
+<span class="nv">TIMEOUT</span><span class="o">=</span>90
+
+<span class="nb">echo</span> <span class="s2">"Sleeping ..."</span>
+/bin/sleep <span class="k">${</span><span class="nv">TIMEOUT</span><span class="k">}</span>s
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>Update <em>/etc/kdump.conf</em> with those options and restart kdump service:
+        <p>Update <code class="language-plaintext highlighter-rouge">/etc/kdump.conf</code> with those options and restart kdump service:
     kdump_post /usr/bin/delay-kdump
     extra_bins /bin/sleep</p>
       </li>
@@ -613,12 +614,16 @@ echo "Sleeping ..."
   <li>If you want to simulate kernel crash dump, you have to:
     <ul>
       <li>
-        <p>Enable kernel SysRQ mechanism:
-    sysctl -w kernel.sysrq=1</p>
+        <p>Enable kernel SysRQ mechanism:</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sysctl <span class="nt">-w</span> kernel.sysrq<span class="o">=</span>1
+</code></pre></div>        </div>
       </li>
       <li>
-        <p>Initiate kernel crashdump:
-    echo c &gt; /proc/sysrq-trigger</p>
+        <p>Initiate kernel crashdump:</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo </span>c <span class="o">&gt;</span> /proc/sysrq-trigger
+</code></pre></div>        </div>
       </li>
     </ul>
   </li>

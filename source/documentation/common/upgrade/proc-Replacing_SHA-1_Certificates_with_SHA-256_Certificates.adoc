@@ -4,6 +4,11 @@
 
 {virt-product-fullname} {vernum_rhv} uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable {virt-product-fullname}'s public key infrastructure (PKI) to use SHA-256 signatures.
 
+[WARNING]
+====
+Do _NOT_ let certificates expire. If they expire, the environment becomes non-responsive and recovery is an error prone and time consuming process. For information on renewing certificates, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Renewing_certificates_RHV_backup_restore[Renewing certificates before they expire] in the _Administration Guide_.
+====
+
 [id='Preventing_Warning_Messages_from_Appearing_in_the_Browser_{context}']
 [discrete]
 == Preventing Warning Messages from Appearing in the Browser

@@ -48,7 +48,8 @@ Before getting started, please read our [community etiquette guidelines](/commun
 
 ## Developers
 
-If you'd like to contribute code to oVirt, visit the [Developer section](/develop/) of the site for guidelines. All of our projects use git. Most are hosted at [https://gerrit.ovirt.org/](https://gerrit.ovirt.org/), and the rest are hosted at [https://github.com/oVirt](https://github.com/oVirt/).
+If you'd like to contribute code to oVirt, visit the [Developer section](/develop/) of the site for guidelines.
+All of our projects use git and are hosted at [https://github.com/oVirt](https://github.com/oVirt/).
 
 We also have an [overview](https://github.com/oVirt/ovirt-site/blob/dashpanel/dashpanel-ovirt.md) of all open issues and PRs for oVirt on GitHub.
 
@@ -76,6 +77,17 @@ Reporting bugs is one of the most valuable ways you can contribute! Ideas for ne
 * [VM Portal GitHub - bugs and RFEs in VM Portal](https://github.com/oVirt/ovirt-web-ui/issues)
 * [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
 * Security issues follow a [special reporting procedure](/community/security.html).
+
+## Monitor security reports for oVirt Node
+
+oVirt Node contains hundreds of packages: some of them may be affected by vulnerabilities which may have critical impact.
+You can help keeping oVirt Node secure by monitoring [security reports](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3A%22security%20response%22)
+and open oVirt Node trackers using [Bug 2074469](https://bugzilla.redhat.com/show_bug.cgi?id=2074469) as template.
+
+Once the tracker is open you can help monitoring progress of the security fix.
+Look at [existing security reports in oVirt Node](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt-node%20keyword%3Asecurity)
+and check corresponding package on [CentOS Stream 8 Koji](https://koji.mbox.centos.org/koji/packages).
+If a fix for the CVE is available, update Bugzilla accordingly. As an example you can see [Bug 2074469 handling](https://bugzilla.redhat.com/show_bug.cgi?id=2074469#c1)
 
 ## Participate in the oVirt infrastructure
 

@@ -36,7 +36,7 @@
 +
 [source,terminal,subs="normal"]
 ----
-# rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*
+# rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/\*.conf /var/lib/ovirt-engine-dwh/backups/*
 ----
 
 The Data Warehouse service is now hosted on a separate machine from the {engine-name}.

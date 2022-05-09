@@ -381,9 +381,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2002283](https://bugzilla.redhat.com/show_bug.cgi?id=2002283) **Make NumOfPciExpressPorts configurable via engine-config**
 
    It is now possible to set the number of PCI Express ports virtual machines are configured with by setting the NumOfPciExpressPorts configuration using engine-config
- - [BZ 1927985](https://bugzilla.redhat.com/show_bug.cgi?id=1927985) **[RFE] Speed up export-to-OVA on NFS by aligning loopback device offset**
-
-   Padding between files is now added when exporting a VM to OVA. The goal is to align disks in the OVA to the edge of a block of the underlying filesystem. In this case disks are written faster during the export, especially to an NFS partition.
  - [BZ 1849169](https://bugzilla.redhat.com/show_bug.cgi?id=1849169) **[RFE] add virtualCPUs/physicalCPUs ratio property to evenly_distributed policy**
 
    Feature: 
@@ -700,6 +697,7 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2074112](https://bugzilla.redhat.com/show_bug.cgi?id=2074112) **[Veeam] VM does not have a disk after restored from backup**
  - [BZ 2074916](https://bugzilla.redhat.com/show_bug.cgi?id=2074916) **Failed to upload OVA as template via upload_ova_as_vm_or_template.py**
  - [BZ 2074582](https://bugzilla.redhat.com/show_bug.cgi?id=2074582) **VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin**
  - [BZ 2075037](https://bugzilla.redhat.com/show_bug.cgi?id=2075037) **Wrong pinning in the dedicated virsh dumpxml after migration**
@@ -951,6 +949,9 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2056021](https://bugzilla.redhat.com/show_bug.cgi?id=2056021) **[BUG]: "Enroll Certificate" operation not updating libvirt-vnc cert and key**
 
    Renewing of libvirt-vnc certificate has been omitted during Enroll Certificate flow. This has been fixed in oVirt 4.5 and also libvirt-vnc certificates are renewed during Enroll Certificate
+ - [BZ 2055136](https://bugzilla.redhat.com/show_bug.cgi?id=2055136) **virt module is not changed to the correct stream during host upgrade**
+
+   Version of virt DNF module is now correctly set according to the RHEL version the host is upgraded to during host upgrade flow.
 
 #### VDSM
 
@@ -1149,6 +1150,7 @@ To learn about features introduced before 4.5.0, see the
 #### oVirt Engine
 
  - [BZ 2073005](https://bugzilla.redhat.com/show_bug.cgi?id=2073005) **ui-extensions dialogs are flashing when they are rendered on a chrome browser**
+ - [BZ 2076465](https://bugzilla.redhat.com/show_bug.cgi?id=2076465) **OVA import: importing OVA of Q35/UEFI VM failed with 'Duplicate key nvram'**
 
 ### No Doc Update
 

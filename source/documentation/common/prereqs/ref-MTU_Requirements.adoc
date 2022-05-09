@@ -1,0 +1,9 @@
+:_content-type: CONCEPT
+[id='MTU_Requirements_{context}']
+= Maximum Transmission Unit Requirements
+
+// Included in:
+// PPG
+// Install
+
+The recommended Maximum Transmission Units (MTU) setting for Hosts during deployment is 1500. It is possible to update this setting after the environment is setup to a different MTU. For more information on changing the MTU setting, see link:https://access.redhat.com/solutions/4129641[How to change the Hosted Engine VM network MTU].

@@ -231,29 +231,34 @@ Than engine tries to select fencing proxy from the same cluster as non responsiv
 <p><b>Random uuid generated when trying to create new authentication key for cinder external provider</b>
 On ‘Cinder Provider -&gt; Authentication Keys -&gt; New/Edit Dialog’, added the following tool-tip to explain the UUID field: “The provided UUID is auto-generated. It should be entered in the Cinder configuration file. Alternatively, an existing UUID can be specified in the text box.”.</p>
 
-<p><b>[RFE] dynamic log setting</b>
-This plugin will enable us to authenticate engine admin users into Jboss’s JMX interface. We can either invoke then the jbosscli.sh or jconsole or whatever tool that uses JMX and needs authentication.</p>
+<p><b>[RFE] dynamic log setting</b></p>
+
+<p>This plugin will enable us to authenticate engine admin users into Jboss’s JMX interface. We can either invoke then the <code class="language-plaintext highlighter-rouge">jbosscli.sh</code> or <code class="language-plaintext highlighter-rouge">jconsole</code> or whatever tool that uses JMX and needs authentication.</p>
 <ul>
   <li>only superusers can login</li>
-  <li>only 127.0.0.1 is exposed</li>
+  <li>only <code class="language-plaintext highlighter-rouge">127.0.0.1</code> is exposed</li>
   <li>failed login fails noisely - there is no proper error printed to the screen
 USAGE:
- $JBOSS_HOME/bin/jboss-cli.sh –controller=127.0.0.1:8706 –connect –user=admin@internal COMMAND
+ <code class="language-plaintext highlighter-rouge">$JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal COMMAND</code>
 if COMMAND is missing it enters interactive mode.
 Examples of COMMANDs:</li>
   <li>increase bll log level to debug:
- /subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)”</li>
+ <code class="language-plaintext highlighter-rouge">/subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)"</code></li>
   <li>add logger
- /subsystem=logging/logger=org.ovirt.engine:add</li>
+ <code class="language-plaintext highlighter-rouge">/subsystem=logging/logger=org.ovirt.engine:add</code></li>
   <li>get the engine data-source statistics:
- ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc</li>
+ <code class="language-plaintext highlighter-rouge">ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc</code></li>
   <li>get Threading info
- ls /core-service=platform-mbean/type=threading/
+ <code class="language-plaintext highlighter-rouge">ls /core-service=platform-mbean/type=threading/</code>
 See also:
-[1] Jboss custom login modules: <a href="https://docs.jboss.org/author/display/AS71/Security+Realms">https://docs.jboss.org/author/display/AS71/Security+Realms</a>
-[2] CLI recepies - <a href="https://docs.jboss.org/author/display/WFLY8/CLI+Recipes">https://docs.jboss.org/author/display/WFLY8/CLI+Recipes</a>
- <b>oVirt Live has been rebased on CentOS 7.2</b></li>
+    <ol>
+      <li>Jboss custom login modules: <a href="http://web.archive.org/web/20190718170525/https://docs.jboss.org/author/display/AS71/Security+Realms">http://web.archive.org/web/20190718170525/https://docs.jboss.org/author/display/AS71/Security+Realms</a></li>
+      <li>CLI recepies - <a href="http://web.archive.org/web/20190718103628/https://docs.jboss.org/author/display/WFLY8/CLI+Recipes">http://web.archive.org/web/20190718103628/https://docs.jboss.org/author/display/WFLY8/CLI+Recipes</a></li>
+    </ol>
+  </li>
 </ul>
+
+<p><b>oVirt Live has been rebased on CentOS 7.2</b></p>
 
 <p><b>Hosted engine storage domain auto import</b></p>
 
@@ -280,10 +285,9 @@ See also:
 <h4 id="fedora-22">Fedora 22</h4>
 
 <ul>
-  <li>
-    <p>on hosts you need to add following line to <strong>/etc/ssh/sshd_config</strong></p>
-
-    <p>KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1</p>
+  <li>on hosts you need to add following line to <strong>/etc/ssh/sshd_config</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+</code></pre></div>    </div>
   </li>
 </ul>
 

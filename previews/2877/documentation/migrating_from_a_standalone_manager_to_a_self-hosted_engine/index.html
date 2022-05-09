@@ -439,6 +439,9 @@
 <p>A Enterprise Linux host is based on a standard basic installation of Enterprise Linux 8 on a physical server, with the <code>Enterprise Linux Server</code> and <code>oVirt</code> repositories enabled.</p>
 </div>
 <div class="paragraph">
+<p>The oVirt project also provides packages for Enterprise Linux 9 but only as a Technology Preview.</p>
+</div>
+<div class="paragraph">
 <p>For detailed installation instructions, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index.html"><em>Performing a standard EL installation</em></a>.</p>
 </div>
 <div class="paragraph">
@@ -1079,7 +1082,7 @@ Do not override this setting.
 <p>Update the base operating system and any optional packages installed on the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre># yum update</pre>
+<pre># yum update --nobest</pre>
 </div>
 </div>
 <div class="admonitionblock important">

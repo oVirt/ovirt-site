@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Gluster Geo Replication | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Gluster Geo Replication" />
+<meta name="author" content="Kanagaraj Mayilsamy" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2890/develop/release-management/features/gluster/gluster-geo-replication.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2890/develop/release-management/features/gluster/gluster-geo-replication.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gluster Geo Replication" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Kanagaraj Mayilsamy" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kanagaraj Mayilsamy"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Gluster Geo Replication","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2890/images/logo.svg"},"name":"Kanagaraj Mayilsamy"},"url":"https://ovirt.github.io/ovirt-site/previews/2890/develop/release-management/features/gluster/gluster-geo-replication.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2890/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2890/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2890/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2890/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2890/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2890/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2890/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2890/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2890/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2890/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2890/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2890/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2890/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2890/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2890/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2890/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2890/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2890/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2890/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2890/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2890/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2890/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2890//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2890//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2890/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2890/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2890/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2890/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2890/develop/release-management/features/gluster/">
+              <span property="name">Gluster</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ad6a629dcee77b9544df139f8407510f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ad6a629dcee77b9544df139f8407510f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Kanagaraj Mayilsamy</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sahina Bose</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/393519c4c5d345f038570fa4a3849d85?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/393519c4c5d345f038570fa4a3849d85?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Shubhendu Tripathi</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2890/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="gluster-geo-replication">Gluster Geo Replication</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature allows the administrator to create, start, stop and monitor geo-replication for Gluster volumes from oVirt engine. With this the administrator can view the status of geo-replication sessions on Gluster volumes and also would be able to start/stop the geo-replication sessions. GlusterFS geo-replication provides a continuous, asynchronous, distributed and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet.</p>
+
+<p>To read more about GlusterFS geo-replication, see <a href="https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/">https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/</a>.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Feature owner: Sahina Bose <a href="mailto:sabose@redhat.com">sabose@redhat.com</a>
+    <ul>
+      <li>GUI Component owner: Anmol Babu <a href="mailto:anbabu@redhat.com">anbabu@redhat.com</a></li>
+      <li>Engine Component owner: Sahina Bose <a href="mailto:sabose@redhat.com">sabose@redhat.com</a></li>
+      <li>VDSM Component owner: Darshan N <a href="mailto:ndarshan@redhat.com">ndarshan@redhat.com</a></li>
+      <li>QA Owner: TBD</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="current-status">Current Status</h2>
+
+<ul>
+  <li>Status: Complete</li>
+  <li>Last updated date: ,</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>GlusterFS Geo-replication uses a Source–Destination model, whereby replication and mirroring occurs between the following partners:</p>
+
+<ul>
+  <li>Source – A GlusterFS volume</li>
+  <li>Destination – A GlusterFS Volume in a remote cluster</li>
+</ul>
+
+<p>With this feature the user will be able to</p>
+
+<ul>
+  <li>View all geo-replication sessions for a volume</li>
+  <li>Setup a new ge-replication session</li>
+  <li>Start a geo-replication session</li>
+  <li>Stop a geo-replication session</li>
+  <li>Remove an inactive geo-replication session</li>
+  <li>View and update the configuration before starting the session or later (ex: change detector)</li>
+  <li>Monitor the status of geo-replication sessions</li>
+</ul>
+
+<h2 id="design">Design</h2>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>The following section goes through the user flows associated with the feature.</p>
+
+<h4 id="geo-replication-sessions">Geo-Replication Sessions</h4>
+
+<p>A new sub tab <strong>Geo-Replication</strong> will be added to the <strong>Volumes</strong> main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. Geo-Replication Sessions subtab also provides actions for</p>
+
+<ul>
+  <li>Creating a new geo-replication session</li>
+  <li>Starting a geo-replication session</li>
+  <li>Stopping a geo-replication session</li>
+  <li>View details of a geo-replication session, this includes the list of individual geo-replication session and their respective status</li>
+  <li>Update configurations for a geo-replication session</li>
+  <li>Removing an existing geo-replication session</li>
+</ul>
+
+<p><strong>In the Volumes main tab, the following changes will be added</strong></p>
+
+<ul>
+  <li>Geo-replication –&gt; New Session menu item will be added in the Menu bar</li>
+  <li>an icon will be introduced to indicate if geo-replication has been set up for the volume. Clicking on the icon will activate the geo-replication sub-tab (that is, bring it to focus)</li>
+</ul>
+
+<p>From this sub tab, the user can view all the remote volumes (destination) where this volume is being replicated to as shown below:</p>
+
+<p><img src="/ovirt-site/previews/2890/images/wiki/Georepsession1list.png" alt="" /></p>
+
+<p>If there are no sessions that are setup, the Geo-replication sub-tab will have only the New button enabled.</p>
+
+<ul>
+  <li>If the volume is a destination for another volume, there will be another icon to indicate this. Clicking on this icon will show a pop-up which will the source volume details. (Mockup to be added)</li>
+</ul>
+
+<h4 id="create-a-new-geo-replication-session">Create a new Geo-Replication Session</h4>
+
+<p>To set up geo-replication session, the user will click on New from the Geo-replication sub tab. User can also click on the menu item Geo-replication –&gt; New Session from the Volume main tab. Geo-replication sessions can only be setup for online volumes. If a user tries to create a session for a volume that is not online, an appropriate error message is displayed to the user.</p>
+
+<p>The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.</p>
+
+<ul>
+  <li>User will be shown a pre-filtered list of clusters
+    <ul>
+      <li>Clusters other than the one in which source volume belongs to (aka. source cluster)</li>
+      <li>Clusters which have gluster service enabled</li>
+      <li>Clusters which have compatibility version equal to source cluster</li>
+    </ul>
+  </li>
+  <li>Once user chooses a cluster, list of filtered volumes are displayed to the user.
+    <ul>
+      <li>Volumes that are online</li>
+      <li>Volumes that have capacity greater or equal to source volume</li>
+      <li>Volumes that are not used as destination for any other geo-replication session</li>
+      <li>Volumes that do not have data stored</li>
+    </ul>
+  </li>
+  <li>Once the volume is selected, list of hosts from which the session will be created is shown to the user.
+    <ul>
+      <li>Hosts that the selected volume has bricks on, and are part of the cluster</li>
+    </ul>
+  </li>
+  <li>To set up geo-replication as non-root user, user has to provide the user name</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>User can choose to provide a volume outside of this list. In this case “force” checkbox will be provided at the top of the dialog. This presents a list of unfiltered clusters and volumes.
+    <ul>
+      <li>Once a user selects a cluster and a volume, a warning text of unmet criteria is displayed to the user.</li>
+      <li>For instance, if a user selects a cluster with a different compatibility version and a destination volume with lesser capacity, then the text will read:</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Warning!  Recommendations for geo-replication not met
+1) Cluster is not compatible
+2) Volume has lesser capacity
+Do you wish to continue?
+</code></pre></div></div>
+
+<ul>
+  <li>User has the option to start the session automatically once created. A check box will be provided to do that.</li>
+</ul>
+
+<p>Once the user, clicks on create -</p>
+
+<ul>
+  <li>Passwordless ssh session will be setup between the nodes of the destination volume and the slave volume. The system will randomly pick one of the hosts of the source volume to generate the ssh key.</li>
+  <li>Geo-replication session will be created</li>
+  <li>If force option was checked in the UI, the session create command is invoked with a force override.</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2890/images/wiki/New.png" alt="" /></p>
+
+<h4 id="start-a-new-geo-replication-session">Start a new Geo-Replication Session</h4>
+
+<p>A new action named <strong>Start</strong> will be shown in the <strong>Geo-Replication</strong> tab, which will start the selected geo-replication session(s).</p>
+
+<h4 id="stop-a-geo-replication-session">Stop a Geo-Replication Session</h4>
+
+<p>A new action named <strong>Stop</strong> will be shown in the <strong>Geo-Replication</strong> tab, which will stop the selected geo-replication session(s).</p>
+
+<h4 id="remove-a-geo-replication-session">Remove a Geo-Replication Session</h4>
+
+<p>A new action named <strong>Remove</strong> will be shown in the <strong>Geo-Replication</strong> tab, which will remove the selected geo-replication session(s).</p>
+
+<h4 id="configuration-options-for-geo-replication-session">Configuration Options for Geo-Replication Session</h4>
+
+<p>The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides an option to change the values of the configurations. User can change the values of the configuration properties at any point of time after creating the geo-replication session. The geo-replication session will be restarted automatically if the user changes any configuration when the session is already started.</p>
+
+<p><img src="/ovirt-site/previews/2890/images/wiki/Georepsession3config.png" alt="" /></p>
+
+<h4 id="geo-replication-session-details">Geo-Replication Session Details</h4>
+
+<p>With the distributed geo-replication, when a geo-replication session is created for a volume, internally geo-rep process will be running on each of the nodes where the bricks are residing. This view will list all the individual nodes, their status and Up time. Additionally this will also contain the detailed status for each node</p>
+
+<p><img src="/ovirt-site/previews/2890/images/wiki/Georepsession4details.png" alt="" /></p>
+
+<h3 id="limitations">Limitations</h3>
+
+<ul>
+  <li>Cascaded viewing is not available. (Sometimes a volume can be used as both source as well as destination)</li>
+</ul>
+
+<p>Refer the URL: <a href="/ovirt-site/previews/2890/develop/release-management/features/gluster/glustergeoreplication.html">Features/Design/GlusterGeoReplication</a> for detailed design of the feature.</p>
+
+<h2 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h2>
+
+<h2 id="test-cases">Test Cases</h2>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p><a href="https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/">https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/</a></p>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<ul>
+  <li>Currently it is not possible to detect a volume is being used as a destination for a geo-replication session
+    <ul>
+      <li>UUID of the source volume can retrieved from the gluster, but its not possible to determine which source cluster it belongs to.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="/ovirt-site/previews/2890/develop/release-management/features/">Gluster Geo Replication</a></p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2890/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2890/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2890/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2890/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/gluster/gluster-geo-replication.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/gluster/gluster-geo-replication.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -6,6 +6,10 @@
 // chap-Storage (part of Administration Guide)
 
 By default, GlusterFS domains and local storage domains support 4K block size on {virt-product-fullname} environments with up to 250 hosts. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
 
 The lockspace area that Sanlock allocates is 1 MB when the maximum number of hosts is the default 250. When you increase the maximum number of hosts when using 4K storage, the lockspace area is larger. For example, when using 2000 hosts, the lockspace area could be as large as 8 MB.
 

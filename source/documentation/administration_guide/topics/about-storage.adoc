@@ -6,7 +6,7 @@
 
 * Network File System (NFS)
 
-* GlusterFS exports
+//* GlusterFS exports
 //* CephFS
 
 * Other POSIX compliant file systems

@@ -3,6 +3,10 @@
 = Storage Domains Overview
 
 A storage domain is a collection of images that have a common storage interface. A storage domain contains complete images of templates and virtual machines (including snapshots), ISO files, and metadata about themselves. A storage domain can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
 
 On NAS, all virtual disks, templates, and snapshots are files.
 

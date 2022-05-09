@@ -280,7 +280,7 @@ In the installation log, the IP address is in `local_vm_ip`. The installation lo
 +
 [source,terminal,subs="normal"]
 ----
-Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs)[nfs]:
+Please specify the storage you would like to use (iscsi, fc, nfs)[nfs]:
 ----
 +
 * For NFS, enter the version, full address and path to the storage, and any mount options:

@@ -3,6 +3,10 @@
 = Storage Considerations
 
 The storage domain for {virt-product-fullname} can comprise either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
 
 The sites require synchronously replicated storage that is writeable on both sites with shared layer 2 (L2) network connectivity. The replicated storage is required to allow virtual machines to migrate between sites and continue running on the site’s storage. All storage replication options supported by {enterprise-linux} 7 and later can be used in the stretch cluster.
 

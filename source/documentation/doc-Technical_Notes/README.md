@@ -16,7 +16,7 @@ If the Erratum that's assigned to you for approval has Draft Text that exceeds t
 
 1. If you have not done so already, install the [doc2ascii tool](https://source.redhat.com/groups/public/rhci-documentation-program-management/rhci_documentation_program_management_wiki/installing_and_using_the_asciidoc_converter_doc2ascii) on your system.
 
-1. Determine whether you have "Create Live ID" privileges in the Errata Tool": Open the erratum you are reviewing, select the *Summary* tab, and look for *More* > *Assign Live ID* menu option. If that option is missing, open [Errata Tool - Add New Role](https://redhat.service-now.com/help?id=sc_cat_item&sys_id=be86366113356600196f7e276144b056) and request the "Live ID Creator" role. For details, see [Requesting Access and Roles for a Person](https://errata.devel.redhat.com/user-guide/intro-introduction.html#intro-requesting-access-and-roles-for-a-person). This process can take several days.
+1. Determine whether you have "Create Live ID" privileges in the Errata Tool": Open the erratum you are reviewing, select the *Summary* tab, and look for *More* > *Assign Live ID* menu option. If that option is missing, open [Errata Tool - Add New Role](https://redhat.service-now.com/help?id=sc_cat_item&sys_id=be86366113356600196f7e276144b056) and request the "Live ID Creator" role. This process can take several days.
 
 1. In the Errata Tool, on the *Summary* tab, click *More* > *Assign Live ID*. This action assigns a new ID to the erratum that it would otherwise get only upon being published.
 
@@ -29,7 +29,7 @@ If the Erratum that's assigned to you for approval has Draft Text that exceeds t
     https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/technical_notes"
 
     If this is a security advisory (RHSA), add the security fix descriptions that are in the *Draft Text* tab, and save the advisory text.
- 
+
 1. Create a git branch for your work on the Technical Notes.
 
 1. Copy the Live ID of the erratum and use it to create an empty XML file in the RHV Technical Notes directory. For example, enter the following command:

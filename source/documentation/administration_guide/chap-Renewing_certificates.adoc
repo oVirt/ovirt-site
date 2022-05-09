@@ -1,0 +1,36 @@
+:_content-type: ASSEMBLY
+[id="chap-Renewing_certificates_{context}"]
+= Renewing certificates before they expire
+
+[role="_abstract"]
+{virt-product-fullname} certificates now follow a standard 398 day lifetime and *must* be renewed once per year.
+
+[WARNING]
+====
+Do _NOT_ let certificates expire. If they expire, the environment becomes non-responsive and recovery is an error prone and time consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
+====
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Hosts].
+. Migrate the virtual machines away from the host.
+. Click menu:Management[Maintenance] and btn:[OK].
+. Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
+. Once enrollment is complete, click menu:Management[Activate].
+
+.Next steps
+You must also renew Engine certificates.
+
+. Run `engine-setup` from an SSH or console session on the {engine-appliance-name} system. The `engine-setup` script prompts you with some configuration questions.
++
+----
+# engine-setup
+----
++
+. Respond to the questions as appropriate or use an answers file.
+
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]

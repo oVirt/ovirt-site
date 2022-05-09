@@ -31,6 +31,13 @@ ifndef::SHE_cli_deploy[]
 ** POWER9
 endif::SHE_cli_deploy[]
 
+ifdef::ovirt-doc[]
+{enterprise-linux} 9 doesn't support virtualization for ppc64le: link:https://wiki.centos.org/SpecialInterestGroup/Virtualization[CentOS Virtualization SIG] is working
+on re-introducing virtualization support but it's not ready yet.
+
+The oVirt project also provides packages for the 64-bit ARM architecture (ARM 64) but only as a Technology Preview.
+endif::[]
+
 For each CPU model with security updates, the *CPU Type* lists a basic type and a secure type. For example:
 
 * *Intel Cascadelake Server Family*

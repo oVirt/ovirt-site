@@ -15,7 +15,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.6.1 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). 
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/).
 
 ## Install / Upgrade from previous versions
 
@@ -60,26 +60,28 @@ Than engine tries to select fencing proxy from the same cluster as non responsiv
 On 'Cinder Provider -> Authentication Keys -> New/Edit Dialog', added the following tool-tip to explain the UUID field: "The provided UUID is auto-generated. It should be entered in the Cinder configuration file. Alternatively, an existing UUID can be specified in the text box.".
 
 <b>[RFE] dynamic log setting</b>
-This plugin will enable us to authenticate engine admin users into Jboss's JMX interface. We can either invoke then the jbosscli.sh or jconsole or whatever tool that uses JMX and needs authentication.
+
+This plugin will enable us to authenticate engine admin users into Jboss's JMX interface. We can either invoke then the `jbosscli.sh` or `jconsole` or whatever tool that uses JMX and needs authentication.
 * only superusers can login
-* only 127.0.0.1 is exposed
+* only `127.0.0.1` is exposed
 * failed login fails noisely - there is no proper error printed to the screen
 USAGE:
- $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal COMMAND
+ `$JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal COMMAND`
 if COMMAND is missing it enters interactive mode.
 Examples of COMMANDs:
 * increase bll log level to debug:
- /subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)"
+ `/subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)"`
 * add logger
- /subsystem=logging/logger=org.ovirt.engine:add
+ `/subsystem=logging/logger=org.ovirt.engine:add`
 * get the engine data-source statistics:
- ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
+ `ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc`
 * get Threading info
- ls /core-service=platform-mbean/type=threading/
+ `ls /core-service=platform-mbean/type=threading/`
 See also:
-[1] Jboss custom login modules: <https://docs.jboss.org/author/display/AS71/Security+Realms>
-[2] CLI recepies - <https://docs.jboss.org/author/display/WFLY8/CLI+Recipes>
- <b>oVirt Live has been rebased on CentOS 7.2</b>
+1. Jboss custom login modules: <http://web.archive.org/web/20190718170525/https://docs.jboss.org/author/display/AS71/Security+Realms>
+2. CLI recepies - <http://web.archive.org/web/20190718103628/https://docs.jboss.org/author/display/WFLY8/CLI+Recipes>
+
+<b>oVirt Live has been rebased on CentOS 7.2</b>
 
 <b>Hosted engine storage domain auto import</b>
 
@@ -100,8 +102,9 @@ See also:
 #### Fedora 22
 
 *   on hosts you need to add following line to **/etc/ssh/sshd_config**
-
+    ```
       KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+    ```
 
 and then execute
 

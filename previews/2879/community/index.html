@@ -89,7 +89,8 @@
 
   <h2 id="developers">Developers</h2>
 
-  <p>If you’d like to contribute code to oVirt, visit the <a href="/ovirt-site/previews/2879/develop/">Developer section</a> of the site for guidelines. All of our projects use git. Most are hosted at <a href="https://gerrit.ovirt.org/">https://gerrit.ovirt.org/</a>, and the rest are hosted at <a href="https://github.com/oVirt/">https://github.com/oVirt</a>.</p>
+  <p>If you’d like to contribute code to oVirt, visit the <a href="/ovirt-site/previews/2879/develop/">Developer section</a> of the site for guidelines.
+All of our projects use git and are hosted at <a href="https://github.com/oVirt/">https://github.com/oVirt</a>.</p>
 
   <p>We also have an <a href="https://github.com/oVirt/ovirt-site/blob/dashpanel/dashpanel-ovirt.md">overview</a> of all open issues and PRs for oVirt on GitHub.</p>
 
@@ -119,6 +120,17 @@ To contribute translations, please follow our <a href="/ovirt-site/previews/2879
     <li><a href="https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation">oVirt Documentation GitHub - Documentation issues</a></li>
     <li>Security issues follow a <a href="/ovirt-site/previews/2879/community/security.html">special reporting procedure</a>.</li>
   </ul>
+
+  <h2 id="monitor-security-reports-for-ovirt-node">Monitor security reports for oVirt Node</h2>
+
+  <p>oVirt Node contains hundreds of packages: some of them may be affected by vulnerabilities which may have critical impact.
+You can help keeping oVirt Node secure by monitoring <a href="https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3A%22security%20response%22">security reports</a>
+and open oVirt Node trackers using <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074469">Bug 2074469</a> as template.</p>
+
+  <p>Once the tracker is open you can help monitoring progress of the security fix.
+Look at <a href="https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt-node%20keyword%3Asecurity">existing security reports in oVirt Node</a>
+and check corresponding package on <a href="https://koji.mbox.centos.org/koji/packages">CentOS Stream 8 Koji</a>.
+If a fix for the CVE is available, update Bugzilla accordingly. As an example you can see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074469#c1">Bug 2074469 handling</a></p>
 
   <h2 id="participate-in-the-ovirt-infrastructure">Participate in the oVirt infrastructure</h2>
 

@@ -787,11 +787,6 @@ Support setting console type globally for all VMs, existed and new ones, by usin
     <p>It is now possible to set the number of PCI Express ports virtual machines are configured with by setting the NumOfPciExpressPorts configuration using engine-config</p>
   </li>
   <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1927985">BZ 1927985</a> <strong>[RFE] Speed up export-to-OVA on NFS by aligning loopback device offset</strong></p>
-
-    <p>Padding between files is now added when exporting a VM to OVA. The goal is to align disks in the OVA to the edge of a block of the underlying filesystem. In this case disks are written faster during the export, especially to an NFS partition.</p>
-  </li>
-  <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1849169">BZ 1849169</a> <strong>[RFE] add virtualCPUs/physicalCPUs ratio property to evenly_distributed policy</strong></p>
 
     <p>Feature: 
@@ -1225,6 +1220,7 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-4">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074112">BZ 2074112</a> <strong>[Veeam] VM does not have a disk after restored from backup</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074916">BZ 2074916</a> <strong>Failed to upload OVA as template via upload_ova_as_vm_or_template.py</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074582">BZ 2074582</a> <strong>VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075037">BZ 2075037</a> <strong>Wrong pinning in the dedicated virsh dumpxml after migration</strong></li>
@@ -1565,6 +1561,11 @@ images containing large zeroed areas is usually faster now.</p>
 
     <p>Renewing of libvirt-vnc certificate has been omitted during Enroll Certificate flow. This has been fixed in oVirt 4.5 and also libvirt-vnc certificates are renewed during Enroll Certificate</p>
   </li>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2055136">BZ 2055136</a> <strong>virt module is not changed to the correct stream during host upgrade</strong></p>
+
+    <p>Version of virt DNF module is now correctly set according to the RHEL version the host is upgraded to during host upgrade flow.</p>
+  </li>
 </ul>
 
 <h4 id="vdsm-5">VDSM</h4>
@@ -1852,6 +1853,7 @@ We want the user to be able to see the operation result, but also not over-polut
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2073005">BZ 2073005</a> <strong>ui-extensions dialogs are flashing when they are rendered on a chrome browser</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2076465">BZ 2076465</a> <strong>OVA import: importing OVA of Q35/UEFI VM failed with ‘Duplicate key nvram’</strong></li>
 </ul>
 
 <h3 id="no-doc-update-1">No Doc Update</h3>

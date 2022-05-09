@@ -567,6 +567,10 @@
 </div>
 <div class="sect2">
 <h3 id="host-requirements">2.2. Host Requirements</h3>
+<div class="paragraph">
+<p>To use Enterprise Linux 9 on virtualization hosts, the UEFI Secure Boot option must be disabled due
+to <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2081648">Bug 2081648 - dmidecode module fails to decode DMI data</a>.</p>
+</div>
 <div class="sect3">
 <h4 id="CPU_Requirements_SHE_cli_deploy">2.2.1. CPU Requirements</h4>
 <div class="paragraph">
@@ -628,6 +632,13 @@
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Enterprise Linux 9 doesn&#8217;t support virtualization for ppc64le: <a href="https://wiki.centos.org/SpecialInterestGroup/Virtualization">CentOS Virtualization SIG</a> is working
+on re-introducing virtualization support but it&#8217;s not ready yet.</p>
+</div>
+<div class="paragraph">
+<p>The oVirt project also provides packages for the 64-bit ARM architecture (ARM 64) but only as a Technology Preview.</p>
 </div>
 <div class="paragraph">
 <p>For each CPU model with security updates, the <strong>CPU Type</strong> lists a basic type and a secure type. For example:</p>
@@ -2074,6 +2085,9 @@ Do not override this setting.
 <h3 id="Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_deployment_host">4.2. Installing Enterprise Linux hosts</h3>
 <div class="paragraph">
 <p>A Enterprise Linux host is based on a standard basic installation of Enterprise Linux 8 on a physical server, with the <code>Enterprise Linux Server</code> and <code>oVirt</code> repositories enabled.</p>
+</div>
+<div class="paragraph">
+<p>The oVirt project also provides packages for Enterprise Linux 9 but only as a Technology Preview.</p>
 </div>
 <div class="paragraph">
 <p>For detailed installation instructions, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index.html"><em>Performing a standard EL installation</em></a>.</p>
@@ -3966,6 +3980,9 @@ nodectl init
 <h4 id="Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_cli_deploy">6.2.1. Installing Enterprise Linux hosts</h4>
 <div class="paragraph">
 <p>A Enterprise Linux host is based on a standard basic installation of Enterprise Linux 8 on a physical server, with the <code>Enterprise Linux Server</code> and <code>oVirt</code> repositories enabled.</p>
+</div>
+<div class="paragraph">
+<p>The oVirt project also provides packages for Enterprise Linux 9 but only as a Technology Preview.</p>
 </div>
 <div class="paragraph">
 <p>For detailed installation instructions, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index.html"><em>Performing a standard EL installation</em></a>.</p>

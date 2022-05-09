@@ -3076,7 +3076,7 @@ This section enumerates all the requests that are available in the API.
 * <<services-permission-methods-get,GET>> /<<services-vnic_profiles,vnicprofiles>>/<<services-vnic_profile,{profile:id}>>/<<services-assigned_permissions,permissions>>/<<services-permission,{permission:id}>>
 * <<services-permission-methods-remove,DELETE>> /<<services-vnic_profiles,vnicprofiles>>/<<services-vnic_profile,{profile:id}>>/<<services-assigned_permissions,permissions>>/<<services-permission,{permission:id}>>
 
-[id="services"]
+
 == Services
 
 This section enumerates all the services that are available in the API.
@@ -33582,7 +33582,6 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 
 Sets the maximum number of weights to return. If not specified all the weights are returned.
 
-[id="types"]
 == Types
 
 This section enumerates all the data types that are available in the API.

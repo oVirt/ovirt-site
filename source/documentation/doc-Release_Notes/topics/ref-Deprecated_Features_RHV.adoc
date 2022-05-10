@@ -57,6 +57,4 @@ In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 
 |GlusterFS Storage | GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 
-endif::rhv-doc[]
-
 |===

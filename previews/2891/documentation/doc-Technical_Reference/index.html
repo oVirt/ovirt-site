@@ -584,13 +584,16 @@
 <dd>
 <p>The file based storage types supported by {virt-product-fullname} are NFS, GlusterFS, other POSIX compliant file systems, and storage local to hosts.</p>
 <div class="paragraph">
-<p>File based storage is managed externally to the {virt-product-fullname} environment.</p>
+<p>+
+File based storage is managed externally to the {virt-product-fullname} environment.</p>
 </div>
 <div class="paragraph">
-<p>NFS storage is managed by a {enterprise-linux} NFS server, or other third party network attached storage server.</p>
+<p>+
+NFS storage is managed by a {enterprise-linux} NFS server, or other third party network attached storage server.</p>
 </div>
 <div class="paragraph">
-<p>Hosts can manage their own local storage file systems.</p>
+<p>+
+Hosts can manage their own local storage file systems.</p>
 </div>
 </dd>
 <dt class="hdlist1"><strong>Block Based Storage</strong></dt>
@@ -772,11 +775,6 @@
 <li>
 <p>V3 metadata is applicable to NFS, GlusterFS, POSIX, iSCSI, and FC storage domains.</p>
 </li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">V4 metadata (Red Hat Virtualization 4.1 and later)</div>
-<ul>
 <li>
 <p>Support for QCOW2 compat levels - the QCOW image format includes a version number to allow introducing new features that change the image format so that it is incompatible with earlier versions. Newer QEMU versions (1.7 and above) support QCOW2 version 3, which is not backwards compatible, but introduces improvements such as zero clusters and improved performance.</p>
 </li>
@@ -2611,23 +2609,6 @@ When a cluster maintenance policy is set:</p>
 </li>
 <li>
 <p><strong>BOCHS</strong>: Emulates a dummy VGA card without legacy emulation for guest machines that that run with UEFI. This is the default display video card emulator for UEFI servers.</p>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>Bochs</code> emulator and UEFI are both Technology Preview features only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.</p>
-</div>
-<div class="paragraph">
-<p>For more information on Red Hat Technology Preview features support scope, see <a href="https://access.redhat.com/support/offerings/techpreview/">Red Hat Technology Preview Features Support Scope</a>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 </li>
 </ul>
 </div>

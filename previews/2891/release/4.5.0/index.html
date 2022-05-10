@@ -131,7 +131,7 @@
 
 <p>The oVirt Project is pleased to announce the availability of the 4.5.0 release as of April 20, 2022.</p>
 
-<p>On April 26th, 2022 the oVirt Porject released an <a href="https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/">oVirt Node 4.5.0.1 Async update</a></p>
+<p>On April 26th, 2022 the oVirt Project released an <a href="https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/">oVirt Node 4.5.0.1 Async update</a></p>
 
 <p>oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -1146,6 +1146,8 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-3">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2066084">BZ 2066084</a> <strong>vmconsole-proxy-user certificate expired - cannot access serial console</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1988496">BZ 1988496</a> <strong>vmconsole-proxy-helper.cer is not renewed when running engine-setup</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2007384">BZ 2007384</a> <strong>Failed to parse ‘writeRate’ value xxxx to integer: For input string: xxxx</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2041544">BZ 2041544</a> <strong>Admin GUI: Making selection of host while uploading disk it will immediately replace it with the first active host in the list.</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2052557">BZ 2052557</a> <strong>oVirt fails to release mdev vGPU device after VM shutdown</strong></li>
@@ -1169,7 +1171,6 @@ images containing large zeroed areas is usually faster now.</p>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1971622">BZ 1971622</a> <strong>Incorrect warning displayed: “The VM CPU does not match the Cluster CPU Type”</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1979441">BZ 1979441</a> <strong>High Performance VMs always have “VM CPU does not match the cluster CPU Type” warning</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1959141">BZ 1959141</a> <strong>Export to data domain of a VM that isn’t running creates a snapshot that isn’t removed</strong></li>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1988496">BZ 1988496</a> <strong>vmconsole-proxy-helper.cer is not renewed when running engine-setup</strong></li>
 </ul>
 
 <h4 id="ovirt-engine-data-warehouse-1">oVirt Engine Data Warehouse</h4>
@@ -1220,11 +1221,15 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-4">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2079835">BZ 2079835</a> <strong>Separate validity length of Apache and internal certificates</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2079890">BZ 2079890</a> <strong>renew certificates sooner before they expire</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2079901">BZ 2079901</a> <strong>allow Enroll Certificate action when host is Non Responsive</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2079799">BZ 2079799</a> <strong>issue the internal Certificate Authority for 20 years</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074112">BZ 2074112</a> <strong>[Veeam] VM does not have a disk after restored from backup</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074916">BZ 2074916</a> <strong>Failed to upload OVA as template via upload_ova_as_vm_or_template.py</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075435">BZ 2075435</a> <strong>Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074582">BZ 2074582</a> <strong>VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075037">BZ 2075037</a> <strong>Wrong pinning in the dedicated virsh dumpxml after migration</strong></li>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075435">BZ 2075435</a> <strong>Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1989121">BZ 1989121</a> <strong>[CBT][Veeam] Block backup of hosted-engine vm</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069670">BZ 2069670</a> <strong>NPE when converting ISCSI disk during the copy_data action</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2070536">BZ 2070536</a> <strong>The same host CPUs are assigned twice when we run dedicated&amp;none&amp;resize VMs on the same host</strong></li>
@@ -1487,11 +1492,6 @@ images containing large zeroed areas is usually faster now.</p>
     <p>manageiq role has been removed from oVirt Ansible Collection 2.0.0</p>
   </li>
   <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2049286">BZ 2049286</a> <strong>when upgrading all hosts in cluster, all pinned VMs are stopped, even on hosts that are skipped.</strong></p>
-
-    <p>cluster_upgrade role in ovirt-ansible-collection 2.0.0 contains a fix, that only VMs pinned to hosts, which are selected to be upgraded during cluster upgrade, are stopped during the cluster upgrade. VMs pinned to other hosts (not selected for upgrade) are left untouched</p>
-  </li>
-  <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2071365">BZ 2071365</a> <strong>[RFE] Require ansible-core-2.12 in ovirt-ansible-collection</strong></p>
 
     <p>oVirt Ansible Collection 2.0.0 requires ansible-core-2.12 from RHEL 8.6 and doesn’t work anymore with previous ansible-2.9.z versions</p>
@@ -1739,40 +1739,6 @@ We want the user to be able to see the operation result, but also not over-polut
       <li>Some minor user experience improvements.</li>
     </ol>
   </li>
-  <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1937408">BZ 1937408</a> <strong>[RFE] Add ability to import template from OVA in image_template role</strong></p>
-
-    <p>Following options has been added to ovirt_template module:</p>
-
-    <p>kvm:</p>
-    <ul>
-      <li>Dictionary of values to be used to connect to kvm and import a template to oVirt.</li>
-      <li>
-        <p>Following keys can be specified within the dictionary</p>
-
-        <p>url:</p>
-        <ul>
-          <li>The URL to be passed to the I(virt-v2v) tool for conversion.</li>
-          <li>For example I(qemu:///system). This is required parameter.</li>
-        </ul>
-
-        <p>storage_domain:</p>
-        <ul>
-          <li>Specifies the target storage domain for converted disks. This is required parameter.</li>
-        </ul>
-
-        <p>host:</p>
-        <ul>
-          <li>The host name from which the template will be imported.</li>
-        </ul>
-
-        <p>clone:</p>
-        <ul>
-          <li>Indicates if the identifiers of the imported template should be regenerated.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
 </ul>
 
 <h4 id="ovirt-engine-sdk-python">ovirt-engine-sdk-python</h4>
@@ -1874,7 +1840,6 @@ We want the user to be able to see the operation result, but also not over-polut
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1913269">BZ 1913269</a> <strong>The allocation of vCPUs to NUMA nodes is incorrect/sub-optimal</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1954041">BZ 1954041</a> <strong>Remove support for SHA-1 in ticket modules</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1981079">BZ 1981079</a> <strong>Expected condition after migration is logged as an error and try to set threshold to migrated VM’s disk.</strong></li>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1986834">BZ 1986834</a> <strong>oVirt Engine 4.4.7 using nodejs 10 appstream which went out of support in April 2021</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1990298">BZ 1990298</a> <strong>[CinderLib] Block cloning a vm from vm snapshot</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2003883">BZ 2003883</a> <strong>Failed to update the VFs configuration of network interface card type 82599ES and X520</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2041165">BZ 2041165</a> <strong>Finalization of a backup after the VM was powered off from guest fails with non-informative response</strong></li>

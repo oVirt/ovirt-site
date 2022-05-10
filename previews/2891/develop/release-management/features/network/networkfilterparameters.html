@@ -226,7 +226,7 @@ All <code class="language-plaintext highlighter-rouge">VmNicFilterParameter</cod
 
 <p>To add a new network filter parameter, a reference to the VM’s network interfaces,
 a valid name and a valid value are required.
-The name and the value have to satisfy at least the regular expressions of <a href="https://github.com/libvirt/libvirt/blob/master/docs/schemas/nwfilter.rng">libvirts XML schema</a>,
+The name and the value have to satisfy at least the regular expressions of <a href="https://github.com/libvirt/libvirt/blob/v7.2.0/docs/schemas/nwfilter.rng">libvirts XML schema</a>,
 to ensure that VDSM will create valid XML for libvirt.
 There are <a href="https://libvirt.org/formatnwfilter.html#nwfelemsReservedVars">Reserved variables of libvirt’s network filters</a> with known data types, which could be validated,
 but it is not planned to implement this.
@@ -264,179 +264,96 @@ The next section explains this detailed.</p>
 <p>A naive mapping of a parameterized mapping of the reference to a top-level filter in a network interface in libvirt
 XML to VDSM json would look like this:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>libvirt XML fragment</th>
-      <th>VDSM json fragment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'&gt;</code></td>
-      <td><code class="language-plaintext highlighter-rouge">'filterref': {              </code></td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`  ‘filter’: ‘clean-traffic’,`</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`  ‘parameter’: [            `</td>
-    </tr>
-    <tr>
-      <td>`  <parameter name="IP" value="10.0.0.1"></parameter>`</td>
-      <td>`    {                       `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘name’: ‘IP’,         `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘value’: ‘10.0.0.1’   `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`    },                      `</td>
-    </tr>
-    <tr>
-      <td>`  <parameter name="IP" value="10.0.0.2"></parameter>`</td>
-      <td>`    {                       `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘name’: ‘IP’,         `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘value’: ‘10.0.0.2’   `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`    },                      `</td>
-    </tr>
-    <tr>
-      <td>`  <parameter name="IP" value="10.0.0.3"></parameter>`</td>
-      <td>`    {                       `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘name’: ‘IP’,         `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘value’: ‘10.0.0.3’   `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`    },                      `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`  ]                         `</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">&lt;/filterref&gt;</code></td>
-      <td><code class="language-plaintext highlighter-rouge">},                          </code></td>
-    </tr>
-  </tbody>
+<table class="bordered">
+<thead>
+<tr>
+<th>libvirt XML fragment</th><th>VDSM json fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;filterref</span> <span class="na">filter=</span><span class="s">'clean-traffic'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'IP'</span> <span class="na">value=</span><span class="s">'10.0.0.1'</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'IP'</span> <span class="na">value=</span><span class="s">'10.0.0.2'</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'IP'</span> <span class="na">value=</span><span class="s">'10.0.0.3'</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/filterref&gt;</span></code></pre></figure>
+
+</td>
+<td>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">'filterref':</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="err">'filter':</span><span class="w"> </span><span class="err">'clean-traffic'</span><span class="p">,</span><span class="w">
+  </span><span class="err">'parameter':</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="err">'name':</span><span class="w"> </span><span class="err">'IP'</span><span class="p">,</span><span class="w"> </span><span class="err">'value':</span><span class="w"> </span><span class="err">'</span><span class="mf">10.0</span><span class="err">.</span><span class="mf">0.1</span><span class="err">'</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">'name':</span><span class="w"> </span><span class="err">'IP'</span><span class="p">,</span><span class="w"> </span><span class="err">'value':</span><span class="w"> </span><span class="err">'</span><span class="mf">10.0</span><span class="err">.</span><span class="mf">0.2</span><span class="err">'</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">'name':</span><span class="w"> </span><span class="err">'IP'</span><span class="p">,</span><span class="w"> </span><span class="err">'value':</span><span class="w"> </span><span class="err">'</span><span class="mf">10.0</span><span class="err">.</span><span class="mf">0.3</span><span class="err">'</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+</td>
+</tr>
+</tbody>
 </table>
 
 <p>The following table shows an example of the previously implemented mapping of the reference to a top-level filter of a
 network interface in libvirt XML to VDSM json:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>libvirt XML fragment</th>
-      <th>VDSM json fragment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'/&gt;</code></td>
-      <td><code class="language-plaintext highlighter-rouge">'filter': 'clean-traffic',</code></td>
-    </tr>
-  </tbody>
+<table class="bordered">
+<thead>
+<tr>
+<th>libvirt XML fragment</th><th>VDSM json fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;filterref</span> <span class="na">filter=</span><span class="s">'clean-traffic'</span><span class="nt">/&gt;</span></code></pre></figure>
+
+</td>
+<td>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">'filter':</span><span class="w"> </span><span class="err">'clean-traffic',</span></code></pre></figure>
+
+</td>
+</tr>
+</tbody>
 </table>
 
 <p>Implemented is a combination of the naive mapping and the previously implemented mapping,
 which gives a backward compatible extension of the VDSM API:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>libvirt XML fragment</th>
-      <th>VDSM json fragment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'&gt;</code></td>
-      <td>`  ‘filter’: ‘clean-traffic’,`</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`  ‘filterParameters’: [     `</td>
-    </tr>
-    <tr>
-      <td>`  <parameter name="IP" value="10.0.0.1"></parameter>`</td>
-      <td>`    {                       `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘name’: ‘IP’,         `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘value’: ‘10.0.0.1’   `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`    },                      `</td>
-    </tr>
-    <tr>
-      <td>`  <parameter name="IP" value="10.0.0.2"></parameter>`</td>
-      <td>`    {                       `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘name’: ‘IP’,         `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘value’: ‘10.0.0.2’   `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`    },                      `</td>
-    </tr>
-    <tr>
-      <td>`  <parameter name="IP" value="10.0.0.3"></parameter>`</td>
-      <td>`    {                       `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘name’: ‘IP’,         `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`      ‘value’: ‘10.0.0.3’   `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`    },                      `</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>`  ],                        `</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">&lt;/filterref&gt;</code></td>
-      <td>`                            `</td>
-    </tr>
-  </tbody>
+<table class="bordered">
+<thead>
+<tr>
+<th>libvirt XML fragment</th><th>VDSM json fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;filterref</span> <span class="na">filter=</span><span class="s">'clean-traffic'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'IP'</span> <span class="na">value=</span><span class="s">'10.0.0.1'</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'IP'</span> <span class="na">value=</span><span class="s">'10.0.0.2'</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'IP'</span> <span class="na">value=</span><span class="s">'10.0.0.3'</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/filterref&gt;</span></code></pre></figure>
+
+</td>
+<td>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">'filter':</span><span class="w"> </span><span class="err">'clean-traffic',</span><span class="w">
+</span><span class="err">'filterParameters':</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="err">'name':</span><span class="w"> </span><span class="err">'IP'</span><span class="p">,</span><span class="w"> </span><span class="err">'value':</span><span class="w"> </span><span class="err">'</span><span class="mf">10.0</span><span class="err">.</span><span class="mf">0.1</span><span class="err">'</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="err">'name':</span><span class="w"> </span><span class="err">'IP'</span><span class="p">,</span><span class="w"> </span><span class="err">'value':</span><span class="w"> </span><span class="err">'</span><span class="mf">10.0</span><span class="err">.</span><span class="mf">0.2</span><span class="err">'</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="err">'name':</span><span class="w"> </span><span class="err">'IP'</span><span class="p">,</span><span class="w"> </span><span class="err">'value':</span><span class="w"> </span><span class="err">'</span><span class="mf">10.0</span><span class="err">.</span><span class="mf">0.3</span><span class="err">'</span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span></code></pre></figure>
+
+</td>
+</tr>
+</tbody>
 </table>
 
 <p>The new key <code class="language-plaintext highlighter-rouge">filterParameters</code> is only be considered by VDSM, if a value for <code class="language-plaintext highlighter-rouge">filter</code> is set.
@@ -462,7 +379,7 @@ An older VDSM, which does not know about <code class="language-plaintext highlig
 
 <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1009608">Bug 1009608 - [RFE] support for PVLANs in RHEV</a></p>
 
-<p><a href="https://github.com/libvirt/libvirt/blob/master/docs/schemas/nwfilter.rng">nwfilter.rng</a></p>
+<p><a href="https://github.com/libvirt/libvirt/blob/v7.2.0/docs/schemas/nwfilter.rng">nwfilter.rng</a></p>
 
 <p><a href="https://libvirt.org/formatnwfilter.html#nwfelemsReservedVars">Reserved variables of libvirt’s network filters</a></p>
 

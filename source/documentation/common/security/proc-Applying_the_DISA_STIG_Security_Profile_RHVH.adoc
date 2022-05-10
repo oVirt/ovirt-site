@@ -1,5 +1,5 @@
 // Module included in the following assemblies:
-//
+// Deprecated in RHV 4.4 SP1 - no longer compliant for RHVH, need to use RHEL Hypervisor
 // doc-Administration_Guide/common/security/assembly-Securing_Red_Hat_Virtualization.adoc
 // THIS MODULE IS RHV ONLY.
 
@@ -19,11 +19,12 @@ image::common/images/security-policy.png[Security Policy]
 
 . On the *Security Policy* screen that opens, toggle the *Apply security policy* setting to *On*.
 
-. Select *[DRAFT] DISA STIG for Red Hat Virtualization Host (RHVH)*.
+. Select *DISA STIG for Red Hat Virtualization Host (RHVH)*.
 
 . Click the btn:[Select profile] button. This action adds a green checkmark next to the profile and adds packages to the list of *Changes that were done or need to be done*. Follow the onscreen instructions if they direct you to make any changes.
 +
 image::common/images/security-policy-selected.png[Security Policy]
+
 +
 [NOTE]
 ====

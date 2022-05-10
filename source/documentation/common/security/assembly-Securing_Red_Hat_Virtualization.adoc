@@ -28,7 +28,7 @@ This information is specific to {virt-product-fullname}. It does not cover funda
 
 include::con-DISA_STIG_for_Red_Hat_Linux.adoc[leveloffset=+1]
 
-include::proc-Applying_the_DISA_STIG_Security_Profile_RHVH.adoc[leveloffset=+1]
+//include::proc-Applying_the_DISA_STIG_Security_Profile_RHVH.adoc[leveloffset=+1]
 
 // Restore the context to what it was before this assembly.
 ifdef::parent-context[:context: {parent-context}]

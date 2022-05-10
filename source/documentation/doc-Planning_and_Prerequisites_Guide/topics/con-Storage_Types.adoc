@@ -8,6 +8,13 @@ A storage domain can be made of either block devices (iSCSI or Fibre Channel) or
 
 By default, GlusterFS domains and local storage domains support 4K block size. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.
 
+ifdef::rhv-doc[]
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
+endif::rhv-doc[]
+
 [IMPORTANT]
 ====
 {virt-product-fullname} currently does not support block storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.

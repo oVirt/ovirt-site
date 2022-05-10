@@ -51,12 +51,6 @@ This will explicitly start the virtual machine without the vhost-net setting on 
 // |TBD
 
 
-|*mdev_type*
-|Enter the name of the mediated device, my_GPU, supported by the host’s kernel to enable the host to work with the device.
-|-
-|
-
-
 |*viodiskcache*
 |Caching mode for the virtio disk. *writethrough* writes data to the cache and the disk in parallel, *writeback* does not copy modifications from the cache to the disk, and *none* disables caching. See link:https://access.redhat.com/solutions/2361311[] for more information about the limitations of the `viodiskcache` custom property.
 |In order to ensure data integrity in the event of a fault in storage, in the network, or in a host during migration, do not migrate virtual machines with viodiskcache enabled, unless virtual machine clustering or application-level clustering is also enabled.

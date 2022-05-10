@@ -13,7 +13,7 @@ page_classes: releases
 
 The oVirt Project is pleased to announce the availability of the 4.5.0 release as of April 20, 2022.
 
-On April 26th, 2022 the oVirt Porject released an [oVirt Node 4.5.0.1 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/)
+On April 26th, 2022 the oVirt Project released an [oVirt Node 4.5.0.1 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/)
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -637,6 +637,8 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2066084](https://bugzilla.redhat.com/show_bug.cgi?id=2066084) **vmconsole-proxy-user certificate expired - cannot access serial console**
+ - [BZ 1988496](https://bugzilla.redhat.com/show_bug.cgi?id=1988496) **vmconsole-proxy-helper.cer is not renewed when running engine-setup**
  - [BZ 2007384](https://bugzilla.redhat.com/show_bug.cgi?id=2007384) **Failed to parse 'writeRate' value xxxx to integer: For input string: xxxx**
  - [BZ 2041544](https://bugzilla.redhat.com/show_bug.cgi?id=2041544) **Admin GUI: Making selection of host while uploading disk it will immediately replace it with the first active host in the list.**
  - [BZ 2052557](https://bugzilla.redhat.com/show_bug.cgi?id=2052557) **oVirt fails to release mdev vGPU device after VM shutdown**
@@ -660,7 +662,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 1971622](https://bugzilla.redhat.com/show_bug.cgi?id=1971622) **Incorrect warning displayed: "The VM CPU does not match the Cluster CPU Type"**
  - [BZ 1979441](https://bugzilla.redhat.com/show_bug.cgi?id=1979441) **High Performance VMs always have "VM CPU does not match the cluster CPU Type" warning**
  - [BZ 1959141](https://bugzilla.redhat.com/show_bug.cgi?id=1959141) **Export to data domain of a VM that isn't running creates a snapshot that isn't removed**
- - [BZ 1988496](https://bugzilla.redhat.com/show_bug.cgi?id=1988496) **vmconsole-proxy-helper.cer is not renewed when running engine-setup**
 
 #### oVirt Engine Data Warehouse
 
@@ -697,11 +698,15 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2079835](https://bugzilla.redhat.com/show_bug.cgi?id=2079835) **Separate validity length of Apache and internal certificates**
+ - [BZ 2079890](https://bugzilla.redhat.com/show_bug.cgi?id=2079890) **renew certificates sooner before they expire**
+ - [BZ 2079901](https://bugzilla.redhat.com/show_bug.cgi?id=2079901) **allow Enroll Certificate action when host is Non Responsive**
+ - [BZ 2079799](https://bugzilla.redhat.com/show_bug.cgi?id=2079799) **issue the internal Certificate Authority for 20 years**
  - [BZ 2074112](https://bugzilla.redhat.com/show_bug.cgi?id=2074112) **[Veeam] VM does not have a disk after restored from backup**
  - [BZ 2074916](https://bugzilla.redhat.com/show_bug.cgi?id=2074916) **Failed to upload OVA as template via upload_ova_as_vm_or_template.py**
+ - [BZ 2075435](https://bugzilla.redhat.com/show_bug.cgi?id=2075435) **Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage**
  - [BZ 2074582](https://bugzilla.redhat.com/show_bug.cgi?id=2074582) **VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin**
  - [BZ 2075037](https://bugzilla.redhat.com/show_bug.cgi?id=2075037) **Wrong pinning in the dedicated virsh dumpxml after migration**
- - [BZ 2075435](https://bugzilla.redhat.com/show_bug.cgi?id=2075435) **Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage**
  - [BZ 1989121](https://bugzilla.redhat.com/show_bug.cgi?id=1989121) **[CBT][Veeam] Block backup of hosted-engine vm**
  - [BZ 2069670](https://bugzilla.redhat.com/show_bug.cgi?id=2069670) **NPE when converting ISCSI disk during the copy_data action**
  - [BZ 2070536](https://bugzilla.redhat.com/show_bug.cgi?id=2070536) **The same host CPUs are assigned twice when we run dedicated&amp;none&amp;resize VMs on the same host**
@@ -906,9 +911,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2017070](https://bugzilla.redhat.com/show_bug.cgi?id=2017070) **Remove manageiq role from oVirt Ansible Collection**
 
    manageiq role has been removed from oVirt Ansible Collection 2.0.0
- - [BZ 2049286](https://bugzilla.redhat.com/show_bug.cgi?id=2049286) **when upgrading all hosts in cluster, all pinned VMs are stopped, even on hosts that are skipped.**
-
-   cluster_upgrade role in ovirt-ansible-collection 2.0.0 contains a fix, that only VMs pinned to hosts, which are selected to be upgraded during cluster upgrade, are stopped during the cluster upgrade. VMs pinned to other hosts (not selected for upgrade) are left untouched
  - [BZ 2071365](https://bugzilla.redhat.com/show_bug.cgi?id=2071365) **[RFE] Require ansible-core-2.12 in ovirt-ansible-collection**
 
    oVirt Ansible Collection 2.0.0 requires ansible-core-2.12 from RHEL 8.6 and doesn't work anymore with previous ansible-2.9.z versions
@@ -1074,26 +1076,6 @@ To learn about features introduced before 4.5.0, see the
    2. Cancel DB cleanup of the 'vm_backups' &amp; 'image_transfers' DB tables when the backup / image transfer finishes to allow DB &amp; API status retrieval by user.
    3. Scheduled execution of the cleanup - 15 minutes for success entries, 30 minutes for the failure. Separate values for backup &amp; for image transfer operations, an additional value for the cleanup thread rate (all 5 values are configurable).
    4. Some minor user experience improvements.
- - [BZ 1937408](https://bugzilla.redhat.com/show_bug.cgi?id=1937408) **[RFE] Add ability to import template from OVA in image_template role**
-
-   Following options has been added to ovirt_template module:
-
-    kvm:
-      - Dictionary of values to be used to connect to kvm and import a template to oVirt.
-      - Following keys can be specified within the dictionary
-
-        url:
-          - The URL to be passed to the I(virt-v2v) tool for conversion.
-          - For example I(qemu:///system). This is required parameter.
-
-        storage_domain:
-          - Specifies the target storage domain for converted disks. This is required parameter.
-
-        host:
-          - The host name from which the template will be imported.
- 
-        clone:
-          - Indicates if the identifiers of the imported template should be regenerated.
 
 #### ovirt-engine-sdk-python
 
@@ -1167,7 +1149,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 1913269](https://bugzilla.redhat.com/show_bug.cgi?id=1913269) **The allocation of vCPUs to NUMA nodes is incorrect/sub-optimal**
  - [BZ 1954041](https://bugzilla.redhat.com/show_bug.cgi?id=1954041) **Remove support for SHA-1 in ticket modules**
  - [BZ 1981079](https://bugzilla.redhat.com/show_bug.cgi?id=1981079) **Expected condition after migration is logged as an error and try to set threshold to migrated VM's disk.**
- - [BZ 1986834](https://bugzilla.redhat.com/show_bug.cgi?id=1986834) **oVirt Engine 4.4.7 using nodejs 10 appstream which went out of support in April 2021**
  - [BZ 1990298](https://bugzilla.redhat.com/show_bug.cgi?id=1990298) **[CinderLib] Block cloning a vm from vm snapshot**
  - [BZ 2003883](https://bugzilla.redhat.com/show_bug.cgi?id=2003883) **Failed to update the VFs configuration of network interface card type 82599ES and X520**
  - [BZ 2041165](https://bugzilla.redhat.com/show_bug.cgi?id=2041165) **Finalization of a backup after the VM was powered off from guest fails with non-informative response**

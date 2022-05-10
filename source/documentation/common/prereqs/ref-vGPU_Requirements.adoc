@@ -17,7 +17,7 @@ A host must meet the following requirements in order for virtual machines on tha
 
 * Installed GPU with correct drivers
 
-* Predefined *mdev_type* set to correspond with one of the mdev types supported by the device
+* Select a vGPU type and the number of instances that you would like to use with this virtual machine using the *Manage vGPU* dialog in the *Administration Portal* *Host Devices* tab of the virtual machine.
 
 * vGPU-capable drivers installed on each host in the cluster
 

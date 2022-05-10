@@ -103,7 +103,7 @@ weight: 4
 
 . In the Administration Portal, click menu:Compute[Virtual Machines]. Select a virtual machine and click btn:[Edit]. The *Edit Virtual Machine* dialog appears.
 
-. Click *Custom Properties*. If you don’t see *Custom Properties*, click *Show Advanced Options* first.
+. Click *Custom Properties*. If you don’t see *Custom Properties*, click *Show Advanced Options*.
 
 . In the *Custom Properties* dialog, click menu:Please select a key[mdev_type]. If you don’t see *Please select a key*, click the btn:[+] button.
 

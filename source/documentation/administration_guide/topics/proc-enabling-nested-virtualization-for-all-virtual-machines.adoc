@@ -6,11 +6,6 @@
 [id="proc-enabling-nested-virtualization-for-all-virtual-machines"]
 = Enabling nested virtualization for all virtual machines
 
-[IMPORTANT]
-====
-Using hooks to enable nested virtualization is a Technology Preview feature. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information, see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
-====
-
 Nested virtualization enables virtual machines to host other virtual machines. For clarity, we will call these the _parent virtual machines_ and _nested virtual machines_.
 
 Child virtual machines are only visible to and managed by users who have access to the parent virtual machine. They are not visible to {virt-product-fullname} ({virt-product-shortname}) administrators.

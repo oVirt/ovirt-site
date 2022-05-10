@@ -56,13 +56,6 @@ Set up Cinderlib integration
 (Currently in tech preview)
 (Yes, No) [No]:
 ----
-+
-[IMPORTANT]
-====
-Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
-
-For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
-====
 
 . Press `Enter` to configure the {engine-name} on this machine:
 +
@@ -92,13 +85,7 @@ For more information on using OVN networks in {virt-product-fullname}, see link:
 ----
 Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
 ----
-+
-ifdef::rhv-doc[]
-[IMPORTANT]
-====
-The WebSocket Proxy and noVNC are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
-====
-endif::[]
+
 ifdef::SM_remoteDB_deploy[]
 . To configure Data Warehouse on a remote server, answer `No` and see xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Installing and Configuring Data Warehouse on a Separate Machine] after completing the {engine-name} configuration.
 +

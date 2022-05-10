@@ -5,12 +5,6 @@
 
 Failover allows the selection of a profile that acts as a failover device during virtual machine migration when the VF needs to be detached, preserving virtual machine communication with minimal interruption.
 
-[NOTE]
-====
-Failover is a Technology Preview feature only.
-Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
-====
-
 .Prerequisites
 
 * The *Passthrough* and *Migratable* check boxes of the profile are selected.

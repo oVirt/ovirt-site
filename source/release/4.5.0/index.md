@@ -637,6 +637,7 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2066084](https://bugzilla.redhat.com/show_bug.cgi?id=2066084) **vmconsole-proxy-user certificate expired - cannot access serial console**
  - [BZ 1988496](https://bugzilla.redhat.com/show_bug.cgi?id=1988496) **vmconsole-proxy-helper.cer is not renewed when running engine-setup**
  - [BZ 2007384](https://bugzilla.redhat.com/show_bug.cgi?id=2007384) **Failed to parse 'writeRate' value xxxx to integer: For input string: xxxx**
  - [BZ 2041544](https://bugzilla.redhat.com/show_bug.cgi?id=2041544) **Admin GUI: Making selection of host while uploading disk it will immediately replace it with the first active host in the list.**
@@ -697,6 +698,10 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2079835](https://bugzilla.redhat.com/show_bug.cgi?id=2079835) **Separate validity length of Apache and internal certificates**
+ - [BZ 2079890](https://bugzilla.redhat.com/show_bug.cgi?id=2079890) **renew certificates sooner before they expire**
+ - [BZ 2079901](https://bugzilla.redhat.com/show_bug.cgi?id=2079901) **allow Enroll Certificate action when host is Non Responsive**
+ - [BZ 2079799](https://bugzilla.redhat.com/show_bug.cgi?id=2079799) **issue the internal Certificate Authority for 20 years**
  - [BZ 2074112](https://bugzilla.redhat.com/show_bug.cgi?id=2074112) **[Veeam] VM does not have a disk after restored from backup**
  - [BZ 2074916](https://bugzilla.redhat.com/show_bug.cgi?id=2074916) **Failed to upload OVA as template via upload_ova_as_vm_or_template.py**
  - [BZ 2075435](https://bugzilla.redhat.com/show_bug.cgi?id=2075435) **Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage**

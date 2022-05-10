@@ -7,13 +7,6 @@
 [id='About_UEFI_Q35-{context}']
 = UEFI and the Q35 chipset
 
-ifdef::rhv-doc[]
-[NOTE]
-====
-Q35 Chipset with UEFI and SecureBoot are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
-====
-endif::[]
-
 The Intel Q35 chipset, the default chipset for new virtual machines, includes support for the Unified Extensible Firmware Interface (UEFI), which replaces legacy BIOS.
 
 Alternatively you can configure a virtual machine or cluster to use the legacy Intel i440fx chipset, which does not support UEFI.

@@ -5,13 +5,6 @@
 
 After upgrading a cluster to  {virt-product-fullname} {vernum_rhv}, all virtual machines in the cluster run the {vernum_rhv} version of VDSM. You can configure a cluster’s default BIOS type, which determines the default BIOS type of any new virtual machines you create in that cluster. If necessary, you can override the cluster's default BIOS type by specifying a different BIOS type when you create a virtual machine.
 
-ifdef::rhv-doc[]
-[NOTE]
-====
-Q35 Chipset with UEFI and SecureBoot are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
-====
-endif::[]
-
 // For information on upgrading a cluster see <link to upgrade guide>.
 
 .Procedure

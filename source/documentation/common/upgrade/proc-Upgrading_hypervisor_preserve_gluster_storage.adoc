@@ -10,10 +10,13 @@
 
 Environments with Gluster as storage can take a backup of Gluster storage and be restored after the {hypervisor-shortname} upgrade.
 Try to keep workloads on all virtual machines using Gluster storage as light as possible to shorten the time required to upgrade. If there are highly write-intensive workloads, expect more time to restore.
+
+ifdef::rhv-doc[]
 [NOTE]
 ====
 GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 ====
+endif::rhv-doc[]
 
 
 .Prerequisites

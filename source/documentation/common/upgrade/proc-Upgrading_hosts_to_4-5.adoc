@@ -49,7 +49,9 @@ Please refer to link:https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to
 for more details.
 ====
 
+ifdef::rhv-doc[]
 [NOTE]
 ====
 GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 ====
+endif::rhv-doc[]

@@ -6,10 +6,13 @@
 // chap-Storage (part of Administration Guide)
 
 By default, GlusterFS domains and local storage domains support 4K block size. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.
+
+ifdef::rhv-doc[]
 [NOTE]
 ====
 GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 ====
+endif::rhv-doc[]
 
 You can disable 4K block support.
 

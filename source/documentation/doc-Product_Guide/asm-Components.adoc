@@ -38,10 +38,13 @@ Setting up storage and attaching it to your {virt-product-fullname} environment 
 * The export domain is a deprecated storage domain type that was used as a temporary storage repository for moving images between data centers and {virt-product-fullname} environments. This is now done by importing data storage domains.
 
 The ISO and export domains only support file-based storage types (NFS, POSIX, or GlusterFS). The ISO domain supports local storage when used in a local storage data center.
+
+ifdef::rhv-doc[]
 [NOTE]
 ====
 GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 ====
+endif::rhv-doc[]
 
 
 

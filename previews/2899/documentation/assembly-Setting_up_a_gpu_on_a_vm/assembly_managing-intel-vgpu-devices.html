@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2899/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-intel-vgpu-devices.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2899/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-intel-vgpu-devices.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2899/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2899/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-intel-vgpu-devices.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2899/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2899/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2899/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2899/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2899/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2899/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2899/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2899/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2899/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2899/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2899/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2899/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2899/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2899/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2899/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2899/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2899/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2899/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2899/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2899/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2899/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2899/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2899//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2899//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2899/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2899/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2899/documentation/assembly-Setting_up_a_gpu_on_a_vm/">
+              <span property="name">Assembly Setting Up A Gpu On A Vm</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document describes how to divide a physical Intel GPU device into multiple virtual devices referred to as <code>mediated devices</code>, and how to assign these mediated devices to KVM virtual machines.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc_setting-up-intel-vgpu-devices_assembly_managing-intel-vgpu-devices">Setting up Intel vGPU devices</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This feature is still under development, and may not work properly.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To set up Intel vGPU devices, you need to obtain and install the correct driver for your GPU device, then create mediated devices, and assign each mediated device to a virtual machine.</p>
+</div>
+<h3 id="before-you-begin" class="discrete">Before you begin</h3>
+<div class="paragraph">
+<p>Download and install the i915 driver for the host. For more information, see <a href="https://01.org/igvt-g" class="bare">https://01.org/igvt-g</a>. For information on the guest drivers for Windows, see <a href="https://github.com/intel/gvt-linux/wiki/GVTg_Setup_Guide#42-windows-guest-setup" class="bare">https://github.com/intel/gvt-linux/wiki/GVTg_Setup_Guide#42-windows-guest-setup</a>.</p>
+</div>
+<h3 id="configuring-the-host" class="discrete">Configuring the host</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <code class="filename">/etc/default/grub</code> in a text editor.</p>
+</li>
+<li>
+<p>Append the following to the <code>GRUB_CMDLINX_LINUX</code> environment variable <code>i915.enable_gvt=1</code>. For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash options=nowrap">GRUB_CMDLINE_LINUX=&quot;rd.lvm.lv=vg_VolGroup00/LogVol01
+vconsole.font=latarcyrheb-sun16 rd.lvm.lv=vg_VolGroup_1/root
+vconsole.keymap=us $([ -x /usr/sbin/rhcrashkernel-param ]  &amp;&amp;
+/usr/sbin/rhcrashkernel-param || :) rhgb quiet intel_iommu=on pci-stub.ids=10de:11fa <strong>i915.enable_gvt=1</strong>"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Regenerate boot loader configuration:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># grub2-mkconfig -o /etc/grub2.cfg</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open <code class="filename">`/etc/dracut.conf.d/local.conf</code> in a text editor.</p>
+</li>
+<li>
+<p>Set the line with: <code>add_drivers+=""</code> to <code>add_drivers+="<strong>kvmgt</strong>"</code></p>
+</li>
+<li>
+<p>Regenerate the initial ramdisk for the current kernel, then reboot:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># <strong>dracut --force --regenerate-all</strong>
+# <strong>reboot</strong></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, if you need to use a prior supported kernel version with mediated devices, regenerate the initial ramdisk for all installed kernel versions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># <strong>dracut --regenerate-all --force</strong>
+# <strong>reboot</strong></code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get a list of available mdev types by entering the following lines in the terminal:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">for device in /sys/class/mdev_bus/<strong>; do
+  for mdev_type in $device/mdev_supported_types/</strong>; do
+    MDEV_TYPE=$(basename $mdev_type)
+    DESCRIPTION=$(cat $mdev_type/description)
+    NAME=$(cat $mdev_type/name)
+    echo &quot;mdev_type: $MDEV_TYPE --- description: $DESCRIPTION --- name: $NAME&quot;;
+  done;
+done | sort | uniq</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use this code in a script.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The output is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">fence: 4
+high_gm_size: 384MB
+high_gm_size: 512MB
+mdev_type: i915-GVTg_V5_4 --- description: low_gm_size: 128MB
+mdev_type: i915-GVTg_V5_8 --- description: low_gm_size: 64MB
+resolution: 1024x768
+resolution: 1920x1200
+weight: 2
+weight: 4</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>. Select a virtual machine and click <b class="button">Edit</b>. The <strong>Edit Virtual Machine</strong> dialog appears.</p>
+</li>
+<li>
+<p>Click <strong>Custom Properties</strong>. If you don’t see <strong>Custom Properties</strong>, click <strong>Show Advanced Options</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Custom Properties</strong> dialog, click <span class="menuseq"><b class="menu">Please select a key</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">mdev_type</b></span>. If you don’t see <strong>Please select a key</strong>, click the <b class="button">+</b> button.</p>
+</li>
+<li>
+<p>In the text field that appears, enter the GPU type or types that you identified previously. For example: <strong>i915-GVTg_V5_8</strong>.You can add multiple vGPUs to a virtual machine using a comma-separated list. For example: <strong>i915-GVTg_V5_8,i915-GVTg_V5_8</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Multiple vGPUs must be the same mdev type. You can’t, for example use <strong>i915-GVTg_V5_4,i915-GVTg_V5_8</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You have finished installing and configuring the GPU on the host. Now you can proceed to install and configure the vGPU on each virtual machine.</p>
+</div>
+<h3 id="installing-the-guest-driver" class="discrete">Installing the guest driver</h3>
+<div class="paragraph">
+<p><strong>To install the vGPU driver on a Linux or Windows virtual machine:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the virtual machine using a serial console, such as SPICE or VNC.</p>
+</li>
+<li>
+<p>Download the driver to the virtual machine. For information on getting the driver, see <strong>???</strong></p>
+</li>
+<li>
+<p>Install the vGPU driver, following the instructions in <strong>???</strong></p>
+</li>
+<li>
+<p>After the driver finishes installing reboot the machine. <strong>For Windows virtual machines,</strong> fully power off the guest from the Administration portal or the VM portal, not from within the guest operating system.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Windows only: Powering off the virtual machine from within the Windows guest operating system sometimes sends the virtual machine into hibernate mode, which does not completely clear the memory, possibly leading to subsequent problems. Using the Administration portal or the VM portal to power off the virtual machine forces it to fully clean the memory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Start the virtual machine using a remote visualizer, such as Mechdyne TGX and verify that the vGPU is recognized by <strong>???</strong> For more information, see <strong>???</strong> Alternatively, on Windows, open the Windows Device Manager. The vGPU should appear under <strong>Display adapters</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc_removing-intel-vgpu-devices_assembly_managing-intel-vgpu-devices">Removing Intel vGPU devices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To change the configuration of <a href="#proc_setting-up-intel-vgpu-devices_assembly_managing-intel-vgpu-devices">assigned vGPU mediated devices</a>, the existing devices have to be removed from the assigned guests.</p>
+</div>
+<div class="ulist discrete">
+<div class="title">Procedure</div>
+<ul class="discrete">
+<li>
+<p>To remove a mediated vGPU device, use the following command when the device is inactive, and replace <code>uuid</code> with the UUID of the device, for example <code>30820a6f-b1a5-4503-91ca-0c10ba58692a</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># <strong>echo 1 &gt; /sys/bus/mdev/devices/<code>uuid</code>/remove</strong></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that attempting to remove a vGPU device that is currently in use by a VM triggers the following error:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>echo: write error: Device or resource busy</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2899/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2899/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2899/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2899/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-intel-vgpu-devices.html&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/assembly-Setting_up_a_gpu_on_a_vm/assembly_managing-intel-vgpu-devices.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

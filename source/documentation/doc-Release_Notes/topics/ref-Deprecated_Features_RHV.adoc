@@ -19,9 +19,6 @@ The following table describes deprecated features to be removed in a future vers
 |===
 |Deprecated Feature |Details
 
-|Red Hat Virtualization Manager (RHVM) appliance |The Red Hat Virtualization Manager (RHVM) appliance is being retired. The last supported build of the RHVM appliance will be shipped with the release of Red Hat Virtualization 4.4 SP1.
-Following the Red Hat Virtualization 4.4 SP1 release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.
-
 |OpenStack Glance |Support for OpenStack Glance is now deprecated. This functionality will be removed in a future release.
 
 |Ruby software development kit (SDK) |The Ruby SDK is now deprecated. This functionality will be removed in a future release.
@@ -52,8 +49,6 @@ In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 | SSO for virtual machines | Since the ovirt-guest-agent package was deprecated, Single Sign-On (SSO) is deprecated for virtual machines running {enterprise-linux} version 7 or earlier.
 
  SSO is not supported for virtual machines running {enterprise-linux} 8 or later, or for Windows operating systems.
-
-|oVirt Scheduler Proxy | ovirt-scheduler-proxy is deprecated. Development has been discontinued. It will be removed in a future release.
 
 |GlusterFS Storage | GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 

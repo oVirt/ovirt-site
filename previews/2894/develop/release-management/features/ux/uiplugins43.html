@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>UIPlugins 4.3+ | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="UIPlugins 4.3+" />
+<meta name="author" content="Sahina Bose" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2894/develop/release-management/features/ux/uiplugins43.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2894/develop/release-management/features/ux/uiplugins43.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="UIPlugins 4.3+" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Sahina Bose" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Sahina Bose"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"UIPlugins 4.3+","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2894/images/logo.svg"},"name":"Sahina Bose"},"url":"https://ovirt.github.io/ovirt-site/previews/2894/develop/release-management/features/ux/uiplugins43.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2894/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2894/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2894/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2894/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2894/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2894/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2894/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2894/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2894/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2894/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2894/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2894/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2894/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2894/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2894/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2894/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2894/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2894/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2894/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2894/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2894/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2894/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2894//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2894//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2894/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2894/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2894/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2894/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2894/develop/release-management/features/ux/">
+              <span property="name">Ux</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sahina Bose</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d91aa78d451f5edbdde13d736518f310?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d91aa78d451f5edbdde13d736518f310?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vojtech Szocs</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/4eb7448b353de66d48bfc38960a65d6f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/4eb7448b353de66d48bfc38960a65d6f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alexander Wels</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2894/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="ui-plugins">UI Plugins</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature provides an infrastructure and API for implementing and deploying custom user interface plugins for oVirt web administration application version 4.3+.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Vojtech Szocs (Vszocs)</li>
+  <li>Email: vszocs@redhat.com</li>
+  <li>Name: Alexander Wels (awels)</li>
+  <li>Email: awels@redhat.com</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>oVirt web administration application (WebAdmin) is the main graphical user interface for managing all components of a virtual system infrastructure. In addition to existing WebAdmin functionality, there can be times when administrators want to expose additional features or to integrate with other systems through WebAdmin UI. This is where UI plugins come into play: each plugin represents a set of user interface extensions that can be packaged and distributed for deployment on oVirt Engine via WebAdmin.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>UI plugins integrate with WebAdmin directly on the client (web browser) using <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> programming language. Plugin invocation is driven by WebAdmin and happens right within the context of browser’s JavaScript runtime, using JavaScript language as the lowest common denominator between WebAdmin (<a href="http://en.wikipedia.org/wiki/Google_Web_Toolkit">GWT</a>) and individual plugins. UI plugins can take full advantage of JavaScript language and its rich ecosystem of libraries. There are no specific rules on how to implement UI plugins, plugin API is designed to be simple and not to get in developer’s way, regardless of how a developer chooses to write the plugin.</p>
+
+<p>At key events during runtime, WebAdmin invokes individual plugins via <a href="#application-event-reference">event handler functions</a> representing WebAdmin → plugin communication. Even though WebAdmin supports many different event handler functions, a plugin only declares functions which are of interest to its implementation. Each plugin must register relevant event handler functions as part of its <a href="#plugin-bootstrap-sequence">bootstrap sequence</a>, before the plugin is put to use by WebAdmin.</p>
+
+<p>To facilitate plugin → WebAdmin communication that drives UI extension, WebAdmin exposes <a href="#api-function-reference">plugin API</a> as global (top-level) <code class="language-plaintext highlighter-rouge">pluginApi</code> JavaScript object for individual plugins to consume. Each plugin obtains specific <code class="language-plaintext highlighter-rouge">pluginApi</code> instance, allowing WebAdmin to control plugin API function invocation per each plugin with regard to <a href="#plugin-lifecycle">plugin lifecycle</a>.</p>
+
+<h2 id="discovering-plugins">Discovering plugins</h2>
+
+<p>Before a plugin can be <a href="#loading-plugins">loaded</a> and <a href="#plugin-bootstrap-sequence">bootstrapped</a> by WebAdmin, it has to be discovered by UI plugin infrastructure in the first place.</p>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/Discovering-plugins.png" alt="" title="Discovering plugins" /></p>
+
+<p><a href="#plugin-descriptor">Plugin descriptor</a> is the entry point to discovery process, containing plugin meta-data as well as (optional) default plugin-specific configuration.</p>
+
+<p>As part of handling WebAdmin HTML page request (1), UI plugin infrastructure attempts to discover and load plugin descriptors from local file system (2). For each descriptor, the infrastructure also attempts to load corresponding <a href="#plugin-user-configuration">plugin user configuration</a> used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior. Note that providing plugin user configuration is completely optional. After loading descriptors and corresponding user configuration files (if any), oVirt Engine aggregates UI plugin data and embeds it into WebAdmin HTML page for runtime evaluation (3).</p>
+
+<p>Descriptor files are expected to reside in <code class="language-plaintext highlighter-rouge">$ENGINE_USR/ui-plugins</code> directory, with default mapping <code class="language-plaintext highlighter-rouge">ENGINE_USR=/usr/share/ovirt-engine</code> as defined by oVirt Engine local configuration. Descriptor files should comply with <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format specification with the addition of allowing Java/C++ style comments, i.e. both <code class="language-plaintext highlighter-rouge">/* comment */</code> and <code class="language-plaintext highlighter-rouge">// comment</code> varieties.</p>
+
+<p>User configuration files are expected to reside in <code class="language-plaintext highlighter-rouge">$ENGINE_ETC/ui-plugins</code> directory, with default mapping <code class="language-plaintext highlighter-rouge">ENGINE_ETC=/etc/ovirt-engine</code> as defined by oVirt Engine local configuration. User configuration files should comply with same content format rules as descriptors. Note that user configuration files follow <code class="language-plaintext highlighter-rouge">-config.json</code> naming convention, i.e. using <code class="language-plaintext highlighter-rouge">-config</code> suffix.</p>
+
+<h2 id="loading-plugins">Loading plugins</h2>
+
+<p>After a plugin has been <a href="#discovering-plugins">discovered</a> and its data embedded into WebAdmin HTML page, WebAdmin will attempt to load the given plugin as part of application startup (unless configured otherwise).</p>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/Loading-plugins.png" alt="" title="Loading plugins" /></p>
+
+<p>For each plugin, WebAdmin creates hidden HTML <code class="language-plaintext highlighter-rouge">iframe</code> element used to load <a href="#plugin-host-page">plugin host page</a> (1). Plugin host page is the entry point to <a href="#plugin-bootstrap-sequence">bootstrap</a> process, used to evaluate plugin code (JavaScript) within the context of the corresponding <code class="language-plaintext highlighter-rouge">iframe</code> element. UI plugin infrastructure supports serving plugin resource files, such as host page, from local file system (2). Host page gets loaded into <code class="language-plaintext highlighter-rouge">iframe</code> element and plugin code is evaluated (3). From this point forward, plugin communicates with WebAdmin via plugin API (4). Since the purpose of host page is to bootstrap plugin code, any UI extensions should be done via <a href="#api-function-reference">plugin API</a> rather than direct HTML DOM manipulation.</p>
+
+<p>Plugin resource files are expected to reside in <code class="language-plaintext highlighter-rouge">$ENGINE_USR/ui-plugins/</code> directory, with <code class="language-plaintext highlighter-rouge">resourcePath</code> value defined by the corresponding attribute in <a href="#plugin-descriptor">plugin descriptor</a>. For example:</p>
+
+<ul>
+  <li>Client requests URL <code class="language-plaintext highlighter-rouge">/ovirt-engine/webadmin/plugin/path/to/file</code></li>
+  <li>Engine serves content of <code class="language-plaintext highlighter-rouge">$ENGINE_USR/ui-plugins/path/to/file</code></li>
+</ul>
+
+<h2 id="plugin-descriptor">Plugin descriptor</h2>
+
+<p>Plugin descriptor contains plugin meta-data as well as default plugin-specific configuration.</p>
+
+<p>Following code snippet shows a sample plugin descriptor:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /usr/share/ovirt-engine/ui-plugins/example.json
+
+{
+
+    // Unique name of the plugin (required)
+    // Unrelated to descriptor file name, must not be empty
+    "name": "ExamplePlugin",
+
+    // URL of plugin host page that bootstraps plugin code (required)
+    // This URL maps to $ENGINE_USR/ui-plugins/example-resources/plugin.html
+    "url": "plugin/ExamplePlugin/plugin.html",
+
+    // Default configuration associated with the plugin (optional)
+    "config": { "band": "ZZ Top", "score": 10 },
+
+    // Path to plugin resource files relative to descriptor (optional)
+    // Required when using UI plugin infrastructure to serve plugin resource files
+    // This path maps to $ENGINE_USR/ui-plugins/example-resources
+    "resourcePath": "example-resources"
+
+}
+</code></pre></div></div>
+
+<p>Notice the use of relative URL in <code class="language-plaintext highlighter-rouge">url</code> attribute. Since WebAdmin resides in <code class="language-plaintext highlighter-rouge">/ovirt-engine/webadmin</code> URL context, it’s usually best to use relative URLs when referring to plugin resource files. This way, the plugin is more resilient to potential changes in WebAdmin base URL.</p>
+
+<h2 id="plugin-user-configuration">Plugin user configuration</h2>
+
+<p>Plugin user configuration contains custom plugin-specific configuration and attributes to tweak plugin runtime behavior.</p>
+
+<p>Following code snippet shows a sample plugin user configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /etc/ovirt-engine/ui-plugins/example-config.json
+
+{
+
+    // Custom configuration associated with the plugin (optional)
+    // This overrides default configuration within descriptor, if any
+    "config": { "band": "AC/DC" },
+
+    // Whether the plugin should be loaded on WebAdmin startup (optional)
+    // Default value is true
+    "enabled": true,
+
+    // Relative order in which the plugin will be loaded (optional)
+    // Default value is Integer.MAX_VALUE (lowest order)
+    "order": 0
+
+}
+</code></pre></div></div>
+
+<p>As part of <a href="#discovering-plugins">discovering plugins</a>, UI plugin infrastructure will merge custom configuration (if any) on top of default configuration (if any). For example:</p>
+
+<ul>
+  <li>Plugin descriptor defines <code class="language-plaintext highlighter-rouge">config</code> attribute as <code class="language-plaintext highlighter-rouge">{ "band": "ZZ Top", "score": 10 }</code></li>
+  <li>Plugin user configuration defines <code class="language-plaintext highlighter-rouge">config</code> attribute as <code class="language-plaintext highlighter-rouge">{ "band": "AC/DC" }</code></li>
+  <li>Resulting plugin configuration, accessible to given plugin at runtime, will be <code class="language-plaintext highlighter-rouge">{ "band": "AC/DC", "score": 10 }</code></li>
+</ul>
+
+<h2 id="plugin-host-page">Plugin host page</h2>
+
+<p>Plugin host page <a href="#plugin-bootstrap-sequence">bootstraps</a> plugin code by evaluating JavaScript within the context of the corresponding <code class="language-plaintext highlighter-rouge">iframe</code> element.</p>
+
+<p>Following code snippet shows a sample plugin host page:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /usr/share/ovirt-engine/ui-plugins/example-resources/plugin.html
+
+        // Plugin code, evaluated within HTML head section (2)
+
+        // Plugin code, evaluated within HTML body section (3)
+</code></pre></div></div>
+
+<p>Prior to evaluating actual plugin code, host page can load dependent scripts or other resources as necessary (1). Plugin code can be evaluated either within <code class="language-plaintext highlighter-rouge">head</code> (2) or <code class="language-plaintext highlighter-rouge">body</code> (3) section of the HTML document. In addition to embedding plugin code inline into host page, code can be also loaded asynchronously as external script, i.e. ``</p>
+
+<p>. There are no specific rules on how to load plugin code within the host page, the only requirement is that loading host page HTML document should evaluate plugin code eventually.</p>
+
+<p>Note that WebAdmin <a href="#loading-plugins">loads</a> the given plugin via hidden HTML <code class="language-plaintext highlighter-rouge">iframe</code> element. This has following implications:</p>
+
+<ul>
+  <li>Plugin code runs within the context of the corresponding <code class="language-plaintext highlighter-rouge">iframe</code> element, i.e. not in WebAdmin (top-level) context</li>
+  <li>Plugin code should use <a href="#api-function-reference">plugin API</a> to make UI extensions, i.e. avoid direct HTML DOM manipulation of WebAdmin UI</li>
+  <li>Any markup placed within HTML <code class="language-plaintext highlighter-rouge">body</code> section will have no effect since the <code class="language-plaintext highlighter-rouge">iframe</code> element is hidden from WebAdmin view</li>
+</ul>
+
+<p>Notice the use of relative URL to load additional script in above snippet. According to <a href="#plugin-descriptor">plugin descriptor</a>, the host page resides in <code class="language-plaintext highlighter-rouge">/ovirt-engine/webadmin/plugin/ExamplePlugin</code> URL context. From this context, we can refer to plugin resource files directly using relative paths.</p>
+
+<h2 id="why-load-plugins-via-iframe-element">Why load plugins via iframe element?</h2>
+
+<p>From UI plugin infrastructure perspective, each plugin represents a standalone web application that integrates with WebAdmin through <a href="#api-function-reference">plugin API</a>.</p>
+
+<p>Each plugin can load dependent scripts or other resources scoped to its own context, i.e. <code class="language-plaintext highlighter-rouge">Window</code> object for the corresponding <code class="language-plaintext highlighter-rouge">iframe</code> element. The <code class="language-plaintext highlighter-rouge">iframe</code> element is essentially a sandbox for evaluating plugin code:</p>
+
+<ul>
+  <li>WebAdmin UI won’t break when some plugin breaks - instead, WebAdmin puts the misbehaving plugin out of service</li>
+  <li>WebAdmin DOM won’t be polluted with dependencies (external scripts or other resources) of individual plugins</li>
+  <li>WebAdmin vs. plugin integration happens through plugin API, discouraging direct HTML DOM manipulation of WebAdmin UI which would impose a fragile, HTML structure dependant bond between plugin and WebAdmin</li>
+</ul>
+
+<p>Aside from <a href="#plugin-host-page">plugin host page</a>, any custom UI contributed by a plugin follows the same principles as mentioned above.</p>
+
+<h2 id="plugin-bootstrap-sequence">Plugin bootstrap sequence</h2>
+
+<p>Plugin code that runs due to host page being loaded typically follows a common pattern:</p>
+
+<ul>
+  <li>Get <code class="language-plaintext highlighter-rouge">pluginApi</code> instance for the given plugin</li>
+  <li>Get runtime plugin configuration (optional)</li>
+  <li>Customize API options that affect specific features of plugin API (optional)</li>
+  <li>Register relevant <a href="#application-event-reference">event handler functions</a></li>
+  <li>When ready, notify UI plugin infrastructure to proceed with plugin initialization</li>
+</ul>
+
+<p>Following code snippet illustrates the above mentioned pattern:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Get plugin API for "ExamplePlugin", using "parent" due to plugin code being evaluated within an iframe context
+// Note that "parent.pluginApi" is subject to Same-Origin Policy, this implies WebAdmin HTML page and plugin host
+// page must be on same origin, which holds true when using UI plugin infrastructure to serve plugin resource files
+var api = parent.pluginApi('ExamplePlugin');
+
+// Get runtime plugin configuration, i.e. custom configuration (if any) merged on top of default configuration (if any)
+var cfg = api.configObject();
+
+// Customize API options that affect specific features of plugin API, i.e. override default API options
+api.options({ ... });
+
+// Register relevant event handler functions for later invocation by UI plugin infrastructure
+api.register({ ... });
+
+// Notify UI plugin infrastructure to proceed with plugin initialization, i.e. expect UiInit event callback
+api.ready();
+</code></pre></div></div>
+
+<h2 id="plugin-lifecycle">Plugin lifecycle</h2>
+
+<p>UI plugin infrastructure maintains a common lifecycle to control execution of individual plugins. The lifecycle consists of possible states and transitions between these states at runtime.</p>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/Plugin-lifecycle.png" alt="" title="Plugin lifecycle" /></p>
+
+<p>DEFINED</p>
+
+<p>The plugin has been defined through its meta-data. A corresponding <code class="language-plaintext highlighter-rouge">iframe</code> element has been created. This is the initial state for all plugins.</p>
+
+<p>LOADING</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">iframe</code> element has been attached to DOM, causing plugin host page to be fetched asynchronously in the background. We are waiting for the plugin to report back as ready.</p>
+
+<p>READY</p>
+
+<p>The plugin has indicated that it is ready for use. We expect the event handler object (object containing <a href="#application-event-reference">event handler functions</a>) to be registered by now. While in plugin invocation context<code class="language-plaintext highlighter-rouge">*</code>, proceed with plugin initialization. Otherwise, initialize the plugin upon entering next invocation context.</p>
+
+<p>INITIALIZING</p>
+
+<p>The plugin is being initialized by calling <code class="language-plaintext highlighter-rouge">UiInit</code> event handler function. The <code class="language-plaintext highlighter-rouge">UiInit</code> function will be called just once during the lifetime of a plugin, before calling other event handler functions.</p>
+
+<p>IN USE</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">UiInit</code> function completed successfully, WebAdmin will call other event handler functions as necessary. The plugin is in use.</p>
+
+<p>FAILED</p>
+
+<p>An uncaught exception escaped while calling plugin event handler function, indicating internal error within plugin code. The <code class="language-plaintext highlighter-rouge">iframe</code> element has been detached from DOM. The plugin is removed from service.</p>
+
+<p><code class="language-plaintext highlighter-rouge">*</code> Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing <a href="#application-event-reference">event handler functions</a> as well as <a href="#api-function-reference">plugin API</a> calls is constrained by this context, i.e. plugins are in effect only while user stays authenticated in WebAdmin UI.</p>
+
+<h2 id="plugin-development-tips">Plugin development tips</h2>
+
+<h3 id="avoid-mixed-content-issues">Avoid mixed content issues</h3>
+
+<p>If WebAdmin HTML page is served over HTTPS, WebAdmin and UI plugins should retrieve all content from remote servers through HTTPS in order not to compromise security of the whole application. When HTML page served over HTTPS includes content retrieved through cleartext HTTP, it’s called mixed content page.</p>
+
+<p>There are generally two types of <a href="https://developer.mozilla.org/en-US/docs/Security/MixedContent">mixed content</a>:</p>
+
+<ul>
+  <li>mixed active content - content through which an attacker could gain access to all or parts of web page: <code class="language-plaintext highlighter-rouge">script</code> element, <code class="language-plaintext highlighter-rouge">iframe</code> element, <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> object, etc.</li>
+  <li>mixed passive content - content that cannot access or alter web page: <code class="language-plaintext highlighter-rouge">img</code> element, etc.</li>
+</ul>
+
+<p>Modern browsers typically block mixed active content and allow mixed passive content by default.</p>
+
+<p>When requesting content from remote servers, UI plugins should ensure that requests are made through HTTPS in case WebAdmin HTML page is served over HTTPS. In other words, UI plugins shouldn’t compromise security of the whole application.</p>
+
+<p>For example, to load remote script using protocol of enclosing web page: ``</p>
+
+<h3 id="working-with-sso-tokens">Working with SSO tokens</h3>
+
+<p>Upon successful login, WebAdmin acquires an SSO token that can be used to obtain new HTTP sessions, for instance with the REST api. Plugins are responsible for maintaining their own HTTP sessions created using the SSO token. To prevent closing the HTTP session after processing given request, UI plugins should always include <code class="language-plaintext highlighter-rouge">Prefer: persistent-auth</code> header in all requests.</p>
+
+<p>To Acquire a new HTTP session from for instance the REST api, the plugin should add the <code class="language-plaintext highlighter-rouge">Authorization: Bearer TOKEN</code> header to the request. Where token is the SSO token obtained from the ssoToken UI plugin function.</p>
+
+<p>Following code snippet illustrates above mentioned practices using <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> object:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var ssoToken = api.ssoToken();
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() { /* process response when done */ };
+xhr.open('GET', 'http://example-host/ovirt-engine/api', true);
+xhr.withCredentials = true; // for cross-site requests, ensure that auth information and cookies are included
+xhr.setRequestHeader('Accept', 'application/json'); // control response format
+xhr.setRequestHeader('Filter', 'false'); // control whether to filter results based on (WebAdmin) user's permissions
+xhr.setRequestHeader('Prefer', 'persistent-auth'); // prevent closing REST API session after processing request
+xhr.setRequestHeader('Authorization', 'Bearer ' + ssoToken); // Create HTTP session with SSO token, subsequent requests don't need this as the HTTP session is persistent.
+xhr.send(null);
+</code></pre></div></div>
+
+<h2 id="terms-used-in-api-reference">Terms used in API reference</h2>
+
+<h3 id="javascript-interface-object">JavaScript interface object</h3>
+
+<p>Object implementing a contract (interface) by declaring corresponding functions. Unlike the traditional concept of interface abstract type in object-oriented languages, an interface object doesn’t necessarily have to declare all functions of the given interface in order to “implement” such interface. In fact, an empty object can be used as a valid interface object. Missing functions will be treated as empty (no-op) functions with default return values, as defined by the contract of such functions. An interface object can “implement” multiple interfaces simply by declaring functions of those interfaces.</p>
+
+<h2 id="application-event-reference">Application event reference</h2>
+
+<h3 id="core-functions">Core functions</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UiInit
+</code></pre></div></div>
+
+<p>Called by the infrastructure as part of plugin initialization. The <code class="language-plaintext highlighter-rouge">UiInit</code> function will be called just once during the lifetime of a plugin, before WebAdmin calls other event handler functions. This function is a good place for one-time UI extensions.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<h4 id="userlogin">UserLogin</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string userNameWithDomain
+string userId
+</code></pre></div></div>
+
+<p>Called after a user logs into WebAdmin. The <code class="language-plaintext highlighter-rouge">userNameWithDomain</code> follows <code class="language-plaintext highlighter-rouge">user@domain</code> convention.</p>
+
+<h4 id="userlogout">UserLogout</h4>
+
+<p>Called after a user logs out of WebAdmin.</p>
+
+<h3 id="main-view-grid-item-selection">Main view grid item selection</h3>
+
+<h4 id="entitytypeselectionchange">{EntityType}SelectionChange</h4>
+
+<p>Called when item selection changes in the given main view. Replace <code class="language-plaintext highlighter-rouge">{EntityType}</code> with name of desired entity. Refer to <a href="#entity-type-reference">entity types</a> for details on supported entities and their object representations.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.register({
+    DataCenterSelectionChange: function() {
+        var firstSelectedItem = (arguments.length &gt; 0) ? arguments[0] : null;
+        var firstSelectedItemId = firstSelectedItem &amp;&amp; firstSelectedItem.id;
+    }
+});
+</code></pre></div></div>
+
+<h3 id="cross-window-messaging">Cross-window messaging</h3>
+
+<h4 id="messagereceived">MessageReceived</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string or `object data'
+object sourceWindow
+</code></pre></div></div>
+
+<p>Called when another <code class="language-plaintext highlighter-rouge">Window</code> (i.e. custom UI contributed by a plugin) sends message to WebAdmin <code class="language-plaintext highlighter-rouge">Window</code> via HTML5 <a href="http://en.wikipedia.org/wiki/Web_Messaging">postMessage</a> API. In a typical scenario, custom UI living in <code class="language-plaintext highlighter-rouge">iframe</code> context sends message to WebAdmin (parent) <code class="language-plaintext highlighter-rouge">Window</code> which in turn dispatches the message to individual plugins. Refer to <code class="language-plaintext highlighter-rouge">allowedMessageOrigins</code> in <a href="#api-option-reference">API options</a> for details on customizing origins from which messages will be accepted. The <code class="language-plaintext highlighter-rouge">sourceWindow</code> can be used to establish two-way communication between plugin code and sender’s <code class="language-plaintext highlighter-rouge">Window</code> object. Note that some browsers might support only <code class="language-plaintext highlighter-rouge">string</code> values when passing data through HTML5 postMessage API.</p>
+
+<p><code class="language-plaintext highlighter-rouge">*</code> If specified, <code class="language-plaintext highlighter-rouge">arguments</code> represent the implicit JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments">function argument object</a>.</p>
+
+<h2 id="api-function-reference">API function reference</h2>
+
+<h3 id="core-functions-1">Core functions</h3>
+
+<h4 id="register">register</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>object eventHandlerObject
+</code></pre></div></div>
+
+<p>Registers the event handler object, i.e. object containing <a href="#application-event-reference">event handler functions</a> which facilitate WebAdmin → plugin communication. The <code class="language-plaintext highlighter-rouge">register</code> function must be called with valid <code class="language-plaintext highlighter-rouge">eventHandlerObject</code> before calling <code class="language-plaintext highlighter-rouge">ready</code> function. The <code class="language-plaintext highlighter-rouge">eventHandlerObject</code> must be an object declaring event handler functions as its properties, or an empty object. After the <code class="language-plaintext highlighter-rouge">eventHandlerObject</code> has been set for given plugin, calling <code class="language-plaintext highlighter-rouge">register</code> function has no effect.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.register({
+    UiInit: function() {
+        api.addDetailPlace('Host', 'Special Host Tab', 'special-host-tab',
+            'plugin/ExamplePlugin/special-tab.html');
+        api.setPlaceAccessible('special-host-tab', false);
+    },
+    HostSelectionChange: function() {
+        var isSpecial = arguments.length == 1 &amp;&amp; arguments[0].name.indexOf('special') != -1;
+        api.setPlaceAccessible('special-host-tab', isSpecial);
+    }
+});
+</code></pre></div></div>
+
+<h4 id="options">options</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>object apiOptionsObject
+</code></pre></div></div>
+
+<p>Provides custom API options that affect specific features of plugin API, overriding default API options. The <code class="language-plaintext highlighter-rouge">options</code> function can be called anytime during the lifetime of a plugin. Refer to <a href="#api-option-reference">API options</a> for details.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.options({
+    allowedMessageOrigins: ['http://one.com', 'https://two.org']
+});
+</code></pre></div></div>
+
+<h4 id="ready">ready</h4>
+
+<p>Notifies the infrastructure to proceed with plugin initialization, calling <code class="language-plaintext highlighter-rouge">UiInit</code> event handler function (if defined) as soon as the plugin invocation context is entered (refer to <a href="#plugin-lifecycle">plugin lifecycle</a> for details). The <code class="language-plaintext highlighter-rouge">register</code> function must be called with valid <code class="language-plaintext highlighter-rouge">eventHandlerObject</code> before calling <code class="language-plaintext highlighter-rouge">ready</code> function, otherwise the <code class="language-plaintext highlighter-rouge">ready</code> function has no effect.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.ready();
+</code></pre></div></div>
+
+<h4 id="configobject">configObject</h4>
+
+<p>Returns the runtime plugin configuration object containing custom configuration (if any) merged on top of default configuration (if any). Refer to <a href="#plugin-user-configuration">plugin user configuration</a> for details. In case neither the default nor custom configuration is available for given plugin, the <code class="language-plaintext highlighter-rouge">configObject</code> function returns an empty object.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var conf = api.configObject();
+var favoriteBand = conf.band || ;
+</code></pre></div></div>
+
+<h3 id="authentication-1">Authentication</h3>
+
+<h4 id="loginusername">loginUserName</h4>
+
+<p>Returns user name and domain of currently logged in user, following <code class="language-plaintext highlighter-rouge">user@domain</code> convention.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var userNameWithDomain = api.loginUserName();
+var domain = userNameWithDomain.substring(userNameWithDomain.indexOf('@') + 1);
+</code></pre></div></div>
+
+<h4 id="loginuserid">loginUserId</h4>
+
+<p>Returns <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> of currently logged in user.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var userId = api.loginUserId();
+</code></pre></div></div>
+
+<h3 id="main-views-and-detail-tabs">Main Views and detail tabs</h3>
+
+<h4 id="addprimarymenuplace">addPrimaryMenuPlace</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string label
+string historyToken
+string contentUrl
+object options
+</code></pre></div></div>
+
+<p>Adds new primary menu place with content provided from given URL. All arguments are required except for <code class="language-plaintext highlighter-rouge">options</code>. The <code class="language-plaintext highlighter-rouge">label</code> is the text displayed in the primary menu. The <code class="language-plaintext highlighter-rouge">historyToken</code> serves as unique identifier of the place, with its value reflected in browser URL. Recommended <code class="language-plaintext highlighter-rouge">historyToken</code> format is <code class="language-plaintext highlighter-rouge">letters-with-dashes</code>. The <code class="language-plaintext highlighter-rouge">contentUrl</code> is passed to <code class="language-plaintext highlighter-rouge">src</code> attribute of the <code class="language-plaintext highlighter-rouge">iframe</code> element which renders the place content. Primary menu places cannot have secondary menu items, only primary menu containers can. The <code class="language-plaintext highlighter-rouge">options</code> can be undefined, null or object containing additional tab options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">priority</code> - controls tab’s relative priority within the tab panel, default value is <code class="language-plaintext highlighter-rouge">Number.MAX_VALUE</code></li>
+  <li><code class="language-plaintext highlighter-rouge">defaultPlace</code> - controls if the application should display this place by default when the user logs in, and no target place is defined in the browser URL.</li>
+  <li><code class="language-plaintext highlighter-rouge">icon</code> - The icon to use in the primary menu. This can either be a font-awesome or patternfly icon.</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.addPrimaryMenuPlace('Custom Menu Item', 'custom-place-one',
+    'plugin/ExamplePlugin/one.html'
+);
+api.addPrimaryMenuPlace('Custom Menu Item', 'custom-place-two',
+    'plugin/ExamplePlugin/two.html',
+    {
+        priority: -1, // negative priority will be the top menu item.
+        defaultPlace: true, // Go to this location if no place is defined in URL.
+        icon: 'fa-trophy' // font-awesome trophy icon.
+    }
+);
+</code></pre></div></div>
+
+<h4 id="addprimarymenucontainer">addPrimaryMenuContainer</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String label
+String primaryMenuId
+Object options
+</code></pre></div></div>
+
+<p>Adds new primary menu container that allows for secondary menu places. All arguments are required except for <code class="language-plaintext highlighter-rouge">options</code>. The <code class="language-plaintext highlighter-rouge">label</code> is the text displayed in the primary menu. The <code class="language-plaintext highlighter-rouge">primaryMenuId</code> is a plugin provided identifier that allows plugins to pass that identifier to <code class="language-plaintext highlighter-rouge">addSecondaryMenuPlace</code>, so the infra structure knows which primary container to add the secondary menu place to. The <code class="language-plaintext highlighter-rouge">options</code> can be undefined, null or object containing additional tab options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">priority</code> - controls tab’s relative priority within the tab panel, default value is <code class="language-plaintext highlighter-rouge">Number.MAX_VALUE</code></li>
+  <li><code class="language-plaintext highlighter-rouge">icon</code> - The icon to use in the primary menu. This can either be a font-awesome or patternfly icon.</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.addPrimaryMenuContainer('Custom Menu Container', 'containerIdentifier');
+
+api.addPrimaryMenuContainer('Custom Menu Container', 'containerIdentifier',
+    'plugin/ExamplePlugin/two.html',
+    {
+        priority: -1, // negative priority will be the top menu item.
+        icon: 'fa-trophy' // font-awesome trophy icon.
+    }
+);
+</code></pre></div></div>
+
+<h4 id="addsecondarymenuplace">addSecondaryMenuPlace</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String primaryMenuId
+String label
+String historyToken
+String contentUrl
+Object options
+</code></pre></div></div>
+
+<p>Adds new secondary menu place with content provided from given URL. All arguments are required except for <code class="language-plaintext highlighter-rouge">options</code>. The primaryMenuId corresponds to the primary menu container you want the secondary menu to appear in. The <code class="language-plaintext highlighter-rouge">label</code> is the text displayed in the primary menu. The <code class="language-plaintext highlighter-rouge">historyToken</code> serves as unique identifier of the place, with its value reflected in browser URL. Recommended <code class="language-plaintext highlighter-rouge">historyToken</code> format is <code class="language-plaintext highlighter-rouge">letters-with-dashes</code>. The <code class="language-plaintext highlighter-rouge">contentUrl</code> is passed to <code class="language-plaintext highlighter-rouge">src</code> attribute of the <code class="language-plaintext highlighter-rouge">iframe</code> element which renders the place content. The <code class="language-plaintext highlighter-rouge">options</code> can be undefined, null or object containing additional tab options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">priority</code> - controls tab’s relative priority within the tab panel, default value is <code class="language-plaintext highlighter-rouge">Number.MAX_VALUE</code></li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.addSecondaryMenuPlace('Secondary Menu Item', 'custom-place',
+    'plugin/ExamplePlugin/secondary.html'
+);
+api.addSecondaryMenuPlace('Secondary Menu Item', 'custom-place',
+    'plugin/ExamplePlugin/secondary.html'
+    {
+        priority: -1, // negative priority will be the top menu item.
+    }
+);
+</code></pre></div></div>
+
+<h4 id="adddetailplace">addDetailPlace</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string entityTypeName
+string label
+string historyToken
+string contentUrl
+object options
+</code></pre></div></div>
+
+<p>Adds a new detail place with content provided from given URL. All arguments are required except for <code class="language-plaintext highlighter-rouge">options</code>. Semantics of <code class="language-plaintext highlighter-rouge">label</code>, <code class="language-plaintext highlighter-rouge">historyToken</code>, and <code class="language-plaintext highlighter-rouge">contentUrl</code> are identical to ones declared by <code class="language-plaintext highlighter-rouge">addPrimaryMenuPlace</code> function. <code class="language-plaintext highlighter-rouge">options</code> only supports priority. The <code class="language-plaintext highlighter-rouge">entityTypeName</code> identifies which entity type this detail place is associated withm. Refer to <a href="#entity-type-reference">entity types</a> for details on supported entity names. The label specifies the label of the detail tab that is associated with the place of the <code class="language-plaintext highlighter-rouge">historyToken</code>. The <code class="language-plaintext highlighter-rouge">options</code> can be undefined, null or object containing additional tab options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">priority</code> - controls tab’s relative priority within the tab panel, default value is <code class="language-plaintext highlighter-rouge">Number.MAX_VALUE</code></li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.addDetailPlace('Host', 'Custom Host Tab One', 'custom-host-tab-one',
+    'plugin/ExamplePlugin/host-one.html'
+);
+api.addDetailPlace('Host', 'Custom Host Tab Two, 'custom-host-tab-two',
+    'plugin/ExamplePlugin/host-two.html',
+    {
+        priority: 3 // Third tab in the detail view.
+    }
+);
+</code></pre></div></div>
+
+<h4 id="setplacecontenturl">setPlaceContentUrl</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string historyToken
+string contentUrl
+</code></pre></div></div>
+
+<p>Updates the content URL of a given place. Semantics of <code class="language-plaintext highlighter-rouge">historyToken</code> and <code class="language-plaintext highlighter-rouge">contentUrl</code> are identical to ones declared by <code class="language-plaintext highlighter-rouge">addPrimaryMenuPlace</code> or <code class="language-plaintext highlighter-rouge">addDetailPlace</code> function. The <code class="language-plaintext highlighter-rouge">setPlaceContentUrl</code> function works only for places added via plugin API.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.setPlaceContentUrl('custom-place', 'plugin/ExamplePlugin/place-content.html');
+</code></pre></div></div>
+
+<h4 id="setplaceaccessible">setPlaceAccessible</h4>
+
+<p>Arguments(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  string historyToken
+  boolean placeAccessible
+</code></pre></div></div>
+
+<p>Controls the accessibility of a given place. Semantics of <code class="language-plaintext highlighter-rouge">historyToken</code> is identical to ones declared by <code class="language-plaintext highlighter-rouge">addPrimaryMenuPlace</code> or <code class="language-plaintext highlighter-rouge">addDetailPlace</code> function. If <code class="language-plaintext highlighter-rouge">placeAccessible</code> is <code class="language-plaintext highlighter-rouge">false</code>, corresponding menu item or tab header will be hidden in WebAdmin UI and attempts to reveal the given tab manually by manipulating URL will be denied. The <code class="language-plaintext highlighter-rouge">setPlaceAccessible</code> function works only for places added via plugin API.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.setPlaceAccessible('custom-place', false);
+</code></pre></div></div>
+
+<h4 id="addmenuplaceactionbutton">addMenuPlaceActionButton</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  string entityTypeName
+  string label
+  object actionButtonInterface
+</code></pre></div></div>
+
+<p>Adds new button to the action panel and context menu for the given main view associated with the entityTypeName. Semantics of <code class="language-plaintext highlighter-rouge">entityTypeName</code> is identical to one declared by <code class="language-plaintext highlighter-rouge">addDetailPlace</code> function. The <code class="language-plaintext highlighter-rouge">label</code> is the text displayed on button. The <code class="language-plaintext highlighter-rouge">actionButtonInterface</code> is an <a href="#javascript-interface-object">interface object</a> that overrides button behavior via following properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">onClick</code> - function called when user clicks the button, arguments are items currently selected in given main view, no-op by default</li>
+  <li><code class="language-plaintext highlighter-rouge">isEnabled</code> - function called to determine whether the button should be enabled (clickable), arguments are items currently selected in given main view, returns <code class="language-plaintext highlighter-rouge">true</code> by default</li>
+  <li><code class="language-plaintext highlighter-rouge">isAccessible</code> - function called to determine whether the button should be accessible (visible), arguments are items currently selected in given main view, returns <code class="language-plaintext highlighter-rouge">true</code> by default</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.addMenuPlaceActionButton('Host', 'Custom Button', {
+    onClick: function() {
+        var selectedHost = arguments[0];
+        var isSpecial = selectedHost.name.indexOf('special') != -1;
+        api.setPlaceAccessible('custom-tab', isSpecial);
+    },
+    isEnabled: function() {
+        return arguments.length == 1;
+    }
+});
+</code></pre></div></div>
+
+<h4 id="adddetailplaceactionbutton">addDetailPlaceActionButton</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string mainEntityTypeName
+string detailEntityTypeName
+string label
+object actionButtonInterface
+</code></pre></div></div>
+
+<p>Adds new button to the action panel and context menu for the given detail tab. Semantics of <code class="language-plaintext highlighter-rouge">label</code> and <code class="language-plaintext highlighter-rouge">actionButtonInterface</code> are identical to ones declared by <code class="language-plaintext highlighter-rouge">addMenuPlaceActionButton</code> function. The <code class="language-plaintext highlighter-rouge">mainEntityTypeName</code> and <code class="language-plaintext highlighter-rouge">detailEntityTypeName</code> together identify existing detail tab to which the newly added button should be associated. Refer to <a href="#entity-type-reference">entity types</a> for details on supported entity names.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.addDetailPlaceActionButton('Host', 'Event', 'Custom Button', {
+    onClick: function() {
+        var selectedHostEvent = arguments[0];
+        var isSpecial = selectedHostEvent.message.indexOf('special') != -1;
+        api.setPlaceAccessible('custom-tab', isSpecial);
+    },
+    isEnabled: function() {
+        return arguments.length == 1;
+    }
+});
+</code></pre></div></div>
+
+<hr />
+
+<p><strong>Limitation:</strong> <code class="language-plaintext highlighter-rouge">subTabEntityTypeName</code> currently supports only <code class="language-plaintext highlighter-rouge">Event</code> value.</p>
+
+<h3 id="dialogs">Dialogs</h3>
+
+<h4 id="showdialog">showDialog</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string title
+string dialogToken
+string contentUrl
+string width
+string height
+object options
+</code></pre></div></div>
+
+<p>Shows new dialog with content provided from given URL. All arguments are required except for <code class="language-plaintext highlighter-rouge">options</code>. The <code class="language-plaintext highlighter-rouge">title</code> is the text displayed on dialog header. The <code class="language-plaintext highlighter-rouge">dialogToken</code> serves as unique identifier of the dialog. The <code class="language-plaintext highlighter-rouge">dialogToken</code> can be null in case the plugin doesn’t need to reference the dialog after showing it, i.e. in case the dialog is meant to be closed via close icon or by pressing Escape key. Recommended <code class="language-plaintext highlighter-rouge">dialogToken</code> format is <code class="language-plaintext highlighter-rouge">letters-with-dashes</code>. The <code class="language-plaintext highlighter-rouge">contentUrl</code> is passed to <code class="language-plaintext highlighter-rouge">src</code> attribute of the iframe element which renders dialog content. The <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> are used to define dialog dimensions in CSS units. The <code class="language-plaintext highlighter-rouge">options</code> can be undefined, null or object containing additional dialog options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">buttons</code> - array defining buttons to display in dialog’s footer area, empty by default, each element is an <a href="#javascript-interface-object">interface object</a> that overrides button behavior via following properties:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">label</code> - controls text displayed on button, default value is empty string</li>
+      <li><code class="language-plaintext highlighter-rouge">onClick</code> - function called when user clicks the button, no arguments, no-op by default</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">closeIconVisible</code> - controls whether the close icon (located in right-hand part of dialog header) is visible, default value is <code class="language-plaintext highlighter-rouge">true</code></li>
+  <li><code class="language-plaintext highlighter-rouge">closeOnEscKey</code> - controls whether the dialog can be closed by pressing Escape key, default value is <code class="language-plaintext highlighter-rouge">true</code></li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.showDialog('Custom Dialog One', 'custom-dialog-one',
+    'plugin/ExamplePlugin/dialog-one.html',
+    '640px', '480px'
+);
+api.showDialog('Custom Dialog Two', 'custom-dialog-two',
+    'plugin/ExamplePlugin/dialog-two.html',
+    '640px', '480px',
+    {
+        buttons: [
+            {
+                label: 'Close',
+                onClick: function() {
+                    api.closeDialog('custom-dialog-two');
+                }
+            }
+        ],
+        closeIconVisible: false,
+        closeOnEscKey: false
+    }
+);
+</code></pre></div></div>
+
+<h4 id="setdialogcontenturl">setDialogContentUrl</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string dialogToken
+string contentUrl
+</code></pre></div></div>
+
+<p>Updates the content URL of given dialog. Semantics of <code class="language-plaintext highlighter-rouge">dialogToken</code> and <code class="language-plaintext highlighter-rouge">contentUrl</code> are identical to ones declared by <code class="language-plaintext highlighter-rouge">showDialog</code> function. The <code class="language-plaintext highlighter-rouge">setDialogContentUrl</code> function has no effect if the given dialog is already closed. The <code class="language-plaintext highlighter-rouge">setDialogContentUrl</code> function works only for dialogs shown via plugin API.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.setDialogContentUrl('custom-dialog',
+    'plugin/ExamplePlugin/dialog-content.html');
+</code></pre></div></div>
+
+<h4 id="closedialog">closeDialog</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string dialogToken
+</code></pre></div></div>
+
+<p>Closes the given dialog. Semantics of <code class="language-plaintext highlighter-rouge">dialogToken</code> is identical to one declared by <code class="language-plaintext highlighter-rouge">showDialog</code> function. Once closed, the dialog is destroyed.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.closeDialog('custom-dialog');
+</code></pre></div></div>
+
+<h3 id="navigation">Navigation</h3>
+
+<h4 id="revealplace">revealPlace</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string historyToken
+</code></pre></div></div>
+
+<p>Reveals the given application place, e.g. standard or plugin-contributed main tab. The <code class="language-plaintext highlighter-rouge">historyToken</code> denotes a logical place of the web application, represented as <code class="language-plaintext highlighter-rouge">#historyToken</code> in application’s URL.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.revealPlace('hosts');
+</code></pre></div></div>
+
+<h3 id="search">Search</h3>
+
+<h4 id="setsearchstring">setSearchString</h4>
+
+<p>Argument(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string searchString
+</code></pre></div></div>
+
+<p>Applies the given search string to the currently active main view place. The <code class="language-plaintext highlighter-rouge">searchString</code> is the text to apply into the currently active place search panel.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.setSearchString('name = abc');
+</code></pre></div></div>
+
+<h4 id="ssotoken">ssoToken</h4>
+
+<p>Returns an SSO token which can be used to authenticate the current user against the engine. This is useful to obtain an authenticated HTTP session for the REST api for instance.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var ssoToken = api.ssoToken();
+</code></pre></div></div>
+
+<h4 id="enginebaseurl">engineBaseUrl</h4>
+
+<p>Returns the base URL of the engine. This is useful if you wish to access some of the engines CSS classes or other services.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var baseUrl = api.engineBaseUrl();
+</code></pre></div></div>
+
+<h4 id="currentlocale">currentLocale</h4>
+
+<p>Returns the locale that has been selected by the user when they logged in. The locale is return in xx_YY format, for instance en_US or ja_JP.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var locale = api.currentLocale();
+</code></pre></div></div>
+
+<h2 id="api-option-reference">API option reference</h2>
+
+<h3 id="supported-plugin-api-options">Supported plugin API options</h3>
+
+<h4 id="cross-window-messaging-1">Cross-window messaging</h4>
+
+<p>Acceptable value(s)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string or string[] allowedMessageOrigins
+</code></pre></div></div>
+
+<p>Default value</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>empty array
+</code></pre></div></div>
+
+<p>Defines <a href="http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determination_rules">origins</a> from which <code class="language-plaintext highlighter-rouge">message</code> events will be accepted and dispatched to plugin via <code class="language-plaintext highlighter-rouge">MessageReceived</code> event handler function. The value can be a string (single origin) or a string array (multiple origins). <code class="language-plaintext highlighter-rouge">*</code> translates to “any origin”, as per HTML5 <a href="http://en.wikipedia.org/wiki/Web_Messaging">postMessage</a> specification. Refer to <code class="language-plaintext highlighter-rouge">MessageReceived</code> function for details on cross-window messaging workflow.</p>
+
+<hr />
+
+<p><strong>Limitation:</strong> plugins currently have to customize <code class="language-plaintext highlighter-rouge">allowedMessageOrigins</code> value to accept messages that originate from content served through UI plugin infrastructure, i.e. plugin resource files requested as <code class="language-plaintext highlighter-rouge">/ovirt-engine/webadmin/plugin/path/to/file</code>. Since Engine origin is generally considered safe, <code class="language-plaintext highlighter-rouge">allowedMessageOrigins</code> default value should be changed to Engine origin, see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=972226">RFE ticket</a>.</p>
+
+<h2 id="entity-type-reference">Entity type reference</h2>
+
+<h3 id="supported-entity-types">Supported entity types</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Entity Type Name</td>
+    </tr>
+    <tr>
+      <td>DataCenter</td>
+    </tr>
+    <tr>
+      <td>Cluster</td>
+    </tr>
+    <tr>
+      <td>Host</td>
+    </tr>
+    <tr>
+      <td>Network</td>
+    </tr>
+    <tr>
+      <td>VnicProfile</td>
+    </tr>
+    <tr>
+      <td>Storage</td>
+    </tr>
+    <tr>
+      <td>Disk</td>
+    </tr>
+    <tr>
+      <td>VirtualMachine</td>
+    </tr>
+    <tr>
+      <td>Pool</td>
+    </tr>
+    <tr>
+      <td>Template</td>
+    </tr>
+    <tr>
+      <td>GlusterVolume</td>
+    </tr>
+    <tr>
+      <td>Provider</td>
+    </tr>
+    <tr>
+      <td>User</td>
+    </tr>
+    <tr>
+      <td>Quota</td>
+    </tr>
+    <tr>
+      <td>Event</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tutorials">Tutorials</h2>
+
+<h3 id="ui-plugins-crash-course">UI Plugins Crash Course</h3>
+
+<p>The <a href="/ovirt-site/previews/2894/develop/developer-guide/ui-plugin-tutorial.html">oVirt Space Shooter</a> tutorial walks you through the basics of creating your first UI plugin.</p>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/OVirt_Space_Shooter_3.png" alt="" title="oVirt Space Shooter" /></p>
+
+<h3 id="angularjs-demo-plugin">AngularJS Demo Plugin</h3>
+
+<p>This sample UI plugin uses <a href="http://angularjs.org/">AngularJS</a>, Model-View-Controller framework for JavaScript.</p>
+
+<p>Plugin source code is available from <a href="#Sample_UI_plugins">sample UI plugin repository</a> as <code class="language-plaintext highlighter-rouge">angular-demo-plugin</code>.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li>[PDF]<a href="https://resources.ovirt.org/old-site-files/Writing-ui-plugin-with-angularjs.pdf">Writing UI plugin with AngularJS</a> + [TGZ]<a href="https://resources.ovirt.org/old-site-files/Writing-ui-plugin-with-angularjs-demo-files.tar.gz">Sample Code</a> (April 2014)</li>
+  <li>[PDF]<a href="https://resources.ovirt.org/old-site-files/UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf">UI Plugins at oVirt Workshop Sunnyvale</a> (January 2013)</li>
+  <li>[PDF]<a href="https://resources.ovirt.org/old-site-files/UI_Plugins_PoC_Overview_2012.pdf">UI Plugins PoC Overview</a> (October 2012)</li>
+  <li><a href="/ovirt-site/previews/2894/develop/release-management/features/ux/uipluginsoriginaldesignnotes.html">Original Design Notes</a></li>
+  <li>[TGZ]<a href="https://resources.ovirt.org/old-site-files/Ui-plugin-figures.tar.gz">UI Plugin Figures</a></li>
+</ul>
+
+<h2 id="ui-plugin-cheat-sheet">UI plugin cheat sheet</h2>
+
+<p>Minimal plugin descriptor:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /usr/share/ovirt-engine/ui-plugins/minimal.json
+
+{
+    "name": "MinimalPlugin",
+    "url": "plugin/MinimalPlugin/plugin.html",
+    "resourcePath": "minimal-resources"
+}
+</code></pre></div></div>
+
+<p>Minimal plugin host page:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /usr/share/ovirt-engine/ui-plugins/minimal-resources/plugin.html
+
+        var api = parent.pluginApi('MinimalPlugin');
+        api.register({
+            UiInit: function() { window.alert('Hello world!'); }
+        });
+        api.ready();
+</code></pre></div></div>
+
+<h2 id="sample-ui-plugins"><a name="Sample_UI_plugins"></a>Sample UI plugins</h2>
+
+<p>Following repository hosts sample UI plugins contributed by community:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git://gerrit.ovirt.org/samples-uiplugins
+</code></pre></div></div>
+
+<p>Feel free to submit patches that introduce new plugins (or update existing ones) in this repository.</p>
+
+<h2 id="showcase">Showcase</h2>
+
+<h3 id="ovirt-monitoring-ui-plugin">oVirt Monitoring UI Plugin</h3>
+
+<p>This plugin brings integration with <a href="http://www.nagios.org/">Nagios</a> or <a href="https://www.icinga.org/">Icinga</a> monitoring solution into oVirt.</p>
+
+<ul>
+  <li>Author: René Koch «r.koch@ovido.at»&lt;/<a href="mailto:r.koch@ovido.at">r.koch@ovido.at</a>&gt;</li>
+  <li>Project web site: <a href="https://github.com/monitoring-ui-plugin/monitoring-ui-plugin/wiki">https://github.com/monitoring-ui-plugin/monitoring-ui-plugin/wiki</a></li>
+  <li>Installation documentation: <a href="https://github.com/monitoring-ui-plugin/monitoring-ui-plugin/wiki/Installation-Documentation">https://github.com/monitoring-ui-plugin/monitoring-ui-plugin/wiki/Installation-Documentation</a></li>
+  <li>UI plugin source code: <a href="https://github.com/monitoring-ui-plugin/monitoring-ui-plugin">https://github.com/monitoring-ui-plugin/monitoring-ui-plugin</a></li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/Ovirt-monitoring_hosts_graph.png" alt="" title="Monitoring Details sub tab" /></p>
+
+<h3 id="docker-ui-plugin">Docker UI Plugin</h3>
+
+<p>This plugin allows you to create VM that runs a Docker image.</p>
+
+<ul>
+  <li>Author: Oved Ourfali «ovedo@redhat.com»&lt;/<a href="mailto:ovedo@redhat.com">ovedo@redhat.com</a>&gt;</li>
+  <li>Documentation: <a href="http://ovedou.blogspot.co.il/2014/03/running-docker-container-in-ovirt.html">http://ovedou.blogspot.co.il/2014/03/running-docker-container-in-ovirt.html</a></li>
+  <li>UI plugin source code: available from <a href="#Sample_UI_plugins">sample UI plugin repository</a> as <code class="language-plaintext highlighter-rouge">docker-plugin</code></li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/Create_docker_vm_dialog.png" alt="" title="Create Docker VM dialog" /></p>
+
+<h3 id="foreman-ui-plugin">Foreman UI Plugin</h3>
+
+<p>The purpose of this plugin is to allow administrators to see details on <a href="http://theforeman.org/">Foreman</a> related entities (such as VMs).</p>
+
+<ul>
+  <li>Author: Oved Ourfali «ovedo@redhat.com»&lt;/<a href="mailto:ovedo@redhat.com">ovedo@redhat.com</a>&gt;</li>
+  <li>Documentation: <a href="http://ovedou.blogspot.co.il/2012/12/ovirt-foreman-ui-plugin.html">http://ovedou.blogspot.co.il/2012/12/ovirt-foreman-ui-plugin.html</a></li>
+  <li>Foreman plugin source code: <a href="https://github.com/oourfali/foreman_ovirt">https://github.com/oourfali/foreman_ovirt</a></li>
+  <li>UI plugin source code: available from <a href="#Sample_UI_plugins">sample UI plugin repository</a> as <code class="language-plaintext highlighter-rouge">foreman-plugin</code></li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/Foreman_view_details.png" alt="" title="Foreman Details sub tab" /></p>
+
+<h3 id="ui-vdsm-hooks-plugin">UI-VDSM-Hooks Plugin</h3>
+
+<p>Using CGI scripts located on the host’s web-server, VDSM commands (vdsClient) can be invoked directly from the WebAdmin UI.</p>
+
+<ul>
+  <li>Author: Daniel Erez «derez@redhat.com»&lt;/<a href="mailto:derez@redhat.com">derez@redhat.com</a>&gt;</li>
+  <li>Documentation: <a href="http://derezvir.blogspot.co.il/2013/06/ovirt-ui-vdsm-hooks-plugin.html">http://derezvir.blogspot.co.il/2013/06/ovirt-ui-vdsm-hooks-plugin.html</a></li>
+  <li>UI plugin source code: available from <a href="#Sample_UI_plugins">sample UI plugin repository</a> as <code class="language-plaintext highlighter-rouge">ui-vdsm-hooks-plugin</code></li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/UI-VDSM-Hooks-Examples.png" alt="" title="UI-VDSM-Hooks context menu" /></p>
+
+<h3 id="shell-in-a-box-ui-plugin">Shell In A Box UI Plugin</h3>
+
+<p>Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via <a href="http://code.google.com/p/shellinabox/">Shell In A Box</a>.</p>
+
+<ul>
+  <li>Author: Daniel Erez «derez@redhat.com»&lt;/<a href="mailto:derez@redhat.com">derez@redhat.com</a>&gt;</li>
+  <li>Documentation: <a href="http://derezvir.blogspot.co.il/2013/01/ovirt-webadmin-shellinabox-ui-plugin.html">http://derezvir.blogspot.co.il/2013/01/ovirt-webadmin-shellinabox-ui-plugin.html</a></li>
+  <li>UI plugin source code: available from <a href="#Sample_UI_plugins">sample UI plugin repository</a> as <code class="language-plaintext highlighter-rouge">shellinabox-plugin</code></li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/ShellBox_SubTab.png" alt="" title="Shell Box sub tab" /></p>
+
+<h3 id="cockpit-ui-plugin">Cockpit UI Plugin</h3>
+
+<p>With this plugin, the host main-tab shows a new subtab embedding Cockpit which is running on the selected host.
+The host’s right-click menu is enriched for new ‘Cockpit’ action leading to opening new browser window/tab with the host’s Cockpit.</p>
+
+<p>When Cockpit is not running on the selected host, the menu action is disabled and the embedding subtab shows basic troubleshooting info.</p>
+
+<ul>
+  <li>Author: Marek Libra «mlibra@redhat.com»</li>
+  <li>UI plugin source code: available from <a href="#Sample_UI_plugins">sample UI plugin repository</a> as <code class="language-plaintext highlighter-rouge">cockpit-plugin</code></li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2894/images/wiki/Cockpit_UIPlugin.png" alt="" title="Cockpit UI Plugin" /></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2894/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2894/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2894/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2894/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/ux/uiplugins43.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/ux/uiplugins43.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

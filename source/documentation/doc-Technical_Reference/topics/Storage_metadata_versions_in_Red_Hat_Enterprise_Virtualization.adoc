@@ -25,6 +25,13 @@
 * Virtual machine and template base images are no longer read only. This change enables live snapshots, live storage migration, and clone from snapshot.
 * Support for unicode metadata is added, for non-English volume names.
 * V3 metadata is applicable to NFS, GlusterFS, POSIX, iSCSI, and FC storage domains.
++
+ifdef::rhv-doc[]
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
+endif::rhv-doc[]
 
 .V4 metadata (Red Hat Virtualization 4.1 and later)
 

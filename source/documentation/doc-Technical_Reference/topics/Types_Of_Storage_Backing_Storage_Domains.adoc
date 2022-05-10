@@ -6,6 +6,13 @@ Storage domains can be implemented using block based and file based storage.
 
 *File Based Storage*:: The file based storage types supported by {virt-product-fullname} are NFS, GlusterFS, other POSIX compliant file systems, and storage local to hosts.
 +
+ifdef::rhv-doc[]
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
+endif::rhv-doc[]
++
 File based storage is managed externally to the {virt-product-fullname} environment.
 +
 NFS storage is managed by a {enterprise-linux} NFS server, or other third party network attached storage server.

@@ -2,13 +2,6 @@
 [id='Configuring_vm_to_use_Q35_or_UEFI_{context}']
 = Configuring a virtual machine to use the Q35 Chipset and UEFI
 
-ifdef::rhv-doc[]
-[NOTE]
-====
-Q35 Chipset with UEFI and SecureBoot are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
-====
-endif::[]
-
 You can configure a virtual machine to use the Q35 chipset and UEFI before installing an operating system. Converting a virtual machine from legacy BIOS to UEFI, or from UEFI to legacy BIOS, might prevent the virtual machine from booting. If you change the BIOS type of an existing virtual machine, reinstall the operating system.
 
 [WARNING]

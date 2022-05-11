@@ -726,7 +726,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 <p>/boot - 1 GB</p>
 </li>
 <li>
-<p>/var - 15 GB</p>
+<p>/var - 5 GB</p>
 </li>
 <li>
 <p>/var/crash - 10 GB</p>
@@ -736,6 +736,9 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </li>
 <li>
 <p>/var/log/audit - 2 GB</p>
+</li>
+<li>
+<p>/var/tmp - 10 GB</p>
 </li>
 <li>
 <p>swap - 1 GB (for the recommended swap size, see <a href="https://access.redhat.com/solutions/15244" class="bare">https://access.redhat.com/solutions/15244</a>)</p>
@@ -749,7 +752,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 8 GB.</p>
+<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 10 GB.</p>
 </div>
 <div class="paragraph">
 <p>If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See <a href="https://ovirt.org/documentation/administration_guide/index#Memory_Optimization">Memory Optimization</a>.</p>

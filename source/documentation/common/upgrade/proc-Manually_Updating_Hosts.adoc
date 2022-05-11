@@ -42,7 +42,7 @@ Upgrading from an older 4.5 to latest 4.5:
 
 * For {hypervisor-fullname}s, the `centos-release-ovirt45` RPM package enabling the correct repositories is already installed.
 * For {enterprise-linux-host-fullname}s:
-* If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
+* If you are going to install on RHEL 8.6 or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL 8.6 or derivatives] first.
 +
 [source,terminal,subs="normal"]
 ----

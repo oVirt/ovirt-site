@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Host Memory balance | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Host Memory balance" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2902/develop/sla/host-memory-balance.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2902/develop/sla/host-memory-balance.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Host Memory balance" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Host Memory balance","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2902/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2902/develop/sla/host-memory-balance.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2902/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2902/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2902/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2902/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2902/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2902/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2902/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2902/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2902/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2902/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2902/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2902/develop/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/700aba24359b09eed055b075338dcaec?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/700aba24359b09eed055b075338dcaec?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">noam slomianko</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2902/documentation/'>Documentation is available here.</a></div>
+
+<blockquote>
+  <p>IMPORTANT: The oVirt Scheduler Proxy project has been dropped from oVirt starting with oVirt 4.5 release.
+The oVirt Scheduler Proxy project development has been discontinued.</p>
+
+  <p>See also:</p>
+  <ul>
+    <li>https://bugzilla.redhat.com/show_bug.cgi?id=2028192</li>
+  </ul>
+
+  <p>Keeping the following section only for reference.</p>
+</blockquote>
+
+<h1 id="host-memory-balance">Host Memory balance</h1>
+
+<p>This external load balancer will move a VM from a host that has less free memory than the specified amount:</p>
+
+<p>This one is quite large, so lets break it down</p>
+
+<p>Loading of the RESTAPI sdk, so we can do rest calls</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  from ovirtsdk.xml import params
+  from ovirtsdk.api import API
+  import sys
+</code></pre></div></div>
+
+<p>Our lovely class</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class host_memory_balance(object): `   `**`migrate` `vms` `from` `over` `utilized` `hosts`**
+</code></pre></div></div>
+
+<p>What are the values a user can pass to this load balancer. (they will be shown as options in the UI)</p>
+
+<p>In this instance the minimum memory threshold and should we be safe with the migration (try to move the smallest VM)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     #What are the values this module will accept, used to present
+     #the user with options
+     properties_validation = 'minimum_host_memoryMB=[0-9]*;safe_selection=True|False'
+</code></pre></div></div>
+
+<p>Class members</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     TO_BYTES = 1024 * 1024
+     MINIMUM_MEMORY_DEFAULT = 500
+     SAFE_SELECTION_DEFAULT = 'True'
+     free_memory_cache = {}
+</code></pre></div></div>
+
+<p>Connect to the REST webservice</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def _get_connection(self):
+         #open a connection to the rest api
+         connection = None
+         try:
+             connection = API(url='`[`http://host:port`](http://host:port)`',
+                              username='user@domain', password='')
+         except BaseException as ex:
+             #letting the external proxy know there was an error
+             print &gt;&gt; sys.stderr, ex
+             return None
+         return connection
+</code></pre></div></div>
+
+<p>Query the REST for these hosts</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def _get_hosts(self, host_ids, connection):
+         #get all the hosts with the given ids
+         engine_hosts = connection.hosts.list(
+             query=" or ".join(["id=%s" % u for u in host_ids]))
+         return engine_hosts
+</code></pre></div></div>
+
+<p>Get a hosts free memory, this requires a REST call, so we cache the results</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getFreeMemory(self, host):
+         #getiing free memory requires a REST call, so cache results
+         if not host.id in self.free_memory_cache:
+             try:
+                 self.free_memory_cache[host.id] = host.get_statistics().get(
+                     'memory.free').get_values().get_value()[0].get_datum()
+             except Exception:
+                 self.free_memory_cache[host.id] = -1
+         return self.free_memory_cache[host.id]
+</code></pre></div></div>
+
+<p>Passes over the hosts deciding which one needs a migration the most, and what hosts are valid options as the migration destination</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getOverUtilizedHostAndUnderUtilizedList(self, engine_hosts, minimum_host_memory):
+         **\1**
+         over_utilized_host = None
+         under_utilized_hosts = []
+         for host in engine_hosts:
+             if not host:
+                 continue
+             free_memory = self.getFreeMemory(host)
+             if(free_memory &lt;= 0):
+                 continue
+             if free_memory &gt; minimum_host_memory:
+                     under_utilized_hosts.append(host)
+                     continue
+                 #take the host with least amount of free memory
+             if (over_utilized_host is None or
+                     self.getFreeMemory(over_utilized_host)
+                     &gt; free_memory):
+                     over_utilized_host = host
+         return over_utilized_host, under_utilized_hosts
+</code></pre></div></div>
+
+<p>This passes over the hosts marked valid as migration destination, figuring how much free memory the most underused host have</p>
+
+<p>(this number is the maximum possible memory size of a VM to migrate)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getMaximumVmMemory(self, hosts, minimum_host_memory):
+         **\1**
+         maximum_vm_memory = 0
+         for host in hosts:
+             available_memory = self.getFreeMemory(host) - minimum_host_memory
+             available_memory = min(available_memory,
+                                    host.get_max_scheduling_memory())
+             if available_memory &gt; maximum_vm_memory:
+                 maximum_vm_memory = available_memory
+         return maximum_vm_memory
+</code></pre></div></div>
+
+<p>Now according to the option selected (safe/aggressive) , get from the overused Host a VM to migrate</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getBestVmForMigration(self, vms, maximum_vm_memory, memory_delta, safe):
+         #safe -&gt; select the smallest vm
+         #not safe -&gt; try and select the smallest vm larger then the delta,
+         #   if no such vm exists take the largest one
+         #migrating a small vm is more likely to succeeded and puts less strain
+         #on the network
+         selected_vm = None
+         best_effort_vm = None
+         for vm in vms:
+                 if vm.memory &gt; maximum_vm_memory:
+                     #never select a vm that will send all the under
+                     #utilized hosts over the threshold
+                     continue
+                 if safe:
+                     if (selected_vm is None or
+                             vm.memory &lt; selected_vm.memory):
+                         selected_vm = vm
+                 else:
+                     if vm.memory &gt; memory_delta:
+                         if (selected_vm is None or
+                                 vm.memory &lt; selected_vm.memmory):
+                             selected_vm = vm
+                 if (best_effort_vm is None or
+                         vm.memory &gt; best_effort_vm.memory):
+                     best_effort_vm = vm
+         if not safe and selected_vm is None:
+             selected_vm = best_effort_vm
+         return selected_vm
+</code></pre></div></div>
+
+<p><strong>This function will be called by the external scheduler</strong></p>
+
+<p>It will get a list of host ids to check, and will return a VM to migrate and a list of possible host targets.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def do_balance(self, hosts_ids, args_map): 
+         **\1**
+         conn = self._get_connection()
+         if conn is None:
+             return
+         #get our parameters from the map
+         minimum_host_memory = long(args_map.get('minimum_host_memoryMB',
+                                                 self.MINIMUM_MEMORY_DEFAULT))
+         minimum_host_memory = minimum_host_memory * self.TO_BYTES
+         safe = bool(args_map.get('safe_selection',
+                                  self.SAFE_SELECTION_DEFAULT))
+         #get all the hosts with the given ids
+         engine_hosts = self._get_hosts(hosts_ids, conn)
+         over_utilized_host, under_utilized_hosts = (
+             self.getOverUtilizedHostAndUnderUtilizedList(engine_hosts,
+                                                          minimum_host_memory))
+         if over_utilized_host is None:
+             return
+         maximum_vm_memory = self.getMaximumVmMemory(under_utilized_hosts,
+                                                     minimum_host_memory)
+         #amount of memory the host is missing
+         memory_delta = (
+             minimum_host_memory -
+             self.getFreeMemory(over_utilized_host))
+         host_vms = conn.vms.list('host=' + over_utilized_host.name)
+         if host_vms is None:
+             return
+         #get largest/smallest vm that will
+         selected_vm = self.getBestVmForMigration(host_vms, maximum_vm_memory,
+                                                  memory_delta, safe)
+         if selected_vm is None:
+             return
+         under_utilized_hosts_ids = [host.id for host in under_utilized_hosts]
+         print (selected_vm.id, under_utilized_hosts_ids)
+</code></pre></div></div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2902/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2902/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2902/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2902/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/sla/host-memory-balance.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/sla/host-memory-balance.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

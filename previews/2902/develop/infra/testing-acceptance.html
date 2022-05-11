@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Testing-acceptance | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Testing-acceptance" />
+<meta name="author" content="Doron Fediuck" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2902/develop/infra/testing-acceptance.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2902/develop/infra/testing-acceptance.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Testing-acceptance" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Doron Fediuck" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Doron Fediuck"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Testing-acceptance","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2902/images/logo.svg"},"name":"Doron Fediuck"},"url":"https://ovirt.github.io/ovirt-site/previews/2902/develop/infra/testing-acceptance.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2902/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2902/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2902/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2902/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2902/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2902/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2902/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2902/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2902/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2902/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2902/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2902//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2902/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2902/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2902/develop/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7882605a6671ba4a9a8bf0a1b15fbf5d?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7882605a6671ba4a9a8bf0a1b15fbf5d?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Koen Vanoppen</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2902/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="testing-acceptance">Testing-acceptance</h1>
+
+<h2 id="acceptance">Acceptance</h2>
+
+<p>The tests where done on a ovirt 3.3.1 installation. With 2 hypervisors enabled.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create a new VM.</td>
+      <td>Success. oVirt selects hypervisor and boots vm.</td>
+    </tr>
+    <tr>
+      <td>Create a new VM from template</td>
+      <td>Success. oVirt selects hypervisor and boots vm.</td>
+    </tr>
+    <tr>
+      <td>Create a new VM, start with “run once” and hostname enabled.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Host name should be changed.</td>
+      <td>Success. But cloud-init should be installed on the template</td>
+    </tr>
+    <tr>
+      <td>Restart vdsmd service without losing ping to vms</td>
+      <td>Success. No Ping was lost</td>
+    </tr>
+    <tr>
+      <td>Restart ovirt-management service without losing ping on vms</td>
+      <td>Success. No Ping was lost</td>
+    </tr>
+    <tr>
+      <td>Move Disk from StoragePool A to StoragePool B.</td>
+      <td>Success, but VM needs to be shut down for this.</td>
+    </tr>
+    <tr>
+      <td>Move VM to other hypervisor for maintenance on hypervisor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>without losing ping on vms</td>
+      <td>Success</td>
+    </tr>
+    <tr>
+      <td>Pull the plug out hypervisor</td>
+      <td>Success. VM is auto moved to other hypervisor (HA Active).</td>
+    </tr>
+    <tr>
+      <td>VM is unreachable for approx 2m29s. Hypervisor comes back online after approx. 10 min.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Unplanned shutdown of hypervisor. VM Should move to other Hypervisor. Minimum downtime</td>
+      <td>Success. VM is auto moved to other hypervisor (HA Active).</td>
+    </tr>
+    <tr>
+      <td>VM is unreachable for approx 2m29s. Hypervisor comes back online after approx. 10 min.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Restore folder from backup using NetBackup</td>
+      <td>Success. No Issues</td>
+    </tr>
+    <tr>
+      <td>Server Crash. Completely reinstalled and re-added to ovirt.</td>
+      <td>Time taken: +/- 1u30</td>
+    </tr>
+    <tr>
+      <td>Server-crash –&gt; VM’s are migrated to another hypervisor.</td>
+      <td>Success. VM is moved to other Hypervisor. It shutsdown for a moment</td>
+    </tr>
+    <tr>
+      <td>but boots up immediately (HA option needs to be enabled)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Disable 1 Fiber path on the host. Vms should still work.</td>
+      <td>Success. No Downtime. Everything stays up and running</td>
+    </tr>
+    <tr>
+      <td>Disable 2 Fiber Paths. Vms should be migrated to the other Hypervisor</td>
+      <td>Fail. We had to intervene and move the vms manually</td>
+    </tr>
+    <tr>
+      <td>to the other Hypervisor or restore at least one fibre path.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The last test we did with removing the 2 Fiber channels to the hypervisor… This will put the VM’s in a pause state. This is the reason:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  the KVM team advised this would be an unsafe migration. iirc, since IO can be stuck at kernel level,  &lt;br /&gt;pending write to the storage, which would cause corruption if storage is recovered while the VM is now running on another machine. 
+</code></pre></div></div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2902/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2902/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2902/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2902/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/infra/testing-acceptance.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/infra/testing-acceptance.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

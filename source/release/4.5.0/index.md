@@ -51,8 +51,17 @@ To learn about features introduced before 4.5.0, see the
 
 ### Release Note
 
+#### oVirt dependencies
+
+ - [BZ 2077794](https://bugzilla.redhat.com/show_bug.cgi?id=2077794) **Upgrading postgresql-jdbc package to 42.2.14-1 breaks ovirt-engine functionality**
+
+   oVirt Engine now requires postgresql-jdbc &gt;= 42.2.14 and spring-framework &gt;= 5.3.19
+
 #### oVirt Engine
 
+ - [BZ 2077794](https://bugzilla.redhat.com/show_bug.cgi?id=2077794) **Upgrading postgresql-jdbc package to 42.2.14-1 breaks ovirt-engine functionality**
+
+   oVirt Engine now requires postgresql-jdbc &gt;= 42.2.14 and spring-framework &gt;= 5.3.19
  - [BZ 2077387](https://bugzilla.redhat.com/show_bug.cgi?id=2077387) **Update to 4.5 failed due to failed database schema refresh**
 
    If vdc_options table contains records with NULL default value (most probably as a remains from ancient versions), the upgrade to ovirt-engine-4.5.0 fails. This bug fixes the issue, so upgrade to ovirt-engine-4.5.0 is successfull.
@@ -202,11 +211,7 @@ To learn about features introduced before 4.5.0, see the
 
  - [BZ 2066042](https://bugzilla.redhat.com/show_bug.cgi?id=2066042) **Require ansible-core instead of ansible in cockpit-ovirt**
 
-   Feature: Require ansible-core in cockpit-ovirt
-
-   Reason: oVirt 4.5 is upgraded to use ansible-core
-
-   Result: Ansible-core is used in oVirt 4.5
+   With this release, oVirt 4.5 has been upgraded to use ansible-core in cockpit-ovirt.
 
 #### imgbased
 
@@ -798,6 +803,7 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2083230](https://bugzilla.redhat.com/show_bug.cgi?id=2083230) **engine-setup on a separate machine fails with: Command '/usr/bin/rpm' failed to execute**
  - [BZ 2075486](https://bugzilla.redhat.com/show_bug.cgi?id=2075486) **VM with Q35 UEFI and 64 CPUs is running but without boot screen, console and network.**
  - [BZ 2076474](https://bugzilla.redhat.com/show_bug.cgi?id=2076474) **OVA import: importing VM OVA  failed with "async task did not complete within the requested time - 120s"**
  - [BZ 1868372](https://bugzilla.redhat.com/show_bug.cgi?id=1868372) **collectd-virt plugin doesn't work with latest libvirt**
@@ -987,6 +993,12 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2070067](https://bugzilla.redhat.com/show_bug.cgi?id=2070067) **CVE-2022-1016 - kernel: uninitialized registers on stack in nft_do_chain can cause kernel pointer leakage to UM [ovirt-4.5]**
 
    oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1016](https://bugzilla.redhat.com/show_bug.cgi?id=2066614)
+
+#### ovirt-distribution
+
+ - [BZ 2084027](https://bugzilla.redhat.com/show_bug.cgi?id=2084027) **CVE-2022-22950 - ovirt-dependencies: spring-expression: Denial of service via specially crafted SpEL expression [ovirt-4.5]**
+
+   ovirt-dependencies has been updated including Spring Framework 5.3.19 which fixes [CVE-2022-22950](https://bugzilla.redhat.com/show_bug.cgi?id=2069414)
 
 ### Enhancements
 

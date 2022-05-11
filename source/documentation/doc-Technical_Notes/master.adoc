@@ -5,7 +5,7 @@ include::common/collateral_files/_attributes.adoc[]
 = Technical Notes
 :imagesdir: images
 
-{virt-product-fullname} errata advisories are available at link:https://access.redhat.com/errata/[].
+{virt-product-fullname} errata advisories are available on the link:https://access.redhat.com/errata/[Red Hat Customer Portal].
 
 A more concise summary of the features added in {virt-product-fullname} {vernum_rhv} is available in the {virt-product-fullname} {vernum_rhv} Release Notes.
 
@@ -14,12 +14,6 @@ A more concise summary of the features added in {virt-product-fullname} {vernum_
 // Example includes to technical notes from 4.3 (files deleted)
 // include::RHEA-20191085-ovirt-engine.adoc[leveloffset=+1]
 // include::RHBA-20191077-vdsm.adoc[leveloffset=+1]
-include::RHEA-20203246-04.adoc[leveloffset=+1]
-include::RHSA-20203247-08.adoc[leveloffset=+1]
-include::RHSA-20203807-03.adoc[leveloffset=+1]
-include::RHSA-20205179-04.adoc[leveloffset=+1]
-include::RHBA-20210312-02.adoc[leveloffset=+1]
-include::RHSA-20211169-06.adoc[leveloffset=+1]
-include::RHSA-20214626-06.adoc[leveloffset=+1]
+
 
 include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

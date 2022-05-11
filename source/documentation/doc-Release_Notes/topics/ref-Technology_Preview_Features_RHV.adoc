@@ -47,7 +47,5 @@ For details about IPv6 support, see link:{URL_virt_product_docs}{URL_format}admi
 |Shared and local storage in the same data center |Allows the creation of single-brick Gluster volumes to enable local storage to be used as a storage domain in shared data centers.
 |SSO with OpenID Connect |Adds support for external OpenID Connect authentication using Keycloak in both the user interface and with the REST API.
 |oVirt Engine Backup |Adds support to back up and restore {virt-product-fullname} {engine-name} with the Ansible `ovirt-engine-backup` role.
-|Q35 Chipset with UEFI |Virtual machines can use the Q35 chipset and UEFI, with or without SecureBoot.
-|Bochs display emulator | Support for the Bochs display video card emulator has been added for UEFI guest machines. This feature is now the default for a guest UEFI server that uses cluster-level 4.6 or above, where BOCHS is the default value of Video Type.
 
 |===

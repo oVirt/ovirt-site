@@ -21,7 +21,7 @@ Connected hosts and virtual machines can continue to work while the {engine-name
 
 [IMPORTANT]
 ====
-If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
+If you are going to install on RHEL 8.6 or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL 8.6 or derivatives] first.
 ====
 
 

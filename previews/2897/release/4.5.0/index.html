@@ -166,6 +166,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
   <li><a href="#ovirt-450-release-notes" id="markdown-toc-ovirt-450-release-notes">oVirt 4.5.0 Release Notes</a>    <ol>
       <li><a href="#whats-new-in-450" id="markdown-toc-whats-new-in-450">What’s New in 4.5.0?</a>        <ol>
           <li><a href="#release-note" id="markdown-toc-release-note">Release Note</a>            <ol>
+              <li><a href="#ovirt-dependencies" id="markdown-toc-ovirt-dependencies">oVirt dependencies</a></li>
               <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
               <li><a href="#ovirt-engine-metrics" id="markdown-toc-ovirt-engine-metrics">oVirt Engine Metrics</a></li>
               <li><a href="#ovirt-open-vswitch" id="markdown-toc-ovirt-open-vswitch">oVirt Open vSwitch</a></li>
@@ -252,6 +253,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
               <li><a href="#ovirt-engine-6" id="markdown-toc-ovirt-engine-6">oVirt Engine</a></li>
               <li><a href="#vdsm-5" id="markdown-toc-vdsm-5">VDSM</a></li>
               <li><a href="#ovirt-node" id="markdown-toc-ovirt-node">ovirt-node</a></li>
+              <li><a href="#ovirt-distribution" id="markdown-toc-ovirt-distribution">ovirt-distribution</a></li>
             </ol>
           </li>
           <li><a href="#enhancements-1" id="markdown-toc-enhancements-1">Enhancements</a>            <ol>
@@ -262,7 +264,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
             </ol>
           </li>
           <li><a href="#bug-fixes-1" id="markdown-toc-bug-fixes-1">Bug Fixes</a>            <ol>
-              <li><a href="#ovirt-distribution" id="markdown-toc-ovirt-distribution">ovirt-distribution</a></li>
+              <li><a href="#ovirt-distribution-1" id="markdown-toc-ovirt-distribution-1">ovirt-distribution</a></li>
               <li><a href="#ovirt-engine-8" id="markdown-toc-ovirt-engine-8">oVirt Engine</a></li>
               <li><a href="#ovirt-ansible-collection-5" id="markdown-toc-ovirt-ansible-collection-5">oVirt Ansible collection</a></li>
               <li><a href="#ovirt-web-ui-1" id="markdown-toc-ovirt-web-ui-1">oVirt Web UI</a></li>
@@ -278,7 +280,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
             </ol>
           </li>
           <li><a href="#no-doc-update-1" id="markdown-toc-no-doc-update-1">No Doc Update</a>            <ol>
-              <li><a href="#ovirt-distribution-1" id="markdown-toc-ovirt-distribution-1">ovirt-distribution</a></li>
+              <li><a href="#ovirt-distribution-2" id="markdown-toc-ovirt-distribution-2">ovirt-distribution</a></li>
               <li><a href="#ovirt-engine-10" id="markdown-toc-ovirt-engine-10">oVirt Engine</a></li>
               <li><a href="#vdsm-6" id="markdown-toc-vdsm-6">VDSM</a></li>
               <li><a href="#ovirt-hosted-engine-setup-2" id="markdown-toc-ovirt-hosted-engine-setup-2">oVirt Hosted Engine Setup</a></li>
@@ -301,9 +303,24 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 
 <h3 id="release-note">Release Note</h3>
 
+<h4 id="ovirt-dependencies">oVirt dependencies</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2077794">BZ 2077794</a> <strong>Upgrading postgresql-jdbc package to 42.2.14-1 breaks ovirt-engine functionality</strong></p>
+
+    <p>oVirt Engine now requires postgresql-jdbc &gt;= 42.2.14 and spring-framework &gt;= 5.3.19</p>
+  </li>
+</ul>
+
 <h4 id="ovirt-engine">oVirt Engine</h4>
 
 <ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2077794">BZ 2077794</a> <strong>Upgrading postgresql-jdbc package to 42.2.14-1 breaks ovirt-engine functionality</strong></p>
+
+    <p>oVirt Engine now requires postgresql-jdbc &gt;= 42.2.14 and spring-framework &gt;= 5.3.19</p>
+  </li>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2077387">BZ 2077387</a> <strong>Update to 4.5 failed due to failed database schema refresh</strong></p>
 
@@ -544,11 +561,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2066042">BZ 2066042</a> <strong>Require ansible-core instead of ansible in cockpit-ovirt</strong></p>
 
-    <p>Feature: Require ansible-core in cockpit-ovirt</p>
-
-    <p>Reason: oVirt 4.5 is upgraded to use ansible-core</p>
-
-    <p>Result: Ansible-core is used in oVirt 4.5</p>
+    <p>With this release, oVirt 4.5 has been upgraded to use ansible-core in cockpit-ovirt.</p>
   </li>
 </ul>
 
@@ -1335,6 +1348,7 @@ images containing large zeroed areas is usually faster now.</p>
 <h4 id="ovirt-engine-5">oVirt Engine</h4>
 
 <ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2083230">BZ 2083230</a> <strong>engine-setup on a separate machine fails with: Command ‘/usr/bin/rpm’ failed to execute</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2075486">BZ 2075486</a> <strong>VM with Q35 UEFI and 64 CPUs is running but without boot screen, console and network.</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2076474">BZ 2076474</a> <strong>OVA import: importing VM OVA  failed with “async task did not complete within the requested time - 120s”</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1868372">BZ 1868372</a> <strong>collectd-virt plugin doesn’t work with latest libvirt</strong></li>
@@ -1621,6 +1635,16 @@ images containing large zeroed areas is usually faster now.</p>
   </li>
 </ul>
 
+<h4 id="ovirt-distribution">ovirt-distribution</h4>
+
+<ul>
+  <li>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2084027">BZ 2084027</a> <strong>CVE-2022-22950 - ovirt-dependencies: spring-expression: Denial of service via specially crafted SpEL expression [ovirt-4.5]</strong></p>
+
+    <p>ovirt-dependencies has been updated including Spring Framework 5.3.19 which fixes <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069414">CVE-2022-22950</a></p>
+  </li>
+</ul>
+
 <h3 id="enhancements-1">Enhancements</h3>
 
 <h4 id="ovirt-engine-7">oVirt Engine</h4>
@@ -1753,7 +1777,7 @@ We want the user to be able to see the operation result, but also not over-polut
 
 <h3 id="bug-fixes-1">Bug Fixes</h3>
 
-<h4 id="ovirt-distribution">ovirt-distribution</h4>
+<h4 id="ovirt-distribution-1">ovirt-distribution</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1810032">BZ 1810032</a> <strong>[Docs][API] Default value of network-filter for vnic-profile entity is not documented</strong></li>
@@ -1824,7 +1848,7 @@ We want the user to be able to see the operation result, but also not over-polut
 
 <h3 id="no-doc-update-1">No Doc Update</h3>
 
-<h4 id="ovirt-distribution-1">ovirt-distribution</h4>
+<h4 id="ovirt-distribution-2">ovirt-distribution</h4>
 
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1713633">BZ 1713633</a> <strong>Kdump file is captured in local filesystem when setting “Location” to “Remote over NFS”</strong></li>

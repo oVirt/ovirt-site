@@ -21,3 +21,5 @@ include::ref-Manager_Firewall_Requirements.adoc[leveloffset=+1]
 include::ref-Host_Firewall_Requirements.adoc[leveloffset=+1]
 
 include::ref-Database_Server_Firewall_Requirements.adoc[leveloffset=+1]
+
+include::ref-MTU_Requirements.adoc[leveloffset=+1]

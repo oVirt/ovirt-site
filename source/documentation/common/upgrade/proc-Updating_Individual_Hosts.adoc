@@ -45,7 +45,7 @@ ifdef::ovirt-doc[]
 
 * For {hypervisor-fullname}s the `centos-release-ovirt45`` RPM package enabling the correct repositories is already installed.
 * For {enterprise-linux-host-fullname}s:
-* If you are going to install on RHEL 8.6 or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL 8.6 or derivatives] first.
+* If you are going to install on RHEL or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL or derivatives] first.
 +
 [source,terminal,subs="normal"]
 ----

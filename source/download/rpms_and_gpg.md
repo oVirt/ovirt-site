@@ -8,7 +8,7 @@ authors: sandrobonazzola
 ## RPM Repositories
 ### oVirt 4.5
 oVirt 4.5 is shipped via CentOS repositories.
-If you are going to install on RHEL 8.6 or derivatives please follow [Installing on RHEL 8.6 or derivatives](/download/install_on_rhel.html) first.
+If you are going to install on RHEL or derivatives please follow [Installing on RHEL or derivatives](/download/install_on_rhel.html) first.
 
 In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:
 ```bash

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>dbfacade-dao-and-transaction | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="dbfacade-dao-and-transaction" />
+<meta name="author" content="Eli Mesika" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2905/develop/developer-guide/db-issues/dbfacade-dao-and-transaction.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2905/develop/developer-guide/db-issues/dbfacade-dao-and-transaction.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="dbfacade-dao-and-transaction" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Eli Mesika" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eli Mesika"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"dbfacade-dao-and-transaction","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2905/images/logo.svg"},"name":"Eli Mesika"},"url":"https://ovirt.github.io/ovirt-site/previews/2905/develop/developer-guide/db-issues/dbfacade-dao-and-transaction.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2905/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2905/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2905/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2905/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2905/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2905/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2905/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2905/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2905/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2905/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2905/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2905/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2905/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2905/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2905/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2905/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2905/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2905/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2905/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2905/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2905/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2905/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2905//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2905//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2905/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2905/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2905/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2905/develop/developer-guide/db-issues/">
+              <span property="name">Db Issues</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Laszlo Hornyak</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="dbfacade-dao-and-transaction">dbfacade-dao-and-transaction</h1>
+
+<h2 id="what-is-the-usage-of-dbfacadelocator">What is the usage of DbFacadeLocator?</h2>
+
+<p>Create a datasource from the standalone.xml configuration
+Create the DbFacade instance and configure it
+Create a dialect
+Create a jdbcTemplate and associate it with the DbFacade instance</p>
+
+<h2 id="what-is-the-usage-of-db-facade">What is the usage of Db Facade?</h2>
+
+<p>Holds a map of all entity as a key and DAO implementation as a value.
+Used mainly to get a DAO object to work with</p>
+
+<h2 id="what-is-a-dialect-used-for">What is a dialect used for?</h2>
+
+<p>A dialect is used in order to handle in a generic way DB engine differences on multi DB engine applications
+We had used that in the past to handle both MS SQL &amp; Postgres
+Example</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   A table T with columns c1 and c2 where c1 is the primary key
+   Suppose that we have a getT(c1) function that returns a record that matches the key
+   In Postgres function parameters can not have the same name as table columns so we will have to choose another name for c1 parameter.
+   we can achieve that by defining the function as get(v_c1) and implementing getParamNamePrefix in the PostgresDbEngineDialect to add the "v_" prefix.
+</code></pre></div></div>
+
+<p>We will see that a dialect is also used in the search engine to identify and prevent SQL Injection</p>
+
+<h2 id="how-do-we-cache-postgres-catalog-objects">How do we cache postgres catalog objects?</h2>
+
+<p>We had found that Postgres uses heavily its PG CATALOG objects and this affected performance in mid to large systems
+Solution was to cache those calls and use the cache when possible
+This is done by the SimpleJdbcCallsHandler</p>
+
+<h2 id="business-entities">Business Entities</h2>
+
+<h3 id="how-to-create-a-new-be-">How to create a new BE ?</h3>
+
+<p>Create BE tables as an upgrade script
+Create BE views in original create_views.sql file
+Create BE CRUD Stored Procedures file
+Create BE Class
+Create DAO interface and implementation for the BE , inherit GenericDAO, ReadDAO or ModificationDAO
+ADD DAO to DB Facade
+Create tests for all DAO implementation calls, inherit BaseGenericDaoTestCase/BaseReadDaoTestCase/BaseDaoTestCase
+Create test data for your BE in fixtures.xml file
+ADD DAO to engine-daos.properties
+ADD any Query and Query Parameter objects needed for accessing the BE data from clients and add them to VdcQueryType
+Run the upgrade script
+Run the BE tests and verify that your BE is working as expected</p>
+
+<h3 id="how-to-modify-an-existing-be-">How to Modify an existing BE ?</h3>
+
+<p>Most of BE modifications are adding a field to a BE (removing is very similar)
+Create BE tables changes as an upgrade script
+Modify BE views in original create_views.sql file to reflect the changes
+Modify BE CRUD Stored Procedures file to reflect the changes
+Modify the BE Class to reflect the changes
+Modify DAO interface and implementation for the BE
+Modify tests for all relevant DAO implementation calls
+Modify test data for your BE in fixtures.xml file
+Modify any Query objects/parameters needed for accessing the BE data from clients
+Run the upgrade script
+Run the BE tests and verify that your BE is working as expected</p>
+
+<h2 id="queries">Queries</h2>
+
+<h3 id="how-to-create-a-new-query">How to create a new query?</h3>
+
+<p>Add the function/SP in database that returns the requested data
+Test your function/SP from psql
+Add a method that access your new function/SP from the relevant DAO and DAO implementation class
+Add a test method in the DAO test class that access your new DAO method
+Create your Query class
+Create your Query parameters class
+Add your query type to the VdcQueryType enum
+Run the relevant DAO tests and verify that all tests are passed
+Implement UI/REST API calls to your query and test that it works</p>
+
+<h2 id="commands">Commands</h2>
+
+<h3 id="how-to-get-data-on-command-execution-via-daos-">How to get data on command execution via DAOs ?</h3>
+
+<p>All data accessed by commands are done via a call to DBFacade to get the relevant DAO and then calling directly the DAO method.</p>
+
+<h2 id="search-engine">Search Engine</h2>
+
+<h3 id="a-brief-overview">A brief overview</h3>
+
+<p>To perform a search, enter the search query (free-text or syntax-based) in the Search Bar at the top of the Administration Portal. Search queries can be saved as a Bookmarks for future reuse (This eliminates the need to reenter a search query each time the specific search results are needed).</p>
+
+<p>You can specify the search criteria after the colon in the query. The syntax of {criteria} is as follows:</p>
+<prop><operator><value>
+or
+<obj-type><prop><operator><value>
+
+*Examples*
+
+*Hosts: Vms.status = up* (Displays a list of all hosts running virtual machines that are up.)
+*Vms: domain = qa.company.com* (Displays a list of all virtual machines running on the specified domain.)
+''Vms: users.name = Mary '' (Displays a list of all virtual machines belonging to users with the username Mary.)
+*Events: severity &gt; normal sortby time* (Displays the list of all Events whose severity is higher than Normal sorted by time)
+ The Administration Portal provides auto-completion to help you create valid and powerful search queries. As you type each part of a search query, a drop-down list of choices for the next part of the search opens below the Search Bar. You can either select from the list and then continue typing/selecting the next part of the search, or ignore the options and continue entering your query manually.
+
+### Objects, properties and supported operators
+
+*List of obj-types*
+
+       DataCenter,Cluster,Host,Storage,Disks,VMs,Pools,Template,Volumes,Events
+
+*List of properties*
+
+      General (applied to all objects) : sortby, page
+
+*`DataCenter`*
+      Clusters, Storage, name, description, type, status
+
+*`Cluster`*
+      DataCenter, Storage, name, description, initialized
+
+*`Host`*
+      Vms, Templates, Events, Users, Storage, name, status, cluster, address, cpu_usage, mem_usage, network_usage, load,version, cpus, memory, cpu_speed,
+      cpu_model, active_vms, migrating_vms, committed_mem, tag, type, datacenter
+
+*`Storage`*
+      Hosts, Clusters, name, status, datacenter, type, size, used, committed
+
+*`Disks`*
+      Datacenter, Storages, alias, description, provisioned_size, size, actual_size, 
+      creation_date, bootable, shareable, allow_snapshot, format, status, disk_type
+
+*`VMs`*
+      Hosts,Templates, Events, Users, Storage, name, status, ip, uptime, domain,
+      os, creationdate, address, cpu_usage, mem_usage, network_usage, memory, apps, cluster, pool, loggedinuser, tag, datacenter, type
+
+*`Pools`*
+      name, description, type
+
+*`Template`*
+      Vms, Hosts, Events, Users, Storage, name, domain, os, creationdate, childcount,mem, description, status, cluster, datacenter 
+
+*`Volumes`*
+      Cluster, name, type, transport_type, replica_count, stripe_count, status
+
+*`Events`*
+      Vms, Hosts, Templates, Users, Clusters, Volumes, type, severity, message, time,usrname, event_ host, event_vm, event_template, event_storage, event_datacenter, event_volume, correlation_id
+
+*List of operators*
+
+       Logical operators {and | or}
+       Regular operators { = | != }
+
+### What should I do if I have to change something?
+
+[step-by-step Guide](http://wiki.ovirt.org/wiki/Development/Introducing_Entity_Search)
+
+### SQL Injection prevention.
+
+Since search queries are based on free text typed by the user, there is a chance that malicious code will be sent in order to see secured data or to damage the database
+The method of abusing a SQL interface that allows free text is called "SQL Injection"
+To prevent that, each search query is checked by a engine specific class inherited from SqlInjectionChecker
+Our Postgres implementation class is PostgresSqlInjectionChecker
+
+## Trouble Shooting
+
+### Can not connect to the database.
+
+Check that your postgresql service is up
+If you are using remote database, check Postgres configuration for listening to remote connections
+Check JBOSS standalone.xml and verify that user/database
+ and all relevant settings are OK
+Check the JBOSS server log for detailed error message. Check the postgres error log for detailed error message.
+
+### JBoss is crashing on start giving a SQL Error
+
+Check server log Check engine log Compensation &amp; async tasks data Check schema version
+
+### My database is deleted each time I run the tests.
+
+Verify that your database engine name is not engine
+When you run mvn with tests the fixtures.xml is used to create a engine database for each test, this will drop and create your engine database.
+You can rename your default database in JBOSS standalone.xml configuration file.
+</value></operator></prop></obj-type></value></operator></prop>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2905/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2905/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2905/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2905/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/db-issues/dbfacade-dao-and-transaction.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/db-issues/dbfacade-dao-and-transaction.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

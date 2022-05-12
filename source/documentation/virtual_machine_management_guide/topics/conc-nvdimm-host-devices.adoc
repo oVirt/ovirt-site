@@ -6,6 +6,11 @@
 [id="conc-nvdimm-host-devices"]
 = NVDIMM host devices
 
+[NOTE]
+====
+NVDIMM devices are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information, see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+
 You can add emulated NVDIMM devices to virtual machines. Elsewhere, this type of memory is also known as _virtual NVDIMM_ or _vNVDIMM_.
 
 The emulated NVDIMM you can attach to a virtual machine is backed by real NVDIMM on the host machine where the virtual machine runs. Therefore, when you attach NVDIMM to a virtual machine, you also pin the virtual machine to a specific host.

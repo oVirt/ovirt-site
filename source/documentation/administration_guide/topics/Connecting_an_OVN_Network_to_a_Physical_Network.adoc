@@ -2,6 +2,15 @@
 [id="Connecting_an_OVN_Network_to_a_Physical_Network"]
 = Connecting an OVN Network to a Physical Network
 
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+This feature relies on Open vSwitch support, which is available only as a Technology Preview in {virt-product-fullname}. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
+====
+endif::[]
+
 You can create an external provider network that overlays a native {virt-product-fullname} network so that the virtual machines on each appear to be sharing the same subnet.
 
 [IMPORTANT]

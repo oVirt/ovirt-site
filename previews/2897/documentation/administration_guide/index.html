@@ -8016,6 +8016,21 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <div class="paragraph">
 <p>Failover allows the selection of a profile that acts as a failover device during virtual machine migration when the VF needs to be detached, preserving virtual machine communication with minimal interruption.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Failover is a Technology Preview feature only.
+Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see <a href="https://access.redhat.com/support/offerings/techpreview/">Red Hat Technology Preview Features Support Scope</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
@@ -10411,6 +10426,20 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </div>
 <div class="sect5">
 <h6 id="proc-enabling-nested-virtualization-for-all-virtual-machines">Enabling nested virtualization for all virtual machines</h6>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Using hooks to enable nested virtualization is a Technology Preview feature. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information, see <a href="https://access.redhat.com/support/offerings/techpreview/">Red Hat Technology Preview Features Support Scope</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Nested virtualization enables virtual machines to host other virtual machines. For clarity, we will call these the <em>parent virtual machines</em> and <em>nested virtual machines</em>.</p>
 </div>
@@ -10487,6 +10516,20 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </div>
 <div class="sect5">
 <h6 id="proc-enabling-nested-virtualization-for-individual-virtual-machines">Enabling nested virtualization for individual virtual machines</h6>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Nested virtualization is a Technology Preview feature. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see <a href="https://access.redhat.com/support/offerings/techpreview/">Red Hat Technology Preview Features Support Scope</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Nested virtualization enables virtual machines to host other virtual machines. For clarity, we will call these the <em>parent virtual machines</em> and <em>nested virtual machines</em>.</p>
 </div>
@@ -10964,7 +11007,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 </li>
 <li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<p>If you are going to install on RHEL 8.6 or derivatives please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL 8.6 or derivatives</a> first.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
@@ -11093,7 +11136,7 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <p>For Enterprise Linux hosts:</p>
 </li>
 <li>
-<p>If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+<p>If you are going to install on RHEL 8.6 or derivatives please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL 8.6 or derivatives</a> first.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y centos-release-ovirt45</code></pre>
@@ -12188,7 +12231,7 @@ roles:
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Nested Virtualization</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables the <code>vmx</code> or <code>svm</code> flag so virtual machines can run within virtual machines. To use this setting, you must install the <code>vdsm-hook-nestedvt</code> hook on the host. For details, see <a href="#proc-enabling-nested-virtualization-for-all-virtual-machines">Enabling nested virtualization for all virtual machines</a> and <a href="#proc-enabling-nested-virtualization-for-individual-virtual-machines">Enabling nested virtualization for individual virtual machines</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables the <code>vmx</code> or <code>svm</code> flag so virtual machines can run within virtual machines. This option is a Technology Preview feature: It is intended only for evaluation purposes. It is not supported for production purposes. To use this setting, you must install the <code>vdsm-hook-nestedvt</code> hook on the host. For details, see <a href="#proc-enabling-nested-virtualization-for-all-virtual-machines">Enabling nested virtualization for all virtual machines</a> and <a href="#proc-enabling-nested-virtualization-for-individual-virtual-machines">Enabling nested virtualization for individual virtual machines</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Unsafe Interrupts</strong></p></td>
@@ -20477,7 +20520,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL 8.6 or derivatives please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL 8.6 or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21007,7 +21050,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL 8.6 or derivatives please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL 8.6 or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21490,7 +21533,7 @@ and disable global maintenance mode:</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL 8.6 or derivatives please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL 8.6 or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">

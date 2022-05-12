@@ -110,6 +110,7 @@
 <li><a href="#RHV-manager-firewall-requirements_SHE_cli_deploy">2.3.4. oVirt Engine Firewall Requirements</a></li>
 <li><a href="#host-firewall-requirements_SHE_cli_deploy">2.3.5. Host Firewall Requirements</a></li>
 <li><a href="#database-server-firewall-requirements_SHE_cli_deploy">2.3.6. Database Server Firewall Requirements</a></li>
+<li><a href="#MTU_Requirements_SHE_cli_deploy">2.3.7. Maximum Transmission Unit Requirements</a></li>
 </ul>
 </li>
 </ul>
@@ -726,7 +727,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 <p>/boot - 1 GB</p>
 </li>
 <li>
-<p>/var - 15 GB</p>
+<p>/var - 5 GB</p>
 </li>
 <li>
 <p>/var/crash - 10 GB</p>
@@ -736,6 +737,9 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </li>
 <li>
 <p>/var/log/audit - 2 GB</p>
+</li>
+<li>
+<p>/var/tmp - 10 GB</p>
 </li>
 <li>
 <p>swap - 1 GB (for the recommended swap size, see <a href="https://access.redhat.com/solutions/15244" class="bare">https://access.redhat.com/solutions/15244</a>)</p>
@@ -749,7 +753,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 8 GB.</p>
+<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 10 GB.</p>
 </div>
 <div class="paragraph">
 <p>If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See <a href="https://ovirt.org/documentation/administration_guide/index#Memory_Optimization">Memory Optimization</a>.</p>
@@ -1385,6 +1389,12 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="MTU_Requirements_SHE_cli_deploy">2.3.7. Maximum Transmission Unit Requirements</h4>
+<div class="paragraph">
+<p>The recommended Maximum Transmission Units (MTU) setting for Hosts during deployment is 1500. It is possible to update this setting after the environment is set up to a different MTU. For more information on changing the MTU setting, see <a href="https://access.redhat.com/solutions/4129641">How to change the Hosted Engine VM network MTU</a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -2923,7 +2933,7 @@ For more information, see <a href="https://ovirt.org/documentation/administratio
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL 8.6 or derivatives please follow <a href="/ovirt-site/previews/2897/download/install_on_rhel.html">Installing on RHEL 8.6 or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">

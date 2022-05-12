@@ -43,7 +43,7 @@ To learn about features introduced before 4.5.0, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
 > IMPORTANT
-> If you are going to install on RHEL 8.6 Beta please follow [Installing on RHEL](/download/install_on_rhel.html) first.
+> If you are going to install on RHEL 8.6 please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
 
 

@@ -15,12 +15,14 @@ The oVirt Project is pleased to announce the availability of the 4.5.0 release a
 
 On April 26th, 2022 the oVirt Project released an [oVirt Node 4.5.0.1 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/)
 
+On May 13th, 2022 the oVirt Project released an [oVirt Node 4.5.0.2 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-2-async-update/)
+
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for CentOS Stream 8 and Red Hat Enterprise Linux 8.6 Beta (or similar).
+This release is available now for CentOS Stream 8 and Red Hat Enterprise Linux 8.6 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
 visit our [community page](/community/).
@@ -43,7 +45,7 @@ To learn about features introduced before 4.5.0, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
 > IMPORTANT
-> If you are going to install on RHEL 8.6 please follow [Installing on RHEL](/download/install_on_rhel.html) first.
+> If you are going to install on RHEL 8.6 or derivatives please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
 
 
@@ -538,7 +540,7 @@ To learn about features introduced before 4.5.0, see the
 
    Result:
    The system allocates more data earlier, minimizing virtual machines pauses.
- - [BZ 2012830](https://bugzilla.redhat.com/show_bug.cgi?id=2012830) **[RFE] Use lvmdevices instead of lvm filter on RHEL 8.6/Centos Steam 9**
+ - [BZ 2012830](https://bugzilla.redhat.com/show_bug.cgi?id=2012830) **[RFE] Use lvm devices instead of lvm filter on RHEL 8.6 / CentOS Stream 9**
 
    Feature: 
    Use LVM devices instead lvm filter to manage storage devices.
@@ -1196,6 +1198,7 @@ To learn about features introduced before 4.5.0, see the
 
  - [BZ 2027287](https://bugzilla.redhat.com/show_bug.cgi?id=2027287) **Explore building oVirt Node with GitHub Actions and self-hosted runners**
  - [BZ 2057958](https://bugzilla.redhat.com/show_bug.cgi?id=2057958) **oVirt Node 4.5 el9 iso doesn't boot anymore**
+ - [BZ 2074469](https://bugzilla.redhat.com/show_bug.cgi?id=2074469) **CVE-2022-1271 - gzip: arbitrary-file-write vulnerability [ovirt-4.5]**
 
 #### oVirt Engine Appliance
 
@@ -1211,7 +1214,7 @@ To learn about features introduced before 4.5.0, see the
 
 ### Contributors
 
-67 people contributed to this release:
+68 people contributed to this release:
 
 	Albert Esteve (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
@@ -1224,6 +1227,7 @@ To learn about features introduced before 4.5.0, see the
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-release)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
+	Brett Maton (Contributed to: ovirt-site)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Dominik Holler (Contributed to: ovirt-openvswitch, ovirt-release)
 	Donna DaCosta (Contributed to: ovirt-site)
@@ -1243,7 +1247,7 @@ To learn about features introduced before 4.5.0, see the
 	Jake Reynolds (Contributed to: ovirt-hosted-engine-ha)
 	Janos Bonic (Contributed to: ovirt-release)
 	Jean-Louis Dupond (Contributed to: ovirt-engine)
-	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-log-collector, ovirt-node-ng-image, ovirt-release, vdsm)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-log-collector, ovirt-node-ng-image, ovirt-release, ovirt-site, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Loïc Albertin (Contributed to: ovirt-node-ng)
 	Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)

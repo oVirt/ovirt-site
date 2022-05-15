@@ -18,10 +18,14 @@ Do not let certificates expire. If they expire, the environment becomes non-resp
 . Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
 . Once enrollment is complete, click menu:Management[Activate].
 
+[IMPORTANT]
+====
 You must also renew {engine-name} certificates.
-ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
+====
+
 .Renewing certificates in a standalone {engine-name}
 . Log in as root via SSH or console session to the {engine-name} and run the following command:
++
 ----
 # engine-setup --offline.
 ----
@@ -33,31 +37,32 @@ The `engine-setup` script prompts you with configuration questions.
 Be sure to answer the question about renewing certificates with "Y." This will renew the certificates without applying any updates.
 +
 If you want to apply updates, follow the procedure in the Upgrade Guide.
-endif::SM_localDB_deploy,SM_remoteDB_deploy[]
 
-ifdef::SHE_cli_deploy[]
 .Renewing certificates in a self-hosted engine
 
 . Log in as root via SSH or console session to the {engine-name} and a self-hosted engine hypervisor.
 
 . In the hypervisor, run the following command to place the environment in global maintenance mode:
++
 ----
 # hosted-engine --set-maintenance –mode=global
 ----
 . In the {engine-name}, run the following command to renew the certificates:
++
 ----
 # engine-setup --offline.
 ----
-Respond to the questions as appropriate or use an answers file.
+
+. Respond to the questions as appropriate or use an answers file.
 Be sure to answer the question about renewing certificates with "Y." This will renew the certificates without applying any updates.
 +
 If you want to apply updates, follow the procedure in the Upgrade Guide.
 
 . In the hypervisor, run the following command to remove the environment from global maintenance mode:
++
 ----
 # hosted-engine --set-maintenance –mode=none
 ----
-endif::SHE_cli_deploy[]
 
 
 [role="_additional-resources"]

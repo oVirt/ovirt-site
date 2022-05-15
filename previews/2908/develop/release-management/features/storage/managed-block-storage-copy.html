@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Managed Block Storage Copy | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Managed Block Storage Copy" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2908/develop/release-management/features/storage/managed-block-storage-copy.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2908/develop/release-management/features/storage/managed-block-storage-copy.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Managed Block Storage Copy" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Managed Block Storage Copy","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2908/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2908/develop/release-management/features/storage/managed-block-storage-copy.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2908/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2908/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2908/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2908/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2908/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2908/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2908/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2908/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2908/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2908/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2908/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2908/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2908/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2908/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2908/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2908/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2908/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2908/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2908/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2908/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2908/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2908/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2908//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2908//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2908/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2908/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2908/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2908/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2908/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/78262477f44eec0b952d9fbb8c28e915?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/78262477f44eec0b952d9fbb8c28e915?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Benny Zlotnik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2908/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="managed-block-storage-copy">Managed Block Storage Copy</h1>
+
+<h2 id="summary">Summary</h2>
+<p>The motivation for this feature is to allow users to copy disks from regular Storage Domains to Managed Block Storage Domains.</p>
+
+<h3 id="owner">Owner</h3>
+<ul>
+  <li>Benny Zlotnik (<a href="mailto:bzlotnik@redhat.com">bzlotnik@redhat.com</a>)</li>
+</ul>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<p>This enables migrating existing VMs to Managed Block Storage domains, as well as enabling usage of features not yet available for Managed Block Storage, like Import from Glance and Image Upload.</p>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>At the time of writing this page it is only possible to perform the copying with the REST API, for example:
+<code class="language-plaintext highlighter-rouge">POST http://engine:8080/ovirt-engine/api/disks/51b7f988-1c96-4d3c-892c-622499930e5f/copy</code></p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;action&gt;</span>
+  <span class="nt">&lt;storage_domain</span> <span class="na">id=</span><span class="s">"33a0885e-2672-414a-8b79-c7026b0b1570"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;disk&gt;</span>
+    <span class="nt">&lt;name&gt;</span>centos83<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;/disk&gt;</span>
+<span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<p>Eventually copying using the UI will be possible as well.</p>
+
+<h3 id="high-level-flow">High Level Flow</h3>
+
+<p>The general flow of copying from a regular Storage Domain (Block/File) to Managed Block Storage Domain is:</p>
+<ol>
+  <li>Create a Managed Block Storage disk</li>
+  <li>Attach the disk to a Vdsm host that will perform the copying</li>
+  <li>Create an external lease, writing relevant metadata on the lease’s LVB storage</li>
+  <li>Perform the copy</li>
+  <li>Detach the Managed Block disk from the host</li>
+  <li>Remove the lease</li>
+</ol>
+
+<p>This features offers similar semantics to those of <code class="language-plaintext highlighter-rouge">SDM.copy_data</code>, and is implemented using storage jobs.
+The progress of the copy is monitored using the <code class="language-plaintext highlighter-rouge">Host.get_jobs</code> Vdsm verb.
+If the connection with the host is lost and it is not longer reporting the job’s status, the lease will be used to determine the jobs status.</p>
+
+<h4 id="lvb">LVB</h4>
+
+<p>LVB (Lock Value Block), is a block on a sanlock lease the can be written and read from using <a href="https://pagure.io/sanlock/c/2ea4446a06079a71266fd9f5066dd2909c7546d6?branch=master">set_lvb</a> and <a href="https://pagure.io/sanlock/c/9034b7b9c7bae930c57de9d96dd8280343baf5f1?branch=master">get_lvb</a>. The size of the block is the sector size of the storage, in Vdsm we use only 512 bytes which is compatible with all storage types.
+To write or read LVB, the lease has to be acquired with the <a href="https://pagure.io/sanlock/c/4e36aad261de84c44318f4e14549cacb2578d913?branch=master">LVB flag</a></p>
+
+<p>Since Managed Block Storage copy aims to offer similar semantics as regular disk copy, the state of the copy_data job has to be stored on shared storage. In regular copy this is done using volume leases where the state of the job (generation) is stored on the volume’s metadata. Because Managed Block Storage disks are not managed by vdsm, so instead, the state is stored on an external lease’s LVB area.</p>
+
+<h4 id="vdsm">Vdsm</h4>
+
+<h5 id="copydataexternalendpoint">CopyDataExternalEndpoint</h5>
+<p>A new endpoint <code class="language-plaintext highlighter-rouge">CopyDataExternalEndpoint</code> was <a href="https://gerrit.ovirt.org/c/vdsm/+/112801/20/lib/vdsm/api/vdsm-api.yml">added</a> to represent a target volume that is not managed by vdsm. This endpoint is meant to be a general purpose endpoint for volumes that are not managed by Vdsm.</p>
+
+<h5 id="leasecreate">Lease.create</h5>
+<p>The <code class="language-plaintext highlighter-rouge">Lease.create</code> verb was <a href="https://gerrit.ovirt.org/c/vdsm/+/113672">modified</a> to accept to receive a <code class="language-plaintext highlighter-rouge">metadata</code> parameter</p>
+
+<h5 id="leasestatus">Lease.status</h5>
+<p><code class="language-plaintext highlighter-rouge">Lease.status</code> which was previously not implmeneted is now <a href="https://gerrit.ovirt.org/c/vdsm/+/113718/19">used</a>, it is used to determine the job’s status when we cannot receive information from the host using <code class="language-plaintext highlighter-rouge">Host.getJobs</code>.</p>
+
+<h5 id="leasefence">Lease.fence</h5>
+<p>A new verb <code class="language-plaintext highlighter-rouge">Lease.fence</code> was added to perform fencing on the lease. The only type of fencing currently implemented is job fencing, in which the job’s status is updated to <code class="language-plaintext highlighter-rouge">FENCED</code> and the generation is increased by 1.</p>
+
+<h4 id="engine">Engine</h4>
+
+<p>A new sublcass <code class="language-plaintext highlighter-rouge">CopyManagedBlockDiskCommand</code> to handle copy operations involving Managed Block Storage disks. This class is responsible for coordinating the operations required for the copy:</p>
+<ol>
+  <li>Create target disk using <code class="language-plaintext highlighter-rouge">AddManagedBlockStorageDiskCommand</code></li>
+  <li>Attach the disk to the host using <code class="language-plaintext highlighter-rouge">ManagedBlockStorageCommandUtil#attachManagedBlockStorageDisk</code></li>
+  <li>Create lease using <code class="language-plaintext highlighter-rouge">AddExternalLease</code>, this creates an external lease with metadata that looks like:
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+ </span><span class="nl">"generation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"job_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20e62244-19ad-46b7-afcc-a5fe2007a259"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"host_hardware_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e11cad3-2214-4e1a-aadc-e050accfe3c0"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1614073237</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="mi">1614073237</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <p>Engine passes the <code class="language-plaintext highlighter-rouge">job_status</code>, <code class="language-plaintext highlighter-rouge">job_id</code> and <code class="language-plaintext highlighter-rouge">type</code> fields, the rest is added internally in Vdsm by <code class="language-plaintext highlighter-rouge">Lease.create</code>.</p>
+  </li>
+  <li>Run the <code class="language-plaintext highlighter-rouge">SDM.copy_data</code> verb with <code class="language-plaintext highlighter-rouge">CopyDataCommand</code>. Similar to <code class="language-plaintext highlighter-rouge">CopyImageGroupWithDataCommand</code>, the status <code class="language-plaintext highlighter-rouge">SDM.copy_data</code> is polled using <code class="language-plaintext highlighter-rouge">Host.get_jobs</code>.
+    <ul>
+      <li>If we couldn’t get information using <code class="language-plaintext highlighter-rouge">Host.get_jobs</code>, the polling will use <code class="language-plaintext highlighter-rouge">ExternalLeasePoller</code>.</li>
+    </ul>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ExternalLeasePoller</code> uses <code class="language-plaintext highlighter-rouge">Lease.status</code> to check the status of the job:
+        <ul>
+          <li>If the lease is owned, the job is considered still running</li>
+          <li>If the lease is free:
+            <ul>
+              <li>Job status is “SUCCEEDED”, the operation will complete successfully</li>
+              <li>Job status is “FAILED” or “FENCED” the operation will fail</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>If we couldn’t get the job’s status using <code class="language-plaintext highlighter-rouge">ExternalLeasePoller</code> (<code class="language-plaintext highlighter-rouge">Lease.status</code> failed), <code class="language-plaintext highlighter-rouge">Lease.fence</code> will be invoked, updating the job’s status and increasing the generation</li>
+    </ul>
+  </li>
+  <li>When <code class="language-plaintext highlighter-rouge">SDM.copy_data</code> completes, detach the volume using <code class="language-plaintext highlighter-rouge">ManagedBlockStorageCommandUtil#disconnectManagedBlockStorageDeviceFromHost</code></li>
+  <li>Remove the external lease with <code class="language-plaintext highlighter-rouge">RemoveExternalLeaseCommand</code></li>
+</ol>
+
+<h3 id="open-issues--limitations">Open Issues / Limitations</h3>
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1954404">No UI support currently, will be added soon.</a></li>
+  <li>There is currently no proper handling when detaching the Managed Block Storage volume fails. This affects other flows, such as VM power-off and will fixed along with it.</li>
+  <li>Moving a disk is currently not implemented, moving is a special case of copying where the source disk is removed</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2908/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2908/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2908/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2908/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/managed-block-storage-copy.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/managed-block-storage-copy.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

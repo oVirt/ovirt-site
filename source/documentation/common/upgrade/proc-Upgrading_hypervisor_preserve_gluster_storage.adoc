@@ -320,7 +320,8 @@ and
 +
 [source,terminal,subs="normal"]
 ----
-# cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment ansible-playbook he.yml --extra-vars "@he_gluster_vars.json"
+# cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
+# ansible-playbook he.yml --extra-vars "@he_gluster_vars.json"
 ----
 
 .. Wait for the self-hosted engine deployment to complete.
@@ -381,7 +382,7 @@ Edit the  playbook on the newly installed host and execute it as described in th
 +
 [source,terminal,subs="normal"]
 ----
-grep -i gfid mismatch /var/log/glusterfs/*
+grep -i "gfid mismatch" /var/log/glusterfs/*
 ----
 
 . Repeat the step _Upgrade the next host_  for all the {hypervisor-shortname} in the cluster.

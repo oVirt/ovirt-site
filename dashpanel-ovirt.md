@@ -5,9 +5,9 @@
 |---|---|---|---|---|
 | [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [54](https://github.com/ovirt/ovirt-web-ui/issues) | 86 | 67 |
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [50](https://github.com/ovirt/ovirt-ansible-collection/issues) | 51 | 70 |
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [45](https://github.com/ovirt/ovirt-engine/issues) | 353 | 225 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [45](https://github.com/ovirt/ovirt-engine/issues) | 354 | 225 |
+| [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [38](https://github.com/ovirt/terraform-provider-ovirt/issues) | 125 | 63 |
 | [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [35](https://github.com/ovirt/vdsm/issues) | 115 | 140 |
-| [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [28](https://github.com/ovirt/terraform-provider-ovirt/issues) | 125 | 63 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [25](https://github.com/ovirt/ovirt-site/issues) | 72 | 295 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 32 | 16 |
 | [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [16](https://github.com/ovirt/ovirt-imageio/issues) | 14 | 16 |

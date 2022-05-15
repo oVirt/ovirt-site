@@ -23765,8 +23765,83 @@ transfer URL.</p>
 </li>
 </ol>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>You must also renew Engine certificates.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Renewing certificates in a standalone Engine</div>
+<ol class="arabic">
+<li>
+<p>Log in as root via SSH or console session to the Engine and run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-setup --offline.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>engine-setup</code> script prompts you with configuration questions.</p>
+</div>
+</li>
+<li>
+<p>Respond to the questions as appropriate or use an answers file.</p>
+<div class="paragraph">
+<p>Be sure to answer the question about renewing certificates with "Y." This will renew the certificates without applying any updates.</p>
+</div>
+<div class="paragraph">
+<p>If you want to apply updates, follow the procedure in the Upgrade Guide.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Renewing certificates in a self-hosted engine</div>
+<ol class="arabic">
+<li>
+<p>Log in as root via SSH or console session to the Engine and a self-hosted engine hypervisor.</p>
+</li>
+<li>
+<p>In the hypervisor, run the following command to place the environment in global maintenance mode:</p>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --set-maintenance –mode=global</pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the Engine, run the following command to renew the certificates:</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-setup --offline.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Respond to the questions as appropriate or use an answers file.
+Be sure to answer the question about renewing certificates with "Y." This will renew the certificates without applying any updates.</p>
+<div class="paragraph">
+<p>If you want to apply updates, follow the procedure in the Upgrade Guide.</p>
+</div>
+</li>
+<li>
+<p>In the hypervisor, run the following command to remove the environment from global maintenance mode:</p>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --set-maintenance –mode=none</pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="ulist _additional-resources">
 <div class="title">Additional resources</div>

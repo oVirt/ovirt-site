@@ -7,63 +7,38 @@
 
 [WARNING]
 ====
-Do not let certificates expire. If they expire, the environment becomes non-responsive and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
+Do not let certificates expire. If they expire, the host and {hypervisor-shortname} stop responding, and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
 ====
 
 .Procedure
 
-. In the Administration Portal, click menu:Compute[Hosts].
-. Migrate the virtual machines away from the host.
-. Click menu:Management[Maintenance] and btn:[OK].
-. Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
-. Once enrollment is complete, click menu:Management[Activate].
+. Renew the host certificates:
+.. In the Administration Portal, click menu:Compute[Hosts].
+.. Migrate the virtual machines away from the host.
+.. Click menu:Management[Maintenance] and btn:[OK].
+.. Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
+.. Once enrollment is complete, click menu:Management[Activate].
 
-[IMPORTANT]
-====
-You must also renew {engine-name} certificates.
-====
-
-.Renewing certificates in a standalone {engine-name}
-. Log in as root via SSH or console session to the {engine-name} and run the following command:
+. Renew the {engine-name} certificates
+.. For self-hosted- engine, log in to the host and put it in global maintenance mode:
 +
 ----
-# engine-setup --offline.
+# hosted-engine --set-maintenance --mode=global
+----
+.. For self-hosted- engine and standalone {engine-name}, log in to the {engine-name} and run engine-setup:
++
+----
+# engine-setup --offline
 ----
 +
 The `engine-setup` script prompts you with configuration questions.
+Respond to the questions as appropriate or use an answers file.
 
-. Respond to the questions as appropriate or use an answers file.
-+
-Be sure to answer the question about renewing certificates with "Y." This will renew the certificates without applying any updates.
-+
-If you want to apply updates, follow the procedure in the Upgrade Guide.
-
-.Renewing certificates in a self-hosted engine
-
-. Log in as root via SSH or console session to the {engine-name} and a self-hosted engine hypervisor.
-
-. In the hypervisor, run the following command to place the environment in global maintenance mode:
+.. For self-hosted- engine, log in to the host and disable global maintenance mode:
 +
 ----
-# hosted-engine --set-maintenance –mode=global
+# hosted-engine --set-maintenance --mode=none
 ----
-. In the {engine-name}, run the following command to renew the certificates:
-+
-----
-# engine-setup --offline.
-----
-
-. Respond to the questions as appropriate or use an answers file.
-Be sure to answer the question about renewing certificates with "Y." This will renew the certificates without applying any updates.
-+
-If you want to apply updates, follow the procedure in the Upgrade Guide.
-
-. In the hypervisor, run the following command to remove the environment from global maintenance mode:
-+
-----
-# hosted-engine --set-maintenance –mode=none
-----
-
 
 [role="_additional-resources"]
 .Additional resources

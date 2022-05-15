@@ -1858,7 +1858,8 @@ and
 <p>Run the playbook to deploy HostedEngine Deployment.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment ansible-playbook he.yml --extra-vars &quot;@he_gluster_vars.json&quot;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
+# ansible-playbook he.yml --extra-vars &quot;@he_gluster_vars.json&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -1978,7 +1979,7 @@ and
 <p>Make sure that there are no errors in the volumes related to GFID mismatch. If there are any errors, resolve them.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">grep -i gfid mismatch /var/log/glusterfs/*</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">grep -i &quot;gfid mismatch&quot; /var/log/glusterfs/*</code></pre>
 </div>
 </div>
 </li>

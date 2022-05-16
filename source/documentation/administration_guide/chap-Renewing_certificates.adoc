@@ -14,18 +14,18 @@ Do not let certificates expire. If they expire, the host and {hypervisor-shortna
 
 . Renew the host certificates:
 .. In the Administration Portal, click menu:Compute[Hosts].
-.. Migrate the virtual machines away from the host.
-.. Click menu:Management[Maintenance] and btn:[OK].
-.. Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
+.. Click menu:Management[Maintenance] and then click btn:[OK].
+The virtual machines should automatically migrate away from the host. If they are pinned or otherwise non-migratable, you need to shut them down.
+.. Once the host is in maintenance mode, and there are no more virtual machines remaining on this host, click menu:Installation[Enroll Certificate].
 .. Once enrollment is complete, click menu:Management[Activate].
 
-. Renew the {engine-name} certificates
-.. For self-hosted- engine, log in to the host and put it in global maintenance mode:
+. Renew the {engine-name} certificates:
+.. For a self-hosted engine, log in to the host and put it in global maintenance mode:
 +
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
-.. For self-hosted- engine and standalone {engine-name}, log in to the {engine-name} and run engine-setup:
+.. For a self-hosted engine and standalone {engine-name}, log in to the {engine-name} and run `engine-setup`:
 +
 ----
 # engine-setup --offline
@@ -33,8 +33,12 @@ Do not let certificates expire. If they expire, the host and {hypervisor-shortna
 +
 The `engine-setup` script prompts you with configuration questions.
 Respond to the questions as appropriate or use an answers file.
-
-.. For self-hosted- engine, log in to the host and disable global maintenance mode:
+.. Answer 'Yes' when the `engine-setup` asks:
++
+----
+Renew certificates? (Yes, No) [Yes]:
+----
+.. For a self-hosted engine, log in to the host and disable global maintenance mode:
 +
 ----
 # hosted-engine --set-maintenance --mode=none

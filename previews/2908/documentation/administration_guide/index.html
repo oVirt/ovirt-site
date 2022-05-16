@@ -23756,13 +23756,11 @@ transfer URL.</p>
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span>.</p>
 </li>
 <li>
-<p>Migrate the virtual machines away from the host.</p>
+<p>Click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Maintenance</b></span> and then click <b class="button">OK</b>.
+The virtual machines should automatically migrate away from the host. If they are pinned or otherwise non-migratable, you need to shut them down.</p>
 </li>
 <li>
-<p>Click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Maintenance</b></span> and <b class="button">OK</b>.</p>
-</li>
-<li>
-<p>Once the host is in maintenance mode, click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Enroll Certificate</b></span>.</p>
+<p>Once the host is in maintenance mode, and there are no more virtual machines remaining on this host, click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Enroll Certificate</b></span>.</p>
 </li>
 <li>
 <p>Once enrollment is complete, click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Activate</b></span>.</p>
@@ -23771,11 +23769,11 @@ transfer URL.</p>
 </div>
 </li>
 <li>
-<p>Renew the Engine certificates</p>
+<p>Renew the Engine certificates:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>For self-hosted- engine, log in to the host and put it in global maintenance mode:</p>
+<p>For a self-hosted engine, log in to the host and put it in global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
 <pre># hosted-engine --set-maintenance --mode=global</pre>
@@ -23783,7 +23781,7 @@ transfer URL.</p>
 </div>
 </li>
 <li>
-<p>For self-hosted- engine and standalone Engine, log in to the Engine and run engine-setup:</p>
+<p>For a self-hosted engine and standalone Engine, log in to the Engine and run <code>engine-setup</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre># engine-setup --offline</pre>
@@ -23795,7 +23793,15 @@ Respond to the questions as appropriate or use an answers file.</p>
 </div>
 </li>
 <li>
-<p>For self-hosted- engine, log in to the host and disable global maintenance mode:</p>
+<p>Answer 'Yes' when the <code>engine-setup</code> asks:</p>
+<div class="listingblock">
+<div class="content">
+<pre>Renew certificates? (Yes, No) [Yes]:</pre>
+</div>
+</div>
+</li>
+<li>
+<p>For a self-hosted engine, log in to the host and disable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
 <pre># hosted-engine --set-maintenance --mode=none</pre>

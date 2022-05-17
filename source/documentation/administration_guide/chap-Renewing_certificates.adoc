@@ -7,7 +7,7 @@
 
 [WARNING]
 ====
-Do not let certificates expire. If they expire, the host and {hypervisor-shortname} stop responding, and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
+Do not let certificates expire. If they expire, the host and  {engine-name} stop responding, and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
 ====
 
 .Procedure
@@ -15,17 +15,17 @@ Do not let certificates expire. If they expire, the host and {hypervisor-shortna
 . Renew the host certificates:
 .. In the Administration Portal, click menu:Compute[Hosts].
 .. Click menu:Management[Maintenance] and then click btn:[OK].
-The virtual machines should automatically migrate away from the host. If they are pinned or otherwise non-migratable, you need to shut them down.
-.. Once the host is in maintenance mode, and there are no more virtual machines remaining on this host, click menu:Installation[Enroll Certificate].
-.. Once enrollment is complete, click menu:Management[Activate].
+The virtual machines should automatically migrate away from the host. If they are pinned or otherwise cannot be migrated, you must shut them down.
+.. When the host is in maintenance mode and there are no more virtual machines remaining on this host, click menu:Installation[Enroll Certificate].
+.. When enrollment is complete, click menu:Management[Activate].
 
 . Renew the {engine-name} certificates:
-.. For a self-hosted engine, log in to the host and put it in global maintenance mode:
+.. Self-hosted engine only: log in to the host and put it in global maintenance mode.
 +
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
-.. For a self-hosted engine and standalone {engine-name}, log in to the {engine-name} and run `engine-setup`:
+.. Self-hosted engine and standalone {engine-name}: log in to the {engine-name} and run `engine-setup`.
 +
 ----
 # engine-setup --offline
@@ -33,12 +33,12 @@ The virtual machines should automatically migrate away from the host. If they ar
 +
 The `engine-setup` script prompts you with configuration questions.
 Respond to the questions as appropriate or use an answers file.
-.. Answer 'Yes' when the `engine-setup` asks:
+.. Enter `Yes` after the following `engine-setup` prompt:
 +
 ----
 Renew certificates? (Yes, No) [Yes]:
 ----
-.. For a self-hosted engine, log in to the host and disable global maintenance mode:
+.. Self-hosted engine only: log in to the host and disable global maintenance mode:
 +
 ----
 # hosted-engine --set-maintenance --mode=none

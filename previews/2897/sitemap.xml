@@ -640,9 +640,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/develop/infra/domaininfrastructure.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2897/community/get-involved/donate-hardware.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/develop/release-management/features/infra/drbd.html</loc>
 </url>
 <url>
@@ -2896,9 +2893,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/develop/developer-guide/vdsm/hook/</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2897/community/get-involved/</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/develop/infra/testing/</loc>
 </url>
 <url>
@@ -2947,6 +2941,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/develop/projects/proposals/</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2897/community/get-involved/</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/develop/release-management/releases/4.2.z/</loc>
 </url>
 <url>
@@ -2987,10 +2984,10 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/media/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-05-12T15:05:56+00:00</lastmod>
+<lastmod>2022-05-17T18:48:30+00:00</lastmod>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2897/media/Hybrid-backup-v8.pdf</loc>
-<lastmod>2022-05-12T15:05:56+00:00</lastmod>
+<lastmod>2022-05-17T18:48:30+00:00</lastmod>
 </url>
 </urlset>

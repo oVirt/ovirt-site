@@ -23739,7 +23739,7 @@ transfer URL.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Do not let certificates expire. If they expire, the host and oVirt Node stop responding, and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in <a href="https://access.redhat.com/solutions/3532921">How to manually renew RHV host SSL certificate if expired?</a>. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll oVirt host certificates.</p>
+<p>Do not let certificates expire. If they expire, the host and  Engine stop responding, and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in <a href="https://access.redhat.com/solutions/3532921">How to manually renew RHV host SSL certificate if expired?</a>. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll oVirt host certificates.</p>
 </div>
 </td>
 </tr>
@@ -23757,13 +23757,13 @@ transfer URL.</p>
 </li>
 <li>
 <p>Click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Maintenance</b></span> and then click <b class="button">OK</b>.
-The virtual machines should automatically migrate away from the host. If they are pinned or otherwise non-migratable, you need to shut them down.</p>
+The virtual machines should automatically migrate away from the host. If they are pinned or otherwise cannot be migrated, you must shut them down.</p>
 </li>
 <li>
-<p>Once the host is in maintenance mode, and there are no more virtual machines remaining on this host, click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Enroll Certificate</b></span>.</p>
+<p>When the host is in maintenance mode and there are no more virtual machines remaining on this host, click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Enroll Certificate</b></span>.</p>
 </li>
 <li>
-<p>Once enrollment is complete, click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Activate</b></span>.</p>
+<p>When enrollment is complete, click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Activate</b></span>.</p>
 </li>
 </ol>
 </div>
@@ -23773,7 +23773,7 @@ The virtual machines should automatically migrate away from the host. If they ar
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>For a self-hosted engine, log in to the host and put it in global maintenance mode:</p>
+<p>Self-hosted engine only: log in to the host and put it in global maintenance mode.</p>
 <div class="listingblock">
 <div class="content">
 <pre># hosted-engine --set-maintenance --mode=global</pre>
@@ -23781,7 +23781,7 @@ The virtual machines should automatically migrate away from the host. If they ar
 </div>
 </li>
 <li>
-<p>For a self-hosted engine and standalone Engine, log in to the Engine and run <code>engine-setup</code>:</p>
+<p>Self-hosted engine and standalone Engine: log in to the Engine and run <code>engine-setup</code>.</p>
 <div class="listingblock">
 <div class="content">
 <pre># engine-setup --offline</pre>
@@ -23793,7 +23793,7 @@ Respond to the questions as appropriate or use an answers file.</p>
 </div>
 </li>
 <li>
-<p>Answer 'Yes' when the <code>engine-setup</code> asks:</p>
+<p>Enter <code>Yes</code> after the following <code>engine-setup</code> prompt:</p>
 <div class="listingblock">
 <div class="content">
 <pre>Renew certificates? (Yes, No) [Yes]:</pre>
@@ -23801,7 +23801,7 @@ Respond to the questions as appropriate or use an answers file.</p>
 </div>
 </li>
 <li>
-<p>For a self-hosted engine, log in to the host and disable global maintenance mode:</p>
+<p>Self-hosted engine only: log in to the host and disable global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
 <pre># hosted-engine --set-maintenance --mode=none</pre>

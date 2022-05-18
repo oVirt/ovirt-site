@@ -11953,7 +11953,7 @@ roles:
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Kdump integration</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents the host from fencing while performing a kernel crash dump, so that the crash dump is not interrupted. In Enterprise Linux 7.1 and later, kdump is available by default. If kdump is available on the host, but its configuration is not valid (the kdump service cannot be started), enabling <strong>Kdump integration</strong> will cause the host (re)installation to fail. If this is the case, see <a href="#fence_kdump_Advanced_Configuration">fence_kdump Advanced Configuration</a>. Turning on this option will require to reinstall the host for applying the correct fencing kdump configuration, see <a href="#sect-Host_Resilience">Host Resilience</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents the host from fencing while performing a kernel crash dump, so that the crash dump is not interrupted. In Enterprise Linux 7.1 and later, kdump is available by default. If kdump is available on the host, but its configuration is not valid (the kdump service cannot be started), enabling <strong>Kdump integration</strong> will cause the host (re)installation to fail. If this is the case, see <a href="#fence_kdump_Advanced_Configuration">fence_kdump Advanced Configuration</a>. If you enable kdump, you must reinstall the host in order to apply the correct fencing setting.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Disable policy control of power management</strong></p></td>

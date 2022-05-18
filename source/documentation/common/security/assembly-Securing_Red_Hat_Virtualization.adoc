@@ -26,9 +26,8 @@ This information is specific to {virt-product-fullname}. It does not cover funda
 * You should be proficient in your organization's security standards and practices. If possible, consult with your organization's Security Officer.
 * Consult the {enterprise-linux} link:{URL_rhel_docs_latest}html-single/security_hardening/index[Security hardening] before deploying {enterprise-linux-host-shortname}s.
 
-include::con-DISA_STIG_for_Red_Hat_Linux.adoc[leveloffset=+1]
-
-include::proc-Applying_the_DISA_STIG_Security_Profile_RHVH.adoc[leveloffset=+1]
+include::proc-Applying_the_DISA_STIG_Security_Profile_RHV.adoc[leveloffset=+1]
+include::proc-Applying_the_PCI_DSS_Security_Profile_RHV.adoc[leveloffset=+1]
 
 // Restore the context to what it was before this assembly.
 ifdef::parent-context[:context: {parent-context}]

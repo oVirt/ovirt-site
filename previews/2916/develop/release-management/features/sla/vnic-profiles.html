@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Vnic Profiles | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Vnic Profiles" />
+<meta name="author" content="Moti Asayag" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2916/develop/release-management/features/sla/vnic-profiles.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2916/develop/release-management/features/sla/vnic-profiles.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vnic Profiles" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Moti Asayag" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Moti Asayag"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Vnic Profiles","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2916/images/logo.svg"},"name":"Moti Asayag"},"url":"https://ovirt.github.io/ovirt-site/previews/2916/develop/release-management/features/sla/vnic-profiles.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2916/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2916/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2916/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2916/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2916/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2916/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2916/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2916/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2916/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2916/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2916/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2916/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2916/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2916/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2916/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2916/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2916/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2916/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2916/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2916/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2916/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2916/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2916//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2916//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2916/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2916/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2916/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2916/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2916/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/819d7e00c07db9447fa5705dadfe8c02?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/819d7e00c07db9447fa5705dadfe8c02?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ofri Masad</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Oved Ourfali</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2916/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="vnic-profiles">Vnic Profiles</h1>
+
+<h4 id="summary">Summary</h4>
+
+<p>In order to define more natural coupling of the QoS to a VNIC we define a new concept called <strong>VNIC Profile</strong>. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC</p>
+
+<h4 id="owner">Owner</h4>
+
+<ul>
+  <li>Name: Moti Asayag</li>
+  <li>Email: masayag@redhat.com</li>
+</ul>
+
+<h4 id="current-status">Current status</h4>
+
+<ul>
+  <li>Status: design</li>
+  <li>Last updated: ,</li>
+  <li>patchset</li>
+</ul>
+
+<h4 id="detailed-description">Detailed Description</h4>
+
+<p>The VNIC Profile concept embodies a predefined package of network setting which will define the network service a VNIC will get.
+VNIC Profile include:
+* Profile name</p>
+
+<ul>
+  <li>Network</li>
+  <li>Quality of Service</li>
+  <li>Port mirroring</li>
+  <li>Custom properties</li>
+</ul>
+
+<p>When creating a new VNIC or editing an existing one the user will select a VNIC Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).</p>
+
+<h5 id="adding-a-profile">Adding a Profile</h5>
+
+<p>The network administrator could create several VNIC Profiles for each network. He could then grant a users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.</p>
+
+<p>For example: the network admin will create two VNIC profiles for network “blue”:</p>
+
+<p>Profile “teacher-blue” - with better QoS and with port mirroring</p>
+
+<p>Profile “student-blue” with lower QoS and without port mirroring.</p>
+
+<p>He will then define the user-group “students” as user of profile “student-blue” and user-group “teachers” as user of profile “teacher-blue”. In this case the teachers will enjoy better quality of service (e.g. Gold) than the students (e.g Silver). When a teacher will add/edit a virtual NIC he could select profile “teacher-blue” for that NIC - the VNIC will be connected to network “blue” with high QoS and with port mirroring.</p>
+
+<ul>
+  <li>An option to select ‘Allow all users to use this profile’ will be added to the dialog. If selected, a permission on the the vnic profile will be granted to ‘everyone’.</li>
+</ul>
+
+<h5 id="editing-a-profile">Editing a Profile</h5>
+
+<ul>
+  <li>A user should be able to edit the profile properties (including profile name) while VMs are attached and are using this Profile (reference should be done by id), except of the port mirroring.</li>
+  <li>Changing the network of a vNic profile will be blocked.
+    <ul>
+      <li>Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable and less intuitive to the user (especially since dynamic wiring is supported).</li>
+    </ul>
+  </li>
+  <li>The changes will seep down to all VNICs using the profile.
+    <ul>
+      <li>In case VNIC using the edited profile are connected to running VMs, the change will apply only on the VM next run.</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="deleting-a-profile">Deleting a Profile</h5>
+
+<p>VNIC Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.</p>
+
+<h5 id="editing-a-vnic--changing-a-vnic-profile">Editing a VNIC / Changing a VNIC profile</h5>
+
+<ul>
+  <li>Changing the profile a VM is using while the VM is running should behave like dynamic wiring (changing the VM network while it is running).</li>
+  <li>Hot plug will be fully supported: the user can choose any permitted profile while plugging a new device or when activating an existing one.</li>
+</ul>
+
+<h5 id="adding-a-network">Adding a Network</h5>
+
+<ul>
+  <li>When adding a network, a user can provide an option to create a vNic Profile for it.</li>
+  <li>Vnic profiles are allowed for VM networks only.</li>
+  <li>All VNIC-QoS-objects will be displayed and the users could tick next to the QoS they are interested in, for each QoS that was chosen a profile would be created,</li>
+</ul>
+
+<p>and for each vnic profile there will be an option for ‘public use’.</p>
+
+<ul>
+  <li>The vNic profile name will be NetworkNamePolicyName, e.g. blueGold. The user will be able to rename the profile and its properties from the vnic profile sub-tab.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>A default vnic profile will be created implicitly by the engine when creating a new network, unless specifically asked not create it.</li>
+</ul>
+
+<p>The option to check the network for a public use will be removed from the ‘Add network’ dialog.</p>
+
+<h5 id="updating-a-network">Updating a Network</h5>
+
+<p>When a network role is modified to be a ‘non-VM network’, all vNic profiles associated with it should be deleted and permissions associated with these profiles.
+When a non-vm network is modified to be a ‘VM network’, a default vnic profile will be created if the action is done in the webadmin. Performing the update network operation via the api will not create a default vnic profile and the user will have to create one himself so the network could be used by VMs.</p>
+
+<h5 id="removing-a-network">Removing a Network</h5>
+
+<ul>
+  <li>Should remove all profiles on that network and associated permissions.</li>
+</ul>
+
+<h5 id="adding-an-empty-data-center">Adding an Empty Data-Center</h5>
+
+<ul>
+  <li>Currently, When creating a new Data-Center, the management network is automatically created.</li>
+  <li>A default vNic profile will be created for the management network.</li>
+</ul>
+
+<h5 id="removing-data-center">Removing Data-Center</h5>
+
+<p>Should remove all data center’s networks and their associated permissions.</p>
+
+<h5 id="vm-snapshotimportexport">VM snapshot/import/export</h5>
+
+<ul>
+  <li>We should handle VMs that are pointing to a network directly for backward compatibility.</li>
+  <li>We need to select first profile that is on that network that the user has permissions on.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>The profile name should be saved in the OVF, in OtherResourceType element (in addition to the network name which is saved today).</li>
+</ul>
+
+<p>The import of a VM/Template will be performed according to the following logic:</p>
+
+<ul>
+  <li>If the network name and vnic profile are provided, the vnic profile will be resolved.
+    <ul>
+      <li>If no matching vnic profile, an attempt to obtain a different vnic profile by permission for the user of that network.
+        <ul>
+          <li>Vnic profile with port-mirroring will not be allowed to be created implicitly.</li>
+          <li>If no profile found, ‘none’ value will be set for it and an event will be written to the events log.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template’s VNICs.</li>
+</ul>
+
+<h5 id="backward-compatibility">Backward Compatibility</h5>
+
+<p>In 3.2 or lower clusters versions not all of the profile properties are supported. In those clusters only Profile name, Network and Port mirroring will be enabled. For time been, we’ll keep the networkName in the vmNetworkInterface, however when rest support will be added, the field will be removed.</p>
+
+<h4 id="benefit-to-ovirt">Benefit to oVirt</h4>
+
+<p>We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The Network QoS feature will add this ability to the engine. The VNIC profile will improve the usability of the network configuration on the VM. On the user side - VNIC profiles will allow the user to configure a VNIC in relative ease. On the network administrator side - VNIC Profiles will help the administrator to keep control of all the VNICs connected to the network in a simpler way.
+The combination of the two will allow the network admin to define, control and dispense different service levels to different users or groups (which may have different priorities).</p>
+
+<h2 id="design-and-implementation">Design and Implementation</h2>
+
+<p>The Network QoS feature includes two main parts:</p>
+
+<ul>
+  <li>VNIC level QoS</li>
+  <li>VNIC Profiles</li>
+</ul>
+
+<p>The two parts will be developed in parallel</p>
+
+<h4 id="upgrade">Upgrade</h4>
+
+<p>In the upgrade process we will do the following:</p>
+
+<ul>
+  <li>Create a VNIC profile for each network, without port mirroring</li>
+  <li>Create a VNIC profile with port mirroring for every network which has a VNIC with port mirroring</li>
+  <li>A VNIC connected to a network x in 3.2 will automatically be connected to the correlating profile in 3.3 (according to the port mirroring settings).</li>
+  <li>Comment: when we say VNIC we mean either a VM VNIC or a Template VNIC</li>
+  <li>A user which had a permission to use a network in 3.2 will be granted the permission to use the correlating profile in 3.3 (according to the port mirroring settings).</li>
+</ul>
+
+<h4 id="permissions">Permissions</h4>
+
+<p>The following action groups will be added:</p>
+
+<ul>
+  <li>CONFIGURE_NETWORK_VNIC_PROFILE - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group</li>
+  <li>CREATE_NETWORK_VNIC_PROFILE - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group</li>
+  <li>DELETE_NETWORK_VNIC_PROFILE - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group</li>
+</ul>
+
+<p>A VNICProfileUser role will be added, instead of the NetworkUser role. This role will contain the exact same action groups:</p>
+
+<ul>
+  <li>CONFIGURE_VM_NETWORK</li>
+  <li>CONFIGURE_TEMPLATE_NETWORK</li>
+  <li>LOGIN</li>
+</ul>
+
+<p>When upgrading the permissions table, we will do the following:</p>
+
+<ul>
+  <li>Remove each NetworkUser role on network objects, replacing it with a VNICProfileUser on the created network profiles.</li>
+  <li>Replacing each NetworkUser role on other types of objects with a VNICProfileUser</li>
+</ul>
+
+<p>We will also remove the PORT_MIRRORING action group, replacing it with proper logic in the different backend commands.</p>
+
+<h5 id="permission-views">Permission Views</h5>
+
+<p>User (as opposed to an administrator), will be limited to the networks and VNIC profiles he can see.
+===== VNIC Profiles ===== NOTE: the permissions used below besides the direct one, and the VM/Template one, must allow the user to view the child objects</p>
+
+<ul>
+  <li>The user has direct user permissions on the VNIC profile</li>
+  <li>The user has user permissions on the VNIC profile’s network</li>
+  <li>The user has user permissions on the Profile-Network’s Data-Center</li>
+  <li>The user has user permissions on a Profile-Network’s Cluster</li>
+  <li>The user has user permissions on a VM with a VNIC using the VNIC Profile</li>
+  <li>The user has user permissions on a Template with a VNIC using the VNIC Profile</li>
+  <li>The user has user permissions on the System object</li>
+</ul>
+
+<h6 id="networks">Networks</h6>
+
+<ul>
+  <li>The user has permission on a VNIC profile that’s part of this network</li>
+</ul>
+
+<h4 id="gui">GUI</h4>
+
+<p>A new sub tab will be added to the Network main tab (positioned second, after General)
+The sub tab will show the available Profiles for each network. Columns will be:</p>
+
+<ul>
+  <li>Name - string</li>
+  <li>Port Mirroring - Boolean</li>
+  <li>Inbound QoS - formatted string</li>
+  <li>outbound QoS - formatted string</li>
+</ul>
+
+<p>The inbound/outbound units will appear in Mb and Mbps, however, they will be converted to Kb and Kbs on the engine side when sent to VDSM. supported actions: add, edit, remove</p>
+
+<p>The vNIC Profiles is implemented as a main-tab in context of network or data-center when those selected on the system tree.
+The vNIC Profiles permissions are managed in a sub tab of that vNIC Profile main tab.
+supported action: add / remove</p>
+
+<p><strong>Profiles main tab</strong>
+<img src="/ovirt-site/previews/2916/images/wiki/Network_profiles.png" alt="" /></p>
+
+<p>In The Virtual Machine sub-tab (under the Network main tab) “Profile” column will be added to the table.
+ A new dialog will be created for add/edit profile. the dialog will include the following fields:</p>
+
+<ul>
+  <li>Name (text box)</li>
+  <li>Port mirroring (check box)</li>
+  <li>Inbound QoS (3 text boxes)</li>
+  <li>Outbound QoS (3 text boxes)</li>
+  <li>
+    <p>Custom properties (Selection box and +/- buttons)</p>
+  </li>
+  <li>In clusters supporting version 3.2 or lower the QoS and Custom properties fields will be visible but disabled.</li>
+</ul>
+
+<p>’'’Add/Edit Profile dialog”
+<img src="/ovirt-site/previews/2916/images/wiki/Vnic_profile.png" alt="" /></p>
+
+<p>The Add/Edit VNIC dialog will be added a Profile selection box.
+The network which will be available for selection in the Network selection box will only be networks which the user have a permission to use at least on of their profiles.
+After selecting a network the Profile selection box will be populated with all profiles of the selected network which the user have permission to use.</p>
+
+<p><strong>Profile Selection</strong>
+<img src="/ovirt-site/previews/2916/images/wiki/Profile_selection.png" alt="" /></p>
+
+<p><strong>Add New Logical Network dialog</strong>
+<img src="/ovirt-site/previews/2916/images/wiki/New_netwrok_profiles.png" alt="" /></p>
+
+<h4 id="backend">Backend</h4>
+
+<p>We define a new entity: NetworkProfile.
+The NetworkProfile will be added as a property of NetworkInterface.</p>
+
+<p>Affected flows:</p>
+
+<ul>
+  <li>AddVmNetworkInterface</li>
+  <li>UpdateVmNetworkInterface</li>
+  <li>AddVmTemplateNetworkInterface</li>
+  <li>UpdateVmTemplateNetworkInterface</li>
+  <li>AddNetworkCommand</li>
+  <li>UpdateNetworkCommand</li>
+  <li>RemoveNetworkCommand</li>
+  <li>ExportVmCommand</li>
+  <li>ImportVmCommand</li>
+  <li>ExportVmTemplateCommand</li>
+  <li>ImportVmTemplateCommand</li>
+</ul>
+
+<p>New flows:</p>
+
+<ul>
+  <li>AddVnicProfile</li>
+  <li>UpdateVnicProfile</li>
+  <li>RemoveVnicProfile</li>
+</ul>
+
+<p>DB Queries:</p>
+
+<ul>
+  <li>VnicProfileDao.GetAll()</li>
+  <li>VnicProfileDao.GetAllForNetwork(Guid NetworkId, Guid userId, boolean filtered)</li>
+</ul>
+
+<p>At the convenience of the UI:</p>
+
+<ul>
+  <li>VnicProfileDao.GetAllForVm(Guid NetworkId, Guid userId, boolean filtered) - will return a map of <code class="language-plaintext highlighter-rouge">&lt;Network, List&lt;Profiles&gt;&gt;</code></li>
+</ul>
+
+<p>see : <a href="/ovirt-site/previews/2916/develop/release-management/features/network/network-qos-detailed-design.html">Implementation details</a> for detailed design</p>
+
+<h4 id="db-change">DB Change</h4>
+
+<p>Adding a new table, network_profiles see <a href="/ovirt-site/previews/2916/develop/release-management/features/network/network-qos-detailed-design.html">implementation details</a> for detailed design</p>
+
+<ul>
+  <li>Add new view - vnic_profile_network_view, contains all vnic_profiles fields and network_name, data_center_name and compatibility_version.</li>
+</ul>
+
+<p>The new view will be mapped into <strong>VnicProfileView</strong> entity which extends the VnicProfile with the aforementioned fields.
+The <strong>VnicProfileView</strong> will serve the UI.</p>
+
+<h4 id="rest-api">REST API</h4>
+
+<p>The vnic profiles will be modeled as a top collection:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /api/vnicprofiles
+</code></pre></div></div>
+
+<p>The vnic profiles will be available as a sub collection of the networks top collection:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  api/networks/{network:id}/vnicprofiles/{profile:id}
+</code></pre></div></div>
+
+<p>The POST’ed elemet should look like:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;vnic_profile&gt;</span>
+     <span class="nt">&lt;name&gt;</span>profile1<span class="nt">&lt;/name&gt;</span>
+     <span class="nt">&lt;network</span> <span class="na">id=</span><span class="s">"00000000-0000-0000-0000-000000000009"</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;port_mirroring&gt;</span>true<span class="nt">&lt;/port_mirroring&gt;</span>
+ <span class="nt">&lt;/vnic_profile&gt;</span>
+</code></pre></div></div>
+
+<p>However the vnic profile will not be update-able via the sub-collection.
+ The user will be able to create a network without a default vnic profile by providing the following element in the network</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  POSTed element for /api/networks: ```xml
+</code></pre></div></div>
+<network>
+           ...
+     <profile_required>false</profile_required>
+ </network>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+For REST backward compatibility, a new parameter set will be added to a vm network interface Add and Update actions.
+The current parameter set includes either network name and port mirroring as today.
+The new parameter set will include the vnic profile id.
+\* Add VM nic:
+
+      /api/vms/{vm:id}/nics|rel=add
+
+*   Update VM nic:
+
+      /api/vms/{vm:id}/nics/{nic:id}|rel=update
+
+*   Add template nic:
+
+      /api/template/{template:id}/nics|rel=add
+
+*   Update template nic:
+
+      /api/template/{template:id}/nics/{nic:id}|rel=update
+
+With the following element:
+
+```xml
+ &lt;nic&gt;
+           ...
+     &lt;vnic_profile id="fa5d0471-f83b-44ec-8715-7fe1a53ab7a6"/&gt;
+ &lt;/nic&gt;
+</code></pre></div></div>
+
+<p>The returned entity will include the the vnic profile id as well.</p>
+
+<h4 id="vdsm">VDSM</h4>
+
+<p>VDSM will not be affected by the VNIC Profiles. The engine will encapsulate this abstraction and will keep</p>
+
+<h3 id="tests">Tests</h3>
+
+<h4 id="expected-unit-tests">Expected unit-tests</h4>
+
+<ul>
+  <li>Unit test handling network selection and VNIC settings are expected to change</li>
+</ul>
+
+<h3 id="special-considerations">Special considerations</h3>
+
+<h3 id="dependencies--related-features">Dependencies / Related Features</h3>
+
+<p>Affected ovirt projects:</p>
+
+<ul>
+  <li>API</li>
+  <li>backend</li>
+  <li>Webadmin</li>
+  <li>User Portal</li>
+</ul>
+
+<p>Others projects:</p>
+
+<ul>
+  <li>vdsm</li>
+</ul>
+
+<p>Affected features:</p>
+
+<ul>
+  <li>Custom properties</li>
+</ul>
+
+<h3 id="documentation--external-references">Documentation / External references</h3>
+
+<ul>
+  <li>See: <a href="http://libvirt.org/formatdomain.html#elementQoS">http://libvirt.org/formatdomain.html#elementQoS</a> for documentation of the VM level network QoS XML.</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2916/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2916/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2916/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2916/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/vnic-profiles.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/vnic-profiles.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -46,6 +46,12 @@ The following dashboards are available in the initial Grafana setup to report Da
 |===
 
 
+[NOTE]
+====
+The Grafana dashboards includes direct links to the Red Hat Virtualization Administration Portal, allowing you to quickly view additional details for your clusters, hosts, and virtual machines. 
+====
+
+
 = Customized Grafana dashboards
 
 You can create customized dashboards or copy and modify existing dashboards according to your reporting needs.

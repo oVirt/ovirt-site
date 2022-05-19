@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data Path operations on any host | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Data Path operations on any host" />
+<meta name="author" content="Adam Litke" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2917/develop/release-management/features/storage/data-path-operations.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2917/develop/release-management/features/storage/data-path-operations.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data Path operations on any host" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Adam Litke" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Adam Litke"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Data Path operations on any host","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2917/images/logo.svg"},"name":"Adam Litke"},"url":"https://ovirt.github.io/ovirt-site/previews/2917/develop/release-management/features/storage/data-path-operations.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2917/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2917/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2917/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2917/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2917/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2917/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2917/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2917/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2917/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2917/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2917/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2917/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2917/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2917/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2917/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2917/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2917/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2917/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2917/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2917/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2917/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2917/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2917//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2917//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2917/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2917/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2917/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2917/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2917/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9e57b717174453404c080ead99e2186c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9e57b717174453404c080ead99e2186c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Adam Litke</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nir Soffer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/8f07947836874690665b49430a562713?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/8f07947836874690665b49430a562713?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Liron Aravot</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6261848c1efa431a180b0da119660b8a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6261848c1efa431a180b0da119660b8a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Fred Rolland</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2917/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="data-path-operations-on-any-host">Data Path Operations On Any Host</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Until now almost all data path operations on the hosts were performed only on the elected SPM, causing a potential bottleneck.
+This feature enables data path operations on any host.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Adam Litke (<a href="mailto:alitke@redhat.com">alitke@redhat.com</a>)</li>
+  <li>Liron Aravot (<a href="mailto:laravot@redhat.com">laravot@redhat.com</a>)</li>
+  <li>Nir Soffer (<a href="mailto:nsoffer@redhat.com">nsoffer@redhat.com</a>)</li>
+  <li>Fred Rolland (<a href="mailto:frolland@redhat.com">frolland@redhat.com</a>)</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>There are a lot of data path operations in oVirt. For example: move disk, create VM from template, create template from VM, live storage migration and more.
+These operations are performed on the SPM host, potentially creating a bottleneck in scale setups or if the operations are performed frequently.</p>
+
+<p>By adding the new framework on VDSM, the engine is capable to convert the data path operations flows to run on any host.</p>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<p>With this feature the load of the data operations is spread between all the hosts, preventing the throttling of the SPM host.</p>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>A progress indication of the operation is available on the disks status for the “Move Disk” operation.
+Otherwise, there are no changes in the user experience.</p>
+
+<h3 id="high-level-flow">High level flow</h3>
+
+<p>Here is the high level flow for “Move Disk” operation</p>
+<ul>
+  <li>User starts disk move operation via UI or REST, no change is needed</li>
+  <li>Engine clone image structure via the SPM host and existing VDSM apis</li>
+  <li>Engine select hosts for copying volume</li>
+  <li>Engine starts copy_data operation on selected hosts</li>
+  <li>On each host, VDSM schedule copy_data job, copying data from source volume to destination volume</li>
+  <li>Engine monitor jobs progress</li>
+  <li>Engine wait until all jobs are done</li>
+</ul>
+
+<p>For “Create VM from Template (Clone/Independent)” operation, the flow is the same as above.
+The only difference is that Templates have only one volume.</p>
+
+<h3 id="vdsm">VDSM</h3>
+
+<p>The following verb is added:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SDM.copy_data:
+    added: '4.1'
+    description: Copy data from one volume to another.
+    params:
+    -   description: A UUID to be used for tracking the job progress
+        name: job_id
+        type: *UUID
+
+    -   description: The source endpoint
+        name: source
+        type: *CopyDataEndpoint
+
+    -   description: The destination endpoint
+        name: destination
+        type: *CopyDataEndpoint
+</code></pre></div></div>
+
+<h3 id="engine">Engine</h3>
+
+<p>The engine will monitor the operation using the <code class="language-plaintext highlighter-rouge">Job</code> API.
+In case the job is not present, the lease status on the volume information is retrieved from VDSM.
+If the lease is not free, the job is still running.
+If the lease is free, the status of the copy operation will be determined by checking the volume legality.</p>
+
+<p>A configuration value is available to disable this feature: <code class="language-plaintext highlighter-rouge">DataOperationsByHSM</code>.</p>
+
+<p>The following commands are added:</p>
+
+<ul>
+  <li>CopyImageGroupWithDataCommand</li>
+  <li>CloneImageGroupVolumesStructureCommand</li>
+  <li>CreateVolumeContainerCommand</li>
+  <li>CopyImageGroupVolumesDataCommand</li>
+  <li>CopyDataCommand</li>
+</ul>
+
+<p>In addition, the framework for tracking progress on entities is added to the infrastructure.</p>
+
+<h3 id="testing">Testing</h3>
+
+<ul>
+  <li>Move a disk between storage domains. Check that the operation may run on none-SPM hosts.</li>
+  <li>Create a VM from template with clone provisioning.  Check that the operation may run on none-SPM hosts.</li>
+  <li>Start a ‘Move Disk’ operation, and take down the network of the VDSM host after the operation has started.
+Make sure engine can recover when the host comes back (check if the job failed or succeeded).
+Make sure engine can recover if the host never comes back.</li>
+</ul>
+
+<h3 id="open-issues">Open Issues</h3>
+
+<ul>
+  <li>The host that will perform the data operation is currently selected randomly. A better mechanism may be needed in the future.</li>
+  <li>In case of multiple volumes, the operation is currently performed in a serial way. In the future, it can be performed in parallel.</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2917/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2917/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2917/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2917/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/data-path-operations.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/data-path-operations.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

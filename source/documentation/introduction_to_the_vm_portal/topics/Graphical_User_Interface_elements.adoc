@@ -8,23 +8,39 @@ image::VM_screen.png[VM Portal screen]
 
 *Key graphical user interface elements*
 
-* image:1.png[title="Header bar"] `Header bar`
+* `Header bar`
 +
-The header bar contains the *Refresh* button, the btn:[User] drop-down button, and the btn:[Messages] drop-down button.
+The header bar contains the following buttons:
+
+* collapse/expand text labels in the side bar
+** btn:[Refresh] - refreshes the display
+** btn:[Account Settings]
+*** General - displays the user name, email address, and allows you to change the UI language
+*** Refresh Interval - set the UI refresh rate interval
+*** Notifications - allows you to mute notifications for a given time interval
+*** Console -
+.. select your preferred console (VNC or SPICE).
+.. VNC Options
+.. SPICE Options
+.. Serial Console Options - SSH Key for authentication
+*** Advanced Options - enable language settings to persist on the server
+** btn:[User] - displays the user name of the currently logged in user
+*** About - VM Portal release information
+*** Log out - to log out of the VM Portal
+** btn:[Notifications] - displays notifications
+
+* `Filter bar`
 +
-** The *Refresh* button refreshes the display.
-** The btn:[User] drop-down button displays the following list:
+The filter bar allows you to search for virtual machines using a filter for the Name, Status, or Operating System of the virtual machines.
 
-*** *Options*: SSH key, for connecting via serial console to the VM Portal
-*** *About*: VM Portal release information
-*** *Log out*: To log out of the VM Portal
-
-** The btn:[Messages] drop-down button displays messages from the system.
-
-* image:2.png[title="Toolbar"] `Toolbar`
+* `Virtual machines pane`
 +
-The toolbar contains buttons that allow you to perform additional actions.
+The virtual machines pane displays the icon, operating system, name, status, and management options for each virtual machine and pooled virtual machine.
 
-* image:3.png[title="Virtual machines pane"] `Virtual machines pane`
-+
-The virtual machines pane displays the icon, operating system, name, state, and management icons of each virtual machine and pooled virtual machine.
+** VM management options:
+*** Run
+*** VNC console
+*** SPICE console
+*** Suspend
+*** Shutdown
+*** Reboot

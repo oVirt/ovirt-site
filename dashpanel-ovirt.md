@@ -3,9 +3,9 @@
 
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
-| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [56](https://github.com/ovirt/ovirt-web-ui/issues) | 87 | 67 |
+| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [56](https://github.com/ovirt/ovirt-web-ui/issues) | 86 | 67 |
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [49](https://github.com/ovirt/ovirt-ansible-collection/issues) | 51 | 70 |
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [45](https://github.com/ovirt/ovirt-engine/issues) | 355 | 225 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [45](https://github.com/ovirt/ovirt-engine/issues) | 354 | 225 |
 | [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [35](https://github.com/ovirt/vdsm/issues) | 115 | 140 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [29](https://github.com/ovirt/terraform-provider-ovirt/issues) | 125 | 63 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [26](https://github.com/ovirt/ovirt-site/issues) | 72 | 295 |
@@ -21,31 +21,30 @@
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 1 | 2 |
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | oVirt Python SDK | [5](https://github.com/ovirt/ovirt-engine-sdk/issues) | 80 | 79 |
 | [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | oVirt Engine API Model | [5](https://github.com/ovirt/ovirt-engine-api-model/issues) | 18 | 30 |
-| [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 20 | 26 |
 | [ovirt-dwh](https://github.com/oVirt/ovirt-dwh) | oVirt Engine Data Warehouse | [4](https://github.com/ovirt/ovirt-dwh/issues) | 6 | 21 |
+| [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 20 | 26 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [3](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 2 | 2 |
-| [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [2](https://github.com/ovirt/java-client-kubevirt/issues) | 8 | 4 |
-| [ost-images](https://github.com/oVirt/ost-images) | qcow images for OST | [2](https://github.com/ovirt/ost-images/issues) | 3 | 8 |
-| [vdsm-jsonrpc-java](https://github.com/oVirt/vdsm-jsonrpc-java) | JSON RPC Java client for oVirt | [2](https://github.com/ovirt/vdsm-jsonrpc-java/issues) | 7 | 9 |
-| [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | cockpit-ovirt: oVirt plugin for Cockpit Project | [2](https://github.com/ovirt/cockpit-ovirt/issues) | 11 | 14 |
 | [ovirt-ansible-dpdk-setup](https://github.com/oVirt/ovirt-ansible-dpdk-setup) | Ansible role to deploy Open vSwitch with DPDK support | [2](https://github.com/ovirt/ovirt-ansible-dpdk-setup/issues) | 8 | 4 |
+| [ost-images](https://github.com/oVirt/ost-images) | qcow images for OST | [2](https://github.com/ovirt/ost-images/issues) | 3 | 8 |
+| [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | cockpit-ovirt: oVirt plugin for Cockpit Project | [2](https://github.com/ovirt/cockpit-ovirt/issues) | 11 | 14 |
+| [vdsm-jsonrpc-java](https://github.com/oVirt/vdsm-jsonrpc-java) | JSON RPC Java client for oVirt | [2](https://github.com/ovirt/vdsm-jsonrpc-java/issues) | 7 | 9 |
 | [ovirt-engine-ui-extensions](https://github.com/oVirt/ovirt-engine-ui-extensions) | UI Plugins that provides various extensions to the oVirt Administration Portal. | [2](https://github.com/ovirt/ovirt-engine-ui-extensions/issues) | 5 | 15 |
 | [openshift-status-cachet](https://github.com/oVirt/openshift-status-cachet) |  | [2](https://github.com/ovirt/openshift-status-cachet/issues) | 1 | 1 |
 | [ocp-on-ovirt](https://github.com/oVirt/ocp-on-ovirt) | this repo contains all the tools and automations for ocp-on-rhv CI. | [2](https://github.com/ovirt/ocp-on-ovirt/issues) | 9 | 9 |
-| [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [1](https://github.com/ovirt/ovirt-release/issues) | 8 | 12 |
-| [v2v-conversion-host](https://github.com/oVirt/v2v-conversion-host) |  | [1](https://github.com/ovirt/v2v-conversion-host/issues) | 9 | 21 |
-| [infra-puppet](https://github.com/oVirt/infra-puppet) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-puppet/issues) | 1 | 1 |
+| [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [2](https://github.com/ovirt/java-client-kubevirt/issues) | 8 | 4 |
 | [ovirt-engine-sdk-ruby](https://github.com/oVirt/ovirt-engine-sdk-ruby) | Ruby gem that simplyfies access to the oVirt Engine API; for issues use http://bugzilla.redhat.com. | [1](https://github.com/ovirt/ovirt-engine-sdk-ruby/issues) | 18 | 9 |
-| [ovirt-hosted-engine-setup](https://github.com/oVirt/ovirt-hosted-engine-setup) | Hosted Engine setup tool for the oVirt project. For issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-hosted-engine-setup/issues) | 16 | 29 |
-| [ovirt-tinycore-linux](https://github.com/oVirt/ovirt-tinycore-linux) | oVirt TinyCore Linux distro | [1](https://github.com/ovirt/ovirt-tinycore-linux/issues) | 1 | 2 |
 | [jenkins](https://github.com/oVirt/jenkins) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/jenkins/issues) | 15 | 9 |
+| [infra-puppet](https://github.com/oVirt/infra-puppet) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-puppet/issues) | 1 | 1 |
+| [ovirt-tinycore-linux](https://github.com/oVirt/ovirt-tinycore-linux) | oVirt TinyCore Linux distro | [1](https://github.com/ovirt/ovirt-tinycore-linux/issues) | 1 | 2 |
+| [ovirt-hosted-engine-setup](https://github.com/oVirt/ovirt-hosted-engine-setup) | Hosted Engine setup tool for the oVirt project. For issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-hosted-engine-setup/issues) | 16 | 29 |
+| [v2v-conversion-host](https://github.com/oVirt/v2v-conversion-host) |  | [1](https://github.com/ovirt/v2v-conversion-host/issues) | 9 | 21 |
 | [ovirt-mirrorchecker](https://github.com/oVirt/ovirt-mirrorchecker) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-mirrorchecker/issues) | 2 | 0 |
 | [go-ovirt-client-log-klog](https://github.com/oVirt/go-ovirt-client-log-klog) | klog adapter for the oVirt client logger | [1](https://github.com/ovirt/go-ovirt-client-log-klog/issues) | 1 | 0 |
 | [ovirt-ansible-remote-db](https://github.com/oVirt/ovirt-ansible-remote-db) | Ansible role to install oVirt engine and dwh database on remote machine. | [1](https://github.com/ovirt/ovirt-ansible-remote-db/issues) | 1 | 1 |
 | [repoman](https://github.com/oVirt/repoman) | Manage artifact repositories | [1](https://github.com/ovirt/repoman/issues) | 4 | 3 |
+| [infra-ansible](https://github.com/oVirt/infra-ansible) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-ansible/issues) | 1 | 2 |
 | [ovirt-appliance](https://github.com/oVirt/ovirt-appliance) | Appliance for oVirt Engine: an OVA shipping CentOS Stream and oVirt Engine, wrapped in an RPM. | [1](https://github.com/ovirt/ovirt-appliance/issues) | 12 | 20 |
 | [ovirt-engine-sdk-java](https://github.com/oVirt/ovirt-engine-sdk-java) | The oVirt Java SDK | [1](https://github.com/ovirt/ovirt-engine-sdk-java/issues) | 18 | 17 |
-| [infra-ansible](https://github.com/oVirt/infra-ansible) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-ansible/issues) | 1 | 2 |
 | [ovirt-dependencies](https://github.com/oVirt/ovirt-dependencies) | dependencies for the oVirt engine, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-dependencies/issues) | 2 | 4 |
 | [mom](https://github.com/oVirt/mom) | oVirt Memory Overcommitment Manager, a tool for managing overcommitment on KVM hosts. For issues use https://bugzilla.redhat.com/enter_bug.cgi?product=mom | [1](https://github.com/ovirt/mom/issues) | 14 | 13 |
 | [ovirt-engine-extension-aaa-ldap](https://github.com/oVirt/ovirt-engine-extension-aaa-ldap) | oVirt Engine AAA LDAP Extension | [1](https://github.com/ovirt/ovirt-engine-extension-aaa-ldap/issues) | 11 | 12 |

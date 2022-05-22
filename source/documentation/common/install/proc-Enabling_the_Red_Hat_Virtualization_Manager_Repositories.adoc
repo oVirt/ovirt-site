@@ -152,6 +152,18 @@ ifdef::ovirt-doc[]
 # dnf module -y enable mod_auth_openidc:2.3
 ----
 endif::ovirt-doc[]
+. Enable version 14 of the `nodejs` module:
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable nodejs:14
+----
+. Enable the `maven` module:
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable maven
+----
 . Synchronize installed packages to update them to the latest available versions.
 +
 [source,terminal,subs="normal"]

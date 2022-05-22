@@ -6,9 +6,13 @@ Detaching a storage domain from a data center stops the data center from associa
 
 Data, such as virtual machines and templates, remains attached to the storage domain.
 
-[NOTE]
+[WARNING]
 ====
-The `master` storage, if it is the last available storage domain, cannot be removed.
+Although it possible to remove the last master storage domain, this is not recommended.
+
+If the master storage domain is removed, it must be reinitialized.
+
+If the storage domain is reinitialized, all your data will be lost, and the storage domain might not find your disks again.
 ====
 
 

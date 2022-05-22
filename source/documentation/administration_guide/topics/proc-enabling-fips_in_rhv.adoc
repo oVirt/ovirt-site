@@ -13,59 +13,26 @@ You can set up Red Hat Virtualization to be compliant with the Federal Informati
 
 // If you enable FIPS mode in your entire environment, you can selectively provision virtual machines that are not FIPS-compliant. Other than those exceptions, all bare metal and virtual machines should have FIPS mode enabled, including the Manager machine, whether the Manager is installed as a self-hosted engine, or as a standalone Manager.
 
-You can create a FIPS-enabled bare metal machine in RHV 4.4 by either installing the operating system in FIPS mode, or by switching the system into FIPS mode after installing the operating system. However, you must switch to FIPS mode before installing and configuring RHV to avoid introducing system conflicts.
+You can create a FIPS-enabled bare metal machine in {virt-product-shortname} by either installing the operating system in FIPS mode, or by switching the system into FIPS mode after installing the operating system. However, you must switch to FIPS mode before installing and configuring {virt-product-shortname} to avoid introducing system conflicts.
 
 // You must enable FIPS in every host in the cluster where you plan to use VNC encryption.
 
 [IMPORTANT]
 ====
-Red Hat recommends installing Red Hat Enterprise Linux 8 with FIPS mode enabled as opposed to enabling FIPS mode later. Enabling FIPS mode during the installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
+Red Hat recommends installing {enterprise-linux-shortname} 8 with FIPS mode enabled as opposed to enabling FIPS mode later. Enabling FIPS mode during the installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
 ====
 
 = Enabling FIPS in a self-hosted engine
 
-To create a FIPS-enabled self-hosted engine in RHV version 4.4, link:{URL_downstream_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[deploy the self-hosted engine using the command line]. When the deployment script prompts `Do you want to apply a default OpenSCAP security profile?`, enter `Yes` and follow the on-screen instructions to select the _VPP - Protection Profile for Virtualization 1.0 for Red Hat Enterprise Linux Hypervisor (RHELH)_ profile.
+To create a FIPS-enabled self-hosted engine in {virt-product-shortname} version, link:{URL_downstream_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[deploy the self-hosted engine using the command line]. When the deployment script prompts `Do you want to enable FIPS?`, enter `Yes`.
 
-= Enabling FIPS in RHEL hosts and the standalone Manager
+= Enabling FIPS in {virt-product-shortname} hosts and the standalone Manager
 
-For information on switching a provisioned RHEL machine to FIPS mode, see link:{URL_rhel_docs_latest}html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening#switching-the-system-to-fips-mode_using-the-system-wide-cryptographic-policies[Switching the system to FIPS mode].
+For information on switching a provisioned {enterprise-linux-shortname} machine to FIPS mode, see link:{URL_rhel_docs_latest}html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening#switching-the-system-to-fips-mode_using-the-system-wide-cryptographic-policies[Switching the system to FIPS mode].
 
-For information on installing FIPS-enabled Red Hat Enterprise Linux (RHEL) hosts, see link:{URL_rhel_docs_latest}html/security_hardening/assembly_securing-rhel-during-installation-security-hardening#assembly_installing-a-rhel-8-system-with-fips-mode-enabled_securing-rhel-during-installation}[Installing a RHEL 8 system with FIPS mode enabled].
+For information on installing FIPS-enabled Red Hat Enterprise Linux ({enterprise-linux-shortname}) hosts and {hypervisor-fullname} ({hypervisor-shortname}), see link:{URL_rhel_docs_latest}html/security_hardening/assembly_securing-rhel-during-installation-security-hardening#assembly_installing-a-rhel-8-system-with-fips-mode-enabled_securing-rhel-during-installation}[Installing a {enterprise-linux-shortname} 8 system with FIPS mode enabled].
 
 Both of these topics are in the _Security hardening_ guide for Red Hat Enterprise Linux 8.
-
-= Enabling FIPS in RHVH
-
-These instructions describe installing Red Hat Virtualization Host (RHVH) in FIPS mode.
-
-For information on switching a provisioned RHVH machine to FIPS mode, see link:{URL_rhel_docs_latest}html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening#switching-the-system-to-fips-mode_using-the-system-wide-cryptographic-policies[Switching the system to FIPS mode] in _Security hardening_ for Red Hat Enterprise Linux 8.
-
-[NOTE]
-====
-RHVH ships as a single system image. If you select additional security profiles whose packages are not part of this system image, it may not be possible to install them. Please see the RHVH package manifest for a list of included packages.
-====
-
-.Procedure
-
-. Download and begin installing a Red Hat Virtualization Host (RHVH).
-
-. When the installer displays *Installation Summary*, click *Security Policy*.
-
-. Click the *VPP - Protection Profile for Virtualization 1.0 for Red Hat Enterprise Linux Hypervisor (RHELH)* profile.
-
-. Set *Apply security policy* to *On*, click btn:[Select profile], and click btn:[Done].
-
-. On the *Installation Summary* screen, verify that the status of *Security Policy* is *Everything okay* and complete the installation process.
-
-.Verification
-
-Verify that FIPS is enabled by entering the command `fips-mode-setup --check` on the host. The command should return `FIPS mode is enabled`:
-
-[source,terminal,subs="normal"]
-----
-# fips-mode-setup --check
-FIPS mode is enabled.
-----
 
 .Additional resources
 

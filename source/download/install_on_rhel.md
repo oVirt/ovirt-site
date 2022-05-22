@@ -20,6 +20,13 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 rpm -i --justdb --nodeps --force "http://mirror.centos.org/centos/8-stream/BaseOS/$(rpm --eval '%_arch')/os/Packages/centos-stream-release-8.6-1.el8.noarch.rpm"
 ```
 
+Specific to Rocky Linux only:
+```bash
+# On Rocky there's an issue with centos-release-nfv package from extras
+dnf install -y dnf-plugins-core
+dnf config-manager --set-disabled extras
+```
+
 Common to RHEL 8.6 and derivatives:
 
 ```bash

@@ -158,12 +158,23 @@ endif::ovirt-doc[]
 ----
 # dnf module -y enable nodejs:14
 ----
+ifdef::rhv-doc[]
 . Enable the `maven` module:
 [source,terminal,subs="normal"]
 +
 ----
-# dnf module -y enable maven
+# dnf module -y enable maven:3.5
 ----
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+. Enable the `maven` module:
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable maven:3.6
+----
+endif::ovirt-doc[]
+
 . Synchronize installed packages to update them to the latest available versions.
 +
 [source,terminal,subs="normal"]

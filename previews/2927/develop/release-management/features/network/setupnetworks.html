@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SetupNetworks | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="SetupNetworks" />
+<meta name="author" content="Danny Rankevich" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2927/develop/release-management/features/network/setupnetworks.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2927/develop/release-management/features/network/setupnetworks.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SetupNetworks" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Danny Rankevich" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Danny Rankevich"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"SetupNetworks","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2927/images/logo.svg"},"name":"Danny Rankevich"},"url":"https://ovirt.github.io/ovirt-site/previews/2927/develop/release-management/features/network/setupnetworks.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2927/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2927/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2927/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2927/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2927/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2927/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2927/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2927/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2927/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/a6d93107c253beece217ec0c2ae8d453?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/a6d93107c253beece217ec0c2ae8d453?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Danny Rankevich</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Kolesnic</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Kaul</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2927/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="setup-networks">Setup Networks</h1>
+
+<h2 id="network-features-design">Network features design</h2>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Roy Golan</li>
+  <li>Email: <a href="mailto:rgolan@redhat.com">rgolan@redhat.com</a></li>
+</ul>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>Setup networks api will enable complex network provisioning of a host i.e. add/remove/bond network with a single call.
+ Hereby we describe code POV changes for Engine as well as VDSM API implications.</p>
+
+<h4 id="scope">Scope</h4>
+
+<ol>
+  <li>add/remove network/s</li>
+  <li>add/remove bond/s</li>
+  <li>attach/detach networks to/from bonds</li>
+  <li><strong>check connectivity &amp; connectivity timeout:</strong>
+after the new topology layed by VDSM, it tests if any client(i.e engine) has interacted with it in a given period timeout.
+ When no activity seen, it reverts to the previously backed-up topology and fail the command.</li>
+  <li><strong>force:</strong> VDSM will not validate parameters passed to set the network configuration.</li>
+</ol>
+
+<h4 id="backward-compatibility">Backward compatibility</h4>
+
+<p>Cluster version is 3.1. Add record in the action_version_map table:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>action_id</th>
+      <th>cluster_minimal_version</th>
+      <th>storage_pool_minimal_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>158</td>
+      <td>3.1</td>
+      <td>3.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="setup-networks-sequence-diagram">Setup Networks sequence diagram</h4>
+
+<p><img src="/ovirt-site/previews/2927/images/wiki/Diagram1.png" alt="File:Diagram1.png" /></p>
+
+<h4 id="added-classes">Added classes</h4>
+
+<ol>
+  <li>SetupNetworksCommand.java</li>
+  <li>SetupNetworksVdsCommand.java</li>
+  <li>SetupNetworksCommandParameters.java</li>
+  <li>SetupNetworksVdsCommandParameters.java</li>
+</ol>
+
+<h5 id="class-diagram">Class Diagram</h5>
+
+<p><img src="/ovirt-site/previews/2927/images/wiki/SetupNetworksClassDiagram.png" alt="File:SetupNetworksClassDiagram.png" /></p>
+
+<h3 id="vdsm">VDSM</h3>
+
+<h5 id="api">API</h5>
+
+<p><strong>configNetwork.py</strong> `  def setupNetworks(networks={}, bondings={}, **options):`</p>
+
+<p>from the python doc</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Add/Edit/Remove configuration for networks and bondings.     Params:         networks - dict of key=network, value=attributes                    where 'attributes' is a dict with the following optional items:                         vlan=                         bonding="" | nic=""                         (bonding and nics are mutually exclusive)                         ipaddr=""                         netmask=""                         gateway=""                         bootproto="..."                         delay="..."                         onboot="yes"|"no"                         (other options will be passed to the config file AS-IS)                         -- OR --                         remove=True (other attributes can't be specified)         bondings - dict of key=bonding, value=attributes                    where 'attributes' is a dict with the following optional items:                         nics=["" , "", ...]                         options=""                         -- OR --                         remove=True (other attributes can't be specified)         options - dict of options, such as:                         force=0|1                         connectivityCheck=0|1                         connectivityTimeout=                         explicitBonding=0|1     Notes:         Bondings are removed when they change state from 'used' to 'unused'.          By default, if you edit a network that is attached to a bonding, it's not         necessary to re-specify the bonding (you need only to note the attachement         in the network's attributes). Similarly, if you edit a bonding, it's not         necessary to specify its networks.         However, if you specify the 'explicitBonding' option as true, the function         will expect you to specify all networks that are attached to a specified         bonding, and vice-versa, the bonding attached to a specified network. 
+</code></pre></div></div>
+
+<p>The changes we need to communicate are in the “network” structure for bridge and MTU fields</p>
+
+<p><strong>network business entity</strong></p>
+
+<p><img src="/ovirt-site/previews/2927/images/wiki/Diagram2.png" alt="File:Diagram2.png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> note:  integer types are serialized to an xml String type on the wire - its up to the VDSM network dict to handle.
+</code></pre></div></div>
+
+<h5 id="error-codes">Error codes</h5>
+
+<ul>
+  <li>ERR_BAD_PARAMS = 21
+    <ul>
+      <li>Cannot specify any attribute when removing</li>
+      <li>Don’t specify both nic and bonding</li>
+      <li>Must specify either nic or bonding</li>
+      <li>Must specify nics for bonding</li>
+      <li>Network %s requires unspecified bonding</li>
+      <li>Bonding %s is associated with unspecified network</li>
+      <li>No action specified</li>
+      <li>No action specified</li>
+      <li>Unknown action specified</li>
+    </ul>
+  </li>
+  <li>ERR_BAD_ADDR = 22
+    <ul>
+      <li>Bad IP address</li>
+      <li>IP address is already in use</li>
+      <li>Bad netmask</li>
+      <li>Bad gateway</li>
+      <li>Must specify netmask to configure ip for bridge</li>
+      <li>Specified netmask or gateway but not ip</li>
+      <li>Must specify netmask to configure ip for bridge</li>
+      <li>Specified netmask or gateway but not ip</li>
+      <li>Bad IP address</li>
+    </ul>
+  </li>
+  <li>ERR_BAD_NIC = 23
+    <ul>
+      <li>not all nics are enslaved</li>
+      <li>unknown nic</li>
+      <li>delNetwork: nics are not all nics enslaved to bond</li>
+      <li>unknown nic</li>
+      <li>unknown nics</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>ERR_USED_NIC = 24
+    <ul>
+      <li>nic is already bound to bridge</li>
+      <li>nic already used by vlans</li>
+      <li>nic already enslaved to bonds</li>
+      <li>Setup attached both network and bonding to nic</li>
+    </ul>
+  </li>
+  <li>ERR_BAD_BONDING = 25
+    <ul>
+      <li>is not a valid bonding device name</li>
+      <li>Bonding options specified without bonding</li>
+      <li>bonding is already member of bridge</li>
+      <li>bonding already has members</li>
+      <li>multiple nics require a bonding device</li>
+      <li>Cannot remove bonding Doesn't exist’</li>
+      <li>Nic is attached to two different bondings in setup</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>ERR_BAD_VLAN = 26
+    <ul>
+      <li>vlan id out of range</li>
+      <li>vlan id is not a number</li>
+    </ul>
+  </li>
+  <li>ERR_BAD_BRIDGE = 27
+    <ul>
+      <li>bridge doesn’t exist</li>
+    </ul>
+  </li>
+  <li>ERR_USED_BRIDGE = 28
+    <ul>
+      <li>bridge is in use</li>
+    </ul>
+  </li>
+  <li>ERR_LOST_CONNECTION = 10
+    <ul>
+      <li>client is not seed during check_connectivity lapse</li>
+    </ul>
+  </li>
+</ul>
+
+<h6 id="structure">structure</h6>
+
+<p>Callers should be able to tell which network attribute is making the problem</p>
+
+<p>e.g the network’s vlan configuration is not valid</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  26
+  ERR_BAD_VLAN
+  vlan id {network.vlan_id} for network {network.name} must be a number
+
+   Yellow
+   3oo
+</code></pre></div></div>
+
+<h3 id="gui">GUI</h3>
+
+<p><img src="/ovirt-site/previews/2927/images/wiki/General.png" alt="File:general.png" /> <img src="/ovirt-site/previews/2927/images/wiki/More_cases.png" alt="File:more_cases.png" /></p>
+
+<h3 id="ui-alternative-suggestion">UI Alternative Suggestion</h3>
+
+<p>I would like to describe a suggestion for a dialog, where the state of the network elements will be described using Blocks and Links.</p>
+
+<p>The Networking Elements here are taken from the RHEV Technical guide: <a href="https://web.archive.org/web/20120331001716/http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html">RHEV Technical Reference Guide</a></p>
+
+<p>The UI Blocks describe the following networking elements: (Each element will be represented by a block, with a specific color)</p>
+
+<ol>
+  <li>Network Interface Card (NIC) (eth0, eth1)</li>
+  <li>Bond between two or more network Interfaces (bond01, bond1)</li>
+  <li>Virtual Network (either bridge or bridgeless)</li>
+  <li>VLAN on one Virtual Network.</li>
+</ol>
+
+<ul>
+  <li>Blocks can be connected to each-other by a visible line.</li>
+  <li>The scenarios for connecting block are specified below</li>
+  <li>Dbl-click or Click on each block will open it’s setting dialog.</li>
+  <li>A block that can be removed (like a bond, or a VLAN) will have a red X icon.</li>
+  <li>A line can be removed by right clicking on it.</li>
+  <li>Lines will be automatically removed when their connecting elements are deleted.</li>
+  <li>There is a possibility to reconnect lines when they are automatically deleted (when a bond is removed, reconnect the line to one of the unbonded NICs).</li>
+</ul>
+
+<h4 id="what-cannot-be-connected">What cannot be connected</h4>
+
+<p>The connection of the following elements will be prevented:</p>
+
+<ol>
+  <li>Connecting a Network with no VLAN to a NIC/Bond that is already connected to a Network.</li>
+  <li>Connecting a Network to a NIC/Bond that is already connected to a Bridgeless Network</li>
+</ol>
+
+<h4 id="what-can-be-connected">What can be connected</h4>
+
+<p>It will be possible to drag blocks on one another. The following connections are supported:</p>
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Drag Action</th>
+<th align="left">Result</th>
+<th align="left">Illustration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Drag a Network on a NIC, Drag a NIC on a Network</td>
+<td align="left">Create a connection between the NIC and the Bridge</td>
+<td align="left">1-3</td>
+</tr>
+<tr class="even">
+<td align="left">Right-click on the Network?</td>
+<td align="left">Create a VLAN on the Logical Network</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Drag a VLAN/Network on a NIC, Drag a NIC on a VLAN/Network</td>
+<td align="left">Create a connection between the NIC and the VLAN</td>
+<td align="left">4-6</td>
+</tr>
+<tr class="even">
+<td align="left">Drag an unbonded NIC onto another unbonded NIC</td>
+<td align="left">Create a new Bond element for the two NICS</td>
+<td align="left">7,8</td>
+</tr>
+<tr class="odd">
+<td align="left">Drag a Bond on a VLAN/Network</td>
+<td align="left">Create a connection between the Bond and the VLAN/Network</td>
+<td align="left">11</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="images">Images</h4>
+
+<h3 id="new-setup-networks-mockup">New Setup Networks Mockup</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/2927/images/wiki/SetupNetworksNew.png" alt="File:SetupNetworksNew.png" /></p>
+
+<p><img src="/ovirt-site/previews/2927/images/wiki/Mockup-rollover-notfinish.png" alt="File:Mockup-rollover-notfinish.png" /></p>
+
+<h3 id="rest">REST</h3>
+
+<h4 id="resource-representation">Resource representation</h4>
+
+<h5 id="scheme">Scheme</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   POST
+
+     Content-Type
+     application/xml|json
+
+    Action
+
+     action.host_nics.host_nic
+
+       host_nic.network.id|name
+       host_nic.name
+       host_nic.ip.gateway
+       host_nic.boot_protocol
+       host_nic.mac
+       host_nic.ip.address
+       host_nic.ip.netmask
+       host_nic.bonding.options.option
+
+        option.name
+        option.value
+        option.type
+
+    bonding.slaves.host_nic
+
+      host_nic.name|id
+
+    action.checkConnectivity
+    action.connectivityTimeout
+    action.force
+
+   Response
+</code></pre></div></div>
+
+<h4 id="ssage">Ssage</h4>
+
+<h5 id="attaching-a-network-to-a-nic">Attaching a network to a NIC</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> POST /api/hosts/{host:id}/nics/setupnetworks
+
+        em1
+
+        dhcp
+
+    true
+    60
+    false
+</code></pre></div></div>
+
+<h5 id="attaching-several-vland-networks-to-a-nic">Attaching several (VLAN’d) networks to a NIC</h5>
+
+<p>The expected VLAN device should be sent with the parameters of the network which is created, in addition to the NIC that the network is being added on.</p>
+
+<p>The expected name for this device is: NIC_NAME.VLAN_ID</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> POST /api/hosts/{host:id}/nics/setupnetworks
+
+        em1
+
+        em1.100
+
+            vlan100
+
+        dhcp
+
+        em1.200
+
+            vlan200
+
+        dhcp
+
+    true
+    60
+    false
+</code></pre></div></div>
+
+<h3 id="open-issues">Open issues</h3>
+
+<ol>
+  <li>input validation: whats the MTU max value? how do we calculate it?</li>
+</ol>
+
+<p>A (ykaul): You don’t know what the MTU max value is. Theoretically, around 9000 bytes, perhaps 9216 in some cases. Practically, some interfaces may support less, some may (in the future?) support more. The max. frame size is vendor-dependent. I wouldn’t bother with limiting it. Note also that since it’s interface specific (hw+firmware+driver), no validation would really work apart from setting it up for real and hoping for an error code if it’s not supported.</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2927/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2927/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2927/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2927/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/setupnetworks.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/setupnetworks.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

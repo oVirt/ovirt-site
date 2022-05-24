@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MaterializedViews | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="MaterializedViews" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2927/develop/developer-guide/db-issues/materializedviews.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2927/develop/developer-guide/db-issues/materializedviews.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MaterializedViews" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"MaterializedViews","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2927/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2927/develop/developer-guide/db-issues/materializedviews.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2927/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2927/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2927/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2927/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2927/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2927/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2927/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2927/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2927/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2927/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2927/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2927//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2927/develop/developer-guide/db-issues/">
+              <span property="name">Db Issues</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="materialized-views">Materialized Views</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>A materialized view is a table that actually contains rows, but behaves like a view. That is, the data in the table changes when the data in the underlying tables changes. There are several different types of materialized views:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     `**`Snapshot` `materialized` `views`**` are the simplest to implement. They are only updated when manually refreshed.
+     `**`Eager` `materialized` `views`**` are updated as soon as any change is made to the database that would affect it. Eagerly updated materialized views may have incorrect data if the view it is based on has dependencies on mutable functions like now().
+     `**`Lazy` `materialized` `views`**`' are updated when the transaction commits. They too may fall out of sync with the base view if the view depends on mutable functions like now().
+     `**`Very` `Lazy` `materialized` `views`**` are functionally equivalent to Snapshot materialized views. 
+     The only difference is that changes are recorded incrementally and applied when the table is manually refreshed.
+     (This may be faster than a full snapshot upon refresh.) 
+</code></pre></div></div>
+
+<p><strong>In this document we will only discuss the Snapshot Materialized Views implementation.</strong></p>
+
+<h2 id="why-materialized-views-">Why Materialized Views ?</h2>
+
+<p>Before we get too deep into how to implement materialized views, let’s first examine why we may want to use materialized views. You may notice that certain queries are very slow. You may have exhausted all the techniques in the standard bag of techniques to speed up those queries. In the end, you realize that getting the queries to run as fast as you like simply isn’t possible without completely restructuring the data. What you end up doing is storing pre-queried bits of information so that you don’t have to run the real query when you need the data. This is typically called “caching” outside of the database world. What you are really doing is creating a materialized view. You are taking a view and turning it into a real table that holds real data, rather than a gateway to a SELECT query.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>Candidates for Snapshot Materialized Views are views that are based on slowly-changing data. The Snapshot Materialized Views is actually functioning as a cache. The Snapshot Materialized View is refreshed per request. The Snapshot Materialized View definitions are stored in the materialized_views table.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         Column        |           Type           |     Modifiers      
+   ---------------------+--------------------------+--------------------
+  mv_name                 | name                     | not null
+  v_name                  | name                     | not null
+  refresh_rate_in_sec     | integer                  | 
+  last_refresh            | timestamp with time zone | 
+  avg_cost_ms             | integer                  | not null default 0
+  min_refresh_rate_in_sec | integer                  | default 0
+  custom                  | boolean                  | default false
+  active                  | boolean                  | default true
+</code></pre></div></div>
+
+<p><strong>mv_name</strong> is the Materialized View name
+<strong>v_name</strong> is the original view name on which mv_name is based
+<em>’ refresh_rate_in_sec</em>’ is the Materialized View refresh rate in seconds
+<em>’ last_refresh</em>’ is the timestamp of the last refresh
+<strong>avg_cost_ms</strong> is the average cost of a refresh operation on the Materialized View in miliseconds.
+<strong>\1</strong> is the min refresh rate allowed when refresh is called with teh force flag
+<strong>custom</strong> is a flag indicating if a Materialized View is custom
+<strong>active</strong> is a flag indicating if a Materialized View is active</p>
+
+<h2 id="flow">Flow</h2>
+
+<p>1) Create the Materialized View by calling:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    `**`CreateMaterializedView`**` - if you are creating a new product view
+    `**`CreateMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new product  Materialized View will have the original  view name.
+    `**`CreateCustomMaterializedView`**` - if you are creating a new custom view
+    `**`CreateCustomMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new custom  Materialized View will have the original  view name.
+</code></pre></div></div>
+
+<p>2) If your Snapshot Materialized View is my_mt you should create Stored Procedures:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     MtDropmy_mtIndexes - Drops indexes on my_mt
+     MtCreatemy_mtIndexes - Creates needed indexes on my_mt
+     Those indexes should be defined in the "Snapshot Materialized Views Index Definitions Section"
+     in post_upgrade/0020_create_materialized_views.sql file.
+</code></pre></div></div>
+
+<p>Those SP are called automatically when a Snapshot Materialized View is refreshed to boost refresh performance. 3) You can call <strong>IsMaterializedViewRefreshed</strong> to check if it is time to refresh the view and if yes call <strong>RefreshMaterializedView</strong> manually.
+or
+You can define a cron job that calls <strong>RefreshAllMaterializedViews</strong> that loops over all Snapshot Materialized Views and refreshes it automatically
+ <strong>RefreshAllMaterializedViews</strong> recieves a boolean v_force flag, Please set this flag to false when calling it from a cron job</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    in order to update the materialized views only when needed.
+    (This SP is called with v_force = true after create/upgrade DB)
+</code></pre></div></div>
+
+<p>There are 4 additional functions :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    `**`CreateAllMaterializedViewsiIndexes`**` - Creates indexes for all Snapshot Materialized views
+    `**`DropMaterializedView`**` - Drops the Materialized View
+    `**`DropAllMaterializedViews`**` - Drop all Materialized Views
+    `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
+    `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
+    `**`UpdateMaterializedViewMinRefreshRate`**` - Updates the Materialized View minimal refresh rate
+    `**`ActivateMaterializedView`**` - activates/decativates a  Materialized View
+    `**`ActivateAllMaterializedViews`**` - activates/decativates all Materialized Views
+</code></pre></div></div>
+
+<h3 id="example-of-possible-post_upgrade0020_create_materialized_viewssql">Example of possible post_upgrade/0020_create_materialized_views.sql</h3>
+
+<p>This file includes only product Materialized Views for Custom Materialized Views please refer to the <strong>Customization</strong> section
+ /******************************************************************************************************</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                           Snapshot Materialized Views Definitions Section
+  ******************************************************************************************************/
+  select CreateMaterializedViewAs('vms', 300);
+  /******************************************************************************************************
+                           Snapshot Materialized Views Index Definitions Section
+  ******************************************************************************************************/
+  create or replace function MtCreatevmsIndexes()
+  returns void
+  as $procedure$
+  begin
+  create index vms_index on vms (vm_guid);
+  end; $procedure$
+  language plpgsql;
+  create or replace function MtDropvmsIndexes()
+  returns void
+  as $procedure$
+  begin
+  drop index if exists vms_index cascade;
+  end; $procedure$
+  language plpgsql;
+  select RefreshMaterializedView('vms');
+</code></pre></div></div>
+
+<h2 id="upgrade">Upgrade</h2>
+
+<p>When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade step in order to reflect any change that may be done in the original views. The Materilized Views are recreated in the post-upgrade step insuring that after the upgrade the Materilized Views are updated and play the same role as before it. <strong>NOTE : Materialized Views are automatically refreshed upon create/upgrade</strong></p>
+
+<h2 id="customization">Customization</h2>
+
+<p>In addition, you can create a file named create_materialized_views.sql under dbscripts/upgrade/post_upgrade/custom/ This file may include other custom materialized views settings and is executed by the create/upgrade database scripts.</p>
+
+<p><strong>NOTE: If from any reason you want to drop a Snapshot Materialized View that was setup in the product context, you can always do that by calling DropMaterializedView in create_materialized_views.sql</strong></p>
+
+<p>If create_materialized_views.sql is executed manually :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   1) verify that the the user that runs the psql is engine so the objects created will have the same credentials
+   2) the custom dir and create_materialized_views.sql file under it should have the following permissions 
+
+   drwxr-xr-x 2 root root  custom
+   -rw-r--r-- 1 root root  create_materialized_views.sql
+</code></pre></div></div>
+
+<h3 id="example">Example</h3>
+
+<p>This is an example of how <strong>\1</strong> may look like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /******************************************************************************************************
+                           Snapshot Materialized Views Definitions Section
+  ******************************************************************************************************/
+  select CreateCustomMaterializedViewAs('vds', 300);
+  /******************************************************************************************************
+                           Snapshot Materialized Views Index Definitions Section
+  ******************************************************************************************************/
+  create or replace function MtCreatevdsIndexes()
+  returns void
+  as $procedure$
+  begin
+  create index vds_index2 on vds (vds_id);
+  end; $procedure$
+  language plpgsql;
+  create or replace function MtDropvdsIndexes()
+  returns void
+  as $procedure$
+  begin
+  drop index if exists vds_index2 cascade;
+  end; $procedure$
+  language plpgsql;
+  select RefreshMaterializedView('vds');
+</code></pre></div></div>
+
+<h2 id="schedule">Schedule</h2>
+
+<p>The simplest way to schedule all Materialized Views updates is via a <strong>cron</strong> job that will perform the following command</p>
+
+<p>`  psql -U <code class="language-plaintext highlighter-rouge">&lt;user&gt;</code> -c “select RefreshAllMaterializedViews(false);” `<db></db></p>
+
+<p>You can also call</p>
+
+<p>` psql -U <code class="language-plaintext highlighter-rouge">&lt;user&gt;</code> -c “select RefreshAllMaterializedViews(true);” `<db></db></p>
+
+<p>In this case all Materialized Views will be refreshed but if for example the crom run every minute and the minimun update rate for a view is 5 minutes, the minimum update rate is honored(so, in this example this view will be updated once in each 5 cron invocation of teh refresh SP.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2927/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2927/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2927/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2927/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/db-issues/materializedviews.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/db-issues/materializedviews.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

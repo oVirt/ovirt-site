@@ -2,6 +2,6 @@
 [id="Introduction"]
 = Introduction
 
-The Release Notes provide a high-level description of improvements and additions that have been implemented in {virt-product-fullname} {vernum_rhv}.
+The Release Notes provide a high-level description of improvements and additions that have been implemented in {virt-product-fullname} {vername_rhv}.
 
 {virt-product-fullname} is an enterprise-grade server and desktop virtualization platform built on {enterprise-linux}. See the link:{URL_virt_product_docs}{URL_format}product_guide/[Product Guide] for more information.

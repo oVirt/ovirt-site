@@ -1,7 +1,7 @@
 <title>Product Guide</title>
 <productname>Red Hat Virtualization</productname>
 <productnumber>{vernum_rhv}</productnumber>
-<subtitle>Introduction to Red Hat Virtualization {vernum_rhv}</subtitle>
+<subtitle>Introduction to Red Hat Virtualization {vername_rhv}</subtitle>
 <abstract><para>This document provides an introduction to Red Hat Virtualization.</para>
 <!--<para>{beta-disclaimer}</para>--></abstract>
 <authorgroup id="Author_Group">

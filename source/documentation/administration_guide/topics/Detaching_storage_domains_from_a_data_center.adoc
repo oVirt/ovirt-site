@@ -8,9 +8,9 @@ Data, such as virtual machines and templates, remains attached to the storage do
 
 [WARNING]
 ====
-Although it possible to remove the last master storage domain, this is not recommended.
+Although it possible to detach the last master storage domain, this is not recommended.
 
-If the master storage domain is removed, it must be reinitialized.
+If the master storage domain is detached, it must be reinitialized.
 
 If the storage domain is reinitialized, all your data will be lost, and the storage domain might not find your disks again.
 ====

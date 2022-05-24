@@ -646,7 +646,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 <div class="sect3">
 <h4 id="Memory_Requirements_SM_remoteDB_deploy">2.2.2. Memory Requirements</h4>
 <div class="paragraph">
-<p>The minimum required RAM is 2 GB. The maximum supported RAM per VM in oVirt Node is 4 TB.</p>
+<p>The minimum required RAM is 2 GB. For cluster levels 4.2 to 4.5, the maximum supported RAM per VM in oVirt Node is 6 TB. For cluster levels 4.6 to 4.7, the maximum supported RAM per VM in oVirt Node is 16 TB.</p>
 </div>
 <div class="paragraph">
 <p>However, the amount of RAM required varies depending on guest operating system requirements, guest application requirements, and guest memory activity and usage. KVM can also overcommit physical RAM for virtualized guests, allowing you to provision guests with RAM requirements greater than what is physically present, on the assumption that the guests are not all working concurrently at peak load. KVM does this by only allocating RAM for guests as required and shifting underutilized guests into swap.</p>
@@ -1404,6 +1404,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 </div>
 </li>
 <li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
+<li>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
@@ -1523,6 +1531,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>
@@ -2141,6 +2157,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>

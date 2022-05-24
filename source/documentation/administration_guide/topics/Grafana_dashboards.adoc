@@ -48,7 +48,7 @@ The following dashboards are available in the initial Grafana setup to report Da
 
 [NOTE]
 ====
-The Grafana dashboards includes direct links to the {virt-product-fullname}, allowing you to quickly view additional details for your clusters, hosts, and virtual machines. 
+The Grafana dashboards includes direct links to the {virt-product-fullname} Administration Portal, allowing you to quickly view additional details for your clusters, hosts, and virtual machines. 
 ====
 
 

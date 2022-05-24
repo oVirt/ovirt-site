@@ -2747,7 +2747,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <div class="sect2">
 <h3 id="Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_local_db">3.8. Replacing SHA-1 Certificates with SHA-256 Certificates</h3>
 <div class="paragraph">
-<p>oVirt 4.4 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
+<p>oVirt 4.4 SP1 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -4987,7 +4987,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <div class="sect2">
 <h3 id="Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_remote_db">6.9. Replacing SHA-1 Certificates with SHA-256 Certificates</h3>
 <div class="paragraph">
-<p>oVirt 4.4 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
+<p>oVirt 4.4 SP1 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -7193,7 +7193,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <div class="sect2">
 <h3 id="Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-2_SHE">9.10. Replacing SHA-1 Certificates with SHA-256 Certificates</h3>
 <div class="paragraph">
-<p>oVirt 4.4 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
+<p>oVirt 4.4 SP1 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable oVirt&#8217;s public key infrastructure (PKI) to use SHA-256 signatures.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -7443,6 +7443,20 @@ done</code></pre>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To update from your current version of 4.5 to the latest version of 4.5, update the Engine,  update the hosts, and then change the compatibility version for the cluster, virtual machines, and data center.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If upgrading from version 4.4.9 to a later version fails on oVirt Node, run the <code>dnf reinstall ovirt-node-ng-image-update</code> command to fix the issue.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>To update a standalone Engine, follow the standard procedure for minor updates:</p>
@@ -8447,7 +8461,7 @@ Release      : 1.0.el8
 <h2 id="ovirt-legal-notice">Appendix B: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/upgrade_guide/index">Red Hat Virtualization 4.4 Upgrade Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4 SP1/html-single/upgrade_guide/index[Red Hat Virtualization 4.4 SP1 Upgrade Guide]. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

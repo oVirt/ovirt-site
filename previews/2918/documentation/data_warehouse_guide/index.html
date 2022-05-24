@@ -362,6 +362,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 </div>
 </li>
 <li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
+<li>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
@@ -1660,12 +1668,6 @@ ovirt_engine_history=&gt;</pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">max_read_rate_bytes_per_second</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The maximum read rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">read_ops_per_second</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of read I/O operations per second to disk.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
@@ -3030,7 +3032,7 @@ ovirt_engine_history=&gt;</pre>
 <h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index">Red Hat Virtualization 4.4 Data Warehouse Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4 SP1/html-single/data_warehouse_guide/index[Red Hat Virtualization 4.4 SP1 Data Warehouse Guide]. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

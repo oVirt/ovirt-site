@@ -33,7 +33,7 @@ Add a new configuration file /etc/ovirt-engine/notifier/notifier.conf.d/99-snmp.
 
 Configuration for sending SNMPv3 NoAuthNoPriv traps as user 'NoAuthNoPriv'.
 
-      SNMP_MANAGERS=localhost
+      SNMP_MANAGERS=localhost:162
       SNMP_OID=1.3.6.1.4.1.2312.13.1.1
       FILTER="include:*(snmp:)"
       SNMP_VERSION=3
@@ -43,7 +43,7 @@ Configuration for sending SNMPv3 NoAuthNoPriv traps as user 'NoAuthNoPriv'.
 
 Configuration for sending SNMPv3 AuthNoPriv traps as user 'ovirtengine' with snmp auth passphrase 'authpass'.
 
-      SNMP_MANAGERS=localhost
+      SNMP_MANAGERS=localhost:162
       SNMP_OID=1.3.6.1.4.1.2312.13.1.1
       FILTER="include:*(snmp:)"
       SNMP_VERSION=3
@@ -55,7 +55,7 @@ Configuration for sending SNMPv3 AuthNoPriv traps as user 'ovirtengine' with snm
 
 Configuration for sending SNMPv3 AuthPriv traps as user 'ovirtengine'  with snmp auth passphrase 'authpass' and snmp priv passphrase 'privpass'.
 
-      SNMP_MANAGERS=localhost
+      SNMP_MANAGERS=localhost:162
       SNMP_OID=1.3.6.1.4.1.2312.13.1.1
       FILTER="include:*(snmp:)"
       SNMP_VERSION=3
@@ -91,6 +91,10 @@ Edit /etc/snmp/snmptrapd.conf to add the library specific directive in front of 
       # Log incoming traps to /var/log/snmptrapd.log
       [snmp] logOption f /var/log/snmptrapd.log
 
+You will have to change SELinux settings on /var/log/snmptrapd.log in order to get write permissions
+
+chcon -t snmpd_log_t /var/log/snmptrapd.log
+
 
 #### Create the users
 
@@ -115,7 +119,7 @@ edit /var/lib/net-snmp/snmptrapd.conf add creatUser to support version 3 traps
 
       # snmptrap -v 3 -n "" -l noAuthNoPriv -u NoAuthNoPriv -e 0x8000000001020606 localhost 0 linkUp.0
       # snmptrap -v 3 -n "" -a MD5 -A authpass -l authNoPriv -u ovirtengine -e 0x8000000001020505 localhost 0 linkUp.0
-      # snmptrap -v 3 -n "" -a MD5 -A authpass -x AES -X privpass -l authPriv -u engine -e 0x8000000001020505 localhost 0 linkUp.0
+      # snmptrap -v 3 -n "" -a MD5 -A authpass -x AES -X privpass -l authPriv -u ovirtengine -e 0x8000000001020505 localhost 0 linkUp.0
 
 
 #### See traps in /var/log/snmptrapd.log

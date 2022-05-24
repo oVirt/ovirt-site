@@ -34,8 +34,6 @@
 |write_rate_bytes_per_second |integer |Write rate to disk in bytes per second. |No
 |max_read_latency_seconds |numeric(18,9) |The maximum read latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
 |max_write_rate_bytes_per_second |integer |The maximum write rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
-|write_ops_per_second |bigint |The number of write I/O operations per second to disk.
-|No
 |write_ops_total_count |numeric(20,0) |Write I/O operations to disk since vm start.
 |No
 |write_latency_seconds |numeric(18,9) |The virtual disk write latency measured in seconds. |No

@@ -1,0 +1,482 @@
+=== Red Hat Virtualization 4.5 General Availability (ovirt-4.5.0-1)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1648985[1648985]::
+A user with SuperUser role can connect to a virtual machine in a VM-pool without having the VM assigned. Previously, this did not prevent other users from taking that VM, which resulted in closing the connected console and assigning the VM to a user with UserRole instead.
+In this release, users cannot take VMs that other users are connected to via a console. This prevents users with UserRole permissions from hijacking a VM that a user with SuperUser role is connected to.
+
+BZ#link:https://bugzilla.redhat.com/1687845[1687845]::
+Previously, displaying notifications for hosts activated from maintenance mode was done when the actual job activation "end time" was after the last displayed notification. But if there was a time difference between server and the browser, the job "end time" could be in the future.
+In this release, notifications rely only on the server time, and the job's "end time" is no longer compared to local browser time.  As a result, only one "Finish activating host" notification appears.
+
+BZ#link:https://bugzilla.redhat.com/1768969[1768969]::
+Previously, during self-hosted engine deployment, the tpgt value was not used in the iSCSI login, creating duplicate iSCSI sessions.
+IN this release, the tpgt value is used in the iSCSI login, and no duplicate iSCSI sessions are created.
+
+BZ#link:https://bugzilla.redhat.com/1810032[1810032]::
+Default value of network-filter for vnic-profile entity has been documented in REST API documentation.
+
+BZ#link:https://bugzilla.redhat.com/1834542[1834542]::
+yum proxy configuration was ignored while running engine-setup. Now engine-setup honor proxy configuration.
+
+BZ#link:https://bugzilla.redhat.com/1932149[1932149]::
+Previously, 'hosted-engine --deploy' always created the hosted storage domain in the default format, which is the latest, and deployment failed.
+With this release, the process now checks the compatibility version of the cluster/DC we deploy/restore to, and creates the storage domain with a proper format for their version. As a result, deploy/restore does not fail while creating the storage.
+
+BZ#link:https://bugzilla.redhat.com/1944290[1944290]::
+Previously, when trying to log in to Red Hat Virtualization VM Portal or Administration Portal with an expired password, the URL to change the password was not shown properly.
+In this release, when there is an expired password error, the following clickable link appears beneath the error message: "Click here to change the password". This link will redirect the user to the change password page: ".../ovirt-engine/sso/credentials-change.html".
+
+BZ#link:https://bugzilla.redhat.com/1959186[1959186]::
+Previously, there was no way to set a quota different from that of the template from the VM portal. Thus, if the user had no access to the quota on the template, the user could not provision VMs from the template using the VM portal.
+In this release, the Red Hat Virtualization Manager selects a quota that the user has access to, and not necessarily from the template, when provisioning VMs from templates using the VM portal.
+
+BZ#link:https://bugzilla.redhat.com/1971622[1971622]::
+Previously, when displaying the Host's Virtual Machines sub-tab, all virtual machines were marked with a warning sign.
+In this release, the warning sign is displayed correctly in the same way as on the Virtual Machines list page.
+
+BZ#link:https://bugzilla.redhat.com/1971863[1971863]::
+Cause: Queries of type 'ANY' are deprecated - RFC8482
+
+Consequence:
+Warning is issued when DNS does not respond at all:
+Failed to resolve FQDN using DNS, it can be
+resolved only locally
+
+Fix: package has been patched for do not use DNS query type ANY
+
+Result: no warning issues and FQDN is correctly resolved.
+
+BZ#link:https://bugzilla.redhat.com/1974741[1974741]::
+Previously, a bug in the finalization mechanism left the disk locked in the database.
+In this release, the finalization mechanism works correctly, and the disk remains unlocked in all scenarios.
+
+BZ#link:https://bugzilla.redhat.com/1979441[1979441]::
+Previously there was a warning that indicates the VM CPU is different than the cluster CPU for high performance virtual machines.
+With this release, the warning is not shown when CPU passthrough is configured, and as a result, not presented for high performance virtual machines.
+
+BZ#link:https://bugzilla.redhat.com/1986726[1986726]::
+When importing VM from OVA and setting the allocation policy to Preallocated, the disks were imported as Thin
+provisioned.
+In this release, the selected allocation policy is followed.
+
+BZ#link:https://bugzilla.redhat.com/1988496[1988496]::
+Previously, the vmconsole-proxy-helper certificate was not renewed when needed. With this release, the certificate is renewed each time following the CA certificate update.
+
+BZ#link:https://bugzilla.redhat.com/1991240[1991240]::
+Previously, there was no way to set a quota different from that of the template from the VM portal. Thus, if the user had no access to the quota on the template, the user could not provision VMs from the template using the VM portal.
+In this release, the Red Hat Virtualization Manager selects a quota that the user has access to, and not necessarily from the template, when provisioning VMs from templates using the VM portal.
+
+BZ#link:https://bugzilla.redhat.com/2000031[2000031]::
+Previously, host non-reponding treatment coould be called multiple times simultaneously.
+In this release, multiple calls to non-reponding treatment are prevented, and the host comes up much faster.
+
+BZ#link:https://bugzilla.redhat.com/2003996[2003996]::
+Previously, snapshots that represent VM next-run configuration were reported by ovirt-ansible but their type  was missing and they could not be removed.
+In this release, snapshots that represent VM next-run configuration are not reported to clients, including ovirt-ansible.
+
+BZ#link:https://bugzilla.redhat.com/2006745[2006745]::
+Previously, when trying to copy a template disk from/to a Managed Block Storage
+domain, the operation failed due to an incorrect storage domain ID, saving the same image repeatedly in the images (and base disks) DB tables, and casting the disk to DiskImage when it is of type ManagedBlockStorageDisk.
+In this release, all of the above issues were fixed, and copying a template disk from/to a Managed Block Storage domain works as expected.
+
+BZ#link:https://bugzilla.redhat.com/2007384[2007384]::
+Previously high values of disk writeRate/readRate were not processed properly by the ovirt-engine.
+In this release, the type of writeRate/readRate in ovirt-engine has changed from integer to long to support values that are higher than integers.
+
+BZ#link:https://bugzilla.redhat.com/2010067[2010067]::
+Cause: Previoulsy, when downloading preallocated disk the downloaded image is fully allocated instead of sparse.
+
+Consequence: This was inefficient when the image should be transferred to another machine, or uploaded back to storage.
+
+Fix: downloaded image is now saved as sparse
+
+BZ#link:https://bugzilla.redhat.com/2010203[2010203]::
+Previously, newlines included as part of the data were not handled properly, and as a result, the formatting of the table was wrong.
+In this release, the table format now is correct, even if the data contains newlines.
+
+BZ#link:https://bugzilla.redhat.com/2010478[2010478]::
+Previously, if storage problems occurred and disappeared during a VM migration attempt, it sometimes led to the VM being paused and not resuming even if the VM had an auto-resume policy set.
+In this release, the VM is handled according to its resume behavior policy when the storage state changes during a VM migration attempt.
+
+BZ#link:https://bugzilla.redhat.com/2011309[2011309]::
+Previously, Self-Hosted Engine deployment failed when applying an OpenSCAP security profile. As a result, the premissions for the SSH key file were changed to 0640, which is not secure enough.
+In this release, the permissions are not changed, and  Self-Hosted Engine deployment succeeds when applying an OpenSCAP security profile.
+
+BZ#link:https://bugzilla.redhat.com/2013928[2013928]::
+Previously if the data from the DB included special characters in the fields related to the vdc_options, i.e. the same ones that have special meaning in the ADOC format, they were used as is.
+This resulted in an incorrectly formatted HTML document.
+In this release, The code was modified to escape replacing some of the characters, and modified the code in a way that no longer translates some of the characters.
+AS a result, the information now properly presented, even if the DB fields contain special characters.
+
+BZ#link:https://bugzilla.redhat.com/2016173[2016173]::
+Previously, the VDSM used UDEV links to create the LVM filter. As a result, the LVM sometimes grabbed SCSI devices during the boot process by mistake.
+In this release, the  LVM does not not try to grab SCSI devices during the boot process, only using the multipath device specified in the LVM filter.
+
+BZ#link:https://bugzilla.redhat.com/2024202[2024202]::
+Previously, the formatting of parameters passed to translated messages on ui-extensions dialogs (not just in the Red Hat Virtualization dashboard) was handled in 2 different layers: code and translations.
+That caused invalid formatting for a number of language.
+In this release, the formatting of translated messages parameters on ui-extensions is done only on one layer,   the translation layer (formatting done on code layer is removed). As a result, translation strings on ui-extensions dialogs are now displayed properly for all languages.
+
+BZ#link:https://bugzilla.redhat.com/2028481[2028481]::
+Previously, SCSI reservation was not set for disks that are hot-plugged.
+In this release, the SCSI reservation works for disks that are being hot-plugged.
+
+BZ#link:https://bugzilla.redhat.com/2040361[2040361]::
+Previously, when hot plugging multiple disks with VIRTIO SCSI interface to virtual machine that are defined with more than one IO thread, this would have failed due to allocation of a duplicate PCI address.
+
+Now, each disk is assigned with a unique PCI address in this process, which enabled to plug multiple disks with VIRTIO SCSI to virtual machines also when they are set with more than one IO thread.
+
+BZ#link:https://bugzilla.redhat.com/2040402[2040402]::
+The log_days option of the sos logs plugin has been removed. As a result, the command that used this option began to fail.
+In this release, the use of the option has been removed, and the program now functions as expected.
+
+BZ#link:https://bugzilla.redhat.com/2041544[2041544]::
+Previously,  when selecting a host to upload in the Administration Portal (Storage > Domain > select domain > Disks > Upload), trying to select a host different from the first one on the list resulted in jumping back to the first host on the list.
+In this release, the storage domain and data center are only initialized once, and the list of hosts doesn't need to be reloaded. As a result, a different host can be selected without being set back to the first one on the list.
+
+BZ#link:https://bugzilla.redhat.com/2048546[2048546]::
+Previously, using the sosreport command in the log collector utility produced a warning.
+In this release, the utility was modified to use the sos report command instead of the sosreport command. As a result, the warning is no longer displayed. and the utility will continue to work even when the sosreport is deprecated in the future.
+
+BZ#link:https://bugzilla.redhat.com/2050108[2050108]::
+Previously, the ovirt-ha-broker service failed to start on a host with a DISA STIG profile.
+In this release, the ovirt-ha-broker binaries were moved to /usr/libexec. As a result, the ovirt-ha-broker service succeeds to start on a host with a DISA STIG profile.
+
+BZ#link:https://bugzilla.redhat.com/2052557[2052557]::
+Previously, vGPU devices were not released when stateless VMs or VMs that were started in run-once mode were shut down. This sometimes caused the system to forbid running the VMs again, although the vGPU devices were available.
+IN this release, vGPU devices are properly released when stateless VMs or VMs that were started in run-once mode are shut down.
+
+BZ#link:https://bugzilla.redhat.com/2064380[2064380]::
+Since [libvirt 8](https://github.com/libvirt/libvirt/commit/27c1d06b5bd68bdce55efff0a50a15a30cb2a96b), a warning appears when providing a ticket with a
+password with length over than 8. Until now the extra characters were
+dropped silently in QEMU. But with libvirt new handling of longer
+passwords it causes the console trigger to fail. Now the password we
+will provided will be in the right length.
+
+BZ#link:https://bugzilla.redhat.com/2066811[2066811]::
+Previously, DISA STIG profile used fapolicyd that blocked ansible command execution as non-root, and self-hosted engine deployment failed.
+In this release, calls to psql as postgres are replaced with engine_psql.sh, and deployment succeeds.
+
+BZ#link:https://bugzilla.redhat.com/2067968[2067968]::
+CVE-2022-24302: Creating new private key files using `~paramiko.pkey.PKey` subclasses caused a race condition between file creation and mode modification, which can be exploited by an attacker with knowledge of where the Paramiko-using code writes out such files. This problem has been patched with `os.open` and `os.fdopen` to ensure new files are opened with the correct mode. The subsequent explicit `chmod` remains in place to minimize any possible disruption.
+
+BZ#link:https://bugzilla.redhat.com/2075852[2075852]::
+Previously, the nodejs package was downgraded during the RHVM installation.
+In this release, the correct version of the nodejs package is installed and maintained.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/977379[977379]::
+With this release, it is now possible to edit and manage iSCSI storage domain connections using the Administration Portal. Users can now edit the logical domain to point to a different physical storage, which is useful if the underlying LUNs are replicated for backup purposes, or if the physical storage address has changed.
+
+BZ#link:https://bugzilla.redhat.com/1616158[1616158]::
+A check has been added to Self Hosted Engine Setup to ensure that the IP address resolved from oVirt Engine FQDN belongs to the same Subnet of the host which will run the Self Hosted Engine Agent.
+
+BZ#link:https://bugzilla.redhat.com/1624015[1624015]::
+Feature:
+Setting the default console type (for both new and existing VMs) can be done engine widely by using CLI for setting the following engine-config parameters:
+`engine-config -s ClientModeVncDefault=NoVnc` to prefer NoVnc instead of remote-viewer
+and
+`engine-config -s ClientModeConsoleDefault=vnc` to prefer VNC over SPICE in case the VM has both available.
+
+
+If the actual console type for existed VMs was chosen manually via 'console options' dialog, cleaning the browser local storage is needed.
+So in case  it's required to set console type globally for
+all existing VMs, please clear the browser local storage after running the engine.
+
+
+Reason:
+An option for setting default console type for all provisioned VMs globally at once was not supported up till now. Needed to go one VM by one and set the console type via the 'console options' dialog.
+
+Result:
+Support setting console type globally for all VMs, existed and new ones, by using the engine-config parameters.
+
+BZ#link:https://bugzilla.redhat.com/1667517[1667517]::
+With this release, new console options, including set screen mode have been added to the VM Portal UI.
+The following console options can now be set in the VM Portal (under Account Settings > Console options):
+- default console type to use (Spice, VNC, noVNC, RDP for Windows),
+- full screen mode (on/off) per console type,
+- smartcard enabled/disabled
+- Ctrl+Alt+Del mapping
+- SSH key
+
+These console options settings are now persistent on the engine server, so deleting cookies and website data won't reset those settings.
+
+Limitations for these settings:
+1. Console settings via VM Portal are global for all VMs and cannot be set per VM (as opposed to the Administration Portal, where console options are set per VM).
+2. There is no sync between Administration Portal console options and VM Portal console options - The console options configuration done by Create/Edit VM/Pool dialog (supported console types and smartcard enabled) are synced, but the 'console options' run time settings done for running VMs via Console -> Console options are not synced with Administration Portal.
+3. Console settings are part of Account settings and therefore are set per user. Each user logged in to the VM Portal can have their own console settings, defaults are taken from the vdc_options config parameters.
+
+BZ#link:https://bugzilla.redhat.com/1745141[1745141]::
+With this release, SnowRidge Accelerator Interface Architecture (AIA) can be enabled by modifying the extra_cpu_flags custom property of a virtual machine (movdiri, movdir64b).
+
+BZ#link:https://bugzilla.redhat.com/1781241[1781241]::
+With this release, support for automatically connecting to a Virtual Machine has been restored as a configurable option. This is enabled in the Account Settings > Console tab.
+This feature enables the user to connect automatically to a running Virtual Machine every time the user logs in to the VM Portal.
+- Each user can choose a VM to auto connect to from a list on a global level, in the Account Settings > Console tab.
+- Only if the chosen VM exists and is running, the auto connect will be enforced next time the user logs in.
+- The Console type for connecting will be chosen based on Account Settings > Console options.
+- This auto connect VM setting is persisted per user on the engine.
+
+BZ#link:https://bugzilla.redhat.com/1849169[1849169]::
+Feature:
+A new parameter was added to the evenly_distributed scheduling policy that takes into account the ratio between virtual and physical CPUs on the host.
+Reason:
+To prevent the host from over utilization of all physical CPUs.
+Result:
+When the ratio is set to 0, the evenly distributed policy works as before. If the value is greater than 0, the vCPU to physical CPU is considered as follows:
+a. when scheduling a VM, hosts with lower CPU utilization are preferred. However, if adding of the VM would cause the vCPU to physical ratio to be exceeded, the hosts vCPU to physical ratio AND cpu utilization are considered.
+b. in a running environment, if the host's vCPU to physical ratio is above the limit, some of the VMs might be load balanced to the hosts with lower vCPU to physical CPU ratio.
+
+BZ#link:https://bugzilla.redhat.com/1878930[1878930]::
+Feature: Provide warning event if number of available MAC addresses in pool are below threshold. The threshold is configurable via engine-config. An event will be created per pool on engine start, and if the threshold is reached when consuming addresses from the pool.
+
+Reason: Make it easier for the admin user to plan ahead.
+
+Result: Admin will not be faced with an empty pool when creating VNICs on VMs.
+
+BZ#link:https://bugzilla.redhat.com/1883949[1883949]::
+In this release,the following enhancements were made:
+1. Adding 2 new backup phases:
+- SUCCEEDED
+- FAILED
+2. Disable 'vm_backups' & 'image_transfers' DB tables cleanup after backup / image transfer operation is over.
+3. Added DB cleanup scheduled thread to automatically clean backups and image transfers once in a while.
+4. Minor user experience improvements.
+
+BZ#link:https://bugzilla.redhat.com/1922977[1922977]::
+With this release, shared disks are now a part of the 'OVF_STORE' configuration.
+This allows virtual machines to share disks, move a Storage Domain to another environment, and after importing VMs, the VMs correctly share the same disks without any additional manual configuration.
+
+BZ#link:https://bugzilla.redhat.com/1925878[1925878]::
+With this release, a link has been added to all Grafana dashboards that allows you to quickly access the Red Hat Virtualization Administration Portal.
+
+BZ#link:https://bugzilla.redhat.com/1926625[1926625]::
+With this release, you can now enable HTTP Strict Transport Security following Red Hat Virtualization Manager installation by following the instructions in this KCS article:
+https://access.redhat.com/solutions/1220063
+
+BZ#link:https://bugzilla.redhat.com/1933555[1933555]::
+The Python SDK package for Red Hat Virtualization is now supported in RHEL 9.
+
+BZ#link:https://bugzilla.redhat.com/1944834[1944834]::
+This release adds a user specified delay to the 'Shutdown' Console Disconnect Action of a Virtual Machine. The shutdown will occur after the user specified delay interval, or will be cancelled if the user reconnects to the VM console.
+This prevents a user's session loss after an accidental disconnect.
+
+BZ#link:https://bugzilla.redhat.com/1964208[1964208]::
+With this release, a screenshot API has been added that captures the current screen of a VM, and then returns a PPM file screenshot. The user can download the screenshot and view its content.
+
+BZ#link:https://bugzilla.redhat.com/1975720[1975720]::
+Support for parallel migration connections was added.
+
+See [Parallel migration connections](https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html) for all the important information about the feature.
+
+BZ#link:https://bugzilla.redhat.com/1979797[1979797]::
+In this release, a new warning message displays in the removing storage domain window if the selected domain has leases for entities that were raised on a different storage domain.
+
+BZ#link:https://bugzilla.redhat.com/1987121[1987121]::
+The vGPU editing dialog was enhanced with an option to set driver parameters. The driver parameters are are specified as an arbitrary text, which is passed to NVidia drivers as it is, e.g. "`enable_uvm=1`". The given text will be used for all the vGPUs of a given VM.
+
+The vGPU editing dialog was moved from the host devices tab to the VM devices tab.
+
+vGPU properties are no longer specified using mdev_type VM custom property. They are specified as VM devices now. This change is transparent when using the vGPU editing dialog. In the REST API, the vGPU properties can be manipulated using a newly introduced `.../vms/.../mediateddevices` endpoint. The new API permits setting "nodisplay" and driver parameters for each of the vGPUs individually, but note that this is not supported in the vGPU editing dialog where they can be set only to a single value common for all the vGPUs of a given VM.
+
+BZ#link:https://bugzilla.redhat.com/1990462[1990462]::
+In this release, Elasticsearch username and password have been added for authentication from rsyslog.
+AS a result, rsyslog can now authenticate to Elasticsearch using a username and password.
+
+BZ#link:https://bugzilla.redhat.com/1991482[1991482]::
+A link to Monitoring Portal has been added within the Administration Portal
+
+BZ#link:https://bugzilla.redhat.com/1998255[1998255]::
+Feature: Search box in VNIC profiles main page
+
+Reason: Requested by customer
+
+Result: It is now possible to search and filter the VNIC profiles by values of their attributes in the main VNIC profiles page.
+
+BZ#link:https://bugzilla.redhat.com/1998866[1998866]::
+Add Windows 11 as a guest operating system
+
+BZ#link:https://bugzilla.redhat.com/1999698[1999698]::
+In previous versions, engine-setup configured apache httpd's SSLProtocol configuration option to be `-all +TLSv1.2`.
+
+In RHEL 8, this isn't needed, because this option is managed by crypto-policies.
+
+With this version, engine-setup does not set this option, and removes it if it's already set, letting it be managed by crypto-policies.
+
+BZ#link:https://bugzilla.redhat.com/2000066[2000066]::
+A manifest of the packages included in the ova has been added to the ovirt-appliance rpm.
+
+BZ#link:https://bugzilla.redhat.com/2002283[2002283]::
+With this release, it is now possible to set the number of PCI Express ports for virtual machines by setting the NumOfPciExpressPorts configuration using engine-config.
+
+BZ#link:https://bugzilla.redhat.com/2020620[2020620]::
+In this release, support has been added for self-hosted engine deployment on a host with a DISA STIG profile.
+
+BZ#link:https://bugzilla.redhat.com/2021217[2021217]::
+Add Windows 2022 as a guest operating system
+
+BZ#link:https://bugzilla.redhat.com/2021545[2021545]::
+With this release, DataCenter/Cluster compatibility level 4.7 has been added, which is available only on hosts with RHEL 8.6 or later, on the latest CentOS Stream 8 and CentOS Stream/RHEL 9 with libvirt 8.0.0 or later installed.
+
+BZ#link:https://bugzilla.redhat.com/2023786[2023786]::
+When a VM is set with the custom property sap_agent=true, it requires vhostmd hooks to be installed on the host to work correctly. Previously, if the hooks were missing, there was no warning to the user.
+In this release, when the required hooks are not installed and reported by the host, the host is filtered out by the scheduler when starting the VM.
+
+BZ#link:https://bugzilla.redhat.com/2029830[2029830]::
+With this release, the self-hosted engine installation supports selecting either DISA STIG or PCI-DSS security profiles for the self-hosted engine VM.
+
+BZ#link:https://bugzilla.redhat.com/2030596[2030596]::
+The Red Hat Virtualization Manager is now capable of running on machine with the PCI-DSS security profile.
+
+BZ#link:https://bugzilla.redhat.com/2033185[2033185]::
+Add e1000e VM Nic type for cluster level 4.7. The e1000 is depracated from RHEL8.0 and users should switch to e1000e when possible.
+
+BZ#link:https://bugzilla.redhat.com/2037121[2037121]::
+rhv-image-discrepancies tools now shows Data Center and Storage Domain names in the output.
+
+BZ#link:https://bugzilla.redhat.com/2040474[2040474]::
+The Administration Portal cluster upgrade interface has been improved to provide better error messaging and status and progress indications.
+
+BZ#link:https://bugzilla.redhat.com/2049782[2049782]::
+
+
+BZ#link:https://bugzilla.redhat.com/2054756[2054756]::
+With this release, a link to the Migration Toolkit for Virtualization documentation has been added to the welcome page of the Red Hat Virtualization Manager.
+
+BZ#link:https://bugzilla.redhat.com/2058177[2058177]::
+Feature: Include the package nvme-cli on virtualization hosts
+
+Reason: The package is requested in RHEL 8 Managing Storage devices, Chapter 15. NVMe over fabrics using FC for accessing that hardware
+
+Result: the needed package is available on the host.
+
+BZ#link:https://bugzilla.redhat.com/2066042[2066042]::
+With this release, RHV 4.4 SP1 has been upgraded to use ansible-core in cockpit-ovirt.
+
+BZ#link:https://bugzilla.redhat.com/2070582[2070582]::
+rng-tools, rsyslog-gnutls, usbguard packages have been added to ovirt-appliance to satisfy DISA-STIG profile requirements
+
+BZ#link:https://bugzilla.redhat.com/2070963[2070963]::
+rng-tools, rsyslog-gnutls, usbguard packages have been added to rhvm-appliance to satisfy DISA-STIG profile requirements
+
+BZ#link:https://bugzilla.redhat.com/2070980[2070980]::
+A manifest of the packages included in the ova has been added to the rhvm-appliance rpm.
+
+BZ#link:https://bugzilla.redhat.com/2072881[2072881]::
+Usually oVirt Engine can restore backups taken only from the same version. For oVirt 4.5 it has been made possible to restore a backup taken from oVirt 4.4 into an oVirt 4.5 Engine.
+
+==== Technology Preview
+
+The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to https://access.redhat.com/support/offerings/techpreview/.
+
+BZ#link:https://bugzilla.redhat.com/1986775[1986775]::
+oVirt release package now provides YUM repositories configuration also for CentOS Stream 9.
+
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1782056[1782056]::
+With this release, IPSec for the OVN feature is available on hosts with configured ovirt-provider-ovn, OVN version 2021 or later and OvS version 2.15 or later.
+
+BZ#link:https://bugzilla.redhat.com/1940824[1940824]::
+Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.
+The upgrade is transparent to the user as long as these conditions are met:
+1. Upgrade the engine first.
+2. Before you upgrade the hosts, disable the ovirt-provider-ovn security groups for all OVN networks that are expected to work between hosts with OVN/OvS version 2.11.
+3. Upgrade the hosts to match the OVN version 2021 or higher and OvS version to 2.15. This step should be done with the web console, in order to reconfigure OVN and to refresh the certificates.
+4. Reboot the host after upgrade.
+5. Verify that the provider and OVN were configured successfully by launching the web console and checking the "OVN configured" field on the "General" tab for each host. (You can also obtain the value using the REST API.) Note that the value might be "No" if the host configuration has not been refreshed.
+
+If the host's OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.
+
+BZ#link:https://bugzilla.redhat.com/2004852[2004852]::
+The following parameters have been added to the ovirt_vm module:
+virtio_scsi_enabled - If true, it enables Virtio SCSI support.
+multi_queues_enabled - If true, each virtual interface will get the optimal number of queues, depending on the available virtual CPUs.
+
+BZ#link:https://bugzilla.redhat.com/2015796[2015796]::
+Red Hat Virtualization Manager 4.4 SP1 is now capable of running on a host with the RHEL 8.6 DISA STIG OpenSCAP profile applied.
+
+BZ#link:https://bugzilla.redhat.com/2023250[2023250]::
+The Advanced Virtualization module (virt:av) has been merged into the standard RHEL virtualization module (virt:rhel) as part of the RHEL 8.6 release. Due to this change, the host deploy and host upgrade flows have been updated to properly enable the virt:rhel module during new installation of the RHEL 8.6 host and during upgrade of an existing RHEL 8.5 or earlier host to a RHEL 8.6 host.
+
+BZ#link:https://bugzilla.redhat.com/2030226[2030226]::
+The Red Hat Virtualization Host is now capable of running on a machine with the PCI-DSS security profile.
+
+BZ#link:https://bugzilla.redhat.com/2052686[2052686]::
+Red Hat Virtualization 4.4 SP1 now requires ansible-core >= 2.12.0 to execute Ansible playbooks/roles internally from RHV components.
+
+BZ#link:https://bugzilla.redhat.com/2055136[2055136]::
+With this release, the virt DNF module version is correctly set according to the RHEL version of the host during the host upgrade flow.
+
+BZ#link:https://bugzilla.redhat.com/2056126[2056126]::
+With this release, the Red Hat Virtualization Manager 4.4 SP1 certificate expiration check will warn of upcoming certificate expiration earlier:
+1. If a certificate is about to expire in the upcoming 120 days, a WARNING event is raised in the audit log.
+2. If a certificate is about to expire in the upcoming 30 days, an ALERT event is raised in the audit log.
+
+This checks for internal RHV certificates (for example certificate for RHVM <-> hypervisor communication), but it doesn't check for custom certificates configured for HTTPS access to RHVM as configured according to [https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Replacing_the_Manager_CA_Certificate](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Replacing_the_Manager_CA_Certificate)
+
+BZ#link:https://bugzilla.redhat.com/2056588[2056588]::
+oVirt Node has been updated with newer kernel release including fixes for [CVE-2021-4028](https://bugzilla.redhat.com/show_bug.cgi?id=2027201)
+
+BZ#link:https://bugzilla.redhat.com/2056596[2056596]::
+oVirt Node has been updated with newer kernel release including fixes for [CVE-2021-4083](https://bugzilla.redhat.com/show_bug.cgi?id=2029923)
+
+BZ#link:https://bugzilla.redhat.com/2056597[2056597]::
+oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-0435](https://bugzilla.redhat.com/show_bug.cgi?id=2048738)
+
+BZ#link:https://bugzilla.redhat.com/2061694[2061694]::
+oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-0847](https://bugzilla.redhat.com/show_bug.cgi?id=2060795)
+
+BZ#link:https://bugzilla.redhat.com/2065576[2065576]::
+oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-25636](https://bugzilla.redhat.com/show_bug.cgi?id=2056830)
+
+BZ#link:https://bugzilla.redhat.com/2065579[2065579]::
+oVirt Node includes updated expat package providing fixes for multiple CVEs:
+[CVE-2022-25315](https://bugzilla.redhat.com/show_bug.cgi?id=2056363)
+[CVE-2022-25235](https://bugzilla.redhat.com/show_bug.cgi?id=2056366)
+[CVE-2022-25236](https://bugzilla.redhat.com/show_bug.cgi?id=2056370)
+
+BZ#link:https://bugzilla.redhat.com/2067982[2067982]::
+CVE-2022-24302: Creation of new private key files using `~paramiko.pkey.PKey` subclasses was subject to a race condition between file creation and mode modification, which could be exploited by an attacker with knowledge of where the Paramiko-using code would write out such files; this has been patched by using `os.open` and `os.fdopen` to ensure new files are opened with the correct mode immediately (we've left the subsequent explicit `chmod` in place to minimize any possible disruption).
+
+BZ#link:https://bugzilla.redhat.com/2070051[2070051]::
+oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1015](https://bugzilla.redhat.com/show_bug.cgi?id=2065323)
+
+BZ#link:https://bugzilla.redhat.com/2070067[2070067]::
+oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1016](https://bugzilla.redhat.com/show_bug.cgi?id=2066614)
+
+BZ#link:https://bugzilla.redhat.com/2084027[2084027]::
+ovirt-dependencies has been updated including Spring Framework 5.3.19 which fixes [CVE-2022-22950](https://bugzilla.redhat.com/show_bug.cgi?id=2069414)
+
+==== Deprecated Functionality
+
+The items in this section are either no longer supported, or will no longer be supported in a future release.
+
+BZ#link:https://bugzilla.redhat.com/2016359[2016359]::
+Red Hat Gluster Storage will reach end-of-life in 2024. Therefore, use of GlusterFS as a storage type for Storage Domains is now deprecated.
+
+==== Removed Functionality
+
+BZ#link:https://bugzilla.redhat.com/2028200[2028200]::
+The ovirt-fast-forward-upgrade tool shipped in RHV 4.4 was  removed from the upstream project in the oVirt 4.5 release.
+
+BZ#link:https://bugzilla.redhat.com/2052963[2052963]::
+In previous releases systemtap package could have been installed on top of RHV-H from RHV-H channel. With 4.4 SP1 systemtap package installation is not supported anymore
+
+BZ#link:https://bugzilla.redhat.com/2056937[2056937]::
+With this release, the Red Hat Virtualization Manager (RHVM) appliance is being retired. Following this release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.
+
+BZ#link:https://bugzilla.redhat.com/2077545[2077545]::
+ovirt-iso-uploader package was deprecated in 4.3 and removed in 4.4.

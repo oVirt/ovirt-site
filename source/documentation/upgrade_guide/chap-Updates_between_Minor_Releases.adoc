@@ -12,14 +12,14 @@ To update from your current version of {vername_rhv} to the latest version of {v
 ifdef::rhv-doc[]
 [NOTE]
 ====
-If upgrading from version 4.4.9 to a later version fails on RHV-H, run the `dnf reinstall redhat-virtualization-host-image-update` command to fix the issue.
+If upgrading from version 4.4.9 to a later version fails on {hypervisor-shortname}, run the `dnf reinstall redhat-virtualization-host-image-update` command to fix the issue.
 ====
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]
 [NOTE]
 ====
-If upgrading from version 4.4.9 to a later version fails on RHV-H, run the `dnf reinstall ovirt-node-ng-image-update` command to fix the issue.
+If upgrading from version 4.4.9 to a later version fails on {hypervisor-shortname}, run the `dnf reinstall ovirt-node-ng-image-update` command to fix the issue.
 ====
 endif::ovirt-doc[]
 

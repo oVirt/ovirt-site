@@ -109,6 +109,7 @@
 <li><a href="#RHV-manager-firewall-requirements_SM_remoteDB_deploy">2.3.3. oVirt Engine Firewall Requirements</a></li>
 <li><a href="#host-firewall-requirements_SM_remoteDB_deploy">2.3.4. Host Firewall Requirements</a></li>
 <li><a href="#database-server-firewall-requirements_SM_remoteDB_deploy">2.3.5. Database Server Firewall Requirements</a></li>
+<li><a href="#MTU_Requirements_SM_remoteDB_deploy">2.3.6. Maximum Transmission Unit Requirements</a></li>
 </ul>
 </li>
 </ul>
@@ -1312,6 +1313,12 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="MTU_Requirements_SM_remoteDB_deploy">2.3.6. Maximum Transmission Unit Requirements</h4>
+<div class="paragraph">
+<p>The recommended Maximum Transmission Units (MTU) setting for Hosts during deployment is 1500. It is possible to update this setting after the environment is set up to a different MTU. For more information on changing the MTU setting, see <a href="https://access.redhat.com/solutions/4129641">How to change the Hosted Engine VM network MTU</a>.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1341,7 +1348,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1393,6 +1400,14 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>
@@ -1472,7 +1487,7 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1516,6 +1531,14 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>
@@ -1781,10 +1804,8 @@ work_mem=8192</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.</p>
-</div>
-<div class="paragraph">
-<p>For more information on Red Hat Technology Preview features support scope, see <a href="https://access.redhat.com/support/offerings/techpreview/">Red Hat Technology Preview Features Support Scope</a>.</p>
+<p>Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+For more information on Red Hat Technology Preview features support scope, see <a href="https://access.redhat.com/support/offerings/techpreview/">Red Hat Technology Preview Features Support Scope</a>.</p>
 </div>
 </td>
 </tr>
@@ -2084,7 +2105,7 @@ Do you wish Setup to configure that, or prefer to perform that manually? (Automa
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2136,6 +2157,14 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>

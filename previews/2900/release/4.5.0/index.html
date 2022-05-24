@@ -133,12 +133,14 @@
 
 <p>On April 26th, 2022 the oVirt Project released an <a href="https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/">oVirt Node 4.5.0.1 Async update</a></p>
 
+<p>On May 13th, 2022 the oVirt Project released an <a href="https://blogs.ovirt.org/2022/05/ovirt-node-4-5-0-2-async-update/">oVirt Node 4.5.0.2 Async update</a></p>
+
 <p>oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.</p>
 
-<p>This release is available now for CentOS Stream 8 and Red Hat Enterprise Linux 8.6 Beta (or similar).</p>
+<p>This release is available now for CentOS Stream 8 and Red Hat Enterprise Linux 8.6 (or similar).</p>
 
 <p>To find out how to interact with oVirt developers and users and ask questions,
 visit our <a href="/ovirt-site/previews/2900/community/">community page</a>.
@@ -159,7 +161,7 @@ page.</p>
 
 <blockquote>
   <p>IMPORTANT
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL 8.6 or derivatives please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
 </blockquote>
 
 <ol id="markdown-toc">
@@ -1012,7 +1014,7 @@ With modern hardware virtual machines sometimes paused temporarily when writing 
 The system allocates more data earlier, minimizing virtual machines pauses.</p>
   </li>
   <li>
-    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012830">BZ 2012830</a> <strong>[RFE] Use lvmdevices instead of lvm filter on RHEL 8.6/Centos Steam 9</strong></p>
+    <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012830">BZ 2012830</a> <strong>[RFE] Use lvm devices instead of lvm filter on RHEL 8.6 / CentOS Stream 9</strong></p>
 
     <p>Feature: 
 Use LVM devices instead lvm filter to manage storage devices.</p>
@@ -1909,6 +1911,7 @@ We want the user to be able to see the operation result, but also not over-polut
 <ul>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2027287">BZ 2027287</a> <strong>Explore building oVirt Node with GitHub Actions and self-hosted runners</strong></li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2057958">BZ 2057958</a> <strong>oVirt Node 4.5 el9 iso doesn’t boot anymore</strong></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2074469">BZ 2074469</a> <strong>CVE-2022-1271 - gzip: arbitrary-file-write vulnerability [ovirt-4.5]</strong></li>
 </ul>
 
 <h4 id="ovirt-engine-appliance-3">oVirt Engine Appliance</h4>
@@ -1931,7 +1934,7 @@ We want the user to be able to see the operation result, but also not over-polut
 
 <h3 id="contributors">Contributors</h3>
 
-<p>67 people contributed to this release:</p>
+<p>68 people contributed to this release:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Albert Esteve (Contributed to: ovirt-engine, ovirt-site, vdsm)
 Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
@@ -1944,6 +1947,7 @@ Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine, ovirt-engine-metrics, ovir
 Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-release)
 Bella Khizgiyaev (Contributed to: ovirt-engine)
 Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
+Brett Maton (Contributed to: ovirt-site)
 Dana Elfassy (Contributed to: ovirt-engine)
 Dominik Holler (Contributed to: ovirt-openvswitch, ovirt-release)
 Donna DaCosta (Contributed to: ovirt-site)
@@ -1963,7 +1967,7 @@ Hilda Stastna (Contributed to: ovirt-web-ui)
 Jake Reynolds (Contributed to: ovirt-hosted-engine-ha)
 Janos Bonic (Contributed to: ovirt-release)
 Jean-Louis Dupond (Contributed to: ovirt-engine)
-Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-log-collector, ovirt-node-ng-image, ovirt-release, vdsm)
+Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-log-collector, ovirt-node-ng-image, ovirt-release, ovirt-site, vdsm)
 Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 Loïc Albertin (Contributed to: ovirt-node-ng)
 Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)

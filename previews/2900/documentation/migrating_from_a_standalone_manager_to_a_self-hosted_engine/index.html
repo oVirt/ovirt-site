@@ -1440,7 +1440,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
 </div>
 <div class="paragraph">
 <p>For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1492,6 +1492,14 @@ If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>

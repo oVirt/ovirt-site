@@ -199,12 +199,14 @@ engine-setup
 
 <ol class="instructions">
   <li>
-    <p>If you are going to install on Red Hat Enterprise Linux 8.6 Beta,
-please read <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+    <p>If you are going to install on Red Hat Enterprise Linux 8.6 or derivatives,
+please read <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.</p>
   </li>
   <li>Add the official oVirt repository.
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
-<span class="nb">sudo </span>dnf module <span class="nb">enable</span> <span class="nt">-y</span> javapackages-tools pki-deps postgresql:12 389-ds mod_auth_openidc
+</code></pre></div>    </div>
+    <p>and on el8:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf module <span class="nb">enable</span> <span class="nt">-y</span> javapackages-tools pki-deps postgresql:12 389-ds mod_auth_openidc
 </code></pre></div>    </div>
   </li>
   <li>Install oVirt Engine.
@@ -266,7 +268,7 @@ basic installation of an Enterprise Linux operating system on a physical server 
 packages are installed.</p>
 
 <ol class="instructions">
-  <li>Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.
+  <li>Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf update <span class="nt">-y</span>
 <span class="c"># reboot if the kernel was updated</span>
 </code></pre></div>    </div>
@@ -468,7 +470,7 @@ and <a href="/ovirt-site/previews/2900/download/browsers_and_mobile.html">Browse
 <h3 id="ovirt-45">oVirt 4.5</h3>
 
 <p>oVirt 4.5 is shipped via CentOS repositories.
-If you are going to install on RHEL 8.6 Beta please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/2900/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.</p>
 
 <p>In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45

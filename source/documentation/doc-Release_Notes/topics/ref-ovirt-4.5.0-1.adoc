@@ -1,4 +1,4 @@
-=== Red Hat Virtualization 4.5 General Availability (ovirt-4.5.0-1)
+=== Red Hat Virtualization 4.4 SP1 General Availability (ovirt-4.5.0)
 
 
 

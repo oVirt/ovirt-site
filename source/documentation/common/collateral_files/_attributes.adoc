@@ -7,7 +7,7 @@
 // These attributes are used in ifdef and ifeval statements to conditionalize
 // content specific to the oVirt or RHV versions of each document.
 //
-:vernum_rhv: 4.4-SP1
+:vernum_rhv: 4.4_SP1
 :vername_rhv: 4.4 SP1
 :vernum_rhv_legacy: 4.3
 :vernum_satellite: 6.10

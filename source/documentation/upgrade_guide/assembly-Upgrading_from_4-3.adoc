@@ -7,12 +7,13 @@
 
 Upgrading your environment from 4.3 to 4.4 involves the following steps:
 
-////
-ifdef::rvh-doc[]
+ifdef::rhv-doc[]
+
 //Upgrade considerations
 include::common/upgrade/snip-upgrade_considerations.adoc[]
+
 endif::rhv-doc[]
-////
+
 . xref:Upgrade_Prerequisites_4-3_local_db[Make sure you meet the prerequisites, including enabling the correct repositories]
 
 ifdef::rhv-doc[]

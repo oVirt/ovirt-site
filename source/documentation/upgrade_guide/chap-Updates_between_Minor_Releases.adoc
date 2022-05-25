@@ -24,11 +24,10 @@ If upgrading from version 4.4.9 to a later version fails on {hypervisor-shortnam
 endif::ovirt-doc[]
 
 ifdef::rhv-doc[]
+
 //Upgrade considerations
 include::common/upgrade/snip-upgrade_considerations.adoc[]
-endif::rhv-doc[]
 
-ifdef::rhv-doc[]
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
 endif::rhv-doc[]
 

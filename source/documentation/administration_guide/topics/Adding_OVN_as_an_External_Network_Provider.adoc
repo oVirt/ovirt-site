@@ -4,8 +4,6 @@
 
 You can use Open Virtual Network (OVN) to create overlay virtual networks that enable communication among the virtual machines without adding VLANs or changing the infrastructure. OVN is an extension of Open vSwitch (OVS) that provides native support for virtual L2 and L3 overlays.
 
-You can xref:Installing_a_new_OVN_network_provider[install a new OVN network provider] or xref:Adding_an_existing_OVN_network_provider[add an existing one].
-
 You can also connect an OVN network to a native {virt-product-fullname} network. See xref:Connecting_an_OVN_Network_to_a_Physical_Network[Connecting an OVN Network to a Physical Network] for more information.
 ifdef::rhv-doc[This feature is available as a Technology Preview only.]
 

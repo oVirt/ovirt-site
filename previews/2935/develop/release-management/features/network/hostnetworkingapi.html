@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HostNetworkingApi | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="HostNetworkingApi" />
+<meta name="author" content="Dan Kenigsberg" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2935/develop/release-management/features/network/hostnetworkingapi.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2935/develop/release-management/features/network/hostnetworkingapi.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HostNetworkingApi" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dan Kenigsberg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dan Kenigsberg"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"HostNetworkingApi","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2935/images/logo.svg"},"name":"Dan Kenigsberg"},"url":"https://ovirt.github.io/ovirt-site/previews/2935/develop/release-management/features/network/hostnetworkingapi.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2935/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2935/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2935/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2935/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2935/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2935/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2935/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2935/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2935/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2935/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2935/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2935/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2935/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2935/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2935/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2935/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2935/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2935/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2935/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2935/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2935/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2935/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2935//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2935//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2935/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2935/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2935/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2935/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2935/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f5cf134eaa80bea1e03db147a440fa2d?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f5cf134eaa80bea1e03db147a440fa2d?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Mucha</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2935/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="host-networking-api">Host Networking Api</h1>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Moti Asayag (masayag)</li>
+  <li>Email: masayag@redhat.com</li>
+</ul>
+
+<h2 id="current-status">Current Status</h2>
+
+<p>The current host networking api (up to ovirt-engine-3.6) suffers from various limitations:</p>
+
+<ul>
+  <li>A mix of the physical and the logical network configuration
+    <ul>
+      <li>Exposing vlan device implementation to the user</li>
+      <li>Using ‘Sync Network’ feature requires to find the specific interface which carries the network</li>
+    </ul>
+  </li>
+  <li>A Cumbersome request format for ‘setup networks’:
+    <ul>
+      <li>creating vlan devices</li>
+      <li>a complex input structure to represent the expected configuration</li>
+    </ul>
+  </li>
+  <li>The attach/detach network isn’t the RESTFul way to modify the interface</li>
+  <li>Cannot support a host only network (a network without a nic)
+    <ul>
+      <li>Cannot support a dynamic (external) networks</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="proposed-solution">Proposed Solution</h2>
+
+<p>Introduce <strong><code class="language-plaintext highlighter-rouge">&lt;network_attachment&gt;</code></strong> element which describes how the network is configured on the host:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;network_attachment&gt;</span>
+   <span class="nt">&lt;network/&gt;</span>
+   <span class="nt">&lt;host_nic/&gt;</span>
+   <span class="nt">&lt;ip_address_assignments/&gt;</span>
+   <span class="nt">&lt;properties/&gt;</span>
+    <span class="nt">&lt;reported_configurations&gt;</span>
+     <span class="nt">&lt;in_sync&gt;</span>false<span class="nt">&lt;/in_sync&gt;</span>
+     <span class="nt">&lt;reported_configuration&gt;</span>
+       <span class="nt">&lt;name&gt;</span>mtu<span class="nt">&lt;/name&gt;</span>
+       <span class="nt">&lt;value&gt;</span>9000<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;in_sync&gt;</span>false<span class="nt">&lt;/in_sync&gt;</span>
+     <span class="nt">&lt;/reported_configuration&gt;</span>
+     <span class="nt">&lt;reported_configuration&gt;</span>
+       <span class="nt">&lt;name&gt;</span>bridged<span class="nt">&lt;/name&gt;</span>
+       <span class="nt">&lt;value&gt;</span>false<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;in_sync&gt;</span>false<span class="nt">&lt;/in_sync&gt;</span>
+     <span class="nt">&lt;/reported_configuration&gt;</span>
+     <span class="nt">&lt;reported_configuration&gt;</span>
+       <span class="nt">&lt;name&gt;</span>200<span class="nt">&lt;/name&gt;</span>
+       <span class="nt">&lt;value&gt;</span>false<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;in_sync&gt;</span>false<span class="nt">&lt;/in_sync&gt;</span>
+     <span class="nt">&lt;/reported_configuration&gt;</span>
+   <span class="nt">&lt;/reported_configurations&gt;</span>
+ <span class="nt">&lt;/network_attachment&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>network - which logical network is connected to the host</li>
+  <li>host_nic - an optional sub-element which described the underlying interface
+    <ul>
+      <li>When not provided, implies the network is a nic-less network (not supported in 3.6)</li>
+      <li>Can specify an unused nic or a bond (either existing bond or bond to create from unused nics).</li>
+    </ul>
+  </li>
+  <li>ip_address_assignments - the ip configuration (ipv4/ipv6, boot protocol and addresses)</li>
+  <li>properties - network custom properties</li>
+  <li>reported_configuration - read-only element, returned <em>only</em> when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.</li>
+</ul>
+
+<p>The <strong><code class="language-plaintext highlighter-rouge">ip_address_assignments</code></strong> representation is:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;ip_address_assignments&gt;</span>
+   <span class="nt">&lt;ip_address_assignment&gt;</span>
+           <span class="nt">&lt;assignment_method&gt;</span>STATIC<span class="nt">&lt;/assignment_method&gt;</span> 
+             
+     <span class="nt">&lt;ip</span> <span class="na">address=</span><span class="s">"…"</span> <span class="na">netmask=</span><span class="s">"…"</span> <span class="na">gateway =</span><span class="s">"…"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/ip_address_assignment&gt;</span>
+   <span class="nt">&lt;ip_address_assignment&gt;</span>
+           <span class="nt">&lt;assignment_method&gt;</span>STATIC<span class="nt">&lt;/assignment_method&gt;</span> 
+     <span class="nt">&lt;ip</span> <span class="na">address=</span><span class="s">"…"</span> <span class="na">netmask=</span><span class="s">"…"</span> <span class="na">gateway =</span><span class="s">"…"</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;ip&gt;</span>
+   <span class="nt">&lt;/ip_address_assignment&gt;</span>
+       
+         
+   <span class="nt">&lt;ip_address_assignment&gt;</span>
+           <span class="nt">&lt;assignment_method&gt;</span>STATIC<span class="nt">&lt;/assignment_method&gt;</span> 
+     <span class="nt">&lt;ip</span> <span class="na">address=</span><span class="s">"…"</span> <span class="na">netmask=</span><span class="s">"…"</span> <span class="na">gateway =</span><span class="s">"…"</span> <span class="na">version=</span><span class="s">"6"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/ip_address_assignment&gt;</span>
+ <span class="nt">&lt;ip_address_assignments&gt;</span>
+</code></pre></div></div>
+
+<p>A new <strong><code class="language-plaintext highlighter-rouge">link_aggregation</code></strong> element is added to abstract the implementation:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nt">&lt;link_aggregation&gt;</span>
+     <span class="nt">&lt;options&gt;</span>
+             
+       <span class="nt">&lt;option&gt;</span>
+         <span class="nt">&lt;name&gt;</span>module<span class="nt">&lt;/name&gt;</span>
+         <span class="nt">&lt;value&gt;</span>bonding<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/option&gt;</span>
+       <span class="nt">&lt;option&gt;</span>
+         <span class="nt">&lt;name&gt;</span>mode<span class="nt">&lt;/name&gt;</span>
+         <span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+         <span class="nt">&lt;type&gt;</span>Active-Backup<span class="nt">&lt;/type&gt;</span>
+       <span class="nt">&lt;/option&gt;</span>
+       <span class="nt">&lt;option&gt;</span>
+         <span class="nt">&lt;name&gt;</span>miimon<span class="nt">&lt;/name&gt;</span>
+         <span class="nt">&lt;value&gt;</span>100<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;/option&gt;</span>
+     <span class="nt">&lt;/options&gt;</span>
+     <span class="nt">&lt;slaves&gt;</span>
+       <span class="nt">&lt;host_nic</span> <span class="na">id=</span><span class="s">"833ebaeb-0988-4bd5-b860-e00bcc3f576a"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;host_nic</span> <span class="na">id=</span><span class="s">"782e8199-984e-407f-b242-3d6c7dc2f7b7"</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;/slaves&gt;</span>
+   <span class="nt">&lt;/link_aggregation&gt;</span>
+</code></pre></div></div>
+
+<p>The link_aggregation element will be used from within the host_nic element for bonding devices.</p>
+
+<h4 id="network-attachments-sub-collection-of-the-nic-resource">Network attachments sub-collection of the nic resource</h4>
+
+<ul>
+  <li>
+    <p>A collection of network attachments that are attached to a specific physical interface or a bond:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/networkattachments</code></p>
+  </li>
+  <li>
+    <p>Supported actions:</p>
+    <ol>
+      <li><strong>GET</strong> returns a list of networks attached to the nic</li>
+      <li><strong>POST</strong> attaches a network to the nic</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="setupnetworks-api-of-the-host-resource">Setupnetworks API of the host resource</h4>
+
+<ul>
+  <li>
+    <p>A multi-network configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another or create network on bond)</p>
+
+    <p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/setupnetworks</code></p>
+  </li>
+  <li>Supported actions:
+    <ul>
+      <li><strong>POST</strong> - expects a relative change to be applied on the host, using <em>PATCH</em> behaviour.</li>
+    </ul>
+  </li>
+  <li>Request structure:</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;action&gt;</span>
+   <span class="nt">&lt;modified_bonds</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;removed_bonds</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;modified_network_attachments</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;synchronized_network_attachments/&gt;</span>
+   <span class="nt">&lt;removed_network_attachments</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;check_connectivity</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;connectivity_timeout</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>modified_bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element</li>
+  <li>removed_bonds - id list of bonds to be removed</li>
+  <li>modified_network_attachments - describes which networks should be configured (added or updated) on the host.
+    <ul>
+      <li>When host nic is provided, the network will be configured on it</li>
+      <li>When host nic is omitted, the network will be configured as a nicless network (not supported in 3.6)</li>
+      <li>When a nic is changed, the network will be reconfigured on the new nic (move network from nic to nic). Network id cannot be changed from one to another as a part of update. Network can be identified by id or name just like bond.</li>
+    </ul>
+  </li>
+  <li>removed_network_attachments - id list of network attachments to remove</li>
+  <li>synchronized_network_attachments - network attachment list to be synchronized with nic</li>
+</ul>
+
+<h4 id="network-attachment-resource-under-nic">Network attachment resource under nic</h4>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}</code></p>
+
+<ul>
+  <li>Supported actions:
+    <ol>
+      <li><strong>GET</strong> - returns a specific network attachment; attaches network to the nic, when nic id is provided.</li>
+      <li><strong>DELETE</strong> - deletes network attachment; detaches a network from the nic</li>
+      <li><strong>PUT</strong> - updates the network network attachment</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="network-statistics-sub-collection-optional">Network statistics sub-collection (optional)</h4>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachments:id}/statistics</code></p>
+
+<ul>
+  <li>Supported actions:
+    <ol>
+      <li><strong>GET</strong> returns a specific statistics for a network attachment(if reported) which is attached to the nic</li>
+    </ol>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>We can implement a new API in this context to reflect the total rx/tx instead of a processed measurements.</li>
+</ul>
+
+<h4 id="host-network-attachments-sub-collection">Host Network attachments sub-collection</h4>
+
+<p>Introducing new sub-collections to reflect the host network configuration:</p>
+
+<ul>
+  <li>A collection of network attachments which represent how the network is provisioned on the host</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/networkattachments</code></p>
+
+<ul>
+  <li>Supported actions:
+    <ol>
+      <li><strong>GET</strong> returns a list of networks attachments configured on the host</li>
+      <li><strong>POST</strong> provision a network on the host</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Where the networkattachment element will omit the host_nic element from the request. If provided, must be in sync with one provided on URL path</p>
+
+<h4 id="host-network-attachment-resource">Host Network attachment resource</h4>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/networkattachments/{networkattachment:id}</code></p>
+
+<ul>
+  <li>Supported actions:
+    <ol>
+      <li><strong>GET</strong> returns a specific network configured on the host</li>
+      <li><strong>PUT</strong> Update a network configured on the host, where modifying the nic indicates network will be configured on the new network device.</li>
+      <li><strong>DELETE</strong> removes a network from the host</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="current-host-networking-api-up-to-ovirt-engine-35">Current Host Networking API (up to ovirt-engine-3.5)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics</code></p>
+
+<ul>
+  <li><strong>GET</strong> - list of network interfaces (GetVdsInterfacesByVdsId)</li>
+  <li><strong>POST</strong> - creates a bond (AddBond)</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/setupnetworks</code></p>
+
+<ul>
+  <li><strong>POST</strong> - performs setup networks action (SetupNetworks)</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}</code></p>
+
+<ul>
+  <li><strong>GET</strong> - gets a specific network interface (GetVdsInterfacesByVdsId)</li>
+  <li><strong>DELETE</strong> - removes a bond (RemoveBond)</li>
+  <li><strong>PUT</strong> - updates a network which is attached to the specific network interface, aka mini-setup networks (UpdateNetworkToVdsInterface)</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/attach</code></p>
+
+<ul>
+  <li><strong>POST</strong> - adds a network to a nic (AttachNetworkToVdsInterface)</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/detach</code></p>
+
+<ul>
+  <li><strong>POST</strong> - removes a network from a nic (DetachNetworkFromVdsInterface)</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/statistics</code></p>
+
+<ul>
+  <li><strong>GET</strong> - list the statistics of the specific network interface</li>
+</ul>
+
+<p>Network labels related actions are listed at <a href="/ovirt-site/previews/2935/develop/release-management/features/network/networklabels.html#rest">Features/NetworkLabels#REST</a>.</p>
+
+<h2 id="what-should-be-deprecated">What should be deprecated?</h2>
+
+<ul>
+  <li>The <em>network</em> element in host_nic is replaced by <em>networkattachments</em> subcollection:</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}</code></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;host_nic&gt;</span>
+   <span class="nt">&lt;network</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;/host_nic&gt;</span>
+</code></pre></div></div>
+
+<p>is replaced by:</p>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/networkattachments</code></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;network_attachments/&gt;</span>
+</code></pre></div></div>
+
+<p>The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a <em>networkattachment</em> element of the underlying nic.</p>
+
+<ul>
+  <li>Deprecated: <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/setupnetworks</code></li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;host_nics&gt;</span>
+   <span class="nt">&lt;host_nic&gt;</span>
+     <span class="nt">&lt;network</span> <span class="na">id=</span><span class="s">"..."</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/host_nic&gt;</span>
+ <span class="nt">&lt;/host_nics&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Is replaced by: <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/hostsetupnetworks</code></li>
+</ul>
+
+<figure class="highlight">
+  <pre><code class="language-xml" data-lang="xml">     <span class="nt">&lt;modified_network_attachments&gt;</span>
+           ...
+     <span class="nt">&lt;/modified_network_attachments&gt;</span></code></pre>
+</figure>
+
+<p>Request should contain only nics or bonds (no vlans).</p>
+
+<ul>
+  <li>
+    <p>Deprecated Host nics actions:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/attach</code>
+is replaced by <strong>POST</strong> request to 
+<code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/networkattachments</code></p>
+  </li>
+</ul>
+
+<p>and:</p>
+
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/detach</code>
+   is replaced by <strong>DELETE</strong> request to:
+   <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}</code></p>
+
+<ul>
+  <li>Updating network interface</li>
+</ul>
+
+<p><strong>PUT</strong> on <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/</code>
+   the action semantics is changed to edit bond only</p>
+
+<p>is replaced by</p>
+
+<p><strong>PUT</strong> on <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}</code></p>
+
+<h2 id="behaviour-change">Behaviour Change</h2>
+
+<p>Since the Network Attachment is the entity for describing a network attachment to the host, and it requires to be associated to an existing network on the data-center, unmanaged networks handling will be done differently than &lt;= ovirt-engine 3.5.
+ Unmanaged networks are networks which are reported by vdsm (hence those networks are reported by libvirt and have the expected prefix of “vdsm-“), but are not identified as networks on the cluster on which the host resides.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2935/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2935/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2935/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2935/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/hostnetworkingapi.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/hostnetworkingapi.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

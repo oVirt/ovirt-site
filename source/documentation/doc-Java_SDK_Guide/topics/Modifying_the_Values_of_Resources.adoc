@@ -1,0 +1,29 @@
+[[Modifying_the_Values_of_Resources]]
+= Modifying the Attributes of Resources
+
+The following example outlines how to modify the attributes of a resource. In this example, the attribute to be modified is the description of the virtual machine with the name 'test', which is changed to 'java_sdk'.
+
+*Modifying the Attributes of a Resource*
+
+. Declare an instance of the resource whose attributes are to be modified:
++
+[source, Java]
+----
+VM vm = api.getVMs().get("test");
+----
++
+. Set the new value of the attribute:
++
+[source, Java]
+----
+vm.setDescription("java_sdk");
+----
++
+. Update the virtual machine to apply the change:
++
+[source, Java]
+----
+VM newVM = vm.update();
+----
++
+

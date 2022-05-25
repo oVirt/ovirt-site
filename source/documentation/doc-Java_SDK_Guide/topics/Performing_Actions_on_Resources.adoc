@@ -1,0 +1,45 @@
+[[Performing_Actions_on_Resources]]
+= Performing Actions on Resources
+
+The following example outlines how to perform actions on a resource. In this example, a virtual machine with the name 'test' is started.
+
+
+*Performing an Action on a Resource*
+
+. Declare an instance of the resource:
++
+[source, Java]
+----
+ VM vm = api.getVMs().get("test");
+----
++
+. Declare action parameters to send to the resource:
++
+[source, Java]
+----
+Action actionParam = new Action();
+org.ovirt.engine.sdk.entities.VM vmParam = new org.ovirt.engine.sdk.entities.VM();
+actionParam.setVm(vmParam);
+----
++
+. Perform the action:
++
+[source, Java]
+----
+Action res = vm.start(actionParam);
+----
++
+
+Alternatively, you can perform the action as an inner method:
++
+[source, Java]
+----
+Action res = vm.start(new Action()
+{
+    {
+        setVm(new org.ovirt.engine.sdk.entities.VM());
+    }
+});
+----
++
+

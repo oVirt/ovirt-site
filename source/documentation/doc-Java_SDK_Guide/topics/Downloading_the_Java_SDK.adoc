@@ -1,0 +1,34 @@
+[[Downloading_the_Java_SDK]]
+= Installing the Java Software Development Kit
+
+Install the Java software development kit and accompanying documentation.
+
+*Installing the Java Software Development Kit*
+
+. Enable the repositories:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos \
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms\
+    --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
+----
++
+. Enable the `pki-deps` module.
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module -y enable pki-deps
+----
++
+. Install the required packages for Java SDK V4:
++
+[options="nowrap" subs="normal"]
+----
+# dnf install java-ovirt-engine-sdk4
+----
++
+The V4 Java software development kit and accompanying documentation are downloaded to the */usr/share/java/java-ovirt-engine-sdk4* directory and can be added to Java projects.

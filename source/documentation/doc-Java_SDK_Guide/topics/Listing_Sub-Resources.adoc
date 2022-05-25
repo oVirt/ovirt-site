@@ -1,0 +1,21 @@
+[[Listing_Sub-Resources]]
+= Listing Sub-Resources
+
+The following example outlines how to list the sub-resources of a resource. In this example, the sub-resources of a virtual machine with the name 'test' are listed.
+
+*Listing Sub-Resources*
+
+. Declare an instance of the resource whose sub-resources are to be listed:
++
+[source, Java]
+----
+VM vm = api.getVMs().get("test");
+----
++
+. List the sub-resources:
++
+[source, Java]
+----
+List<VMDisk>; disks = vm.getDisks().list();
+----
++

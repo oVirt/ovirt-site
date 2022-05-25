@@ -1,0 +1,26 @@
+[[chap-Using_the_Software_Development_Kit]]
+== Using the Software Development Kit
+
+This chapter outlines several examples of how to use the Java Software Development Kit. All examples in this chapter use version 3 of the software development kit unless otherwise noted.
+
+include::topics/Connecting_to_the_Red_Hat_Enterprise_Virtualization_Manager_4.adoc[leveloffset=+1]
+
+include::topics/Listing_Entities.adoc[leveloffset=+1]
+
+include::topics/Modifying_the_Values_of_Resources.adoc[leveloffset=+1]
+
+include::topics/Getting_a_Resource.adoc[leveloffset=+1]
+
+include::topics/Adding_Virtual_Machines.adoc[leveloffset=+1]
+
+include::topics/Performing_Actions_on_Resources.adoc[leveloffset=+1]
+
+include::topics/Listing_Sub-Resources.adoc[leveloffset=+1]
+
+include::topics/Getting_Sub-Resources.adoc[leveloffset=+1]
+
+include::topics/Adding_Sub-Resources_to_a_Resource.adoc[leveloffset=+1]
+
+include::topics/Modifying_Sub-Resources.adoc[leveloffset=+1]
+
+include::topics/Performing_Actions_on_Sub-Resources.adoc[leveloffset=+1]

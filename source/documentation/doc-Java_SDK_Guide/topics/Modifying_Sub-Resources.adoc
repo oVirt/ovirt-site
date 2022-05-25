@@ -1,0 +1,36 @@
+[[Modifying_Sub-Resources]]
+= Modifying Sub-Resources
+
+The following example outlines how to modify sub-resources. In this example, the name of a disk with the name 'test_Disk1' belonging to a virtual machine with the name 'test' is changed to 'test_Disk1_updated'.
+
+*Updating a Sub-Resource*
+
+. Declare an instance of the resource whose sub-resource is to be modified:
++
+[source, Java]
+----
+VM vm = api.getVMs().get("test");
+----
++
+. Declare an instance of the sub-resource to be modified:
++
+[source, Java]
+----
+VMDisk disk = vm.getDisks().get("test_Disk1");
+----
++
+. Set the new value of the attribute:
++
+[source, Java]
+----
+disk.setAlias("test_Disk1_updated");
+----
++
+. Update the sub-resource:
++
+[source, Java]
+----
+VMDisk updateDisk = disk.update();
+----
++
+

@@ -1,0 +1,23 @@
+:numbered!:
+
+[appendix]
+[[ConnectionBuilder_Methods]]
+== ConnectionBuilder Methods
+
+The following table outlines the key methods available to the `ConnectionBuilder` class used in V4 of the Java software development kit.
+
+.ConnectionBuilder Methods
+[options="header"]
+|===
+|Method |Argument Type |Description
+|`user` |`String` |The name of the user with which to connect to the {engine-name}. You must specify both the user name and domain, such as `admin@internal`. This method must be used together with the `password` method.
+|`password` |`String` |The password of the user with which to connect to the {engine-name}.
+|`compress` |`Boolean` |Specifies whether responses from the server where the {engine-name} is hosted should be compressed. This option is disabled by default, so this method is only required to enable this option.
+|`timeout` |`Integer` |The timeout, in seconds, to wait for responses to requests. If a request takes longer than this value to respond, the request is cancelled, and an exception is thrown. This argument is optional.
+|`ssoUrl` |`String` |The base URL of the server where the {engine-name} is hosted. For example, `\https://server.example.com/ovirt-engine/sso/oauth/token?\grant_type=password&amp;scope=ovirt-app-api` for password authentication.
+|`ssoRevokeUrl` |`String` |The base URL of the SSO revoke service. This option only needs to be specified when you use an external authentication service. By default, this URL is automatically calculated from the value of the `url` option so that SSO token revoke is performed using the SSO service that is part of the engine.
+|`ssoTokenName` |`String` |The token name in the JSON SSO response returned from the SSO server. By default, this value is `access_token`.
+|`insecure` |`Boolean` |Enables or disables verification of the host name in the SSL certificate presented by the server where the {engine-name} is hosted. By default, the identity of host names is verified, and the connection is rejected if the host name is not correct, so this method is only required to disable this option.
+|`trustStoreFile` |`String` |Specifies the location of a file containing the CA certificate used to verify the certificate presented by the server where the {engine-name} is hosted. This method must be used together with the `trustStorePassword` method.
+|`trustStorePassword` |`String` |The password used to access the keystore file specified in the `trustStorePath` method.
+|===

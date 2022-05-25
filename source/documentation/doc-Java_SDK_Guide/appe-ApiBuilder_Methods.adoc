@@ -1,0 +1,24 @@
+:numbered!:
+
+[appendix]
+[[ApiBuilder_Methods]]
+== ApiBuilder Methods
+
+The following table outlines the key methods available to the `ApiBuilder` class used in V3 of the Java software development kit.
+
+.ApiBuilder Methods
+[options="header"]
+|===
+|Method |Argument Type |Description
+|`user` |`String` |The name of the user with which to connect to the {engine-name}. You must specify both the user name and domain, such as `admin@internal`. This method must be used together with the `password` method.
+|`password` |`String` |The password of the user with which to connect to the {engine-name}.
+|`sessionID` |`String` |The identifier of a session with which to connect to the {engine-name}. If you have already authenticated with the {engine-name} and a session is available, you can specify this argument instead of specifying a user name and password.
+|`requestTimeout` |`Integer` |The timeout, in seconds, to wait for responses to requests. If a request takes longer than this value to respond, the request is cancelled, and an exception is thrown. This argument is optional.
+|`sessionTimeout` |`Integer` |The timeout, in minutes, after which an active session is destroyed if no requests are made to the {engine-name}. This argument is optional.
+|`persistentAuth` |`Boolean` |Enables or disables persistent authentication using cookies. This option is enabled by default, so this method is only required to disable this option.
+|`noHostVerification` |`Boolean` |Enables or disables verification of the host name in the SSL certificate presented by the server where the {engine-name} is hosted. By default, the identity of host names is verified, and the connection is rejected if the host name is not correct, so this method is only required to disable this option.
+|`keyStorePath` |`String` |Specifies the location of a file containing the CA certificate used to verify the certificate presented by the server where the {engine-name} is hosted. This method must be used together with the `keyStorePassword` method.
+|`keyStorePassword` |`String` |The password used to access the keystore file specified in the `keyStorePath` method.
+|`filter` |`Boolean` |Enables or disables filtering of objects based on the permissions of the user making the request. By default, this option is disabled, which allows any user to see all objects in the environment. This method is only required to restrict the objects in the environment to those visible to the user making the request.
+|`debug` |`Boolean` |Enables or disables debug output. By default, this option is disabled.
+|===

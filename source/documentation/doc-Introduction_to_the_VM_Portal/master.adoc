@@ -1,0 +1,11 @@
+:rhv-doc:
+include::common/collateral_files/_attributes.adoc[]
+:_content-type: ASSEMBLY
+= Introduction to the VM Portal
+:imagesdir: images
+:context: VM_portal
+:VM_portal:
+
+include::chap-Accessing_the_VM_Portal.adoc[leveloffset=+1]
+
+include::chap-Managing_virtual_machines.adoc[leveloffset=+1]

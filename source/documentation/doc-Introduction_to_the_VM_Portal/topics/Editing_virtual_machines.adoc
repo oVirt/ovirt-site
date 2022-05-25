@@ -1,0 +1,51 @@
+:_content-type: PROCEDURE
+[id="Editing_virtual_machines"]
+= Editing virtual machines
+
+[NOTE]
+====
+Your user role must have permission to edit a virtual machine.
+
+You can edit a virtual machine's disks and network interfaces in the virtual machine's details view. See xref:Viewing_virtual_machine_details[].
+====
+
+*Editing a virtual machine*
+
+In the virtual machines pane, click the card of the virtual machine that you want to edit. The Virtual machine dashboard is displayed, which contains the following fields, organized in individual cards.
+Click the *Edit* icon (image:Edit_VM.png[width=20px]) in the appropriate card to edit the values in that card:
+
+.Virtual Machine name and description
+* *Name* - The virtual machine name may contain only upper- or lower-case letters, numbers, underscores, hyphens, or periods. Special characters and spaces are not allowed.
+* *Description* - Enter a description of this virtual machine (optional).
+
+.Details
+* *Template* - Displays the name of the template used to create this virtual machine.
+* *Change CD* - Allows you to select an ISO file that is accessible to the virtual machine as a CD.
+* *CPUs* - Allows you to configure the number of virtual CPUs available to the virtual machine.
+* *Memory* - Allows you to configure the virtual memory available to the virtual machine.
+
+.Details - Advanced Options
+* *Cloud-Init* - The cloud-init tool allows you to automate the deployment of virtual machines. When this is set to _ON_, the *Hostname* and *SSH Authorized Keys* fields are displayed. See  link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained[Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows] in the _Virtual Machine Management Guide_ for details.
+* *Operating System* - Allows you to select the operating system installed on this virtual machine.
+* *Boot Menu* - When set to _ON_, the Boot menu appears in the console, enabling you to select a bootable device.
+* *Boot Order*
+** *First Device* - The first device to be checked for booting.
+** *Second Device* - The second device to be checked for booting.
+
+.Snapshots
+Displays a list of snapshots that have been saved.
+
+* Click the *Edit* icon (image:Edit_VM.png[width=20px]) to display the *Create Snapshot* button for creating a new snapshot. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_Network_Interface_dialogue_entries[Explanation of Settings in the New Network Interface and Edit Network Interface Windows] in the _Virtual Machine Management Guide_ for details.
+* Click the *information*, *restore*, or *delete* icon to view details, restore a snapshot, or delete a snapshot.
+
+.Network Interfaces
+Displays a list of network interfaces defined for this virtual machine.
+
+* Click the *Edit* icon (image:Edit_VM.png[width=20px]) to display the *Create NIC* button for creating a new network interface entry. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_Network_Interface_dialogue_entries[Explanation of Settings in the New Network Interface and Edit Network Interface Windows] in the _Virtual Machine Management Guide_ for details.
+* Click the *Edit* or *Delete* icon to edit or delete a network interface.
+
+.Disks
+Displays a list of disks that are defined for this virtual machine.
+
+* Click the *Edit* icon (image:Edit_VM.png[width=20px]) to display the *Create Disk* button for creating a new disk entry.
+* Click the *Edit* or *Delete* icon to edit or delete the disk. See  link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained[Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows] in the _Virtual Machine Management Guide_ for details.

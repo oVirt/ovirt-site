@@ -1,14 +1,16 @@
-=== Connecting to virtual machines
+:_content-type: PROCEDURE
+[id="connecting-to-virtual-machines"]
+= Connecting to virtual machines
 
-*Connecting to a virtual machine*
+.Procedure
 
 . In the virtual machines pane, click *Run* in a virtual machine's card to start that virtual machine.
 
 . Click *Console* to connect to the virtual machine.
++
+You will be asked to download a *.vv* file.
 
-. You will be asked to download a *.vv* file.
-
-. Open the file with *remote-viewer*. A console window displays.
+. Open the file with *remote-viewer*. A console window is displayed.
 +
 You can now use the virtual machine in the same way you would use a physical desktop.
 

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Virtio-SCSI | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Virtio-SCSI" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2938/develop/release-management/features/storage/virtio-scsi.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2938/develop/release-management/features/storage/virtio-scsi.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Virtio-SCSI" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Virtio-SCSI","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2938/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2938/develop/release-management/features/storage/virtio-scsi.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2938/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2938/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2938/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2938/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2938/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2938/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2938/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2938/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2938/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2938/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2938/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2938/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2938/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2938/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2938/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2938/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2938/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2938/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2938/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2938/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2938/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2938/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2938//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2938//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2938/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2938/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2938/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2938/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2938/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Daniel Erez</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2938/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="virtio-scsi">Virtio-SCSI</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>The virtio-scsi feature is a new para-virtualized SCSI controller device. It is the foundation of an alternative storage implementation for KVM Virtualization’s storage stack replacing virtio-blk and improving upon its capabilities. It provides the same performance as virtio-blk, and adds the following immediate benefits:</p>
+
+<ul>
+  <li>Improved scalability—virtual machines can connect to more storage devices (the virtio-scsi can handle multiple block devices per virtual SCSI adapter).</li>
+  <li>Standard command set—virtio-scsi uses standard SCSI command sets, simplifying new feature addition.</li>
+  <li>Standard device naming—virtio-scsi disks use the same paths as a bare-metal system. This simplifies physical-to-virtual and virtual-to-virtual migration.</li>
+  <li>SCSI device passthrough—virtio-scsi can present physical storage devices directly to guests.</li>
+</ul>
+
+<p>Virtio-SCSI provides the ability to connect directly to SCSI LUNs and significantly improves scalability compared to virtio-blk. The advantage of virtio-SCSI is that it is capable of handling hundreds of devices compared to virtio-blk which can only handle approximately 30 devices and exhausts PCI slots.</p>
+
+<p>Designed to replace virtio-blk, virtio-scsi retains virtio-blk’s performance advantages while improving storage scalability, allowing access to multiple storage devices through a single controller, and enabling reuse of the guest operating system’s SCSI stack.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Daniel Erez (Derez)</li>
+  <li>Email: <a href="mailto:derez@redhat.com">derez@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release: 3.3</li>
+  <li>Status: released</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The virtio SCSI host is the basis of an alternative storage stack for KVM. This stack would overcome several limitations of the current solution, virtio-blk:</p>
+
+<p>1) scalability limitations: virtio-blk-over-PCI puts a strong upper limit on the number of devices that can be added to a guest. Currently virtio-blk imposes a limitation of ~30 disks per guest. Each virtio-blk virtual adapter can only handle one block device so the number of block devices is limited by the number of virtual PCI slots in the guest. While this can be worked around by implementing a PCI-to-PCI bridge, or by using multifunction virtio-blk devices, these solutions either have not been implemented yet, or introduce management restrictions. On the other hand, the SCSI architecture is well known for its scalability and virtio-scsi supports advanced feature such as multiqueueing.</p>
+
+<p>2) limited flexibility: virtio-blk does not support all possible storage scenarios. For example, it does not allow SCSI passthrough or persistent reservations. In principle, virtio-scsi provides anything that the underlying SCSI target (be it physical storage, iSCSI or the in-kernel target) supports.</p>
+
+<p>3) limited extensibility: over the time, many features have been added to virtio-blk. Each such change requires modifications to the virtio specification, to the guest drivers, and to the device model in the host. The virtio-scsi spec has been written to follow SAM conventions, and exposing new features to the guest will only require changes to the host’s SCSI target implementation.</p>
+
+<h3 id="guest-support">Guest Support</h3>
+
+<p>The following Guest OS drivers are available:</p>
+
+<ul>
+  <li>Fedora / Other Linuxes</li>
+  <li>Windows Server 2003 / 2007 / 2008 / 2012, Windows 7/8
+    <ul>
+      <li>Windows XP is not supported</li>
+    </ul>
+
+    <p>Note: Windows drivers should be added to guest tools.</p>
+  </li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<h4 id="adding-an-image-disk">Adding an image Disk</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;devices&gt;</span>
+ <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">'file'</span> <span class="na">device=</span><span class="s">'disk'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">'sda'</span> <span class="na">bus=</span><span class="s">'scsi'</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'drive'</span> <span class="na">controller=</span><span class="s">'0'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">target=</span><span class="s">'0'</span> <span class="na">unit=</span><span class="s">'0'</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;/disk&gt;</span>
+ <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'scsi'</span> <span class="na">index=</span><span class="s">'0'</span> <span class="na">model=</span><span class="s">'virtio-scsi'</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/devices&gt;</span>
+</code></pre></div></div>
+
+<h4 id="adding-a-directlun-disk-lun-passthrough">Adding a DirectLUN Disk (lun passthrough)</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;devices&gt;</span>
+ <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">'block'</span> <span class="na">device=</span><span class="s">'lun'</span> <span class="na">rawio=</span><span class="s">'no'</span> <span class="na">sgio=</span><span class="s">'unfiltered'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">'sda'</span> <span class="na">bus=</span><span class="s">'scsi'</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'drive'</span> <span class="na">controller=</span><span class="s">'0'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">target=</span><span class="s">0'</span> <span class="na">unit=</span><span class="s">'0'</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;/disk&gt;</span>
+ <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'scsi'</span> <span class="na">index=</span><span class="s">'0'</span> <span class="na">model=</span><span class="s">'virtio-scsi'</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/devices&gt;</span>
+</code></pre></div></div>
+
+<h3 id="backend">Backend</h3>
+
+<ul>
+  <li>DiskInterface enum: VirtIO_SCSI</li>
+  <li>Affected commands: AddDisk/UpdateVmDisk/HotPlugDisk</li>
+  <li>‘VirtIOScsiEnabled’ configuration value.</li>
+  <li>BaseDisk: sgio field.</li>
+  <li>VmInfoBuilder:
+    <ul>
+      <li>Add “scsi” interface to struct.</li>
+      <li>Add “virto-scsi” controller.</li>
+      <li>Add ‘sgio’ propety to device.</li>
+    </ul>
+  </li>
+  <li>Permissions:
+    <ul>
+      <li>CONFIGURE_SCSI_GENERIC_IO ActionGroup</li>
+      <li>Check on Disk entity</li>
+      <li>Add to SuperUser/DataCenterAdmin roles</li>
+    </ul>
+  </li>
+  <li>VirtIO-SCSI enabled flag:
+    <ul>
+      <li>When enabled, a VirtIO-SCSI controller device is added to vm_device table.</li>
+      <li>Used for maintaining stable address to the pci controller.</li>
+      <li>Necessary for hot-plugging a disk with VirtIO-SCSI interface.</li>
+      <li>The flag is defaulted to true on cluster &gt;= 3.3.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rest-api">REST-API</h3>
+
+<h4 id="createupdate-an-image-disk">Create/Update an image Disk</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk&gt;</span>
+        ...
+ <span class="nt">&lt;interface&gt;</span>virtio_scsi<span class="nt">&lt;/interface&gt;</span>
+        ...
+<span class="nt">&lt;/disk&gt;</span>
+</code></pre></div></div>
+
+<h4 id="createupdate-a-directlun-disk">Create/Update a DirectLUN Disk</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk&gt;</span>
+        ...
+ <span class="nt">&lt;interface&gt;</span>virtio_scsi<span class="nt">&lt;/interface&gt;</span>
+ <span class="nt">&lt;sgio&gt;</span>unfiltered<span class="nt">&lt;/sgio&gt;</span>
+        ...
+<span class="nt">&lt;/disk&gt;</span>
+</code></pre></div></div>
+
+<h4 id="virtio_scsi-flag">VirtIO_SCSI flag</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;vm&gt;</span>
+        ...
+ <span class="nt">&lt;virtio_scsi</span> <span class="na">enabled=</span><span class="s">"true|false"</span><span class="nt">/&gt;</span>
+        ...
+<span class="nt">&lt;/vm&gt;</span>
+</code></pre></div></div>
+
+<h3 id="ui">UI</h3>
+
+<h4 id="add-disk">Add Disk</h4>
+
+<p><img src="/ovirt-site/previews/2938/images/wiki/Virtio-scsi-adddisk.png" alt="" /></p>
+
+<h4 id="new-role">New Role</h4>
+
+<p><img src="/ovirt-site/previews/2938/images/wiki/Virtio-scsi-role.png" alt="" /></p>
+
+<h4 id="newedit-vm">New/Edit VM</h4>
+
+<p><img src="/ovirt-site/previews/2938/images/wiki/Virtio-scsi-enable.png" alt="" /></p>
+
+<h3 id="sequence-diagram">Sequence diagram</h3>
+
+<p><img src="/ovirt-site/previews/2938/images/wiki/Virtio-scsi_sequence-diagram.png" alt="" /></p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>Virtio-SCSI will add the following abilities to oVirt:</p>
+
+<ul>
+  <li>Allow the usage of hundreds of devices per guest</li>
+  <li>Attach a virtual hard drive or CD through the virtio-scsi controller</li>
+  <li>pass-through a physical SCSI device from the host to the guest via the QEMU scsi-block device</li>
+</ul>
+
+<h2 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h2>
+
+<ul>
+  <li>virtio-scsi ioctl</li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<ul>
+  <li>Run all tests on disks with the new disk interface (Virtio-SCSI).</li>
+  <li>Hot-Plug: at the moment, hot plug would succeed only if there’s already at least one virtio-scsi disk (i.e. a scsi controller should be available on running vm).</li>
+  <li>SGIO: for DirectLUN disks, check that ‘sgio’ property is passed correctly (filtered/unfiltered).</li>
+  <li>MLA: Disk -&gt; ‘Manipulate SCSI I/O Privilages’.</li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<ul>
+  <li>virtio-scsi Fedora feature page [KVM]: <a href="http://fedoraproject.org/wiki/Features/virtio-scsi">http://fedoraproject.org/wiki/Features/virtio-scsi</a></li>
+  <li>virtio scsi host draft specification, v3 [QEMU]: <a href="http://lists.gnu.org/archive/html/qemu-devel/2011-06/msg00754.html">http://lists.gnu.org/archive/html/qemu-devel/2011-06/msg00754.html</a></li>
+  <li>virtio scsi libvirt: <a href="http://libvirt.org/formatdomain.html#elementsControllers">http://libvirt.org/formatdomain.html#elementsControllers</a></li>
+</ul>
+
+<h2 id="comments-and-discussion">Comments and Discussion</h2>
+
+<ul>
+  <li>There are a number of use cases where the virtual machine would need to run SG_IO commands that are considered ‘dangerous’ such as persistent reservations.</li>
+  <li>Today the kernel blocks commands unless the calling application has CAP_SYS_RAWIO.</li>
+  <li>Giving this facility to the qemu process (or run as root) raises a number of security concerns.</li>
+  <li>Consider to define a certain set of commands upfront - such as persistent reservations, TRIM/DISCARD, etc however since storage vendors can define their own commands this may not be enough.</li>
+  <li>A filter mechanism is need to be able to define filters for SG_IO commands to allow an administrator to define what privileged commands should be permitted for a given process.</li>
+</ul>
+
+<p>This should not require the process to run as root.</p>
+
+<ul>
+  <li>
+    <p>Filtered vs. unfiltered sg commands (i.e. the mechanism is currently all or nothing – can’t filter specific commands).</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Filtering is done on disk level (not on VM level).
+</code></pre></div>    </div>
+  </li>
+  <li>Mapping of disk vs. lun in libvirt to disk image and direct lun appropriately.</li>
+  <li>The feature is enabled for cluster 3.3 and up.</li>
+</ul>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<ul>
+  <li>How to use virtio-scsi controllers:
+    <ul>
+      <li>One SCSI controller for all disks? Or, a SCSI controller per disk?
+        <ul>
+          <li>Note: Each device on a virtio-scsi controller is represented as a logical unit, or LUN. The LUNs are grouped into targets. Each device can have a maximum of 256 targets per controller and 16,384 logical units per target.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>How hot-plug is affected:
+    <ul>
+      <li>Hot-plugging a disk with virtio-scsi interface should attach a new controller? Or, reuse the current SCSI controller?
+        <ul>
+          <li>Assume that a controller already exists in the VM?</li>
+          <li>Or, how to verify that a controller already exists in the VM (try/catch or using virDomainGetXMLDesc)?</li>
+        </ul>
+      </li>
+      <li>Hot-unplugging a disk should remove the controller as well? (currently, not supported by libvirt)</li>
+    </ul>
+  </li>
+  <li>Should virtio-scsi be set as default for 3.3 clusters?</li>
+</ul>
+
+<h2 id="future-work">Future Work</h2>
+
+<ul>
+  <li>Decouple disk interface (IDE/Virtio/Virtio-scsi) from Disk entity. I.e. disk interface should be defined in the connection between disk and VM (vm device), as opposed to the current situation whereas disk interface is a property of the disk.</li>
+  <li>Support CDs as well.</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2938/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2938/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2938/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2938/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/virtio-scsi.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/virtio-scsi.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

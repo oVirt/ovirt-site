@@ -17,6 +17,9 @@ On April 26th, 2022 the oVirt Project released an [oVirt Node 4.5.0.1 Async upda
 
 On May 13th, 2022 the oVirt Project released an [oVirt Node 4.5.0.2 Async update](https://blogs.ovirt.org/2022/05/ovirt-node-4-5-0-2-async-update/)
 
+On May 25th, 2022 the oVirt Project released an [oVirt Node 4.5.0.3 Async update](https://blogs.ovirt.org/2022/05/ovirt-node-4-5-0-3-async-update/)
+
+
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community

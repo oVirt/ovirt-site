@@ -925,8 +925,8 @@
 </div>
 <div class="paragraph">
 <p>Using a serial console requires configuring the firewall rules. For more information, see:
-* <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning">Rule "M3" in the oVirt Engine Firewall Requirements</a>
-* <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-firewall-requirements_RHV_planning">Rule "H2" in the Host Firewall Requirements</a></p>
+* <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning">Rule "M3" in the oVirt Engine Firewall Requirements</a>
+* <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#host-firewall-requirements_RHV_planning">Rule "H2" in the Host Firewall Requirements</a></p>
 </div>
 <div class="paragraph">
 <p>The serial console relies on the <code>ovirt-vmconsole</code> package and the <code>ovirt-vmconsole-proxy</code> on the Engine, and the <code>ovirt-vmconsole</code> package and the <code>ovirt-vmconsole-host</code> package on the virtualization hosts. These packages are installed by default on new installations. To install the packages on existing installations, reinstall the host. See <a href="https://ovirt.org/documentation/administration_guide/index#Reinstalling_Hosts">Reinstalling Hosts</a> in the <em>Administration Guide</em>.</p>
@@ -4156,7 +4156,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#types-operating_system-attributes-custom_kernel_cmdline">Custom kernel command line</a></p>
+<p>Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#types-operating_system-attributes-custom_kernel_cmdline">Custom kernel command line</a></p>
 </li>
 <li>
 <p>Requires a host reboot.</p>
@@ -6412,7 +6412,7 @@ Error while executing action:
 <p><a href="https://ovirt.org/documentation/administration_guide/index#Configuring_a_Host_for_PCI_Passthrough_host_tasks">Configuring a Host for PCI Passthrough</a></p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/hardware_considerations_for_implementing_sr-iov/">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
 </li>
 <li>
 <p><a href="#conc-nvdimm-host-devices"><code>nvdimm</code> host devices</a></p>
@@ -8243,7 +8243,7 @@ Error while executing action:
 <p>Optionally, select the <strong>Clone</strong> check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the <strong>VM in System</strong> column, you must clone the virtual machine and change its name.</p>
 </li>
 <li>
-<p>Click each virtual machine to be imported and click the <strong>Disks</strong> sub-tab. Use the <strong>Allocation Policy</strong> and <strong>Storage Domain</strong> lists to select whether the disk used by the virtual machine will be thin provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/technical_reference/index#Preallocated_Storage">Virtual Disk Storage Allocation Policies</a> in the <em>Technical Reference</em> for more information.</p>
+<p>Click each virtual machine to be imported and click the <strong>Disks</strong> sub-tab. Use the <strong>Allocation Policy</strong> and <strong>Storage Domain</strong> lists to select whether the disk used by the virtual machine will be thin provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/technical_reference/index#Preallocated_Storage">Virtual Disk Storage Allocation Policies</a> in the <em>Technical Reference</em> for more information.</p>
 </li>
 <li>
 <p>If you selected the <strong>Clone</strong> check box, change the name of the virtual machine in the <strong>General</strong> tab.</p>
@@ -8486,7 +8486,7 @@ Error while executing action:
 <ol class="arabic">
 <li>
 <p>Create a vNIC profile with SR-IOV enabled vNICS.
-See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Creating_a_VNIC_Profile">Creating a vNIC profile</a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#setting-up-and-configuring-sr-iov">Setting up and configuring SR-IOV</a>.</p>
+See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/administration_guide/index#Creating_a_VNIC_Profile">Creating a vNIC profile</a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/administration_guide/index#setting-up-and-configuring-sr-iov">Setting up and configuring SR-IOV</a>.</p>
 </li>
 <li>
 <p>In the Administration Portal, go to <span class="menuseq"><b class="menu">Network</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">VNIC profiles</b></span>, select the vNIC profile, click <b class="button">Edit</b> and select a <code>Failover vNIC profile</code> from the drop down list.</p>
@@ -10206,7 +10206,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Alternatively, you can configure Cloud-Init with <a href="https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html#examples">Ansible</a>, <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/python_sdk_guide/index#Starting_a_Virtual_Machine_with_Cloud-Init">Python</a>, <a href="https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java">Java</a>, or <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/ruby_sdk_guide/index#starting_a_virtual_machine_with_cloud_init">Ruby</a>.</p>
+<p>Alternatively, you can configure Cloud-Init with <a href="https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html#examples">Ansible</a>, <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/python_sdk_guide/index#Starting_a_Virtual_Machine_with_Cloud-Init">Python</a>, <a href="https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java">Java</a>, or <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/ruby_sdk_guide/index#starting_a_virtual_machine_with_cloud_init">Ruby</a>.</p>
 </div>
 </td>
 </tr>
@@ -13140,7 +13140,7 @@ yum-uuid * Remove the yum UUID</code></pre>
 <h2 id="ovirt-legal-notice">Appendix C: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4 Virtual Machine Management Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4-SP1 Virtual Machine Management Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

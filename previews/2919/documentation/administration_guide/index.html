@@ -5041,15 +5041,21 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="paragraph">
 <p>Data, such as virtual machines and templates, remains attached to the storage domain.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>master</code> storage, if it is the last available storage domain, cannot be removed.</p>
+<p>Although it possible to detach the last master storage domain, this is not recommended.</p>
+</div>
+<div class="paragraph">
+<p>If the master storage domain is detached, it must be reinitialized.</p>
+</div>
+<div class="paragraph">
+<p>If the storage domain is reinitialized, all your data will be lost, and the storage domain might not find your disks again.</p>
 </div>
 </td>
 </tr>
@@ -5294,7 +5300,7 @@ For details, see <a href="https://access.redhat.com/solutions/634853">Which CPU 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU Type</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The oldest CPU family in the cluster. For a list of CPU types, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning">CPU Requirements</a> in the <em>Planning and Prerequisites Guide</em>. You cannot change this after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The oldest CPU family in the cluster. For a list of CPU types, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning">CPU Requirements</a> in the <em>Planning and Prerequisites Guide</em>. You cannot change this after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chipset/Firmware Type</strong></p></td>
@@ -6608,7 +6614,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </ul>
 </div>
 <div class="paragraph">
-<p>To use UEFI on a virtual machine, you must configure the virtual machine’s cluster for 4.4 compatibility or later. Then you can set UEFI for any existing virtual machine, or to be the default BIOS type for new virtual machines in the cluster. The following options are available:</p>
+<p>To use UEFI on a virtual machine, you must configure the virtual machine’s cluster for 4.4-SP1 compatibility or later. Then you can set UEFI for any existing virtual machine, or to be the default BIOS type for new virtual machines in the cluster. The following options are available:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 43. Available BIOS Types</caption>
@@ -6649,7 +6655,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="sect4">
 <h5 id="Configuring_cluster_to_use_Q35_or_UEFI_cluster_opt_settings">Configuring a cluster to use the Q35 Chipset and UEFI</h5>
 <div class="paragraph">
-<p>After upgrading a cluster to  oVirt 4.4, all virtual machines in the cluster run the 4.4 version of VDSM. You can configure a cluster’s default BIOS type, which determines the default BIOS type of any new virtual machines you create in that cluster. If necessary, you can override the cluster&#8217;s default BIOS type by specifying a different BIOS type when you create a virtual machine.</p>
+<p>After upgrading a cluster to  oVirt 4.4-SP1, all virtual machines in the cluster run the 4.4-SP1 version of VDSM. You can configure a cluster’s default BIOS type, which determines the default BIOS type of any new virtual machines you create in that cluster. If necessary, you can override the cluster&#8217;s default BIOS type by specifying a different BIOS type when you create a virtual machine.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -6683,7 +6689,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </div>
 </li>
 <li>
-<p>From the <strong>Compatibility Version</strong> dropdown menu select <strong>4.4</strong>. The Engine checks that all running hosts are compatible with 4.4, and if they are, the Engine uses 4.4 features.</p>
+<p>From the <strong>Compatibility Version</strong> dropdown menu select <strong>4.4-SP1</strong>. The Engine checks that all running hosts are compatible with 4.4-SP1, and if they are, the Engine uses 4.4-SP1 features.</p>
 </li>
 <li>
 <p>If any existing virtual machines in the cluster should use the new BIOS type, configure them to do so.
@@ -7937,7 +7943,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port Mirroring</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default. For further details, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/technical_reference/#Port_Mirroring">Port Mirroring</a> in the <em>Technical Reference</em>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default. For further details, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/technical_reference/#Port_Mirroring">Port Mirroring</a> in the <em>Technical Reference</em>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Device Custom Properties</strong></p></td>
@@ -7973,7 +7979,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The passthrough property cannot be enabled if the vNIC profile is already attached to a vNIC; this procedure creates a new profile to avoid this. If a vNIC profile has passthrough enabled, QoS, network filters, and port mirroring cannot be enabled on the same profile.</p>
 </div>
 <div class="paragraph">
-<p>For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in oVirt, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/index#">Hardware Considerations for Implementing SR-IOV</a>.</p>
+<p>For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in oVirt, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/hardware_considerations_for_implementing_sr-iov/index#">Hardware Considerations for Implementing SR-IOV</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -8200,7 +8206,7 @@ Technology Preview features are not supported with Red Hat production service-le
 <div class="sect4">
 <h5 id="Importing_Networks">Importing Networks From External Providers</h5>
 <div class="paragraph">
-<p>To use networks from an Open Virtual Network (OVN), register the provider with the Engine. See <a href="#Adding_an_External_Network_Provider">Adding an External Network Provider</a> for more information. Then, use the following procedure to import the networks provided by that provider into the Engine so the networks can be used by virtual machines.</p>
+<p>To use networks from an Open Virtual Network (OVN), register the provider with the Engine. See <a href="#sect-Adding_External_Providers">Adding an External Network Provider</a> for more information. Then, use the following procedure to import the networks provided by that provider into the Engine so the networks can be used by virtual machines.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -8956,7 +8962,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can also synchronize a host&#8217;s networks via the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-host-methods-sync_all_networks">syncallnetworks</a> in the <em>REST API Guide</em>.</p>
+<p>You can also synchronize a host&#8217;s networks via the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-host-methods-sync_all_networks">syncallnetworks</a> in the <em>REST API Guide</em>.</p>
 </div>
 </td>
 </tr>
@@ -9474,7 +9480,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </div>
 <div class="paragraph">
 <div class="title">Prerequisites</div>
-<p>Set up your hardware in accordance with the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/index#">Hardware Considerations for Implementing SR-IOV</a></p>
+<p>Set up your hardware in accordance with the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/hardware_considerations_for_implementing_sr-iov/index#">Hardware Considerations for Implementing SR-IOV</a></p>
 </div>
 <div class="paragraph">
 <div class="title">Procedure</div>
@@ -10308,7 +10314,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning">PCI Device Requirements</a> for more information.</p>
+<p>Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning">PCI Device Requirements</a> for more information.</p>
 </li>
 </ul>
 </div>
@@ -10332,7 +10338,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 </div>
 </li>
 <li>
-<p>For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/setting_up_an_nvidia_gpu_for_a_virtual_machine_in_red_hat_virtualization/index#proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough">GPU device passthrough: Assigning a host GPU to a single virtual machine</a> in <em>Setting up an NVIDIA GPU for a virtual machine in Red Hat Virtualization</em> for more information.</p>
+<p>For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/setting_up_an_nvidia_gpu_for_a_virtual_machine_in_red_hat_virtualization/index#proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough">GPU device passthrough: Assigning a host GPU to a single virtual machine</a> in <em>Setting up an NVIDIA GPU for a virtual machine in Red Hat Virtualization</em> for more information.</p>
 </li>
 </ol>
 </div>
@@ -10509,7 +10515,7 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">VDSM hooks</a></p>
+<p><a href="#appe-VDSM_and_Hooks">VDSM hooks</a></p>
 </li>
 </ul>
 </div>
@@ -10647,7 +10653,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">VDSM hooks</a></p>
+<p><a href="#appe-VDSM_and_Hooks">VDSM hooks</a></p>
 </li>
 <li>
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/creating-nested-virtual-machines_configuring-and-managing-virtualization">Creating Child virtual Machines</a> in the EL documentation.</p>
@@ -11462,7 +11468,7 @@ Release      : 1.0.el8
 <p>The host&#8217;s health status can also be viewed using the REST API. A <code>GET</code> request on a host will include the <code>external_status</code> element, which contains the health status.</p>
 </div>
 <div class="paragraph">
-<p>You can set a host&#8217;s health status in the REST API via the <code>events</code> collection. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-events-methods-add">Adding Events</a> in the <em>REST API Guide</em>.</p>
+<p>You can set a host&#8217;s health status in the REST API via the <code>events</code> collection. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-events-methods-add">Adding Events</a> in the <em>REST API Guide</em>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -11471,7 +11477,7 @@ Release      : 1.0.el8
 <p>You can view the host devices for each host in the <strong>Host Devices</strong> tab in the details view. If the host has been configured for direct device assignment, these devices can be directly attached to virtual machines for improved performance.</p>
 </div>
 <div class="paragraph">
-<p>For more information on the hardware requirements for direct device assignment, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/index#">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
+<p>For more information on the hardware requirements for direct device assignment, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/hardware_considerations_for_implementing_sr-iov/index#">Additional Hardware Considerations for Using Device Assignment</a> in <em>Hardware Considerations for Implementing SR-IOV</em>.</p>
 </div>
 <div class="paragraph">
 <p>For more information on configuring the host for direct device assignment, see <a href="#Configuring_a_Host_for_PCI_Passthrough_host_tasks">Configuring a Host for PCI Passthrough host tasks</a>.</p>
@@ -11582,7 +11588,7 @@ roles:
 <p>Configure your host power management device settings to perform host life-cycle operations (stop, start, restart) from the Administration Portal.</p>
 </div>
 <div class="paragraph">
-<p>You must configure host power management in order to utilize host high availability and virtual machine high availability. For more information about power management devices, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/technical_reference/index#power_management">Power Management</a> in the <em>Technical Reference</em>.</p>
+<p>You must configure host power management in order to utilize host high availability and virtual machine high availability. For more information about power management devices, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/technical_reference/index#power_management">Power Management</a> in the <em>Technical Reference</em>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -12068,7 +12074,7 @@ roles:
 </ul>
 </div>
 <div class="paragraph">
-<p>For more information about power management devices, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/technical_reference/index#power_management">Power Management</a> in the <em>Technical Reference</em>.</p>
+<p>For more information about power management devices, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/technical_reference/index#power_management">Power Management</a> in the <em>Technical Reference</em>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -13569,7 +13575,7 @@ multipaths {
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you use the REST API method <code>discoveriscsi</code> to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method <code>iscsilogin</code>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-host-methods-discover_iscsi">discoveriscsi</a> in the <em>REST API Guide</em> for more information.</p>
+<p>If you use the REST API method <code>discoveriscsi</code> to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method <code>iscsilogin</code>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-host-methods-discover_iscsi">discoveriscsi</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -13592,7 +13598,7 @@ multipaths {
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can define credentials for an iSCSI target for a specific host with the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-storage_server_connection_extensions-methods-add">StorageServerConnectionExtensions: add</a> in the <em>REST API Guide</em> for more information.</p>
+<p>You can define credentials for an iSCSI target for a specific host with the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-storage_server_connection_extensions-methods-add">StorageServerConnectionExtensions: add</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -13626,7 +13632,7 @@ multipaths {
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When using the REST API <code>iscsilogin</code> method to log in, you must use the iscsi details from the discovered targets results in the <code>discoveriscsi</code> method. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-host-methods-iscsi_login">iscsilogin</a> in the <em>REST API Guide</em> for more information.</p>
+<p>When using the REST API <code>iscsilogin</code> method to log in, you must use the iscsi details from the discovered targets results in the <code>discoveriscsi</code> method. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-host-methods-iscsi_login">iscsilogin</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -15168,7 +15174,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-storage_server_connection_extension-methods-update">Updating Storage Connections</a> in the <em>REST API Guide</em>.</p>
+<p>iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-storage_server_connection_extension-methods-update">Updating Storage Connections</a> in the <em>REST API Guide</em>.</p>
 </div>
 </td>
 </tr>
@@ -15533,7 +15539,7 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <p>The storage domain&#8217;s health status can also be viewed using the REST API. A <code>GET</code> request on a storage domain will include the <code>external_status</code> element, which contains the health status.</p>
 </div>
 <div class="paragraph">
-<p>You can set a storage domain&#8217;s health status in the REST API via the <code>events</code> collection. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-events-methods-add">Adding Events</a> in the <em>REST API Guide</em>.</p>
+<p>You can set a storage domain&#8217;s health status in the REST API via the <code>events</code> collection. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-events-methods-add">Adding Events</a> in the <em>REST API Guide</em>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -18157,9 +18163,6 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <p>You can use Open Virtual Network (OVN) to create overlay virtual networks that enable communication among the virtual machines without adding VLANs or changing the infrastructure. OVN is an extension of Open vSwitch (OVS) that provides native support for virtual L2 and L3 overlays.</p>
 </div>
 <div class="paragraph">
-<p>You can <a href="#Installing_a_new_OVN_network_provider">install a new OVN network provider</a> or <a href="#Adding_an_existing_OVN_network_provider">add an existing one</a>.</p>
-</div>
-<div class="paragraph">
 <p>You can also connect an OVN network to a native oVirt network. See <a href="#Connecting_an_OVN_Network_to_a_Physical_Network">Connecting an OVN Network to a Physical Network</a> for more information.</p>
 </div>
 <div class="paragraph">
@@ -19063,7 +19066,7 @@ broker : 25, type : broker</pre>
 <div class="sect3">
 <h4 id="Adding_self-hosted_engine_nodes_to_the_Manager_SHE_admin">3.1.4. Adding Self-Hosted Engine Nodes to the oVirt Engine</h4>
 <div class="paragraph">
-<p>Add self-hosted engine nodes in the same way as a standard host, with an additional step to deploy the host as a self-hosted engine node. The shared storage domain is automatically detected and the node can be used as a failover host to host the Engine virtual machine when required. You can also attach standard hosts to a self-hosted engine environment, but they cannot host the Engine virtual machine. Have at least two self-hosted engine nodes to ensure the Engine virtual machine is highly available. You can also add additional hosts using the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-hosts">Hosts</a> in the <em>REST API Guide</em>.</p>
+<p>Add self-hosted engine nodes in the same way as a standard host, with an additional step to deploy the host as a self-hosted engine node. The shared storage domain is automatically detected and the node can be used as a failover host to host the Engine virtual machine when required. You can also attach standard hosts to a self-hosted engine environment, but they cannot host the Engine virtual machine. Have at least two self-hosted engine nodes to ensure the Engine virtual machine is highly available. You can also add additional hosts using the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-hosts">Hosts</a> in the <em>REST API Guide</em>.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -20576,6 +20579,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 </div>
 </li>
 <li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
+<li>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
@@ -21106,6 +21117,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 </div>
 </li>
 <li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
+<li>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
@@ -21577,6 +21596,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>
@@ -23739,7 +23766,7 @@ transfer URL.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Do not let certificates expire. If they expire, the host and  Engine stop responding, and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in <a href="https://access.redhat.com/solutions/3532921">How to manually renew RHV host SSL certificate if expired?</a>. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll oVirt host certificates.</p>
+<p>Do not let certificates expire. If they expire, the host and  Engine stop responding, and recovery is an error-prone and time-consuming process.</p>
 </div>
 </td>
 </tr>
@@ -28908,6 +28935,20 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Grafana dashboards includes direct links to the oVirt Administration Portal, allowing you to quickly view additional details for your clusters, hosts, and virtual machines.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="customized-grafana-dashboards">Customized Grafana dashboards</h5>
@@ -31506,7 +31547,7 @@ Following engine backup and restore, during engine restore, the custom message b
 <h2 id="ovirt-legal-notice">Appendix G: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index">Red Hat Virtualization 4.4 Administration Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/administration_guide/index">Red Hat Virtualization 4.4-SP1 Administration Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

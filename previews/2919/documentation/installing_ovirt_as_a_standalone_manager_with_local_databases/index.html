@@ -184,7 +184,7 @@
 <p>In a local database environment, the Engine database and Data Warehouse database can be created automatically by the Engine configuration script. Alternatively, you can create these databases manually on the Engine machine before running <code>engine-setup</code>.</p>
 </div>
 <div class="paragraph">
-<p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index"><em>Planning and Prerequisites Guide</em></a> for information on environment options and recommended configuration.</p>
+<p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index"><em>Planning and Prerequisites Guide</em></a> for information on environment options and recommended configuration.</p>
 </div>
 <h2 id="RHV_key_components_SM_localDB_deploy" class="discrete">oVirt Key Components</h2>
 <table class="tableblock frame-all grid-all stretch">
@@ -639,7 +639,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 <div class="sect3">
 <h4 id="Memory_Requirements_SM_localDB_deploy">2.2.2. Memory Requirements</h4>
 <div class="paragraph">
-<p>The minimum required RAM is 2 GB. The maximum supported RAM per VM in oVirt Node is 4 TB.</p>
+<p>The minimum required RAM is 2 GB. For cluster levels 4.2 to 4.5, the maximum supported RAM per VM in oVirt Node is 6 TB. For cluster levels 4.6 to 4.7, the maximum supported RAM per VM in oVirt Node is 16 TB.</p>
 </div>
 <div class="paragraph">
 <p>However, the amount of RAM required varies depending on guest operating system requirements, guest application requirements, and guest memory activity and usage. KVM can also overcommit physical RAM for virtualized guests, allowing you to provision guests with RAM requirements greater than what is physically present, on the assumption that the guests are not all working concurrently at peak load. KVM does this by only allocating RAM for guests as required and shifting underutilized guests into swap.</p>
@@ -1408,6 +1408,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
 </div>
 </div>
 </li>
@@ -2870,7 +2878,7 @@ nodectl init
 <p>For detailed installation instructions, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index.html"><em>Performing a standard EL installation</em></a>.</p>
 </div>
 <div class="paragraph">
-<p>The host must meet the minimum <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+<p>The host must meet the minimum <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -3873,7 +3881,7 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you use the REST API method <code>discoveriscsi</code> to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method <code>iscsilogin</code>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-host-methods-discover_iscsi">discoveriscsi</a> in the <em>REST API Guide</em> for more information.</p>
+<p>If you use the REST API method <code>discoveriscsi</code> to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method <code>iscsilogin</code>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-host-methods-discover_iscsi">discoveriscsi</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -3896,7 +3904,7 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can define credentials for an iSCSI target for a specific host with the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-storage_server_connection_extensions-methods-add">StorageServerConnectionExtensions: add</a> in the <em>REST API Guide</em> for more information.</p>
+<p>You can define credentials for an iSCSI target for a specific host with the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-storage_server_connection_extensions-methods-add">StorageServerConnectionExtensions: add</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -3930,7 +3938,7 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When using the REST API <code>iscsilogin</code> method to log in, you must use the iscsi details from the discovered targets results in the <code>discoveriscsi</code> method. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-host-methods-iscsi_login">iscsilogin</a> in the <em>REST API Guide</em> for more information.</p>
+<p>When using the REST API <code>iscsilogin</code> method to log in, you must use the iscsi details from the discovered targets results in the <code>discoveriscsi</code> method. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-host-methods-iscsi_login">iscsilogin</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -4274,6 +4282,14 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 </div>
 </li>
 <li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
+<li>
 <p>Synchronize installed packages to update them to the latest available versions.</p>
 <div class="listingblock">
 <div class="content">
@@ -4451,7 +4467,7 @@ work_mem=8192</code></pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning">PCI Device Requirements</a> for more information.</p>
+<p>Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning">PCI Device Requirements</a> for more information.</p>
 </li>
 </ul>
 </div>
@@ -4475,7 +4491,7 @@ work_mem=8192</code></pre>
 </div>
 </li>
 <li>
-<p>For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/setting_up_an_nvidia_gpu_for_a_virtual_machine_in_red_hat_virtualization/index#proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough">GPU device passthrough: Assigning a host GPU to a single virtual machine</a> in <em>Setting up an NVIDIA GPU for a virtual machine in Red Hat Virtualization</em> for more information.</p>
+<p>For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/setting_up_an_nvidia_gpu_for_a_virtual_machine_in_red_hat_virtualization/index#proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough">GPU device passthrough: Assigning a host GPU to a single virtual machine</a> in <em>Setting up an NVIDIA GPU for a virtual machine in Red Hat Virtualization</em> for more information.</p>
 </li>
 </ol>
 </div>
@@ -4850,7 +4866,7 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <h2 id="ovirt-legal-notice">Appendix E: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/index">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a standalone Manager with local databases</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/index">Red Hat Virtualization 4.4-SP1 Installing Red Hat Virtualization as a standalone Manager with local databases</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

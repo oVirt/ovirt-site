@@ -363,81 +363,101 @@ System administrators can delegate additional administration tasks to a user, su
 <div class="paragraph">
 <p>The header bar contains the following buttons:</p>
 </div>
-</li>
-<li>
-<p>collapse/expand text labels in the side bar</p>
 <div class="ulist">
 <ul>
 <li>
-<p><b class="button">Refresh</b> - refreshes the display</p>
+<p><b class="button">Refresh</b> - manually refreshes the display. See also Refresh Interval.</p>
 </li>
 <li>
-<p><b class="button">Account Settings</b></p>
+<p><b class="button">Account Settings</b> -  enables setting of logged-in user preferences that are persisted on the server.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>General - displays the user name, email address, and allows you to change the UI language</p>
+<p><b class="button">Reset settings</b> - allows you to reset all options back to initial installation defaults.</p>
 </li>
 <li>
-<p>Refresh Interval - set the UI refresh rate interval</p>
+<p>General - displays the user name, email address, and allows you to change the UI language.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Changing the language setting will override the language chosen in a landing page or by a URL query. See also Advanced Options.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>Notifications - allows you to mute notifications for a given time interval</p>
+<p>Refresh Interval - set the automatic UI refresh rate interval.</p>
 </li>
 <li>
-<p>Console -</p>
+<p>Notifications - allows you to mute all notifications for a given time interval. This option is not server persisted, so a page reload will clear this settings.</p>
+</li>
+<li>
+<p>Console - settings are applied globally for all VMs.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>select your preferred console (VNC or SPICE).</p>
+<p>select your preferred console. This will be the first console option  displayed in the VM card (VNC console,  VNC console (Browser),  SPICE console, Remote desktop).</p>
+</li>
+<li>
+<p>Connect automatically - automatic console login option. Enables automatically connecting to the VM&#8217;s console of the chosen VM after the user logs in to the VM Portal.</p>
 </li>
 <li>
 <p>VNC Options</p>
 </li>
 <li>
+<p>VNC (Browser) Options</p>
+</li>
+<li>
 <p>SPICE Options</p>
 </li>
 <li>
-<p>Serial Console Options - SSH Key for authentication</p>
+<p>Serial Console Options - SSH Key for authentication.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Advanced Options - enable language settings to persist on the server</p>
+<p>Advanced Options - enable language settings to persist on the server. Enable the the chosen language/URL query language parameter on the landing page to override the chosen user settings language after each login. This enables compatibility with previous language settings behavior.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><b class="button">User</b> - displays the user name of the currently logged in user</p>
+<p><b class="button">User</b> - displays the user name of the currently logged in user.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>About - VM Portal release information</p>
+<p>About - VM Portal release information.</p>
 </li>
 <li>
-<p>Log out - to log out of the VM Portal</p>
+<p>Log out - to log out of the VM Portal.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><b class="button">Notifications</b> - displays notifications</p>
+<p><b class="button">Notifications</b> - displays notifications.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>Filter bar</code></p>
+<p><code>Toolbar</code></p>
 <div class="paragraph">
-<p>The filter bar allows you to search for virtual machines using a filter for the Name, Status, or Operating System of the virtual machines.</p>
+<p>The toolbar bar allows you to create new virtual machines (<b class="button">Create Virtual Machine</b> button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.</p>
 </div>
 </li>
 <li>
 <p><code>Virtual machines pane</code></p>
 <div class="paragraph">
-<p>The virtual machines pane displays the icon, operating system, name, status, and management options for each virtual machine and pooled virtual machine.</p>
+<p>The virtual machines pane displays the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -446,22 +466,31 @@ System administrators can delegate additional administration tasks to a user, su
 <div class="ulist">
 <ul>
 <li>
-<p>Run</p>
+<p><strong>Run</strong></p>
 </li>
 <li>
 <p>VNC console</p>
 </li>
 <li>
+<p>VNC console (browser)</p>
+</li>
+<li>
+<p>Remote desktop (Windows virtual machines only)</p>
+</li>
+<li>
+<p>Take a virtual machine (for Pool entity only)</p>
+</li>
+<li>
 <p>SPICE console</p>
 </li>
 <li>
-<p>Suspend</p>
+<p><strong>Suspend</strong></p>
 </li>
 <li>
-<p>Shutdown</p>
+<p><strong>Shutdown</strong></p>
 </li>
 <li>
-<p>Reboot</p>
+<p><strong>Reboot</strong></p>
 </li>
 </ul>
 </div>
@@ -841,7 +870,7 @@ System administrators can delegate additional administration tasks to a user, su
 <h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/introduction_to_the_vm_portal/index">Red Hat Virtualization 4.4 Introduction to the VM Portal</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/introduction_to_the_vm_portal/index">Red Hat Virtualization 4.4-SP1 Introduction to the VM Portal</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

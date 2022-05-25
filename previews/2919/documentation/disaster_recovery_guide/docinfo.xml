@@ -1,11 +1,11 @@
 <title>Disaster Recovery Guide</title>
 <productname>Red Hat Virtualization</productname>
 <productnumber>{vernum_rhv}</productnumber>
-<subtitle>Configure Red Hat Virtualization {vernum_rhv} for Disaster Recovery</subtitle>
+<subtitle>Configure Red Hat Virtualization {vername_rhv} for Disaster Recovery</subtitle>
 <abstract><para>Red Hat Virtualization can be configured to ensure that the environment remains operational even in the event of a catastrophe. This document provides information and instructions to configure Red Hat Virtualization environments for Disaster Recovery.</para>
 <!--<para>{beta-disclaimer}</para>--></abstract>
-<authorgroup id="Author_Group"> 
-	<author> 
+<authorgroup id="Author_Group">
+	<author>
 		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
 		<affiliation>
 			<orgname>

@@ -10,7 +10,7 @@ Upgrading your environment from 4.3 to 4.4 involves the following steps:
 ifdef::rhv-doc[]
 
 //Upgrade considerations
-include::common/upgrade/snip-upgrade_considerations.adoc[]
+include::common/upgrade/snip-upgrade_considerations.adoc[leveloffset=+1]
 
 endif::rhv-doc[]
 

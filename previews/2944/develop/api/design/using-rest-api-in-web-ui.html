@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Using REST API In Web UI | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Using REST API In Web UI" />
+<meta name="author" content="Einav Cohen" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2944/develop/api/design/using-rest-api-in-web-ui.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2944/develop/api/design/using-rest-api-in-web-ui.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Using REST API In Web UI" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Einav Cohen" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Einav Cohen"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Using REST API In Web UI","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2944/images/logo.svg"},"name":"Einav Cohen"},"url":"https://ovirt.github.io/ovirt-site/previews/2944/develop/api/design/using-rest-api-in-web-ui.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2944/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2944/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2944/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2944/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2944/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2944/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2944/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2944/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2944/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2944/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2944/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2944/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2944/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2944/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2944/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2944/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2944/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2944/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2944/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2944/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2944/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2944/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2944//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2944//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2944/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2944/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2944/develop/api/">
+              <span property="name">Api</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2944/develop/api/design/">
+              <span property="name">Design</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Einav Cohen</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d91aa78d451f5edbdde13d736518f310?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d91aa78d451f5edbdde13d736518f310?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vojtech Szocs</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2944/documentation/'>Documentation is available here.</a></div>
+
+<!-- TODO: Content review -->
+
+<h1 id="using-rest-api-in-web-ui">Using REST API in web UI</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Replace current GWT RPC mechanism with implementation utilizing oVirt REST API.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Vojtech Szocs (Vszocs)</li>
+  <li>Email: <a href="mailto:vszocs@redhat.com">vszocs@redhat.com</a></li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>oVirt web applications (WebAdmin and UserPortal) currently rely on GWT RPC mechanism to communicate with Engine backend. The exact RPC implementation in use, Direct-Eval RPC aka deRPC, <a href="http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideDeRPC">isn’t officially supported anymore</a>; in fact, it never left “experimental” stage and is currently discouraged by GWT team.</p>
+
+<p>Up to now, oVirt web UI used deRPC because it seemed to be the only GWT RPC implementation to fully support the kind of (Java) objects transferred between client and server. We’ve encountered <a href="http://gerrit.ovirt.org/#/c/19122/">problems</a> when trying to use <a href="http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideCreatingServices">standard GWT RPC implementation</a>, some of them occuring at runtime and others occuring during GWT compilation phase.</p>
+
+<p>More generally, oVirt web UI uses GWT RPC mechanism because it allows sharing (Java) business entities and related objects between client and server. While seemingly convenient and easy at first, it led us into situation where client and server are coupled together by means of shared objects. GWT client code and its RPC implementation aim for JavaScript runtime environment (web browser) and therefore impose various restrictions to such shared objects, which in turn hinders the flexibility of Engine backend.</p>
+
+<p>In addition to client/server coupling, the concept of using backend business entities in client code carries additional limitations, such as:</p>
+
+<ul>
+  <li>cloning existing entity objects on client (manually copying all properties) whenever we need separate entity instance to work with</li>
+  <li>tricking GWT compiler into thinking that all shared code is live (shouldn’t be pruned from generated JavaScript output) to avoid deserialization errors on server</li>
+  <li>inability to introduce additional logic into entity objects beyond basic getters/setters and simple operations, considering both client and server perspective</li>
+</ul>
+
+<p>Conceptually, data displayed (or otherwise acted upon) by client is different than data managed by server; each one is used to achieve different goals. For example, from backend perspective, a “Host” business entity might hold data (and possibly additional logic) to represent host machine entity as a whole, cohesive object with well-defined purpose and responsibility. On the other hand, from client perspective, displaying data such as “Host name and number of running VMs on that host” would naturally lead to creating different kinds of entity representations suitable for client to display (or otherwise act upon); reusing existing backend business entities like “Host” or “VM” therefore doesn’t seem appropriate from client perspective.</p>
+
+<p>Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client having to deserialize “heavy” objects just to display a small subset of their data to the user.</p>
+
+<p><em>The primary goal</em> of utilizing <a href="/ovirt-site/previews/2944/develop/api/rest-api/rest-api.html">oVirt REST API</a> in web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:</p>
+
+<ul>
+  <li>server having full control over backend business entities and related objects, unconstrained and independent from any client</li>
+  <li>client having the freedom to use whatever data representation is suitable, i.e. representation that overlays raw data returned by REST API</li>
+  <li>less shared code means less code for GWT client to compile, improving compile times and reducing generated JavaScript footprint</li>
+  <li>no need for GWT-specific hacks, such as tricking GWT compiler into thinking that all shared code is live</li>
+  <li>not using Java <code class="language-plaintext highlighter-rouge">BackendLocal</code> interface directly, i.e. abstract away from query/action concept used internally by Engine backend</li>
+</ul>
+
+<p><em>The secondary goal</em> of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, UI plugins or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.</p>
+
+<p><em>Note:</em> due to deRPC “experimental” status, any further GWT SDK upgrade has potential to introduce regressions to deRPC implementation, including semantics of custom field serializers and rules for serializable user-defined types. In oVirt UI, we should therefore consider upgrading GWT SDK only after having a well-defined migration path to REST API.</p>
+
+<h2 id="analysis-of-java-sdk">Analysis of Java SDK</h2>
+
+<p><a href="/ovirt-site/previews/2944/develop/release-management/features/infra/java-sdk.html">oVirt Java SDK</a> has its code auto-generated from REST API definition. There are two Java modules in <a href="git://gerrit.ovirt.org/ovirt-engine-sdk-java">ovirt-engine-sdk-java</a> repository:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ovirt-engine-sdk-java-codegen</code>
+    <ul>
+      <li>fetch local copy of XSD (entities) and RSDL (operations) from running Engine: <code class="language-plaintext highlighter-rouge">mvn validate -Pupdate-metadata</code></li>
+      <li>SDK code generation from XSD and RSDL: <code class="language-plaintext highlighter-rouge">mvn validate -Pupdate-code</code>
+        <ol>
+          <li>generate API entities (POJOs with getters and setters) from XSD by running Java <code class="language-plaintext highlighter-rouge">xjc</code> tool</li>
+          <li>generate API entity decorators (subclasses that add behavior) by walking RSDL tree</li>
+          <li>generate API entry point providing access to resources and collections accessible from REST API root URL</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ovirt-engine-sdk-java</code>
+    <ul>
+      <li>target of code generation - files under <code class="language-plaintext highlighter-rouge">src/main/java</code> are updated each time SDK code is generated</li>
+      <li>building this module produces the SDK distro (JAR file) and related artifacts (RPM package)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="design-proposal">Design Proposal</h2>
+
+<p>Before proceeding any further, we should consider improving the process of gathering REST API definition.</p>
+
+<p>Java SDK currently takes following approach:</p>
+
+<ul>
+  <li>caching XSD and RSDL that were previously fetched from running Engine, updating these files for given SDK version (for example, after new Engine version is released)</li>
+  <li>Java SDK codegen module performs initial pre-processing (invoking <code class="language-plaintext highlighter-rouge">xjc</code> tool, parsing RSDL as XML document) before actual code generation takes place</li>
+</ul>
+
+<p>Instead of working with XSD and RSDL directly, there could be some intermediate format serving as REST API definition suitable for consumption by SDK code generators:</p>
+
+<ul>
+  <li>at Engine build time, XSD and RSDL (full tree) could be generated</li>
+  <li>at Engine build time, single JSON file describing all entities and related operations would be generated from XSD and RSDL</li>
+  <li>SDK generators could simply consume such JSON file as input suitable for (and designed for) code generation</li>
+</ul>
+
+<p>Having such JSON file could simplify maintenance of all SDK code generators:</p>
+
+<ul>
+  <li>no need for XSD/RSDL processing</li>
+  <li>code generation input in an easy-to-consume format</li>
+</ul>
+
+<p><strong>oVirt JavaScript SDK</strong> would be an umbrella term for two different projects:</p>
+
+<ul>
+  <li><a href="#rest-api-javascript-binding">REST API JavaScript Binding</a> - part of oVirt Engine repository</li>
+  <li><a href="#ovirtjs">oVirt.js</a> - part of oVirt web UI repository (assuming the UI will be decoupled from Engine backend in terms of source repository and related aspects such as build process and z-stream)</li>
+</ul>
+
+<h3 id="rest-api-javascript-binding">REST API JavaScript Binding</h3>
+
+<p>The purpose of this project is to generate JavaScript binding for given Engine version and expose this binding via Engine server, for example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://example:8080/ovirt-engine/files/restapi-js/v1.js
+</code></pre></div></div>
+
+<p>There would be a JavaScript binding per each supported API version, assuming REST API might introduce the notion of multiple API versions for given Engine version. JavaScript binding file(s) would be generated as part of Engine build, producing (optional) RPM package that installs its content under <code class="language-plaintext highlighter-rouge">${ENGINE_USR}/files</code> directory. This means the user would have to install REST API JavaScript Binding RPM package in order to expose its files via Engine server.</p>
+
+<p>The JavaScript binding would be essentially a low-level SDK targetting specific Engine version / API version permutation. It would contain everything currently offered by existing Java SDK:</p>
+
+<ul>
+  <li>API entity and collection proxies, represented as JavaScript objects decorated with relevant functionality (i.e. conceptually similar to decorators in Java SDK)</li>
+  <li>SDK entry point providing access to resources and collections accessible from REST API root URL</li>
+</ul>
+
+<p>Proposed technologies and tools for development:</p>
+
+<ul>
+  <li>Java - integrate with existing Engine build</li>
+  <li>small and fast Java template engine</li>
+</ul>
+
+<h3 id="ovirtjs">oVirt.js</h3>
+
+<p>The purpose of this project is to provide standard library (high-level SDK) for working with oVirt Engine in JavaScript runtime environment, i.e. arbitrary web application running in browser. Using oVirt.js would be as simple as adding following code into application’s HTML page:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript' src='http://path/to/oVirt.js'&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>The oVirt.js library would be maintained within the oVirt web UI repository (i.e. alongside WebAdmin and UserPortal) and therefore unrelated to Engine build process. oVirt.js file would be generated as part of web UI build, assuming the build environment meets oVirt.js build time dependencies. Since oVirt.js could be used with any Engine version / API version combination and therefore should be Engine-agnostic, it doesn’t necessarily have to ship as RPM package, i.e. the oVirt.js file alone is perfectly usable by web applications. Unlike the <a href="#rest-api-javascript-binding">JavaScript Binding</a>, oVirt.js code would be maintained directly.</p>
+
+<p>Core functionality offered by oVirt.js would include:</p>
+
+<ul>
+  <li><em>JavaScript Binding bootstrap mechanism</em> - given the URL of running Engine and preferred API version, detect and load appropriate JavaScript Binding</li>
+  <li><em>common and useful functionality on top of JavaScript Binding</em> - including any workarounds or functionality desired but not supported by REST API</li>
+  <li><em>dynamic API error detection</em> - detect errors when delegating calls to JavaScript Binding and report them to client (i.e. client attempts to use operation or entity that’s not supported by given Engine version / API version combination)</li>
+</ul>
+
+<p>For web UI that relies on Java / GWT technology, this would imply following changes:</p>
+
+<ul>
+  <li>from Java build perspective, oVirt.js would be packaged as JAR file managed via Maven dependency mechanism</li>
+  <li>before GWT compilation phase, oVirt.js would be extracted into application’s resources, i.e. <code class="language-plaintext highlighter-rouge">target/generated-gwt/webadmin/oVirt.js</code></li>
+  <li>oVirt.js would be declared as external JavaScript in <a href="http://www.gwtproject.org/doc/latest/DevGuideOrganizingProjects.html#DevGuideModuleXml">GWT module descriptor</a>, i.e. <code class="language-plaintext highlighter-rouge">&lt;script src='oVirt.js' /&gt;</code></li>
+  <li>GWT code would contain <a href="http://www.gwtproject.org/doc/latest/DevGuideCodingBasicsJSNI.html">JSNI</a> bindings to oVirt.js which are subject to code analysis during GWT compilation</li>
+</ul>
+
+<p>As for backward compatibility, oVirt.js would just delegate to specific JavaScript Binding and report any errors back to client. The client is therefore responsible for using oVirt.js together with appropriate Engine version / API version combination. This is similar to using Java SDK, with oVirt.js acting as library with useful functionality above the “bare minimum” SDK.</p>
+
+<p>Proposed technologies and tools for development:</p>
+
+<ul>
+  <li><a href="http://nodejs.org/">Node.js</a> platform to invoke tools suitable for JavaScript development:
+    <ul>
+      <li><a href="http://gruntjs.com/">Grunt</a> to automate task execution, such as running tests and producing output JavaScript</li>
+      <li><a href="http://karma-runner.github.io/">Karma</a> to establish productive testing environment where a code change yields instant feedback</li>
+      <li><a href="http://lisperator.net/uglifyjs/">UglifyJS</a> to optimize and minify output JavaScript</li>
+      <li><a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> to generate SDK API documentation from source code</li>
+    </ul>
+  </li>
+  <li><em>Source Option A</em> - CoffeeScript
+    <ul>
+      <li><a href="http://coffeescript.org/">CoffeeScript</a> to avoid intricacies of JavaScript language (CoffeeScript compiles to JavaScript)</li>
+      <li><a href="http://www.coffeelint.org/">CoffeeLint</a> to detect problems and enforce common code conventions</li>
+    </ul>
+  </li>
+  <li><em>Source Option B</em> - vanilla JavaScript
+    <ul>
+      <li><a href="http://www.jshint.com/">JSHint</a> to detect problems and enforce common code conventions</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="implementation-status">Implementation Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Task</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PoC</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Manually write Data Centers JavaScript SDK, standalone test, GUI integration test</td>
+      <td>Implementation In Progress</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Manually write Bookmarks JavaScript SDK, standalone test, GUI integration test</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Manually write Tags JavaScript SDK, standalone test, GUI integration test</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Infrastructure</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Write auto-generated JavaScript binding</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Write high-level JavaScript API (ovirt-engine.js)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Introduce “hybrid mode” to the application (to allow the GUI to work with the REST API and the legacy API in parallel)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>API Migration</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Migrate Bookmarks GUI code to work over REST API (using JavaScript SDK) instead of legacy API</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Migrate Tags GUI code to work over REST API (using JavaScript SDK) instead of legacy API</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>?… [Depends on interdependencies between business entities]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2944/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2944/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2944/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2944/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/api/design/using-rest-api-in-web-ui.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/api/design/using-rest-api-in-web-ui.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

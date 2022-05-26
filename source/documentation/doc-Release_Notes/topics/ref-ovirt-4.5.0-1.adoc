@@ -295,6 +295,9 @@ AS a result, rsyslog can now authenticate to Elasticsearch using a username and 
 BZ#link:https://bugzilla.redhat.com/1991482[1991482]::
 A link to Monitoring Portal has been added within the Administration Portal
 
+BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1995455[1995455]::
+The limit of maximum 16 CPU sockets has been removed in cluster versions >= 4.6. It is now possible to use any number of CPU sockets, up to the number of maximum vCPUs. Before using a high number of CPU sockets, check if the guest OS is compatible with such a configuration.
+
 BZ#link:https://bugzilla.redhat.com/1998255[1998255]::
 Feature: Search box in VNIC profiles main page
 

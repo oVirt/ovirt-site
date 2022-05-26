@@ -400,6 +400,9 @@ The upgrade is transparent to the user as long as these conditions are met:
 
 If the host's OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.
 
+BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1995455[1995455]::
+The limit of maximum 16 CPU sockets has been removed in cluster versions >= 4.6. It is now possible to use any number of CPU sockets, up to the number of maximum vCPUs. Before using a high number of CPU sockets, check if the guest OS is compatible with such a configuration.
+
 BZ#link:https://bugzilla.redhat.com/2004852[2004852]::
 The following parameters have been added to the ovirt_vm module:
 virtio_scsi_enabled - If true, it enables Virtio SCSI support.

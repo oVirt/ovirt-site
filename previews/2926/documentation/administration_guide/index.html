@@ -5041,15 +5041,21 @@ You can use the <code>Disk Type</code> and <code>Content Type</code> filtering o
 <div class="paragraph">
 <p>Data, such as virtual machines and templates, remains attached to the storage domain.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>master</code> storage, if it is the last available storage domain, cannot be removed.</p>
+<p>Although it possible to detach the last master storage domain, this is not recommended.</p>
+</div>
+<div class="paragraph">
+<p>If the master storage domain is detached, it must be reinitialized.</p>
+</div>
+<div class="paragraph">
+<p>If the storage domain is reinitialized, all your data will be lost, and the storage domain might not find your disks again.</p>
 </div>
 </td>
 </tr>
@@ -8200,7 +8206,7 @@ Technology Preview features are not supported with Red Hat production service-le
 <div class="sect4">
 <h5 id="Importing_Networks">Importing Networks From External Providers</h5>
 <div class="paragraph">
-<p>To use networks from an Open Virtual Network (OVN), register the provider with the Engine. See <a href="#Adding_an_External_Network_Provider">Adding an External Network Provider</a> for more information. Then, use the following procedure to import the networks provided by that provider into the Engine so the networks can be used by virtual machines.</p>
+<p>To use networks from an Open Virtual Network (OVN), register the provider with the Engine. See <a href="#sect-Adding_External_Providers">Adding an External Network Provider</a> for more information. Then, use the following procedure to import the networks provided by that provider into the Engine so the networks can be used by virtual machines.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -10509,7 +10515,7 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">VDSM hooks</a></p>
+<p><a href="#appe-VDSM_and_Hooks">VDSM hooks</a></p>
 </li>
 </ul>
 </div>
@@ -10647,7 +10653,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">VDSM hooks</a></p>
+<p><a href="#appe-VDSM_and_Hooks">VDSM hooks</a></p>
 </li>
 <li>
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/creating-nested-virtual-machines_configuring-and-managing-virtualization">Creating Child virtual Machines</a> in the EL documentation.</p>
@@ -18155,9 +18161,6 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <h5 id="Adding_OVN_as_an_External_Network_Provider">Adding Open Virtual Network (OVN) as an External Network Provider</h5>
 <div class="paragraph">
 <p>You can use Open Virtual Network (OVN) to create overlay virtual networks that enable communication among the virtual machines without adding VLANs or changing the infrastructure. OVN is an extension of Open vSwitch (OVS) that provides native support for virtual L2 and L3 overlays.</p>
-</div>
-<div class="paragraph">
-<p>You can <a href="#Installing_a_new_OVN_network_provider">install a new OVN network provider</a> or <a href="#Adding_an_existing_OVN_network_provider">add an existing one</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can also connect an OVN network to a native oVirt network. See <a href="#Connecting_an_OVN_Network_to_a_Physical_Network">Connecting an OVN Network to a Physical Network</a> for more information.</p>
@@ -28932,6 +28935,20 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Grafana dashboards includes direct links to the oVirt Administration Portal, allowing you to quickly view additional details for your clusters, hosts, and virtual machines.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="customized-grafana-dashboards">Customized Grafana dashboards</h5>

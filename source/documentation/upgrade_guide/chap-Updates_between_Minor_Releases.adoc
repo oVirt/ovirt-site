@@ -25,10 +25,9 @@ endif::ovirt-doc[]
 
 ifdef::rhv-doc[]
 
-//Upgrade considerations
-include::common/upgrade/snip-upgrade_considerations.adoc[]
-
+include::common/upgrade/snip-upgrade_considerations.adoc[leveloffset=+1]
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
+
 endif::rhv-doc[]
 
 To update a standalone {engine-name}, follow the standard procedure for minor updates:

@@ -60,7 +60,7 @@ This section outlines important details about the release, including recommended
 
 BZ#link:https://bugzilla.redhat.com/1804774[1804774]::
 Adding a message banner to the web administration welcome page is straight forward using custom branding that only contains a preamble section.
-An example of preamble branding is given here: https://bugzilla.redhat.com/attachment.cgi?id=1783329.
+An example of preamble branding is given here: link:https://bugzilla.redhat.com/attachment.cgi?id=1783329[1783329].
 +
 In an engine upgrade, the custom preamble brand remains in place and will work without issue.
 +

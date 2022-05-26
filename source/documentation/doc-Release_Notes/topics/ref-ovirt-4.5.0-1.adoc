@@ -1,8 +1,8 @@
-=== Red Hat Virtualization 4.4 SP1 General Availability (ovirt-4.5.0)
+= Red Hat Virtualization 4.4 SP1 General Availability (ovirt-4.5.0)
 
 
 
-==== Bug Fix
+== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:
 
@@ -30,7 +30,7 @@ With this release, the process now checks the compatibility version of the clust
 
 BZ#link:https://bugzilla.redhat.com/1944290[1944290]::
 Previously, when trying to log in to Red Hat Virtualization VM Portal or Administration Portal with an expired password, the URL to change the password was not shown properly.
-In this release, when there is an expired password error, the following clickable link appears beneath the error message: "Click here to change the password". This link will redirect the user to the change password page: ".../ovirt-engine/sso/credentials-change.html".
+In this release, when there is an expired password error, the following clickable link appears beneath the error message: "Click here to change the password". This link will redirect the user to the change password page.
 
 BZ#link:https://bugzilla.redhat.com/1959186[1959186]::
 Previously, there was no way to set a quota different from that of the template from the VM portal. Thus, if the user had no access to the quota on the template, the user could not provision VMs from the template using the VM portal.
@@ -153,7 +153,7 @@ Previously, vGPU devices were not released when stateless VMs or VMs that were s
 IN this release, vGPU devices are properly released when stateless VMs or VMs that were started in run-once mode are shut down.
 
 BZ#link:https://bugzilla.redhat.com/2064380[2064380]::
-Since [libvirt 8](https://github.com/libvirt/libvirt/commit/27c1d06b5bd68bdce55efff0a50a15a30cb2a96b), a warning appears when providing a ticket with a
+Since (link:https://github.com/libvirt/libvirt/commit/27c1d06b5bd68bdce55efff0a50a15a30cb2a96b[libvirt 8]), a warning appears when providing a ticket with a
 password with length over than 8. Until now the extra characters were
 dropped silently in QEMU. But with libvirt new handling of longer
 passwords it causes the console trigger to fail. Now the password we
@@ -170,7 +170,7 @@ BZ#link:https://bugzilla.redhat.com/2075852[2075852]::
 Previously, the nodejs package was downgraded during the RHVM installation.
 In this release, the correct version of the nodejs package is installed and maintained.
 
-==== Enhancements
+== Enhancements
 
 This release of Red Hat Virtualization features the following enhancements:
 
@@ -194,7 +194,7 @@ all existing VMs, please clear the browser local storage after running the engin
 
 
 Reason:
-An option for setting default console type for all provisioned VMs globally at once was not supported up till now. Needed to go one VM by one and set the console type via the 'console options' dialog.
+An option for setting default console type for all provisioned VMs globally at once was not supported until now. Needed to go one VM by one and set the console type via the 'console options' dialog.
 
 Result:
 Support setting console type globally for all VMs, existed and new ones, by using the engine-config parameters.
@@ -260,14 +260,13 @@ BZ#link:https://bugzilla.redhat.com/1925878[1925878]::
 With this release, a link has been added to all Grafana dashboards that allows you to quickly access the Red Hat Virtualization Administration Portal.
 
 BZ#link:https://bugzilla.redhat.com/1926625[1926625]::
-With this release, you can now enable HTTP Strict Transport Security following Red Hat Virtualization Manager installation by following the instructions in this KCS article:
-https://access.redhat.com/solutions/1220063
+With this release, you can now enable HTTP Strict Transport Security following Red Hat Virtualization Manager installation by following the instructions in link:https://access.redhat.com/solutions/1220063[How to enable HTTP Strict Transport Security (HSTS) on Apache HTTPD].
 
 BZ#link:https://bugzilla.redhat.com/1933555[1933555]::
 The Python SDK package for Red Hat Virtualization is now supported in RHEL 9.
 
 BZ#link:https://bugzilla.redhat.com/1944834[1944834]::
-This release adds a user specified delay to the 'Shutdown' Console Disconnect Action of a Virtual Machine. The shutdown will occur after the user specified delay interval, or will be cancelled if the user reconnects to the VM console.
+This release adds a user specified delay to the 'Shutdown' Console Disconnect Action of a Virtual Machine. The shutdown will occur after the user specified delay interval, or will be canceled if the user reconnects to the VM console.
 This prevents a user's session loss after an accidental disconnect.
 
 BZ#link:https://bugzilla.redhat.com/1964208[1964208]::
@@ -276,7 +275,7 @@ With this release, a screenshot API has been added that captures the current scr
 BZ#link:https://bugzilla.redhat.com/1975720[1975720]::
 Support for parallel migration connections was added.
 
-See [Parallel migration connections](https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html) for all the important information about the feature.
+See link:https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html[Parallel migration connections] for all the important information about the feature.
 
 BZ#link:https://bugzilla.redhat.com/1979797[1979797]::
 In this release, a new warning message displays in the removing storage domain window if the selected domain has leases for entities that were raised on a different storage domain.
@@ -350,7 +349,7 @@ BZ#link:https://bugzilla.redhat.com/2040474[2040474]::
 The Administration Portal cluster upgrade interface has been improved to provide better error messaging and status and progress indications.
 
 BZ#link:https://bugzilla.redhat.com/2049782[2049782]::
-
+Add a user preferences dialog to the Administration Portal that allows the user to edit their preferences.
 
 BZ#link:https://bugzilla.redhat.com/2054756[2054756]::
 With this release, a link to the Migration Toolkit for Virtualization documentation has been added to the welcome page of the Red Hat Virtualization Manager.
@@ -377,15 +376,15 @@ A manifest of the packages included in the ova has been added to the rhvm-applia
 BZ#link:https://bugzilla.redhat.com/2072881[2072881]::
 Usually oVirt Engine can restore backups taken only from the same version. For oVirt 4.5 it has been made possible to restore a backup taken from oVirt 4.4 into an oVirt 4.5 Engine.
 
-==== Technology Preview
+== Technology Preview
 
-The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to https://access.redhat.com/support/offerings/techpreview/.
+The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 
 BZ#link:https://bugzilla.redhat.com/1986775[1986775]::
 oVirt release package now provides YUM repositories configuration also for CentOS Stream 9.
 
 
-==== Release Notes
+== Release Notes
 
 This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
 
@@ -428,55 +427,56 @@ With this release, the Red Hat Virtualization Manager 4.4 SP1 certificate expira
 1. If a certificate is about to expire in the upcoming 120 days, a WARNING event is raised in the audit log.
 2. If a certificate is about to expire in the upcoming 30 days, an ALERT event is raised in the audit log.
 
-This checks for internal RHV certificates (for example certificate for RHVM <-> hypervisor communication), but it doesn't check for custom certificates configured for HTTPS access to RHVM as configured according to [https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Replacing_the_Manager_CA_Certificate](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Replacing_the_Manager_CA_Certificate)
+This checks for internal RHV certificates (for example certificate for RHVM <-> hypervisor communication), but it doesn't check for custom certificates configured for HTTPS access to RHVM as configured according to link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Replacing_the_Manager_CA_Certificate[Replacing the Red Hat Virtualization Manager CA Certificate]
 
 BZ#link:https://bugzilla.redhat.com/2056588[2056588]::
-oVirt Node has been updated with newer kernel release including fixes for [CVE-2021-4028](https://bugzilla.redhat.com/show_bug.cgi?id=2027201)
+oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2027201[CVE-2021-4028].
 
 BZ#link:https://bugzilla.redhat.com/2056596[2056596]::
-oVirt Node has been updated with newer kernel release including fixes for [CVE-2021-4083](https://bugzilla.redhat.com/show_bug.cgi?id=2029923)
+oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2029923[CVE-2021-4083].
 
 BZ#link:https://bugzilla.redhat.com/2056597[2056597]::
-oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-0435](https://bugzilla.redhat.com/show_bug.cgi?id=2048738)
+oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2048738[CVE-2022-0435].
 
 BZ#link:https://bugzilla.redhat.com/2061694[2061694]::
-oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-0847](https://bugzilla.redhat.com/show_bug.cgi?id=2060795)
+oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2060795[CVE-2022-0847].
 
 BZ#link:https://bugzilla.redhat.com/2065576[2065576]::
-oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-25636](https://bugzilla.redhat.com/show_bug.cgi?id=2056830)
+oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2056830[CVE-2022-25636].
 
 BZ#link:https://bugzilla.redhat.com/2065579[2065579]::
 oVirt Node includes updated expat package providing fixes for multiple CVEs:
-[CVE-2022-25315](https://bugzilla.redhat.com/show_bug.cgi?id=2056363)
-[CVE-2022-25235](https://bugzilla.redhat.com/show_bug.cgi?id=2056366)
-[CVE-2022-25236](https://bugzilla.redhat.com/show_bug.cgi?id=2056370)
+
+* link:https://bugzilla.redhat.com/show_bug.cgi?id=2056363[CVE-2022-25315]
+* link:https://bugzilla.redhat.com/show_bug.cgi?id=2056366[CVE-2022-25235]
+* link:https://bugzilla.redhat.com/show_bug.cgi?id=2056370[CVE-2022-25236]
 
 BZ#link:https://bugzilla.redhat.com/2067982[2067982]::
 CVE-2022-24302: Creation of new private key files using `~paramiko.pkey.PKey` subclasses was subject to a race condition between file creation and mode modification, which could be exploited by an attacker with knowledge of where the Paramiko-using code would write out such files; this has been patched by using `os.open` and `os.fdopen` to ensure new files are opened with the correct mode immediately (we've left the subsequent explicit `chmod` in place to minimize any possible disruption).
 
 BZ#link:https://bugzilla.redhat.com/2070051[2070051]::
-oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1015](https://bugzilla.redhat.com/show_bug.cgi?id=2065323)
+oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2065323[CVE-2022-1015].
 
 BZ#link:https://bugzilla.redhat.com/2070067[2070067]::
-oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1016](https://bugzilla.redhat.com/show_bug.cgi?id=2066614)
+oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2066614[CVE-2022-1016].
 
 BZ#link:https://bugzilla.redhat.com/2084027[2084027]::
-ovirt-dependencies has been updated including Spring Framework 5.3.19 which fixes [CVE-2022-22950](https://bugzilla.redhat.com/show_bug.cgi?id=2069414)
+ovirt-dependencies has been updated including Spring Framework 5.3.19 which fixes link:https://bugzilla.redhat.com/show_bug.cgi?id=2069414[CVE-2022-22950].
 
-==== Deprecated Functionality
+== Deprecated Functionality
 
 The items in this section are either no longer supported, or will no longer be supported in a future release.
 
 BZ#link:https://bugzilla.redhat.com/2016359[2016359]::
 Red Hat Gluster Storage will reach end-of-life in 2024. Therefore, use of GlusterFS as a storage type for Storage Domains is now deprecated.
 
-==== Removed Functionality
+== Removed Functionality
 
 BZ#link:https://bugzilla.redhat.com/2028200[2028200]::
 The ovirt-fast-forward-upgrade tool shipped in RHV 4.4 was  removed from the upstream project in the oVirt 4.5 release.
 
 BZ#link:https://bugzilla.redhat.com/2052963[2052963]::
-In previous releases systemtap package could have been installed on top of RHV-H from RHV-H channel. With 4.4 SP1 systemtap package installation is not supported anymore
+In previous releases systemtap package could have been installed on top of RHV-H from RHV-H channel. With 4.4 SP1 systemtap package installation is no longer supported.
 
 BZ#link:https://bugzilla.redhat.com/2056937[2056937]::
 With this release, the Red Hat Virtualization Manager (RHVM) appliance is being retired. Following this release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.

@@ -21,7 +21,7 @@ Before this update, when using Firefox 74.0.1 and greater with Autofill enabled,
 This issue has been resolved, and the browser no longer uses Autofill for the Sysprep admin password field.
 
 *BZ#link:https://bugzilla.redhat.com/1855761[1855761]*
-Firefox 68 ESR does not support several standard units in the <svg> tag. (For more information, see https://bugzilla.mozilla.org/show_bug.cgi?id=1287054.) Consequently, before this update, aggregated status card icons appeared larger than intended.
+Firefox 68 ESR does not support several standard units in the <svg> tag. (For more information, see link:https://bugzilla.mozilla.org/show_bug.cgi?id=1287054[1287054].) Consequently, before this update, aggregated status card icons appeared larger than intended.
 
 This update uses supported units to size icons, and as a result, icons appear correctly in FireFox 68 ESR and later.
 
@@ -53,7 +53,7 @@ Before this update, a virtual machine that was set with a High Performance profi
 This update resolves these issues. TSC is no longer present for 4.3 clusters and the VM won't have USB devices when there is no USB controller, allowing VMs to run normally.
 
 *BZ#link:https://bugzilla.redhat.com/1875851[1875851]*
-Firefox 68 ESR does not support several standard units in the <svg> tag. (For more information, see https://bugzilla.mozilla.org/show_bug.cgi?id=1287054.) Consequently, before this update, aggregated status card icons appeared larger than intended.
+Firefox 68 ESR does not support several standard units in the <svg> tag. (For more information, see link:https://bugzilla.mozilla.org/show_bug.cgi?id=1287054[1287054].) Consequently, before this update, aggregated status card icons appeared larger than intended.
 
 This update uses supported units to size icons, and as a result, icons appear correctly in FireFox 68 ESR and later.
 

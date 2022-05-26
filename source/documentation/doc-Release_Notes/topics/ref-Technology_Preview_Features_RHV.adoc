@@ -54,7 +54,7 @@ For details about IPv6 support, see link:{URL_virt_product_docs}{URL_format}admi
 |SSO with OpenID Connect |Adds support for external OpenID Connect authentication using Keycloak in both the user interface and with the REST API.
 |oVirt Engine Backup |Adds support to back up and restore {virt-product-fullname} {engine-name} with the Ansible `ovirt-engine-backup` role.
 |Failover vNIC profile |Allows users to migrate a virtual machine connected via SR-IOV with minimal downtime by using a failover network that is activated during migration.
-|Dedicated CPU policy |Guest vCPUs will be strictly pinned to a set of host pCPUs (similar to static CPU pinning). The set of pCPUs will be chosen to match the required guest CPU topology. If the host has an SMT architecture, thread siblings are preferred.
+|Dedicated CPU pinning policy |Guest vCPUs will be exclusively pinned to a set of host pCPUs (similar to static CPU pinning). The set of pCPUs will be chosen to match the required guest CPU topology. If the host has an SMT architecture, thread siblings are preferred.
 
 
 |===

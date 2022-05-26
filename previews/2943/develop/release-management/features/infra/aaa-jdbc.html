@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AAA JDBC | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="AAA JDBC" />
+<meta name="author" content="Alon Bar-Lev" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2943/develop/release-management/features/infra/aaa-jdbc.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2943/develop/release-management/features/infra/aaa-jdbc.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AAA JDBC" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alon Bar-Lev" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Alon Bar-Lev"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"AAA JDBC","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2943/images/logo.svg"},"name":"Alon Bar-Lev"},"url":"https://ovirt.github.io/ovirt-site/previews/2943/develop/release-management/features/infra/aaa-jdbc.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2943/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2943/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2943/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2943/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2943/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2943/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2943/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2943/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2943/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2943/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2943/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2943/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2943/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2943/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2943/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2943/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2943/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2943/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2943/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2943/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2943/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2943/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2943//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2943//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2943/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2943/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2943/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2943/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2943/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alon Bar-Lev</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mooli Tayer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/3f4d6622615b20a0498a12e27c9581b6?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/3f4d6622615b20a0498a12e27c9581b6?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Perina</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roman Mohr</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2943/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="aaa-jdbc">AAA JDBC</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>AAA-JDBC is an extension which allows to store authentication and authorization data in relational database and provides these data using standardized oVirt AAA API
+similarly to already existing AAA-LDAP extension.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Martin Peřina <a href="mailto:mperina@redhat.com">mperina@redhat.com</a></li>
+  <li>Alon Bar Lev</li>
+  <li>Mooli Tayer</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<ul>
+  <li>Provides complete users/groups/passwords management</li>
+  <li>Stores users/groups/passwords in PostgreSQL database</li>
+  <li>Provides management command line tool ovirt-aaa-jdbc-tool</li>
+  <li>Provides thous users/groups/passwords data in oVirt using standard AAA Extension API</li>
+  <li>Updated users/groups/passwords are immediately visible in oVirt withtout the need to restart engine service</li>
+  <li>Allows to provided multiple domains stored in local or remote database</li>
+  <li>By default in oVirt 3.6 <strong>internal</strong> domain is provided using AAA-JDBC extension</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>The extension resides in the <strong>ovirt-engine-extension-aaa-jdbc</strong> package. All you have to do is to install the package and run <strong>engine-setup</strong> again:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dnf install ovirt-engine-extension-aaa-jdbc
+# engine-setup
+</code></pre></div></div>
+
+<p>The engine-setup command will create the required database schema, migrate the existing admin user there and will finally populate the configuration for the main configuration tool <strong>ovirt-aaa-jdbc-tool</strong>.</p>
+
+<h2 id="user-management">User management</h2>
+
+<h3 id="creating-a-user">Creating a user</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user add jdoe \
+    --attribute=firstName=John \
+    --attribute=lastName=Doe \
+    --attribute=email=jdoe@unknown.com
+</code></pre></div></div>
+
+<p>Only username is mandatory, other attributes are optional. Following attributes can be specified for user:</p>
+
+<ul>
+  <li>department</li>
+  <li>description</li>
+  <li>displayName</li>
+  <li>email</li>
+  <li>firstName</li>
+  <li>lastName</li>
+  <li>title</li>
+</ul>
+
+<p><strong>ATTENTION:</strong> Newly created users are unable to login until <a href="#password-management"> password-reset</a> command is executed on them.</p>
+
+<h3 id="showing-details-about-existing-user">Showing details about existing user</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user show jdoe
+</code></pre></div></div>
+
+<p>Here are details of specified user:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- User jdoe(fc5b1c8b-d668-4a2c-98c8-a176c093a242) --
+namespace: *
+name: jdoe
+id: fc5b1c8b-d668-4a2c-98c8-a176c093a242
+display name: 
+email: jdoe@unknown.com
+first name: John
+last name: Doe
+department: 
+title: 
+description:
+</code></pre></div></div>
+
+<h3 id="updating-existing-user">Updating existing user</h3>
+
+<p>Following command updates display name:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user edit jdoe \
+    --attribute="displayName=John Doe"
+</code></pre></div></div>
+
+<h3 id="removing-existing-user">Removing existing user</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user delete jdoe
+</code></pre></div></div>
+
+<h3 id="enablingdisabling-user">Enabling/Disabling user</h3>
+
+<p>User can be disabled to prevent login by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user edit jdoe --flag=+disabled
+</code></pre></div></div>
+
+<p>And following command enables the user again:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user edit jdoe --flag=-disabled
+</code></pre></div></div>
+
+<h3 id="unlocking-locked-user">Unlocking locked user</h3>
+
+<p>User can be locked for example if there are too many unsuccessful logins. Following command unlocks user:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user unlock jdoe
+</code></pre></div></div>
+
+<h2 id="password-management">Password management</h2>
+
+<p>Following command sets new password for user jdoe interactively:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user password-reset jdoe
+</code></pre></div></div>
+
+<p>Following types of entering password are supported using <strong>–password</strong> option:</p>
+
+<ul>
+  <li><strong>interactive</strong> - tool prompts to enter password</li>
+  <li><strong>pass:STRING</strong> - password is specified on command line</li>
+  <li><strong>env:KEY</strong> - password is specified in <strong>ENV</strong> environment variable</li>
+  <li>**<file:FILE>** - password is read from specified file</file:FILE></li>
+  <li><strong>none:</strong> - sets empty password</li>
+</ul>
+
+<p><strong>ATTENTION</strong>: By default password expires at the same moment as it’s specified. Following command sets new password and password expiration date to August 15th 2025 10:30:00 UTC:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool user password-reset jdoe --password-valid-to="2025-08-15 10:30:00Z"
+</code></pre></div></div>
+
+<h2 id="group-management">Group management</h2>
+
+<h3 id="creating-a-group">Creating a group</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group add group1 \
+    --attribute="description=First group"
+</code></pre></div></div>
+
+<p>Only groupname is mandatory, other attributes are optional. Following attributes can be specified for group:</p>
+
+<ul>
+  <li>description</li>
+  <li>displayName</li>
+</ul>
+
+<h3 id="showing-details-about-existing-group">Showing details about existing group</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group show group1
+</code></pre></div></div>
+
+<p>Here are details of specified group:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- Group group1(061a2ec0-9204-43a1-affe-ba717004c0f5) --
+namespace: *
+name: group1
+id: 061a2ec0-9204-43a1-affe-ba717004c0f5
+display name: 
+description: First group
+</code></pre></div></div>
+
+<h3 id="updating-existing-group">Updating existing group</h3>
+
+<p>Following command updates display name:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group edit group1 \
+    --attribute="displayName=Group 1"
+</code></pre></div></div>
+
+<h3 id="removing-existing-group">Removing existing group</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group delete group1
+</code></pre></div></div>
+
+<h2 id="group-membership-management">Group membership management</h2>
+
+<h3 id="adding-user-to-group">Adding user to group</h3>
+
+<p>Following command add user <strong>jdoe</strong> into group <strong>group1</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group-manage useradd group1 --user=jdoe
+</code></pre></div></div>
+
+<h3 id="showing-members-of-group">Showing members of group</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group-manage show group1
+</code></pre></div></div>
+
+<h3 id="removing-user-from-group">Removing user from group</h3>
+
+<p>Following command removes user <strong>jdoe</strong> from group <strong>group1</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group-manage userdel group1 --user=jdoe
+</code></pre></div></div>
+
+<h3 id="adding-group-to-group">Adding group to group</h3>
+
+<p>Following command add group <strong>group2</strong> into group <strong>group1</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group-manage groupadd group1 --group=group2
+</code></pre></div></div>
+
+<h3 id="removing-group-from-group">Removing group from group</h3>
+
+<p>Following command removes group <strong>group2</strong> from group <strong>group1</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool group-manage groupdel group1 --group=group2
+</code></pre></div></div>
+
+<h2 id="searching-usersgroups">Searching users/groups</h2>
+
+<h3 id="seraching-users">Seraching users</h3>
+
+<p>Following command displays all existing users:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool query --what=user
+</code></pre></div></div>
+
+<p>To narrow results following user attributes can be used:</p>
+
+<ul>
+  <li>department</li>
+  <li>description</li>
+  <li>displayName</li>
+  <li>email</li>
+  <li>firstName</li>
+  <li>id</li>
+  <li>lastName</li>
+  <li>name</li>
+  <li>title</li>
+</ul>
+
+<p>For example following command searches for users which username starts with <strong>j</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool query --what=user --pattern="name=j*"
+</code></pre></div></div>
+
+<h3 id="seraching-groups">Seraching groups</h3>
+
+<p>Following command displays all existing groups:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool query --what=group
+</code></pre></div></div>
+
+<p>To narrow results following group attributes can be used:</p>
+
+<ul>
+  <li>description</li>
+  <li>displayName</li>
+  <li>name</li>
+</ul>
+
+<p>For example following command searches for groups which name starts with <strong>gr</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool query --what=group --pattern="name=gr*"
+</code></pre></div></div>
+
+<h2 id="settings">Settings</h2>
+
+<p>AAA-JDBC extension settings can be displayed using:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool settings show
+</code></pre></div></div>
+
+<p>Following command updates setting PASSWORD_EXPIRATION_DAYS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool settings set --name=PASSWORD_EXPIRATION_DAYS --value=365
+</code></pre></div></div>
+
+<h2 id="configuration-of-additional-domains">Configuration of additional domains</h2>
+
+<p><strong>ATTENTION:</strong> Most up-to-date documentation can be found at README.admin inside ovirt-engine-extension-aaa-jdbc package.</p>
+
+<p>To configure a new profile which uses aaa-jdbc extension please execute following steps:</p>
+
+<ol>
+  <li>` Setup database for aaa-jdbc extension<code class="language-plaintext highlighter-rouge">
+</code> `
+    <div>
+      <p>Please replace DB_NAME, DB_USER and DB_PASSWORD with real values:</p>
+
+    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su - postgres -c "psql -d template1 &lt;&lt; __EOF__
+create user DB_USER password 'DB_PASSWORD';
+create database DB_NAME owner DB_USER template template0
+encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+__EOF__
+"
+</code></pre></div>    </div>
+  </li>
+  <li>` Configure PostgreSQL<code class="language-plaintext highlighter-rouge">
+</code> `
+    <div>
+      <p>Please add following line into /var/lib/pgsql/data/pg_hba.conf (please replace DB_NAME and DB_USER with real values):</p>
+
+    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>host    DB_NAME    DB_USER    0.0.0.0/0       md5
+host    DB_NAME    DB_USER    ::0/0           md5
+</code></pre></div>    </div>
+
+    <div>
+      <p>These line must be located prior to following lines:</p>
+
+    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>host    all        all        127.0.0.1/32    ident
+host    all        all        ::1/128         ident
+</code></pre></div>    </div>
+
+    <div>
+      <p>After that please restart postgresql service.</p>
+
+    </div>
+  </li>
+  <li>` Populate database for aaa-jdbc extension<code class="language-plaintext highlighter-rouge">
+</code> `
+    <div>
+      <p>Please replace DB_HOST, DB_NAME, DB_USER and DB_PASSWORD with real values:</p>
+
+    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PGPASSWORD="DB_PASSWORD" \
+    /usr/share/ovirt-engine-extension-aaa-jdbc/dbscripts/schema.sh \
+    -s DB_HOST \
+    -p DB_PORT \
+    -d DB_NAME \
+    -u DB_USER \
+    -c apply
+</code></pre></div>    </div>
+  </li>
+  <li>` Setup AAA profile<code class="language-plaintext highlighter-rouge">
+</code> `
+    <div>
+      <p>Select name of your profile (it will be visible to users during login) and copy example configuration files and rename according to your PROFILE (replace PROFILE with selected value):</p>
+
+    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/extension.d/authn.properties \
+    /etc/ovirt-engine/extensions.d/PROFILE-authn.properties
+cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/extension.d/authz.properties \
+    /etc/ovirt-engine/extensions.d/PROFILE-authz.properties
+cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/aaa/profile.properties \
+    /etc/ovirt-engine/aaa/PROFILE.properties
+</code></pre></div>    </div>
+
+    <div>
+      <p>Edit created PROFILE*.properties files and replace variables surrounded by @ with real values.</p>
+
+    </div>
+  </li>
+  <li>Restart ovirt-engine service and check /var/log/ovirt-engine/engine.log to see if extension is initialized successfully according to PROFILE.</li>
+  <li>` Setup users and groups<code class="language-plaintext highlighter-rouge">
+</code> `
+    <div>
+      <p>Setup your users and groups using ovirt-aaa-jdbc-tool and specify database configuration using –db-config command line option:</p>
+
+    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt-aaa-jdbc-tool \
+    --db-config=/etc/ovirt-engine/aaa/PROFILE.properties \
+    OPTIONS
+</code></pre></div>    </div>
+  </li>
+  <li>Login to webadmin using existing administrator account and assign desired permissions to users/groups defined in your PROFILE</li>
+</ol>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2943/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2943/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2943/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2943/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/aaa-jdbc.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/aaa-jdbc.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

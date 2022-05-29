@@ -14,9 +14,9 @@
 * *Template*
 * *Operating System*
 * *Defined Memory*
-* *CPUs*
+* *Total Virtual CPUs*
 * *Boot Menu*
-* *Boot Order*
+* *Boot Sequence*
 ** *First Device*
 ** *Second Device*
 * *Cloud-Init*

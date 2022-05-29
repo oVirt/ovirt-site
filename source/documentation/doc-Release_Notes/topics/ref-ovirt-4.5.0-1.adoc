@@ -163,8 +163,10 @@ BZ#link:https://bugzilla.redhat.com/2066811[2066811]::
 Previously, DISA STIG profile used fapolicyd that blocked ansible command execution as non-root, and self-hosted engine deployment failed.
 In this release, calls to psql as postgres are replaced with engine_psql.sh, and deployment succeeds.
 
+////
 BZ#link:https://bugzilla.redhat.com/2067968[2067968]::
 CVE-2022-24302: Creating new private key files using `~paramiko.pkey.PKey` subclasses caused a race condition between file creation and mode modification, which can be exploited by an attacker with knowledge of where the Paramiko-using code writes out such files. This problem has been patched with `os.open` and `os.fdopen` to ensure new files are opened with the correct mode. The subsequent explicit `chmod` remains in place to minimize any possible disruption.
+////
 
 BZ#link:https://bugzilla.redhat.com/2075852[2075852]::
 Previously, the nodejs package was downgraded during the RHVM installation.
@@ -429,6 +431,7 @@ With this release, the Red Hat Virtualization Manager 4.4 SP1 certificate expira
 
 This checks for internal RHV certificates (for example certificate for RHVM <-> hypervisor communication), but it doesn't check for custom certificates configured for HTTPS access to RHVM as configured according to link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Replacing_the_Manager_CA_Certificate[Replacing the Red Hat Virtualization Manager CA Certificate]
 
+////
 BZ#link:https://bugzilla.redhat.com/2056588[2056588]::
 oVirt Node has been updated with newer kernel release including fixes for link:https://bugzilla.redhat.com/show_bug.cgi?id=2027201[CVE-2021-4028].
 
@@ -462,6 +465,7 @@ oVirt Node has been updated with newer kernel release including fixes for link:h
 
 BZ#link:https://bugzilla.redhat.com/2084027[2084027]::
 ovirt-dependencies has been updated including Spring Framework 5.3.19 which fixes link:https://bugzilla.redhat.com/show_bug.cgi?id=2069414[CVE-2022-22950].
+////
 
 == Deprecated Functionality
 

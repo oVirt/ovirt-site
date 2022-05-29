@@ -8,8 +8,8 @@ image::VM_screen.png[VM Portal screen]
 
 *Key graphical user interface elements*
 
-* `Header bar`
-+
+.Header bar
+
 The header bar contains the following buttons:
 
 ** btn:[Refresh] - manually refreshes the display. See also Refresh Interval.
@@ -25,7 +25,7 @@ Changing the language setting will override the language chosen in a landing pag
 *** Refresh Interval - set the automatic UI refresh rate interval.
 *** Notifications - allows you to mute all notifications for a given time interval. This option is not server persisted, so a page reload will clear this settings.
 *** Console - settings are applied globally for all VMs.
-.. select your preferred console. This will be the first console option  displayed in the VM card (VNC console,  VNC console (Browser),  SPICE console, Remote desktop).
+.. Select your preferred console. This will be the first console option  displayed in the VM card (VNC console,  VNC console (Browser),  SPICE console, Remote desktop).
 .. Connect automatically - automatic console login option. Enables automatically connecting to the VM's console of the chosen VM after the user logs in to the VM Portal.
 +
 [NOTE]
@@ -42,12 +42,12 @@ Log in is detected based on the age of the session. The default is 60 seconds, a
 *** Log out - to log out of the VM Portal.
 ** btn:[Notifications] - displays notifications.
 
-* `Toolbar`
-+
-The toolbar bar allows you to create new virtual machines (the btn:[Create Virtual Machine] button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.
+.Toolbar
 
-* `Virtual machines pane`
-+
+The toolbar allows you to create new virtual machines (the btn:[Create Virtual Machine] button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.
+
+.Virtual machines pane
+
 The virtual machines pane displays virtual machine cards with the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine. Pooled virtual machine cards include a colored label with the name of the pool, and the option to *Take a Virtual Machine*.
 
 ** VM management options:

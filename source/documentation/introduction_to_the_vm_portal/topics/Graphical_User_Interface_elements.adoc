@@ -27,31 +27,39 @@ Changing the language setting will override the language chosen in a landing pag
 *** Console - settings are applied globally for all VMs.
 .. select your preferred console. This will be the first console option  displayed in the VM card (VNC console,  VNC console (Browser),  SPICE console, Remote desktop).
 .. Connect automatically - automatic console login option. Enables automatically connecting to the VM's console of the chosen VM after the user logs in to the VM Portal.
++
+[NOTE]
+====
+Log in is detected based on the age of the session. The default is 60 seconds, and can be changed using the `sessionAgeFirstLoginThresholdInSeconds` parameter in the `ovirt-web-ui.config` file. Setting this parameter to zero disables log in detection, and a console connection will be made on every page reload.
+====
 .. VNC Options
 .. VNC (Browser) Options
 .. SPICE Options
 .. Serial Console Options - SSH Key for authentication.
 *** Advanced Options - enable language settings to persist on the server. Enable the the chosen language/URL query language parameter on the landing page to override the chosen user settings language after each login. This enables compatibility with previous language settings behavior.
 ** btn:[User] - displays the user name of the currently logged in user.
-*** About - VM Portal release information.
+*** About - VM Portal version information.
 *** Log out - to log out of the VM Portal.
 ** btn:[Notifications] - displays notifications.
 
 * `Toolbar`
 +
-The toolbar bar allows you to create new virtual machines (btn:[Create Virtual Machine] button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.
+The toolbar bar allows you to create new virtual machines (the btn:[Create Virtual Machine] button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.
 
 * `Virtual machines pane`
 +
-The virtual machines pane displays the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine.
+The virtual machines pane displays virtual machine cards with the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine. Pooled virtual machine cards include a colored label with the name of the pool, and the option to *Take a Virtual Machine*.
 
 ** VM management options:
-*** *Run*
+*** *Run* (available when the virtual machine is off)
++
+When the virtual machine is running, the preferred console is displayed first:
++
 *** VNC console
 *** VNC console (browser)
 *** Remote desktop (Windows virtual machines only)
-*** Take a virtual machine (for Pool entity only)
 *** SPICE console
+*** Take a virtual machine (available only for Pool entities)
 *** *Suspend*
 *** *Shutdown*
 *** *Reboot*

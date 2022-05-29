@@ -12,54 +12,58 @@ image::VM_screen.png[VM Portal screen]
 
 The header bar contains the following buttons:
 
-** btn:[Refresh] - manually refreshes the display. See also Refresh Interval.
-** btn:[Account Settings] -  enables setting of logged-in user preferences that are persisted on the server.
-*** btn:[Reset settings] - allows you to reset all options back to initial installation defaults.
-*** General - displays the user name, email address, and allows you to change the UI language.
+* btn:[Refresh] - manually refreshes the display. See also Refresh Interval.
+* btn:[Account Settings] -  enables setting of logged-in user preferences that are persisted on the server.
+** btn:[Reset settings] - allows you to reset all options back to initial installation defaults.
+** General - displays the user name, email address, and allows you to change the UI language.
 +
 [NOTE]
 ====
 Changing the language setting will override the language chosen in a landing page or by a URL query. See also Advanced Options.
 ====
 
-*** Refresh Interval - set the automatic UI refresh rate interval.
-*** Notifications - allows you to mute all notifications for a given time interval. This option is not server persisted, so a page reload will clear this settings.
-*** Console - settings are applied globally for all VMs.
-.. Select your preferred console. This will be the first console option  displayed in the VM card (VNC console,  VNC console (Browser),  SPICE console, Remote desktop).
-.. Connect automatically - automatic console login option. Enables automatically connecting to the VM's console of the chosen VM after the user logs in to the VM Portal.
+** Refresh Interval - set the automatic UI refresh rate interval.
+** Notifications - allows you to mute all notifications for a given time interval. This option is not server persisted, so a page reload will clear this settings.
+** Console - settings are applied globally for all VMs.
+*** Select your preferred console. This will be the first console option  displayed in the VM card (VNC console,  VNC console (Browser),  SPICE console, Remote desktop).
+*** Connect automatically - automatic console login option. Enables automatically connecting to the VM's console of the chosen VM after the user logs in to the VM Portal.
 +
 [NOTE]
 ====
 Log in is detected based on the age of the session. The default is 60 seconds, and can be changed using the `sessionAgeFirstLoginThresholdInSeconds` parameter in the `ovirt-web-ui.config` file. Setting this parameter to zero disables log in detection, and a console connection will be made on every page reload.
 ====
-.. VNC Options
-.. VNC (Browser) Options
-.. SPICE Options
-.. Serial Console Options - SSH Key for authentication.
-*** Advanced Options - enable language settings to persist on the server. Enable the the chosen language/URL query language parameter on the landing page to override the chosen user settings language after each login. This enables compatibility with previous language settings behavior.
-** btn:[User] - displays the user name of the currently logged in user.
-*** About - VM Portal version information.
-*** Log out - to log out of the VM Portal.
-** btn:[Notifications] - displays notifications.
+*** VNC Options
+*** VNC (Browser) Options
+*** SPICE Options
+*** Serial Console Options - SSH Key for authentication.
+** Advanced Options - enable language settings to persist on the server. Enable the the chosen language/URL query language parameter on the landing page to override the chosen user settings language after each login. This enables compatibility with previous language settings behavior.
+* btn:[User] - displays the user name of the currently logged in user.
+** About - VM Portal version information.
+** Log out - to log out of the VM Portal.
+* btn:[Notifications] - displays notifications.
 
 .Toolbar
 
-The toolbar allows you to create new virtual machines (the btn:[Create Virtual Machine] button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.
+The toolbar allows you to create new virtual machines (the btn:[Create Virtual Machine] button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities.
+
+The number of currently displayed virtual machines or pool entities and the total number available is displayed.
 
 .Virtual machines pane
 
-The virtual machines pane displays virtual machine cards with the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine. Pooled virtual machine cards include a colored label with the name of the pool, and the option to *Take a Virtual Machine*.
+The virtual machines pane displays virtual machine cards with the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine.
 
-** VM management options:
-*** *Run* (available when the virtual machine is off)
+Pooled virtual machine cards include a colored label with the name of the pool, and the option to *Take a Virtual Machine*.
+
+* VM management options:
+** *Run* (available when the virtual machine is off)
 +
 When the virtual machine is running, the preferred console is displayed first:
 +
-*** VNC console
-*** VNC console (browser)
-*** Remote desktop (Windows virtual machines only)
-*** SPICE console
-*** Take a virtual machine (available only for Pool entities)
-*** *Suspend*
-*** *Shutdown*
-*** *Reboot*
+** VNC console
+** VNC console (browser)
+** Remote desktop (Windows virtual machines only)
+** SPICE console
+** Take a virtual machine (available only for Pool entities)
+** *Suspend*
+** *Shutdown*
+** *Reboot*

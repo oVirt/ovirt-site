@@ -1,0 +1,12 @@
+:rhv-doc:
+include::common/collateral_files/_attributes.adoc[]
+= Java SDK Guide
+:imagesdir: images
+
+include::chap-Overview.adoc[leveloffset=+1]
+
+include::chap-Using_the_Software_Development_Kit.adoc[leveloffset=+1]
+
+//include::appe-ApiBuilder_Methods.adoc[leveloffset=+1]
+
+include::appe-ConnectionBuilder_Methods.adoc[leveloffset=+1]

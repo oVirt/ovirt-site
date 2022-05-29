@@ -34,6 +34,11 @@ The packages provided in the following repositories are required to install and 
 |{enterprise-linux} 8 virtual machines, little endian |`{enterprise-linux} for Power, little endian` |`RHV Tools for IBM Power, little endian` |`rhv-4-tools-for-rhel-8-ppc64le-rpms` |Provides the `ovirt-guest-agent-common` package for {enterprise-linux} 8 virtual machines on emulated IBM Power (little endian) hardware. The guest agents allow you to monitor virtual machine resources on {enterprise-linux} 8 clients.
 |===
 
+[NOTE]
+====
+If the virtual machine fails to boot on IBM POWER9, it might be because of the risk level setting on your firmware. To resolve this issue, see the Troubleshooting scenarios in  link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Powering_on_a_virtual_machine[Starting a virtual machine].
+====
+
 .Unsupported Features for IBM POWER
 
 The following {virt-product-fullname} features are not supported:

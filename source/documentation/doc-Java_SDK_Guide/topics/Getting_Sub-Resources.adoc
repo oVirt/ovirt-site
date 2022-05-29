@@ -1,0 +1,23 @@
+[[Getting_Sub-Resources]]
+= Getting Sub-Resources
+
+The following example outlines how to reference the sub-resources of a resource. In this example, a disk with the name 'my disk' that belongs to a virtual machine with the name 'test' is referenced.
+
+
+*Getting the Sub-Resources of a Resource*
+
+. Declare an instance of the resource whose sub-resources are to be referenced:
++
+[source, Java]
+----
+VM vm = api.getVMs().get("test");
+----
++
+. Declare an instance of the sub-resource to be referenced:
++
+[source, Java]
+----
+VMDisk disk = vm.getDisks().get("my disk");
+----
++
+

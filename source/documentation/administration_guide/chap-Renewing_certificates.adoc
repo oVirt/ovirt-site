@@ -7,7 +7,7 @@
 
 [WARNING]
 ====
-Do not let certificates expire. If they expire, the host and  {engine-name} stop responding, and recovery is an error-prone and time-consuming process. If they do expire, you can manually renew them by following the instructions in link:https://access.redhat.com/solutions/3532921[How to manually renew RHV host SSL certificate if expired?]. Once you have completed the steps to manually renew the certificates, follow the steps in this procedure to properly enroll {virt-product-shortname} host certificates.
+Do not let certificates expire. If they expire, the host and  {engine-name} stop responding, and recovery is an error-prone and time-consuming process.
 ====
 
 .Procedure

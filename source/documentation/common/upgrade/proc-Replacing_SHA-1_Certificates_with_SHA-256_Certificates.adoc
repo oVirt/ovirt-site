@@ -2,7 +2,7 @@
 [id='Replacing_SHA-1_Certificates_with_SHA-256_Certificates_{context}']
 = Replacing SHA-1 Certificates with SHA-256 Certificates
 
-{virt-product-fullname} {vernum_rhv} uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable {virt-product-fullname}'s public key infrastructure (PKI) to use SHA-256 signatures.
+{virt-product-fullname} {vername_rhv} uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable {virt-product-fullname}'s public key infrastructure (PKI) to use SHA-256 signatures.
 
 [WARNING]
 ====

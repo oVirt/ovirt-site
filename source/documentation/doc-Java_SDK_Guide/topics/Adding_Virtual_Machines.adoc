@@ -1,0 +1,46 @@
+[[Adding_Virtual_Machines]]
+= Adding Resources
+
+The following examples outline two ways to add resources to the {virt-product-fullname} {engine-name}. In these examples, the resource to be added is a virtual machine.
+
+*Example 1*
+
+In this example, an instance of the `VM` class is declared to represent the new virtual machine to be added. Next, the attributes of that virtual machine set to the preferred values. Finally, the new virtual machine is added to the {engine-name}.
+
+[source, Java]
+----
+org.ovirt.engine.sdk.entities.VM vmParams = new org.ovirt.engine.sdk.entities.VM();
+
+vmParams.setName("myVm");
+vmParams.setCluster(api.getClusters().get("myCluster"));
+vmParams.setTemplate(api.getTemplates().get("myTemplate"));
+...
+----
+
+[source, Java]
+----
+VM vm = api.getVMs().add(vmParams);
+----
+
+*Example 2*
+
+In this example, an instance of the `VM` class is declared in the same way as Example 1. However, rather than using the `get` method to reference existing objects in the {engine-name}, each attribute is referenced by declaring an instance of that attribute. Finally, the new virtual machine is added to the {engine-name}.
+
+[source, Java]
+----
+org.ovirt.engine.sdk.entities.VM vmParams = new org.ovirt.engine.sdk.entities.VM();
+
+vmParams.setName("myVm");
+org.ovirt.engine.sdk.entities.Cluster clusterParam = new Cluster();
+clusterParam.setName("myCluster");
+vmParams.setCluster(clusterParam);
+org.ovirt.engine.sdk.entities.Template templateParam = new Template();
+templateParam.setName("myTemplate");
+vmParams.setTemplate(templateParam);
+...
+----
+
+[source, Java]
+----
+VM vm = api.getVMs().add(vmParams);
+----

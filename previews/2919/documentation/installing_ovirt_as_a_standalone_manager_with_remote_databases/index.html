@@ -185,7 +185,7 @@
 <p>To install the Engine with a remote Engine database, manually create the database on the remote machine before running <code>engine-setup</code>. To install the Data Warehouse database on a remote machine, run the Data Warehouse configuration script (<code>ovirt-engine-dwh-setup</code>) on the remote machine. This script installs the Data Warehouse service and can create the Data Warehouse database automatically.</p>
 </div>
 <div class="paragraph">
-<p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index"><em>Planning and Prerequisites Guide</em></a> for information on environment options and recommended configuration.</p>
+<p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index"><em>Planning and Prerequisites Guide</em></a> for information on environment options and recommended configuration.</p>
 </div>
 <h2 id="RHV_key_components_SM_remoteDB_deploy" class="discrete">oVirt Key Components</h2>
 <table class="tableblock frame-all grid-all stretch">
@@ -2648,7 +2648,7 @@ SSO_ALTERNATE_ENGINE_FQDNS=&quot;_alias1.example.com alias2.example.com_&quot;</
 </div>
 </li>
 <li>
-<p>Optionally configure <strong>Language Support</strong>, <strong>Security Policy</strong>, and <strong>Kdump</strong>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation">Customizing your RHEL installation using the GUI</a> in <em>Performing a standard RHEL installation</em> for _Enterprise Linux 8 for more information on each of the sections in the <strong>Installation Summary</strong> screen.</p>
+<p>Optional: Configure <strong>Security Policy</strong> and <strong>Kdump</strong>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation">Customizing your RHEL installation using the GUI</a> in <em>Performing a standard RHEL installation</em> for Enterprise Linux 8 for more information on each of the sections in the <strong>Installation Summary</strong> screen.</p>
 </li>
 <li>
 <p>Click <strong>Begin Installation</strong>.</p>
@@ -3408,7 +3408,7 @@ nodectl init
 <p>For detailed installation instructions, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index.html"><em>Performing a standard EL installation</em></a>.</p>
 </div>
 <div class="paragraph">
-<p>The host must meet the minimum <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+<p>The host must meet the minimum <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -4411,7 +4411,7 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you use the REST API method <code>discoveriscsi</code> to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method <code>iscsilogin</code>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-host-methods-discover_iscsi">discoveriscsi</a> in the <em>REST API Guide</em> for more information.</p>
+<p>If you use the REST API method <code>discoveriscsi</code> to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method <code>iscsilogin</code>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-host-methods-discover_iscsi">discoveriscsi</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -4434,7 +4434,7 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can define credentials for an iSCSI target for a specific host with the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-storage_server_connection_extensions-methods-add">StorageServerConnectionExtensions: add</a> in the <em>REST API Guide</em> for more information.</p>
+<p>You can define credentials for an iSCSI target for a specific host with the REST API. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-storage_server_connection_extensions-methods-add">StorageServerConnectionExtensions: add</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -4468,7 +4468,7 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When using the REST API <code>iscsilogin</code> method to log in, you must use the iscsi details from the discovered targets results in the <code>discoveriscsi</code> method. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/rest_api_guide/index#services-host-methods-iscsi_login">iscsilogin</a> in the <em>REST API Guide</em> for more information.</p>
+<p>When using the REST API <code>iscsilogin</code> method to log in, you must use the iscsi details from the discovered targets results in the <code>discoveriscsi</code> method. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#services-host-methods-iscsi_login">iscsilogin</a> in the <em>REST API Guide</em> for more information.</p>
 </div>
 </td>
 </tr>
@@ -4745,7 +4745,7 @@ Do not override this setting.
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning">PCI Device Requirements</a> for more information.</p>
+<p>Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning">PCI Device Requirements</a> for more information.</p>
 </li>
 </ul>
 </div>
@@ -4769,7 +4769,7 @@ Do not override this setting.
 </div>
 </li>
 <li>
-<p>For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/setting_up_an_nvidia_gpu_for_a_virtual_machine_in_red_hat_virtualization/index#proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough">GPU device passthrough: Assigning a host GPU to a single virtual machine</a> in <em>Setting up an NVIDIA GPU for a virtual machine in Red Hat Virtualization</em> for more information.</p>
+<p>For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/setting_up_an_nvidia_gpu_for_a_virtual_machine_in_red_hat_virtualization/index#proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough">GPU device passthrough: Assigning a host GPU to a single virtual machine</a> in <em>Setting up an NVIDIA GPU for a virtual machine in Red Hat Virtualization</em> for more information.</p>
 </li>
 </ol>
 </div>
@@ -5144,7 +5144,7 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <h2 id="ovirt-legal-notice">Appendix D: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index">Red Hat Virtualization 4.4-SP1 Installing Red Hat Virtualization as a standalone Manager with remote databases</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index">Red Hat Virtualization 4.4 Installing Red Hat Virtualization as a standalone Manager with remote databases</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

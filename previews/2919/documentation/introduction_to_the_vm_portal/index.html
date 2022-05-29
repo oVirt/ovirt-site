@@ -407,6 +407,20 @@ System administrators can delegate additional administration tasks to a user, su
 </li>
 <li>
 <p>Connect automatically - automatic console login option. Enables automatically connecting to the VM&#8217;s console of the chosen VM after the user logs in to the VM Portal.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Log in is detected based on the age of the session. The default is 60 seconds, and can be changed using the <code>sessionAgeFirstLoginThresholdInSeconds</code> parameter in the <code>ovirt-web-ui.config</code> file. Setting this parameter to zero disables log in detection, and a console connection will be made on every page reload.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>VNC Options</p>
@@ -434,7 +448,7 @@ System administrators can delegate additional administration tasks to a user, su
 <div class="ulist">
 <ul>
 <li>
-<p>About - VM Portal release information.</p>
+<p>About - VM Portal version information.</p>
 </li>
 <li>
 <p>Log out - to log out of the VM Portal.</p>
@@ -451,13 +465,13 @@ System administrators can delegate additional administration tasks to a user, su
 <li>
 <p><code>Toolbar</code></p>
 <div class="paragraph">
-<p>The toolbar bar allows you to create new virtual machines (<b class="button">Create Virtual Machine</b> button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.</p>
+<p>The toolbar bar allows you to create new virtual machines (the <b class="button">Create Virtual Machine</b> button is only available to authorized users), and search for virtual machines using a filter for the Name, Status, or Operating System of virtual machines or pool entities. The number of currently displayed virtual machines or pool entities and the total number available is displayed.</p>
 </div>
 </li>
 <li>
 <p><code>Virtual machines pane</code></p>
 <div class="paragraph">
-<p>The virtual machines pane displays the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine.</p>
+<p>The virtual machines pane displays virtual machine cards with the icon, operating system, name, status, and management options for each virtual machine or pooled virtual machine. Pooled virtual machine cards include a colored label with the name of the pool, and the option to <strong>Take a Virtual Machine</strong>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -466,7 +480,10 @@ System administrators can delegate additional administration tasks to a user, su
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Run</strong></p>
+<p><strong>Run</strong> (available when the virtual machine is off)</p>
+<div class="paragraph">
+<p>When the virtual machine is running, the preferred console is displayed first:</p>
+</div>
 </li>
 <li>
 <p>VNC console</p>
@@ -478,10 +495,10 @@ System administrators can delegate additional administration tasks to a user, su
 <p>Remote desktop (Windows virtual machines only)</p>
 </li>
 <li>
-<p>Take a virtual machine (for Pool entity only)</p>
+<p>SPICE console</p>
 </li>
 <li>
-<p>SPICE console</p>
+<p>Take a virtual machine (available only for Pool entities)</p>
 </li>
 <li>
 <p><strong>Suspend</strong></p>
@@ -870,7 +887,7 @@ System administrators can delegate additional administration tasks to a user, su
 <h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-SP1/html-single/introduction_to_the_vm_portal/index">Red Hat Virtualization 4.4-SP1 Introduction to the VM Portal</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/introduction_to_the_vm_portal/index">Red Hat Virtualization 4.4 Introduction to the VM Portal</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

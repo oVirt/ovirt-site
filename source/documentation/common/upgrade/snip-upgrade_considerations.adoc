@@ -13,5 +13,5 @@
 
 ====
 [NOTE]
-To verify whether the provider and OVN were configured successfully on the host, check the *OVN configured* flag on the *General* tab for the host. If the *OVN Configured* is set to *No*, click menu:Management[Refresh Capabilities]. This setting is also available in the REST API. If refreshing the capabilities fails, you can configure OVN by reinstalling the host from {engine-name} 4.5 or higher.
+To verify whether the provider and OVN were configured successfully on the host, check the *OVN configured* flag on the *General* tab for the host. If the *OVN Configured* is set to *No*, click menu:Management[Refresh Capabilities]. This setting is also available in the REST API. If refreshing the capabilities fails, you can configure OVN by reinstalling the host from {engine-name}  {vername_rhv} or higher.
 ====

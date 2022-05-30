@@ -2,7 +2,7 @@
 [id="creating-virtual-machines"]
 = Creating virtual machines
 
-.Procedure
+*Creating a virtual machine*
 
 . Click the btn:[Create Virtual Machine] button in the toolbar.
 
@@ -14,9 +14,9 @@
 * *Template*
 * *Operating System*
 * *Defined Memory*
-* *CPUs*
+* *Total Virtual CPUs*
 * *Boot Menu*
-* *Boot Order*
+* *Boot Sequence*
 ** *First Device*
 ** *Second Device*
 * *Cloud-Init*

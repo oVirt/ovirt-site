@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Otopi | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Otopi" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2951/develop/developer-guide/engine/otopi.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2951/develop/developer-guide/engine/otopi.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Otopi" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Otopi","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2951/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2951/develop/developer-guide/engine/otopi.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2951/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2951/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2951/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2951/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2951/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2951/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2951/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2951/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2951/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2951/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2951/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2951/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2951/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2951/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2951/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2951/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2951/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2951/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2951/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2951/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2951/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2951/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2951//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2951//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2951/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2951/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2951/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2951/develop/developer-guide/engine/">
+              <span property="name">Engine</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yedidyah Bar David</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="otopi">Otopi</h1>
+
+<h2 id="otopi-1">OTOPI</h2>
+
+<p>OTOPI’s “home page”: <a href="http://gerrit.ovirt.org/gitweb?p=otopi.git;a=blob;f=README;hb=HEAD">http://gerrit.ovirt.org/gitweb?p=otopi.git;a=blob;f=README;hb=HEAD</a></p>
+
+<p>A nice presentation about OTOPI and ovirt-host-deploy (the first tool to use otopi): <a href="http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf">http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf</a>. ovirt-host-deploy is now not in use anymore, and its functionality was rewritten in ansible.</p>
+
+<h3 id="environment">Environment</h3>
+
+<p>OTOPI maintains an Environment - key-value-pair store of data and configuration.</p>
+
+<p>Some of these keys can be used to affect/configure otopi-based tools by setting them outside of the default interaction with the user:</p>
+
+<ul>
+  <li>
+    <p>By adding a configuration file to a relevant TOOL.d directory, where applicable</p>
+
+    <p>E.g. engine-setup reads <code class="language-plaintext highlighter-rouge">/etc/ovirt-engine-setup.conf.d/*.conf</code>, so you can add there a file with answers to questions you do not want to be asked about</p>
+  </li>
+  <li>
+    <p>By passing a command-line option which directly adds a pair to the environment</p>
+
+    <p>E.g. engine-setup accepts ‘–otopi-environment’ so you can do e.g.
+<code class="language-plaintext highlighter-rouge">engine-setup --otopi-environment='OVESETUP_SYSTEM/memCheckEnabled=bool:False'</code> to not be asked about too-low-memory.</p>
+  </li>
+  <li>By passing an option to load a configuration file (instead of the TOOL.d/*.conf files or in addition to them)</li>
+  <li>
+    <p>Some tools create, when ran, a configuration file with answers to all the questions asked during the run.</p>
+
+    <p>These files can be used with the options above. E.g. if running ‘engine-setup’ emits, during the end:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ INFO ] Generating answer file '/var/lib/ovirt-engine/setup/answers/20130901173707-setup.conf'
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can copy this file either to /etc/ovirt-engine-setup.conf.d where it will be read automatically by further runs, or to /my/conf/path/my-answers.conf and then use it with engine-setup --config=/my/conf/path/my-answers.conf .
+</code></pre></div></div>
+
+<p>Important note: Such options/conf files override code which might not have been ran at all if only dialog interaction was used. E.g. a first clean setup with the allinone plugin installed, during which we chose to “Configure VDSM on this host”, will create a file /etc/ovirt-engine-setup.conf.d/20-setup-aio.conf which disables this plugin on further runs of engine-setup (used for upgrades). If we add in /etc/ovirt-engine-setup.conf.d our own file with the content [environment:default] OVESETUP_AIO/enable=bool:True then this plugin will be activated on all subsequent runs of engine-setup, and might cause problems by trying to configure VDSM on our already configured host.</p>
+
+<h3 id="logs">Logs</h3>
+
+<p>otopi creates log files that are rather easy to understand, if you know how to read them :-). It starts by creating a sequence of methods (called “events”) it is going to run, and then it runs them one after the other. Before running each such method, it writes to the log something like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,127+0000 DEBUG otopi.context context._executeMethod:128 Stage boot METHOD otopi.plugins.otopi.dialog.human.Plugin._init
+</code></pre></div></div>
+
+<p>Each method has a condition, and if the condition evaluated to False, otopi will not run it, and write to the log something like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,131+0000 DEBUG otopi.context context._executeMethod:135 condition False
+</code></pre></div></div>
+
+<p>Output that went also to the terminal is also logged, e.g.:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,458+0000 INFO otopi.context context.runSequence:741 Stage: Initializing
+</code></pre></div></div>
+
+<p>or:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,679+0000 WARNING otopi.plugins.otopi.network.hostname hostname._validation:61 Cannot validate host name settings, reason: Command 'ip' not found
+</code></pre></div></div>
+
+<p>or:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,696+0000 DEBUG otopi.plugins.otopi.dialog.human dialog.__logString:204 DIALOG:SEND                
+2018-07-02 07:29:07,697+0000 DEBUG otopi.plugins.otopi.dialog.human dialog.__logString:204 DIALOG:SEND                 Calling install on zziplib:
+</code></pre></div></div>
+
+<p>Methods can add to the log information at DEBUG level - this is not output to the terminal. E.g.:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,122+0000 DEBUG otopi.context context._executeMethod:128 Stage boot METHOD otopi.plugins.otopi.system.info.Plugin._init
+2018-07-02 07:29:07,122+0000 DEBUG otopi.plugins.otopi.system.info info._init:39 SYSTEM INFORMATION - BEGIN
+2018-07-02 07:29:07,122+0000 DEBUG otopi.plugins.otopi.system.info info._init:40 executable /bin/python3
+2018-07-02 07:29:07,123+0000 DEBUG otopi.plugins.otopi.system.info info._init:41 python version 3.6.5 (default, Mar 29 2018, 18:20:46) 
+[GCC 8.0.1 20180317 (Red Hat 8.0.1-0.19)]
+2018-07-02 07:29:07,123+0000 DEBUG otopi.plugins.otopi.system.info info._init:42 python /bin/python3
+2018-07-02 07:29:07,123+0000 DEBUG otopi.plugins.otopi.system.info info._init:43 platform linux
+2018-07-02 07:29:07,125+0000 DEBUG otopi.plugins.otopi.system.info info._init:44 distribution ('Fedora', '28', 'Twenty Eight')
+2018-07-02 07:29:07,126+0000 DEBUG otopi.plugins.otopi.system.info info._init:45 host 'vm0135.workers-phx.ovirt.org'
+2018-07-02 07:29:07,126+0000 DEBUG otopi.plugins.otopi.system.info info._init:51 uid 0 euid 0 gid 0 egid 0
+2018-07-02 07:29:07,126+0000 DEBUG otopi.plugins.otopi.system.info info._init:53 SYSTEM INFORMATION - END
+</code></pre></div></div>
+
+<p>After the method finished, if it changed the environment, otopi will add to the log a list of the keys that changed and their values, e.g.:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,127+0000 DEBUG otopi.context context._executeMethod:128 Stage boot METHOD otopi.plugins.otopi.dialog.human.Plugin._init
+2018-07-02 07:29:07,129+0000 DEBUG otopi.context context.dumpEnvironment:859 ENVIRONMENT DUMP - BEGIN
+2018-07-02 07:29:07,129+0000 DEBUG otopi.context context.dumpEnvironment:869 ENV DIALOG/autoAcceptDefault=bool:'False'
+2018-07-02 07:29:07,130+0000 DEBUG otopi.context context.dumpEnvironment:869 ENV DIALOG/boundary=str:'--=451b80dc-996f-432e-9e4f-2b29ef6d1141=--'
+2018-07-02 07:29:07,130+0000 DEBUG otopi.context context.dumpEnvironment:873 ENVIRONMENT DUMP - END
+</code></pre></div></div>
+
+<p>If otopi decided to give up and rollback, it will change the env key ‘BASE/error’ to True, and the reason for the failure, hopefully with more relevant details, can usually be found around a set of lines like these:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-07-02 07:29:07,755+0000 DEBUG otopi.context context.dumpEnvironment:859 ENVIRONMENT DUMP - BEGIN
+2018-07-02 07:29:07,755+0000 DEBUG otopi.context context.dumpEnvironment:869 ENV BASE/error=bool:'True'
+2018-07-02 07:29:07,755+0000 DEBUG otopi.context context.dumpEnvironment:869 ENV BASE/exceptionInfo=list:'[(&lt;class 'NotImplementedError'&gt;, NotImplementedError('Packager install not implemented',), &lt;traceback object at 0x7f08e8af7788&gt;)]'
+2018-07-02 07:29:07,757+0000 DEBUG otopi.context context.dumpEnvironment:873 ENVIRONMENT DUMP - END
+</code></pre></div></div>
+
+<p>Often, right before that, a stack trace is logged, showing the exact location in the code that failed. Such s trace starts with <code class="language-plaintext highlighter-rouge">Traceback</code>, but not every occurrence of <code class="language-plaintext highlighter-rouge">Traceback</code> is a problem - some places in the code try something, get an exception, handle it, including logging the traceback, but do not fail. So a reliable way to find the correct place that failed is seraching for <code class="language-plaintext highlighter-rouge">BASE/error=bool:'True'</code>.</p>
+
+<h3 id="users">Users</h3>
+
+<p>otopi most probably has no humans using it directly. Although technically you can run ‘otopi’ and see it do a bit of stuff, and even more than a bit if you pass some env vars, otopi should be considered a kind of “library”. Other tools use it, usually by supplying extra plugins implementing the actual functionality they are meant to provide and a wrapper that is calling otopi with the needed plugins.</p>
+
+<p>Following is a list of projects/tools that are using otopi or are related to it:</p>
+
+<ul>
+  <li>
+    <p>ovirt-host-deploy (Not in use in 4.4+; re-implemented in ansible)</p>
+  </li>
+  <li>
+    <p>Inside ovirt-engine: engine-setup, engine-cleanup, ovirt-engine-rename, ovirt-engine-provisiondb, ovirt-engine-health</p>
+  </li>
+  <li>
+    <p>Inside ovirt-dwh: plugins for engine-setup/cleanup/etc.</p>
+  </li>
+  <li>
+    <p>Inside ovirt-imageio: plugins for engine-setup/cleanup/etc.</p>
+  </li>
+  <li>
+    <p>rhvm-setup-plugins: plugins for engine-setup/cleanup/etc. (in RHV, not part of oVirt)</p>
+  </li>
+  <li>
+    <p>ovirt-hosted-engine-setup</p>
+  </li>
+  <li>
+    <p>Inside ovirt-engine-extension-aaa-ldap: ovirt-engine-extension-aaa-ldap-setup</p>
+  </li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2951/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2951/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2951/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2951/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/engine/otopi.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/engine/otopi.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

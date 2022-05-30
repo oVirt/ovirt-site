@@ -121,3 +121,5 @@ Following is a list of projects/tools that are using otopi or are related to it:
 
 * Inside ovirt-engine-extension-aaa-ldap: ovirt-engine-extension-aaa-ldap-setup
 
+* ovirt-engine-keycloak: plugins for engine-setup/cleanup/etc.
+

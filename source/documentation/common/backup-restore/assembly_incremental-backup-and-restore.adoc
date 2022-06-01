@@ -13,7 +13,7 @@ endif::[]
 ifdef::context[]
 [id="assembly_incremental-backup-and-restore_{context}"]
 endif::[]
-//= Overview: The Incremental Backup and Restore API
+= Incremental Backup and Restore API
 
 :context: assembly_incremental-backup-and-restore
 
@@ -60,7 +60,9 @@ When you create a disk using the Administration portal, you set the storage type
 |lun |_Not applicable_ |disabled |raw
 |===
 
-= The Incremental Backup Flow
+[id="incremental-backup-flow"]
+== Incremental Backup Flow
+
 A backup application that uses the Incremental Backup API must follow this sequence to back up virtual machine disks that have already been enabled for incremental backup:
 
 . The backup application uses the REST API to xref:find-disks-enabled-for-incremental-backup[find virtual machine disks] that should be included in the backup. Only disks in QCOW2 format are included.
@@ -73,7 +75,8 @@ A backup application that uses the Incremental Backup API must follow this seque
 . The backup application finalizes all image transfers.
 . The backup application xref:finalize-a-backup_assembly_incremental-backup-and-restore[finalizes the backup using the REST API].
 
-= The Incremental Restore Flow
+[id="incremental-restore-flow"]
+== Incremental Restore Flow
 
 A backup application that uses the Incremental Backup API must follow this sequence to restore virtual machine disks that have been backed up:
 
@@ -85,7 +88,8 @@ A backup application that uses the Incremental Backup API must follow this seque
 
 // include::ref_troubleshooting-incremental-backups.adoc[leveloffset=+1]
 
-= Incremental Backup and Restore API Tasks
+[id="incremental-backup-and-restore-api-tasks"]
+== Incremental Backup and Restore API Tasks
 
 The Incremental Backup and Restore API is documented in the link:{URL_rest_api_doc}index[{virt-product-fullname} REST API Guide]. The backup and restore flow requires the following actions.
 

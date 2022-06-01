@@ -9,15 +9,14 @@ include::common/collateral_files/_attributes.adoc[]
 [discrete]
 = Upgrade Guide
 
-
 :upgrade:
 
-= {virt-product-fullname} Upgrade Overview
+[id="upgrade-overview"]
+== {virt-product-fullname} Upgrade Overview
 include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
 
-
-
-= Upgrading a standalone {engine-name} local database environment
+[id="upgrading-standalone-engine-local-database-environment"]
+== Upgrading a standalone {engine-name} local database environment
 :local_database_upgrade:
 
 ifdef::ovirt-doc[]
@@ -29,7 +28,8 @@ include::assembly-Upgrading_from_4-3.adoc[leveloffset=+1]
 include::assembly-Upgrading_from_4-2.adoc[leveloffset=+1]
 :local_database_upgrade!:
 
-= Upgrading a standalone {engine-name} remote database environment
+[id="upgrading-standalone-engine-remote-database-environment"]
+== Upgrading a standalone {engine-name} remote database environment
 :remote_database_upgrade:
 
 ifdef::ovirt-doc[]
@@ -41,7 +41,8 @@ include::assembly-Remote_Upgrading_from_4-3.adoc[leveloffset=+1]
 include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
 :remote_database_upgrade!:
 
-= Upgrading a self-hosted engine environment
+[id="upgrading-self-hosted-engine-environment"]
+== Upgrading a self-hosted engine environment
 :SHE_upgrade:
 ifdef::ovirt-doc[]
 include::assembly-SHE_Upgrading_from_4-4.adoc[leveloffset=+1]
@@ -52,7 +53,8 @@ include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+1]
 include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+1]
 :SHE_upgrade!:
 
-= Updates between minor releases
+[id="updates-between-minor-releases"]
+== Updates between minor releases
 
 include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
 

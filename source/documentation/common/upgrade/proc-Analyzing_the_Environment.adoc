@@ -1,7 +1,7 @@
 // Included in:
 // Updates between Minor Releases
 
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id='Analyzing_the_Environment_{context}']
 = Analyzing the Environment
 
@@ -10,10 +10,5 @@
 
 It is recommended to run the *Log Collection Analysis* tool and the *Image Discrepancies* tool prior to performing updates and for troubleshooting. These tools analyze your environment for known issues that might prevent you from performing an update, and provide recommendations to resolve them.
 
-== Log Collection Analysis tool
-
 include::proc-Log_collector_analyzer_tool.adoc[leveloffest=+1]
-
-== Image Discrepancies tool
-
 include::proc-Image_discrepancies_tool.adoc[leveloffset=+1]

@@ -5,7 +5,6 @@
 
 :_content-type: PROCEDURE
 [id='applying-the-pci-dss-profile-rhv_{context}']
-
 = Applying the PCI-DSS profile in {virt-product-shortname} hosts and the standalone Manager
 
 When installing {hypervisor-shortname}, you can select the DISA STIG profile with the GUI installer, which is the profile provided by {enterprise-linux-shortname} 8.
@@ -27,7 +26,8 @@ image::common/images/security-policy.png[Security Policy]
 
 . Reboot the host.
 
-= Enabling PCI-DSS in a self-hosted engine
+[id="enabling-pci-dss-in-a-self-hosted-engine"]
+== Enabling PCI-DSS in a self-hosted engine
 
 You can enable FIPS in a self-hosted engine during deployment when using the command-line.
 

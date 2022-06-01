@@ -1,6 +1,6 @@
 :_content-type: PROCEDURE
 [id='Log_collector_analyzer_tool_{context}']
-
+= Log Collection Analysis tool
 
 Run the *Log Collection Analysis* tool prior to performing updates and for troubleshooting. The tool analyzes your environment for known issues that might prevent you from performing an update, and provides recommendations to resolve them.
 The tool gathers detailed information about your system and presents it as an HTML file.

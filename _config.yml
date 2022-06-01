@@ -152,8 +152,8 @@ exclude:
   - documentation/disaster_recovery_guide/concept
   - documentation/disaster_recovery_guide/reference
   - documentation/disaster_recovery_guide/task
-  - documentation/introduction_to_the_vm_portal/topics
-  - documentation/introduction_to_the_vm_portal/chap*
+  - documentation/doc-Introduction_to_the_VM_Portal/topics
+  - documentation/doc-Introduction_to_the_VM_Portal/chap*
   - documentation/upgrade_guide/assembly*
   - documentation/upgrade_guide/chap-*
   - documentation/upgrade_guide/topics

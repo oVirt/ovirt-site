@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Installing Hosts for {virt-product-fullname} | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Installing Hosts for {virt-product-fullname}" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/install/assembly-Installing_Hosts_for_RHV.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/install/assembly-Installing_Hosts_for_RHV.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Installing Hosts for {virt-product-fullname}" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Installing Hosts for {virt-product-fullname}","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2961/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/install/assembly-Installing_Hosts_for_RHV.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2961/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2961/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2961/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2961/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2961/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2961/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2961/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/">
+              <span property="name">Dropped</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/">
+              <span property="name">Introduction to the VM Portal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/">
+              <span property="name">Common</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/install/">
+              <span property="name">Install</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>{virt-product-fullname} supports two types of hosts: <a href="#Red_Hat_Virtualization_Hosts_{context}">{hypervisor-fullname}s ({hypervisor-shortname})</a> and <a href="#Red_Hat_Enterprise_Linux_hosts_{context}">{enterprise-linux-host-fullname}s</a>. Depending on your environment, you may want to use one type only, or both. At least two hosts are required for features such as migration and high availability.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#Recommended_practices_for_configuring_host_networks_{context}">Recommended practices for configuring host networks</a> for networking information.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>SELinux is in enforcing mode upon installation. To verify, run <code>getenforce</code>. SELinux must be in enforcing mode on all hosts and Managers for your {virt-product-fullname} environment to be supported.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Host Types</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Host Type</th>
+<th class="tableblock halign-left valign-top">Other Names</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>{hypervisor-fullname}</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{hypervisor-shortname}, thin host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is a minimal operating system based on {enterprise-linux}. It is distributed as an ISO file from the Customer Portal and contains only the packages required for the machine to act as a host.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<div class="title">Host Compatibility</div>
+<p>When you create a new data center, you can set the compatibility version. Select the compatibility version that suits all the hosts in the data center. Once set, version regression is not allowed. For a fresh {virt-product-fullname} installation, the latest compatibility version is set in the default data center and default cluster; to use an earlier compatibility version, you must create additional data centers and clusters.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Red_Hat_Virtualization_Hosts_{context}">{hypervisor-fullname}s</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Installing_Red_Hat_Virtualization_Hosts_{context}">Installing {hypervisor-fullname}s</h3>
+<div class="paragraph">
+<p>{hypervisor-fullname} ({hypervisor-shortname}) is a minimal operating system based on {enterprise-linux} that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a {virt-product-fullname} environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit web interface for monitoring the host and performing administrative tasks. See <a href="http://cockpit-project.org/running.html" class="bare">http://cockpit-project.org/running.html</a> for the minimum browser requirements.</p>
+</div>
+<div class="paragraph">
+<p>{hypervisor-shortname} supports NIST 800-53 partitioning requirements to improve security. {hypervisor-shortname} uses a NIST 800-53 partition layout by default.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, {org-fullname} strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Start the machine on which you are installing {hypervisor-shortname}, booting from the prepared installation media.</p>
+</li>
+<li>
+<p>From the boot menu, select <strong>Install {hypervisor-shortname} {vername_rhv}</strong> and press <code>Enter</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also press the <code>Tab</code> key to edit the kernel parameters. Kernel parameters must be separated by a space, and you can boot the system using the specified kernel parameters by pressing the <code>Enter</code> key. Press the <code>Esc</code> key to clear any changes to the kernel parameters and return to the boot menu.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select a language, and click <b class="button">Continue</b>.</p>
+</li>
+<li>
+<p>Select a keyboard layout from the <strong>Keyboard Layout</strong> screen and click <b class="button">Done</b>.</p>
+</li>
+<li>
+<p>Select the device on which to install {hypervisor-shortname} from the <strong>Installation Destination</strong> screen. Optionally, enable encryption. Click <b class="button">Done</b>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use the <strong>Automatically configure partitioning</strong> option.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select a time zone from the <strong>Time &amp; Date</strong> screen and click <b class="button">Done</b>.</p>
+</li>
+<li>
+<p>Select a network from the <strong>Network &amp; Host Name</strong> screen and click <strong>Configure&#8230;&#8203;</strong> to configure the connection details.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To use the connection every time the system boots, select the <strong>Connect automatically with priority</strong> check box. For more information, see <a href="{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation#network-hostname_configuring-system-settings">Configuring network and host name options</a> in the <em>{enterprise-linux} 8 Installation Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Enter a host name in the <strong>Host Name</strong> field, and click <strong>Done</strong>.</p>
+</div>
+</li>
+<li>
+<p>Optional: Configure <strong>Security Policy</strong> and <strong>Kdump</strong>. See <a href="{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation">Customizing your RHEL installation using the GUI</a> in <em>Performing a standard RHEL installation</em> for {enterprise-linux} 8 for more information on each of the sections in the <strong>Installation Summary</strong> screen.</p>
+</li>
+<li>
+<p>Click <strong>Begin Installation</strong>.</p>
+</li>
+<li>
+<p>Set a root password and, optionally, create an additional user while {hypervisor-shortname} installs.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not create untrusted users on {hypervisor-shortname}, as this can lead to exploitation of local security vulnerabilities.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Reboot</strong> to complete the installation.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When {hypervisor-shortname} restarts, <code>nodectl check</code> performs a health check on the host and displays the result when you log in on the command line. The message <code>node status: OK</code> or <code>node status: DEGRADED</code> indicates the health status. Run <code>nodectl check</code> to get more information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If necessary, you can <a href="#proc-Preventing_Kernel_Modules_from_Loading_Automatically_Install_nodes_RHVH"> prevent kernel modules from loading automatically</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Advanced_RHVH_Install_{context}">Advanced Installation</h3>
+<div class="sect3">
+<h4 id="Custom_Partitioning_{context}">Custom Partitioning</h4>
+<div class="paragraph">
+<p>Custom partitioning on {hypervisor-fullname} ({hypervisor-shortname}) is not recommended. Use the <strong>Automatically configure partitioning</strong> option in the <strong>Installation Destination</strong> window.</p>
+</div>
+<div class="paragraph">
+<p>If your installation requires custom partitioning, select the <code>I will configure partitioning</code> option during the installation, and note that the following restrictions apply:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure the default <strong>LVM Thin Provisioning</strong> option is selected in the <strong>Manual Partitioning</strong> window.</p>
+</li>
+<li>
+<p>The following directories are required and must be on thin provisioned logical volumes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>root (<code>/</code>)</p>
+</li>
+<li>
+<p><code>/home</code></p>
+</li>
+<li>
+<p><code>/tmp</code></p>
+</li>
+<li>
+<p><code>/var</code></p>
+</li>
+<li>
+<p><code>/var/crash</code></p>
+</li>
+<li>
+<p><code>/var/log</code></p>
+</li>
+<li>
+<p><code>/var/log/audit</code></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not create a separate partition for <code>/usr</code>. Doing so will cause the installation to fail.</p>
+</div>
+<div class="paragraph">
+<p><code>/usr</code> must be on a logical volume that is able to change versions along with {hypervisor-shortname}, and therefore should be left on root (<code>/</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For information about the required storage sizes for each partition, see <a href="#Storage_Requirements_{context}">Storage Requirements</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>/boot</code> directory should be defined as a standard partition.</p>
+</li>
+<li>
+<p>The <code>/var</code> directory must be on a separate volume or disk.</p>
+</li>
+<li>
+<p>Only XFS or Ext4 file systems are supported.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Configuring Manual Partitioning in a Kickstart File</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The following example demonstrates how to configure manual partitioning in a Kickstart file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">clearpart --all
+part /boot --fstype xfs --size=1000 --ondisk=sda
+part pv.01 --size=42000 --grow
+volgroup HostVG pv.01 --reserved-percent=20
+logvol swap --vgname=HostVG --name=swap --fstype=swap --recommended
+logvol none --vgname=HostVG --name=HostPool --thinpool --size=40000 --grow
+logvol / --vgname=HostVG --name=root --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=6000 --grow
+logvol /var --vgname=HostVG --name=var --thin --fstype=ext4 --poolname=HostPool
+--fsoptions=&quot;defaults,discard&quot; --size=15000
+logvol /var/crash --vgname=HostVG --name=var_crash --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=10000
+logvol /var/log --vgname=HostVG --name=var_log --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=8000
+logvol /var/log/audit --vgname=HostVG --name=var_audit --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=2000
+logvol /home --vgname=HostVG --name=home --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=1000
+logvol /tmp --vgname=HostVG --name=tmp --thin --fstype=ext4 --poolname=HostPool --fsoptions=&quot;defaults,discard&quot; --size=1000</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you use <code>logvol --thinpool --grow</code>, you must also include <code>volgroup --reserved-space</code> or <code>volgroup --reserved-percent</code> to reserve space in the volume group for the thin pool to grow.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proc_installing-a-dud-driver-on-a-host-without-installer-support_{context}">Installing a DUD driver on a host without installer support</h4>
+<div class="paragraph _abstract">
+<p>There are times when installing {hypervisor-fullname} ({hypervisor-shortname}) requires a Driver Update Disk (DUD), such as when using a hardware RAID device that is not supported by the default configuration of {hypervisor-shortname}. In contrast with {enterprise-linux} hosts, {hypervisor-shortname} does not fully support using a DUD. Subsequently the host fails to boot normally after installation because it does not see RAID. Instead it boots into emergency mode.</p>
+</div>
+<div class="paragraph">
+<p>Example output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">Warning: /dev/test/rhvh-4.4-20210202.0+1 does not exist
+Warning: /dev/test/swap does not exist
+Entering emergency mode. Exit the shell to continue.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In such a case you can manually add the drivers before finishing the installation.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>A machine onto which you are installing {hypervisor-shortname}.</p>
+</li>
+<li>
+<p>A DUD.</p>
+</li>
+<li>
+<p>If you are using a USB drive for the DUD and {hypervisor-shortname}, you must have at least two available USB ports.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Load the DUD on the host machine.</p>
+</li>
+<li>
+<p>Install {hypervisor-shortname}. See <a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy">Installing {hypervisor-fullname}s</a> in <em>Installing {virt-product-fullname} as a self-hosted engine using the command line</em>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installation completes, do not reboot the system.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you want to access the DUD using SSH, do the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add the string <strong><code> inst.sshd</code></strong> to the kernel command line:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">&lt;<em>kernel_command_line</em>&gt; inst.sshd</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable networking during the installation.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Enter the console mode, by pressing <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F3</kbd>. Alternatively you can connect to it using SSH.</p>
+</li>
+<li>
+<p>Mount the DUD:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># mkdir /mnt/dud
+# mount -r /dev/<em>&lt;dud_device&gt;</em> /mnt/dud</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copy the RPM file inside the DUD to the target machine&#8217;s disk:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># cp /mnt/dud/rpms/<em>&lt;path&gt;</em>/<em>&lt;rpm_file&gt;</em>.rpm /mnt/sysroot/root/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># cp /mnt/dud/rpms/x86_64/kmod-3w-9xxx-2.26.02.014-5.el8_3.elrepo.x86_64.rpm /mnt/sysroot/root/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Change the root directory to <code>/mnt/sysroot</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># chroot /mnt/sysroot</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Back up the current initrd images. For example:</p>
+</li>
+<li>
+<p>Install the RPM file for the driver from the copy you made earlier.</p>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf install /root/kmod-3w-9xxx-2.26.02.014-5.el8_3.elrepo.x86_64.rpm</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This package is not visible on the system after you reboot into the installed environment, so if you need it, for example, to rebuild the <code>initramfs</code>, you need to install that package once again, after which the package remains.</p>
+</div>
+<div class="paragraph">
+<p>If you update the host using <code>dnf</code>, the driver update persists, so you do not need to repeat this process.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you do not have an internet connection, use the <code>rpm</code> command instead of <code>dnf</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># rpm -ivh /root/kmod-3w-9xxx-2.26.02.014-5.el8_3.elrepo.x86_64.rpm</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Create a new image, forcefully adding the driver:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dracut --force --add-drivers <em>&lt;module_name&gt;</em> --kver <em>&lt;kernel_version&gt;</em></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dracut --force --add-drivers 3w-9xxx --kver 4.18.0-240.15.1.el8_3.x86_64</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check the results. The new image should be larger, and include the driver. For example, compare the sizes of the original, backed-up image file and the new image file.</p>
+<div class="paragraph">
+<p>In this example, the new image file is 88739013 bytes, larger than the original 88717417 bytes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># ls -ltr /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img*
+-rw-------. 1 root root 88717417 Jun  2 14:29 /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img.bck1
+-rw-------. 1 root root 88739013 Jun  2 17:47 /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The new drivers should be part of the image file. For example, the 3w-9xxx module should be included:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># lsinitrd /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img | grep 3w-9xxx
+drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-240.15.1.el8_3.x86_64/weak-updates/3w-9xxx
+lrwxrwxrwx   1 root     root           55 Feb 22 15:57 usr/lib/modules/4.18.0-240.15.1.el8_3.x86_64/weak-updates/3w-9xxx/3w-9xxx.ko-../../../4.18.0-240.el8.x86_64/extra/3w-9xxx/3w-9xxx.ko
+drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-240.el8.x86_64/extra/3w-9xxx
+-rw-r--r--   1 root     root        80121 Nov 10  2020 usr/lib/modules/4.18.0-240.el8.x86_64/extra/3w-9xxx/3w-9xxx.ko</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copy the image to the the directory under <code>/boot</code> that contains the kernel to be used in the layer being installed, for example:</p>
+</li>
+<li>
+<p>Exit chroot.</p>
+</li>
+<li>
+<p>Exit the shell.</p>
+</li>
+<li>
+<p>If you used <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F3</kbd> to access a virtual terminal, then move back to the installer by pressing <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F_&lt;n&gt;_</kbd>, usually <kbd>F1</kbd> or <kbd>F5</kbd></p>
+</li>
+<li>
+<p>At the installer screen, reboot.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Verification</div>
+<p>The machine should reboot successfully.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Automating_RHVH_Deployment_{context}">Automating {hypervisor-fullname} deployment</h4>
+<div class="paragraph">
+<p>You can install {hypervisor-fullname} ({hypervisor-shortname}) without a physical media device by booting from a PXE server over the network with a Kickstart file that contains the answers to the installation questions.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, {org-fullname} strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>General instructions for installing from a PXE server with a Kickstart file are available in the <a href="{URL_rhel_docs_legacy}html/installation_guide/chap-kickstart-installations"><em>{enterprise-linux} Installation Guide</em></a>, as {hypervisor-shortname} is installed in much the same way as {enterprise-linux}. {hypervisor-shortname}-specific instructions, with examples for deploying {hypervisor-shortname} with Red Hat Satellite, are described below.</p>
+</div>
+<div class="paragraph">
+<p>The automated {hypervisor-shortname} deployment has 3 stages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Preparing_the_Installation_Environment">Preparing the Installation Environment</a></p>
+</li>
+<li>
+<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE Server and the Boot Loader</a></p>
+</li>
+<li>
+<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and Running a Kickstart File</a></p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="Preparing_the_Installation_Environment">Preparing the installation environment</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make the {hypervisor-shortname} ISO image available over the network. See <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-media-additional-sources.html#sect-making-media-sources-network">Installation Source on a Network</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+<li>
+<p>Extract the <strong>squashfs.img</strong> hypervisor image file from the {hypervisor-shortname} ISO:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount -o loop <em>/path/to/{hypervisor-shortname}-ISO</em> /mnt/rhvh
+# cp /mnt/rhvh/Packages/redhat-virtualization-host-image-update* /tmp
+# cd /tmp
+# rpm2cpio redhat-virtualization-host-image-update* | cpio -idmv</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This <strong>squashfs.img</strong> file, located in the <code>/tmp/usr/share/redhat-virtualization-host/image/</code> directory, is called <strong>redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</strong>. It contains the hypervisor image for installation on the physical machine. It should not be confused with the <strong>/LiveOS/squashfs.img</strong> file, which is used by the Anaconda <code>inst.stage2</code> option.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE server and the boot loader</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the PXE server. See <a href="{URL_rhel_docs_legacy}html/Installation_Guide/chap-installation-server-setup.html">Preparing for a Network Installation</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+<li>
+<p>Copy the {hypervisor-shortname} boot images to the <code>/tftpboot</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp mnt/rhvh/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a <code>rhvh</code> label specifying the {hypervisor-shortname} boot images in the boot loader configuration:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">LABEL rhvh
+MENU LABEL Install {hypervisor-fullname}
+KERNEL /var/lib/tftpboot/pxelinux/vmlinuz
+APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/{hypervisor-shortname}-ISO</em></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">{hypervisor-shortname} Boot loader configuration example for Red Hat Satellite</div>
+<p>If you are using information from Red Hat Satellite to provision the host, you must create a global or host group level parameter called <code>rhvh_image</code> and populate it with the directory URL where the ISO is mounted or extracted:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;%#
+kind: PXELinux
+name: {hypervisor-shortname} PXELinux
+%&gt;
+# Created for booting new hosts
+#
+
+DEFAULT rhvh
+
+LABEL rhvh
+KERNEL &lt;%= @kernel %&gt;
+APPEND initrd=&lt;%= @initrd %&gt; inst.ks=&lt;%= foreman_url(&quot;provision&quot;) %&gt; inst.stage2=&lt;%= @host.params[&quot;rhvh_image&quot;] %&gt; intel_iommu=on console=tty0 console=ttyS1,115200n8 ssh_pwauth=1 local_boot_trigger=&lt;%= foreman_url(&quot;built&quot;) %&gt;
+IPAPPEND 2</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Make the content of the {hypervisor-shortname} ISO locally available and export it to the network, for example, using an HTTPD server:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -a /mnt/rhvh/ /var/www/html/rhvh-install
+# curl <em>URL/to/{hypervisor-shortname}-ISO</em>/rhvh-install</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="Creating_and_Running_a_Kickstart_File">Creating and running a Kickstart file</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a Kickstart file and make it available over the network. See <a href="{URL_rhel_docs_legacy}html/Installation_Guide/chap-kickstart-installations.html">Kickstart Installations</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+<li>
+<p>Ensure that the Kickstart file meets the following {virt-product-shortname}-specific requirements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>%packages</code> section is not required for {hypervisor-shortname}. Instead, use the <code>liveimg</code> option and specify the <strong>redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</strong> file from the {hypervisor-shortname} ISO image:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=<em>example.com</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Autopartitioning is highly recommended, but use caution: ensure that the local disk is detected first, include the <code>ignoredisk</code> command, and specify the local disk to ignore, such as <code>sda</code>.  To ensure that a particular drive is used, {org-fullname} recommends using <code>ignoredisk --only-use=/dev/disk/&lt;<em>path</em>&gt;</code> or <code>ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">autopart --type=thinp
+ignoredisk --only-use=sda
+ignoredisk --only-use=/dev/disk/&lt;<em>path</em>&gt;
+ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Autopartitioning requires thin provisioning.</p>
+</div>
+<div class="paragraph">
+<p>The <code>--no-home</code> option does not work in {hypervisor-shortname} because <code>/home</code> is a required directory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your installation requires manual partitioning, see <a href="#Custom_Partitioning_{context}">Custom Partitioning</a> for a list of limitations that apply to partitions and an example of manual partitioning in a Kickstart file.</p>
+</div>
+</li>
+<li>
+<p>A <code>%post</code> section that calls the <code>nodectl init</code> command is required:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">%post
+nodectl init
+%end</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ensure that the <code>nodectl init</code> command is at the very end of the <code>%post</code> section but before the reboot code, if any.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Kickstart example for deploying {hypervisor-shortname} on its own</div>
+<p>This Kickstart example shows you how to deploy {hypervisor-shortname}. You can include additional commands and options as required.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This example assumes that all disks are empty and can be initialized. If you have attached disks with data, either remove them or add them to the <code>ignoredisks</code> property.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=http://<em>FQDN</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img
+clearpart --all
+autopart --type=thinp
+rootpw --plaintext ovirt
+timezone --utc America/Phoenix
+zerombr
+text
+
+reboot
+
+%post --erroronfail
+nodectl init
+%end</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add the Kickstart file location to the boot loader configuration file on the PXE server:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/{hypervisor-shortname}-ISO</em> inst.ks=<em>URL/to/{hypervisor-shortname}-ks</em>.cfg</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install {hypervisor-shortname} following the instructions in <a href="{URL_rhel_docs_legacy}html/Installation_Guide/chap-booting-installer-x86.html#sect-booting-from-pxe-x86">Booting from the Network Using PXE</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Red_Hat_Enterprise_Linux_hosts_{context}">{enterprise-linux-host-fullname}s</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Installing_Red_Hat_Enterprise_Linux_Hosts_{context}">Installing {enterprise-linux-host-fullname}s</h3>
+<div class="paragraph">
+<p>For detailed installation instructions, see the <a href="{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index.html"><em>Performing a standard {enterprise-linux-shortname} installation</em></a>.</p>
+</div>
+<div class="paragraph">
+<p>The host must meet the minimum <a href="{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, {org-fullname} strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Virtualization must be enabled in your host&#8217;s BIOS settings. For information on changing your host&#8217;s BIOS settings, refer to your host&#8217;s hardware documentation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not install third-party watchdogs on {enterprise-linux-host-fullname}s. They can interfere with the watchdog daemon provided by VDSM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Installing_Cockpit_on_Linux_Hosts_{context}">Installing Cockpit on {enterprise-linux-host-fullname}s</h3>
+<div class="paragraph">
+<p>You can install Cockpit for monitoring the host&#8217;s resources and performing administrative tasks.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Install the dashboard packages:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install cockpit-ovirt-dashboard</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable and start the <code>cockpit.socket</code> service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable cockpit.socket
+# systemctl start cockpit.socket</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check if Cockpit is an active service in the firewall:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --list-services</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see <code>cockpit</code> listed. If it is not, enter the following with root permissions to add <code>cockpit</code> as a service to your firewall:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --permanent --add-service=cockpit</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>--permanent</code> option keeps the <code>cockpit</code> service active after rebooting.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can log in to the Cockpit web interface at <code>https://<em>HostFQDNorIP</em>:9090</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Recommended_practices_for_configuring_host_networks_{context}">Recommended Practices for Configuring Host Networks</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Always use the {virt-product-shortname} {engine-name} to modify the network configuration of hosts in your clusters. Otherwise, you might create an unsupported configuration. For details, see <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate">Network Manager Stateful Configuration (nmstate)</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your network environment is complex, you may need to configure a host network manually before adding the host to the {virt-product-fullname} {engine-name}.</p>
+</div>
+<div class="paragraph">
+<p>Consider the following practices for configuring a host network:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configure the network with Cockpit. Alternatively, you can use <code>nmtui</code> or <code>nmcli</code>.</p>
+</li>
+<li>
+<p>If a network is not required for a self-hosted engine deployment or for adding a host to the {engine-name}, configure the network in the Administration Portal after adding the host to the {engine-name}. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_new_logical_network_in_a_data_center_or_cluster">Creating a New Logical Network in a Data Center or Cluster</a>.</p>
+</li>
+<li>
+<p>Use the following naming conventions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>VLAN devices: <code><em>VLAN_NAME_TYPE_RAW_PLUS_VID_NO_PAD</em></code></p>
+</li>
+<li>
+<p>VLAN interfaces: <code><em>physical_device</em>.<em>VLAN_ID</em></code> (for example, <code>eth0.23</code>, <code>eth1.128</code>, <code>enp3s0.50</code>)</p>
+</li>
+<li>
+<p>Bond interfaces: <code>bond<em>number</em></code> (for example, <code>bond0</code>, <code>bond1</code>)</p>
+</li>
+<li>
+<p>VLANs on bond interfaces: <code>bond<em>number</em>.<em>VLAN_ID</em></code> (for example, <code>bond0.50</code>, <code>bond1.128</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Network_Bonding">network bonding</a>. Network teaming is not supported in {virt-product-fullname} and will cause errors if the host is used to deploy a self-hosted engine or added to the {engine-name}.</p>
+</li>
+<li>
+<p>Use recommended bonding modes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>ovirtmgmt</code> network is not used by virtual machines, the network may use any supported bonding mode.</p>
+</li>
+<li>
+<p>If the <code>ovirtmgmt</code> network is used by virtual machines, see <a href="https://access.redhat.com/solutions/67546"><em>Which bonding modes work when used with a bridge that virtual machine guests or containers connect to?</em></a>.</p>
+</li>
+<li>
+<p>{virt-product-fullname}'s default bonding mode is <code>(Mode 4) Dynamic Link Aggregation</code>. If your switch does not support Link Aggregation Control Protocol (LACP), use <code>(Mode 1) Active-Backup</code>. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Bonding_Modes">Bonding Modes</a> for details.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configure a VLAN on a physical NIC as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>eth0.50</em> dev <em>eth0</em> id <em>50</em>
+# nmcli con mod <em>vlan50</em> +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ipv4.gateway <em>123.123</em>.0.254</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure a VLAN on a bond as in the following example (although <code>nmcli</code> is used, you can use any tool):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># nmcli connection add type bond con-name <em>bond0</em> ifname <em>bond0</em> bond.options &quot;mode=active-backup,miimon=100&quot; ipv4.method disabled ipv6.method ignore
+# nmcli connection add type ethernet con-name <em>eth0</em> ifname <em>eth0</em> master <em>bond0</em> slave-type bond
+# nmcli connection add type ethernet con-name <em>eth1</em> ifname <em>eth1</em> master <em>bond0</em> slave-type bond
+# nmcli connection add type vlan con-name <em>vlan50</em> ifname <em>bond0.50</em> dev <em>bond0</em> id <em>50</em>
+# nmcli con mod vlan50 +ipv4.dns 8.8.8.8 +ipv4.addresses <em>123.123</em>.0.1/24 +ipv4.gateway <em>123.123</em>.0.254</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Do not disable <code>firewalld</code>.</p>
+</li>
+<li>
+<p>Customize the firewall rules in the Administration Portal after adding the host to the {engine-name}. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Host_Firewall_Rules">Configuring Host Firewall Rules</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Adding_standard_hosts_to_the_Manager_{context}">Adding Standard Hosts to the {virt-product-fullname} {engine-name}</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Always use the {virt-product-shortname} {engine-name} to modify the network configuration of hosts in your clusters. Otherwise, you might create an unsupported configuration. For details, see <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate">Network Manager Stateful Configuration (nmstate)</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Adding a host to your {virt-product-fullname} environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, and creation of a bridge.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>From the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span>.</p>
+</li>
+<li>
+<p>Click <b class="button">New</b>.</p>
+</li>
+<li>
+<p>Use the drop-down list to select the <strong>Data Center</strong> and <strong>Host Cluster</strong> for the new host.</p>
+</li>
+<li>
+<p>Enter the <strong>Name</strong> and the <strong>Address</strong> of the new host. The standard SSH port, port 22, is auto-filled in the <strong>SSH Port</strong> field.</p>
+</li>
+<li>
+<p>Select an authentication method to use for the {engine-name} to access the host.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter the root user&#8217;s password to use password authentication.</p>
+</li>
+<li>
+<p>Alternatively, copy the key displayed in the <strong>SSH PublicKey</strong> field to <strong>/root/.ssh/authorized_keys</strong> on the host to use public key authentication.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Optionally, click the <strong>Advanced Parameters</strong> button to change the following advanced host settings:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Disable automatic firewall configuration.</p>
+</li>
+<li>
+<p>Add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Host_Power_Management_settings_explained">Host Power Management Settings Explained</a> in the <em>Administration Guide</em>.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The new host displays in the list of hosts with a status of <code>Installing</code>, and you can view the progress of the installation in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events"></span>). After a brief delay the host status changes to <code>Up</code>.</p>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2961/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2961/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2961/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2961/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/dropped/introduction_to_the_vm_portal/common/install/assembly-Installing_Hosts_for_RHV.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/dropped/introduction_to_the_vm_portal/common/install/assembly-Installing_Hosts_for_RHV.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

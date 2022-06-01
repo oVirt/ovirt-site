@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Upgrading {hypervisor-shortname} while preserving local storage | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Upgrading {hypervisor-shortname} while preserving local storage" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Upgrading {hypervisor-shortname} while preserving local storage" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Upgrading {hypervisor-shortname} while preserving local storage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2961/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2961/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2961/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2961/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2961/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2961/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2961/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2961/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/">
+              <span property="name">Dropped</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/">
+              <span property="name">Introduction to the VM Portal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/">
+              <span property="name">Common</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/upgrade/">
+              <span property="name">Upgrade</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div class="paragraph">
+<p>Environments with local storage cannot migrate virtual machines to a host in another cluster because the local storage is not shared with other storage domains. To upgrade {hypervisor-shortname} 4.3 hosts that have a local storage domain, reinstall the host while preserving the local storage, create a new local storage domain in the 4.4 environment, and import the previous local storage into the new domain.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>{virt-product-fullname} {engine-name} 4.4 is installed and running.</p>
+</li>
+<li>
+<p>The compatibility level of the data center and cluster to which the host belongs is set to 4.2 or 4.3.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Ensure that the local storage on the {hypervisor-shortname} 4.3 host&#8217;s local storage is in maintenance mode before starting this process. Complete these steps:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open the <strong>Data Centers</strong> tab.</p>
+</li>
+<li>
+<p>Click the <strong>Storage</strong> tab in the <strong>Details</strong> pane and select the storage domain in the results list.</p>
+</li>
+<li>
+<p>Click <strong>Maintenance</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Reinstall the {hypervisor-fullname}, as described in <a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_deployment_host">Installing {hypervisor-fullname}</a> in the <em>Installation Guide</em>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When selecting the device on which to install {hypervisor-shortname} from the <strong>Installation Destination</strong> screen, do not select the device(s) storing the virtual machines. Only select the device where the operating system should be installed.</p>
+</div>
+<div class="paragraph">
+<p>If you are using Kickstart to install the host, ensure that you preserve the devices containing the virtual machines by adding the following to the Kickstart file, replacing <em>`device`</em> with the relevant device.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># clearpart --all --drives=<em>device</em></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information on using Kickstart, see <a href="{URL_rhel_docs_latest}html-single/performing_an_advanced_rhel_installation/index#kickstart_references">Kickstart references</a> in <em>Red Hat Enterprise Linux 8 Performing an advanced RHEL installation</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>On the reinstalled host, create a directory, for example <code class="filename">/data</code> in which to recover the previous environment.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir /data</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Mount the previous local storage in the new directory. In our example, <code class="filename">/dev/sdX1</code> is the local storage:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount /dev/sdX1 /data</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Set the following permissions for the new directory.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># chown -R 36:36 /data
+# chmod -R 0755 /data</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>{org-fullname} recommends that you also automatically mount the local storage via <code class="filename">/etc/fstab</code> in case the server requires a reboot:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># blkid | grep -i sdX1
+/dev/sdX1: UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; TYPE=&quot;ext4&quot;
+# vi /etc/fstab
+UUID=&quot;a81a6879-3764-48d0-8b21-2898c318ef7c&quot; /data    ext4    defaults     0       0</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the Administration Portal, create a data center and select <strong>Local</strong> in the <strong>Storage Type</strong> drop-down menu.</p>
+</li>
+<li>
+<p>Configure a cluster on the new data center. See <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_New_Cluster">Creating a New Cluster</a> in the <em>Administration Guide</em> for more information.</p>
+</li>
+<li>
+<p>Add the host to the {engine-name}. See <a href="{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Adding_standard_hosts_to_the_Manager_SHE_cli_deploy">Adding Standard Hosts to the {virt-product-fullname} Manager</a> in one of the <em>Installing {virt-product-fullname}</em> guides for more information.</p>
+</li>
+<li>
+<p>On the host, create a new directory that will be used to create the initial local storage domain. For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /localfs
+# chown 36:36 /localfs
+# chmod -R 0755 /localfs</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the Administration Portal, open the <strong>Storage</strong> tab and click <strong>New Domain</strong> to create a new local storage domain.</p>
+</li>
+<li>
+<p>Set the name to <code>localfs</code> and set the path to <code class="filename">/localfs</code>.</p>
+</li>
+<li>
+<p>Once the local storage is active, click <strong>Import Domain</strong> and set the domain&#8217;s details.
+For example, define <code>Data</code> as the name, <code>Local on Host</code> as the storage type and <code class="filename">/data</code> as the path.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> to confirm the message that appears informing you that storage domains are already attached to the data center.</p>
+</li>
+<li>
+<p>Activate the new storage domain:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open the <strong>Data Centers</strong> tab.</p>
+</li>
+<li>
+<p>Click the <strong>Storage</strong> tab in the details pane and select the new data storage domain in the results list.</p>
+</li>
+<li>
+<p>Click <strong>Activate</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Once the new storage domain is active, import the virtual machines and their disks:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Storage</strong> tab, select <strong>data</strong>.</p>
+</li>
+<li>
+<p>Select the <strong>VM Import</strong> tab in the details pane, select the virtual machines and click <strong>Import</strong>. See <a href="{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_Data_Domain">Importing Virtual Machines from a Data Domain</a> in the <em>Virtual Machine Management Guide</em> for more details.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Once you have ensured that all virtual machines have been successfully imported and are functioning properly, you can move <code>localfs</code> to maintenance mode.</p>
+</li>
+<li>
+<p>Click the <strong>Storage</strong> tab and select <strong>localfs</strong> from the results list.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click the <strong>Data Center</strong> tab in the details pane.</p>
+</li>
+<li>
+<p>Click Maintenance, then click <b class="button">OK</b> to move the storage domain to maintenance mode.</p>
+</li>
+<li>
+<p>Click <strong>Detach</strong>. The Detach Storage confirmation window opens.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You have now upgraded the host to version 4.4, created a new local storage domain, and imported the 4.3 storage domain and its virtual machines.</p>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2961/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2961/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2961/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2961/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/dropped/introduction_to_the_vm_portal/common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/dropped/introduction_to_the_vm_portal/common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

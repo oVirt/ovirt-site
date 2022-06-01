@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Restoring the Backup on a New Self-Hosted Engine | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Restoring the Backup on a New Self-Hosted Engine" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Restoring the Backup on a New Self-Hosted Engine" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Restoring the Backup on a New Self-Hosted Engine","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2961/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2961/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2961/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2961/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2961/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2961/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2961/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2961/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/">
+              <span property="name">Dropped</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/">
+              <span property="name">Introduction to the VM Portal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/">
+              <span property="name">Common</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/">
+              <span property="name">Backup Restore</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div class="paragraph">
+<p>Run the <code>hosted-engine</code> script on a new host, and use the <code>--restore-from-file=<em>path/to/file_name</em></code> option to restore the {engine-name} backup during the deployment.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using iSCSI storage, and your iSCSI target filters connections according to the initiator&#8217;s ACL, the deployment may fail with a <code>STORAGE_DOMAIN_UNREACHABLE</code> error. To prevent this, you must update your iSCSI configuration before beginning the self-hosted engine deployment:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are redeploying on an existing host, you must update the host&#8217;s iSCSI initiator settings in <code>/etc/iscsi/initiatorname.iscsi</code>. The initiator IQN must be the same as was previously mapped on the iSCSI target, or updated to a new IQN, if applicable.</p>
+</li>
+<li>
+<p>If you are deploying on a fresh host, you must update the iSCSI target configuration to accept connections from that host.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that the IQN can be updated on the host side (iSCSI initiator), or on the storage side (iSCSI target).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Copy the backup file to the new host. In the following example, <code>host.example.com</code> is the FQDN for the host, and <code>/backup/</code> is any designated folder or path.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p <em>file_name</em> host.example.com:/backup/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to the new host.</p>
+</li>
+<li>
+<p>If you are deploying on {hypervisor-fullname}, <code>ovirt-hosted-engine-setup</code> is already installed, so skip this step. If you are deploying on {enterprise-linux}, install the <code>ovirt-hosted-engine-setup</code> package:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-hosted-engine-setup</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the <code>tmux</code> window manager to run the script to avoid losing the session in case of network or terminal disruption.</p>
+<div class="paragraph">
+<p>Install and run <code>tmux</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install tmux
+# tmux</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the <code>hosted-engine</code> script, specifying the path to the backup file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=backup/<em>file_name</em></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To escape the script at any time, use <span class="keyseq"><kbd>CTRL</kbd>+<kbd>D</kbd></span> to abort deployment.</p>
+</div>
+</li>
+<li>
+<p>Select <strong>Yes</strong> to begin the deployment.</p>
+</li>
+<li>
+<p>Configure the network. The script detects possible NICs to use as a management bridge for the environment.</p>
+</li>
+<li>
+<p>If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.</p>
+</li>
+<li>
+<p>Enter the root password for the {engine-name}.</p>
+</li>
+<li>
+<p>Enter an SSH public key that will allow you to log in to the {engine-name} as the root user, and specify whether to enable SSH access for the root user.</p>
+</li>
+<li>
+<p>Enter the virtual machine&#8217;s CPU and memory configuration.</p>
+</li>
+<li>
+<p>Enter a MAC address for the {engine-name} virtual machine, or accept a randomly generated one. If you want to provide the {engine-name} virtual machine with an IP address via DHCP, ensure that you have a valid DHCP reservation for this MAC address. The deployment script will not configure the DHCP server for you.</p>
+</li>
+<li>
+<p>Enter the virtual machine&#8217;s networking details. If you specify <strong>Static</strong>, enter the IP address of the {engine-name}.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The static IP address must belong to the same subnet as the host. For example, if the host is in 10.1.1.0/24, the {engine-name} virtual machine&#8217;s IP must be in the same subnet range (10.1.1.1-254/24).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Specify whether to add entries for the {engine-name} virtual machine and the base host to the virtual machine&#8217;s <code>/etc/hosts</code> file. You must ensure that the host names are resolvable.</p>
+</li>
+<li>
+<p>Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications:</p>
+</li>
+<li>
+<p>Enter a password for the <code>admin@internal</code> user to access the Administration Portal.</p>
+<div class="paragraph">
+<p>The script creates the virtual machine. This can take some time if the {engine-appliance-name} needs to be installed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the host becomes non operational, due to a missing required network or a similar problem, the deployment pauses and a message such as the following is displayed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ INFO  ] You can now connect to https://&lt;host name&gt;:6900/ovirt-engine/ and check the status of this host and eventually remediate it, please continue only when the host is listed as 'up'
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : include_tasks]
+[ INFO  ] ok: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Create temporary lock file]
+[ INFO  ] changed: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Pause execution until /tmp/ansible.&lt;random&gt;_he_setup_lock is removed, delete it once ready to proceed]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pausing the process allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect to the Administration Portal using the provided URL.</p>
+</li>
+<li>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.
+For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, configure the networks, attaching the relevant host NICs to these networks.</p>
+</li>
+<li>
+<p>Once everything looks OK, and the host status is <em>Up</em>, remove the lock file presented in the message above. The deployment continues.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select the type of storage to use:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For NFS, enter the version, full address and path to the storage, and any mount options.</p>
+</li>
+<li>
+<p>For iSCSI, enter the portal details and select a target and LUN from the auto-detected lists. You can only select one iSCSI target during the deployment, but multipathing is supported to connect all portals of the same portal group.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. See <a href="{URL_rhel_docs_legacy}html-single/dm_multipath/"><em>{enterprise-linux} DM Multipath</em></a> for details. There is also a <a href="https://access.redhat.com/labs/multipathhelper/#/">Multipath Helper</a> tool that generates a script to install and configure multipath with different options.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>For Gluster storage, enter the full address and path to the storage, and any mount options.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only replica 1 and replica 3 Gluster storage are supported. Ensure you configure the volume as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">gluster volume set <em>VOLUME_NAME</em> group virt
+gluster volume set <em>VOLUME_NAME</em> performance.strict-o-direct on
+gluster volume set <em>VOLUME_NAME</em> network.remote-dio off
+gluster volume set <em>VOLUME_NAME</em> storage.owner-uid 36
+gluster volume set <em>VOLUME_NAME</em> storage.owner-gid 36
+gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see <a href="{URL_virt_product_docs}{URL_format}administration_guide/index#Reusing_LUNs">Reusing LUNs</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the {engine-name} disk size.</p>
+<div class="paragraph">
+<p>The script continues until the deployment is complete.</p>
+</div>
+</li>
+<li>
+<p>The deployment process changes the {engine-name}'s SSH keys. To allow client machines to access the new {engine-name} without SSH errors, remove the original {engine-name}'s entry from the <code>.ssh/known_hosts</code> file on any client machines that accessed the original {engine-name}.</p>
+</li>
+</ol>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2961/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2961/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2961/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2961/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/dropped/introduction_to_the_vm_portal/common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/dropped/introduction_to_the_vm_portal/common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

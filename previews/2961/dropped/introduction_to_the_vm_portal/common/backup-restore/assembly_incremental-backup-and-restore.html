@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/assembly_incremental-backup-and-restore.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/assembly_incremental-backup-and-restore.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2961/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/assembly_incremental-backup-and-restore.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2961/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2961/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2961/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2961/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2961/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2961/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2961/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/">
+              <span property="name">Dropped</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/">
+              <span property="name">Introduction to the VM Portal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/">
+              <span property="name">Common</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/backup-restore/">
+              <span property="name">Backup Restore</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>{virt-product-fullname} provides an Incremental Backup API that you can use for full backups of QCOW2 or RAW virtual disks, or incremental backups of QCOW 2 virtual disks, without any temporary snapshots. Data is backed-up in RAW format, whether the virtual disk  being backed up is QCOW2 or RAW. You can restore RAW guest data and either RAW or QCOW2 disks. The Incremental Backup API is part of the {virt-product-shortname} REST API. You can backup virtual machines that are running or that are not.</p>
+</div>
+<div class="paragraph">
+<p>As a developer, you can use the API to develop a backup application.</p>
+</div>
+<div class="paragraph">
+<div class="title">Features</div>
+<p>Backups are simpler, faster and more robust than when using the Backup and Restore API. The Incremental Backup API provides improved integration with backup applications, with new support for backing up and restoring RAW guest data, regardless of the underlying disk format.</p>
+</div>
+<div class="paragraph">
+<p>If an invalid bitmap causes a backup to fail, you can remove a specific checkpoint in the backup chain. You do not need to run a full backup.</p>
+</div>
+<div class="ulist">
+<div class="title">Limitations:</div>
+<ul>
+<li>
+<p>Only disks in QCOW2 format can be backed up incrementally, not RAW format disks. The backup process saves the backed up data in RAW format.</p>
+</li>
+<li>
+<p>Only backed up data in RAW format can be restored.</p>
+</li>
+<li>
+<p>Incremental restore does not support restoring snapshots as they existed at the time of the backup, rather incremental restore restores only the data and not the structure of volumes or images in snapshots as they existed at the time of the backup. This limit is common in backup solutions for other systems.</p>
+</li>
+<li>
+<p>As is commonly the case with backup solutions, incremental restore restores only the data and not the structure of volumes or images in snapshots as they existed at the time of the backup.</p>
+</li>
+<li>
+<p>An unclean shutdown of a virtual machine, whatever the cause, might invalidate bitmaps on the disk, which invalidates the entire backup chain. Restoring an incremental backup using an invalid bitmap leads to corrupt virtual machine data.</p>
+<div class="paragraph">
+<p>There is no way to detect an invalid bitmap, other than starting a backup. If the disk includes any invalid bitmaps, the operation fails.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following table describes the disk configurations that support incremental backup.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When you create a disk using the Administration portal, you set the storage type, provisioning type, and whether incremental backup is enabled or disabled. Based on these settings, the {engine-name} determines the virtual disk format.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Supported disk configurations for incremental backup</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Storage type</th>
+<th class="tableblock halign-left valign-top">Provisioning type</th>
+<th class="tableblock halign-left valign-top">When incremental backup is&#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">Virtual disk format is&#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">qcow2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">preallocated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">qcow2 (preallocated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">qcow2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">preallocated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">qcow2 (preallocated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">qcow2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">preallocated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raw (preallocated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raw (sparse)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">preallocated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raw (preallocated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">network</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Not applicable</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raw</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lun</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Not applicable</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raw</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="the-incremental-backup-flow" class="sect0">The Incremental Backup Flow</h1>
+<div class="paragraph">
+<p>A backup application that uses the Incremental Backup API must follow this sequence to back up virtual machine disks that have already been enabled for incremental backup:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The backup application uses the REST API to <a href="#find-disks-enabled-for-incremental-backup">find virtual machine disks</a> that should be included in the backup. Only disks in QCOW2 format are included.</p>
+</li>
+<li>
+<p>The backup application starts a <a href="#start-a-full-backup_assembly_incremental-backup-and-restore">full backup</a> or an <a href="#start-an-incremental-backup_assembly_incremental-backup-and-restore">incremental backup</a>. The API call specifies a virtual machine ID, an optional previous checkpoint ID, and a list of disks to back up. If the API call does not specify a previous checkpoint ID, a full backup begins, which includes all data in the specified disks, based on the current state of each disk.</p>
+</li>
+<li>
+<p>The engine prepares the virtual machine for backup. The virtual machine can continue running during the backup.</p>
+</li>
+<li>
+<p>The backup application polls the engine for the backup status, until the engine reports that the backup is ready to begin.</p>
+</li>
+<li>
+<p>When the backup is ready to begin, the backup application <a href="#image-transfer-object-for-incremental-backup_assembly_incremental-backup-and-restore">creates an image transfer object</a> for every disk included in the backup.</p>
+</li>
+<li>
+<p>The backup application <a href="#ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore">gets a list of changed blocks from <code>ovirt-imageio</code> for every image transfer</a>. If a change list is not available, the backup application gets an error.</p>
+</li>
+<li>
+<p>The backup application <a href="#ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore">downloads changed blocks in RAW format from <code>ovirt-imageio</code> and stores them in the backup media</a>. If a list of changed blocks is not available, the backup application can fall back to copying the entire disk.</p>
+</li>
+<li>
+<p>The backup application finalizes all image transfers.</p>
+</li>
+<li>
+<p>The backup application <a href="#finalize-a-backup_assembly_incremental-backup-and-restore">finalizes the backup using the REST API</a>.</p>
+</li>
+</ol>
+</div>
+<h1 id="the-incremental-restore-flow" class="sect0">The Incremental Restore Flow</h1>
+<div class="paragraph">
+<p>A backup application that uses the Incremental Backup API must follow this sequence to restore virtual machine disks that have been backed up:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user selects a restore point based on available backups using the backup application.</p>
+</li>
+<li>
+<p>The backup application creates a new disk or a snapshot with an existing disk to hold the restored data.</p>
+</li>
+<li>
+<p>The backup application <a href="#image-transfer-object-for-incremental-restore_assembly_incremental-backup-and-restore">starts an upload image transfer for every disk</a>, specifying <code>format</code> is <code>raw</code>. This enables format conversion when uploading RAW data to a QCOW2 disk.</p>
+</li>
+<li>
+<p>The backup application <a href="#ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore">transfers the data included in this restore point to <code>imageio</code> using the API</a>.</p>
+</li>
+<li>
+<p>The backup application finalizes the image transfers.</p>
+</li>
+</ol>
+</div>
+<h1 id="incremental-backup-and-restore-api-tasks" class="sect0">Incremental Backup and Restore API Tasks</h1>
+<div class="paragraph">
+<p>The Incremental Backup and Restore API is documented in the <a href="{URL_rest_api_doc}index">{virt-product-fullname} REST API Guide</a>. The backup and restore flow requires the following actions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enabling incremental backup on either a new or existing virtual disk:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#enabling-incremental-backup-on-a-new-disk_assembly_incremental-backup-and-restore">A new disk, using the Administration Portal</a></p>
+</li>
+<li>
+<p><a href="#enabling-incremental-backup-on-an-existing-virtual-disk_assembly_incremental-backup-and-restore">An existing disk, using the Administration Portal</a></p>
+</li>
+<li>
+<p><a href="#enable-incremental-backup-for-a-virtual-disk-api-call_assembly_incremental-backup-and-restore">A new or existing disk, using an API call</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="#find-disks-enabled-for-incremental-backup">Finding disks that are enabled for incremental backup</a></p>
+</li>
+<li>
+<p><a href="#start-a-full-backup_assembly_incremental-backup-and-restore">Starting a full backup</a></p>
+</li>
+<li>
+<p><a href="#start-an-incremental-backup_assembly_incremental-backup-and-restore">Starting an incremental backup</a></p>
+</li>
+<li>
+<p><a href="#finalize-a-backup_assembly_incremental-backup-and-restore">Finalizing a backup</a></p>
+</li>
+<li>
+<p><a href="#getting-information-about-a-backup_assembly_incremental-backup-and-restore">Getting information about a backup</a></p>
+</li>
+<li>
+<p><a href="#getting-information-about-the-disks-in-a-backup_assembly_incremental-backup-and-restore">Getting information about the disks in a backup</a></p>
+</li>
+<li>
+<p><a href="#listing-checkpoints-for-a-virtual-machine_assembly_incremental-backup-and-restore">Listing all checkpoints for a virtual machine</a></p>
+</li>
+<li>
+<p><a href="#listing-specific-checkpoints-for-a-virtual-machine_assembly_incremental-backup-and-restore">Listing information for a specific virtual machine checkpoint</a></p>
+</li>
+<li>
+<p><a href="#removing-a-checkpoint_assembly_incremental-backup-and-restore">Removing a checkpoint of a specific virtual machine</a></p>
+</li>
+<li>
+<p><a href="#image-transfer-object-for-incremental-backup_assembly_incremental-backup-and-restore">Downloading an image transfer object to archive a backup</a></p>
+</li>
+<li>
+<p><a href="#image-transfer-object-for-incremental-restore_assembly_incremental-backup-and-restore">Uploading an image transfer object to restore a backup</a></p>
+</li>
+<li>
+<p><a href="#ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore">Listing changed blocks</a></p>
+</li>
+<li>
+<p><a href="#ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore">Downloading and uploading changed blocks</a></p>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="enabling-incremental-backup-on-a-new-disk_assembly_incremental-backup-and-restore">Enabling Incremental Backup on a new virtual disk</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>Enable incremental backup for a virtual disk to mark it as included in an incremental backup. When adding a disk, you can enable incremental backup for every disk, either with the REST API or using the Administration Portal. You can back up existing disks that are not enabled for incremental backup using full backup or in the same way you did previously.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The {engine-name} does not require the disk to be enabled for it to be included in an incremental backup, but you can enable it to keep track of which disks are enabled.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Because incremental backup requires disks to be formatted in QCOW2, use QCOW2 format instead of RAW format.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Add a new virtual disk. For more information see <a href="#Creating_a_Virtual_Disk">Creating a Virtual Disk</a>.</p>
+</li>
+<li>
+<p>When configuring the disk, select the <strong>Enable Incremental Backup</strong> checkbox.</p>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="#enable-incremental-backup-for-a-virtual-disk-api-call_assembly_incremental-backup-and-restore">Enabling incremental backup for a disk using the API</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-incremental-backup-on-an-existing-virtual-disk_assembly_incremental-backup-and-restore">Enabling Incremental Backup on an existing RAW virtual disk</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Because incremental backup is not supported for disks in RAW format, a QCOW2 format layer must exist on top of any RAW format disks in order to use incremental backup. Creating a snapshot generates a QCOW2 layer, enabling incremental backup on all disks that are included in the snapshot, from the point at which the snapshot is created.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the base layer of a disk uses RAW format, deleting the last snapshot and merging the top QCOW2 layer into the base layer converts the disk to RAW format, thereby disabling incremental backup if it was set. To re-enable incremental backup, you can create a new snapshot, including this disk.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span>.</p>
+</li>
+<li>
+<p>Select a virtual machine and click the <strong>Disks</strong> tab.</p>
+</li>
+<li>
+<p>Click the <b class="button">Edit</b> button. The <strong>Edit Disk</strong> dialog box opens.</p>
+</li>
+<li>
+<p>Select the <strong>Enable Incremental Backup</strong> checkbox.</p>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="#enable-incremental-backup-for-a-virtual-disk-api-call_assembly_incremental-backup-and-restore">Enabling incremental backup for a disk using the API</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enable-incremental-backup-for-a-virtual-disk-api-call_assembly_incremental-backup-and-restore">Enabling incremental backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can use a REST API request to enable incremental backup for a virtual machine’s disk.</p>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with id <code>123</code>, send this request:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/diskattachments</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The request body should include <code>backup</code> set to <code>incremental</code> as part of a <code>disk</code> object, like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk_attachment&gt;
+    &#8230;&#8203;
+    &lt;disk&gt;
+       &#8230;&#8203;
+       &lt;backup&gt;incremental&lt;/backup&gt;
+       &#8230;&#8203;
+    &lt;/disk&gt;
+&lt;/disk_attachment&gt;</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The response is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk_attachment&gt;
+    &#8230;&#8203;
+    &lt;disk href=&quot;/ovirt-engine/api/disks/456&quot; id=&quot;456&quot;/&gt;
+    &#8230;&#8203;
+&lt;/disk_attachment&gt;</code></pre>
+</div>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#types-disk_backup">DiskBackup enum</a> in the <em>REST API Guide</em> for {virt-product-shortname}</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="find-disks-enabled-for-incremental-backup">Finding disks that are enabled for incremental backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>For the specified virtual machine, you can list the disks that are enabled for incremental backup, filtered according to the backup property.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>List the disks that are attached to the virtual machine. For example, for a virtual machine with the id <code>123</code>, send this request:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/123/diskattachments</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response includes all <code>disk_attachment</code> objects, each of which includes one or more <code>disk</code> objects. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk_attachments&gt;
+    &lt;disk_attachment&gt;
+       &#8230;&#8203;
+       &lt;disk href=&quot;/ovirt-engine/api/disks/456&quot; id=&quot;456&quot;/&gt;
+       &#8230;&#8203;
+    &lt;/disk_attachment&gt;
+    &#8230;&#8203;
+&lt;/disk_attachments&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the <code>disk</code> service to see the properties of a disk from the previous step. For example, for the disk with the id <code>456</code>, send this request:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/disks/456</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response includes all properties for the disk. <code>backup</code> is set to <code>none</code> or <code>incremental</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disk href=&quot;/ovirt-engine/api/disks/456&quot; id=&quot;456&quot;&gt;
+    &#8230;&#8203;
+    &lt;backup&gt;incremental&lt;/backup&gt;
+    &#8230;&#8203;
+&lt;/disk&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#types-disk"><code>backup</code> attribute of <code>Disk</code> struct</a></p>
+</li>
+<li>
+<p><a href="{URL_rest_api_doc}index#types-disk_backup"><code>DiskBackup</code> enum</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start-a-full-backup_assembly_incremental-backup-and-restore">Starting a full backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>After a full backup you can use the resulting checkpoint id as the start point in the next incremental backup.</p>
+</div>
+<div class="paragraph">
+<p>When taking a backup of a running virtual machine, the process creates a scratch disk on the same storage domain as the disk being backed up. The backup process creates this disk to enable new data to be written to the running virtual machine during the backup. You can see this scratch disk in the Administration Portal during the backup. It is automatically deleted when the backup finishes.</p>
+</div>
+<div class="paragraph">
+<p>Starting a full backup requires a request call with a body, and includes a response.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the request body, specify a disk to back up. For example, to start a full backup of a disk with id <code>456</code>, send the following request body:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
+    &lt;disks&gt;
+       &lt;disk id=&quot;456&quot; /&gt;
+       &#8230;&#8203;
+    &lt;/disks&gt;
+&lt;/backup&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response body should look similar to this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup id=&quot;789&quot;&gt;
+    &lt;disks&gt;
+       &lt;disk id=&quot;456&quot; /&gt;
+       &#8230;&#8203;
+       &#8230;&#8203;
+    &lt;/disks&gt;
+    &lt;status&gt;initializing&lt;/status&gt;
+    &lt;creation_date&gt;
+&lt;/backup&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response includes the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The backup id</p>
+</li>
+<li>
+<p>The status of the backup, indicating that the backup is initializing.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this id and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_backups"><code>add</code> method of the <code>VmBackups</code> service</a> in the <em>REST API Guide</em> for {virt-product-shortname}</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start-an-incremental-backup_assembly_incremental-backup-and-restore">Starting an incremental backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>Once a full backup is completed for a given virtual disk, subsequent incremental backups that disk contain only the changes since the last backup. Use the value of <code>to_checkpoint_id</code> from the most recent backup as the value for <code>from_checkpoint_id</code> in the request body.</p>
+</div>
+<div class="paragraph">
+<p>When taking a backup of a running virtual machine, the process creates a scratch disk on the same storage domain as the disk being backed up. The backup process creates this disk to enable new data to be written to the running virtual machine during the backup. You can see this scratch disk in the Administration Portal during the backup. It is automatically deleted when the backup finishes.</p>
+</div>
+<div class="paragraph">
+<p>Starting an incremental backup or mixed backup requires a request call with a body, and includes a response.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with id <code>456</code>, send the following request body:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
+    &lt;from_checkpoint_id&gt;<em>previous-checkpoint-uuid</em>&lt;/from_checkpoint_id&gt;
+    &lt;disks&gt;
+       &lt;disk id=&quot;456&quot; /&gt;
+       &#8230;&#8203;
+    &lt;/disks&gt;
+&lt;/backup&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the request body, if you include a disk that is not included in the previous checkpoint, the request also runs a full backup of this disk. For example, a disk with id <code>789</code> has not been backed up yet. To add a full backup of <code>789</code> to the above request body, send a request body like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
+    &lt;from_checkpoint_id&gt;<em>previous-checkpoint-uuid</em>&lt;/from_checkpoint_id&gt;
+    &lt;disks&gt;
+       &lt;disk id=&quot;456&quot; /&gt;
+       <strong>&lt;disk id=&quot;789&quot; /&gt;</strong>
+       &#8230;&#8203;
+    &lt;/disks&gt;
+&lt;/backup&gt;</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The response body should look similar to this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup id=&quot;101112&quot;&gt;
+&lt;from_checkpoint_id&gt;<em>previous-checkpoint-uuid</em>&lt;/from_checkpoint_id&gt;
+&lt;to_checkpoint_id&gt;<em>new-checkpoint-uuid</em>&lt;/to_checkpoint_id&gt;
+    &lt;disks&gt;
+       &lt;disk id=&quot;456&quot; /&gt;
+       &lt;disk id=&quot;789&quot; /&gt;
+       &#8230;&#8203;
+       &#8230;&#8203;
+    &lt;/disks&gt;
+    &lt;status&gt;initializing&lt;/status&gt;
+    &lt;creation_date&gt;
+&lt;/backup&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response includes the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The backup id.</p>
+</li>
+<li>
+<p>The id of any disk that was included in the backup.</p>
+</li>
+<li>
+<p>The status, indicating that the backup is initializing.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this id and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
+</li>
+</ol>
+</div>
+<div class="ulist _additonal-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_backups-methods-add"><code>add</code> method of the VmBackups service</a>  in the <em>REST API Guide</em> for {virt-product-shortname}.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-information-about-a-backup_assembly_incremental-backup-and-restore">Getting information about a backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can get information about a backup that you can use to start a new incremental backup.</p>
+</div>
+<div class="paragraph">
+<p>The <code>list</code> method of the VmBackups service returns the following information about a backup:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the id of each disk that was backed up</p>
+</li>
+<li>
+<p>the ids of the start and end checkpoints of the backup</p>
+</li>
+<li>
+<p>the id of the disk image of the backup, for each disk included in the backup</p>
+</li>
+<li>
+<p>the status of the backup</p>
+</li>
+<li>
+<p>the date the backup was created</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the value of &lt;status&gt; is <code>ready</code>, the response includes &lt;to_checkpoint_id&gt; which should be used as the &lt;from_checkpoint_id&gt; in the next incremental backup and you can start downloading the disks to back up the virtual machine storage.</p>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response includes the backup with id 456, with &lt;from_checkpoint_id&gt; 999 and &lt;to_checkpoint_id&gt; 666. The disks included in the backup are referenced in the &lt;link&gt; element.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup id=&quot;456&quot;&gt;
+    &lt;from_checkpoint_id&gt;999&lt;/from_checkpoint_id&gt;
+    &lt;to_checkpoint_id&gt;666&lt;/to_checkpoint_id&gt;
+    &lt;link href=&quot;/ovirt-engine/api/vms/456/backups/123/disks&quot; rel=&quot;disks&quot;/&gt;
+    &lt;status&gt;ready&lt;/status&gt;
+    &lt;creation_date&gt;
+&lt;/backup&gt;</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_backups-methods-list"><code>list</code> method of the VmBackups service</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-information-about-the-disks-in-a-backup_assembly_incremental-backup-and-restore">Getting information about the disks in a backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can get information about the disks that are part of the backup, including the backup mode that was used for each disk in a backup, which helps determine the mode that you use to download the backup.</p>
+</div>
+<div class="paragraph">
+<p>The <code>list</code> method of the VmBackupDisks service returns the following information about a backup:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The id and name of each disk that was backed up.</p>
+</li>
+<li>
+<p>The id of the disk image of the backup, for each disk included in the backup.</p>
+</li>
+<li>
+<p>The disk format.</p>
+</li>
+<li>
+<p>The backup behavior supported by the disk.</p>
+</li>
+<li>
+<p>The backup type that was taken for the disk (full/incremental).</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123/disks</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response includes the disk with id 789, and the id of the disk image is 555.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;disks&gt;
+    &lt;disk id=&quot;789&quot;&gt;
+        &lt;name&gt;vm1_Disk1&lt;/name&gt;
+        &lt;actual_size&gt;671744&lt;/actual_size&gt;
+        &lt;backup&gt;incremental&lt;/backup&gt;
+        &lt;backup_mode&gt;full&lt;/backup_mode&gt;
+        &lt;format&gt;cow&lt;/format&gt;
+        &lt;image_id&gt;555&lt;/image_id&gt;
+        &lt;qcow_version&gt;qcow2_v3&lt;/qcow_version&gt;
+        &lt;status&gt;locked&lt;/status&gt;
+        &lt;storage_type&gt;image&lt;/storage_type&gt;
+        &lt;total_size&gt;0&lt;/total_size&gt;
+    &lt;/disk&gt;
+&lt;/disks&gt;</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_backup_disks"><code>list</code> method of the VmBackupDisks service</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="finalize-a-backup_assembly_incremental-backup-and-restore">Finalizing a backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>Finalizing a backup ends the backup, unlocks resources, and performs cleanups. Use the <code>finalize</code> backup service method</p>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>To finalize a backup of a disk with id <code>456</code> on a virtual machine with id <code>123</code>, send a request like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /vms/123/backups/456/finalize</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_backup-methods-finalize">finalize POST</a> in the <em>REST API Guide</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="image-transfer-object-for-incremental-backup_assembly_incremental-backup-and-restore">Creating an image transfer object for incremental backup</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>When the backup is ready to download, the backup application should create an <code>imagetransfer</code> object, which initiates a transfer for an incremental backup.</p>
+</div>
+<div class="paragraph">
+<p>Creating an image transfer object requires a request call with a body.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Send a request like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/imagetransfers</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the request body, specify the following parameters:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>disk id</p>
+</li>
+<li>
+<p>backup id</p>
+</li>
+<li>
+<p>direction of the disk set to <code>download</code></p>
+</li>
+<li>
+<p>format of the disk set to <code>raw</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, to transfer a backup of a disk where the id of the disk is <code>123</code> and the id of the backup is <code>456</code>, send the following request body:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;image_transfer&gt;
+    &lt;disk id=&quot;123&quot;/&gt;
+    &lt;backup id=&quot;456&quot;/&gt;
+    &lt;direction&gt;download&lt;/direction&gt;
+    &lt;format&gt;raw&lt;/format&gt;
+&lt;/image_transfer&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-image_transfers-methods-add"><code>add</code> method for creating an imagetransfer object</a> in the <em>REST API Guide</em> for {virt-product-shortname}.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="image-transfer-object-for-incremental-restore_assembly_incremental-backup-and-restore">Creating an image transfer object for incremental restore</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>To enable restoring raw data backed up using the incremental backup API to a QCOW2-formatted disk, the backup application should create an <code>imagetransfer</code> object.</p>
+</div>
+<div class="paragraph">
+<p>When the transfer format is <code>raw</code> and the underlying disk format is QCOW2, uploaded data is converted on the fly to QCOW2 format when writing to storage. Uploading data from a QCOW2 disk to a RAW disk is not supported.</p>
+</div>
+<div class="paragraph">
+<p>Creating an image transfer object requires a request call with a body.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Send a request like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/imagetransfers</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the request body, specify the following parameters:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>disk id or snapshot id</p>
+</li>
+<li>
+<p>direction of the disk set to <code>upload</code></p>
+</li>
+<li>
+<p>format of the disk set to <code>raw</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, to transfer a backup of a disk where the id of the disk is <code>123</code>, send the following request body:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;image_transfer&gt;
+    &lt;disk id=&quot;123&quot;/&gt;
+    &lt;direction&gt;upload&lt;/direction&gt;
+    &lt;format&gt;raw&lt;/format&gt;
+&lt;/image_transfer&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-image_transfers-methods-add"><code>add</code> method for creating an imagetransfer object</a> in the <em>REST API Guide</em> for {virt-product-shortname}.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="listing-checkpoints-for-a-virtual-machine_assembly_incremental-backup-and-restore">Listing checkpoints for a virtual machine</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can list all checkpoints for a virtual machine, including information for each checkpoint, by sending a request call.</p>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The response includes all the virtual machine checkpoints. Each checkpoint contains the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The checkpoint’s disks</p>
+</li>
+<li>
+<p>The id of the parent checkpoint</p>
+</li>
+<li>
+<p>Creation date of the checkpoint</p>
+</li>
+<li>
+<p>The virtual machine to which it belongs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;parent_id&gt;, &lt;creation_date&gt; and the virtual machine it belongs to &lt;vm&gt;:
+&lt;checkpoints&gt;
+    &lt;checkpoint id=&quot;456&quot;&gt;
+         &lt;link href=&quot;/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks&quot; rel=&quot;disks&quot;/&gt;
+         &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
+         &lt;creation_date&gt;xxx&lt;/creation_date&gt;
+         &lt;vm href=&quot;/ovirt-engine/api/vms/123&quot; id=&quot;123&quot;/&gt;
+    &lt;/checkpoint&gt;
+&lt;/checkpoints&gt;</code></pre>
+</div>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_checkpoints-methods-list"><code>list</code> method to list virtual machine checkpoints</a> in the <em>REST API Guide</em> for {virt-product-shortname}.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="listing-specific-checkpoints-for-a-virtual-machine_assembly_incremental-backup-and-restore">Listing a specific checkpoint for a virtual machine</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can list information for a specific checkpoint for a virtual machine by sending a request call.</p>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> and checkpoint id <code>456</code> like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/456</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The response includes the following information for the checkpoint:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The checkpoint’s disks</p>
+</li>
+<li>
+<p>The id of the parent checkpoint</p>
+</li>
+<li>
+<p>Creation date of the checkpoint</p>
+</li>
+<li>
+<p>The virtual machine to which it belongs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;checkpoint id=&quot;456&quot;&gt;
+     &lt;link href=&quot;/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks&quot; rel=&quot;disks&quot;/&gt;
+     &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
+     &lt;creation_date&gt;xxx&lt;/creation_date&gt;
+     &lt;vm href=&quot;/ovirt-engine/api/vms/123&quot; id=&quot;123&quot;/&gt;
+&lt;/checkpoint&gt;</code></pre>
+</div>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_checkpoints-methods-list"><code>list</code> method to list virtual machine checkpoints</a> in the <em>REST API Guide</em> for {virt-product-shortname}.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="removing-a-checkpoint_assembly_incremental-backup-and-restore">Removing a checkpoint</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can remove a checkpoint of a virtual machine by sending a DELETE request. You can remove a checkpoint on a virtual machine whether it is running or not.</p>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with id <code>123</code> and a checkpoint with id <code>456</code> like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">DELETE /vms/123/checkpoints/456/</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="{URL_rest_api_doc}index#services-vm_checkpoint-methods-remove"><code>remove</code> method of VmCheckpoint</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore">Using the imageio API to transfer backup data</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>Image transfer APIs start and stop an image transfer. The result is a
+transfer URL.</p>
+</div>
+<div class="paragraph">
+<p>You use the imageio API to actually transfer the data from the transfer URL.</p>
+</div>
+<div class="paragraph">
+<p>For complete information on using the imageio API, see the <a href="http://ovirt.github.io/ovirt-imageio/images.html">ovirt-imageio Images API reference</a>.</p>
+</div>
+<table id="imageio-Image-API-methods-used-in-incremental-backup-and-restore" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. imageio Image API methods used in incremental backup and restore</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">API request</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">imageio Image API reference section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONS /images/{ticket-id} HTTP/1.1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the server options, to find out what features the server supports.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <em>OPTIONS</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET /images/{ticket-id}/extents</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets information about disk image content and allocation, or about blocks that changed during an incremental backup. This information is known as <em>extent</em> information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <em>EXTENTS</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET /images/{ticket-id}/extent?context=dirty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The program doing image transfer needs to download changes from the backup. These changes are know as dirty extents. To download changes, send a request like this:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <em>EXTENTS</em>&#8594; <em>Examples</em>&#8594; <em>Request dirty extents</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PUT /images/{ticket-id}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The backup application creates a new disk or a snapshot with an existing disk to hold the restored data.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <em>PUT</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph _additional-resources">
+<div class="title">Additional resources</div>
+<p>The {virt-product-fullname} Python SDK includes several implementation examples you can use to get started with transferring backups:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://ovirt.github.io/ovirt-imageio/images.html">ovirt-imageio Images API reference</a></p>
+</li>
+<li>
+<p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/4a2284e26225e8bf6e64ed0daf896e7a604f4eed/sdk/examples/upload_disk.py">Creating a disk</a></p>
+</li>
+<li>
+<p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/4a2284e26225e8bf6e64ed0daf896e7a604f4eed/sdk/examples/upload_disk.py#L241">Calling imagetransfer.create_transfer()</a></p>
+</li>
+<li>
+<p><a href="https://github.com/oVirt/ovirt-engine-sdk/blob/4a2284e26225e8bf6e64ed0daf896e7a604f4eed/sdk/examples/helpers/imagetransfer.py#L123">a helper to simplify creating a transfer</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2961/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2961/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2961/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2961/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/dropped/introduction_to_the_vm_portal/common/backup-restore/assembly_incremental-backup-and-restore.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/dropped/introduction_to_the_vm_portal/common/backup-restore/assembly_incremental-backup-and-restore.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

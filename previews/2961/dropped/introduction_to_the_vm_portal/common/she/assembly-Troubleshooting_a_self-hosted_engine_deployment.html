@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Troubleshooting a Self-hosted Engine Deployment | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Troubleshooting a Self-hosted Engine Deployment" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Troubleshooting a Self-hosted Engine Deployment" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Troubleshooting a Self-hosted Engine Deployment","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2961/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2961/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2961/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2961/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2961/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2961/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2961/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2961/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/">
+              <span property="name">Dropped</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/">
+              <span property="name">Introduction to the VM Portal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/">
+              <span property="name">Common</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/she/">
+              <span property="name">She</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To confirm whether the self-hosted engine has already been deployed, run <code>hosted-engine --check-deployed</code>. An error will only be displayed if the self-hosted engine has not been deployed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Troubleshooting_the_Manager_Virtual_Machine_{context}">Troubleshooting the {engine-name} Virtual Machine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Check the status of the {engine-name} virtual machine by running <code>hosted-engine --vm-status</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Any changes made to the {engine-name} virtual machine will take about 20 seconds before they are reflected in the status command output.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Depending on the <code>Engine status</code> in the output, see the following suggestions to find or fix the issue.</p>
+</div>
+<h3 id="engine-status-health-good-vm-up-detail-up" class="discrete">Engine status: "health": "good", "vm": "up"  "detail": "up"</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the {engine-name} virtual machine is up and running as normal, you will see the following output:</p>
+<div class="listingblock">
+<div class="content">
+<pre>--== Host 1 status ==--
+
+Status up-to-date              : True
+Hostname                       : hypervisor.example.com
+Host ID                        : 1
+Engine status                  : {"health": "good", "vm": "up", "detail": "up"}
+Score                          : 3400
+stopped                        : False
+Local maintenance              : False
+crc32                          : 99e57eba
+Host timestamp                 : 248542</pre>
+</div>
+</div>
+</li>
+<li>
+<p>If the output is normal but you cannot connect to the {engine-name}, check the network connection.</p>
+</li>
+</ol>
+</div>
+<h3 id="engine-status-reason-failed-liveliness-check-health-bad-vm-up-detail-up" class="discrete">Engine status: "reason": "failed liveliness check", "health": "bad", "vm": "up", "detail": "up"</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the <code>health</code> is <code>bad</code> and the <code>vm</code> is <code>up</code>, the HA services will try to restart the {engine-name} virtual machine to get the {engine-name} back. If it does not succeed within a few minutes, enable the global maintenance mode from the command line so that the hosts are no longer managed by the HA services.</p>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --set-maintenance --mode=global</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Connect to the console. When prompted, enter the operating system&#8217;s root password. For more console options, see <a href="https://access.redhat.com/solutions/2221461" class="bare">https://access.redhat.com/solutions/2221461</a>.</p>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --console</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ensure that the {engine-name} virtual machine&#8217;s operating system is running by logging in.</p>
+</li>
+<li>
+<p>Check the status of the <code>ovirt-engine</code> service:</p>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl status -l ovirt-engine
+# journalctl -u ovirt-engine</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check the following logs: <strong>/var/log/messages</strong>, <strong>/var/log/ovirt-engine/engine.log,</strong> and <strong>/var/log/ovirt-engine/server.log</strong>.</p>
+</li>
+<li>
+<p>After fixing the issue, reboot the {engine-name} virtual machine manually from one of the self-hosted engine nodes:</p>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --vm-shutdown
+# hosted-engine --vm-start</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When the self-hosted engine nodes are in global maintenance mode, the {engine-name} virtual machine must be rebooted manually. If you try to reboot the {engine-name} virtual machine by sending a <code>reboot</code> command from the command line, the {engine-name} virtual machine will remain powered off. This is by design.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>On the {engine-name} virtual machine, verify that the <code>ovirt-engine</code> service is up and running:</p>
+<div class="listingblock">
+<div class="content">
+<pre> # systemctl status ovirt-engine.service</pre>
+</div>
+</div>
+</li>
+<li>
+<p>After ensuring the {engine-name} virtual machine is up and running, close the console session and disable the maintenance mode to enable the HA services again:</p>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --set-maintenance --mode=none</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="engine-status-vm-down-health-bad-detail-unknown-reason-vm-not-running-on-this-host" class="discrete">Engine status: "vm": "down", "health": "bad", "detail": "unknown", "reason": "vm not running on this host"</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This message is expected on a host that is not currently running the {engine-name} virtual machine.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you have more than one host in your environment, ensure that another host is not currently trying to restart the {engine-name} virtual machine.</p>
+</li>
+<li>
+<p>Ensure that you are not in global maintenance mode.</p>
+</li>
+<li>
+<p>Check the <strong>ovirt-ha-agent</strong> logs in <strong>/var/log/ovirt-hosted-engine-ha/agent.log</strong>.</p>
+</li>
+<li>
+<p>Try to reboot the {engine-name} virtual machine manually from one of the self-hosted engine nodes:</p>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --vm-shutdown
+# hosted-engine --vm-start</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="engine-status-vm-unknown-health-unknown-detail-unknown-reason-failed-to-getvmstats" class="discrete">Engine status: "vm": "unknown", "health": "unknown", "detail": "unknown", "reason": "failed to getVmStats"</h3>
+<div class="paragraph">
+<p>This status means that <code>ovirt-ha-agent</code> failed to get the virtual machine&#8217;s details from VDSM.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check the VDSM logs in <strong>/var/log/vdsm/vdsm.log</strong>.</p>
+</li>
+<li>
+<p>Check the <strong>ovirt-ha-agent</strong> logs in <strong>/var/log/ovirt-hosted-engine-ha/agent.log</strong>.</p>
+</li>
+</ol>
+</div>
+<h3 id="engine-status-the-self-hosted-engines-configuration-has-not-been-retrieved-from-shared-storage" class="discrete">Engine status: The self-hosted engine&#8217;s configuration has not been retrieved from shared storage</h3>
+<div class="paragraph">
+<p>If you receive the status <code>The hosted engine configuration has not been retrieved from shared storage. Please ensure that ovirt-ha-agent is running and the storage server is reachable</code> there is an issue with the <code>ovirt-ha-agent</code> service, or with the storage, or both.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check the status of <code>ovirt-ha-agent</code> on the host:</p>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl status -l ovirt-ha-agent
+# journalctl -u ovirt-ha-agent</pre>
+</div>
+</div>
+</li>
+<li>
+<p>If the <code>ovirt-ha-agent</code> is down, restart it:</p>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl start ovirt-ha-agent</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check the <code>ovirt-ha-agent</code> logs in <strong>/var/log/ovirt-hosted-engine-ha/agent.log</strong>.</p>
+</li>
+<li>
+<p>Check that you can ping the shared storage.</p>
+</li>
+<li>
+<p>Check whether the shared storage is mounted.</p>
+</li>
+</ol>
+</div>
+<h3 id="additional-troubleshooting-commands" class="discrete">Additional Troubleshooting Commands</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hosted-engine --reinitialize-lockspace</code>: This command is used when the sanlock lockspace is broken. Ensure that the global maintenance mode is enabled and that the {engine-name} virtual machine is stopped before reinitializing the sanlock lockspaces.</p>
+</li>
+<li>
+<p><code>hosted-engine --clean-metadata</code>: Remove the metadata for a host&#8217;s agent from the global status database. This makes all other hosts forget about this host. Ensure that the target host is down and that the global maintenance mode is enabled.</p>
+</li>
+<li>
+<p><code>hosted-engine --check-liveliness</code>: This command checks the liveliness page of the ovirt-engine service. You can also check by connecting to <code>https://<em>engine-fqdn</em>/ovirt-engine/services/health/</code> in a web browser.</p>
+</li>
+<li>
+<p><code>hosted-engine --connect-storage</code>: This command instructs VDSM to prepare all storage connections needed for the host and the {engine-name} virtual machine. This is normally run in the back-end during the self-hosted engine deployment. Ensure that the global maintenance mode is enabled if you need to run this command to troubleshoot storage issues.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Cleaning_Up_a_Failed_Self-hosted_Engine_Deployment_{context}">Cleaning Up a Failed Self-hosted Engine Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If a self-hosted engine deployment was interrupted, subsequent deployments will fail with an error message. The error will differ depending on the stage in which the deployment failed.</p>
+</div>
+<div class="paragraph">
+<p>If you receive an error message, you can run the cleanup script on the deployment host to clean up the failed deployment. However, it&#8217;s best to reinstall your base operating system and start the deployment from the beginning.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The cleanup script has the following limitations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A disruption in the network connection while the script is running might cause the script to fail to remove the management bridge or to recreate a working network configuration.</p>
+</li>
+<li>
+<p>The script is not designed to clean up any shared storage device used during a failed deployment. You need to clean the shared storage device before you can reuse it in a subsequent deployment.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Run <code>/usr/sbin/ovirt-hosted-engine-cleanup</code> and select <code>y</code> to remove anything left over from the failed self-hosted engine deployment.</p>
+<div class="listingblock">
+<div class="content">
+<pre># /usr/sbin/ovirt-hosted-engine-cleanup
+This will de-configure the host to run ovirt-hosted-engine-setup from scratch.
+Caution, this operation should be used with care.
+Are you sure you want to proceed? [y/n]</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Define whether to reinstall on the same shared storage device or select a different shared storage device.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To deploy the installation on the same storage domain, clean up the storage domain by running the following command in the appropriate directory on the server for NFS, Gluster, PosixFS or local storage domains:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm -rf <em>storage_location</em>/*</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For iSCSI or Fibre Channel Protocol (FCP) storage, see <a href="https://access.redhat.com/solutions/2121581" class="bare">https://access.redhat.com/solutions/2121581</a> for information on how to clean up the storage.</p>
+</li>
+<li>
+<p>Reboot the self-hosted engine host or select a different shared storage device.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The reboot is needed to make sure all the connections to the storage are cleaned before the next attempt.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Redeploy the self-hosted engine.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2961/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2961/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2961/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2961/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/dropped/introduction_to_the_vm_portal/common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/dropped/introduction_to_the_vm_portal/common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

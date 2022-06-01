@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hardware Considerations for Device Assignment | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Hardware Considerations for Device Assignment" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/sriov/conc-Additional_Considerations_Device_Assignment.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/sriov/conc-Additional_Considerations_Device_Assignment.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hardware Considerations for Device Assignment" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Hardware Considerations for Device Assignment","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2961/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/sriov/conc-Additional_Considerations_Device_Assignment.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2961/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2961/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2961/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2961/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2961/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2961/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2961/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2961/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2961/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2961//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/">
+              <span property="name">Dropped</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/">
+              <span property="name">Introduction to the VM Portal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/">
+              <span property="name">Common</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2961/dropped/introduction_to_the_vm_portal/common/sriov/">
+              <span property="name">Sriov</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Device assignment provides the capacity to assign a virtual guest directly to a PCIe device, giving the guest full access and offering near-native performance. Implemented in conjunction with SR-IOV, a virtual guest is directly assigned a VF. In this way, multiple virtual guests can be directly assigned to VFs of a single PCIe device.</p>
+</div>
+<div class="paragraph">
+<p>SR-IOV does not need to be enabled to directly assign virtual machines to PCIe devices, nor is device assignment the only application for creating VFs, however the two features are complementary and there are additional hardware considerations if they are to be used together.</p>
+</div>
+<div class="paragraph">
+<p>Device assignment requires I/O Memory Management Unit (IOMMU) support in the CPU and firmware. The IOMMU translates between I/O Virtual Addresses (IOVA) and physical memory addresses. This allows the virtual guest to program the device with guest physical addresses, which are then translated to host physical addresses by the IOMMU.</p>
+</div>
+<div class="paragraph">
+<p>IOMMU groups are sets of devices that can be isolated from all other devices in the system. IOMMU groups represent the smallest sets of devices with both IOMMU granularity and isolation from all other IOMMU groups within the system. This allows the IOMMU to distinguish transactions to and from the IOMMU group while restricting direct memory access (DMA) between devices outside of the IOMMU group and the control of the IOMMU.</p>
+</div>
+<div class="paragraph">
+<p>Isolation of transactions between the virtual guest and the virtual functions of the PCIe device is fundamental to device assignment. Access Control Service (ACS) capabilities defined in the PCIe and server specifications are the hardware standard for maintaining isolation within IOMMU groups. Without native ACS, or confirmation otherwise from the hardware vendor, any multifunction device within the IOMMU group risks exposing peer-to-peer DMA between functions occurring outside of the protection of IOMMU, extending the IOMMU group to include functions lacking appropriate isolation.</p>
+</div>
+<div class="paragraph">
+<p>Native ACS support is also recommended for the root ports of the server, otherwise devices installed on these ports will be grouped together. There are two varieties of root ports, processor-based (northbridge) root ports and controller hub-based (southbridge) root ports. As above, if device assignment is used in conjunction with SR-IOV, and virtual guests are being assigned to VFs, then these ports must support both ACS and ARI.</p>
+</div>
+<div class="paragraph">
+<p>Intel&#8217;s Xeon Processor E5 Family, Xeon Processor E7 Family, and High End Desktop Processors include native ACS support on the processor-based root ports.</p>
+</div>
+<div class="paragraph">
+<p>Intel Platform Controller Hub-based (PCH) PCI Express Root Ports currently either do not support ACS or make use of non-standard ACS implementations, making fine-grained isolation of devices connected via these Root Ports difficult. Many of these Root Ports do support ACS-equivalent functionality. The Red Hat Enterprise Linux 7.3 kernel includes support for enabling this ACS-equivalent functionality on X79, X99, 5-series though 9-series, as well as 100-series PCI Express chipsets.</p>
+</div>
+<div class="paragraph">
+<p>Refer to vendor specification for determining processor-based and controller hub-based root ports when installing PCIe devices to ensure the root port supports ACS.</p>
+</div>
+<div class="paragraph">
+<p>In addition, any PCIe switch or bridge within the I/O topology also requires ACS support, otherwise it may extend the IOMMU group.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Summary_of_Hardware_Considerations_for_Device_Assignment">Summary</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>CPU must support IOMMU (for example, VT-d or AMD-Vi). IBM POWER8 supports IOMMU by default.</p>
+</li>
+<li>
+<p>Firmware must support IOMMU.</p>
+</li>
+<li>
+<p>CPU root ports used must support ACS or ACS-equivalent capability.</p>
+</li>
+<li>
+<p>PCIe device must support ACS or ACS-equivalent capability.</p>
+</li>
+<li>
+<p>It is recommended that all PCIe switches and bridges between the PCIe device and the root port should support ACS. For example, if a switch does not support ACS, all devices behind that switch share the same IOMMU group, and can only be assigned to the same virtual machine.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Refer to vendor specification and datasheets to confirm that hardware meets these requirements.</p>
+</div>
+<div class="paragraph">
+<p>The <code>lspci -v</code> command can be used to print information for PCI devices already installed on a system.</p>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2961/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2961/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2961/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2961/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/dropped/introduction_to_the_vm_portal/common/sriov/conc-Additional_Considerations_Device_Assignment.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/dropped/introduction_to_the_vm_portal/common/sriov/conc-Additional_Considerations_Device_Assignment.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

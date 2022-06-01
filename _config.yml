@@ -172,7 +172,7 @@ exclude:
   - documentation/doc-Technical_Notes/**
 sass:
   add_charset: true
-  style: :compressed
+  style: compressed
 
 font-awesome:
   assets: true

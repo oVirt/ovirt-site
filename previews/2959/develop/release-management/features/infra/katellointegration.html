@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>KatelloIntegration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="KatelloIntegration" />
+<meta name="author" content="Greg Sheremeta" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2959/develop/release-management/features/infra/katellointegration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2959/develop/release-management/features/infra/katellointegration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="KatelloIntegration" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Greg Sheremeta" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Greg Sheremeta"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"KatelloIntegration","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2959/images/logo.svg"},"name":"Greg Sheremeta"},"url":"https://ovirt.github.io/ovirt-site/previews/2959/develop/release-management/features/infra/katellointegration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2959/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2959/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2959/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2959/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2959/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2959/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2959/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2959/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2959/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/a1421325aef3fa6dca424693d9affe65?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/a1421325aef3fa6dca424693d9affe65?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Greg Sheremeta</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2959/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="katello-integration">Katello Integration</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p><a href="http://www.katello.org/">Katello</a> is a content and life-cycle host manager.
+oVirt can leverage Katello capabilities to report errata information for hosts, vms or for the ovirt-engine server.
+<a href="/ovirt-site/previews/2959/develop/release-management/features/infra/foremanintegration.html">Integration with Foreman</a> was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual hosts.</p>
+
+<p>The ovirt-Katello/Satellite integration supports Katello &gt;= 2.1 =or Satellite &gt;= 6.1</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Moti Asayag (Moti Asayag)</li>
+  <li>Email: <a href="mailto:masayag@redhat.com">masayag@redhat.com</a></li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The Katello integration supports presenting available errata to the user, for both hosts or for the ovirt-engine server.
+See the following figure for the topology:</p>
+
+<p><img src="/ovirt-site/previews/2959/images/wiki/OVirt-Katello_integration.png" alt="" /></p>
+
+<p>Errata information is not stored on the engine server, rather being queried from the Katello server each time it is requested by the administrator.
+<strong>Erratum</strong> includes the following details:</p>
+
+<ul>
+  <li>Id</li>
+  <li>Title</li>
+  <li>Description</li>
+  <li>Type</li>
+  <li>Issued date</li>
+  <li>Severity</li>
+  <li>Solution</li>
+  <li>Summary</li>
+  <li>Packages</li>
+</ul>
+
+<h3 id="workflow">Workflow</h3>
+
+<p>Any host should be registered to Katello and properly configured:</p>
+
+<ul>
+  <li>katello-agent installed</li>
+  <li>Subscribed to the relevant content view/environment/repositories within the Katello server.</li>
+</ul>
+
+<p>The hosts are being identified at the Katello engine by their <strong>host name</strong>. Hence hosts added by their IP address to the system wouldn’t be able to report errata - since there is no measure to identify them within the Katello system. The motivation for reporting errata for hosts with <strong>host name</strong> (FQDN) in the system is to dismiss the need to maintain the external content host id on the ovirt-engine side as well.</p>
+
+<h4 id="katello-errata-for-hosts">Katello errata for hosts</h4>
+
+<ul>
+  <li>Associate a host with the ‘Foreman’ external provider
+    <ul>
+      <li>By provisioning a host via ‘Foreman’ external provider</li>
+      <li>By updating the host via ‘Edit’, see:</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2959/images/wiki/EditHost.png" alt="" /></p>
+
+<ul>
+  <li>UI: Go to “Hosts” —&gt; “General” sub-tab —&gt; “Errata”:</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2959/images/wiki/System_host_errata.png" alt="" /></p>
+
+<ul>
+  <li>UI: Go to “Hosts” —&gt; “General” sub-tab —&gt; “Errata” –&gt; Specific severity:</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2959/images/wiki/System_host_detailed_errata.png" alt="" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* In case no errata is available, the following message will be shown: "0 pending errata"
+
+* In case the host is not associated with Katello, the 'Errata' section won't be shown within the 'General' sub-tab at all.
+
+* In case of a problem with the Katello server, error alerts will be shown on the tabs:
+</code></pre></div></div>
+
+<p><img src="/ovirt-site/previews/2959/images/wiki/System_host_errata_wth_errors.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2959/images/wiki/EngineErrata_with_error.png" alt="" /></p>
+
+<ul>
+  <li>API:
+    <ul>
+      <li>/api/hosts/{host:id}/katelloerrata</li>
+      <li>/api/hosts/{host:id}/katelloerrata/{katelloerratum:id}/</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="katello-errata-for-vms">Katello errata for vms</h4>
+
+<ul>
+  <li>Associate a vm with the ‘Foreman’ external provider
+    <ul>
+      <li>By updating the VM via ‘Edit’ action.</li>
+      <li>By provisioning a VM via ‘Foreman’ external provider (not supported in 3.6).</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>UI: Go to “VMs” —&gt; “General” sub-tab —&gt; “Errata”:</li>
+</ul>
+
+<p><strong>Required Mockup</strong></p>
+
+<ul>
+  <li>UI: Go to “VMs” —&gt; “General” sub-tab —&gt; “Errata” –&gt; Specific severity:</li>
+</ul>
+
+<p><strong>Required Mockup</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* In case no errata is available, the following message will be shown: "0 pending errata"
+
+* In case the host is not associated with Katello, the 'Errata' section won't be shown within the 'General' sub-tab at all.
+
+* In case of a problem with the Katello server, error alerts will be shown on the tabs: **Required Mockup**
+</code></pre></div></div>
+
+<ul>
+  <li>API:
+    <ul>
+      <li>/api/vms/{vm:id}/katelloerrata</li>
+      <li>/api/vms/{vm:id}/katelloerrata/{katelloerratum:id}/</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="katello-errata-for-ovirt-engine-server">Katello errata for ovirt-engine server</h4>
+
+<p>Since the expectation is to have very few ‘Foreman’ providers (or a single one), instead of managing registration of the ovirt-engine server to a specific provider, the system will iterate over the providers and will try to match a content host within Katello by the ovirt-engine host name.</p>
+
+<ul>
+  <li>UI:</li>
+</ul>
+
+<p>The errata for the ovirt-engine server will be added to the ‘System’ tree: <img src="/ovirt-site/previews/2959/images/wiki/EngineErrata.png" alt="" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* In case no errata is available, the following message will be shown: "0 pending errata"
+
+* In case the ovirt-engine server is not associated with Katello, the 'Errata' node won't be shown on the system left-pane tree.
+</code></pre></div></div>
+
+<ul>
+  <li>API:
+    <ul>
+      <li>/api/katelloerrata</li>
+      <li>/api/katelloerrata/{katelloerratum:id}/</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>ovirt-engine will use the Katello/Satellite api for accessing the content host by its host name.
+Once the host is found, the engine will send another request for its errata information.
+The <em>GET</em> request is sent to the following url: <code class="language-plaintext highlighter-rouge">https://{katello_server_name}/katello/api/v2/systems/{host:id}/errata?search=type=bugfix%20or%20type=security&amp;per_page=20&amp;page=2</code></p>
+
+<p>Here is an explanation for the queried URL:</p>
+
+<ul>
+  <li>Base url for selecting errata of a specific content host: /katello/api/v2/systems/57bea7e0-88e1-4e39-a21a-a7eb59128f3a/errata</li>
+  <li>Filter by type ‘bugfix’ or ‘security’: ?search=type=bugfix%20or%20type=security</li>
+  <li>Specifying page size: &amp;per_page=20</li>
+  <li>Specifying page number: &amp;page=2</li>
+</ul>
+
+<p>The request above produces the following response:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   {
+     "page": "2",
+     "per_page": "20",
+     "results": [
+        ... the errata info ...
+      ]
+     "search": "type=bugfix or type=security",
+     "sort": {
+         "by": null,
+         "order": null
+     },
+     "subtotal": 64,
+     "total": 73
+   }
+</code></pre></div></div>
+
+<p>The response provides the following information:</p>
+
+<ul>
+  <li>‘page’ - the retrieved page</li>
+  <li>‘per_page’ - page size</li>
+  <li>‘subtotal’ - the size of the filtered response (applying search query)</li>
+  <li>‘total’ - unfiltered response size</li>
+</ul>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>oVirt will allow the administrator for view from a single system the availability for errata, categorized by their severity, for the ovirt-engine itself or for its managed hosts.
+The Host administrator could be updated about available errata and their importance from the same dashboard which he uses to manage the host configuration.</p>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2959/develop/release-management/features/infra/foremanintegration.html">Integration with Foreman</a> has introduced the Foreman external provider which is also used to register Katello server to the system.</li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<h2 id="testing">Testing</h2>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="katello-integration-1">Katello Integration</h3>
+
+<p>oVirt extends ‘Foreman’ Integration to support also host lifecycle and content management by integrating with Katello. oVirt adds support to report Katello errata information for the vms or hosts in the system and for ovirt-engine server.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2959/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2959/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2959/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2959/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/katellointegration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/katellointegration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

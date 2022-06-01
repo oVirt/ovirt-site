@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Automating {hypervisor-fullname} deployment | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Automating {hypervisor-fullname} deployment" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2959/dropped/introduction_to_the_vm_portal/common/install/proc-Automating_RHVH_Deployment.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2959/dropped/introduction_to_the_vm_portal/common/install/proc-Automating_RHVH_Deployment.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Automating {hypervisor-fullname} deployment" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Automating {hypervisor-fullname} deployment","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2959/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2959/dropped/introduction_to_the_vm_portal/common/install/proc-Automating_RHVH_Deployment.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2959/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2959/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2959/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2959/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2959/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2959/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2959/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2959/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2959/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2959/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2959//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/dropped/">
+              <span property="name">Dropped</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/dropped/introduction_to_the_vm_portal/">
+              <span property="name">Introduction to the VM Portal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/dropped/introduction_to_the_vm_portal/common/">
+              <span property="name">Common</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2959/dropped/introduction_to_the_vm_portal/common/install/">
+              <span property="name">Install</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can install {hypervisor-fullname} ({hypervisor-shortname}) without a physical media device by booting from a PXE server over the network with a Kickstart file that contains the answers to the installation questions.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, {org-fullname} strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>General instructions for installing from a PXE server with a Kickstart file are available in the <a href="{URL_rhel_docs_legacy}html/installation_guide/chap-kickstart-installations"><em>{enterprise-linux} Installation Guide</em></a>, as {hypervisor-shortname} is installed in much the same way as {enterprise-linux}. {hypervisor-shortname}-specific instructions, with examples for deploying {hypervisor-shortname} with Red Hat Satellite, are described below.</p>
+</div>
+<div class="paragraph">
+<p>The automated {hypervisor-shortname} deployment has 3 stages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Preparing_the_Installation_Environment">Preparing the Installation Environment</a></p>
+</li>
+<li>
+<p><a href="#Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE Server and the Boot Loader</a></p>
+</li>
+<li>
+<p><a href="#Creating_and_Running_a_Kickstart_File">Creating and Running a Kickstart File</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Preparing_the_Installation_Environment">Preparing the installation environment</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make the {hypervisor-shortname} ISO image available over the network. See <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-media-additional-sources.html#sect-making-media-sources-network">Installation Source on a Network</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+<li>
+<p>Extract the <strong>squashfs.img</strong> hypervisor image file from the {hypervisor-shortname} ISO:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mount -o loop <em>/path/to/{hypervisor-shortname}-ISO</em> /mnt/rhvh
+# cp /mnt/rhvh/Packages/redhat-virtualization-host-image-update* /tmp
+# cd /tmp
+# rpm2cpio redhat-virtualization-host-image-update* | cpio -idmv</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This <strong>squashfs.img</strong> file, located in the <code>/tmp/usr/share/redhat-virtualization-host/image/</code> directory, is called <strong>redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</strong>. It contains the hypervisor image for installation on the physical machine. It should not be confused with the <strong>/LiveOS/squashfs.img</strong> file, which is used by the Anaconda <code>inst.stage2</code> option.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Configuring_the_PXE_Server_and_the_Boot_Loader">Configuring the PXE server and the boot loader</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the PXE server. See <a href="{URL_rhel_docs_legacy}html/Installation_Guide/chap-installation-server-setup.html">Preparing for a Network Installation</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+<li>
+<p>Copy the {hypervisor-shortname} boot images to the <code>/tftpboot</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp mnt/rhvh/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a <code>rhvh</code> label specifying the {hypervisor-shortname} boot images in the boot loader configuration:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">LABEL rhvh
+MENU LABEL Install {hypervisor-fullname}
+KERNEL /var/lib/tftpboot/pxelinux/vmlinuz
+APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/{hypervisor-shortname}-ISO</em></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">{hypervisor-shortname} Boot loader configuration example for Red Hat Satellite</div>
+<p>If you are using information from Red Hat Satellite to provision the host, you must create a global or host group level parameter called <code>rhvh_image</code> and populate it with the directory URL where the ISO is mounted or extracted:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">&lt;%#
+kind: PXELinux
+name: {hypervisor-shortname} PXELinux
+%&gt;
+# Created for booting new hosts
+#
+
+DEFAULT rhvh
+
+LABEL rhvh
+KERNEL &lt;%= @kernel %&gt;
+APPEND initrd=&lt;%= @initrd %&gt; inst.ks=&lt;%= foreman_url(&quot;provision&quot;) %&gt; inst.stage2=&lt;%= @host.params[&quot;rhvh_image&quot;] %&gt; intel_iommu=on console=tty0 console=ttyS1,115200n8 ssh_pwauth=1 local_boot_trigger=&lt;%= foreman_url(&quot;built&quot;) %&gt;
+IPAPPEND 2</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Make the content of the {hypervisor-shortname} ISO locally available and export it to the network, for example, using an HTTPD server:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp -a /mnt/rhvh/ /var/www/html/rhvh-install
+# curl <em>URL/to/{hypervisor-shortname}-ISO</em>/rhvh-install</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Creating_and_Running_a_Kickstart_File">Creating and running a Kickstart file</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a Kickstart file and make it available over the network. See <a href="{URL_rhel_docs_legacy}html/Installation_Guide/chap-kickstart-installations.html">Kickstart Installations</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+<li>
+<p>Ensure that the Kickstart file meets the following {virt-product-shortname}-specific requirements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>%packages</code> section is not required for {hypervisor-shortname}. Instead, use the <code>liveimg</code> option and specify the <strong>redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</strong> file from the {hypervisor-shortname} ISO image:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=<em>example.com</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Autopartitioning is highly recommended, but use caution: ensure that the local disk is detected first, include the <code>ignoredisk</code> command, and specify the local disk to ignore, such as <code>sda</code>.  To ensure that a particular drive is used, {org-fullname} recommends using <code>ignoredisk --only-use=/dev/disk/&lt;<em>path</em>&gt;</code> or <code>ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">autopart --type=thinp
+ignoredisk --only-use=sda
+ignoredisk --only-use=/dev/disk/&lt;<em>path</em>&gt;
+ignoredisk --only-use=/dev/disk/&lt;<em>ID</em>&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Autopartitioning requires thin provisioning.</p>
+</div>
+<div class="paragraph">
+<p>The <code>--no-home</code> option does not work in {hypervisor-shortname} because <code>/home</code> is a required directory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your installation requires manual partitioning, see <a href="#Custom_Partitioning_{context}">Custom Partitioning</a> for a list of limitations that apply to partitions and an example of manual partitioning in a Kickstart file.</p>
+</div>
+</li>
+<li>
+<p>A <code>%post</code> section that calls the <code>nodectl init</code> command is required:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">%post
+nodectl init
+%end</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ensure that the <code>nodectl init</code> command is at the very end of the <code>%post</code> section but before the reboot code, if any.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Kickstart example for deploying {hypervisor-shortname} on its own</div>
+<p>This Kickstart example shows you how to deploy {hypervisor-shortname}. You can include additional commands and options as required.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This example assumes that all disks are empty and can be initialized. If you have attached disks with data, either remove them or add them to the <code>ignoredisks</code> property.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">liveimg --url=http://<em>FQDN</em>/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-<em>version_number</em>_version.squashfs.img
+clearpart --all
+autopart --type=thinp
+rootpw --plaintext ovirt
+timezone --utc America/Phoenix
+zerombr
+text
+
+reboot
+
+%post --erroronfail
+nodectl init
+%end</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add the Kickstart file location to the boot loader configuration file on the PXE server:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=<em>URL/to/{hypervisor-shortname}-ISO</em> inst.ks=<em>URL/to/{hypervisor-shortname}-ks</em>.cfg</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install {hypervisor-shortname} following the instructions in <a href="{URL_rhel_docs_legacy}html/Installation_Guide/chap-booting-installer-x86.html#sect-booting-from-pxe-x86">Booting from the Network Using PXE</a> in the <em>{enterprise-linux} Installation Guide</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2959/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2959/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2959/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2959/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/dropped/introduction_to_the_vm_portal/common/install/proc-Automating_RHVH_Deployment.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/dropped/introduction_to_the_vm_portal/common/install/proc-Automating_RHVH_Deployment.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

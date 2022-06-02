@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt Engine Development Environment | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt Engine Development Environment" />
+<meta name="author" content="Andrew Dahms" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2963/develop/developer-guide/engine/engine-development-environment.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2963/develop/developer-guide/engine/engine-development-environment.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt Engine Development Environment" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Andrew Dahms" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Andrew Dahms"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt Engine Development Environment","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2963/images/logo.svg"},"name":"Andrew Dahms"},"url":"https://ovirt.github.io/ovirt-site/previews/2963/develop/developer-guide/engine/engine-development-environment.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2963/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2963/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2963/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2963/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2963/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2963/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2963/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2963/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2963/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2963/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2963/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2963/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2963/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2963/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2963/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2963/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2963/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2963/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2963/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2963/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2963/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2963/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2963//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2963//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2963/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2963/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2963/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2963/develop/developer-guide/engine/">
+              <span property="name">Engine</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d17fe401696c1bc6269a18d0a9c3132c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d17fe401696c1bc6269a18d0a9c3132c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Andrew Dahms</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alon Bar-Lev</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Allon Mureinik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/caae839088b8920542bbc7f6492f7034?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/caae839088b8920542bbc7f6492f7034?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Arik Hadas</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yedidyah Bar David</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Douglas Landgraf</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Einav Cohen</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Gilad Chaplik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/a1421325aef3fa6dca424693d9affe65?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/a1421325aef3fa6dca424693d9affe65?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Greg Sheremeta</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Kolesnic</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mooli Tayer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/3f4d6622615b20a0498a12e27c9581b6?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/3f4d6622615b20a0498a12e27c9581b6?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Perina</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d3e5014dcc318e6606b18a8f5fd90dae?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d3e5014dcc318e6606b18a8f5fd90dae?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Sivak</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nir Soffer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/819d7e00c07db9447fa5705dadfe8c02?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/819d7e00c07db9447fa5705dadfe8c02?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ofri Masad</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/fdf1234a96717595a057d4edb7258da2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/fdf1234a96717595a057d4edb7258da2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Saggi Mizrahi</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/4aa824529359f2759a944517f5511f88?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/4aa824529359f2759a944517f5511f88?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Tomer Saban</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vered Volansky</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f84744a8673f28debaa570cc085d2c89?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f84744a8673f28debaa570cc085d2c89?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vitor de Lima</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d91aa78d451f5edbdde13d736518f310?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d91aa78d451f5edbdde13d736518f310?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vojtech Szocs</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yair Zaslavsky</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/8125a98ecfd3f9529ea6801e8cf8ce51?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/8125a98ecfd3f9529ea6801e8cf8ce51?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yoav Kleinberger</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-engine-development-environment">oVirt Engine Development Environment</h1>
+
+<h2 id="development-environment">Development Environment</h2>
+
+<p><b>NOTE:</b> The latest certified documentation is available in the source tree at <a href="https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob_plain;f=README.adoc;hb=HEAD">README.adoc</a>.</p>
+
+<p>The purpose of this page is primarily to align the community experience with the certified procedures.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<h3 id="rpm-based-systems">RPM-Based Systems</h3>
+
+<ol>
+  <li>
+    <p>Set Up the Snapshot Repository</p>
+
+    <ul>
+      <li>
+        <p>Automatically</p>
+
+        <p>Run the following command:</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm
+</code></pre></div>        </div>
+
+        <p><b>NOTE:</b> This does not work for master because it is available after release.</p>
+      </li>
+      <li>
+        <p>Manually</p>
+
+        <p>Create the file <code class="language-plaintext highlighter-rouge">/etc/yum.repos.d/ovirt-snapshots.repo</code>, and replace <code class="language-plaintext highlighter-rouge">@distro@</code> in the following code block with <code class="language-plaintext highlighter-rouge">fc</code> for Fedora or <code class="language-plaintext highlighter-rouge">el</code> for RHEL or an equivalent distribution.</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ovirt-snapshots]
+name=local
+baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot/rpm/@distro@$releasever
+enabled=1
+gpgcheck=0
+priority=10
+
+[ovirt-snapshots-static]
+name=local
+baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot-static/rpm/@distro@$releasever
+enabled=1
+gpgcheck=0
+priority=10
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Install the Third-Party Packages</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # yum install git java-devel maven openssl postgresql-server postgresql-contrib \
+     m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
+     unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
+     python-dateutil gdeploy
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Application Servers</p>
+
+    <p>Following application servers are required for engine development:</p>
+
+    <ul>
+      <li>
+        <p>WildFly 8.2 for oVirt 3.6+ development</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum install ovirt-engine-wildfly ovirt-engine-wildfly-overlay
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>JBoss 7.1.1 for backporting changes to oVirt 3.5</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum install ovirt-engine-jboss-as
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Install the oVirt Packages</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # yum install ovirt-host-deploy ovirt-setup-lib ovirt-js-dependencies
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Set Up Java</p>
+
+    <p>Make sure openjdk is the java preferred:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   # alternatives --config java
+   # alternatives --config javac
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Note: javassit used in some of the unit tests hits a regression introduced in java-1.7.0-openjdk-1.7.0.65. In order to avoid this issue, you can downgrade to java-1.7.0-openjdk-1.7.0.60.</p>
+
+<h3 id="debian-based-systems">Debian-Based Systems</h3>
+
+<ol>
+  <li>
+    <p>Install the following third-party packages:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # apt-get install git openjdk-7-jdk maven openssl postgresql \
+     python-m2crypto python-psycopg2 python-cheetah python-daemon \
+     jboss-as unzip python-dateutil
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Download jboss-as-7.1.1 from <a href="http://www.jboss.org/jbossas/downloads/">jboss site</a> and extract to $HOME.</p>
+  </li>
+  <li>
+    <p>Install oVirt packages:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TODO
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Ensure openjdk is the preferred version of Java:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # update-alternatives --config java
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="database">Database</h3>
+
+<ol>
+  <li>
+    <p>Some distributions require you to initialize the database prior to usage.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Fedora: # postgresql-setup initdb
+ RHEL:   # /etc/init.d/postgresql initdb
+ Gentoo: # emerge --config postgresql-server
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure PostgreSQL to accept network connection by locating <code class="language-plaintext highlighter-rouge">pg_hba.conf</code> file, locations includes:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Fedora, RHEL: /var/lib/pgsql/data/pg_hba.conf
+ Debian        /etc/postgresql/\*/main/pg_hba.conf
+ Gentoo        /etc/postgresql-\*/pg_hba.conf
+</code></pre></div>    </div>
+
+    <p>Locate: 127.0.0.1/32 and ::1/128 and allow “password” authentication for IPv4 and IPv6 connections.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # IPv4 local connections:
+ host    all             all             127.0.0.1/32            password
+ # IPv6 local connections:
+ host    all             all             ::1/128                 password
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure PostgreSQL to support at least 150 concurrent connections - find <code class="language-plaintext highlighter-rouge">postgresql.conf</code> file, usually in the same location of <code class="language-plaintext highlighter-rouge">pg_hba.conf</code>, locate ‘max_connections’ and set it to 150.</p>
+  </li>
+  <li>
+    <p>Restart PostgreSQL service for definitions to take effect:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Fedora: systemctl restart postgresql.service
+ RHEL:   service postgresql restart
+ Gentoo: /etc/init.d/postgresql-* start
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>You may want to set the postgresql service to start at boot.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> systemctl enable postgresql.service
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create database and user, using the following commands as <strong>root</strong>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
+ su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
+ su - postgres -c "psql -d template1 -c \"CREATE EXTENSION \\\"uuid-ossp\\\";\""
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="source">Source</h3>
+
+<p>Checkout source:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  mkdir -p "$HOME/git"
+  cd "$HOME/git"
+  $ git clone git://gerrit.ovirt.org/ovirt-engine
+</code></pre></div></div>
+
+<h3 id="usage">Usage</h3>
+
+<font color="red"><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
+
+<p>Once prerequisites are in place, you are ready to build and use ovirt-engine.</p>
+
+<p>Build product and install at <code class="language-plaintext highlighter-rouge">$HOME/ovirt-engine</code>, execute the following as unprivileged user while residing within source repository:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ make install-dev PREFIX="$HOME/ovirt-engine"
+</code></pre></div></div>
+
+<p>Build may be customized, refer to <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD">README.developer</a> for further information.</p>
+
+<p>If WildFly 8.2 should be used, then it’s required to manually setup ovirt-engine-wildfly-overlay using following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "ENGINE_JAVA_MODULEPATH="/usr/share/ovirt-engine-wildfly-overlay/modules:${ENGINE_JAVA_MODULEPATH}"" \
+  &gt; $PREFIX/etc/ovirt-engine/engine.conf.d/20-setup-jboss-overlay.conf
+</code></pre></div></div>
+
+<p>Run the following command and follow the prompts to set up oVirt. If you followed the procedure to create a database above, the database user is ‘engine’, the password for this user is ‘engine’, and the database name is also ‘engine’.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ $HOME/ovirt-engine/bin/engine-setup
+</code></pre></div></div>
+
+<p>If JBoss is installed at an alternate location, add the following while JBOSS_HOME contains the location: <code class="language-plaintext highlighter-rouge">--jboss-home="${JBOSS_HOME}"</code></p>
+
+<p>When oVirt has been set up, run the following command to start the ovirt-engine service:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
+</code></pre></div></div>
+
+<p>The service will not exit as long as engine is up, to stop press <Ctrl>C.</Ctrl></p>
+
+<p>Open a web browser and navigate to one of the following links to access the welcome page:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">http://localhost:8080</code></li>
+  <li><code class="language-plaintext highlighter-rouge">https://localhost:8443</code></li>
+</ul>
+
+<p>Debug port is available via port <code class="language-plaintext highlighter-rouge">8787</code>, to be used by Eclipse or any other debugger.</p>
+
+<p>When performing code changes that do not modify the database, there is no need to re-execute the setup; run the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ make install-dev PREFIX="$HOME/ovirt-engine"
+</code></pre></div></div>
+
+<p>And start the engine service.</p>
+
+<p>To rebuild everything use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make clean install-dev PREFIX="$HOME/ovirt-engine" 
+</code></pre></div></div>
+
+<p>To rebuild a single artifact, for example utils:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make clean install-dev PREFIX=$HOME/ovirt-engine \
+      EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:utils"
+</code></pre></div></div>
+
+<p>Now make a single artifact that resides within the ear (bll,etc):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make clean install-dev PREFIX=$HOME/ovirt-engine \
+      EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:bll,org.ovirt.engine:engine-server-ear"
+</code></pre></div></div>
+
+<p>Now your updated artifact is in place.</p>
+
+<h3 id="advanced-usage">Advanced Usage</h3>
+
+<h4 id="jmx-support">JMX Support</h4>
+
+<p>Starting ffrom 3.6, using the jboss-cli.sh and credentials to admin@internal you can interact with ovirt JMX console and its beans:</p>
+
+<ul>
+  <li>add/change loggers and level</li>
+  <li>get statistics on transactions, connections, threading</li>
+  <li>redeploy, shutdown the instance</li>
+  <li>stats from exposed oVirt beans like LockManager (see what engine entities are locked for provisioning)</li>
+</ul>
+
+<p>First make sure <code class="language-plaintext highlighter-rouge">JBOSS_HOME</code> is set:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
+</code></pre></div></div>
+
+<p>Do an interactive session:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal
+</code></pre></div></div>
+
+<p>Get the engine data-source statistics:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
+</code></pre></div></div>
+
+<p>Get threading info:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ls /core-service=platform-mbean/type=threading/
+</code></pre></div></div>
+
+<h4 id="enable-debug-log---runtime-change-no-restart">Enable DEBUG log - Runtime Change; No Restart</h4>
+
+<p>Using the <a href="#jmx-support">JMX Support</a> you can interact with the logging bean and change it in runtime:</p>
+
+<ul>
+  <li>adding loggers</li>
+  <li>modifying logger’s log level</li>
+</ul>
+
+<p><strong>Example open all <code class="language-plaintext highlighter-rouge">org.ovirt.engine.core</code> to debug:</strong></p>
+
+<p>Make sure <code class="language-plaintext highlighter-rouge">JBOSS_HOME</code> is set:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
+</code></pre></div></div>
+
+<p>Add a logger in runtime:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
+  "/subsystem=logging/logger=org.ovirt.engine.core:add"
+</code></pre></div></div>
+
+<p>Change log level of a logger in runtime:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
+  "/subsystem=logging/logger=org.ovirt.engine.core:write-attribute(name=level,value=DEBUG)"
+</code></pre></div></div>
+
+<p>keywords: how to debug ovirt-engine</p>
+
+<h4 id="enable-debug-log---restart-required">Enable DEBUG Log - Restart Required</h4>
+
+<p>There is a file share/ovirt-engine/services/ovirt-engine/ovirt-engine.xml.in in the deployed engine environment. Open it and look for <code class="language-plaintext highlighter-rouge">&lt;subsystem xmlns="urn:jboss:domain:logging:1.1"&gt;</code> section. This section contains all output handlers (server.log, engine.log and console output) with associated level filters.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;file-handler name="ENGINE" autoflush="true"&gt;
+  &lt;level name="DEBUG"/&gt;
+  &lt;formatter&gt;
+    &lt;pattern-formatter pattern="%d %-5p [%c] (%t) %s%E%n"/&gt;
+  &lt;/formatter&gt;
+  &lt;file path="$getstring('ENGINE_LOG')/engine.log"/&gt;
+  &lt;append value="true"/&gt;
+&lt;/file-handler&gt;
+</code></pre></div></div>
+
+<p>To actually get the DEBUG messages to those handlers add the following to the end of the subsystem section:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;logger category="org.ovirt._package_you_are_interested_in"&gt;
+  &lt;level name="DEBUG"/&gt;
+&lt;/logger&gt;
+</code></pre></div></div>
+
+<p>To enable full database DEBUG logging to engine.log change the level to DEBUG in the following snippet:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;logger category="org.ovirt.engine.core.dal.dbbroker.PostgresDbEngineDialect$PostgresJdbcTemplate"&gt;
+  &lt;level name="WARN"/&gt;
+&lt;/logger&gt;
+</code></pre></div></div>
+
+<p>Restart the JBoss instance and you will see the logs.</p>
+
+<h4 id="enable-query-by-query-postgresql-log">Enable Query by Query postgresql Log</h4>
+
+<p>Go to /var/lib/pgsql/data/postgresql.conf and change <em>log_statement</em> to ‘all’. You can then find the logs in /var/lib/pgsql/data/pg_log/.</p>
+
+<h4 id="enable-unit-tests">Enable Unit Tests</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_UT=1
+</code></pre></div></div>
+
+<h4 id="enable-dao-tests">Enable DAO Tests</h4>
+
+<p><em>Optional:</em> Create database, provided the user is engine, password engine:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # su - postgres -c "psql -d template1 -c "create database engine_dao_tests owner engine;""
+  $ PGPASSWORD=engine ./packaging/dbscripts/schema.sh -d engine_dao_tests -u engine -c apply
+</code></pre></div></div>
+
+<p>Build with tests:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ make maven BUILD_GWT=0 BUILD_UT=1 EXTRA_BUILD_FLAGS="-P enable-dao-tests \
+      -D engine.db.username=engine \
+      -D engine.db.password=engine \
+      -D engine.db.url=jdbc:postgresql://localhost/engine_dao_tests"
+</code></pre></div></div>
+
+<h4 id="gwt-debug">GWT Debug</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ make install-dev PREFIX="$HOME/ovirt-engine"
+    # GWT classic dev mode:
+    $ make gwt-debug
+    # OR
+    # GWT super dev mode:
+    $ make gwt-debug DEV_BUILD_GWT_SUPER_DEV_MODE=1
+</code></pre></div></div>
+
+<p>See <a href="/ovirt-site/previews/2963/develop/developer-guide/debugfrontend.html">Debugging Frontend Applications</a> and <a href="https://blogs.ovirt.org/2017/08/ovirt-webadmin-gwt-debug-quick-refresh/">GWT Debug Quick Refresh</a> for more information.</p>
+
+<h2 id="packaging">Packaging</h2>
+
+<h3 id="rpm-packaging">RPM packaging</h3>
+
+<p>Build system supports standard RPM packaging out of source tarball.</p>
+
+<p>Create source tarball by executing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ make dist
+</code></pre></div></div>
+
+<p>Install build dependencies, replacing <code class="language-plaintext highlighter-rouge">@x@</code> with file names, this should be executed second time only if build dependencies are changed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ rpmbuild -ts @tarball@
+  # yum-builddep @srpm@
+</code></pre></div></div>
+
+<p>Build RPMS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ rpmbuild -tb @tarball@
+</code></pre></div></div>
+
+<p>RPM customization is supported refer to <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=ovirt-engine.spec.in;hb=HEAD">ovirt-engine.spec.in</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Default</th>
+      <th>Description</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ovirt_build_quick</td>
+      <td>0</td>
+      <td>build as quickly as we can</td>
+      <td>syntax checks</td>
+    </tr>
+    <tr>
+      <td>ovirt_build_minimal</td>
+      <td>0</td>
+      <td>minimal build</td>
+      <td>development fully functional for firefox only</td>
+    </tr>
+    <tr>
+      <td>ovirt_build_gwt</td>
+      <td>1</td>
+      <td>gwt enablement</td>
+      <td>build or skip</td>
+    </tr>
+    <tr>
+      <td>ovirt_build_locales</td>
+      <td>1</td>
+      <td>build extra locales</td>
+      <td>production build</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  rpmbuild -D"ovirt_build_minimal 1" -tb @tarball@
+</code></pre></div></div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="before-you-begin">Before you begin</h3>
+
+<p>Check if all prerequisites are installed, refer to <a href="#prerequisites">prerequisites</a></p>
+
+<ul>
+  <li>Don’t forget to browse to the webadmin from a browser which the project was built to using the make command.</li>
+</ul>
+
+<h3 id="ibm-jdk">IBM JDK</h3>
+
+<p>There are <a href="https://code.google.com/p/google-web-toolkit/issues/detail?id=7530">issues</a> when building oVirt engine using the IBM JDK.</p>
+
+<p>The workaround to this problem is to remove all GWTAR files inside the gwt-user.jar package and build the project using <code class="language-plaintext highlighter-rouge">EXTRA_BUILD_FLAGS="-Dgwt.usearchives=false"</code>.</p>
+
+<p>Author: Alon Bar-Lev (Alonbl)</p>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2963/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2963/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2963/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2963/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/engine/engine-development-environment.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/engine/engine-development-environment.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

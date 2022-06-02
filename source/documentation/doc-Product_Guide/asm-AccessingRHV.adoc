@@ -76,10 +76,9 @@ ifdef::rhv-doc[ unless explicitly requested by Red Hat Support.]
 ifndef::rhv-doc[.]
 ifdef::rhv-doc[ unless explicitly requested by Red Hat Support.]
 
-
 ifdef::rhv-doc[]
 [IMPORTANT]
 ====
-Red Hat Support will not debug user-created scripts or hooks except where it can be demonstrated that there is an issue with the interface being used rather than the user-created script itself. For more general information about Red Hat's support policies see link:{URL_customer-portal}support/offerings/production/soc.html[Production Support Scope of Coverage].
+Red Hat Support will not debug user-created scripts or hooks except where it can be demonstrated that there is an issue with the interface being used rather than the user-created script itself. For more general information about Red Hat's support policies see link:https://access.redhat.com/support/offerings/production/[Production Support Scope of Coverage].
 ====
 endif::[]

@@ -6,11 +6,11 @@
 :_content-type: PROCEDURE
 [id='applying-the-disa-stig-profile-rhvh_{context}']
 
-= Applying the DISA STIG profile in {enterprise-linux-shortname} based hosts and the standalone Manager
+= Applying the DISA STIG profile in {enterprise-linux-shortname}-based hosts and the standalone Manager
 
 [IMPORTANT]
 ====
-THE DISA STIG profile is not supported for {hypervisor-fullname} ({hypervisor-shortname}).
+The DISA STIG profile is not supported for {hypervisor-fullname} ({hypervisor-shortname}).
 ====
 
 When installing {virt-product-shortname}, you can select the DISA STIG profile with the GUI installer, which is the profile provided by {enterprise-linux-shortname} 8.
@@ -43,6 +43,6 @@ You can enable FIPS in a self-hosted engine during deployment when using the com
 
 .Procedure
 
-. Start the self-hosted engine deployment script. See link:{URL_downstream_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[Installing {virt-product-fullname} as a self-hosted engine using the command line].
+. Start the self-hosted engine deployment script. See link:{URL_downstream_virt_product_docs}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[Installing {virt-product-fullname} as a self-hosted engine using the command line].
 . When the deployment script prompts `Do you want to apply an OpenSCAP security profile?`, enter `Yes`
 . When the deployment script prompts `Please provide the security profile you would like to use?`, enter `stig`

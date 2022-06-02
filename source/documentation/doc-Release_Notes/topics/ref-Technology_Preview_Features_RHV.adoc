@@ -15,19 +15,7 @@ The following table describes features available as Technology Previews in {virt
 [cols=",a"]
 |===
 |Technology Preview Feature |Details
-|Incremental Backup - based on Changed Block Tracking (CBT) a|Backups are simpler, faster and more robust, and integration with backup applications is improved, with new support for backing up and restoring raw guest data, regardless of the underlying disk format.
 
-* Disks must be in QCOW2 format.
-
-* Incremental backup only works with raw guest data, not raw volumes.
-
-*Features*
-
-* Perform full or incremental backups for disks using QCOW2 format without any temporary snapshots.
-
-* Backup raw guest data instead copying QCOW2 data for QCOW2 disks.
-
-* Restore raw guest data to disk onto raw or QCOW2 disks.
 |IPv6 |Static IPv6 assignment is fully supported in Red Hat Virtualization 4.3 and 4.4, but Dynamic IPv6 assignment is available as a Technology Preview.
 
 [NOTE]

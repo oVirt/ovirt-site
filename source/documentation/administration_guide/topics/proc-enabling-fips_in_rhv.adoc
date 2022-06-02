@@ -22,11 +22,13 @@ You can create a FIPS-enabled bare metal machine in {virt-product-shortname} by 
 Red Hat recommends installing {enterprise-linux-shortname} 8 with FIPS mode enabled as opposed to enabling FIPS mode later. Enabling FIPS mode during the installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
 ====
 
-= Enabling FIPS in a self-hosted engine
+[id="enabling-fips-in-self-hosted-engine"]
+== Enabling FIPS in a self-hosted engine
 
-To create a FIPS-enabled self-hosted engine in {virt-product-shortname} version, link:{URL_downstream_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[deploy the self-hosted engine using the command line]. When the deployment script prompts `Do you want to enable FIPS?`, enter `Yes`.
+To create a FIPS-enabled self-hosted engine in {virt-product-shortname} version, link:{URL_downstream_virt_product_docs}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[deploy the self-hosted engine using the command line]. When the deployment script prompts `Do you want to enable FIPS?`, enter `Yes`.
 
-= Enabling FIPS in {virt-product-shortname} hosts and the standalone Manager
+[id="enabling-fips-in-hosts-and-standalone-manager"]
+== Enabling FIPS in {virt-product-shortname} hosts and the standalone Manager
 
 For information on switching a provisioned {enterprise-linux-shortname} machine to FIPS mode, see link:{URL_rhel_docs_latest}html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening#switching-the-system-to-fips-mode_using-the-system-wide-cryptographic-policies[Switching the system to FIPS mode].
 

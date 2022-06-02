@@ -170,9 +170,12 @@ exclude:
   - documentation/doc-Planning_and_Prerequisites_Guide/topics
   - documentation/doc-Planning_and_Prerequisites_Guide/asm-*
   - documentation/doc-Technical_Notes/**
+  - dropped/introduction_to_the_vm_portal/common/**/*.adoc
+  - dropped/introduction_to_the_vm_portal/topics
+  - dropped/introduction_to_the_vm_portal/chap*
 sass:
   add_charset: true
-  style: :compressed
+  style: compressed
 
 font-awesome:
   assets: true

@@ -4,13 +4,13 @@ include::common/collateral_files/_attributes.adoc[]
 [id="upgrade-guide"]
 = Upgrade Guide
 
-
-
 :upgrade:
 [preface]
 
-= {virt-product-fullname} Upgrade Overview
-include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
+[id="upgrade-overview"]
+== {virt-product-fullname} Upgrade Overview
+
+include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+2]
 
 ////
 
@@ -22,41 +22,44 @@ include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
 
 This section applies to both self-hosted engine and standalone {engine-name} environments.
 
-include::topics/ovirt-fast-forward-upgrade_Explained.adoc[leveloffset=+1]
-
-include::assembly-Upgrading_from_4-2_ff.adoc[leveloffset=+1]
+// include::topics/ovirt-fast-forward-upgrade_Explained.adoc[leveloffset=+2]
+//
+// include::assembly-Upgrading_from_4-2_ff.adoc[leveloffset=+2]
 
 :local_database_upgrade_ff!:
 ////
 
-
-= Upgrading a standalone {engine-name} local database environment
+[id="upgrading-standalone-engine-local-database-environment"]
+== Upgrading a standalone {engine-name} local database environment
 :local_database_upgrade:
 
-include::assembly-Upgrading_from_4-3.adoc[leveloffset=+1]
+include::assembly-Upgrading_from_4-3.adoc[leveloffset=+2]
 
-include::assembly-Upgrading_from_4-2.adoc[leveloffset=+1]
+include::assembly-Upgrading_from_4-2.adoc[leveloffset=+2]
 :local_database_upgrade!:
 
-= Upgrading a standalone {engine-name} remote database environment
+[id="upgrading-standalone-engine-remote-database-environment"]
+== Upgrading a standalone {engine-name} remote database environment
 :remote_database_upgrade:
 
-include::assembly-Remote_Upgrading_from_4-3.adoc[leveloffset=+1]
+include::assembly-Remote_Upgrading_from_4-3.adoc[leveloffset=+2]
 
-include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
+include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+2]
 :remote_database_upgrade!:
 
-= Upgrading a self-hosted engine environment
+[id="upgrading-self-hosted-engine-environment"]
+== Upgrading a self-hosted engine environment
 :SHE_upgrade:
 
-include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+1]
+include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+2]
 
-include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+1]
+include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+2]
 :SHE_upgrade!:
 
-= Updates between minor releases
+[id="updates-between-minor-releases"]
+== Updates between minor releases
 
-include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
+include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+2]
 
 :numbered!:
 

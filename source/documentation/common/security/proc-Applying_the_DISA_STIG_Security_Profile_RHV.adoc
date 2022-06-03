@@ -5,8 +5,7 @@
 
 :_content-type: PROCEDURE
 [id='applying-the-disa-stig-profile-rhvh_{context}']
-
-= Applying the DISA STIG profile in {enterprise-linux-shortname}-based hosts and the standalone Manager
+= Applying the DISA STIG profile in {enterprise-linux-shortname} based hosts and the standalone Manager
 
 [IMPORTANT]
 ====
@@ -37,7 +36,8 @@ image::common/images/security-policy.png[Security Policy]
 When you log into {hypervisor-shortname}, the command line displays the following information.
 image::common/images/security-policy-rhvh-login.png[Login notice]
 
-= Enabling DISA STIG in a self-hosted engine
+[id="enabling-disa-stig-in-a-self-hosted-engine"]
+== Enabling DISA STIG in a self-hosted engine
 
 You can enable FIPS in a self-hosted engine during deployment when using the command-line.
 

@@ -126,3 +126,4 @@ ifndef::parent-context[:!context:]
 [appendix]
 include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]
 include::common/collateral_files/legal-notice.adoc[leveloffset=+1]
+:rhv-doc!:

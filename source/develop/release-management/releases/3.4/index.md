@@ -216,10 +216,10 @@ will upgrade to latest 3.3.
  - VMs are not migrated properly when NFS storage is blocked on host
  - [RHS-C] Creating a Distributed Stripe volume using the default Stripe Count (4) actually creates only a Stripe volume
  - [RFE] collect the "created_by" field of a VM into it's configuration history
- - [oVirt-webadmin] [setupNetworks] "No valid Operation for <network_name> and Unassigned Logical Networks panel"
+ - [oVirt-webadmin] [setupNetworks] "No valid Operation for `<network_name>` and Unassigned Logical Networks panel"
  - REST-API: Allow copy/move disk from disks collection
  - engine: DeactivateStorageDomainCommand fails with vdsm error: 'Operation not allowed while SPM is active' because we do not actually send SpmStop while there are unknown tasks
- - [event tab] better phrasing for actions done by unauthenticated users, currently appears as <UNKNOWN>
+ - [event tab] better phrasing for actions done by unauthenticated users, currently appears as `<UNKNOWN>`
  - Change "Guide" link to Power User Portal Guide
  - [Admin Portal] sort roles in alphabetical order in Configure|Roles window
  - [vdsm] remove mapping fails after extend storage domain with force=True
@@ -227,11 +227,11 @@ will upgrade to latest 3.3.
  - [RHS-C] No event messages are generated in UI when a brick goes from UP --> DOWN / DOWN --> UP
  - [RFE] ovirt-engine URI rework
  - webadmin: when unchecking the "collapse snapshot" tag in import dialogue it will change the disks allocation policy in the dialogue view to thinprovision no matter what the original disk is
- - Migrating VM vm_name to Host <UNKNOWN>
+ - Migrating VM vm_name to Host `<UNKNOWN>`
  - [RHEVM][webadmin] weird scroll-bar flickering on Host -> Network Interfaces sub-tab when refresh button is pressed
  - [User Portal] Displaying incorrect events after renaming VM
  - engine: LiveMigrateDisk: java.lang.reflect.InvocationTargetException when vm is removed before the deleteImage step is cleared on wipe=true disk
- - [RHS-C] Detected server host3 removed from Cluster <UNKNOWN>, and removed it from engine DB.
+ - [RHS-C] Detected server host3 removed from Cluster `<UNKNOWN>`, and removed it from engine DB.
  - [RHS-C] Binary hook contents are being displayed during Resolve Conflicts
  - [RHS-C] Remove all the RHEVM related events from "Manage Events"
  - [RFE] spice proxy support at cluster/vm-pool granularity
@@ -406,10 +406,10 @@ will upgrade to latest 3.3.
  - tree view unsorted
  - [oVirt][infra] Device custom properties syntax check is wrong
  - [RFE] Add drac7 fence agent with ipmilan as implemintation
- - RHEVM-CLI: action <type> <id> <action> command accepts async and grace_period-expiry parameters but they are missing in auto-completion
+ - RHEVM-CLI: `action <type> <id> <action>` command accepts async and grace_period-expiry parameters but they are missing in auto-completion
  - [RHSC] - Values of Physical Memory and swap size in hosts general sub tab are incorrect.
  - [RHSC] Unable to remove U1 Server after Server failed to add
- - cleandb.sh does not obey '-l logfile'
+ - `cleandb.sh` does not obey `-l logfile`
  - [RFE] Add Reboot option for VM
  - Fail to delete network using API
  - Fix SPICE ActiveX issues with MS Internet Explorer 11
@@ -658,7 +658,7 @@ will upgrade to latest 3.3.
  - fenceNode passes wrong argument to the fence agent
  - [LOG][vdsm] KeyError: 'domainID' during teardownImage in power-off to VM
  - [Hosted Engine] Unify maintenance flows
- - Migrating between older and newer RHEV-H images leads to flood "path /rhev/data-center/mnt/blockSD/<UUID>/images/<UUID>/<UUID> not assigned to domain"
+ - Migrating between older and newer RHEV-H images leads to flood `path /rhev/data-center/mnt/blockSD/<UUID>/images/<UUID>/<UUID> not assigned to domain`
  - do not report negative rx/tx rate when Linux counters wrap
  - vdsm: fix RTC offset
  - sanlock not configured with no error which fails vdsm service start and fails host installation

@@ -16,9 +16,9 @@ This feature allows the administrators to create, schedule, list, delete, start,
 
 # Owner
 
-*   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
+*   Feature owner: Shubhendu Tripathi
     -   GUI Component owner:
-    -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
+    -   Engine Component owner: Shubhendu Tripathi
     -   VDSM Component owner:
 
 # Current Status

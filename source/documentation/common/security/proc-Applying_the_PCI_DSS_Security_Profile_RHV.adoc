@@ -15,7 +15,7 @@ When installing {hypervisor-shortname}, you can select the PCI-DSS profile with 
 . In the *Security Policy* screen, toggle the *Apply security policy* setting to *On*.
 . Select *PCI-DSS v3.2.1 Control Baseline for Red Hat Enterprise Linux 8*.
 
-. Click btn:[Select profile]. This action adds a green checkmark next to the profile and adds packages to the list of *Changes that were done or need to be done*. Follow the onscreen instructions if they direct you to make any changes.
+. Click *Select profile*. This action adds a green checkmark next to the profile and adds packages to the list of *Changes that were done or need to be done*. Follow the onscreen instructions if they direct you to make any changes.
 
 . Click *Done*.
 

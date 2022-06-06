@@ -112,7 +112,7 @@ This is an example of how to recover a setup if it encountered a disaster.
 
 ### Work flow for detach and attach Storage Domain with entities - UI flow
 
-<iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" style="float:right; border:0" allowfullscreen> </iframe>
 1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
 2. Move the Storage Domain to maintenance, and detach it from the Data Center - At this point all the entities related to the Storage Domain should be deleted from the setup
 3. Attach the Storage Domain to another Data Center and activate it.
@@ -142,7 +142,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 ### Work flow for Import File Storage Domain - UI flow
 
-<iframe width="300" src="//youtube.com/embed/YbU-DIwN-Wc" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/YbU-DIwN-Wc" style="float:right; border:0" allowfullscreen> </iframe>
 1. Press the "import Storage Domain" button.
 2. Choose a file type domain (NFS, POSIX, etc.).
 3. Provide the path where this Storage exists and press on the import button.
@@ -156,7 +156,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 ### Work flow for recovery of local Data Center - UI flow
 
-<iframe width="300" src="//youtube.com/embed/T03ai6FrMI4" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/T03ai6FrMI4" style="float:right; border:0" allowfullscreen> </iframe>
 1. First must initialize a Local Storage Domain.
 2. Press the "import Storage Domain" button.
 3. Choose a file type domain Data/ Local on Host.
@@ -170,7 +170,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 ### Work flow for importing GlusterFS Storage Domain - UI flow
 
-<iframe width="300" src="//youtube.com/embed/4YKXHp8wxvI" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/4YKXHp8wxvI" style="float:right; border:0" allowfullscreen> </iframe>
 1. Press the "import Storage Domain" button.
 2. Choose a file type domain Data/GlusterFS on Host.
 3. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center .
@@ -183,14 +183,14 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 ### Work flow for registering floating disks - UI flow
 
-<iframe width="300" src="//youtube.com/embed/8v3BI9I0OEM" frameborder="0" align="right" allowfullscreen></iframe>
+<iframe width="300" src="//youtube.com/embed/8v3BI9I0OEM" style="float:right; border:0" allowfullscreen></iframe>
 1. Go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
 2. Press on the "Disk Import" sub tab.
 3. Pick the desired floating disks to import to the Data Center and press the Register button.
 
 ### Work flow for scanning unregistered floating disks - UI flow
 
-<iframe width="300" src="//youtube.com/embed/c6yTjqdBaMc" frameborder="0" align="right" allowfullscreen></iframe>
+<iframe width="300" src="//youtube.com/embed/c6yTjqdBaMc" style="float:right; border:0" allowfullscreen></iframe>
 1. Go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
 2. Right click on the Storage Domain and choose the "Scan Disks" option.
 3. Pick the desired floating disks to import to the Data Center and press the Register button.

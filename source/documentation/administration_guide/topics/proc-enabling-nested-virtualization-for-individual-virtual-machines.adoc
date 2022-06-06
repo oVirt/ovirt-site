@@ -74,4 +74,4 @@ NOTE: In RHV version 4.2, you can only enable *Pass-Through Host CPU* when *Do n
 .Additional resources
 
 * xref:appe-VDSM_and_Hooks[VDSM hooks]
-* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/creating-nested-virtual-machines_configuring-and-managing-virtualization[Creating Child virtual Machines] in the {enterprise-linux-shortname} documentation.
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/creating-nested-virtual-machines_configuring-and-managing-virtualization[Creating nested virtual machines] in the {enterprise-linux-shortname} documentation.

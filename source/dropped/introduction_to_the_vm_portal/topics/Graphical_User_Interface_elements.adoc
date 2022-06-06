@@ -4,7 +4,7 @@
 
 You can perform common virtual machine tasks, change log-in options, and view messages in the VM Portal screen.
 
-image::VM_screen.png[VM Portal screen]
+image::/images/intro-vm-portal/VM_screen.png[VM Portal screen]
 
 *Key graphical user interface elements*
 

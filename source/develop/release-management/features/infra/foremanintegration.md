@@ -6,27 +6,27 @@ authors:
   - ybronhei
 ---
 
-## Foreman Integration
+# Foreman Integration
 
-### Summary
+## Summary
 
 [Foreman](http://theforeman.org/) [1] The Foreman is a complete lifecycle management tool for physical and virtual servers. Through deep integration with configuration management, DHCP, DNS, TFTP, and PXE-based unattended installations, Foreman manages every stage of the lifecycle of your physical or virtual servers. The Foreman provides comprehensive, auditable interaction facilities including a web frontend and robust, RESTful API. [Cloud-init](https://launchpad.net/cloud-init/) [1] is a tool used to perform initial setup on cloud nodes, including networking, SSH keys, timezone, user data injection, and more. It is a service that runs on the guest, and supports various Linux distributions including Fedora, RHEL, and Ubuntu.
 
 Integrating Foreman with oVirt will help adding hypervisor hosts that are managed by Foreman to the oVirt engine (already provisioned hosts or discovered hosts for bare-metal provisioning which will include the OS installation process.), VM configuration, package management and etc.
 
-### Owner
+## Owner
 
 *   Name: Yaniv Bronheim
 *   Email: ybronhei@redhatdotcom
 *   Name: Oved Ourfali
 *   Email: ovedo@redhatdotcom
 
-### Current Status
+## Current Status
 
 *   Supported in oVirt>=3.5 over RHEL>=6.6
 *   Tested with Satellite Version 6.0.4 (Setup details described in [Make Foreman Appliance](#make-foreman-appliance))
 
-### Detailed Description
+## Detailed Description
 
 Adding Foreman provider:
 
@@ -46,7 +46,7 @@ Adding Foreman provider:
 
 Using the Foreman provider:
 
-#### Adding installed Foreman hosts as oVirt hosts
+### Adding installed Foreman hosts as oVirt hosts
 
 When adding a new host to oVirt, the administrator has to know in advance different details about the host, such as the FQDN, root password, power management options and etc. In this feature we will add a checkbox saying whether to show "external" hosts in the host dialog (external hosts are Foreman hosts, but in the future we might support other providers as well), and if so the hosts will be loaded from Foreman, and displayed in the external hosts list box. Once a user selects a host, it will automatically set the address as the FQDN we got from Foreman (non-changeable), and also set the name of the host to the FQDN (as a suggestion, changeable).
 
@@ -78,7 +78,7 @@ Screenshot 4 - All the details that the host provider set, are updated automatic
         -   Adding a query to get a provider by type (to get all the foreman providers)
         -   Adding a query to get all provider hosts
 
-#### Bare-Metal Provisioning
+### Bare-Metal Provisioning
 
 Prerequisites:
 
@@ -100,11 +100,11 @@ Steps To Use:
 *   Once click OK the server will start to be installed. Meanwhile the host's status is InstallingOS. When provision is done OvirtProvisionPlugin (at foreman's side) sends request to the engine to reinstall the host. After this is done the host's status will be changed to Installing->UP.
 *   On failures please refer to engine.log in the oVirt-Engine setup and production.log in the Foreman setup.
 
-<big>**User-flow:**</big>
+### User-flow:
 ![](/images/wiki/Discover-1-phase.png)
 ![](/images/wiki/Discover-2-phase.png)
 ![](/images/wiki/Discover-3-phase.png)
-# AddNewHost form in oVirt shows new list of discovered hosts taken from Foreman
+#### AddNewHost form in oVirt shows new list of discovered hosts taken from Foreman
 
 1.  Select a HostGroup for this host. All proper configuration needs to be declared in host group definition (part of Foreman setup)
 2.  Select computeResource to allow access back from Foreman to oVirt (part of Foreman setup)
@@ -119,7 +119,7 @@ Steps To Use:
 
 ![](/images/wiki/InstallingOSExample.png)
 
-#### Future Plans: VM provisioning
+### Future Plans: VM provisioning
 
 Two alternative:
 
@@ -130,7 +130,7 @@ Two alternative:
 
 I'd go with the former option, as it leaves the VM creation similar to what we have today. However, we don't really leverage oVirt templates with that approach.
 
-### Setup Testing Environment
+## Setup Testing Environment
 
 To allow testing the feature in "allinone" configuration, which means running foreman on a VM and simulate new bare-metal hosts with new VMs, you should configure the following on your hypervisor: (NOTE: This manual set the foreman subnet to 192.168.223.0, which 192.168.223.2 is the foreman VM address and 192.168.223.1 is the gateway to the external network)
 
@@ -141,32 +141,36 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   Create virt network
 
       save the following to file called foreman_net.xml:
-` `<network>
-`  `<name>`foreman`</name>
-`   `<uuid>`3a80901c-a020-4e7a-bd3b-770b29844b03`</uuid>
-`   `<forward mode='nat'>
-`   `<nat>
-`    `<port start='1024' end='65535'/>
-`   `</nat>
-`   `</forward>
-`   `<bridge name='virbrforeman' stp='off' delay='0'/>
-`    `<mac address='52:54:00:38:f9:08'/>
-`    `<ip address='192.168.223.1' netmask='255.255.255.0'></ip>
-` `</network>
+      ```xml
+      <network>
+            <name>foreman</name>
+            <uuid>3a80901c-a020-4e7a-bd3b-770b29844b03</uuid>
+            <forward mode='nat'>
+                  <nat>
+                        <port start='1024' end='65535'/>
+                  </nat>
+            </forward>
+            <bridge name='virbrforeman' stp='off' delay='0'/>
+            <mac address='52:54:00:38:f9:08'/>
+            <ip address='192.168.223.1' netmask='255.255.255.0'></ip>
+      </network>
+      ```
 
 *   Set the network to virsh
-
-      # virsh - vdsm@ovirt:shibboleth
-      # net-define /path/to/foreman_net.xml
-      # net-autostart foreman
-      # net-start foreman 
-      With "ip -4 a" you should see that virbrforeman has the right ip
+    ```console
+    # virsh - vdsm@ovirt:shibboleth
+    # net-define /path/to/foreman_net.xml
+    # net-autostart foreman
+    # net-start foreman 
+    ```
+      With `ip -4 a` you should see that `virbrforeman` has the right ip
 
 *   Config engine
-
-      #engine-config -s CustomDeviceProperties='{type=interface;prop={extnet=^[a-zA-Z0-9_ ---]+$}}'
-      #engine-config -g CustomDeviceProperties
-      ( You can read about it under vdsm_hooks/*extnet*/README )
+    ```console
+    # engine-config -s CustomDeviceProperties='{type=interface;prop={extnet=^[a-zA-Z0-9_ ---]+$}}'
+    # engine-config -g CustomDeviceProperties
+    ```
+    ( You can read about it under vdsm_hooks/*extnet*/README )
 
 *   Install the vdsm-hook-extnet rpm on host
 *   Add the host to engine if its not already there
@@ -183,10 +187,11 @@ To allow testing the feature in "allinone" configuration, which means running fo
       New -> name: foreman_libvirt_net ->  in "please select a key" select extnet and put "foreman" as value
 
 *   Set foreman Vm network by running
-
-      ip addr add dev eth0 192.168.223.2/24
-      ip link set dev eth0 up
-      ip route add dev eth0 default via 192.168.223.1
+    ```bash
+    ip addr add dev eth0 192.168.223.2/24
+    ip link set dev eth0 up
+    ip route add dev eth0 default via 192.168.223.1
+    ```
 
 ### Make Foreman Appliance
 
@@ -268,7 +273,10 @@ To allow testing the feature in "allinone" configuration, which means running fo
       (the directories' names are important. otherwise puppet doesn't recognize the classes):
 
       Directory "files" -> under it put the "authorized_keys" file filled with the engine's pk and set the file with execute permission
-        e.g: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvNAlTKk/L2I+uyzeqKPErywGgFuQ0GQVf4HT4ir64Wi41SDwtt0edVQ8PwAeyY2jhbwGy0EzPgg0z/SVFIay5uEDSS8ObPICpTNpVlLp5618DKlCnOo3AwYMqbSBsPw6mKVnTvGjdw3lbBey/mEWrx5w7QHJw6FqwDyQ4big12yOECigGr1NYZWzsdVgDzI5oG3fbYHj/tfdDYfeWixNVZG4a0wBONjKJewr8hApMa8BkGJi/gkQ9XWjfx/RClHXWwgR1YMEUG0oBxWf394tueytheAxhYyujq7TOfgwC1cCa8EYUJxEbNuCjL25b1WnC+hp66/O8TYRTpWBFs9Y/ ovirt-engine
+      e.g:
+      ```
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvNAlTKk/L2I+uyzeqKPErywGgFuQ0GQVf4HT4ir64Wi41SDwtt0edVQ8PwAeyY2jhbwGy0EzPgg0z/SVFIay5uEDSS8ObPICpTNpVlLp5618DKlCnOo3AwYMqbSBsPw6mKVnTvGjdw3lbBey/mEWrx5w7QHJw6FqwDyQ4big12yOECigGr1NYZWzsdVgDzI5oG3fbYHj/tfdDYfeWixNVZG4a0wBONjKJewr8hApMa8BkGJi/gkQ9XWjfx/RClHXWwgR1YMEUG0oBxWf394tueytheAxhYyujq7TOfgwC1cCa8EYUJxEbNuCjL25b1WnC+hp66/O8TYRTpWBFs9Y/ ovirt-engine
+      ```
 
       Directory "lib" -> empty dir (there are puppet plugins which look for the lib directory, so better to have it if you installed one)
 
@@ -301,7 +309,7 @@ To allow testing the feature in "allinone" configuration, which means running fo
         init.pp: 
       class { 'ovirtpk': }
 
-*   Run "puppet apply /etc/puppet/modules/ovirtpk/manifests/site.pp" to verify that all set as needed. and "puppet agent --test"
+*   Run `puppet apply /etc/puppet/modules/ovirtpk/manifests/site.pp` to verify that all set as needed. and `puppet agent --test`
 *   In Foreman's UI: Go to Configure->Pupppet Classes-> click on "Import from [your-hostname]"
 *   Now run new host in the same network and you'll see the discovery screen. when this host\\vm will finish to boot you should see new entery in the Hosts->Discovered Hosts page
 *   If you'll add this foreman server as external provider to ovirt, you will be able to see discovered host in the add host tab and follow the instructions above.

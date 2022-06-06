@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Quota | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Quota" />
+<meta name="author" content="Doron Fediuck" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2968/develop/release-management/features/sla/quota.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2968/develop/release-management/features/sla/quota.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Quota" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Doron Fediuck" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Doron Fediuck"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Quota","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2968/images/logo.svg"},"name":"Doron Fediuck"},"url":"https://ovirt.github.io/ovirt-site/previews/2968/develop/release-management/features/sla/quota.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2968/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2968/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2968/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2968/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2968/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2968/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2968/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2968/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2968/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2968/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2968/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2968/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2968/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2968/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2968/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2968/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2968/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2968/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2968/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2968/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2968/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2968/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2968//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2968//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2968/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2968/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2968/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2968/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2968/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Doron Fediuck">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d23ba59f40f03f1390a8bbe87e4a8060?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Gilad Chaplik">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Gilad Chaplik</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a7f6922bd0adbea1647f99c50875a33?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a7f6922bd0adbea1647f99c50875a33?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Jon Choate">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jon Choate</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Livnat Peer">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Livnat Peer</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Maor Lipchuk">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Maor Lipchuk</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Oved Ourfali">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Oved Ourfali</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2968/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="quota">Quota</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Quota provides a way for the Administrator to limit the resource usage in the System.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>
+    <p>Feature owner: Gilad Chaplik (gchaplik)</p>
+
+    <ul>
+      <li>
+        <p>GUI Component owner: Gilad Chaplik (gchaplik)</p>
+      </li>
+      <li>
+        <p>REST Component owner: Michael Pasternak (mpasternak)</p>
+      </li>
+      <li>
+        <p>Engine Component owner: Gilad Chaplik (gchaplik)</p>
+      </li>
+      <li>
+        <p>QA Owner: Yaniv Kaul (ykaul)</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release:</li>
+  <li>Status: Development Stage</li>
+  <li>Last updated date: Tue July 17 2012</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when running VMs), the user is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.</p>
+
+<p>Quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Center.
+This mechanism allows the administrator to manage, share and monitor the resources in the Data Center from the engine core point of view. When working with quota, you still need to set the permissions.
+The quota will only limit the usage of the DC resources.
+For example:</p>
+
+<ul>
+  <li>If you want a user to be able to create VMs, disks and etc., you need to give him VmCreator in the relevant DC.</li>
+  <li>If you want to limit him to a certain cluster, you will have to give him VmCreator in this cluster, and DiskCreator in relevant DCs/SDs.</li>
+  <li>If you want to further limit the resource consumption, you’ll have to enable quota in the DC, create the relevant quota, and define the user as a quota consumer (in the consumers sub tab).</li>
+  <li>Defining the user as a quota consumer only, won’t allow him to login to UP (as the underlined implementation for the Quota Consumption is done via roles, and the relevant role doesn’t have login permissions).</li>
+</ul>
+
+<h3 id="entity-description">Entity Description</h3>
+
+<h4 id="quota-1">Quota</h4>
+
+<p>Quota is a new searchable object in the system, which contains the following properties:</p>
+
+<ol>
+  <li>Name</li>
+  <li>Description</li>
+  <li>Data Center, for which the quota applies.</li>
+  <li>List of unlimited number of rules, where each rule should specify a resource and resource limitation parameters.</li>
+  <li>List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks</li>
+</ol>
+
+<p>For example, the following Quota configuration, is for R&amp;D team:</p>
+
+<ol>
+  <li>Name: DevelQuota</li>
+  <li>Description: Quota configured for R&amp;D team</li>
+  <li>Data Center: Devel_Data_Center</li>
+  <li>Resource limitations:
+    <ul>
+      <li>VCPU/Memory limitations:
+        <ul>
+          <li>Cluster1: 6 VCPUs, 9GB RAM</li>
+          <li>Cluster2: 8 VCPUs, 12GB RAM</li>
+        </ul>
+      </li>
+      <li>Storage Limitations:
+        <ul>
+          <li>Storage Domain1: 20GB</li>
+          <li>Storage Domain1: 10GB</li>
+          <li>Storage Domain3: 50GB</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>List of Users/Groups:
+    <ul>
+      <li>developers</li>
+      <li>team_leaders</li>
+      <li>new_developer</li>
+    </ul>
+  </li>
+</ol>
+
+<p>The limitation on a resource can be specified either on a specific resource (see example above) or globally.
+The global resource defines limitation on the Data Center for a specific type of resource (storage or runtime).</p>
+
+<p>For example the following limitations represent global limitation on the Cluster and the Storage:</p>
+
+<ul>
+  <li>Global Cluster: 14 VCPUs, 21GB RAM</li>
+  <li>Global Storage: 80GB</li>
+</ul>
+
+<p>A Quota limitation can be also set to unlimited (both globally, or on a specific resource).
+The following Quota is an example of unlimited quota on both global and specific resources:</p>
+
+<ul>
+  <li>Global Cluster: Unlimited</li>
+  <li>Storage Domain1: Unlimited</li>
+  <li>Storage Domain2: 50GB</li>
+  <li>Storage Domain3: Unlimited</li>
+</ul>
+
+<h4 id="data-center">Data Center</h4>
+
+<p>The Quota object is in the data center scope. Also, a Data Center must be related to at least one Quota object.
+Each Data Center entity is configured with one of the following operation modes:</p>
+
+<ol>
+  <li>Disable - The Data Center would not be subject to Quota restrictions.</li>
+  <li>Soft Limit (audit)- Only warning messages would be issued when Quota restrictions are violated.</li>
+  <li>Hard Limit (enabled)- Enforced the restrictions completely and prevent the resource allocation.</li>
+</ol>
+
+<p>See more info in the <a href="#installationupgrade">Installation/Upgrade</a> section</p>
+
+<h3 id="crud">CRUD</h3>
+
+<ul>
+  <li>Quota object can be removed only if there are no entities such as VM, Template or Disks that are referencing it.</li>
+  <li>Quota object can be edited; When a Quota is edited, the change should apply to all the entities that are assigned to this Quota, but only for future allocations of resources.</li>
+</ul>
+
+<p>Quota object parameters modifications can result in exceeding the resource limitations:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* reducing the disk limitation of some storage domain
+
+* reducing CPU/RAM limitation
+
+* removing a user from the list of users permitted to use the quota
+</code></pre></div></div>
+
+<p>All the above will not cause a resource deallocation. However, users will not be able to exceed the Quota limitations again after the resources are released.</p>
+
+<p>Also, if a user was removed from the list of permitted users it won’t result in an immediate interruptive action. However, that user won’t be able to use this quota again, unless permitted to.</p>
+
+<h3 id="user-experience">User Experience</h3>
+
+<ul>
+  <li>The Administrator will be able to create/edit a Quota using a wizard.
+The wizard should allow administrators to configure Cluster Quota parameters, storage Quota parameters, and assign users which will be able to consume the Quota resources.</li>
+  <li>For supporting definition of Quota per user, the Quota can be cloned.
+Such a clone procedure should copy all the Quota properties except of the name and the description.</li>
+  <li>Users assigned to the Quota would need a power user permission on the consumable resources (for example when add/edit a VM). The wizard should enable automatic addition of these permissions.
+However, no permissions will be removed when removing resources from the Quota, but an alert message will be presented as follow:</li>
+</ul>
+
+<p><em><code class="language-plaintext highlighter-rouge">Attention,</code> <code class="language-plaintext highlighter-rouge">Quota</code> <code class="language-plaintext highlighter-rouge">${QuotaName}</code> <code class="language-plaintext highlighter-rouge">resources</code> <code class="language-plaintext highlighter-rouge">have</code> <code class="language-plaintext highlighter-rouge">been</code> <code class="language-plaintext highlighter-rouge">changed.</code> <code class="language-plaintext highlighter-rouge">If</code> <code class="language-plaintext highlighter-rouge">needed,</code> <code class="language-plaintext highlighter-rouge">update</code> <code class="language-plaintext highlighter-rouge">relevant</code> <code class="language-plaintext highlighter-rouge">permissions</code> <code class="language-plaintext highlighter-rouge">accordingly</code></em><code class="language-plaintext highlighter-rouge">.</code></p>
+
+<ul>
+  <li>Note, that the user who created the Quota object would not necessarily have permissions, to consume from it.
+Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.</li>
+  <li>Since quota is an entity in data center scope, the quota main tab will be visible only when selecting a data center in the tree navigation panel.</li>
+</ul>
+
+<p>The following UI mockups contain guidelines for the different screens and wizards:</p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/Dc.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/New_quota_on_clusters_add.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/New_quotaon_clusters.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/New_quotaon_clusters_statistics.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/New_quotaon_dc.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/New_quotaon_dcadd.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/Quota.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/Statistic.png" alt="" /></p>
+
+<p><img src="/ovirt-site/previews/2968/images/wiki/Users.png" alt="" /></p>
+
+<h3 id="rest-api">REST-API</h3>
+
+<p>Enable quota_mode under data center entity (see <a href="#data-center">quota enforcement in data center</a>):</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nt">&lt;datacenter&gt;</span>
+             ...
+       <span class="nt">&lt;quota_mode&gt;</span>enabled/disabled/audit<span class="nt">&lt;/quota_mode&gt;</span>
+   <span class="nt">&lt;/datacenter&gt;</span>
+</code></pre></div></div>
+
+<p>Quota is a sub-collection of Data Center and consists limits: <code class="language-plaintext highlighter-rouge">/datacenters/{datacenter:id}/quotas</code>.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nt">&lt;quota&gt;</span>
+             <span class="nt">&lt;datacenter</span> <span class="na">href=</span><span class="s">"&lt;data-center_id&gt;"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;cluster_soft_limit_pct&gt;&lt;/cluster_soft_limit_pct&gt;</span>
+       <span class="nt">&lt;cluster_hard_limit_pct&gt;&lt;/cluster_hard_limit_pct&gt;</span>
+       <span class="nt">&lt;storage_soft_limit_pct&gt;&lt;/storage_soft_limit_pct&gt;</span>
+       <span class="nt">&lt;storage_hard_limit_pct&gt;&lt;/storage_hard_limit_pct&gt;</span>
+   <span class="nt">&lt;quota&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>link to parent data center.</li>
+  <li>soft and hard thresholds (in percentage), for enforcing quota (grace and threshould in UI).</li>
+</ul>
+
+<h4 id="quota-sub-collections">Quota sub collections</h4>
+
+<h5 id="quotastoragelimit-entity">QuotaStorageLimit entity</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nt">&lt;quotastoragelimit&gt;</span>
+             <span class="nt">&lt;quota</span> <span class="na">href=</span><span class="s">"&lt;quota_id&gt;"</span><span class="nt">/&gt;</span>
+             <span class="nt">&lt;storagedoamin</span> <span class="na">href=</span><span class="s">"&lt;storage-domain_id&gt;"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;limit&gt;</span>#<span class="nt">&lt;/limit&gt;</span>
+       <span class="nt">&lt;usage&gt;</span>#<span class="nt">&lt;/usage&gt;</span>
+   <span class="nt">&lt;quotastoragelimit&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">quota</code> - reference to quota.</li>
+  <li><code class="language-plaintext highlighter-rouge">storage_domain</code> - link to specific storage domain, no link means it’s a single global limit for all SD in DC.</li>
+  <li><code class="language-plaintext highlighter-rouge">limit</code> - the actual limit in GB (-1 unlimited).</li>
+  <li><code class="language-plaintext highlighter-rouge">usage</code> - current usage of the limit.</li>
+</ul>
+
+<h5 id="quotaclusterlimit-entity">QuotaClusterLimit entity</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nt">&lt;quotaclusterlimit&gt;</span>
+             <span class="nt">&lt;quota</span> <span class="na">href=</span><span class="s">"&lt;quota_id&gt;"</span><span class="nt">/&gt;</span>
+             <span class="nt">&lt;cluster</span> <span class="na">href=</span><span class="s">"&lt;storage-domain_id&gt;"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;vcpu_limit&gt;</span>#<span class="nt">&lt;/limit&gt;</span>
+       <span class="nt">&lt;vcpu_usage&gt;</span>#<span class="nt">&lt;/usage&gt;</span>
+       <span class="nt">&lt;memory_limit&gt;</span>#<span class="nt">&lt;/limit&gt;</span>
+       <span class="nt">&lt;memory_usage&gt;</span>#<span class="nt">&lt;/usage&gt;</span>
+   <span class="nt">&lt;quotaclusterlimit&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">quota</code> - reference to quota.</li>
+  <li><code class="language-plaintext highlighter-rouge">cluster</code> - link to specific cluster, no link means it’s a single global limit for all cluster in DC.</li>
+  <li><code class="language-plaintext highlighter-rouge">vcpu_limit</code> - limit for vcpus (-1 unlimited).</li>
+  <li><code class="language-plaintext highlighter-rouge">vcpu_usage</code> - current usage of vCPUs.</li>
+  <li><code class="language-plaintext highlighter-rouge">memory_limit</code> - limit for memory (in GB).</li>
+  <li><code class="language-plaintext highlighter-rouge">memory_usage</code> - current usage of memory.</li>
+</ul>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<ul>
+  <li>For a new/upgraded Data Center, the default operation mode will be ‘disabled’ (which means it won’t be subject to any quota restrictions).</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>When the administrator chooses to enable the Quota mechanism, He needs to reference all existing objects in Data Center to a valid quota, in Audit (/permissive/soft limit) mode, the administrator will still be allowed to work without quota, but in order to move to enforce mode, all the objects should refer to a quota.</li>
+</ul>
+
+<h3 id="user-work-flows">User work-flows</h3>
+
+<p>The Administrator Portal should allow the following operations:</p>
+
+<ul>
+  <li>View/edit/create Quota’s</li>
+  <li>View Quota per resource (User/Storage domain etc.)</li>
+</ul>
+
+<p>The Power User Portal should allow the following operations:</p>
+
+<ul>
+  <li>View Quota’s defined/used for himself</li>
+  <li>Consume Quota upon resource usage (runtime and storage)</li>
+</ul>
+
+<p>In order to assign a Quota to multiple entities (VM/Disk), one can select multiple lines from the VM/Disk grid, and use the ‘Assign Quota’ button in the main button panel (the button is available only when selecting a Quota enabled Data Center in the tree pane).</p>
+
+<h3 id="enforcement">Enforcement</h3>
+
+<ul>
+  <li>Quota runtime limitation should be enforced during VM execution.</li>
+  <li>Quota storage limitation should be enforced upon any requirement for storage allocation.</li>
+  <li>When dealing with QCOW disks (which is not pre-allocated, like templates or stateless VM) the Quota should consume the total maximum size of the disk, since it is the potential size that can be used.</li>
+  <li>In the future Quota can be extended to have enforcement for network usage, storage throughput etc.</li>
+</ul>
+
+<h3 id="notification">Notification</h3>
+
+<ul>
+  <li>
+    <p>Quota will have a threshold configured to alert when the Quota is about to be full.</p>
+
+    <ul>
+      <li>
+        <p>The threshold will be configured for the administrator and for the User. The default value for administrators is 60%, and for regular users is 75%.</p>
+      </li>
+      <li>
+        <p>When Quota reaches the threshold limit, an audit log notification should be issued to the Administrator or the User.</p>
+      </li>
+      <li>
+        <p>User audit log should be:</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><em><code class="language-plaintext highlighter-rouge">Usage</code> <code class="language-plaintext highlighter-rouge">on</code> <code class="language-plaintext highlighter-rouge">resource</code> <code class="language-plaintext highlighter-rouge">$(Resource)</code> <code class="language-plaintext highlighter-rouge">in</code> <code class="language-plaintext highlighter-rouge">Quota</code> <code class="language-plaintext highlighter-rouge">$(Quota_Name)</code> <code class="language-plaintext highlighter-rouge">has</code> <code class="language-plaintext highlighter-rouge">reached</code> <code class="language-plaintext highlighter-rouge">the</code> <code class="language-plaintext highlighter-rouge">configured</code> <code class="language-plaintext highlighter-rouge">threshold</code> <code class="language-plaintext highlighter-rouge">${Threshold_User_Percentage}.</code> <code class="language-plaintext highlighter-rouge">Please</code> <code class="language-plaintext highlighter-rouge">contact</code> <code class="language-plaintext highlighter-rouge">your</code> <code class="language-plaintext highlighter-rouge">system</code> <code class="language-plaintext highlighter-rouge">administrator.</code></em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Administrator audit log should be:
+</code></pre></div></div>
+
+<p><em><code class="language-plaintext highlighter-rouge">Usage</code> <code class="language-plaintext highlighter-rouge">on</code> <code class="language-plaintext highlighter-rouge">resource</code> <code class="language-plaintext highlighter-rouge">$(Resource)</code> <code class="language-plaintext highlighter-rouge">in</code> <code class="language-plaintext highlighter-rouge">Quota</code> <code class="language-plaintext highlighter-rouge">$(Quota_Name)</code> <code class="language-plaintext highlighter-rouge">has</code> <code class="language-plaintext highlighter-rouge">reached</code> <code class="language-plaintext highlighter-rouge">the</code> <code class="language-plaintext highlighter-rouge">configured</code> <code class="language-plaintext highlighter-rouge">threshold</code> <code class="language-plaintext highlighter-rouge">${Threshold_Admin_Percentage}.</code></em></p>
+
+<ul>
+  <li>
+    <p>Quota will also have a configurable grace percentage, for the user to have a chance to consume resources even if the Quota has exceeded the limit.</p>
+
+    <ul>
+      <li>
+        <p>The configured default grace should be 20% of the Quota resources limitations.</p>
+      </li>
+      <li>
+        <p>When user starts to use the grace percentage, a notification event should be triggered both to the administrator, and the user which exceeded this limit.</p>
+      </li>
+      <li>
+        <p>When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.</p>
+      </li>
+      <li>
+        <p>An audit log warning message should be issued to the User and the administrator:</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><em><code class="language-plaintext highlighter-rouge">Usage</code> <code class="language-plaintext highlighter-rouge">on</code> <code class="language-plaintext highlighter-rouge">resource</code> <code class="language-plaintext highlighter-rouge">$(Resource)</code> <code class="language-plaintext highlighter-rouge">in</code> <code class="language-plaintext highlighter-rouge">Quota</code> <code class="language-plaintext highlighter-rouge">$(Quota_Name)</code> <code class="language-plaintext highlighter-rouge">has</code> <code class="language-plaintext highlighter-rouge">reached</code> <code class="language-plaintext highlighter-rouge">its</code> <code class="language-plaintext highlighter-rouge">limit</code> <code class="language-plaintext highlighter-rouge">due</code> <code class="language-plaintext highlighter-rouge">to</code> <code class="language-plaintext highlighter-rouge">an</code> <code class="language-plaintext highlighter-rouge">action</code> <code class="language-plaintext highlighter-rouge">made</code> <code class="language-plaintext highlighter-rouge">by</code> <code class="language-plaintext highlighter-rouge">user</code> <code class="language-plaintext highlighter-rouge">${UserName}.</code></em></p>
+
+<h3 id="events">Events</h3>
+
+<p>The Administrator, will be able to set an email event, when Quota resources exceeded their limit.</p>
+
+<h2 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h2>
+
+<ul>
+  <li>Quota is not depended on outside features, and should be managed only in the engine core scope.</li>
+  <li>When handling plug/unplug disks or attach/detach disks, the entity will still consume resources from its configured original Quota it was created on.</li>
+</ul>
+
+<p>Affected oVirt projects:</p>
+
+<ul>
+  <li>API</li>
+  <li>CLI</li>
+  <li>Engine-core</li>
+  <li>Webadmin</li>
+  <li>User Portal</li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p><a href="/ovirt-site/previews/2968/develop/release-management/features/sla/quota.html">Features/Quota</a></p>
+
+<h2 id="future-work">Future Work</h2>
+
+<ul>
+  <li>There should be a new business entity which will represent a group of storage domains as one unit.</li>
+  <li>The new business entity will be named, Virtual Storage Group, and should be referenced in the quota as a business entity and have storage restrictions on it.</li>
+</ul>
+
+<p>Enforcement of network usage and storage throughput using the Quota entity.</p>
+
+<ul>
+  <li>Add historic Quota utilization to history database.</li>
+</ul>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<ul>
+  <li>Email Notifications.</li>
+  <li>Copy template disk, the quota will be counted only one time.</li>
+  <li>Snapshots: snapshots won’t be taken into account when checking remaining storage quota.</li>
+</ul>
+
+<h2 id="acronyms--abbreviation">Acronyms / Abbreviation</h2>
+
+<ul>
+  <li>DC: Data Center</li>
+  <li>SD: Storage Domain</li>
+  <li>UP: User Portal</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2968/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2968/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2968/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2968/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/quota.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/quota.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

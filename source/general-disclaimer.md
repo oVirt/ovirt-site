@@ -19,7 +19,7 @@ Contributors to this site are responsible for the contributions they make. By co
 
 ### General Information
 
-Please read these oVirt website terms of use ("Terms") carefully because they apply to your use of the oVirt website ([<https://ovirt.org/>](/)) ("Website"). The Terms form a binding legal agreement between you and Red Hat, Inc. ("Red Hat") concerning your use of the Website.
+Please read these oVirt website terms of use ("Terms") carefully because they apply to your use of the oVirt website ([https://ovirt.org/](/)) ("Website"). The Terms form a binding legal agreement between you and Red Hat, Inc. ("Red Hat") concerning your use of the Website.
 
 ### Your Agreement to the Terms
 
@@ -100,7 +100,7 @@ You agree to indemnify and hold harmless the Red Hat Parties (defined above) fro
 
 ### Privacy Policy
 
-Red Hat is committed to handling responsibly the information and data it collects through the Website and agrees to use your personal information in accordance with the Privacy Policy ([<http://www.redhat.com/legal/privacy_statement.html>](http://www.redhat.com/legal/privacy_statement.html)) and the Terms. The Privacy Policy is hereby incorporated by reference into these Terms. In the event of any conflict between these Terms and the Privacy Policy, the Privacy Policy shall control.
+Red Hat is committed to handling responsibly the information and data it collects through the Website and agrees to use your personal information in accordance with the Privacy Policy (<http://www.redhat.com/legal/privacy_statement.html>) and the Terms. The Privacy Policy is hereby incorporated by reference into these Terms. In the event of any conflict between these Terms and the Privacy Policy, the Privacy Policy shall control.
 
 ### Copyright Complaints; DMCA Compliance
 
@@ -157,6 +157,6 @@ The section headings of these Terms are for convenience only and have no legal o
 
 ### License and Provenance of These Terms
 
-These Terms are licensed under the Creative Commons Attribution 3.0 Unported License ([<https://creativecommons.org/licenses/by/3.0/>](https://creativecommons.org/licenses/by/3.0/)). They are based on and a modification of the Creative Commons Terms of Use ([<https://creativecommons.org/terms>](https://creativecommons.org/terms)), authored by Creative Commons Corporation.
+These Terms are licensed under the Creative Commons Attribution 3.0 Unported License (<https://creativecommons.org/licenses/by/3.0/>). They are based on and a modification of the Creative Commons Terms of Use (<https://creativecommons.org/terms>), authored by Creative Commons Corporation.
 
 These Terms of Use are effective as of July 11, 2014.

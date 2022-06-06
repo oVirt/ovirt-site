@@ -61,7 +61,14 @@ Removing this neither affects the ability to manage {virt-product-fullname} virt
 
 | Cockpit installation for Self-hosted engine| Using Cockpit to install the self-hosted engine is no longer supported. Use the command line installation.
 
-// | oVirt Scheduler Proxy | The `ovirt-scheduler-proxy` package is removed in {virt-product-fullname} 4.4 SP1.
+| oVirt Scheduler Proxy | The ovirt-scheduler-proxy package is removed in {virt-product-fullname} 4.4 SP1.
 
 |Ruby software development kit (SDK) |The Ruby SDK is no longer supported.
+
+|systemtap |The `systemtap` package is no longer supported on {hypervisor-shortname} {vername_rhv}.
+
+|Red Hat Virtualization Manager (RHVM) appliance |With this release, the Red Hat Virtualization Manager (RHVM) appliance is being retired. Following this release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.
+
+|DISA STIG for Red Hat Virtualization Host (RHVH) | The DISA STIG security profile is no longer supported for RHVH. Use the RHEL host with a DISA STIG profile instead.
+
 |===

@@ -14,12 +14,14 @@ oVirt 4.5.0 is intended for production use and is available for the following pl
 
 Engine:
 - Red Hat Enterprise Linux 8.6 (or similar)
-- CentOS Stream
+- CentOS Stream 8
 
 Hosts:
 - Red Hat Enterprise Linux 8.6 (or similar)
 - oVirt Node (based on CentOS Stream)
-- CentOS Stream
+- CentOS Stream 8
+- Red Hat Enterprise Linux 9.0 (or similar, non UEFI hosts, Tech Preview)
+- CentOS Stream 9 (non UEFI hosts, Tech Preview)
 
 See the [Release Notes for oVirt 4.5.0](/release/4.5.0/).
 
@@ -84,7 +86,7 @@ basic installation of an Enterprise Linux operating system on a physical server 
 packages are installed.
 
 {:.instructions}
-1.  Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL 8.6 Beta please follow [Installing on RHEL](/download/install_on_rhel.html) first.
+1.  Install one of the supported operating systems (CentOS, RHEL) on your Host and update it. If you are going to install on RHEL or derivatives please follow [Installing on RHEL or derivatives](/download/install_on_rhel.html) first.
     ```bash
     sudo dnf update -y
     # reboot if the kernel was updated
@@ -196,7 +198,7 @@ and [Browser Support](/download/browsers_and_mobile.html) for more information.
 ### oVirt 4.5
 
 oVirt 4.5 is shipped via CentOS repositories.
-If you are going to install on RHEL 8.6 Beta please follow [Installing on RHEL](/download/install_on_rhel.html) first.
+If you are going to install on RHEL or derivatives please follow [Installing on RHEL or derivatives](/download/install_on_rhel.html) first.
 
 In order to enable oVirt 4.5 repositories on CentOS Stream you need to execute:
 ```bash

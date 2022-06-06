@@ -16,7 +16,7 @@
 
 [IMPORTANT]
 ====
-If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
+If you are going to install on RHEL or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL or derivatives] first.
 ====
 
 
@@ -48,3 +48,10 @@ If you are using GlusterFS Storage please note that oVirt 4.5 updates Gluster to
 Please refer to link:https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade-to-10/[Upgrade procedure to Gluster 10, from Gluster 9.x, 8.x and 7.x]
 for more details.
 ====
+
+ifdef::rhv-doc[]
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
+endif::rhv-doc[]

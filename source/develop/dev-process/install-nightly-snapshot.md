@@ -5,16 +5,22 @@ authors: sandrobonazzola
 
 # Install nightly oVirt master snapshot
 
-For CentOS Stream 9 you need to run:
-
-```
-dnf copr enable -y ovirt/ovirt-master-snapshot
-dnf install -y ovirt-release-master
-```
+## CentOS Stream 8 / x86_64
 
 For CentOS Stream 8 / x86_64 you need to run:
 
 ```
 dnf copr enable -y ovirt/ovirt-master-snapshot centos-stream-8
+dnf install -y ovirt-release-master
+```
+
+## CentOS Stream 9
+
+Please note that this is still work-in-progress. Most development is done on CentOS Stream 8, for now.
+
+For CentOS Stream 9 you need to run:
+
+```
+dnf copr enable -y ovirt/ovirt-master-snapshot
 dnf install -y ovirt-release-master
 ```

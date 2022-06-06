@@ -6,7 +6,9 @@
 
 * Network File System (NFS)
 
+ifdef::ovirt-doc[]
 * GlusterFS exports
+endif::ovirt-doc[]
 //* CephFS
 
 * Other POSIX compliant file systems

@@ -116,7 +116,7 @@ Advanced Virtualization 8.3.
 The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 
 BZ#link:https://bugzilla.redhat.com/1361718[1361718]::
-This enhancement provides support for attaching an emulated NVDIMM to virtual machines that are backed by NVDIMM on the host machine. For details, see https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#conc-nvdimm-host-devices_vm_guide_administrative_tasks
+This enhancement provides support for attaching an emulated NVDIMM to virtual machines that are backed by NVDIMM on the host machine. For details, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#conc-nvdimm-host-devices_vm_guide_administrative_tasks[Virtual Machine Management Guide]
 
 == Release Notes
 
@@ -140,4 +140,4 @@ RHV-H 4.4.3 is based on RHEL 8.3, which uses a new version of Anaconda (BZ#16913
 BZ#link:https://bugzilla.redhat.com/1884146[1884146]::
 The ovirt-engine-api-explorer package has been deprecated and removed in Red Hat Virtualization Manager 4.4.3.
 Customers should use the official REST API Guide instead, which provides the same information as ovirt-engine-api-explorer.
-See https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index
+See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index[Red Hat Virtualization REST API Guide].

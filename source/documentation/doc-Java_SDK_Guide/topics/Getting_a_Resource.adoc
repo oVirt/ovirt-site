@@ -1,0 +1,18 @@
+[[Getting_a_Resource]]
+= Getting a Resource
+
+In the Java Software Development Kit, resources can be referred to via two attributes: `name`, and `UUID`. Both return an object with the specified attribute if that object exists.
+
+To get a resource using the value of the `name` attribute:
+
+[source, Java]
+----
+VM vm = api.getVMs().get("test");
+----
+
+To get a resource using the value of the `UUID` attribute:
+
+[source, Java]
+----
+VM vm = api.getVMs().get(UUID.fromString("5a89a1d2-32be-33f7-a0d1-f8b5bc974ff6"));
+----

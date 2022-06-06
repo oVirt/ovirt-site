@@ -1,11 +1,11 @@
 <title>Planning and Prerequisites Guide</title>
 <productname>Red Hat Virtualization</productname>
 <productnumber>{vernum_rhv}</productnumber>
-<subtitle>Planning the installation and configuration of Red Hat Virtualization {vernum_rhv}</subtitle>
+<subtitle>Planning the installation and configuration of Red Hat Virtualization {vername_rhv}</subtitle>
 <abstract><para>This document provides requirements, options, and recommendations for Red Hat Virtualization environments.</para>
 <!--<para>{beta-disclaimer}</para>--></abstract>
-<authorgroup id="Author_Group"> 
-	<author> 
+<authorgroup id="Author_Group">
+	<author>
 		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
 		<affiliation>
 			<orgname>

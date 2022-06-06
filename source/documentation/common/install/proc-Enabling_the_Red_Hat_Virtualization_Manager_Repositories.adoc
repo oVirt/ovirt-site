@@ -98,7 +98,7 @@ ifdef::ovirt-doc[]
 Ensure the correct repositories are enabled.
 
 For oVirt 4.5:
-If you are going to install on RHEL 8.6 Beta please follow link:/download/install_on_rhel.html[Installing on RHEL] first.
+If you are going to install on RHEL or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL or derivatives] first.
 
 [source,terminal,subs="normal"]
 ----
@@ -122,7 +122,6 @@ You can check which repositories are currently enabled by running `dnf repolist`
 ----
 # dnf module -y enable javapackages-tools
 ----
-
 endif::ovirt-doc[]
 
 
@@ -152,6 +151,12 @@ ifdef::ovirt-doc[]
 # dnf module -y enable mod_auth_openidc:2.3
 ----
 endif::ovirt-doc[]
+. Enable version 14 of the `nodejs` module:
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable nodejs:14
+----
 . Synchronize installed packages to update them to the latest available versions.
 +
 [source,terminal,subs="normal"]
@@ -166,3 +171,23 @@ For information on modules and module streams, see the following sections in _In
 * link:{URL_rhel_docs_latest}html-single/installing_managing_and_removing_user-space_components/index#selecting-a-stream-before-installation-of-packages_installing-rhel-8-content[Selecting a stream before installation of packages]
 * link:{URL_rhel_docs_latest}html-single/installing_managing_and_removing_user-space_components/index#resetting-module-streams_removing-rhel-8-content[Resetting module streams]
 * link:{URL_rhel_docs_latest}html-single/installing_managing_and_removing_user-space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content[Switching to a later stream]
+
+////
+//for later build
+ifdef::rhv-doc[]
+. Enable the `maven` module:
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable maven:3.5
+----
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+. Enable the `maven` module:
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable maven:3.6
+----
+endif::ovirt-doc[]
+////

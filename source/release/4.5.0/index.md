@@ -13,14 +13,19 @@ page_classes: releases
 
 The oVirt Project is pleased to announce the availability of the 4.5.0 release as of April 20, 2022.
 
-On April 26th, 2022 the oVirt Porject released an [oVirt Node 4.5.0.1 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/)
+On April 26th, 2022 the oVirt Project released an [oVirt Node 4.5.0.1 Async update](https://blogs.ovirt.org/2022/04/ovirt-node-4-5-0-1-async-update/)
+
+On May 13th, 2022 the oVirt Project released an [oVirt Node 4.5.0.2 Async update](https://blogs.ovirt.org/2022/05/ovirt-node-4-5-0-2-async-update/)
+
+On May 25th, 2022 the oVirt Project released an [oVirt Node 4.5.0.3 Async update](https://blogs.ovirt.org/2022/05/ovirt-node-4-5-0-3-async-update/)
+
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for CentOS Stream 8 and Red Hat Enterprise Linux 8.6 Beta (or similar).
+This release is available now for CentOS Stream 8 and Red Hat Enterprise Linux 8.6 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
 visit our [community page](/community/).
@@ -43,7 +48,7 @@ To learn about features introduced before 4.5.0, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
 > IMPORTANT
-> If you are going to install on RHEL 8.6 Beta please follow [Installing on RHEL](/download/install_on_rhel.html) first.
+> If you are going to install on RHEL 8.6 or derivatives please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
 
 
@@ -51,8 +56,17 @@ To learn about features introduced before 4.5.0, see the
 
 ### Release Note
 
+#### oVirt dependencies
+
+ - [BZ 2077794](https://bugzilla.redhat.com/show_bug.cgi?id=2077794) **Upgrading postgresql-jdbc package to 42.2.14-1 breaks ovirt-engine functionality**
+
+   oVirt Engine now requires postgresql-jdbc &gt;= 42.2.14 and spring-framework &gt;= 5.3.19
+
 #### oVirt Engine
 
+ - [BZ 2077794](https://bugzilla.redhat.com/show_bug.cgi?id=2077794) **Upgrading postgresql-jdbc package to 42.2.14-1 breaks ovirt-engine functionality**
+
+   oVirt Engine now requires postgresql-jdbc &gt;= 42.2.14 and spring-framework &gt;= 5.3.19
  - [BZ 2077387](https://bugzilla.redhat.com/show_bug.cgi?id=2077387) **Update to 4.5 failed due to failed database schema refresh**
 
    If vdc_options table contains records with NULL default value (most probably as a remains from ancient versions), the upgrade to ovirt-engine-4.5.0 fails. This bug fixes the issue, so upgrade to ovirt-engine-4.5.0 is successfull.
@@ -202,11 +216,7 @@ To learn about features introduced before 4.5.0, see the
 
  - [BZ 2066042](https://bugzilla.redhat.com/show_bug.cgi?id=2066042) **Require ansible-core instead of ansible in cockpit-ovirt**
 
-   Feature: Require ansible-core in cockpit-ovirt
-
-   Reason: oVirt 4.5 is upgraded to use ansible-core
-
-   Result: Ansible-core is used in oVirt 4.5
+   With this release, oVirt 4.5 has been upgraded to use ansible-core in cockpit-ovirt.
 
 #### imgbased
 
@@ -381,9 +391,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2002283](https://bugzilla.redhat.com/show_bug.cgi?id=2002283) **Make NumOfPciExpressPorts configurable via engine-config**
 
    It is now possible to set the number of PCI Express ports virtual machines are configured with by setting the NumOfPciExpressPorts configuration using engine-config
- - [BZ 1927985](https://bugzilla.redhat.com/show_bug.cgi?id=1927985) **[RFE] Speed up export-to-OVA on NFS by aligning loopback device offset**
-
-   Padding between files is now added when exporting a VM to OVA. The goal is to align disks in the OVA to the edge of a block of the underlying filesystem. In this case disks are written faster during the export, especially to an NFS partition.
  - [BZ 1849169](https://bugzilla.redhat.com/show_bug.cgi?id=1849169) **[RFE] add virtualCPUs/physicalCPUs ratio property to evenly_distributed policy**
 
    Feature: 
@@ -536,7 +543,7 @@ To learn about features introduced before 4.5.0, see the
 
    Result:
    The system allocates more data earlier, minimizing virtual machines pauses.
- - [BZ 2012830](https://bugzilla.redhat.com/show_bug.cgi?id=2012830) **[RFE] Use lvmdevices instead of lvm filter on RHEL 8.6/Centos Steam 9**
+ - [BZ 2012830](https://bugzilla.redhat.com/show_bug.cgi?id=2012830) **[RFE] Use lvm devices instead of lvm filter on RHEL 8.6 / CentOS Stream 9**
 
    Feature: 
    Use LVM devices instead lvm filter to manage storage devices.
@@ -640,6 +647,8 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2066084](https://bugzilla.redhat.com/show_bug.cgi?id=2066084) **vmconsole-proxy-user certificate expired - cannot access serial console**
+ - [BZ 1988496](https://bugzilla.redhat.com/show_bug.cgi?id=1988496) **vmconsole-proxy-helper.cer is not renewed when running engine-setup**
  - [BZ 2007384](https://bugzilla.redhat.com/show_bug.cgi?id=2007384) **Failed to parse 'writeRate' value xxxx to integer: For input string: xxxx**
  - [BZ 2041544](https://bugzilla.redhat.com/show_bug.cgi?id=2041544) **Admin GUI: Making selection of host while uploading disk it will immediately replace it with the first active host in the list.**
  - [BZ 2052557](https://bugzilla.redhat.com/show_bug.cgi?id=2052557) **oVirt fails to release mdev vGPU device after VM shutdown**
@@ -663,7 +672,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 1971622](https://bugzilla.redhat.com/show_bug.cgi?id=1971622) **Incorrect warning displayed: "The VM CPU does not match the Cluster CPU Type"**
  - [BZ 1979441](https://bugzilla.redhat.com/show_bug.cgi?id=1979441) **High Performance VMs always have "VM CPU does not match the cluster CPU Type" warning**
  - [BZ 1959141](https://bugzilla.redhat.com/show_bug.cgi?id=1959141) **Export to data domain of a VM that isn't running creates a snapshot that isn't removed**
- - [BZ 1988496](https://bugzilla.redhat.com/show_bug.cgi?id=1988496) **vmconsole-proxy-helper.cer is not renewed when running engine-setup**
 
 #### oVirt Engine Data Warehouse
 
@@ -700,10 +708,15 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2079835](https://bugzilla.redhat.com/show_bug.cgi?id=2079835) **Separate validity length of Apache and internal certificates**
+ - [BZ 2079890](https://bugzilla.redhat.com/show_bug.cgi?id=2079890) **renew certificates sooner before they expire**
+ - [BZ 2079901](https://bugzilla.redhat.com/show_bug.cgi?id=2079901) **allow Enroll Certificate action when host is Non Responsive**
+ - [BZ 2079799](https://bugzilla.redhat.com/show_bug.cgi?id=2079799) **issue the internal Certificate Authority for 20 years**
+ - [BZ 2074112](https://bugzilla.redhat.com/show_bug.cgi?id=2074112) **[Veeam] VM does not have a disk after restored from backup**
  - [BZ 2074916](https://bugzilla.redhat.com/show_bug.cgi?id=2074916) **Failed to upload OVA as template via upload_ova_as_vm_or_template.py**
+ - [BZ 2075435](https://bugzilla.redhat.com/show_bug.cgi?id=2075435) **Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage**
  - [BZ 2074582](https://bugzilla.redhat.com/show_bug.cgi?id=2074582) **VDSM expects from engine to translate resize_and_pin_numa policy to resize_and_pin**
  - [BZ 2075037](https://bugzilla.redhat.com/show_bug.cgi?id=2075037) **Wrong pinning in the dedicated virsh dumpxml after migration**
- - [BZ 2075435](https://bugzilla.redhat.com/show_bug.cgi?id=2075435) **Hybrid Backup - backup href has changed and causing backups to get stuck in finalizing stage**
  - [BZ 1989121](https://bugzilla.redhat.com/show_bug.cgi?id=1989121) **[CBT][Veeam] Block backup of hosted-engine vm**
  - [BZ 2069670](https://bugzilla.redhat.com/show_bug.cgi?id=2069670) **NPE when converting ISCSI disk during the copy_data action**
  - [BZ 2070536](https://bugzilla.redhat.com/show_bug.cgi?id=2070536) **The same host CPUs are assigned twice when we run dedicated&amp;none&amp;resize VMs on the same host**
@@ -795,6 +808,7 @@ To learn about features introduced before 4.5.0, see the
 
 #### oVirt Engine
 
+ - [BZ 2083230](https://bugzilla.redhat.com/show_bug.cgi?id=2083230) **engine-setup on a separate machine fails with: Command '/usr/bin/rpm' failed to execute**
  - [BZ 2075486](https://bugzilla.redhat.com/show_bug.cgi?id=2075486) **VM with Q35 UEFI and 64 CPUs is running but without boot screen, console and network.**
  - [BZ 2076474](https://bugzilla.redhat.com/show_bug.cgi?id=2076474) **OVA import: importing VM OVA  failed with "async task did not complete within the requested time - 120s"**
  - [BZ 1868372](https://bugzilla.redhat.com/show_bug.cgi?id=1868372) **collectd-virt plugin doesn't work with latest libvirt**
@@ -908,9 +922,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2017070](https://bugzilla.redhat.com/show_bug.cgi?id=2017070) **Remove manageiq role from oVirt Ansible Collection**
 
    manageiq role has been removed from oVirt Ansible Collection 2.0.0
- - [BZ 2049286](https://bugzilla.redhat.com/show_bug.cgi?id=2049286) **when upgrading all hosts in cluster, all pinned VMs are stopped, even on hosts that are skipped.**
-
-   cluster_upgrade role in ovirt-ansible-collection 2.0.0 contains a fix, that only VMs pinned to hosts, which are selected to be upgraded during cluster upgrade, are stopped during the cluster upgrade. VMs pinned to other hosts (not selected for upgrade) are left untouched
  - [BZ 2071365](https://bugzilla.redhat.com/show_bug.cgi?id=2071365) **[RFE] Require ansible-core-2.12 in ovirt-ansible-collection**
 
    oVirt Ansible Collection 2.0.0 requires ansible-core-2.12 from RHEL 8.6 and doesn't work anymore with previous ansible-2.9.z versions
@@ -951,6 +962,9 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2056021](https://bugzilla.redhat.com/show_bug.cgi?id=2056021) **[BUG]: "Enroll Certificate" operation not updating libvirt-vnc cert and key**
 
    Renewing of libvirt-vnc certificate has been omitted during Enroll Certificate flow. This has been fixed in oVirt 4.5 and also libvirt-vnc certificates are renewed during Enroll Certificate
+ - [BZ 2055136](https://bugzilla.redhat.com/show_bug.cgi?id=2055136) **virt module is not changed to the correct stream during host upgrade**
+
+   Version of virt DNF module is now correctly set according to the RHEL version the host is upgraded to during host upgrade flow.
 
 #### VDSM
 
@@ -984,6 +998,12 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2070067](https://bugzilla.redhat.com/show_bug.cgi?id=2070067) **CVE-2022-1016 - kernel: uninitialized registers on stack in nft_do_chain can cause kernel pointer leakage to UM [ovirt-4.5]**
 
    oVirt Node has been updated with newer kernel release including fixes for [CVE-2022-1016](https://bugzilla.redhat.com/show_bug.cgi?id=2066614)
+
+#### ovirt-distribution
+
+ - [BZ 2084027](https://bugzilla.redhat.com/show_bug.cgi?id=2084027) **CVE-2022-22950 - ovirt-dependencies: spring-expression: Denial of service via specially crafted SpEL expression [ovirt-4.5]**
+
+   ovirt-dependencies has been updated including Spring Framework 5.3.19 which fixes [CVE-2022-22950](https://bugzilla.redhat.com/show_bug.cgi?id=2069414)
 
 ### Enhancements
 
@@ -1073,26 +1093,6 @@ To learn about features introduced before 4.5.0, see the
    2. Cancel DB cleanup of the 'vm_backups' &amp; 'image_transfers' DB tables when the backup / image transfer finishes to allow DB &amp; API status retrieval by user.
    3. Scheduled execution of the cleanup - 15 minutes for success entries, 30 minutes for the failure. Separate values for backup &amp; for image transfer operations, an additional value for the cleanup thread rate (all 5 values are configurable).
    4. Some minor user experience improvements.
- - [BZ 1937408](https://bugzilla.redhat.com/show_bug.cgi?id=1937408) **[RFE] Add ability to import template from OVA in image_template role**
-
-   Following options has been added to ovirt_template module:
-
-    kvm:
-      - Dictionary of values to be used to connect to kvm and import a template to oVirt.
-      - Following keys can be specified within the dictionary
-
-        url:
-          - The URL to be passed to the I(virt-v2v) tool for conversion.
-          - For example I(qemu:///system). This is required parameter.
-
-        storage_domain:
-          - Specifies the target storage domain for converted disks. This is required parameter.
-
-        host:
-          - The host name from which the template will be imported.
- 
-        clone:
-          - Indicates if the identifiers of the imported template should be regenerated.
 
 #### ovirt-engine-sdk-python
 
@@ -1149,6 +1149,7 @@ To learn about features introduced before 4.5.0, see the
 #### oVirt Engine
 
  - [BZ 2073005](https://bugzilla.redhat.com/show_bug.cgi?id=2073005) **ui-extensions dialogs are flashing when they are rendered on a chrome browser**
+ - [BZ 2076465](https://bugzilla.redhat.com/show_bug.cgi?id=2076465) **OVA import: importing OVA of Q35/UEFI VM failed with 'Duplicate key nvram'**
 
 ### No Doc Update
 
@@ -1165,7 +1166,6 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 1913269](https://bugzilla.redhat.com/show_bug.cgi?id=1913269) **The allocation of vCPUs to NUMA nodes is incorrect/sub-optimal**
  - [BZ 1954041](https://bugzilla.redhat.com/show_bug.cgi?id=1954041) **Remove support for SHA-1 in ticket modules**
  - [BZ 1981079](https://bugzilla.redhat.com/show_bug.cgi?id=1981079) **Expected condition after migration is logged as an error and try to set threshold to migrated VM's disk.**
- - [BZ 1986834](https://bugzilla.redhat.com/show_bug.cgi?id=1986834) **oVirt Engine 4.4.7 using nodejs 10 appstream which went out of support in April 2021**
  - [BZ 1990298](https://bugzilla.redhat.com/show_bug.cgi?id=1990298) **[CinderLib] Block cloning a vm from vm snapshot**
  - [BZ 2003883](https://bugzilla.redhat.com/show_bug.cgi?id=2003883) **Failed to update the VFs configuration of network interface card type 82599ES and X520**
  - [BZ 2041165](https://bugzilla.redhat.com/show_bug.cgi?id=2041165) **Finalization of a backup after the VM was powered off from guest fails with non-informative response**
@@ -1201,6 +1201,7 @@ To learn about features introduced before 4.5.0, see the
 
  - [BZ 2027287](https://bugzilla.redhat.com/show_bug.cgi?id=2027287) **Explore building oVirt Node with GitHub Actions and self-hosted runners**
  - [BZ 2057958](https://bugzilla.redhat.com/show_bug.cgi?id=2057958) **oVirt Node 4.5 el9 iso doesn't boot anymore**
+ - [BZ 2074469](https://bugzilla.redhat.com/show_bug.cgi?id=2074469) **CVE-2022-1271 - gzip: arbitrary-file-write vulnerability [ovirt-4.5]**
 
 #### oVirt Engine Appliance
 
@@ -1216,7 +1217,7 @@ To learn about features introduced before 4.5.0, see the
 
 ### Contributors
 
-67 people contributed to this release:
+68 people contributed to this release:
 
 	Albert Esteve (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Aleš Musil (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-openvswitch, ovirt-provider-ovn, ovirt-release, vdsm)
@@ -1229,6 +1230,7 @@ To learn about features introduced before 4.5.0, see the
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-release)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
+	Brett Maton (Contributed to: ovirt-site)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Dominik Holler (Contributed to: ovirt-openvswitch, ovirt-release)
 	Donna DaCosta (Contributed to: ovirt-site)
@@ -1248,7 +1250,7 @@ To learn about features introduced before 4.5.0, see the
 	Jake Reynolds (Contributed to: ovirt-hosted-engine-ha)
 	Janos Bonic (Contributed to: ovirt-release)
 	Jean-Louis Dupond (Contributed to: ovirt-engine)
-	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-log-collector, ovirt-node-ng-image, ovirt-release, vdsm)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-log-collector, ovirt-node-ng-image, ovirt-release, ovirt-site, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Loïc Albertin (Contributed to: ovirt-node-ng)
 	Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)

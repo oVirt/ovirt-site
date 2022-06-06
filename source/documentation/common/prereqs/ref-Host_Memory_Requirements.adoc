@@ -6,6 +6,6 @@
 // PPG
 // Install
 
-The minimum required RAM is 2 GB. The maximum supported RAM per VM in {hypervisor-fullname} is 4 TB.
+The minimum required RAM is 2 GB. For cluster levels 4.2 to 4.5, the maximum supported RAM per VM in {hypervisor-fullname} is 6 TB. For cluster levels 4.6 to 4.7, the maximum supported RAM per VM in {hypervisor-fullname} is 16 TB.
 
 However, the amount of RAM required varies depending on guest operating system requirements, guest application requirements, and guest memory activity and usage. KVM can also overcommit physical RAM for virtualized guests, allowing you to provision guests with RAM requirements greater than what is physically present, on the assumption that the guests are not all working concurrently at peak load. KVM does this by only allocating RAM for guests as required and shifting underutilized guests into swap.

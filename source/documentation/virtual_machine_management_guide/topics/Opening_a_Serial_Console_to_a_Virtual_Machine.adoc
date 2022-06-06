@@ -9,7 +9,7 @@ You can access a virtual machine's serial console from the command line instead 
 To access the serial console of a virtual machine, the user must have *UserVmManager*, *SuperUser*, or *UserInstanceManager* permission on that virtual machine. These permissions must be explicitly defined for each user. It is not enough to assign these permissions to *Everyone*.
 ====
 
-The serial console is accessed through TCP port 2222 on the {engine-name}. This port is opened during `engine-setup` on new installations. To change the port, see link:https://github.com/oVirt/ovirt-vmconsole/blob/master/README#L116[ovirt-vmconsole/README].
+The serial console is accessed through TCP port 2222 on the {engine-name}. This port is opened during `engine-setup` on new installations. To change the port, see link:https://github.com/oVirt/ovirt-vmconsole/blob/master/README.md#customization[ovirt-vmconsole/README.md].
 
 Using a serial console requires configuring the firewall rules. For more information, see:
 * link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning[Rule "M3" in the {virt-product-fullname} {engine-name} Firewall Requirements]

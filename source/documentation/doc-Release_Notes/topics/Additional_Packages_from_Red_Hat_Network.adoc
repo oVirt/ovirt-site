@@ -12,7 +12,6 @@ The packages provided in the following repositories are not required to install 
 |`{enterprise-linux} Server` |`{enterprise-linux} 7 Server - RH Common (v.7 Server for x86_64)` |`rhel-7-server-rh-common-rpms` |Provides the `ovirt-guest-agent-common` package for {enterprise-linux} 7, which enables monitoring virtual machine resources on {enterprise-linux} 7 clients.
 |`{enterprise-linux} Server` |`Red Hat Enterprise Virt Agent (v.6 Server for x86_64)` |`rhel-6-server-rhv-4-agent-rpms` |Provides the `ovirt-guest-agent-common` package for {enterprise-linux} 6, which enables monitoring virtual machine resources on {enterprise-linux} 6 clients.
 |`{enterprise-linux} Server` |`Red Hat Enterprise Virt Agent (v.5 Server for x86_64)` |`rhel-5-server-rhv-4-agent-rpms` |Provides the `rhevm-guest-agent` package for {enterprise-linux} 5, which enables monitoring virtual machine resources on {enterprise-linux} 5 clients.
-|`{enterprise-linux} Server` |`{hypervisor-fullname} Build for RHEL 8 x86_64` |`rhvh-4-build-for-rhel-8-x86_64-rpms`​ | Provides the `rhevm-guest-agent` package for {enterprise-linux} 8 clients.
 |`Cinderlib for x86_64` |`Cinderlib option`​ | `openstack-16-cinderlib-for-rhel-8-x86_64-rpms` | Provides `cinderlib` libraries for Cinderlib support in {virt-product-fullname}.
 |`Cinderlib for IBM POWER LE`| `Cinderlib option for Power LE` | `openstack-16-cinderlib-for-rhel-8-ppc64le-rpms` | Provides `cinderlib` libraries for Cinderlib support in {virt-product-fullname}.
 |===

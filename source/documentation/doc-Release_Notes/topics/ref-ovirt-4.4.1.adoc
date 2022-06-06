@@ -646,7 +646,7 @@ The REST API in the current release adds the following updatable disk properties
 * For LUN disks: alias, description and shareable.
 * For Cinder and Managed Block disks: provisioned_size, alias, and description.
 
-See http://ovirt.github.io/ovirt-engine-api-model/4.4/#services/disk/methods/update
+See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/#_services/disk/methods/update[Services].
 
 *BZ#link:https://bugzilla.redhat.com/1080097[1080097]*
 
@@ -659,7 +659,7 @@ With this enhancement, oVirt uses NetworkManager and NetworkManager Stateful Con
 *BZ#link:https://bugzilla.redhat.com/1179273[1179273]*
 
 The VDSM's `ssl_protocol`, `ssl_excludes`, and `ssl_ciphers` config options have been removed. For details, see:
-https://www.redhat.com/en/blog/consistent-security-crypto-policies-red-hat-enterprise-linux-8
+link:https://www.redhat.com/en/blog/consistent-security-crypto-policies-red-hat-enterprise-linux-8[Consistent security by crypto policies in Red Hat Enterprise Linux 8].
 
 To fine-tune your crypto settings, change or create your crypto policy. For example, for your hosts to communicate with legacy systems that still use insecure TLSv1 or TLSv1.1, change your crypto policy to `LEGACY` with:
 
@@ -1007,7 +1007,7 @@ The current release adds support for running virtual machines on hosts that have
 *BZ#link:https://bugzilla.redhat.com/1748097[1748097]*
 
 In this release, it is now possible to edit the properties of a Floating Virtual Disk in the Storage > Disks tab of the Administration Portal. For example, the user can edit the Description, Alias, and Size of the disk.
-You can also update floating virtual disk properties using the REST API update put command described in: https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/services#services-disk-methods-update
+You can also update floating virtual disk properties using the REST API update put command described in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/_services#services-disk-methods-update[Red Hat Virtualization REST API Guide].
 
 *BZ#link:https://bugzilla.redhat.com/1749284[1749284]*
 
@@ -1020,7 +1020,7 @@ With this update, the live snapshot operation is asynchronous, so the operation 
 The current release adds a new *Insights* section to the RHV welcome or landing page. This section contains two links:
 
 - "Insights Guide" links to the "Deploying Insights in Red Hat Virtualization Manager" topic in the Administration Guide.
-- "Insights Dashboard" links to the Red Hat Insights Dashboard on the Customer Portal at https://cloud.redhat.com/insights/overview
+- "Insights Dashboard" links to the link:https://cloud.redhat.com/insights/overview[Red Hat Insights Dashboard] on the Customer Portal.
 
 *BZ#link:https://bugzilla.redhat.com/1752995[1752995]*
 
@@ -1141,10 +1141,11 @@ With this update, the maximum memory size for 64-bit virtual machines based on x
 Starting with this release, the Grafana dashboard for the Data Warehouse is installed by default to enable easy monitoring of Red Hat Virtualization metrics and logs.
 The Data Warehouse is installed by default at Basic scale resource use. To obtain the full benefits of Grafana, it is recommended to update the Data Warehouse scale to Full (to be able to view a larger data collection interval of up to 5 years).
 Full scaling may require migrating the Data Warehouse to a separate virtual machine.
-For Data Warehouse scaling instructions, see https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index#Changing_the_Data_Warehouse_Sampling_Scale
-For instructions on migrating to or installing on a separate machine, see https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index#Migrating_Data_Warehouse_to_a_Separate_Machine_DWH_admin
+For Data Warehouse scaling instructions, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index#Changing_the_Data_Warehouse_Sampling_Scale[Changing the Data Warehouse Sampling Scale]
+
+For instructions on migrating to or installing on a separate machine, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index#Migrating_Data_Warehouse_to_a_Separate_Machine[Migrating the Data Warehouse to a Seperate Machine].
 and
-https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_DWH_admin
+link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_DWH_admin[Installing and Configuring Data Warehouse on a Separate Machine]
 
 *BZ#link:https://bugzilla.redhat.com/1848381[1848381]*
 
@@ -1195,13 +1196,11 @@ Highlights and important bug fixes: Enhancements to VM snapshots caused a regres
 
 Rebase of the apache-commons-digester package to version 2.1.
 This update is a minor release with new features.
-Apache release notes are available here:
-http://commons.apache.org/proper/commons-digester/commons-digester-2.1/RELEASE-NOTES.txt
+See the link:http://commons.apache.org/proper/commons-digester/commons-digester-2.1/RELEASE-NOTES.txt[Apache release notes] for more information.
 
 *BZ#link:https://bugzilla.redhat.com/1798117[1798117]*
 
-Rebase of the apache-commons-configuration package to version 1.10. This update includes minor bug fixes and enhancements.
-Apache release notes are available here: https://commons.apache.org/proper/commons-configuration/changes-report.html#a1.10
+Rebase of the apache-commons-configuration package to version 1.10. This update includes minor bug fixes and enhancements. See the link:https://commons.apache.org/proper/commons-configuration/changes-report.html#a1.10[Apache release notes] for more information.
 
 *BZ#link:https://bugzilla.redhat.com/1799171[1799171]*
 
@@ -1289,7 +1288,7 @@ To work around this problem, you can either:
 
 *BZ#link:https://bugzilla.redhat.com/1859284[1859284]*
 
-If you create VLANs on virtual functions of SR-IOV NICs, and the VLAN interface names are longer than ten characters, the VLANs fail. This happens because the naming convention for VLAN interfaces, `parent_device.VLAN_ID`, tends to produce names that exceed the 10-character limit. The workaround for this issue is to create udev rules as described in https://bugzilla.redhat.com/show_bug.cgi?id=1854851.
+If you create VLANs on virtual functions of SR-IOV NICs, and the VLAN interface names are longer than ten characters, the VLANs fail. This happens because the naming convention for VLAN interfaces, `parent_device.VLAN_ID`, tends to produce names that exceed the 10-character limit. The workaround for this issue is to create udev rules as described in link:https://bugzilla.redhat.com/show_bug.cgi?id=1854851[1854851].
 
 *BZ#link:https://bugzilla.redhat.com/1860923[1860923]*
 
@@ -1330,7 +1329,7 @@ Previously, the cockpit-machines-ovirt package was deprecated in Red Hat Virtual
 
 *BZ#link:https://bugzilla.redhat.com/1703840[1703840]*
 
-The vdsm-hook-macspoof has been dropped from the VDSM code. If you still require the ifacemacspoof hook, you can find and fix the vnic profiles using a script similar to the one provided in the https://gerrit.ovirt.org/#/c/94613/ commit message.
+The vdsm-hook-macspoof has been dropped from the VDSM code. If you still require the ifacemacspoof hook, you can find and fix the vnic profiles using a script similar to the one provided in the link:https://gerrit.ovirt.org/#/c/94613/[commit message].
 
 *BZ#link:https://bugzilla.redhat.com/1712255[1712255]*
 
@@ -1377,7 +1376,7 @@ The current version of RHV removes libvirt packages that provided non-socket act
 *BZ#link:https://bugzilla.redhat.com/1827177[1827177]*
 
 Metrics Store support has been removed in Red Hat Virtualization 4.4.
-Administrators can use the Data Warehouse with Grafana dashboards (deployed by default with Red Hat Virtualization 4.4) to view metrics and inventory reports. See https://grafana.com/docs for information on Grafana.
+Administrators can use the Data Warehouse with Grafana dashboards (deployed by default with Red Hat Virtualization 4.4) to view metrics and inventory reports. See the link:https://grafana.com/docs[Grafana documentation] for information on Grafana.
 Administrators can also send metrics and logs to a standalone Elasticsearch instance.
 
 *BZ#link:https://bugzilla.redhat.com/1846596[1846596]*

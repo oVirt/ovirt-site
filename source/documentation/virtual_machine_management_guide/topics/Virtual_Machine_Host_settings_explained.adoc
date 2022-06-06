@@ -73,11 +73,24 @@ If the network connection breaks prior to the completion of the post-copy proces
 |*Enable migration encryption*
 a| Allows the virtual machine to be encrypted during migration.
 
-* *Cluster default (Don't encrypt)*
+* *Cluster default*
 * *Encrypt*
 * *Don't encrypt*
 |No
 
+|
+|*Parallel Migrations* a|Allows you to specify whether and how many parallel migration connections to use.
+
+* *Cluster default*: Parallel migration connections are determined by the cluster default.
+* *Disabled*: The virtual machine is migrated using a single, non-parallel connection.
+* *Auto*: The number of parallel connections is automatically determined. This settings might automatically disable parallel connections.
+* *Auto Parallel*: The number of parallel connections is automatically determined.
+* *Custom*: Allows you to specify the preferred number of parallel connections, the actual number may be lower.
+|
+|
+|*Number of VM Migration Connections* |This setting is only available when *Custom* is selected. The preferred number of custom parallel migrations, between 2 and 255.
+
+|
 |*Configure NUMA*
 |*NUMA Node Count*
 |The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.

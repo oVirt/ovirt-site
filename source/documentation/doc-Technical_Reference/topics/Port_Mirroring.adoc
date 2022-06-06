@@ -9,7 +9,7 @@ The only traffic copied is internal to one logical network on one host. There is
 Port mirroring is enabled or disabled in the vNIC profiles of logical networks, and has the following limitations:
 
 
-* Hot plugging vNICs with a profile that has port mirroring enabled is not supported.
+* Hot linking vNICs with a profile that has port mirroring enabled is not supported.
 
 * Port mirroring cannot be altered when the vNIC profile is attached to a virtual machine.
 

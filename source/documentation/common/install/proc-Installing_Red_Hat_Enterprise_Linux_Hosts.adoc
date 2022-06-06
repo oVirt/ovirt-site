@@ -7,6 +7,8 @@ A {enterprise-linux-host-fullname} is based on a standard basic installation of 
 endif::[]
 ifdef::ovirt-doc[]
 A {enterprise-linux-host-fullname} is based on a standard basic installation of {enterprise-linux} 8 on a physical server, with the `{enterprise-linux} Server` and `{virt-product-fullname}` repositories enabled.
+
+The oVirt project also provides packages for {enterprise-linux} 9 but only as a Technology Preview.
 endif::[]
 
 For detailed installation instructions, see the link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index.html[_Performing a standard {enterprise-linux-shortname} installation_].

@@ -1,0 +1,50 @@
+[[Working_with_SSL_Secure_Socket_Layer]]
+= Configuring SSL
+
+The {virt-product-fullname} {engine-name} Java SDK provides full support for HTTP over Secure Socket Layer (SSL) and the IETF Transport Layer Security (TLS) protocol using the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with the Java SDK out of the box. On earlier Java 2 versions, JSSE must be manually installed and configured.
+
+== Configuring SSL
+
+The following procedure outlines how to configure SSL using the Java SDK.
+
+*Configuring SSL*
+
+. Download the certificate used by the {virt-product-fullname} {engine-name}.
++
+[NOTE]
+====
+By default, the location of the certificate used by the {virt-product-fullname} {engine-name} is in `/etc/pki/ovirt-engine/ca.pem`.
+====
++
+. Create a truststore:
++
+[options="nowrap" subs="normal"]
+----
+$ keytool -import -alias "server.crt truststore" -file ca.crt -keystore server.truststore
+----
++
+. Specify the `trustStoreFile` and `trustStorePassword` arguments when constructing an instance of the `Api` or `Connection` object:
++
+----
+myBuilder.trustStoreFile("/home/username/server.truststore");
+myBuilder.trustStorePassword("p@ssw0rd");
+----
++
+
+[NOTE]
+====
+If you do not specify the `trustStoreFile` option when creating a connection, the Java SDK attempts to use the default truststore specified by the system variable `javax.net.ssl.trustStore`. If this system variable does not specify a truststore, the Java SDK attempts to use a truststore specified in `$JAVA_HOME/lib/security/jssecacerts` or `$JAVA_HOME/lib/security/cacerts`.
+====
+
+== Host Verification
+
+By default, the identity of the host name in the certificate is verified when attempting to open a connection to the {virt-product-fullname} {engine-name}. You can disable verification by passing the following argument when constructing an instance of the `Connection` class:
+
+----
+myBuilder.insecure(true);
+----
+
+[IMPORTANT]
+====
+This method should not be used for production systems due to security reasons, unless it is a conscious decision and you are aware of the security implications of not verifying host identity.
+====

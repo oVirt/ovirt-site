@@ -128,54 +128,98 @@ The next section explains this detailed.
 A naive mapping of a parameterized mapping of the reference to a top-level filter in a network interface in libvirt
 XML to VDSM json would look like this:
 
-| libvirt XML fragment                         | VDSM json fragment             |
-|----------------------------------------------|--------------------------------|
-| `<filterref filter='clean-traffic'>`         | `'filterref': {              ` |
-|                                              | `  'filter': 'clean-traffic',` |
-|                                              | `  'parameter': [            ` |
-|`  <parameter name='IP' value='10.0.0.1'/>`    | `    {                       ` |
-|                                              | `      'name': 'IP',         ` |
-|                                              | `      'value': '10.0.0.1'   ` |
-|                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.2'/>`    | `    {                       ` |
-|                                              | `      'name': 'IP',         ` |
-|                                              | `      'value': '10.0.0.2'   ` |
-|                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.3'/>`    | `    {                       ` |
-|                                              | `      'name': 'IP',         ` |
-|                                              | `      'value': '10.0.0.3'   ` |
-|                                              | `    },                      ` |
-|                                              | `  ]                         ` |
-|`</filterref>`                                | `},                          ` |
+<table class="bordered">
+<thead>
+<tr>
+<th>libvirt XML fragment</th><th>VDSM json fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+{% highlight xml %}
+<filterref filter='clean-traffic'>
+  <parameter name='IP' value='10.0.0.1'/>
+  <parameter name='IP' value='10.0.0.2'/>
+  <parameter name='IP' value='10.0.0.3'/>
+</filterref>
+{% endhighlight %}
+</td>
+<td>
+{% highlight json %}
+'filterref': {
+  'filter': 'clean-traffic',
+  'parameter': [
+    {'name': 'IP', 'value': '10.0.0.1' },
+    {'name': 'IP', 'value': '10.0.0.2' },
+    {'name': 'IP', 'value': '10.0.0.3' },
+  ]
+}
+{% endhighlight %}
+</td>
+</tr>
+</tbody>
+</table>
 
 The following table shows an example of the previously implemented mapping of the reference to a top-level filter of a
 network interface in libvirt XML to VDSM json:
 
-| libvirt XML fragment | VDSM json fragment|
-|-------------|-----------|
-|`<filterref filter='clean-traffic'/>`| `'filter': 'clean-traffic',`|
+<table class="bordered">
+<thead>
+<tr>
+<th>libvirt XML fragment</th><th>VDSM json fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+{% highlight xml %}
+<filterref filter='clean-traffic'/>
+{% endhighlight %}
+</td>
+<td>
+{% highlight json %}
+'filter': 'clean-traffic',
+{% endhighlight %}
+</td>
+</tr>
+</tbody>
+</table>
+
 
 Implemented is a combination of the naive mapping and the previously implemented mapping,
 which gives a backward compatible extension of the VDSM API:
 
-| libvirt XML fragment                         | VDSM json fragment             |
-|----------------------------------------------|--------------------------------|
-| `<filterref filter='clean-traffic'>`         | `  'filter': 'clean-traffic',` |
-|                                              | `  'filterParameters': [     ` |
-|`  <parameter name='IP' value='10.0.0.1'/>`   | `    {                       ` |
-|                                              | `      'name': 'IP',         ` |
-|                                              | `      'value': '10.0.0.1'   ` |
-|                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.2'/>`   | `    {                       ` |
-|                                              | `      'name': 'IP',         ` |
-|                                              | `      'value': '10.0.0.2'   ` |
-|                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.3'/>`   | `    {                       ` |
-|                                              | `      'name': 'IP',         ` |
-|                                              | `      'value': '10.0.0.3'   ` |
-|                                              | `    },                      ` |
-|                                              | `  ],                        ` |
-|`</filterref>`                                | `                            ` |
+<table class="bordered">
+<thead>
+<tr>
+<th>libvirt XML fragment</th><th>VDSM json fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+{% highlight xml %}
+<filterref filter='clean-traffic'>
+  <parameter name='IP' value='10.0.0.1'/>
+  <parameter name='IP' value='10.0.0.2'/>
+  <parameter name='IP' value='10.0.0.3'/>
+</filterref>
+{% endhighlight %}
+</td>
+<td>
+{% highlight json %}
+'filter': 'clean-traffic',
+'filterParameters': [
+      {'name': 'IP', 'value': '10.0.0.1'},
+      {'name': 'IP', 'value': '10.0.0.2'},
+      {'name': 'IP', 'value': '10.0.0.3'},
+],
+{% endhighlight %}
+</td>
+</tr>
+</tbody>
+</table>
 
 
 The new key `filterParameters` is only be considered by VDSM, if a value for `filter` is set.
@@ -217,7 +261,7 @@ The feature depends on [Network Filter for vNIC profiles][2], which is already a
 
 [nwfilter.rng][8]
 
-[8]: https://github.com/libvirt/libvirt/blob/master/docs/schemas/nwfilter.rng
+[8]: https://github.com/libvirt/libvirt/blob/v7.2.0/docs/schemas/nwfilter.rng
 
 [Reserved variables of libvirt's network filters][9]
 

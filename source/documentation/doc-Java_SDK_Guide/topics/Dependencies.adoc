@@ -1,0 +1,18 @@
+[[Dependencies]]
+= Dependencies
+
+To use the Java software development kit in Java applications, you must add the following JAR files to the class path of those applications:
+
+* *commons-beanutils.jar*
+
+* *commons-codec.jar*
+
+* *httpclient.jar*
+
+* *httpcore.jar*
+
+* *jakarta-commons-logging.jar*
+
+* *log4j.jar*
+
+The packages that provide these JAR files are installed as dependencies to the `ovirt-engine-sdk-java` package. By default, they are available in the */usr/share/java* directory on {enterprise-linux} 6 and {enterprise-linux} 7 systems.

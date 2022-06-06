@@ -1,7 +1,7 @@
 <title>Release Notes</title>
 <productname>Red Hat Virtualization</productname>
 <productnumber>{vernum_rhv}</productnumber>
-<subtitle>Release notes for Red Hat Virtualization {vernum_rhv}</subtitle>
+<subtitle>Release notes for Red Hat Virtualization {vername_rhv}</subtitle>
 <abstract><para>This document describes improvements and additions that have been implemented in Red Hat Virtualization.</para>
 <!--<para>{beta-disclaimer}</para>--></abstract>
 <authorgroup id="Author_Group">

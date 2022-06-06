@@ -1,0 +1,48 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/common/security/assembly-Securing_Red_Hat_Virtualization.adoc
+// THIS MODULE IS RHV ONLY.
+
+:_content-type: PROCEDURE
+[id='applying-the-disa-stig-profile-rhvh_{context}']
+= Applying the DISA STIG profile in {enterprise-linux-shortname} based hosts and the standalone Manager
+
+[IMPORTANT]
+====
+The DISA STIG profile is not supported for {hypervisor-fullname} ({hypervisor-shortname}).
+====
+
+When installing {virt-product-shortname}, you can select the DISA STIG profile with the GUI installer, which is the profile provided by {enterprise-linux-shortname} 8.
+
+.Procedure
+
+. On the *Installation Summary* screen, select *Security Policy*.
+image::common/images/security-policy.png[Security Policy]
+
+. On the *Security Policy* screen that opens, toggle the *Apply security policy* setting to *On*.
+
+. Select *DISA STIG for Red Hat Enterprise Linux 8*.
+
+. Click the btn:[Select profile] button. This action adds a green checkmark next to the profile and adds packages to the list of *Changes that were done or need to be done*. Follow the onscreen instructions if they direct you to make any changes.
+
+. Click *Done*.
+
+. On the *Installation Summary* screen, verify that the status of *Security Policy* is *Everything okay*.
+
+. Reboot the host.
+
+.Next steps
+
+When you log into {hypervisor-shortname}, the command line displays the following information.
+image::common/images/security-policy-rhvh-login.png[Login notice]
+
+[id="enabling-disa-stig-in-a-self-hosted-engine"]
+== Enabling DISA STIG in a self-hosted engine
+
+You can enable FIPS in a self-hosted engine during deployment when using the command-line.
+
+.Procedure
+
+. Start the self-hosted engine deployment script. See link:{URL_downstream_virt_product_docs}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[Installing {virt-product-fullname} as a self-hosted engine using the command line].
+. When the deployment script prompts `Do you want to apply an OpenSCAP security profile?`, enter `Yes`
+. When the deployment script prompts `Please provide the security profile you would like to use?`, enter `stig`

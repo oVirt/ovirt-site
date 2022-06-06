@@ -1,0 +1,15 @@
+:_content-type: CONCEPT
+[id="What_is_the_VM_Portal"]
+= What is the VM Portal?
+
+The VM Portal presents a comprehensive view of a virtual machine and allows the user to start, stop, edit, and view details of a virtual machine.
+The actions available to a user in the VM Portal are set by a system administrator.
+System administrators can delegate additional administration tasks to a user, such as:
+
+* Create, edit, and remove virtual machines
+
+* Manage virtual disks and network interfaces
+
+* Create and use snapshots to restore virtual machines to previous states
+
+Direct connection to virtual machines is facilitated with SPICE or VNC clients. Both protocols provide the user with an environment similar to a locally installed desktop. The administrator specifies the protocol used to connect to a virtual machine at the time of the virtual machine’s creation.

@@ -60,10 +60,8 @@ Set up Cinderlib integration
 [IMPORTANT]
 ====
 Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
-
 For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
 ====
-
 . Press `Enter` to configure the {engine-name} on this machine:
 +
 [source,terminal,subs="normal"]
@@ -293,6 +291,13 @@ Application mode (Both, Virt, Gluster) [Both]:
 * *Both* - offers the greatest flexibility. In most cases, select *Both*.
 * *Virt* - allows you to run virtual machines in the environment.
 * *Gluster* - only allows you to manage GlusterFS from the Administration Portal.
++
+ifdef::rhv-doc[]
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
+endif::rhv-doc[]
 
 . If you installed the OVN provider, you can choose to use the default credentials, or specify an alternative.
 +

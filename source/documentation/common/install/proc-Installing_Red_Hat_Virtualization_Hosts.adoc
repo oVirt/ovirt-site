@@ -54,7 +54,7 @@ To use the connection every time the system boots, select the *Connect automatic
 ====
 +
 Enter a host name in the *Host Name* field, and click *Done*.
-. Optionally configure *Language Support*, *Security Policy*, and *Kdump*. See link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation[Customizing your RHEL installation using the GUI] in _Performing a standard RHEL installation_ for _{enterprise-linux} 8 for more information on each of the sections in the *Installation Summary* screen.
+. Optional: Configure *Security Policy* and *Kdump*. See link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation[Customizing your RHEL installation using the GUI] in _Performing a standard RHEL installation_ for {enterprise-linux} 8 for more information on each of the sections in the *Installation Summary* screen.
 . Click *Begin Installation*.
 . Set a root password and, optionally, create an additional user while {hypervisor-shortname} installs.
 +

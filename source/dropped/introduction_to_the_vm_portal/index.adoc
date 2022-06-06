@@ -1,0 +1,21 @@
+:ovirt-doc:
+include::common/collateral_files/_attributes.adoc[]
+= Introduction to the VM Portal
+:imagesdir: images
+:context: VM_portal
+:VM_portal:
+// attributes for legal notice
+:doc-path: introduction_to_the_vm_portal
+:doc-name: Introduction to the VM Portal
+
+// Make sure Jekyll displays a guide title
+[discrete]
+= Introduction to the VM Portal
+
+include::chap-Accessing_the_VM_Portal.adoc[leveloffset=+1]
+
+include::chap-Managing_virtual_machines.adoc[leveloffset=+1]
+
+[appendix]
+include::common/collateral_files/ovirt-legal-notice.adoc[leveloffset=+1]
+// update

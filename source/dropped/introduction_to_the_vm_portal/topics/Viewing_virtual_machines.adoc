@@ -1,0 +1,40 @@
+:_content-type: PROCEDURE
+[id="Viewing_virtual_machine_details"]
+= Viewing virtual machine details
+
+*Viewing a virtual machine's details*
+
+Click the virtual machine's name in the virtual machines pane to view details of the virtual machine. The details are displayed in individual cards:
+
+.Virtual Machine Description and Status
+* *Operating System*
+* *Name*
+* *State* - For example, _Running_, _Off_, _Asleep_
+* *Description*
+
+.Details
+* *Host*
+* *IP Address*
+* *FQDN* - Virtual machine's FQDN. The guest agent must be installed on the virtual machine to retrieve this value.
+* *Cluster*
+* *Data Center*
+* *Template*
+* *CD*
+* *Cloud-Init* (*Sysprep* on Windows virtual machines) status - _On_/_Off_
+* *Boot Menu* status - _On_/_Off_
+* *Console*
+* *Optimized for* - _Desktop_/_Server_/_High Performance_
+* *CPUs*
+* *Memory*
+
+.Utilization
+* Displays utilization statistics for *CPU*, *Memory*, *Networking*, and *Disk* usage (CPU, Memory, and Networking only display values when the virtual machine is running). The Disk usage display may differ when the guest agent is installed on the virtual machine.
+
+.Snapshots
+* Displays a list of snapshots that have been saved.
+
+.Network Interfaces
+* Displays a list of network interfaces defined for this virtual machine.
+
+.Disks
+* Displays a list of disks defined for this virtual machine.

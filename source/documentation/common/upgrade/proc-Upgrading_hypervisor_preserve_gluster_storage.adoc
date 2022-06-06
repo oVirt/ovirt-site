@@ -11,6 +11,13 @@
 Environments with Gluster as storage can take a backup of Gluster storage and be restored after the {hypervisor-shortname} upgrade.
 Try to keep workloads on all virtual machines using Gluster storage as light as possible to shorten the time required to upgrade. If there are highly write-intensive workloads, expect more time to restore.
 
+ifdef::rhv-doc[]
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
+endif::rhv-doc[]
+
 
 .Prerequisites
 
@@ -92,7 +99,7 @@ Run the following commands on all the hosts, unless specified otherwise explicit
 
 .. The backup playbook is available with the latest version of {hypervisor-shortname} 4.3. If this playbook is not available, create a playbook and inventory file:
 +
- `/etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/archive_config.yml`
+ /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/archive_config.yml
 +
 Example:
 +
@@ -113,8 +120,8 @@ Example:
 ----
   Common variables
   backup_dir ->  Absolute path to directory that contains the extracted contents of the backup archive
-  nbde_setup -> Set to ‘false’ as the {virt-product-fullname} 4.3 setup doesn’t support NBDE
-  upgrade -> Default value ‘true’ . This value will make no effect with backup
+  nbde_setup -> Set to false as the {virt-product-fullname} 4.3 setup doesn’t support NBDE
+  upgrade -> Default value true . This value will make no effect with backup
 ----
 +
 .. Switch to the directory and execute the playbook.
@@ -185,7 +192,7 @@ Make sure that the installation does not format the other disks, as bricks are c
 
 .. Create the inventory file:
 
- `/etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/blacklist_inventory.yml`
+ /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/blacklist_inventory.yml
 +
 Example:
 +
@@ -314,7 +321,7 @@ and
 [source,terminal,subs="normal"]
 ----
 # cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
-ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'
+# ansible-playbook he.yml --extra-vars "@he_gluster_vars.json"
 ----
 
 .. Wait for the self-hosted engine deployment to complete.
@@ -375,7 +382,7 @@ Edit the  playbook on the newly installed host and execute it as described in th
 +
 [source,terminal,subs="normal"]
 ----
-grep -i ‘gfid mismatch’ /var/log/glusterfs/*
+grep -i "gfid mismatch" /var/log/glusterfs/*
 ----
 
 . Repeat the step _Upgrade the next host_  for all the {hypervisor-shortname} in the cluster.

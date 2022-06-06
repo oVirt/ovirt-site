@@ -4,6 +4,14 @@
 
 The storage domain for {virt-product-fullname} can comprise either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
 
+ifdef::rhv-doc[]
+[NOTE]
+====
+GlusterFS Storage is deprecated, and will no longer be supported in future releases.
+====
+endif::rhv-doc[]
+
+
 [IMPORTANT]
 ====
 Local storage domains are unsupported for disaster recovery.

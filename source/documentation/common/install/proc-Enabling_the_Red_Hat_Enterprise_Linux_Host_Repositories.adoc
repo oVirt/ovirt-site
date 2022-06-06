@@ -69,6 +69,7 @@ For {enterprise-linux} 8 hosts, little endian, on IBM POWER8 or IBM POWER9 hardw
     --enable=advanced-virt-for-rhel-8-ppc64le-rpms \
     --enable=rhel-8-for-ppc64le-appstream-rpms \
     --enable=rhel-8-for-ppc64le-baseos-rpms \
+    --enable=fast-datapath-for-rhel-8-ppc64le-rpms \
 ----
 endif::SM_localDB_deploy,SM_remoteDB_deploy[]
 

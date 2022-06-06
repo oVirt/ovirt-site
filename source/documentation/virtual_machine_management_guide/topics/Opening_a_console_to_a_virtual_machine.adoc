@@ -4,6 +4,11 @@
 
 Use Remote Viewer to connect to a virtual machine.
 
+[NOTE]
+====
+To allow other users to connect to the VM, make sure you shutdown and restart the virtual machine when you are finished using the console. Alternatively, the administrator can *Disable strict user checking* to eliminate the need for reboot between users. See xref:Virtual_Machine_Console_settings_explained[Virtual Machine Console Settings Explained] for more information.
+====
+
 .Procedure
 
 . Install Remote Viewer if it is not already installed. See xref:sect-Installing_Console_Components[Installing Console Components].

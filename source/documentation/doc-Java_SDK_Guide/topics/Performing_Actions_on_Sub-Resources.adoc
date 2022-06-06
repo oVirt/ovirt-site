@@ -1,0 +1,36 @@
+[[Performing_Actions_on_Sub-Resources]]
+= Performing Actions on Sub-Resources
+
+The following example outlines how to perform actions on sub-resources. In this example, a disk with the name 'test_Disk1' belonging to a virtual machine with the name 'test' is activated.
+
+*Performing an Action on a Sub-Resource*
+
+. Declare an instance of the resource containing the sub-resource on which the action is to be performed:
++
+[source, Java]
+----
+VM vm = api.getVMs().get("test");
+----
++
+. Declare an instance of the sub-resource:
++
+[source, Java]
+----
+VMDisk disk = vm.getDisks().get("test_Disk1");
+----
++
+. Declare action parameters to send to the sub-resource:
++
+[source, Java]
+----
+Action actionParam = new Action();
+----
++
+. Perform the action:
++
+[source, Java]
+----
+Action result = disk.activate(actionParam);
+----
++
+

@@ -19,12 +19,7 @@ The following table describes deprecated features to be removed in a future vers
 |===
 |Deprecated Feature |Details
 
-|Red Hat Virtualization Manager (RHVM) appliance |The Red Hat Virtualization Manager (RHVM) appliance is being retired. The last supported build of the RHVM appliance will be shipped with the release of Red Hat Virtualization 4.4 SP1.
-Following the Red Hat Virtualization 4.4 SP1 release, you can update the RHVM by running the dnf update command followed by engine-setup after connecting to the Content Delivery Network.
-
 |OpenStack Glance |Support for OpenStack Glance is now deprecated. This functionality will be removed in a future release.
-
-|Ruby software development kit (SDK) |The Ruby SDK is now deprecated. This functionality will be removed in a future release.
 
 |Remote engine database |A remote engine database is now deprecated, whether implemented during deployment or by migrating after deployment. This functionality will be removed from the deployment script in a future release.
 
@@ -37,7 +32,7 @@ In {virt-product-fullname} 4.4, some tasks may still require the export domain.
 | ISO domains |Use a data domain. link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Upload images to data domains].
 In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 
-| ovirt-guest-agent |The `ovirt-guest-agent` project is no longer supported. Use link:https://www.qemu.org[`qemu-guest-agent` version 2.12.0] or later.
+| ovirt-guest-agent |The ovirt-guest-agent project is no longer supported. Use link:https://www.qemu.org[`qemu-guest-agent` version 2.12.0] or later.
 
 | moVirt |Mobile Android app for {virt-product-fullname}.
 
@@ -53,6 +48,6 @@ In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 
  SSO is not supported for virtual machines running {enterprise-linux} 8 or later, or for Windows operating systems.
 
-|oVirt Scheduler Proxy | `ovirt-scheduler-proxy` is deprecated. Development has been discontinued. It will be removed in a future release.
+|GlusterFS Storage | GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 
 |===

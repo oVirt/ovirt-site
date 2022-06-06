@@ -134,7 +134,7 @@ Following diagram provides a high level overview of oVirt user interface archite
 ![](/images/wiki/Ovirt-ui-architecture.png "Ovirt-ui-architecture.png")
 
 *   [Google Web Toolkit](http://www.gwtproject.org/overview.html): Java-based SDK providing tools and APIs for building web applications
-*   [GWT Platform](https://github.com/ArcBees/GWTP): [Model-View-Presenter](http://en.wikipedia.org/wiki/Model_View_Presenter) framework following GWT [best](http://www.gwtproject.org/articles/mvp-architecture.html) [practices](http://www.gwtproject.org/articles/mvp-architecture-2.html) ([slides](http://courses.coreservlets.com/Course-Materials/pdf/ajax/GWT-MVP-Intro.pdf))
+*   [GWT Platform](https://github.com/ArcBees/GWTP): [Model-View-Presenter](http://en.wikipedia.org/wiki/Model_View_Presenter) framework following GWT [best](http://www.gwtproject.org/articles/mvp-architecture.html) [practices](http://www.gwtproject.org/articles/mvp-architecture-2.html) ([slides](http://web.archive.org/web/20190406155126/http://courses.coreservlets.com/Course-Materials/pdf/ajax/GWT-MVP-Intro.pdf))
 *   [GWT INjection](http://code.google.com/p/google-gin/wiki/GinTutorial): [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection) framework for GWT
 *   oVirt GWT-Common: module housing common components such as widgets, abstract and infra-level classes, etc.
 *   oVirt UI Plugins: feature allowing WebAdmin UI to be extended by JavaScript-based plugins at runtime

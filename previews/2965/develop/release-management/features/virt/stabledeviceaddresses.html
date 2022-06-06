@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>StableDeviceAddresses | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="StableDeviceAddresses" />
+<meta name="author" content="Eli Mesika" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2965/develop/release-management/features/virt/stabledeviceaddresses.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2965/develop/release-management/features/virt/stabledeviceaddresses.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="StableDeviceAddresses" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Eli Mesika" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eli Mesika"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"StableDeviceAddresses","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2965/images/logo.svg"},"name":"Eli Mesika"},"url":"https://ovirt.github.io/ovirt-site/previews/2965/develop/release-management/features/virt/stabledeviceaddresses.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2965/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2965/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2965/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2965/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2965/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2965/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2965/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2965/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2965/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2965/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2965/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2965/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2965/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2965/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2965/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2965/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2965/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2965/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2965/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/efe5247fc80210a9f71740ed570764bf?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/efe5247fc80210a9f71740ed570764bf?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Igor Lvovsky</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5ca66a44120157c4ed7dbd2d6cec4fd2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5ca66a44120157c4ed7dbd2d6cec4fd2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Shahar Havivi</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Kaul</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2965/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="stable-device-addresses">Stable Device Addresses</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This document describes the design for the stable Device addresses feature.</p>
+
+<p>In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually anything libvirt supports.</p>
+
+<p>Allow devices in guest virtual machines to retain the same device address allocations as other devices are added or removed from the guest configuration.
+This is particularly important for Windows guests in order to prevent warnings or reactivation when device addresses change.</p>
+
+<p>This feature is supported by libvirt and should be implemented by oVirt Engine and VDSM.</p>
+
+<p>When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine. oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Feature owner: Eli Mesika (emesika)</li>
+  <li>GUI Component owner: Not Relevant</li>
+  <li>REST Component owner: Not Relevant</li>
+  <li>Engine Component owner: Eli Mesika (emesika)</li>
+  <li>QA Owner: Yaniv Kaul (ykaul)</li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release: 3.1</li>
+  <li>Status: Done</li>
+  <li>Last updated date: Wed Mar 14 2012</li>
+  <li>Email: <a href="mailto:emesika@redhat.com">emesika@redhat.com</a></li>
+</ul>
+
+<p><strong>The general implementation concepts are:</strong></p>
+
+<ol>
+  <li>The ‘create’ verb should get a new parameter in the XML describing the device addresses of the VM.
+This parameter is optional and if not given VDSM should learn the device addresses from libvirt.</li>
+  <li>The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.</li>
+  <li>The ‘getAllVmStats’ verb should report the hash of the device addresses of the VMS.</li>
+  <li>If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
+for the full VM configuration by using the ‘list’ verb with the ‘long’ format and the list of changed VMs.</li>
+  <li>The list verb should report the device addresses as part of the VM configuration.</li>
+</ol>
+
+<p><strong>Notes:</strong></p>
+
+<ol>
+  <li>Export - the device addresses should be part of the exported configuration of the VM.</li>
+  <li>Import - the device addresses should be part of the imported configuration of the VM.</li>
+  <li>The ‘list’ verb reports the full configuration of all the VMs on the host. 
+This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
+configuration while only a small group is needed.</li>
+</ol>
+
+<h2 id="gui">GUI</h2>
+
+<p>Feature is not exposed currently to the GUI.</p>
+
+<h3 id="mockups">Mockups</h3>
+
+<h3 id="design">Design</h3>
+
+<h2 id="rest-design-modeling">REST Design (Modeling)</h2>
+
+<p>Feature is not exposed currently to the REST API.</p>
+
+<h2 id="engine">Engine</h2>
+
+<p>This section describes the backend design for this feature.</p>
+
+<h3 id="api">API</h3>
+
+<p>Old API will be supported for Clusters with Compatibility Version under 3.1 Sample:</p>
+
+<figure class="highlight">
+  <pre><code class="language-json" data-lang="json"><span class="w">     </span><span class="err">'bridge':</span><span class="w"> </span><span class="err">'rhevm,rhevm,rhevm,rhevm,rhevm,rhevm,rhevm',</span><span class="w">
+     </span><span class="err">'acpiEnable':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w">
+     </span><span class="err">'emulatedMachine':</span><span class="w"> </span><span class="err">'rhel</span><span class="mf">6.2</span><span class="err">.</span><span class="mi">0</span><span class="err">',</span><span class="w">
+     </span><span class="err">'vmId':</span><span class="w"> </span><span class="err">'</span><span class="mi">27</span><span class="err">c</span><span class="mi">61</span><span class="err">cea-f</span><span class="mi">4</span><span class="err">fd</span><span class="mi">-47e9-84e8</span><span class="err">-d</span><span class="mi">1598</span><span class="err">f</span><span class="mi">32</span><span class="err">ccc</span><span class="mi">0</span><span class="err">',</span><span class="w">
+     </span><span class="err">'transparentHugePages':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w">
+     </span><span class="err">'spiceSslCipherSuite':</span><span class="w"> </span><span class="err">'DEFAULT',</span><span class="w">
+     </span><span class="err">'cpuType':</span><span class="w"> </span><span class="err">'Nehalem',</span><span class="w">
+     </span><span class="err">'smp':</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">',</span><span class="w">
+     </span><span class="err">'macAddr':'</span><span class="mi">00</span><span class="err">:</span><span class="mi">1</span><span class="err">a:</span><span class="mi">4</span><span class="err">a:</span><span class="mi">16</span><span class="err">:</span><span class="mi">99</span><span class="err">:</span><span class="mi">42</span><span class="err">,</span><span class="mi">00</span><span class="err">:</span><span class="mi">1</span><span class="err">a:</span><span class="mi">4</span><span class="err">a:</span><span class="mi">16</span><span class="err">:</span><span class="mi">99</span><span class="err">:</span><span class="mi">43</span><span class="err">,</span><span class="mi">00</span><span class="err">:</span><span class="mi">1</span><span class="err">a:</span><span class="mi">4</span><span class="err">a:</span><span class="mi">16</span><span class="err">:</span><span class="mi">99</span><span class="err">:</span><span class="mi">44</span><span class="err">,</span><span class="mi">00</span><span class="err">:</span><span class="mi">1</span><span class="err">a:</span><span class="mi">4</span><span class="err">a:</span><span class="mi">16</span><span class="err">:</span><span class="mi">99</span><span class="err">:</span><span class="mi">45</span><span class="err">,</span><span class="mi">00</span><span class="err">:</span><span class="mi">1</span><span class="err">a:</span><span class="mi">4</span><span class="err">a:</span><span class="mi">16</span><span class="err">:</span><span class="mi">99</span><span class="err">:</span><span class="mi">46</span><span class="err">,</span><span class="mi">00</span><span class="err">:</span><span class="mi">1</span><span class="err">a:</span><span class="mi">4</span><span class="err">a:</span><span class="mi">16</span><span class="err">:</span><span class="mi">99</span><span class="err">:</span><span class="mi">47</span><span class="err">,</span><span class="mi">00</span><span class="err">:</span><span class="mi">1</span><span class="err">a:</span><span class="mi">4</span><span class="err">a:</span><span class="mi">16</span><span class="err">:</span><span class="mi">99</span><span class="err">:</span><span class="mi">48</span><span class="err">',</span><span class="w">
+     </span><span class="err">'boot':</span><span class="w"> </span><span class="err">'cdn',</span><span class="w">
+     </span><span class="err">'custom':</span><span class="w"> </span><span class="p">{}</span><span class="err">,</span><span class="w">
+     </span><span class="err">'vmType':</span><span class="w"> </span><span class="err">'kvm',</span><span class="w">
+     </span><span class="err">'memSize':</span><span class="w"> </span><span class="mi">512</span><span class="err">,</span><span class="w">
+     </span><span class="err">'smpCoresPerSocket':</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">',</span><span class="w">
+     </span><span class="err">'vmName':</span><span class="w"> </span><span class="err">'ingale',</span><span class="w">
+     </span><span class="err">'spiceMonitors':</span><span class="w"> </span><span class="err">'</span><span class="mi">4</span><span class="err">',</span><span class="w">
+     </span><span class="err">'nice':</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">',</span><span class="w">
+     </span><span class="err">'floppy':'/rhev/data-center/</span><span class="mi">4996348</span><span class="err">b</span><span class="mi">-0199-435</span><span class="err">a-b</span><span class="mi">01</span><span class="err">d</span><span class="mi">-94</span><span class="err">cdf</span><span class="mi">67</span><span class="err">d</span><span class="mi">2</span><span class="err">d</span><span class="mi">83</span><span class="err">/c</span><span class="mi">37e94</span><span class="err">b</span><span class="mi">2</span><span class="err">-b</span><span class="mi">130-49</span><span class="err">b</span><span class="mi">4</span><span class="err">-a</span><span class="mi">7</span><span class="err">aa-b</span><span class="mi">30e8</span><span class="err">a</span><span class="mi">372878</span><span class="err">/images/</span><span class="mi">11111111-1111-1111-1111-111111111111</span><span class="err">/win</span><span class="mi">2</span><span class="err">k</span><span class="mi">3</span><span class="err">.vfd',</span><span class="w">
+     </span><span class="err">'drives':</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="err">'domainID':</span><span class="w"> </span><span class="err">'</span><span class="mi">25</span><span class="err">cf</span><span class="mi">0e1</span><span class="err">e</span><span class="mi">-236</span><span class="err">a</span><span class="mi">-4889-91</span><span class="err">db</span><span class="mi">-8</span><span class="err">de</span><span class="mi">1</span><span class="err">aca</span><span class="mi">9440</span><span class="err">e'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'format':</span><span class="w"> </span><span class="err">'cow'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'bus':</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'boot':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'volumeID':</span><span class="w"> </span><span class="err">'be</span><span class="mi">4</span><span class="err">d</span><span class="mi">8588-8771-47</span><span class="err">cd</span><span class="mi">-8954</span><span class="err">-b</span><span class="mi">67566</span><span class="err">b</span><span class="mi">6</span><span class="err">bd</span><span class="mi">55</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'imageID':</span><span class="w"> </span><span class="err">'</span><span class="mi">5</span><span class="err">f</span><span class="mi">6852</span><span class="err">c</span><span class="mi">8-844</span><span class="err">c</span><span class="mi">-40</span><span class="err">ff-ac</span><span class="mi">9</span><span class="err">c-cac</span><span class="mi">5</span><span class="err">d</span><span class="mi">00</span><span class="err">cbf</span><span class="mi">1</span><span class="err">b'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'poolID':</span><span class="w"> </span><span class="err">'</span><span class="mi">4996348</span><span class="err">b</span><span class="mi">-0199-435</span><span class="err">a-b</span><span class="mi">01</span><span class="err">d</span><span class="mi">-94</span><span class="err">cdf</span><span class="mi">67</span><span class="err">d</span><span class="mi">2</span><span class="err">d</span><span class="mi">83</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'propagateErrors':</span><span class="w"> </span><span class="err">'off'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'if':</span><span class="w"> </span><span class="err">'virtio'</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="err">'domainID':</span><span class="w"> </span><span class="err">'</span><span class="mi">25</span><span class="err">cf</span><span class="mi">0e1</span><span class="err">e</span><span class="mi">-236</span><span class="err">a</span><span class="mi">-4889-91</span><span class="err">db</span><span class="mi">-8</span><span class="err">de</span><span class="mi">1</span><span class="err">aca</span><span class="mi">9440</span><span class="err">e'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'format':</span><span class="w"> </span><span class="err">'raw'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'bus':</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'boot':</span><span class="w"> </span><span class="err">'</span><span class="kc">false</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'volumeID':</span><span class="w"> </span><span class="err">'</span><span class="mi">9</span><span class="err">dd</span><span class="mi">6</span><span class="err">b</span><span class="mi">03</span><span class="err">a</span><span class="mi">-2391-4537-8247-1</span><span class="err">bd</span><span class="mi">786</span><span class="err">f</span><span class="mi">60</span><span class="err">bdc'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'imageID':</span><span class="w"> </span><span class="err">'f</span><span class="mi">6</span><span class="err">bdcc</span><span class="mi">45</span><span class="err">-bb</span><span class="mi">73-45</span><span class="err">d</span><span class="mi">1-975</span><span class="err">d</span><span class="mi">-15</span><span class="err">d</span><span class="mi">6</span><span class="err">eefe</span><span class="mi">7</span><span class="err">eda'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'poolID':</span><span class="w"> </span><span class="err">'</span><span class="mi">4996348</span><span class="err">b</span><span class="mi">-0199-435</span><span class="err">a-b</span><span class="mi">01</span><span class="err">d</span><span class="mi">-94</span><span class="err">cdf</span><span class="mi">67</span><span class="err">d</span><span class="mi">2</span><span class="err">d</span><span class="mi">83</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'propagateErrors':</span><span class="w"> </span><span class="err">'off'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'if':</span><span class="w"> </span><span class="err">'virtio'</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="err">'index':</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'domainID':</span><span class="w"> </span><span class="err">'</span><span class="mi">25</span><span class="err">cf</span><span class="mi">0e1</span><span class="err">e</span><span class="mi">-236</span><span class="err">a</span><span class="mi">-4889-91</span><span class="err">db</span><span class="mi">-8</span><span class="err">de</span><span class="mi">1</span><span class="err">aca</span><span class="mi">9440</span><span class="err">e'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'format':</span><span class="w"> </span><span class="err">'raw'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'volumeID':</span><span class="w"> </span><span class="err">'</span><span class="mi">1745</span><span class="err">eb</span><span class="mi">41-1432-422</span><span class="err">b-af</span><span class="mi">6</span><span class="err">f</span><span class="mi">-8</span><span class="err">b</span><span class="mi">8</span><span class="err">c</span><span class="mi">8</span><span class="err">dd</span><span class="mi">3365</span><span class="err">c'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'imageID':</span><span class="w"> </span><span class="err">'</span><span class="mi">8904</span><span class="err">d</span><span class="mi">42</span><span class="err">d-c</span><span class="mi">974-4055</span><span class="err">-a</span><span class="mi">973</span><span class="err">-e</span><span class="mi">6</span><span class="err">d</span><span class="mi">7</span><span class="err">eb</span><span class="mi">75e4</span><span class="err">ee'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'poolID':</span><span class="w"> </span><span class="err">'</span><span class="mi">4996348</span><span class="err">b</span><span class="mi">-0199-435</span><span class="err">a-b</span><span class="mi">01</span><span class="err">d</span><span class="mi">-94</span><span class="err">cdf</span><span class="mi">67</span><span class="err">d</span><span class="mi">2</span><span class="err">d</span><span class="mi">83</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'propagateErrors':</span><span class="w"> </span><span class="err">'off'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'if':</span><span class="w"> </span><span class="err">'ide'</span><span class="p">}]</span><span class="err">,/home/emesika/backup/db/engine/</span><span class="w">
+     </span><span class="err">'cdrom':'/rhev/data-center/</span><span class="mi">4996348</span><span class="err">b</span><span class="mi">-0199-435</span><span class="err">a-b</span><span class="mi">01</span><span class="err">d</span><span class="mi">-94</span><span class="err">cdf</span><span class="mi">67</span><span class="err">d</span><span class="mi">2</span><span class="err">d</span><span class="mi">83</span><span class="err">/c</span><span class="mi">37e94</span><span class="err">b</span><span class="mi">2</span><span class="err">-b</span><span class="mi">130-49</span><span class="err">b</span><span class="mi">4</span><span class="err">-a</span><span class="mi">7</span><span class="err">aa-b</span><span class="mi">30e8</span><span class="err">a</span><span class="mi">372878</span><span class="err">/images/</span><span class="mi">11111111-1111-1111-1111-111111111111</span><span class="err">/en_windows_</span><span class="mi">7</span><span class="err">_enterprise_x</span><span class="mi">64</span><span class="err">_dvd_x</span><span class="mi">15-70749</span><span class="err">.iso',</span><span class="w">
+     </span><span class="err">'nicModel':</span><span class="w"> </span><span class="err">'pv,pv,pv,pv,rtl</span><span class="mi">8139</span><span class="err">,e</span><span class="mi">1000</span><span class="err">,e</span><span class="mi">1000</span><span class="err">',</span><span class="w">
+     </span><span class="err">'keyboardLayout':</span><span class="w"> </span><span class="err">'en-us',</span><span class="w">
+     </span><span class="err">'kvmEnable':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w">
+     </span><span class="err">'displayNetwork':</span><span class="w"> </span><span class="err">'rhevm',</span><span class="w">
+     </span><span class="err">'soundDevice':</span><span class="w"> </span><span class="err">'ich</span><span class="mi">6</span><span class="err">',</span><span class="w">
+     </span><span class="err">'timeOffset':</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">',</span><span class="w">
+     </span><span class="err">'spiceSecureChannels':</span><span class="w"> </span><span class="err">'smain,sinputs',</span><span class="w">
+     </span><span class="err">'display':</span><span class="w"> </span><span class="err">'qxl'</span></code></pre>
+</figure>
+
+<h3 id="new-api">New API</h3>
+
+<p>New API will be used for Clusters with Compatibility Version 3.1 or upper</p>
+
+<p>VDSM will distinguish if a new format or old format was sent according to existence/absence of the ‘devices’ key</p>
+
+<p>Sample :</p>
+
+<figure class="highlight">
+  <pre><code class="language-json" data-lang="json"><span class="w">     </span><span class="err">'vmId':</span><span class="w"> </span><span class="err">'</span><span class="mi">27</span><span class="err">c</span><span class="mi">61</span><span class="err">cea-f</span><span class="mi">4</span><span class="err">fd</span><span class="mi">-47e9-84e8</span><span class="err">-d</span><span class="mi">1598</span><span class="err">f</span><span class="mi">32</span><span class="err">ccc</span><span class="mi">0</span><span class="err">',</span><span class="w">
+     </span><span class="err">'vmName':</span><span class="w"> </span><span class="err">'myVM',</span><span class="w">
+     </span><span class="err">'acpiEnable':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w"> 
+     </span><span class="err">'emulatedMachine':</span><span class="w"> </span><span class="err">'rhel</span><span class="mf">6.2</span><span class="err">.</span><span class="mi">0</span><span class="err">',</span><span class="w"> 
+     </span><span class="err">'vmType':</span><span class="w"> </span><span class="err">'kvm',</span><span class="w">
+     </span><span class="err">'memSize':</span><span class="w"> </span><span class="mi">512</span><span class="err">,</span><span class="w">
+     </span><span class="err">'smpCoresPerSocket':</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">',</span><span class="w">
+     </span><span class="err">'transparentHugePages':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w">
+     </span><span class="err">'cpuType':</span><span class="w"> </span><span class="err">'Nehalem',</span><span class="w">
+     </span><span class="err">'smp':</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">',</span><span class="w">
+     </span><span class="err">'keyboardLayout':</span><span class="w"> </span><span class="err">'en-us',</span><span class="w">
+     </span><span class="err">'kvmEnable':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w">
+     </span><span class="err">'nice':</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">',</span><span class="w">
+     </span><span class="err">'timeOffset':</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">',</span><span class="w">
+     </span><span class="err">'spiceSslCipherSuite':</span><span class="w"> </span><span class="err">'DEFAULT',</span><span class="w">
+     </span><span class="err">'spiceSecureChannels':</span><span class="w"> </span><span class="err">'smain,sinputs',</span><span class="w">
+     </span><span class="err">'displayNetwork':</span><span class="w"> </span><span class="err">'rhevm',</span><span class="w">
+     </span><span class="err">'display':</span><span class="w"> </span><span class="err">'qxl|vnc',</span><span class="w">
+     </span><span class="err">'custom':</span><span class="w"> </span><span class="p">{}</span><span class="err">,</span><span class="w">
+     </span><span class="err">'devices':</span><span class="w"> </span><span class="p">[</span><span class="w">   
+            </span><span class="p">{</span><span class="err">'type':</span><span class="w"> </span><span class="err">'disk'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'device':</span><span class="w"> </span><span class="err">'disk'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'index':</span></code></pre>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> DB Design
+
+New table vm_device:
+
+  device_id           -- Unique identifier of the VM device
+  vm_id               -- The VM/Template id (FK of vm_static)
+  type                -- The type  (for example : disk, interface etc.)
+  device              -- The device (for example : floppy, cdrom etc.)
+  address             -- The device address as a string
+  boot_order          -- The device boot order
+  spec_params         -- The device special parameters, for example ('display': 'vnc')
+  is_managed          -- Indicates if the device is managed 
+  is_plugged          -- Indicates if device is plugable
+  is_readonly         -- Indicates if device is read-only.
+</code></pre></div></div>
+
+<p>Adding a column to vm_dynamic:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  hash                -- holds the md5 like hash indicating a change 
+</code></pre></div></div>
+
+<p>Generation CRUD SPs for the new vm_device table Modify all relevant views &amp; SP to have the hash field.</p>
+
+<h3 id="db-upgrade">DB Upgrade</h3>
+
+<p>In order to prevent data duplication we will tend to upgrade some old data to new format and still be backward compatible. Examples : boot order,floppy/CDROM as a disk …</p>
+
+<h2 id="logic-design">Logic Design</h2>
+
+<p>We will keep a hash the database, the hash will enable us distinguish when a change occurs, if hash changed we have to get the new full structured data using the List (full) verb and save it to the database.</p>
+
+<h3 id="migration">Migration</h3>
+
+<p>We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get*VmStats, List) information will use VM parameters as a structured dictionary</p>
+
+<p>create/run</p>
+
+<hr />
+
+<p>Upon VM creation , send structure with empty string in missing information (addresses etc.) Otherwise, fill structure with persistent values and send it to VDSM</p>
+
+<p>update</p>
+
+<hr />
+
+<p>refreshVdsRunTimeInfo is called</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  GetAllVMStats is called 
+     For each VM info 
+       if (hash from vdsm  hash from db)
+              add VM to changed-vm-list
+     next
+  if (changed-vm-list length &gt; 0)
+     Issue a call to vdsm list command with 'long' &amp; changed-vm-list[1]
+     For each VM in list 
+        persist all changed data in db.
+        update hash for VM in db
+     next 
+  end
+</code></pre></div></div>
+
+<p>[1] New vdsm list command syntax allows that :</p>
+
+<p>vdsClient 0 list –help list</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        [view] [vms:vmId1,vmId2]
+        Lists all available machines on the specified server.
+        Optional vms list, should start with 'vms:' and follow with 'vmId1,vmId2,...'
+        Optional views:
+            "long"   all available configuration info (Default).
+            "table"  table output with the fields: vmId, vmName, Status and IP.
+            "ids"    all vmIds.
+</code></pre></div></div>
+
+<p>export</p>
+
+<hr />
+
+<p>OVFWriter should be extended to write the information retrieved in the new structure from VDSM to the OVF file. Change should be coordinated with OVF team.</p>
+
+<p>import</p>
+
+<hr />
+
+<p>OVFReader should be extended to read the information retrieved in the new structure from VDSM from the OVF file.</p>
+
+<h3 id="api-design">API Design</h3>
+
+<p>VM/vm_dynamic entities should have additional hash properties
+ New VmDevice BE and VmDeviceDAO to handle all changes on vm_device</p>
+
+<h3 id="unmanaged-device">Unmanaged Device</h3>
+
+<p>Unmanaged Device will be supported in the new format and will include all unhandled devices as sound/controller/etc and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 an unmanaged Device is not exposed to any GUI/REST API. Unmanaged devices are passed to vdsm inside a Custom property. VDSM in it turn is passing this as is for possible hook processing.</p>
+
+<h3 id="floppy--cdrom">Floppy / CDROM</h3>
+
+<p>Floppy and CDROM will be typed as disk where its subtype is ‘floppy’ or ‘cdrom’</p>
+
+<h3 id="boot-order">Boot Order</h3>
+
+<p>Boot order is a device property (just for subgroup of all available devices), We should add and persist boot order to all relevant entities</p>
+
+<h3 id="managed-and-un-managed-devices">Managed and un-managed devices</h3>
+
+<p>In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true) Each device that we are learning via vdsm is considered as un-managed device. There is one exception for this rule, we will handle a SpecialManagedDevices white-list in vdc-options. This list will include a list of <type></type><device></device> that are special. It means that even if we learn this device from vdsm, still his is_managed flag will be set to true. When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string (with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map. We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.</p>
+
+<h3 id="action-table-map">Action Table Map</h3>
+
+<p>The following table summarizes the possible scenarios when getting data from VDSM and comparing it with backend data stored in the database</p>
+
+<p>Note also that if a device is sent by backend but VDSM don’t get it from libvirt, it will not be returned by VDSM to the backend.</p>
+
+<p>Attach /Detach and Plug/Unplug will update vm_device in the appropriate commands as follows:
+ Attach /Detach - Add/Remove from vm_device
+ Plug/Unplug - Set/Reset address field of the device in vm_device</p>
+
+<h2 id="vdsm">VDSM</h2>
+
+<p>Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the full VM structure for each VM when calling List with ‘long’ format Enable to pass additional parameter specifying VM ids.</p>
+
+<h2 id="tests">Tests</h2>
+
+<p>Add tests for new VM device DAL
+ Modify all tests to track new added properties</p>
+
+<h3 id="expected-unit-tests">Expected unit-tests</h3>
+
+<p>Verify that all new Device DAO tests pass Verify that all VM DAO tests pass Verify that all Disk DAO and Disk VM mapping DAO tests pass Test both old &amp; new OVFs for export/import</p>
+
+<h3 id="pre-integration-needs">Pre-integration needs</h3>
+
+<p>This feature requires pre-integration since we have to play with devices on various VM configuration. Extensive check of Import/Export of both new &amp; old formats. In addition backward compatibility should be tested as well in order to verify that 3.0 VMs preserve and restore all properties under the new implementation.</p>
+
+<h2 id="design-check-list">Design check list</h2>
+
+<p>This section describes issues that might need special consideration when writing this feature. Better sooner than later :-)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. Installer / Upgrader
+  a. ....
+ 1. DB Upgrade
+  a. Add hash &amp; domxml new columns to vm_dynamic.
+ 1. MLA
+  a. ....
+ 1. Migrate
+  a. ...
+ 1. Compatibility levels
+  a. Supported DC versions ....
+  a. Supported Cluster versions ....
+ 1. Backward compatibility issues
+ 1. API changes (changes required in the API between components (GUI/REST  Backend  VDSM  libvirt))
+  a. Backend  VDSM (See VDSM section)
+   1. ....
+ 1. Effected features - Other features that might be effected by the change (workflow changes, utilities, ...)
+  a. .....
+ 1. Performance requirements / tests
+  a. Is there a special performance requirement for this feature?
+  a. Are there special performance tests we want to make on this feature?
+ 1. Test cases
+  a. Describe here the basic test cases for the feature
+ 1. Feature tracker bugs
+ 1. References
+  a. Bugzilla
+     https://bugzilla.redhat.com/show_bug.cgi?id=745274
+  a. Mailing lists
+  a. Other relevant wiki pages
+     http://fedoraproject.org/wiki/Features/KVM_Stable_PCI_Addresses
+  a. Other relevant technical documents
+</code></pre></div></div>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. Direct LUN considerations.
+ 2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
+ 3. Regarding boot sequence: We currently have default boot sequence in the template level. 
+    The question is how this is handled in moving from 3.0 to 3.1 and vice verse
+    a) 3.0 to 3.1 - we will have to write the logic that tries to match the conversion from current Enum BootSequence value to the new format
+    b) 3.1 to 3.0 - we have a problem here either we :
+      I) Do Best Effort and covert to the closet BootSequence Enum
+      II)or , we can store the templates default boot sequence in the vm_device table as well
+</code></pre></div></div>
+
+<h2 id="known-issues--risks">Known Issues / Risks</h2>
+
+<p>Main issues are backward compatibility and affect of new 3.1 features.</p>
+
+<h3 id="index">Index</h3>
+
+<p>Manage internal unique index for ‘iface’ virtio’ or ‘ide’ Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster When a VM that run perviously on 3.0 cluster starts to run for the first time on a 3.1 cluster, we must send its devices in the same order to VDSM, if this is not done, libvirt can not guarantee that devices will preserve their addresses.
+ We currently maintain an index only for Floppy (index 0) and CD (index 2)</p>
+
+<h3 id="hot-plug-disknic">Hot Plug Disk/Nic</h3>
+
+<p>Since managing this is via backend, we always assume that we get the exact Disk/Nic number as we know already. In case that we got a device that is not recognized (even if it a Hot Plug) , it will be handled as a unmanaged Device</p>
+
+<h3 id="optional-disk">Optional Disk</h3>
+
+<p>We should support and persist an optional disk , this is implemented as a new attribute of the disk entry in the API. Optional flag is passed as static false in 3.1</p>
+
+<h3 id="direct-lun">Direct LUN</h3>
+
+<p>Direct LUN enables adding a block device to the system either by its GUID or UUID TBD</p>
+
+<h3 id="live-snapshots">Live Snapshots</h3>
+
+<p>This 3.1 feature does not affect directly the Stable Device Addresses feature, however, it does affect the import/export and the OVF structure. Details about that will be added as part of 3.1 snapshot changes documentation.</p>
+
+<h2 id="implementation-needs">Implementation needs</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. None
+</code></pre></div></div>
+
+<h2 id="needed-documentation">Needed documentation</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. OVF Documentation
+ 2. Release Notes
+</code></pre></div></div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/stabledeviceaddresses.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/stabledeviceaddresses.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HostHardwareInfo | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="HostHardwareInfo" />
+<meta name="author" content="Sandro Bonazzola" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2966/develop/release-management/features/infra/hosthardwareinfo.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2966/develop/release-management/features/infra/hosthardwareinfo.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HostHardwareInfo" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@sandrobonazzola" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Sandro Bonazzola"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"HostHardwareInfo","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2966/images/logo.svg"},"name":"Sandro Bonazzola"},"url":"https://ovirt.github.io/ovirt-site/previews/2966/develop/release-management/features/infra/hosthardwareinfo.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2966/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2966/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2966/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2966/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2966/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2966/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2966/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2966/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2966/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2966/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2966/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2966/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2966/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2966/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2966/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2966/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2966/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2966/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2966/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2966/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2966/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2966/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2966//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2966//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2966/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2966/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2966/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2966/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2966/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Bronheim</span></p>
+                      
+                    </section>
+                  </span>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2966/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="hosts-hardware-information">Host’s Hardware Information</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>When assigning new host to oVirt engine the engine retrieves general information about the host. This information includes Vdsm version, CPU units and inc. This article describes the hardware information that the host provides to oVirt engine.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Yaniv Bronhaim (ybronhei)</li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release: 3.2</li>
+  <li>Status: Work In Progress</li>
+  <li>Last updated date: Nov 20 2012</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The following feature allows the user interface to present host’s hardware information when adding new hypervisor.
+This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getVdsHardwareInfo API method. This returns the following fields[1]:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Host Manufacturer - Manufacturer of the host's machine and hardware' vendor (e.g LENOVO)
+2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
+3. Host Product Name - ID of the product - same for all similar products (e.g 4174BH4)
+4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
+5. Host Family - Type of host's CPU - (e.g Core i5)
+6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
+</code></pre></div></div>
+
+<p>The following parameters below are suggested to be added:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>7. BIOS Revision
+8. BIOS Version
+9. BIOS is upgradable
+10. BIOS Vendor
+11. BIOS Release Date
+
+12. Processor Version
+13. Processor Core Count
+14. Processor Vendor
+15. Processor Core Enabled
+16. Processor Current Speed
+17. Processor Max Speed
+18. Processor Thread Count
+
+19. Chassis Asset Tag
+20. Chassis Serial Number
+21. Chassis Manufacturer
+
+22. Memory Serial Number
+23. Memory Total Width
+24. Memory Number of Devices
+25. Memory Manufacturer
+26. Memory Data Width
+27. Memory Error Correction Type
+28. Memory Maximum Capacity
+29. Memory Type Detail
+30. Memory Speed
+31. Memory Size
+</code></pre></div></div>
+
+<p>[1] More parameters can be added on request.</p>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>Under Hosts tab we have general information about the chosen host. In this tab you see general information that was retrieved from the host:
+<img src="/ovirt-site/previews/2966/images/wiki/General-tab.png" alt="" /></p>
+
+<p>This feature adds new host’s sub-tab called Hardware Information. Hardware Information will display the following fields:
+<img src="/ovirt-site/previews/2966/images/wiki/Bios.png" alt="" /></p>
+
+<h3 id="vdsm-flow">VDSM Flow</h3>
+
+<p>When Vdsm receives getVdsHardwareInfo request, it retrieves the hardware information by using python-dmidecode utility. After collecting and arranging the information, Vdsm delivers it to engine by xml rpc.</p>
+
+<h3 id="engine-flow">Engine Flow</h3>
+
+<p>When refreshing host’s capabilities we call to getVdsHardwareInfo, On update this information is written to the database to vds_dynamic table with other all host information.</p>
+
+<hr />
+<p>Short explanation about vds tables:</p>
+
+<p>We have 3 tables that engine works with - <code class="language-plaintext highlighter-rouge">vds_static</code>, <code class="language-plaintext highlighter-rouge">vds_dynamic</code>, <code class="language-plaintext highlighter-rouge">vds_statistics</code>, all goes to one view that is called VDS.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">vds_statistics</code> includes fields that get updated every 2 sec (highest frequency)</li>
+  <li><code class="language-plaintext highlighter-rouge">vds_static</code> includes fields that get changed threw the UI like IP, CPU Cores (that can be specified by the user) and more configurable data.</li>
+  <li><code class="language-plaintext highlighter-rouge">vds_dynamic</code> includes host information that retrieved from specific vds</li>
+</ul>
+
+<p>Hardware information needs to be part of the vds dynamic information and retrieved in constants intervals or cases by API request from host (as get capabilities)</p>
+
+<hr />
+<p>This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity.</p>
+
+<h3 id="rest-api">REST API</h3>
+
+<p>The host’s Hardware parameters is shown via engine rest API under host object as the following:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hardware_information&gt;</span>
+   <span class="nt">&lt;manufacturer&gt;</span>Dell Inc.<span class="nt">&lt;/manufacturer&gt;</span>
+   <span class="nt">&lt;version&gt;</span>01<span class="nt">&lt;/version&gt;</span>
+   <span class="nt">&lt;serial_number&gt;</span>H2CQ95J<span class="nt">&lt;/serial_number&gt;</span>
+   <span class="nt">&lt;product_name&gt;</span>OptiPlex 790<span class="nt">&lt;/product_name&gt;</span>
+   <span class="nt">&lt;uuid&gt;</span>4C4C4544-0032-4310-8051-C8C04F39354A<span class="nt">&lt;/uuid&gt;</span>
+   <span class="nt">&lt;family&gt;</span>Core i7<span class="nt">&lt;/family&gt;</span>
+<span class="nt">&lt;/hardware_information&gt;</span>
+</code></pre></div></div>
+
+<h2 id="dmidecode-output">dmidecode Output</h2>
+
+<h3 id="system-information">System Information</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dmi_type - 1
+SKU Number - Not Specified
+UUID - E03DD601-5219-11CB-BB3F-892313086897
+Family - ThinkPad T420s
+Serial Number - R9M4N4G
+Version - ThinkPad T420s
+Wake-Up Type - Power Switch
+Product Name - 4174BH4
+dmi_handle - 0x0010
+dmi_size - 27
+Manufacturer - LENOVO
+</code></pre></div></div>
+
+<h3 id="bios-information">Bios Information</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NEC PC-98 - False
+EDD is supported - True
+PC Card (PCMCIA) is supported - False
+I2O boot - False
+3.5"/2.88 MB floppy services are supported (int 13h) - False
+BIOS Revision - 1.31
+ATAPI Zip drive boot - False
+Version - 8CET51WW (1.31 )
+BIOS is upgradeable - True
+Smart battery - False
+8042 keyboard services are supported (int 9h) - True
+BIOS shadowing is allowed - True
+BIOS ROM is socketed - False
+USB legacy - True
+APM is supported - False
+AGP - False
+PNP is supported - True
+VLB is supported - False
+Vendor - LENOVO
+ISA is supported - False
+Japanese floppy for Toshiba 1.2 MB is supported (int 13h) - False
+CGA/mono video services are supported (int 10h) - True
+Serial services are supported (int 14h) - True
+5.25"/360 KB floppy services are supported (int 13h) - False
+Address - 0xe0000
+ROM Size - 8192 KB
+Function key-initiated network boot - True
+Currently Installed Language - ['en-US']
+Runtime Size - 128 KB
+Targeted content distribution - False
+3.5"/720 KB floppy services are supported (int 13h) - True
+Relase Date - 11/29/2011
+BIOS boot specification - True
+MCA is supported - False
+PCI is supported - True
+5.25"/1.2 MB floppy services are supported (int 13h) - False
+dmi_handle - 0x002d
+Selectable boot is supported - True
+dmi_type - 13
+Japanese floppy for NEC 9800 1.2 MB is supported (int 13h) - False
+EISA is supported - False
+Print screen service is supported (int 5h) - True
+Boot from PC Card (PCMCIA) is supported - False
+Printer services are supported (int 17h) - True
+ESCD support is available - False
+dmi_size - 22
+Boot from CD is supported - True
+Installed Languages - 1
+ACPI - True
+LS-120 boot - False
+IEEE 1394 boot - False
+</code></pre></div></div>
+
+<h3 id="cache-information">Cache Information</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dmi_type - 7
+System Type - Data
+Socket Designation - L2-Cache
+Installed SRAM Type - [None, None, None, None, None, 'Synchronous', None]
+Level - 2
+Socketed - False
+Associativity - 8-way Set-associative
+Supported SRAM Type - [None, None, None, None, None, 'Synchronous', None]
+Enabled - True
+Maximum Size - 256 KB
+dmi_handle - 0x0003v Installed Size - 256 KB
+Location - Internal
+Error Correction Type - Single-bit ECC
+Speed - Unknown
+Operational Mode - Write Through
+dmi_size - 19
+</code></pre></div></div>
+
+<h3 id="processor-information">Processor Information</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Upgrade - ZIF Socket
+Socket Designation - CPU
+L2 Cache Handle - 0x0003
+Version - Intel(R) Core(TM) i5-2540M CPU @ 2.60GHz
+Type - Central Processor
+Core Count - 2
+Status - Populated:Enabled
+Vendor - Intel(R) Corporation
+Core Enabled - 2
+dmi_handle - 0x0001
+External Clock - 100
+Serial Number - Not Supported by CPU
+Current Speed - 2600
+dmi_size - 42
+L3 Cache Handle - 0x0004
+Part Number - None
+Asset Tag - None
+Signature - None
+L1 Cache Handle - 0x0002
+ID - a7 06 02 00 ff fb eb bf
+dmi_type - 4
+Family -
+Characteristics - ['64-bit capable']
+Voltage - 1.2 V
+Max Speed - 2600
+Thread Count - 4
+</code></pre></div></div>
+
+<h3 id="chassis-information">Chassis Information</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dmi_type - 3
+Type - Notebook
+Power Supply State - Unknown
+Thermal State - Unknown
+Asset Tag - RH0003183
+Serial Number - R9M4N4G
+Version - Not Available
+Lock - Not Present
+Security Status - Unknown
+Boot-Up State - Unknown
+dmi_handle - 0x0012
+dmi_size - 21
+Manufacturer - LENOVO
+</code></pre></div></div>
+
+<h3 id="memory-information">Memory Information</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Use - System Memory
+Location - System Board Or Motherboard
+Type -
+Array Handle - 0x0005
+Number Of Devices - 2
+Serial Number - 340F5D7F
+Total Width - 64 bit
+Form Factor - SODIMM
+dmi_size - 15
+Manufacturer - Kingston
+Data Width - 64 bit
+Part Number - 99U5428-046.A00LF
+AssetTag - 9876543210
+Bank Locator - BANK 2
+Error Correction Type - None
+dmi_handle - 0x0005
+dmi_type - 16
+Maximum Capacity - 16 GB
+Set - None
+Error Information Handle - Not Provided
+Locator - ChannelB-DIMM0
+Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, None, None, None]
+Speed - 1333 MHz (0.8ns)
+Size - 4096 MB
+</code></pre></div></div>
+
+<p><a href="/ovirt-site/previews/2966/develop/release-management/features/">HostHardwareInfo</a> <a href="/ovirt-site/previews/2966/develop/release-management/releases/3.2/feature.html">HostHardwareInfo</a></p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2966/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2966/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2966/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2966/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/hosthardwareinfo.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/hosthardwareinfo.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

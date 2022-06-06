@@ -30,12 +30,13 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of {{ author.name }}">
                   </div>
                   <div class="byline">
                     <section class="entry-meta">
                       {% if author.twitter %}
-                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }}">{{ author.name }}</a></span></p>
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }}">{{ author.name }}</a></span></p>
                       {% else %}
                         <p><span class="author vcard">{{ author.name }}</span></p>
                       {% endif %}

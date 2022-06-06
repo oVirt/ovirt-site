@@ -761,7 +761,7 @@ Feel free to submit patches that introduce new plugins (or update existing ones)
 
 ### oVirt Monitoring UI Plugin
 
-This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga](https://www.icinga.org/) monitoring solution into oVirt.
+This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga](https://icinga.com/) monitoring solution into oVirt.
 
 *   Author: René Koch <<r.koch@ovido.at>></<r.koch@ovido.at>>
 *   Project web site: <https://github.com/monitoring-ui-plugin/monitoring-ui-plugin/wiki>

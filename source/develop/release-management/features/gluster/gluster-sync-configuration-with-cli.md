@@ -15,7 +15,7 @@ Providing support for automatically sync the changes made through Gluster CLI in
 ## Owner
 
 *   Feature owner: Shireesh Anjal <sanjal@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
+    -   GUI Component owner: Kanagaraj Mayilsamy
     -   Engine Component owner: Shireesh Anjal <sanjal@redhat.com>
     -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
 

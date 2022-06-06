@@ -17,7 +17,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 ## Owner
 
 *   Feature owner: Sahina Bose <sabose@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
+    -   GUI Component owner: Kanagaraj Mayilsamy
     -   Engine Component owner: Sahina Bose <sabose@redhat.com>
     -   VDSM component owner: Balamurugan Arumugam <barumuga@redhat.com>
     -   REST component owner: Sahina Bose <sabose@redhat.com>

@@ -20,7 +20,7 @@ To read more about gluster hooks <https://docs.gluster.org/en/latest/Administrat
 ## Owner
 
 *   Feature owner: Shireesh Anjal <sanjal@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
+    -   GUI Component owner: Kanagaraj Mayilsamy
     -   Engine Component owner: Sahina Bose<sabose@redhat.com>
     -   VDSM Component owner: Balamurugan Arumugam <barumuga@redhat.com>
     -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>

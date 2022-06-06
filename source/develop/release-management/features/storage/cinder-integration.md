@@ -15,7 +15,7 @@ OpenStack Cinder(/ceph) Integration
 ## Owner
 
 *   Daniel Erez (DanielErez) (<derez@redhat.com>)
-*   Maor Lipchuk (MaorLipchuk) (<mlipchuk@redhat.com>)
+*   Maor Lipchuk (MaorLipchuk)
 *   Nir Soffer (NirSoffer) (<nsoffer@redhat.com>)
 *   Federico Simoncelli (FedericoSimoncelli) (<fsimonce@redhat.com>)
 

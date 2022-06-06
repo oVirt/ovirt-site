@@ -26,8 +26,6 @@ The shared raw disk feature enables to share disks between multiple VMs in the D
 
     * QA Owner: Yaniv Kaul (ykaul)
 
-*   Email: mlipchuk@redhat.com
-
 
 ### Detailed Description
 

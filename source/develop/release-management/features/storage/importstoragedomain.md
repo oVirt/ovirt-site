@@ -31,7 +31,6 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 ## Owner
 
 * Maor Lipchuk
-* Email <mlipchuk@redhat.com>
 
 ## Current status
 

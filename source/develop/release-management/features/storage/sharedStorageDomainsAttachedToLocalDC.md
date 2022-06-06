@@ -16,7 +16,6 @@ This feature essentially re-defines a local DC as a DC that's allowed to have ju
 ## Owner
 
 - Name: [Maor Lipchuk](https://github.com/maorlipchuk)
-- Email: <mlipchuk@redhat.com>
 
 ## Detailed Description
 

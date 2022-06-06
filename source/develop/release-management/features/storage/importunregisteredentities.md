@@ -23,7 +23,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### Owner
 
-* Maor Lipchuk (<mlipchuk@redhat.com>)
+* Maor Lipchuk
 
 ### Current status
 

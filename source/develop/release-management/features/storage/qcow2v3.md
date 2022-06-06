@@ -16,8 +16,6 @@ many improvements like zero clusters, and performance improvement.
 ## Owner
 
 - Name: [Maor Lipchuk](https://github.com/maorlipchuk)
-- Email: <mlipchuk@redhat.com>
-
 
 ## Detailed Description
 

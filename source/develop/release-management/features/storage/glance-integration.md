@@ -68,5 +68,5 @@ Import and Export entire VMs with multiple disks and snapshots using the OVA con
 
 ## External References
 
-*   [<http://github.com/woorea/openstack-java-sdk>](http://github.com/woorea/openstack-java-sdk)
-*   [<http://docs.openstack.org/developer/glance>](http://docs.openstack.org/developer/glance)
+*   <http://github.com/woorea/openstack-java-sdk>
+*   <http://docs.openstack.org/developer/glance>

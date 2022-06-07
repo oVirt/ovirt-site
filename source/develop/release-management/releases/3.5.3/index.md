@@ -12,9 +12,10 @@ authors:
 
 The oVirt Project is pleased to announce the availability of oVirt 3.5.3 release as of June 15th, 2015.
 
-oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS Linux 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
+oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
+This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS Linux 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). 
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/).
 
 ## Install / Upgrade from previous versions
 
@@ -22,7 +23,9 @@ To find out more about features which were added in previous oVirt releases, che
 
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+```console
+# yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+```
 
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
@@ -32,9 +35,10 @@ If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 o
 
 For upgrading now you just need to execute:
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
-
+```console
+# yum update "ovirt-engine-setup*"
+# engine-setup
+```
 
 
 ### oVirt Live
@@ -79,7 +83,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ## CVE Fixed
 
-*   [CVE-2015-3456](https://access.redhat.com/security/cve/CVE-2015-3456) - qemu: fdc: out-of-bounds fifo buffer memory access; also known as [VENOM Vulnerability](http://venom.crowdstrike.com/)
+*   [CVE-2015-3456](https://access.redhat.com/security/cve/CVE-2015-3456) - qemu: fdc: out-of-bounds fifo buffer memory access; also known as [VENOM Vulnerability](http://web.archive.org/web/20200817052936/https://venom.crowdstrike.com/)
     -   EL7: **qemu-kvm-ev-2.1.2-23.el7_1.3**
     -   EL6: **qemu-kvm-rhev-0.12.1.2-2.448.el6_6.3**
     -   Fedora 21: [qemu-2.1.3-7.fc21](http://koji.fedoraproject.org/koji/buildinfo?buildID=636796)

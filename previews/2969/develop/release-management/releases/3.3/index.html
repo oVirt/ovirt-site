@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.3 release notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.3 release notes" />
+<meta name="author" content="Alon Bar-Lev" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2969/develop/release-management/releases/3.3/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2969/develop/release-management/releases/3.3/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.3 release notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alon Bar-Lev" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Alon Bar-Lev"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.3 release notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2969/images/logo.svg"},"name":"Alon Bar-Lev"},"url":"https://ovirt.github.io/ovirt-site/previews/2969/develop/release-management/releases/3.3/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2969/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2969/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2969/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2969/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2969/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2969/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2969/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2969/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2969/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2969/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2969/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2969/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2969/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2969/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2969/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2969/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2969/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2969/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2969/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2969/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2969/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2969/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2969//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2969//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2969/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2969/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2969/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2969/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Alon Bar-Lev">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alon Bar-Lev</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dave Neary">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dave Neary</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Doron Fediuck">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2cd558daf047b198cf2152940ec6a812?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2cd558daf047b198cf2152940ec6a812?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Federico Simoncelli">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Federico Simoncelli</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7f1cc17ac58177d19921783d200a0604?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7f1cc17ac58177d19921783d200a0604?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Jason Brooks">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jason Brooks</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Lior Vernia">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Lior Vernia</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6300746c0155ec4eddef82e6a3669433?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6300746c0155ec4eddef82e6a3669433?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Mike Burns">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mike Burns</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bd5405d06a99910f92f6c9f96048a332?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bd5405d06a99910f92f6c9f96048a332?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Michael Pasternak">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Pasternak</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Michael Kolesnic">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Kolesnic</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Yair Zaslavsky">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yair Zaslavsky</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-33-release-notes">oVirt 3.3 release notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of its fourth formal release, oVirt 3.3.</p>
+
+<p>oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.</p>
+
+<p>To find out more about features which were added in previous oVirt releases, check out the <a href="/ovirt-site/previews/2969/develop/release-management/releases/3.2/index.html">oVirt 3.2 release notes</a> and <a href="/ovirt-site/previews/2969/develop/release-management/releases/3.1/index.html">oVirt 3.1 release notes</a>. For a general overview of oVirt, read <a href="/ovirt-site/previews/2969/develop/release-management/releases/3.0/feature-guide.html">the oVirt 3.0 feature guide</a> and the <a href="/ovirt-site/previews/2969/community/about.html">about oVirt</a> page.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-33-release-notes" id="markdown-toc-ovirt-33-release-notes">oVirt 3.3 release notes</a>    <ol>
+      <li><a href="#whats-new-in-33" id="markdown-toc-whats-new-in-33">What’s New in 3.3?</a>        <ol>
+          <li><a href="#openstack-integration" id="markdown-toc-openstack-integration">OpenStack Integration</a></li>
+          <li><a href="#enhanced-gluster-support" id="markdown-toc-enhanced-gluster-support">Enhanced Gluster Support</a></li>
+          <li><a href="#more-extensibility-options" id="markdown-toc-more-extensibility-options">More Extensibility Options</a></li>
+          <li><a href="#other-enhancements" id="markdown-toc-other-enhancements">Other Enhancements</a>            <ol>
+              <li><a href="#virt" id="markdown-toc-virt">Virt</a></li>
+              <li><a href="#infra" id="markdown-toc-infra">Infra</a></li>
+              <li><a href="#networking" id="markdown-toc-networking">Networking</a></li>
+              <li><a href="#storage" id="markdown-toc-storage">Storage</a></li>
+              <li><a href="#sla--scheduling" id="markdown-toc-sla--scheduling">SLA &amp; Scheduling</a></li>
+              <li><a href="#node" id="markdown-toc-node">Node</a></li>
+              <li><a href="#integration" id="markdown-toc-integration">Integration</a></li>
+              <li><a href="#ux-enhancements" id="markdown-toc-ux-enhancements">UX Enhancements</a></li>
+            </ol>
+          </li>
+          <li><a href="#deep-dives" id="markdown-toc-deep-dives">Deep dives</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="whats-new-in-33">What’s New in 3.3?</h2>
+
+<h3 id="openstack-integration">OpenStack Integration</h3>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/network/osn-integration.html">Neutron Integration</a> adds support for using OpenStack Neutron as an external network provider, which can provide networking capabilities for consumption by oVirt hosts and/or virtual machines. For more information, watch this deep dive <a href="http://www.youtube.com/watch?v=S16AfFylcHk">presentation on oVirt / Neutron integration</a>.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/glance-integration.html">Glance Integration</a> allows oVirt users to consume, export and share images with Glance. These images are exposed as oVirt Templates. For more information, watch this deep dive <a href="http://www.youtube.com/watch?v=_Nyi1xyiQnY">presentation on oVirt / Glance integration</a>.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/virt/cloud-init-integration.html">Cloud-Init Integration</a> facilitates provisioning of virtual machines by enabling oVirt to perform initial setup (including networking, SSH keys, timezone, user data injection, and more) of guest instances configured with cloud-init.</li>
+</ul>
+
+<h3 id="enhanced-gluster-support">Enhanced Gluster Support</h3>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/glusterfs-storage-domain.html">GlusterFS Storage Domain</a> is a new storage domain and data center type which uses gluster as the storage backend. VMs created using this domain take advantage of QEMU’s gluster block backend for improved performance.
+    <ul>
+      <li>
+        <div class="alert alert-info">
+          <p>This feature is currently only available on Fedora 19. We’re working on a solution for EL6 and hope to have it available soon.</p>
+
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/gluster/gluster-hooks-management.html">Gluster Hooks Management</a> allows users to manage Gluster hooks (Volume lifecycle extensions) from oVirt Engine. Read more about Gluster hooks at the <a href="http://www.gluster.org">Gluster project site</a>.</li>
+</ul>
+
+<h3 id="more-extensibility-options">More Extensibility Options</h3>
+
+<ul>
+  <li>oVirt Scheduler API allows users to implement their own private optimized schedulers y extending or modifying the default oVirt scheduler.
+    <ul>
+      <li>
+        <div class="alert alert-info">
+          <p>This feature is not included in oVirt 3.3, but will be added in an upcoming release during the 3.3 release cycle</p>
+
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/network/device-custom-properties.html">Device Custom Properties</a> allow administrators to define special parameters per VM virtual device, and pass them down to vdsm hooks, as has previously been possible on a per VM basis. Device custom properties will allow, for instance, for users to connect vNICs to non-standard host networks.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/infra/externaltasks.html">External Tasks Support</a> makes it possible for a third-party plugin to inject tasks into oVirt Engine using the REST API, to change task statuses and allow them to be tracked from the UI.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/backup-restore-api-integration.html">Backup-Restore API Integration</a> provides the ability for ISVs to backup and restore VMs. A new set of APIs will be introduced in oVirt to facilitate taking full VM backup, as well as full or file level restore of VMs.</li>
+  <li>Support for Branding the oVirt Management Console</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/infra/java-sdk.html">Java-SDK</a> is an auto-generated software development kit for the oVirt engine api.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/disk-hooks.html">Disk Hooks</a> adds VDSM hooking points before and after disk hot plug and hot unplug events, enabling the running of guest-level operations on the disks when they’re plugged/unplugged.</li>
+</ul>
+
+<h3 id="other-enhancements">Other Enhancements</h3>
+
+<h4 id="virt">Virt</h4>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/virt/ram-snapshots.html">RAM Snapshots</a> enable users to save (and later restore) the memory state of a VM when creating a live snapshot.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/virt/novnc-console.html">noVNC console</a> integration makes it possible to connect to VM consoles using the HTML 5 VNC client called “noVNC” in browsers supporting websockets and the HTML5 postMessage function (webkit browsers, Firefox, IE &gt; 10).</li>
+</ul>
+
+<h4 id="infra">Infra</h4>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/infra/supervdsm-service.html">SuperVDSM Service</a> enables Vdsm to be run as an unprivileged daemon, thereby simplifying the handling of crashes and the process of re-establishing communication between Vdsm and Supervdsm after failures.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/infra/ssh-abilities.html">Public Key SSH Authentication</a> is now available as a means of conducting authentication for host-deploy and node upgrade operations, supplementing the existing user/password mechanism.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/infra/java-sdk.html">Java SDK (Software Development Kit)</a> is now available.</li>
+</ul>
+
+<h4 id="networking">Networking</h4>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/network/migration-network.html">Migration Networks</a> enable administrators to assign networks for carrying migration data.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/network/normalized-ovirtmgmt-initialization.html">Normalized ovirtmgmt Initialization</a> involves generating the ovirtmgmt network based on DC definitions using the setupNetworks function, rather than during new host deployment.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/network/networkreloaded.html">Feature/NetworkReloaded</a> reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/network/multiple-gateways.html">Multiple Gateways</a> allows users to define a gateway per logical network, where, previously, the gateway defined on the ovirtmgmt logical network had been treated as the host-wide default gateway.</li>
+</ul>
+
+<h4 id="storage">Storage</h4>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/online-virtual-drive-resize.html">Online Virtual Drive Resize</a> allows oVirt users to resize virtual disks while they are in use by one or more virtual machines without the need of pausing, hibernating or rebooting the guests.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/virtio-scsi.html">Virtio-SCSI</a> is a new para-virtualized SCSI controller device which provides the same performance as the virtio-blk device, while improving scalability, supporting standard SCSI command sets and device naming, allowing for SCSI device passthrough.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/read-only-disk.html">Read Only Disk</a> enables users to assign a read-only property to the VM-Disk relationship when adding/attaching a disk to a vm through the oVirt engine.</li>
+  <li>Manage Storage Connections adds the ability to add, edit and delete storage connections. The new connection details must match those of the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/moveascopyanddelete.html">MoveAsCopyAndDelete</a> splits disk moving operations in oVirt into separate copy and delete operations, where, previously, they had been carried out by vdsm in a single operation. This change improves availability and error-handling.</li>
+  <li>Allow resign/force re-election of SPM</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/storage/diskalignment.html">Disks Block Alignment</a> provides a way in oVirt to find virtual disks with misaligned partitions.</li>
+</ul>
+
+<h4 id="sla--scheduling">SLA &amp; Scheduling</h4>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/sla/ovirtscheduler.html">Features/oVirt_scheduler</a> Wrapping scheduling functionalities as a separate package</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/sla/watchdog-engine-support.html">Watchdog Engine Support</a> adds support for watchdog devices to oVirt Engine.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/sla/network-qos.html">Network QoS</a> allows users to limit the inbound and outbound network traffic at the virtual NIC level.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/sla/trusted-compute-pools.html">Trusted Compute Pools</a> provide a way for administrators to deploy VMs on trusted hosts.</li>
+</ul>
+
+<h4 id="node">Node</h4>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/node/universal-image.html">Universal Node Image</a> converts the oVirt Node image into a generic image that can be customized for many different projects using Node Plugins.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/vdsm/vdsm-plugin.html">Node VDSM Plugin</a> converts the generic oVirt Node image into an image customized use with oVirt Engine.</li>
+  <li>oVirt Node works on a different asynchronous release schedule from the rest of oVirt.
+    <ul>
+      <li>At the time of the oVirt 3.3 release, the current version of ovirt-node will be 3.0.1.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="integration">Integration</h4>
+
+<ul>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/integration/otopi-infra-migration.html">Otopi Infra Migration</a> involves a complete rewrite of the engine-setup, engine-cleanup, engine-upgrade and All-in-One plugin using otopi.</li>
+  <li><a href="/ovirt-site/previews/2969/develop/release-management/features/sla/self-hosted-engine.html">Self Hosted Engine</a> enables administrators to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
+    <ul>
+      <li>
+        <div class="alert alert-info">
+          <p>This feature is not included in oVirt 3.3, but will be added in an upcoming release</p>
+
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="ux-enhancements">UX Enhancements</h4>
+
+<ul>
+  <li>User Portal performance improvements for IE8</li>
+  <li>Frontend Clean-up/Refactoring</li>
+</ul>
+
+<h3 id="deep-dives">Deep dives</h3>
+
+<p>In anticipation of the 3.3 release, a number of deep dive presentations into 3.3 features are being prepared.</p>
+
+<ul>
+  <li>Deep Dive Into Host Power Management <a href="http://resources.ovirt.org/old-site-files/wiki/PM-deep-dive.odp">Slides</a></li>
+  <li>OpenStack Glance (Image) Integration Deep Dive <a href="http://resources.ovirt.org/old-site-files/wiki/Ovirt-2013-glance-integration-deep-dive.pdf">Slides</a></li>
+  <li>OpenStack Neutron (Network) Integration Deep Dive <a href="http://resources.ovirt.org/old-site-files/wiki/Ovirt-neutron-integration-deep-dive-2013.pdf">Slides</a></li>
+  <li>Async Task Manager changes for oVirt 3.3 Deep Dive <a href="http://resources.ovirt.org/old-site-files/wiki/Async_task_mgr_23_july_2013_ovirt_final.odp">Slides</a></li>
+  <li>Network QoS / vNIC Profiles presentation <a href="http://resources.ovirt.org/old-site-files/wiki/VNIC_Profiles.odp">Slides</a></li>
+  <li>Scheduling in oVirt 3.3 deep dive <a href="http://resources.ovirt.org/old-site-files/wiki/Scheduler-Deep-Dive-oVirt.pdf">Slides</a></li>
+  <li>Hosted engine deep dive <a href="http://resources.ovirt.org/old-site-files/wiki/Hosted_Engine_Deep_Dive.pdf">Slides</a></li>
+  <li>Packaging <a href="http://resources.ovirt.org/old-site-files/wiki/Ovirt_3.3_-_packaging.pdf">Slides</a></li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2969/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2969/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2969/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2969/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.3/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/releases/3.3/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

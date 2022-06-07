@@ -15,7 +15,6 @@ authors: rnori
 ### Owner
 
 *   Name: Ravi Nori (RNori)
-*   Email: rnori@redhat.com
 
 ### Current status
 

@@ -18,10 +18,6 @@ Refactor the code in AsyncTask Manager to introduce CommandCoordinator which hol
 
 *   Name: Ravi Nori (rnori)
 
-<!-- -->
-
-*   Email: <rnori@redhat.com>
-
 ### Current status
 
 *   Last updated on -- by (WIKI)

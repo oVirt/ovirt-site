@@ -36,7 +36,7 @@ As we are considering an active/active architecture for Engine, we'll use this p
 
 5.  Quartz. DB configuration for Quartz should enable High Availability.
 6.  Database. DB clustering should be out of scope of this task.
-    -   [Eli] We may consider that as well , please see [PostgresSQL HA](http://www.openscg.com/postgresql-ha-automatic-failover/)
+    -   [Eli] We may consider that as well, please see [PostgresSQL HA](http://web.archive.org/web/20160301093828/http://www.openscg.com/postgresql-ha-automatic-failover)
 
 7.  Configuration. All configuration files should be placed in shared storage/database
 8.  VDSM "Sharding". Should all engines be able to handle all VDSMs, or should we divide VDSMs between running engines (and rebalance once an engine goes down)?

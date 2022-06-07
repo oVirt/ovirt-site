@@ -114,7 +114,7 @@ jobs:
         path: |
           _site
     - name: "Run htmlproofer"
-      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c bundle exec ruby htmlproofer_test.rb
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c bundle exec ruby htmlproofer_test.rb --path vendor/bundle
   publish:
     name: "Publish preview"
     runs-on: ubuntu-20.04

@@ -47,12 +47,12 @@ GLUSTERFS_DOMAIN support in VDSM exploits QEMU-GlusterFS native integration, hen
 QEMU-GlusterFS native integration adds Gluster as a block backend to QEMU. QEMU talks with Gluster volume via libgfapi interface of GlusterFS, which does not incur FUSE overhead.
 GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XML.
 
-| POSIXFS_DOMAIN                                         | GLUSTERFS_DOMAIN                                                                |
-|---------------------------------------------------------|----------------------------------------------------------------------------------|
-| Image accessed as a file.                               | Image accessed as a network block device.                                        |
-| Eg: -drive file=<path/to/gluster/mount>/<path/to/image> | Eg: -drive file=gluster[+transport]://[server[:port]]/volname/image[?socket=...] |
-| Maps to <disk type=file..>...</disk> in libvirt xml.    | Maps to <disk type=network..>...</disk> in libvirt xml.                          |
-| FUSE overhead.                                          | No FUSE overhead.                                                                |
+| POSIXFS_DOMAIN                                            | GLUSTERFS_DOMAIN                                                                   |
+|-----------------------------------------------------------|------------------------------------------------------------------------------------|
+| Image accessed as a file.                                 | Image accessed as a network block device.                                          |
+| Eg: `-drive file=<path/to/gluster/mount>/<path/to/image>` | Eg: `-drive file=gluster[+transport]://[server[:port]]/volname/image[?socket=...]` |
+| Maps to `<disk type=file..>...</disk>` in libvirt xml.    | Maps to `<disk type=network..>...</disk>` in libvirt xml.                          |
+| FUSE overhead.                                            | No FUSE overhead.                                                                  |
 
 ## Approach
 
@@ -68,11 +68,11 @@ Note that on the domain side, VDSM still uses gluster mount point as the root of
 
 *   If the GlusterFS volume is created using oVirt's GlusterFS GUI, then don't forget to click on "Optimize for virt. store" which helps set the right permissions and enables the optimum GlusterFS translators for virtualization usecase
     -   If the GlusterFS volume was created manually, then ensure the below options are set on the volume, so that its accessible from oVirt
-        -   volume set <volname> storage.owner-uid=36
-        -   volume set <volname> storage.owner-gid=36
+        -   `volume set <volname> storage.owner-uid=36`
+        -   `volume set <volname> storage.owner-gid=36`
 *   The below settings/options of GlusterFS volume must also be enabled for it to be able to work as a oVirt storage domain. Currently its not possible to set these from oVirt GlusterFS GUI
-    -   option rpc-auth-allow-insecure on ==> in glusterd.vol (ensure u restart glusterd service... for this to take effect)
-    -   volume set <volname> server.allow-insecure on ==> (ensure u stop and start the volume.. for this to take effect)
+    -   `option rpc-auth-allow-insecure on` ==> in glusterd.vol (ensure u restart glusterd service... for this to take effect)
+    -   `volume set <volname> server.allow-insecure on` ==> (ensure u stop and start the volume.. for this to take effect)
 *   Other packages that are needed on the hypervisor host (aka VDSM host) are...
     -   Needs minm libvirt version 1.0.1 (which has the gluster protocol/network disk support)
     -   Needs qemu version 1.3 (which has the gluster block backend support)
@@ -192,7 +192,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 ## Open issues
 
-* [BUG-1306562: (https://bugzilla.redhat.com/show_bug.cgi?id=1306562)[RFE] - Allow virDomainBlockCopy to use remote RBD volumes as the base backing image]
-* [BUG-1465810: (https://bugzilla.redhat.com/show_bug.cgi?id=1465810) - Unable to make snapshot of the VM with disk on replica 3 gluster volume]
+* [BUG-1306562](https://bugzilla.redhat.com/show_bug.cgi?id=1306562) - [RFE] - Allow virDomainBlockCopy to use remote RBD volumes as the base backing image
+* [BUG-1465810](https://bugzilla.redhat.com/show_bug.cgi?id=1465810) - Unable to make snapshot of the VM with disk on replica 3 gluster volume
 
 [GlusterFS Storage Domain](/develop/release-management/features/) [GlusterFS Storage Domain](/develop/release-management/releases/3.2/feature.html)

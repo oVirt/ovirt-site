@@ -227,7 +227,7 @@ E.g.
 
 ### VDSM
 
-*   Add [librbd1 package](https://apps.fedoraproject.org/packages/librbd1) as dependency to vdsm.spec file.
+*   Add [librbd1 package](https://packages.fedoraproject.org/pkgs/ceph/librbd1/) as dependency to vdsm.spec file.
 *   Refactor `Drive -> getXML()` to support multiple hosts (represents Ceph monitors) in disk's source element:
 
 ```xml

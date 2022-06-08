@@ -30,7 +30,7 @@ This procedure involves the following components:
 ** Install the authentication and authorization extension packages and the Apache Kerberos authentication module.
 ** Configure the extension files.
 
-.Configuring Kerberos for the Apache Service
+== Configuring Kerberos for the Apache Service
 
 . On the KDC server, use the `kadmin` utility to create a service principal for the Apache service on the {virt-product-fullname} {engine-name}. The service principal is a reference ID to the KDC for the Apache service.
 +
@@ -60,7 +60,7 @@ kadmin> quit
 # scp /tmp/http.keytab root@_rhevm.example.com_:/etc/httpd
 ----
 
-.Configuring Single Sign-on to the VM Portal or Administration Portal
+== Configuring Single Sign-on to the VM Portal or Administration Portal
 
 . On the {virt-product-fullname} {engine-name}, ensure that the ownership and permissions for the keytab are appropriate:
 +

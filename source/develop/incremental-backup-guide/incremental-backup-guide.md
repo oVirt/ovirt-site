@@ -108,13 +108,13 @@ _Enable incremental backup for a virtual machine’s disk._
 
 For example, to enable incremental backup for a new disk on a virtual machine with id `123`, send a request like this:
 
-````
+```javascript
 PUT /vms/123/diskattachments
-````
+```
 
 With a request body like this:
 
-````
+```xml
 <disk_attachment>
     ...
     <disk>
@@ -123,22 +123,22 @@ With a request body like this:
         ...
     </disk>
 </disk_attachment>
-````
+```
 
 The response is:
 
-````
+```xml
 <disk_attachment>
     ...
     <disk href="/ovirt-engine/api/disks/456" id="456"/>
     ...
 </disk_attachment>
-````
+```
 *Parameters Summary*
 
 | Name	| Type	| Direction |	Summary |
-:---- |  :---- |  :---- |  :---- |
-`backup`| ? | out | Required. Possible values: `incremental`, `none` |
+| :---- |  :---- |  :---- |  :---- |
+|`backup`| ? | out | Required. Possible values: `incremental`, `none` |
 
 
 
@@ -149,13 +149,13 @@ For the specified virtual machine, list the disks that are enabled for increment
 
 For example, for a virtual machine with the id `123`, this request:
 
-````
+```javascript
 GET /vms/123/diskattachments
-````
+```
 
 Gets this response:
 
-````
+```xml
 <disk_attachments>
   <disk_attachment>
         ...
@@ -164,37 +164,37 @@ Gets this response:
   </disk_attachment>
   ...
 </disk_attachments>
-````
+```
 
 *Parameters summary:*
 
 | Name	| Type	| Direction |	Summary |
-:---- |  :---- |  :---- |  :---- |
-`backup`| ? | out | Required. Possible values: `incremental`, `none` |
+| :---- |  :---- |  :---- |  :---- |
+| `backup`| ? | out | Required. Possible values: `incremental`, `none` |
 
 ### Start a full backup POST
 Start full backup. The response phase indicates that the backup is `“initializing”`. You need to poll the backup until the phase is `“ready”`. Once the backup is ready the response will include `<to_checkpoint_id>` which should be used as the `<from_checkpoint_id>` in the next incremental backup.
 
 For example, to start a full backup of a disk with id 456 on a virtual machine with id 123, send a request like this:
 
-````
+```javascript
 POST /vms/123/backups
-````
+```
 
 With a request body like this:
 
-````
+```xml
 <backup>
     <disks>
         <disk id="456" />
         ...
     </disks>
 </backup>
-````
+```
 
-The response includes backup 789 with <to_checkpoint_id> 999:
+The response includes backup 789 with `<to_checkpoint_id>` 999:
 
-````
+```xml
 <backup id="789">
     <disks>
         <disk id="456" />
@@ -204,12 +204,13 @@ The response includes backup 789 with <to_checkpoint_id> 999:
     <phase>initializing</phase>
     <creation_date>
 </backup>
-````
+```
 
 *Parameters summary:*
+
 | Name	| Type	| Direction |	Summary |
-:---- |  :---- |  :---- |  :---- |
-`disk`| ? | out | Required. Specify the UUID of a disk. |
+| :---- | :---- |  :---- |  :---- |
+| `disk`| ? | out | Required. Specify the UUID of a disk. |
 
 
 ### Start an incremental backup POST
@@ -217,13 +218,13 @@ Start incremental backup since checkpoint id `<from_checkpoint_uuid>`. The respo
 
 For example, to start an incremental backup of disk `222` on virtual machine `111`, send a request like this:
 
-````
+```javascript
 POST /vms/111/backups
-````
+```
 
 With a request body like this:
 
-````
+```xml
 <backup>
     <from_checkpoint_id>333</from_checkpoint_id>
     <disks>
@@ -231,11 +232,11 @@ With a request body like this:
         ...
     </disks>
 </backup>
-````
+```
 
 The response includes backup `789` with `<from_checkpoint_id>` `999` and  `<to_checkpoint_id>` `666`:
 
-````
+```xml
 <backup id="777">
     <from_checkpoint_id>999</from_checkpoint_id>
     <disks>
@@ -246,7 +247,7 @@ The response includes backup `789` with `<from_checkpoint_id>` `999` and  `<to_c
     <phase>initializing</phase>
     <creation_date>
 </backup>
-````
+```
 
 ### Get backup info GET
 
@@ -264,13 +265,13 @@ When the value of `<phase>` is `ready`,  the response will include `<to_checkpoi
 
 For example, to get info about a backup with id `456` of a virtual machine with id `123`, send a request like this:
 
-````
+```javascript
 GET /vms/456/backups/123
-````
+```
 
 The response includes the backup with id `456`, with `<from_checkpoint_id>` `999` and  `<to_checkpoint_id>` `666`. The disk included in the backup has id `444`, and the id of the disk image is `555`.
 
-````
+```xml
 <vm_backup id="456">
     <from_checkpoint_id>999</from_checkpoint_id>
     <to_checkpoint_id>666</to_checkpoint_id>
@@ -283,14 +284,14 @@ The response includes the backup with id `456`, with `<from_checkpoint_id>` `999
     <phase>ready</phase>
     <creation_date>
 </vm_backup>
-````
+```
 
 ### finalizing backup POST
 To finalize a backup, use the finalize backup service method.
 
 For example, to finalize backup with id `456` of a virtual machine with id `123`, send a request like this:
 
-```
+```javascript
 POST /vms/123/backups/456/finalize
 
 <action></action>
@@ -305,19 +306,19 @@ For information on creating an *imagetransfer* object, see the [`add` method for
 
 For example, to initiate transfer for an incremental backup send a request like this:
 
-````
+```javascript
 POST /imagetransfers
-````
+```
 With a request body like this:
 
-````
+```xml
 <image_transfer>
     <disk id="123"/>
     <backup id="456"/>
     <direction>download</direction>
     <format>raw</format>
 </image_transfer>
-````
+```
 
 
 ### Creating an image transfer object for incremental restore POST
@@ -325,18 +326,18 @@ In order to restore raw data backed up using the incremental backup API to a QCO
 
 For example, to initiate restoring an incremental backup send a request like this:
 
-````
+```javascript
 POST /imagetransfers
-````
+```
 With a request body like this:
 
-````
+```xml
 <image_transfer>
     <disk id="123"/>
     <direction>upload</direction>
     <format>raw</format>
 </image_transfer>
-````
+```
 When uploading into a snapshot, replace `<disk id="123"/>` with `<snapshot id="456"/>`.
 
 When the transfer format is RAW and the underlying disk format is QCOW2, uploaded data is converted on the fly to QCOW2 format when writing to storage.
@@ -350,13 +351,13 @@ To get all the created checkpoints of a VM :
 
 For example, to get all the created checkpoints of a virtual machine with id `123` send a request like this:
 
-```
+```javascript
 GET /vms/123/checkpoints/
 ```
 
 The response includes all the virtual machine checkpoints, each checkpoint contains the checkpoint's `disks`, `<parent_id>`, `<creation_date>` and the virtual machine it belongs to `<vm>`:
 
-```
+```xml
 <checkpoints>
    <checkpoint id="456">
       <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks" rel="disks"/>
@@ -371,13 +372,13 @@ The response includes all the virtual machine checkpoints, each checkpoint conta
 
 For example, to get a specific checkpoint with id `456` of a virtual machine with id `123` send a request like this:
 
-```
+```javascript
 GET /vms/123/checkpoints/456/
 ```
 
 Response:
 
-```
+```xml
 <checkpoint id="456">
   <link href="/ovirt-engine/api/vms/v123/checkpoints/456/disks" rel="disks"/>
   <parent_id>parent-checkpoint-uuid</parent_id>
@@ -392,7 +393,7 @@ To remove a checkpoint of a virtual machine, the removed checkpoint should be th
 
 For example, to remove the root checkpoint with id `456` of a virtual machine with id `123` send a request like this::
 
-```
+```javascript
 DELETE /vms/123/checkpoints/456/
 ```
 
@@ -413,12 +414,12 @@ Returns list of JSON objects with these keys:
 ### Example - getting data and zero ranges
 
 Request:
-```
+```javascript
 GET /images/ticket-uuid/map
 ```
 
 Response:
-```
+```json
 [
     {"data": true, "start": 0, "length": 1048576},
     {"data": false, "start": 1048576, "length": 8192},
@@ -429,12 +430,12 @@ Response:
 #### Example - getting only dirty data and zero ranges
 
 Request:
-```
+```javascript
 GET /images/ticket-uuid/map?dirty=y
 ```
 
 Response:
-```
+```json
 [
     {"data": true, "start": 0, "length": 1048576},
     {"data": false, "start": 1048576, "length": 8192},

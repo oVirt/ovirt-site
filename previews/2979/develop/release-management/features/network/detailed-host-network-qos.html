@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Detailed Host Network QoS | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Detailed Host Network QoS" />
+<meta name="author" content="Assaf Muller" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2979/develop/release-management/features/network/detailed-host-network-qos.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2979/develop/release-management/features/network/detailed-host-network-qos.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Detailed Host Network QoS" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Assaf Muller" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Assaf Muller"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Detailed Host Network QoS","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2979/images/logo.svg"},"name":"Assaf Muller"},"url":"https://ovirt.github.io/ovirt-site/previews/2979/develop/release-management/features/network/detailed-host-network-qos.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2979/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2979/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2979/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2979/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2979/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2979/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2979/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2979/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2979/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2979/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2979/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2979/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2979/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2979/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2979/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2979/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2979/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2979/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2979/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2979/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2979/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2979/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2979//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2979//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2979/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2979/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2979/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2979/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2979/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Assaf Muller">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Assaf Muller</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Antoni Puimedon">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Antoni Puimedon</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dan Kenigsberg">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Lior Vernia">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Lior Vernia</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2979/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="detailed-host-network-qos">Detailed Host Network QoS</h1>
+
+<h2 id="host-network-qos---detailed">Host Network QoS - Detailed</h2>
+
+<h4 id="summary">Summary</h4>
+
+<p>This feature provides means by which to control the traffic of a specific network through a host’s physical interface. It is a natural extension of the <a href="/ovirt-site/previews/2979/develop/sla/network-qos.html">VM Network QoS</a> feature, which provided the same functionality for a VM network through a VM’s virtual interface.</p>
+
+<p>You may also refer to the <a href="/ovirt-site/previews/2979/develop/release-management/features/network/host-network-qos.html">simple feature page</a>.</p>
+
+<h4 id="owner">Owner</h4>
+
+<ul>
+  <li>Name: Lior Vernia (previously owned by Giuseppe Vallarelli)</li>
+</ul>
+
+<h4 id="detailed-description">Detailed Description</h4>
+
+<p>Generally speaking, network QoS (Quality of Service) in oVirt could be applied on a variety of different levels:</p>
+
+<ul>
+  <li>VM - control the traffic passing through a vNIC (virtual Network Interface Controller).</li>
+  <li>Host - control the traffic from a specific network passing through a physical NIC.</li>
+  <li>Cluster/DC (Data Center) - control the traffic related to a specific logical network throughout the entire cluster/DC, including through its infrastructure (e.g. L2 switches).</li>
+</ul>
+
+<p>The VM level was taken care of as part of the <a href="/ovirt-site/previews/2979/develop/sla/network-qos.html">VM Network QoS</a> feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time (“burst”), so that no single network could “clog” an entire physical interface.</p>
+
+<p>Cluster/DC-wide QoS remains to be handled in the future.</p>
+
+<p>Implementation-wise, two different approaches naturally arise from the existing state of QoS in oVirt:</p>
+
+<ul>
+  <li>Proceed with the VM Network QoS paradigm, that is creating Network QoS entities that can be shared between different networks - let’s refer to this as “named” QoS. The advantages here are that the administrator is accustomed to the same QoS usage flow across VM and host networking, and that a few QoS configurations could be easily shared by many instances of networks on host interfaces. This also requires very little changes to the existing code, rendering it easier to implement. However, this leads to a non-trivial relationship between host network entities and QoS entities, giving rise to inconvenient questions such as what happens when a QoS entity, that had been attached to any host networks, is updated. A further disadvantage is the awkwardness of the process of defining QoS on a host network when a fitting QoS entity doesn’t yet exist, which would force the user to change context to create a new QoS entity first; this could however be relieved in several different ways, discussed below.</li>
+  <li>Define QoS parameters directly on the host’s interfaces when networks are attached to them (similarly to boot protocol, for example) - let’s refer to this as “anonymous” QoS. The advantage in this approach is when there’s a low amount of hosts and host NICs, and their QoS configurations differ (i.e. there’s not much value in sharing the configurations), configuring the NICs directly will save the extra step of defining the QoS entities. This also greatly simplifies the relation between host network entities and QoS entities, but at the cost of not being able to share the same QoS configuration between different instances of networks attached to host interfaces.</li>
+</ul>
+
+<p>It is best take on a hybrid approach, where users could EITHER configure an “anonymous” QoS on a host network OR attach a pre-existing QoS entity. This would probably be the preferred approach, as it provides users with flexibility and accommodates any use case. This is what’s planned for 3.6 - a QoS entity may be attached to the network on the DC level, but the QoS configuration on each host interface may be overridden from within the Setup Host Networks dialog.</p>
+
+<h5 id="host-qos-important-considerations">Host QoS important considerations</h5>
+
+<ul>
+  <li>The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don’t.</li>
+  <li>The oVirt-defined networks will each get a network <a href="http://www.tldp.org/HOWTO/html_single/Traffic-Control-HOWTO/#c-class">traffic class</a> to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic). They will be classified by vlan id or the lack of thereof.</li>
+  <li>The different network traffic classes set over a logical link will contend for the device sending queue in a proportional manner to the bandwidth they are assigned. This means that if my bandwidth is 35mbps and I have network A assigned 3mbps, network B assigned 1 mbps and network C unshaped, what I should expect to see is:
+    <ul>
+      <li>A: 15mbps</li>
+      <li>B: 5mbps</li>
+      <li>C: 15mbps</li>
+    </ul>
+  </li>
+  <li>From the above it is easy to see that there is borrowing of extra bandwidth between the networks.</li>
+  <li>Network bandwidths can be capped so that they do not exceed a certain consumption regardless of extra bandwidth being available.</li>
+  <li>It is generally possible to define bursts to throttle some relatively latency insensitive networks (like storage) and favor highly latency sensitive networks (like VoIP or graphical consoles). However, for simplicity’s sake, initially this configuration won’t be exposed via the engine.</li>
+  <li>It is relatively easy to achieve unpredictable network behavior via QoS configuration, either by having mixed QoS configuration on a logical link (i.e. some networks with QoS, some without) or by over-committing (i.e. having the sum of “real time” traffic required by networks on a logical link surpass the link’s capabilities). Therefore, these situations will be blocked by the engine; either none or all the networks on a logical link must have QoS configured, and the sum of the networks’ committed rate must not surpass 75% of the link’s effective speed.</li>
+</ul>
+
+<h5 id="entity-description">Entity Description</h5>
+
+<p>Since the Host Network QoS is most relevant in the context of a specific host interface (i.e. it could have completely different a QoS setup on each host interface), the most natural place to configure it would be when editing a network attached to a host interface, similarly to boot protocol configuration. However, as the most likely use case would be to enforce the same bandwidth limitations on all interfaces to which the network is attached, we’d like to implement the QoS configuration as part of the Network entity, and copy the configuration to the host’s interfaces as the network is attached to them. This is not unlike what we do with VLAN tagging at the moment. Similarly to VLAN tagging, some users might prefer to have better granularity and apply different QoS configurations to different hosts using the same network; this will be made possible the moment we also implement “anonymous” QoS configuration at the level of a host interface, which should override the QoS configuration attached to the DC-wide Network entity.</p>
+
+<p>A new HostNetworkQos entity will be implemented - it won’t be valuable to re-use the existing NetworkQoS, as we plan to expose a different set of parameters from that exposed by libvirt (as we don’t use libvirt, see VDSM implementation). This entity will extend QosBase, as any other QoS entity. Similarly to other QoS entities, a specific DAO will be implemented to mirror CRUD operations. Commands will check permissions on the DC, similarly to the existing VM Network QoS entities.</p>
+
+<p>The parameters initially stored on this entity will be a “Weighted Share” (corresponding to “link share” in vdsm terms, see below), “Rate Limit” (“upper limit” in vdsm terms) and “Committed Rate” (“real time” in vdsm terms):</p>
+
+<ul>
+  <li>Weighted Share is a unit-less number, signifying how much of the logical link’s capacity a specific network should be allocated. It is only important in relative terms to other networks attached to the same logical link. For example, a network given 20 shares will receive twice as much bandwidth (typically) than a network given 10 shares on the same logical link; however, the exact share of the link’s capacity depends on the sum of shares of all networks on that link. By default, shares must be a number in the range 1-100, but the upper limit of this range is configurable by setting the value of “MaxHostNetworkQosShares” via engine-config.</li>
+  <li>Rate Limit is the hard capping of bandwidth to be used by a network, in Mbps (same as the outbound limit of VM network QoS). The maximum value to input here is determined by the “MaxAverageNetworkQoSValue” configuration value.</li>
+  <li>Committed Rate is the minimum bandwidth required by a network, in Mbps. Setting this doesn’t guarantee the bandwidth, but guarantees a “best effort” (this still depends on the network’s infrastructure on the physical layer and on the Committed Rate requested by other networks on the same logical link). The maximum value to input here is determined by the “MaxAverageNetworkQoSValue” configuration value.</li>
+</ul>
+
+<p>Other existing entities will have to be modified. The Network entity should be changed to include a HostNetworkQos member, which would refer to the QoS configuration to be applied to host interfaces carrying this network. The VdsNetworkInterface should be similarly changed to include a HostNetworkQos member, which in this case would refer to the actual QoS configuration reported by VDSM. These two entities could then be compared, in order to check whether the QoS configuration is “in sync”; if the QoS configuration is out-of-sync, the host network itself would also be marked as out-of-sync (similarly to what is done today with MTU, VLAN and so forth).</p>
+
+<p>Like other QoS entities, HostNetworkQos entities will be stored in the gigantic sparse table qos. Columns representing the exposed parameters will be added to this table - initially these will be linkshare_rate, upperlimit_rate and realtime_rate (but as the VDSM API exposes more configurable values, this could be extended in the future). The HostNetworkQos entities will be referred to, in the form of foreign keys, by qos_id columns of type UUID in both the network and the vds_interface tables. Those reported by VDSM and referred to by the vds_interface table could have a “null” name and filtered out of queries, as they should be of no interest to the users (e.g. they should not be able to attach these entities to a network); they should be maintained (added, removed or updated) when collecting network data from the host.</p>
+
+<p>As for the handling of permissions, it remains to be shown that the current permission model on Network QoS isn’t broken:</p>
+
+<ul>
+  <li>Attaching a pre-existing Host Network QoS entity to a network is not a problem, as a user editing a network has usage permissions on the DC and therefore the QoS entities in it.</li>
+  <li>Creating a new “named” Host Network QoS to be attached to a network will be performed by a separate call to the AddHostNetworkQos action (and not as part of the Add/Edit Network action), therefore the user’s permissions will be properly checked; the operation will fail if they don’t have sufficient permissions on the DC.</li>
+  <li>Creating/updating the “anonymous” QoS configuration on a host’s interface will be performed as part of the SetupNetworks action, so as long as the user has proper permissions of the host they’ll be able to edit the interfaces’ “anonymous” QoS values.</li>
+</ul>
+
+<h5 id="vdsm">VDSM</h5>
+
+<p>The proposed engine-vdsm api is a very fine grained API that allows for more shaping options than will originally be provided. There are three service curves with three components each:</p>
+
+<ul>
+  <li>Link share: Establishes a proportion between networks. E.g., if the sum of the network link share allocation matched the outbound capabilities, we’d see that the real traffic approximately matches what is set as link share.</li>
+  <li>Upper limit: Since link share allows the networks to take more traffic if more capacity is available, this curve serves to put an absolute cap to what a network can take.</li>
+  <li>Real time: Allows a network to steal the share of other networks in order to “guarantee” some amount of traffic for itself.</li>
+</ul>
+
+<p>For each of these curves there are three parameters:</p>
+
+<ul>
+  <li>m1: Burst amount. The amount of traffic that we can send in burst. Unit: kilobytes per second</li>
+  <li>d: The maximum length of bursts. The burst will only happen if the network is backlogged and there is more data to send that fits in the burst within this time than another competing backlogged network has to send. Unit: milliseconds.</li>
+  <li>m2: The usual rate of the network. Unit: kilobytes per second</li>
+</ul>
+
+<p>With the above definitions, an example networks definition would be:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     {'storage': {'nic': 'eth2', 'bootproto': 'dhcp', 'hostQos': {'out': {
+         'ls': {'m2': 2000}. 'ul':  {'m2': 10000}}}},
+      'display': {'nic': 'eth2', 'bootproto': 'dhcp': 'hostQos': {'out': {
+         'ls': {'m1': 5000, 'd': 300, 'm2': 1500}}}}}
+</code></pre></div></div>
+
+<p>It’s possible to retrieve the QoS defined for an host’s network with the following code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from vdsm import vdscli
+connection = vdscli.connect()
+connection.getVdsCapabilities()['info']['networks']['whatever']
+</code></pre></div></div>
+
+<p>the expected result should be something similar to:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="err">'addr':</span><span class="w"> </span><span class="err">''</span><span class="p">,</span><span class="w">
+     </span><span class="err">'bridged':</span><span class="w"> </span><span class="err">True</span><span class="p">,</span><span class="w">
+     </span><span class="err">'cfg':</span><span class="w"> </span><span class="p">{</span><span class="err">'DELAY':</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'DEVICE':</span><span class="w"> </span><span class="err">'goofy'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'NM_CONTROLLED':</span><span class="w"> </span><span class="err">'no'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'ONBOOT':</span><span class="w"> </span><span class="err">'yes'</span><span class="p">,</span><span class="w">
+             </span><span class="err">'TYPE':</span><span class="w"> </span><span class="err">'Bridge'</span><span class="p">},</span><span class="w">
+     </span><span class="err">'gateway':</span><span class="w"> </span><span class="err">'</span><span class="mf">0.0</span><span class="err">.</span><span class="mf">0.0</span><span class="err">'</span><span class="p">,</span><span class="w">
+     </span><span class="err">'iface':</span><span class="w"> </span><span class="err">'goofy'</span><span class="p">,</span><span class="w">
+     </span><span class="err">'ipv</span><span class="mi">6</span><span class="err">addrs':</span><span class="w"> </span><span class="p">[</span><span class="err">'fe</span><span class="mi">80</span><span class="err">::</span><span class="mi">210</span><span class="err">:</span><span class="mi">18</span><span class="err">ff:fee</span><span class="mi">1</span><span class="err">:</span><span class="mi">6</span><span class="err">d</span><span class="mi">2</span><span class="err">a/</span><span class="mi">64</span><span class="err">'</span><span class="p">],</span><span class="w">
+     </span><span class="err">'ipv</span><span class="mi">6</span><span class="err">gateway':</span><span class="w"> </span><span class="err">'::'</span><span class="p">,</span><span class="w">
+     </span><span class="err">'mtu':</span><span class="w"> </span><span class="err">'</span><span class="mi">1500</span><span class="err">'</span><span class="p">,</span><span class="w">
+     </span><span class="err">'netmask':</span><span class="w"> </span><span class="err">''</span><span class="p">,</span><span class="w">
+     </span><span class="err">'ports':</span><span class="w"> </span><span class="p">[</span><span class="err">'p</span><span class="mi">1</span><span class="err">p</span><span class="mi">2</span><span class="err">'</span><span class="p">],</span><span class="w">
+     </span><span class="err">'qos':</span><span class="w"> </span><span class="p">{</span><span class="err">'out':</span><span class="w"> </span><span class="p">{</span><span class="err">'ls':</span><span class="w"> </span><span class="p">{</span><span class="err">'m</span><span class="mi">1</span><span class="err">':</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="err">'d':</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="err">'m</span><span class="mi">2</span><span class="err">':</span><span class="w"> </span><span class="mi">1500</span><span class="p">}}},</span><span class="w">
+     </span><span class="err">'stp':</span><span class="w"> </span><span class="err">'off'</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h6 id="implementation">Implementation</h6>
+
+<p><img src="/ovirt-site/previews/2979/images/wiki/Qos_hfsc.png" alt="" /></p>
+
+<p>As depicted in the picture, there are four oVirt networks.all the leaf nodes would have an stochastic fair queuing (sfq) qdics to prevent connections from taking all the bandwidth of a traffic class):</p>
+
+<ul>
+  <li>
+    <p>Storage: Vlanned network with tag value 10. It is a non-shaped network for the host to access nfs. This traffic class has its fair share automatically set to the maximum of any shaped class and if extra bandwidth is available it just takes it. Filter to match it:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 10 0xFFF at -4 flowid 1:10
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>class definition:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     tc class add dev eth2 parent 1: classid 1:10 hfsc ls rate $(max_shaped_net)mbps
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Databse: Vlanned network with tag value 20. It is a shaped network with outbound traffic share of 3mbps (capped at 5mbps) that serves for the VMs that run postgresql instances. If there is extra bandwidth available it will take more than it’s 3mbps share, but never more than 5mbps (on average). Filter to match it:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 20 0xFFF at -4 flowid 1:20
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>class definition:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     tc class add dev eth2 parent 1: classid 1:20 hfsc ls rate 3mbps ul rate 5mbps
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Web servers: Vlanned network with tag value 30. It is a shaped network with outbound traffic share of 20mbps (capped at 30mbps) that serves for VMs that run apache/nginx instances. The shaping is just like that in the database network but with different limits. Filter to match it:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> tc filter add dev eth2 parent 1: prio 30 protocol 802.1q u32 match u16 30 0xFFF at -4 flowid 1:30
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>class definition:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     tc class add dev eth2 parent 1: classid 1:30 hfsc ls rate 20mbps ul rate 30mbps
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Display: Non-vlanned network. It is shaped, just as in the case of the web servers network, but with a tweak. Since it is important that the latency of the network is low, after all, nobody wants a laggy display, we set a burst period 1.5ms during which the network is allowed to transmit up to 40mbps. Filter to match:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> tc filter add dev eth2 parent 1: prio 5000 protocol all u32 match u32 0 0 flowid 1:5000  # Note that 5000 is chosen so that it is a catch all traffic of the device outside of the vlan range
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>class definition:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     tc class add dev eth2 parent 1: classid 1:5000 hfsc ls m1 40mbps d 1.5ms m2 20mbps ul rate 30mbps
+</code></pre></div></div>
+
+<p>All the leaf classes have a Stochastic queuing discipline to guarantee fairness between different connections inside each network. For example for the database network it would look like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     tc qdisc add dev eth2 handle 20:0 parent 1:0 sfq perturb 10
+</code></pre></div></div>
+
+<h5 id="restful-api">RESTful API</h5>
+
+<p>Since QoS API has been added in oVirt 3.5, it will be possible to expose Host Network QoS API as part of this feature. However, as another 3.6 feature will likely be a makeover for the Setup Networks API, it is not completely clear how this feature’s API will be exposed. Assuming this feature will be the first to be implemented, an element of type QoS will be added to both the HostNIC type and the Network type. In the new proposed API, it should be part of a NetworkConnection/NetworkConfiguration (or instead of HostNIC).</p>
+
+<h5 id="user-experience">User Experience</h5>
+
+<p><b>Slightly out of date - should be similar, but other values will appear in the dialogs. A new category should appear under the DC/QoS subtab.</b></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![ thumb</td>
+      <td>right](/images/wiki/NetworkDialogQos.png) ![ thumb</td>
+      <td>right](/images/wiki/InterfaceQosOverride.png)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As mentioned earlier, to improve the common user experience, we’d like to initially configure Host Network QoS on the DC-wide Network entity. This means adding some ability to configure it in the Add/Edit Network dialog. Since we’d like to start with the ability to attach a “named” QoS configuration, the straightforward thing to do would be to add a list box to the dialog, where users could choose one of the pre-configured Network QoS entities in the DC.</p>
+
+<p>However, we would like to enable users to also create a new Network QoS entity from this dialog, in case they had neglected to create a fitting QoS configuration beforehand (through the DC/QoS subtab). To this end, we could add a button that would allow users to create a new QoS entity. Pressing on this button will open the same “Add Network QoS” dialog as in the DC/QoS subtab, and upon creation of a new QoS entity through it, it will be added to the list box.</p>
+
+<p>The most natural place for configuring “anonymous” QoS directly on one of the host’s interfaces is in the existing dialog for editing networks as they are attached to the host’s interfaces. This is accessible through the “Setup Host Networks” dialog, and clicking the “Edit” icon that appears when hovering over a specific network attached to an interface. Following is a short discussion of how QoS would be configured in that dialog. It is only required to somehow incorporate the QoS widget into the “Edit Host Network” dialog, for example like this (fancier possibilities exist to make the widget less intimidating):</p>
+
+<h5 id="user-work-flows">User Work-flows</h5>
+
+<p>In the “named” QoS approach, the standard work-flow for an administrator to configure QoS on a host network would be as follows:</p>
+
+<ul>
+  <li>Create a new Network QoS entity in the DC/QoS subtab.</li>
+  <li>Head to the Networks main tab.</li>
+  <li>Edit the desired network.</li>
+  <li>In the dialog that opens, choose the pre-configured Network QoS entity by its name (or create a new QoS entity as desired via a dedicated button).</li>
+</ul>
+
+<p>In the “anonymous” QoS approach, the flow would be as follows:</p>
+
+<ul>
+  <li>Start from the “Setup Host Networks” dialog.</li>
+  <li>Edit the desired network.</li>
+  <li>Directly configure average/peak/burst values for the network on the host’s interface.</li>
+</ul>
+
+<h3 id="comments-and-discussion">Comments and Discussion</h3>
+
+<p>On the devel@ovirt.org and users@ovirt.org mailing lists.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/detailed-host-network-qos.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/detailed-host-network-qos.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -9,11 +9,13 @@ authors:
 
 # Guest Agent Proposals
 
-Summary of discussions from the ovirt workshop, and the qemu-devel and vdsm-devel mailing lists (http://thread.gmane.org/gmane.comp.emulators.ovirt.vdsm.devel/93/focus=93) regarding guest agents for oVirt.
+Summary of discussions from the ovirt workshop, and the qemu-devel and vdsm-devel mailing lists (<http://thread.gmane.org/gmane.comp.emulators.ovirt.vdsm.devel/93/focus=93>)
+regarding guest agents for oVirt.
 
 ## Considerations
 
-VDSM/oVirt currently relies on the ovirt-guest-agent (/wiki/Ovirt_guest_agent) as the mechanism for servicing host-initiated commands and data collection within a guest. QEMU relies on qemu-ga (http://wiki.qemu.org/Features/QAPI/GuestAgent) for similar purposes.
+VDSM/oVirt currently relies on the [ovirt-guest-agent](/develop/internal/guest-agent/guest-agent.html) as the mechanism for servicing host-initiated
+commands and data collection within a guest. QEMU relies on [qemu-ga](https://wiki.qemu.org/Features/GuestAgent) for similar purposes.
 
 Additionally, there are a number of domain-specific agents, such as vdagent for Spice, and Matahari for virtualization-aware systems management.
 
@@ -97,10 +99,10 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
 
 *   blocker: Requires that ovirt-guest-agent be proxied through QMP management interface, subsumes existing qemu-ga commands. Also requires qemu.git submobule to access ovirt-guest-agent command schema to generate marshalling code for proxied commands.
 
-      The need to converge is obvious, and now that ovirt-guest-agent is opensourced 
-      under the ovirt stack, and since it already produces value for enterprise 
-      installations, and is cross platform, I offer to join hands around ovirt-
-      guest-agent and formalize a single code base that will serve us all.
+      The need to converge is obvious, and now that ovirt-guest-agent is opensourced
+      under the ovirt stack, and since it already produces value for enterprise
+      installations, and is cross platform, I offer to join hands around ovirt-guest-agent
+      and formalize a single code base that will serve us all.
 
       git @ git://gerrit.ovirt.org/ovirt-guest-agent
 
@@ -125,20 +127,24 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
       With the above primitives, SSO could be deployed automatically to a guest with
       the following sequence of commands:
 
+      ```
       file-open "<exec-dir>/sso-package.bin" "w"
       file-write <fh> <buf>
       file-close <fh>
       file-open "<exec-dir>/sso-package.bin" "x"
       file-exec <fh> <args>
       file-close <fh>
+      ```
 
       At this point, the package is installed.  It can contain whatever existing logic
       exists in the ovirt-guest-agent today.  To perform a user login, we'll assume
       that sso-package.bin contains an executable 'sso/do-user-sso':
 
+      ```
       file-open "<exec-dir>/sso/do-user-sso" "x"
       exec <fh> <args>
       file-close <fh>
+      ```
 
       At this point the user would be logged in as before.
 
@@ -153,5 +159,5 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
       which is an oVirt environment).  If certain plugins become popular enough, they
       can always be promoted to first-order API calls in future versions of the API.
 
-      -- 
+      --
       Adam Litke <alitke@redhat.com>

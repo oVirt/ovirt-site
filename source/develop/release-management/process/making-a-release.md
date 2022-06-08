@@ -130,6 +130,24 @@ Once ready, the notes can be automatically generated with [`release_notes_git.py
  ./release_notes_git.py --git-basedir /var/tmp/release-cache --contrib-project-list ovirt-4.5.0 >notes.md
 ```
 
+## Move oVirt verified bugs to closed
+
+Have a look at oVirt bugs targeted to the milestone being shipped and in verified state.
+You can use a query like:
+```xml
+https://bugzilla.redhat.com/buglist.cgi?quicksearch=classification%3Aovirt%20target_milestone%3A<replace_with_target_milestone>%20status%3Averified
+```
+using something like `ovirt-4.5.0` as replacement for `<replace_with_target_milestone>`.
+
+Move them to `CLOSED` state with resolution `CURRENT`.
+While doing it, a comment like the following would help:
+```
+This bugzilla is included in oVirt 4.5.0 release, published on April 20th 2022.
+Since the problem described in this bug report should be resolved in oVirt 4.5.0 release, it has been closed with a resolution of CURRENT RELEASE.
+If the solution does not work for you, please open a new bug report.
+```
+
+
 ## Announcements
 
 Once ready to announce, the release manager must ensure the announcement is sent:
@@ -170,6 +188,6 @@ of the #opensource #virtualization solution for your entire enterprise: oVirt <n
 Read more about it on <link to announcement blog post>.
 ```
 
-Typical blog post: https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/
+Typical blog post: <https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/>
 
 Try contacting our [Press Plan Contacts](/develop/release-management/process/press-plan.html) to get press coverage.

@@ -88,3 +88,7 @@ echo "9-stream" > /etc/yum/vars/stream
 
 dnf distro-sync --nobest
 ```
+
+Due to [Bug 2091581](https://bugzilla.redhat.com/show_bug.cgi?id=2091581), while installing the host
+if you see missing `nmstate-plugin-ovsdb` or `python3-libnmstate` you can install them from
+CentOS build [nmstate-2.0.0-2.el9](https://kojihub.stream.centos.org/koji/buildinfo?buildID=17369)

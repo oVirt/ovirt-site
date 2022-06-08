@@ -7,7 +7,7 @@ You can use a REST API request to enable incremental backup for a virtual machin
 
 .Procedure
 
-* Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with id `123`, send this request:
+* Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with ID `123`, send this request:
 +
 [source,terminal,subs="normal"]
 ----

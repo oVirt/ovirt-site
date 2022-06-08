@@ -37,7 +37,7 @@ Changing the default will prevent generated traps from complying with OVIRT-MIB.
 ====
 <4> The algorithm used to determine the triggers for and recipients of SNMP notifications.
 <5> SNMP Version. SNMP version 2 and version 3 traps are supported. 2 = SNMPv2, 3 = SNMPv3.
-<6> (SNMP version 3 only) The engine id used for SNMP traps.
+<6> (SNMP version 3 only) The engine ID used for SNMP traps.
 <7> (SNMP version 3 only) The user name used for SNMP traps.
 <8> (SNMP version 3 only) The SNMP auth protocol. Supported values are MD5 and SHA. Required when `SNMP_SECURITY_LEVEL` is set to 2 (`AUTH_NOPRIV`) or 3 (`AUTH_PRIV`).
 <9> (SNMP version 3 only) The SNMP auth passphrase. Required when `SNMP_SECURITY_LEVEL` is set to 2 (`AUTH_NOPRIV`) or 3 (`AUTH_PRIV`).

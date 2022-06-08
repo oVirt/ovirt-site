@@ -14,7 +14,7 @@ This allows the user to import an existing gluster supported cluster to engine. 
 
 ## Owner
 
-*   Feature owner: Shireesh Anjal <sanjal@redhat.com>
+*   Feature owner: Shireesh Anjal
     -   GUI Component owner: Kanagaraj Mayilsamy
     -   REST Component owner: Shireesh Anjal
     -   Engine Component owner: Dhandapani Gopal <dgopal@redhat.com>

@@ -19,7 +19,7 @@ Up until now the iSCSI connection between the Host and the iSCSI Storage Domain 
 
 ### Owner
 
-*   Maor Lipchuk mlipchuk@redhat.com
+*   Maor Lipchuk
 *   Sergey Gotliv sgotliv@redhat.com
 
 ### Current status

@@ -32,13 +32,13 @@ Networking products) allowing them to easily integrate with oVirt.
 
 Many organizations use centralized network management systems to handle all
 their networking, and would like them to manage the network topology of
-their oVirt environments. 
+their oVirt environments.
 Currently the only option of using external networks in oVirt is to use the
 OpenStack Neutron integration, which allows the import of OpenStack Neutron
-networks and the provisioning of VM's connected to these networks. 
-This feature is however very specific to OpenStack Neutron and tied to its Linux bridge and OVS plugins.. 
+networks and the provisioning of VM's connected to these networks.
+This feature is however very specific to OpenStack Neutron and tied to its Linux bridge and OVS plugins.
 We would like to extend this functionality to other external network providers,
-by making it simpler, more general and less dependant on OpenStack Neutron features. 
+by making it simpler, more general and less dependant on OpenStack Neutron features.
 The result should be an API over which oVirt can communicate with an external
 network management systems, and use the networks defined in them in provisioned VMs.
 
@@ -59,7 +59,7 @@ This will require a rework of the UI and REST API layer.
 
 *   (optionally) read-only mode for subnets
 
-*   VIF driver - the implementation of the VIF driver is now completely the responsibility 
+*   VIF driver - the implementation of the VIF driver is now completely the responsibility
 of the external network provider
 
 *   No special handling of OpenStack Neutron agent. - since the VIF driver implementation is provider dependent,
@@ -72,7 +72,7 @@ decides otherwise)
 ### Main functional parts of the system
 The API for external network providers consists of 3 main parts:
 
-1. External network provider administration. 
+1. External network provider administration.
   This allows to perform admistrative tasks:
   * connecting to a new network provider (External Providers -> Add)
   * importing networks from an external provider (External Providers -> Networks Subtab -> Import)
@@ -81,7 +81,7 @@ The API for external network providers consists of 3 main parts:
   * removing a subnet pool (Networks -> Subnets tab -> Remove)
 
 2. Communication with an external provider at VM provisioning time.
-This is reponsible for exchanging information with the external provider when a new VM NIC is 
+This is reponsible for exchanging information with the external provider when a new VM NIC is
 created/changed/removed and is connected/disconnected to/from and external networks.
 
 3. VIF Driver
@@ -175,7 +175,7 @@ Same as OpenStack Neutron Integration
 
 External network provider interactions:
 
-* get all network from the external providers (GET networks)
+* get all network from the external providers (`GET networks`)
 
 #### Delete external network
 
@@ -185,7 +185,7 @@ Same as OpenStack Neutron Integration
 External network provider interactions:
 When the "Remove network(s) from the external provider(s) as well." ceckbox is checked:
 
-* delete network (DELETE networks)
+* delete network (`DELETE networks`)
 
 #### Subnets management (UI)
 Same as OpenStack Neutron Integration
@@ -195,14 +195,14 @@ networks), which can be used to list/add/remove the subnets of an external netwo
 
 External network provider interactions when adding a subnet (Networks -> Subnets tab -> New):
 
-* Get network (GET networks/<id>)
-* Add subnet (POST subnets)
+* Get network (`GET networks/<id>`)
+* Add subnet (`POST subnets`)
 
 External network provider interactions when removing a subnet (Networks -> Subnets tab -> Remove):
-* Add subnet (DELETE subnets/<id>)
+* Add subnet (`DELETE subnets/<id>`)
 
 Opening the subnets subtab causes a request for the list of subnets
-* Get subnets (GET subnets)
+* Get subnets (`GET subnets`)
 
 #### Setup networks dialog (UI) - optional
 
@@ -222,14 +222,14 @@ When a new nic is added to a VM the following actions are being executed:
 
 Port allocation:
 
-* the engine checks if the port for the VM NIC exists (GET ports)
-* if no port exists, the engine will create a new port (POST ports)
+* the engine checks if the port for the VM NIC exists (`GET ports`)
+* if no port exists, the engine will create a new port (`POST ports`)
 * if the port already exists, the engine will update it with information
-about new allocation (POST ports)
-* in both cases the new/updated port is identified by a <PORT ID> returned
+about new allocation ('POST ports')
+* in both cases the new/updated port is identified by a `<PORT ID>` returned
 by the external network provider
-* the engine will send a nic plug request to VDSM, passing the <PORT ID>
-as one of the parameters. The <PORT ID> is passed to the VIF driver as  a "vnic_id"
+* the engine will send a nic plug request to VDSM, passing the `<PORT ID>`
+as one of the parameters. The `<PORT ID>` is passed to the VIF driver as  a "vnic_id"
 parameter.
 * on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug hook,
 will connect the VM NIC to the network provided by the external provider
@@ -255,14 +255,14 @@ When the nic is unplugged from the VM, the following actions are being executed:
 
 * on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotunplug hook,
 will unplug the VM NIC from the network provided by the external provider.
-The nic is identified by the same <PORT ID> a during nic plug
+The nic is identified by the same `<PORT ID>` a during nic plug
 
 #### VM NIC delete
 
 When a nic is already unplugged, it can be deleted from a VM. This will trigger the following actions:
 
-* the engine will try to locate the port on the external provider (GET ports)
-* the engine will delete the port from the external provider (DELTE ports)
+* the engine will try to locate the port on the external provider (`GET ports`)
+* the engine will delete the port from the external provider (`DELETE ports`)
 
 #### Migrate a VM to another host
 
@@ -275,13 +275,13 @@ the NIC ti\o the external network on the destination VDSM
 
 #### VM NIC provisioning synchronization issues
 
-Care must be taken for the VIF driver to leave the networking operations in a finished state before exiting. 
+Care must be taken for the VIF driver to leave the networking operations in a finished state before exiting.
 For example should a VIF driver just initiate connecting a VM NIC during VM
 startup and exit, the connecting operation could still not be finished when
 the VM starts up and leave it booting without a network connection.
 
 A reference to the problem in OpenStack Neutron:
-https://blueprints.launchpad.net/neutron/+spec/nova-event-callback 
+https://blueprints.launchpad.net/neutron/+spec/nova-event-callback
 
 ## External networks REST API
 
@@ -292,11 +292,11 @@ the Neutron API is used.
 The REST API uses the following operations:
 
 Required tokens:
-headers={Content-Type=[application/json], x-openstack-request-id=[<authentication token>]}
+`headers={Content-Type=[application/json], x-openstack-request-id=[<authentication token>]}`
 
 Authentication (optional):
 
-* authenticate: POST: http://host:35357/v2.0/tokens
+* authenticate: `POST: http://host:35357/v2.0/tokens`
 
 Request:
 ```json
@@ -310,33 +310,33 @@ Response: {
 ```
 
 
-* tets connection: GET: http://host:9696/v2.0/
+* tets connection: `GET: http://host:9696/v2.0/`
 
 Networks:
 
-* network details: GET: http://host:9696/v2.0/network/<network id>
+* network details: `GET: http://host:9696/v2.0/network/<network id>`
 
-* list networks: GET: http://host:9696/v2.0/networks
+* list networks: `GET: http://host:9696/v2.0/networks`
 
-* delete a network: DELETE: http://host:9696/v2.0/networks
+* delete a network: `DELETE: http://host:9696/v2.0/networks`
 
 Ports:
 
-* list ports: GET: http://host::9696/v2.0/ports   (Check if port exists)
+* list ports: `GET: http://host::9696/v2.0/ports`   (Check if port exists)
 
-* port details:  GET: http://host::9696/v2.0/ports/<port id>
+* port details:  `GET: http://host::9696/v2.0/ports/<port id>`
 
-* add a port: POST:  http://host::9696/v2.0/ports/<port id>
+* add a port: `POST:  http://host::9696/v2.0/ports/<port id>`
 
-* delete port: DELETE:  http://host::9696/v2.0/ports/<port id>
+* delete port: `DELETE:  http://host::9696/v2.0/ports/<port id>`
 
 Subnets:
 
-* list subnets: GET: http://host:9696/v2.0/subnets
+* list subnets: `GET: http://host:9696/v2.0/subnets`
 
-* adding a subnet: POST: http://host:9696/v2.0/subnets
+* adding a subnet: `POST: http://host:9696/v2.0/subnets`
 
-* deleting a subnet: DELETE: http://host:9696/v2.0/network/<network id>
+* deleting a subnet: `DELETE: http://host:9696/v2.0/network/<network id>`
 
 ## VIF driver (prepared by the external network provider)
 
@@ -456,7 +456,7 @@ As an example, this would allow to add custom properties to native networks vNIC
 ### Automatic VIF driver deployment
 
 In the later stages of the external network provider feature, support for automated deployment
-of VIF drivers during host deploy will be added. This will be similar to the current OpenStack Neutron 
+of VIF drivers during host deploy will be added. This will be similar to the current OpenStack Neutron
 provider deployment.
 In future versions VIF driver deployment should be integrated into ovirt-host-deploy.
 
@@ -472,7 +472,7 @@ handle the connecting action.
 #### Simple use case for having more than one VIF driver
 
 A user might want to provision vm's having multiple VPN connections to different sites. Each such connection
-could require a different external network provider. In such a case a host should handle multiple 
+could require a different external network provider. In such a case a host should handle multiple
 VIF drivers to establish each of these connections.
 
 

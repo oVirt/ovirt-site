@@ -16,9 +16,9 @@ This feature allows the administrators to create, schedule, list, delete, start,
 
 # Owner
 
-*   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
+*   Feature owner: Shubhendu Tripathi
     -   GUI Component owner:
-    -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
+    -   Engine Component owner: Shubhendu Tripathi
     -   VDSM Component owner:
 
 # Current Status
@@ -44,9 +44,9 @@ This entity stores the snapshots created for gluster volumes. Different volumes 
 | description    | String | Description                                                |
 | status         | String | Current status of the snapshot                             |
 
-*   GlusterVolumeSnapshotStatus
-    -   STARTED
-    -   STOPPED
+*   `GlusterVolumeSnapshotStatus`
+    -   `STARTED`
+    -   `STOPPED`
 
 ### GlusterVolumeSnapshotConfig
 
@@ -69,29 +69,29 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 ## BLL commands
 
-*   <big>CreateGlusterVolumeSnapshot</big> - creates a volume snapshot
-*   <big>RestoreGlusterVolumeSnapshot</big> - restore a given volume to a snapshot
-*   <big>RemoveGlusterVolumeSnapshot</big> - removes the given snapshot
-*   <big>UpdateGlusterVolumeSnapshotConfig</big> - sets the configuration values for a given volume
-*   <big>ActivateGlusterVolumeSnapshot</big> - activates the snapshot for further activities
-*   <big>DeactivateGlusterVolumeSnapshot</big> - deactivates an already activated snapshot
+* `CreateGlusterVolumeSnapshot` - creates a volume snapshot
+* `RestoreGlusterVolumeSnapshot` - restore a given volume to a snapshot
+* `RemoveGlusterVolumeSnapshot` - removes the given snapshot
+* `UpdateGlusterVolumeSnapshotConfig` - sets the configuration values for a given volume
+* `ActivateGlusterVolumeSnapshot` - activates the snapshot for further activities
+* `DeactivateGlusterVolumeSnapshot` - deactivates an already activated snapshot
 
 ## Engine Queries
 
-*   <big>GetGlusterVolumeSnapshotsByVolumeId</big> - lists all the snapshot for a given volume
-*   <big>GetGlusterVolumeSnapshotsCountByVolumeId</big> - gets the no of snapshots for a given volume
-*   <big>GetGlusterVolumeSnapshotConfig</big> - gets the volume snapshot configurations for a given volume
-*   <big>GetGlusterVolumeSnapshotByVolumeIdAndSnapshotId</big> - lists snapshot for the given snapshot id and volume id
-*   <big>GetGlusterVolumeSnapshotConfigDetailsByVolumeId</big> - lists all the snapshot configuration details for the given volume id
-*   <big>GetAllGlusterVolumeSnapshotStatus</big> - lists all the snapshots with their status
-*   <big>GetGlusterVolumeSnapshotStatusByVolumeId</big> - gets the status of a snapshot for a specific volume
-*   <big>GetGlusterVolumeSnapshotStatusBySnapshotId</big> - gets the status of a specific snapshot
+* `GetGlusterVolumeSnapshotsByVolumeId` - lists all the snapshot for a given volume
+* `GetGlusterVolumeSnapshotsCountByVolumeId` - gets the no of snapshots for a given volume
+* `GetGlusterVolumeSnapshotConfig` - gets the volume snapshot configurations for a given volume
+* `GetGlusterVolumeSnapshotByVolumeIdAndSnapshotId` - lists snapshot for the given snapshot id and volume id
+* `GetGlusterVolumeSnapshotConfigDetailsByVolumeId` - lists all the snapshot configuration details for the given volume id
+* `GetAllGlusterVolumeSnapshotStatus` - lists all the snapshots with their status
+* `GetGlusterVolumeSnapshotStatusByVolumeId` - gets the status of a snapshot for a specific volume
+* `GetGlusterVolumeSnapshotStatusBySnapshotId` - gets the status of a specific snapshot
 
 ## VDSM Verbs
 
 ### VDSM verbs for Snapshot creation
 
-*   <big>glusterSnapshotCreate</big> - creates a volume snapshot
+*   `glusterSnapshotCreate` - creates a volume snapshot
     -   Input
         -   volumeName
         -   snapName
@@ -102,7 +102,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 ### VDSM verbs for restoring snaps
 
-*   <big>glusterSnapshotRestore</big> - restores the given volume to the given snapshot
+*   `glusterSnapshotRestore` - restores the given volume to the given snapshot
     -   Input
         -   snapshotName
     -   Output
@@ -110,7 +110,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 ### VDSM verbs for deleting snaps
 
-*   <big>glusterSnapshotDelete</big> - deletes the given snapshot
+*   `glusterSnapshotDelete` - deletes the given snapshot
     -   Input
         -   snapName
     -   Output
@@ -118,7 +118,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 ### VDSM verbs for listing snaps
 
-*   <big>glusterSanpshotList</big> - gets the list of snapshots for a volume
+*   `glusterSanpshotList` - gets the list of snapshots for a volume
     -   Input
         -   [volumeName]
     -   Output
@@ -128,7 +128,7 @@ Note: If volumeName is not passed, all the snaps are listed
 
 ### VDSM verbs for snapshot configuration
 
-*   <big>glusterSnapshotConfigSet</big> - sets the snapshot configuration parameters for the given volume
+*   `glusterSnapshotConfigSet` - sets the snapshot configuration parameters for the given volume
     -   Input
         -   volumeName
         -   configList(name=value pair)
@@ -137,7 +137,7 @@ Note: If volumeName is not passed, all the snaps are listed
 
 <!-- -->
 
-*   <big>glusterSnapshotConfigGet</big> - gets the value of the snapshot configuration parameter for the given volume
+*   `glusterSnapshotConfigGet` - gets the value of the snapshot configuration parameter for the given volume
     -   Input
         -   [volumeName]
     -   Ouptut
@@ -147,7 +147,7 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 ### VDSM verbs for the snapshots status
 
-*   <big>glusterSnapshotStatus</big> - gets the snapshot status details for a volume
+*   `glusterSnapshotStatus` - gets the snapshot status details for a volume
     -   Input
         -   [volumeName]
         -   [snapName]
@@ -156,7 +156,7 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 ### VDSM verbs for activating a snapshot
 
-*   <big>glusterSnapshotActivate</big> - activates the given snapshot
+*   `glusterSnapshotActivate` - activates the given snapshot
     -   Input
         -   snapName
         -   [force]
@@ -167,7 +167,7 @@ Note: If force is passed as true, even if some the bricks are down, they are bro
 
 ### VDSM verbs for deactivating the snapshots
 
-*   <big>glusterSnapshotDeactivate</big> - deactivates the given snapshot
+*   `glusterSnapshotDeactivate` - deactivates the given snapshot
     -   Input
         -   snapName
     -   Output
@@ -175,7 +175,7 @@ Note: If force is passed as true, even if some the bricks are down, they are bro
 
 ### VDSM verbs for getting the snapshot info
 
-*   <big>glusterSnapshotInfo</big> - gets the snapshot info
+*   `glusterSnapshotInfo` - gets the snapshot info
     -   Input
         -   [snapName]
         -   [volumeName]

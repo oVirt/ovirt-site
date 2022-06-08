@@ -15,9 +15,6 @@ Packaging the ovirt-guest-agent for OpenSUSE
 ### Owner
 
 *   Name: Vinzenz 'evilissimo' Feenstra (Vfeenstr)
-
-<!-- -->
-
 *   Email: <evilissimo@redhat.com>
 
 ### Current status
@@ -62,7 +59,7 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 *   IP Addresses
 *   FQDN of the guest OS
 *   Disks Usage
-*   Configured RPMs to report (see /etc/ovirt-guest-agent.conf for the packages)
+*   Configured RPMs to report (see `/etc/ovirt-guest-agent.conf` for the packages)
 *   Hostname
 
 #### The guest agent also provides the following actions
@@ -72,12 +69,16 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 
 #### Installation
 
-`# zypper addrepo `<URL to repo file from the Repository section>
-      # zypper refresh
-      # zypper install ovirt-guest-agent-common
-      # service ovirt-guest-agent start
-      OR with systemd
-      # systemctl start ovirt-guest-agent.service
+```console
+# zypper addrepo <URL to repo file from the Repository section>
+# zypper refresh
+# zypper install ovirt-guest-agent-common
+# service ovirt-guest-agent start
+
+OR with systemd:
+
+# systemctl start ovirt-guest-agent.service
+```
 
 ### Testing
 
@@ -87,23 +88,25 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 *   After about 15-30 seconds the Web Admin Portal entry for the VM should show:
     -   the IPv4 Addresses of the VM in the grid
     -   the FQDN of the VM in the grid
-    -   kernel package and the ovirt-guest-agent-common package in the application list
+    -   `kernel` package and the `ovirt-guest-agent-common` package in the application list
     -   The FQDN in the general tab
     -   Logged-in User: in the Sessions tab should be filled if a user is logged in.
     -   All IPs (IPv4 and IPv6) in the Network Interfaces tab in the Guest Agent Data section for each interface.
-*   Verification via on the VDSM side: \`vdsClient -s 0 getVmStats <VM UUID>\`
+*   Verification via on the VDSM side: `vdsClient -s 0 getVmStats <VM UUID>`
     -   Reported fields are non-empty:
-        -   guestFQDN
-        -   netIfaces
-        -   disksUsage
-        -   memoryStats
-        -   guestName
-        -   appsList
-        -   guestOs
-        -   username
-        -   guestIPs (if there are IPv4 addresses)
+        -   `guestFQDN`
+        -   `netIfaces`
+        -   `disksUsage`
+        -   `memoryStats`
+        -   `guestName`
+        -   `appsList`
+        -   `guestOs`
+        -   `username`
+        -   `guestIPs` (if there are IPv4 addresses)
 
-**Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM **Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
+**Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM
+
+**Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
 
 
 

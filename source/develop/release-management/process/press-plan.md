@@ -42,8 +42,6 @@ Cade Metz, Wired Enterprise <https://www.wired.com/author/cade-metz/>
 
 Dave Greenfield, NetworkWorld (works for silver peak) <https://www.networkworld.com/author/Dave-Greenfield/>
 
-Bert Latamore, Services Angle <http://servicesangle.com/blog/author/bertlatamore/>
-
 Scott Fulton, Read Write Web <https://readwrite.com/author/scott-fulton/>
 
 Bruce Hoard, Virtualization Review <http://virtualizationreview.com/Blogs/The-Hoard-Facts/List/Blog-List.aspx>

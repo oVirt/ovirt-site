@@ -6,13 +6,12 @@ authors:
   - mmucha
   - moti
   - mpavlik
+toc: true
 ---
 
 <!-- TODO: Content review -->
 
 # Scoped MacPoolManager
-
-__TOC__
 
 ## Summary
 
@@ -73,80 +72,84 @@ screenshot of gui while creating new MAC Pool from ~~DataCenter~~ cluster dialog
 
 A new macpools top level collection will be added supporting the following operations:
 
-1. GET api/macpools
+1. `GET api/macpools`
 
 *   Request: **None**
 *   Response:
-
-<mac_pools>
-`    `<mac_pool id="AAA">
-`        `<name>`Default`</name>
-`        `<description>`The default MAC addresses pool`</description>
-`        `<allow_duplicates>`false`</allow_duplicates>
-`        `<ranges>
-`            `<range>
-`                `<from>`00:1A:4A:01:00:00`</from>
-`                `<to>`00:1A:4A:FF:FF:FF`</to>
-`            `</range>
-`            `<range>
-`                `<from>`02:1A:4A:01:00:00`</from>
-`                `<to>`02:1A:4A:FF:FF:FF`</to>
-`            `</range>
-`        `</ranges>
-`    `</mac_pool>
-`    `<mac_pool id="BBB">
-              ...
-`    `</mac_pool>
-</mac_pools>
+    ```xml
+    <mac_pools>
+        <mac_pool id="AAA">
+            <name>Default</name>
+            <description>The default MAC addresses pool</description>
+            <allow_duplicates>false</allow_duplicates>
+            <ranges>
+                <range>
+                    <from>00:1A:4A:01:00:00</from>
+                    <to>00:1A:4A:FF:FF:FF</to>
+                </range>
+                <range>
+                    <from>02:1A:4A:01:00:00</from>
+                    <to>02:1A:4A:FF:FF:FF</to>
+                </range>
+            </ranges>
+        </mac_pool>
+        <mac_pool id="BBB">
+                  ...
+        </mac_pool>
+    </mac_pools>
+    ```
 
 2. POST api/macpools
 
 *   Request:
-
-<mac_pool id="AAA">
-`    `<name>`Default`</name>
-`    `<description>`The default MAC addresses pool`</description>
-`    `<allow_duplicates>`false`</allow_duplicates>
-`    `<ranges>
-`        `<range>
-`            `<from>`00:1A:4A:01:00:00`</from>
-`            `<to>`00:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`        `<range>
-`            `<from>`02:1A:4A:01:00:00`</from>
-`            `<to>`02:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`    `</ranges>
-</mac_pool>
+    ```xml
+    <mac_pool id="AAA">
+        <name>Default</name>
+        <description>The default MAC addresses pool</description>
+        <allow_duplicates>false</allow_duplicates>
+        <ranges>
+            <range>
+                <from>00:1A:4A:01:00:00</from>
+                <to>00:1A:4A:FF:FF:FF</to>
+            </range>
+            <range>
+                <from>02:1A:4A:01:00:00</from>
+                <to>02:1A:4A:FF:FF:FF</to>
+            </range>
+        </ranges>
+    </mac_pool>
+    ```
 
 *   Response: **GUID on the new pool**
 
 3. PUT api/macpools/{macpool:id}
 
 *   Request:
-
-<mac_pool>
-`    `<description>`The default MAC addresses pool - allows duplicates`</description>
-`    `<allow_duplicates>`true`</allow_duplicates>
-</mac_pool>
+    ```xml
+    <mac_pool>
+        <description>The default MAC addresses pool - allows duplicates</description>
+        <allow_duplicates>true</allow_duplicates>
+    </mac_pool>
+    ```
 
 *   Response:
-
-<mac_pool id="AAA">
-`    `<name>`Default`</name>
-`    `<description>`The default MAC addresses pool - allows duplicates`</description>
-`    `<allow_duplicates>`true`</allow_duplicates>
-`    `<ranges>
-`        `<range>
-`            `<from>`00:1A:4A:01:00:00`</from>
-`            `<to>`00:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`        `<range>
-`            `<from>`02:1A:4A:01:00:00`</from>
-`            `<to>`02:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`    `</ranges>
-</mac_pool>
+    ```xml
+    <mac_pool id="AAA">
+        <name>Default</name>
+        <description>The default MAC addresses pool - allows duplicates</description>
+        <allow_duplicates>true</allow_duplicates>
+        <ranges>
+            <range>
+                <from>00:1A:4A:01:00:00</from>
+                <to>00:1A:4A:FF:FF:FF</to>
+            </range>
+            <range>
+                <from>02:1A:4A:01:00:00</from>
+                <to>02:1A:4A:FF:FF:FF</to>
+            </range>
+        </ranges>
+    </mac_pool>
+    ```
 
 #### Changes to existing resources
 
@@ -165,7 +168,7 @@ The mac pool entity is a managed entity which its actions requrie permissions. T
 Those action groups will be part of a new predefined role named **MacPoolAdmin** (includes LOGIN).
 **MacPoolAdmin** will use to create, edit and delete mac pools from the system.
 The permission should be granted on system level for creating a pool and on a pool level for editing or removing a pool.
- In order to use a mac pool from within the ~~data-center~~cluster, the following ActionGroup is added:
+ In order to use a mac pool from within the ~~ data-center~~cluster, the following ActionGroup is added:
 
 *   CONFIGURE_MAC_POOL
 

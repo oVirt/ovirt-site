@@ -4,7 +4,8 @@ category: feature
 authors: lhornyak
 ---
 
-<big> This feature did not make into oVirt and very likely never will, a scheduling similar to OpenStack Nova was implemented in oVirt 3.3 There is no further plan for implementing it. </big>
+> IMPORTANT:
+> This feature did not make into oVirt and very likely never will, a scheduling similar to OpenStack Nova was implemented in oVirt 3.3 There is no further plan for implementing it.
 
 # Drools Planner scheduler
 

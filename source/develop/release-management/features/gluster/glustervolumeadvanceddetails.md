@@ -13,7 +13,7 @@ This feature provides the ability to see the advanced details about the gluster 
 ## Owner
 
 *   Feature owner: Shireesh Anjal <sanjal@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
+    -   GUI Component owner: Kanagaraj Mayilsamy
     -   REST Component owner: Shireesh Anjal
     -   Engine Component owner: Dhandapani Gopal <dgopal@redhat.com>
     -   VDSM Component owner: Balamurugan Arumugam <barumuga@redhat.com>

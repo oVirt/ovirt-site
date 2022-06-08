@@ -111,21 +111,21 @@ The Gluster volume quota details would be periodically fetched and updated into 
 
 ## BLL Commands
 
-*   <big>EnableGlusterVolumeQuota</big> - enables the quota feature for said volume
-*   <big>DisableGlusterVolumeQuota</big> - disables the quota feature for said volume
-*   <big>SetGlusterVolumeDiskUsageLimit</big> - sets the disk usage hard limit for the said volume and directory (optionally soft limit %tage)
-*   <big>SetGlusterVolumeQuotaTimeout</big> - sets the quota related soft and hard timeout values for a volume
-*   <big>SetGlusterVolumeQuotaAlertTime</big> - sets the quota related alert time value for a volume
-*   <big>SetGlusterVolumeQuotaDefaultSoftLimit</big> - sets the default soft limit for a volume (default is 80% which could be changed using this)
-*   <big>RemoveGlusterVolumeDiskUsageLimit</big> - removes the already set disk usage limit for the given volume and directory
+*   `EnableGlusterVolumeQuota` - enables the quota feature for said volume
+*   `DisableGlusterVolumeQuota` - disables the quota feature for said volume
+*   `SetGlusterVolumeDiskUsageLimit` - sets the disk usage hard limit for the said volume and directory (optionally soft limit %tage)
+*   `SetGlusterVolumeQuotaTimeout` - sets the quota related soft and hard timeout values for a volume
+*   `SetGlusterVolumeQuotaAlertTime` - sets the quota related alert time value for a volume
+*   `SetGlusterVolumeQuotaDefaultSoftLimit` - sets the default soft limit for a volume (default is 80% which could be changed using this)
+*   `RemoveGlusterVolumeDiskUsageLimit` - removes the already set disk usage limit for the given volume and directory
 
 ## Engine Queries
 
-*   <big>GetGlusterVolumeQuotaDetails</big> - returns the list of disk usage limits set for a volume and directory. If no directory name passed, it returns details for all the directories.
+*   `GetGlusterVolumeQuotaDetails` - returns the list of disk usage limits set for a volume and directory. If no directory name passed, it returns details for all the directories.
 
 ## VDSM Verbs
 
-*   <big>glusterVolumeQuotaEnable</big> - enables quota feature for the said volume
+*   `glusterVolumeQuotaEnable` - enables quota feature for the said volume
     -   Input
         -   volumeName
     -   Output
@@ -133,7 +133,7 @@ The Gluster volume quota details would be periodically fetched and updated into 
 
 <!-- -->
 
-*   <big>glusterVolumeQuotaDisable</big> - disables quota feature for the said volume
+*   `glusterVolumeQuotaDisable` - disables quota feature for the said volume
     -   Input
         -   volumeName
     -   Output
@@ -141,7 +141,7 @@ The Gluster volume quota details would be periodically fetched and updated into 
 
 <!-- -->
 
-*   <big>glusterVolumeQuotaSetLimit</big> - sets disk usage limit for the said volume and directory
+*   `glusterVolumeQuotaSetLimit` - sets disk usage limit for the said volume and directory
     -   Input
         -   volumeName
         -   directoryName
@@ -152,7 +152,7 @@ The Gluster volume quota details would be periodically fetched and updated into 
 
 Note: softLimitPcnt is an optional argument and would be set only if passed
 
-*   <big>glusterVolumeQuotaSetHardTimeout</big> - sets quota related hard timeout for the said volume
+*   `glusterVolumeQuotaSetHardTimeout` - sets quota related hard timeout for the said volume
     -   Input
         -   volumeName
         -   timeout
@@ -161,7 +161,7 @@ Note: softLimitPcnt is an optional argument and would be set only if passed
 
 <!-- -->
 
-*   <big>glusterVolumeQuotaSetSoftTimeout</big> - sets quota related soft timeout for the said volume
+*   `glusterVolumeQuotaSetSoftTimeout` - sets quota related soft timeout for the said volume
     -   Input
         -   volumeName
         -   timeout
@@ -170,7 +170,7 @@ Note: softLimitPcnt is an optional argument and would be set only if passed
 
 <!-- -->
 
-*   <big>glusterVolumeQuotaSetAlertTime</big> - sets quota related alert time for the said volume
+*   `glusterVolumeQuotaSetAlertTime` - sets quota related alert time for the said volume
     -   Input
         -   volumeName
         -   time
@@ -179,7 +179,7 @@ Note: softLimitPcnt is an optional argument and would be set only if passed
 
 <!-- -->
 
-*   <big>glusterVolumeQuotaSetDefaultSoftLimit</big> - sets quota related default soft limit for the said volume
+*   `glusterVolumeQuotaSetDefaultSoftLimit` - sets quota related default soft limit for the said volume
     -   Input
         -   volumeName
         -   limitPcnt
@@ -188,7 +188,7 @@ Note: softLimitPcnt is an optional argument and would be set only if passed
 
 <!-- -->
 
-*   <big>glusterVolumeQuotaRemoveUsageLimit</big> - removes the disk usage limit for the said volume and directory
+*   `glusterVolumeQuotaRemoveUsageLimit` - removes the disk usage limit for the said volume and directory
     -   Input
         -   volumeName
         -   dirName
@@ -197,7 +197,7 @@ Note: softLimitPcnt is an optional argument and would be set only if passed
 
 <!-- -->
 
-*   <big>glusterVolumeQuotaDetailsList</big> - gets the disk usage details list for the said volume (and directory optionally)
+*   `glusterVolumeQuotaDetailsList` - gets the disk usage details list for the said volume (and directory optionally)
     -   Input
         -   volumeName
         -   [dirName]

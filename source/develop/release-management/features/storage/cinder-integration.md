@@ -15,7 +15,7 @@ OpenStack Cinder(/ceph) Integration
 ## Owner
 
 *   Daniel Erez (DanielErez) (<derez@redhat.com>)
-*   Maor Lipchuk (MaorLipchuk) (<mlipchuk@redhat.com>)
+*   Maor Lipchuk (MaorLipchuk)
 *   Nir Soffer (NirSoffer) (<nsoffer@redhat.com>)
 *   Federico Simoncelli (FedericoSimoncelli) (<fsimonce@redhat.com>)
 
@@ -227,7 +227,7 @@ E.g.
 
 ### VDSM
 
-*   Add [librbd1 package](https://apps.fedoraproject.org/packages/librbd1) as dependency to vdsm.spec file.
+*   Add [librbd1 package](https://packages.fedoraproject.org/pkgs/ceph/librbd1/) as dependency to vdsm.spec file.
 *   Refactor `Drive -> getXML()` to support multiple hosts (represents Ceph monitors) in disk's source element:
 
 ```xml

@@ -9,7 +9,8 @@ authors:
 
 # Authentication & Directory rewrite
 
-<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](/develop/release-management/features/infra/aaa.html)</big></span>
+> ATTENTION:
+> This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](/develop/release-management/features/infra/aaa.html)
 
 ## Summary
 

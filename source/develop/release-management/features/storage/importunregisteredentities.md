@@ -23,7 +23,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### Owner
 
-* Maor Lipchuk (<mlipchuk@redhat.com>)
+* Maor Lipchuk
 
 ### Current status
 
@@ -67,7 +67,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### Work flow for detach and attach Storage Domain with entities - UI flow
 
-<iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" style="float:right; border:0" allowfullscreen> </iframe>
 
 1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
 2. Move the Storage Domain to maintenance, and detach it from the Data Center - At this point all the entities related to the Storage Domain should be deleted from the setup

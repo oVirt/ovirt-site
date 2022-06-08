@@ -24,6 +24,9 @@ Prepare the following information:
 * Valid Red Hat subscription login credentials.
 
 include::Configuring_RHSSO_ldap.adoc[]
+
 include::Configuring_RHSSO_apache.adoc[]
+
 include::Configuring_RHSSO_OVN.adoc[]
+
 include::Configuring_RHSSO_Monitoring_Portal.adoc[]

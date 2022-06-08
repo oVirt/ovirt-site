@@ -146,24 +146,10 @@ Each dashboard will have a number of tags that describe the content displayed wi
 #### oVirt Engine
 
  - [BZ 1884233](https://bugzilla.redhat.com/show_bug.cgi?id=1884233) **oVirt-engine reports misleading login-domain for external RH-SSO accounts**
-
-   Feature: 
-
-Authz name is now used as user domain on RHVM home page. It replaces profile. Additionally several log statements related to authorization/authentication flow has been made consistent by presenting both user's authz name and profile name where applicable
-
-
-
-Reason: 
-
-Before this change usage of user profile and authz name was inconsintent which might have led to confusion when troubleshooting login issues/misconfiguration.
-
-RHVM internally always uses username & authz name to identify the user, profile is only used at login screen. Additionally, there might be multiple profiles attached to single authz configuration. Authz name by convention represents a domain ie. example.com so it makes sense to stick to the following pattern when presenting user:  username@authz ie. jsmith@example.com
-
-
-
-Result: 
-
-'<username>@<authz name>' is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
+   The authz name is now used as the user domain on the oVirt Engine home page. It replaces the profile name.
+   Additionally, several log statements related to authorization/authentication flow have been made consistent by presenting both the user authz name and the profile name where applicable.
+   In this release, `<username>@<authz name>` is displayed on the home page once the user is successfully logged in to the ovirt-engine.
+   In addition, the log statements now contain both the authz name and the profile name as well as the username.
 
  - [BZ 1729897](https://bugzilla.redhat.com/show_bug.cgi?id=1729897) **[RFE] Per-vNUMA node tuning modes**
 

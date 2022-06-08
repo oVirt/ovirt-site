@@ -19,7 +19,7 @@ New RPMS are now uploaded for oVirt 3.2.1. The updates included:
       ovirt-engine-sdk 3.2.0.10-1
       ovirt-engine 3.2.1-1
 
-<big>**oVirt Engine changes:**</big>
+### **oVirt Engine changes:**
 
 *   Fixed bug blocking firewalld configuration when selinux was in enforcing mode
 *   Small change in All-In-One

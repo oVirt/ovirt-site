@@ -18,9 +18,9 @@ To read more about gluster swift integration, see <https://github.com/gluster/gl
 
 ## Owner
 
-*   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
-    -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
+*   Feature owner: Shubhendu Tripathi
+    -   GUI Component owner: Kanagaraj Mayilsamy
+    -   Engine Component owner: Shubhendu Tripathi
     -   VDSM Component owner: Aravinda V K <avishwan@redhat.com>
     -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
 

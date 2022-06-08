@@ -12,7 +12,7 @@ This page will contain instructions on recording a screencast on Linux and Windo
 ## GNOME 3
 
 *   Hit Ctrl-Alt-Shift-R to start recording, hit again to stop recording
-*   The video will be in /home/<user>/Videos/Screencast from <date>.webm
+*   The video will be in `/home/<user>/Videos/Screencast from <date>.webm`
 
 ## GNOME 2 or KDE
 

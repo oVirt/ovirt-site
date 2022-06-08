@@ -16,7 +16,6 @@ This feature extends events notifier capabilities and enables it to generate SNM
 ### Owner
 
 *   Name: Ravi Nori (rnori)
-*   Email: <rnori@redhat.com>
 
 ### Current status
 

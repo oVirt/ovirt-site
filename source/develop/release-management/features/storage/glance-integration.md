@@ -43,16 +43,18 @@ The Glance project provides services for discovering, registering, and retrievin
 
 ## VDSM API
 
+```python
     importImage(spUUID, sdUUID, imgUUID, volUUID, importInfo)
     exportImage(spUUID, sdUUID, imgUUID, volUUID, exportInfo)
 
     importInfo = {
        'method': 'http',
-       'url': '`[`http://glance/v1/images/image-uuid`](http://glance/v1/images/image-uuid)`',
+       'url': 'http://glance/v1/images/image-uuid',
        'headers': {
          'X-Auth-Token': 'token-uuid',
        },
     }
+```
 
 ## Future Phases
 
@@ -61,10 +63,10 @@ Import and Export entire VMs with multiple disks and snapshots using the OVA con
 ## User Experience
 
 ![New Glace Domain Dialog](/images/wiki/NewGlanceDomain1.png)
-&nbsp;<br/>
+
 ![Glance Domain Listing](/images/wiki/GlanceDomainListing1.png)
 
 ## External References
 
-*   [<http://github.com/woorea/openstack-java-sdk>](http://github.com/woorea/openstack-java-sdk)
-*   [<http://docs.openstack.org/developer/glance>](http://docs.openstack.org/developer/glance)
+*   <http://github.com/woorea/openstack-java-sdk>
+*   <http://docs.openstack.org/developer/glance>

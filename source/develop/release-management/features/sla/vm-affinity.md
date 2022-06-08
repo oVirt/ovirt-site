@@ -107,7 +107,7 @@ Add affinity filter and weight module to oVirt's scheduler, and add those to all
 
 Filters out host according to affinity enforce mode (hard).
 
-*   Fetches all (scheduled) VM <big>hard</big> Affinity Groups.
+*   Fetches all (scheduled) VM **hard** Affinity Groups.
 *   Fetches all VMs who are members in the scheduled VM Affinity Groups.
 *   Removes all hosts that doesn't meet the Affinity Group hard enforce:
     -   for positive affinity, in case a VM of the group is running on a certain host, remove all other hosts.
@@ -115,7 +115,7 @@ Filters out host according to affinity enforce mode (hard).
 
 #### Affinity Weight Module
 
-*   Fetches all (schedule) VM <big>soft</big> Affinity Groups.
+*   Fetches all (schedule) VM **soft** Affinity Groups.
 *   Fetches all VMs who are members in the scheduled VM Affinity Groups.
 *   Score the hosts according to the soft enforcement Affinity Groups:
     -   for positive affinity, in case a VM of the group is running on a certain host, give all other hosts a higher weight.
@@ -191,9 +191,9 @@ POST /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups
 </affinity_group>
 ```
 
-PUT /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
+`PUT /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92`
 
-DELETE /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
+`DELETE /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92`
 
 
 

@@ -73,6 +73,7 @@ New [ Host Availability](/images/wiki/Fence-refactoring-host-availability-tab.pn
 ### REST API
 
 *   Existing Fence Sequence Steps for a host can be listed using URL `/api/hosts/{id}/fence-sequence-steps`:
+    ```xml
         <fence-sequence-steps>
           <fence-sequence-step>
             <name>Name</name>
@@ -81,6 +82,7 @@ New [ Host Availability](/images/wiki/Fence-refactoring-host-availability-tab.pn
           <fence-sequence-step>
         ...
         </fence-sequence-steps>
+    ```
 
 *   To enable or disable Fence Sequence Step `PUT` operation using URL `/api/hosts/{id}/fence-sequence-steps/{name}` with `enabled` parameter can be executed.
 *   Other operation like creating and removing step is not currently supported.

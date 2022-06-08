@@ -173,6 +173,7 @@ exclude:
   - dropped/introduction_to_the_vm_portal/common/**/*.adoc
   - dropped/introduction_to_the_vm_portal/topics
   - dropped/introduction_to_the_vm_portal/chap*
+  - dropped/**/master.adoc
 sass:
   add_charset: true
   style: compressed

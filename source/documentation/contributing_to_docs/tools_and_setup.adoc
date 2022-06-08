@@ -79,7 +79,7 @@ link:https://atom.io/[Atom].
 The following instructions describe how to install all the required tools to do
 live content editing on a Fedora Linux system.
 
-1. Install the _RubyGems_ package with `yum install rubygems`
+1. Install the _RubyGems_ package with `yum install rubygems`.
 +
 [NOTE]
 ====
@@ -91,101 +91,8 @@ $ curl -sSL https://get.rvm.io | bash -s stable --ruby
 ----
 ====
 
-2. Install _Ruby_ development packages with `yum install ruby-devel`
-3. Install _gcc_ with `yum install gcc-c++`
-4. Install _redhat-rpm-config_ with `yum install redhat-rpm-config`
-5. Install _make_ with `yum install make`
-6. Install _asciidoctor-diagram_ with `gem install asciidoctor-diagram`
-////
-7. Install the _ascii_binder_ gem with `gem install ascii_binder`
-
-NOTE: If you already have AsciiBinder installed, you might be due for an update.
-These directions assume that you are using AsciiBinder 0.2.0 or newer. To check
-and update if necessary, simply run `gem update ascii_binder`. Note that you might require root permissions.
-////
-
-////
-=== Building the collection
-With the initial setup complete, you are ready to build the collection.
-
-1. From the `openshift-docs` directory, run an initial build:
-+
-----
-$ cd openshift-docs
-$ asciibinder build
-----
-2. Open the generated HTML file in your web browser. This will be located in the
-`openshift-docs/_preview/<distro>/<branch>` directory, with the same path and
-filename as the original `.adoc` file you edited, only it will be with the
-`.html` extension.
-
-== Clean up
-The `.gitignore` file is set up to prevent anything under the `_preview` and
-`_package` directories from being committed. However, you can reset the
-environment manually by running:
-
-----
-$ asciibinder clean
-----
-////
-== Next steps
-With the repository and tools set up on your workstation, you can now either
-edit existing content or create assemblies and modules.
-
-* link:doc_guidelines.adoc[Review the documentation guidelines] to understand
-some basic guidelines to keep things consistent across our content.
-* link:create_or_edit_content.adoc[Create a local working branch] on your
-workstation to edit existing content or create content.
-
-=== How to deploy to your own OpenShift cluster for testing
-
-You can deploy to your own OpenShift cluster for development. This process will use your github repo to launch the website,
-and therefore your github repo must have all of the upstream branches. `main` is used for site changes,
-so assuming all your work is in `main`, you can remove all remote branches and then push the upstream branches.
-
-
-Removing remote branches and updating with upstream branches (this assumes remote repos called `origin` and `upstream`)
-[WARNING]
-====
-This is a destructive process, make sure that this is purely a development repo, as all local and remote branches will be deleted
-by performing the below commands.
-====
-----
-$ git fetch --all
-$ for branch in $(git branch -r | grep -v "main" | grep "^  origin"); do git push origin --delete $(echo $branch | cut -d '/' -f 2); done
-$ git branch -D $(git branch | grep -v 'main' | xargs)
-$ for branch in $(git branch -r | grep -v "main" | grep "^  upstream"); do git branch --track $(echo $branch | cut -d '/' -f 2) $(echo $branch | tr -d '[:space:]'); done
-$ for branch in $(git branch | grep -v "main"); do git push origin $(echo $branch | tr -d '[:space:]'); done
-----
-////
-Deploying the docs site to an OpenShift cluster
-----
-$ oc process -f asciibinder-template.yml -p NAME=community-docs \
-    -p SOURCE_REPOSITORY_URL=$(git remote get-url origin) \
-    -p SOURCE_REPOSITORY_REF=$(git rev-parse --abbrev-ref HEAD) \
-    -p DOC_TYPE=community \
-    | oc create -f -
-$ oc process -f asciibinder-template.yml -p NAME=commercial-docs \
-    -p SOURCE_REPOSITORY_URL=$(git remote get-url origin) \
-    -p SOURCE_REPOSITORY_REF=$(git rev-parse --abbrev-ref HEAD) \
-    -p DOC_TYPE=commercial \
-    | oc create -f -
-----
-
-[NOTE]
-====
-If the build fails with "Fetch source failed" status, you can
-delete all the created objects and re-run above with an HTTP uri
-as the `SOURCE_REPOSITORY_URL`, or you can
-link:https://docs.okd.io/latest/dev_guide/builds/build_inputs.html#source-secrets-combinations[create a source secret]
-and add it to the stg1 build, `oc set build-secret --source bc/stg1-docs <secret name>`.
-====
-
-
-You can delete all created objects by running
-
-----
-$ oc delete all -l app=community-docs
-$ oc delete all -l app=commercial-docs
-----
-////
+2. Install _Ruby_ development packages with `yum install ruby-devel`.
+3. Install _gcc_ with `yum install gcc-c++`.
+4. Install _redhat-rpm-config_ with `yum install redhat-rpm-config`.
+5. Install _make_ with `yum install make`.
+6. Install _asciidoctor-diagram_ with `gem install asciidoctor-diagram`.

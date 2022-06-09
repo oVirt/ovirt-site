@@ -11,7 +11,7 @@ authors:
 
 ## Summary
 
-This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](/develop/developer-guide/vdsm/hook/sriov.html) only).
+This feature adds SR-IOV support to oVirt management system (which is currently available via a [vdsm-hook](/develop/developer-guide/vdsm/hook/sriov.html) only).
 
 ## Owner
 
@@ -30,16 +30,21 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 ### High Level Feature Description
 
-In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one. The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag). Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service. When starting the VM, its vNic will be directly connected to one of the free VFs on the host. But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic's network as one of its allowed networks.
+In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one.
+The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag).
+Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service.
+When starting the VM, its vNic will be directly connected to one of the free VFs on the host.
+But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic's network as one of its allowed networks.
 
-<b> Note: migration is not supported. </b>
+**Note: migration is not supported.**
 
 ### Definitions
 
-*   <b>Free VF</b>
+*   **Free VF**
     -   the management system will consider a VF as free if
-        -   the VF is not attached directly to a VM (as reported by getHostDevListByCaps)
-        -   the VF doesn't have macvatp device on top of it (it is filtered by the vdsm before getVdsCaps, so if the VF is reported by the getVdsCap, it can be considered it doesn't have macvtap device on top of it).
+        -   the VF is not attached directly to a VM (as reported by `getHostDevListByCaps`)
+        -   the VF doesn't have macvatp device on top of it (it is filtered by the vdsm before getVdsCaps, so if the VF is reported by the `getVdsCap`,
+            it can be considered it doesn't have macvtap device on top of it).
         -   the VF doesn't have network (bridge) or vlan device on top of it.
         -   notice: although if the VF has any other device (not macvtap, bridge or vlan device) it will be considered as free.
         -   the VF doesn't share iommu group with other devices.
@@ -48,7 +53,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 #### add/edit profile
 
-*   <b>passthrough</b>
+*   **passthrough**
     -   new property that will be added to the profile.
     -   passthrough property cannot be changed on edit profile if the profile is attached to a vNic.
     -   port-mirroring is not enabled on passthrough profile.
@@ -57,15 +62,16 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 #### add/update network on cluster
 
-*   management, display and migration properties are not relevant for the VFs configuration (e.g if a migration network is attached to nic1 via the PF configuration and also exists in the VFs configuration of nic2- the migration will take place on nic1 and NOT on the VF on nic2).
+*   management, display and migration properties are not relevant for the VFs configuration (e.g if a migration network is attached to nic1 via
+    the PF configuration and also exists in the VFs configuration of nic2- the migration will take place on nic1 and NOT on the VF on nic2).
 *   Same for the required property. It doesn't relevant for the VFs configuration and related just to the regular network attachments.
 
 #### add/edit vNic
 
-*   <b> if the selected vNic profile is marked as passthrough</b>
+*   **if the selected vNic profile is marked as passthrough**
     -   it means that the vNic will bypass the software network virtualization and will be connected directly to the VF.
     -   vNic type
-        -   <b>pci passthrough</b>
+        -   **pci passthrough**
             -   in case the vnic type is pci passthrough the VF will be detached from the vnic and attached to the vm.
             -   migration is not supported.
             -   linking is not supported
@@ -75,21 +81,20 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 #### hot plug passthrough nic
 
-*   <b>plugging</b>
+*   **plugging**
     -   is possible if there is an available VF.
     -   the command should update the hostdev table the vf is not free.
-*   <b>unplugging</b>
-
-      ** the VF will be released (and free for use).
-
-*   -   the command should update the hostdev table the vf is free.
-*   <b>available vf</b>- see the definition in runVm.
+*   **unplugging**
+    - the VF will be released (and free for use).
+    -  the command should update the hostdev table the vf is free.
+*   **available vf** - see the definition in runVm.
 
 #### HostNicVfsConfig
 
 *   New entity the will contain all the sr-iov related data on a specific physical nic.
-*   The data of this entity will be manipulated using- UpdateHostNicVfsConfigCommand, AddVfsConfigNetworkCommand, RemoveVfsConfigNetworkCommand, AddVfsConfigLabelCommand, and RemoveVfsConfigLabelCommand.
-*   Just nics that support SR-IOV (as reported by hostdevListByCaps) will have VfsConfig.
+*   The data of this entity will be manipulated using- `UpdateHostNicVfsConfigCommand`, `AddVfsConfigNetworkCommand`, `RemoveVfsConfigNetworkCommand`,
+    `AddVfsConfigLabelCommand`, and `RemoveVfsConfigLabelCommand`.
+*   Just nics that support SR-IOV (as reported by `hostdevListByCaps`) will have `VfsConfig`.
 
 ##### UpdateHostNicVfsConfigCommand
 
@@ -98,9 +103,9 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   num of VFs is a new property that will be added to sr-iov capable host nic.
     -   it is used for admin to enable this number of VFs on the nic.
          Changing this value will remove all the VFs from the nic and create new #numOFVfs VFs on the nic.
-    -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by hostdevListByCaps).
+    -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by `hostdevListByCaps`).
     -   this property can be updated just if all the VFs on the PF are free.
-    -   in case 'num of VFs' was changed CollectVdsNetworkDataVDSCommand should be called.
+    -   in case 'num of VFs' was changed `CollectVdsNetworkDataVDSCommand` should be called.
 *   <b>all networks allowed</b>
     -   a boolean property that means there are no network restrictions and all the networks are allowed to be configured on the nic.
     -   in case 'all networks allowed' the network and 'labels' lists should be cleared.
@@ -118,7 +123,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 ##### RemoveVfsConfigNetworkCommand
 
 *   this command allows removing a network from the vfsConfig network list.
-*   for the definition of <b>vfs config network list</b> see AddVfsConfigNetworkCommand.
+*   for the definition of <b>vfs config network list</b> see `AddVfsConfigNetworkCommand`.
 
 ##### AddVfsConfigLabelCommand
 
@@ -132,7 +137,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 ##### RemoveVfsConfigLabelCommand
 
 *   this command allows removing a label from the vfsConfig label list.
-*   for the definition of <b>vfs config label list</b> see AddVfsConfigLabelCommand.
+*   for the definition of <b>vfs config label list</b> see `AddVfsConfigLabelCommand`.
 
 #### run vm
 
@@ -163,14 +168,14 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   num of free VFs
         -   counting the num of VFs that are marked as free and the PF is their parent.
 *   the command should run-
-    -   on each CollectVdsNetworkDataVDSCommand
+    -   on each `CollectVdsNetworkDataVDSCommand`
     -   after updateHostNicVfsConfig- in case the number of VFs was updated.
 
 ### VDSM API
 
 #### create
-
-     create(Map createInfo) 
+```python
+    create(Map createInfo)
 
     params = {
      (Network VM device struct should be extended)
@@ -184,6 +189,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
       specParams:{vlanid:string}
      }
     }
+```
 
 *   if the vnic type is <b>pci-passthrough</b>
     -   the VF will be detached from the host and attached to the vm.
@@ -249,7 +255,7 @@ not supported in 3.6
 
 #### Add host dev device
 
-[2](/images/wiki/VfPinToVm.png)]
+![2](/images/wiki/VfPinToVm.png)]
 
 *   This dialog is used in case the user wants to pin a vnic to a specific VF.
 
@@ -257,7 +263,7 @@ not supported in 3.6
 
 #### Vnic profile
 
-    api/vnicprofiles/[profile_id]
+`api/vnicprofiles/[profile_id]`
 
 Adding 'passthrough' enum property. (this should be enum and not boolean because in the future we would like to add 'nice to have passthrough' property without breaking the api).
 
@@ -265,45 +271,39 @@ Adding 'passthrough' enum property. (this should be enum and not boolean because
 
 The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub resource of a nic.
 
-    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]
+`/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]`
 
 *   Supported actions:
     -   <b>GET</b> return the VFs configuration of the nic (num of VFs, allowed networks and labels).
     -   <b>PUT</b> updating the VFs configuration of the nic . (executes- UpdateHostNicVfsConfigCommand)
-
-<!-- -->
-
+        ```xml
         <max_num_of_vfs>max_num</max_num_of_vfs> (read only)
         <num_of_vfs>num</num_of_vfs>
         <all_networks_allowed>false</all_networks_allowed>
+        ```
 
-    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks
+    `/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks`
 
 *   Supported actions:
     -   <b>GET</b> get all the networks configured on HostNicVfsConfig of the specified nic.
     -   <b>POST</b> adding new network to the list. (executes- AddVfsConfigNetworkCommand)
 
-<!-- -->
-
-    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks/<network_id>
+    `/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks/<network_id>`
 
 *   Supported actions:
-    -   <b>DELETE</b> removes the network from the network list.(executes- RemoveVfsConfigNetworkCommand)
+    -   <b>DELETE</b> removes the network from the network list.(executes- `RemoveVfsConfigNetworkCommand`)
 
-<!-- -->
-
-    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels
+    `/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels`
 
 *   Supported actions:
     -   <b>GET</b> get all the labels configured on HostNicVfsConfig of the specified nic.
-    -   <b>POST</b> adding new network to the list. (executes- AddVfsConfigLabelCommand)
+    -   <b>POST</b> adding new network to the list. (executes- `AddVfsConfigLabelCommand`)
 
-<!-- -->
 
-    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels/<label>
+    `/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels/<label>`
 
 *   Supported actions:
-    -   <b>DELETE</b> removes the label from the network list. (executes- RemoveVfsConfigLabelCommand)
+    -   <b>DELETE</b> removes the label from the network list. (executes- `RemoveVfsConfigLabelCommand`)
 
 ## Benefit to oVirt
 
@@ -374,18 +374,28 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 ## Notes
 
-*   setting properties on VF-
-     ip link set {DEVICE} vf {NUM} [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] [ spoofchk { on | off } ] [ state { auto | enable | disable} ]
+*   setting properties on VF
+    ```console
+    ip link set {DEVICE} vf {NUM} [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] [ spoofchk { on | off } ] [ state { auto | enable | disable} ]
+    ```
+
 *   Update num of VFs
-    -   /sys/class/net/'device name'/device/sriov_totalvfs
+    -   `/sys/class/net/'device name'/device/sriov_totalvfs`
         -   contains the num of vfs supported by the device
         -   just sr-iov supported nics contain this file.
-    -   /sys/class/net/'device name'/device/sriov_numvfs
+    -   `/sys/class/net/'device name'/device/sriov_numvfs`
         -   contains num of VFs enabled by the nics.
         -   In order to update the file the value should first be changed to 0 (i.e all the VFs should first be removed).
-            -   for example- echo '0' > /sys/class/net/eth0/device/sriov_numvfs ==> echo '7' > /sys/class/net/eth0/device/sriov_numvfs
-*   read the iommu group of a device - readlink /sys/class/net/<device_name>/device/iommu_group
-    -   -   just sr-iov supported nics contain this file.
+            -   for example
+                ```console
+                echo '0' > /sys/class/net/eth0/device/sriov_numvfs
+                echo '7' > /sys/class/net/eth0/device/sriov_numvfs
+                ```
+*   read the iommu group of a device
+    ```console
+    readlink /sys/class/net/<device_name>/device/iommu_group
+    ```
+    -  just sr-iov supported nics contain this file.
 
 *   passthrough vnic doesn't support
     -   reporting statistics
@@ -395,5 +405,9 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
     -   QoS
     -   linking
     -   migration
-*   run the following command on your host- /sbin/lspci -nn | grep -qE '8086:(340[36].\*rev 13|3405.\*rev (12|13|22))' && echo "Interrupt remapping is broken" if it says the remapping is broken add the vfio_iommu_type1.allow_unsafe_interrupts=1 parameter to the kernel command line-
+*   run the following command on your host
+    ```console
+    /sbin/lspci -nn | grep -qE '8086:(340[36].\*rev 13|3405.\*rev (12|13|22))' && echo "Interrupt remapping is broken"
+    ```
+    if it says the remapping is broken add the `vfio_iommu_type1.allow_unsafe_interrupts=1` parameter to the kernel command line-
 

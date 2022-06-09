@@ -13,7 +13,9 @@ authors:
 
 # Storage Domain Version 3
 
-The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit 8665716c: Use SANLock for the SPM resource [1]. The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization) and mainly to introduce the use of SANLock [2].
+The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit `8665716c`: Use [SANLock for the SPM resource](http://gerrit.ovirt.org/726).
+The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization)
+and mainly to introduce the use of [SANLock](https://fedorahosted.org/sanlock).
 
 *   **Supported Domain Types:** Block (iSCSI, FCP) and File (NFS, local) domains
 *   **Supported Domain Classes:** Data, Export
@@ -22,15 +24,15 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 
 ### VDSM and Format
 
-*   Uses SANLock to acquire the SPM resource [3]
-*   Uses SANLock to acquire the volume resources (virtualization subsystem, libvirt) [4]
-*   In block domains the permissions of the LVs in the metadata are always RW (to allow live snapshots and live merges)
-*   Unicode[5] support in the name and description of:
+* Uses [SANLock to acquire the SPM resource](http://gerrit.ovirt.org/726)
+* Uses [SANLock to acquire the volume resources (virtualization subsystem, libvirt)](http://gerrit.ovirt.org/1253)
+* In block domains the permissions of the LVs in the metadata are always RW (to allow live snapshots and live merges)
+* [Unicode](http://gerrit.ovirt.org/637) support in the name and description of:
     -   Storage Pools
     -   Storage Domains
     -   Disks and NICs
     -   Virtual Machines
-*   New mailbox format (in progress)
+* New mailbox format (in progress)
 
 ### Engine and GUI
 
@@ -68,21 +70,4 @@ At the moment it is planned to support an automatic upgrade to version 3 from th
 
 ![](/images/wiki/DomainUpgrade1.png)
 
-## References
 
-<references>
-` `[6]
-
-</references>
-
-[1]
-
-[2] <https://fedorahosted.org/sanlock>
-
-[3]
-
-[4] <http://gerrit.ovirt.org/1253>
-
-[5] <http://gerrit.ovirt.org/637>
-
-[6] [`http://gerrit.ovirt.org/726`](http://gerrit.ovirt.org/726)

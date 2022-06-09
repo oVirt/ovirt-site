@@ -65,10 +65,9 @@ This is a typical update to a VM resource.
 The number of sockets is changed to 2.
 This will hotplug 1 more CPU to the machine.
 
-```bash
-  cat hotplug-cpu.xml
+```console
+$ cat hotplug-cpu.xml
 ```
-
 ```xml
   <vm>
     <cpu>
@@ -78,7 +77,7 @@ This will hotplug 1 more CPU to the machine.
 ```
 
 ```bash
-  curl -X PUT \
+curl -X PUT \
     --user user@domain:pass \
     -H "Content-Type:application/xml" \
     -d@hotplug-cpu.xml  http://localhost:8080/ovirt-engine/api/vms/${vmId}
@@ -182,7 +181,7 @@ for more details see comment 11 on [Bug #1017858](https://bugzilla.redhat.com/sh
 
 ## Open Issues
 
-#### Possible error when migrating a VM which its max cpu is lower than what currently in **'' <vcpu current=n>m</vcpu>**''
+#### Possible error when migrating a VM which its max cpu is lower than what currently in `<vcpu current=n>m</vcpu>`
 
 The current VM on the source has ***n*** cpus attached and need ***m*** maximum to be able to online more.
 if ***m1*** is the max cores on the the source ***H1*** host and ***m2*** is the maximum on destination host ***H2***

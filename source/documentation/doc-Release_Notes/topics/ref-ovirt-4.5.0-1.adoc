@@ -182,7 +182,7 @@ BZ#link:https://bugzilla.redhat.com/1990462[1990462]::
 RSyslog can authenticate to Elasticsearch with a user name and password.
 
 BZ#link:https://bugzilla.redhat.com/1991482[1991482]::
-A link to the Monitoring Portal has been added to the AdministYou can set the number of PCI Express ports for VMs with `engine-config`.ration Portal dashboard.
+A link to the Monitoring Portal has been added to the Administration Portal dashboard.
 
 BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1995455[1995455]::
 You can use any number of CPU sockets, up to the number of maximum vCPUs, on cluster versions 4.6 and earlier, if the guest OS is compatible.

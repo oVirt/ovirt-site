@@ -1258,7 +1258,7 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1723668](https://bugzilla.redhat.com/show_bug.cgi?id=1723668) **VDSM command Get Host Statistics failed: Internal JSON-RPC error: {'reason': '[Errno 19] vnet<x> is not present in the system'}**
+ - [BZ 1723668](https://bugzilla.redhat.com/show_bug.cgi?id=1723668) **VDSM command Get Host Statistics failed: Internal JSON-RPC error: {'reason': '[Errno 19] vnet&lt;x&gt; is not present in the system'}**
 
    
 
@@ -2116,7 +2116,7 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1789262](https://bugzilla.redhat.com/show_bug.cgi?id=1789262) **Can not use clusters: datacenter.<anything> in search engine**
+ - [BZ 1789262](https://bugzilla.redhat.com/show_bug.cgi?id=1789262) **Can not use clusters: datacenter.&lt;anything&gt; in search engine**
 
    
 

@@ -8,7 +8,7 @@ page_classes: download
 
 # Alternate Installation Methods
 
-<img class="screenshot" src="download_1.png">
+<img class="screenshot" src="download_1.png" alt="oVirt Engine Administration panel screenshot">
 
 oVirt 4.5.0 is intended for production use and is available for the following platforms:
 

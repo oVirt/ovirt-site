@@ -69,8 +69,8 @@ Flags may be added (-C, -J) to specify if Job Steps & Compensation data should b
 
 ## unlock_entity
 
-**unlock_entity.sh** is a utility for unlocing **VM** , **Template** and/or their associated **Disks** or a specific **Disk**
-**VM** , **Template** are given by thier names while a specific disk is given by its **UUID**
+**unlock_entity.sh** is a utility for unlocking **VM** , **Template** and/or their associated **Disks** or a specific **Disk**
+**VM** , **Template** are given by their names while a specific disk is given by its **UUID**
 
 ### Usage
 

@@ -183,60 +183,69 @@
 
 <h1 id="change-network-interface-for-gluster">Change network interface for Gluster</h1>
 
-<p>The purpose of this page is to describe how to allow Gluster network traffic to use other network interface than ovirtmgmt. By default, Ovirt shows the hosts in the cluster with their ovirmgmt IPs. This can cause problems under heavy network activity, mostly when Gluster uses the network to syncronize big amounts of data. In this scenario, Ovirt looses touch with the host and can cause the host to be marked as unreachable and thus trigger VMs migrations. To avoid this, you may use extra NICs in your hosts to create a network for Gluster’s traffic. You can be in two scenarios; you already have your Gluster storage domain created and can’t start over from the top, or you can get yourself a fresh start. This guide is to allow you to start over, but though I didn’t test it (anyone else may edit this) I think that you can use the same strategy to migrate your bricks to a new IP.</p>
+<p>The purpose of this page is to describe how to allow Gluster network traffic to use other network interface than ovirtmgmt.
+By default, oVirt shows the hosts in the cluster with their ovirmgmt IPs.
+This can cause problems under heavy network activity, mostly when Gluster uses the network to syncronize big amounts of data.
+In this scenario, oVirt looses touch with the host and can cause the host to be marked as unreachable and thus trigger VMs migrations.
+To avoid this, you may use extra NICs in your hosts to create a network for Gluster’s traffic.
+You can be in two scenarios; you already have your Gluster storage domain created and can’t start over from the top, or you can get yourself a fresh start.
+This guide is to allow you to start over, but though I didn’t test it (anyone else may edit this) I think that you can use the same strategy to migrate your bricks to a new IP.</p>
 
-<p>’’’ Note : There’s currently no easy mechanism to migrate a gluster host IP to a new IP. ‘’’</p>
+<p><strong><em>Note : There’s currently no easy mechanism to migrate a gluster host IP to a new IP.</em></strong></p>
 
-<p>Fist, you have to set up your Glusterfs domain in order to have the hosts that will act as bricks. I found that if you use replica, you have to be aware that in the future, you may only add a multiple of replica of bricks to the volume. By default, the hosts are set as peer with the ovirmgmt IP, so if you have a working volume with replica and can’t remove it, you may need to figure how to add more bricks to replace the ones you need to modify. WARNING: I didn’t test this procedure on existing volumes, so be sure to test it before risking your data. If you use the volume in a storage domain, remove the storage domain to release the volume. Now you need to manualy edit Gluster’s properties from the cli. If you need to maintain your volume, skip the deletion part and try to adapt the next part to your needs. Log into one of them and stop and remove any existing volume (if any):</p>
+<p>Fist, you have to set up your Glusterfs domain in order to have the hosts that will act as bricks.
+I found that if you use replica, you have to be aware that in the future, you may only add a multiple of replica of bricks to the volume.
+By default, the hosts are set as peer with the ovirmgmt IP, so if you have a working volume with replica and can’t remove it,
+you may need to figure how to add more bricks to replace the ones you need to modify.</p>
+
+<p><strong>WARNING</strong>: I didn’t test this procedure on existing volumes, so be sure to test it before risking your data.</p>
+
+<p>If you use the volume in a storage domain, remove the storage domain to release the volume.
+Now you need to manualy edit Gluster’s properties from the cli.
+If you need to maintain your volume, skip the deletion part and try to adapt the next part to your needs. Log into one of them and stop and remove any existing volume (if any):</p>
 
 <p>List your volumes:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # gluster volume list
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>gluster volume list
 </code></pre></div></div>
 
 <p>Stop and delete the one you want to change. If your hosts are part of more than one volume, you may need to remove all of them to remove the peer or find a way to replace it with another.</p>
-
-<p><code class="language-plaintext highlighter-rouge"># gluster volume stop </code><Name of="" volume="">
-`# gluster volume delete `<Name of="" volume=""></Name></Name></p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>gluster volume stop &lt;Name of volume&gt;
+<span class="gp">#</span><span class="w"> </span>gluster volume delete &lt;Name of volume&gt;
+</code></pre></div></div>
 
 <p>Now, lets list the peers enrolled and detach them to re add them with the new IP:</p>
 
 <p>Show the hosts that act as peers to Gluster</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # gluster peer status
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>gluster peer status
 </code></pre></div></div>
 
 <p>Detach every host you need to modify</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>gluster peer detach &lt;IP of the host to modify&gt;
+</code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge"># gluster peer detach </code><IP of="" the="" host="" to="" modify=""></IP></p>
-
-<p>Now, lets add them back with the new IP (<strong>\1</strong>):</p>
-
-<p><code class="language-plaintext highlighter-rouge"># gluster peer probe </code>&lt;New host’s IP&gt;</p>
+<p>Now, lets add them back with the new IP (<strong>FQDN is the preferred way</strong>):</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>gluster peer probe &lt;New host<span class="s1">'s IP&gt;
+</span></code></pre></div></div>
 
 <p>As we are starting over, we are going to remove any trace of the past volume, so we need to clean the directory and set labels back in place:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # setfattr -x trusted.glusterfs.volume-id Path_to_brick
-  # setfattr -x trusted.gfid Path_to_brick
-  # rm -rf Path_to_brick/.glusterfs
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>setfattr <span class="nt">-x</span> trusted.glusterfs.volume-id Path_to_brick
+<span class="gp">#</span><span class="w"> </span>setfattr <span class="nt">-x</span> trusted.gfid Path_to_brick
+<span class="gp">#</span><span class="w"> </span><span class="nb">rm</span> <span class="nt">-rf</span> Path_to_brick/.glusterfs
 </code></pre></div></div>
 
 <p>Also, if you already used the volume as a Glusterfs Storage Domain in Ovirt, you need to clean Ovirt’s data:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # rm -rf Path_to_brick/*
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span><span class="nb">rm</span> <span class="nt">-rf</span> Path_to_brick/<span class="k">*</span>
 </code></pre></div></div>
 
-<p><em>Note: You can also reuse existing bricks, by using the force option in the below command (available from gluster 3.5)</em></p>
+<p><strong><em>Note: You can also reuse existing bricks, by using the force option in the below command (available from gluster 3.5)</em></strong></p>
 
 <p>Now we can create the volume again (stolen from man :-) ):</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # volume create `&lt;NEW-VOLNAME&gt;` [stripe `&lt;COUNT&gt;`] [replica `&lt;COUNT&gt;`] [device vg] [transport `&lt;tcp|rdma|tcp,rdma&gt;`] `&lt;NEW-BRICK&gt;` 
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>volume create &lt;NEW-VOLNAME&gt; <span class="o">[</span>stripe &lt;COUNT&gt;] <span class="o">[</span>replica &lt;COUNT&gt;] <span class="o">[</span>device vg] <span class="o">[</span>transport &lt;tcp|rdma|tcp,rdma&gt;] &lt;NEW-BRICK&gt;
 </code></pre></div></div>
 
 <p>The last thing to do is to set uid and gid of the volume to be vdsm:kvm as when you create a volume directly from Gluster those are set to root:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # gluster volume set glusterfs storage.owner-uid 36
-  # gluster volume set glusterfs storage.owner-gid 36
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>gluster volume <span class="nb">set </span>glusterfs storage.owner-uid 36
+<span class="gp">#</span><span class="w"> </span>gluster volume <span class="nb">set </span>glusterfs storage.owner-gid 36
 </code></pre></div></div>
 
 <p>I think this is also done when you hit “Optimize for virt”. It’s important to use this option as it sets several variables of the volume in order to have it tuned.</p>

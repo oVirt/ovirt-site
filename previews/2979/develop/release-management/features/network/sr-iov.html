@@ -182,7 +182,7 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook <a href="/ovirt-site/previews/2979/develop/developer-guide/vdsm/hook/sriov.html">1</a> only).</p>
+<p>This feature adds SR-IOV support to oVirt management system (which is currently available via a <a href="/ovirt-site/previews/2979/develop/developer-guide/vdsm/hook/sriov.html">vdsm-hook</a> only).</p>
 
 <h2 id="owner">Owner</h2>
 
@@ -205,19 +205,24 @@
 
 <h3 id="high-level-feature-description">High Level Feature Description</h3>
 
-<p>In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic’s profile should be marked as a “passthrough” one. The properties that should be configured on the VF are taken from the vNic’s profile/network (vlan tag). Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service. When starting the VM, its vNic will be directly connected to one of the free VFs on the host. But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic’s network as one of its allowed networks.</p>
+<p>In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic’s profile should be marked as a “passthrough” one.
+The properties that should be configured on the VF are taken from the vNic’s profile/network (vlan tag).
+Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service.
+When starting the VM, its vNic will be directly connected to one of the free VFs on the host.
+But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic’s network as one of its allowed networks.</p>
 
-<p><b> Note: migration is not supported. </b></p>
+<p><strong>Note: migration is not supported.</strong></p>
 
 <h3 id="definitions">Definitions</h3>
 
 <ul>
-  <li><b>Free VF</b>
+  <li><strong>Free VF</strong>
     <ul>
       <li>the management system will consider a VF as free if
         <ul>
-          <li>the VF is not attached directly to a VM (as reported by getHostDevListByCaps)</li>
-          <li>the VF doesn’t have macvatp device on top of it (it is filtered by the vdsm before getVdsCaps, so if the VF is reported by the getVdsCap, it can be considered it doesn’t have macvtap device on top of it).</li>
+          <li>the VF is not attached directly to a VM (as reported by <code class="language-plaintext highlighter-rouge">getHostDevListByCaps</code>)</li>
+          <li>the VF doesn’t have macvatp device on top of it (it is filtered by the vdsm before getVdsCaps, so if the VF is reported by the <code class="language-plaintext highlighter-rouge">getVdsCap</code>,
+it can be considered it doesn’t have macvtap device on top of it).</li>
           <li>the VF doesn’t have network (bridge) or vlan device on top of it.</li>
           <li>notice: although if the VF has any other device (not macvtap, bridge or vlan device) it will be considered as free.</li>
           <li>the VF doesn’t share iommu group with other devices.</li>
@@ -232,7 +237,7 @@
 <h4 id="addedit-profile">add/edit profile</h4>
 
 <ul>
-  <li><b>passthrough</b>
+  <li><strong>passthrough</strong>
     <ul>
       <li>new property that will be added to the profile.</li>
       <li>passthrough property cannot be changed on edit profile if the profile is attached to a vNic.</li>
@@ -246,19 +251,20 @@
 <h4 id="addupdate-network-on-cluster">add/update network on cluster</h4>
 
 <ul>
-  <li>management, display and migration properties are not relevant for the VFs configuration (e.g if a migration network is attached to nic1 via the PF configuration and also exists in the VFs configuration of nic2- the migration will take place on nic1 and NOT on the VF on nic2).</li>
+  <li>management, display and migration properties are not relevant for the VFs configuration (e.g if a migration network is attached to nic1 via
+the PF configuration and also exists in the VFs configuration of nic2- the migration will take place on nic1 and NOT on the VF on nic2).</li>
   <li>Same for the required property. It doesn’t relevant for the VFs configuration and related just to the regular network attachments.</li>
 </ul>
 
 <h4 id="addedit-vnic">add/edit vNic</h4>
 
 <ul>
-  <li><b> if the selected vNic profile is marked as passthrough</b>
+  <li><strong>if the selected vNic profile is marked as passthrough</strong>
     <ul>
       <li>it means that the vNic will bypass the software network virtualization and will be connected directly to the VF.</li>
       <li>vNic type
         <ul>
-          <li><b>pci passthrough</b>
+          <li><strong>pci passthrough</strong>
             <ul>
               <li>in case the vnic type is pci passthrough the VF will be detached from the vnic and attached to the vm.</li>
               <li>migration is not supported.</li>
@@ -280,31 +286,28 @@
 <h4 id="hot-plug-passthrough-nic">hot plug passthrough nic</h4>
 
 <ul>
-  <li><b>plugging</b>
+  <li><strong>plugging</strong>
     <ul>
       <li>is possible if there is an available VF.</li>
       <li>the command should update the hostdev table the vf is not free.</li>
     </ul>
   </li>
-  <li>
-    <p><b>unplugging</b></p>
-
-    <p>** the VF will be released (and free for use).</p>
-  </li>
-  <li>
+  <li><strong>unplugging</strong>
     <ul>
+      <li>the VF will be released (and free for use).</li>
       <li>the command should update the hostdev table the vf is free.</li>
     </ul>
   </li>
-  <li><b>available vf</b>- see the definition in runVm.</li>
+  <li><strong>available vf</strong> - see the definition in runVm.</li>
 </ul>
 
 <h4 id="hostnicvfsconfig">HostNicVfsConfig</h4>
 
 <ul>
   <li>New entity the will contain all the sr-iov related data on a specific physical nic.</li>
-  <li>The data of this entity will be manipulated using- UpdateHostNicVfsConfigCommand, AddVfsConfigNetworkCommand, RemoveVfsConfigNetworkCommand, AddVfsConfigLabelCommand, and RemoveVfsConfigLabelCommand.</li>
-  <li>Just nics that support SR-IOV (as reported by hostdevListByCaps) will have VfsConfig.</li>
+  <li>The data of this entity will be manipulated using- <code class="language-plaintext highlighter-rouge">UpdateHostNicVfsConfigCommand</code>, <code class="language-plaintext highlighter-rouge">AddVfsConfigNetworkCommand</code>, <code class="language-plaintext highlighter-rouge">RemoveVfsConfigNetworkCommand</code>,
+<code class="language-plaintext highlighter-rouge">AddVfsConfigLabelCommand</code>, and <code class="language-plaintext highlighter-rouge">RemoveVfsConfigLabelCommand</code>.</li>
+  <li>Just nics that support SR-IOV (as reported by <code class="language-plaintext highlighter-rouge">hostdevListByCaps</code>) will have <code class="language-plaintext highlighter-rouge">VfsConfig</code>.</li>
 </ul>
 
 <h5 id="updatehostnicvfsconfigcommand">UpdateHostNicVfsConfigCommand</h5>
@@ -316,9 +319,9 @@
       <li>num of VFs is a new property that will be added to sr-iov capable host nic.</li>
       <li>it is used for admin to enable this number of VFs on the nic.
  Changing this value will remove all the VFs from the nic and create new #numOFVfs VFs on the nic.</li>
-      <li>valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by hostdevListByCaps).</li>
+      <li>valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by <code class="language-plaintext highlighter-rouge">hostdevListByCaps</code>).</li>
       <li>this property can be updated just if all the VFs on the PF are free.</li>
-      <li>in case ‘num of VFs’ was changed CollectVdsNetworkDataVDSCommand should be called.</li>
+      <li>in case ‘num of VFs’ was changed <code class="language-plaintext highlighter-rouge">CollectVdsNetworkDataVDSCommand</code> should be called.</li>
     </ul>
   </li>
   <li><b>all networks allowed</b>
@@ -351,7 +354,7 @@
 
 <ul>
   <li>this command allows removing a network from the vfsConfig network list.</li>
-  <li>for the definition of <b>vfs config network list</b> see AddVfsConfigNetworkCommand.</li>
+  <li>for the definition of <b>vfs config network list</b> see <code class="language-plaintext highlighter-rouge">AddVfsConfigNetworkCommand</code>.</li>
 </ul>
 
 <h5 id="addvfsconfiglabelcommand">AddVfsConfigLabelCommand</h5>
@@ -372,7 +375,7 @@
 
 <ul>
   <li>this command allows removing a label from the vfsConfig label list.</li>
-  <li>for the definition of <b>vfs config label list</b> see AddVfsConfigLabelCommand.</li>
+  <li>for the definition of <b>vfs config label list</b> see <code class="language-plaintext highlighter-rouge">AddVfsConfigLabelCommand</code>.</li>
 </ul>
 
 <h4 id="run-vm">run vm</h4>
@@ -433,7 +436,7 @@
   </li>
   <li>the command should run-
     <ul>
-      <li>on each CollectVdsNetworkDataVDSCommand</li>
+      <li>on each <code class="language-plaintext highlighter-rouge">CollectVdsNetworkDataVDSCommand</code></li>
       <li>after updateHostNicVfsConfig- in case the number of VFs was updated.</li>
     </ul>
   </li>
@@ -442,21 +445,20 @@
 <h3 id="vdsm-api">VDSM API</h3>
 
 <h4 id="create">create</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">create</span><span class="p">(</span><span class="n">Map</span> <span class="n">createInfo</span><span class="p">)</span>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> create(Map createInfo) 
-
-params = {
- (Network VM device struct should be extended)
- {
-  type:hostdev
-  device:interface
-  hostdev:vfName
-  macAddr:&lt;string&gt;
-  address:{slot=0x02, bus=0x00, domain=0x0000, type=pci, function=0x0}
-  bootOeder:int
-  specParams:{vlanid:string}
- }
-}
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="p">(</span><span class="n">Network</span> <span class="n">VM</span> <span class="n">device</span> <span class="n">struct</span> <span class="n">should</span> <span class="n">be</span> <span class="n">extended</span><span class="p">)</span>
+     <span class="p">{</span>
+      <span class="nb">type</span><span class="p">:</span><span class="n">hostdev</span>
+      <span class="n">device</span><span class="p">:</span><span class="n">interface</span>
+      <span class="n">hostdev</span><span class="p">:</span><span class="n">vfName</span>
+      <span class="n">macAddr</span><span class="p">:</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span>
+      <span class="n">address</span><span class="p">:{</span><span class="n">slot</span><span class="o">=</span><span class="mh">0x02</span><span class="p">,</span> <span class="n">bus</span><span class="o">=</span><span class="mh">0x00</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="mh">0x0000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">pci</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="mh">0x0</span><span class="p">}</span>
+      <span class="n">bootOeder</span><span class="p">:</span><span class="nb">int</span>
+      <span class="n">specParams</span><span class="p">:{</span><span class="n">vlanid</span><span class="p">:</span><span class="n">string</span><span class="p">}</span>
+     <span class="p">}</span>
+    <span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
@@ -562,7 +564,7 @@ params = {
 
 <h4 id="add-host-dev-device">Add host dev device</h4>
 
-<p><a href="/ovirt-site/previews/2979/images/wiki/VfPinToVm.png">2</a>]</p>
+<p><img src="/ovirt-site/previews/2979/images/wiki/VfPinToVm.png" alt="2" />]</p>
 
 <ul>
   <li>This dialog is used in case the user wants to pin a vnic to a specific VF.</li>
@@ -572,8 +574,7 @@ params = {
 
 <h4 id="vnic-profile">Vnic profile</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api/vnicprofiles/[profile_id]
-</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">api/vnicprofiles/[profile_id]</code></p>
 
 <p>Adding ‘passthrough’ enum property. (this should be enum and not boolean because in the future we would like to add ‘nice to have passthrough’ property without breaking the api).</p>
 
@@ -581,72 +582,48 @@ params = {
 
 <p>The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub resource of a nic.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]
-</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]</code></p>
 
 <ul>
   <li>Supported actions:
     <ul>
       <li><b>GET</b> return the VFs configuration of the nic (num of VFs, allowed networks and labels).</li>
-      <li><b>PUT</b> updating the VFs configuration of the nic . (executes- UpdateHostNicVfsConfigCommand)</li>
+      <li><b>PUT</b> updating the VFs configuration of the nic . (executes- UpdateHostNicVfsConfigCommand)
+        <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;max_num_of_vfs&gt;</span>max_num<span class="nt">&lt;/max_num_of_vfs&gt;</span> (read only)
+<span class="nt">&lt;num_of_vfs&gt;</span>num<span class="nt">&lt;/num_of_vfs&gt;</span>
+<span class="nt">&lt;all_networks_allowed&gt;</span>false<span class="nt">&lt;/all_networks_allowed&gt;</span>
+</code></pre></div>        </div>
+      </li>
     </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks</code></p>
   </li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;max_num_of_vfs&gt;max_num&lt;/max_num_of_vfs&gt; (read only)
-    &lt;num_of_vfs&gt;num&lt;/num_of_vfs&gt;
-    &lt;all_networks_allowed&gt;false&lt;/all_networks_allowed&gt;
-
-/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks
-</code></pre></div></div>
-
-<ul>
   <li>Supported actions:
     <ul>
       <li><b>GET</b> get all the networks configured on HostNicVfsConfig of the specified nic.</li>
       <li><b>POST</b> adding new network to the list. (executes- AddVfsConfigNetworkCommand)</li>
     </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks/&lt;network_id&gt;</code></p>
   </li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks/&lt;network_id&gt;
-</code></pre></div></div>
-
-<ul>
   <li>Supported actions:
     <ul>
-      <li><b>DELETE</b> removes the network from the network list.(executes- RemoveVfsConfigNetworkCommand)</li>
+      <li><b>DELETE</b> removes the network from the network list.(executes- <code class="language-plaintext highlighter-rouge">RemoveVfsConfigNetworkCommand</code>)</li>
     </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels</code></p>
   </li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels
-</code></pre></div></div>
-
-<ul>
   <li>Supported actions:
     <ul>
       <li><b>GET</b> get all the labels configured on HostNicVfsConfig of the specified nic.</li>
-      <li><b>POST</b> adding new network to the list. (executes- AddVfsConfigLabelCommand)</li>
+      <li><b>POST</b> adding new network to the list. (executes- <code class="language-plaintext highlighter-rouge">AddVfsConfigLabelCommand</code>)</li>
     </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels/&lt;label&gt;</code></p>
   </li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels/&lt;label&gt;
-</code></pre></div></div>
-
-<ul>
   <li>Supported actions:
     <ul>
-      <li><b>DELETE</b> removes the label from the network list. (executes- RemoveVfsConfigLabelCommand)</li>
+      <li><b>DELETE</b> removes the label from the network list. (executes- <code class="language-plaintext highlighter-rouge">RemoveVfsConfigLabelCommand</code>)</li>
     </ul>
   </li>
 </ul>
@@ -770,35 +747,39 @@ params = {
 <h2 id="notes">Notes</h2>
 
 <ul>
-  <li>setting properties on VF-
- ip link set {DEVICE} vf {NUM} [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] [ spoofchk { on | off } ] [ state { auto | enable | disable} ]</li>
+  <li>setting properties on VF
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ip link set {DEVICE} vf {NUM} [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] [ spoofchk { on | off } ] [ state { auto | enable | disable} ]
+</span></code></pre></div>    </div>
+  </li>
   <li>Update num of VFs
     <ul>
-      <li>/sys/class/net/’device name’/device/sriov_totalvfs
+      <li><code class="language-plaintext highlighter-rouge">/sys/class/net/'device name'/device/sriov_totalvfs</code>
         <ul>
           <li>contains the num of vfs supported by the device</li>
           <li>just sr-iov supported nics contain this file.</li>
         </ul>
       </li>
-      <li>/sys/class/net/’device name’/device/sriov_numvfs
+      <li><code class="language-plaintext highlighter-rouge">/sys/class/net/'device name'/device/sriov_numvfs</code>
         <ul>
           <li>contains num of VFs enabled by the nics.</li>
           <li>In order to update the file the value should first be changed to 0 (i.e all the VFs should first be removed).
             <ul>
-              <li>for example- echo ‘0’ &gt; /sys/class/net/eth0/device/sriov_numvfs ==&gt; echo ‘7’ &gt; /sys/class/net/eth0/device/sriov_numvfs</li>
+              <li>for example
+                <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">echo '0' &gt;</span><span class="w"> </span>/sys/class/net/eth0/device/sriov_numvfs
+<span class="gp">echo '7' &gt;</span><span class="w"> </span>/sys/class/net/eth0/device/sriov_numvfs
+</code></pre></div>                </div>
+              </li>
             </ul>
           </li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>read the iommu group of a device - readlink /sys/class/net/<device_name>/device/iommu_group
-</device_name>    <ul>
-      <li>
-        <ul>
-          <li>just sr-iov supported nics contain this file.</li>
-        </ul>
-      </li>
+  <li>read the iommu group of a device
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">readlink /sys/class/net/&lt;device_name&gt;</span>/device/iommu_group
+</code></pre></div>    </div>
+    <ul>
+      <li>just sr-iov supported nics contain this file.</li>
     </ul>
   </li>
   <li>passthrough vnic doesn’t support
@@ -812,18 +793,10 @@ params = {
       <li>migration</li>
     </ul>
   </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>run the following command on your host- /sbin/lspci -nn</td>
-          <td>grep -qE ‘8086:(340[36].*rev 13</td>
-          <td>3405.*rev (12</td>
-          <td>13</td>
-          <td>22))’ &amp;&amp; echo “Interrupt remapping is broken” if it says the remapping is broken add the vfio_iommu_type1.allow_unsafe_interrupts=1 parameter to the kernel command line-</td>
-        </tr>
-      </tbody>
-    </table>
+  <li>run the following command on your host
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">/sbin/lspci -nn | grep -qE '8086:(340[36].\*rev 13|3405.\*rev (12|13|22))' &amp;&amp; echo "Interrupt remapping is broken"
+</span></code></pre></div>    </div>
+    <p>if it says the remapping is broken add the <code class="language-plaintext highlighter-rouge">vfio_iommu_type1.allow_unsafe_interrupts=1</code> parameter to the kernel command line-</p>
   </li>
 </ul>
 

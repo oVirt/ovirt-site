@@ -140,42 +140,37 @@
 <p>The hook will try to add the file only to the operating system partition, i.e.</p>
 
 <ul>
-  <li>Windows: /c/myfile</li>
-  <li>Linux: /myfile</li>
+  <li>Windows: <code class="language-plaintext highlighter-rouge">/c/myfile</code></li>
+  <li>Linux: <code class="language-plaintext highlighter-rouge">/myfile</code></li>
 </ul>
 
 <p>Please note that in Windows the path is case sensitive!</p>
 
 <p>syntax:</p>
-
-<p>`   fileinject=/<code class="language-plaintext highlighter-rouge">&lt;target file name&gt;</code> : `<file content="">
-         fileinject=/myfile:some file content\n etc...</file></p>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fileinject=/&lt;target file name&gt; : &lt;file content&gt;
+fileinject=/myfile:some file content\n etc...
+</code></pre></div></div>
 <p>Important note for Block Devices: If the disk that you are trying to inject is a block device (ie iSCSI or Fibre Channel) the disk format must be “Preallocated” (not “thin provisioned”) or the fileinject hook will fail and abort the running VM process.</p>
 
 <p>Note for SELinux: if you are running SELinux, you need to run this command on the server (temporary until bug #730662 is solved):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # setsebool -P allow_unconfined_qemu_transition 0
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>setsebool <span class="nt">-P</span> allow_unconfined_qemu_transition 0
 </code></pre></div></div>
 
-<p>Create a file in guest disk and update it with some specified content (note that it must have “root” path ie ‘/’ in linux and c:\ in windows ) for example:</p>
+<p>Create a file in guest disk and update it with some specified content (note that it must have “root” path ie <code class="language-plaintext highlighter-rouge">/</code> in linux and <code class="language-plaintext highlighter-rouge">c:\</code> in Windows ) for example:</p>
 
 <ul>
-  <li>
-    <p>Linux (case sensitive):</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     fileinject:/etc/myfile.txt:content
+  <li>Linux (case sensitive):
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fileinject:/etc/myfile.txt:content
 </code></pre></div>    </div>
   </li>
-  <li>
-    <p>Windows (case insensitive):</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     fileinject:/c/windows/myfile.txt:content
+  <li>Windows (case insensitive):
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fileinject:/c/windows/myfile.txt:content
 </code></pre></div>    </div>
   </li>
 </ul>
 
-<p>This means that with Windows the path must start with ‘/c/’ prefix (if the windows os in in c:\ /d/ for d:\) and must start with ‘/’ for linux based machines</p>
+<p>This means that with Windows the path must start with <code class="language-plaintext highlighter-rouge">/c/</code> prefix (if the Windows os in in <code class="language-plaintext highlighter-rouge">c:\</code>, <code class="language-plaintext highlighter-rouge">/d/</code> for <code class="language-plaintext highlighter-rouge">d:\</code>) and must start with <code class="language-plaintext highlighter-rouge">/</code> for Linux based machines</p>
 
 
 

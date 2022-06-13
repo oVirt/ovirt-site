@@ -144,7 +144,13 @@
 
 <p>In general this message lets us know something went wrong, but is less than helpful in determining what exactly went wrong. The information provided usually includes some obfuscated code like ‘c is null’ or ‘cannot get field O5d’. None of which is very helpful.</p>
 
-<p>Why is this happening now? Recently we introduced some code that captures all exceptions that are not handled anywhere else, and displays it to the user. Before the un-handled exceptions would be written to the browser console and mostly ignored unless someone looked at the browser console. They are still written to the console, but they are also reported to the user, this has some benefits and some negatives. The benefits include the fact that the user can now report something is going wrong since they are being told. The negatives include the fact that the user sees the fact that something goes wrong and they conclude the product is bad. The developers cannot fix issues they are not aware of, so in the short term we will have more bug reports but in the long term we will have a better product due the more transparent exception reporting.</p>
+<p>Why is this happening now? Recently we introduced some code that captures all exceptions that are not handled anywhere else, and displays it to the user.
+Before the un-handled exceptions would be written to the browser console and mostly ignored unless someone looked at the browser console.
+They are still written to the console, but they are also reported to the user, this has some benefits and some negatives.
+The benefits include the fact that the user can now report something is going wrong since they are being told.
+The negatives include the fact that the user sees the fact that something goes wrong and they conclude the product is bad.
+The developers cannot fix issues they are not aware of, so in the short term we will have more bug reports but in the long term
+we will have a better product due the more transparent exception reporting.</p>
 
 <h2 id="debugging-steps">Debugging steps</h2>
 
@@ -175,7 +181,7 @@ yum install rhevm-webadmin-portal-debuginfo rhevm-userportal-debuginfo
 
 <p>Some browsers will include the permutation file name at the bottom of the exception. If you are lucky enough to have a browser that does that, you can skip this step and use the value from the bottom of the exception.</p>
 
-<p>The way the UI is optimized it will generate one permutation for each combination of supported browser and supported locale. When you log into the web admin or user portal a script runs that determines which locale and which browser you are using, and loads the appropriate permutation for that combination. To determine which permutation you have loaded open up the developer tools in your browser again like above with <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>i</kbd>. Then switch to the network tab as shown in the following diagram and look for the <permutation>.cache.html line.</permutation></p>
+<p>The way the UI is optimized it will generate one permutation for each combination of supported browser and supported locale. When you log into the web admin or user portal a script runs that determines which locale and which browser you are using, and loads the appropriate permutation for that combination. To determine which permutation you have loaded open up the developer tools in your browser again like above with <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>i</kbd>. Then switch to the network tab as shown in the following diagram and look for the <code class="language-plaintext highlighter-rouge">&lt;permutation&gt;.cache.html</code> line.</p>
 
 <p><img src="/ovirt-site/previews/2979/images/wiki/exception_network.png" alt="" /></p>
 

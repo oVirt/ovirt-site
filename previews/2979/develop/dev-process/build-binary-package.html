@@ -165,25 +165,27 @@
 
 <p>Summary of sequence is:</p>
 
-<p><code class="language-plaintext highlighter-rouge">git clone </code><repository>
-`cd `<repository>
-      [ -r configure.ac ] &amp;&amp; autoreconf -ivf
-      [ -r configure ] &amp;&amp; ./configure
-      make dist                # &lt;-- will output source tarball</repository></repository></p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git clone &lt;repository&gt;
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> &lt;repository&gt;
+<span class="gp">$</span><span class="w"> </span><span class="o">[</span> <span class="nt">-r</span> configure.ac <span class="o">]</span> <span class="o">&amp;&amp;</span> autoreconf <span class="nt">-ivf</span>
+<span class="gp">$</span><span class="w"> </span><span class="o">[</span> <span class="nt">-r</span> configure <span class="o">]</span> <span class="o">&amp;&amp;</span> ./configure
+<span class="gp">$</span><span class="w"> </span>make dist                <span class="c"># &lt;-- will output source tarball</span>
+</code></pre></div></div>
 
-<p>Note: If autoreconf is required, install autoconf, automake optionally gettext-devel packages.</p>
+<p>Note: If autoreconf is required, install <code class="language-plaintext highlighter-rouge">autoconf</code>, <code class="language-plaintext highlighter-rouge">automake</code> optionally <code class="language-plaintext highlighter-rouge">gettext-devel</code> packages.</p>
 
 <h1 id="build-rpm-package">Build RPM Package</h1>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  rpmbuild -tb `&lt;tarball&gt;`   # &lt;-- will output rpms
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rpmbuild <span class="nt">-tb</span> <span class="sb">`</span>&lt;tarball&gt;<span class="sb">`</span>   <span class="c"># &lt;-- will output rpms</span>
 </code></pre></div></div>
 
-<p>Another useful command is createrepo which scans directory and prepare rpm repository that can be added to yum via /etc/yum.repos.d/xxx.repo</p>
+<p>Another useful command is <code class="language-plaintext highlighter-rouge">createrepo</code> which scans directory and prepare rpm repository that can be added to yum via <code class="language-plaintext highlighter-rouge">/etc/yum.repos.d/xxx.repo</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [xxx]
-  name=xxx `baseurl=`[`file:///location/of/repository`](file:///location/of/repository)
-  enabled=1
-  gpgcheck=0
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[xxx]</span>
+<span class="py">name</span><span class="p">=</span><span class="s">xxx</span>
+<span class="py">baseurl</span><span class="p">=</span><span class="s">file:///location/of/repository</span>
+<span class="py">enabled</span><span class="p">=</span><span class="s">1</span>
+<span class="py">gpgcheck</span><span class="p">=</span><span class="s">0</span>
 </code></pre></div></div>
 
 

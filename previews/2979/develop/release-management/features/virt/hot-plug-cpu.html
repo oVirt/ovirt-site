@@ -241,9 +241,8 @@ There is no notion of plug/unplug.</p>
 The number of sockets is changed to 2.
 This will hotplug 1 more CPU to the machine.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat </span>hotplug-cpu.xml
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>hotplug-cpu.xml
 </code></pre></div></div>
-
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;vm&gt;</span>
     <span class="nt">&lt;cpu&gt;</span>
       <span class="nt">&lt;topology</span> <span class="na">sockets=</span><span class="s">"2"</span> <span class="na">cores=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/topology&gt;</span>
@@ -251,7 +250,7 @@ This will hotplug 1 more CPU to the machine.</p>
   <span class="nt">&lt;/vm&gt;</span>
 </code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  curl <span class="nt">-X</span> PUT <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> PUT <span class="se">\</span>
     <span class="nt">--user</span> user@domain:pass <span class="se">\</span>
     <span class="nt">-H</span> <span class="s2">"Content-Type:application/xml"</span> <span class="se">\</span>
     <span class="nt">-d</span>@hotplug-cpu.xml  http://localhost:8080/ovirt-engine/api/vms/<span class="k">${</span><span class="nv">vmId</span><span class="k">}</span>
@@ -531,7 +530,7 @@ The call to the child command fails atomically and it shall <strong>NOT</strong>
 
 <h2 id="open-issues">Open Issues</h2>
 
-<h4 id="possible-error-when-migrating-a-vm-which-its-max-cpu-is-lower-than-what-currently-in--m">Possible error when migrating a VM which its max cpu is lower than what currently in <strong>’’ <vcpu current="n">m</vcpu></strong>’’</h4>
+<h4 id="possible-error-when-migrating-a-vm-which-its-max-cpu-is-lower-than-what-currently-in-vcpu-currentnmvcpu">Possible error when migrating a VM which its max cpu is lower than what currently in <code class="language-plaintext highlighter-rouge">&lt;vcpu current=n&gt;m&lt;/vcpu&gt;</code></h4>
 
 <p>The current VM on the source has <strong><em>n</em></strong> cpus attached and need <strong><em>m</em></strong> maximum to be able to online more.
 if <strong><em>m1</em></strong> is the max cores on the the source <strong><em>H1</em></strong> host and <strong><em>m2</em></strong> is the maximum on destination host <strong><em>H2</em></strong>

@@ -184,7 +184,8 @@
 
 <h3 id="summary">Summary</h3>
 
-<p>The Host Power Management feature allows the oVirt engine to remotely control the host power in order to execute the fencing command as part of the high availability features, or allow the user to manually commit remote operations as PowerOff, PowerOn, and Restart.</p>
+<p>The Host Power Management feature allows the oVirt engine to remotely control the host power in order to execute the fencing command as part of the high availability features,
+or allow the user to manually commit remote operations as PowerOff, PowerOn, and Restart.</p>
 
 <h3 id="owner">Owner</h3>
 
@@ -194,7 +195,8 @@
 
 <h3 id="current-status">Current status</h3>
 
-<p>The current implementation of the Power Management is focused on supporting the most popular power management device, while the fencing proxy selection is naive, and there is no support for topologies where redundant power supply exists which requires supporting additional power management device.</p>
+<p>The current implementation of the Power Management is focused on supporting the most popular power management device, while the fencing proxy selection is naive,
+and there is no support for topologies where redundant power supply exists which requires supporting additional power management device.</p>
 
 <ul>
   <li>Last updated date: Nov 2, 2012</li>
@@ -205,31 +207,26 @@
 <p>When planing the power management feature for the hosts there are few orthogonal aspects to consider</p>
 
 <ol>
-  <li>
-    <p>Supported Power Management Devices</p>
-  </li>
-  <li>
-    <p>Fencing logic, meaning how to determine a host requires fencing.</p>
-  </li>
-  <li>
-    <p>Power Management logic, meaning when and how to use the power management mechanism to automatically reduce power consumption in the data center</p>
-  </li>
-  <li>
-    <p>Power Management Proxy Selection</p>
-  </li>
+  <li>Supported Power Management Devices</li>
+  <li>Fencing logic, meaning how to determine a host requires fencing.</li>
+  <li>Power Management logic, meaning when and how to use the power management mechanism to automatically reduce power consumption in the data center</li>
+  <li>Power Management Proxy Selection</li>
 </ol>
 
 <p>This page is focused at the moment on item #4 and when discussion will go into the other then it will be split into relevant topics.</p>
 
 <h3 id="power-management-proxy">Power Management Proxy</h3>
 
-<p>oVirt uses the standard cluster fence_<device> script in order to perform power management related operations. These scripts are invoked by VDSM and controlled by the engine. The power management proxy may be any server in the system that has VDSM and fence-agents installed with the proper certificates, even if it is not a host.</device></p>
+<p>oVirt uses the standard <code class="language-plaintext highlighter-rouge">cluster fence_&lt;device&gt;</code> script in order to perform power management related operations. These scripts are invoked by VDSM and controlled by the engine.
+The power management proxy may be any server in the system that has VDSM and fence-agents installed with the proper certificates, even if it is not a host.</p>
 
 <p>Proper proxy selection depends on the networking topology of the data center and user preferences.</p>
 
-<p>Current design assumes any host in the data center may be used for fencing which requires all the hosts to have route to all the fencing devices in the system, in reality out of band management networks are usually confined within the same clusters and sometimes even to specific hosts.</p>
+<p>Current design assumes any host in the data center may be used for fencing which requires all the hosts to have route to all the fencing devices in the system,
+in reality out of band management networks are usually confined within the same clusters and sometimes even to specific hosts.</p>
 
-<p>This requires to add the ability to specify, per host, multiple power management devices options in priority. Per option need to specify which device to use and which proxy to use, where there may be multiple proxies with set priorities for using these proxies.</p>
+<p>This requires to add the ability to specify, per host, multiple power management devices options in priority.
+Per option need to specify which device to use and which proxy to use, where there may be multiple proxies with set priorities for using these proxies.</p>
 
 <p>Proxy options may be:</p>
 
@@ -257,14 +254,16 @@
 
 <h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
 
-<p>What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?</p>
+<p>What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature,
+what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?</p>
 
 <h3 id="dependencies--related-features">Dependencies / Related Features</h3>
 
-<p>What other packages depend on this package? Are there changes outside the developers’ control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?</p>
+<p>What other packages depend on this package? Are there changes outside the developers’ control on which completion of this feature depends?
+In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate?
+Other Features that might get affected by this feature?</p>
 
 <h3 id="documentation--external-references">Documentation / External references</h3>
-
 
 
 

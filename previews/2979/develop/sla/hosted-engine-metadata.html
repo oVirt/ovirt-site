@@ -125,8 +125,8 @@
 <p>All hosted engine files related to the shared metadata are located in /rhev:</p>
 
 <ul>
-  <li>/rhev/data-center/mnt/<NFS>/<DOMAIN ID="">/ha_agent/hosted-engine.lockspace</DOMAIN></NFS></li>
-  <li>/rhev/data-center/mnt/<NFS>/<DOMAIN ID="">/ha_agent/hosted-engine.metadata</DOMAIN></NFS></li>
+  <li><code class="language-plaintext highlighter-rouge">/rhev/data-center/mnt/&lt;NFS&gt;/&lt;DOMAIN ID&gt;/ha_agent/hosted-engine.lockspace</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/rhev/data-center/mnt/&lt;NFS&gt;/&lt;DOMAIN ID&gt;/ha_agent/hosted-engine.metadata</code></li>
 </ul>
 
 <p>and the formats are described below.</p>
@@ -135,9 +135,9 @@
 
 <p>This file holds the sanlock lockspace used to protect the reserved sections from concurrent writes. The default capacity is 2000 nodes (disk size is 1 MB) and the lockspace is initialized using:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #!/usr/bin/env python
-  import sanlock
-  sanlock.write_lockspace(lockspace="hosted-engine", path=lockspace_file, offset=0)
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python
+</span><span class="kn">import</span> <span class="nn">sanlock</span>
+<span class="n">sanlock</span><span class="p">.</span><span class="n">write_lockspace</span><span class="p">(</span><span class="n">lockspace</span><span class="o">=</span><span class="s">"hosted-engine"</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">lockspace_file</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="ha_agentmetadata">ha_agent.metadata</h3>
@@ -146,7 +146,7 @@
 
 <p>The first block (index 0) is used for global cluster settings. Currently only the global maintenance flag is being saved there as:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  maintenance=1
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">maintenance</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div></div>
 
 <table>
@@ -158,7 +158,7 @@
   </tbody>
 </table>
 
-<table>
+<table class="bordered">
   <thead>
     <tr>
       <th>name</th>
@@ -230,7 +230,6 @@
     </tr>
   </tbody>
 </table>
-
 
 
 

@@ -165,7 +165,7 @@ The oVirt Scheduler Proxy project development has been discontinued.</p>
 
   <p>See also:</p>
   <ul>
-    <li>https://bugzilla.redhat.com/show_bug.cgi?id=2028192</li>
+    <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2028192">https://bugzilla.redhat.com/show_bug.cgi?id=2028192</a></li>
   </ul>
 
   <p>Keeping the following section only for reference.</p>
@@ -177,7 +177,7 @@ The oVirt Scheduler Proxy project development has been discontinued.</p>
 
 <ul>
   <li>Name: Martin Sivak (msivak)</li>
-  <li>Email: <msivak at="" redhat="" dot="" com=""></msivak></li>
+  <li>Email: <a href="mailto:msivak@redhat.com">msivak@redhat.com</a></li>
 </ul>
 
 <h2 id="current-status">Current status</h2>
@@ -188,7 +188,9 @@ The oVirt Scheduler Proxy project development has been discontinued.</p>
 
 <h2 id="detailed-description">Detailed Description</h2>
 
-<p>The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. As mentioned above any plugin file <code class="language-plaintext highlighter-rouge">{NAME}.py</code> must implement at least one of the functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.</p>
+<p>The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions.
+As mentioned above any plugin file <code class="language-plaintext highlighter-rouge">{NAME}.py</code> must implement at least one of the functions.
+The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.</p>
 
 <ul>
   <li>Scheduler conf file (<code class="language-plaintext highlighter-rouge">/etc/ovirt/scheduler/scheduler.conf</code>), optional (defaults):

@@ -9940,7 +9940,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Hosts use <code>tuned</code> profiles, which provide virtualization optimizations. For more information on <code>tuned</code>, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Performance_Tuning_Guide/sect-Red_Hat_Enterprise_Linux-Performance_Tuning_Guide-Performance_Monitoring_Tools-tuned_and_tuned_adm.html"><em>Enterprise Linux 7 Performance Tuning Guide</em></a>.</p>
+<p>Hosts use <code>tuned</code> profiles, which provide virtualization optimizations. For more information on <code>tuned</code>, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Performance_Tuning_Guide/sect-Red_Hat_Enterprise_Linux-Performance_Tuning_Guide-Performance_Monitoring_Tools-tuned_and_tuned_adm.html">Red Hat Enterprise Linux 7 Performance Tuning Guide_</a>.</p>
 </div>
 <div class="paragraph">
 <p>The oVirt Node has security features enabled. Security Enhanced Linux (SELinux) and the firewall are fully configured and on by default. The status of SELinux on a selected host is reported under <strong>SELinux mode</strong> in the <strong>General</strong> tab of the details view. The Engine can open required ports on Enterprise Linux hosts when it adds them to the environment.</p>
@@ -12941,7 +12941,7 @@ If a host runs virtual machines that are highly available, power management must
 <p>Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.</p>
 </div>
 <div class="paragraph">
-<p>As a oVirt system administrator, you need to create, configure, attach and maintain storage for the virtualized enterprise. You should be familiar with the storage types and their use. Read your storage array vendor&#8217;s guides, and see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Storage_Administration_Guide/">Enterprise Linux Storage Administration Guide</a> for more information on the concepts, protocols, requirements or general usage of storage.</p>
+<p>As a oVirt system administrator, you need to create, configure, attach and maintain storage for the virtualized enterprise. You should be familiar with the storage types and their use. Read your storage array vendor&#8217;s guides, and see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/index">Red Hat Enterprise Linux Managing storage devices</a> guide for more information on the concepts, protocols, requirements or general usage of storage.</p>
 </div>
 <div class="paragraph">
 <p>To add storage domains you must be able to successfully access the Administration Portal, and there must be at least one host connected with a status of <strong>Up</strong>.</p>
@@ -13009,7 +13009,7 @@ If a host runs virtual machines that are highly available, power management must
 <p>On NFS, all virtual disks, templates, and snapshots are files.</p>
 </div>
 <div class="paragraph">
-<p>On SAN (iSCSI/FCP), each virtual disk, template or snapshot is a logical volume. Block devices are aggregated into a logical entity called a volume group, and then divided by LVM (Logical Volume Manager) into logical volumes for use as virtual hard disks. See <em>Enterprise Linux Logical Volume Manager Administration Guide</em> for more information on LVM.</p>
+<p>On SAN (iSCSI/FCP), each virtual disk, template or snapshot is a logical volume. Block devices are aggregated into a logical entity called a volume group, and then divided by LVM (Logical Volume Manager) into logical volumes for use as virtual hard disks. See <em>Enterprise Linux Configuring and managing logical volumes</em>  guide for more information on LVM.</p>
 </div>
 <div class="paragraph">
 <p>Virtual disks can have one of two formats, either QCOW2 or raw. The type of storage can be sparse or preallocated. Snapshots are always sparse but can be taken for disks of either format.</p>
@@ -13210,7 +13210,7 @@ After performing all the above stages, the exports directory should be ready and
 <p>Click the <strong>Data Center</strong> tab and click <strong>Maintenance</strong> to place the storage domain into maintenance mode. This unmounts the existing share and makes it possible to resize the storage domain.</p>
 </li>
 <li>
-<p>On the NFS server, resize the storage. For Enterprise Linux 6 systems, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html-single/Storage_Administration_Guide/index.html#s2-disk-storage-parted-resize-part">Enterprise Linux 6 Storage Administration Guide</a>. For Enterprise Linux 7 systems, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/Storage_Administration_Guide/index.html#s2-disk-storage-parted-resize-part">Enterprise Linux 7 Storage Administration Guide</a>.</p>
+<p>On the NFS server, resize the storage. For Enterprise Linux 6 systems, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html-single/Storage_Administration_Guide/index.html#s2-disk-storage-parted-resize-part">Enterprise Linux 6 Storage Administration Guide</a>. For Enterprise Linux 7 systems, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/Storage_Administration_Guide/index.html#s2-disk-storage-parted-resize-part">Enterprise Linux 7 Storage Administration Guide</a>. For Enterprise Linux 8 systems, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8//html-single/managing_file_systems/index#assembly_resizing-a-partition_managing-file-systems">Resizing a partition</a>.</p>
 </li>
 <li>
 <p>In the details view, click the <strong>Data Center</strong> tab and click <strong>Activate</strong> to mount the storage domain.</p>
@@ -30579,7 +30579,7 @@ if os.environ.has_key('numa'):
 </div>
 </div>
 <div class="paragraph">
-<p>You also need to install the required VDSM hook package on the hosts. Depending on the FCoE card on the hosts, special configuration may also be needed; see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/configuring-fibre-channel-over-ethernet_managing-storage-devices#doc-wrapper">Configuring Fibre Channel over Ethernet</a> in the <em>Enterprise Linux Storage Administration Guide</em>.</p>
+<p>You also need to install the required VDSM hook package on the hosts. Depending on the FCoE card on the hosts, special configuration may also be needed; see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/configuring-fibre-channel-over-ethernet_managing-storage-devices#doc-wrapper">Configuring Fibre Channel over Ethernet</a> in the <em>Red Hat Enterprise Linux Storage Administration Guide</em>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>

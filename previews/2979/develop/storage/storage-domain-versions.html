@@ -147,7 +147,9 @@
 
 <h1 id="storage-domain-version-3">Storage Domain Version 3</h1>
 
-<p>The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit 8665716c: Use SANLock for the SPM resource [1]. The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization) and mainly to introduce the use of SANLock [2].</p>
+<p>The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit <code class="language-plaintext highlighter-rouge">8665716c</code>: Use <a href="http://gerrit.ovirt.org/726">SANLock for the SPM resource</a>.
+The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization)
+and mainly to introduce the use of <a href="https://fedorahosted.org/sanlock">SANLock</a>.</p>
 
 <ul>
   <li><strong>Supported Domain Types:</strong> Block (iSCSI, FCP) and File (NFS, local) domains</li>
@@ -159,10 +161,10 @@
 <h3 id="vdsm-and-format">VDSM and Format</h3>
 
 <ul>
-  <li>Uses SANLock to acquire the SPM resource [3]</li>
-  <li>Uses SANLock to acquire the volume resources (virtualization subsystem, libvirt) [4]</li>
+  <li>Uses <a href="http://gerrit.ovirt.org/726">SANLock to acquire the SPM resource</a></li>
+  <li>Uses <a href="http://gerrit.ovirt.org/1253">SANLock to acquire the volume resources (virtualization subsystem, libvirt)</a></li>
   <li>In block domains the permissions of the LVs in the metadata are always RW (to allow live snapshots and live merges)</li>
-  <li>Unicode[5] support in the name and description of:
+  <li><a href="http://gerrit.ovirt.org/637">Unicode</a> support in the name and description of:
     <ul>
       <li>Storage Pools</li>
       <li>Storage Domains</li>
@@ -215,24 +217,6 @@
 
 <p><img src="/ovirt-site/previews/2979/images/wiki/DomainUpgrade1.png" alt="" /></p>
 
-<h2 id="references">References</h2>
-
-<references>
-` `[6]
-
-</references>
-
-<p>[1]</p>
-
-<p>[2] <a href="https://fedorahosted.org/sanlock">https://fedorahosted.org/sanlock</a></p>
-
-<p>[3]</p>
-
-<p>[4] <a href="http://gerrit.ovirt.org/1253">http://gerrit.ovirt.org/1253</a></p>
-
-<p>[5] <a href="http://gerrit.ovirt.org/637">http://gerrit.ovirt.org/637</a></p>
-
-<p>[6] <a href="http://gerrit.ovirt.org/726"><code class="language-plaintext highlighter-rouge">http://gerrit.ovirt.org/726</code></a></p>
 
 
 

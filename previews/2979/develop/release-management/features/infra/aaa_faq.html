@@ -211,10 +211,10 @@ pool.default.connection-options.responseTimeoutMillis = 30000
 
 <p>Yes, you can configure it with aaa-misc extension. First you need to install it:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install -y ovirt-engine-extension-aaa-misc
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>yum <span class="nb">install</span> <span class="nt">-y</span> ovirt-engine-extension-aaa-misc
 </code></pre></div></div>
 
-<p>Then create such <em>mapping</em> configuration, for example <em>/etc/ovirt-engine/extensions.d/mapping.properties</em></p>
+<p>Then create such <em>mapping</em> configuration, for example <code class="language-plaintext highlighter-rouge">/etc/ovirt-engine/extensions.d/mapping.properties</code></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt.engine.extension.name = mapping
 ovirt.engine.extension.bindings.method = jbossmodule
@@ -227,8 +227,8 @@ config.mapUser.regex.replacement = ${user}@&lt;default.suffix&gt;
 config.mapUser.regex.mustMatch = false
 </code></pre></div></div>
 
-<p>Replace *<default.suffix>* with the desired suffix, for example *${user}@subdomain.domain.com*.
-Then apply above mapping into *authn* extension:</default.suffix></p>
+<p>Replace <code class="language-plaintext highlighter-rouge">&lt;default.suffix&gt;</code> with the desired suffix, for example <code class="language-plaintext highlighter-rouge">${user}@subdomain.domain.com</code>.
+Then apply above mapping into <em>authn</em> extension:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovirt.engine.aaa.authn.mapping.plugin = mapping
 </code></pre></div></div>
@@ -241,7 +241,7 @@ Then apply above mapping into *authn* extension:</default.suffix></p>
 
 <p>In order to change it run following command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keytool -storepasswd -keystore /etc/ovirt-engine/aaa/profile_name.jks
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>keytool <span class="nt">-storepasswd</span> <span class="nt">-keystore</span> /etc/ovirt-engine/aaa/profile_name.jks
 </code></pre></div></div>
 
 <p>Keytool will ask you for old password, which is <em>changeit</em> and then for new password.</p>
@@ -267,7 +267,7 @@ sequence.simple-query-principals.005.type = regex
 sequence.simple-query-principals.005.regex.value = ${seq:filter}
 sequence.simple-query-principals.005.regex.flags = a
 sequence.simple-query-principals.005.regex.pattern = \\(givenName=[^)]*\\)|\\(sn=[^)]*\\)|\\(displayName=[^)]*\\)
-sequence.simple-query-principals.005.regex.replacement.filter = 
+sequence.simple-query-principals.005.regex.replacement.filter =
 </code></pre></div></div>
 
 <p>This example will replace occurrences of givenName, sn, and displayName and its values with an empty string.

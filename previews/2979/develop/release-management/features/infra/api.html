@@ -136,8 +136,6 @@
 
 <h1 id="api">Api</h1>
 
-<p><strong>TOC</strong></p>
-
 <h3 id="description">Description</h3>
 
 <p>oVirt api package provides Application programming interface for the oVirt engine.</p>
@@ -157,105 +155,78 @@
 
 <h3 id="ovirt-api-uri-structure">oVirt-API URI structure</h3>
 
-<p>oVirt API follows collection/resource patten:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
-</code></pre></div></div>
+<p>oVirt API follows collection/resource patten: <code class="language-plaintext highlighter-rouge">http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy</code></p>
 
 <ol>
-  <li>
-    <p>protocol</p>
-  </li>
-  <li>
-    <p>server details</p>
-  </li>
-  <li>
-    <p>entry point (base resource)</p>
-  </li>
-  <li>
-    <p>collection</p>
-  </li>
-  <li>
-    <p>resource</p>
-  </li>
-  <li>
-    <p>sub-collection</p>
-  </li>
-  <li>
-    <p>sub-resource</p>
-  </li>
+  <li>protocol</li>
+  <li>server details</li>
+  <li>entry point (base resource)</li>
+  <li>collection</li>
+  <li>resource</li>
+  <li>sub-collection</li>
+  <li>sub-resource</li>
 </ol>
 
 <h3 id="ovirt-api-how-to-the-methods">oVirt-API How-to (the methods)</h3>
 
 <ul>
-  <li>
-    <p>To list all collection resources, use GET.</p>
-
-    <p>GET http(s)://server:port/api/vms</p>
+  <li>To list all collection resources, use GET.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="nx">http</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="c1">//server:port/api/vms</span>
+</code></pre></div>    </div>
   </li>
-  <li>
-    <p>To retrieve specific resource, use GET.</p>
-
-    <p>GET http(s)://server:port/api/vms/xxx</p>
-
-    <p>curl -v -u “user@domain:password” -H “Content-type: application/xml” -X GET http(s)://server:port/api/vms/xxx</p>
+  <li>To retrieve specific resource, use GET.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="nx">http</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="c1">//server:port/api/vms/xxx</span>
+</code></pre></div>    </div>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-v</span> <span class="nt">-u</span> <span class="s2">"user@domain:password"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/xml"</span> <span class="nt">-X</span> GET http<span class="o">(</span>s<span class="o">)</span>://server:port/api/vms/xxx
+</code></pre></div>    </div>
   </li>
-  <li>
-    <p>To create a resource, use POST.</p>
-
-    <p>POST http(s)://server:port/api/vms</p>
+  <li>To create a resource, use POST.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="nx">http</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="c1">//server:port/api/vms</span>
+<span class="o">&lt;</span><span class="nx">vm</span><span class="o">&gt;</span><span class="s2">`...`</span><span class="o">&lt;</span><span class="sr">/vm</span><span class="err">&gt;
+</span></code></pre></div>    </div>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-v</span> <span class="nt">-u</span> <span class="s2">"user@domain:password"</span>  <span class="nt">-H</span> <span class="s2">"Content-type: application/xml"</span> <span class="se">\</span>
+<span class="gp">-d '&lt;vm&gt;</span><span class="w">
+</span><span class="gp">  &lt;name&gt;</span>my_new_vm&lt;/name&gt;
+<span class="gp">  &lt;cluster&gt;</span>&lt;name&gt;cluster_name&lt;/name&gt;&lt;/cluster&gt;
+<span class="gp">  &lt;template&gt;</span>&lt;name&gt;template_name&lt;/name&gt;&lt;/template&gt;
+<span class="gp">&lt;/vm&gt;</span><span class="s1">' '</span>http<span class="o">(</span>s<span class="o">)</span>://server:port/api/vms<span class="s1">'
+</span></code></pre></div>    </div>
   </li>
-</ul>
-<vm>`...`</vm>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  curl -v -u "user@domain:password" 
-  -H "Content-type: application/xml" 
-  -d  ` '`&lt;vm&gt; `  `&lt;name&gt;`my_new_vm`&lt;/name&gt; `  `&lt;cluster&gt;&lt;name&gt;`cluster_name`&lt;/name&gt;&lt;/cluster&gt; `  `&lt;template&gt;&lt;name&gt;`template_name`&lt;/name&gt;&lt;/template&gt;
-   `&lt;/vm&gt;`' 'http(s)://server:port/api/vms'
-</code></pre></div></div>
-
-<ul>
-  <li>
-    <p>To update the resource, use PUT.</p>
-
-    <p>PUT http(s)://server:port/api/vms/xxx</p>
+  <li>To update the resource, use PUT.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PUT</span> <span class="nx">http</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="c1">//server:port/api/vms/xxx</span>
+<span class="o">&lt;</span><span class="nx">vm</span><span class="o">&gt;&lt;</span><span class="nx">name</span><span class="o">&gt;</span><span class="nx">aaa</span><span class="o">&lt;</span><span class="sr">/name&gt;&lt;/</span><span class="nx">vm</span><span class="o">&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"&lt;vm&gt;&lt;name&gt;new_name&lt;/name&gt;&lt;/vm&gt;"</span> <span class="o">&gt;</span>  /tmp/upload.xml
+<span class="gp">$</span><span class="w"> </span>curl <span class="nt">-v</span> <span class="nt">-u</span> <span class="s2">"user@domain:password"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/xml"</span> <span class="nt">-T</span> /tmp/upload.xml <span class="s1">'http(s)://server:port/api/vms/xxx'</span>
+</code></pre></div>    </div>
   </li>
-</ul>
-<vm><name>`aaa`</name></vm>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  echo "`&lt;vm&gt;&lt;name&gt;`new_name`&lt;/name&gt;&lt;/vm&gt;`" &gt;  /tmp/upload.xml
-  curl -v -u "user@domain:password" 
-   -H "Content-type: application/xml" 
-   -T /tmp/upload.xml 
-   'http(s)://server:port/api/vms/xxx'
-</code></pre></div></div>
-
-<ul>
-  <li>
-    <p>To remove the resource, use DELETE.</p>
-
-    <p>DELETE http(s)://server:port/api/vms/xxx</p>
-
-    <p>curl -v -u “user@domain:password” -X DELETE http(s)://server:port/api/vms/xxx</p>
+  <li>To remove the resource, use DELETE.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DELETE</span> <span class="nx">http</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="c1">//server:port/api/vms/xxx</span>
+</code></pre></div>    </div>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-v</span> <span class="nt">-u</span> <span class="s2">"user@domain:password"</span> <span class="nt">-X</span> DELETE http<span class="o">(</span>s<span class="o">)</span>://server:port/api/vms/xxx
+</code></pre></div>    </div>
   </li>
 </ul>
 
 <h3 id="rsdl-restful-service-description-language"><a href="/ovirt-site/previews/2979/develop/release-management/features/infra/rsdl.html">RSDL</a> (RESTful Service Description Language)</h3>
 
-<p>RSDL (RESTful Service Description Language) is a machine and human readable XML description of HTTP-based web applications (typically REST web services), it models the resource/s provided by a service, the relationships between them, parameters that has to be supplied for the certain operation, specifies if parameter/s has to be mandated and describes possible overloads as parameters sets, RSDL is intended to simplify the reuse of web services that are based on the HTTP architecture of the Web. It is platform and language independent and aims to promote reuse of applications beyond the basic use in a web browser by both humans and machines</p>
+<p>RSDL (RESTful Service Description Language) is a machine and human readable XML description of HTTP-based web applications (typically REST web services),
+it models the resource/s provided by a service, the relationships between them, parameters that has to be supplied for the certain operation,
+specifies if parameter/s has to be mandated and describes possible overloads as parameters sets, RSDL is intended to simplify the reuse of
+web services that are based on the HTTP architecture of the Web.
+It is platform and language independent and aims to promote reuse of applications beyond the basic use in a web browser by both humans and machines</p>
 
 <h2 id="repository">Repository</h2>
 
 <ul>
-  <li>&lt;git://gerrit.ovirt.org/ovirt-engine&gt;</li>
+  <li><a href="https://github.com/oVirt/ovirt-engine">https://github.com/oVirt/ovirt-engine</a></li>
 </ul>
 
-<p>(restapi is one of the engine modules located under ovirt/ovirt-engine/backend/manager/modules/restapi/)</p>
+<p>(restapi is one of the engine modules located under <code class="language-plaintext highlighter-rouge">ovirt/ovirt-engine/backend/manager/modules/restapi/</code>)</p>
 
 <h2 id="maintainers">Maintainers</h2>
 
-<p>Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com</p>
+<p>Michael Pasternak: <a href="mailto:mishka8520@yahoo.com">mishka8520@yahoo.com</a>, Juan Hernandez: <a href="mailto:juan.hernandez@redhat.com">juan.hernandez@redhat.com</a></p>
 
 
 

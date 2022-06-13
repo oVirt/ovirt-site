@@ -197,7 +197,7 @@ BZ#link:https://bugzilla.redhat.com/1999698[1999698]::
 The Apache HTTPD SSLProtocol configuration is managed by crypto-policies instead of being set by `engine-setup`.
 
 BZ#link:https://bugzilla.redhat.com/2012830[2012830]::
-You can now use the Logical Volume Management (LVM) devices file for managing storage devices instead of LVM filter, which can be complicated to set up and difficult to manage. 
+You can now use the Logical Volume Management (LVM) devices file for managing storage devices instead of LVM filter, which can be complicated to set up and difficult to manage. Starting with RHEL 8.6, this will be the default for storage device management.
 
 BZ#link:https://bugzilla.redhat.com/2002283[2002283]::
 You can set the number of PCI Express ports for VMs with `engine-config`.

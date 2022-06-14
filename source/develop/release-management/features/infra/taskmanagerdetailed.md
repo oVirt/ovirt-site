@@ -25,9 +25,9 @@ It also capable of presenting completed commands for a period of time. The curre
 
 ### Current status
 
-*   Target Release: 3.1
-*   Status: Coding ( Engine-done, UI-coding, API-Not started )
-*   Last updated date: 01/01/2012
+* Target Release: 3.1
+* Status: Coding ( Engine-done, UI-coding, API-Not started )
+* Last updated date: 01/01/2012
 
 ### Detailed Description
 
@@ -64,15 +64,15 @@ The job supports the following scenarios:
 #### Requirements
 
 The requirements for feature are as follow (V2 refers to future version):
-# Provide a mechanism for jobs monitoring via UI (i.e - monitor job status and progress, monitor tasks of given action, jobs of a given entity).
 
-1.  Define a correlation-id which used to identify an action spread cross-layers (Client--> Backend --> VDSM).
-2.  Provide the admin the option to remove jobs from the monitoring view (Job execution continues without monitoring).
-3.  Provide a mechanism for tasks management: cancel task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)
-4.  Define a task dependency/task chaining mechanism (Task B will not start before completion of Task A).(V2)
-5.  Provide a mechanism to invoke commands asynchronously. (V2)
-6.  Define a "best effort step" - The success of the parent command of this step will not depend on the result of a step).(V2)
-7.  Provide a permission mechanism for the task management.(V2)
+1. Provide a mechanism for jobs monitoring via UI (i.e - monitor job status and progress, monitor tasks of given action, jobs of a given entity).
+2.  Define a correlation-id which used to identify an action spread cross-layers (Client--> Backend --> VDSM).
+3.  Provide the admin the option to remove jobs from the monitoring view (Job execution continues without monitoring).
+4.  Provide a mechanism for tasks management: cancel task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)
+5.  Define a task dependency/task chaining mechanism (Task B will not start before completion of Task A).(V2)
+6.  Provide a mechanism to invoke commands asynchronously. (V2)
+7.  Define a "best effort step" - The success of the parent command of this step will not depend on the result of a step).(V2)
+8.  Provide a permission mechanism for the task management.(V2)
 
 *   The first version will include a default implementation for all commands and specific flow monitoring for the following commands:
     1.  AddVdsCommand
@@ -97,16 +97,15 @@ The following entities/components will be added:
 *   **StepDaoDbFacadeImpl** an implementation of the *StepDao* interface.
 *   **ExecutionContext** an object which encapsulates the context in which an action should be executed. It determines level of command monitoring and a way to present a given command to the User (e.g. as a job, step). Providing *ExecutionContext* will override the default monitoring behavior of the Task Manager.
 
-<!-- -->
-
 *   **GetModifiedJobsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
 
 ##### Enumerators
 
-''' New Enumerators *'
+**New Enumerators**
 *StepEnum'' specifies system's steps
 *ExecutionStatus* specifies which statuses are eligible for *Step* and *Job*
- **Updated Enumerators**
+
+**Updated Enumerators**
 The *VdcActionType* will be used in a resource bundle to correlate between the action type to the description of a job.
 The resource bundle will contain description for both Jobs and Steps (combines *VdcActionType* and *StepEnum*):
 
@@ -117,7 +116,7 @@ The resource bundle will contain description for both Jobs and Steps (combines *
 
 **Tentative:**
 *ActionCategory* specifies categories of actions, e.g. storage, network, host maintenance...
-*VdcActionType* will be extended with a new field storing a list of categories (Set<ActionCategory>) to which a specific action type belongs to.
+*VdcActionType* will be extended with a new field storing a list of categories (Set `ActionCategory`) to which a specific action type belongs to.
 The *categories* field will enable filtering jobs by categories. An action type could be associated with multiple categories.
 
 ##### Annotations
@@ -151,19 +150,75 @@ The following class diagram focuses on the *Job* and *Step* entities:
 #### DB Design
 
 <span style="color:Teal">**JOB**</span> represents the job entity:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||not null ||The job ID |- |command_id ||UUID ||not null ||The associated command ID |- |status ||String ||not null ||The status of the job |- |description ||String ||not null ||The step description |- |owner_id ||UUID ||not null ||The user which triggered the command |- |parameters ||text ||not null ||A JSON representation of the parameters associated with the command |- |action_type ||String ||not null ||The type of the command as defined by *VdcActionType* |- |visible ||bool ||default 'true' ||Describes if current entity should be presentable, overrides defaults visibility criteria of the job |- |start_time || Timestamp ||not null ||Job start time |- |end_time || Timestamp ||null ||Job end time |- |last_update_time || Timestamp ||not null ||Command last update time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |}
+
+| Column Name | Column Type | Null? / Default | Definition                |
+|-------------|-------------|-----------------|---------------------------|
+| job_id      | UUID        | not null        | The job ID                |
+|command_id   | UUID        | not null        | The associated command ID |
+| status      | String      | not null        | The status of the job     |
+| description | String      | not null        | The step description      |
+| owner_id    | UUID        | not null        | The user which triggered the command |
+| parameters  | text        | not null        | A JSON representation of the parameters associated with the command |
+| action_type | String      | not null        | The type of the command as defined by *VdcActionType* |
+| visible     | bool        | default 'true'  | Describes if current entity should be presentable, overrides defaults visibility criteria of the job |
+| start_time  | Timestamp   | not null        | Job start time |
+| end_time    | Timestamp   | null            | Job end time |
+| last_update_time | Timestamp | not null     | Command last update time |
+|correlation_id | String    | not null        | correlation identifier for cross system logging |
+{: .bordered}
+
+---
 
 <span style="color:Teal">**STEP**</span> represents a step of a job:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |step_id ||UUID ||not null ||The step ID |- |parent_step_id ||UUID ||null ||The successor step, null if none. |- |job_id ||UUID ||not null ||The job ID which the step was created for |- |step_type ||String ||not null ||The step name, values taken from *StepEnum* |- |description ||String ||not null ||The step description |- |order ||Integer ||not null ||The step order in current job hierarchy level |- |status ||String ||not null ||The status of the step |- |start_time || Timestamp ||not null ||The step start time |- |end_time || Timestamp ||null ||The step end time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |external_id || Guid ||null ||identifier of the step in external system (e.g. VSDM task-id) |- |external_system_type || String ||null ||The type of the external system (e.g. VSDM) |- |}
+
+| Column Name | Column Type | Null? / Default | Definition  |
+|-------------|-------------|-----------------|-------------|
+| step_id     | UUID        | not null        | The step ID |
+| parent_step_id | UUID     | null            | The successor step, null if none. |
+| job_id      | UUID        | not null        | The job ID which the step was created for |
+| step_type   | String      | not null        | The step name, values taken from *StepEnum* |
+| description | String      | not null        | The step description |
+| order       | Integer     | not null        | The step order in current job hierarchy level |
+| status      | String      | not null        | The status of the step |
+| start_time  | Timestamp   | not null        | The step start time |
+| end_time    | Timestamp   | null            | The step end time |
+| correlation_id | String   | not null        | correlation identifier for cross system logging |
+| external_id | Guid        | null            | identifier of the step in external system (e.g. VSDM task-id) |
+| external_system_type | String | null        | The type of the external system (e.g. VSDM) |
+{: .bordered}
+
+---
 
 <span style="color:Teal">**JOB_SUBJECT_ENTITIES_MAP**</span> Describes a relations between entities (VM, Host...) to a job:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||not null ||The job ID |- |entity_id ||UUID ||not null ||The entity id which was provided to the Job main command |- |entity_type ||String ||not null ||The type of the entity |- |}
+
+| Column Name | Column Type | Null? / Default | Definition |
+|-------------|-------------|-----------------|------------|
+| job_id      | UUID        | not null        | The job ID |
+| entity_id   | UUID        | not null        | The entity id which was provided to the Job main command |
+| entity_type | String      | not null        | The type of the entity |
+{: .bordered}
+
+---
 
 <span style="color:Teal">**AUDIT_LOG**</span> An extension to the existing table to denote the job which the event participate in:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||null ||The job ID |- |correlation_id ||UUID ||null ||The correlation ID provided from the client to identify the scope in which the event occurred |- |}
+
+| Column Name | Column Type | Null? / Default | Definition |
+|-------------|-------------|-----------------|------------|
+| job_id      |UUID         | null            | The job ID |-
+| correlation_id | UUID     | null            | The correlation ID provided from the client to identify the scope in which the event occurred |
+{: .bordered}
+
+---
+
 
 <span style="color:Teal">**ASYNC_TASK**</span> An extension to the existing table to associate a task with its Step:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |step_id ||UUID ||null ||The job ID |- |}
+
+|Column Name | Column Type | Null? / Default | Definition |
+|------------|-------------|-----------------|------------|
+|step_id     | UUID        | null            | The job ID |
+{: .bordered}
+
+---
 
 ##### CRUD
 
@@ -195,8 +250,8 @@ The backend commands are divided into two categories:
 
 1.  Synchronous commands - the command ends when the *executeAction* ends.
 2.  Asynchronous commands
-    1.  The command is ended when the *endAction* ends. The *endAction* is triggered by the *AsyncTaskManager* when the tasks created by the command are reported as completed.
-    2.  The command ends, but the action is completed by the event listener.
+    a.  The command is ended when the *endAction* ends. The *endAction* is triggered by the *AsyncTaskManager* when the tasks created by the command are reported as completed.
+    b.  The command ends, but the action is completed by the event listener.
 
 The following sequence diagrams describe how the interaction of the new entities in the existing flow in order to support the monitoring:
 
@@ -320,7 +375,6 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
     -   *VdsEventListner.RunningSucceeded* and *VdsEventListner.RemoveAsyncCommand* provides control over the *MigrateVm* commands hence for the steps they represents.
 *   When step ends, an event is triggered for the Job, to notify upon step completion.
 
-<!-- -->
 
          // Maintenance command metadata (each level should have also the Correlation-ID)
          Job----Start time----End time----Status----[Entity Name----Entity Type]
@@ -362,7 +416,6 @@ When Backend is initialized, the non-completed jobs are being examined for their
 *   If the job represents a command with tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*).
 *   If the command has no tasks, the Job status should be set to UNKNOWN.
 
-<!-- -->
 
 *   A scheduler will be responsible for clearing obsolete Jobs and Steps from the database.
 *   Two configuration values will determine the frequency of clearing completed jobs:
@@ -424,4 +477,5 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 2.  Paging - restriction of returned number of records.
 3.  Commands monitoring and permission model, adding Tasks view to users.
 
-[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature.html)
+[TaskManager](/develop/release-management/features/)
+[TaskManager](/develop/release-management/releases/3.1/feature.html)

@@ -16,10 +16,6 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 *   Name: Yaniv Bronhaim (ybronhei)
 
-<!-- -->
-
-*   Email: ybronhei@redhat.com
-
 ## Current status
 
 *   Target Release: 3.2

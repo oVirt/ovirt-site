@@ -17,9 +17,9 @@ Integrating Foreman with oVirt will help adding hypervisor hosts that are manage
 ## Owner
 
 *   Name: Yaniv Bronheim
-*   Email: ybronhei@redhatdotcom
+
 *   Name: Oved Ourfali
-*   Email: ovedo@redhatdotcom
+*   Email: <ovedo@redhat.com>
 
 ## Current Status
 

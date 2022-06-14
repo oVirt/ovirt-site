@@ -14,10 +14,6 @@ authors: ybronhei
 
 *   Name: Yaniv Bronhaim (ybronhei)
 
-<!-- -->
-
-*   Email: ybronhei@redhat.com
-
 ### Current status
 
 *   oVirt-3.3

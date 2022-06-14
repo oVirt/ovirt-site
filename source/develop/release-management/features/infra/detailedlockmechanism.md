@@ -19,10 +19,6 @@ The following feature should solve collisions which are occurring between senten
 
 *   Name: Michael Kublin (mkublin)
 
-<!-- -->
-
-*   Email: mkublin@redhat.com
-
 ### Current status
 
 *   Target Release: 3.3

@@ -16,7 +16,6 @@ Allow hot addition and removal of virtio-blk and virtio-scsi disks to a running 
 ## Owner
 
 *   Michael Kublin
-*   Email: mkublin@redhat.com
 
 ### Current status
 

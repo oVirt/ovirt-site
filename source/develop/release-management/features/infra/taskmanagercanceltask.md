@@ -14,11 +14,10 @@ A Task Cancellation it is feature which should allow to cancel currently running
 
 ### Owner
 
-*   Name: [Michael:Michael Kublin](Michael:Michael Kublin)
-    -   Email: <mkublin@redhat.com>
-*   GUI Component owner: Michael Kublin <mkublin@redhat.com>
-*   REST Component owner: Michael Kublin <mkublin@redhat.com>
-*   QA Owner: Yaniv Kaul <ykaul@redhat.com
+*   Name: Michael Kublin
+*   GUI Component owner: Michael Kublin
+*   REST Component owner: Michael Kublin
+*   QA Owner: Yaniv Kaul <ykaul@redhat.com>
 
 ### Current status
 

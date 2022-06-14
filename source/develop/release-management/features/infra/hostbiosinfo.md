@@ -10,7 +10,8 @@ authors:
 
 ## Summary
 
-When assigning new host to oVirt engine the engine retrieves general information about the host. This information includes Vdsm version, CPU units and inc. This article describes the bios information that the host provides to oVirt engine.
+When assigning new host to oVirt engine the engine retrieves general information about the host.
+This information includes Vdsm version, CPU units and inc. This article describes the bios information that the host provides to oVirt engine.
 
 ## Owner
 
@@ -25,45 +26,45 @@ When assigning new host to oVirt engine the engine retrieves general information
 ## Detailed Description
 
 The following feature allows the user interface to present host's bios information when adding new hypervisor.
-This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getVdsBiosInfo API method. This returns the following fields[1]:
- 1. Host Manufacturer - Manufacturer of the host's machine and bios' vendor (e.g LENOVO)
-
-      2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
-      3. Host Product Name - ID of the product - same for all similar products (e.g 4174BH4)
-      4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
-      5. Host Family - Type of host's CPU - (e.g Core i5)
-      6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
+This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with `getVdsBiosInfo` API method.
+This returns the following fields[1]:
+1. Host Manufacturer - Manufacturer of the host's machine and bios' vendor (e.g LENOVO)
+2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
+3. Host Product Name - ID of the product - same for all similar products (e.g 4174BH4)
+4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
+5. Host Family - Type of host's CPU - (e.g Core i5)
+6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
 
 The following parameters below are suggested to be added:
 
-      7. BIOS Revision
-      8. BIOS Version
-      9. BIOS is upgradable
-      10. BIOS Vendor
-      11. BIOS Release Date
+7. BIOS Revision
+8. BIOS Version
+9. BIOS is upgradable
+10. BIOS Vendor
+11. BIOS Release Date
 
-      12. Processor Version
-      13. Processor Core Count
-      14. Processor Vendor
-      15. Processor Core Enabled
-      16. Processor Current Speed
-      17. Processor Max Speed
-      18. Processor Thread Count
+12. Processor Version
+13. Processor Core Count
+14. Processor Vendor
+15. Processor Core Enabled
+16. Processor Current Speed
+17. Processor Max Speed
+18. Processor Thread Count
 
-      19. Chassis Asset Tag
-      20. Chassis Serial Number
-      21. Chassis Manufacturer
+19. Chassis Asset Tag
+20. Chassis Serial Number
+21. Chassis Manufacturer
 
-      22. Memory Serial Number
-      23. Memory Total Width
-      24. Memory Number of Devices
-      25. Memory Manufacturer
-      26. Memory Data Width
-      27. Memory Error Correction Type
-      28. Memory Maximum Capacity
-      29. Memory Type Detail
-      30. Memory Speed
-      31. Memory Size
+22. Memory Serial Number
+23. Memory Total Width
+24. Memory Number of Devices
+25. Memory Manufacturer
+26. Memory Data Width
+27. Memory Error Correction Type
+28. Memory Maximum Capacity
+29. Memory Type Detail
+30. Memory Speed
+31. Memory Size
 
 [1] More parameters can be added on request.
 
@@ -94,20 +95,24 @@ Bios information needs to be part of the vds dynamic information and retrieved i
 ### REST API
 
 The host's bios parameters is shown via engine rest API under host object as the following:
+
+```xml
  <bios_information>
 
-` `<manufacturer>`Dell Inc.`</manufacturer>
-` `<version>`01`</version>
-` `<serial_number>`H2CQ95J`</serial_number>
-` `<product_name>`OptiPlex 790`</product_name>
-` `<uuid>`4C4C4544-0032-4310-8051-C8C04F39354A`</uuid>
-` `<family>`Core i7`</family>
+ <manufacturer>Dell Inc.</manufacturer>
+ <version>01</version>
+ <serial_number>H2CQ95J</serial_number>
+ <product_name>OptiPlex 790</product_name>
+ <uuid>4C4C4544-0032-4310-8051-C8C04F39354A</uuid>
+ <family>Core i7</family>
 </bios_information>
+```
 
 ## dmidecode Output
 
 ### System Information
 
+```
 dmi_type - 1
 SKU Number - Not Specified
 UUID - E03DD601-5219-11CB-BB3F-892313086897
@@ -119,9 +124,11 @@ Product Name - 4174BH4
 dmi_handle - 0x0010
 dmi_size - 27
 Manufacturer - LENOVO
+```
 
 ### Bios Information
 
+```
 NEC PC-98 - False
 EDD is supported - True
 PC Card (PCMCIA) is supported - False
@@ -173,9 +180,11 @@ Installed Languages - 1
 ACPI - True
 LS-120 boot - False
 IEEE 1394 boot - False
+```
 
 ### Cache Information
 
+```
 dmi_type - 7
 System Type - Data
 Socket Designation - L2-Cache
@@ -192,9 +201,11 @@ Error Correction Type - Single-bit ECC
 Speed - Unknown
 Operational Mode - Write Through
 dmi_size - 19
+```
 
 ### Processor Information
 
+```
 Upgrade - ZIF Socket
 Socket Designation - CPU
 L2 Cache Handle - 0x0003
@@ -221,9 +232,11 @@ Characteristics - ['64-bit capable']
 Voltage - 1.2 V
 Max Speed - 2600
 Thread Count - 4
+```
 
 ### Chassis Information
 
+```
 dmi_type - 3
 Type - Notebook
 Power Supply State - Unknown
@@ -237,9 +250,10 @@ Boot-Up State - Unknown
 dmi_handle - 0x0012
 dmi_size - 21
 Manufacturer - LENOVO
+```
 
 ### Memory Information
-
+```
 Use - System Memory
 Location - System Board Or Motherboard
 Type -
@@ -264,4 +278,4 @@ Locator - ChannelB-DIMM0
 Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, None, None, None]
 Speed - 1333 MHz (0.8ns)
 Size - 4096 MB
-
+```

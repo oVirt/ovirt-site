@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.2 release notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.2 release notes" />
+<meta name="author" content="Cheryn Tan" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2987/develop/release-management/releases/3.2/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2987/develop/release-management/releases/3.2/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.2 release notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Cheryn Tan" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Cheryn Tan"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.2 release notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2987/images/logo.svg"},"name":"Cheryn Tan"},"url":"https://ovirt.github.io/ovirt-site/previews/2987/develop/release-management/releases/3.2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2987/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2987/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2987/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2987/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2987/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2987/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2987/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2987/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2987/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2987/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2987/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2987/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2987/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2987/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2987/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2987/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2987/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2987/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2987/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2987/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2987/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2987/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2987//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2987//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2987/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2987/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2987/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2987/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/02a2cab78c03213b793b1c6ad959aa59?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/02a2cab78c03213b793b1c6ad959aa59?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Cheryn Tan">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Cheryn Tan</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bc7a1e6e655b766ad1553b35c30cc83b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bc7a1e6e655b766ad1553b35c30cc83b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Shireesh Anjal">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Shireesh Anjal</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92c59cd59d559d12f59b461c1f206ed7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92c59cd59d559d12f59b461c1f206ed7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Theron Conrey">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Theron Conrey</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Vered Volansky">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vered Volansky</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-32-release-notes">oVirt 3.2 release notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of its third formal release, oVirt 3.2.</p>
+
+<h2 id="whats-new-in-321">What’s New in 3.2.1?</h2>
+
+<p>New RPMS are now uploaded for oVirt 3.2.1. The updates included:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ovirt-engine-cli 3.2.0.11-1
+  ovirt-engine-sdk 3.2.0.10-1
+  ovirt-engine 3.2.1-1
+</code></pre></div></div>
+
+<h3 id="ovirt-engine-changes"><strong>oVirt Engine changes:</strong></h3>
+
+<ul>
+  <li>Fixed bug blocking firewalld configuration when selinux was in enforcing mode</li>
+  <li>Small change in All-In-One</li>
+  <li>Minor patches at rest-api</li>
+</ul>
+
+<p>Also included in the oVirt Engine update are patches to enable EL6 builds.</p>
+
+<p><em>To upgrade, please run engine-upgrade.</em></p>
+
+<h2 id="whats-new-in-32">What’s New in 3.2?</h2>
+
+<p>The oVirt 3.2 release includes these notable changes.</p>
+
+<h3 id="installer">Installer</h3>
+
+<ul>
+  <li>The Application Mode option has been added to the engine-setup script, which prompts users to configure the engine for virtualization management only, Gluster management only, or both.</li>
+  <li>oVirt nodes and Fedora hosts can be registered to the oVirt engine from the administration portal without using the HTTP(s) protocol.</li>
+  <li>The CA certificate for the web administration portal is now acquired from the TLS/SSL handshake during the VDSM registration process, replacing the previous method of downloading a self-signed certificate from the oVirt Engine. This separates between the CA certificates issued for VDSM and the web administration portal.</li>
+  <li>VDSM now uses tuned profiles for virtual hosts. Upon host installation, the installation script changes the host profile to ‘virtual-host’, which improves host performance.</li>
+  <li>Users can now remove virtual machines while leaving the virtual machine disks as floating disks. This is only applicable when the virtual disks have no snapshots, and when the virtual machine is not based on a template.</li>
+  <li>The oVirt Engine now performs a DNS lookup and automatically finds a suitable Java Virtual Machine (JVM) during setup, replacing the previous behaviour of hardcoding the JVM location to the data center configuration file.</li>
+</ul>
+
+<h3 id="storage">Storage</h3>
+
+<ul>
+  <li>engine-log-collector can now collect Gluster logs from hosts belonging to a Gluster-enabled clusters, under the /var/log/gluster/* directory.</li>
+  <li>Previously, it was not possible to remove a host from a Gluster-enabled cluster if the host had any volume bricks on it, or if the host was non-responsive. Now, hosts can be forcefully removed from a Gluster cluster, and when all hosts are removed, the engine removes the host entries and Gluster volumes from the database.</li>
+  <li>Cluster configuration changes made in the Gluster command line shell are now automatically synced with the oVirt Engine database, and reported in the oVirt web administration portal (<a href="/ovirt-site/previews/2987/develop/release-management/features/gluster/gluster-sync-configuration-with-cli.html">Features/Gluster_Sync_Configuration_With_CLI</a>).</li>
+  <li>Support has been added for importing existing Gluster supported clusters to the oVirt Engine. All hosts in the cluster are imported, and the bootstrap script installs all necessary VDSM packages on the hosts (<a href="/ovirt-site/previews/2987/develop/release-management/features/gluster/gluster-import-existing-cluster.html">Features/Gluster_Import_Existing_Cluster</a>).</li>
+  <li>Support has been added for storage live migration. This allows migration of virtual machine disks to different storage devices without first shutting down the virtual machine (<a href="/ovirt-site/previews/2987/develop/release-management/features/storage/storagelivemigration.html">Features/Design/StorageLiveMigration</a>).</li>
+  <li>Support has been added for storage domain live upgrade. This allows upgrades from old data center types to the new V3 domain while virtual machines are running (<a href="/ovirt-site/previews/2987/develop/release-management/features/storage/storagedomainliveupgrade.html">Features/StorageDomainLiveUpgrade</a>).</li>
+  <li>Gluster volumes can now be optimized for virtualization. This can be done using the “Optimize for Virt Store” button on the “Volumes” tab of the engine administration portal.</li>
+</ul>
+
+<p><strong>Note:</strong> Gluster management features in oVirt 3.2 require glusterfs version 3.4.0. At the time of oVirt 3.2 release, glusterfs 3.4.0 is still under testing. The latest QA release of glusterfs 3.4.0 can be obtained from the yum repository <a href="http://bits.gluster.org/pub/gluster/glusterfs/stage.repo">http://bits.gluster.org/pub/gluster/glusterfs/stage.repo</a></p>
+
+<h3 id="infrastructure">Infrastructure</h3>
+
+<ul>
+  <li>Support has been added for the Windows 8, Windows 8 x64, and Windows 2012 virtual machine operating systems, including sysprep images and product keys.</li>
+  <li>Support has been added for virtualization hosts with Intel Haswell and Opteron G5 based CPUs.</li>
+  <li>Host logs can now be collected from the /var/log/ovirt-engine/host-deploy directory on the engine, and also from the /tmp/ovirt-host-deploy directory on the host.</li>
+  <li>Previously, a virtual machine could not pass a payload using a CD if it already had a CD attached from the ISO domain. Now, the virtual machine can run with a CD from the ISO domain and with a payload CD at the same time.</li>
+  <li>Support has been added for live snapshots. Snapshots of a virtual machine can now be created without first having to stop it.</li>
+  <li>Smartcard support has been added for virtual machines. Users can pass smartcards to virtual machines using the administration portal, user portal, or REST API (<a href="/ovirt-site/previews/2987/develop/release-management/features/virt/smartcard-support.html">Features/Smartcard_support</a>).</li>
+  <li>Support has been added for deploying custom user interface (UI) plugins for the administration portal. The administration portal supports plugins written in JavaScript, and directly invokes the plugins on the web browser.</li>
+  <li>Support has been added for a certified cloud provider inventory report. This report displays a list of virtual machines organised by operating system, data center, or cluster; and each virtual machine’s respective uptime and existence time.</li>
+  <li>Support has been added for a user SPICE session activity report. This report displays time spent and resources used during each SPICE session in a selected data center and cluster and within a selected period.</li>
+  <li>The history database now reports the inventory of storage domains, including name, type, vendor, operating system, version, IP address, status, and capacity.</li>
+  <li>Scripts are now able to communicate with multiple oVirt Engine servers by creating and manipulating separate instances of the ovirtsdk.API Python class.</li>
+  <li>A new feature is available that supports enabling and disabling of ovirt-engine-cli paging of a returned response. Page disabling is done using ‘no_paging = True’.</li>
+</ul>
+
+<h3 id="performance">Performance</h3>
+
+<ul>
+  <li>The performance of the SSL communication between the oVirt Engine and VDSM has been improved with the implementation of SSL session caching, as the engine does not have to perform a new SSL handshake for each request.</li>
+  <li>oVirt Engine now uses the PKCS#12 format to store keys, replacing the previous Java Key Store format. The PKCS#12 format separates the engine as client key usage and engine as server key usage to support third party certificates for the web administration and user portals (<a href="/ovirt-site/previews/2987/develop/release-management/features/infra/pki-improvements.html">Features/PKI_Improvements</a>).</li>
+  <li>Memory Overcommit Manager (MOM) is enabled by default for hosts. It provides the ability to manage memory ballooning and Kernel Same-page Merging (KSM) of the Linux kernel (<a href="/ovirt-site/previews/2987/develop/release-management/features/sla/sla-mom.html">SLA-mom</a>).</li>
+</ul>
+
+<h3 id="virtualization">Virtualization</h3>
+
+<ul>
+  <li>Improvements have been made to the quota implementation, including its logic, calculation, and monitoring. Details can be found at <a href="/ovirt-site/previews/2987/develop/release-management/features/sla/quota-3.2.html">Features/Quota-3.2</a>.</li>
+  <li>Clusters can now be configured to treat host CPU threads as cores for the purposes of virtual machine resource allocation and migration. This replaces the previous behaviour where VDSM only reported physical cores by default, and users could manually force VDSM to report host threads instead of physical cores.</li>
+  <li>VDSM hooks have been added for hot plugging and unplugging network interface cards.</li>
+  <li>Virtual machines can now utilize the host’s CPU flags, which enables better performance in virtual machines. However, as this option provides the host’s CPU capabilities to the virtual machine’s CPU, virtual machines with this option enabled cannot be migrated to hosts of a different CPU model (<a href="/ovirt-site/previews/2987/develop/release-management/features/sla/cpu-host-support.html">Features/Cpu-host_Support</a>).</li>
+  <li>This release introduces OvfAutoUpdater, which performs periodic updates for multiple OVFs in a data center using a single VDSM call, resulting in faster execution of virtual machine operations.</li>
+</ul>
+
+<h3 id="user-interface">User Interface</h3>
+
+<ul>
+  <li>The “Disks” tab has been added under the “Storage” tab, allowing users to easily view, add or remove disks from each storage domain.</li>
+  <li>Support has been added for UTF8 characters including names and descriptions of virtual machines, templates, snapshots, and disk aliases.</li>
+  <li>Users can now change the auto-generated name of a virtual machine that was created as part of a pool. This can be done by using the ‘Edit Virtual Machine’ window.</li>
+  <li>A new “Network” tab has been added to the main resource tabs, and a “Networks” entry has been added to the Tree pane. Users can now search for networks using the web administration portal or the REST API (<a href="/ovirt-site/previews/2987/develop/release-management/features/network/networkmaintab.html">Feature/NetworkMainTab</a>).</li>
+  <li>New administrative and user permissions have been added for networks, which can be granted from the web administration portal or the REST API (<a href="/ovirt-site/previews/2987/develop/release-management/features/network/networkpermissions.html">Feature/NetworkPermissions</a>).</li>
+  <li>A delete protection entity has been added for virtual machines and templates. When it is enabled in the web administration portal or REST API, the virtual machine or template cannot be deleted.</li>
+  <li>Users can now view advanced details on Gluster volumes, including the services running in the hosts of the cluster and volume brick details (<a href="/ovirt-site/previews/2987/develop/release-management/features/gluster/glustervolumeadvanceddetails.html">Features/GlusterVolumeAdvancedDetails</a>).</li>
+  <li>Quota information has been added to the Resources pane in the user portal, so users can monitor vCPU, memory, and storage consumption (<a href="/ovirt-site/previews/2987/develop/release-management/features/sla/quota-3.2.html">Features/Quota-3.2</a>).</li>
+  <li>oVirt Engine now retrieves and displays host BIOS information when a host is added to the engine (<a href="/ovirt-site/previews/2987/develop/release-management/features/infra/hostbiosinfo.html">Features/Design/HostBiosInfo</a>).</li>
+  <li>The web reports portal now displays the number of storage domains in each data center and throughout the system.</li>
+</ul>
+
+<h3 id="networking">Networking</h3>
+
+<ul>
+  <li>Users can now dynamically change the network of a running virtual machine without unplugging the virtual network interface card (vNIC), and maintain the device address of the vNIC (<a href="/ovirt-site/previews/2987/develop/release-management/features/network/networklinking.html">Feature/NetworkLinking</a>).</li>
+  <li>The Guest Agent now reports the IP addresses and internal name of the vNIC to the oVirt Engine (<a href="/ovirt-site/previews/2987/develop/release-management/features/network/reportingvnicinformation.html">Feature/ReportingVnicImplementation</a>).</li>
+</ul>
+
+<h3 id="power-management">Power Management</h3>
+
+<ul>
+  <li>Previously, when hosts could not connect to the storage pool, oVirt Engine triggered the reconstruct master to increase the version number of the master domain, so the master domain can be used to synchronize between hosts and storage. However, the master domain version increase was not reflected on the host side, so the domain mismatch prevented hosts from connecting to the storage pool. Now, when the reconstruct is performed, the master domain version is increased on both the host and storage sides. When the reconstruct is successful, the hosts will connect to storage and return to an ‘Up’ state.</li>
+  <li>Host power management policies have been improved. Users can define each host’s priority to act as a proxy for fencing operations, by default a non-operational host will search for a proxy within its own cluster, and then within its data center (<a href="/ovirt-site/previews/2987/develop/release-management/features/infra/detailedhostpmproxypreferences.html">Features/Design/DetailedHostPMProxyPreferences</a>).</li>
+  <li>Dual-power hosts can now support two power management agents connected to the same power switch. The agents can be used concurrently (either agent can fence a host) or sequentially (if one agent fails, the other is used). See <a href="/ovirt-site/previews/2987/develop/release-management/features/infra/detailedhostpmmultipleagents.html">Features/Design/DetailedHostPMMultipleAgents</a> for implementation details.</li>
+  <li>Support has been added for iLo2 and iLo4 power management devices.</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2987/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2987/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2987/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2987/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.2/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/releases/3.2/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

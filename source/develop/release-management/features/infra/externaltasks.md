@@ -31,16 +31,15 @@ The main use case is for third party vendors, to integrate with oVirt. A vendor 
 ### Detailed Description
 
 Plug-ins using the REST API should be enable to inject and track external tasks to oVirt and see those tasks displayed in the oVirt UI.
-Tasks may be nested
-Tasks may run concurrently
-Sub-Tasks of the same Task may run concurrently
-Tasks/Sub-Tasks should support the following statuses:
-
-      Waiting
-      Started (only for the task)
-      Running
-      Completed 
-      Failed
+* Tasks may be nested
+* Tasks may run concurrently
+* Sub-Tasks of the same Task may run concurrently
+* Tasks/Sub-Tasks should support the following statuses:
+  - Waiting
+  - Started (only for the task)
+  - Running
+  - Completed
+  - Failed
 
 Solution should support setting percentage for the Task Started state
 **Task Flow**
@@ -57,12 +56,12 @@ Solution should support setting percentage for the Task Started state
                                  |
                                  -> Failed
 
-**\1**
+**Operations**
 
-      Adding a new task
-      Adding a nested sub-task to an existing task
-      Removing a task
-      Updating a task/sub-task status
+* Adding a new task
+* Adding a nested sub-task to an existing task
+* Removing a task
+* Updating a task/sub-task status
 
 As in the Task Monitor that serves internal oVirt commands, Task should be displayed for a configurable time after competion and then vanished from the UI.
 

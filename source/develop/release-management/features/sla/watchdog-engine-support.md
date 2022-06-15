@@ -224,12 +224,12 @@ Depends: [Create vm with watchdog from template (UI)](#create-vm-with-watchdog-f
 
 ### Create vm with watchdog (REST-API)
 
-1.  use the rest api to create a vm with a <watchdog> tag ([see above](#rest-api-changes))
+1.  use the rest api to create a vm with a `<watchdog>` tag ([see above](#rest-api-changes))
 2.  check on the rest api if the watchdog card is persisted
 
 ### Add watchdog to existing VM (REST-API)
 
-1.  use the rest api to create a vm with a <watchdog> tag ([see above](#rest-api-changes))
+1.  use the rest api to create a vm with a `<watchdog>` tag ([see above](#rest-api-changes))
 2.  check on the rest api if the watchdog card is persisted
 
 ### Remove watchdog from VM (REST-API)

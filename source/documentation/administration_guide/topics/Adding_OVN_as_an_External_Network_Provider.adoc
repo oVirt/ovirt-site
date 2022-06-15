@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id="Adding_OVN_as_an_External_Network_Provider"]
 = Adding Open Virtual Network (OVN) as an External Network Provider
 
@@ -18,13 +18,13 @@ The `ovirt-provider-ovn` exposes an OpenStack Networking REST API. You can use t
 For more details, see the link:http://docs.openvswitch.org/en/latest/[Open vSwitch Documentation] and link:http://openvswitch.org/support/dist-docs/[Open vSwitch Manpages].
 
 
-include::Installing_a_new_OVN_network_provider.adoc[]
+include::Installing_a_new_OVN_network_provider.adoc[leveloffset=+1]
 
 ////
 Removing for BZ2006228: include::Adding_an_existing_OVN_network_provider.adoc[]
  include::Using_an_Ansible_playbook_to_modify_an_OVN_tunnel_network.adoc[]
 ////
 
-include::Configuring_Hosts_for_an_OVN_tunnel_network.adoc[]
+include::Configuring_Hosts_for_an_OVN_tunnel_network.adoc[leveloffset=+1]
 
-include::Connecting_an_OVN_Network_to_a_Physical_Network.adoc[]
+include::Connecting_an_OVN_Network_to_a_Physical_Network.adoc[leveloffset=+1]

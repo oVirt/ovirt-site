@@ -1,9 +1,10 @@
-[[Performing_Actions_on_Sub-Resources]]
+:_content-type: PROCEDURE
+[id="Performing_Actions_on_Sub-Resources"]
 = Performing Actions on Sub-Resources
 
 The following example outlines how to perform actions on sub-resources. In this example, a disk with the name 'test_Disk1' belonging to a virtual machine with the name 'test' is activated.
 
-*Performing an Action on a Sub-Resource*
+.Procedure
 
 . Declare an instance of the resource containing the sub-resource on which the action is to be performed:
 +

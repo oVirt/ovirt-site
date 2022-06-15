@@ -1,9 +1,10 @@
-[[Modifying_the_Values_of_Resources]]
+:_content-type: PROCEDURE
+[id="Modifying_the_Values_of_Resources"]
 = Modifying the Attributes of Resources
 
 The following example outlines how to modify the attributes of a resource. In this example, the attribute to be modified is the description of the virtual machine with the name 'test', which is changed to 'java_sdk'.
 
-*Modifying the Attributes of a Resource*
+.Procedure
 
 . Declare an instance of the resource whose attributes are to be modified:
 +

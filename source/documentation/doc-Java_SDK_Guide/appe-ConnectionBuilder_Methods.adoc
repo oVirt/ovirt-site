@@ -1,8 +1,9 @@
 :numbered!:
 
 [appendix]
-[[ConnectionBuilder_Methods]]
-== ConnectionBuilder Methods
+:_content-type: ASSEMBLY
+[id="ConnectionBuilder_Methods"]
+= ConnectionBuilder Methods
 
 The following table outlines the key methods available to the `ConnectionBuilder` class used in V4 of the Java software development kit.
 

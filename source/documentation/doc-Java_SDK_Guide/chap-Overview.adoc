@@ -1,5 +1,6 @@
-[[chap-Overview]]
-== Overview
+:_content-type: ASSEMBLY
+[id="chap-Overview"]
+= Overview
 
 Version 4 of the Java software development kit is a collection of classes that allows you to interact with the {virt-product-fullname} {engine-name} in Java-based projects. By downloading these classes and adding them to your project, you can access a range of functionality for high-level automation of administrative tasks.
 
@@ -8,10 +9,10 @@ Version 4 of the Java software development kit is a collection of classes that a
 Version 3 of the SDK is no longer supported. For more information, consult link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/java_sdk_guide/[the RHV 4.3 version of this guide].
 ====
 
-include::topics/Prerequisites.adoc[]
+include::topics/Prerequisites.adoc[leveloffset=+1]
 
-include::topics/Downloading_the_Java_SDK.adoc[]
+include::topics/Downloading_the_Java_SDK.adoc[leveloffset=+1]
 
-include::topics/Dependencies.adoc[]
+include::topics/Dependencies.adoc[leveloffset=+1]
 
-include::topics/Working_with_SSL_Secure_Socket_Layer.adoc[]
+include::topics/Working_with_SSL_Secure_Socket_Layer.adoc[leveloffset=+1]

@@ -1,10 +1,11 @@
-[[Getting_Sub-Resources]]
+:_content-type: PROCEDURE
+[id="Getting_Sub-Resources"]
 = Getting Sub-Resources
 
 The following example outlines how to reference the sub-resources of a resource. In this example, a disk with the name 'my disk' that belongs to a virtual machine with the name 'test' is referenced.
 
 
-*Getting the Sub-Resources of a Resource*
+.Procedure
 
 . Declare an instance of the resource whose sub-resources are to be referenced:
 +
@@ -19,5 +20,3 @@ VM vm = api.getVMs().get("test");
 ----
 VMDisk disk = vm.getDisks().get("my disk");
 ----
-+
-

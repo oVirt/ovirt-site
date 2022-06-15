@@ -1,9 +1,10 @@
-[[Adding_Sub-Resources_to_a_Resource]]
+:_content-type: PROCEDURE
+[id="Adding_Sub-Resources_to_a_Resource"]
 = Adding Sub-Resources to a Resource
 
 The following example outlines how to add sub-resources to a resource. In this example, a new disk with a size of '1073741824L', interface 'virtio' and format 'cow' are added to a virtual machine with the name 'test'.
 
-*Adding a Sub-Resource to a Resource*
+.Procedure
 
 . Declare an instance of the resource to which sub-resources are to be added:
 +

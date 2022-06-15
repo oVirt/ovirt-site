@@ -1,8 +1,8 @@
-:_content-type: CONCEPT
+:_content-type: ASSEMBLY
 [id="Live_migration_prerequisites"]
 = Live Migration Prerequisites
 
-include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
+include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[leveloffset=+1]
 
 You can use live migration to seamlessly move virtual machines to support a number of common maintenance tasks. Your {virt-product-fullname} environment must be correctly configured to support live migration well in advance of using it.
 

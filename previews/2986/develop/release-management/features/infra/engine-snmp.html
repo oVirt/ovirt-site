@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>engine-snmp | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="engine-snmp" />
+<meta name="author" content="Arthur Berezin" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2986/develop/release-management/features/infra/engine-snmp.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2986/develop/release-management/features/infra/engine-snmp.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="engine-snmp" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Arthur Berezin" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Arthur Berezin"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"engine-snmp","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2986/images/logo.svg"},"name":"Arthur Berezin"},"url":"https://ovirt.github.io/ovirt-site/previews/2986/develop/release-management/features/infra/engine-snmp.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2986/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2986/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2986/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2986/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2986/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2986/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2986/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2986/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2986/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/0ba601d9f530070606545fa0e97ec88c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/0ba601d9f530070606545fa0e97ec88c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Arthur Berezin">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Arthur Berezin</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Mooli Tayer">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mooli Tayer</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Moti Asayag">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bfe8c6311ef5097c7adb9639ad424aad?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bfe8c6311ef5097c7adb9639ad424aad?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Petr Benas">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Petr Benas</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2986/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="engine-snmp">engine-snmp</h1>
+
+<h2 id="ovirt-engine-snmp-traps">oVirt Engine SNMP Traps</h2>
+
+<blockquote>
+  <p>ATTENTION:
+This page is no longer up to date as of ovirt-engine-3.5.0 that introduced MIB support at <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1136818">https://bugzilla.redhat.com/show_bug.cgi?id=1136818</a></p>
+</blockquote>
+
+<p>See also <a href="/ovirt-site/previews/2986/develop/developer-guide/events/configuration-event-subscribers.html">Features/configuration-event-subscribers</a>.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>This feature extends events notifier capabilities and enables it to generate SNMP traps out of system events to integrate oVirt with generic monitoring systems.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Mooli Tayer (mtayer)</li>
+  <li>Name: Arthur Berezin (aberezin)</li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>Target Release: 3.4</li>
+  <li>Status: Post</li>
+</ul>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<p>Allow oVirt users to monitor their virtualization environment with open source or proprietary monitoring systems such as Nagios, BMC Patrol, HP OpenView, etc.</p>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>This feature extends the capabilities of the ovirt-engine-notifier to send all engine events and events’ data via SNMP traps version 2c.
+ A new ‘SNMP_TRAP Notifications’ section is now available in the notifier’s configuration file under
+/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
+(It’s advisable to leave that file as is and define override file[s] under /etc/ovirt-engine/notifier/notifier.conf.d/) Lets take a look;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #-------------------------#
+  # SNMP_TRAP Notifications #
+  #-------------------------#
+  # Send v2c snmp notifications
+  # Minimum SNMP configuration
+  #
+  # Create @ENGINE_ETC@/notifier/notifier.conf.d/20-snmp.conf with:
+  # SNMP_MANAGERS="host"
+  # FILTERS="include:*(snmp:) ${FILTERS}"
+  # Default whitespace separated IP/DNS list with optional port, default is 162.
+  # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
+  SNMP_MANAGERS=
+  # Default SNMP Community String.
+  SNMP_COMMUNITY=public
+  # Default TRAP Object Identifier for alerts.
+  #
+  # iso.organization.DoD.Internet.private.enterprises.redhat.ovirt-engine.notifications.audit-log
+  # 1.3.6.1.4.1.2312.13.1.1
+  SNMP_OID=1.3.6.1.4.1.2312.13.1.1
+  #
+  # SNMP profile support
+  #
+  # Multiple SNMP profiles are supported.
+  # Specify profile settings by using _profile suffix,
+  # for example, to define a profile to sent specific
+  # message to host3, specify:
+  # SNMP_MANAGERS_profile1=host3
+  # FILTER="include:VDC_START(snmp:profile1) ${FILTER}"
+  #
+</code></pre></div></div>
+
+<p>Notes:</p>
+
+<ul>
+  <li>At least one of SNMP_MANAGERS &amp; MAIL_SERVER must be properly defined in order for the notifier to run.</li>
+</ul>
+
+<h3 id="messages">Messages</h3>
+
+<p>Using the default value for SNMP_OID (1.3.6.1.4.1.2312.13.1), traps will show up as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::enterprises.2312.13.1.0.30    SNMPv2-SMI::enterprises.2312.13.1.0.30.0 = STRING: "User admin@internal logged in." SNMPv2-SMI::enterprises.2312.13.1.0.30.1 = STRING: "NORMAL" SNMPv2-SMI::enterprises.2312.13.1.0.30.2 = STRING: "alertMessage"   SNMPv2-SMI::enterprises.2312.13.1.0.30.3 = STRING: "2014-01-12 07:14:22.576"
+</code></pre></div></div>
+
+<ul>
+  <li>SNMPv2-MIB::snmpTrapOID represents the trap id for this event. we have our OID appended with 0 (because this is an enterprise specific trap). finally 30 is appended as well. This value is specific to this trap type: USER_VDC_LOGIN.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>After that you can see different values associated with this trap:</li>
+  <li>After that you can see different values associated with this trap:</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>OID</th>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SNMPv2-MIB::snmpTrapOID.0</td>
+      <td>STRING</td>
+      <td>event message</td>
+    </tr>
+    <tr>
+      <td>SNMPv2-MIB::snmpTrapOID.1</td>
+      <td>STRING</td>
+      <td>Severity (NORMAL, WARNING or ERROR)</td>
+    </tr>
+    <tr>
+      <td>SNMPv2-MIB::snmpTrapOID.2</td>
+      <td>STRING</td>
+      <td>Type (ALERT_MESSAGE or RESOLVED_MESSAGE)</td>
+    </tr>
+    <tr>
+      <td>SNMPv2-MIB::snmpTrapOID.3</td>
+      <td>STRING</td>
+      <td>Log time</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="testing">Testing</h3>
+
+<p>This section contains instructions on setting up an snmp manager capable of receiving traps.
+Tested under fedora 20 (please update if it worked for you on a different version).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum install -y net-snmp
+</code></pre></div></div>
+
+<p>Edit the trap daemon configuration file, /etc/snmp/snmptrapd.conf:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # Example configuration file for snmptrapd
+  #
+  # No traps are handled by default, you must edit this file!
+  #
+  authCommunity   log,execute,net public
+  # traphandle SNMPv2-MIB::coldStart    /usr/bin/bin/my_great_script cold
+  [snmp]
+  logOption f /tmp/snmptrapd.log
+</code></pre></div></div>
+
+<p>Start the service:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # service snmptrapd start
+</code></pre></div></div>
+
+<p>Test service by sending a trap:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum install -y  net-snmp-utils
+  $ snmptrap -v 2c -c public localhost "" 1.2 SNMPv2-MIB::sysLocation.0 s "just here"
+</code></pre></div></div>
+
+<p>Incoming traps should now be available in /tmp/snmptrapd.log.</p>
+
+<p>See <a href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sect-System_Monitoring_Tools-Net-SNMP-Configuring.html">fodora instructions for net-snmp</a> and the <a href="http://www.net-snmp.org/">net-snmp project page</a> for further instructions.</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2986/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2986/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2986/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2986/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/engine-snmp.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/engine-snmp.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

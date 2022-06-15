@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AllowExplicitDnsConfiguration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="AllowExplicitDnsConfiguration" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2986/develop/release-management/features/network/allowExplicitDnsConfiguration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2986/develop/release-management/features/network/allowExplicitDnsConfiguration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AllowExplicitDnsConfiguration" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"AllowExplicitDnsConfiguration","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2986/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2986/develop/release-management/features/network/allowExplicitDnsConfiguration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2986/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2986/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2986/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2986/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2986/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2986/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2986/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2986/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2986/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2986/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2986/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2986//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2986/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f5cf134eaa80bea1e03db147a440fa2d?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f5cf134eaa80bea1e03db147a440fa2d?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Martin Mucha">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Mucha</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2986/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="allow-explicit-dns-configuration">Allow Explicit DNS Configuration</h1>
+
+<p>rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Martin Mucha (mmucha)</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+<p>When a new host is added to the system, it is attached to the 
+management network. As of ovirt-4.0.3, DNS configuration for such network
+will be obtained from resolv.conf file. With this feature implemented,
+an admins should be able to specify overriding configuration in
+WebAdmin. They can do that at several places:</p>
+
+<ul>
+  <li>By updating management network of given host (in backend terms — via
+its NetworkAttachment)</li>
+  <li>By updating management network of given DC (or later of given Cluster)</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>So DNS configuration can be stored in multiple places. If DNS
+configuration is not specified in either of them, no DNS configuration
+data will be passed to VDSM during SetupNetworks command and default
+values from resolv.conf will be used. If either of them is used, it
+will be passed to VDSM overriding configuration from resolv.conf. For
+example we can set DNS configuration in a Network related to certain DC
+(or later to certain Cluster) and this configuration will override
+configuration in resolv.conf.</p>
+
+<p>When a Network is being attached in 
+certain host, NetworkAttachment record is created for this, 
+and DNS configuration defined on Network is used. If we want to 
+override it only for certain NetworkAttachment, we can do so.
+If we now setup configuration in NetworkAttachment, attaching 
+ManagementNetwork of given DataCenter (or
+later of given Cluster) to specific Host, this configuration is more
+specific than one in Network of DC (or later Cluster) scope and will
+be used instead.</p>
+
+<p>If certain management network is attached to multiple hosts, then any 
+change to this management network DNS configuration will cause update 
+of DNS configuration on all such hosts, except for ones, which have DNS 
+configuration overridden in NetworkAttachment related to that 
+management network.</p>
+
+<p>If admins setup DNS configuration in engine, and then update
+/etc/resolv.conf manually on host, it will make configuration on host
+and configuration stored in NetworkAttachment out of sync. 
+Tackling this issue might not be done in first increment, but we
+should implement checking, whether required value (one stored in
+NetworkAttachment) matches one actually set on host. Without it users
+might get confused — they see some value in engine, while altogether
+different one is being actually used. Once done, imparity will be in
+UI rendered as NetworkAttachment being out of sync. Of course, this
+can happen only with management network. Users then can sync network
+as usual to reapply DNS configuration stored in NetworkAttachment, or
+update DNS configuration to get rid of this warning.</p>
+
+<p>Based on IP configuration and whether DNS is specified in engine, 
+there are four usecases:</p>
+
+<ul>
+  <li>
+    <p>DHCP is not enabled in IP configuration and DNS is unset. 
+In that case DNS configuration won’t be sent in SetupNetworks verb, and 
+existing DNS settings on host will be preserved.</p>
+  </li>
+  <li>
+    <p>DHCP is not enabled in IP configuration and DNS is set. 
+In that case DNS configuration will be sent in SetupNetworks verb, and 
+existing DNS settings on host will be overwritten.</p>
+  </li>
+  <li>
+    <p>DHCP is enabled in IP configuration and DNS is unset. 
+In that case DNS configuration won’t be sent in SetupNetworks verb, and 
+existing DNS settings on host will be overwritten by DHCP provided 
+settings, if those are available.</p>
+  </li>
+  <li>
+    <p>DHCP is enabled in IP configuration and DNS is set.
+In that case DNS configuration will be sent in SetupNetworks verb, and 
+existing DNS settings on host will be overwritten by DNS settings, 
+specified in engine.</p>
+  </li>
+</ul>
+
+<h3 id="db">DB</h3>
+<p>Database needs to be updated so it can accommodate DNS configuration.
+Two places will be altered:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">network_attachments</code> table</li>
+  <li><code class="language-plaintext highlighter-rouge">network</code> table</li>
+</ul>
+
+<p>both these tables must accommodate multiple DNS records. Naive
+solution would be to store them comma separated into single column.
+Better solution would be creating separate table for that. That’s
+subject of further discussion. VDSM supports 0 to 3 DNS entries, so
+engine needs to comply to this limitation as well.</p>
+
+<h3 id="rest">REST</h3>
+
+<p>As mentioned, you can specify DNS Configuration at two places.
+Corresponding REST areas will be altered. But first we need to add new
+element ‘dns_configuration’ as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Type
+public interface DnsResolverConfiguration {
+ String[] nameServers();
+}
+</code></pre></div></div>
+
+<p>…, which will be translated into following XSchema definition during
+engine build.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;xs:element name="dns_resolver_configuration" type="DnsResolverConfiguration"/&gt;
+
+  &lt;xs:complexType name="DnsResolverConfiguration"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element maxOccurs="1" minOccurs="0" name="name_servers"&gt;
+        &lt;xs:complexType&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;jaxb:class name="NameServersList"/&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+          &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs="unbounded" minOccurs="0" name="name_server" type="xs:string"&gt;
+              &lt;xs:annotation&gt;
+                &lt;xs:appinfo&gt;
+                  &lt;jaxb:property name="NameServers"/&gt;
+                &lt;/xs:appinfo&gt;
+              &lt;/xs:annotation&gt;
+            &lt;/xs:element&gt;
+          &lt;/xs:sequence&gt;
+        &lt;/xs:complexType&gt;
+      &lt;/xs:element&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+</code></pre></div></div>
+
+<p>After doing so, we’re prepared to use following xml fragment defining
+DNS configuration in several places (read on):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dns_resolver_configuration&gt;
+  &lt;name_servers&gt;
+    &lt;name_server&gt;1.1.1.1&lt;/name_server&gt;
+    &lt;name_server&gt;2.2.2.2&lt;/name_server&gt;
+  &lt;/name_servers&gt;
+&lt;/dns_resolver_configuration&gt;
+</code></pre></div></div>
+
+<h4 id="updating-management-network">Updating (Management) Network</h4>
+<p>You can update any network with DNS Configuration, however all such DNS
+Configurations will be simply ignored during creation of new host except 
+for the DNS configuration defined on the network, which happens to be 
+management network at time of creating new host.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /ovirt-engine/api/networks/{network:id} HTTP/1.1
+Content-Type: application/xml
+
+&lt;network&gt;
+  &lt;dns_resolver_configuration&gt;
+    &lt;name_servers&gt;
+      &lt;name_server&gt;1.1.1.1&lt;/name_server&gt;
+      &lt;name_server&gt;2.2.2.2&lt;/name_server&gt;
+    &lt;/name_servers&gt;
+  &lt;/dns_resolver_configuration&gt;
+&lt;/network&gt;
+</code></pre></div></div>
+
+<h4 id="updating-network-attachment-of-management-network-on-specific-host">Updating ‘network attachment’ of Management Network on specific Host</h4>
+<p>Only the network attachment of the management network can be updated
+with DNS configuration.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT ovirt-engine/api/hosts/{host:id}/networkattachments/{networkattachment:id} HTTP/1.1
+Content-type: application/xml
+
+&lt;network_attachment&gt;
+  &lt;dns_resolver_configuration&gt;
+    &lt;name_servers&gt;
+      &lt;name_server&gt;1.1.1.1&lt;/name_server&gt;
+      &lt;name_server&gt;2.2.2.2&lt;/name_server&gt;
+    &lt;/name_servers&gt;
+  &lt;/dns_resolver_configuration&gt;
+&lt;/network_attachment&gt;
+
+</code></pre></div></div>
+
+<h3 id="gui">GUI</h3>
+
+<p>As mentioned, you can specify DNS Configuration at two places:</p>
+
+<h4 id="updating-management-network-1">Updating (Management) Network</h4>
+<p>You can update any network with DNS Configuration, however all such DNS
+Configurations will be simply ignored during creation of new host except 
+for the DNS configuration defined on the network, which happens to be 
+management network at time of creating new host.
+<img src="/ovirt-site/previews/2986/images/editLogicalNetworkDialogWithDnsConfiguration.png" alt="Edit Logical Network Dialog with DNS Configuration" title="Edit Logical Network Dialog with DNS Configuration" /></p>
+
+<h4 id="updating-attachment-of-management-network-on-specific-host">Updating ‘attachment’ of Management Network on specific Host</h4>
+<p><img src="/ovirt-site/previews/2986/images/editNetworkAttachmentDialogWithDnsConfiguration.png" alt="Editing Network Attachment Dialog with DNS configuration" title="Editing Network Attachment Dialog with DNS configuration" /></p>
+
+<h3 id="testing">Testing</h3>
+
+<ul>
+  <li>When no DNS is defined, the host predefined one remains configured.
+This is the case upon upgrade to ovirt-4.1 or fresh installation.</li>
+  <li>When adding a host, its DNS is taken from the logical management
+network, and this can be later overridden by updating network 
+attachment.</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2986/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2986/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2986/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2986/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/allowExplicitDnsConfiguration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/allowExplicitDnsConfiguration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

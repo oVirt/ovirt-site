@@ -163,10 +163,13 @@
 
 <p>And then additional requests to get the disk attachments, the disks, and the NICs:</p>
 
-<p><code>GET /ovirt-engine/api/vms/123/diskattachments</code>
-  <code>GET /ovirt-engine/api/disks/456</code>
-  <code>GET /ovirt-engine/api/disks/789</code>
-  <code>GET /ovirt-engine/api/vms/123/nics</code></p>
+<p><code>GET /ovirt-engine/api/vms/123/diskattachments</code></p>
+
+<p><code>GET /ovirt-engine/api/disks/456</code></p>
+
+<p><code>GET /ovirt-engine/api/disks/789</code></p>
+
+<p><code>GET /ovirt-engine/api/vms/123/nics</code></p>
 
 <p>In an environment with high latency this multiplies the time required to retrieve the data. In addition, it means that multiple queries have to be sent to the database to retrieve the data.</p>
 
@@ -212,10 +215,10 @@
 <p>Example: get VMs with Nics.
 • Class: <code>BackendVmsResource</code>
 • Override <code>follow( ActionableResource entity, LinksTreenode linksTree )</code>
-Decide whether to intervene: <coce>Boolean exists = linksTree.pathExists(“nics”)&lt;/code&gt;
+Decide whether to intervene: <code>Boolean exists = linksTree.pathExists(“nics”)</code>
 Run engine query: <code>getBackendCollection(VdcQueryType.GetVmsWithNics). </code>
 Map and set data
-Mark followed=true: <code>linksTree.markAsFollowed(“nics”)</code></coce></p>
+Mark followed=true: <code>linksTree.markAsFollowed(“nics”)</code></p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 

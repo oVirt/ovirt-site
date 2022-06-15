@@ -217,7 +217,7 @@ A geo-replication session can be setup between a GlusterFS managed source cluste
 
 <p>This entity stores the details of geo-replication sessions that are set up for gluster volumes</p>
 
-<table>
+<table class="bordered">
   <thead>
     <tr>
       <th>Column name</th>
@@ -239,7 +239,7 @@ A geo-replication session can be setup between a GlusterFS managed source cluste
     <tr>
       <td>session_key</td>
       <td>String</td>
-      <td>Session key of the form <masternode uuid="">:<ssh url="" for="" slave="" volume=""> For instance, 11ae7a03-e793-4270-8fc4-b42def8b3051:&lt;ssh://192.168.122.14&gt;::slave2</ssh></masternode></td>
+      <td>Session key of the form <code class="language-plaintext highlighter-rouge">&lt;masternode uuid&gt;:&lt;ssh url for slave volume&gt;</code> For instance, <code class="language-plaintext highlighter-rouge">11ae7a03-e793-4270-8fc4-b42def8b3051:&lt;ssh://192.168.122.14&gt;::slave2</code></td>
     </tr>
     <tr>
       <td>slave_host_uuid</td>
@@ -273,7 +273,7 @@ A geo-replication session can be setup between a GlusterFS managed source cluste
 
 <p>This entity stores the details of the individual geo-replication sessions</p>
 
-<table>
+<table class="bordered">
   <thead>
     <tr>
       <th>Column name</th>
@@ -349,7 +349,7 @@ A geo-replication session can be setup between a GlusterFS managed source cluste
 
 <p>This entity stores the configuration details of the individual geo-replication sessions</p>
 
-<table>
+<table class="bordered">
   <thead>
     <tr>
       <th>Column name</th>
@@ -444,11 +444,6 @@ A geo-replication session can be setup between a GlusterFS managed source cluste
       <li>Parameter <code class="language-plaintext highlighter-rouge">GeoRepSession</code> type</li>
     </ul>
   </li>
-</ul>
-
-<!-- -->
-
-<ul>
   <li><code class="language-plaintext highlighter-rouge">api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/start</code> - starts the given geo-replication session</li>
   <li><code class="language-plaintext highlighter-rouge">api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/stop</code> - stops the given geo-replication session</li>
   <li><code class="language-plaintext highlighter-rouge">api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/pause</code> - pauses the given geo-replication session</li>

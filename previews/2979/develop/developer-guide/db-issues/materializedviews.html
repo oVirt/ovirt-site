@@ -128,172 +128,233 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>A materialized view is a table that actually contains rows, but behaves like a view. That is, the data in the table changes when the data in the underlying tables changes. There are several different types of materialized views:</p>
+<p>A materialized view is a table that actually contains rows, but behaves like a view. That is, the data in the table changes when the data in the underlying tables changes.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     `**`Snapshot` `materialized` `views`**` are the simplest to implement. They are only updated when manually refreshed.
-     `**`Eager` `materialized` `views`**` are updated as soon as any change is made to the database that would affect it. Eagerly updated materialized views may have incorrect data if the view it is based on has dependencies on mutable functions like now().
-     `**`Lazy` `materialized` `views`**`' are updated when the transaction commits. They too may fall out of sync with the base view if the view depends on mutable functions like now().
-     `**`Very` `Lazy` `materialized` `views`**` are functionally equivalent to Snapshot materialized views. 
-     The only difference is that changes are recorded incrementally and applied when the table is manually refreshed.
-     (This may be faster than a full snapshot upon refresh.) 
-</code></pre></div></div>
+<p>There are several different types of materialized views:</p>
+
+<ul>
+  <li><strong>Snapshot materialized views</strong>* are the simplest to implement. They are only updated when manually refreshed.</li>
+  <li><strong>Eager materialized views</strong> are updated as soon as any change is made to the database that would affect it.
+Eagerly updated materialized views may have incorrect data if the view it is based on has dependencies on mutable functions like now().</li>
+  <li><strong>Lazy materialized views</strong> are updated when the transaction commits. They too may fall out of sync with the base view if the view depends on mutable functions like now().</li>
+  <li><strong>Very Lazy materialized views</strong> are functionally equivalent to Snapshot materialized views.
+The only difference is that changes are recorded incrementally and applied when the table is manually refreshed.
+(This may be faster than a full snapshot upon refresh.)</li>
+</ul>
 
 <p><strong>In this document we will only discuss the Snapshot Materialized Views implementation.</strong></p>
 
 <h2 id="why-materialized-views-">Why Materialized Views ?</h2>
 
-<p>Before we get too deep into how to implement materialized views, let’s first examine why we may want to use materialized views. You may notice that certain queries are very slow. You may have exhausted all the techniques in the standard bag of techniques to speed up those queries. In the end, you realize that getting the queries to run as fast as you like simply isn’t possible without completely restructuring the data. What you end up doing is storing pre-queried bits of information so that you don’t have to run the real query when you need the data. This is typically called “caching” outside of the database world. What you are really doing is creating a materialized view. You are taking a view and turning it into a real table that holds real data, rather than a gateway to a SELECT query.</p>
+<p>Before we get too deep into how to implement materialized views, let’s first examine why we may want to use materialized views.
+You may notice that certain queries are very slow. You may have exhausted all the techniques in the standard bag of techniques to speed up those queries.
+In the end, you realize that getting the queries to run as fast as you like simply isn’t possible without completely restructuring the data.
+What you end up doing is storing pre-queried bits of information so that you don’t have to run the real query when you need the data.
+This is typically called “caching” outside of the database world.
+What you are really doing is creating a materialized view. You are taking a view and turning it into a real table that holds real data, rather than a gateway to a <code class="language-plaintext highlighter-rouge">SELECT</code> query.</p>
 
 <h2 id="implementation">Implementation</h2>
 
-<p>Candidates for Snapshot Materialized Views are views that are based on slowly-changing data. The Snapshot Materialized Views is actually functioning as a cache. The Snapshot Materialized View is refreshed per request. The Snapshot Materialized View definitions are stored in the materialized_views table.</p>
+<p>Candidates for Snapshot Materialized Views are views that are based on slowly-changing data. The Snapshot Materialized Views is actually functioning as a cache.
+The Snapshot Materialized View is refreshed per request.
+The Snapshot Materialized View definitions are stored in the materialized_views table.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         Column        |           Type           |     Modifiers      
-   ---------------------+--------------------------+--------------------
-  mv_name                 | name                     | not null
-  v_name                  | name                     | not null
-  refresh_rate_in_sec     | integer                  | 
-  last_refresh            | timestamp with time zone | 
-  avg_cost_ms             | integer                  | not null default 0
-  min_refresh_rate_in_sec | integer                  | default 0
-  custom                  | boolean                  | default false
-  active                  | boolean                  | default true
-</code></pre></div></div>
-
-<p><strong>mv_name</strong> is the Materialized View name
-<strong>v_name</strong> is the original view name on which mv_name is based
-<em>’ refresh_rate_in_sec</em>’ is the Materialized View refresh rate in seconds
-<em>’ last_refresh</em>’ is the timestamp of the last refresh
-<strong>avg_cost_ms</strong> is the average cost of a refresh operation on the Materialized View in miliseconds.
-<strong>\1</strong> is the min refresh rate allowed when refresh is called with teh force flag
-<strong>custom</strong> is a flag indicating if a Materialized View is custom
-<strong>active</strong> is a flag indicating if a Materialized View is active</p>
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Modifiers</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mv_name</td>
+      <td>name</td>
+      <td>not null</td>
+      <td>the Materialized View name</td>
+    </tr>
+    <tr>
+      <td>v_name</td>
+      <td>name</td>
+      <td>not null</td>
+      <td>the original view name on which mv_name is based</td>
+    </tr>
+    <tr>
+      <td>refresh_rate_in_sec</td>
+      <td>integer</td>
+      <td> </td>
+      <td>the Materialized View refresh rate in seconds</td>
+    </tr>
+    <tr>
+      <td>last_refresh</td>
+      <td>timestamp with time zone</td>
+      <td> </td>
+      <td>the timestamp of the last refresh</td>
+    </tr>
+    <tr>
+      <td>avg_cost_ms</td>
+      <td>integer</td>
+      <td>not null default 0</td>
+      <td>the average cost of a refresh operation on the Materialized View in miliseconds.</td>
+    </tr>
+    <tr>
+      <td>min_refresh_rate_in_sec</td>
+      <td>integer</td>
+      <td>default 0</td>
+      <td>the min refresh rate allowed when refresh is called with teh force flag</td>
+    </tr>
+    <tr>
+      <td>custom</td>
+      <td>boolean</td>
+      <td>default false</td>
+      <td>flag indicating if a Materialized View is custom</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>boolean</td>
+      <td>default true</td>
+      <td>flag indicating if a Materialized View is active</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="flow">Flow</h2>
 
-<p>1) Create the Materialized View by calling:</p>
+<ol>
+  <li>Create the Materialized View by calling:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">CreateMaterializedView</code> - if you are creating a new product view</li>
+      <li><code class="language-plaintext highlighter-rouge">CreateMaterializedViewAs</code> - preserves the original view name, The original view will be renamed and the new product  Materialized View will have the original  view name.</li>
+      <li><code class="language-plaintext highlighter-rouge">CreateCustomMaterializedView</code> - if you are creating a new custom view</li>
+      <li><code class="language-plaintext highlighter-rouge">CreateCustomMaterializedViewAs</code> - preserves the original view name, The original view will be renamed and the new custom  Materialized View will have the original  view name.</li>
+    </ul>
+  </li>
+  <li>If your Snapshot Materialized View is <code class="language-plaintext highlighter-rouge">my_mt</code> you should create Stored Procedures:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">MtDropmy_mtIndexes</code> - Drops indexes on <code class="language-plaintext highlighter-rouge">my_mt</code></li>
+      <li><code class="language-plaintext highlighter-rouge">MtCreatemy_mtIndexes</code> - Creates needed indexes on <code class="language-plaintext highlighter-rouge">my_mt</code></li>
+    </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    `**`CreateMaterializedView`**` - if you are creating a new product view
-    `**`CreateMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new product  Materialized View will have the original  view name.
-    `**`CreateCustomMaterializedView`**` - if you are creating a new custom view
-    `**`CreateCustomMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new custom  Materialized View will have the original  view name.
-</code></pre></div></div>
+    <p>Those indexes should be defined in the “Snapshot Materialized Views Index Definitions Section”
+in <code class="language-plaintext highlighter-rouge">post_upgrade/0020_create_materialized_views.sql</code> file.</p>
 
-<p>2) If your Snapshot Materialized View is my_mt you should create Stored Procedures:</p>
+    <p>Those SP are called automatically when a Snapshot Materialized View is refreshed to boost refresh performance.</p>
+  </li>
+</ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     MtDropmy_mtIndexes - Drops indexes on my_mt
-     MtCreatemy_mtIndexes - Creates needed indexes on my_mt
-     Those indexes should be defined in the "Snapshot Materialized Views Index Definitions Section"
-     in post_upgrade/0020_create_materialized_views.sql file.
-</code></pre></div></div>
+<p>3) You can call <code class="language-plaintext highlighter-rouge">IsMaterializedViewRefreshed</code> to check if it is time to refresh the view and if yes call <code class="language-plaintext highlighter-rouge">RefreshMaterializedView</code> manually.</p>
 
-<p>Those SP are called automatically when a Snapshot Materialized View is refreshed to boost refresh performance. 3) You can call <strong>IsMaterializedViewRefreshed</strong> to check if it is time to refresh the view and if yes call <strong>RefreshMaterializedView</strong> manually.
-or
-You can define a cron job that calls <strong>RefreshAllMaterializedViews</strong> that loops over all Snapshot Materialized Views and refreshes it automatically
- <strong>RefreshAllMaterializedViews</strong> recieves a boolean v_force flag, Please set this flag to false when calling it from a cron job</p>
+<p>or</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    in order to update the materialized views only when needed.
-    (This SP is called with v_force = true after create/upgrade DB)
-</code></pre></div></div>
+<p>You can define a cron job that calls <code class="language-plaintext highlighter-rouge">RefreshAllMaterializedViews</code> that loops over all  Snapshot Materialized Views and refreshes it automatically
+   <code class="language-plaintext highlighter-rouge">RefreshAllMaterializedViews</code> recieves a boolean <code class="language-plaintext highlighter-rouge">v_force</code> flag, Please set this flag to <code class="language-plaintext highlighter-rouge">false</code> when calling it from a cron job
+   in order to update the materialized views only when needed.
+   (This SP is called with <code class="language-plaintext highlighter-rouge">v_force = true</code> after create/upgrade DB)</p>
 
 <p>There are 4 additional functions :</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CreateAllMaterializedViewsiIndexes</code> - Creates indexes for all Snapshot Materialized views</li>
+  <li><code class="language-plaintext highlighter-rouge">DropMaterializedView</code> - Drops the Materialized View</li>
+  <li><code class="language-plaintext highlighter-rouge">DropAllMaterializedViews</code> - Drop all Materialized Views</li>
+  <li><code class="language-plaintext highlighter-rouge">UpdateMaterializedViewRefreshRate</code> - Updates the Materialized View refresh rate</li>
+  <li><code class="language-plaintext highlighter-rouge">UpdateMaterializedViewMinRefreshRate</code> - Updates the Materialized View minimal refresh rate</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivateMaterializedView</code> - activates/decativates a  Materialized View</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivateAllMaterializedViews</code> - activates/decativates all Materialized Views</li>
+</ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    `**`CreateAllMaterializedViewsiIndexes`**` - Creates indexes for all Snapshot Materialized views
-    `**`DropMaterializedView`**` - Drops the Materialized View
-    `**`DropAllMaterializedViews`**` - Drop all Materialized Views
-    `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
-    `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
-    `**`UpdateMaterializedViewMinRefreshRate`**` - Updates the Materialized View minimal refresh rate
-    `**`ActivateMaterializedView`**` - activates/decativates a  Materialized View
-    `**`ActivateAllMaterializedViews`**` - activates/decativates all Materialized Views
-</code></pre></div></div>
+<h3 id="example-of-possible-post_upgrade0020_create_materialized_viewssql">Example of possible <code class="language-plaintext highlighter-rouge">post_upgrade/0020_create_materialized_views.sql</code></h3>
 
-<h3 id="example-of-possible-post_upgrade0020_create_materialized_viewssql">Example of possible post_upgrade/0020_create_materialized_views.sql</h3>
-
-<p>This file includes only product Materialized Views for Custom Materialized Views please refer to the <strong>Customization</strong> section
- /******************************************************************************************************</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                           Snapshot Materialized Views Definitions Section
-  ******************************************************************************************************/
-  select CreateMaterializedViewAs('vms', 300);
-  /******************************************************************************************************
-                           Snapshot Materialized Views Index Definitions Section
-  ******************************************************************************************************/
-  create or replace function MtCreatevmsIndexes()
-  returns void
-  as $procedure$
-  begin
-  create index vms_index on vms (vm_guid);
-  end; $procedure$
-  language plpgsql;
-  create or replace function MtDropvmsIndexes()
-  returns void
-  as $procedure$
-  begin
-  drop index if exists vms_index cascade;
-  end; $procedure$
-  language plpgsql;
-  select RefreshMaterializedView('vms');
+<p>This file includes only product Materialized Views for Custom Materialized Views please refer to the <strong>Customization</strong> section</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cm">/******************************************************************************************************
+                          Snapshot Materialized Views Definitions Section
+ ******************************************************************************************************/</span>
+ <span class="k">select</span> <span class="n">CreateMaterializedViewAs</span><span class="p">(</span><span class="s1">'vms'</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+ <span class="cm">/******************************************************************************************************
+                          Snapshot Materialized Views Index Definitions Section
+ ******************************************************************************************************/</span>
+ <span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">function</span> <span class="n">MtCreatevmsIndexes</span><span class="p">()</span>
+ <span class="k">returns</span> <span class="n">void</span>
+ <span class="k">as</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+ <span class="k">begin</span>
+ <span class="k">create</span> <span class="k">index</span> <span class="n">vms_index</span> <span class="k">on</span> <span class="n">vms</span> <span class="p">(</span><span class="n">vm_guid</span><span class="p">);</span>
+ <span class="k">end</span><span class="p">;</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+ <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
+ <span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">function</span> <span class="n">MtDropvmsIndexes</span><span class="p">()</span>
+ <span class="k">returns</span> <span class="n">void</span>
+ <span class="k">as</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+ <span class="k">begin</span>
+ <span class="k">drop</span> <span class="k">index</span> <span class="n">if</span> <span class="k">exists</span> <span class="n">vms_index</span> <span class="k">cascade</span><span class="p">;</span>
+ <span class="k">end</span><span class="p">;</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+ <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
+ <span class="k">select</span> <span class="n">RefreshMaterializedView</span><span class="p">(</span><span class="s1">'vms'</span><span class="p">);</span>
 </code></pre></div></div>
 
 <h2 id="upgrade">Upgrade</h2>
 
-<p>When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade step in order to reflect any change that may be done in the original views. The Materilized Views are recreated in the post-upgrade step insuring that after the upgrade the Materilized Views are updated and play the same role as before it. <strong>NOTE : Materialized Views are automatically refreshed upon create/upgrade</strong></p>
+<p>When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade step in order to reflect any change that may be done in the original views.
+The Materilized Views are recreated in the post-upgrade step insuring that after the upgrade the Materilized Views are updated and play the same role as before it.
+<strong>NOTE : Materialized Views are automatically refreshed upon create/upgrade</strong></p>
 
 <h2 id="customization">Customization</h2>
 
-<p>In addition, you can create a file named create_materialized_views.sql under dbscripts/upgrade/post_upgrade/custom/ This file may include other custom materialized views settings and is executed by the create/upgrade database scripts.</p>
+<p>In addition, you can create a file named <code class="language-plaintext highlighter-rouge">create_materialized_views.sql</code> under <code class="language-plaintext highlighter-rouge">dbscripts/upgrade/post_upgrade/custom/</code>
+This file may include other custom materialized views settings and is executed by the create/upgrade database scripts.</p>
 
-<p><strong>NOTE: If from any reason you want to drop a Snapshot Materialized View that was setup in the product context, you can always do that by calling DropMaterializedView in create_materialized_views.sql</strong></p>
+<p><strong>NOTE: If from any reason you want to drop a Snapshot Materialized View that was setup in the product context, you can always do that by calling <code class="language-plaintext highlighter-rouge">DropMaterializedView</code> in <code class="language-plaintext highlighter-rouge">create_materialized_views.sql</code></strong></p>
 
-<p>If create_materialized_views.sql is executed manually :</p>
+<p>If <code class="language-plaintext highlighter-rouge">create_materialized_views.sql</code> is executed manually :</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   1) verify that the the user that runs the psql is engine so the objects created will have the same credentials
-   2) the custom dir and create_materialized_views.sql file under it should have the following permissions 
-
-   drwxr-xr-x 2 root root  custom
-   -rw-r--r-- 1 root root  create_materialized_views.sql
-</code></pre></div></div>
+<ol>
+  <li>verify that the the user that runs the psql is engine so the objects created will have the same credentials</li>
+  <li>the custom dir and <code class="language-plaintext highlighter-rouge">create_materialized_views.sql</code> file under it should have the following permissions:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">drwxr-xr-x 2 root root  custom
+-rw-r--r-- 1 root root  create_materialized_views.sql
+</span></code></pre></div>    </div>
+  </li>
+</ol>
 
 <h3 id="example">Example</h3>
 
-<p>This is an example of how <strong>\1</strong> may look like:</p>
+<p>This is an example of how <code class="language-plaintext highlighter-rouge">dbscripts/upgrade/post_upgrade/custom/create_materialized_views.sql</code> may look like:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /******************************************************************************************************
-                           Snapshot Materialized Views Definitions Section
-  ******************************************************************************************************/
-  select CreateCustomMaterializedViewAs('vds', 300);
-  /******************************************************************************************************
-                           Snapshot Materialized Views Index Definitions Section
-  ******************************************************************************************************/
-  create or replace function MtCreatevdsIndexes()
-  returns void
-  as $procedure$
-  begin
-  create index vds_index2 on vds (vds_id);
-  end; $procedure$
-  language plpgsql;
-  create or replace function MtDropvdsIndexes()
-  returns void
-  as $procedure$
-  begin
-  drop index if exists vds_index2 cascade;
-  end; $procedure$
-  language plpgsql;
-  select RefreshMaterializedView('vds');
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="cm">/******************************************************************************************************
+                               Snapshot Materialized Views Definitions Section
+      ******************************************************************************************************/</span>
+      <span class="k">select</span> <span class="n">CreateCustomMaterializedViewAs</span><span class="p">(</span><span class="s1">'vds'</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+      <span class="cm">/******************************************************************************************************
+                               Snapshot Materialized Views Index Definitions Section
+      ******************************************************************************************************/</span>
+      <span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">function</span> <span class="n">MtCreatevdsIndexes</span><span class="p">()</span>
+      <span class="k">returns</span> <span class="n">void</span>
+      <span class="k">as</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+      <span class="k">begin</span>
+      <span class="k">create</span> <span class="k">index</span> <span class="n">vds_index2</span> <span class="k">on</span> <span class="n">vds</span> <span class="p">(</span><span class="n">vds_id</span><span class="p">);</span>
+      <span class="k">end</span><span class="p">;</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+      <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
+      <span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">function</span> <span class="n">MtDropvdsIndexes</span><span class="p">()</span>
+      <span class="k">returns</span> <span class="n">void</span>
+      <span class="k">as</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+      <span class="k">begin</span>
+      <span class="k">drop</span> <span class="k">index</span> <span class="n">if</span> <span class="k">exists</span> <span class="n">vds_index2</span> <span class="k">cascade</span><span class="p">;</span>
+      <span class="k">end</span><span class="p">;</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+      <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
+      <span class="k">select</span> <span class="n">RefreshMaterializedView</span><span class="p">(</span><span class="s1">'vds'</span><span class="p">);</span>
 </code></pre></div></div>
 
 <h2 id="schedule">Schedule</h2>
 
 <p>The simplest way to schedule all Materialized Views updates is via a <strong>cron</strong> job that will perform the following command</p>
-
-<p>`  psql -U <code class="language-plaintext highlighter-rouge">&lt;user&gt;</code> -c “select RefreshAllMaterializedViews(false);” `<db></db></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>psql <span class="nt">-U</span> &lt;user&gt; <span class="nt">-c</span> <span class="s2">"select RefreshAllMaterializedViews(false);"</span> &lt;db&gt;
+</code></pre></div></div>
 
 <p>You can also call</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>psql <span class="nt">-U</span> &lt;user&gt; <span class="nt">-c</span> <span class="s2">"select RefreshAllMaterializedViews(true);"</span> &lt;db&gt;
+</code></pre></div></div>
 
-<p>` psql -U <code class="language-plaintext highlighter-rouge">&lt;user&gt;</code> -c “select RefreshAllMaterializedViews(true);” `<db></db></p>
-
-<p>In this case all Materialized Views will be refreshed but if for example the crom run every minute and the minimun update rate for a view is 5 minutes, the minimum update rate is honored(so, in this example this view will be updated once in each 5 cron invocation of teh refresh SP.</p>
+<p>In this case all Materialized Views will be refreshed but if for example the crom run every minute and the minimun update rate for a view is 5 minutes,
+the minimum update rate is honored(so, in this example this view will be updated once in each 5 cron invocation of teh refresh SP.</p>
 
 
 

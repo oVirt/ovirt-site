@@ -330,7 +330,7 @@ b. Ensure that <code class="language-plaintext highlighter-rouge">showmount -e &
 <strong>nfs-check.py</strong> is a python script to validate nfs targets to use with oVirt project. Some operations include: mount the nfs target, create a file as vdsm:kvm and then remove it.</li>
   <li>
 <strong>nfs-check.py</strong> is available in the <strong>vdsm/contrib/</strong> directory of the vdsm source</li>
-  <li>Run it on a node via <strong>\1</strong>
+  <li>Run it on a node via <code class="language-plaintext highlighter-rouge">python nfs-check.py 'server:/target'</code>
     <div class="language-console highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git clone <span class="s2">"https://gerrit.ovirt.org/vdsm"</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>vdsm/contrib

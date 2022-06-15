@@ -186,9 +186,20 @@ enabled=1
 dnf distro-sync <span class="nt">--nobest</span>
 </code></pre></div></div>
 
-<p>Due to <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2091581">Bug 2091581</a>, while installing the host
-if you see missing <code class="language-plaintext highlighter-rouge">nmstate-plugin-ovsdb</code> or <code class="language-plaintext highlighter-rouge">python3-libnmstate</code> you can install them from
-CentOS build <a href="https://kojihub.stream.centos.org/koji/buildinfo?buildID=17369">nmstate-2.0.0-2.el9</a></p>
+<p>Due to <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2091581">Bug 2091581</a>, while installing the virtualization host
+you will be missing <code class="language-plaintext highlighter-rouge">nmstate-plugin-ovsdb</code> or <code class="language-plaintext highlighter-rouge">python3-libnmstate</code> unless you install them from
+CentOS build <a href="https://kojihub.stream.centos.org/koji/buildinfo?buildID=17369">nmstate-2.0.0-2.el9</a>.
+While installing it you need to ensure openvswitch2.15 will be installed instead of any later version.</p>
+
+<p>Here’s how to do that:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
+dnf <span class="nb">install</span> <span class="nt">-y</span> ovirt-openvswitch
+dnf <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\</span>
+https://kojihub.stream.centos.org/kojifiles/packages/nmstate/2.0.0/2.el9/noarch/nmstate-plugin-ovsdb-2.0.0-2.el9.noarch.rpm <span class="se">\</span>
+https://kojihub.stream.centos.org/kojifiles/packages/nmstate/2.0.0/2.el9/noarch/python3-libnmstate-2.0.0-2.el9.noarch.rpm
+
+</code></pre></div></div>
 
 
 

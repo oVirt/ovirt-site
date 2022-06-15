@@ -235,7 +235,7 @@
 
 <p>At a high-level, each functional block will have the following software components:</p>
 
-<p><em>’ Nagios Server</em>’</p>
+<p><strong>Nagios Server</strong></p>
 
 <ul>
   <li>Nagios Core Installed</li>
@@ -247,7 +247,7 @@
   <li>Plugins that implements the check logic and also process the check result(like custom event handlers)</li>
 </ul>
 
-<p><strong>\1</strong></p>
+<p><strong>Gluster Nodes</strong></p>
 
 <ul>
   <li>NRPE Server</li>
@@ -255,7 +255,7 @@
   <li>Pugins that implements the check logic.</li>
 </ul>
 
-<p><strong>\1</strong></p>
+<p><strong>oVirt</strong></p>
 
 <ul>
   <li>UI plugins for alert dashboard and trends. The Trends UI plugin is planned for the first phase.</li>
@@ -282,7 +282,7 @@
 
 <h3 id="external-events-from-nagios">External events from Nagios</h3>
 
-<p><strong>\1</strong></p>
+<p><strong>Status: Planned</strong></p>
 
 <p>If oVirt is integrated with Nagios for monitoring, any alert/event detected by Nagios needs to be sent to oVirt. This can be done through notification methods.</p>
 
@@ -480,21 +480,21 @@
 
 <p>On Fedora</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install gluster-nagios-common gluster-nagios-addons
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>yum <span class="nb">install </span>gluster-nagios-common gluster-nagios-addons
 </code></pre></div></div>
 
 <p>On RHEL6</p>
 
 <p>RHEL users must add the EPEL yum repository to obtain the dependency packages</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-
-# yum install gluster-nagios-common gluster-nagios-addons
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">    #</span><span class="w"> </span>yum <span class="nb">install </span>http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+<span class="go">
+</span><span class="gp">    #</span><span class="w"> </span>yum <span class="nb">install </span>gluster-nagios-common gluster-nagios-addons
 </code></pre></div></div>
 
 <p>Make sure that the node can receive nrpe requests from nagios server. You can do this by editing <code class="language-plaintext highlighter-rouge">/etc/nagios/nrpe.cfg</code> and adding the nagios server host ip/name to <code class="language-plaintext highlighter-rouge">allowed_hosts</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service nrpe restart
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>service nrpe restart
 </code></pre></div></div>
 
 <h3 id="installing-nagios-server-addons-for-monitoring">Installing Nagios server addons for monitoring</h3>
@@ -503,35 +503,36 @@
 
 <p>On Fedora</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install gluster-nagios-common nagios-server-addons
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>yum <span class="nb">install </span>gluster-nagios-common nagios-server-addons
 </code></pre></div></div>
-
 <p>This will install dependencies like nagios, nrpe, nsca, mk_livestatus if not already installed</p>
 
 <p>On RHEL6</p>
 
 <p>RHEL users must add the EPEL yum repository to obtain the dependency packages</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-
-# yum install gluster-nagios-common nagios-server-addons
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>yum <span class="nb">install </span>http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>yum <span class="nb">install </span>gluster-nagios-common nagios-server-addons
 </code></pre></div></div>
 
 <p>Make sure the http/s ports are accessible</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># iptables -I INPUT 4 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
-# service iptables save
-# service iptables restart
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>iptables <span class="nt">-I</span> INPUT 4 <span class="nt">-p</span> tcp <span class="nt">--dport</span> 443 <span class="nt">-m</span> state <span class="nt">--state</span> NEW,ESTABLISHED <span class="nt">-j</span> ACCEPT
+<span class="gp">#</span><span class="w"> </span>service iptables save
+<span class="gp">#</span><span class="w"> </span>service iptables restart
 </code></pre></div></div>
 
-<p>For <code class="language-plaintext highlighter-rouge">mk_livestatus</code> to work, SELinux needs to be in permissive mode. Note: The below will not survive reboots</p>
+<p>For <code class="language-plaintext highlighter-rouge">mk_livestatus</code> to work, SELinux needs to be in permissive mode.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># setenforce 0
+<p>Note: The below will not survive reboots</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>setenforce 0
 </code></pre></div></div>
 
 <p>Run configuration script to detect the nodes/volumes in the gluster trusted pool and to create Nagios services for these</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/lib64/nagios/plugins/gluster/discovery.py -c &lt;name for your cluster&gt; -H &lt;hostname/ip of any node in your cluster&gt;
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>/usr/lib64/nagios/plugins/gluster/discovery.py <span class="nt">-c</span> &lt;name <span class="k">for </span>your cluster&gt; <span class="nt">-H</span> &lt;<span class="nb">hostname</span>/ip of any node <span class="k">in </span>your cluster&gt;
 </code></pre></div></div>
 
 <p>This will configure monitoring for gluster services on nodes in your cluster and the web UI should be accesible at <server-name-or-ip>/nagios. A sample screenshot from nagios server is below</server-name-or-ip></p>
@@ -542,27 +543,29 @@
 
 <p>Nagios integration is done via 2 options</p>
 
-<p>Option 1. Trends plugin Checkout the samples-ui-plugins project from gerrit.ovirt.org - <a href="http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git;a=summary">sample-ui-plugins</a></p>
+<p>Option 1. Trends plugin</p>
+
+<p>Checkout the samples-ui-plugins project from gerrit.ovirt.org - <a href="http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git;a=summary">sample-ui-plugins</a></p>
 
 <p>Create a symlink to gluster-nagios-monitoring/src and gluster-nagios-monitoring/gluster-nagios-monitoring.json under <code class="language-plaintext highlighter-rouge">/usr/share/ovirt-engine/ui-plugins</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ln -s &lt;path to sample-ui-plugins&gt;/gluster-nagios-monitoring/src gluster-nagios-monitoring
-# ln -s &lt;path to sample-ui-plugins&gt;/gluster-nagios-monitoring/gluster-nagios-monitoring.json gluster-nagios-monitoring.json
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span><span class="nb">ln</span> <span class="nt">-s</span> &lt;path to sample-ui-plugins&gt;/gluster-nagios-monitoring/src gluster-nagios-monitoring
+<span class="gp">#</span><span class="w"> </span><span class="nb">ln</span> <span class="nt">-s</span> &lt;path to sample-ui-plugins&gt;/gluster-nagios-monitoring/gluster-nagios-monitoring.json gluster-nagios-monitoring.json
 </code></pre></div></div>
 
 <p>Edit the <code class="language-plaintext highlighter-rouge">/usr/share/ovirt-engine/ui-plugins/gluster-nagios-monitoring.json</code> as below:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "name": "GlusterNagiosMonitoring",
-    "url": "plugin/GlusterNagiosMonitoring/start.html",
-    "resourcePath": "gluster-nagios-monitoring",
-    "config": {
-                    "showDashboard": "true",
-                    "messageOrigins":["http://ovirt-engine-hostname:80"], //path to ovirt-engine server
-                    "pnp4nagiosUrl" : "http://nagios-server" //path to nagios server
-                  }
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GlusterNagiosMonitoring"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plugin/GlusterNagiosMonitoring/start.html"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"resourcePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gluster-nagios-monitoring"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"showDashboard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"messageOrigins"</span><span class="p">:[</span><span class="s2">"http://ovirt-engine-hostname:80"</span><span class="p">],</span><span class="w"> </span><span class="err">//path</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">ovirt-engine</span><span class="w"> </span><span class="err">server</span><span class="w">
+                    </span><span class="nl">"pnp4nagiosUrl"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://nagios-server"</span><span class="w"> </span><span class="err">//path</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">nagios</span><span class="w"> </span><span class="err">server</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>You should now see a Trends tab and a Dashboard tab once logged into oVirt like below</p>
 

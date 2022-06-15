@@ -242,15 +242,13 @@
           <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2979/documentation/'>Documentation is available here.</a></div>
 
 <blockquote>
-  <p><strong><code class="language-plaintext highlighter-rouge">ovirt-shell</code> is Deprecated</strong>: It uses the v3 REST API, and lacks all features available since oVirt 4.0. 
+  <p><strong><code class="language-plaintext highlighter-rouge">ovirt-shell</code> is Deprecated</strong>: It uses the v3 REST API, and lacks all features available since oVirt 4.0.
 Consider using Ansible as a replacement for automation purposes.</p>
 </blockquote>
 
 <h1 id="cli">CLI</h1>
 
 <p>oVirt CLI is a dynamic, runtime interface discovering command line interface for the oVirt engine</p>
-
-<p><strong>TOC</strong></p>
 
 <h2 id="concepts">Concepts</h2>
 
@@ -270,14 +268,12 @@ Consider using Ansible as a replacement for automation purposes.</p>
 <h4 id="syntax">syntax</h4>
 
 <ul>
-  <li>
-    <p>note help is dynamically created for each command respectively</p>
-
-    <p>help</p>
-
+  <li>note help is dynamically created for each command respectively
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">help</span>
+</code></pre></div>    </div>
     <p>or</p>
-
-    <p>help <code class="language-plaintext highlighter-rouge">&lt;command&gt;</code> [arguments] [options]</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">help</span> &lt;<span class="nb">command</span><span class="o">&gt;</span> <span class="o">[</span>arguments] <span class="o">[</span>options]
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -285,39 +281,39 @@ Consider using Ansible as a replacement for automation purposes.</p>
 
 <h4 id="available-commands">available commands</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# &lt;TAB&gt;&lt;TAB&gt;
-EOF         clear       console     remove      echo        help        ping        
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>&lt;TAB&gt;&lt;TAB&gt;
+<span class="go">EOF         clear       console     remove      echo        help        ping
 show        update      action      connect     add         disconnect
 exit        list        shell       status
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h4 id="available-options-for-specific-command">available options for specific command</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# add &lt;TAB&gt;&lt;TAB&gt;
-cdrom          datacenter     group          network        permission     role           storagedomain  template       vm
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>add &lt;TAB&gt;&lt;TAB&gt;
+<span class="go">cdrom          datacenter     group          network        permission     role           storagedomain  template       vm
 cluster        disk           host           nic            permit         snapshot       tag            user           vmpool
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h4 id="available-options-for-command-on-specific-resource">available options for command on specific resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# add vm &lt;TAB&gt;&lt;TAB&gt;
-cluster-id                               display-type                             os-boot-dev                              template-id
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>add vm &lt;TAB&gt;&lt;TAB&gt;
+<span class="go">cluster-id                               display-type                             os-boot-dev                              template-id
 cluster-name                             domain-name                              os-cmdline                               template-name
 cpu-topology-cores                       high_availability-enabled                os-initRd                                timezone
 cpu-topology-sockets                     high_availability-priority               os-kernel                                type
 custom_properties-custom_property        memory                                   os-type                                  usb-enabled
-description                              name                                     placement_policy-affinity                
+description                              name                                     placement_policy-affinity
 display-monitors                         origin                                   stateless
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h4 id="available-options-for-command-on-specific-sub-resource">available options for command on specific sub-resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# add nic --vm-identifier xxx `&lt;TAB&gt;&lt;TAB&gt;` 
-interface     mac-address   name          network-id    network-name
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>add nic <span class="nt">--vm-identifier</span> xxx <span class="sb">`</span>&lt;TAB&gt;&lt;TAB&gt;<span class="sb">`</span>
+<span class="go">interface     mac-address   name          network-id    network-name
+</span></code></pre></div></div>
 
 <ul>
-  <li>note typing beginning of the option name and then hitting <TAB>, will convert</TAB></li>
+  <li>note typing beginning of the option name and then hitting <kbd>&lt;TAB&gt;</kbd>, will convert</li>
 </ul>
 
 <p>option to appropriate option format adding prefix or suffix.</p>
@@ -326,8 +322,8 @@ interface     mac-address   name          network-id    network-name
 
 <h4 id="get-help-for-connect">get help for connect</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[mpastern@ovirt-engine-cli (master)]$</span><span class="w"> </span>ovirt-shell <span class="nt">--help</span>
+<span class="go">
 Usage: ovirt-shell [options]
        ovirt-shell [options] command...
 This program is a command-line interface to oVirt Virtualization.
@@ -350,26 +346,26 @@ Options:
                        specify timeout
  -c, --connect         automatically connect
  -f FILE, --file=FILE  read commands from FILE instead of stdin
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h4 id="connect-from-ovirt-shell">connect from ovirt-shell</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mpastern@ovirt-engine-cli (master)]$ ovirt-shell
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[mpastern@ovirt-engine-cli (master)]$</span><span class="w"> </span>ovirt-shell
+<span class="go">
  ++++++++++++++++++++++++++++++++++++++++++
 
            Welcome to oVirt shell
 
  ++++++++++++++++++++++++++++++++++++++++++
 
-[oVirt shell (disconnected)]# connect --url "`[`http://server:8080/api`](http://server:8080/api)`" --user "user@domain" --password 'password'
-
+</span><span class="gp">[oVirt shell (disconnected)]#</span><span class="w"> </span>connect <span class="nt">--url</span> <span class="s2">"http://server:8080/api"</span> <span class="nt">--user</span> <span class="s2">"user@domain"</span> <span class="nt">--password</span> <span class="s1">'password'</span>
+<span class="go">
 ==========================================
-&gt;&gt;&gt; connected to oVirt manager 3.2.0.0 &lt;&lt;&lt;
-==========================================
+</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> connected to oVirt manager 3.2.0.0 <span class="o">&lt;&lt;&lt;</span>
+<span class="go">==========================================
 
-[oVirt shell (connected)]# 
-</code></pre></div></div>
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w">
+</span></code></pre></div></div>
 
 <h4 id="connect-from-linux-shell">connect from linux shell</h4>
 
@@ -384,14 +380,14 @@ Options:
   </li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ovirt-shell]
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">[ovirt-shell]
 username = user@domain
 url = http[s]://server[:port]/api
-#insecure = False
-#filter = False
-#timeout = -1
-password = ******
-</code></pre></div></div>
+</span><span class="gp">#</span>insecure <span class="o">=</span> False
+<span class="gp">#</span>filter <span class="o">=</span> False
+<span class="gp">#</span><span class="nb">timeout</span> <span class="o">=</span> <span class="nt">-1</span>
+<span class="go">password = ******
+</span></code></pre></div></div>
 <ul>
   <li>NOTE: if <code class="language-plaintext highlighter-rouge">url/username/password</code> is not configured/commented in <code class="language-plaintext highlighter-rouge">.ovirtshellrc</code>
   and <code class="language-plaintext highlighter-rouge">ovirt-shell</code> executed in <code class="language-plaintext highlighter-rouge">auto-connect</code> mode (<code class="language-plaintext highlighter-rouge">ovirt-shell -c/--connect</code>), 
@@ -402,26 +398,26 @@ password = ******
   <li>run <code class="language-plaintext highlighter-rouge">ovirt-shell</code></li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[mpastern@ovirt-engine-cli (master)]$</span><span class="w"> </span>ovirt-shell <span class="nt">-c</span>
+<span class="go">
 ==========================================
-&gt;&gt;&gt; connected to oVirt manager 3.2.0.0 &lt;&lt;&lt;
-==========================================
+</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> connected to oVirt manager 3.2.0.0 <span class="o">&lt;&lt;&lt;</span>
+<span class="go">==========================================
 ++++++++++++++++++++++++++++++++++++++++++
 
        Welcome to oVirt shell
 
 ++++++++++++++++++++++++++++++++++++++++++
-[oVirt shell (connected)]# 
-</code></pre></div></div>
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w">
+</span></code></pre></div></div>
 
 <h5 id="cli-options-based-login">cli options based login</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain"
-Password: ****
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[mpastern@ovirt-engine-cli (master)]$</span><span class="w"> </span>ovirt-shell <span class="nt">-c</span> <span class="nt">-l</span> <span class="s2">"http://server:8080/api"</span> <span class="nt">-u</span> <span class="s2">"user@domain"</span>
+<span class="go">Password: ****
 ==========================================
-&gt;&gt;&gt; connected to oVirt manager 3.1.0.0 &lt;&lt;&lt;
-==========================================
+</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> connected to oVirt manager 3.1.0.0 <span class="o">&lt;&lt;&lt;</span>
+<span class="go">==========================================
 
 ++++++++++++++++++++++++++++++++++++++++++
 
@@ -430,8 +426,8 @@ Password: ****
 ++++++++++++++++++++++++++++++++++++++++++
 
 
-[oVirt shell (connected)]# 
-</code></pre></div></div>
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="querying">Querying</h3>
 
@@ -439,16 +435,16 @@ Password: ****
 
 <h5 id="list-resources">list resources</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# list vms
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list vms
+<span class="go">
 id         : aa849efc-4194-4b00-b274-ab32d4c222c9
 name       : aa
 
 id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 name       : demo
 
-[oVirt shell (connected)]# list vms --show-all
-
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list vms <span class="nt">--show-all</span>
+<span class="go">
 id                        : aa849efc-4194-4b00-b274-ab32d4c222c9
 name                      : aa
 cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
@@ -494,7 +490,7 @@ stateless                 : False
 status-state              : down
 template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
 type                      : desktop
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <ul>
   <li>notice: <code class="language-plaintext highlighter-rouge">--show-all</code> option extends listed entities (default mode is collapsed).</li>
@@ -502,16 +498,16 @@ type                      : desktop
 
 <h5 id="list-resources-using-ovirt-query-engine-filtering">list resources using oVirt query engine filtering</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# list vms --query "name=demo"
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list vms <span class="nt">--query</span> <span class="s2">"name=demo"</span>
+<span class="go">
 id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 name       : demo
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h5 id="list-resources-using-client-side-filtering">list resources using client side filtering</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# list vms --kwargs "memory=1073741824"
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list vms <span class="nt">--kwargs</span> <span class="s2">"memory=1073741824"</span>
+<span class="go">
 id         : aa849efc-4194-4b00-b274-ab32d4c222c9
 name       : aa
 
@@ -524,12 +520,12 @@ description: myvm
 
 id         : fea05ded-c246-4e51-885e-fef33a7ef2ad
 name       : pythond_sdk_poc2
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h5 id="list-sub-resources">list sub-resources</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# list disks --vm-identifier nfs_desktop
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list disks <span class="nt">--vm-identifier</span> nfs_desktop
+<span class="go">
 id         : 889bad90-6efa-42c5-a545-d0ce2033218d
 name       : Disk 2
 
@@ -542,8 +538,8 @@ name       : Disk 1
 id         : b007747c-ad99-4c03-a318-42ad502afb23
 name       : Disk 3
 
-[oVirt shell (connected)]# list nics --vm-identifier demo
-
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list nics <span class="nt">--vm-identifier</span> demo
+<span class="go">
 id         : fbc1f30f-7c21-44e7-9c0a-7e4ffb57fcb4
 name       : nic3
 
@@ -552,7 +548,7 @@ name       : nic1
 
 id         : 7ba3c79c-c619-422f-9035-6b5c8e5ea9e6
 name       : nic2
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <ul>
   <li>note: ether id or name can be used as <code class="language-plaintext highlighter-rouge">--resource-identifier</code></li>
@@ -560,19 +556,19 @@ name       : nic2
 
 <h5 id="list-sub-resources-using-client-side-filtering">list sub-resources using client side filtering</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# list disks --vm-identifier nfs_desktop --kwargs "name=Disk 3"
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list disks <span class="nt">--vm-identifier</span> nfs_desktop <span class="nt">--kwargs</span> <span class="s2">"name=Disk 3"</span>
+<span class="go">
 id         : b007747c-ad99-4c03-a318-42ad502afb23
 name       : Disk 3
 
-[oVirt shell (connected)]# list vms --kwargs "usb-enabled=True"
-
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>list vms <span class="nt">--kwargs</span> <span class="s2">"usb-enabled=True"</span>
+<span class="go">
 id         : aa849efc-4194-4b00-b274-ab32d4c222c9
 name       : aa
 
 id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 name       : demo
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <ul>
   <li>note: ether id or name can be used as –resource-identifier</li>
@@ -582,8 +578,8 @@ name       : demo
 
 <h5 id="show-resource">show resource</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# show vm demo
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>show vm demo
+<span class="go">
 id                        : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 name                      : demo
 cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
@@ -608,8 +604,8 @@ template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
 type                      : desktop
 usb-enabled               : True
 
-[oVirt shell (connected)]# show vm --name nfs_desktop
-
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>show vm <span class="nt">--name</span> nfs_desktop
+<span class="go">
 id                        : e0adee2b-2c95-483e-8259-2d8b29aa414d
 name                      : nfs_desktop
 description               : updated_desc
@@ -634,12 +630,12 @@ status-state              : down
 template-id               : 00000000-0000-0000-0000-000000000000
 type                      : desktop
 usb-enabled               : True
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h5 id="show-resource-using-client-side-filtering">show resource using client side filtering</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# show vm --id f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>show vm <span class="nt">--id</span> f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
+<span class="go">
 id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
 name                      : iscsi_desktop
 description               : myvm
@@ -663,26 +659,26 @@ status-state              : down
 template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
 type                      : desktop
 usb-enabled               : True
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h5 id="show-sub-resource">show sub-resource</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# show nic nic1 --vm-identifier demo
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>show nic nic1 <span class="nt">--vm-identifier</span> demo
+<span class="go">
 id         : 1f295a64-0a4a-4fba-928d-162b458503a5
 name       : nic1
 interface  : virtio
 mac-address: 00:1a:4a:16:01:68
 network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
 vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h3 id="add">Add</h3>
 
 <h4 id="add-resource">add resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# add vm --name demo2 --template-name iscsi_desktop_tmpl --cluster-name Default_iscsi
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>add vm <span class="nt">--name</span> demo2 <span class="nt">--template-name</span> iscsi_desktop_tmpl <span class="nt">--cluster-name</span> Default_iscsi
+<span class="go">
 id                        : dd981334-afb7-4142-a880-536bb8aef53f
 name                      : demo2
 cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
@@ -707,8 +703,8 @@ template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
 type                      : desktop
 usb-enabled               : True
 
-[oVirt shell (connected)]# add datacenter --name mydc --storage_type nfs --version-major 3 --version-minor 1
-
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>add datacenter <span class="nt">--name</span> mydc <span class="nt">--storage_type</span> nfs <span class="nt">--version-major</span> 3 <span class="nt">--version-minor</span> 1
+<span class="go">
 id                              : 4c490b43-e681-49d8-958c-9300787982eb
 name                            : mydc
 status-state                    : uninitialized
@@ -717,30 +713,30 @@ supported_versions-version-major: 3
 supported_versions-version-minor: 1
 version-major                   : 3
 version-minor                   : 1
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h4 id="add-sub-resource">add sub-resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# add nic --vm-identifier demo2 --network-name engine --name mynic
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>add nic <span class="nt">--vm-identifier</span> demo2 <span class="nt">--network-name</span> engine <span class="nt">--name</span> mynic
+<span class="go">
 id         : a211d8bb-8abb-429b-8d36-fc4eb44b6ea8
 name       : mynic
 interface  : virtio
 mac-address: 00:1a:4a:16:01:5a
 network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
 vm-id      : dd981334-afb7-4142-a880-536bb8aef53f
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h3 id="remove">Remove</h3>
 
 <h4 id="remove-resource">remove resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# remove vm aa
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>remove vm aa
 </code></pre></div></div>
 
 <h4 id="remove-sub-resource">remove sub-resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# remove disk "Disk 1" --vm-identifier demo2
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>remove disk <span class="s2">"Disk 1"</span> <span class="nt">--vm-identifier</span> demo2
 </code></pre></div></div>
 
 <ul>
@@ -755,8 +751,8 @@ vm-id      : dd981334-afb7-4142-a880-536bb8aef53f
 
 <h4 id="update-resource">update resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# update vm iscsi_desktop --description iscsi_desktop_desc
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>update vm iscsi_desktop <span class="nt">--description</span> iscsi_desktop_desc
+<span class="go">
 id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
 name                      : iscsi_desktop
 description               : iscsi_desktop_desc
@@ -781,8 +777,8 @@ template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
 type                      : desktop
 usb-enabled               : True
 
-[oVirt shell (connected)]# update vm iscsi_desktop --display-monitors 2 --description test1
-
+</span><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>update vm iscsi_desktop <span class="nt">--display-monitors</span> 2 <span class="nt">--description</span> test1
+<span class="go">
 id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
 name                      : iscsi_desktop
 description               : test1
@@ -806,51 +802,51 @@ status-state              : down
 template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
 type                      : desktop
 usb-enabled               : True
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h4 id="update-sub-resource">update sub-resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# update nic nic1 --vm-identifier demo --interface virtio
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>update nic nic1 <span class="nt">--vm-identifier</span> demo <span class="nt">--interface</span> virtio
+<span class="go">
 id         : 1f295a64-0a4a-4fba-928d-162b458503a5
 name       : nic1
 interface  : virtio
 mac-address: 00:1a:4a:16:01:68
 network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
 vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h3 id="action">Action</h3>
 
 <h4 id="action-on-resource">action on resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# action vm demo start --vm-display-type vnc --async true
-error: 
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>action vm demo start <span class="nt">--vm-display-type</span> vnc <span class="nt">--async</span> <span class="nb">true</span>
+<span class="go">error:
 status: 400
 reason: Bad Request
 detail: [Cannot run VM. Low disk space on relevant Storage Domain.]
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h4 id="action-on-sub-resource">action on sub-resource</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# action nic bond0 attach --host-identifier grey-vdsa
-error: 
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>action nic bond0 attach <span class="nt">--host-identifier</span> grey-vdsa
+<span class="go">error:
 status: 400
 reason: Bad Request
 detail: Action [network.id|name] required for attach
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h3 id="console">Console</h3>
 
 <h4 id="connect-to-vm-using-vm-name">connect to vm using vm name</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>console 'my_vm'
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">console 'my_vm'
+</span></code></pre></div></div>
 
 <h4 id="connect-to-vm-using-vm-id">connect to vm using vm id</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>console '7dff8517-7007-42cd-9cf7-b7a13a9d96b7'
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">console '7dff8517-7007-42cd-9cf7-b7a13a9d96b7'
+</span></code></pre></div></div>
 
 <h3 id="scripting">Scripting</h3>
 
@@ -860,7 +856,7 @@ detail: Action [network.id|name] required for attach
 
 <p>no special format, just commands in plain text</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>less /home/mpastern/script
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">less /home/mpastern/script
 --------------------------
 
 list vms
@@ -868,19 +864,19 @@ show vm test | grep status
 list vms --query "name=test*" --show-all | grep status
 list clusters
 list datacenters
-...
-</code></pre></div></div>
+</span><span class="c">...
+</span></code></pre></div></div>
 
 <h4 id="executing-script">Executing script</h4>
 
 <h5 id="from-linux-shell">From linux shell</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mpastern@lp /]#  ovirt-shell -f /home/mpastern/script
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[mpastern@lp /]#</span><span class="w">  </span>ovirt-shell <span class="nt">-f</span> /home/mpastern/script
 </code></pre></div></div>
 
 <h5 id="from-ovirt-shell">From ovirt shell</h5>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oVirt shell (connected)]# file /home/mpastern/script
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[oVirt shell (connected)]#</span><span class="w"> </span>file /home/mpastern/script
 </code></pre></div></div>
 
 <h4 id="examples">Examples</h4>
@@ -893,15 +889,15 @@ list datacenters
   <li>the script (less run_all_vms.txt) will look like:</li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' &gt; /home/mpastern/new_script_to_run
-       file /home/mpastern/new_script_to_run
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$</span>/ start/<span class="s1">' &gt; /home/mpastern/new_script_to_run
+</span><span class="go">       file /home/mpastern/new_script_to_run
+</span></code></pre></div></div>
 
 <ol>
   <li>run the script</li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[RHEVM shell (connected)]# file /home/mpastern/run_all_vms
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[RHEVM shell (connected)]#</span><span class="w"> </span>file /home/mpastern/run_all_vms
 </code></pre></div></div>
 
 <h6 id="explanations">Explanations</h6>
@@ -910,15 +906,15 @@ list datacenters
   <li>run rhevm command and process the output saving it in to temp script new_script_to_run</li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' &gt; /home/mpastern/new_script_to_run
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$</span>/ start/<span class="s1">' &gt; /home/mpastern/new_script_to_run
+</span></code></pre></div></div>
 
 <ol>
   <li>invoke temp script internally at runtime</li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file /home/mpastern/new_script_to_run
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">file /home/mpastern/new_script_to_run
+</span></code></pre></div></div>
 
 <h2 id="tweaks">Tweaks</h2>
 
@@ -932,18 +928,18 @@ list datacenters
 
 <p><a href="http://pypi.python.org/pypi/ovirt-shell">http://pypi.python.org/pypi/ovirt-shell</a></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>easy_install ovirt-shell
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>easy_install ovirt-shell
 </code></pre></div></div>
 
 <h3 id="rpm">rpm</h3>
 
 <p>To build rpm and install it, from ovirt-engine-cli repo:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install -y rpm-build python-devel python-setuptools python-kitchen
-
-make rpm
-
-yum localinstall rpmtop/RPMS/noarch/ovirt-engine-cli-x.y-z.noarch.rpm
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>yum <span class="nb">install</span> <span class="nt">-y</span> rpm-build python-devel python-setuptools python-kitchen
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>make rpm
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>yum localinstall rpmtop/RPMS/noarch/ovirt-engine-cli-x.y-z.noarch.rpm
 </code></pre></div></div>
 
 <p>Because lxml is not yet packaged, please follow the instructions below to get lxml installed.</p>
@@ -952,8 +948,8 @@ yum localinstall rpmtop/RPMS/noarch/ovirt-engine-cli-x.y-z.noarch.rpm
 
 <p>For local install in site-packages, from ovirt-engine-cli repo:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install python-ply libxml2-devel libxslt-devel pexpect python-kitchen
-python setup.py develop
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>yum <span class="nb">install </span>python-ply libxml2-devel libxslt-devel pexpect python-kitchen
+<span class="gp">#</span><span class="w"> </span>python setup.py develop
 </code></pre></div></div>
 
 <p>That will install lxml, because EPEL’s python-lxml is not yet up to the version required by CLI.</p>

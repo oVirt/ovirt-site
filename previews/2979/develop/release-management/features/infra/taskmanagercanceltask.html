@@ -140,19 +140,16 @@
 
 <h3 id="summary">Summary</h3>
 
-<p>A Task Cancellation it is feature which should allow to cancel currently running tasks. It is not clear which task should be allow to cancel - the whole command or task which is running at vdsm side, what engine should do roll forward or revert</p>
+<p>A Task Cancellation it is feature which should allow to cancel currently running tasks.
+It is not clear which task should be allow to cancel - the whole command or task which is running at vdsm side, what engine should do roll forward or revert</p>
 
 <h3 id="owner">Owner</h3>
 
 <ul>
-  <li>Name: <a href="Michael:Michael Kublin">Michael:Michael Kublin</a>
-    <ul>
-      <li>Email: <a href="mailto:mkublin@redhat.com">mkublin@redhat.com</a></li>
-    </ul>
-  </li>
-  <li>GUI Component owner: Michael Kublin <a href="mailto:mkublin@redhat.com">mkublin@redhat.com</a></li>
-  <li>REST Component owner: Michael Kublin <a href="mailto:mkublin@redhat.com">mkublin@redhat.com</a></li>
-  <li>QA Owner: Yaniv Kaul &lt;ykaul@redhat.com</li>
+  <li>Name: Michael Kublin</li>
+  <li>GUI Component owner: Michael Kublin</li>
+  <li>REST Component owner: Michael Kublin</li>
+  <li>QA Owner: Yaniv Kaul <a href="mailto:ykaul@redhat.com">ykaul@redhat.com</a></li>
 </ul>
 
 <h3 id="current-status">Current status</h3>
@@ -219,12 +216,12 @@
 
 <h4 id="entity-description">Entity Description</h4>
 
-<p>A new command will be added CancelTaskCommand</p>
+<p>A new command will be added <code class="language-plaintext highlighter-rouge">CancelTaskCommand</code></p>
 
 <h5 id="enumerators">Enumerators</h5>
 
 <p><strong>Updated Enumerators</strong>
-The new value will be added to VdcActionType</p>
+The new value will be added to <code class="language-plaintext highlighter-rouge">VdcActionType</code></p>
 
 <h5 id="annotations">Annotations</h5>
 
@@ -234,7 +231,9 @@ The new value will be added to VdcActionType</p>
 
 <h4 id="user-work-flows">User work-flows</h4>
 
-<p>User will send request to backend for cancel task and backend will try to cancel task. When we are running internal command which parent jobId is cancelled engine can try not to run it. If a job has tasks which is running on vdsm, engine can try to send a Stop/Revert verb to vdsm, at that case by default behaviour all command will be finished as failed.</p>
+<p>User will send request to backend for cancel task and backend will try to cancel task. When we are running internal command which
+parent jobId is cancelled engine can try not to run it. If a job has tasks which is running on vdsm, engine can try to send a Stop/Revert verb to vdsm,
+at that case by default behaviour all command will be finished as failed.</p>
 
 <h5 id="simple-command-invocation-sequence-diagram">Simple Command Invocation Sequence Diagram</h5>
 
@@ -254,15 +253,18 @@ The new value will be added to VdcActionType</p>
 
 <h3 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h3>
 
-<p>The cancellation of the task is depend on VDSM API, on internal Async task manger, on correct handling of each command and on task monitoring. Most of these mechanism are independent and not related to each other, most of them has a lot of luck and problems in implementation, the cancellation of task which is build upon on it well not work well until those mechanism will be fixed.</p>
+<p>The cancellation of the task is depend on VDSM API, on internal Async task manger, on correct handling of each command and on task monitoring.
+Most of these mechanism are independent and not related to each other, most of them has a lot of luck and problems in implementation,
+the cancellation of task which is build upon on it well not work well until those mechanism will be fixed.</p>
 
 <h3 id="documentation--external-references">Documentation / External references</h3>
 
 <h3 id="comments-and-discussion">Comments and Discussion</h3>
 
 <p>I suppose that a number of races, and unexpected behaviour will be extreme high
-I suppose that part of the flows will be difficult or almost impossible to integrate with task cancellation
-=== Open Issues ===</p>
+I suppose that part of the flows will be difficult or almost impossible to integrate with task cancellation</p>
+
+<h3 id="open-issues">Open Issues</h3>
 
 <ol>
   <li>What expected API should be called at VDSM side and what it suppose to do?</li>

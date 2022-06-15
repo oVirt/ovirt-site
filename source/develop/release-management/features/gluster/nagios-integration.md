@@ -38,33 +38,33 @@ Since most enterprises already have or are familiar with existing monitoring fra
 
 At a high-level, each functional block will have the following software components:
 
-*' Nagios Server*'
+**Nagios Server**
 
-*   Nagios Core Installed
-*   NSCA Server
-*   NRPE Client
-*   Mk-Livestatus
-*   PNP4Nagios
-*   NetSnmp
-*   Plugins that implements the check logic and also process the check result(like custom event handlers)
+* Nagios Core Installed
+* NSCA Server
+* NRPE Client
+* Mk-Livestatus
+* PNP4Nagios
+* NetSnmp
+* Plugins that implements the check logic and also process the check result(like custom event handlers)
 
-**\1**
+**Gluster Nodes**
 
-*   NRPE Server
-*   NSCA Client
-*   Pugins that implements the check logic.
+* NRPE Server
+* NSCA Client
+* Pugins that implements the check logic.
 
-**\1**
+**oVirt**
 
-*   UI plugins for alert dashboard and trends. The Trends UI plugin is planned for the first phase.
-*   The [oVirt Monitoring UI Plugin](/develop/release-management/features/ux/uiplugins43.html#ovirt-monitoring-ui-plugin) can also be used to view the Nagios plugin data within oVirt
+* UI plugins for alert dashboard and trends. The Trends UI plugin is planned for the first phase.
+* The [oVirt Monitoring UI Plugin](/develop/release-management/features/ux/uiplugins43.html#ovirt-monitoring-ui-plugin) can also be used to view the Nagios plugin data within oVirt
 
 ## Dependencies / Related Features
 
-*   Nagios Core
-*   Nagios Addons - NRPE , NSCA, MK Livestatus, PNP4Nagios etc
-*   Nagios plugins
-*   Ovirt UI Monitoring Plugin
+* Nagios Core
+* Nagios Addons - NRPE , NSCA, MK Livestatus, PNP4Nagios etc
+* Nagios plugins
+* Ovirt UI Monitoring Plugin
 
 ## Packaging
 
@@ -75,7 +75,7 @@ At a high-level, each functional block will have the following software componen
 
 ### External events from Nagios
 
-**\1**
+**Status: Planned**
 
 If oVirt is integrated with Nagios for monitoring, any alert/event detected by Nagios needs to be sent to oVirt. This can be done through notification methods.
 
@@ -221,19 +221,25 @@ To install the `gluster-nagios-common` and `gluster-nagios-addons` packages, add
 
 On Fedora
 
-    # yum install gluster-nagios-common gluster-nagios-addons
+```console
+# yum install gluster-nagios-common gluster-nagios-addons
+```
 
 On RHEL6
 
 RHEL users must add the EPEL yum repository to obtain the dependency packages
 
+```console
     # yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
     # yum install gluster-nagios-common gluster-nagios-addons
+```
 
 Make sure that the node can receive nrpe requests from nagios server. You can do this by editing `/etc/nagios/nrpe.cfg` and adding the nagios server host ip/name to `allowed_hosts`
 
-    # service nrpe restart
+```console
+# service nrpe restart
+```
 
 ### Installing Nagios server addons for monitoring
 
@@ -241,31 +247,42 @@ To install the `gluster-nagios-common` and `nagios-server-addons` packages, add 
 
 On Fedora
 
-    # yum install gluster-nagios-common nagios-server-addons
-
+```console
+# yum install gluster-nagios-common nagios-server-addons
+```
 This will install dependencies like nagios, nrpe, nsca, mk_livestatus if not already installed
 
 On RHEL6
 
 RHEL users must add the EPEL yum repository to obtain the dependency packages
 
-    # yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+```console
+# yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
-    # yum install gluster-nagios-common nagios-server-addons
+# yum install gluster-nagios-common nagios-server-addons
+```
 
 Make sure the http/s ports are accessible
 
-    # iptables -I INPUT 4 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
-    # service iptables save
-    # service iptables restart
+```console
+# iptables -I INPUT 4 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+# service iptables save
+# service iptables restart
+```
 
-For `mk_livestatus` to work, SELinux needs to be in permissive mode. Note: The below will not survive reboots
+For `mk_livestatus` to work, SELinux needs to be in permissive mode.
 
-    # setenforce 0
+Note: The below will not survive reboots
+
+```console
+# setenforce 0
+```
 
 Run configuration script to detect the nodes/volumes in the gluster trusted pool and to create Nagios services for these
 
-    # /usr/lib64/nagios/plugins/gluster/discovery.py -c <name for your cluster> -H <hostname/ip of any node in your cluster>
+```console
+# /usr/lib64/nagios/plugins/gluster/discovery.py -c <name for your cluster> -H <hostname/ip of any node in your cluster>
+```
 
 This will configure monitoring for gluster services on nodes in your cluster and the web UI should be accesible at <server-name-or-ip>/nagios. A sample screenshot from nagios server is below
 
@@ -275,25 +292,31 @@ This will configure monitoring for gluster services on nodes in your cluster and
 
 Nagios integration is done via 2 options
 
-Option 1. Trends plugin Checkout the samples-ui-plugins project from gerrit.ovirt.org - [sample-ui-plugins](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git;a=summary)
+Option 1. Trends plugin
+
+Checkout the samples-ui-plugins project from gerrit.ovirt.org - [sample-ui-plugins](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git;a=summary)
 
 Create a symlink to gluster-nagios-monitoring/src and gluster-nagios-monitoring/gluster-nagios-monitoring.json under `/usr/share/ovirt-engine/ui-plugins`
 
-    # ln -s <path to sample-ui-plugins>/gluster-nagios-monitoring/src gluster-nagios-monitoring
-    # ln -s <path to sample-ui-plugins>/gluster-nagios-monitoring/gluster-nagios-monitoring.json gluster-nagios-monitoring.json
+```console
+# ln -s <path to sample-ui-plugins>/gluster-nagios-monitoring/src gluster-nagios-monitoring
+# ln -s <path to sample-ui-plugins>/gluster-nagios-monitoring/gluster-nagios-monitoring.json gluster-nagios-monitoring.json
+```
 
 Edit the `/usr/share/ovirt-engine/ui-plugins/gluster-nagios-monitoring.json` as below:
 
-    {
-        "name": "GlusterNagiosMonitoring",
-        "url": "plugin/GlusterNagiosMonitoring/start.html",
-        "resourcePath": "gluster-nagios-monitoring",
-        "config": {
-                        "showDashboard": "true",
-                        "messageOrigins":["http://ovirt-engine-hostname:80"], //path to ovirt-engine server
-                        "pnp4nagiosUrl" : "http://nagios-server" //path to nagios server
-                      }
-    }
+```json
+{
+    "name": "GlusterNagiosMonitoring",
+    "url": "plugin/GlusterNagiosMonitoring/start.html",
+    "resourcePath": "gluster-nagios-monitoring",
+    "config": {
+                    "showDashboard": "true",
+                    "messageOrigins":["http://ovirt-engine-hostname:80"], //path to ovirt-engine server
+                    "pnp4nagiosUrl" : "http://nagios-server" //path to nagios server
+                  }
+}
+```
 
 You should now see a Trends tab and a Dashboard tab once logged into oVirt like below
 

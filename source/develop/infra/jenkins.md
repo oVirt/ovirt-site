@@ -21,10 +21,10 @@ These are specs for servers to run Jenkins slaves for oVirt testing. One base co
 * 200 GB disk each
 * 32 GB swap
 
-# Access
+# Access to the server
 
 * OS Level Access: Restricted to infra team only. (PKI)
-* Read UI Access: Anonymous read access is available to see all jobs/workspaces and build results. 
+* Read UI Access: Anonymous read access is available to see all jobs/workspaces and build results.
 * Login UI Access: availialble only to infra team, and by request to <infra@ovirt.org>.
 
 Contact Infra team if you think you should have privileged access to the server.
@@ -55,7 +55,7 @@ passwd user
    ```
 
 9. `service jenkins start`
-10. Install Jenkins plugins: 
+10. Install Jenkins plugins:
 
     ```
     wget http://localhost:8080/jnlpJars/jenkins-cli.jar
@@ -138,7 +138,6 @@ Jenkins slave might run out of openfiles. to change this you need to run:
    ```
    fs.file-max = 2048
    ```
-   
 3. Edit `/etc/security/limits.conf`:
 
    ```
@@ -150,7 +149,7 @@ Jenkins slave might run out of openfiles. to change this you need to run:
 
 Jenkins user needs sudo access to be able to run tests from jenkins jobs, do this on each jenkins slave: edit /etc/suders:
 
-1. Comment out this line: 
+1. Comment out this line:
 
    ```
    Defaults    requiretty

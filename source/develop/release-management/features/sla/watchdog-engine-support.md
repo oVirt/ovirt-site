@@ -11,12 +11,12 @@ authors:
 
 ## Summary
 
-This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) support to engine. The feature will be available in server VM's and especially useful when used with high availability.
+This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) support to engine.
+The feature will be available in server VM's and especially useful when used with high availability.
 
 ## Owner
 
 *   Name: Laszlo Hornyak (Lhornyak)
-*   Email: <lhornyak at redhat dot com>
 
 ## Current status
 

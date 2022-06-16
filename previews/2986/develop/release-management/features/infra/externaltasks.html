@@ -185,18 +185,21 @@ A task may have other nesting sub-tasks under it.</p>
 
 <h3 id="detailed-description">Detailed Description</h3>
 
-<p>Plug-ins using the REST API should be enable to inject and track external tasks to oVirt and see those tasks displayed in the oVirt UI.
-Tasks may be nested
-Tasks may run concurrently
-Sub-Tasks of the same Task may run concurrently
-Tasks/Sub-Tasks should support the following statuses:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Waiting
-  Started (only for the task)
-  Running
-  Completed 
-  Failed
-</code></pre></div></div>
+<p>Plug-ins using the REST API should be enable to inject and track external tasks to oVirt and see those tasks displayed in the oVirt UI.</p>
+<ul>
+  <li>Tasks may be nested</li>
+  <li>Tasks may run concurrently</li>
+  <li>Sub-Tasks of the same Task may run concurrently</li>
+  <li>Tasks/Sub-Tasks should support the following statuses:
+    <ul>
+      <li>Waiting</li>
+      <li>Started (only for the task)</li>
+      <li>Running</li>
+      <li>Completed</li>
+      <li>Failed</li>
+    </ul>
+  </li>
+</ul>
 
 <p>Solution should support setting percentage for the Task Started state
 <strong>Task Flow</strong></p>
@@ -215,13 +218,14 @@ Tasks/Sub-Tasks should support the following statuses:</p>
                              -&gt; Failed
 </code></pre></div></div>
 
-<p><strong>\1</strong></p>
+<p><strong>Operations</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Adding a new task
-  Adding a nested sub-task to an existing task
-  Removing a task
-  Updating a task/sub-task status
-</code></pre></div></div>
+<ul>
+  <li>Adding a new task</li>
+  <li>Adding a nested sub-task to an existing task</li>
+  <li>Removing a task</li>
+  <li>Updating a task/sub-task status</li>
+</ul>
 
 <p>As in the Task Monitor that serves internal oVirt commands, Task should be displayed for a configurable time after competion and then vanished from the UI.</p>
 

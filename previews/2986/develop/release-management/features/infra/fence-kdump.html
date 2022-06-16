@@ -432,7 +432,7 @@
     </ul>
   </li>
   <li><strong>We plan to update only fence_kdump options in kdump configuration, host admin will be responsible to configure other options and restart kdump service manually when done. In order to successfully report kdump status to engine this operation should be done only when host is in Maintenance.</strong></li>
-  <li><strong>\1</strong></li>
+  <li><em>*Host from which fence_kdump message came is identified by IP address, so to find out which hosts sent the message we will use IP addresses stored in engine database in table <code class="language-plaintext highlighter-rouge">vds_interfaces</code>. **</em></li>
   <li><strong>We are able only to allow access to fence_kdump port, but we cannot easily identify which IPs can access this port. This is task for administrator to modify firewall rules for enhanced security</strong></li>
 </ol>
 

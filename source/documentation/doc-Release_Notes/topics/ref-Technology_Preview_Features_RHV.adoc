@@ -44,5 +44,4 @@ For details about IPv6 support, see link:{URL_virt_product_docs}{URL_format}admi
 |Failover vNIC profile |Allows users to migrate a virtual machine connected via SR-IOV with minimal downtime by using a failover network that is activated during migration.
 |Dedicated CPU pinning policy |Guest vCPUs will be exclusively pinned to a set of host pCPUs (similar to static CPU pinning). The set of pCPUs will be chosen to match the required guest CPU topology. If the host has an SMT architecture, thread siblings are preferred.
 
-
 |===

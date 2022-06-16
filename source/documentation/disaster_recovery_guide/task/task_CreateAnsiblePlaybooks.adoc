@@ -42,6 +42,10 @@ Create the playbooks and associated files in `/usr/share/ansible/roles/oVirt.dis
 You can test the configuration using one or more of the testing procedures in xref:testing_active_passive[Testing the Active-Passive Configuration].
 
 include::../reference/ref_UsingOvirtDrScript.adoc[leveloffset=+1]
+
 include::{taskdir}/task_GenerateMapping.adoc[leveloffset=+1]
+
 include::{taskdir}/task_CreateFailoverFailbackPlaybooks.adoc[leveloffset=+1]
+
 include::{taskdir}/task_CreateCleanupPlaybook.adoc[leveloffset=+1]
+

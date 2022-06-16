@@ -55,5 +55,4 @@ If you previously upgraded to 4.2 without replacing SHA-1 certificates with SHA-
 
 include::common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
 
-
 :4-2_local_db!:

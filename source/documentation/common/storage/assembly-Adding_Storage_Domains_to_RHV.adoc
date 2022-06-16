@@ -36,7 +36,6 @@ Creating additional data domains in the same data center as the self-hosted engi
 ====
 endif::SHE_cli_deploy,migrating_to_SHE[]
 
-
 include::proc-Adding_NFS_Storage.adoc[leveloffset=+1]
 
 include::proc-Adding_iSCSI_Storage.adoc[leveloffset=+1]

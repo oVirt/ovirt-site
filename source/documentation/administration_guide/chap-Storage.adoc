@@ -67,7 +67,6 @@ include::common/storage/ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+
 
 include::common/storage/ref-Adding_Red_Hat_Gluster_Storage.adoc[leveloffset=+2]
 
-
 [id="sect-Importing_Existing_Storage_Domains"]
 == Importing Existing Storage Domains
 

@@ -14,7 +14,6 @@ Configuring single sign-on, also known as password delegation, allows you to aut
 Single sign-on is not supported for virtual machines running {enterprise-linux} 8.0.
 ====
 
-
 [IMPORTANT]
 ====
 If single sign-on to the VM Portal is enabled, single sign-on to virtual machines will not be possible. With single sign-on to the VM Portal enabled, the VM Portal does not need to accept a password, thus the password cannot be delegated to sign in to virtual machines.

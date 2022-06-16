@@ -3,6 +3,7 @@
 = Log Files
 
 include::topics/Manager_Installation_Log_Files.adoc[leveloffset=+1]
+
 include::topics/Manager_Log_Files.adoc[leveloffset=+1]
 
 [id="sect-SPICE_Log_Files"]
@@ -13,11 +14,17 @@ SPICE log files are useful when troubleshooting SPICE connection issues. To star
 Both the clients used to access the guest machines and the guest machines themselves have SPICE log files. For client-side logs, if a SPICE client was launched using the native client, for which a *console.vv* file is downloaded, use the `remote-viewer` command to enable debugging and generate log output.
 
 include::topics/SPICE_Logs_for_Hypervisor_SPICE_Servers.adoc[leveloffset=+2]
+
 include::topics/SPICE_Logs_for_Guest_Machines.adoc[leveloffset=+2]
+
 include::topics/SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files.adoc[leveloffset=+2]
 
 include::topics/Host_Log_Files.adoc[leveloffset=+1]
+
 include::topics/proc_setting-up-debug-level-logging.adoc[leveloffset=+1]
+
 include::topics/ref_debug-level-logging.adoc[leveloffset=+1]
+
 include::topics/Setting_up_a_Host_Logging_Server.adoc[leveloffset=+1]
+
 include::topics/proc_Enabling_SyslogHandler_RHV_Manager_logs.adoc[leveloffset=+1]

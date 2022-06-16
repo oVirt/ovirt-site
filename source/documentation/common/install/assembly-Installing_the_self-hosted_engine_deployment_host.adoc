@@ -24,6 +24,5 @@ ifdef::rhv-doc[]
 include::proc-Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories.adoc[leveloffset=+2]
 endif::[]
 
-
 :context!: SHE_deployment_host
 :SHE_deployment_host!:

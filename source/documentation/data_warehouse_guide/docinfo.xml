@@ -5,7 +5,7 @@
 <abstract><para>This document provides information and procedures relevant to Red Hat Virtualization Data Warehouse.</para>
 <!--<para>{beta-disclaimer}</para>--></abstract>
 <authorgroup id="Author_Group">
-	<author> 
+	<author>
 		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
 		<affiliation>
 			<orgname>
@@ -17,5 +17,3 @@
 		</affiliation><email>rhev-docs@redhat.com</email>
 	</author>
 </authorgroup>
-
-

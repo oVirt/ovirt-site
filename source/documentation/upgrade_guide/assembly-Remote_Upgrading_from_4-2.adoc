@@ -34,7 +34,6 @@ include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
 
 ifdef::rhv-doc[]
 
-
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
 endif::[]
 

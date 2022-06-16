@@ -10,7 +10,6 @@ You can perform common virtual machine management tasks in the virtual machines 
 * Stop a virtual machine by selecting *Shutdown* from the drop-down menu. It is available when the virtual machine is running.
 * Restart a virtual machine by selecting *Reboot* from the drop-down menu. It is available when the virtual machine is running.
 
-
 include::topics/Viewing_virtual_machines.adoc[leveloffset=+1]
 
 include::topics/Editing_virtual_machines.adoc[leveloffset=+1]

@@ -4,7 +4,6 @@
 :context: windows_vm
 :windows_vm:
 
-
 Installing a Windows virtual machine involves the following key steps:
 
 . Create a blank virtual machine on which to install an operating system.
@@ -13,7 +12,6 @@ Installing a Windows virtual machine involves the following key steps:
 . Attach the Windows guest tools CD to the virtual machine so that VirtIO-optimized device drivers can be installed during the operating system installation.
 . Install a Windows operating system on the virtual machine. See your operating system's documentation for instructions.
 . During the installation, install guest agents and drivers for additional virtual machine functionality.
-
 
 When all of these steps are complete, the new virtual machine is functional and ready to perform tasks.
 

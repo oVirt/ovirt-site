@@ -11,9 +11,7 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
 * Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] for more information.
 
-
 .Configuring a Host for PCI Passthrough
-
 
 . Enable the virtualization extension and IOMMU extension in the BIOS. See link:{URL_rhel_docs_legacy}html/Virtualization_Deployment_and_Administration_Guide/sect-Troubleshooting-Enabling_Intel_VT_x_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html[Enabling Intel VT-x and AMD-V virtualization hardware extensions in BIOS] in the _{enterprise-linux} Virtualization Deployment and Administration Guide_ for more information.
 . Enable the IOMMU flag in the kernel by selecting the *Hostdev Passthrough &amp; SR-IOV* check box when adding the host to the {engine-name} or by editing the *grub* configuration file manually.
@@ -21,12 +19,8 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 * To edit the *grub* configuration file manually, see  xref:Enabling_IOMMU_Manually[Enabling IOMMU Manually].
 . For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See link:{URL_downstream_virt_product_docs}setting_up_an_nvidia_gpu_for_a_virtual_machine_in_red_hat_virtualization/index#proc_nvidia_gpu_passthrough_nvidia_gpu_passthrough[GPU device passthrough: Assigning a host GPU to a single virtual machine] in _Setting up an NVIDIA GPU for a virtual machine in Red Hat Virtualization_ for more information.
 
-
-
-
 [id="Enabling_IOMMU_Manually"]
 .Enabling IOMMU Manually
-
 
 . Enable IOMMU by editing the grub configuration file.
 +
@@ -79,6 +73,5 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1
 ----
 # reboot
 ----
-
 
 To enable SR-IOV and assign dedicated virtual NICs to virtual machines, see link:https://access.redhat.com/articles/2335291[].

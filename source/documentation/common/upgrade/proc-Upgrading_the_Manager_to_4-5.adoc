@@ -24,7 +24,6 @@ Connected hosts and virtual machines can continue to work while the {engine-name
 If you are going to install on RHEL or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL or derivatives] first.
 ====
 
-
 .Procedure
 
 . Enable oVirt 4.5 repositories

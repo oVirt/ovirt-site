@@ -28,7 +28,6 @@ You need to install the guest agents and drivers on a virtual machine to enable 
 |===
 
 
-
 .{virt-product-fullname} Guest agents and tools
 [options="header"]
 |===

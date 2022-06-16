@@ -148,7 +148,6 @@ include::proc_removing-a-checkpoint.adoc[leveloffset=+1]
 include::ref_using-the-imageio-api-to-transfer-backup-data.adoc[leveloffset=+1]
 
 
-
 ////
 Restore the context to what it was before this assembly.
 ////

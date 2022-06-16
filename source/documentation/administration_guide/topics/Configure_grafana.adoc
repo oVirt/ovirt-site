@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id="Configure_grafana"]
 = Installation
 

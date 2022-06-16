@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id='Migrating_the_self-hosted_engine_database_{context}']
 = Migrating the {engine-name} Database to a Remote Server
 

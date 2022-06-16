@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: ASSEMBLY
 [id='CPU_Requirements_{context}']
 = CPU Requirements
 

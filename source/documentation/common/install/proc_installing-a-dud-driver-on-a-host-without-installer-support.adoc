@@ -189,7 +189,6 @@ endif::ovirt-doc[]
 
 . At the installer screen, reboot.
 
-
 .Verification
 
 The machine should reboot successfully.

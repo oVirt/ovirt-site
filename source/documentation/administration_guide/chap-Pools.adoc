@@ -19,7 +19,6 @@ include::topics/Virtual_Machine_Pool_Host_settings_explained.adoc[leveloffset=+2
 
 include::topics/New_Pool_Resource_Settings_Explained.adoc[leveloffset=+2]
 
-
 include::topics/Editing_a_Virtual_Machine_Pool.adoc[leveloffset=+2]
 
 include::topics/Prestarting_Virtual_Machines_in_a_Pool.adoc[leveloffset=+2]

@@ -14,7 +14,7 @@ DTSTART:20180507
 LOCATION:Boston\, MA
 SEQUENCE:0
 SUMMARY:Red Hat Summit
-UID:2022-06-16T08:19:43+00:00_58298311@ovirt.org
+UID:2022-06-16T08:19:43+00:00_324359279@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:FOSDEM is a free event for software developers to meet\, share 
@@ -26,7 +26,7 @@ DTSTART:20190202
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FOSDEM
-UID:2022-06-16T08:19:43+00:00_824224758@ovirt.org
+UID:2022-06-16T08:19:43+00:00_162166665@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:DevConf.cz (Developer Conference) is a free annual conference f
@@ -40,7 +40,7 @@ DTSTART:20190125
 LOCATION:Brno\, Czech Republic
 SEQUENCE:0
 SUMMARY:DevConf.cz
-UID:2022-06-16T08:19:43+00:00_471759529@ovirt.org
+UID:2022-06-16T08:19:43+00:00_328337335@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:SCaLE is the largest community-run open-source and free softwar
@@ -53,7 +53,7 @@ DTSTART:20190307
 LOCATION:Pasadena\, CA
 SEQUENCE:0
 SUMMARY:SCaLE 17x
-UID:2022-06-16T08:19:43+00:00_393266345@ovirt.org
+UID:2022-06-16T08:19:43+00:00_420804766@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Learn more about and influence the future of oVirt\,the open so
@@ -67,7 +67,7 @@ DTSTART:20191004
 LOCATION:Oracle Italia\, 147 Via Amsterdam 00144 Rome\, Italy
 SEQUENCE:0
 SUMMARY:oVirt Conference 2019
-UID:2022-06-16T08:19:43+00:00_171420988@ovirt.org
+UID:2022-06-16T08:19:43+00:00_203893911@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Zac Dover.
@@ -77,7 +77,7 @@ DTSTART:20160201T000000Z
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:A brief history of technical writing with examples
-UID:2022-06-16T08:19:43+00:00_486179153@ovirt.org
+UID:2022-06-16T08:19:43+00:00_572879778@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Zac Dover.
@@ -87,7 +87,7 @@ DTSTART:20160201T032000Z
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Two years of tech writing
-UID:2022-06-16T08:19:43+00:00_29540109@ovirt.org
+UID:2022-06-16T08:19:43+00:00_148786611@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Ellis. Do you need to utilise many different pu
@@ -104,7 +104,7 @@ DTSTART:20160201T050500Z
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Cloud Crafting – Public / Private / Hybrid
-UID:2022-06-16T08:19:43+00:00_714549471@ovirt.org
+UID:2022-06-16T08:19:43+00:00_19148067@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Ellis. Fed up fighting with the public cloud\, 
@@ -122,7 +122,7 @@ DTSTART:20160201T234000Z
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Is that a data-center in your pocket?
-UID:2022-06-16T08:19:43+00:00_750852799@ovirt.org
+UID:2022-06-16T08:19:43+00:00_430183981@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Fraser Tweedale. FreeIPA is an integrated identity man
@@ -140,7 +140,7 @@ DTSTART:20160203T022000Z
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Tutorial\: Identity Management with FreeIPA
-UID:2022-06-16T08:19:43+00:00_361554852@ovirt.org
+UID:2022-06-16T08:19:43+00:00_192151278@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Atin Mukherjee. Gluster is a open source scalable dist
@@ -162,7 +162,7 @@ LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Improving thread synchronization in GlusterD (Daemon for Gluster) u
  sing Userspace RCU (Read-copy-update)
-UID:2022-06-16T08:19:43+00:00_254197226@ovirt.org
+UID:2022-06-16T08:19:43+00:00_371843948@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andy Grover. The LVM2 logical volume management tool h
@@ -180,7 +180,7 @@ DTSTART:20160203T044000Z
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Melvin\: A new implementation of LVM in Rust
-UID:2022-06-16T08:19:43+00:00_338495185@ovirt.org
+UID:2022-06-16T08:19:43+00:00_314959256@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rikki Endsley. Open source communities are made up of 
@@ -202,7 +202,7 @@ LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Speaking their language\: How to write for technical and non-techni
  cal audiences
-UID:2022-06-16T08:19:43+00:00_382870766@ovirt.org
+UID:2022-06-16T08:19:43+00:00_312258425@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ruth Suehle. Maybe you bought a Raspberry Pi a year or
@@ -223,7 +223,7 @@ DTSTART:20160205T031500Z
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:Raspberry Pi Hacks
-UID:2022-06-16T08:19:43+00:00_593663057@ovirt.org
+UID:2022-06-16T08:19:43+00:00_399905511@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:linux.conf.au is the largest linux and open source conference i
@@ -239,7 +239,7 @@ DTSTART:20160201
 LOCATION:Geelong\, Australia
 SEQUENCE:0
 SUMMARY:linux.conf.au
-UID:2022-06-16T08:19:43+00:00_851466433@ovirt.org
+UID:2022-06-16T08:19:43+00:00_356197506@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Sandro Bonazzola. oVirt is a virtualization platform w
@@ -258,7 +258,7 @@ LOCATION:Bologna\, Italy
 SEQUENCE:0
 SUMMARY:oVirt as virtualization platform to leverage cloud technologies all
  owing you to have a IAAS / IAC for your Dev-Ops environment
-UID:2022-06-16T08:19:43+00:00_173398422@ovirt.org
+UID:2022-06-16T08:19:43+00:00_991875784@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The 4th edition of the Incontro DevOps Italia (Italian DevOps M
@@ -274,7 +274,7 @@ DTSTART:20160401
 LOCATION:Bologna\, Italy
 SEQUENCE:0
 SUMMARY:Incontro DevOps Italia
-UID:2022-06-16T08:19:43+00:00_445497023@ovirt.org
+UID:2022-06-16T08:19:43+00:00_208149398@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:FOSSASIA is the premier Free and Open Source technology event i
@@ -287,7 +287,7 @@ DTSTART:20160318
 LOCATION:Singapore
 SEQUENCE:0
 SUMMARY:FOSSAsia
-UID:2022-06-16T08:19:43+00:00_584196355@ovirt.org
+UID:2022-06-16T08:19:43+00:00_327473831@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:NoSlidesConf is about step-by-step technical sessions showing h
@@ -300,7 +300,7 @@ DTSTART:20161203
 LOCATION:Bologna\, Italy
 SEQUENCE:0
 SUMMARY:NoSlidesConf
-UID:2022-06-16T08:19:43+00:00_816139599@ovirt.org
+UID:2022-06-16T08:19:43+00:00_895176550@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. systemd is a system and service ma
@@ -314,7 +314,7 @@ DTSTART:20160130T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:systemd and where we want to take the basic Linux userspace in 2016
-UID:2022-06-16T08:19:43+00:00_524110937@ovirt.org
+UID:2022-06-16T08:19:43+00:00_798989567@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Peter Volpe. Cockpit is the new system admin UI for Li
@@ -325,7 +325,7 @@ DTSTART:20160130T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Cockpit\: a Linux session in your browser
-UID:2022-06-16T08:19:43+00:00_15860021@ovirt.org
+UID:2022-06-16T08:19:43+00:00_481472842@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Alexander Bokovoy. Enterprise environment means a lot 
@@ -340,7 +340,7 @@ DTSTART:20160130T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Enterprise desktop at home with FreeIPA and GNOME
-UID:2022-06-16T08:19:43+00:00_664749717@ovirt.org
+UID:2022-06-16T08:19:43+00:00_349412563@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Niels de Vos. Gluster provides Software Defined Storag
@@ -353,7 +353,7 @@ DTSTART:20160130T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Gluster roadmap\, recent improvements and upcoming features
-UID:2022-06-16T08:19:43+00:00_866119016@ovirt.org
+UID:2022-06-16T08:19:43+00:00_108074216@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Frank Ch. Eigler. We present a live-patching technique
@@ -367,7 +367,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Applying band-aids over security wounds with SystemTap\: a data-mod
  ification-based approach for fixing the unfixable.
-UID:2022-06-16T08:19:43+00:00_575437310@ovirt.org
+UID:2022-06-16T08:19:43+00:00_678067589@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. Networks Functions Virtualizationm or NFV\
@@ -395,7 +395,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:How to run a telco on Free Software\: the network transformation wi
  th OPNFV
-UID:2022-06-16T08:19:43+00:00_953458847@ovirt.org
+UID:2022-06-16T08:19:43+00:00_668661883@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ratnadeep Debnath. ircb\, or IRC Bouncer\, is an attem
@@ -413,7 +413,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:ircb\: a versatile\, scalable irc bouncer\, as a service\, for huma
  ns
-UID:2022-06-16T08:19:43+00:00_502400999@ovirt.org
+UID:2022-06-16T08:19:43+00:00_630744450@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre. Free Java 2016 Introduction - Saturday
@@ -423,7 +423,7 @@ DTSTART:20160130T092500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Free Java 2016 welcome - Saturday
-UID:2022-06-16T08:19:43+00:00_694433120@ovirt.org
+UID:2022-06-16T08:19:43+00:00_46811794@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Kennke\, Christine H Flood. The Difference betwe
@@ -441,7 +441,7 @@ DTSTART:20160130T110500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Shenandoah\, theory and practice
-UID:2022-06-16T08:19:43+00:00_707877268@ovirt.org
+UID:2022-06-16T08:19:43+00:00_380944279@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Haley. Imagine you receive a report of a bug wh
@@ -465,7 +465,7 @@ DTSTART:20160130T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Hunting the bug from hell
-UID:2022-06-16T08:19:43+00:00_934749342@ovirt.org
+UID:2022-06-16T08:19:43+00:00_179345473@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre. Thermostat has evolved a log way from bei
@@ -485,7 +485,7 @@ DTSTART:20160130T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Thermostat for developers
-UID:2022-06-16T08:19:43+00:00_522781907@ovirt.org
+UID:2022-06-16T08:19:43+00:00_219626184@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Dinn. BMUnit is the package which integrates By
@@ -506,7 +506,7 @@ DTSTART:20160130T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Fault injection testing with bmunit
-UID:2022-06-16T08:19:43+00:00_620260497@ovirt.org
+UID:2022-06-16T08:19:43+00:00_999695363@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Mohr. [1] https://github.com/Netflix [2] http://
@@ -517,7 +517,7 @@ DTSTART:20160130T152000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Huge code bases - application monitoring with Hystrix
-UID:2022-06-16T08:19:43+00:00_15412723@ovirt.org
+UID:2022-06-16T08:19:43+00:00_354242672@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Daniel Kopeček. In this talk we will learn a bit about
@@ -534,7 +534,7 @@ DTSTART:20160130T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:USBGuard\: take control over your USB devices
-UID:2022-06-16T08:19:43+00:00_228916121@ovirt.org
+UID:2022-06-16T08:19:43+00:00_325869491@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nikos Mavrogiannopoulos. Openconnect is a relatively n
@@ -551,7 +551,7 @@ DTSTART:20160130T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:An overview OpenConnect VPN
-UID:2022-06-16T08:19:43+00:00_559354965@ovirt.org
+UID:2022-06-16T08:19:43+00:00_730827379@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. Legal decisions related to an open source 
@@ -573,7 +573,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Community impacts of legal decisions\: legal policy as barrier to e
  ntry
-UID:2022-06-16T08:19:43+00:00_929673417@ovirt.org
+UID:2022-06-16T08:19:43+00:00_81001510@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: James Shubin. James Shubin (@purpleidea) will be prese
@@ -592,7 +592,7 @@ SEQUENCE:0
 SUMMARY:Tl\;dr on legal strategy for commercial ventures\: an abridged revi
  ew of legal strategy and licensing issues for commercial ventures and enter
  prises
-UID:2022-06-16T08:19:43+00:00_809374750@ovirt.org
+UID:2022-06-16T08:19:43+00:00_213988590@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tuomas Kuosmanen. Blender (www.blender.org) is a versa
@@ -606,7 +606,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Blender as virtual studio lighting playground\: using Blender's rea
  ltime rendering preview to explore lighting for photography or video setups
-UID:2022-06-16T08:19:43+00:00_205237108@ovirt.org
+UID:2022-06-16T08:19:43+00:00_54395460@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Julien Danjou. During the year 2008\, the awesome wind
@@ -624,7 +624,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:How awesome ended up with Lua and not Guile\: retrospective of the 
  awesome window manager
-UID:2022-06-16T08:19:43+00:00_48088927@ovirt.org
+UID:2022-06-16T08:19:43+00:00_882895148@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andy Wingo\, Christopher Webber\, Ludovic Courtès\, Hi
@@ -636,7 +636,7 @@ DTSTART:20160130T132000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The future of small languages\: experience of Lua and Guile
-UID:2022-06-16T08:19:43+00:00_867526768@ovirt.org
+UID:2022-06-16T08:19:43+00:00_779766254@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lorenzo Mangani. VoIP/SIP Monitoring and Troubleshooti
@@ -654,7 +654,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:VOIP troubleshooting with sipcapture tools\: open-source VOIP captu
  re\, monitoring and troubleshooting
-UID:2022-06-16T08:19:43+00:00_588152340@ovirt.org
+UID:2022-06-16T08:19:43+00:00_44002700@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Stinson. Come present your topic to the Distribu
@@ -665,7 +665,7 @@ DTSTART:20160130T131500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Lightning talks
-UID:2022-06-16T08:19:43+00:00_86203260@ovirt.org
+UID:2022-06-16T08:19:43+00:00_738906731@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Wielaard. Users (and developers) don’t just want 
@@ -686,7 +686,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Where are your symbols\, debuginfo and sources? (a package is more 
  than a binary - make it observable)
-UID:2022-06-16T08:19:43+00:00_182130811@ovirt.org
+UID:2022-06-16T08:19:43+00:00_494416528@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Langdon White. Software Collections are a consistent w
@@ -703,7 +703,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Do Software Collections still matter? (with containers\, unikernels
  \, and all the new hotness?)
-UID:2022-06-16T08:19:43+00:00_147874888@ovirt.org
+UID:2022-06-16T08:19:43+00:00_230871335@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Caolán McNamara. We use american-fuzzy-lop for fuzzing
@@ -717,7 +717,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:UI event fuzzing via american-fuzzy-lop\: using afl to fuzz keyboar
  d input for UI testing LibreOffice
-UID:2022-06-16T08:19:43+00:00_108928344@ovirt.org
+UID:2022-06-16T08:19:43+00:00_533241629@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephan Bergmann. …with clang-cl\, thereby leveraging 
@@ -730,7 +730,7 @@ DTSTART:20160130T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Finally building LibreOffice on Windows
-UID:2022-06-16T08:19:43+00:00_475332340@ovirt.org
+UID:2022-06-16T08:19:43+00:00_256578281@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Michael Hrivnak. Docker is not just for deployment. As
@@ -749,7 +749,7 @@ DTSTART:20160130T111500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Docker for developers
-UID:2022-06-16T08:19:43+00:00_330383483@ovirt.org
+UID:2022-06-16T08:19:43+00:00_123879722@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jakub Hrozek\, Andreas Schneider. This talk will show 
@@ -763,7 +763,7 @@ DTSTART:20160130T124500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Testing complex software in CI\: stories from SSSD and Samba world
-UID:2022-06-16T08:19:43+00:00_922274185@ovirt.org
+UID:2022-06-16T08:19:43+00:00_311620209@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Paolo Bonzini. The QEMU and KVM developers’ efforts to
@@ -780,7 +780,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:"i find your lack of threads disturbing"\: optimizing QEMU and KVM 
  for high IOPS
-UID:2022-06-16T08:19:43+00:00_578617524@ovirt.org
+UID:2022-06-16T08:19:43+00:00_638139664@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Oved Ourfali. In this session I’ll show an overview of
@@ -794,7 +794,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Bringing host lifecycle and content management into oVirt\: powerfu
  l management of your virtualized data-center
-UID:2022-06-16T08:19:43+00:00_702169030@ovirt.org
+UID:2022-06-16T08:19:43+00:00_634937248@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Piotr Kliczewski. Virtualization management requires p
@@ -810,7 +810,7 @@ DTSTART:20160130T134500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Reactive processing in oVirt
-UID:2022-06-16T08:19:43+00:00_662427950@ovirt.org
+UID:2022-06-16T08:19:43+00:00_33703783@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Adam Litke. In modern virtualization platforms virtual
@@ -826,7 +826,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Sweep away the garbage\: for scalable\, fault-tolerant shared VM st
  orage
-UID:2022-06-16T08:19:43+00:00_226693876@ovirt.org
+UID:2022-06-16T08:19:43+00:00_407717563@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: K Rain Leander. One of the impediments to becoming an 
@@ -843,7 +843,7 @@ DTSTART:20160130T161500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Build a basic cloud using RDO-Manager
-UID:2022-06-16T08:19:43+00:00_671880424@ovirt.org
+UID:2022-06-16T08:19:43+00:00_875416999@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Cyril Roelandt. Tox is a very well-known tool\, writte
@@ -858,7 +858,7 @@ DTSTART:20160130T160000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Guix-tox\, a functional version of Tox
-UID:2022-06-16T08:19:43+00:00_64624695@ovirt.org
+UID:2022-06-16T08:19:43+00:00_841560459@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Michael Hrivnak. Pulp can be used to create and manage
@@ -869,7 +869,7 @@ DTSTART:20160130T163000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Managing Python packages with pulp
-UID:2022-06-16T08:19:43+00:00_751931094@ovirt.org
+UID:2022-06-16T08:19:43+00:00_235269181@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Langdon White. As the power pendulum swings towards de
@@ -885,7 +885,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Re-thinking Linux distributions\: ... separate the operating system
   from the content
-UID:2022-06-16T08:19:43+00:00_875664362@ovirt.org
+UID:2022-06-16T08:19:43+00:00_656359676@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Amit Shah. Hypervisors get deployed in wildly differen
@@ -904,7 +904,7 @@ DTSTART:20160131T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Live migration of virtual machines from the bottom up
-UID:2022-06-16T08:19:43+00:00_696600506@ovirt.org
+UID:2022-06-16T08:19:43+00:00_119450513@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre. Free Java 2016 Welcome - Sunday
@@ -914,7 +914,7 @@ DTSTART:20160131T091500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Free Java 2016 welcome - Sunday
-UID:2022-06-16T08:19:43+00:00_622888527@ovirt.org
+UID:2022-06-16T08:19:43+00:00_379053718@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter\, Thomas  Enebo. JRuby has for years ro
@@ -932,7 +932,7 @@ DTSTART:20160131T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Optimizing above the JVM in JRuby 9000
-UID:2022-06-16T08:19:43+00:00_494426212@ovirt.org
+UID:2022-06-16T08:19:43+00:00_300065957@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre. (This talk replaces ‘Beyond Java 9’.)
@@ -942,7 +942,7 @@ DTSTART:20160131T131000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Maven
-UID:2022-06-16T08:19:43+00:00_964182559@ovirt.org
+UID:2022-06-16T08:19:43+00:00_999333942@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre\, Martijn Verburg\, Dalibor Topić. OpenJDK
@@ -968,7 +968,7 @@ DTSTART:20160131T135000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Adoption's group cultural guide to OpenJDK
-UID:2022-06-16T08:19:43+00:00_922571955@ovirt.org
+UID:2022-06-16T08:19:43+00:00_215717717@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Reinhold\, Andrew Haley\, Georges Saab\, Doug Lea
@@ -979,7 +979,7 @@ DTSTART:20160131T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Meet the governing board
-UID:2022-06-16T08:19:43+00:00_693530000@ovirt.org
+UID:2022-06-16T08:19:43+00:00_660566012@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Luis Pabón. Choosing a language\, specially a relative
@@ -998,7 +998,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:From prototype to deployment\: building a REST application using go
   (experiences learned during the development of heketi)
-UID:2022-06-16T08:19:43+00:00_54909432@ovirt.org
+UID:2022-06-16T08:19:43+00:00_749234190@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter. JRuby 9000 introduced a brand new opti
@@ -1016,7 +1016,7 @@ DTSTART:20160131T100500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Optimizing JRuby 9000\: taking Ruby performance to the next level
-UID:2022-06-16T08:19:43+00:00_185060238@ovirt.org
+UID:2022-06-16T08:19:43+00:00_733200991@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Zeeshan Ali (Khattak). In this talk\, I’ll be presenti
@@ -1031,7 +1031,7 @@ DTSTART:20160131T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Building a geo-aware OS
-UID:2022-06-16T08:19:43+00:00_407690667@ovirt.org
+UID:2022-06-16T08:19:43+00:00_981073451@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eduardo Lima. If you are running Linux on an Intel GPU
@@ -1048,7 +1048,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Nir on the Mesa i965 backend\: a case for a faster and simpler driv
  er
-UID:2022-06-16T08:19:43+00:00_353801343@ovirt.org
+UID:2022-06-16T08:19:43+00:00_761029364@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hans de Goede\, Pierre Moreau. This talk will look at 
@@ -1063,7 +1063,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Compute support for Nouveau\: creating a LLVM to TGSI and a SPIR-V 
  to nv50 ir backends
-UID:2022-06-16T08:19:43+00:00_903546113@ovirt.org
+UID:2022-06-16T08:19:43+00:00_932057019@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Joe Brockmeier. Once Upon a Time\, Linux distributions
@@ -1080,7 +1080,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The state of Linux distributions\: where do distributions stand in 
  the brave new world?
-UID:2022-06-16T08:19:43+00:00_616096075@ovirt.org
+UID:2022-06-16T08:19:43+00:00_469082048@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dennis Gilmore. This talk will go over the work being 
@@ -1093,7 +1093,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Standardising booting on ARMv7\: making U-Boot useful and simple to
   use
-UID:2022-06-16T08:19:43+00:00_345167944@ovirt.org
+UID:2022-06-16T08:19:43+00:00_303058599@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Remy DeCausemaker. This presentation will feature metr
@@ -1109,7 +1109,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The Fedora project by the numbers\: (storytelling with metrics and 
  data)
-UID:2022-06-16T08:19:43+00:00_57486953@ovirt.org
+UID:2022-06-16T08:19:43+00:00_966285843@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dusty Mabe. The CentOS CI is a public resource that op
@@ -1125,7 +1125,7 @@ DTSTART:20160131T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The CentOS CI\: a getting started guide
-UID:2022-06-16T08:19:43+00:00_48429199@ovirt.org
+UID:2022-06-16T08:19:43+00:00_236445115@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Karsten Wade. EPEL is a repository of packages rebuilt
@@ -1144,7 +1144,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Wither EPEL? (harvesting the next generation of software for the en
  terprise)
-UID:2022-06-16T08:19:43+00:00_111563200@ovirt.org
+UID:2022-06-16T08:19:43+00:00_409365531@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christian Hergert. This talk will take a look at a yea
@@ -1157,7 +1157,7 @@ DTSTART:20160131T081000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:GNOME builder\, a year of development
-UID:2022-06-16T08:19:43+00:00_558607750@ovirt.org
+UID:2022-06-16T08:19:43+00:00_368501142@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roger Pau Monné\, Wei Liu. It’s been more than a year 
@@ -1172,7 +1172,7 @@ DTSTART:20160131T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FreeBSD/Xen update\: news from FreeBSD and Xen
-UID:2022-06-16T08:19:43+00:00_487932373@ovirt.org
+UID:2022-06-16T08:19:43+00:00_559485597@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Maor Lipchuk. The demand for managing a large amount o
@@ -1192,7 +1192,7 @@ DTSTART:20160131T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Managing Ceph through cinder using oVirt
-UID:2022-06-16T08:19:43+00:00_559614051@ovirt.org
+UID:2022-06-16T08:19:43+00:00_816966397@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Orit Wasserman. Ceph is a highly available distributed
@@ -1206,7 +1206,7 @@ DTSTART:20160131T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Ceph RADOS gateway overview
-UID:2022-06-16T08:19:43+00:00_406304789@ovirt.org
+UID:2022-06-16T08:19:43+00:00_962248984@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Martin Sivák. We were asked to come up with a solution
@@ -1225,7 +1225,7 @@ DTSTART:20160131T101500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt - let's hyperconverge!
-UID:2022-06-16T08:19:43+00:00_538537483@ovirt.org
+UID:2022-06-16T08:19:43+00:00_392387238@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Joe Brockmeier. A lot of folks are talking about conta
@@ -1242,7 +1242,7 @@ DTSTART:20160131T111500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Containers and virtualization\: how they can work together
-UID:2022-06-16T08:19:43+00:00_88412309@ovirt.org
+UID:2022-06-16T08:19:43+00:00_508961914@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Federico Simoncelli. As your IaaS of choice is becomin
@@ -1258,7 +1258,7 @@ DTSTART:20160131T114500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Advanced management for IaaS and containers
-UID:2022-06-16T08:19:43+00:00_670571376@ovirt.org
+UID:2022-06-16T08:19:43+00:00_297498613@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: David Caro. In the oVirt project\, getting a full test
@@ -1275,7 +1275,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Raiders of the lost testing env\: the search for a reproducible VM 
  testing environment
-UID:2022-06-16T08:19:43+00:00_389277568@ovirt.org
+UID:2022-06-16T08:19:43+00:00_891171604@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: James Shubin. Learn how to get a Vagrant environment r
@@ -1294,7 +1294,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Oh\, my! oh-my-vagrant (with live demos!)\: oh-my-vagrant developme
  nt environments for hackers
-UID:2022-06-16T08:19:43+00:00_249111846@ovirt.org
+UID:2022-06-16T08:19:43+00:00_931534287@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:FOSDEM is a free and non-commercial event organisedby the commu
@@ -1311,7 +1311,7 @@ DTSTART:20160130
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FOSDEM
-UID:2022-06-16T08:19:43+00:00_579178754@ovirt.org
+UID:2022-06-16T08:19:43+00:00_787907039@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rene Koch. Nowadays\,virtualization is the foundation 
@@ -1331,7 +1331,7 @@ DTSTART:20160320T130000Z
 LOCATION:Chemnitz\, Germany
 SEQUENCE:0
 SUMMARY:Introducing Open Source Virtualization project oVirt
-UID:2022-06-16T08:19:43+00:00_818047868@ovirt.org
+UID:2022-06-16T08:19:43+00:00_797031312@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Since 1999 we organise the Chemnitzer Linux-Tage with a constan
@@ -1348,7 +1348,7 @@ DTSTART:20160319
 LOCATION:Chemnitz\, Germany
 SEQUENCE:0
 SUMMARY:Chemnitzer Linux-Tage
-UID:2022-06-16T08:19:43+00:00_97143711@ovirt.org
+UID:2022-06-16T08:19:43+00:00_449693452@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Latinoware is an event that promotes cultural\, economic and te
@@ -1361,7 +1361,7 @@ DTSTART:20161019
 LOCATION:Foz do Iguaçu\, Brasil
 SEQUENCE:0
 SUMMARY:Latinoware
-UID:2022-06-16T08:19:43+00:00_99631481@ovirt.org
+UID:2022-06-16T08:19:43+00:00_41388116@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:KubeCon (a CNCF event) gathers leading Kubernetes technologists
@@ -1375,7 +1375,7 @@ DTSTART:20161108
 LOCATION:Seattle\, WA
 SEQUENCE:0
 SUMMARY:Kubecon
-UID:2022-06-16T08:19:43+00:00_6226047@ovirt.org
+UID:2022-06-16T08:19:43+00:00_456514807@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:There’s simply no other event in Europe where developers\, sys 
@@ -1390,7 +1390,7 @@ DTSTART:20161004
 LOCATION:Berlin\, Germany
 SEQUENCE:0
 SUMMARY:LinuxCon Europe
-UID:2022-06-16T08:19:43+00:00_667418252@ovirt.org
+UID:2022-06-16T08:19:43+00:00_967295278@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mo Morsi. Aeolus is a next-generation cloud computing 
@@ -1409,7 +1409,7 @@ DTSTART:20120929T190000Z
 LOCATION:Columbus\, Ohio\, US
 SEQUENCE:0
 SUMMARY:Aeolus\: Deploying Across Clouds the Open Source Way
-UID:2022-06-16T08:19:43+00:00_964178672@ovirt.org
+UID:2022-06-16T08:19:43+00:00_347682490@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Likosar. This talk will describe what he conside
@@ -1427,7 +1427,7 @@ DTSTART:20120929T210000Z
 LOCATION:Columbus\, Ohio\, US
 SEQUENCE:0
 SUMMARY:Highly Available Applications
-UID:2022-06-16T08:19:43+00:00_578062027@ovirt.org
+UID:2022-06-16T08:19:43+00:00_636023994@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:
@@ -1437,7 +1437,7 @@ DTSTART:20120929
 LOCATION:Columbus\, Ohio\, US
 SEQUENCE:0
 SUMMARY:Ohio LinuxFest
-UID:2022-06-16T08:19:43+00:00_413671271@ovirt.org
+UID:2022-06-16T08:19:43+00:00_835813181@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: John Mark Walker. Now one year after the Red Hat acqui
@@ -1454,7 +1454,7 @@ DTSTART:20121108T080000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:The State of the Gluster Community
-UID:2022-06-16T08:19:43+00:00_444975457@ovirt.org
+UID:2022-06-16T08:19:43+00:00_858377467@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vijay Bellur. GlusterFS is a distributed file system t
@@ -1475,7 +1475,7 @@ DTSTART:20121108T101500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Integrating GlusterFS\, oVirt and KVM
-UID:2022-06-16T08:19:43+00:00_617987704@ovirt.org
+UID:2022-06-16T08:19:43+00:00_605301674@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eco Willson and Niels de Vos. Gluster’s Unified File a
@@ -1490,7 +1490,7 @@ DTSTART:20121108T131500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:GlusterFS Demos\: Getting Started in a Flash\, UFO\, & Wireshark
-UID:2022-06-16T08:19:43+00:00_452005491@ovirt.org
+UID:2022-06-16T08:19:43+00:00_277333308@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dustin Black. GlusterFS represents a dramatic departur
@@ -1507,7 +1507,7 @@ DTSTART:20121108T143000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:GlusterFS for SysAdmins
-UID:2022-06-16T08:19:43+00:00_90326786@ovirt.org
+UID:2022-06-16T08:19:43+00:00_578738142@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:GlusterFS is a community produced\, open source\, distributed f
@@ -1523,7 +1523,7 @@ DTSTART:20121108
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Gluster Workshop
-UID:2022-06-16T08:19:43+00:00_594355781@ovirt.org
+UID:2022-06-16T08:19:43+00:00_454219864@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Avi Kivity. For more information\, including speaker b
@@ -1534,7 +1534,7 @@ DTSTART:20121107T080000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Keynote Address
-UID:2022-06-16T08:19:43+00:00_316584021@ovirt.org
+UID:2022-06-16T08:19:43+00:00_660955664@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mike Burns. This talk will dive into the architecture 
@@ -1552,7 +1552,7 @@ DTSTART:20121107T101500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:oVirt Node Architecture Design and Roadmap
-UID:2022-06-16T08:19:43+00:00_762906127@ovirt.org
+UID:2022-06-16T08:19:43+00:00_191442886@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vadim Rozenfeld. Enlightenments are enhancements made 
@@ -1569,7 +1569,7 @@ DTSTART:20121107T120000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:KVM and Microsoft Hyper-V Enlightenments
-UID:2022-06-16T08:19:43+00:00_562779653@ovirt.org
+UID:2022-06-16T08:19:43+00:00_126650454@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andreas Färber. Anthony Liguori has contributed the QE
@@ -1592,7 +1592,7 @@ DTSTART:20121107T120000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:QOM Vadis? Taking Objects to CPU and Beyond
-UID:2022-06-16T08:19:43+00:00_162537778@ovirt.org
+UID:2022-06-16T08:19:43+00:00_66105011@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: - Itamar Heim. The session will review high level arch
@@ -1604,7 +1604,7 @@ DTSTART:20121107T120000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:oVirt High-Level Architecture & Roadmap
-UID:2022-06-16T08:19:43+00:00_246346653@ovirt.org
+UID:2022-06-16T08:19:43+00:00_425093848@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Livnat Peer. Deep dive to recently added network featu
@@ -1617,7 +1617,7 @@ DTSTART:20121107T124000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Deep Dive Features\: Network
-UID:2022-06-16T08:19:43+00:00_912644838@ovirt.org
+UID:2022-06-16T08:19:43+00:00_200564560@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Cathrow. Deep dive to recently added storage fe
@@ -1631,7 +1631,7 @@ DTSTART:20121107T132000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Deep Dive Features\: Storage
-UID:2022-06-16T08:19:43+00:00_781779456@ovirt.org
+UID:2022-06-16T08:19:43+00:00_107321523@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Orit Wasserman. In this session we cover two aspects o
@@ -1651,7 +1651,7 @@ DTSTART:20121107T133000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Live Migration\: Even faster\, Now With a Dedicated Thread!
-UID:2022-06-16T08:19:43+00:00_524273556@ovirt.org
+UID:2022-06-16T08:19:43+00:00_370659514@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gerd Hoffman. This talk gives an overview on the state
@@ -1664,7 +1664,7 @@ DTSTART:20121107T143000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Qemu USB Status Report 2012
-UID:2022-06-16T08:19:43+00:00_356220224@ovirt.org
+UID:2022-06-16T08:19:43+00:00_872563165@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hans de Goede. Spice\, the opensource remote virtual d
@@ -1683,7 +1683,7 @@ DTSTART:20121107T150000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Spice Status Update
-UID:2022-06-16T08:19:43+00:00_708361713@ovirt.org
+UID:2022-06-16T08:19:43+00:00_162329102@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jason Baron. Qemu is currently based upon a Pentium Pr
@@ -1704,7 +1704,7 @@ DTSTART:20121107T153000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:A New Chipset for Qemu - Intel's Q35
-UID:2022-06-16T08:19:43+00:00_63838451@ovirt.org
+UID:2022-06-16T08:19:43+00:00_8378265@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Richard Jones. Libguestfs is a C library that provides
@@ -1721,7 +1721,7 @@ DTSTART:20121107T153000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:New Features in libguestfs and the Virt Tools
-UID:2022-06-16T08:19:43+00:00_217000291@ovirt.org
+UID:2022-06-16T08:19:43+00:00_496944373@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Daniel Berrange. Historically most usage of virtualiza
@@ -1744,7 +1744,7 @@ DTSTART:20121107T160000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Building Application Sandboxes on Top of KVM or LXC Using libvirt
-UID:2022-06-16T08:19:43+00:00_162529556@ovirt.org
+UID:2022-06-16T08:19:43+00:00_629321186@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lucas Meneghel Rodrigues. KVM autotest is a large set 
@@ -1767,7 +1767,7 @@ DTSTART:20121107T160000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:KVM autotest - It's not Just a QA Tool Anymore
-UID:2022-06-16T08:19:43+00:00_148865115@ovirt.org
+UID:2022-06-16T08:19:43+00:00_479071065@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Michael S. Tsirkin. This talk will present a high leve
@@ -1788,7 +1788,7 @@ DTSTART:20121108T081500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Virtio & Networking Status and Challenges
-UID:2022-06-16T08:19:43+00:00_920907@ovirt.org
+UID:2022-06-16T08:19:43+00:00_31623684@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Simon Grinberg. How to leverage ovirt api\, sdk and cl
@@ -1800,7 +1800,7 @@ DTSTART:20121108T081500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Scripting and Integration \: oVirt CLI and SDK
-UID:2022-06-16T08:19:43+00:00_307514429@ovirt.org
+UID:2022-06-16T08:19:43+00:00_308303492@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rik van Riel. Rik van Riel and Andrea Arcangeli will g
@@ -1815,7 +1815,7 @@ DTSTART:20121108T093000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:KVM Memory Management Update & Plans
-UID:2022-06-16T08:19:43+00:00_310318859@ovirt.org
+UID:2022-06-16T08:19:43+00:00_92636695@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Oved Ourfali. How to script via ec2 and cimi api’s on 
@@ -1827,7 +1827,7 @@ DTSTART:20121108T093000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Using oVirt Via ec2/cimi With Deltacloud
-UID:2022-06-16T08:19:43+00:00_605770764@ovirt.org
+UID:2022-06-16T08:19:43+00:00_868287231@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vojtech Szocs. oVirt web administration application (W
@@ -1850,7 +1850,7 @@ DTSTART:20121108T100000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Extending oVirt Web Interface with UI Plugins
-UID:2022-06-16T08:19:43+00:00_351683125@ovirt.org
+UID:2022-06-16T08:19:43+00:00_479168557@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Avi Kivity. QEMU’s original memory API\, was complicat
@@ -1869,7 +1869,7 @@ DTSTART:20121108T101500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Revamping the QEMU Memory API
-UID:2022-06-16T08:19:43+00:00_389557934@ovirt.org
+UID:2022-06-16T08:19:43+00:00_665802120@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christophe Fergeau. This talk will describe how oVirt 
@@ -1887,7 +1887,7 @@ DTSTART:20121108T103000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Integrating oVirt into GNOME Boxes
-UID:2022-06-16T08:19:43+00:00_342673506@ovirt.org
+UID:2022-06-16T08:19:43+00:00_861032617@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Kevin Wolf. The block layer is one of qemu’s most comp
@@ -1906,7 +1906,7 @@ DTSTART:20121108T120000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:A Block Layer Overview
-UID:2022-06-16T08:19:43+00:00_517806522@ovirt.org
+UID:2022-06-16T08:19:43+00:00_801452876@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Cathrow. Introduction and samples to ovirt cust
@@ -1918,7 +1918,7 @@ DTSTART:20121108T120000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Extending oVirt via Custom Hooks
-UID:2022-06-16T08:19:43+00:00_983401199@ovirt.org
+UID:2022-06-16T08:19:43+00:00_109415936@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Doron Fediuck. SLA@oVirt is quite challenging. Allowin
@@ -1937,7 +1937,7 @@ DTSTART:20121108T124000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:SLA@oVirt
-UID:2022-06-16T08:19:43+00:00_633868122@ovirt.org
+UID:2022-06-16T08:19:43+00:00_185927250@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Paolo Bonzini. QEMU (and hence KVM) has long supported
@@ -1957,7 +1957,7 @@ DTSTART:20121108T124500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:The Road to Effective Thin Provisioning in QEMU
-UID:2022-06-16T08:19:43+00:00_964267781@ovirt.org
+UID:2022-06-16T08:19:43+00:00_62644452@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Alex Williamson\, Red Hat. The VFIO userspace driver i
@@ -1977,7 +1977,7 @@ DTSTART:20121108T124500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:VFIO\: A Users Perspective
-UID:2022-06-16T08:19:43+00:00_501251978@ovirt.org
+UID:2022-06-16T08:19:43+00:00_393287930@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Oved Ourfali. Deep dive to future network roadmap and 
@@ -1989,7 +1989,7 @@ DTSTART:20121108T132000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Extending oVirt Network With Quantum
-UID:2022-06-16T08:19:43+00:00_313935826@ovirt.org
+UID:2022-06-16T08:19:43+00:00_293934248@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stefan Hajnoczi. This talk gives an overview of Gluste
@@ -2010,7 +2010,7 @@ DTSTART:20121108T133000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:GlusterFS for KVM Users and Developers
-UID:2022-06-16T08:19:43+00:00_608950433@ovirt.org
+UID:2022-06-16T08:19:43+00:00_686309670@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jeff Cody. Over the last year\, QEMU’s support for liv
@@ -2030,7 +2030,7 @@ DTSTART:20121108T143000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:QEMU Live Block Operations\: Snapshots\, Merging\, and Mirroring
-UID:2022-06-16T08:19:43+00:00_273540612@ovirt.org
+UID:2022-06-16T08:19:43+00:00_343311303@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Asias He. A very short overview of storage choices in 
@@ -2050,7 +2050,7 @@ DTSTART:20121108T150000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Virtio-blk Performance Improvement
-UID:2022-06-16T08:19:43+00:00_305091737@ovirt.org
+UID:2022-06-16T08:19:43+00:00_999611110@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vijay Bellur. Gluster management is integrated in oVir
@@ -2063,7 +2063,7 @@ DTSTART:20121108T151500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:oVirt/Gluster Integration
-UID:2022-06-16T08:19:43+00:00_836254145@ovirt.org
+UID:2022-06-16T08:19:43+00:00_343128295@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jason Wang. Multiqueue networking of kvm guest were in
@@ -2085,7 +2085,7 @@ DTSTART:20121108T153000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Multiqueue Networking for KVM
-UID:2022-06-16T08:19:43+00:00_232761581@ovirt.org
+UID:2022-06-16T08:19:43+00:00_652731565@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mike Burns. An overview of the various infrastructure 
@@ -2108,7 +2108,7 @@ DTSTART:20121109T081500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:oVirt Infrastructure Overview
-UID:2022-06-16T08:19:43+00:00_737797976@ovirt.org
+UID:2022-06-16T08:19:43+00:00_146948694@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Fabian Deutsch. This talk will dive into the method an
@@ -2124,7 +2124,7 @@ DTSTART:20121109T083500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Automated Testing of oVirt Node
-UID:2022-06-16T08:19:43+00:00_756904755@ovirt.org
+UID:2022-06-16T08:19:43+00:00_45311229@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark McLoughlin. Having recently passes its second bir
@@ -2145,7 +2145,7 @@ DTSTART:20121109T093000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:OpenStack\: KVM for the Masses
-UID:2022-06-16T08:19:43+00:00_702052586@ovirt.org
+UID:2022-06-16T08:19:43+00:00_713898737@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Zeeshan Ali. Boxes is a new GNOME application for easi
@@ -2166,7 +2166,7 @@ DTSTART:20121109T101500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Boxes\: A Box for Everyone!
-UID:2022-06-16T08:19:43+00:00_322314379@ovirt.org
+UID:2022-06-16T08:19:43+00:00_486403366@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Federico Simoncelli. Learn about VDSM internals.For mo
@@ -2177,7 +2177,7 @@ DTSTART:20121109T101500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:VDSM For Developers
-UID:2022-06-16T08:19:43+00:00_416713527@ovirt.org
+UID:2022-06-16T08:19:43+00:00_108857553@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Juan Hernandez. oVirt engine internals.For more inform
@@ -2188,7 +2188,7 @@ DTSTART:20121109T120000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Engine for Developers
-UID:2022-06-16T08:19:43+00:00_954972841@ovirt.org
+UID:2022-06-16T08:19:43+00:00_336410859@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Federico Simoncelli. This session will review end-to-e
@@ -2200,7 +2200,7 @@ DTSTART:20121109T124000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Storage Live Migration\: Below The Hood
-UID:2022-06-16T08:19:43+00:00_391468351@ovirt.org
+UID:2022-06-16T08:19:43+00:00_111502444@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vojtech Szocs. Introduction to ovirt GWT UI internals.
@@ -2211,7 +2211,7 @@ DTSTART:20121109T132000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:UI For Developers
-UID:2022-06-16T08:19:43+00:00_94398360@ovirt.org
+UID:2022-06-16T08:19:43+00:00_546514891@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Fabian Deutsch. A talk diving into the details of usin
@@ -2226,7 +2226,7 @@ DTSTART:20121109T143000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:oVirt Node and OpenStack
-UID:2022-06-16T08:19:43+00:00_559954493@ovirt.org
+UID:2022-06-16T08:19:43+00:00_483988846@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Laszlo Hornyak. The VM scheduler is the heart of a pri
@@ -2244,7 +2244,7 @@ DTSTART:20121109T150000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Drools Integration in oVirt Engine
-UID:2022-06-16T08:19:43+00:00_853427879@ovirt.org
+UID:2022-06-16T08:19:43+00:00_749018265@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lee Yarwood. This BoF will look into how we can improv
@@ -2260,7 +2260,7 @@ LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:How Can We Improve The Process of Troubleshooting an oVirt Environm
  ent (BoF)
-UID:2022-06-16T08:19:43+00:00_846231730@ovirt.org
+UID:2022-06-16T08:19:43+00:00_806327947@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:KVM is an industry leading open source hypervisor that provides
@@ -2290,7 +2290,7 @@ DTSTART:20121107
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:KVM Forum + oVirt Workshop
-UID:2022-06-16T08:19:43+00:00_802390871@ovirt.org
+UID:2022-06-16T08:19:43+00:00_483036674@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The oVirt Project is an open virtualization project for anyone 
@@ -2312,7 +2312,7 @@ DTSTART:20120816
 LOCATION:Bangalore\, India
 SEQUENCE:0
 SUMMARY:oVirt Workshop Bangalore
-UID:2022-06-16T08:19:43+00:00_345455247@ovirt.org
+UID:2022-06-16T08:19:43+00:00_127154420@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Kashyap Chamarthy. This session discusses different ty
@@ -2335,7 +2335,7 @@ LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Virtual Machine snapshots\: Overview and Illustration of Different 
  Types of Snapshots with libvirt/QEMU
-UID:2022-06-16T08:19:43+00:00_574636064@ovirt.org
+UID:2022-06-16T08:19:43+00:00_89442440@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lucas Meneghel Rodrigues. Autotest (autotest.github.co
@@ -2353,7 +2353,7 @@ DTSTART:20121105T100500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Assembling a Kernel Test Grid with Autotest
-UID:2022-06-16T08:19:43+00:00_222810166@ovirt.org
+UID:2022-06-16T08:19:43+00:00_667850744@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jakub Hrozek. The tutorial will provide a hands-on int
@@ -2376,7 +2376,7 @@ DTSTART:20121105T122000Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:FreeIPA Tutorial
-UID:2022-06-16T08:19:43+00:00_565100441@ovirt.org
+UID:2022-06-16T08:19:43+00:00_802774355@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ric Wheeler. SSD devices promise a lot - very high ran
@@ -2393,7 +2393,7 @@ DTSTART:20121105T131500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:SSD Devices & Caching\: fscache\, Block Cache or Device Driver
-UID:2022-06-16T08:19:43+00:00_201579172@ovirt.org
+UID:2022-06-16T08:19:43+00:00_860950540@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Stevens. For more information\, including speake
@@ -2404,7 +2404,7 @@ DTSTART:20121105T154500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Keynote Address
-UID:2022-06-16T08:19:43+00:00_139220559@ovirt.org
+UID:2022-06-16T08:19:43+00:00_174169274@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. Two years ago we announced the sys
@@ -2426,7 +2426,7 @@ DTSTART:20121106T100500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:systemd\: The First Two Years
-UID:2022-06-16T08:19:43+00:00_203673035@ovirt.org
+UID:2022-06-16T08:19:43+00:00_626310631@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: John W. Linville. When I was a kid\, the computer was 
@@ -2449,7 +2449,7 @@ DTSTART:20121106T131500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Coding for Fun\: Silly Projects Keep You Sane!
-UID:2022-06-16T08:19:43+00:00_784161892@ovirt.org
+UID:2022-06-16T08:19:43+00:00_815419775@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Itamar Heim. The oVirt Project is an open virtualizati
@@ -2469,7 +2469,7 @@ DTSTART:20121106T131500Z
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:Introduction to oVirt Virtualization Management Platform
-UID:2022-06-16T08:19:43+00:00_418334106@ovirt.org
+UID:2022-06-16T08:19:43+00:00_891186598@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:
@@ -2479,7 +2479,7 @@ DTSTART:20121105
 LOCATION:Barcelona\, Spain
 SEQUENCE:0
 SUMMARY:LinuxCon Europe
-UID:2022-06-16T08:19:43+00:00_926447894@ovirt.org
+UID:2022-06-16T08:19:43+00:00_911525400@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Learn more about and influence the future of oVirt\,the open so
@@ -2493,7 +2493,7 @@ DTSTART:20200907
 LOCATION:a web browser near you!
 SEQUENCE:0
 SUMMARY:oVirt 2020 online conference
-UID:2022-06-16T08:19:43+00:00_697026132@ovirt.org
+UID:2022-06-16T08:19:43+00:00_733314221@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tom Tromey. In recent years GDB has undergone a renais
@@ -2508,7 +2508,7 @@ DTSTART:20140201T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Your application versus GDB
-UID:2022-06-16T08:19:43+00:00_293506395@ovirt.org
+UID:2022-06-16T08:19:43+00:00_837969713@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Daniel Berrange. Entangle is an open source project th
@@ -2525,7 +2525,7 @@ DTSTART:20140201T122000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Entangle\: tethered camera control & capture
-UID:2022-06-16T08:19:43+00:00_561572767@ovirt.org
+UID:2022-06-16T08:19:43+00:00_368922412@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Federico Simoncelli. This session will cover the curre
@@ -2543,7 +2543,7 @@ DTSTART:20140201T124000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt and OpenStack storage (present and future)
-UID:2022-06-16T08:19:43+00:00_135864975@ovirt.org
+UID:2022-06-16T08:19:43+00:00_445403705@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Daniel Berrange. In the 8+ years since it was founded\
@@ -2565,7 +2565,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:New developments and advanced features in the libvirt management AP
  I
-UID:2022-06-16T08:19:43+00:00_264570780@ovirt.org
+UID:2022-06-16T08:19:43+00:00_337625201@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ohad Levy. Foreman is a complete lifecycle management 
@@ -2580,7 +2580,7 @@ DTSTART:20140201T144000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Foreman project
-UID:2022-06-16T08:19:43+00:00_572999462@ovirt.org
+UID:2022-06-16T08:19:43+00:00_897778820@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gilad Chaplik. For several years now\, the oVirt proje
@@ -2598,7 +2598,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt applying Nova scheduler concepts for data center virtualizati
  on
-UID:2022-06-16T08:19:43+00:00_167478980@ovirt.org
+UID:2022-06-16T08:19:43+00:00_119322745@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hans de Goede. Xorg (the X-server) is a big and comple
@@ -2613,7 +2613,7 @@ DTSTART:20140201T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Making the X-server run without root rights
-UID:2022-06-16T08:19:43+00:00_639309623@ovirt.org
+UID:2022-06-16T08:19:43+00:00_249060899@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Langdon White. For many years the Linux distro concept
@@ -2634,7 +2634,7 @@ DTSTART:20140201T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:A method for distributing applications independent from the distro
-UID:2022-06-16T08:19:43+00:00_375667304@ovirt.org
+UID:2022-06-16T08:19:43+00:00_510442607@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Karanbir Singh. CentOS has cemented a reputation as th
@@ -2650,7 +2650,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:CentOS\: planning for variants and the next chapter (a broader\, fa
  ster\, easier route to contributions in CentOS)
-UID:2022-06-16T08:19:43+00:00_853998486@ovirt.org
+UID:2022-06-16T08:19:43+00:00_169553823@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephen Gallagher. As you may or may not be aware\, Fe
@@ -2665,7 +2665,7 @@ DTSTART:20140201T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Fedora.next\: developing the Fedora server\, workstation and cloud
-UID:2022-06-16T08:19:43+00:00_877063876@ovirt.org
+UID:2022-06-16T08:19:43+00:00_781003015@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christophe Fergeau\, Pau Garcia i Quiles\, Philippe Ca
@@ -2679,7 +2679,7 @@ DTSTART:20140201T095500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Desktops DevRoom opening
-UID:2022-06-16T08:19:43+00:00_920101198@ovirt.org
+UID:2022-06-16T08:19:43+00:00_344373586@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. With kdbus we move the D-Bus IPC s
@@ -2691,7 +2691,7 @@ DTSTART:20140201T114500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Anatomy of kdbus
-UID:2022-06-16T08:19:43+00:00_536301133@ovirt.org
+UID:2022-06-16T08:19:43+00:00_156468143@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Marek Hulán. In this talk I’d like to show a live demo
@@ -2704,7 +2704,7 @@ DTSTART:20140201T153000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Foreman integration with Chef (and others)
-UID:2022-06-16T08:19:43+00:00_873021683@ovirt.org
+UID:2022-06-16T08:19:43+00:00_516042113@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tom Callaway. Recently\, Cisco released a software com
@@ -2721,7 +2721,7 @@ DTSTART:20140201T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Patents\, Free Software & standards (oh my!)
-UID:2022-06-16T08:19:43+00:00_144625707@ovirt.org
+UID:2022-06-16T08:19:43+00:00_261077901@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stefano Zacchiroli\, Karen Sandler\, Christopher Webbe
@@ -2739,7 +2739,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Open source governance best practices roundtable\: query panelists 
  for their best ideas on Open Source governance
-UID:2022-06-16T08:19:43+00:00_808412705@ovirt.org
+UID:2022-06-16T08:19:43+00:00_496643920@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eike Rathke. ODF 1.2\, additionally to the fo:language
@@ -2754,7 +2754,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:How to squeeze a language tag into a locale\: what you need to know
   about BCP 47 language tags in your ODF editor.
-UID:2022-06-16T08:19:43+00:00_538599@ovirt.org
+UID:2022-06-16T08:19:43+00:00_604984833@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephan Bergmann. Advances in C++ have gathered moment
@@ -2770,7 +2770,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:LO++14\: how to make use of 21st century C++ in LibreOffice develop
  ment
-UID:2022-06-16T08:19:43+00:00_509363475@ovirt.org
+UID:2022-06-16T08:19:43+00:00_773925128@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Geoffrey De Smet. Some scientific research problems in
@@ -2787,7 +2787,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Solving NP-complete problems with metaheuristics\: an introduction 
  to Tabu search\, simulated annealing and late acceptance
-UID:2022-06-16T08:19:43+00:00_107471402@ovirt.org
+UID:2022-06-16T08:19:43+00:00_865199501@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Soumya Deb. Starting with pdf.js\, spiraling around sh
@@ -2803,7 +2803,7 @@ DTSTART:20140201T133000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:JavaScript for the skeptics
-UID:2022-06-16T08:19:43+00:00_491858884@ovirt.org
+UID:2022-06-16T08:19:43+00:00_646212206@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Haley\, Andrew Dinn. Red Hat’s project of porti
@@ -2819,7 +2819,7 @@ DTSTART:20140201T103000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenJDK on AArch64 update
-UID:2022-06-16T08:19:43+00:00_196516206@ovirt.org
+UID:2022-06-16T08:19:43+00:00_361450224@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Kennke. Current garbage collectors for OpenJDK a
@@ -2835,7 +2835,7 @@ DTSTART:20140201T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Shenandoah - an ultra-low pause-time GC for OpenJDK
-UID:2022-06-16T08:19:43+00:00_622880957@ovirt.org
+UID:2022-06-16T08:19:43+00:00_120553456@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter. Write once run anywhere is both a bles
@@ -2853,7 +2853,7 @@ DTSTART:20140201T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The Java native runtime
-UID:2022-06-16T08:19:43+00:00_634955847@ovirt.org
+UID:2022-06-16T08:19:43+00:00_900192650@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre. Thermostat is an awesome platform with th
@@ -2867,7 +2867,7 @@ DTSTART:20140201T163000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Thermostat 1.0\, two years of awesomness and beyond
-UID:2022-06-16T08:19:43+00:00_663479760@ovirt.org
+UID:2022-06-16T08:19:43+00:00_199266432@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Reinhold\, Andrew Haley\, Georges Saab\, Doug Lea
@@ -2878,7 +2878,7 @@ DTSTART:20140201T170000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenJDK governing board Q&A panel session
-UID:2022-06-16T08:19:43+00:00_615664465@ovirt.org
+UID:2022-06-16T08:19:43+00:00_774229932@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Pavel Zhukov. This presentation explains and demonstra
@@ -2890,7 +2890,7 @@ DTSTART:20140201T170000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Ada in Fedora Linux
-UID:2022-06-16T08:19:43+00:00_584927114@ovirt.org
+UID:2022-06-16T08:19:43+00:00_344603444@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ric Wheeler. Persistent memory parts have roughly the 
@@ -2908,7 +2908,7 @@ DTSTART:20140202T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Persistent memory\: changing the way we store data
-UID:2022-06-16T08:19:43+00:00_558570584@ovirt.org
+UID:2022-06-16T08:19:43+00:00_203132787@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nuno Diegues\, Torvald Riegel. This talk will present 
@@ -2922,7 +2922,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Concurrent programming made simple\: the (r)evolution of transactio
  nal memory
-UID:2022-06-16T08:19:43+00:00_840762834@ovirt.org
+UID:2022-06-16T08:19:43+00:00_535472001@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Richard Jones. Libguestfs (http://libguestfs.org) is a
@@ -2933,13 +2933,13 @@ DESCRIPTION:Speaker: Richard Jones. Libguestfs (http://libguestfs.org) is a
  econds using virt-builder\, how to really compress disk imagesusing virt-sp
  arsify and xz. and “sysprepping” using virt-sysprep.
 DTEND:20140202T151500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Advanced disk image management with libguestfs\: libguestfs\, virt-
  builder\, virt-sparsify and more
-UID:2022-06-16T08:19:43+00:00_765872073@ovirt.org
+UID:2022-06-16T08:19:44+00:00_650188924@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. This talk will be a whirlwind tour around 
@@ -2949,13 +2949,13 @@ DESCRIPTION:Speaker: Dave Neary. This talk will be a whirlwind tour around
  n commodityhardware\, in a couple of hours\, covering virt\, storage\, IaaS
   and PaaS.
 DTEND:20140202T163500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T162000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Your complete Open Source cloud\: mixing oVirt\, OpenStack\, OpenSh
  ift and Gluster for a full private cloud
-UID:2022-06-16T08:19:43+00:00_92183693@ovirt.org
+UID:2022-06-16T08:19:44+00:00_374898473@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Omer Frenkel. Getting cross-platform: bringing virtual
@@ -2982,13 +2982,13 @@ DESCRIPTION:Speaker: Omer Frenkel. Getting cross-platform: bringing virtual
  in data-center virtualization ingeneral and ovirt-engine specifically\, and
   this latest PPC supporteffort it brings.
 DTEND:20140202T100000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T092000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Getting cross-platform\: bringing virtualization management to the 
  PPC world
-UID:2022-06-16T08:19:43+00:00_767166357@ovirt.org
+UID:2022-06-16T08:19:44+00:00_543376884@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mike Kolesnik. As the prominent open-source data cente
@@ -3001,13 +3001,13 @@ DESCRIPTION:Speaker: Mike Kolesnik. As the prominent open-source data cente
  s session to learn how you canleverage oVirt to suit your virtualization ne
  eds.
 DTEND:20140202T112000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T104000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Expanding oVirt's horizons\: how to extends and modify oVirt even f
  urther
-UID:2022-06-16T08:19:43+00:00_383017803@ovirt.org
+UID:2022-06-16T08:19:44+00:00_520998478@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Doron Fediuck. For several years now\, oVirt manages V
@@ -3020,12 +3020,12 @@ DESCRIPTION:Speaker: Doron Fediuck. For several years now\, oVirt manages V
  icalserver (or even two)\, while allowing standard flows to run the same wa
  ythey did in the past years.
 DTEND:20140202T120000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T112000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt Hosted Engine\: the egg that hosts its parent chicken
-UID:2022-06-16T08:19:43+00:00_700524224@ovirt.org
+UID:2022-06-16T08:19:44+00:00_564556769@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Assaf Muller. Join me for an architectural\, developer
@@ -3053,13 +3053,13 @@ DESCRIPTION:Speaker: Assaf Muller. Join me for an architectural\, developer
  learning about newnetworking concepts - Minimal background knowledge will b
  e assumed.
 DTEND:20140202T132000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T124000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Tunnels as a connectivity and segregation solution for virtualized 
  networks
-UID:2022-06-16T08:19:43+00:00_56288077@ovirt.org
+UID:2022-06-16T08:19:44+00:00_552424007@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mike Kolesnik. As the prominent open-source data cente
@@ -3073,13 +3073,13 @@ DESCRIPTION:Speaker: Mike Kolesnik. As the prominent open-source data cente
  nd see theroad-map to future network virtualization in the Data Center\, al
  l usingopen source enterprise-grade software.
 DTEND:20140202T160000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T152000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Bring your virtualized networking stack to the next level\: oVirt &
   OpenStack Neutron integration
-UID:2022-06-16T08:19:43+00:00_693380556@ovirt.org
+UID:2022-06-16T08:19:44+00:00_722729837@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nicolas Dandrimont\, Pierre-Yves Chibon. Fedmsg\, the 
@@ -3097,12 +3097,12 @@ DESCRIPTION:Speaker: Nicolas Dandrimont\, Pierre-Yves Chibon. Fedmsg\, the
  de during those deployments. We will also present theapplications being dev
  eloped around the bus\, as well as some ideas forfuture ones.
 DTEND:20140202T135000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:See your project pulse in real-time with Fedmsg
-UID:2022-06-16T08:19:43+00:00_617691824@ovirt.org
+UID:2022-06-16T08:19:44+00:00_230919167@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andreas Schneider. Testing network applications correc
@@ -3110,12 +3110,12 @@ DESCRIPTION:Speaker: Andreas Schneider. Testing network applications correc
  onment for client and servertesting on a single host\, complete with synthe
  tic account information\,hostname resolution and privilege separation.
 DTEND:20140202T112000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T103000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:cwrap - the libc wrapper project
-UID:2022-06-16T08:19:43+00:00_976485943@ovirt.org
+UID:2022-06-16T08:19:44+00:00_265334513@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vadim Rutkovsky. We are a group of engineers from Red 
@@ -3124,23 +3124,23 @@ DESCRIPTION:Speaker: Vadim Rutkovsky. We are a group of engineers from Red
  application testing\,discuss testing tools and overall influence of quality
   engineers on opensource software development process.
 DTEND:20140202T122000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Standalone applications testing and automation
-UID:2022-06-16T08:19:43+00:00_570029166@ovirt.org
+UID:2022-06-16T08:19:44+00:00_316301449@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Greg Sutcliffe. A look at how Foreman uses automation 
  internally to handle testing andrelease management.
 DTEND:20140202T135000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Automation in the Foreman infrastructure\: a user success story
-UID:2022-06-16T08:19:43+00:00_292339005@ovirt.org
+UID:2022-06-16T08:19:44+00:00_772874963@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roland Grunberg. For developers it can often be a bit 
@@ -3151,13 +3151,13 @@ DESCRIPTION:Speaker: Roland Grunberg. For developers it can often be a bit
   is aimed at people of varying experience with the Valgrindtool who have ne
  ver used it within the Eclipse IDE.
 DTEND:20140202T092500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Valgrind support in the Eclipse IDE\: an overview of the Eclipse Va
  lgrind plugin provided by the Linux tools project
-UID:2022-06-16T08:19:43+00:00_126638437@ovirt.org
+UID:2022-06-16T08:19:44+00:00_223994777@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Miroslav Franc. Valgrind is a tool that can be used fo
@@ -3167,12 +3167,12 @@ DESCRIPTION:Speaker: Miroslav Franc. Valgrind is a tool that can be used fo
  ng to achieve - whatbugs I often hit - ideas I have for improvement - Q/A +
   Discussion(perhaps how to work closely with upstream)
 DTEND:20140202T095500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Testing of Valgrind RPMs in RHEL
-UID:2022-06-16T08:19:43+00:00_687290029@ovirt.org
+UID:2022-06-16T08:19:44+00:00_43588945@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Pedro Alves. In this talk I’ll present an overview of 
@@ -3184,13 +3184,13 @@ DESCRIPTION:Speaker: Pedro Alves. In this talk I’ll present an overview of
  l vs remote feature parity  all-stop vs non-stop modes  multi-process debug
  ging  multi-target projects  reverse debugging
 DTEND:20140202T142500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:GDB\, so where are we now? (status of GDB's ongoing target and run 
  control projects)
-UID:2022-06-16T08:19:43+00:00_510192518@ovirt.org
+UID:2022-06-16T08:19:44+00:00_852422283@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tom Tromey. Given the current state of Valgrind and GD
@@ -3199,13 +3199,13 @@ DESCRIPTION:Speaker: Tom Tromey. Given the current state of Valgrind and GD
  on each side. Come andhelp us brainstorm some crazy and fun ways to make th
  e Valgrind/GDBcombo even cooler and more powerful.
 DTEND:20140202T152500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:BoF\: Valgrind and GDB integration (crazy and fun ways to make the 
  Valgrind/GDB combo more powerful)
-UID:2022-06-16T08:19:43+00:00_865065614@ovirt.org
+UID:2022-06-16T08:19:44+00:00_56228502@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Wielaard. Valgrind developers and users are encou
@@ -3213,13 +3213,13 @@ DESCRIPTION:Speaker: Mark Wielaard. Valgrind developers and users are encou
  e discussion. And of courseby kindly (or bitterly:) complain about bugs you
   find important that arestill Not YET solved since that many years !?@^!!!
 DTEND:20140202T164500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20140202T153000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:BoF\: ideas\, new features and directions for Valgrind (open discus
  sion about small (or big) ideas to improve or change Valgrind.)
-UID:2022-06-16T08:19:43+00:00_365701034@ovirt.org
+UID:2022-06-16T08:19:44+00:00_349272196@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The Free and Open source Software Developers’ European Meeting 
@@ -3232,29 +3232,29 @@ DTSTART:20140201
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FOSDEM
-UID:2022-06-16T08:19:43+00:00_956900985@ovirt.org
+UID:2022-06-16T08:19:43+00:00_917504351@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hervé Lemaitre. Hervé Lemaitre explains how Red Hat bu
  ilds on the power of open sourcecommunities like OpenStack\, oVirt and Glus
  ter to deliver an open hybridcloud to its customers.
 DTEND:20131003T161500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20131003T161500Z
 LOCATION:Paris
 SEQUENCE:0
 SUMMARY:Building an open hybrid cloud with open source
-UID:2022-06-16T08:19:43+00:00_67751687@ovirt.org
+UID:2022-06-16T08:19:44+00:00_560384298@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Hardy. Orchestration on OpenStack.
 DTEND:20131004T094500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20131004T094500Z
 LOCATION:Paris
 SEQUENCE:0
 SUMMARY:Orchestration on OpenStack
-UID:2022-06-16T08:19:43+00:00_723672514@ovirt.org
+UID:2022-06-16T08:19:44+00:00_763534348@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Remi Collet. Les Softwares Collections sont une nouvel
@@ -3265,12 +3265,12 @@ DESCRIPTION:Speaker: Remi Collet. Les Softwares Collections sont une nouvel
  5\, MySQL 5.5 sur RHEL-6)  RHSCL : support officiel par Red Hat pour sa dis
  tribution entreprise.
 DTEND:20131004T094500Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20131004T094500Z
 LOCATION:Paris
 SEQUENCE:0
 SUMMARY:Introduction aux Software Collections
-UID:2022-06-16T08:19:43+00:00_86474973@ovirt.org
+UID:2022-06-16T08:19:44+00:00_333208302@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. Dave Neary has been active in free and ope
@@ -3280,23 +3280,23 @@ DESCRIPTION:Speaker: Dave Neary. Dave Neary has been active in free and ope
  luding oVirt\, RDO\, a distributionof OpenStack for Red Hat based operating
   systems\, Gluster and Fedora.
 DTEND:20131004T105000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20131004T105000Z
 LOCATION:Paris
 SEQUENCE:0
 SUMMARY:Open Hybrid Cloud - Virt\, IaaS\, PaaS - oh\, my!
-UID:2022-06-16T08:19:43+00:00_600058207@ovirt.org
+UID:2022-06-16T08:19:44+00:00_642558058@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Michel Isnard. Restitution partielle des Etats Générau
  x de l’Open Source.
 DTEND:20131004T164000Z
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20131004T164000Z
 LOCATION:Paris
 SEQUENCE:0
 SUMMARY:Restitution partielle des Etats Généraux de l'Open Source
-UID:2022-06-16T08:19:43+00:00_243561079@ovirt.org
+UID:2022-06-16T08:19:44+00:00_282958888@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. Dave Neary will present during this worksh
@@ -3311,18 +3311,18 @@ DTSTART:20131005T153000Z
 LOCATION:Paris
 SEQUENCE:0
 SUMMARY:Open Source Parenting
-UID:2022-06-16T08:19:44+00:00_388067928@ovirt.org
+UID:2022-06-16T08:19:44+00:00_47445706@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The first free and open source european forum.For more informat
  ion check out the website athttp://www.openworldforum.org/en/
 DTEND:20131006
-DTSTAMP:20220616T081943Z
+DTSTAMP:20220616T081944Z
 DTSTART:20131003
 LOCATION:Paris
 SEQUENCE:0
 SUMMARY:Open World forum
-UID:2022-06-16T08:19:43+00:00_739935195@ovirt.org
+UID:2022-06-16T08:19:44+00:00_42436749@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jeff Darcy and Dan Macpherson will both be presenting at the Cl
@@ -3341,7 +3341,7 @@ DTSTART:20130128
 LOCATION:Canberra\, Australia
 SEQUENCE:0
 SUMMARY:linux.conf.au
-UID:2022-06-16T08:19:44+00:00_961393124@ovirt.org
+UID:2022-06-16T08:19:44+00:00_411623395@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. How can you mix traditional virtualization
@@ -3355,7 +3355,7 @@ LOCATION:Grenoble\, France
 SEQUENCE:0
 SUMMARY:Faire cohabiter la virtualization traditionnel et IaaS avec oVirt e
  t OpenStack
-UID:2022-06-16T08:19:44+00:00_797656352@ovirt.org
+UID:2022-06-16T08:19:44+00:00_564344618@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:For more information\, check out the website athttp://www.meetu
@@ -3366,7 +3366,7 @@ DTSTART:20130415
 LOCATION:Grenoble\, France
 SEQUENCE:0
 SUMMARY:OpenStack Rhône-Alpes meet-up #1
-UID:2022-06-16T08:19:44+00:00_648981059@ovirt.org
+UID:2022-06-16T08:19:44+00:00_527363099@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. Red Hat products are built on open source 
@@ -3388,7 +3388,7 @@ LOCATION:Boston\, MA
 SEQUENCE:0
 SUMMARY:Community Catalysts\: The Value of Open Source Community Developmen
  t
-UID:2022-06-16T08:19:44+00:00_11632219@ovirt.org
+UID:2022-06-16T08:19:44+00:00_547045861@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:For more information\, check out the website athttp://redhat.co
@@ -3399,7 +3399,7 @@ DTSTART:20130611
 LOCATION:Boston\, MA
 SEQUENCE:0
 SUMMARY:Red Hat Summit
-UID:2022-06-16T08:19:44+00:00_969562299@ovirt.org
+UID:2022-06-16T08:19:44+00:00_894102983@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:oVirt workshops focus on introducing the project\, the technolo
@@ -3415,7 +3415,7 @@ DTSTART:20130122
 LOCATION:Sunnyvale\, California\, US
 SEQUENCE:0
 SUMMARY:oVirt Workshop at NetApp
-UID:2022-06-16T08:19:44+00:00_177350659@ovirt.org
+UID:2022-06-16T08:19:44+00:00_900791069@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hans de Goede. This talk gives an overview on the stat
@@ -3442,7 +3442,7 @@ DTSTART:20130202T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:QEMU USB status report 2012
-UID:2022-06-16T08:19:44+00:00_351200494@ovirt.org
+UID:2022-06-16T08:19:44+00:00_936788439@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. Personas were made famous by Alan Moore in
@@ -3460,7 +3460,7 @@ DTSTART:20130202T111500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Using Personas to Target Users
-UID:2022-06-16T08:19:44+00:00_437193156@ovirt.org
+UID:2022-06-16T08:19:44+00:00_625915605@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mikołaj Izdebski and Stanislav Ochotnický. Java packag
@@ -3482,7 +3482,7 @@ DTSTART:20130202T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:(R)evolution of Java Packaging in GNU/Linux
-UID:2022-06-16T08:19:44+00:00_965407258@ovirt.org
+UID:2022-06-16T08:19:44+00:00_142316474@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Federico Simoncelli. Live storage migration\, one of t
@@ -3498,7 +3498,7 @@ DTSTART:20130202T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt Live Storage Migration -- Under The Hood
-UID:2022-06-16T08:19:44+00:00_600501584@ovirt.org
+UID:2022-06-16T08:19:44+00:00_244956945@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Haley and Andrew Dinn. ARM’s new\, 64 bit ARMv8
@@ -3530,7 +3530,7 @@ DTSTART:20130202T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Porting OpenJDK to AArch64
-UID:2022-06-16T08:19:44+00:00_589081942@ovirt.org
+UID:2022-06-16T08:19:44+00:00_517536919@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Radek Pazdera. In this presentation\, we would like to
@@ -3552,7 +3552,7 @@ DTSTART:20130202T132000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:LNST - Automated and Portable Network Tests
-UID:2022-06-16T08:19:44+00:00_881166885@ovirt.org
+UID:2022-06-16T08:19:44+00:00_173364020@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Doron Fediuck. Maintaining QoS in cloud computing requ
@@ -3569,7 +3569,7 @@ DTSTART:20130202T133000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:MoM as host level enforcement agent
-UID:2022-06-16T08:19:44+00:00_259914903@ovirt.org
+UID:2022-06-16T08:19:44+00:00_904509092@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Doron Fediuck. This session will provide an intro to t
@@ -3589,7 +3589,7 @@ DTSTART:20130202T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt introduction
-UID:2022-06-16T08:19:44+00:00_557107184@ovirt.org
+UID:2022-06-16T08:19:44+00:00_466675731@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Kennke. Since mid-2011 (when Gary Benson\, the o
@@ -3613,7 +3613,7 @@ DTSTART:20130202T144000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Return of the Shark
-UID:2022-06-16T08:19:44+00:00_798620732@ovirt.org
+UID:2022-06-16T08:19:44+00:00_536165189@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Leslie Hawthorn (with Lydia Pintscher\, KDE & Wikimedi
@@ -3636,7 +3636,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Community Management in Meatspace\: Techniques for Discussion & Ach
  ieving Consensus
-UID:2022-06-16T08:19:44+00:00_229097276@ovirt.org
+UID:2022-06-16T08:19:44+00:00_225137709@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Doron Fediuck. GlusterFS is a distributed file system 
@@ -3654,7 +3654,7 @@ DTSTART:20130202T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt and GlusterFS integration
-UID:2022-06-16T08:19:44+00:00_994525799@ovirt.org
+UID:2022-06-16T08:19:44+00:00_227338297@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Florian Weimer. This presentation examines current cha
@@ -3670,7 +3670,7 @@ DTSTART:20130202T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Trends in Open Source Security
-UID:2022-06-16T08:19:44+00:00_246118894@ovirt.org
+UID:2022-06-16T08:19:44+00:00_5165289@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Simo Sorce. How do you build a comprehensive and coher
@@ -3690,7 +3690,7 @@ DTSTART:20130202T160000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:How to build an Identity Management System on Linux
-UID:2022-06-16T08:19:44+00:00_812867611@ovirt.org
+UID:2022-06-16T08:19:44+00:00_182785215@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Oved Ourfali. In this presentation I’ll describe some 
@@ -3704,7 +3704,7 @@ DTSTART:20130202T163000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Supporting and Using EC2/CIMI on top of Cloud Environments
-UID:2022-06-16T08:19:44+00:00_477486979@ovirt.org
+UID:2022-06-16T08:19:44+00:00_471350951@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Haley (with Mark Reinhold\, Georges Saab and Do
@@ -3715,7 +3715,7 @@ DTSTART:20130202T172500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenJDK Governing Board Q&A
-UID:2022-06-16T08:19:44+00:00_258289402@ovirt.org
+UID:2022-06-16T08:19:44+00:00_336664407@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Oved Ourfali. In this presentation I’ll show how one c
@@ -3728,7 +3728,7 @@ DTSTART:20130202T173000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Using Foreman from the oVirt-engine Administrator UI
-UID:2022-06-16T08:19:44+00:00_258406574@ovirt.org
+UID:2022-06-16T08:19:44+00:00_955196645@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark McLoughlin. The advent of IaaS has brought about 
@@ -3747,7 +3747,7 @@ DTSTART:20130203T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenStack\: 21st Century App Architecture and Cloud Operations
-UID:2022-06-16T08:19:44+00:00_469481596@ovirt.org
+UID:2022-06-16T08:19:44+00:00_9007943@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter. A tale of sadness and a tale of joy: t
@@ -3764,7 +3764,7 @@ DTSTART:20130203T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Invokedynamic\: Tales from the Trenches
-UID:2022-06-16T08:19:44+00:00_822423113@ovirt.org
+UID:2022-06-16T08:19:44+00:00_492664651@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Greg Sutcliffe. The Foreman is adding a Metal-as-a-Ser
@@ -3776,7 +3776,7 @@ DTSTART:20130203T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Managing Your Metal Flexibly
-UID:2022-06-16T08:19:44+00:00_163473994@ovirt.org
+UID:2022-06-16T08:19:44+00:00_824614654@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. The systemd project is now two yea
@@ -3790,7 +3790,7 @@ DTSTART:20130203T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:systemd\, Two Years Later
-UID:2022-06-16T08:19:44+00:00_887219778@ovirt.org
+UID:2022-06-16T08:19:44+00:00_908924982@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Michal Fojtik. Deltacloud API prevents you from cloud 
@@ -3804,7 +3804,7 @@ DTSTART:20130203T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Apache Deltacloud API v1.0
-UID:2022-06-16T08:19:44+00:00_906081243@ovirt.org
+UID:2022-06-16T08:19:44+00:00_772313954@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre and Roman Kennke. Last year\, we shared wi
@@ -3830,7 +3830,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Thermostat\: The road from 0.1 to 1.0\, a success story (in progres
  s)
-UID:2022-06-16T08:19:44+00:00_765965227@ovirt.org
+UID:2022-06-16T08:19:44+00:00_742898853@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Xavier Coulon. So\, you have a crazy new idea you’d li
@@ -3847,7 +3847,7 @@ DTSTART:20130203T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Build and deploy your app on your own cloud with OpenShift Origin
-UID:2022-06-16T08:19:44+00:00_118518035@ovirt.org
+UID:2022-06-16T08:19:44+00:00_536076337@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephan Bergmann. In the LibreOffice component archite
@@ -3864,7 +3864,7 @@ DTSTART:20130203T120000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Well-typed UNO
-UID:2022-06-16T08:19:44+00:00_487229000@ovirt.org
+UID:2022-06-16T08:19:44+00:00_252717273@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Martyn Taylor. In a world where Cloud IaaS providers a
@@ -3887,7 +3887,7 @@ DTSTART:20130203T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Image management in a federated cloud environment
-UID:2022-06-16T08:19:44+00:00_411781381@ovirt.org
+UID:2022-06-16T08:19:44+00:00_398634022@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eike Rathke. During the development cycle of LibreOffi
@@ -3902,7 +3902,7 @@ DTSTART:20130203T132000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Language tags — or\, what is BCP 47 and why would we want it
-UID:2022-06-16T08:19:44+00:00_835903583@ovirt.org
+UID:2022-06-16T08:19:44+00:00_972660798@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tomas Sedovic. Deploying complex systems on OpenStack 
@@ -3925,7 +3925,7 @@ DTSTART:20130203T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Orchestrating complex deployments on OpenStack using Heat
-UID:2022-06-16T08:19:44+00:00_476044075@ovirt.org
+UID:2022-06-16T08:19:44+00:00_280281306@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Paolo Bonzini & Marc-André Lureau. Many GNU/Linux dist
@@ -3945,7 +3945,7 @@ DTSTART:20130203T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Wine BoF on msitools
-UID:2022-06-16T08:19:44+00:00_240187039@ovirt.org
+UID:2022-06-16T08:19:44+00:00_734662273@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eoghan Glynn. Ceilometer is an OpenStack incubated pro
@@ -3962,7 +3962,7 @@ DTSTART:20130203T153000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Measuring OpenStack\: the Ceilometer Project
-UID:2022-06-16T08:19:44+00:00_541806773@ovirt.org
+UID:2022-06-16T08:19:44+00:00_921324099@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Debarshi Ray. Photos is an application to access\, org
@@ -3978,7 +3978,7 @@ DTSTART:20130203T154000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Introducing GNOME Photos
-UID:2022-06-16T08:19:44+00:00_498055282@ovirt.org
+UID:2022-06-16T08:19:44+00:00_605129852@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Leslie Hawthorn. Whilst the mantra of free and open so
@@ -3998,7 +3998,7 @@ DTSTART:20130203T160000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The Keeper of Secrets
-UID:2022-06-16T08:19:44+00:00_519705782@ovirt.org
+UID:2022-06-16T08:19:44+00:00_735394566@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The Free and Open source Software Developers’ European Meeting 
@@ -4011,7 +4011,7 @@ DTSTART:20130202
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FOSDEM
-UID:2022-06-16T08:19:44+00:00_237343491@ovirt.org
+UID:2022-06-16T08:19:44+00:00_342958780@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Joe Brockmeier. George R. R. Martin’s “A Song of Ice a
@@ -4028,7 +4028,7 @@ DTSTART:20130918T040000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Everything I Know About the Cloud\, I Learned From Game of Thrones
-UID:2022-06-16T08:19:44+00:00_434164092@ovirt.org
+UID:2022-06-16T08:19:44+00:00_719483622@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: John Mark Walker. Cloud computing as an industry pheno
@@ -4046,7 +4046,7 @@ DTSTART:20130916T003500Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:It Was Never About Innovation
-UID:2022-06-16T08:19:44+00:00_942114823@ovirt.org
+UID:2022-06-16T08:19:44+00:00_417166161@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Wagner. Review performance and scale testing of O
@@ -4062,7 +4062,7 @@ DTSTART:20130916T013500Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:OpenStack Performance & Scale
-UID:2022-06-16T08:19:44+00:00_74757621@ovirt.org
+UID:2022-06-16T08:19:44+00:00_903399375@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. Resource management is highly rele
@@ -4084,7 +4084,7 @@ DTSTART:20130916T051000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Resource Management with Systemd
-UID:2022-06-16T08:19:44+00:00_936647315@ovirt.org
+UID:2022-06-16T08:19:44+00:00_672181996@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Dake. OpenStack Heat provides autoscaling funct
@@ -4099,7 +4099,7 @@ DTSTART:20130916T061000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Using OpenStack Heat Autoscaling
-UID:2022-06-16T08:19:44+00:00_798164510@ovirt.org
+UID:2022-06-16T08:19:44+00:00_872780478@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tejun Heo. With even small devices having multi-core p
@@ -4116,7 +4116,7 @@ DTSTART:20130916T061000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Per-CPU Facilities in the Linux Kernel
-UID:2022-06-16T08:19:44+00:00_732602852@ovirt.org
+UID:2022-06-16T08:19:44+00:00_726314434@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tom Callaway. Fedora has a commitment to Free Software
@@ -4133,7 +4133,7 @@ DTSTART:20130916T071000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Navigating the LEgal Minefields of Fedora
-UID:2022-06-16T08:19:44+00:00_523304446@ovirt.org
+UID:2022-06-16T08:19:44+00:00_3641763@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: . The talk will cover the FreeIPA and partially SSSD p
@@ -4147,7 +4147,7 @@ DTSTART:20130916T071000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Enterprise Identity Management with Open Source Tools
-UID:2022-06-16T08:19:44+00:00_562552209@ovirt.org
+UID:2022-06-16T08:19:44+00:00_358917522@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Greg Padgett. Maintaining QoS in cloud computing requi
@@ -4165,7 +4165,7 @@ DTSTART:20130917T014500Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Private Could SLA
-UID:2022-06-16T08:19:44+00:00_235599167@ovirt.org
+UID:2022-06-16T08:19:44+00:00_893925205@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Diane Mueller. It’s finally here! OpenShift is built o
@@ -4182,7 +4182,7 @@ DTSTART:20130917T051000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Build Your Own PaaS\, Just Like Red Hat's OpenShift
-UID:2022-06-16T08:19:44+00:00_273253033@ovirt.org
+UID:2022-06-16T08:19:44+00:00_220888359@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ruth Suehle. The Raspberry Pi was designed as an inexp
@@ -4202,7 +4202,7 @@ DTSTART:20130917T061000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Raspberry Pi\: Getting Started and Creative Applications
-UID:2022-06-16T08:19:44+00:00_130502097@ovirt.org
+UID:2022-06-16T08:19:44+00:00_394751475@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ric Wheeler. Managing storage resources in Linux has t
@@ -4221,7 +4221,7 @@ LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Storage Management\: Pulling Together Management Across the Cloud a
  nd Bare Metal
-UID:2022-06-16T08:19:44+00:00_210713235@ovirt.org
+UID:2022-06-16T08:19:44+00:00_696839433@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ric Wheeler\, Greg Kroah-Hartman. A roundtable discuss
@@ -4232,7 +4232,7 @@ DTSTART:20130917T233500Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Linux Kernel Developer Panel
-UID:2022-06-16T08:19:44+00:00_426478227@ovirt.org
+UID:2022-06-16T08:19:44+00:00_283935553@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Chris Wright. We take this opportunity at the CloudOpe
@@ -4250,7 +4250,7 @@ DTSTART:20130918T005000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:Clouds\, Virtualization and SDN Panel
-UID:2022-06-16T08:19:44+00:00_819463536@ovirt.org
+UID:2022-06-16T08:19:44+00:00_950694511@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gordon Haff. PaaS has rightly been celebrated as a way
@@ -4271,7 +4271,7 @@ DTSTART:20130918T040000Z
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:How Platform-as-a-Serivice Benefits More Than Developers
-UID:2022-06-16T08:19:44+00:00_377098456@ovirt.org
+UID:2022-06-16T08:19:44+00:00_216789104@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:LinuxCon is the Linux Foundation’s North American Linux confere
@@ -4285,7 +4285,7 @@ DTSTART:20130916
 LOCATION:New Orleans\, Louisiana\, USA
 SEQUENCE:0
 SUMMARY:LinuxCon North America
-UID:2022-06-16T08:19:44+00:00_946148719@ovirt.org
+UID:2022-06-16T08:19:44+00:00_920823533@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Arik Hadas. The oVirt Project is an open virtualizatio
@@ -4307,7 +4307,7 @@ DTSTART:20131021T110000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:RAM Snapshots in oVirt
-UID:2022-06-16T08:19:44+00:00_502682941@ovirt.org
+UID:2022-06-16T08:19:44+00:00_38831778@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Omer Frenkel. The oVirt Project is an open virtualizat
@@ -4326,7 +4326,7 @@ DTSTART:20131021T120000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:oVirt and Cloud-init Integration
-UID:2022-06-16T08:19:44+00:00_906215582@ovirt.org
+UID:2022-06-16T08:19:44+00:00_181861670@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Pavel Šimerda. People have benefited from using Networ
@@ -4346,7 +4346,7 @@ DTSTART:20131021T120000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Architectural Changes in NetworkManager
-UID:2022-06-16T08:19:44+00:00_265636773@ovirt.org
+UID:2022-06-16T08:19:44+00:00_440770757@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Livnat Peer. Have you ever wondered how KVM is used in
@@ -4365,7 +4365,7 @@ DTSTART:20131021T142000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Empowering Data Center Virtualization Using KVM
-UID:2022-06-16T08:19:44+00:00_306309789@ovirt.org
+UID:2022-06-16T08:19:44+00:00_727225413@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Theron Conrey. Converged infrastructure is an idea for
@@ -4387,7 +4387,7 @@ DTSTART:20131021T164000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Converged Infrastructure with Open Source
-UID:2022-06-16T08:19:44+00:00_423757134@ovirt.org
+UID:2022-06-16T08:19:44+00:00_461948855@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Shekhar Gulati. Time has come to start thinking about 
@@ -4409,7 +4409,7 @@ LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Thinking Beyond RDBMS\: Building Polyglot Persistence Java Applicat
  ions
-UID:2022-06-16T08:19:44+00:00_330332032@ovirt.org
+UID:2022-06-16T08:19:44+00:00_892060832@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gordon Haff. As an industry\, we’ve mostly moved on fr
@@ -4428,7 +4428,7 @@ DTSTART:20131022T111000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Controlling Clouds\: Beyond Safety
-UID:2022-06-16T08:19:44+00:00_648325527@ovirt.org
+UID:2022-06-16T08:19:44+00:00_316752812@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Kashyap Chamarthy. Nested Virtualzation involves three
@@ -4450,7 +4450,7 @@ DTSTART:20131022T111000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Notes on Taking KVM-on-KVM Nested Virtualization for a Spin
-UID:2022-06-16T08:19:44+00:00_814548404@ovirt.org
+UID:2022-06-16T08:19:44+00:00_616097342@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vijay Bellur. GlusterFS is a general purpose distribut
@@ -4468,7 +4468,7 @@ DTSTART:20131022T111000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:GlusterFS Architect & Roadmap
-UID:2022-06-16T08:19:44+00:00_277059164@ovirt.org
+UID:2022-06-16T08:19:44+00:00_620135136@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rich Wheeler. Linux is usually the first target for ve
@@ -4490,7 +4490,7 @@ LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Linux and New Storage Challenges\: Adapting to Faster and Larger St
  orage
-UID:2022-06-16T08:19:44+00:00_141983955@ovirt.org
+UID:2022-06-16T08:19:44+00:00_706354929@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ruth Suehle. The Raspberry Pi was designed as an inexp
@@ -4510,7 +4510,7 @@ DTSTART:20131022T121000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Raspberry Pi\: Getting Started and Creative Applications
-UID:2022-06-16T08:19:44+00:00_762845425@ovirt.org
+UID:2022-06-16T08:19:44+00:00_83329117@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. systemd-nspawn is a simple contain
@@ -4531,7 +4531,7 @@ DTSTART:20131022T155000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Systemd-Nspawn is Chroot on Steroids
-UID:2022-06-16T08:19:44+00:00_957753329@ovirt.org
+UID:2022-06-16T08:19:44+00:00_75062420@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Oved Ourfali. In this session i’ll provide different t
@@ -4547,7 +4547,7 @@ DTSTART:20131023T110500Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Scripting And Integration with the oVirt Engine
-UID:2022-06-16T08:19:44+00:00_763477648@ovirt.org
+UID:2022-06-16T08:19:44+00:00_856556025@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Price. Effectively expressing the nature of fil
@@ -4562,7 +4562,7 @@ DTSTART:20131023T120500Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:A Language for Enhancing File System Tests
-UID:2022-06-16T08:19:44+00:00_269641198@ovirt.org
+UID:2022-06-16T08:19:44+00:00_344788138@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Whitehouse. The GFS2 cluster filesystem has bee
@@ -4579,7 +4579,7 @@ DTSTART:20131023T120500Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Recent Developments in GFS2
-UID:2022-06-16T08:19:44+00:00_116388416@ovirt.org
+UID:2022-06-16T08:19:44+00:00_119656352@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: John Mark Walker. Cloud computing as an industry pheno
@@ -4597,7 +4597,7 @@ DTSTART:20131023T143000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:It was Never About Innovation
-UID:2022-06-16T08:19:44+00:00_931013575@ovirt.org
+UID:2022-06-16T08:19:44+00:00_581854426@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Shekhar Gulati. Should you learn a new skill set to de
@@ -4616,7 +4616,7 @@ DTSTART:20131023T165000Z
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:Make Your Mobile Web App Go Hybrid with Apache Cordova
-UID:2022-06-16T08:19:44+00:00_881032990@ovirt.org
+UID:2022-06-16T08:19:44+00:00_334466258@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:LinuxCon is the Linux Foundation’s European Linux conference\, 
@@ -4629,7 +4629,7 @@ DTSTART:20131021
 LOCATION:Edinburgh\, UK
 SEQUENCE:0
 SUMMARY:LinuxCon Europe
-UID:2022-06-16T08:19:44+00:00_801325270@ovirt.org
+UID:2022-06-16T08:19:44+00:00_244031844@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Ellis. We are potentially at an interesting tip
@@ -4651,7 +4651,7 @@ DTSTART:20170116T003000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Almost Open - Just close the door behind you
-UID:2022-06-16T08:19:44+00:00_278682728@ovirt.org
+UID:2022-06-16T08:19:44+00:00_478947063@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Pousty. Everybody cares about the place (they l
@@ -4676,7 +4676,7 @@ DTSTART:20170116T031000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Building My Own Little World with Open Data
-UID:2022-06-16T08:19:44+00:00_378219273@ovirt.org
+UID:2022-06-16T08:19:44+00:00_127551880@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Steven Ellis. Tips and tricks for both operators and d
@@ -4688,7 +4688,7 @@ DTSTART:20170116T045000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Turtles all the way down - Thin LVM + KVM tips and Tricks
-UID:2022-06-16T08:19:44+00:00_674389576@ovirt.org
+UID:2022-06-16T08:19:44+00:00_472919950@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rikki Endsley. Are you sick of seeing job listings cal
@@ -4709,7 +4709,7 @@ DTSTART:20170116T053500Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Mamas Don't Let Your Babies Grow Up to Be Rock Star Developers
-UID:2022-06-16T08:19:44+00:00_658097359@ovirt.org
+UID:2022-06-16T08:19:44+00:00_619476658@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jason Shepherd. Recent research by Chris Frohoff and G
@@ -4733,7 +4733,7 @@ DTSTART:20170117T001500Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Preventing Deserialization attacks in Java applications
-UID:2022-06-16T08:19:44+00:00_596317945@ovirt.org
+UID:2022-06-16T08:19:44+00:00_39012183@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Fraser Tweedale. This turbo talk will cover advances i
@@ -4744,7 +4744,7 @@ DTSTART:20170117T055000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:FreeIPA project update (turbo talk)
-UID:2022-06-16T08:19:44+00:00_295941370@ovirt.org
+UID:2022-06-16T08:19:44+00:00_927361156@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rikki Endsley. Whether you’re a layperson talking abou
@@ -4762,7 +4762,7 @@ DTSTART:20170117T055000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:A Layperson's Guide for Talking about Free Software Law
-UID:2022-06-16T08:19:44+00:00_277807392@ovirt.org
+UID:2022-06-16T08:19:44+00:00_519734642@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Richard Fontana. During the past few years\, some have
@@ -4782,7 +4782,7 @@ DTSTART:20170118T022000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Why haven't you licensed your project?
-UID:2022-06-16T08:19:44+00:00_2021480@ovirt.org
+UID:2022-06-16T08:19:44+00:00_564268874@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nick Coghlan. For a long time\, the preferred approach
@@ -4806,7 +4806,7 @@ DTSTART:20170118T044000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Drink from the firehose\: release-monitoring.org
-UID:2022-06-16T08:19:44+00:00_936499149@ovirt.org
+UID:2022-06-16T08:19:44+00:00_954867051@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: David Airlie. OpenGL has long been the 3D API used on 
@@ -4822,7 +4822,7 @@ DTSTART:20170118T234000Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:The Vulkan Graphics API - what it means for Linux
-UID:2022-06-16T08:19:44+00:00_572385691@ovirt.org
+UID:2022-06-16T08:19:44+00:00_833528742@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: William Brown. Rust is a modern language developed by 
@@ -4849,7 +4849,7 @@ LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Getting into the Rusty Bucket - Lessons from Integrating Rust with 
  Existing C
-UID:2022-06-16T08:19:44+00:00_23909788@ovirt.org
+UID:2022-06-16T08:19:44+00:00_761554657@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: David Chinner. After I ran out of talent and had a hig
@@ -4875,7 +4875,7 @@ DTSTART:20170120T031500Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:Designing a Race Car with Open Source Tools
-UID:2022-06-16T08:19:44+00:00_335063780@ovirt.org
+UID:2022-06-16T08:19:44+00:00_141697720@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rikki Endsley. In 2016\, I adopted my first carnivorou
@@ -4898,7 +4898,7 @@ DTSTART:20170120T031500Z
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:The proper care and feeding of communities and carnivorous plants
-UID:2022-06-16T08:19:44+00:00_99526140@ovirt.org
+UID:2022-06-16T08:19:44+00:00_557499705@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:linux.conf.au is the largest linux and open source conference i
@@ -4914,7 +4914,7 @@ DTSTART:20170116
 LOCATION:Hobart\, Australia
 SEQUENCE:0
 SUMMARY:linux.conf.au
-UID:2022-06-16T08:19:44+00:00_515067850@ovirt.org
+UID:2022-06-16T08:19:44+00:00_86982562@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tom Callaway. Tom Callaway\, the Fedora Legal chair\, 
@@ -4930,7 +4930,7 @@ DTSTART:20170204T160500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:A discussion of Fedora's legal state\: this is why i drink.
-UID:2022-06-16T08:19:44+00:00_143844813@ovirt.org
+UID:2022-06-16T08:19:44+00:00_991190220@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre. Welcome to the Free Java DevRoom!
@@ -4940,7 +4940,7 @@ DTSTART:20170204T095500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Welcome!
-UID:2022-06-16T08:19:44+00:00_409488104@ovirt.org
+UID:2022-06-16T08:19:44+00:00_315146340@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Severin Gehwolf. Thermostat is a monitoring and manage
@@ -4970,7 +4970,7 @@ DTSTART:20170204T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Diagnosing issues in Java apps using Thermostat and byteman.
-UID:2022-06-16T08:19:44+00:00_753044976@ovirt.org
+UID:2022-06-16T08:19:44+00:00_723765515@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christine H Flood\, Roman Kennke. Garbage Collection (
@@ -4995,7 +4995,7 @@ DTSTART:20170204T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Shenandoah\: why do we need yet another garbage collector
-UID:2022-06-16T08:19:44+00:00_17578559@ovirt.org
+UID:2022-06-16T08:19:44+00:00_887573091@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter. Ruby’s Strings aggregate a collection 
@@ -5012,7 +5012,7 @@ DTSTART:20170204T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Ruby's strings and what Java can learn from them
-UID:2022-06-16T08:19:44+00:00_945066266@ovirt.org
+UID:2022-06-16T08:19:44+00:00_247058548@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christine H Flood.
@@ -5022,7 +5022,7 @@ DTSTART:20170204T160000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Helping Linux and Java play well together
-UID:2022-06-16T08:19:44+00:00_781685687@ovirt.org
+UID:2022-06-16T08:19:44+00:00_662177429@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Reinhold\, Mario Torre\, Andrew Haley\, Georges S
@@ -5034,7 +5034,7 @@ DTSTART:20170204T170000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenJDK governing board Q&A
-UID:2022-06-16T08:19:44+00:00_725032721@ovirt.org
+UID:2022-06-16T08:19:44+00:00_615502513@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Wielaard. gcc/glibc support fortification of some
@@ -5055,7 +5055,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Fortification vs memcheck\: making GCc/glibc fortification and Valg
  rind memcheck work better together
-UID:2022-06-16T08:19:44+00:00_688554478@ovirt.org
+UID:2022-06-16T08:19:44+00:00_514859975@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Wielaard. Come and hack on Valgrind together. Ope
@@ -5072,7 +5072,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Valgrind BoF and hackaton\: open discussion of IDEas for Valgrind -
   and then we hack!
-UID:2022-06-16T08:19:44+00:00_299670912@ovirt.org
+UID:2022-06-16T08:19:44+00:00_240735474@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Yaacov Zamir. There are many IoT dashboards out on the
@@ -5100,7 +5100,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Does your coffee machine speaks bocce\: teach your iot thing to spe
  ak modbus and it will not stop talking
-UID:2022-06-16T08:19:44+00:00_139138397@ovirt.org
+UID:2022-06-16T08:19:44+00:00_561444106@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lorenzo Mangani. HOMER 6 allows users to Export\, Anal
@@ -5115,7 +5115,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Rtc analytics with homer 6 + big-data\: export\, analyze and alert 
  rtc using homer and your favorite bigdata solution
-UID:2022-06-16T08:19:44+00:00_833942007@ovirt.org
+UID:2022-06-16T08:19:44+00:00_758119870@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter\, Thomas Enebo. JRuby has been compatib
@@ -5132,7 +5132,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:JRuby in 2017\: rails 5\, Ruby 2.4\, performance (we'll survey the 
  work going on to make JRuby more compatible and faster in 2017)
-UID:2022-06-16T08:19:44+00:00_418366560@ovirt.org
+UID:2022-06-16T08:19:44+00:00_652392703@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephan Bergmann. “But what about the extensions?” can
@@ -5147,7 +5147,7 @@ DTSTART:20170204T115000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Extensions\: ugly toupee or hipster hairdo?
-UID:2022-06-16T08:19:44+00:00_448310931@ovirt.org
+UID:2022-06-16T08:19:44+00:00_156306588@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Caolán McNamara.
@@ -5157,7 +5157,7 @@ DTSTART:20170204T131000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:LibreOffice on Wayland via gtk3
-UID:2022-06-16T08:19:44+00:00_944118493@ovirt.org
+UID:2022-06-16T08:19:44+00:00_731099566@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eike Rathke. Some examples of weird behavior encounter
@@ -5169,7 +5169,7 @@ DTSTART:20170204T151000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:What the cell?! (unexpected things happening under the grid.)
-UID:2022-06-16T08:19:44+00:00_418382126@ovirt.org
+UID:2022-06-16T08:19:44+00:00_597563793@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Matthieu Huin. This presentation shows the workflow cu
@@ -5182,7 +5182,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Rdo's continuous packaging platform\: how to continuously package O
  penStack (or other things) for CentOS
-UID:2022-06-16T08:19:44+00:00_605680132@ovirt.org
+UID:2022-06-16T08:19:44+00:00_459862692@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Petr Šabata\, Adam Samalik. Following the progress of 
@@ -5195,7 +5195,7 @@ DTSTART:20170204T133000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Modularity & generational core\: the future of Fedora?
-UID:2022-06-16T08:19:44+00:00_920561740@ovirt.org
+UID:2022-06-16T08:19:44+00:00_399725600@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Peter Robinson. Generic distributions such as Fedora\,
@@ -5210,7 +5210,7 @@ DTSTART:20170204T173000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Using a generic distro to redefine iot
-UID:2022-06-16T08:19:44+00:00_656165973@ovirt.org
+UID:2022-06-16T08:19:44+00:00_398490545@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: James Shubin. Next Generation Config MgmtA presentatio
@@ -5234,7 +5234,7 @@ DTSTART:20170204T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Next generation config management\: autonomous systems
-UID:2022-06-16T08:19:44+00:00_598930989@ovirt.org
+UID:2022-06-16T08:19:44+00:00_464020297@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Piotr Kliczewski. During this presentation we will see
@@ -5247,7 +5247,7 @@ DTSTART:20170204T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Managing container infrastructure
-UID:2022-06-16T08:19:44+00:00_917279571@ovirt.org
+UID:2022-06-16T08:19:44+00:00_369883430@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Adam Litke. In oVirt datacenter virtualization environ
@@ -5269,7 +5269,7 @@ DTSTART:20170204T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The next generation\: certainty in shared storage environments
-UID:2022-06-16T08:19:44+00:00_286838415@ovirt.org
+UID:2022-06-16T08:19:44+00:00_712617480@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Mohr. How do you integrate containers in your Ia
@@ -5286,7 +5286,7 @@ DTSTART:20170204T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Pet-VMs and containers united?
-UID:2022-06-16T08:19:44+00:00_546689804@ovirt.org
+UID:2022-06-16T08:19:44+00:00_940841242@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eduardo Habkost. QEMU is an open source machine emulat
@@ -5302,7 +5302,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:QEMU\: internal APIs and conflicting world views (how abstractions 
  inside QEMU (don't) work together)
-UID:2022-06-16T08:19:44+00:00_194288281@ovirt.org
+UID:2022-06-16T08:19:44+00:00_165108414@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rafael Martins. Lago is an ad-hoc virtual framework wh
@@ -5318,7 +5318,7 @@ DTSTART:20170204T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Improving your virtualization development workflow with lago
-UID:2022-06-16T08:19:44+00:00_455286611@ovirt.org
+UID:2022-06-16T08:19:44+00:00_527751826@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrea Arcangeli. Andrea will provide a high level per
@@ -5336,7 +5336,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:20 years of Linux virtual memory\: from simple server workloads to 
  cloud virtualization
-UID:2022-06-16T08:19:44+00:00_703975133@ovirt.org
+UID:2022-06-16T08:19:44+00:00_624515076@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Martin Sivák. The workloads and scenarios for virtual 
@@ -5363,7 +5363,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:VM\: hey VM\, can i share a host with you? (affinity rules in a vir
  tual cluster)
-UID:2022-06-16T08:19:44+00:00_5777523@ovirt.org
+UID:2022-06-16T08:19:44+00:00_425991704@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stefan Hajnoczi. The introduction of non-volatile memo
@@ -5384,7 +5384,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Using nvdimm under KVM\: applications of persistent memory in virtu
  alization
-UID:2022-06-16T08:19:44+00:00_378318355@ovirt.org
+UID:2022-06-16T08:19:44+00:00_285006185@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nathaniel McCallum. This talk covers an alternative to
@@ -5396,7 +5396,7 @@ DTSTART:20170205T120000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Securing automated decryption\: new cryptography and techniques
-UID:2022-06-16T08:19:44+00:00_265437914@ovirt.org
+UID:2022-06-16T08:19:44+00:00_495122705@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rich Bowen. Project documentation is so much more than
@@ -5412,7 +5412,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Write a better fm\: read the f* manual? maybe you need to write a b
  etter f* manual
-UID:2022-06-16T08:19:44+00:00_789721795@ovirt.org
+UID:2022-06-16T08:19:44+00:00_954759471@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Robert Kratky. How to turn legacy docs into user-story
@@ -5424,7 +5424,7 @@ DTSTART:20170205T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Bridging the gap between legacy docs and modular content
-UID:2022-06-16T08:19:44+00:00_385054019@ovirt.org
+UID:2022-06-16T08:19:44+00:00_79903292@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nikolai Kondrashov. Now\, when many IT-related service
@@ -5452,7 +5452,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:User session recording for the enterprise\: an open-source effort b
  y Red Hat
-UID:2022-06-16T08:19:44+00:00_161198345@ovirt.org
+UID:2022-06-16T08:19:44+00:00_845322646@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Anton Marchukov. Repoman is a tool developed in-house 
@@ -5467,7 +5467,7 @@ DTSTART:20170205T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Yet another repoman\: how we do ci at oVirt
-UID:2022-06-16T08:19:44+00:00_697005720@ovirt.org
+UID:2022-06-16T08:19:44+00:00_333143990@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephen Finucane. What does it take to implement conti
@@ -5483,7 +5483,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Mailing list\, meet CI\: combining patchwork and jenkins for fun an
  d profit
-UID:2022-06-16T08:19:44+00:00_514764093@ovirt.org
+UID:2022-06-16T08:19:44+00:00_812054392@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Daiki Ueno. On a cloud computing environment it is oft
@@ -5499,7 +5499,7 @@ DTSTART:20170205T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Smart card forwarding
-UID:2022-06-16T08:19:44+00:00_506322624@ovirt.org
+UID:2022-06-16T08:19:44+00:00_802101280@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hubert Kario. The Transport Layer Protocol is becoming
@@ -5514,7 +5514,7 @@ DTSTART:20170205T133000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Tls test framework
-UID:2022-06-16T08:19:44+00:00_965468924@ovirt.org
+UID:2022-06-16T08:19:44+00:00_813921917@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nathaniel McCallum. Increased uses of cryptography in 
@@ -5535,7 +5535,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Usable cryptography with josé\: c and command-line json object SIGn
  ing and encryption
-UID:2022-06-16T08:19:44+00:00_474377785@ovirt.org
+UID:2022-06-16T08:19:44+00:00_141185280@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Anton Marchukov. The world is not perfect and network 
@@ -5556,7 +5556,7 @@ DTSTART:20170205T123500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Do you want to retry? (handling and testing network failures)
-UID:2022-06-16T08:19:44+00:00_485063743@ovirt.org
+UID:2022-06-16T08:19:44+00:00_646811815@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Thiago Santos. This talk will explore how Mapbox GL Na
@@ -5571,7 +5571,7 @@ DTSTART:20170205T133000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Open source map rendering with mapbox gl native
-UID:2022-06-16T08:19:44+00:00_929277679@ovirt.org
+UID:2022-06-16T08:19:44+00:00_515636339@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andreas Nilsson. An important aspect of humane interfa
@@ -5590,7 +5590,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Interviews as user research\: how i built a public transportation U
  I using interviews
-UID:2022-06-16T08:19:44+00:00_927595840@ovirt.org
+UID:2022-06-16T08:19:44+00:00_294492079@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tomer Brisker. You think you hit a bug in open source 
@@ -5604,7 +5604,7 @@ DTSTART:20170205T091000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Getting your issues fixed
-UID:2022-06-16T08:19:44+00:00_137078241@ovirt.org
+UID:2022-06-16T08:19:44+00:00_331485660@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Proffitt. In this presentation\, Brian Proffitt 
@@ -5617,7 +5617,7 @@ DTSTART:20170205T102000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Mentoring 101\: how to be a great community mentor
-UID:2022-06-16T08:19:44+00:00_996102702@ovirt.org
+UID:2022-06-16T08:19:44+00:00_987872428@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dave Neary. We are all a product of our experiences. D
@@ -5631,7 +5631,7 @@ DTSTART:20170205T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Overcoming culture clash
-UID:2022-06-16T08:19:44+00:00_21779314@ovirt.org
+UID:2022-06-16T08:19:44+00:00_870647151@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dodji Seketeli.
@@ -5642,7 +5642,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:LLVM at Red Hat\: how and where is LLVM used in the Red Hat ecosyst
  em
-UID:2022-06-16T08:19:44+00:00_436942429@ovirt.org
+UID:2022-06-16T08:19:44+00:00_741529885@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Orit Wasserman. Ceph is a highly available distributed
@@ -5657,7 +5657,7 @@ DTSTART:20170205T084500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Introduction to Ceph cloud object storage
-UID:2022-06-16T08:19:44+00:00_434007957@ovirt.org
+UID:2022-06-16T08:19:44+00:00_840712969@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jose Rivera\, Mohamed Ashiq. While containers themselv
@@ -5671,7 +5671,7 @@ DTSTART:20170205T144500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Hyper-converged\, persistent storage for containers with GlusterFS
-UID:2022-06-16T08:19:44+00:00_51687849@ovirt.org
+UID:2022-06-16T08:19:44+00:00_321742525@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Orit Wasserman. Ceph is a highly available distributed
@@ -5685,7 +5685,7 @@ DTSTART:20170205T153000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Ceph weather report
-UID:2022-06-16T08:19:44+00:00_3059937@ovirt.org
+UID:2022-06-16T08:19:44+00:00_250809375@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Josh Berkus. Abstract: So you’ve containerized your ap
@@ -5698,7 +5698,7 @@ DTSTART:20170205T080000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Kubernetes 101\: orchestration doesn't have to be difficult
-UID:2022-06-16T08:19:44+00:00_728408409@ovirt.org
+UID:2022-06-16T08:19:44+00:00_200980911@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ratnadeep Debnath. Containers are great in terms of ap
@@ -5717,7 +5717,7 @@ DTSTART:20170205T085000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Taking containers from development to production
-UID:2022-06-16T08:19:44+00:00_845033769@ovirt.org
+UID:2022-06-16T08:19:44+00:00_443582604@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lalatendu Mohanty. OpenShift version 3 is an open-sour
@@ -5738,7 +5738,7 @@ DTSTART:20170205T114500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The easiest way to start developing with OpenShift
-UID:2022-06-16T08:19:44+00:00_376794730@ovirt.org
+UID:2022-06-16T08:19:44+00:00_628916911@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Bilgin Ibryam. Kubernetes is awesome! But what does it
@@ -5754,7 +5754,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Cloud native Java development\: patterns and principles for designi
  ng kubernetes applications
-UID:2022-06-16T08:19:44+00:00_395002454@ovirt.org
+UID:2022-06-16T08:19:44+00:00_204900760@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Julien Danjou. Gnocchi is a time series database writt
@@ -5771,7 +5771,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Storing metrics at scale with gnocchi\: the Python based time serie
  s database
-UID:2022-06-16T08:19:44+00:00_706004496@ovirt.org
+UID:2022-06-16T08:19:44+00:00_997421737@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Bouterse. When things go wrong in production\, i
@@ -5795,7 +5795,7 @@ DTSTART:20170205T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Debugging hung Python processes with GDB
-UID:2022-06-16T08:19:44+00:00_559456181@ovirt.org
+UID:2022-06-16T08:19:44+00:00_194146185@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Victor Stinner. Working on optimizations is a task mor
@@ -5818,7 +5818,7 @@ DTSTART:20170205T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:How to run a stable benchmark
-UID:2022-06-16T08:19:44+00:00_521996737@ovirt.org
+UID:2022-06-16T08:19:44+00:00_841309292@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ilya Etingof. The ASN.1technology will be briefly expl
@@ -5830,7 +5830,7 @@ DTSTART:20170205T153000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Introduction to pyasn1\: handling asn.1-based protocols in Python
-UID:2022-06-16T08:19:44+00:00_987449839@ovirt.org
+UID:2022-06-16T08:19:44+00:00_22157513@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:FOSDEM is a free event for software developers to meet\, share 
@@ -5844,7 +5844,7 @@ DTSTART:20170204
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FOSDEM
-UID:2022-06-16T08:19:44+00:00_522585780@ovirt.org
+UID:2022-06-16T08:19:44+00:00_459713713@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:DevConf.cz (Developer Conference) is a free annual conference f
@@ -5857,7 +5857,7 @@ DTSTART:20170127
 LOCATION:Brno\, Czech Republic
 SEQUENCE:0
 SUMMARY:DevConf.CZ
-UID:2022-06-16T08:19:44+00:00_567759648@ovirt.org
+UID:2022-06-16T08:19:44+00:00_519362080@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Freddy Rolland. The oVirt Project is an open virtualiz
@@ -5874,7 +5874,7 @@ LOCATION:MANCHESTER\, UNITED KINGDOM
 SEQUENCE:0
 SUMMARY:Open your Data Center - An Introduction to Open Source Virtualizati
  on with oVirt
-UID:2022-06-16T08:19:44+00:00_369968894@ovirt.org
+UID:2022-06-16T08:19:44+00:00_154849697@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:FLOSSUK have evolved into the UK’s primary support organisation
@@ -5888,7 +5888,7 @@ DTSTART:20170314
 LOCATION:MANCHESTER\, UNITED KINGDOM
 SEQUENCE:0
 SUMMARY:FLOSSUK Spring
-UID:2022-06-16T08:19:44+00:00_830929446@ovirt.org
+UID:2022-06-16T08:19:44+00:00_568108158@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:SCaLE is the largest community-run open-source and free softwar
@@ -5901,7 +5901,7 @@ DTSTART:20170302
 LOCATION:Pasadena\, CA
 SEQUENCE:0
 SUMMARY:SCaLE
-UID:2022-06-16T08:19:44+00:00_637645798@ovirt.org
+UID:2022-06-16T08:19:44+00:00_238281084@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Proffit. Attend a free 2015 oVirt Asia workshop 
@@ -5916,7 +5916,7 @@ DTSTART:20150314T200000Z
 LOCATION:Singapore\, Singapore
 SEQUENCE:0
 SUMMARY:oVirt Virtualization Workshop
-UID:2022-06-16T08:19:44+00:00_219098616@ovirt.org
+UID:2022-06-16T08:19:44+00:00_584817151@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The Smart City with Open Source\, Big Data\, Design Thinking\, 
@@ -5928,7 +5928,7 @@ DTSTART:20150313
 LOCATION:Singapore\, Singapore
 SEQUENCE:0
 SUMMARY:FOSSAsia
-UID:2022-06-16T08:19:44+00:00_582100674@ovirt.org
+UID:2022-06-16T08:19:44+00:00_479530001@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The Red Hat Summit is the premier open source technology event 
@@ -5941,7 +5941,7 @@ DTSTART:20150623
 LOCATION:Boston\, MA
 SEQUENCE:0
 SUMMARY:Red Hat Summit
-UID:2022-06-16T08:19:44+00:00_567118954@ovirt.org
+UID:2022-06-16T08:19:44+00:00_523755383@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:There’s simply no other event in North America where developers
@@ -5956,7 +5956,7 @@ DTSTART:20150817
 LOCATION:Seattle\, WA
 SEQUENCE:0
 SUMMARY:LinuxCon North America
-UID:2022-06-16T08:19:44+00:00_35216426@ovirt.org
+UID:2022-06-16T08:19:44+00:00_706080289@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:OSCON is where all of the pieces come together: developers\, in
@@ -5971,7 +5971,7 @@ DTSTART:20150720
 LOCATION:Portland\, OR
 SEQUENCE:0
 SUMMARY:OSCON
-UID:2022-06-16T08:19:44+00:00_867405597@ovirt.org
+UID:2022-06-16T08:19:44+00:00_520157143@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lukas Berk. Performance Co-Pilot is a highly adaptable
@@ -5986,7 +5986,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Ubiquitous performance analysis and system introspection\: an intro
  duction to Performance Co-Pilot and SystemTap
-UID:2022-06-16T08:19:44+00:00_622673855@ovirt.org
+UID:2022-06-16T08:19:44+00:00_191445065@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Arik Hadas. Suppose you want to import virtual machine
@@ -6006,7 +6006,7 @@ SEQUENCE:0
 SUMMARY:Moving your virtual machines to oVirt with ease\: overview of the p
  rocess of import VMs from different environments into oVirt in light of the
   upcoming integration with virt-v2v
-UID:2022-06-16T08:19:44+00:00_41445233@ovirt.org
+UID:2022-06-16T08:19:44+00:00_27002544@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Niels de Vos. GlusterFS is a distributed scale-out fil
@@ -6023,7 +6023,7 @@ DTSTART:20150131T104000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:GlusterFS - overview & future directions
-UID:2022-06-16T08:19:44+00:00_914891887@ovirt.org
+UID:2022-06-16T08:19:44+00:00_767065230@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Federico Simoncelli. This session will cover in detail
@@ -6041,7 +6041,7 @@ DTSTART:20150131T112000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt and Gluster hyperconvergence
-UID:2022-06-16T08:19:44+00:00_182897508@ovirt.org
+UID:2022-06-16T08:19:44+00:00_591295997@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Loic Dachary\, Sage Weil. The Ceph storage system is u
@@ -6056,7 +6056,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Leveraging Ceph\: Ceph integration in OpenStack\, CloudStack\, Gane
  ti ..
-UID:2022-06-16T08:19:44+00:00_817511606@ovirt.org
+UID:2022-06-16T08:19:44+00:00_945491207@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roy Golan. The oVirt project allows efficient manageme
@@ -6079,7 +6079,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Smart VM scheduling in oVirt cluster\: deep dive to scheduling serv
  ice based on probabilistic methods
-UID:2022-06-16T08:19:44+00:00_109077180@ovirt.org
+UID:2022-06-16T08:19:44+00:00_130877462@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: John Mark Walker. What is cloud management and why do 
@@ -6094,7 +6094,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:What you can do with open source cloud management (and ManageIQ)\: 
  control all of the things
-UID:2022-06-16T08:19:44+00:00_784377337@ovirt.org
+UID:2022-06-16T08:19:44+00:00_79034446@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Flavio Percoco. We’ve been talking about Infrastructur
@@ -6114,7 +6114,7 @@ DTSTART:20150131T164000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:IaaS beyond the infrastructure
-UID:2022-06-16T08:19:44+00:00_669659352@ovirt.org
+UID:2022-06-16T08:19:44+00:00_184594638@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hans de Goede. What is the current status of Allwinner
@@ -6126,7 +6126,7 @@ DTSTART:20150131T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Upstream Allwinner ARM SoC (A10 / sunxi) support status
-UID:2022-06-16T08:19:44+00:00_604399585@ovirt.org
+UID:2022-06-16T08:19:44+00:00_678121473@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Daniel Lobato. The Foreman project and its community i
@@ -6143,7 +6143,7 @@ DTSTART:20150131T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Contributing to Foreman\: where and how
-UID:2022-06-16T08:19:44+00:00_213662881@ovirt.org
+UID:2022-06-16T08:19:44+00:00_481735591@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lukas Berk. Software development rarely has “spare” ti
@@ -6163,7 +6163,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Valgrind integration in the Eclipse IDE\: an overview of the Valgri
  nd plugin
-UID:2022-06-16T08:19:44+00:00_144792609@ovirt.org
+UID:2022-06-16T08:19:44+00:00_256901426@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Wielaard. If you always wanted to hack on Valgrin
@@ -6179,7 +6179,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:How to start hacking on Valgrind by example\: easy hacks for Valgri
  nd
-UID:2022-06-16T08:19:44+00:00_441961122@ovirt.org
+UID:2022-06-16T08:19:44+00:00_602522269@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gustavo Fernandes. Key/Value stores rely on a simple d
@@ -6194,7 +6194,7 @@ DTSTART:20150131T162000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Querying your datagrid with Lucene\, Hadoop and Spark
-UID:2022-06-16T08:19:44+00:00_197663727@ovirt.org
+UID:2022-06-16T08:19:44+00:00_918648833@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jiří Pírko. Imagine buying off the shelf switch hardwa
@@ -6220,7 +6220,7 @@ DTSTART:20150131T153000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Hardware switches - the opensource approach
-UID:2022-06-16T08:19:44+00:00_235418462@ovirt.org
+UID:2022-06-16T08:19:44+00:00_250207633@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tom Gundersen. A brief introduction to networkd and an
@@ -6231,7 +6231,7 @@ DTSTART:20150131T170000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Networkd status update
-UID:2022-06-16T08:19:44+00:00_334819439@ovirt.org
+UID:2022-06-16T08:19:44+00:00_653378578@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Thomas Haller. Give a status update on NetworkManager 
@@ -6245,7 +6245,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:NetworkManager v1.0 status update\: what happened. where are we. wh
  at comes next for NetworkManager
-UID:2022-06-16T08:19:44+00:00_805039013@ovirt.org
+UID:2022-06-16T08:19:44+00:00_518876243@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Michael Stahl. C++ has evolved quite a bit over the ye
@@ -6258,7 +6258,7 @@ DTSTART:20150131T102000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:C++11 and LibreOffice\: the future has arrived (it was about time)
-UID:2022-06-16T08:19:44+00:00_942075739@ovirt.org
+UID:2022-06-16T08:19:44+00:00_342189197@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre\, Severin Gehwolf. Debugging performance p
@@ -6276,7 +6276,7 @@ DTSTART:20150131T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Diagnosing performance issues using Thermostat
-UID:2022-06-16T08:19:44+00:00_591598204@ovirt.org
+UID:2022-06-16T08:19:44+00:00_408273285@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre\, Roman Kennke. Caciocavallo has been one 
@@ -6304,7 +6304,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Caciocavallo\, or how we ported OpenJDK from embedded to cloud and 
  still liked it
-UID:2022-06-16T08:19:44+00:00_997719409@ovirt.org
+UID:2022-06-16T08:19:44+00:00_234597469@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Haley\, Roman Kennke\, Andrew Dinn\, Christine 
@@ -6323,7 +6323,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:What lies beneath?\: lessons learned hacking the OpenJDK interprete
  r/compilers
-UID:2022-06-16T08:19:44+00:00_86227571@ovirt.org
+UID:2022-06-16T08:19:44+00:00_885086860@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Petr Chalupa. The concurrent-ruby is a gem which provi
@@ -6340,7 +6340,7 @@ SEQUENCE:0
 SUMMARY:Concurrent Ruby\: low and high-level concurrency abstractions for t
  he Ruby language (discussion of concurrency patterns available and how they
  're implemented for ruby)
-UID:2022-06-16T08:19:44+00:00_472462183@ovirt.org
+UID:2022-06-16T08:19:44+00:00_525002389@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter. JRuby 9000 represents the biggest-ever
@@ -6359,7 +6359,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Over 9000\: the future of JRuby (a talk on JRuby 9000 and where it 
  will take Ruby in the next year)
-UID:2022-06-16T08:19:44+00:00_471383479@ovirt.org
+UID:2022-06-16T08:19:44+00:00_984330041@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eyal Edri. Use a hook framework\, written in python to
@@ -6371,7 +6371,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Validate your Gerrit patches automaticly using magic hooks\: hook f
  ramework to test patches as part of Gerrit system
-UID:2022-06-16T08:19:44+00:00_511831241@ovirt.org
+UID:2022-06-16T08:19:44+00:00_719530747@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Eyal Edri. Maintaining a devop environment isn’t easy\
@@ -6384,7 +6384,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Fabricate your automated DevOps environment using Python\: fabric i
  s your (DevOps) friend
-UID:2022-06-16T08:19:44+00:00_858814396@ovirt.org
+UID:2022-06-16T08:19:44+00:00_825400451@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vincent Batts. Docker containers are generating excite
@@ -6397,7 +6397,7 @@ DTSTART:20150201T080000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Under the hood of Docker containers\: in flight and at rest
-UID:2022-06-16T08:19:44+00:00_405625843@ovirt.org
+UID:2022-06-16T08:19:44+00:00_274552610@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Federico Simoncelli. This session will present the cur
@@ -6417,7 +6417,7 @@ DTSTART:20150201T084000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Docker integration in oVirt and IaaS
-UID:2022-06-16T08:19:44+00:00_640025936@ovirt.org
+UID:2022-06-16T08:19:44+00:00_425992351@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Daniel Lobato. Deploying containers\, images with Dock
@@ -6438,7 +6438,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Provision and manage Docker containers with Foreman\: roll out your
   applications in containers with ease
-UID:2022-06-16T08:19:44+00:00_612597499@ovirt.org
+UID:2022-06-16T08:19:44+00:00_161606828@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stefan Hajnoczi. KVM is the most popular hypervisor de
@@ -6457,7 +6457,7 @@ DTSTART:20150201T124000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Observability in KVM\: how to troubleshoot virtual machines
-UID:2022-06-16T08:19:44+00:00_978506179@ovirt.org
+UID:2022-06-16T08:19:44+00:00_93217814@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Doron Fediuck. For several years now\, the oVirt proje
@@ -6473,7 +6473,7 @@ DTSTART:20150201T152000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Utilizing NUMA architecture in oVirt
-UID:2022-06-16T08:19:44+00:00_195316927@ovirt.org
+UID:2022-06-16T08:19:44+00:00_255869552@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Honza Horak. Learn how to provide bleeding edge featur
@@ -6491,7 +6491,7 @@ SEQUENCE:0
 SUMMARY:SCL for bleeding edge stacks on enterprise\: find out how to delive
  r bleeding edge\, flexible development stacks on stable enterprise platform
   using Software Collections
-UID:2022-06-16T08:19:44+00:00_975076971@ovirt.org
+UID:2022-06-16T08:19:44+00:00_26735472@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. systemd is now a core component of
@@ -6505,7 +6505,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:What's new in systemd\, 2015 edition\: what's new in the systemd wo
  rld\, and what's coming next
-UID:2022-06-16T08:19:44+00:00_923222833@ovirt.org
+UID:2022-06-16T08:19:44+00:00_390392757@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephen Gallagher\, Matthew Miller. Fedora 21 marked t
@@ -6523,7 +6523,7 @@ DTSTART:20150201T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Retooling Fedora\: a retrospective on Fedora 21 (and looking to 22)
-UID:2022-06-16T08:19:44+00:00_73948424@ovirt.org
+UID:2022-06-16T08:19:44+00:00_88240362@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Haïkel Guémar. This talk will describe the state of Op
@@ -6538,7 +6538,7 @@ DTSTART:20150201T122500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenStack on Fedora & CentOS
-UID:2022-06-16T08:19:44+00:00_880775760@ovirt.org
+UID:2022-06-16T08:19:44+00:00_572887484@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Fabian Arrotin. CentOS Project exists now for more tha
@@ -6556,7 +6556,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:CentOS (community) infra revealed\: aka the joy of running on donat
  ed machines
-UID:2022-06-16T08:19:44+00:00_194537565@ovirt.org
+UID:2022-06-16T08:19:44+00:00_297567699@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Kaleb Keithley\, Lalatendu Mohanty. GlusterFS is a sca
@@ -6577,7 +6577,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The CentOS storage SIG and GlusterFS\: challenges\, solutions and h
  ow GlusterFS is fitting in storage SIG
-UID:2022-06-16T08:19:44+00:00_736571175@ovirt.org
+UID:2022-06-16T08:19:44+00:00_114920651@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nikos Mavrogiannopoulos. For the development of openco
@@ -6595,7 +6595,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Software isolation in Linux\: as used in the development of OpenCon
  nect VPN server
-UID:2022-06-16T08:19:44+00:00_782351304@ovirt.org
+UID:2022-06-16T08:19:44+00:00_448735034@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Severin Gehwolf. OpenJDK comes with a zero assembler p
@@ -6617,7 +6617,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Sustaining the zero assembler port in OpenJDK\: an inside perspecti
  ve of CPU specific issues
-UID:2022-06-16T08:19:44+00:00_830618625@ovirt.org
+UID:2022-06-16T08:19:44+00:00_815476559@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Haley. We’ve been working on OpenJDK for a long
@@ -6640,7 +6640,7 @@ DTSTART:20150201T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Life in the trenches
-UID:2022-06-16T08:19:44+00:00_87824816@ovirt.org
+UID:2022-06-16T08:19:44+00:00_248662407@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter. As one of the earliest adopters of Met
@@ -6655,7 +6655,7 @@ DTSTART:20150201T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:InvokeBinder\: literal programming for method handles
-UID:2022-06-16T08:19:44+00:00_538630752@ovirt.org
+UID:2022-06-16T08:19:44+00:00_733373942@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Kennke\, Christine H Flood. Garbage Collection p
@@ -6675,7 +6675,7 @@ DTSTART:20150201T113000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Shenandoah - project overview
-UID:2022-06-16T08:19:44+00:00_645846009@ovirt.org
+UID:2022-06-16T08:19:44+00:00_866409000@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre\, Martijn Verburg\, Dalibor Topić\, Daniel
@@ -6701,7 +6701,7 @@ DTSTART:20150201T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenJDK adoption group Q&A
-UID:2022-06-16T08:19:44+00:00_37486888@ovirt.org
+UID:2022-06-16T08:19:44+00:00_974383426@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Reinhold\, Andrew Haley\, Georges Saab. Meet the 
@@ -6712,7 +6712,7 @@ DTSTART:20150201T150000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Meet the governing board
-UID:2022-06-16T08:19:44+00:00_931891963@ovirt.org
+UID:2022-06-16T08:19:44+00:00_337546482@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hans de Goede. This presentation will discuss the plan
@@ -6725,7 +6725,7 @@ DTSTART:20150201T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Replacing Xorg input-drivers with libinput
-UID:2022-06-16T08:19:44+00:00_434855627@ovirt.org
+UID:2022-06-16T08:19:44+00:00_307974517@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:FOSDEM is a free and non-commercial event organisedby the commu
@@ -6742,7 +6742,7 @@ DTSTART:20150131
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FOSDEM
-UID:2022-06-16T08:19:44+00:00_760485851@ovirt.org
+UID:2022-06-16T08:19:44+00:00_66620191@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rich Bowen. You’ve seen Cloud in the press for years\,
@@ -6760,7 +6760,7 @@ DTSTART:20150221T180000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Introduction to OpenStack
-UID:2022-06-16T08:19:44+00:00_878062139@ovirt.org
+UID:2022-06-16T08:19:44+00:00_878817125@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Joe Brockmeier. We’ve come a long\, long way since the
@@ -6780,7 +6780,7 @@ DTSTART:20150221T203000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Solving the Package Problem (Or Making It Infinitely Worse?)
-UID:2022-06-16T08:19:44+00:00_595287633@ovirt.org
+UID:2022-06-16T08:19:44+00:00_385376395@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jason Brooks. Certain scheduling tasks\, such as selec
@@ -6802,7 +6802,7 @@ DTSTART:20150222T010000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Solving (NP-Hard) Scheduling Problems with oVirt and OptaPlanner
-UID:2022-06-16T08:19:44+00:00_73941020@ovirt.org
+UID:2022-06-16T08:19:44+00:00_422455885@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Tom Callaway. Free and Open Source licenses are a key 
@@ -6823,7 +6823,7 @@ DTSTART:20150222T010000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Understanding FOSS Licenses (without a Lawyer)
-UID:2022-06-16T08:19:44+00:00_244541634@ovirt.org
+UID:2022-06-16T08:19:44+00:00_794500913@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Thomas Cameron. GlusterFS was developed as a distribut
@@ -6843,7 +6843,7 @@ DTSTART:20150222T203000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Gluster Quickstart
-UID:2022-06-16T08:19:44+00:00_245494139@ovirt.org
+UID:2022-06-16T08:19:44+00:00_585231454@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Rikki Endsley. Do you cringe when you see #hashtags? D
@@ -6872,7 +6872,7 @@ LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Confessions of a Reluctant Tweeter -- Social Media for Open Source 
  Projects
-UID:2022-06-16T08:19:44+00:00_542253821@ovirt.org
+UID:2022-06-16T08:19:44+00:00_544835877@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jason Hibbets. Over the past five years\, Jason Hibbet
@@ -6893,7 +6893,7 @@ DTSTART:20150221T000000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Community Building the Open Source Way
-UID:2022-06-16T08:19:44+00:00_160713341@ovirt.org
+UID:2022-06-16T08:19:44+00:00_1098675@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gina Likins. The tone and tenor of conversations in a 
@@ -6919,7 +6919,7 @@ LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:How to Thoroughly Insult and Offend People in Your Open Source Comm
  unities
-UID:2022-06-16T08:19:44+00:00_374456697@ovirt.org
+UID:2022-06-16T08:19:44+00:00_117042341@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ian McLeod. Distribution build systems are interesting
@@ -6940,7 +6940,7 @@ DTSTART:20150222T220000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Linux Charcuterie - How the Distribution Sausage Is Made
-UID:2022-06-16T08:19:44+00:00_355135966@ovirt.org
+UID:2022-06-16T08:19:44+00:00_437314012@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Proffitt. The difference between the scale up mo
@@ -6975,7 +6975,7 @@ DTSTART:20150221T220000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Why Scale Up Is Like Star Trek and Scale Out Is Like Star Wars
-UID:2022-06-16T08:19:44+00:00_953457102@ovirt.org
+UID:2022-06-16T08:19:44+00:00_998329988@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ruth Suehle. At a glance\, the maker movement seems op
@@ -7002,7 +7002,7 @@ DTSTART:20150222T170000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Makers -- The Next Frontier for Open Source
-UID:2022-06-16T08:19:44+00:00_738052480@ovirt.org
+UID:2022-06-16T08:19:44+00:00_257392109@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: John Mark Walker. Open Source is a phenomenon made pos
@@ -7026,7 +7026,7 @@ DTSTART:20150220T181500Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:The Key to Open Source Innovation
-UID:2022-06-16T08:19:44+00:00_593006123@ovirt.org
+UID:2022-06-16T08:19:44+00:00_372353125@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Sage Weil. Ceph is designed around the assumption that
@@ -7052,7 +7052,7 @@ DTSTART:20150222T203000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Storage Tiering and Erasure cCoding in Ceph
-UID:2022-06-16T08:19:44+00:00_653816403@ovirt.org
+UID:2022-06-16T08:19:44+00:00_249204874@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Ryan Jarvinen. New container-centric tools are changin
@@ -7068,7 +7068,7 @@ DTSTART:20150222T203000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Composing with Containers
-UID:2022-06-16T08:19:44+00:00_736072252@ovirt.org
+UID:2022-06-16T08:19:44+00:00_494229959@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Matthew Miller. As the Fedora Project reached its 10th
@@ -7103,7 +7103,7 @@ LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Fedora.next -- Bringing Change to a Classic Distro (without too muc
  h kicking and screaming)
-UID:2022-06-16T08:19:44+00:00_48196693@ovirt.org
+UID:2022-06-16T08:19:44+00:00_912315155@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Levente Kurusa. Levente’s talk will start with some in
@@ -7120,7 +7120,7 @@ DTSTART:20150222T010000Z
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:Linux Desktop -- When Is Our Year?
-UID:2022-06-16T08:19:44+00:00_932846956@ovirt.org
+UID:2022-06-16T08:19:44+00:00_50651249@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:SCALE 13x – the 13th annual Southern California Linux Expo – wi
@@ -7136,7 +7136,7 @@ DTSTART:20150219
 LOCATION:Los Angeles\, CA
 SEQUENCE:0
 SUMMARY:SCaLE 13x
-UID:2022-06-16T08:19:44+00:00_205341925@ovirt.org
+UID:2022-06-16T08:19:44+00:00_615572880@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:There’s simply no other event in Europe where developers\, sys 
@@ -7150,7 +7150,7 @@ DTSTART:20151005
 LOCATION:Dublin\, Ireland
 SEQUENCE:0
 SUMMARY:LinuxCon Europe
-UID:2022-06-16T08:19:44+00:00_378111573@ovirt.org
+UID:2022-06-16T08:19:44+00:00_977273060@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:The SouthEast LinuxFest is a community event for anyone who wan
@@ -7167,7 +7167,7 @@ DTSTART:20150612
 LOCATION:Charlotte\, NC
 SEQUENCE:0
 SUMMARY:Southeast LinuxFest
-UID:2022-06-16T08:19:44+00:00_8871921@ovirt.org
+UID:2022-06-16T08:19:44+00:00_8185878@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:linux.conf.au is the largest linux and open source conference i
@@ -7183,7 +7183,7 @@ DTSTART:20180122
 LOCATION:Sydney\, Australia
 SEQUENCE:0
 SUMMARY:linux.conf.au
-UID:2022-06-16T08:19:44+00:00_378663930@ovirt.org
+UID:2022-06-16T08:19:44+00:00_175564736@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Every year\, the oVirt event is dedicated to private and enterp
@@ -7196,7 +7196,7 @@ DTSTART:20181116
 LOCATION:Milan\, Italy
 SEQUENCE:0
 SUMMARY:oVirt Conference 2018
-UID:2022-06-16T08:19:44+00:00_921026429@ovirt.org
+UID:2022-06-16T08:19:44+00:00_441869502@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:DevConf.us (Developer Conference) is a free annual conference f
@@ -7210,7 +7210,7 @@ DTSTART:20180817
 LOCATION:Boston\, MA
 SEQUENCE:0
 SUMMARY:DevConf.us
-UID:2022-06-16T08:19:44+00:00_314269754@ovirt.org
+UID:2022-06-16T08:19:44+00:00_207675983@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Red Hat Summit is for anyone interested in open source. It just
@@ -7223,7 +7223,7 @@ DTSTART:20180508
 LOCATION:San Francisco\, CA
 SEQUENCE:0
 SUMMARY:Red Hat Summit
-UID:2022-06-16T08:19:44+00:00_306991158@ovirt.org
+UID:2022-06-16T08:19:44+00:00_829325239@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Krutika Dhananjay\, Manoj Pillai\, Raghavendra Gowdapp
@@ -7241,7 +7241,7 @@ DTSTART:20180203T170000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Optimizing software defined storage for the age of flash
-UID:2022-06-16T08:19:44+00:00_446379975@ovirt.org
+UID:2022-06-16T08:19:44+00:00_324768631@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Victor Stinner. Python 3.0 was released 10 years ago. 
@@ -7258,7 +7258,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Python 3\: 10 years later (looking back at Python evolutions of the
   last 10 years)
-UID:2022-06-16T08:19:44+00:00_310442817@ovirt.org
+UID:2022-06-16T08:19:44+00:00_719365502@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Fatih Degirmenci\, Yolanda Robla Mota. This talk will 
@@ -7284,7 +7284,7 @@ SUMMARY:Integrating cloud and container projects in the OPNFV community\: c
  ross-community ci (in this talk we will explain about the OPNFV community\,
   and how it interacts with other communities\, such as kubernetes or OpenSt
  ack\, to offer a platform for cross-project ci.)
-UID:2022-06-16T08:19:44+00:00_161914890@ovirt.org
+UID:2022-06-16T08:19:44+00:00_580853139@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jens Freimann. Virtio is a common framework for IO vir
@@ -7302,7 +7302,7 @@ DTSTART:20180203T160000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Virtio 1.1\: what's new in the next version of the virtio standard
-UID:2022-06-16T08:19:44+00:00_332364328@ovirt.org
+UID:2022-06-16T08:19:44+00:00_112784363@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Derek Parker. Learn how to utilize the Delve debugger 
@@ -7320,7 +7320,7 @@ DTSTART:20180203T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Advanced go debugging with delve
-UID:2022-06-16T08:19:44+00:00_766273809@ovirt.org
+UID:2022-06-16T08:19:44+00:00_387026021@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Michael Hausenblas. In this talk we’ll discuss network
@@ -7334,7 +7334,7 @@ DTSTART:20180203T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Networking deepdive\: from net.dial to grpc
-UID:2022-06-16T08:19:44+00:00_942857229@ovirt.org
+UID:2022-06-16T08:19:44+00:00_79909480@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Mohr. Creating and managing network devices\, Tr
@@ -7352,7 +7352,7 @@ DTSTART:20180203T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Networking swiss army knife for go
-UID:2022-06-16T08:19:44+00:00_121013274@ovirt.org
+UID:2022-06-16T08:19:44+00:00_986811756@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Peter Kovacs. Whenever I tried to look through Open Of
@@ -7370,7 +7370,7 @@ DTSTART:20180203T112000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Antipatterns in openoffice code\: how can we ensure better code
-UID:2022-06-16T08:19:44+00:00_586944463@ovirt.org
+UID:2022-06-16T08:19:44+00:00_614989372@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Caolán McNamara.
@@ -7381,7 +7381,7 @@ LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Native gtk3 ui\: progress from gtk3 themed vcl widgets to native gt
  k widgets
-UID:2022-06-16T08:19:44+00:00_830253102@ovirt.org
+UID:2022-06-16T08:19:44+00:00_450249547@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephan Bergmann. This talk will be a short refresher 
@@ -7395,7 +7395,7 @@ DTSTART:20180203T141000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Lo uri 101
-UID:2022-06-16T08:19:44+00:00_254808667@ovirt.org
+UID:2022-06-16T08:19:44+00:00_869717178@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Wielaard. After several years a new DWARF debuggi
@@ -7411,7 +7411,7 @@ DTSTART:20180203T153000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Dwarf5 and gnu extensions\: new ways to go from binary to source
-UID:2022-06-16T08:19:44+00:00_37886670@ovirt.org
+UID:2022-06-16T08:19:44+00:00_885552943@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gary Benson. Infinity is a platform-independent system
@@ -7430,7 +7430,7 @@ DTSTART:20180203T170000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Infinity
-UID:2022-06-16T08:19:44+00:00_643085891@ovirt.org
+UID:2022-06-16T08:19:44+00:00_404703414@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dennis Kliban. Pulp is a platform for managing reposit
@@ -7448,7 +7448,7 @@ DTSTART:20180203T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Pulp 3 - simpler\, better\, more awesome
-UID:2022-06-16T08:19:44+00:00_564793858@ovirt.org
+UID:2022-06-16T08:19:44+00:00_470468140@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Martin Peres\, Pierre Moreau\, Karol Herbst. Brief upd
@@ -7456,35 +7456,35 @@ DESCRIPTION:Speaker: Martin Peres\, Pierre Moreau\, Karol Herbst. Brief upd
  the past year(s) andwhat we are planning to work on in the near future. Mai
  n topics will bepower management\, Nvidia and community.
 DTEND:20180203T124500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T122000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Nouveau\: status update
-UID:2022-06-16T08:19:44+00:00_498048328@ovirt.org
+UID:2022-06-16T08:19:45+00:00_249424220@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nikolai Kondrashov. Presentation on the DIGImend proje
  ct’s efforts to improve Linux supportfor generic graphics tablets.
 DTEND:20180203T144000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T135000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Generic graphics tablets in Linux\: hardware peculiarities\, softwa
  re challenges\, and how to make them work
-UID:2022-06-16T08:19:44+00:00_116474363@ovirt.org
+UID:2022-06-16T08:19:45+00:00_834751399@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Laura Czajkowski\, Leslie Hawthorn. In which Leslie an
  d Laura welcome everyone to the Community DevRoom 2018
 DTEND:20180203T094500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Community DevRoom welcoming remarks
-UID:2022-06-16T08:19:44+00:00_239435453@ovirt.org
+UID:2022-06-16T08:19:45+00:00_445868410@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Brian Proffitt. In a world of constant news cycles\, g
@@ -7494,12 +7494,12 @@ DESCRIPTION:Speaker: Brian Proffitt. In a world of constant news cycles\, g
  t at yourdisposal that can help you and your project be recognized for thea
  wesome you know it to be: the media.
 DTEND:20180203T104500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T102000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Media 101 for communities
-UID:2022-06-16T08:19:44+00:00_790919171@ovirt.org
+UID:2022-06-16T08:19:45+00:00_131630347@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Laura Czajkowski\, Leslie Hawthorn. We’ll do community
@@ -7508,36 +7508,36 @@ DESCRIPTION:Speaker: Laura Czajkowski\, Leslie Hawthorn. We’ll do community
  me prepared to sing.Those who do not wish to sing or listen are welcome to 
  use this time togo have lunch.
 DTEND:20180203T122500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T115000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Community karoke
-UID:2022-06-16T08:19:44+00:00_845049200@ovirt.org
+UID:2022-06-16T08:19:45+00:00_58237890@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Laura Czajkowski\, Leslie Hawthorn. In which Leslie an
  d Laura provide the concluding remarks for the day.
 DTEND:20180203T180000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T175500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Community DevRoom concluding remarks
-UID:2022-06-16T08:19:44+00:00_392993719@ovirt.org
+UID:2022-06-16T08:19:45+00:00_432422707@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Fabian Deutsch. In order to run containers and virtual
  ization\, admins need to take careof two infrastructure stacks. KubeVirt is
   one way to converge bothstacks.
 DTEND:20180203T101500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Convergence of your virtualization and container infrastructures wi
  th kubevirt
-UID:2022-06-16T08:19:44+00:00_445332322@ovirt.org
+UID:2022-06-16T08:19:45+00:00_613649140@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Vitaly Kuznetsov. This may come as a surprise but it i
@@ -7551,25 +7551,25 @@ DESCRIPTION:Speaker: Vitaly Kuznetsov. This may come as a surprise but it i
  sources and clockevents\, virtual device drivers.Benchmark data and general
   thoughts on the usefulness of suchdeployments won’t be missing too.
 DTEND:20180203T110000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T101500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:A slightly different nesting\: KVM on hyper-v
-UID:2022-06-16T08:19:44+00:00_617042702@ovirt.org
+UID:2022-06-16T08:19:45+00:00_355330462@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Martin Sivák. This talk should explain the internal me
  chanisms and differencesbetween three schedulers that are currently used to
   plan workloadplacements in today’s datacenters and clusters.
 DTEND:20180203T114500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Will it blend? (comparison of oVirt\, OpenStack and kubernetes sche
  dulers)
-UID:2022-06-16T08:19:44+00:00_863375603@ovirt.org
+UID:2022-06-16T08:19:45+00:00_303941340@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Marcin Mirecki. Software Defined Networking seems to b
@@ -7586,24 +7586,24 @@ DESCRIPTION:Speaker: Marcin Mirecki. Software Defined Networking seems to b
  d OVN -Overview of the network provider for OVN - Overview of how the provi
  deris used in oVirt - Live demo: OVN in oVirt
 DTEND:20180203T140000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T131500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Leveraging software defined network for virtualization
-UID:2022-06-16T08:19:44+00:00_70651848@ovirt.org
+UID:2022-06-16T08:19:45+00:00_623247565@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephen Finucane. Real-time in OpenStack is a thing no
  w. Let’s explore what this actuallylooks like to a user\, and (in brief) ho
  w it works under the hood.
 DTEND:20180203T144500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T140000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Keeping it real (time)\: real-time support in OpenStack
-UID:2022-06-16T08:19:44+00:00_331635143@ovirt.org
+UID:2022-06-16T08:19:45+00:00_49377287@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: John Spray\, Christian Schwede. OpenStack deployments 
@@ -7625,24 +7625,24 @@ DESCRIPTION:Speaker: John Spray\, Christian Schwede. OpenStack deployments
  for shared file services as well as tothose more generally interested in Ma
  nila\, distributed file systems\, orCeph evolution.
 DTEND:20180203T153000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T144500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Distributed file storage in multi-tenant clouds using Cephfs
-UID:2022-06-16T08:19:44+00:00_314933759@ovirt.org
+UID:2022-06-16T08:19:45+00:00_67658020@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Dustin Minnich. This talk will discuss how Red Hat IT 
  is moving from a centralized LDAPand kerberos setup to a Red Hat IdM setup 
  for all of our Linux usersand hosts.
 DTEND:20180203T101000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Migrating to Red Hat idm in a large Linux environment
-UID:2022-06-16T08:19:44+00:00_524107974@ovirt.org
+UID:2022-06-16T08:19:45+00:00_80740566@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Thomas Woerner. The talk will describe freeIPA client 
@@ -7654,13 +7654,13 @@ DESCRIPTION:Speaker: Thomas Woerner. The talk will describe freeIPA client
  nd configruation part is currently work inprogress\, but should be complete
   for the talk.
 DTEND:20180203T112000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T105000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FreeIPA installation using ansible\: description and examples of Fr
  eeIPA client and server installations using ansible-FreeIPA.
-UID:2022-06-16T08:19:44+00:00_353159687@ovirt.org
+UID:2022-06-16T08:19:45+00:00_472007804@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andreas Schneider. Samba AD is a free software impleme
@@ -7671,12 +7671,12 @@ DESCRIPTION:Speaker: Andreas Schneider. Samba AD is a free software impleme
  ke them easier to deploy and manage. The talk will go into detailswhat is n
  eeded to be done to make Fedora a preferred distribution todeploy Samba AD.
 DTEND:20180203T142500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T135500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Samba ad in Fedora\: the long road to ad
-UID:2022-06-16T08:19:44+00:00_907439035@ovirt.org
+UID:2022-06-16T08:19:45+00:00_882393393@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jakub Jelen. Do you want to know how Smart Cards can h
@@ -7692,13 +7692,13 @@ DESCRIPTION:Speaker: Jakub Jelen. Do you want to know how Smart Cards can h
  omic operations with OpenSC tools      Using smart cards with high-level to
  ols such as OpenSSH\, Firefox      Debugging Smart Cards problems
 DTEND:20180203T161500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T154500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Smart cards in Linux and why you should care\: do you want to know 
  how smart cards can help you improve security and work efficiently?
-UID:2022-06-16T08:19:44+00:00_496888431@ovirt.org
+UID:2022-06-16T08:19:45+00:00_179812629@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Jakub Hrozek. SSSD is known in the OSS world as a clie
@@ -7717,12 +7717,12 @@ DESCRIPTION:Speaker: Jakub Hrozek. SSSD is known in the OSS world as a clie
  ount management\, but also to developers who work onservices that integrate
   with user databases.
 DTEND:20180203T165000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T162000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:SSSD\: from an ldap client to the system security services daemon
-UID:2022-06-16T08:19:44+00:00_685249334@ovirt.org
+UID:2022-06-16T08:19:45+00:00_306491961@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Nikolai Kondrashov. Have you ever wished you could see
@@ -7732,13 +7732,13 @@ DESCRIPTION:Speaker: Nikolai Kondrashov. Have you ever wished you could see
   peskycommand-line setup? Wish no more\, because we’re going to handle that
  with User Session Recording support in Cockpit!
 DTEND:20180203T172500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T165500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:User session recording in cockpit\: introducing user session record
  ing support in cockpit - a server management web ui
-UID:2022-06-16T08:19:44+00:00_868276854@ovirt.org
+UID:2022-06-16T08:19:45+00:00_475009217@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Mohr. Declarative systems\, like Kubernetes are 
@@ -7751,12 +7751,12 @@ DESCRIPTION:Speaker: Roman Mohr. Declarative systems\, like Kubernetes are
  rview on what is required to implement declarative flows ingeneral and part
  icularly in Kubernetes. Real-world examples andpitfalls included.
 DTEND:20180203T100000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Declarative extensions for kubernetes in go
-UID:2022-06-16T08:19:44+00:00_14256949@ovirt.org
+UID:2022-06-16T08:19:45+00:00_173174750@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Shirly Radco. We think Metrics and logs are not that d
@@ -7767,23 +7767,23 @@ DESCRIPTION:Speaker: Shirly Radco. We think Metrics and logs are not that d
   able to get an in depth look into thestack architecture and ways to utiliz
  e it in open source projects.
 DTEND:20180203T172500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T172000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:oVirt metrics and logs - in a unified solution
-UID:2022-06-16T08:19:44+00:00_205867306@ovirt.org
+UID:2022-06-16T08:19:45+00:00_580777514@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mario Torre. Welcome to the 2018 edition of the Free J
  ava DevRoom!
 DTEND:20180203T093000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T092500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Welcome!
-UID:2022-06-16T08:19:44+00:00_425593827@ovirt.org
+UID:2022-06-16T08:19:45+00:00_832015575@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Roman Kennke\, Erik Helin. Much has happened in the la
@@ -7802,12 +7802,12 @@ DESCRIPTION:Speaker: Roman Kennke\, Erik Helin. Much has happened in the la
  mal\, and would therefore like this talk to initiate a discussion onwhat co
  uld be improved and how people can get involved.
 DTEND:20180203T104500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T102000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:The OpenJDK developer experience
-UID:2022-06-16T08:19:44+00:00_159686380@ovirt.org
+UID:2022-06-16T08:19:45+00:00_267888611@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Charles Nutter. The MethodHandle API was added in Java
@@ -7818,12 +7818,12 @@ DESCRIPTION:Speaker: Charles Nutter. The MethodHandle API was added in Java
  ps and“finally” logic\, and much more. Come learn how flexible and usefulMe
  thodHandles can be!
 DTEND:20180203T124500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T122000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Methodhandles everywhere!
-UID:2022-06-16T08:19:44+00:00_189306390@ovirt.org
+UID:2022-06-16T08:19:45+00:00_843030739@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christine H Flood. There’s an old joke about a new bri
@@ -7843,12 +7843,12 @@ DESCRIPTION:Speaker: Christine H Flood. There’s an old joke about a new bri
  t a comparison of OpenJDK collectors\, it’s a discussion ofwhat characteris
  tics are important in a good garbage collector and howto measure them.
 DTEND:20180203T131500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T125000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Top ten metrics for evaLuating your garbage collector
-UID:2022-06-16T08:19:44+00:00_881095814@ovirt.org
+UID:2022-06-16T08:19:45+00:00_205500791@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Andrew Dinn. The OpenJDK JVM eats class bytecode and s
@@ -7882,12 +7882,12 @@ DESCRIPTION:Speaker: Andrew Dinn. The OpenJDK JVM eats class bytecode and s
  m code designchoices and to suggest how alternative choices might increase 
  ordecrease Class Metadata costs.
 DTEND:20180203T144500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T142000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Class metAdata\: a user guide
-UID:2022-06-16T08:19:44+00:00_350406039@ovirt.org
+UID:2022-06-16T08:19:45+00:00_431251708@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Romain Pelisse\, Damien Plard. Hairy SecurityIt’s gett
@@ -7900,24 +7900,24 @@ DESCRIPTION:Speaker: Romain Pelisse\, Damien Plard. Hairy SecurityIt’s gett
  web app to go live !It’s a fun\, pragmatic\, very instructive talk we’ve be
  en doing in thepast (well received at Devoxx France for instance)
 DTEND:20180203T161500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T155000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Hairy security\: the many threats to a Java web app
-UID:2022-06-16T08:19:44+00:00_736198721@ovirt.org
+UID:2022-06-16T08:19:45+00:00_399467933@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Mark Reinhold\, Mario Torre\, Andrew Haley\, Georges S
  aab\, Doug Lea\, John Duimovich. An open Q&A session with members of the Op
  enJDK Governing Board.
 DTEND:20180203T180000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180203T172000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:OpenJDK governing board Q&A
-UID:2022-06-16T08:19:44+00:00_312769879@ovirt.org
+UID:2022-06-16T08:19:45+00:00_205936714@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Milan Broz. The talk describes the architecture of dat
@@ -7925,14 +7925,14 @@ DESCRIPTION:Speaker: Milan Broz. The talk describes the architecture of dat
  eps that need to beachieved to have encrypted block-level authenticated sto
  rage.
 DTEND:20180204T115000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Data integrity protection with cryptsetup tools\: what is the Linux
   dm-integrity module and why we extended dm-crypt to use authenticated encr
  yption
-UID:2022-06-16T08:19:44+00:00_26586593@ovirt.org
+UID:2022-06-16T08:19:45+00:00_860579558@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stef Walter. A purely human team does not scale past a
@@ -7940,12 +7940,12 @@ DESCRIPTION:Speaker: Stef Walter. A purely human team does not scale past a
  ng: We’ve built a teamthat’s part human and part machine working on an Open
   Source project.
 DTEND:20180204T095000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Cyborg teams\: training machines to be open source contributors
-UID:2022-06-16T08:19:44+00:00_323035040@ovirt.org
+UID:2022-06-16T08:19:45+00:00_435557959@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Sanja Bonic. With flatpaks\, snaps\, and more - do we 
@@ -7956,12 +7956,12 @@ DESCRIPTION:Speaker: Sanja Bonic. With flatpaks\, snaps\, and more - do we
  goodidea\, why there is often such a backlash against them\, and who benefi
  tsthe most from them.
 DTEND:20180204T115500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T114000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Are distributions still relevant?
-UID:2022-06-16T08:19:44+00:00_548645165@ovirt.org
+UID:2022-06-16T08:19:45+00:00_852936925@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Gordon Haff. Big changes are well underway in how soft
@@ -7974,24 +7974,24 @@ DESCRIPTION:Speaker: Gordon Haff. Big changes are well underway in how soft
   prescriptive proprietarybundles and the sort of open-ended unrestricted ch
  oice that open sourcesoftware can enable.
 DTEND:20180204T123500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T122000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Wrap it up! packaging from pots to software
-UID:2022-06-16T08:19:44+00:00_184191326@ovirt.org
+UID:2022-06-16T08:19:45+00:00_209920723@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lorenzo Mangani. HOMER 7 is the latest generation of o
  ur FOSS RTC and VoiP CaptureFramework\, focused on integration\, modularity
   and multi protocolsupport.
 DTEND:20180204T143500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T142000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Homer 7\: introducing the latest homer 7
-UID:2022-06-16T08:19:44+00:00_938910275@ovirt.org
+UID:2022-06-16T08:19:45+00:00_347898666@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Thiago da Silva. Object Storage is a “relatively” new 
@@ -8006,25 +8006,25 @@ DESCRIPTION:Speaker: Thiago da Silva. Object Storage is a “relatively” new
  use with web applications. This talk willalso provide a demo usage of Swift
  .
 DTEND:20180204T084000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T080000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Introduction to swift object storage\: understanding the architectu
  re and use cases
-UID:2022-06-16T08:19:44+00:00_410936014@ovirt.org
+UID:2022-06-16T08:19:45+00:00_761514507@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Kaushal M. The new Gluster-4.0 release with GlusterD-2
  .0 makes Gluster easier toscale\, manage\, integrate and develop for. Learn
   how this benefits usersand developers.
 DTEND:20180204T092500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T084500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Gluster-4.0 and gd2\: learn what's in Gluster's future
-UID:2022-06-16T08:19:44+00:00_294602583@ovirt.org
+UID:2022-06-16T08:19:45+00:00_321974132@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christian Schwede. Swift comes with a wide variety of 
@@ -8038,13 +8038,13 @@ DESCRIPTION:Speaker: Christian Schwede. Swift comes with a wide variety of
  demo will showcase whyall of these features help you to build your own appl
  ication.
 DTEND:20180204T134000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Developing applications with swift as storage system\: learn about 
  the API features to power up your application
-UID:2022-06-16T08:19:44+00:00_529266872@ovirt.org
+UID:2022-06-16T08:19:45+00:00_795851804@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Manisha Saini. This talk will cover the differences be
@@ -8054,12 +8054,12 @@ DESCRIPTION:Speaker: Manisha Saini. This talk will cover the differences be
  ilities of NFSV4i.e NFSv4.1 and NFSv4.2 and its support with Gluster NFS-Ga
  nesha
 DTEND:20180204T160000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T154500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Reasons to mitigate from nfsv3 to nfsv4/4.1
-UID:2022-06-16T08:19:44+00:00_204201958@ovirt.org
+UID:2022-06-16T08:19:45+00:00_211171403@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Viet Nguyen. Traditionally natural rock climbing walls
@@ -8069,12 +8069,12 @@ DESCRIPTION:Speaker: Viet Nguyen. Traditionally natural rock climbing walls
   building an open source app to make it easier for rock climbers tocontribu
  te climbing routes and GPS-coordinates to OpenStreetMap.
 DTEND:20180204T130000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T123000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Building rock climbing maps with openstreetmap
-UID:2022-06-16T08:19:44+00:00_873747552@ovirt.org
+UID:2022-06-16T08:19:45+00:00_570719207@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Lennart Poettering. casync is a project that combines 
@@ -8082,12 +8082,12 @@ DESCRIPTION:Speaker: Lennart Poettering. casync is a project that combines
  e systems into one tool forefficient delivery of OS images over the Interne
  t. It has a focus onsimplicity\, accuracy and security.
 DTEND:20180204T142500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T133000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Distributing OS images with casync
-UID:2022-06-16T08:19:44+00:00_517944787@ovirt.org
+UID:2022-06-16T08:19:45+00:00_922559024@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Langdon White\, Adam Samalik. Fedora Modularity decoup
@@ -8097,12 +8097,12 @@ DESCRIPTION:Speaker: Langdon White\, Adam Samalik. Fedora Modularity decoup
  ckages available\, butalso about what we have learned while developing Modu
  larity\, what wehave tried and failed\, and our current direction.
 DTEND:20180204T152500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Fedora modularity ii - the rise\, the fall\, and the happy future
-UID:2022-06-16T08:19:44+00:00_994437177@ovirt.org
+UID:2022-06-16T08:19:45+00:00_620003005@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Carol Chen. I’m not a designer\, but I’ve lived and wo
@@ -8116,12 +8116,12 @@ DESCRIPTION:Speaker: Carol Chen. I’m not a designer\, but I’ve lived and wo
  ed\, and hope it can helpdesigners\, especially open source designers\, nav
  igate and negotiate thediversity in cultures and expectations.
 DTEND:20180204T122000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T120000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Cultural interpretations of design and openness
-UID:2022-06-16T08:19:44+00:00_918729750@ovirt.org
+UID:2022-06-16T08:19:45+00:00_611196974@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Bandan Das. This talk aims at an introduction to using
@@ -8135,13 +8135,13 @@ DESCRIPTION:Speaker: Bandan Das. This talk aims at an introduction to using
  d scheduling algorithms can leadto interesting applications with minimal po
  rting overhead to newarchitectures.
 DTEND:20180204T113000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Cancelled sitl bringup with the iio framework\: bootstrapping a x86
   based drone platform
-UID:2022-06-16T08:19:44+00:00_761823707@ovirt.org
+UID:2022-06-16T08:19:45+00:00_900324302@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Hans de Goede. Modern laptops can use a lot less energ
@@ -8157,13 +8157,13 @@ DESCRIPTION:Speaker: Hans de Goede. Modern laptops can use a lot less energ
   on an OOTB Fedora Workstationinstall without the user needing to do any ma
  nual tweaks.
 DTEND:20180204T133000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Improving Linux laptop battery life\: reducing Linux power consumpt
  ion
-UID:2022-06-16T08:19:44+00:00_957374276@ovirt.org
+UID:2022-06-16T08:19:45+00:00_180033251@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Erico Nunes. Short talk about the status and challenge
@@ -8171,12 +8171,12 @@ DESCRIPTION:Speaker: Erico Nunes. Short talk about the status and challenge
  UEFI testing. Thetalk aims to cover the tools and platforms used for testin
  g\, as well asthe coverage that it currently provides.
 DTEND:20180204T150000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T144000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Automating secure boot testing
-UID:2022-06-16T08:19:44+00:00_596168900@ovirt.org
+UID:2022-06-16T08:19:45+00:00_905064793@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: James Shubin. The main design features of the tool inc
@@ -8188,12 +8188,12 @@ DESCRIPTION:Speaker: James Shubin. The main design features of the tool inc
   future designs we’re planning andmake it easy for new users to get involve
  d and help shape the project.
 DTEND:20180204T085000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T080000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Next generation config management\: reactive systems
-UID:2022-06-16T08:19:44+00:00_248803642@ovirt.org
+UID:2022-06-16T08:19:45+00:00_791081183@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stef Walter. Cockpit is an open source project that ha
@@ -8202,12 +8202,12 @@ DESCRIPTION:Speaker: Stef Walter. Cockpit is an open source project that ha
  for Linuxdeployments. But more than that\, it’s a real Linux session in a w
  ebbrowser.
 DTEND:20180204T105500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T103000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Cockpit\: a Linux sysadmin session in your browser
-UID:2022-06-16T08:19:44+00:00_393473492@ovirt.org
+UID:2022-06-16T08:19:45+00:00_57894323@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Sean O’Keeffe. This talk will demo a 2 node Foreman cl
@@ -8216,13 +8216,13 @@ DESCRIPTION:Speaker: Sean O’Keeffe. This talk will demo a 2 node Foreman cl
  cks youcan use to achieve HA. I will finally share some of the future plann
  eddesigns for HA and how this process could be simplified in the future.
 DTEND:20180204T135000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T130000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Highly available Foreman\: a presentation about highly available Fo
  reman including common pitfalls and decisions you'll have to make.
-UID:2022-06-16T08:19:44+00:00_846508910@ovirt.org
+UID:2022-06-16T08:19:45+00:00_545708671@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: James Shubin. We often hear about the charitable organ
@@ -8233,13 +8233,13 @@ DESCRIPTION:Speaker: James Shubin. We often hear about the charitable organ
  in why it both matters and doesn’t. Lastly I’ll present somereporting that 
  I did while researching this presentation.
 DTEND:20180204T092500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Understanding 26 u.s.c. § 501\, and organizational governance\: ...
   and why understanding all this matters outside the u.s.
-UID:2022-06-16T08:19:44+00:00_662506528@ovirt.org
+UID:2022-06-16T08:19:45+00:00_963643415@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Stephen Finucane. The Sphinx documentation tool provid
@@ -8247,13 +8247,13 @@ DESCRIPTION:Speaker: Stephen Finucane. The Sphinx documentation tool provid
  y underutilized. Wedemonstrate how you can go about writing your own extens
  ions and themesfor Sphinx and ultimately how you treat your docs like code.
 DTEND:20180204T103000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T100000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:A lion\, a head\, and a dash of yaml\: extending sphinx to automate
   your documentation
-UID:2022-06-16T08:19:44+00:00_134147892@ovirt.org
+UID:2022-06-16T08:19:45+00:00_900652181@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Shaun McCance. Mallard completely reinvented topic-ori
@@ -8262,13 +8262,13 @@ DESCRIPTION:Speaker: Shaun McCance. Mallard completely reinvented topic-ori
  f Mallard. Andwitness Pintail\, the all-in-one one documentation site build
  er builtfrom the ecosystem of Mallard tools.
 DTEND:20180204T110000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T103500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Mallard\, pintail\, and other duck topics\: topic-oriented help at 
  the GNOME project
-UID:2022-06-16T08:19:44+00:00_76687862@ovirt.org
+UID:2022-06-16T08:19:45+00:00_441066919@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Sanja Bonic. Containers are all the rage\, alongside c
@@ -8277,12 +8277,12 @@ DESCRIPTION:Speaker: Sanja Bonic. Containers are all the rage\, alongside c
  what the potentialbenefits vs drawbacks of having a container-based OS on y
  our desktopare for you as a developer.
 DTEND:20180204T092500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T090000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:You want a clean desktop OS? containerize it
-UID:2022-06-16T08:19:44+00:00_189733891@ovirt.org
+UID:2022-06-16T08:19:45+00:00_457300413@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Christian Brauner\, Adrian Reber. LXD has supported co
@@ -8292,13 +8292,13 @@ DESCRIPTION:Speaker: Christian Brauner\, Adrian Reber. LXD has supported co
  te for the live migration case.This talk will give an overview how live and
   non-live migration worksand what was done to tweak performance.
 DTEND:20180204T145000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T143000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Optimized container live-migration\: incremental live-migration of 
  lxd system containers with criu
-UID:2022-06-16T08:19:44+00:00_596998817@ovirt.org
+UID:2022-06-16T08:19:45+00:00_628012477@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Adam Litke. As kubernetes clusters take on more worklo
@@ -8313,12 +8313,12 @@ DESCRIPTION:Speaker: Adam Litke. As kubernetes clusters take on more worklo
  numerate its advantages\, discuss challengesespecially around deployment\, 
  and propose collaboration opportunitiesbetween Openstack and kubernetes.
 DTEND:20180204T084500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T080000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Black blocks\: kubernetes\, meet OpenStack cinder
-UID:2022-06-16T08:19:44+00:00_28013194@ovirt.org
+UID:2022-06-16T08:19:45+00:00_187757826@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Kashyap Chamarthy. QEMU is an open source machine emul
@@ -8330,12 +8330,12 @@ DESCRIPTION:Speaker: Kashyap Chamarthy. QEMU is an open source machine emul
  ey are\, where they’re used\,and how they can be invoked via the QMP (QEMU 
  Machine Protocol)interface or the libvirt API.
 DTEND:20180204T101500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T093000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Live block device operations in QEMU
-UID:2022-06-16T08:19:44+00:00_967231670@ovirt.org
+UID:2022-06-16T08:19:45+00:00_406553881@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Yanir Quinn. Due to the fact that a Kubernetes cluster
@@ -8344,12 +8344,12 @@ DESCRIPTION:Speaker: Yanir Quinn. Due to the fact that a Kubernetes cluster
  ever-changing state.This brings us to the need of a load balancing/reschedu
  ling mechanismthat will work on top of Kubernetes.
 DTEND:20180204T110000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T101500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Kubernetes load balancing for virtual machines (pods)
-UID:2022-06-16T08:19:44+00:00_750109647@ovirt.org
+UID:2022-06-16T08:19:45+00:00_545758211@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Martin Polednik. Assigning a host device to a VM is co
@@ -8363,12 +8363,12 @@ DESCRIPTION:Speaker: Martin Polednik. Assigning a host device to a VM is co
  e assignment in Kubernetesand in VM management software oVirt\, * present a
  n idea of combiningthese two.
 DTEND:20180204T114500Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T110000Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Device assignment for VMs in kubernetes
-UID:2022-06-16T08:19:44+00:00_499306462@ovirt.org
+UID:2022-06-16T08:19:45+00:00_130971389@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Maor Lipchuk. Even the best system administrator canno
@@ -8378,25 +8378,25 @@ DESCRIPTION:Speaker: Maor Lipchuk. Even the best system administrator canno
  This session will showcase how Ansible can be used to leverage the newAPIs 
  introduced in oVirt 4.2 to create a fully-fledged DR strategy.
 DTEND:20180204T123000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T114500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Automate oVirt disaster recovery solution with ansible\: see how an
  sible makes oVirt recovery a piece of cake
-UID:2022-06-16T08:19:44+00:00_893822406@ovirt.org
+UID:2022-06-16T08:19:45+00:00_774022952@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Thomas Huth. This talk provides a survey of the differ
  ent ways that can be used toconfigure devices\, backends and other interfac
  es of QEMU via itscommand line options.
 DTEND:20180204T140000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180204T131500Z
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:Finding your way through the QEMU parameter jungle
-UID:2022-06-16T08:19:44+00:00_437985200@ovirt.org
+UID:2022-06-16T08:19:45+00:00_807562573@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:FOSDEM is a free event for software developers to meet\, share 
@@ -8410,7 +8410,7 @@ DTSTART:20180203
 LOCATION:Brussels\, Belgium
 SEQUENCE:0
 SUMMARY:FOSDEM
-UID:2022-06-16T08:19:44+00:00_240817612@ovirt.org
+UID:2022-06-16T08:19:44+00:00_560201966@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:KVM Forum is an annual event that presents a rare opportunity f
@@ -8421,12 +8421,12 @@ DESCRIPTION:KVM Forum is an annual event that presents a rare opportunity f
   clouds.More information is available athttps://events.linuxfoundation.org/
  events/kvm-forum-2018/
 DTEND:20181027
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20181024
 LOCATION:Edinburgh\, Scotland
 SEQUENCE:0
 SUMMARY:KVM Forum
-UID:2022-06-16T08:19:44+00:00_557374600@ovirt.org
+UID:2022-06-16T08:19:45+00:00_717578693@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:DevConf.cz (Developer Conference) is a free annual conference f
@@ -8434,12 +8434,12 @@ DESCRIPTION:DevConf.cz (Developer Conference) is a free annual conference f
   Hat Czech Republic in cooperation with the Fedora and JBoss communities.Ad
  ditional details about the conference are available athttp://devconf.cz/.
 DTEND:20180129
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180126
 LOCATION:Brno\, Czech Republic
 SEQUENCE:0
 SUMMARY:DevConf.cz
-UID:2022-06-16T08:19:44+00:00_879176629@ovirt.org
+UID:2022-06-16T08:19:45+00:00_537340961@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:SCaLE is the largest community-run open-source and free softwar
@@ -8447,12 +8447,12 @@ DESCRIPTION:SCaLE is the largest community-run open-source and free softwar
   details about the conference are available athttps://www.socallinuxexpo.or
  g/scale/16x/.
 DTEND:20180312
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180308
 LOCATION:Pasadena\, CA
 SEQUENCE:0
 SUMMARY:SCaLE
-UID:2022-06-16T08:19:44+00:00_472131825@ovirt.org
+UID:2022-06-16T08:19:45+00:00_583366538@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Speaker: Barak Korren. Introduction to the 2nd version of oVirt
@@ -8464,21 +8464,21 @@ DESCRIPTION:Speaker: Barak Korren. Introduction to the 2nd version of oVirt
  onference ID : 8705030462RSVP at:https://www.eventbrite.com/e/ovirt-stdci-v
  2-deep-dive-tickets-45468120372
 DTEND:20180503T090000Z
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180503T080000Z
 LOCATION:online via BlueJeans
 SEQUENCE:0
 SUMMARY:oVirt STDCI v2 deep dive
-UID:2022-06-16T08:19:44+00:00_449671884@ovirt.org
+UID:2022-06-16T08:19:45+00:00_564450151@ovirt.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Talks from oVirt community members on various technical issues 
  that have to dowith oVirt and its development processes
 DTEND:20180504
-DTSTAMP:20220616T081944Z
+DTSTAMP:20220616T081945Z
 DTSTART:20180503
 SEQUENCE:0
 SUMMARY:oVirt deep dive talks
-UID:2022-06-16T08:19:44+00:00_224733098@ovirt.org
+UID:2022-06-16T08:19:45+00:00_669326751@ovirt.org
 END:VEVENT
 END:VCALENDAR

@@ -5,6 +5,9 @@
 :taskdir: ../task
 
 include::{cptdir}/cpt_OverviewActiveActive.adoc[leveloffset=+1]
+
 include::{cptdir}/cpt_NetworkConsiderationsAA.adoc[leveloffset=+1]
+
 include::{cptdir}/cpt_StorageConsiderationsAA.adoc[leveloffset=+1]
+
 include::{taskdir}/task_ConfigureStretchCluster.adoc[leveloffset=+1]

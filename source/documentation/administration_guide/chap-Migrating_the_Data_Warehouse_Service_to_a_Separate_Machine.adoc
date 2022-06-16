@@ -31,6 +31,10 @@ Installing this scenario requires four steps:
 . Disabling the Data Warehouse package on the {engine-name} machine
 
 include::common/database/proc-setting-up-the-new-data-warehouse-machine.adoc[leveloffset=+1]
+
 include::common/database/proc-stopping-the-data-warehouse-service.adoc[leveloffset=+1]
+
 include::common/database/proc-configuring-the-new-data-warehouse-machine.adoc[leveloffset=+1]
+
 include::common/database/proc-disabling-the-data-warehouse-service.adoc[leveloffset=+1]
+

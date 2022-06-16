@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id='Preparing_a_Local_Manually-Configured_PostgreSQL_Database_{context}']
 = Preparing a Local Manually Configured PostgreSQL Database
 

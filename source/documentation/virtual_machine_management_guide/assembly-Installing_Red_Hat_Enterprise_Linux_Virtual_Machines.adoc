@@ -5,7 +5,6 @@
 :context: linux_vm
 :linux_vm:
 
-
 Installing a {enterprise-linux} virtual machine involves the following key steps:
 
 . link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Creating_a_virtual_machine_linux_vm[Create a virtual machine.] You must add a virtual disk for storage, and a network interface to connect the virtual machine to the network.
@@ -14,15 +13,11 @@ Installing a {enterprise-linux} virtual machine involves the following key steps
 
 * {enterprise-linux} 6: link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}6/html/Installation_Guide/index.html[Installing Red Hat Enterprise Linux 6.9 for all architectures]
 
-
 * {enterprise-linux} 7: link:{URL_rhel_docs_legacy}html/Installation_Guide/index.html[Installing Red Hat Enterprise Linux 7 on all architectures]
-
 
 * {enterprise-linux} Atomic Host 7: link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/installation_and_configuration_guide/index[Red Hat Enterprise Linux Atomic Host 7 Installation and Configuration Guide]
 
-
 * {enterprise-linux} 8: link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index[Installing Red Hat Enterprise Linux 8 using the graphical user interface]
-
 
 . link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Enabling_the_Required_Repositories[Enable the required repositories] for your operating system.
 
@@ -40,7 +35,6 @@ include::topics/Opening_a_console_to_a_virtual_machine.adoc[leveloffset=+2]
 include::topics/Opening_a_Serial_Console_to_a_Virtual_Machine.adoc[leveloffset=+2]
 
 include::topics/Automatically_connecting_to_a_Virtual_Machine.adoc[leveloffset=+2]
-
 
 include::topics/Enabling_the_Required_Repositories.adoc[leveloffset=+1]
 

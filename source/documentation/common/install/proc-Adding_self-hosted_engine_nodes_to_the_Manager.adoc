@@ -10,7 +10,6 @@ Add self-hosted engine nodes in the same way as a standard host, with an additio
 
 * If you are reusing a self-hosted engine node, remove its existing self-hosted engine configuration. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#removing_a_host_from_a_self-hosted_engine_environment[Removing a Host from a Self-Hosted Engine Environment].
 
-
 .Procedure
 
 . In the Administration Portal, click menu:Compute[Hosts].

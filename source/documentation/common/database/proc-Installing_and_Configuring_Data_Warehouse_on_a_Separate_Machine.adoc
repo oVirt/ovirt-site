@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id='Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_{context}']
 = Installing and Configuring Data Warehouse on a Separate Machine
 

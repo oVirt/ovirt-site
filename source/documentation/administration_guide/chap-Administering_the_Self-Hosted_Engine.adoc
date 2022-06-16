@@ -8,7 +8,9 @@
 == Maintaining the Self-hosted engine
 
 include::common/she/con-maintenance-modes.adoc[leveloffset=+2]
+
 include::common/she/proc-local-maintenance-mode.adoc[leveloffset=+2]
+
 include::common/she/proc-global-maintenance-mode.adoc[leveloffset=+2]
 
 include::common/she/proc-Administering_the_Manager_Virtual_Machine.adoc[leveloffset=+1]

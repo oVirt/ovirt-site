@@ -17,8 +17,11 @@ The basic life cycle of a User Interface Plug-in divides into three stages:
 * Plug-in bootstrapping.
 
 include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery.adoc[leveloffset=+2]
+
 include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading.adoc[leveloffset=+2]
+
 include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping.adoc[leveloffset=+2]
 
 include::topics/UI_Plugin-related_Files_and_their_Locations.adoc[leveloffset=+1]
+
 include::topics/Example_RHEV_UI_Plugin_Deployment.adoc[leveloffset=+1]

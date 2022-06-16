@@ -18,9 +18,14 @@ To set up NVIDIA vGPU devices, you need to:
 The following procedures explain this process.
 
 include::common/vgpu/proc_setting-up-nvidia-vgpu-devices.adoc[leveloffset=+1]
+
 include::common/vgpu/proc_install-nvidia-vgpu-guest-driver.adoc[leveloffset=+1]
+
 include::common/vgpu/proc_removing-nvidia-vgpu-devices.adoc[leveloffset=+1]
+
 include::common/vgpu/proc_obtaining-nvidia-vgpu-information-about-your-system.adoc[leveloffset=+1]
+
 include::common/vgpu/ref_remote-desktop-streaming-services-for-nvidia-vgpu.adoc[leveloffset=+1]
+
 //include::common/vgpu/proc_removing-nvidia-vgpu-devices.adoc[leveloffset=+1]
 :nvidia_vgpu!:

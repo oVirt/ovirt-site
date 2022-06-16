@@ -18,7 +18,6 @@
 // it is reused multiple times in a guide.
 :context: assembly_managing-vgpu-devices
 
-
 You can use a host with a compatible graphics processing unit (GPU) to run virtual machines that are suited for graphics-intensive tasks and for running software that cannot run without a GPU, such as CAD.
 
 You can assign a GPU to a virtual machine in one of the following ways:

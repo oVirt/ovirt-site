@@ -18,7 +18,6 @@ If the base layer of a disk uses RAW format, deleting the last snapshot and merg
 . Click the btn:[Edit] button. The *Edit Disk* dialog box opens.
 . Select the *Enable Incremental Backup* checkbox.
 
-
 [role="_additional-resources"]
 .Additional resources
  * xref:enable-incremental-backup-for-a-virtual-disk-api-call_{context}[Enabling incremental backup for a disk using the API]

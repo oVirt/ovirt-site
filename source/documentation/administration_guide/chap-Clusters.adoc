@@ -50,7 +50,6 @@ include::common/admin/proc_Configuring_cluster_to_use_Q35_or_UEFI.adoc[leveloffs
 
 include::common/admin/proc_Configuring_vm_to_use_Q35_or_UEFI.adoc[leveloffset=+2]
 
-
 :context: admin
 :admin:
 include::common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+2]

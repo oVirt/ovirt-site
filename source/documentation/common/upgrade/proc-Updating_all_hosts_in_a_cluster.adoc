@@ -32,7 +32,6 @@ You can track the progress of host updates:
 * in the menu:Compute[Hosts] view
 * in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[title="Events icon"]).
 
-
 You can track the progress of individual virtual machine migrations in the *Status* column of the menu:Compute[Virtual Machines] view. In large environments, you may need to filter the results to show a particular group of virtual machines.
 
 :cluster_host_update!:

@@ -28,7 +28,6 @@ Upgrading a self-hosted engine environment from version 4.4 to 4.5 involves the 
 // Prerequisites
 include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
 
-
 [id='Migrating_VMs_from_SHE_host_4-4']
 == Migrating virtual machines from the self-hosted engine host
 

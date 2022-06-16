@@ -49,7 +49,6 @@ Upgrading from an older 4.5 to latest 4.5:
 # dnf update -y centos-release-ovirt45
 ----
 
-
 Upgrading from an older 4.4 to latest 4.4:
 
 * For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed.

@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id='Installing_a_vGPU_on_a_Virtual_Machine']
 = Installing a vGPU on a Virtual Machine
 

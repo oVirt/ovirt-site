@@ -37,7 +37,6 @@ To set up and configure SR-IOV, complete the following tasks.
 - Avoid attaching a host device directly to a VM for SR-IOV feature.
 - To use a VF as a trunk port with several VLANs and configure the VLANs within the Guest, please see link:https://access.redhat.com/solutions/3951231[Cannot configure VLAN on SR-IOV VF interfaces inside the Virtual Machine].
 
-
 Here is an example of what the libvirt XML for the interface would look like:
 [source, xml]
   ----
@@ -51,8 +50,6 @@ Here is an example of what the libvirt XML for the interface would look like:
      <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
    </interface>
    ----
-
-
 
 .Troubleshooting
 
@@ -79,7 +76,6 @@ The following example shows you how to get diagnostic information about the VFs 
 * link:https://access.redhat.com/solutions/3867761[How to configure SR-IOV passthrough for RHV VM?]
 * link:https://access.redhat.com/articles/3215851[How to configure bonding with SR-IOV VF(Virtual Function) in RHV]
 * link:https://access.redhat.com/articles/2335291[How to enable host device passthrough and SR-IOV to allow assigning dedicated virtual NICs to virtual machines in RHV]
-
 
 // Restore the context to what it was before this assembly.
 ifdef::parent-context[:context: {parent-context}]

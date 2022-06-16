@@ -2,7 +2,6 @@
 //
 // assembly_managing-intel-vgpu-devices
 
-
 :_content-type: PROCEDURE
 [id="proc_setting-up-intel-vgpu-devices_{context}"]
 = Setting up Intel vGPU devices
@@ -135,8 +134,6 @@ Windows only: Powering off the virtual machine from within the Windows guest ope
 ====
 
 . Start the virtual machine using a remote visualizer, such as Mechdyne TGX and verify that the vGPU is recognized by *???* For more information, see *???* Alternatively, on Windows, open the Windows Device Manager. The vGPU should appear under *Display adapters*.
-
-
 
 
 ////

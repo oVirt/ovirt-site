@@ -21,7 +21,6 @@ include::topics/Configuring_LDAP_and_Kerberos_for_Single_Sign-on.adoc[leveloffse
 
 include::topics/Configuring_Red_Hat_SSO.adoc[leveloffset=+1]
 
-
 [id="sect-User_Authorization"]
 == User Authorization
 

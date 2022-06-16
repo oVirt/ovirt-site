@@ -174,7 +174,6 @@ endif::SHE_upgrade[]
 Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
 endif::rhv-doc[]
 
-
 . Install optional extension packages if they were installed on the {virt-product-fullname} {engine-name} 4.3 machine.
 +
 [source,terminal,subs="normal"]
@@ -236,7 +235,6 @@ ifdef::SHE_upgrade[]
 endif::SHE_upgrade[]
 ifdef::local_database_upgrade,remote_database_upgrade[]
 * link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing {virt-product-fullname} as a standalone Manager with local databases]
-
 
 * link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/[Installing {virt-product-fullname} as a standalone Manager with remote databases]
 endif::local_database_upgrade,remote_database_upgrade[]

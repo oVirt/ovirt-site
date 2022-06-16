@@ -17,8 +17,6 @@ You can use automation to adjust or otherwise customize the {engine-name} virtua
 * after adding the deployment host to the {engine-name}
 * after the deployment completes entirely
 
-
-
 .Procedure
 
 . Write one or more Ansible playbooks to run on the {engine-name} virtual machine at specific points in the deployment process.

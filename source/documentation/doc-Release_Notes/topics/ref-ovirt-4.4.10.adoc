@@ -1,7 +1,5 @@
 = Red Hat Virtualization 4.4 Batch Update 9 (ovirt-4.4.10)
 
-
-
 == Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:

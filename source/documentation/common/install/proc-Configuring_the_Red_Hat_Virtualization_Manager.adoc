@@ -11,7 +11,6 @@ The `engine-setup` command guides you through several distinct configuration sta
 You can run `engine-setup --accept-defaults` to automatically accept all questions that have default answers. This option should be used with caution and only if you are familiar with `engine-setup`.
 ====
 
-
 .Procedure
 
 . Ensure all packages are up to date:
@@ -366,7 +365,6 @@ endif::SM_localDB_deploy[]
 ----
 Please confirm installation settings (OK, Cancel) [OK]:
 ----
-
 
 When your environment has been configured, `engine-setup` displays details about how to access your environment.
 

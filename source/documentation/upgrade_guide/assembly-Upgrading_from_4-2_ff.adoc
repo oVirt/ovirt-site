@@ -32,7 +32,6 @@ ifdef::rhv-doc[]
 For the list of required repositories, see link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.2/html-single/installation_guide/chap-red_hat_virtualization_manager#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_standalone_install[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.2.
 // This link must always be for the starting version of this assembly.
 
-
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
 endif::[]
 
@@ -53,6 +52,5 @@ include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc
 If you previously upgraded to 4.2 without replacing SHA-1 certificates with SHA-256 certificates, you must do so now.
 
 include::common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
-
 
 :4-2_local_db_ff!:

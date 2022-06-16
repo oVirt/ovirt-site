@@ -71,7 +71,6 @@ Installing a self-hosted engine environment involves the following steps:
 Keep the environment up to date. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
 
-
 include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 
 include::common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]

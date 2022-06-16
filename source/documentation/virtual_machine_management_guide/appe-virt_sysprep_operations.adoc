@@ -9,7 +9,6 @@ The `virt-sysprep` command removes system-specific details.
 
 Only operations marked with `*` are performed during the template sealing process.
 
-
 [source,terminal,subs="normal"]
 ----
 # virt-sysprep --list-operations

@@ -1,4 +1,5 @@
-[[Adding_Virtual_Machines]]
+:_content-type: PROCEDURE
+[id="Adding_Virtual_Machines"]
 = Adding Resources
 
 The following examples outline two ways to add resources to the {virt-product-fullname} {engine-name}. In these examples, the resource to be added is a virtual machine.

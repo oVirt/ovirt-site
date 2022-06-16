@@ -1,4 +1,5 @@
-[[Getting_a_Resource]]
+:_content-type: PROCEDURE
+[id="Getting_a_Resource"]
 = Getting a Resource
 
 In the Java Software Development Kit, resources can be referred to via two attributes: `name`, and `UUID`. Both return an object with the specified attribute if that object exists.

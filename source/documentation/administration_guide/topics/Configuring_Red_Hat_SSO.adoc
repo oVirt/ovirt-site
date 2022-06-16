@@ -15,7 +15,7 @@ To use Red Had Single Sign-On as your authorization method, you need to:
 If Red Hat SSO is configured, previous LDAP sign ons will not work, as only a single authorization protocol may be used at a time.
 ====
 
-include::Installing_RH_SSO.adoc[]
+include::Installing_RH_SSO.adoc[leveloffset=+1]
 
 Prepare the following information:
 
@@ -23,10 +23,10 @@ Prepare the following information:
 * The subscription channel for the correct repositories.
 * Valid Red Hat subscription login credentials.
 
-include::Configuring_RHSSO_ldap.adoc[]
+include::Configuring_RHSSO_ldap.adoc[leveloffset=+1]
 
-include::Configuring_RHSSO_apache.adoc[]
+include::Configuring_RHSSO_apache.adoc[leveloffset=+1]
 
-include::Configuring_RHSSO_OVN.adoc[]
+include::Configuring_RHSSO_OVN.adoc[leveloffset=+1]
 
-include::Configuring_RHSSO_Monitoring_Portal.adoc[]
+include::Configuring_RHSSO_Monitoring_Portal.adoc[leveloffset=+1]

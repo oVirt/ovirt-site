@@ -1,4 +1,5 @@
-[[Connecting_to_the_Red_Hat_Enterprise_Virtualization_Manager_4]]
+:_content-type: PROCEDURE
+[id="Connecting_to_the_Red_Hat_Enterprise_Virtualization_Manager_4"]
 = Connecting to the {virt-product-fullname} {engine-name} in Version 4
 
 In V4 of the Java software development kit, the `Connection` class is the main class you use to connect to and manipulate objects in a {virt-product-fullname} environment. To declare an instance of this class, you must declare an instance of the `ConnectionBuilder` class, pass the required arguments to this instance using builder methods, then call the `build` method on the instance. The `build` method returns an instance of the `Connection` class that you can then assign to a variable and use to perform subsequent actions.

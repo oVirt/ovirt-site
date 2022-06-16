@@ -1,9 +1,10 @@
-[[Listing_Entities]]
+:_content-type: PROCEDURE
+[id="Listing_Entities"]
 = Listing Entities
 
 The following example outlines how to list entities in the {virt-product-fullname} {engine-name}. In this example, the entities to be listed are virtual machines, which are listed using the `getVMs()` method of the `Api` class.
 
-*Listing Entities*
+.Procedure
 
 . Declare a `List` of the type of entity to be listed and use the corresponding method to get the list of entities:
 +

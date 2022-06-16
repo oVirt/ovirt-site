@@ -1,9 +1,10 @@
-[[Downloading_the_Java_SDK]]
+:_content-type: PROCEDURE
+[id="Downloading_the_Java_SDK"]
 = Installing the Java Software Development Kit
 
 Install the Java software development kit and accompanying documentation.
 
-*Installing the Java Software Development Kit*
+.Procedure
 
 . Enable the repositories:
 +

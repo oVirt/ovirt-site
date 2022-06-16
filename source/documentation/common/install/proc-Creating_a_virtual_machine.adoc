@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id='Creating_a_virtual_machine_{context}']
 = Creating a virtual machine
 
@@ -70,5 +70,5 @@ or
 The new virtual machine is created and displays in the list of virtual machines with a status of `Down`.
 
 ifndef::windows_vm[]
-include::proc-Configuring_Ignition.adoc[]
+include::proc-Configuring_Ignition.adoc[leveloffset=+1]
 endif::windows_vm[]

@@ -1,4 +1,5 @@
 include::common/collateral_files/_attributes.adoc[]
+[id="rest-api-guide"]
 = REST API Guide
 
 :engine-name: oVirt engine

@@ -1,8 +1,9 @@
 :numbered!:
 
 [appendix]
-[[ApiBuilder_Methods]]
-== ApiBuilder Methods
+:_content-type: ASSEMBLY
+[id="ApiBuilder_Methods"]
+= ApiBuilder Methods
 
 The following table outlines the key methods available to the `ApiBuilder` class used in V3 of the Java software development kit.
 

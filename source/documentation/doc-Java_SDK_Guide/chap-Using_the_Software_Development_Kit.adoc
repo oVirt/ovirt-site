@@ -1,5 +1,6 @@
-[[chap-Using_the_Software_Development_Kit]]
-== Using the Software Development Kit
+:_content-type: ASSEMBLY
+[id="chap-Using_the_Software_Development_Kit"]
+= Using the Software Development Kit
 
 This chapter outlines several examples of how to use the Java Software Development Kit. All examples in this chapter use version 3 of the software development kit unless otherwise noted.
 

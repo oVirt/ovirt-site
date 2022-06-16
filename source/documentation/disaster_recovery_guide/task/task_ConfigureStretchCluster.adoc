@@ -1,10 +1,10 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id="configure_she_stretch_cluster"]
 = Configuring a Self-hosted Engine Stretch Cluster Environment
 
 This procedure provides instructions to configure a stretch cluster using a self-hosted engine deployment.
 
-include::{cptdir}/cpt_StretchPrerequisites.adoc[]
+include::{cptdir}/cpt_StretchPrerequisites.adoc[leveloffset=+1]
 
 .Limitations
 
@@ -18,14 +18,14 @@ include::{cptdir}/cpt_StretchPrerequisites.adoc[]
 
 . Optionally, install additional standard hosts. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/#Adding_standard_hosts_to_the_Manager_SHE_cli_deploy[Adding Standard Hosts to the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a self-hosted engine using the command line_.
 
-include::{taskdir}/task_CommonStepsConfigureStretchCluster.adoc[]
+include::{taskdir}/task_CommonStepsConfigureStretchCluster.adoc[leveloffset=+1]
 
 [id="configure_standalone_manager_stretch_cluster"]
 = Configuring a Standalone {engine-name} Stretch Cluster Environment
 
 This procedure provides instructions to configure a stretch cluster using a standalone {engine-name} deployment.
 
-include::{cptdir}/cpt_StretchPrerequisites.adoc[]
+include::{cptdir}/cpt_StretchPrerequisites.adoc[leveloffset=+1]
 
 .Limitations
 

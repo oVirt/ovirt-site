@@ -1,4 +1,4 @@
-:rhv-doc:
+:_content-type: ASSEMBLY:rhv-doc:
 include::common/collateral_files/_attributes.adoc[]
 = Java SDK Guide
 :imagesdir: images

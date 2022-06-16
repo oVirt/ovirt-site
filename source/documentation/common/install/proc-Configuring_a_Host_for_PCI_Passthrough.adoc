@@ -73,5 +73,3 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1
 ----
 # reboot
 ----
-
-To enable SR-IOV and assign dedicated virtual NICs to virtual machines, see link:https://access.redhat.com/articles/2335291[].

@@ -95,7 +95,7 @@ You must also define the authentication URL of the Keystone server by defining t
 +
 Optionally, enter the *Tenant* for the external network provider.
 +
-The authentication method must be configured in the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist). Restart the `ovirt-provider-ovn` service for the change to take effect. See link:https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc[] for more information about OVN authentication.
+The authentication method must be configured in the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist). Restart the `ovirt-provider-ovn` service for the change to take effect. See link:https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc[oVirt external network provider for OVN] for more information about OVN authentication.
 . Test the credentials:
 .. Click *Test* to test whether you can authenticate successfully with OVN using the provided credentials.
 .. If the OVN instance uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the OVN instance provides to ensure the {engine-name} can communicate with the instance.

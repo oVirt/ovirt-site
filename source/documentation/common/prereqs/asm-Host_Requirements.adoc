@@ -7,9 +7,9 @@
 // Install
 
 ifdef::rhv-doc[]
-Hardware certification for {virt-product-fullname} is covered by the hardware certification for {enterprise-linux}. For more information, see link:https://access.redhat.com/solutions/725243[Does Red Hat Virtualization also have hardware certification?]. To confirm whether specific hardware items are certified for use with {enterprise-linux}, see link:https://access.redhat.com/ecosystem/#certifiedHardware[Find a certified solution].
+Hardware certification for {virt-product-fullname} is covered by the hardware certification for {enterprise-linux}. For more information, see link:https://access.redhat.com/solutions/725243[Does Red Hat Virtualization also have hardware certification?]. To confirm whether specific hardware items are certified for use with Red Hat Enterprise Linux, see link:https://access.redhat.com/ecosystem/#certifiedHardware[Find a certified solution].
 
-For more information on the requirements and limitations that apply to guests see link:https://access.redhat.com/articles/rhel-limits[] and link:https://access.redhat.com/articles/906543[].
+For more information on the requirements and limitations that apply to guests see link:https://access.redhat.com/articles/rhel-limits[Red Hat Enterprise Linux Technology Capabilities and Limits] and link:https://access.redhat.com/articles/906543[Supported Limits for Red Hat Virtualization].
 endif::[]
 
 ifdef::ovirt-doc[]

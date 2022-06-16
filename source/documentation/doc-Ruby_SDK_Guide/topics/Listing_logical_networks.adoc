@@ -26,4 +26,4 @@ In an environment with only the default management network, the example outputs:
 ovirtmgmt
 ----
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/NetworksService:list[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/NetworksService:list[NetworksService:list].

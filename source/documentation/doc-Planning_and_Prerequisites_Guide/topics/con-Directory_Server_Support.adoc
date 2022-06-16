@@ -8,15 +8,15 @@ You can also attach an external directory server to your {virt-product-fullname}
 
 The following directory servers are supported for use with {virt-product-fullname}. For more detailed information on installing and configuring a supported directory server, see the vendor's documentation.
 
-*Active Directory*:: link:https://docs.microsoft.com/en-us/windows-server/identity/identity-and-access[]
+* link:https://docs.microsoft.com/en-us/windows-server/identity/identity-and-access[Microsoft Active Directory]
 
-*Identity Management (IdM - based on IPA)*::   link:{URL_rhel_docs_latest}html-single/planning_identity_management/index#intro-to-ipa-overview-of-planning-idm-and-access-control[]
+* link:{URL_rhel_docs_latest}html-single/planning_identity_management/index#intro-to-ipa-overview-of-planning-idm-and-access-control[Red Hat Enterprise Linux Identity Management]
 
-*Red Hat Directory Server 9 (RHDS 9 - based on 389DS)*:: link:https://access.redhat.com/documentation/en-us/red-hat-directory-server/[]
+* link:https://access.redhat.com/documentation/en-us/red-hat-directory-server/[Red Hat Directory Server]
 
-*OpenLDAP*:: link:http://www.openldap.org/doc/[]
+* link:https://www.openldap.org/doc/[OpenLDAP]
 
-*IBM Security (Tivoli) Directory Server*:: link:https://www.ibm.com/support/knowledgecenter/SSVJJU_6.4.0/com.ibm.IBMDS.doc_6.4/welcome.html[]
+* link:https://www.ibm.com/docs/en/sdse/6.4.0[IBM Security (Tivoli) Directory Server]
 
 [IMPORTANT]
 ====

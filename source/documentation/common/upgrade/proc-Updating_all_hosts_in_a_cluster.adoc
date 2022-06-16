@@ -4,7 +4,7 @@
 
 :cluster_host_update:
 
-You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of {virt-product-fullname}. See link:https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md[] for more information about the Ansible role used to automate the updates.
+You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of {virt-product-fullname}. See link:https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md[oVirt Cluster Upgrade] for more information about the Ansible role used to automate the updates.
 
 Update one cluster at a time.
 

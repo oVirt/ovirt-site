@@ -8,7 +8,7 @@ Import an Open Virtual Appliance (OVA) file into your {virt-product-fullname} en
 ====
 Currently, only {virt-product-fullname} and OVAs created by VMware can be imported. KVM and Xen are not supported.
 
-The import process uses `virt-v2v`. Only virtual machines running operating systems compatible with `virt-v2v` can be successfully imported. For a current list of compatible operating systems, see link:https://access.redhat.com/articles/1351473[].
+The import process uses `virt-v2v`. Only virtual machines running operating systems compatible with `virt-v2v` can be successfully imported. See link:https://access.redhat.com/articles/1351473[Converting virtual machines from other hypervisors to KVM with virt-v2v in RHEL 7 and RHEL 8] for a current list of compatible operating systems.
 ====
 
 *Importing an OVA File*

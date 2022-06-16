@@ -79,21 +79,6 @@ See:
 
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#how_to_set_up_rhvm_to_use_fcoe[How to Set Up {virt-product-fullname} {engine-name} to Use FCoE] in the _Administration Guide_.
 
-// [id="gluster"]
-// == {gluster-storage-fullname}
-//
-// {gluster-storage-fullname} (RHGS) is a POSIX-compliant and open source file system. Three or more servers are configured as a {gluster-storage-fullname} cluster, instead of network-attached storage (NAS) appliances or a storage area network (SAN) array.
-//
-// {gluster-storage-fullname} should be utilized over 10GbE and segregated with VLANs.
-//
-// Check the compatibility matrix in link:https://access.redhat.com/articles/2356261[] before using RHGS with {virt-product-fullname}.
-//
-// See:
-//
-// * link:https://access.redhat.com/documentation/en-us/red-hat-gluster-storage/[{gluster-storage-fullname} Documentation]
-//
-// * link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.2/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/[_Configuring {virt-product-fullname} with {gluster-storage-fullname}_]
-
 [id="rhhi"]
 == Red Hat Hyperconverged Infrastructure
 

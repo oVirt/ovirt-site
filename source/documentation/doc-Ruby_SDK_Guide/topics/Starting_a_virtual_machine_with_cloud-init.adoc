@@ -54,4 +54,4 @@ vm_service.start(
 )
 ----
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmService:start[VmService:start].

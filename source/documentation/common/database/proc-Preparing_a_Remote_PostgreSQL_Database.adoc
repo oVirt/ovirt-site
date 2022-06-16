@@ -149,7 +149,8 @@ work_mem=8192
 ----
 # systemctl restart postgresql
 ----
-. Optionally, set up SSL to secure database connections using the instructions at link:https://www.postgresql.org/docs/12/ssl-tcp.html#SSL-FILE-USAGE[].
+
+. Optionally, set up link:https://www.postgresql.org/docs/12/ssl-tcp.html#SSL-FILE-USAGE[SSL] to secure database connections.
 
 :context!: remote_database_install
 :remote_database_install!:

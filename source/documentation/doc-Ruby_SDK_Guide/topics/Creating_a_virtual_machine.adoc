@@ -25,4 +25,4 @@ vms_service.add(
 
 After creating a virtual machine, it is recommended to xref:Adding_Virtual_Machine_Locating_Its_Service_and_Retrieving_Status[poll the virtual machine's status], to ensure that all the disks have been created.
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/VmsService:add[VmsService:add].

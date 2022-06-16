@@ -71,7 +71,7 @@ ifdef::migrating_to_SHE[]
 +
 [NOTE]
 ====
-The virtual machine must have the same amount of RAM as the physical machine from which the {engine-name} is being migrated. If you must migrate to a virtual machine that has less RAM than the physical machine from which the {engine-name} is migrated, see link:https://access.redhat.com/articles/2705841[].
+The virtual machine must have the same amount of RAM as the physical machine from which the {engine-name} is being migrated. If you must migrate to a virtual machine that has less RAM than the physical machine from which the {engine-name} is migrated, see link:https://access.redhat.com/articles/2705841[Configuring the amount of RAM in Red Hat Virtualization Hosted Engine].
 ====
 endif::migrating_to_SHE[]
 

@@ -26,4 +26,4 @@ In an environment with only the Default cluster, the example outputs:
 Default
 ----
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/ClustersService:list[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/ClustersService:list[ClustersService:list].

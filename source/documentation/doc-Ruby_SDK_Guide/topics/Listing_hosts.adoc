@@ -26,4 +26,4 @@ In an environment with only one attached host (`Atlantic`) the example outputs:
 Atlantic
 ----
 
-For more information, see link:https://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/HostsService#list-instance_method[].
+For more information, see link:https://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/HostsService#list-instance_method[HostsService:list-instance_method].

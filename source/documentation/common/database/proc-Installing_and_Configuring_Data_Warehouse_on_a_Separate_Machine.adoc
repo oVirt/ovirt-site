@@ -230,7 +230,7 @@ Please confirm installation settings (OK, Cancel) [OK]:
 ----
 # systemctl restart ovirt-engine
 ----
-. Optionally, set up SSL to secure database connections using the instructions at link: https://www.postgresql.org/docs/12/ssl-tcp.html#SSL-FILE-USAGE[].
+. Optionally, set up link:https://www.postgresql.org/docs/12/ssl-tcp.html#SSL-FILE-USAGE[SSL] to secure database connections.
 
 :context!: install_DWH_remote
 :install_DWH_remote!:

@@ -44,6 +44,5 @@ The following options are only available when using the `engine-backup` command 
 +
 [NOTE]
 ====
-If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See link:https://access.redhat.com/articles/2686731[].
+If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See link:https://access.redhat.com/articles/2686731[How to grant access to an extra database user after restoring Red Hat Virtualization from a backup].
 ====
-

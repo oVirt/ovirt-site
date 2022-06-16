@@ -34,4 +34,4 @@ The connection, and all the services obtained from it, cannot be used after the 
 
 If the connection fails, the software development kit will raise an link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Error[Error] exception, containing details of the failure.
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection:initialize[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/Connection:initialize[Connection:initialize].

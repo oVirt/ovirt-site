@@ -27,15 +27,15 @@ public class rhevm {
             .password("p@ssw0rd")
             .trustStoreFile("/home/username/server.truststore")
             .trustStorePassword("p@ssw0rd");
-        
+
         try (Connection conn = myBuilder.build()) {
 
             // Requests
 
         } catch (Exception e) {
-           
+
             // Error handling
- 
+
         }
     }
 }
@@ -43,4 +43,4 @@ public class rhevm {
 
 ====
 
-This example creates a connection using basic authentication, but other methods are also available. For a list of the key arguments that can be passed to instances of the `ConnectionBuilder` class, see xref:ConnectionBuilder_Methods[].
+This example creates a connection using basic authentication, but other methods are also available. For a list of the key arguments that can be passed to instances of the `ConnectionBuilder` class, see xref:ConnectionBuilder_Methods[ConnectionBuilder Methods].

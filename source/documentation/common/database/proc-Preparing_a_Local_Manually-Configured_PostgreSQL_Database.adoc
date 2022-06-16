@@ -123,7 +123,8 @@ work_mem=8192
 ----
 # systemctl restart postgresql
 ----
-. Optionally, set up SSL to secure database connections using the instructions at link:http://www.postgresql.org/docs/12/static/ssl-tcp.html#SSL-FILE-USAGE[].
+
+. Optionally, set up link:http://www.postgresql.org/docs/12/static/ssl-tcp.html#SSL-FILE-USAGE[SSL] to secure database connections.
 
 Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {engine-name}], and answer `Local` and `Manual` when asked about the database.
 

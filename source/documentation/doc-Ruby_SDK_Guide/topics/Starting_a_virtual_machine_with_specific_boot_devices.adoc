@@ -38,4 +38,4 @@ loop do
 end
 ----
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/BootDevice[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/BootDevice[BootDevice].

@@ -21,7 +21,7 @@ The minimum storage requirements for host installation are listed below. However
 * /var/log - 8 GB
 * /var/log/audit - 2 GB
 * /var/tmp - 10 GB
-* swap - 1 GB (for the recommended swap size, see link:https://access.redhat.com/solutions/15244[])
+* swap - 1 GB. See link:https://access.redhat.com/solutions/15244[What is the recommended swap size for Red Hat platforms?] for details.
 * Anaconda reserves 20% of the thin pool size within the volume group for future metadata expansion. This is to prevent an out-of-the-box configuration from running out of space under normal usage conditions. Overprovisioning of thin pools during installation is also not supported.
 * *Minimum Total - 64 GiB*
 

@@ -9,5 +9,5 @@ endif::[]
 ifdef::rhv-doc[]
 For information on setting up and configuring {gluster-storage-fullname}, see the link:{URL_gluster_docs}3.5/html/installation_guide/[_{gluster-storage-fullname} Installation Guide_].
 
-For the {gluster-storage-fullname} versions that are supported with {virt-product-fullname}, see link:https://access.redhat.com/articles/2356261[].
+For the {gluster-storage-fullname} versions that are supported with {virt-product-fullname}, see link:https://access.redhat.com/articles/2356261[Red Hat Gluster Storage Version Compatibility and Support].
 endif::[]

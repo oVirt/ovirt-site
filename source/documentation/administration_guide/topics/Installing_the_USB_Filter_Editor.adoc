@@ -19,6 +19,6 @@ Download the *USB Filter Editor* installer from link:https://access.redhat.com/d
 
 [IMPORTANT]
 ====
-Use a Secure Copy (SCP) client to import and export filter policies from the {virt-product-fullname} {engine-name}. A Secure Copy tool for Windows machines is WinSCP (link:http://winscp.net[]).
+Use a Secure Copy (SCP) client such as link:http://winscp.net[WinSCP] to import and export filter policies from the {virt-product-fullname} {engine-name}.
 ====
 The default USB device policy provides virtual machines with basic access to USB devices; update the policy to allow the use of additional USB devices.

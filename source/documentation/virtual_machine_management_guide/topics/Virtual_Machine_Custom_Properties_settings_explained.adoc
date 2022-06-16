@@ -14,12 +14,10 @@ The following table details the options available on the *Custom Properties* tab
 |Recommendations and Limitations
 |Power cycle required?
 
-
 |*sndbuf*
 |Enter the size of the buffer for sending the virtual machine's outgoing data over the socket. Default value is 0.
 |-
 | Yes
-
 
 |*hugepages*
 |Enter the huge page size in KB.
@@ -30,7 +28,6 @@ a|
 * The virtual machine’s memory size must fit into the selected size of the pinned host’s free huge pages. The NUMA node size must be a multiple of the huge page’s selected size.
 | Yes
 
-
 |*vhost*
 a|Disables vhost-net, which is the kernel-based virtio network driver on virtual network interface cards attached to the virtual machine. To disable vhost, the format for this property is `_LogicalNetworkName_: false`.
 
@@ -38,24 +35,20 @@ This will explicitly start the virtual machine without the vhost-net setting on 
 |vhost-net provides better performance than virtio-net, and if it is present, it is enabled on all virtual machine NICs by default. Disabling this property makes it easier to isolate and diagnose performance issues, or to debug vhost-net errors; for example, if migration fails for virtual machines on which vhost does not exist.
 | Yes
 
-
 |*sap_agent*
 |Enables SAP monitoring on the virtual machine. Set to *true* or *false*.
 |-
 | Yes
-
 
 // |*nvram_template*
 // |TBD
 // |TBD
 // |TBD
 
-
 |*viodiskcache*
-|Caching mode for the virtio disk. *writethrough* writes data to the cache and the disk in parallel, *writeback* does not copy modifications from the cache to the disk, and *none* disables caching. See link:https://access.redhat.com/solutions/2361311[] for more information about the limitations of the `viodiskcache` custom property.
+|Caching mode for the virtio disk. *writethrough* writes data to the cache and the disk in parallel, *writeback* does not copy modifications from the cache to the disk, and *none* disables caching. See link:https://access.redhat.com/solutions/2361311[Writeback or writethrough cache mode can only be set via 'viodiskcache' custom property for file-based storage] for information about the limitations of the `viodiskcache` custom property.
 |In order to ensure data integrity in the event of a fault in storage, in the network, or in a host during migration, do not migrate virtual machines with viodiskcache enabled, unless virtual machine clustering or application-level clustering is also enabled.
 | Yes
-
 
 |*scsi_hostdev*
 a|
@@ -68,7 +61,6 @@ Optionally, if you add a SCSI host device to a virtual machine, you can specify 
 |If you are not sure, try *scsi_hd*.
 |Yes
 |===
-
 
 [WARNING]
 ====

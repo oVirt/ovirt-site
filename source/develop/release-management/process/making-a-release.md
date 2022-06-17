@@ -45,6 +45,25 @@ or asking on the [CentOS Virt mailing list](https://lists.centos.org/mailman/lis
 
 The build process on the [Community Build Service is documented on the CentOS website](https://wiki.centos.org/HowTos/CommunityBuildSystem).
 
+Once you have been approved with the corresponding permissions, you need to set up a build environment and to generate an authentication certificate. It's described in detail in the page linked above, here is a short version:
+
+```bash
+# Install the necessary packages
+dnf install epel-release
+dnf install centos-packager fedora-packager
+
+# If you haven't set up Kerberos yet, you may need to set
+# the following line in /etc/krb5.conf if the default KEYRING
+# setting doesn't work with the commands below:
+# default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+
+# Log in to Kerberos
+fkinit -u <your CentOS/Fedora account username>
+
+# Generate the authentication certificate
+centos-cert -u <your CentOS/Fedora account username>
+```
+
 A typical build is done by taking a src.rpm from the COPR [ovirt/ovirt-master-snapshot Builds](https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/builds/)
 and rebuilding with:
 

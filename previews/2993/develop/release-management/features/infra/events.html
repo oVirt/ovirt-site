@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Events | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Events" />
+<meta name="author" content="Oved Ourfali" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2993/develop/release-management/features/infra/events.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2993/develop/release-management/features/infra/events.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Events" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Oved Ourfali" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Oved Ourfali"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Events","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2993/images/logo.svg"},"name":"Oved Ourfali"},"url":"https://ovirt.github.io/ovirt-site/previews/2993/develop/release-management/features/infra/events.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2993/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2993/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2993/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2993/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2993/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2993/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2993/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2993/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2993/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2993/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2993/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2993/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2993/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2993/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2993/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2993/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2993/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2993/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2993/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2993/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2993/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2993/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2993//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2993//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2993/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2993/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2993/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2993/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2993/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Oved Ourfali">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Oved Ourfali</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/194ccfad6c8556f5f2b5cfc5b2fdcfde?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/194ccfad6c8556f5f2b5cfc5b2fdcfde?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Piotr Kliczewski">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Piotr Kliczewski</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2993/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="event-processing-built-on-top-of-json-rpc">Event processing built on top of JSON-RPC</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Engine to vdsm communication was always initiated by an engine. Even when we execute long running tasks on vdsm there is polling mechanism to check status of a task. This behavior creates communication overhead and we want to address this issue by sending messages from vdsm and breaking current mechanism of rpc. This feature provides infrastructure to send messages from vdsm and to receive them on an engine side. We are not going to modify existing xmlrpc and it is still supported in 3.6.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Piotr Kliczewski (Pkliczewski)</li>
+  <li>Email: <a href="mailto:pkliczew@redhat.com">pkliczew@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Last updated on – by (WIKI)</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>In 3.5 release we introduced <a href="/ovirt-site/previews/2993/develop/release-management/features/infra/jsonrpc3.5.html">jsonrpc</a> which provided asynchronous behavior.
+We are going to leverage it in order to provide vdsm side messages.
+We refer to such messages as events generated by vdsm. Constant flow of events is delivered to different parts of an engine by using
+<a href="http://www.reactive-streams.org/">reactive streams</a> abstractions.
+Each event can be sent to one or more vdsm clients by using stomp level subscriptions.</p>
+
+<h2 id="event-structure">Event structure</h2>
+
+<p>3.5 implementation uses stomp protocol to send <a href="http://www.jsonrpc.org/specification">jsonrpc</a> defined messages.
+As part of this effort we are going to use notification structure as defined in the specification.</p>
+
+<p>Here is the structure of an event:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SEND
+destination: &lt;queue/topic&gt;
+content-type: text/json
+content-length: &lt;length&gt;
+content-encoding: &lt;token as defined by IANA&gt;
+{
+    "jsonrpc": "2.0",
+    "method": "`&lt;receiver&gt;`|`&lt;component&gt;`|`&lt;operation_id&gt;`|`&lt;unique_id&gt;`",
+    "params": {
+        &lt;contents&gt;
+    }
+}
+^@
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;queue/topic&gt;</code> defines a destination to which we deliver events. Each event is delivered to all the clients which subscribed to its destination.
+At the moment event destination is defined in config.py using ‘<code class="language-plaintext highlighter-rouge">event_queue</code>’ property and value of it is an engine response: ‘<code class="language-plaintext highlighter-rouge">jms.topic.vdsm_responses</code>’</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;receiver&gt;|&lt;component&gt;|&lt;operation_id&gt;|&lt;unique_id&gt;</code> defines subscription id which is used to match engine side subscription.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;contents&gt;</code> defines the place where we send data as part of an event.</p>
+
+<h2 id="subscription-identifier">Subscription identifier</h2>
+
+<p>Subscription ID is used to uniquely identify an event, so that the entity receiving it is able to match it to subscribed entities.
+The idea behind this ID is to use information known by all the parties. Here is how we define each of the sections:</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;receiver&gt;</code> contains IP address or host name, and it is provided by the client side (engine) when it is received.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;component&gt;</code> contains information about which component generated the event such as virt/storage/network and etc.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;operation_id&gt;</code> contains information about the operation. In order to ease migration from rpc based communication to events we can use operation names such as Image_move, Volume_copy etc.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;unique_id&gt;</code> contains information about the object on which we perform operation like image, volume or VM uuid.</p>
+
+<p>When subscribing, it is possible to use wildcards in different sections of the subscription ID. For example:</p>
+
+<p>’<code class="language-plaintext highlighter-rouge">\*|virt|\*|8839ddac-d833-4b0d-b7e2-4517fd100c8f</code>’ - for this subscription id we are receive events which match component ‘<code class="language-plaintext highlighter-rouge">virt</code>’ and
+are generated for vm id ‘<code class="language-plaintext highlighter-rouge">8839ddac-d833-4b0d-b7e2-4517fd100c8f</code>’. 
+Receiving all possible events by specifying ‘<code class="language-plaintext highlighter-rouge">\*|\*|\*|\*</code>’ filter is not supported.</p>
+
+<h2 id="communication-infrastructure">Communication infrastructure</h2>
+
+<p>During design process we have explored the following communication models.</p>
+
+<h3 id="internal-to-vdsm-broker">Internal to vdsm broker</h3>
+
+<p><img src="/ovirt-site/previews/2993/images/wiki/Broker.png" alt="" /></p>
+
+<p>In 3.5 we already had notion of a broker which was responsible for processing of stomp level messages.
+Due to time constraints we haven’t implemented subscription mechanism which is provided as part of this implementation.
+Even though subscriptions were not implemented in vdsm, the engine always sends a SUBSCRIBE frame.
+3.5 implementation uses queue naming convention which is not supported by brokers such as activemq so we have decided to change it for 3.6 and introduce legacy mode in internal broker.
+There are following ways internal broker can process messages:</p>
+
+<ul>
+  <li>legacy mode</li>
+</ul>
+
+<p>It is detected when following destinations are used for requests: ‘<code class="language-plaintext highlighter-rouge">/queue/_local/vdsm/requests</code>’ and for responses ‘<code class="language-plaintext highlighter-rouge">/queue/_local/vdsm/reponses</code>’.</p>
+
+<ul>
+  <li>standard mode</li>
+</ul>
+
+<p>Vds request ‘<code class="language-plaintext highlighter-rouge">jms.topic.vdsm_requests</code>’ and response ‘<code class="language-plaintext highlighter-rouge">jms.queue.reponses</code>’ destinations
+Irs request destination ‘<code class="language-plaintext highlighter-rouge">jms.topic.vdsm_irs_requests</code>’ and response ‘<code class="language-plaintext highlighter-rouge">jms.queue.irsreponses</code>’
+destination vdsClient and migration used to use ‘<code class="language-plaintext highlighter-rouge">jms.topic.vdsm_requests</code>’ as destination and provide unique response destination in stomp frame level header ‘<code class="language-plaintext highlighter-rouge">reply-to</code>’</p>
+
+<ul>
+  <li>broker mode</li>
+</ul>
+
+<p>Above modes let jsonrpc code to process messages and vdsm generates the response.
+This mode is used when request destinations are different than queue/topic names used for the modes above.
+Vdsm acts as regular stomp broker supporting most of the spec.</p>
+
+<h3 id="broker-based">Broker based</h3>
+
+<p><img src="/ovirt-site/previews/2993/images/wiki/Local_broker.png" alt="" /> <img src="/ovirt-site/previews/2993/images/wiki/Central_broker.png" alt="" /></p>
+
+<p>We explored 2 possible typologies of a broker. We are going to make sure that we are able to use a broker between vdsm and engine but it won’t be supported in 3.6 release.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2993/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2993/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2993/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2993/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/events.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/events.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

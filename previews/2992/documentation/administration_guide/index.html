@@ -29988,10 +29988,13 @@ input(type="imudp" port="514")</pre>
 <div class="sect2">
 <h3 id="VDSM_hooks_domain_xml">The VDSM Hook Domain XML Object</h3>
 <div class="paragraph">
-<p>When hook scripts are started, the <code>_hook_domxml</code> variable is appended to the environment. This variable contains the path of the <code>libvirt</code> domain XML representation of the relevant virtual machine. Several hooks are an exception to this rule, as outlined below.</p>
+<p>VDSM uses the <a href="https://libvirt.org/formatdomain.html"><code>libvirt</code> domain XML format</a> to define virtual machines. The UUID of the virtual machine may be deduced from the domain XML, but it is also available as the environment variable <code>vmId</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>_hook_domxml</code> variable of the following hooks contains the XML representation of the NIC and not the virtual machine:</p>
+<p>When hook scripts are started, the <code>_hook_domxml</code> variable is appended to the environment. This variable contains the path of the <code>libvirt</code> domain XML representation of the relevant virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>Some hooks are an exception to this rule. The following hooks contain the XML representation of the NIC, not the virtual machine:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -30020,14 +30023,11 @@ input(type="imudp" port="514")</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>before_migration_destination</code> and <code>before_dehibernation</code> hooks currently receive the XML of the domain from the source host. The XML of the domain at the destination will have various differences.</p>
+<p>The <code>before_migration_destination</code> and <code>before_dehibernation</code> hooks currently receive the domain XML from the source host. The domain XML at the destination will be different.</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>The <code>libvirt</code> domain XML format is used by VDSM to define virtual machines. See the <a href="https://libvirt.org/formatdomain.html">libvirt domain XML format documentation</a> for details. The UUID of the virtual machine may be deduced from the domain XML, but it is also available as the environment variable <code>vmId</code>.</p>
 </div>
 </div>
 <div class="sect2">

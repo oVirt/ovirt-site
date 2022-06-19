@@ -8,7 +8,7 @@ To set up encrypted communication between the {virt-product-fullname} {engine-na
 
 [NOTE]
 ====
-For more information on creating a PEM-encoded CA certificate and importing certificates, see the `X.509 CERTIFICATE TRUST STORE` section of the README file at */usr/share/doc/ovirt-engine-extension-aaa-ldap-_version_*.
+For more information on creating a PEM-encoded CA certificate and importing certificates, see the `X.509 CERTIFICATE TRUST STORE` section of the README file at `/usr/share/doc/ovirt-engine-extension-aaa-ldap-<__version__>.`
 ====
 
 

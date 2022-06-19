@@ -1,0 +1,26 @@
+:_content-type: PROCEDURE
+[id="troubleshooting-vnc-sasl-ansible-playbook"]
+= VNC SASL Ansible playbook error message
+
+When running the VNC SASL Ansible playbook, the task might fail with the following error message:
+
+[source,terminal,subs="normal"]
+----
+Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host.
+----
+
+To solve this problem, disable host key checking by doing one of the following:
+
+* Disable host key checking permanently by uncommenting the following line in [filename]`/etc/ansible/ansible.cfg`:
++
+[source,terminal,subs="normal"]
+----
+#host_key_checking = False
+----
+
+* Disable host key checking temporarily by running the following command:
++
+[source,terminal,subs="normal"]
+----
+export ANSIBLE_HOST_KEY_CHECKING=False
+----

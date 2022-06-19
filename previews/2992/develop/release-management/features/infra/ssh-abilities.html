@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ssh Abilities | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Ssh Abilities" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2992/develop/release-management/features/infra/ssh-abilities.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2992/develop/release-management/features/infra/ssh-abilities.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ssh Abilities" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Ssh Abilities","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2992/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/2992/develop/release-management/features/infra/ssh-abilities.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2992/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2992/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2992/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2992/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2992/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2992/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2992/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2992/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2992/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2992/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2992/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/2992/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/2992/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/2992/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/2992/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/2992/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2992/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2992/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2992/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2992/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2992/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2992/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2992//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2992//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2992/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2992/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2992/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2992/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2992/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Yaniv Bronheim">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Bronheim</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2992/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="ssh-abilities">Ssh Abilities</h1>
+
+<h2 id="adding-ssh-fingerprint-validation-and-public-key-authentication">Adding SSH fingerprint validation and Public-Key authentication</h2>
+
+<h3 id="summary">Summary</h3>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Yaniv Bronhaim (ybronhei)</li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>oVirt-3.3</li>
+  <li>Last updated: ,</li>
+</ul>
+
+<h3 id="current-status---authentication-by-root-password-only">Current status - Authentication by root password only</h3>
+
+<p>Currently we use user/password authentication for host-deploy and node upgrade.
+The feature adds the ability to use public key authentication for node approval, or password authentication by any privileged user.</p>
+
+<p><strong>Design Changes</strong></p>
+
+<ol>
+  <li>
+    <p>Database</p>
+
+    <p>Modifying <code class="language-plaintext highlighter-rouge">VdsDynamic</code></p>
+
+    <ul>
+      <li>Adding <code class="language-plaintext highlighter-rouge">sshUserName</code>, <code class="language-plaintext highlighter-rouge">sshPortField</code> - That’s allow flexible authentication with each privileged user, and with each port that used for SSH protocol on host.
+This data is saved to allow reinstall the host with same values.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Rest API</p>
+
+    <p>Modifying Host and Action objects</p>
+  </li>
+</ol>
+
+<ul>
+  <li>Adding SSH field for both Host and Action to allow flexibility in the authentication protocol, this includes port, authentication method, and fingerprint
+    <ul>
+      <li>When authentication method’s default value is Password.
+Under ssh field we add ‘User’ reference that includes username and password fields.
+keeping rootPassword field deprecated for backward compatibility.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="nt">&lt;host&gt;</span>
+                <span class="nt">&lt;rootPassword&gt;</span>123<span class="nt">&lt;/rootPassword&gt;</span> -&gt; Still in use for backward compatibility
+                <span class="nt">&lt;ssh&gt;</span>
+                        <span class="nt">&lt;port&gt;</span>22<span class="nt">&lt;/port&gt;</span>
+                        <span class="nt">&lt;fingerprint&gt;</span>11:22:33:44:55:66:77:88<span class="nt">&lt;/fingerprint&gt;</span>
+                        <span class="nt">&lt;authentication_method&gt;</span>publickey<span class="nt">&lt;/authentication_method&gt;</span>
+                        <span class="nt">&lt;user&gt;</span>
+                                <span class="nt">&lt;user_name&gt;</span>ybronhei<span class="nt">&lt;/user_name&gt;</span>
+                                <span class="nt">&lt;password&gt;</span>123<span class="nt">&lt;/password&gt;</span> <span class="c">&lt;!-- When this set we ignore the rootPassword --&gt;</span>
+                                ... <span class="c">&lt;!-- There are more fields under user, we don't use the other fields during install, update and approve host --&gt;</span>
+                        <span class="nt">&lt;/user&gt;</span>
+                <span class="nt">&lt;/ssh&gt;</span>
+        <span class="nt">&lt;/host&gt;</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>UI</p>
+
+    <p>Adding Authentication area in Add/Edit host that allows the user the option to choose between authenticate with the engine’s public key or privileged username and password.
+After first installation we use public key as default. The public key is stored on host as part of the deploy process.</p>
+  </li>
+  <li>
+    <p>Backend</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">GetServerSSHPublicKeyQuery</code> - new query to retrieve the engine’s public key, this used by UI to display the public key for the user</li>
+      <li>Enforcing the ability to connect by public key using <code class="language-plaintext highlighter-rouge">EngineSSHClient</code> and <code class="language-plaintext highlighter-rouge">EngineSSHDialog</code> utils.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="current-status---fingerprint-validation">Current status - Fingerprint validation</h3>
+
+<p>Currently we don’t enforce fingerprint validation. This leads to credential leak.
+The benefits from enforcing fingerprint validation are that when using password authentication, the password is sent to destination host,
+if host fingerprint is not validated, password may be sent to compromised host.
+Furthermore, when installing a host, further communication with vdsm exposes sensitive data (storage, network), if host fingerprint is not validated,
+vdsm may be installed on compromised host and receive the sensitive data.
+Without validating host SSH fingerprint, a man-in-the-middle attach is simple, as credentials are exposed.</p>
+
+<p><strong>Design Changes</strong>
+When SSH session is established, engine extracts destination host fingerprint before authentication, validate this fingerprint against the expected host fingerprint,
+if unmatched disconnect and fail operation. This should make the engine behaves more like traditional ssh regarding the use of <code class="language-plaintext highlighter-rouge">~/.ssh/known_hosts</code>.</p>
+
+<ol>
+  <li>
+    <p>Database</p>
+
+    <p>Modifying <code class="language-plaintext highlighter-rouge">VdsDynamic</code></p>
+
+    <ul>
+      <li>Using <code class="language-plaintext highlighter-rouge">sshFingerprint</code> field (Nullable) - (was already added by gluster, using the same field)</li>
+    </ul>
+  </li>
+  <li>
+    <p>Rest API</p>
+
+    <p>Modifying Host and Action</p>
+    <ul>
+      <li>Adding SSH field to allow flexibility in the authentication protocol, this includes port, authentication method, and fingerprint.
+The API allows missing fingerprint value for backward comparability.
+When missing using the fetched fingerprint (The scheme is described above).</li>
+    </ul>
+  </li>
+  <li>
+    <p>UI</p>
+
+    <p>Add/Edit Host</p>
+  </li>
+</ol>
+
+<ul>
+  <li>Adding Authentication sub view that shows the host’s ssh fingerprint and allowing fetching fingerprint before adding the host.</li>
+</ul>
+
+<p>Reinstall</p>
+
+<ul>
+  <li>Adding Authentication sub view that shows the host’s ssh fingerprint.</li>
+</ul>
+
+<ol>
+  <li>Backend</li>
+</ol>
+
+<ul>
+  <li>At the first time engine connects to an host it will store its fingerprint within the database.
+Then it will enforce this fingerprint in future ssh communications.
+User will also be able to specify the fingerprint when he adds the host, or fetch it within the “Add Host” dialog using a ‘fetch’ button.
+When adding the host, if custom fingerprint was entered, the engine will verify the fingerprint and store it in DB.
+If not entered, and the host not in DB, the engine stores the fetched fingerprint by default.</li>
+  <li><code class="language-plaintext highlighter-rouge">GetServerSSHKeyFingerprintQuery</code> is a query that retrieves host fingerprint by host name.</li>
+  <li>Enforce validation by using <code class="language-plaintext highlighter-rouge">EngineSSHClient::Connect</code> function.</li>
+</ul>
+
+<h3 id="dependencies--related-features">Dependencies / Related Features</h3>
+
+<h3 id="documentation--external-references">Documentation / External references</h3>
+
+<p><a href="http://gerrit.ovirt.org/#/q/status:merged+project:ovirt-engine+branch:master+topic:auth_ssh,n,z">All Patches Related To Feature</a>
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=962162">RFE Support ssh public key authentication</a>
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=848072">RFE When communicate with host enforce host key fingerprint</a></p>
+
+<h2 id="testing">Testing</h2>
+
+<h3 id="fingerprint-part">Fingerprint Part</h3>
+
+<ol>
+  <li>If no fingerprint is available in database - after first connection there will be (field: vds_static.sshKeyFingerprint).</li>
+  <li>If there is fingerprint within database, connection will not succeed if fingerprint mismatch. This can be easily tested if you switch IP addresses of two separate hosts.</li>
+</ol>
+
+<h3 id="public-key-part">Public-Key Part</h3>
+<ol>
+  <li>Adding host by using public key - copy the right public key to host’s <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code></li>
+  <li>Adding host by using public key with wrong public key on host.</li>
+  <li>Reinstall and Edit host, using public key by default.</li>
+  <li>Approve and upgrade new node - Using public key by default.</li>
+</ol>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2992/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2992/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2992/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2992/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/ssh-abilities.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/ssh-abilities.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

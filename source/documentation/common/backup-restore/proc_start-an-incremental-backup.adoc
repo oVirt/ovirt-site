@@ -12,14 +12,14 @@ Starting an incremental backup or mixed backup requires a request call with a bo
 
 .Procedure
 
-. Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id `123` like this:
+. Send a request specifying a virtual machine to back up. For example, specify a virtual machine with ID `123` like this:
 +
 [source,terminal,subs="normal"]
 ----
 POST /ovirt-engine/api/vms/123/backups
 ----
 
-. In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with id `456`, send the following request body:
+. In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with ID `456`, send the following request body:
 +
 [source,terminal,subs="normal"]
 ----
@@ -34,7 +34,7 @@ POST /ovirt-engine/api/vms/123/backups
 +
 [NOTE]
 ====
-In the request body, if you include a disk that is not included in the previous checkpoint, the request also runs a full backup of this disk. For example, a disk with id `789` has not been backed up yet. To add a full backup of `789` to the above request body, send a request body like this:
+In the request body, if you include a disk that is not included in the previous checkpoint, the request also runs a full backup of this disk. For example, a disk with ID `789` has not been backed up yet. To add a full backup of `789` to the above request body, send a request body like this:
 
 [source,terminal,subs="normal"]
 ----
@@ -69,11 +69,11 @@ The response body should look similar to this:
 +
 The response includes the following:
 +
-** The backup id.
-** The id of any disk that was included in the backup.
+** The backup ID.
+** The ID of any disk that was included in the backup.
 ** The status, indicating that the backup is initializing.
 
-. Poll the backup until the status is `ready`. The response includes `to_checkpoint_id`. Note this id and use it for `from_checkpoint_id` in the next incremental backup.
+. Poll the backup until the status is `ready`. The response includes `to_checkpoint_id`. Note this ID and use it for `from_checkpoint_id` in the next incremental backup.
 
 [role=_additonal-resources]
 .Additional resources

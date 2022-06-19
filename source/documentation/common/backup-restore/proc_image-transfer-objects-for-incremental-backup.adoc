@@ -18,12 +18,12 @@ POST /ovirt-engine/api/imagetransfers
 
 . In the request body, specify the following parameters:
 +
- ** disk id
- ** backup id
- ** direction of the disk set to `download`
- ** format of the disk set to `raw`
+ ** Disk ID.
+ ** Backup ID.
+ ** Direction of the disk set to `download`.
+ ** Format of the disk set to `raw`.
 +
-For example, to transfer a backup of a disk where the id of the disk is `123` and the id of the backup is `456`, send the following request body:
+For example, to transfer a backup of a disk where the ID of the disk is `123` and the ID of the backup is `456`, send the following request body:
 +
 [source,terminal,subs="normal"]
 ----

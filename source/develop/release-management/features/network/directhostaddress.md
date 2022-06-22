@@ -25,7 +25,6 @@ The Direct Host Address feature will allow the admin to define a "direct" IP add
 
     * QA Owner: [ ?](User:?)
 
-*   Email: msalem@redhat.com
 
 ## Current status
 

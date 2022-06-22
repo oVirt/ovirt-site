@@ -14,7 +14,8 @@ Live block migration is the operation in charge of moving a running VM and its d
 
 ## GUI
 
-No major GUI modifications are required. The action to move a VM from one storage to another should be enabled also when the VM is running, in which case the engine will issue a live block migration.
+No major GUI modifications are required. The action to move a VM from one storage to another should be enabled also when the VM is running,
+in which case the engine will issue a live block migration.
 
 ![](/images/wiki/StorageLiveMigrationGUI.png)
 
@@ -29,7 +30,7 @@ No major GUI modifications are required. The action to move a VM from one storag
 *   **Mirrored-Snapshot:** mirror a new live snapshot on both source and destination, copy the parent volume to the destination and when completed switch to the new image.
     -   **Pros:** no need to implement cross-domain volume chains in VDSM.
 
-Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)
+Reference: <http://wiki.qemu.org/Features/LiveBlockMigration>
 
 ## Pre-Copy Execution Diagrams and Description
 
@@ -105,7 +106,9 @@ def storageLiveMigration(spmHost, vmHost):
 
 Add a new `moveImage` operation: **`LIVECOPY_OP`** (`0x03`):
 
+```python
     moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, vmUUID, op, postZero=False, force=False)
+```
 
 *   **`spUUID`:** storage pool UUID
 *   **`srcDomUUID`:** source domain UUID
@@ -126,17 +129,20 @@ Description of **LIVECOPY_OP**:
 
 Add the new block migrate commands:
 
+```python
     blkTask = blockMigrateStart(vmUUID, blkMigParams)
     blkStatus = getBlockMigrateStatus(vmUUID, blkTask)
     blockMigrateEnd(vmUUID, blkTask, tgtDomUUID)
+```
 
 The only format supported for **`blkMigParams`** at the moment is:
-
+```python
     blkMigParams = {
         "srcDomUUID": "`<srcDomUUID>`",
         "dstDomUUID": "`<dstDomUUID>`",
         "imgUUID":    "`<imgUUID>`",
     }
+```
 
 *   **`vmUUID`:** VM UUID
 *   **`srcDomUUID`:** source domain UUID
@@ -147,7 +153,8 @@ The only format supported for **`blkMigParams`** at the moment is:
 
 Description of **`blockMigrateStart`**:
 
-*   It should resize the new leaf on the destination to the size of the leaf on the source (using `lvExtend`), this might not always result in an extension if a preliminary snapshot has been taken before the mirroring
+*   It should resize the new leaf on the destination to the size of the leaf on the source (using `lvExtend`),
+    this might not always result in an extension if a preliminary snapshot has been taken before the mirroring
 *   When the block device has been extended it relies on `virDomainBlockRebase` to start the mirroring and streaming
 
 Description of **`getBlockMigrateStatus`**:
@@ -160,23 +167,30 @@ Description of **blockMigrateEnd**:
 
 #### Libvirt Function Calls
 
+```python
     virDomainBlockRebase(dom, disk, "/path/to/copy",
         VIR_DOMAIN_BLOCK_REBASE_COPY | VIR_DOMAIN_BLOCK_REBASE_SHALLOW |
         VIR_DOMAIN_BLOCK_REBASE_REUSE_EXT)
+```
 
-The `virDomainBlockRebase` function call is used to start the mirroring and streaming. This call assumes that **/path/to/copy** is already present (and initialized) and only the leaf content will be streamed to the new destination (no squashing).
-
+The `virDomainBlockRebase` function call is used to start the mirroring and streaming.
+This call assumes that **/path/to/copy** is already present (and initialized) and only the leaf content will be streamed to the new destination (no squashing).
+```python
     virDomainBlockJobAbort(dom, disk, 0)
+```
 
 The `virDomainBlockJobAbort` function call with the `flags=0` is used to safely switch back on the source (it can be used at any time).
-
+```python
     virDomainBlockJobAbort(dom, disk, VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT)
+```
 
-The `virDomainBlockJobAbort` function call with the `flags=VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT` is used to pivot to the destination (drive-reopen). It will fail if there is a streaming in progress. Eventually (probably not in VDSM) it can be used as polling mechanism to switch to the destination.
+The `virDomainBlockJobAbort` function call with the `flags=VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT` is used to pivot to the destination (drive-reopen).
+It will fail if there is a streaming in progress. Eventually (probably not in VDSM) it can be used as polling mechanism to switch to the destination.
 
 #### Watermark and LV Extend
 
-On block domains VDSM is monitoring the qemu-kvm process watermark on the disks (how much space is actually used on the block devices). During the mirroring the logical volumes extension should be replicated on the destination (with a 20% size increase because of the bitmap used during mirroring).
+On block domains VDSM is monitoring the qemu-kvm process watermark on the disks (how much space is actually used on the block devices).
+During the mirroring the logical volumes extension should be replicated on the destination (with a 20% size increase because of the bitmap used during mirroring).
 
 # Storage Live Migration Alternatives
 
@@ -184,7 +198,8 @@ On block domains VDSM is monitoring the qemu-kvm process watermark on the disks 
 
 ![](/images/wiki/StorageLiveMigration1.png)
 
-*   **Note on [3]**: when the SPM finishes the operation it's also responsible to set the 'Snapshot 2 Volume' metadata to point to 'Snapshot 1 Volume' on 'Source Domain' even if the real swap happens in the next step.
+*   **Note on [3]**: when the SPM finishes the operation it's also responsible to set the 'Snapshot 2 Volume' metadata to point to
+    'Snapshot 1 Volume' on 'Source Domain' even if the real swap happens in the next step.
 
 ![](/images/wiki/StorageLiveMigrationAPIDiagram1.png)
 
@@ -227,7 +242,9 @@ def vm_live_block_migrate(vm, destDomain):
 
 ### VDSM API
 
-The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
+The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from the source to the destination.
+For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible
+to rebuild a consistent chain on the destination).
 
 ```python
 def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
@@ -269,7 +286,9 @@ def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
 *   Call live snapshot with all (other disks) existing volumes the same, but this disk in mirroring mode with the new volumes on source and destination.
 *   Copy over the old leaf (it is merge pending).
 *   When finished, reopen on destination and delete disk on source. If the VM is down, do the next step.
-*   When VM stops/Disk is deactivated (unplugged) and the migration had finished - the Disk will go to locked state and cold merge for all pending merges of same snapshots will begin (ie if we have 1 volume that is merge pending for snapshot id S1, and 1 volume that is merge pending for snapshot id S2). In this state you can't run the VM with the disk, so you can run without it, or have to wait for merge to finish.
+*   When VM stops/Disk is deactivated (unplugged) and the migration had finished - the Disk will go to locked state and cold merge for all pending merges of same snapshots will
+    begin (ie if we have 1 volume that is merge pending for snapshot id S1, and 1 volume that is merge pending for snapshot id S2).
+    In this state you can't run the VM with the disk, so you can run without it, or have to wait for merge to finish.
 
 #### Engine flow diagram
 

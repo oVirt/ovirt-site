@@ -368,7 +368,12 @@
 </li>
 <li><a href="#appe-Red_Hat_Enterprise_Virtualization_and_SSL">Appendix D: oVirt and encrypted communication</a>
 <ul class="sectlevel2">
-<li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a></li>
+<li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a>
+<ul class="sectlevel3">
+<li><a href="#extracting-certificate-and-private-key-from-p12-bundle">Extracting the Certificate and Private Key from a P12 Bundle</a></li>
+<li><a href="#replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</a></li>
+</ul>
+</li>
 <li><a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a></li>
 </ul>
 </li>
@@ -22856,7 +22861,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with id <code>123</code>, send this request:</p>
+<p>Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with ID <code>123</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/diskattachments</code></pre>
@@ -22910,7 +22915,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>List the disks that are attached to the virtual machine. For example, for a virtual machine with the id <code>123</code>, send this request:</p>
+<p>List the disks that are attached to the virtual machine. For example, for a virtual machine with the ID <code>123</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/123/diskattachments</code></pre>
@@ -22933,7 +22938,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>Use the <code>disk</code> service to see the properties of a disk from the previous step. For example, for the disk with the id <code>456</code>, send this request:</p>
+<p>Use the <code>disk</code> service to see the properties of a disk from the previous step. For example, for the disk with the ID <code>456</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/disks/456</code></pre>
@@ -22969,7 +22974,7 @@ Content-type: application/xml
 <div class="sect5">
 <h6 id="start-a-full-backup_assembly_incremental-backup-and-restore">Starting a full backup</h6>
 <div class="paragraph _abstract">
-<p>After a full backup you can use the resulting checkpoint id as the start point in the next incremental backup.</p>
+<p>After a full backup you can use the resulting checkpoint ID as the start point in the next incremental backup.</p>
 </div>
 <div class="paragraph">
 <p>When taking a backup of a running virtual machine, the process creates a scratch disk on the same storage domain as the disk being backed up. The backup process creates this disk to enable new data to be written to the running virtual machine during the backup. You can see this scratch disk in the Administration Portal during the backup. It is automatically deleted when the backup finishes.</p>
@@ -22981,7 +22986,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with ID <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
@@ -22989,7 +22994,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>In the request body, specify a disk to back up. For example, to start a full backup of a disk with id <code>456</code>, send the following request body:</p>
+<p>In the request body, specify a disk to back up. For example, to start a full backup of a disk with ID <code>456</code>, send the following request body:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
@@ -23031,7 +23036,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this id and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
+<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this ID and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
 </li>
 </ol>
 </div>
@@ -23059,7 +23064,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with ID <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
@@ -23067,7 +23072,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with id <code>456</code>, send the following request body:</p>
+<p>In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with ID <code>456</code>, send the following request body:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
@@ -23087,7 +23092,7 @@ Content-type: application/xml
 </td>
 <td class="content">
 <div class="paragraph">
-<p>In the request body, if you include a disk that is not included in the previous checkpoint, the request also runs a full backup of this disk. For example, a disk with id <code>789</code> has not been backed up yet. To add a full backup of <code>789</code> to the above request body, send a request body like this:</p>
+<p>In the request body, if you include a disk that is not included in the previous checkpoint, the request also runs a full backup of this disk. For example, a disk with ID <code>789</code> has not been backed up yet. To add a full backup of <code>789</code> to the above request body, send a request body like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23130,10 +23135,10 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The backup id.</p>
+<p>The backup ID.</p>
 </li>
 <li>
-<p>The id of any disk that was included in the backup.</p>
+<p>The ID of any disk that was included in the backup.</p>
 </li>
 <li>
 <p>The status, indicating that the backup is initializing.</p>
@@ -23142,7 +23147,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this id and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
+<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this ID and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
 </li>
 </ol>
 </div>
@@ -23189,14 +23194,14 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
+<p>To get information about a backup with ID 456 of a virtual machine with ID 123, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The response includes the backup with id 456, with &lt;from_checkpoint_id&gt; 999 and &lt;to_checkpoint_id&gt; 666. The disks included in the backup are referenced in the &lt;link&gt; element.</p>
+<p>The response includes the backup with ID 456, with &lt;from_checkpoint_id&gt; 999 and &lt;to_checkpoint_id&gt; 666. The disks included in the backup are referenced in the &lt;link&gt; element.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23232,10 +23237,10 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The id and name of each disk that was backed up.</p>
+<p>The ID and name of each disk that was backed up.</p>
 </li>
 <li>
-<p>The id of the disk image of the backup, for each disk included in the backup.</p>
+<p>The ID of the disk image of the backup, for each disk included in the backup.</p>
 </li>
 <li>
 <p>The disk format.</p>
@@ -23252,14 +23257,14 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
+<p>To get information about a backup with ID 456 of a virtual machine with ID 123, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123/disks</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The response includes the disk with id 789, and the id of the disk image is 555.</p>
+<p>The response includes the disk with ID 789, and the ID of the disk image is 555.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23300,7 +23305,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>To finalize a backup of a disk with id <code>456</code> on a virtual machine with id <code>123</code>, send a request like this:</p>
+<p>To finalize a backup of a disk with ID <code>456</code> on a virtual machine with ID <code>123</code>, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /vms/123/backups/456/finalize</code></pre>
@@ -23342,21 +23347,21 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>disk id</p>
+<p>Disk ID.</p>
 </li>
 <li>
-<p>backup id</p>
+<p>Backup ID.</p>
 </li>
 <li>
-<p>direction of the disk set to <code>download</code></p>
+<p>Direction of the disk set to <code>download</code>.</p>
 </li>
 <li>
-<p>format of the disk set to <code>raw</code></p>
+<p>Format of the disk set to <code>raw</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, to transfer a backup of a disk where the id of the disk is <code>123</code> and the id of the backup is <code>456</code>, send the following request body:</p>
+<p>For example, to transfer a backup of a disk where the ID of the disk is <code>123</code> and the ID of the backup is <code>456</code>, send the following request body:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23407,18 +23412,18 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>disk id or snapshot id</p>
+<p>Disk ID or snapshot ID.</p>
 </li>
 <li>
-<p>direction of the disk set to <code>upload</code></p>
+<p>Direction of the disk set to <code>upload</code>.</p>
 </li>
 <li>
-<p>format of the disk set to <code>raw</code></p>
+<p>Format of the disk set to <code>raw</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, to transfer a backup of a disk where the id of the disk is <code>123</code>, send the following request body:</p>
+<p>For example, to transfer a backup of a disk where the ID of the disk is <code>123</code>, send the following request body:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23450,7 +23455,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<p>Send a request specifying a virtual machine. For example, specify a virtual machine with ID <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/</code></pre>
@@ -23465,16 +23470,16 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The checkpoint’s disks</p>
+<p>The checkpoint’s disks.</p>
 </li>
 <li>
-<p>The id of the parent checkpoint</p>
+<p>The ID of the parent checkpoint.</p>
 </li>
 <li>
-<p>Creation date of the checkpoint</p>
+<p>Creation date of the checkpoint.</p>
 </li>
 <li>
-<p>The virtual machine to which it belongs</p>
+<p>The virtual machine to which it belongs.</p>
 </li>
 </ul>
 </div>
@@ -23512,7 +23517,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> and checkpoint id <code>456</code> like this:</p>
+<p>Send a request specifying a virtual machine. For example, specify a virtual machine with ID <code>123</code> and checkpoint ID <code>456</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/456</code></pre>
@@ -23527,16 +23532,16 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The checkpoint’s disks</p>
+<p>The checkpoint’s disks.</p>
 </li>
 <li>
-<p>The id of the parent checkpoint</p>
+<p>The ID of the parent checkpoint.</p>
 </li>
 <li>
-<p>Creation date of the checkpoint</p>
+<p>Creation date of the checkpoint.</p>
 </li>
 <li>
-<p>The virtual machine to which it belongs</p>
+<p>The virtual machine to which it belongs.</p>
 </li>
 </ul>
 </div>
@@ -23571,7 +23576,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with id <code>123</code> and a checkpoint with id <code>456</code> like this:</p>
+<p>Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with ID <code>123</code> and a checkpoint with ID <code>456</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">DELETE /vms/123/checkpoints/456/</code></pre>
@@ -27644,7 +27649,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>(SNMP version 3 only) The engine id used for SNMP traps.</td>
+<td>(SNMP version 3 only) The engine ID used for SNMP traps.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
@@ -30831,6 +30836,20 @@ api.ready();</code></pre>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</h3>
+<div class="paragraph">
+<p>You can configure your organization&#8217;s third-party CA certificate to authenticate users connecting to the oVirt Engine over HTTPS.</p>
+</div>
+<div class="paragraph">
+<p>Using a third-party CA certificate for HTTPS connections does not affect the certificate used for authentication between the Engine and hosts. They will continue to use the self-signed certificate generated by the Engine.</p>
+</div>
+<div class="paragraph">
+<p>If you received the private key and certificate from your CA in a P12 file, use the following procedure to extract them. For other file formats, contact your CA. After extracting the private key and certificate, proceed to <a href="#replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="extracting-certificate-and-private-key-from-p12-bundle">Extracting the Certificate and Private Key from a P12 Bundle</h4>
+<div class="paragraph">
+<p>The internal CA stores the internally generated key and certificate in a P12 file, in <code>/etc/pki/ovirt-engine/keys/apache.p12</code>. Store your new file in the same location. The following procedure assumes that the new P12 file is in <code>/tmp/apache.p12</code>.</p>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -30845,49 +30864,8 @@ api.ready();</code></pre>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>You can configure your organization&#8217;s third-party CA certificate to identify the oVirt Engine to users connecting over HTTPS.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Using a third-party CA certificate for HTTPS connections does not affect the certificate used for authentication between the Engine and hosts. They will continue to use the self-signed certificate generated by the Engine.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A third-party CA certificate. This is the certificate of the CA (Certificate Authority) that issued the certificate you want to use. It is provided as a <strong>PEM</strong> file. The certificate chain must be complete up to the root certificate. The chain&#8217;s order is critical and must be from the last intermediate certificate to the root certificate. This procedure assumes that the third-party CA certificate is provided in <code>/tmp/3rd-party-ca-cert.pem</code>.</p>
-</li>
-<li>
-<p>The private key that you want to use for Apache httpd. It must not have a password. This procedure assumes that it is located in <code>/tmp/apache.key</code>.</p>
-</li>
-<li>
-<p>The certificate issued by the CA. This procedure assumes that it is located in <code>/tmp/apache.cer</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If you received the private key and certificate from your CA in a P12 file, use the following procedure to extract them. For other file formats, contact your CA. After extracting the private key and certificate, proceed to <a href="#Replace">Replacing the oVirt Engine Apache CA Certificate</a>.</p>
-</div>
-<div id="Extracting" class="paragraph">
-<p><strong>Extracting the Certificate and Private Key from a P12 Bundle</strong></p>
-</div>
-<div class="paragraph">
-<p>The internal CA stores the internally generated key and certificate in a P12 file, in <code>/etc/pki/ovirt-engine/keys/apache.p12</code>. Store your new file in the same location. The following procedure assumes that the new P12 file is in <code>/tmp/apache.p12</code>.</p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Back up the current <code>apache.p12</code> file:</p>
@@ -30906,12 +30884,15 @@ api.ready();</code></pre>
 </div>
 </li>
 <li>
-<p>Extract the private key and certificate to the required locations. If the file is password protected, you must add <code>-passin pass:_password_</code>, replacing <em>password</em> with the required password.</p>
+<p>Extract the private key and certificate to the required locations:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes &gt; /tmp/apache.key
 # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys &gt; /tmp/apache.cer</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>If the file is password protected, add <code>-passin pass:<em>password</em></code> to the command, replacing <em>password</em> with the required password.</p>
 </div>
 </li>
 </ol>
@@ -30930,10 +30911,42 @@ api.ready();</code></pre>
 </tr>
 </table>
 </div>
-<div id="Replace" class="paragraph">
-<p><strong>Replacing the oVirt Engine Apache CA Certificate</strong></p>
+</div>
+<div class="sect3">
+<h4 id="replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</h4>
+<div class="paragraph">
+<p>You configure your organization&#8217;s third-party CA certificate to authenticate users connecting to the Administration Portal and the VM Portal over HTTPS.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not change the permissions and ownerships for the <code>/etc/pki</code> directory or any subdirectories. The permission for the <code>/etc/pki</code> and the <code>/etc/pki/ovirt-engine</code> directory must remain as the default, <code>755</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Third-party CA (Certificate Authority) certificate. It is provided as a <code>PEM</code> file. The certificate chain must be complete up to the root certificate. The chain&#8217;s order is critical and must be from the last intermediate certificate to the root certificate. This procedure assumes that the third-party CA certificate is provided in <code>/tmp/3rd-party-ca-cert.pem</code>.</p>
+</li>
+<li>
+<p>Private key that you want to use for Apache httpd. It must not have a password. This procedure assumes that it is located in <code>/tmp/apache.key</code>.</p>
+</li>
+<li>
+<p>Certificate issued by the CA. This procedure assumes that it is located in <code>/tmp/apache.cer</code>.</p>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>If you are using a self-hosted engine, put the environment into global maintenance mode.</p>
@@ -30950,7 +30963,7 @@ api.ready();</code></pre>
 <p>Add your CA certificate to the host-wide trust store:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/<em>3rd-party-ca-cert</em>.pem /etc/pki/ca-trust/source/anchors
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/3rd-party-ca-cert.pem /etc/pki/ca-trust/source/anchors
 # update-ca-trust</code></pre>
 </div>
 </div>
@@ -30967,7 +30980,7 @@ api.ready();</code></pre>
 <p>Save your CA certificate as <code>/etc/pki/ovirt-engine/apache-ca.pem</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/<em>3rd-party-ca-cert</em>.pem /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/3rd-party-ca-cert.pem /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -31052,7 +31065,15 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 <p>If you manually changed the <code>/etc/ovirt-provider-ovn/conf.d/10-setup-ovirt-provider-ovn.conf</code> file, or are using a configuration file from an older installation, make sure that the Engine is still configured to use <code>/etc/pki/ovirt-engine/apache-ca.pem</code> as the certificate source.</p>
 </li>
 <li>
-<p>Enable <code>engine-backup</code> to update the system on restore by creating a new file, <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code>, with the following content:</p>
+<p>Create the <code>/etc/ovirt-engine-backup/engine-backup-config.d</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable <code>ovirt-engine-backup</code> to update the system on restore by creating the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
@@ -31088,7 +31109,7 @@ update-ca-trust</code></pre>
 </div>
 </li>
 <li>
-<p>If you are using a self-hosted engine, turn off global maintenance mode.</p>
+<p>If you are using a self-hosted engine, turn off global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
@@ -31098,7 +31119,8 @@ update-ca-trust</code></pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>Your users can now connect to the Administration Portal and VM Portal, without seeing a warning about the authenticity of the certificate used to encrypt HTTPS traffic.</p>
+<p>Your users can now connect to the Administration Portal and VM Portal without seeing a certificate warning.</p>
+</div>
 </div>
 </div>
 <div class="sect2">

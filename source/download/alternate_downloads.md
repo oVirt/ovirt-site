@@ -10,7 +10,7 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png" alt="oVirt Engine Administration panel screenshot">
 
-oVirt 4.5.0 is intended for production use and is available for the following platforms:
+oVirt 4.5.1 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.6 (or similar)
@@ -23,7 +23,7 @@ Hosts:
 - Red Hat Enterprise Linux 9.0 (or similar, non UEFI hosts, Tech Preview)
 - CentOS Stream 9 (non UEFI hosts, Tech Preview)
 
-See the [Release Notes for oVirt 4.5.0](/release/4.5.0/).
+See the [Release Notes for oVirt 4.5.1](/release/4.5.1/).
 
 <div class="row"></div>
 

@@ -33,7 +33,6 @@ Updating some fields is allowed, but might be confusing, as it will be applied o
 ## Owner
 
 * Name: Omer Frenkel
-* Email: ofrenkel@redhat.com
 
 ## Current Status
 

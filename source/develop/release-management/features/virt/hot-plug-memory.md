@@ -14,7 +14,6 @@ Allow adding memory to VM while it is running
 
 *   Name: Vitor de Lima (Vitordelima)
 *   Name: Omer Frenkel (ofrenkel)
-*   Email: <ofrenkel@redhat.com>
 
 ## Description
 

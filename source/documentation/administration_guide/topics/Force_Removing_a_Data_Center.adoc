@@ -8,7 +8,6 @@ A data center becomes `Non Responsive` if the attached storage domain is corrupt
 
 It may be necessary to *Destroy* a corrupted storage domain before you can *Force Remove* the data center.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers] and select the data center to remove.

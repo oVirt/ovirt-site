@@ -4,7 +4,6 @@
 
 Create a virtual machine network quality of service entry to regulate network traffic when applied to a virtual network interface controller (vNIC) profile, also known as a virtual machine network interface profile.
 
-
 *Creating a Virtual Machine Network Quality of Service Entry*
 
 . Click menu:Compute[Data Centers].
@@ -14,6 +13,5 @@ Create a virtual machine network quality of service entry to regulate network tr
 . Enter a *Name* for the virtual machine network quality of service entry.
 . Enter the limits for the *Inbound* and *Outbound* network traffic.
 . Click btn:[OK].
-
 
 You have created a virtual machine network quality of service entry that can be used in a virtual network interface controller.

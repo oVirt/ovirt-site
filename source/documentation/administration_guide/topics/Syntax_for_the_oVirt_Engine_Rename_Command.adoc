@@ -12,14 +12,10 @@ The command also accepts the following options:
 
 *`--newname=_[new name]_`*:: Allows you to specify the new fully qualified domain name for the {engine-name} without user interaction.
 
-
 *`--log=_[file]_`*:: Allows you to specify the path and name of a file into which logs of the rename operation are to be written.
-
 
 *`--config=_[file]_`*:: Allows you to specify the path and file name of a configuration file to load into the rename operation.
 
-
 *`--config-append=_[file]_`*:: Allows you to specify the path and file name of a configuration file to append to the rename operation. This option can be used to specify the path and file name of an existing answer file to automate the rename operation.
-
 
 *`--generate-answer=_[file]_`*:: Allows you to specify the path and file name of the file in which your answers and the values changed by the `ovirt-engine-rename` command are recorded.

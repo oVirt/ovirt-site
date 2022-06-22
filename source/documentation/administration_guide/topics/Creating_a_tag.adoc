@@ -4,7 +4,6 @@
 
 Create tags so you can filter search results using tags.
 
-
 .Procedure
 
 . Click the *Tags* icon (image:images/Tag.png[title="Tags icon"]) in the header bar.

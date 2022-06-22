@@ -2,7 +2,6 @@
 [id="Cluster_virtual_machine_entities"]
 = Storage Administrator Roles Explained
 
-
 *Storage Domain Permission Roles*
 
 The table below describes the administrator roles and privileges applicable to storage domain administration.

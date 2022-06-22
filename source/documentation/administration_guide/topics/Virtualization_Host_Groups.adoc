@@ -2,31 +2,23 @@
 [id="Virtualization_Host_Groups"]
 = Virtualization Host Groups
 
-
 A number of system user groups are created on the virtualization host when the `vdsm` and `qemu-kvm-rhev` packages are installed. Each system user group has a default group identifier (GID). The system user groups created are:
 
 * The *kvm* group (GID `36`). Group members include:
-
 
 * The *qemu* user.
 
 * The *sanlock* user.
 
-
 * The *qemu* group (GID `107`). Group members include:
-
 
 * The *vdsm* user.
 
 * The *sanlock* user.
 
-
 * The *ovirt-vmconsole* group (GID `498`). Group members include:
 
-
 * The *ovirt-vmconsole* user.
-
-
 
 [IMPORTANT]
 ====

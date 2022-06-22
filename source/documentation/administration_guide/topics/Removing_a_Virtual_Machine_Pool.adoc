@@ -4,7 +4,6 @@
 
 You can remove a virtual machine pool from a data center. You must first either delete or detach all of the virtual machines in the pool. Detaching virtual machines from the pool will preserve them as independent virtual machines.
 
-
 .Procedure
 
 . Click menu:Compute[Pools] and select the virtual machine pool.

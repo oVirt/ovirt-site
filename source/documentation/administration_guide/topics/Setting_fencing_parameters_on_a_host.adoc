@@ -6,7 +6,6 @@ The parameters for host fencing are set using the *Power Management* fields on t
 
 All power management operations are done using a proxy host, as opposed to directly by the {virt-product-fullname} {engine-name}. At least two hosts are required for power management operations.
 
-
 .Procedure
 
 . Click menu:Compute[Hosts] and select the host.
@@ -39,6 +38,5 @@ Power management parameters (userid, password, options, etc) are tested by {virt
 . Click btn:[OK] to close the *Edit fence agent* window.
 . In the *Power Management* tab, optionally expand the *Advanced Parameters* and use the up and down buttons to specify the order in which the {engine-name} will search the host's *cluster* and *dc* (datacenter) for a fencing proxy.
 . Click btn:[OK].
-
 
 You are returned to the list of hosts. Note that the exclamation mark next to the host's name has now disappeared, signifying that power management has been successfully configured.

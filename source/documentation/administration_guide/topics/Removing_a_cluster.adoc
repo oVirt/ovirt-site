@@ -9,7 +9,6 @@ Move all hosts out of a cluster before removing it.
 You cannot remove the *Default* cluster, as it holds the *Blank* template. You can, however, rename the *Default* cluster and add it to a new data center.
 ====
 
-
 .Procedure
 
 . Click menu:Compute[Clusters] and select a cluster.

@@ -6,7 +6,6 @@ An ISO domain that is *Unattached* can be attached to a data center. The ISO dom
 
 Only one ISO domain can be attached to a data center.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].
@@ -15,6 +14,5 @@ Only one ISO domain can be attached to a data center.
 . Click *Attach ISO*.
 . Click the radio button for the appropriate ISO domain.
 . Click btn:[OK].
-
 
 The ISO domain is attached to the data center and is automatically activated.

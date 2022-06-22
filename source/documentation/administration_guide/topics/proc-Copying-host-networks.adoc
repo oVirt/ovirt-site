@@ -13,7 +13,6 @@ Copying the network configuration includes:
 * Logical networks attached to the host, except the `ovirtmgmt` management network
 * Bonds attached to interfaces
 
-
 .Limitations
 
 * Do not copy network configurations that contain static IP addresses. Doing this sets the boot protocol in the target host to `none`.
@@ -48,7 +47,6 @@ Copying host networks replaces ALL network settings on the target host except it
 . Click btn:[Copy Host Networks].
 
 . Verify the network settings of the target host
-
 
 .Tips
 

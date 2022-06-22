@@ -6,7 +6,6 @@ CPU profiles define the maximum amount of processing capability a virtual machin
 
 This procedure assumes you have already defined one or more CPU quality of service entries under the data center to which the cluster belongs.
 
-
 .Procedure
 
 . Click menu:Compute[Clusters].

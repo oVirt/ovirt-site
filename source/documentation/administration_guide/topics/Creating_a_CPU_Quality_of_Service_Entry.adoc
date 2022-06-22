@@ -4,7 +4,6 @@
 
 Create a CPU quality of service entry.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].
@@ -14,6 +13,5 @@ Create a CPU quality of service entry.
 . Enter a *QoS Name* and a *Description* for the quality of service entry.
 . Enter the maximum processing capability the quality of service entry permits in the *Limit (%)* field. Do not include the `%` symbol.
 . Click btn:[OK].
-
 
 You have created a CPU quality of service entry, and can create CPU profiles based on that entry in clusters that belong to the data center.

@@ -57,8 +57,6 @@ If this command returns `Y` or `1`, the feature is enabled.
 
 . Repeat this procedure for all of the hosts in the cluster.
 
-
-
 .Additional resources
 
 * xref:appe-VDSM_and_Hooks[VDSM hooks]

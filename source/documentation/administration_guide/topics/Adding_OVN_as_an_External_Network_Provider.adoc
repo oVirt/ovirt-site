@@ -7,7 +7,6 @@ You can use Open Virtual Network (OVN) to create overlay virtual networks that e
 You can also connect an OVN network to a native {virt-product-fullname} network. See xref:Connecting_an_OVN_Network_to_a_Physical_Network[Connecting an OVN Network to a Physical Network] for more information.
 ifdef::rhv-doc[This feature is available as a Technology Preview only.]
 
-
 ////
 When a 4.2 Technical Reference document exists, we'll move the API paragraphs there.
 deferred-maintenance
@@ -16,7 +15,6 @@ deferred-maintenance
 The `ovirt-provider-ovn` exposes an OpenStack Networking REST API. You can use this API to create networks, subnets, ports, and routers. For details, see link:https://developer.openstack.org/api-ref/network/v2/[_OpenStack Networking API v2.0_].
 
 For more details, see the link:http://docs.openvswitch.org/en/latest/[Open vSwitch Documentation] and link:http://openvswitch.org/support/dist-docs/[Open vSwitch Manpages].
-
 
 include::Installing_a_new_OVN_network_provider.adoc[leveloffset=+1]
 

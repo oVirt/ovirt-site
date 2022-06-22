@@ -8,7 +8,6 @@ Single Root I/O Virtualization (SR-IOV) enables you to use each PCIe endpoint as
 
 To configure SR-IOV-capable Network Interface Controllers (NICs), you use the {virt-product-fullname} {engine-name}.  There, you can configure the number of VFs on each NIC.
 
-
 You can configure a VF like you would configure a standalone NIC, including:
 
 * Assigning one or more logical networks to the VF.

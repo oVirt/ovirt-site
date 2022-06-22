@@ -4,7 +4,6 @@
 
 The table below describes the settings for the *Console* tab in the *New Cluster* and *Edit Cluster* windows.
 
-
 .Console Settings
 [options="header"]
 |===

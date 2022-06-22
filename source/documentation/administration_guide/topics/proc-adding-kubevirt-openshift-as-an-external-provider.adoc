@@ -28,7 +28,6 @@ NOTE: This capability is known as _OpenShift Virtualization_.
 
 . Click btn:[OK] to finish adding this new provider.
 
-
 .Verification steps
 
 . In the {virt-product-shortname} Administration Portal, click menu:Compute[Clusters].

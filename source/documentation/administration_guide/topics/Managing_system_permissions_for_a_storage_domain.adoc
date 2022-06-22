@@ -14,8 +14,6 @@ The storage domain administrator role permits the following actions:
 
 * Remove the storage domain.
 
-
-
 [NOTE]
 ====
 You can only assign roles and permissions to existing users.

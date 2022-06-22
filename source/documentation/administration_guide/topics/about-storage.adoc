@@ -29,7 +29,6 @@ To add storage domains you must be able to successfully access the Administratio
 
 {virt-product-fullname} has three types of storage domains:
 
-
 * *Data Domain:* A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center. In addition, snapshots of the virtual machines are also stored in the data domain.
 +
 The data domain cannot be shared across data centers. Data domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center, provided they are all shared, rather than local, domains.

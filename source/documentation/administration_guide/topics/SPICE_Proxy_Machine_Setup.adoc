@@ -4,7 +4,6 @@
 
 This procedure explains how to set up a machine as a SPICE Proxy. A SPICE Proxy makes it possible to connect to the {virt-product-fullname} network from outside the network. We use `Squid` in this procedure to provide proxy services.
 
-
 .Procedure
 
 . Install `Squid` on the Proxy machine:

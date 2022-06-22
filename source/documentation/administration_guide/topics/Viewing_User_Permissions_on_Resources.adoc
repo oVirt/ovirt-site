@@ -4,7 +4,6 @@
 
 Users can be assigned permissions on specific resources or a hierarchy of resources. You can view the assigned users and their permissions on each resource.
 
-
 .Procedure
 
 . Find and click the resource's name. This opens the details view.

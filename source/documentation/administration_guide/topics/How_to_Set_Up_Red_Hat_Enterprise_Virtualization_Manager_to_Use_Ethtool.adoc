@@ -4,7 +4,6 @@
 
 You can configure ethtool properties for host network interface cards from the Administration Portal. The *ethtool_opts* key is not available by default and needs to be added to the {engine-name} using the engine configuration tool. You also need to install the required VDSM hook package on the hosts.
 
-
 *Adding the ethtool_opts Key to the {engine-name}*
 
 . On the {engine-name}, run the following command to add the key:
@@ -27,6 +26,5 @@ You can configure ethtool properties for host network interface cards from the A
 ----
 # dnf install vdsm-hook-ethtool-options
 ----
-
 
 The *ethtool_opts* key is now available in the Administration Portal. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Editing Host Network Interfaces and Assigning Logical Networks to Hosts] to apply ethtool properties to logical networks.

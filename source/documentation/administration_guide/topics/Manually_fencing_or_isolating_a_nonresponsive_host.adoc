@@ -9,7 +9,6 @@ If a host unpredictably goes into a non-responsive state, for example, due to a 
 Do not select *Confirm 'Host has been Rebooted'* unless you have manually rebooted the host. Using this option while the host is still running can lead to a virtual machine image corruption.
 ====
 
-
 .Procedure
 
 . In the Administration Portal, click menu:Compute[Hosts] and confirm the host's status is `Non Responsive`.

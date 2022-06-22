@@ -4,7 +4,6 @@
 
 Create a subnet on a logical network provided by an external provider.
 
-
 .Procedure
 
 . Click menu:Network[Networks].

@@ -2,7 +2,6 @@
 [id="Attaching_an_Active_Directory"]
 = Attaching an Active Directory
 
-
 .Prerequisites
 
 * You need to know the Active Directory forest name. The forest name is also known as the root domain name.
@@ -21,7 +20,6 @@ Examples of the most common Active Directory configurations, which cannot be con
 * You must have at least one account name and password ready to perform search and login queries to the Active Directory.
 
 * If your Active Directory deployment spans multiple domains, be aware of the limitation described in the `/usr/share/ovirt-engine-extension-aaa-ldap/profiles/ad.properties` file.
-
 
 .Procedure
 
@@ -159,7 +157,6 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 ----
 +
 . The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[{engine-name} User Tasks].
-
 
 [NOTE]
 ====

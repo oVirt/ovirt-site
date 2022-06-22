@@ -17,7 +17,6 @@ The following dashboards are available in the initial Grafana setup to report Da
     * Virtual Machine dashboard - latest and historical configuration details and resource usage metrics of a selected virtual machine over a selected period.
     * Executive dashboard - user resource usage and number of operating systems for hosts and virtual machines in selected clusters over a selected period.
 
-
 | *Inventory dashboards*
     a|
     * Inventory dashboard - number of hosts, virtual machines, and running virtual machines, resources usage and over-commit rates for selected data centers, according to the latest configurations.
@@ -45,12 +44,10 @@ The following dashboards are available in the initial Grafana setup to report Da
 
 |===
 
-
 [NOTE]
 ====
 The Grafana dashboards includes direct links to the {virt-product-fullname} Administration Portal, allowing you to quickly view additional details for your clusters, hosts, and virtual machines. 
 ====
-
 
 = Customized Grafana dashboards
 

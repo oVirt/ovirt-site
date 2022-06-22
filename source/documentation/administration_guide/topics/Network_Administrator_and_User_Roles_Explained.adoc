@@ -2,7 +2,6 @@
 [id="Network_Administrator_and_User_Roles_Explained"]
 = Network Administrator and User Roles Explained
 
-
 *Network Permission Roles*
 
 The table below describes the administrator and user roles and privileges applicable to network administration.

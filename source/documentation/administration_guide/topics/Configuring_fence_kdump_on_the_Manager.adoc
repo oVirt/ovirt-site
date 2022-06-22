@@ -32,7 +32,6 @@ The edited values must also be changed in the fence_kdump listener configuration
 +
 . Reinstall all hosts with *Kdump integration* enabled, if required (see the table below).
 
-
 The following options can be configured using `engine-config`:
 
 .Kdump Configuration Options

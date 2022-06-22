@@ -22,7 +22,6 @@ The change to nmstate is nearly transparent. It only changes how you configure h
 * To fix an unsupported configuration, you replace it with a supported one by using the {engine-name} to synchronize the host network. For details, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Synchronizing_host_networks[Synchronizing Host Networks].
 * The only situation where you modify host networks outside the {engine-name} is to configure a static route on a host. For more details, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#proc-Adding-a-static-route-on-a-host[Adding a static route on a host].
 
-
 The change to nmstate improves how {virt-product-shortname} {engine-name} applies configuration changes you make in Cockpit and Anaconda before adding the host to the {engine-name}. This fixes some issues, such as link:https://bugzilla.redhat.com/show_bug.cgi?id=1680970[BZ#1680970 Static IPv6 Address is lost on host deploy if NM manages the interface].
 
 [IMPORTANT]

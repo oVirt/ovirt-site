@@ -10,7 +10,6 @@ The passthrough property cannot be enabled if the vNIC profile is already attach
 
 For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in {virt-product-fullname}, see link:{URL_downstream_virt_product_docs}hardware_considerations_for_implementing_sr-iov/index#[Hardware Considerations for Implementing SR-IOV].
 
-
 .Procedure
 
 . Click menu:Network[Networks].
@@ -22,6 +21,5 @@ For more information on SR-IOV, direct device assignment, and the hardware consi
 . Optionally deselect the *Migratable* check box to disable migration for vNICs using this profile. If you keep this check box selected, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Live_migration_prerequisites[Additional Prerequisites for Virtual Machines with SR-IOV-Enabled vNICs] in the _Virtual Machine Management Guide_.
 . If necessary, select a custom property from the custom properties list, which displays *Please select a key...* by default. Use the *+* and *-* buttons to add or remove custom properties.
 . Click btn:[OK].
-
 
 The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new *PCI Passthrough* vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Editing Host Network Interfaces and Assigning Logical Networks to Hosts], and link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Adding_a_Network_Interface[Adding a New Network Interface] in the _Virtual Machine Management Guide_.

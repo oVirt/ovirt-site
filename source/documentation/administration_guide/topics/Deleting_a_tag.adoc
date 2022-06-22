@@ -4,7 +4,6 @@
 
 When a tag is no longer needed, remove it.
 
-
 .Procedure
 
 . Click the *Tags* icon (image:images/Tag.png[title="Tags icon"]) in the header bar.

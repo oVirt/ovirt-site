@@ -14,8 +14,6 @@ The cluster administrator role permits the following actions:
 
 * Edit user permissions for virtual machines associated with the cluster.
 
-
-
 [NOTE]
 ====
 You can only assign roles and permissions to existing users.

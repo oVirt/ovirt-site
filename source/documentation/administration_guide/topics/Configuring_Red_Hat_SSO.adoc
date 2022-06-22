@@ -9,7 +9,6 @@ To use Red Had Single Sign-On as your authorization method, you need to:
 * Configure OVN provider credentials.
 * Configure the Monitoring Portal (Grafana)
 
-
 [NOTE]
 ====
 If Red Hat SSO is configured, previous LDAP sign ons will not work, as only a single authorization protocol may be used at a time.

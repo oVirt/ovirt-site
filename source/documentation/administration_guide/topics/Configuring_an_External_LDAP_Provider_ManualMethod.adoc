@@ -6,7 +6,6 @@ The `ovirt-engine-extension-aaa-ldap` extension uses the LDAP protocol to access
 
 If the interactive setup method in the previous section does not cover your use case, you can manually modify the configuration files to attach your LDAP server. The following procedure uses generic details. Specific values depend on your setup.
 
-
 .Procedure
 
 . On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
@@ -156,7 +155,6 @@ config.profile.file.1 = ../aaa/_example_.properties
 ----
 +
 . The _example_ profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[{engine-name} User Tasks].
-
 
 [NOTE]
 ====

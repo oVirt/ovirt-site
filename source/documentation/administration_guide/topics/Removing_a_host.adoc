@@ -4,7 +4,6 @@
 
 Remove a host from your virtualized environment.
 
-
 .Procedure
 
 . Click menu:Compute[Hosts] and select the host.

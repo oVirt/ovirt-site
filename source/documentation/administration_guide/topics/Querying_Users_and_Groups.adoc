@@ -4,7 +4,6 @@
 
 The `query` module allows you to query user and group information. For a full list of options, run `ovirt-aaa-jdbc-tool query --help`.
 
-
 *Listing All User or Group Account Details*
 
 This procedure shows you how to list all account information.
@@ -24,7 +23,6 @@ This procedure shows you how to list all account information.
 ----
 # ovirt-aaa-jdbc-tool query --what=group
 ----
-
 
 *Listing Filtered Account Details*
 

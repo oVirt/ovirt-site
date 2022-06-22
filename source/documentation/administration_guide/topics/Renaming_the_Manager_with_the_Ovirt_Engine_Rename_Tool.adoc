@@ -6,7 +6,6 @@ You can use the `ovirt-engine-rename` command to update records of the fully qua
 
 The tool checks whether the {engine-name} provides a local ISO or Data storage domain. If it does, the tool prompts the user to eject, shut down, or place into maintenance mode any virtual machine or storage domain connected to the storage before continuing with the operation. This ensures that virtual machines do not lose connectivity with their virtual disks, and prevents ISO storage domains from losing connectivity during the renaming process.
 
-
 .Procedure
 
 . Prepare all DNS and other relevant records for the new FQDN.
@@ -45,7 +44,6 @@ The `ovirt-engine-rename` command updates records of the FQDN of the {engine-nam
 ----
 +
 This command modifies the FQDN in each self-hosted engine node's local copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf`
-
 
 . Run the following command on one of the self-hosted engine nodes:
 +

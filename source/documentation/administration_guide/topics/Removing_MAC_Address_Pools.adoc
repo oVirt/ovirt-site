@@ -4,7 +4,6 @@
 
 You can remove a created MAC address pool if the pool is not associated with a cluster, but the default MAC address pool cannot be removed.
 
-
 .Procedure
 
 . Click menu:Administration[Configure].

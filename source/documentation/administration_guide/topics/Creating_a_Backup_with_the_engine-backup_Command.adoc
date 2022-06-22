@@ -16,7 +16,6 @@ You can back up the {virt-product-fullname} {engine-name} with the [command]`eng
 
 `grafanadb`:: A backup of only the Grafana database
 
-
 You can specify the `--scope` option more than once.
 
 You can also configure the [command]`engine-backup` command to back up additional files. It restores everything that it backs up.
@@ -43,7 +42,6 @@ The command generates the backup in `_file_name_.tar`, and a log file in `_log_f
 Use `_file_name_.tar` to restore the environment.
 
 The following examples demonstrate several different backup scenarios.
-
 
 .Full backup
 ====

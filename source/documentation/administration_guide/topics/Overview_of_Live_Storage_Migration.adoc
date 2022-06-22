@@ -6,7 +6,6 @@ Virtual disks can be migrated from one storage domain to another while the virtu
 
 Consider the following when using live storage migration:
 
-
 * You can live migrate multiple disks at one time.
 
 * Multiple disks for the same virtual machine can reside across more than one storage domain, but the image chain for each disk must reside on a single storage domain.

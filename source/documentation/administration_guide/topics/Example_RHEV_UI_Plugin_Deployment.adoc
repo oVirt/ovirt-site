@@ -4,7 +4,6 @@
 
 Follow these instructions to create a user interface plug-in that runs a *Hello World!* program when you sign in to the {virt-product-fullname} {engine-name} Administration Portal.
 
-
 *Deploying a `Hello World!` Plug-in*
 
 . Create a plug-in descriptor by creating the following file in the {engine-name} at */usr/share/ovirt-engine/ui-plugins/helloWorld.json*:
@@ -32,7 +31,6 @@ Follow these instructions to create a user interface plug-in that runs a *Hello 
 </script>
 </head><body></body></html>
 ----
-
 
 If you have successfully implemented the *Hello World!* plug-in, you will see this screen when you sign in to the Administration Portal:
 

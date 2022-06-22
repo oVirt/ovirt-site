@@ -4,7 +4,6 @@
 
 Use the backup and restore API to back up a virtual machine. This procedure assumes you have two virtual machines: the virtual machine to back up, and a virtual machine on which the software for managing the backup is installed.
 
-
 .Procedure
 
 . Using the REST API, create a snapshot of the virtual machine to back up:

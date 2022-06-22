@@ -4,7 +4,6 @@
 
 The result type allows you to search for resources of any of the following types:
 
-
 * *Vms* for a list of virtual machines
 
 * *Host* for a list of hosts

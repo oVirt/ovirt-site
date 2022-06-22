@@ -4,7 +4,6 @@
 
 A storage domain encountering errors may not be able to be removed through the normal procedure. Destroying a storage domain forcibly removes the storage domain from the virtualized environment.
 
-
 .Procedure
 
 . Click menu:Storage[Domains].

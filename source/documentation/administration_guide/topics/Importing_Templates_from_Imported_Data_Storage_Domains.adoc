@@ -4,7 +4,6 @@
 
 Import a template from a data storage domain you have imported into your {virt-product-fullname} environment. This procedure assumes that the imported data storage domain has been attached to a data center and has been activated.
 
-
 .Procedure
 
 . Click menu:Storage[Domains].

@@ -14,7 +14,6 @@ This feature will add the possibility of hot plugging virtual memory modules int
 ### Owner
 
 *   Name: Vitor de Lima (Vitordelima)
-*   Email: vdelima@redhat.com
 
 ### Current status
 

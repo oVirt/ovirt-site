@@ -18,7 +18,6 @@ Allow direct ssh access to the virtual serial consoles of the VMs managed by an 
 *   Name: Francesco Romani (fromani)
 *   Email: <fromani@redhat.com>
 *   Name: Vitor de Lima (Vitordelima)
-*   Email: vdelima@redhat.com
 
 ## Detailed Description
 

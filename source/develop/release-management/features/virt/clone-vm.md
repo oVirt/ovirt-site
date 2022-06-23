@@ -31,7 +31,8 @@ It would be useful to provide a way to clone a VM directly.
 
 ## Implementation
 
-All the logic is implemented in the CloneVmCommand class. Since it is very similar to cloning a VM from a snapshot, the common logic between the CloneVmCommand and AddVmFromSnapshotComman has been extracted to the common AddVmAndCloneImageCommand base class.
+All the logic is implemented in the CloneVmCommand class. Since it is very similar to cloning a VM from a snapshot, the common logic
+between the `CloneVmCommand` and `AddVmFromSnapshotComman` has been extracted to the common `AddVmAndCloneImageCommand` base class.
 
 ## Frontend
 
@@ -48,12 +49,12 @@ After clicking OK the clone of the VM will be made.
 ## REST API
 
 A new action has been created on the VM called "clone". It takes only one parameter in the request body, the name. To clone a VM using the REST API send a POST request to:
-
-<engineUrl>/api/vms/<vm id>/clone
+`<engineUrl>/api/vms/<vm id>/clone`
 
 with body containing:
-
+```xml
 <action> <vm> <name>newName</name> </vm> </action>
+```
 
 ## Testing
 

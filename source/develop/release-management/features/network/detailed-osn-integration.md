@@ -184,13 +184,22 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ![ thumb | right](/images/wiki/Providers.png) ![ thumb | right](/images/wiki/Discovery.png) ![ thumb | right](/images/wiki/Add.png) ![ thumb | right](/images/wiki/Networks.png)
 
-*   To represent the new Provider entity in our project, we're planning to add a new tab for Providers. At first it will only be populated with network Providers, but later on it might include Providers of other resource types as well.
-*   Adding a new Provider in oVirt will comprise supplying an arbitrary name for it, and a URL address from which entities may be imported. We're planning to add a graphical indication of the connection to the supplied URL address.
-*   When a specific Provider is chosen, subtabs displaying information concerning that Provider will appear (as with any other entity). To begin with, General and Networks subtabs will be implemented.
+*   To represent the new Provider entity in our project, we're planning to add a new tab for Providers.
+    At first it will only be populated with network Providers, but later on it might include Providers of other resource types as well.
+*   Adding a new Provider in oVirt will comprise supplying an arbitrary name for it, and a URL address from which entities may be imported.
+    We're planning to add a graphical indication of the connection to the supplied URL address.
+*   When a specific Provider is chosen, subtabs displaying information concerning that Provider will appear (as with any other entity).
+    To begin with, General and Networks subtabs will be implemented.
 *   The main function in the Provider/Networks subtab will be to "Discover" the networks provided, which will open a popup window enabling attachment of provided networks to DC(s).
 *   The user will also be able to create new networks to be attached to the Provider from within oVirt.
-*   The provider entity should also be reflected in the system tree. We are currently intending to add another node between the System node and the specific DCs called "Data Centers", and on the same level a node called "Providers" (as they are not part of the DCs, but rather interfaces to external entities). Under the Providers node, will be displayed the Providers that exist in the engine's DB. We haven't thought about icons for these entities - maybe something general for Providers and something to do with Neutron for the current network providers (future providers will have other icons corresponding to their types).
-*   The link between the Provider and its provided entity (in our case, a network) needs to also be reflected in the provided entity. Therefore, we'll add a Provider column to each network tab/subtab. Also, to make access to the Provider easier for the user, we're planning to have the text link to the actual Provider tab.
+*   The provider entity should also be reflected in the system tree.
+    We are currently intending to add another node between the System node and the specific DCs called "Data Centers", and on the same level a node called "Providers"
+    (as they are not part of the DCs, but rather interfaces to external entities).
+    Under the Providers node, will be displayed the Providers that exist in the engine's DB.
+    We haven't thought about icons for these entities - maybe something general for Providers and something to do with Neutron for the current network providers
+    (future providers will have other icons corresponding to their types).
+*   The link between the Provider and its provided entity (in our case, a network) needs to also be reflected in the provided entity.
+    Therefore, we'll add a Provider column to each network tab/subtab. Also, to make access to the Provider easier for the user, we're planning to have the text link to the actual Provider tab.
 
 ### Installation/Upgrade
 
@@ -210,35 +219,39 @@ All the components need to be installed, and set to run on startup.
     1.  Add Neutron service
     2.  Add Neutron admin user
 
-Note: get_id function is:
+Note: `get_id` function is:
 
+```bash
       function get_id () {
-      `     echo `"$@" | grep ' id ' | awk '{print $4}'` `
+           echo "$@" | grep ' id ' | awk '{print $4}'
       }
+```
 
 ##### Configure Neutron manager
 
 1.  Install Neutron manger
     1.  Install Neutron plugin
     2.  Run plugin self configuration (This will create the DB)
-    3.  Configure /etc/quantum/quantum.conf:
+    3.  Configure `/etc/quantum/quantum.conf`:
         1.  Choose qpid by un-commenting the corresponding values
-        2.  Un-comment notification_driver = quantum.openstack.common.notifier.list_notifier
+        2.  Un-comment `notification_driver = quantum.openstack.common.notifier.list_notifier`
 
-    4.  Configure /etc/quantum/plugin.ini:
+    4.  Configure `/etc/quantum/plugin.ini`:
         1.  Fill correct IP in sql_connection
         2.  Change: tenant_network_type = vlan
-        3.  Edit: network_vlan_ranges = <label>:<tag start>:<tag end>,physnet1:1000:2999
+        3.  Edit: `network_vlan_ranges = <label>:<tag start>:<tag end>,physnet1:1000:2999`
 
 #### oVirt Engine required configuration
 
 You need to configure the keystone URL:
-
-      engine-config --set KeystoneAuthUrl=http://<host.fqdn>:35357/v2.0/
+```console
+# engine-config --set KeystoneAuthUrl=http://<host.fqdn>:35357/v2.0/
+```
 
 For oVirt versions less than 3.4, You also need to enable a setting that only required networks are considered for VM scheduling:
-
-      engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+```console
+# engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+```
 
 Don't forget to restart the ovirt-engine service!
 
@@ -264,7 +277,7 @@ The following properties are optional:
       qpid_port - QPID server port
 
 Once the properties are set, the following sequence will install, configure and start the linuxbridge agent:
-
+```bash
       yum install -y openstack-quantum-linuxbridge
       LB_CONF=/etc/quantum/plugins/linuxbridge/linuxbridge_conf.ini
       Q_CONF=/etc/quantum/quantum.conf
@@ -287,6 +300,7 @@ Once the properties are set, the following sequence will install, configure and 
       systemctl daemon-reload
       service quantum-linuxbridge-agent start
       chkconfig quantum-linuxbridge-agent on
+```
 
 #### OVS Agent installation steps
 
@@ -303,7 +317,7 @@ The following properties are optional:
       qpid_port - QPID server port
 
 Once the properties are set, the following sequence will install, configure and start the OVS agent:
-
+```bash
       sudo yum install -y openstack-quantum-openvswitch
       OVS_CONF=/etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini
       Q_CONF=/etc/quantum/quantum.conf
@@ -329,6 +343,7 @@ Once the properties are set, the following sequence will install, configure and 
       service quantum-openvswitch-agent start
       chkconfig quantum-openvswitch-agent on
       chkconfig quantum-ovs-cleanup on
+```
 
 ### Events
 
@@ -363,14 +378,16 @@ The POC sources can be found in the oVirt gerrit under a topic branch: <http://g
 
 Due to a bug in libvirt (https://bugzilla.redhat.com/show_bug.cgi?id=878481) we had to connect the vNIC to the ;vdsmdummy; bridge in VDSM. The Neutron agent will detect the tap device (the physical implementation of the vNIC) and attempt to connect it to it's bridge but fail because it's already connected to the dummy bridge.
 
-To fix this, you would need to edit the installed linuxbridge_quantum_agent.py file and add this line of code:
-
+To fix this, you would need to edit the installed `linuxbridge_quantum_agent.py` file and add this line of code:
+```python
                  utils.execute(['brctl', 'delif', ';vdsmdummy;', tap_device_name], root_helper=self.root_helper)
+```
 
 Inside the method **add_tap_interface**, right before:
-
+```python
                  if utils.execute(['brctl', 'addif', bridge_name, tap_device_name],
                                   root_helper=self.root_helper):
+```
 
 ### Demo Videos
 

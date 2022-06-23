@@ -113,8 +113,8 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1352953](https://bugzilla.redhat.com/show_bug.cgi?id=1352953) <b>show descriptive error  message when sending a negative number like: {url}/events;max=-3</b><br>
  - [BZ 1355647](https://bugzilla.redhat.com/show_bug.cgi?id=1355647) <b>Capabilities entry point missing</b><br>
  - [BZ 1352721](https://bugzilla.redhat.com/show_bug.cgi?id=1352721) <b>Users with '%' in their password, cannot log in.</b><br>
- - [BZ 1350353](https://bugzilla.redhat.com/show_bug.cgi?id=1350353) <b>[UI] - New cluster - Authorization provider: <UNKNOWN> was granted permission for Role CpuProfileOperator on Cpu Profile <UNKNOWN>, by admin@internal-authz when creating new cluster</b><br>
- - [BZ 1352575](https://bugzilla.redhat.com/show_bug.cgi?id=1352575) <b>v3 REST API | job object status description should be in upper case letters and inside a <state> entry</b><br>
+ - [BZ 1350353](https://bugzilla.redhat.com/show_bug.cgi?id=1350353) <b>[UI] - New cluster - Authorization provider: `<UNKNOWN>` was granted permission for Role CpuProfileOperator on Cpu Profile `<UNKNOWN>`, by admin@internal-authz when creating new cluster</b><br>
+ - [BZ 1352575](https://bugzilla.redhat.com/show_bug.cgi?id=1352575) <b>v3 REST API | job object status description should be in upper case letters and inside a `<state>` entry</b><br>
  - [BZ 1350399](https://bugzilla.redhat.com/show_bug.cgi?id=1350399) <b>NPE during compensation on startup</b><br>
 
 ##### Team: Integration
@@ -143,7 +143,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1364783](https://bugzilla.redhat.com/show_bug.cgi?id=1364783) <b>V3 API | Attach disk to vm with active=true isn't working</b><br>
  - [BZ 1356649](https://bugzilla.redhat.com/show_bug.cgi?id=1356649) <b>Template's & VMs disks link is wrongly calculated in rest API V3</b><br>
- - [BZ 1357987](https://bugzilla.redhat.com/show_bug.cgi?id=1357987) <b>In v4, GET to /disks/{disk:id} returns property <active></b><br>
+ - [BZ 1357987](https://bugzilla.redhat.com/show_bug.cgi?id=1357987) <b>In v4, GET to `/disks/{disk:id}` returns property `<active>`</b><br>
  - [BZ 1358729](https://bugzilla.redhat.com/show_bug.cgi?id=1358729) <b>image upload dialog - Image Source panel should be removed</b><br>
  - [BZ 1349498](https://bugzilla.redhat.com/show_bug.cgi?id=1349498) <b>When a VM is started, attached disks can't be edited anymore</b><br>
  - [BZ 1359632](https://bugzilla.redhat.com/show_bug.cgi?id=1359632) <b>[engine-webadmin-portal] Tool-tip is not displayed when hot-plug disk is not supported</b><br>
@@ -229,7 +229,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Infra
 
- - [BZ 1349857](https://bugzilla.redhat.com/show_bug.cgi?id=1349857) <b><link> element is not parsed</b><br>
+ - [BZ 1349857](https://bugzilla.redhat.com/show_bug.cgi?id=1349857) <b>`<link>` element is not parsed</b><br>
 
 #### oVirt Engine Dashboard
 

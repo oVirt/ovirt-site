@@ -4,7 +4,6 @@
 
 The administration portal screen is the main screen that is shown when you log into the Administration Portal. The elements of the administration portal screen that can be customized are as follows:
 
-
 * The logo
 
 * The left background image

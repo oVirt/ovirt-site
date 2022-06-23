@@ -79,7 +79,6 @@ The W3C provides a full specification on XML at http://www.w3.org/TR/xml.
 ECMA International provide a free publication on JSON at
 http://www.ecma-international.org.
 
-
 [id="documents-002_authentication_and_security"]
 == Authentication and Security
 
@@ -455,7 +454,6 @@ HTTP/1.1 200 OK
 ...
 ....
 +
-
 
 [id="documents-003_common_concepts"]
 == Common concepts
@@ -1158,7 +1156,6 @@ And the following response body:
 </fault>
 ----
 
-
 [id="documents-004_quick_start_example"]
 == Quick Start Examples
 
@@ -1503,7 +1500,6 @@ registered with the virtualization environment:
 GET /ovirt-engine/api/hosts HTTP/1.1
 Accept: application/xml
 ....
-
 
 The same request, using the `curl` command:
 
@@ -2187,7 +2183,6 @@ The additional request body sets the virtual machine's boot device to
 CD-ROM for this boot only. This enables the virtual machine to install
 the operating system from the attached ISO image. The boot device
 reverts back to disk for all future boots.
-
 
 [id="requests"]
 == Requests
@@ -3087,11 +3082,9 @@ This section enumerates all the requests that are available in the API.
 * <<services-permission-methods-get,GET>> /<<services-vnic_profiles,vnicprofiles>>/<<services-vnic_profile,{profile:id}>>/<<services-assigned_permissions,permissions>>/<<services-permission,{permission:id}>>
 * <<services-permission-methods-remove,DELETE>> /<<services-vnic_profiles,vnicprofiles>>/<<services-vnic_profile,{profile:id}>>/<<services-assigned_permissions,permissions>>/<<services-permission,{permission:id}>>
 
-
 == Services
 
 This section enumerates all the services that are available in the API.
-
 
 [id="services-affinity_group"]
 === AffinityGroup
@@ -9002,7 +8995,6 @@ With a request body as follows:
 </disk>
 ----
 
-
 *Adding a new direct LUN disk:*
 
 When adding a new floating direct LUN via the API, there are two flavors that can be used:
@@ -9042,7 +9034,6 @@ With a request body as follows:
 ----
 
 To create a new floating direct LUN disk without using a host, remove the `host` element.
-
 
 *Adding a new Cinder disk:*
 
@@ -11655,7 +11646,6 @@ apc_snmp, hpblade, ilo, ilo2, ilo_ssh, redfish, rsa fencing agent/s sample reque
     <options>[name1=value1, name2=value2,...]</options>
   </agent>
 
-
 cisco_ucs, drac5, eps fencing agent/s sample request:
 
 [source,xml]
@@ -14260,7 +14250,6 @@ The iSCSI targets.
 
 Login to iSCSI targets on the host, using the target details.
 
-
 IMPORTANT: When using this method to log in, you must use the iscsi details from the
 discovered targets results in the discoveriscsi method.
 
@@ -16042,7 +16031,6 @@ the disk's status will be changed to `Illegal`. Otherwise it will be changed to
 <<types-image_transfer_phase, finished_success>>, and the disk will be ready
 to be used. In both cases, the transfer entity will be removed shortly after.
 
-
 *Using HTTP and cURL calls:*
 
 - For upload, create a new disk first:
@@ -16069,9 +16057,7 @@ With a request body as follows:
 </disk>
 ----
 
-
 - Create a new image transfer for downloading/uploading a `disk` with id `456`:
-
 
 [source]
 ----
@@ -16281,7 +16267,6 @@ With a request body like this:
   <direction>upload|download</direction>
 </image_transfer>
 ----
-
 
 *Creating a new image transfer for downloading or uploading a `disk_snapshot`:*
 
@@ -18309,7 +18294,6 @@ With a request body like this:
 </network>
 ----
 
-
 The maximum transmission unit of a network is set using a PUT request to
 specify the integer value of the `mtu` attribute.
 
@@ -18871,7 +18855,6 @@ With a request body like this:
   <data_center id="123"/>
 </network>
 ----
-
 
 To associate the existing network `456` with the data center `123` send a request like this:
 
@@ -29618,7 +29601,6 @@ empty `action`:
 [source,xml]
 ----
 <action/>
-
 
 ----
 
@@ -42998,7 +42980,6 @@ using a cinder driver.
 The options to be passed when creating a storage domain
 using a cinder driver.
 
-
 For example (Kaminario backend):
 [source]
 ----
@@ -46134,7 +46115,6 @@ For more details about the different network filters see https://libvirt.org/fir
 The default Network Filter is based on network type and configuration.
 VM network's default filter is `vdsm-no-mac-spoof` if `EnableMACAntiSpoofingFilterRules` is True, otherwise
 the filter is not configured, for `OVN` networks the filter is not configured.
-
 
 In addition to libvirt's network filters, there are two additional network filters:
 The first is called `vdsm-no-mac-spoofing` and is composed of `no-mac-spoofing` and `no-arp-mac-spoofing`.
@@ -56466,7 +56446,6 @@ NOTE: In both cases, the dates returned by the engine use the time zone
 configured in the server where it is running, in the above examples it
 is UTC+2.
 
-
 [id="documents-a02_changes_in_v4"]
 [appendix]
 == Changes in version 4 of the API
@@ -57535,7 +57514,6 @@ GET /ovirt-engine/api/clusters/123
 </cluster>
 ----
 
-
 And the random number generator sources supported by a host will be
 reported as follows:
 
@@ -58246,6 +58224,5 @@ POST /ovirt-engine/api/hosts/123/unregisteredstoragedomaindiscover
 === Changes in Engine version 4.5
 
 ==== Openstack Volume (Cinder) integration replaced by Managed Block Storage.
-
 
 

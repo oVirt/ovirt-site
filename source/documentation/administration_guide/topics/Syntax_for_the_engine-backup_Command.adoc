@@ -19,12 +19,9 @@ These two modes are further extended by a set of parameters that allow you to sp
 
 *`--mode`*:: Specifies whether the command will perform a backup operation or a restore operation. Two options are available - `backup`, and `restore`. This is a required parameter.
 
-
 *`--file`*:: Specifies the path and name of a file into which backups are to be taken in backup mode, and the path and name of a file from which to read backup data in restore mode. This is a required parameter in both backup mode and restore mode.
 
-
 *`--log`*:: Specifies the path and name of a file into which logs of the backup or restore operation are to be written. This parameter is required in both backup mode and restore mode.
-
 
 *`--scope`*:: Specifies the scope of the backup or restore operation. There are four options: `all`, which backs up or restores all databases and configuration data; `files`, which backs up or restores only files on the system; `db`, which backs up or restores only the {engine-name} database; and `dwhdb`, which backs up or restores only the Data Warehouse database. The default scope is `all`.
 +
@@ -36,9 +33,7 @@ The following options are only available when using the `engine-backup` command 
 
 *`--provision-db`*:: Creates a PostgreSQL database for the {engine-name} database backup to be restored to. This is a required parameter when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured.
 
-
 *`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this parameter.
-
 
 *`--restore-permissions` or `--no-restore-permissions`*:: Restores (or does not restore) the permissions of database users. One of these parameters is required when restoring a backup.
 +

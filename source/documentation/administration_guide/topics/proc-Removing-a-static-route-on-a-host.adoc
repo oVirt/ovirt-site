@@ -20,7 +20,6 @@ As a result, VM networks behave differently from non-VM networks:
 * Non-VM networks are based on an interface. Moving the network from one interfaces/bond to another deletes the route related to the Non-VM network.
 ====
 
-
 .Prerequisites
 
 This procedure requires nmstate, which is only available if your environment uses:

@@ -13,7 +13,6 @@ For more information on the hardware requirements for direct device assignment, 
 If the host is attached to the {engine-name} already, ensure you place the host into maintenance mode before applying any changes.
 ====
 
-
 *Preparing a Host for GPU Passthrough*
 
 . In the Administration Portal, click menu:Compute[Hosts].
@@ -60,7 +59,6 @@ For instructions on how to make the above changes by editing the *grub* configur
 
 Proceed to the next procedure to configure GPU passthrough on the guest system side.
 
-
 *Preparing a Guest Virtual Machine for GPU Passthrough*
 
 .For Linux
@@ -101,6 +99,5 @@ EndSection
 
 . Download and install the corresponding drivers for the device. For example, for Nvidia drivers, go to link:http://www.nvidia.com/Download/index.aspx?lang=en-us[NVIDIA Driver Downloads].
 . Restart the virtual machine.
-
 
 The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-host_devices[Host Devices] in the _Virtual Machine Management Guide_.

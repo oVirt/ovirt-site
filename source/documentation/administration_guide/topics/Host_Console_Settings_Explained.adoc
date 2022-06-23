@@ -4,7 +4,6 @@
 
 The *Console* settings table details the information required on the *Console* tab of the *New Host* or *Edit Host* window.
 
-
 .*Console* settings
 [options="header"]
 |===

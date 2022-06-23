@@ -4,7 +4,6 @@
 
 This procedure describes how to remove quotas.
 
-
 .Procedure
 
 . Click menu:Administration[Quota] and select a quota.

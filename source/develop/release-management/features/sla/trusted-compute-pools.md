@@ -36,7 +36,9 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 
 ## Detailed Description
 
-The feature will allow data center administrator to build trusted computing pools based on H/W-based security features, such as Intel Trusted Execution Technology (TXT). Combining attestation done by a separate entity (i.e. "remote attestation"), the administrator can ensure that verified measurement of software be running in hosts, thus they can establish the foundation for the secure enterprise stack. Such remote attestation services can be developed by using SDK provided by OpenAttestation project.
+The feature will allow data center administrator to build trusted computing pools based on H/W-based security features, such as Intel Trusted Execution Technology (TXT).
+Combining attestation done by a separate entity (i.e. "remote attestation"), the administrator can ensure that verified measurement of software be running in hosts,
+thus they can establish the foundation for the secure enterprise stack. Such remote attestation services can be developed by using SDK provided by OpenAttestation project.
 
 Remote Attestation server performs host verification through following steps:
 
@@ -62,10 +64,11 @@ Divide cluster policy side tab into two sections, "scheduling policy" and "addit
 #### Backend changes
 
 1. Add attestation check logic in "InitVdsOnUpCommand.java" to initialize status of each host before active, this java file can be found in this path org.ovirt.engine.core.bll.
-
-*   The first time when this host add into a trust cluster, call attestation server to determine the real status (untrusted , trusted) of the VDS (physical host), the host will be in "up" status if get "trusted" result from attestation server, or else, set this host as non-operational status.
-*   When host is down for a different reason and up again, attestation check logic will be triggered also.
-*   Call SetNonOperationalVdsCommand with a new NonOperationalReason. This command will try to migrate all VMs from the host and then set it non-operational. In the case of another trusted host existed in trust cluster, all of the VMs will try to migrate to that trusted host. For the non-migrational VMs, keep these VMs running.
+   *   The first time when this host add into a trust cluster, call attestation server to determine the real status (untrusted , trusted) of the VDS (physical host),
+       the host will be in "up" status if get "trusted" result from attestation server, or else, set this host as non-operational status.
+   *   When host is down for a different reason and up again, attestation check logic will be triggered also.
+   *   Call `SetNonOperationalVdsCommand` with a new `NonOperationalReason`. This command will try to migrate all VMs from the host and then set it non-operational.
+       In the case of another trusted host existed in trust cluster, all of the VMs will try to migrate to that trusted host. For the non-migrational VMs, keep these VMs running.
 
 2. Activate a trusted host by admin {optional}
 
@@ -85,13 +88,14 @@ When the VM created in the trusted cluster was exported as OVF file, OVF file sh
 #### Restful API
 
 Create a trusted cluster via restful API, curl command may like this.
-
+```bash
     curl -v -u "admin@internal:abc123" \
       -H "Content-type: application/xml" \
       -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2" major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' \
       'http://engine.***.com:80/api/clusters'
+```
 
-Key relevant modification includes api.xsd and ClusterMapper.java.
+Key relevant modification includes `api.xsd` and `ClusterMapper.java`.
 
 #### Database change
 
@@ -178,7 +182,13 @@ Dependens on [#Create a trusted cluster](#create-a-trusted-cluster) , [Add a tru
 
 ### Create a truster cluster via restful API
 
-1.  Exec command: curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2"    major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' 'http://engine.\*\*\*.com:80/api/clusters'
+1.  Exec command:
+    ```bash
+     curl -v -u "admin@internal:abc123" \
+        -H "Content-type: application/xml" \
+        -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center><version minor="2" major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' \
+        'http://engine.\*\*\*.com:80/api/clusters'
+    ```
 2.  go to the **Clusters** tab
 3.  choose the trusted cluster that has just been created , and here is **my_trust_cluster**
 4.  click **Edit** button

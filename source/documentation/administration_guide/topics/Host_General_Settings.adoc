@@ -6,7 +6,6 @@ These settings apply when editing the details of a host or adding new {enterpris
 
 The *General* settings table contains the information required on the *General* tab of the *New Host* or *Edit Host* window.
 
-
 .*General* settings
 [options="header"]
 [cols=",a"]

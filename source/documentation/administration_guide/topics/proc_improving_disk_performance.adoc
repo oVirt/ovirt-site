@@ -2,7 +2,6 @@
 //
 // doc-Administration_Guide/chap-Virtual_Disks.adoc
 
-
 :_content-type: PROCEDURE
 [id="proc_improving_disk_performance"]
 = Improving disk performance

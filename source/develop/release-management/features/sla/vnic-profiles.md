@@ -11,7 +11,8 @@ authors:
 
 #### Summary
 
-In order to define more natural coupling of the QoS to a VNIC we define a new concept called **VNIC Profile**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
+In order to define more natural coupling of the QoS to a VNIC we define a new concept called **VNIC Profile**.
+The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
 
 #### Owner
 
@@ -28,18 +29,19 @@ In order to define more natural coupling of the QoS to a VNIC we define a new co
 
 The VNIC Profile concept embodies a predefined package of network setting which will define the network service a VNIC will get.
 VNIC Profile include:
-\* Profile name
-
+*   Profile name
 *   Network
 *   Quality of Service
 *   Port mirroring
 *   Custom properties
 
-When creating a new VNIC or editing an existing one the user will select a VNIC Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).
+When creating a new VNIC or editing an existing one the user will select a VNIC Profile (instead of the current implementation in which the user selects
+a network and sets port mirroring and custom properties).
 
 ##### Adding a Profile
 
-The network administrator could create several VNIC Profiles for each network. He could then grant a users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.
+The network administrator could create several VNIC Profiles for each network. He could then grant a users with the permission to use (consume) each profile.
+The user will only be able to use profiles which he was granted access to.
 
 For example: the network admin will create two VNIC profiles for network "blue":
 
@@ -47,7 +49,9 @@ Profile "teacher-blue" - with better QoS and with port mirroring
 
 Profile "student-blue" with lower QoS and without port mirroring.
 
-He will then define the user-group "students" as user of profile "student-blue" and user-group "teachers" as user of profile "teacher-blue". In this case the teachers will enjoy better quality of service (e.g. Gold) than the students (e.g Silver). When a teacher will add/edit a virtual NIC he could select profile "teacher-blue" for that NIC - the VNIC will be connected to network "blue" with high QoS and with port mirroring.
+He will then define the user-group "students" as user of profile "student-blue" and user-group "teachers" as user of profile "teacher-blue".
+In this case the teachers will enjoy better quality of service (e.g. Gold) than the students (e.g Silver).
+When a teacher will add/edit a virtual NIC he could select profile "teacher-blue" for that NIC - the VNIC will be connected to network "blue" with high QoS and with port mirroring.
 
 *   An option to select 'Allow all users to use this profile' will be added to the dialog. If selected, a permission on the the vnic profile will be granted to 'everyone'.
 
@@ -55,7 +59,8 @@ He will then define the user-group "students" as user of profile "student-blue" 
 
 *   A user should be able to edit the profile properties (including profile name) while VMs are attached and are using this Profile (reference should be done by id), except of the port mirroring.
 *   Changing the network of a vNic profile will be blocked.
-    -   Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable and less intuitive to the user (especially since dynamic wiring is supported).
+    -   Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable
+        and less intuitive to the user (especially since dynamic wiring is supported).
 *   The changes will seep down to all VNICs using the profile.
     -   In case VNIC using the edited profile are connected to running VMs, the change will apply only on the VM next run.
 
@@ -78,8 +83,6 @@ and for each vnic profile there will be an option for 'public use'.
 
 *   The vNic profile name will be NetworkNamePolicyName, e.g. blueGold. The user will be able to rename the profile and its properties from the vnic profile sub-tab.
 
-<!-- -->
-
 *   A default vnic profile will be created implicitly by the engine when creating a new network, unless specifically asked not create it.
 
 The option to check the network for a public use will be removed from the 'Add network' dialog.
@@ -87,7 +90,8 @@ The option to check the network for a public use will be removed from the 'Add n
 ##### Updating a Network
 
 When a network role is modified to be a 'non-VM network', all vNic profiles associated with it should be deleted and permissions associated with these profiles.
-When a non-vm network is modified to be a 'VM network', a default vnic profile will be created if the action is done in the webadmin. Performing the update network operation via the api will not create a default vnic profile and the user will have to create one himself so the network could be used by VMs.
+When a non-vm network is modified to be a 'VM network', a default vnic profile will be created if the action is done in the webadmin.
+Performing the update network operation via the api will not create a default vnic profile and the user will have to create one himself so the network could be used by VMs.
 
 ##### Removing a Network
 
@@ -106,9 +110,6 @@ Should remove all data center's networks and their associated permissions.
 
 *   We should handle VMs that are pointing to a network directly for backward compatibility.
 *   We need to select first profile that is on that network that the user has permissions on.
-
-<!-- -->
-
 *   The profile name should be saved in the OVF, in OtherResourceType element (in addition to the network name which is saved today).
 
 The import of a VM/Template will be performed according to the following logic:
@@ -121,11 +122,16 @@ The import of a VM/Template will be performed according to the following logic:
 
 ##### Backward Compatibility
 
-In 3.2 or lower clusters versions not all of the profile properties are supported. In those clusters only Profile name, Network and Port mirroring will be enabled. For time been, we'll keep the networkName in the vmNetworkInterface, however when rest support will be added, the field will be removed.
+In 3.2 or lower clusters versions not all of the profile properties are supported.
+In those clusters only Profile name, Network and Port mirroring will be enabled.
+For time been, we'll keep the networkName in the vmNetworkInterface, however when rest support will be added, the field will be removed.
 
 #### Benefit to oVirt
 
-We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The Network QoS feature will add this ability to the engine. The VNIC profile will improve the usability of the network configuration on the VM. On the user side - VNIC profiles will allow the user to configure a VNIC in relative ease. On the network administrator side - VNIC Profiles will help the administrator to keep control of all the VNICs connected to the network in a simpler way.
+We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC.
+The Network QoS feature will add this ability to the engine. The VNIC profile will improve the usability of the network configuration on the VM.
+On the user side - VNIC profiles will allow the user to configure a VNIC in relative ease.
+On the network administrator side - VNIC Profiles will help the administrator to keep control of all the VNICs connected to the network in a simpler way.
 The combination of the two will allow the network admin to define, control and dispense different service levels to different users or groups (which may have different priorities).
 
 ## Design and Implementation
@@ -151,15 +157,15 @@ In the upgrade process we will do the following:
 
 The following action groups will be added:
 
-*   CONFIGURE_NETWORK_VNIC_PROFILE - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group
-*   CREATE_NETWORK_VNIC_PROFILE - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group
-*   DELETE_NETWORK_VNIC_PROFILE - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group
+*   `CONFIGURE_NETWORK_VNIC_PROFILE` - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group
+*   `CREATE_NETWORK_VNIC_PROFILE` - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group
+*   `DELETE_NETWORK_VNIC_PROFILE` - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group
 
 A VNICProfileUser role will be added, instead of the NetworkUser role. This role will contain the exact same action groups:
 
-*   CONFIGURE_VM_NETWORK
-*   CONFIGURE_TEMPLATE_NETWORK
-*   LOGIN
+*   `CONFIGURE_VM_NETWORK`
+*   `CONFIGURE_TEMPLATE_NETWORK`
+*   `LOGIN`
 
 When upgrading the permissions table, we will do the following:
 
@@ -275,13 +281,9 @@ The **VnicProfileView** will serve the UI.
 
 #### REST API
 
-The vnic profiles will be modeled as a top collection:
+The vnic profiles will be modeled as a top collection: `/api/vnicprofiles`
 
-      /api/vnicprofiles
-
-The vnic profiles will be available as a sub collection of the networks top collection:
-
-      api/networks/{network:id}/vnicprofiles/{profile:id}
+The vnic profiles will be available as a sub collection of the networks top collection: `api/networks/{network:id}/vnicprofiles/{profile:id}`
 
 The POST'ed elemet should look like:
 
@@ -294,9 +296,9 @@ The POST'ed elemet should look like:
 ```
 
 However the vnic profile will not be update-able via the sub-collection.
- The user will be able to create a network without a default vnic profile by providing the following element in the network
+The user will be able to create a network without a default vnic profile by providing the following element in the network
 
-      POSTed element for /api/networks:
+POSTed element for `/api/networks`:
 ```xml
  <network>
            ...
@@ -307,31 +309,18 @@ However the vnic profile will not be update-able via the sub-collection.
 For REST backward compatibility, a new parameter set will be added to a vm network interface Add and Update actions.
 The current parameter set includes either network name and port mirroring as today.
 The new parameter set will include the vnic profile id.
-\* Add VM nic:
-
-      /api/vms/{vm:id}/nics|rel=add
-
-*   Update VM nic:
-
-      /api/vms/{vm:id}/nics/{nic:id}|rel=update
-
-*   Add template nic:
-
-      /api/template/{template:id}/nics|rel=add
-
-*   Update template nic:
-
-      /api/template/{template:id}/nics/{nic:id}|rel=update
+* Add VM nic: `/api/vms/{vm:id}/nics|rel=add`
+* Update VM nic: `/api/vms/{vm:id}/nics/{nic:id}|rel=update`
+* Add template nic: `/api/template/{template:id}/nics|rel=add`
+* Update template nic: `/api/template/{template:id}/nics/{nic:id}|rel=update`
 
 With the following element:
-
 ```xml
- <nic>
-           ...
-     <vnic_profile id="fa5d0471-f83b-44ec-8715-7fe1a53ab7a6"/>
- </nic>
+<nic>
+      ...
+      <vnic_profile id="fa5d0471-f83b-44ec-8715-7fe1a53ab7a6"/>
+</nic>
 ```
-
 The returned entity will include the the vnic profile id as well.
 
 #### VDSM

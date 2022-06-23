@@ -11,7 +11,6 @@ You can configure Fibre Channel over Ethernet (FCoE) properties for host network
 
 You also need to install the required VDSM hook package on the hosts. Depending on the FCoE card on the hosts, special configuration may also be needed; see link:{URL_rhel_docs_legacy}html/Storage_Administration_Guide/fcoe-config.html[Configuring a Fibre Channel over Ethernet Interface] in the _{enterprise-linux} Storage Administration Guide_.
 
-
 .Procedure
 
 . On the {engine-name}, run the following command to add the key:
@@ -34,6 +33,5 @@ You also need to install the required VDSM hook package on the hosts. Depending 
 ----
 # dnf install vdsm-hook-fcoe
 ----
-
 
 The *fcoe* key is now available in the Administration Portal. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Editing Host Network Interfaces and Assigning Logical Networks to Hosts] to apply FCoE properties to logical networks.

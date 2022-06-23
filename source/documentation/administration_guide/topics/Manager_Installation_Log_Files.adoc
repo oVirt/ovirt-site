@@ -2,7 +2,6 @@
 [id="Manager_Installation_Log_Files"]
 = {engine-name} Installation Log Files
 
-
 .Installation
 [options="header"]
 |===

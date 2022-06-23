@@ -8,7 +8,6 @@ The `vdsm-hook-extra-ipv4-addrs` hook allows you to configure additional IPv4 ad
 
 In the following procedure, the host-specific tasks must be performed on each host for which you want to configure additional IP addresses.
 
-
 .Procedure
 
 . On the host that you want to configure additional IPv4 addresses for, install the VDSM hook package. The package is available by default on {hypervisor-fullname}s but needs to be installed on {enterprise-linux-host-fullname}s.
@@ -39,6 +38,5 @@ In the following procedure, the host-specific tasks must be performed on each ho
 . Select *ipv4_addr* from the *Custom Properties* drop-down list and add the additional IP address and prefix (for example 5.5.5.5/24). Multiple IP addresses must be comma-separated.
 . Click btn:[OK] to close the *Edit Network* window.
 . Click btn:[OK] to close the *Setup Host Networks* window.
-
 
 The additional IP addresses will not be displayed in the {engine-name}, but you can run the command `ip addr show` on the host to confirm that they have been added.

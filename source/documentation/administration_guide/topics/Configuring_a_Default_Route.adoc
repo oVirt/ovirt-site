@@ -8,7 +8,6 @@ The default route used by hosts in a cluster is through the management network (
 
 * If you are using the `default_route` custom property, you need to clear the custom property from all attached hosts and then follow this procedure.
 
-
 *Configuring the Default Route Role*
 
 . Click menu:Network[Networks].

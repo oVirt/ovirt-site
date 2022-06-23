@@ -2,7 +2,6 @@
 [id="Cluster_permissions_entities"]
 = Cluster Administrator Roles Explained
 
-
 *Cluster Permission Roles*
 
 The table below describes the administrator roles and privileges applicable to cluster administration.

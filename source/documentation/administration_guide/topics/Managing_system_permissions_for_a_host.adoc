@@ -14,6 +14,4 @@ The host administrator role permits the following actions:
 
 * Remove the host.
 
-
-
 You can also change the system administrator of a host by removing the existing system administrator and adding the new system administrator.

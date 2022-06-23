@@ -145,7 +145,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Add info message on where the logs are located                 | Done                    | Done                 |                                                       |          |             |
 
 
-[34] <ref name="dbdrop">database is not dropped but all objects within are dropped, should be revisit when [bug#951923](https://bugzilla.redhat.com/show_bug.cgi?id=951923) is resolved.
+[34] database is not dropped but all objects within are dropped, should be revisit when [bug#951923](https://bugzilla.redhat.com/show_bug.cgi?id=951923) is resolved.
 
 
 ## Detailed Description
@@ -184,7 +184,7 @@ TBD
 
 ### Test case: setup with AIO plugin
 
-      On a clean system install AIO plugin and run engine-setup-2 
+      On a clean system install AIO plugin and run engine-setup-2
        check that the procedure ends successfully
        check that the portal is reachable
        check that the engine is running as it was installed using legacy setup with AIO plugin

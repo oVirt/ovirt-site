@@ -48,21 +48,29 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 #### Database Changes
 
 <span style="color:Teal">**VM_INTERFACE**</span>
-{|class="wikitable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |linked || boolean ||not null ||Indicates wether the vnic's link state is "up" or "down" |- |}
+
+| Column Name | Column Type | Null? / Default | Definition                                               |
+|-------------|-------------|-----------------|----------------------------------------------------------|
+| linked      | boolean     | not null        | Indicates wether the vnic's link state is "up" or "down" |
+{: .bordered}
 
 <span style="color:Teal">**VM_INTERFACE_VIEW**</span>
-{|class="wikitable" !border="1"| Column Name ||Column Type ||Definition |- |linked || boolean ||Indicates wether the vnic's link state is "up" or "down" |- |}
+
+| Column Name | Column Type | Definition                                               |
+|-------------|-------------|----------------------------------------------------------|
+|  linked     | boolean     | Indicates wether the vnic's link state is "up" or "down" |
+{: .bordered}
 
 #### Engine Flows
 
 ##### Add Vnic
 
 *   canDoAction- allow 'null' network just for 3.2 or upper cluster compatibility version.
-*   'linkState' property of VmNetworkInterface should be stored in the DB
+*   `linkState` property of `VmNetworkInterface` should be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- save
 
-*   The 'linkState' property is sent to the VDSM by ActivateDeactivateVmNicCommand command (for running VMs with the nic set to plugged)
+*   The `linkState` property is sent to the VDSM by `ActivateDeactivateVmNicCommand` command (for running VMs with the nic set to plugged)
 
 ##### Update Vnic
 
@@ -73,30 +81,29 @@ The network wiring feature is an enhancement for the VM Network Interface manage
       VmNetworkInterfaceDAODbFacadeImpl- update
 
 *   If the vm is up
-
     * plugged --> unplugged ('plugged' property was changed to false)
 
-:\*\* Unplug should be sent to the VDSM
+        - Unplug should be sent to the VDSM
 
     * unplugged --> plugged
 
-:\*\* Plug should be sent to the VDSM
+        -  Plug should be sent to the VDSM
 
     * plugged --> plugged
 
-:\*\* If MAC Address or Driver Type were updated
+        - If MAC Address or Driver Type were updated
 
-:\*\*\* Throw canDoAction "Cannot perform hot update when updating 'Type' or 'MAC', please Unplug and then Plug again."
+           -  Throw canDoAction "Cannot perform hot update when updating 'Type' or 'MAC', please Unplug and then Plug again."
 
-:\*\* Otherwise, if network is changed or disconnected
+        - Otherwise, if network is changed or disconnected
 
-:\*\*\* If cluster c. version is 3.2 or upper updateVmDevice should be sent to the VDSM.
+           - If cluster c. version is 3.2 or upper updateVmDevice should be sent to the VDSM.
 
-:\*\*\* Otherwise, throw canDoAction
+           - Otherwise, throw canDoAction
 
     * unplugged --> unplugged
 
-:\*\* nothing should be sent to VDSM
+        - nothing should be sent to VDSM
 
 ##### Remove Vnic
 
@@ -104,9 +111,10 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Run VM
 
-*   When running a VM, the VM's Vnics' 'linkState' property should also be passed to the VDSM, for 3.2 cluster and above.
-
-      VmInfoBuilder.addNetworkInterfaceProperties
+*   When running a VM, the VM's Vnics' `linkState` property should also be passed to the VDSM, for 3.2 cluster and above.
+    ```python
+    VmInfoBuilder.addNetworkInterfaceProperties
+    ```
 
 *   network should be sent to the VDSM just if it is not null.
 
@@ -122,19 +130,22 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Other effected flows
 
-*   ChangeVMClusterCommand
-*   AddVmTemplateCommand
-*   AddVmTemplateInterfaceCommand
-*   UpdateVmTemplateInterfaceCommand
-*   UpdateVmCommand
-*   ImportVmCommand
-*   ImportVmTemplateCommand
-*   OvfVm
-*   OvfTemplate
+*   `ChangeVMClusterCommand`
+*   `AddVmTemplateCommand`
+*   `AddVmTemplateInterfaceCommand`
+*   `UpdateVmTemplateInterfaceCommand`
+*   `UpdateVmCommand`
+*   `ImportVmCommand`
+*   `ImportVmTemplateCommand`
+*   `OvfVm`
+*   `OvfTemplate`
 
 ##### Error codes
 
-Add translation to VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM Network Interface.'
+Add translation to VDSM error codes:
+```python
+UPDATE_VNIC_FAILED = 'Failed to update VM Network Interface.'
+```
 
 #### VDSM API
 
@@ -142,15 +153,18 @@ Add translation to VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM N
 
 A new API is added for this feature.
 
+```python
     vmUpdateDevice (vmId, params)
 
     params = {
        'devicType': 'interface',
-       'network': 'network name',     <--- bridge name. If not set, the vnic stays on the current network. If it equals to the empty string, it is taken to the dummy bridge.
+       'network': 'network name',    #  <--- bridge name. If not set, the vnic stays on the current network. If it equals to the empty string, it is taken to the dummy bridge.
        'linkActive': 'bool',
-       'alias': <string>,      
-       'portMirroring': blue[,red],    <---  If not specified, the current portMirroring keeps in effect. Otherwise, only the specified networks will be mirrored to the vnic, e.g., empty list -> unset any mirroring.
+       'alias': <string>,
+       'portMirroring': blue[,red],  #  <---  If not specified, the current portMirroring keeps in effect.
+                                     #        Otherwise, only the specified networks will be mirrored to the vnic, e.g., empty list -> unset any mirroring.
      }
+```
 
 Vdsm would implement this using <https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainUpdateDeviceFlags> .
 
@@ -159,47 +173,47 @@ If the vnic doesn't have a network, the network will be omitted from the params 
 ##### Updated APIs
 
 *   **hotplugNic**
-    -   the vdsm should connect the Vnic's Network according to the 'linkState' property passed on the Vnic.
+    -   the vdsm should connect the Vnic's Network according to the `linkState` property passed on the Vnic.
     -   If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
 *   **createVm**
-    -   the vdsm should connect each of the Vm's Vnics according to the 'linkState' property passed on the each Vnic.
+    -   the vdsm should connect each of the Vm's Vnics according to the `linkState` property passed on the each Vnic.
     -   If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
 
-In both cases, 'linkState' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> .
+In both cases, `linkState` property would be implemented by setting libvirt's `<link state>` element <http://libvirt.org/formatdomain.html#elementLink> .
 New vdsm errors will be added:
 
-    UPDATE_VNIC_FAILED- code 56
+* `UPDATE_VNIC_FAILED` - code 56
 
 #### Events
 
 ##### Add Vnic
 
-*   AuditLogType.NETWORK_ADD_VM_INTERFACE
-*   AuditLogType.NETWORK_ADD_VM_INTERFACE_FAILED
+*   `AuditLogType.NETWORK_ADD_VM_INTERFACE`
+*   `AuditLogType.NETWORK_ADD_VM_INTERFACE_FAILED`
 
 ##### Update Vnic
 
-*   AuditLogType.NETWORK_UPDATE_VM_INTERFACE
-*   AuditLogType.NETWORK_UPDATE_VM_INTERFACE_FAILED
+*   `AuditLogType.NETWORK_UPDATE_VM_INTERFACE`
+*   `AuditLogType.NETWORK_UPDATE_VM_INTERFACE_FAILED`
 
 ##### Remove Vnic
 
-*   AuditLogType.NETWORK_REMOVE_VM_INTERFACE
-*   AuditLogType.NETWORK_REMOVE_VM_INTERFACE_FAILED
+*   `AuditLogType.NETWORK_REMOVE_VM_INTERFACE`
+*   `AuditLogType.NETWORK_REMOVE_VM_INTERFACE_FAILED`
 
 ##### Plug nic
 
-*   AuditLogType.NETWORK_ACTIVATE_VM_INTERFACE_SUCCESS
-*   AuditLogType.NETWORK_ACTIVATE_VM_INTERFACE_FAILURE;
+*   `AuditLogType.NETWORK_ACTIVATE_VM_INTERFACE_SUCCESS`
+*   `AuditLogType.NETWORK_ACTIVATE_VM_INTERFACE_FAILURE`
 
 ##### Unplug nic
 
-*   AuditLogType.NETWORK_DEACTIVATE_VM_INTERFACE_SUCCESS
-*   AuditLogType.NETWORK_DEACTIVATE_VM_INTERFACE_FAILURE
+*   `AuditLogType.NETWORK_DEACTIVATE_VM_INTERFACE_SUCCESS`
+*   `AuditLogType.NETWORK_DEACTIVATE_VM_INTERFACE_FAILURE`
 
 #### Open Issues
 
-1.  Should ActivateDeactivateVmNic be renamed to PlugUnplug ?
+1.  Should `ActivateDeactivateVmNic` be renamed to `PlugUnplug` ?
 
 ### Documentation / External references
 
@@ -210,5 +224,9 @@ New vdsm errors will be added:
 
 ### Comment
 
-*   After the VM is connected to a new network, no one on that network is aware of the change. It was suggested, that much like in vm migration, the VM should emit a gratuitous arp packet, to notify the world about its existence. However note that in vm migration, the vm does not change its layer-2 subnet and telling the switch of its new location is all that is needed. This is NOT the case when the VM is connected to a different network, with its own vlan and ip limitations. One cannot assume that a guest server application would continue to operate uninterrupted.
+*   After the VM is connected to a new network, no one on that network is aware of the change.
+    It was suggested, that much like in vm migration, the VM should emit a gratuitous arp packet, to notify the world about its existence.
+    However note that in vm migration, the vm does not change its layer-2 subnet and telling the switch of its new location is all that is needed.
+    This is NOT the case when the VM is connected to a different network, with its own vlan and ip limitations.
+    One cannot assume that a guest server application would continue to operate uninterrupted.
 

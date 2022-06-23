@@ -4,7 +4,6 @@
 
 You can edit storage domain parameters through the Administration Portal. Depending on the state of the storage domain, either active or inactive, different fields are available for editing. Fields such as *Data Center*, *Domain Function*, *Storage Type*, and *Format* cannot be changed.
 
-
 * *Active*: When the storage domain is in an active state, the *Name*, *Description*, *Comment*, *Warning Low Space Indicator (%)*, *Critical Space Action Blocker (GB)*, *Wipe After Delete*, and *Discard After Delete* fields can be edited. The *Name* field can only be edited while the storage domain is active. All other fields can also be edited while the storage domain is inactive.
 
 * *Inactive*: When the storage domain is in maintenance mode or unattached, thus in an inactive state, you can edit all fields except *Name*, *Data Center*, *Domain Function*, *Storage Type*, and *Format*. The storage domain must be inactive to edit storage connections, mount options, and other advanced parameters. This is only supported for NFS, POSIX, and Local storage types.
@@ -20,7 +19,6 @@ iSCSI storage connections cannot be edited via the Administration Portal, but ca
 . Click *Manage Domain*.
 . Edit the available fields as required.
 . Click btn:[OK].
-
 
 .Editing an Inactive Storage Domain
 

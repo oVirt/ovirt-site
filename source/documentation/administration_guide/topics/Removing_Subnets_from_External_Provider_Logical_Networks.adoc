@@ -4,7 +4,6 @@
 
 Remove a subnet from a logical network provided by an external provider.
 
-
 .Procedure
 
 . Click menu:Network[Networks].

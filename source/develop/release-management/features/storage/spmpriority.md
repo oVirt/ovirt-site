@@ -15,7 +15,7 @@ The SPM Priority feature allows the admin to define priorities between hosts reg
 
 ## Owner
 
-* Feature owner: Muli Salem (<msalem@redhat.com>)
+* Feature owner: Muli Salem
 * QA Owner: Leonid Natapov (<lnapatov@redhat.com>)
 
 ## Current status

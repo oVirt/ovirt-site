@@ -12,7 +12,6 @@ This feature will allow a core in ppc64 hosts to be shared simultaneously by mul
 ### Owner
 
 *   Name: Vitor de Lima (Vitordelima)
-*   Email: vdelima@redhat.com
 
 ### Current status
 

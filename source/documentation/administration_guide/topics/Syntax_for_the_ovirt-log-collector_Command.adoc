@@ -45,7 +45,6 @@ endif::[]
 
 *`--time-only`*:: Displays only information about time differences between hosts, without generating a full SOS report.
 
-
 *{virt-product-fullname} {engine-name} Options*
 
 These options filter the log collection and specify authentication details for the {virt-product-fullname} {engine-name}.
@@ -66,7 +65,6 @@ These parameters can be combined for specific commands. For example, `ovirt-log-
 
 *`-H _HOSTS_LIST_`, `--hosts=_HOSTS_LIST_`*:: Collects logs from the virtualization hosts in the nominated _HOSTS_LIST_ in addition to logs from the {virt-product-fullname} {engine-name}. The hosts for inclusion must be specified in a comma-separated list of host names, fully qualified domain names, or IP addresses. Match patterns are also valid.
 
-
 *SSH Configuration*
 
 *`--ssh-port=_PORT_`*:: Sets _PORT_ as the port to use for SSH connections with virtualization hosts.
@@ -74,7 +72,6 @@ These parameters can be combined for specific commands. For example, `ovirt-log-
 *`-k _KEYFILE_`, `--key-file=_KEYFILE_`*:: Sets _KEYFILE_ as the public SSH key to be used for accessing the virtualization hosts.
 
 *`--max-connections=_MAX_CONNECTIONS_`*:: Sets _MAX_CONNECTIONS_ as the maximum concurrent SSH connections for logs from virtualization hosts. The default is `10`.
-
 
 *PostgreSQL Database Options*
 

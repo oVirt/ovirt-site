@@ -4,7 +4,6 @@
 
 The `engine-backup` command can be used to restore a backup to a fresh installation of the {virt-product-fullname} {engine-name}. The following procedure must be performed on a machine on which the base operating system has been installed and the required packages for the {virt-product-fullname} {engine-name} have been installed, but the `engine-setup` command has not yet been run. This procedure assumes that the backup file or files can be accessed from the machine on which the backup is to be restored.
 
-
 .Procedure
 
 . Log on to the {engine-name} machine. If you are restoring the engine database to a remote host, you will need to log on to and perform the relevant actions on that host. Likewise, if also restoring the Data Warehouse to a remote host, you will need to log on to and perform the relevant actions on that host.

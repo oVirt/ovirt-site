@@ -4,7 +4,6 @@
 
 {virt-product-fullname} applies authorization controls based on the combination of the three components:
 
-
 * The user performing the action
 
 * The type of action being performed

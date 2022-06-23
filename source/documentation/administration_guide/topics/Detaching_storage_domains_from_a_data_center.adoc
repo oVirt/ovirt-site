@@ -15,7 +15,6 @@ If the master storage domain is detached, it must be reinitialized.
 If the storage domain is reinitialized, all your data will be lost, and the storage domain might not find your disks again.
 ====
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].

@@ -4,7 +4,6 @@
 
 This procedure explains how to turn off (deactivate) a SPICE proxy.
 
-
 .Procedure
 
 . Log in to the {engine-name}:
@@ -27,6 +26,5 @@ $ ssh root@_[IP of {engine-name}]_
 ----
 # systemctl restart ovirt-engine.service
 ----
-
 
 SPICE proxy is now deactivated (turned off). It is no longer possible to connect to the {virt-product-fullname} network through the SPICE proxy.

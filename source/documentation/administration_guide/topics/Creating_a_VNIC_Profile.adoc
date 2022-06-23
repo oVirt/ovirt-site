@@ -9,7 +9,6 @@ Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate
 If you are enabling or disabling port mirroring, all virtual machines using the associated profile must be in a down state before editing.
 ====
 
-
 .Procedure
 
 . Click menu:Network[Networks].

@@ -11,5 +11,4 @@ You can assign tags to and remove tags from hosts, virtual machines, and users.
 . Select the check box to assign a tag to the object, or clear the check box to detach the tag from the object.
 . Click btn:[OK].
 
-
 The specified tag is now added or removed as a custom property of the selected object(s).

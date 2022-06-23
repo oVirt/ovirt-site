@@ -9,5 +9,3 @@ This section describes how to create and edit tags, assign them to hosts or virt
 To create, modify, and remove Administration Portal tags, click the *Tags* icon (image:images/Tag.png[title="Tags icon"]) in the header bar. 
 
 
-
-

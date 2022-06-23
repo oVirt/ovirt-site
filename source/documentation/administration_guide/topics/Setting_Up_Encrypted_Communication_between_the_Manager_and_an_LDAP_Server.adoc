@@ -11,7 +11,6 @@ To set up encrypted communication between the {virt-product-fullname} {engine-na
 For more information on creating a PEM-encoded CA certificate and importing certificates, see the `X.509 CERTIFICATE TRUST STORE` section of the README file at `/usr/share/doc/ovirt-engine-extension-aaa-ldap-<__version__>.`
 ====
 
-
 .Procedure
 
 . On the {virt-product-fullname} {engine-name}, copy the root CA certificate of the LDAP server to the */tmp* directory and import the root CA certificate using `keytool` to create a PEM-encoded CA certificate. The following command imports the root CA certificate at _/tmp/myrootca.pem_ and creates a PEM-encoded CA certificate _myrootca.jks_ under _/etc/ovirt-engine/aaa/_. Note down the certificate's location and password. If you are using the interactive setup tool, this is all the information you need. If you are configuring the LDAP server manually, follow the rest of the procedure to update the configuration files.
@@ -48,6 +47,5 @@ pool.default.ssl.enable = true
 pool.default.ssl.truststore.file = ${local:_basedir}/_myrootca.jks_
 pool.default.ssl.truststore.password = _password_
 ----
-
 
 To continue configuring an external LDAP provider, see xref:Configuring_an_External_LDAP_Provider[Configuring an External LDAP Provider]. To continue configuring LDAP and Kerberos for Single Sign-on, see xref:Configuring_LDAP_and_Kerberos_for_Single_Sign-on[Configuring LDAP and Kerberos for Single Sign-on].

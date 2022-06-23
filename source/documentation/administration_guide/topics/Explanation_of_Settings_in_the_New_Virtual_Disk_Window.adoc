@@ -22,11 +22,9 @@ The data center in which the virtual disk will be available.
 |*Storage Domain* |The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
 |*Allocation Policy* a|The provisioning policy for the new virtual disk.
 
-
 * *Preallocated* allocates the entire size of the disk on the storage domain at the time the virtual disk is created. The virtual size and the actual size of a preallocated disk are the same. Preallocated virtual disks take more time to create than thin provisioned virtual disks, but have better read and write performance. Preallocated virtual disks are recommended for servers and other I/O intensive virtual machines. If a virtual machine is able to write more than 1 GB every four seconds, use preallocated disks where possible.
 
 * *Thin Provision* allocates 1 GB at the time the virtual disk is created and sets a maximum limit on the size to which the disk can grow. The virtual size of the disk is the maximum limit; the actual size of the disk is the space that has been allocated so far. Thin provisioned disks are faster to create than preallocated disks and allow for storage over-commitment. Thin provisioned virtual disks are recommended for desktops.
-
 
 |*Disk Profile* |The disk profile assigned to the virtual disk. Disk profiles define the maximum amount of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are defined on the storage domain level based on storage quality of service entries created for data centers.
 |*Activate Disk(s)* |This field only appears when creating an attached disk.
@@ -46,7 +44,6 @@ Allows you to set the disk as read-only. The same disk can be attached as read-o
 Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with *Wipe After Delete* unless the underlying storage supports the discard_zeroes_data property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.
 |===
 
-
 The *Direct LUN* settings can be displayed in either *Targets > LUNs* or *LUNs > Targets*. *Targets > LUNs* sorts available LUNs according to the host on which they are discovered, whereas *LUNs > Targets* displays a single list of LUNs.
 
 Fill in the fields in the *Discover Targets* section and click *Discover* to discover the target server. You can then click the *Login All* button to list the available LUNs on the target server and, using the radio buttons next to each LUN, select the LUN to add.
@@ -60,7 +57,6 @@ The following considerations must be made when using a direct LUN as a virtual m
 * Direct LUN disks are not included in virtual machine exports.
 
 * Direct LUN disks are not included in virtual machine snapshots.
-
 
 .New Virtual Disk and Edit Virtual Disk settings: *Direct LUN*
 [options="header"]
@@ -116,7 +112,6 @@ Available when the *Enable SCSI Pass-Through* check box is selected. Selecting t
 
 Available when the *Enable SCSI Pass-Through* and *Allow Privileged SCSI I/O* check boxes are selected. Selecting this check box disables migration for any virtual machine using this disk, to prevent virtual machines that are using SCSI reservation from losing access to the disk.
 |===
-
 
 [IMPORTANT]
 ====

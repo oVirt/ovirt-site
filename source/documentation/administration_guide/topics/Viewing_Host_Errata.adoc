@@ -4,7 +4,6 @@
 
 Errata for each host can be viewed after the host has been configured to receive errata information from the Red Hat Satellite server. For more information on configuring a host to receive errata information see xref:Configuring_Satellite_Errata_Management_for_a_Host[Configuring Satellite Errata Management for a Host]
 
-
 .Procedure
 
 . Click menu:Compute[Hosts].

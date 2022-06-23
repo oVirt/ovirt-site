@@ -9,7 +9,6 @@ Multiple VLANs can be added to a single network interface to separate traffic on
 You must have created more than one logical network, all with the *Enable VLAN tagging* check box selected in the *New Logical Network* or *Edit Logical Network* windows.
 ====
 
-
 .Procedure
 
 . Click menu:Compute[Hosts].

@@ -117,8 +117,8 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### oVirt Engine
 
  - [BZ 1432105](https://bugzilla.redhat.com/show_bug.cgi?id=1432105) <b>Can't remove vm pool because of vm deadlock</b><br>
- - [BZ 1450000](https://bugzilla.redhat.com/show_bug.cgi?id=1450000) <b>Endless error message in events: Failed to create Template [..] or its disks from VM <UNKNOWN></b><br>
- - [BZ 1452218](https://bugzilla.redhat.com/show_bug.cgi?id=1452218) <b>"Creation of Template from VM <UNKNOWN> has been completed" when creating an instance type</b><br>
+ - [BZ 1450000](https://bugzilla.redhat.com/show_bug.cgi?id=1450000) <b>Endless error message in events: Failed to create Template [..] or its disks from VM &lt;UNKNOWN&gt;</b><br>
+ - [BZ 1452218](https://bugzilla.redhat.com/show_bug.cgi?id=1452218) <b>"Creation of Template from VM &lt;UNKNOWN&gt; has been completed" when creating an instance type</b><br>
  - [BZ 1441431](https://bugzilla.redhat.com/show_bug.cgi?id=1441431) <b>Use correct Cluster Level when displaying notice about adding additional HE Host.</b><br>
 
 #### VDSM
@@ -160,12 +160,12 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1450951](https://bugzilla.redhat.com/show_bug.cgi?id=1450951) <b>checkboxes and reset button in Host - Kernel tab don't work properly</b><br>
  - [BZ 1450674](https://bugzilla.redhat.com/show_bug.cgi?id=1450674) <b>[downstream clone - 4.1.3] RHV-M is not verifying the storage domain free space before running live merge</b><br>
  - [BZ 1446878](https://bugzilla.redhat.com/show_bug.cgi?id=1446878) <b>Attaching storage domain with lower compatibility version to 4.1 DC fails</b><br>
- - [BZ 1411075](https://bugzilla.redhat.com/show_bug.cgi?id=1411075) <b>Host name is <UNKNOWN> when VM started in stateless</b><br>
+ - [BZ 1411075](https://bugzilla.redhat.com/show_bug.cgi?id=1411075) <b>Host name is &lt;UNKNOWN&gt; when VM started in stateless</b><br>
  - [BZ 1431529](https://bugzilla.redhat.com/show_bug.cgi?id=1431529) <b>Reinstall host remains in Non-operational state if gluster UUID is changed</b><br>
  - [BZ 1414787](https://bugzilla.redhat.com/show_bug.cgi?id=1414787) <b>Hide tracebacks in engine.log by upgrading non responsive host</b><br>
  - [BZ 1427104](https://bugzilla.redhat.com/show_bug.cgi?id=1427104) <b>Commit old snapshot ends with 'Error while executing action Revert to Snapshot: Internal Engine Error'</b><br>
  - [BZ 1454864](https://bugzilla.redhat.com/show_bug.cgi?id=1454864) <b>Engine should block attempting to reduce a domain that with undetectable metadata device</b><br>
- - [BZ 1436397](https://bugzilla.redhat.com/show_bug.cgi?id=1436397) <b>Migration failed  while Host is in 'preparing for maintenance' state - ...Destination: <UNKNOWN></b><br>
+ - [BZ 1436397](https://bugzilla.redhat.com/show_bug.cgi?id=1436397) <b>Migration failed  while Host is in 'preparing for maintenance' state - ...Destination: &lt;UNKNOWN&gt;</b><br>
  - [BZ 1442697](https://bugzilla.redhat.com/show_bug.cgi?id=1442697) <b>[Admin Portal] Exception caught when user cancels the deletion on network -> virtual machine sub-tab.</b><br>
  - [BZ 1365237](https://bugzilla.redhat.com/show_bug.cgi?id=1365237) <b>Upload image doesn't notice that the disk image was removed, it finalizes the upload and marks it as OK</b><br>
  - [BZ 1416550](https://bugzilla.redhat.com/show_bug.cgi?id=1416550) <b>Dialog "Select fence proxy preference type to add" in power management will not close when hit cancel</b><br>
@@ -195,7 +195,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1448905](https://bugzilla.redhat.com/show_bug.cgi?id=1448905) <b>Amend is allowed when VM is up</b><br>
  - [BZ 1445297](https://bugzilla.redhat.com/show_bug.cgi?id=1445297) <b>[RFE] make db upgrade scripts update vds_type of 'Red Hat Virtualization Host X.Y (elX.Y)' to correct value during update</b><br>
  - [BZ 1451246](https://bugzilla.redhat.com/show_bug.cgi?id=1451246) <b>changing storage type with Discard After Delete causes UI error</b><br>
- - [BZ 1434937](https://bugzilla.redhat.com/show_bug.cgi?id=1434937) <b>User <UNKNOWN> got disconnected from VM test3.</b><br>
+ - [BZ 1434937](https://bugzilla.redhat.com/show_bug.cgi?id=1434937) <b>User &lt;UNKNOWN&gt; got disconnected from VM test3.</b><br>
  - [BZ 1433445](https://bugzilla.redhat.com/show_bug.cgi?id=1433445) <b>Skipped host update check due to unsupported host status is not logged in audit_log</b><br>
  - [BZ 1448832](https://bugzilla.redhat.com/show_bug.cgi?id=1448832) <b>API | read_only attribute is being ignored when attaching a disk to VM via API</b><br>
  - [BZ 1422099](https://bugzilla.redhat.com/show_bug.cgi?id=1422099) <b>VM lease selection in webadmin is enabled when it shouldn't</b><br>
@@ -280,7 +280,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1444611](https://bugzilla.redhat.com/show_bug.cgi?id=1444611) <b>Start VM failed with the exception, if the score module does not respond before the timeout</b><br>
  - [BZ 1456432](https://bugzilla.redhat.com/show_bug.cgi?id=1456432) <b>New uploaded QCOW2v3 Glance images will fail to be downloaded from Glance</b><br>
  - [BZ 1449289](https://bugzilla.redhat.com/show_bug.cgi?id=1449289) <b>RESTAPI - Amend (update VM disk attachment disk qcow2_v3 field) to raw disk is allowed</b><br>
- - [BZ 1435579](https://bugzilla.redhat.com/show_bug.cgi?id=1435579) <b>Failed to restart VM vm2-test-w2k12r2-1 on Host <UNKNOWN></b><br>
+ - [BZ 1435579](https://bugzilla.redhat.com/show_bug.cgi?id=1435579) <b>Failed to restart VM vm2-test-w2k12r2-1 on Host &lt;UNKNOWN&gt;</b><br>
 
 ### VDSM
 

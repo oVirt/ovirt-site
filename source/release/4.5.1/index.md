@@ -224,6 +224,15 @@ To learn about features introduced before 4.5.1, see the
 
    ovirt_vm Ansibe module will throw an error if a snapshort with specified name doesn't exist.
 
+#### ovirt-node
+
+ - [BZ 2072376](https://bugzilla.redhat.com/show_bug.cgi?id=2072376) **CVE-2018-25032 - zlib: A flaw in zlib-1.2.11 when compressing (not decompressing!) certain inputs. [ovirt-4.5]**
+
+   oVirt Node has been updated with newer gzip release including fixes for [CVE-2018-25032](https://bugzilla.redhat.com/show_bug.cgi?id=2067945)
+ - [BZ 2082616](https://bugzilla.redhat.com/show_bug.cgi?id=2082616) **CVE-2022-24903 rsyslog: Heap-based overflow in TCP syslog server [ovirt-4.5]**
+
+   oVirt Node has been updated with newer rsyslog release including fixes for [CVE-2022-24903](https://bugzilla.redhat.com/show_bug.cgi?id=2081353)
+
 #### oVirt Engine
 
  - [BZ 2099650](https://bugzilla.redhat.com/show_bug.cgi?id=2099650) **Update to 4.5 failed due to failed database schema refresh**
@@ -370,6 +379,7 @@ To learn about features introduced before 4.5.1, see the
 #### ovirt-node
 
  - [BZ 2005257](https://bugzilla.redhat.com/show_bug.cgi?id=2005257) **oVirt-node 4.5 based on CentOS Stream 9: Missing help info during anaconda interactive installation**
+ - [BZ 2065568](https://bugzilla.redhat.com/show_bug.cgi?id=2065568) **CVE-2022-27666 kernel: buffer overflow in IPsec ESP transformation code [ovirt-4.5]**
 
 #### VDSM
 
@@ -377,7 +387,7 @@ To learn about features introduced before 4.5.1, see the
 
 ### Contributors
 
-37 people contributed to this release:
+41 people contributed to this release:
 
 	Albert Esteve (Contributed to: ovirt-engine, vdsm)
 	Aleš Musil (Contributed to: vdsm)
@@ -386,14 +396,17 @@ To learn about features introduced before 4.5.1, see the
 	ArtiomDivak (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-dwh, ovirt-engine, ovirt-engine-keycloak)
 	Asaf Rachmani (Contributed to: ovirt-dwh, ovirt-hosted-engine-setup)
+	Avital Pinnick (Contributed to: ovirt-site)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Denis Volkov (Contributed to: ovirt-engine-keycloak)
+	Donna DaCosta (Contributed to: ovirt-site)
 	Eitan Raviv (Contributed to: vdsm)
-	Eli Mesika (Contributed to: ovirt-engine)
+	Eli Marcus (Contributed to: ovirt-site)
+	Eli Mesika (Contributed to: ovirt-engine, ovirt-site)
 	Harel Braha (Contributed to: ovirt-engine)
-	Lev Veyde (Contributed to: ovirt-engine, ovirt-log-collector)
+	Lev Veyde (Contributed to: ovirt-engine, ovirt-log-collector, ovirt-node-ng-image, ovirt-site)
 	Liran Rotenberg (Contributed to: ovirt-engine)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: ovirt-engine, ovirt-web-ui, vdsm)
@@ -401,18 +414,19 @@ To learn about features introduced before 4.5.1, see the
 	Martin Nečas (Contributed to: ovirt-engine)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-keycloak)
 	Michal Skrivanek (Contributed to: ovirt-dwh, ovirt-engine, vdsm)
-	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
+	Milan Zamazal (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Nir Soffer (Contributed to: ovirt-imageio, vdsm)
 	Ori Liel (Contributed to: ovirt-engine)
 	Pavel Bar (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-web-ui)
-	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-hosted-engine-setup, ovirt-release, vdsm)
+	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-site, vdsm)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Sharon Gratch (Contributed to: ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-engine, ovirt-hosted-engine-setup)
+	Yedidyah Bar David (Contributed to: ovirt-engine, ovirt-hosted-engine-setup, ovirt-site)
 	fadeev (Contributed to: ovirt-engine)
 	kurokobo (Contributed to: ovirt-web-ui)
 	rchikatw (Contributed to: vdsm)
+	rob (Contributed to: ovirt-site)

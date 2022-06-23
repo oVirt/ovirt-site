@@ -134,7 +134,7 @@
         <section id="content" class="content container">
           <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2994/documentation/'>Documentation is available here.</a></div>
 
-<h1 id="ovirt-provider-ovn-security-groups">Ovirt-provider-ovn security groups</h1>
+<h1 id="the-ovirt-provider-ovn-security-groups">The <code class="language-plaintext highlighter-rouge">ovirt-provider-ovn</code> security groups</h1>
 
 <h2 id="summary">Summary</h2>
 
@@ -233,8 +233,8 @@ is better specified in the <a href="#requirements">requirements</a> section.</p>
 <h3 id="security-groups-description">Security groups description</h3>
 
 <p>Security groups, in the general sense, are meant to group together a list of
-<a href="https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules">security group rules</a>. 
-They are applied to logical ports, and thus are used to associate a set of 
+<a href="https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules">security group rules</a>.
+They are applied to logical ports, and thus are used to associate a set of
 rules to a port.</p>
 
 <p>They are indeed a white list - meaning that everything is <em>denied</em> when the
@@ -270,7 +270,7 @@ Check the <a href="#default-security-group">default security group</a> ACL descr
 <p>The user is meant to provision security group(s) and rule(s) through ansible,
 or using a REST client, targeting the ovirt-provider-ovn.</p>
 
-<p>This greatly reduces the oVirt-engine impact, since there’s no need to 
+<p>This greatly reduces the oVirt-engine impact, since there’s no need to
 implement the REST client side of the API, nor implement these changes in the
 GUI.</p>
 
@@ -403,7 +403,7 @@ drop all IP traffic. More information can be found in
 
 <h3 id="initial-rule-creation">Initial rule creation</h3>
 
-<p>Since the Openstack Networking API is a white list, the <strong>deny-all</strong> related 
+<p>Since the Openstack Networking API is a white list, the <strong>deny-all</strong> related
 rules cannot be triggered from the API itself.</p>
 
 <p>To avoid the need to create the rules beforehand, these ACLs will be
@@ -700,7 +700,7 @@ when the ovirt-provider-ovn starts.</p>
       <li>priority: DROP_PRIORITY</li>
       <li>action: drop</li>
       <li>direction: to-lport</li>
-      <li>match: inport == @<port_group> &amp;&amp; ip</port_group></li>
+      <li>match: <code class="language-plaintext highlighter-rouge">inport == @&lt;port_group&gt; &amp;&amp; ip</code></li>
     </ul>
   </li>
   <li>egress rule
@@ -708,7 +708,7 @@ when the ovirt-provider-ovn starts.</p>
       <li>priority: DROP_PRIORITY</li>
       <li>action: drop</li>
       <li>direction: from-lport</li>
-      <li>match: outport == @<port_group> &amp;&amp; ip</port_group></li>
+      <li>match: <code class="language-plaintext highlighter-rouge">outport == @&lt;port_group&gt; &amp;&amp; ip</code></li>
     </ul>
   </li>
 </ul>

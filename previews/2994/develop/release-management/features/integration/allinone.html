@@ -310,13 +310,16 @@
 
 <h2 id="detailed-description">Detailed Description</h2>
 
-<p>The plugin works by providing parameters, group and sequences and adding them into the Controller object (the main object of the setup flow), which will invoke appropriate logic during the setup operation.</p>
+<p>The plugin works by providing parameters, group and sequences and adding them into the Controller object (the main object of the setup flow),
+which will invoke appropriate logic during the setup operation.</p>
 
 <p>The following steps are performed by the plugin:</p>
 
 <ol>
-  <li>Detect CPU architecture of the machine. After the detection, the plugin compares it with the list of supported architectures, and will raise an exception if the CPU is not supported. (Note: the plugin uses vdsm caps.py module to detect the CPU type).</li>
-  <li>Verify that the given folder where VMs should be stored (provided during setup) is legal, is empty and writeable. If the folder doesn’t exist, it will be created. Also, SELinux will be configured to allow writing in this folder.</li>
+  <li>Detect CPU architecture of the machine. After the detection, the plugin compares it with the list of supported architectures, and will raise an exception if the CPU is not supported.
+(Note: the plugin uses vdsm caps.py module to detect the CPU type).</li>
+  <li>Verify that the given folder where VMs should be stored (provided during setup) is legal, is empty and writeable.
+If the folder doesn’t exist, it will be created. Also, SELinux will be configured to allow writing in this folder.</li>
   <li>Plugin will wait to allow JBoss to start correctly. This is done because other steps involve using REST API (with ovirtsdk), which requires JBoss to be up.</li>
   <li>Plugin will create local datacenter and local cluster at this point.</li>
   <li>Plugin will create a local host and add it to host list (Note: an update to backend was introduced to allow creating a host without rebooting it).</li>
@@ -337,17 +340,18 @@
 <h3 id="installation-using-answer-file">Installation using answer file</h3>
 
 <p>The following parameters are added by the plugin to the answer file:</p>
-
-<p>OVESETUP_AIO/configure
-OVESETUP_AIO/storageDomainDir</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OVESETUP_AIO/configure
+OVESETUP_AIO/storageDomainDir
+</code></pre></div></div>
 
 <p>It is recommended to generate the answer file automatically:</p>
-
-<p><code class="language-plaintext highlighter-rouge">engine-setup --generate-answer=</code><answer file="" full="" path=""></answer></p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>engine-setup <span class="nt">--generate-answer</span><span class="o">=</span>&lt;answer file full path&gt;
+</code></pre></div></div>
 
 <p>… After that, proceed with installation using the answer file you have just created:</p>
 
-<p><code class="language-plaintext highlighter-rouge">engine-setup --config-append=</code><answer file="" full="" path=""></answer></p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>engine-setup <span class="nt">--config-append</span><span class="o">=</span>&lt;answer file full path&gt;
+</code></pre></div></div>
 
 
 

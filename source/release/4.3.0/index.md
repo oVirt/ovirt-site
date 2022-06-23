@@ -385,7 +385,7 @@ packages from other repos.
  - [BZ 1636256](https://bugzilla.redhat.com/show_bug.cgi?id=1636256) <b>[RFE] - limit the number of simultaneous logon sessions per user on RHVM</b><br>
  - [BZ 1472161](https://bugzilla.redhat.com/show_bug.cgi?id=1472161) <b>[RFE] add hover text with name on disk/storage in move/copy dialog form</b><br>
  - [BZ 1601208](https://bugzilla.redhat.com/show_bug.cgi?id=1601208) <b>[UI] - Setup Host Networks - Scrolling isn't working properly if the NIC's tooltip is too long(off screen)</b><br>
- - [BZ 1636768](https://bugzilla.redhat.com/show_bug.cgi?id=1636768) <b>[UI] - VM - Network Interfaces sub tab - Add <Empty> or [N/A] to the General  info for an empty vNIC profile</b><br>
+ - [BZ 1636768](https://bugzilla.redhat.com/show_bug.cgi?id=1636768) <b>[UI] - VM - Network Interfaces sub tab - Add &lt;Empty&gt; or [N/A] to the General  info for an empty vNIC profile</b><br>
  - [BZ 1636767](https://bugzilla.redhat.com/show_bug.cgi?id=1636767) <b>[UI] - VM - Snapshots sub tab - Network Interfaces - Align (Mbps)/(Pkts) to the text</b><br>
  - [BZ 1609843](https://bugzilla.redhat.com/show_bug.cgi?id=1609843) <b>[UI] Infiniband information not displaying correctly for hosts</b><br>
  - [BZ 1505402](https://bugzilla.redhat.com/show_bug.cgi?id=1505402) <b>[CodeChange] - Remove SupportBridgesReportByVDSM related code</b><br>
@@ -399,7 +399,7 @@ packages from other repos.
  - [BZ 1527101](https://bugzilla.redhat.com/show_bug.cgi?id=1527101) <b>[UI] Network plugin list control under external network provider does not close after selection</b><br>
  - [BZ 1588634](https://bugzilla.redhat.com/show_bug.cgi?id=1588634) <b>Hosts: UI exception is thrown when trying to open New Host dialog before hosts table is loaded</b><br>
  - [BZ 1431182](https://bugzilla.redhat.com/show_bug.cgi?id=1431182) <b>engine-backup accepts same filename for backup archive and backup log</b><br>
- - [BZ 1446907](https://bugzilla.redhat.com/show_bug.cgi?id=1446907) <b>[RFE] - link to engine's certificate on upload image network error event should display the actual engine url instead of <engine_url></b><br>
+ - [BZ 1446907](https://bugzilla.redhat.com/show_bug.cgi?id=1446907) <b>[RFE] - link to engine's certificate on upload image network error event should display the actual engine url instead of &lt;engine_url&gt;</b><br>
  - [BZ 1576862](https://bugzilla.redhat.com/show_bug.cgi?id=1576862) <b>Uploaded image: Virtual Size of qcow2 image is not reflected at guest OS level</b><br>
  - [BZ 1563580](https://bugzilla.redhat.com/show_bug.cgi?id=1563580) <b>Missing whitespace in 'Current kernel CMD line'</b><br>
  - [BZ 1536397](https://bugzilla.redhat.com/show_bug.cgi?id=1536397) <b>CloudInit: DNS search parameter is passed incorrectly</b><br>

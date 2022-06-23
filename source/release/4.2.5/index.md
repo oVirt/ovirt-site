@@ -118,7 +118,7 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1590943](https://bugzilla.redhat.com/show_bug.cgi?id=1590943) <b>hosted-engine VM created with node zero misses the console device</b><br>
- - [BZ 1588720](https://bugzilla.redhat.com/show_bug.cgi?id=1588720) <b>A system wide proxy with no exception for the engine FQDN will cause a "Failed connect to <ManagerFQDN>:443; No route to host"</b><br>
+ - [BZ 1588720](https://bugzilla.redhat.com/show_bug.cgi?id=1588720) <b>A system wide proxy with no exception for the engine FQDN will cause a "Failed connect to &lt;ManagerFQDN&gt;:443; No route to host"</b><br>
 
 #### cockpit-ovirt
 

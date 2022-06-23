@@ -1,0 +1,38 @@
+:_content-type: PROCEDURE
+[id="running_vnc_sasl_ansible_playbook_for_each_host"]
+= Running the VNC SASL Ansible playbook for each host
+
+.Procedure
+
+. In the Administration Portal, put the FIPS-enabled hosts into maintenance mode:
+
+.. Click menu:Compute[Hosts].
+.. In the *Virtual Machines* column, verify that each host has zero virtual machines.
++
+Perform a live migration to remove virtual machines from hosts, if necessary. See link:{URL_downstream_virt_product_docs}virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts].
+
+.. Select each host and click menu:Management[Maintenance] and btn:[OK].
+
+. Connect to the command line of the machine where the Manager is running.
++
+* Standalone Manager:
++
+[source,terminal,subs="normal"]
+----
+# ssh root@rhvm
+----
+
+* Self-hosted engine: Click menu:Compute[Virtual Machines] to select the self-hosted engine virtual machine, named `HostedEngine` by default, and then click btn:[Console].
+
+. Run the VNC SASL Ansible playbook for each host:
++
+[source,terminal,subs="normal"]
+----
+# cd /usr/share/ovirt-engine/ansible-runner-service-project/project/
+# ansible-playbook --ask-pass --inventory=<hostname> ovirt-vnc-sasl.yml <1>
+----
+<1> Specify the *Hostname* displayed on menu:Compute[Hosts].
+
+. Select the host and click menu:Installation[Reinstall].
+. After reinstallation, select the host and click menu:Management[Restart].
+. After rebooting, select the host and click menu:Management[Activate].

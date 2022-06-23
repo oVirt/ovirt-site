@@ -343,7 +343,7 @@ On February 3rd 2017 the ovirt team issued an async release of ovirt-engine pack
  - [BZ 1388117](https://bugzilla.redhat.com/show_bug.cgi?id=1388117) <b>Hide tracebacks in engine.log when host is not responsive</b><br>
  - [BZ 1383224](https://bugzilla.redhat.com/show_bug.cgi?id=1383224) <b>RHVH-NG is automatically activated after upgrade.</b><br>
  - [BZ 1383020](https://bugzilla.redhat.com/show_bug.cgi?id=1383020) <b>Wrong cluster in "Edit host" dialog</b><br>
- - [BZ 1375668](https://bugzilla.redhat.com/show_bug.cgi?id=1375668) <b>[REST API] href links  are missing under api/datacenters/<dc id>/networks</b><br>
+ - [BZ 1375668](https://bugzilla.redhat.com/show_bug.cgi?id=1375668) <b>[REST API] href links  are missing under `api/datacenters/<dc id>/networks`</b><br>
  - [BZ 1373242](https://bugzilla.redhat.com/show_bug.cgi?id=1373242) <b>serialization of command parameters allows serialization of immutable objects.</b><br>
  - [BZ 1371501](https://bugzilla.redhat.com/show_bug.cgi?id=1371501) <b>remove deprecated changedbowner.sh script</b><br>
  - [BZ 1368030](https://bugzilla.redhat.com/show_bug.cgi?id=1368030) <b>Upgrade manager: log for failure is not well phrased: with message 'java.nio.channels.UnresolvedAddressException'."</b><br>
@@ -460,7 +460,13 @@ On February 3rd 2017 the ovirt team issued an async release of ovirt-engine pack
  - [BZ 1402455](https://bugzilla.redhat.com/show_bug.cgi?id=1402455) <b>Clicking on "login" multiple times results in duplicate entries in the Storage Domain table</b><br>
  - [BZ 1402315](https://bugzilla.redhat.com/show_bug.cgi?id=1402315) <b>VM MaxDiskSize is limited to 8191GB</b><br>
  - [BZ 1402088](https://bugzilla.redhat.com/show_bug.cgi?id=1402088) <b>General command validation failure on validateMacs when importing an unregistered VM with wrong id</b><br>
- - [BZ 1393257](https://bugzilla.redhat.com/show_bug.cgi?id=1393257) <b>Failed to register template that has disks on more than one storage domain</b><br>Feature:Add the ability to import partial Template<br><br>Reason:Allow to register a Template even if some of the Storage Domains are missing so it can be partially reusable.<br><br>Result: <br><br>Add the ability to import partial Templates only through REST.<br>The following is a REST request for importing a partial unregistered VM (Same goes for Template)<br><br>Using the allow_partial_import flag through REST to import a partial Template using a new flag called allow_partial_import<br><br>POST /api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/templates/xxxxxxx-xxxx-xxxx-xxxxxx/register HTTP/1.1<br>Accept: application/xml<br>Content-type: application/xml<br><br><action><br>    <cluster id='bf5a9e9e-5b52-4b0d-aeba-4ee4493f1072'></cluster><br>    <allow_partial_import>true</allow_partial_import><br></action>
+ - [BZ 1393257](https://bugzilla.redhat.com/show_bug.cgi?id=1393257) <b>Failed to register template that has disks on more than one storage domain</b><br>Feature:Add the ability to import partial Template<br><br>Reason:Allow to register a Template even if some of the Storage Domains are missing so it can be partially reusable.<br><br>Result: <br><br>Add the ability to import partial Templates only through REST.<br>The following is a REST request for importing a partial unregistered VM (Same goes for Template)<br><br>Using the allow_partial_import flag through REST to import a partial Template using a new flag called allow_partial_import<br><br>POST /api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/templates/xxxxxxx-xxxx-xxxx-xxxxxx/register HTTP/1.1<br>Accept: application/xml<br>Content-type: application/xml<br><br>
+   ```xml
+   <action>
+       <cluster id='bf5a9e9e-5b52-4b0d-aeba-4ee4493f1072'></cluster>
+       <allow_partial_import>true</allow_partial_import>
+   </action>
+   ```
  - [BZ 1399860](https://bugzilla.redhat.com/show_bug.cgi?id=1399860) <b>Removing an audit log for no OVF_STORE disks when attaching a storage domain</b><br>
  - [BZ 1398579](https://bugzilla.redhat.com/show_bug.cgi?id=1398579) <b>[Admin portal] Creation Date, Export Date are sorted incorrectly - not by time but alphabetically</b><br>
  - [BZ 1394567](https://bugzilla.redhat.com/show_bug.cgi?id=1394567) <b>creating iscsi storage domain for the first time via admin GUI does not show volumes</b><br>
@@ -521,7 +527,7 @@ On February 3rd 2017 the ovirt team issued an async release of ovirt-engine pack
  - [BZ 1364466](https://bugzilla.redhat.com/show_bug.cgi?id=1364466) <b>Wrong hash-name of VM > Containers subtab</b><br>
  - [BZ 1356492](https://bugzilla.redhat.com/show_bug.cgi?id=1356492) <b>ui: source column is not needed in Pools "Disk Allocation" in edit vm pool</b><br>
  - [BZ 1414867](https://bugzilla.redhat.com/show_bug.cgi?id=1414867) <b>Trying to sparsify a direct lun leads to a UI exception</b><br>
- - [BZ 1395602](https://bugzilla.redhat.com/show_bug.cgi?id=1395602) <b>[UI] - VM Pool <UNKNOWN> was removed by admin@internal-authz.</b><br>
+ - [BZ 1395602](https://bugzilla.redhat.com/show_bug.cgi?id=1395602) <b>[UI] - VM Pool `<UNKNOWN>` was removed by admin@internal-authz.</b><br>
  - [BZ 1408691](https://bugzilla.redhat.com/show_bug.cgi?id=1408691) <b>Number of monitors is not updated after reboot</b><br>
  - [BZ 1408599](https://bugzilla.redhat.com/show_bug.cgi?id=1408599) <b>Cannot allocate a prestarted vm from a pool as user with permissions via API</b><br>
  - [BZ 1391016](https://bugzilla.redhat.com/show_bug.cgi?id=1391016) <b>[User Portal] When creating template in User Portal one can use Custom Properties</b><br>
@@ -665,7 +671,7 @@ On February 3rd 2017 the ovirt team issued an async release of ovirt-engine pack
 
 ##### Gluster
 
- - [BZ 1415648](https://bugzilla.redhat.com/show_bug.cgi?id=1415648) <b>Have ignore_<x>\_errors=no for all the sections in the config file.</b><br>
+ - [BZ 1415648](https://bugzilla.redhat.com/show_bug.cgi?id=1415648) <b>Have `ignore_<x>\_errors=no` for all the sections in the config file.</b><br>
  - [BZ 1415187](https://bugzilla.redhat.com/show_bug.cgi?id=1415187) <b>lvnames are missing in the finally generated gdeploy conf file.</b><br>
 
 ##### Node

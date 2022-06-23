@@ -160,10 +160,8 @@ exclude:
   - documentation/virtual_machine_management_guide/chap*
   - documentation/virtual_machine_management_guide/topics
   - documentation/virtual_machine_management_guide/assembly*
-  - documentation/doc-Technical_Reference/topics
-  - documentation/doc-Technical_Reference/chap*
-  - documentation/doc-Release_Notes/topics
-  - documentation/doc-Release_Notes/chap*
+  - documentation/doc-Technical_Reference/**
+  - documentation/doc-Release_Notes/**
   - documentation/doc-Product_Guide/**
   - documentation/doc-Python_SDK_Guide/topics
   - documentation/doc-Python_SDK_Guide/chap*

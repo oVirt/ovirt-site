@@ -64,7 +64,7 @@ In addition, adds a new functionality of creating a customized snapshot composed
 
 ### REST-API
 
-Add <disks> tag to create/restore snapshot.
+Add `<disks>` tag to create/restore snapshot.
 
 Note: preview only is not available from rest (restore = preview + commit).
 

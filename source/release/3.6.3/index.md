@@ -52,8 +52,9 @@ The WebSocketProxy VDC option(and a few others) can now be updated without need 
 Here are the steps to reload the configuration on-the-fly:
 * set: engine-config -s WebSocketProxy=NEW_VALUE
 *   refresh cache via REST API POST call, i.e.:
-
+    ```bash
       curl --silent --insecure --request POST --header "Accept: application/xml" --header "Content-Type: application/xml" --user "admin@internal:PWD" "http://localhost:8080/ovirt-engine/api/reloadconfigurations" --data '<action/>'
+    ```
 
 *   refresh GUI: Ctrl+R
 
@@ -98,7 +99,7 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - [BZ 1289967](https://bugzilla.redhat.com/show_bug.cgi?id=1289967) - Fade "Numa Pinning" button, in case if VM pinned to host that does not have "NUMA Support"
  - [BZ 1290088](https://bugzilla.redhat.com/show_bug.cgi?id=1290088) - rename utility doesn't change ENGINE_BASE_URL for vmconsole-proxy-helper
  - [BZ 1290350](https://bugzilla.redhat.com/show_bug.cgi?id=1290350) - [User portal] No error message while leaving 'username:' and 'password:' fields blank
- - [BZ 1290361](https://bugzilla.redhat.com/show_bug.cgi?id=1290361) - "VDSM <host name> command failed: Virtual machine does not exist" error appears every time when shutting down a running VM
+ - [BZ 1290361](https://bugzilla.redhat.com/show_bug.cgi?id=1290361) - "VDSM `<host name>` command failed: Virtual machine does not exist" error appears every time when shutting down a running VM
  - [BZ 1290528](https://bugzilla.redhat.com/show_bug.cgi?id=1290528) - [upgrade] async_tasks_map is out of sync
  - [BZ 1293152](https://bugzilla.redhat.com/show_bug.cgi?id=1293152) - New VM dialog offers VM templates from different DCs which are not accessible/usable
  - [BZ 1293269](https://bugzilla.redhat.com/show_bug.cgi?id=1293269) - Various Frontend exceptions (e.g. switching clusters in VM dialog, edit VM, create VM from Template)
@@ -201,5 +202,5 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
 ### windows-guest-tools-iso
 
 Fixed a bug in the included ovirt-guest-agent:
- - [BZ 1117504](https://bugzilla.redhat.com/show_bug.cgi?id=1117504) - Constant, repeating messages "User <x> is connected to vm <y> in Events
+ - [BZ 1117504](https://bugzilla.redhat.com/show_bug.cgi?id=1117504) - Constant, repeating messages "User `<x>` is connected to vm `<y>` in Events
 

@@ -71,7 +71,7 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - missing separators on Host -> Network interfaces subtab
  - [RFE] support dnf
  - [GUI]>[SetupNetworks]> Bonding mode > validate custom bond modes
- - Bad name <UNKNOWN> in live merge of snapshot disk
+ - Bad name `<UNKNOWN>` in live merge of snapshot disk
  - [RFE][HC] Host in maintenance mode should stop glusterd and glusterfsd processes
  - [New] - using same mount point while creating brick gives unexpected exception.
  - [TEXT] - Improve error message for detaching network that is in use by VM/VMs from SetupNetwork. Error message is grammatically incorrect (singular vs plural) and confusing
@@ -119,8 +119,8 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - [host-update-manager] Info 'A new version is available...' visible even upgrade is in progress
  - USB Device passthrough should not be disabled when host doesn't support PCI passthrough
  - Support NFS v4.1 connections
- - [template-version] Base template does not have <version> attribute
- - Add vmpool doesn't have <use_latest_template_version> tag as opposed to Add vm
+ - [template-version] Base template does not have `<version>` attribute
+ - Add vmpool doesn't have `<use_latest_template_version>` tag as opposed to Add vm
  - Fields in configure will not drag to expand.
  - foreman integration: remove "nested" attribute from parameters dict
  - [Admin Portal] Cannot edit DC properties after upgrade from 3.5 - MAC Address Pool complains about invalid MAC address

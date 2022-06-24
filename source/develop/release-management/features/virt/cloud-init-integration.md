@@ -179,7 +179,6 @@ Example of usage, setting hostname, root password and writing simple text file:
 ```python
 vmstat = vm.get_status().state
 if vmstat == 'down':
-    
     try:
         osVersion = vm.get_os().get_type()
         if (osVersion == "rhel_6x64" or osVersion == "rhel_6" or osVersion == "rhel_7x64") and CLOUDINIT == "yes":
@@ -273,13 +272,13 @@ Related features:
 
 ## Documentation / External References
 
-<references>
+
 1.  [5]
 2.  [6]
 3.  [7]
 4.  [8]
 
-</references>
+
 ## Testing
 
 *   Test case: **Initialize vm parameters**

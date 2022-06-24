@@ -115,6 +115,9 @@ jobs:
           _site
     - name: "Run htmlproofer"
       run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c bundle exec ruby htmlproofer_test.rb
+    - name: "Run html5validator"
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c html5validator --root _site/
+
   publish:
     name: "Publish preview"
     runs-on: ubuntu-20.04

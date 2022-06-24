@@ -2,7 +2,7 @@
 FROM registry.fedoraproject.org/fedora:33
 
 # Copy and run the setup.
-RUN dnf install -y git ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler patch zlib-devel redhat-rpm-config openssl nodejs ImageMagick make glibc-langpack-en
+RUN dnf install -y git ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler patch zlib-devel redhat-rpm-config openssl nodejs ImageMagick make glibc-langpack-en python3
 
 # Please mount the site in this directory.
 RUN mkdir -p /srv/site
@@ -26,6 +26,7 @@ RUN echo "#!/bin/sh" >/usr/local/bin/init.sh \
     && echo "set -e" >>/usr/local/bin/init.sh \
     && echo "set -x" >>/usr/local/bin/init.sh \
     && echo "export DEBUG=true" >>/usr/local/bin/init.sh \
+    && echo "pip install html5validator" >>/usr/local/bin/init.sh \
     && echo "bundle config --local path 'vendor/bundle'" >>/usr/local/bin/init.sh \
     && echo "bundle install --quiet" >>/usr/local/bin/init.sh \
     && echo 'exec bundle exec jekyll "$@"' >>/usr/local/bin/init.sh \

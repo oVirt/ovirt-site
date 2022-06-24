@@ -13,6 +13,7 @@ options = {
   url_ignore: [ "https://github.com/oVirt/.*/edit/.*" ],
   parallel: { in_processes: 8 },
   cache: { timeframe: '6w' },
+  log_level: "debug",
 }
 
 HTMLProofer.check_directory("./_site", options).run

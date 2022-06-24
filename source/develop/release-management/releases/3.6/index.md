@@ -21,7 +21,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.6.0 Release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.7, CentOS Linux 6.7, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). 
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/).
 
 ## Experimental Docker Integration
 
@@ -43,7 +43,7 @@ Hosted Engine has now added support for [FC storage](/develop/release-management
 
 *   Hosted Engine has now added support for [Gluster storage](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html)
 
-## oVirt Live
+## oVirt Live - CentOS
 
 oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibility mode
 
@@ -160,7 +160,7 @@ The support for Debian Jessie is highly experimental and implemented as a best e
 
 
 
-## oVirt Live
+## oVirt Live ISO
 
 A new oVirt Live ISO is available:
 
@@ -433,7 +433,7 @@ oVirt Node is now released continuously, the download link can be found in the [
 **oVirt 3.6.0 Second Beta**
  - [RFE] Need the ability to dynamically resize data domain luns
  - [TEXT][engine-backend] Wrong CDA message when taking storage domain down to maintenance if it contains a vm disk which is not turned off
- - Engine never completes task VdsNotRespondingTreatmentCommand (Handling non responsive Host <hostName>) in case of SPM host reboot
+ - Engine never completes task VdsNotRespondingTreatmentCommand (Handling non responsive Host `<hostName>`) in case of SPM host reboot
  - REST Storage class is not returning type='fcp', in case of querying -> api.hosts.storage.get('SOME_FC_STORAGE').get_type()
  - [RFE] Showing host ERRATA information from Satellite/Foreman/VMs (UI)
  - [CodeChange] Redundant storage calls and host parameter when extending a storage domain via the REST API
@@ -511,7 +511,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - oVirt - New Host - Overlapping string
  - Log out/sign out from ovirt engine webadmin ends up with Internal error server
  - VM is down although migration succeeded
- - Add storage domain via REST-API fails with the message "null is not a member of StorageFormat" when sending the <format> parameter
+ - Add storage domain via REST-API fails with the message "null is not a member of StorageFormat" when sending the `<format>` parameter
  - [Admin Portal] broken search in UI
  - hostname should not be in single quotes for 'Host has available updates' event
  - Upgrade from 3.5.2 to 3.5.3 experiencing database execution error
@@ -519,7 +519,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Make live snapshot consistent for Cinder disks
  - no way to set the instance type
  - Engine database in not cleared when user selects to remove all
- - rhev rest api: DELETE /ovirt-engine/api/templates/<UUID> deletes Instance type of the same UUID
+ - rhev rest api: `DELETE /ovirt-engine/api/templates/<UUID>` deletes Instance type of the same UUID
  - Domain Function list has a different order and default in import SD dialog than new domain. They should be the same.
  - Korean translation update
  - DataBase exception on persist AsyncTask when parent parameters is empty
@@ -535,7 +535,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Engine does not start if a non-responsive host with running VM exists in the DB
  - Commit a previewed snapshot with Cinder disk throws NPE
  - Windows 2012 guest reports incorrect time randomly and after a cold restart.
- - (Fencing) on Cluster <UNKNOWN>
+ - (Fencing) on Cluster `<UNKNOWN>`
  - [PKI] enforce utf-8 subject for openssl
 
 **oVirt 3.6.0 Second Alpha**
@@ -594,7 +594,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Add GB information to SD percentage threshold on edit and general tab
  - [RFE] - engine-backup should support some performance profiles
  - Add an underline explanation about the actions affected by changing the "Critical Space Action Blocker" parameter in the domain view.
- - [add host] Failed to configure management network on the host causes odd event with 'VDSM version (<UNKNOWN>)'
+ - [add host] Failed to configure management network on the host causes odd event with 'VDSM version (`<UNKNOWN>`)'
  - [New] - Display the unit for capacity in UI as GIB
  - [RFE] add support for IOThreads
  - [New] - Data alignment value is always passed as 1024k to pvcreate
@@ -621,7 +621,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Host stay in 'Unassigned' state for ever, unless restarting vdsm+engine
  - [New] - User should not be allowed to remove glusternw from the interface if it is in use.
  - 3.6: user portal and webadmin login pages are not displayed for IE8, javascript exception occurs
- - [TEXT] - [GUI] > Storage domains in RHEV-M's event log have <UNKNOWN> names
+ - [TEXT] - [GUI] > Storage domains in RHEV-M's event log have `<UNKNOWN>` names
  - [New] - No event message gets displayed when snapshot is synced from CLI to UI
  - Network Provider left tab should be disable for ovirt-node actions
  - CSH doesn't work unless helptag is identical to model hashname
@@ -651,7 +651,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Changes required in create brick pop up
  - Disk which is already attached to VM still available to be chosen
  - Implement auto-completion option --ha_reservation under update cluster
- - Failed to power off VM Host: <UNKNOWN>
+ - Failed to power off VM Host: `<UNKNOWN>`
  - 'alias' is not documented for update disk in RSDL
  - Path of nfs storage is cut in 'General' subtab
  - Legal values "0" and "1" for boolean parameters no longer accepted in RHEV 3.5
@@ -810,7 +810,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [RFE] Support monitoring of geo-replication sessions for a gluster volume
  - [ImportDomain] Engine should add a CDA validation when trying to attach an imported Storage Domain to an un-initalized Data Center
  - no validation before calling to AddSubnetToProvider
- - Adding a Storage domain (ISO, Export, NFS) lists Datacenter and Host as <UNKNOWN> under Tasks
+ - Adding a Storage domain (ISO, Export, NFS) lists Datacenter and Host as `<UNKNOWN>` under Tasks
  - [webadmin] "double" separator in New Logical Network (Cluster)
  - When resizing: mouse-cursor is too asymmetric
  - [RFE][ToolTips] Tooltips across clickable buttons in the application provide exact same text as the button text itself
@@ -841,7 +841,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Import Virtual Machine(s) status check dialog for the Events tab is a bit confusing
  - engine-setup accepts an answer file with an invalid value for applicationMode
  - engine packages are versionlocked even if engine is not configured
- - [Admin portal] Odd events when migration fails - Trying to migrate to another Host (VM: sles11, Source: dell-r210ii-03, Destination: <UNKNOWN>).
+ - [Admin portal] Odd events when migration fails - Trying to migrate to another Host (VM: sles11, Source: dell-r210ii-03, Destination: `<UNKNOWN>`).
  - [RFE] Support auto-convergence and XBZRLE compression during migration
  - RHEV Admin Portal Unreachable After Upgrading to 3.4.0 due to mod_proxy_ajp not loading
  - Need to improve CDA error message for storage domain creation failure due to duplicate custom mount options
@@ -868,7 +868,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [RFE] Supporting search in User-Level API
  - Pending resources are not cleared when network exception occurs.
  - [F21] ovirt-engine fails testing searchbackend.SyntaxCheckerTest
- - Prestarted vms in vm pool get useless event "VM <vm name> was restarted on Host <UNKNOWN>"
+ - Prestarted vms in vm pool get useless event "VM `<vm name>` was restarted on Host `<UNKNOWN>`"
  - Wrong error message when Giving correct values at QoS
  - Sort VM by IP fails if more than one IP listed for any VM entry
  - Cannot add action to roles
@@ -1046,7 +1046,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [engine-backup] silently ignores db credentials options when not passing --change-\*credentials
  - [engine-backup] restore fails if using change-{,dwh}-db-credentials and previous user exists
  - [New] - Snapshot creation from UI succeeds even when the bricks are not thinly provisioned.
- - Removing a Storage Domain lists DataCenter as <UNKNOWN> under Tasks
+ - Removing a Storage Domain lists DataCenter as `<UNKNOWN>` under Tasks
  - [New] - Snapshot creation succeeds from UI when some of the bricks in the volume are down.
  - Failed to create VM with multiple disks with ‘Disk vm_Disk1 in VM vm is already marked as boot’
  - Missing vms link under /api/.../storagedomains/{storagedomain:id}/
@@ -1346,7 +1346,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [hosted-engine][help] --help for command is cryptic
  - HE deployment fails due to libvirtError: internal error client socket is closed
  - reduce dependencies for HC support in Hosted Engine
- - [hosted-engine-setup] [GlusterFS support] Deployment fails with: " Fault: <Fault 1: '<type 'exceptions.Exception'>:method "glusterVolumesList" is not supported'> "
+ - [hosted-engine-setup] [GlusterFS support] Deployment fails with: "` Fault: <Fault 1: '<type 'exceptions.Exception'>:method "glusterVolumesList" is not supported'> `"
  - [hosted-engine-setup] Deployment fails due to a sanlock exception creating temporary Posix storage domain on a loopback device
 
 **oVirt 3.6.0 Second Alpha**

@@ -19,7 +19,7 @@ oVirt 3.1 was released as Fedora 17 package while 3.2 is targeted Fedora 18. Due
     -   <http://fedoraproject.org/wiki/PreUpgrade>
     -   Or set
 
-      exclude=ovirt* in /etc/yum.conf  
+      exclude=ovirt* in /etc/yum.conf
 
 and then:
 
@@ -107,7 +107,7 @@ Once you have a running Fedora 18:
 <!-- -->
 
 *   Select "Start Ovirt Node" in the boot menu
-*   In the TUI you should be prompted to "Upgrade <current version> to <new version>"
+*   In the TUI you should be prompted to "`Upgrade <current version> to <new version>`"
     -   Press ENTER to continue
 *   Select the keyboard layout
 *   Enter - at least - the current admin password. This is a security check to ensure that not someone else overrides your installation.

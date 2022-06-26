@@ -3,7 +3,7 @@
 
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [71](https://github.com/ovirt/ovirt-engine/issues) | 358 | 229 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [73](https://github.com/ovirt/ovirt-engine/issues) | 358 | 229 |
 | [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [65](https://github.com/ovirt/vdsm/issues) | 116 | 149 |
 | [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [35](https://github.com/ovirt/ovirt-web-ui/issues) | 89 | 69 |
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [31](https://github.com/ovirt/ovirt-ansible-collection/issues) | 52 | 73 |

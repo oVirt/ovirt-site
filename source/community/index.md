@@ -17,6 +17,7 @@ hide_metadata: true
 # Get involved!
 
 oVirt is a community-driven virtualization project and people just like you are making it happen.
+
 </section>
 
 <section class="container">
@@ -26,10 +27,9 @@ The oVirt community is a group of multidisciplinary individuals who are contribu
 
 Before getting started, we recommend that you:
 
-* Sign up for the [users@ovirt.org mailing list](/community/users-list.html) and send us an email saying how you would like to contribute. Visit our [mailing lists](/community/about/mailing-lists.html) page for other oVirt mailing lists to sign up for.
-* For fluent, real time communication, [join us on IRC](/community/about/contact.html#irc)
-* Please read our [community etiquette guidelines](/community/about/community-guidelines.html). (Quick summary: Be nice!)
-
+- Sign up for the [users@ovirt.org mailing list](/community/users-list.html) and send us an email saying how you would like to contribute. Visit our [mailing lists](/community/about/mailing-lists.html) page for other oVirt mailing lists to sign up for.
+- For fluent, real time communication, [join us on IRC](/community/about/contact.html#irc)
+- Please read our [community etiquette guidelines](/community/about/community-guidelines.html). (Quick summary: Be nice!)
 
 # Community
 
@@ -37,12 +37,12 @@ oVirt is a community project, and we welcome contributions from everyone! If you
 
 There are a few ways to engage with the oVirt Community:
 
-* [Events](/events/)
-* [Archived Conferences Presentations](archived_conferences_presentations.html)
-* [Forums / Mailing lists](https://lists.ovirt.org/archives/)
-* [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)
-* [Twitter](https://twitter.com/ovirt)
-* IRC -- `#ovirt` on `irc.oftc.net`
+- [Events](/events/)
+- [Archived Conferences Presentations](archived_conferences_presentations.html)
+- [Forums / Mailing lists](https://lists.ovirt.org/archives/)
+- [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)
+- [Twitter](https://twitter.com/ovirt)
+- IRC -- `#ovirt` on `irc.oftc.net`
 
 Before getting started, please read our [community etiquette guidelines](/community/about/community-guidelines.html).
 
@@ -67,16 +67,16 @@ To contribute translations, please follow our [How-To](/develop/localization.htm
 
 ## Documentation
 
-oVirt needs concise, user-friendly, up-to-date installation and usage documentation. To contribute, visit the [documentation repository](https://github.com/oVirt/ovirt-site/tree/master/source/documentation) and the [documentation issues tracker](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation). You can also report any documentation issues you find by clicking "Report an issue with this page" at the bottom of the documentation.
+oVirt needs concise, user-friendly, up-to-date installation and usage documentation. To contribute, visit the [documentation repository](https://github.com/oVirt/ovirt-site/tree/main/source/documentation) and the [documentation issues tracker](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation). You can also report any documentation issues you find by clicking "Report an issue with this page" at the bottom of the documentation.
 
 ## Report Bugs and New Feature Requests (RFEs)
 
 Reporting bugs is one of the most valuable ways you can contribute! Ideas for new features are also very welcome. Report bugs and RFEs using the following issue trackers:
 
-* [Bugzilla - how to report a bug](/community/report-a-bug.html)
-* [VM Portal GitHub - bugs and RFEs in VM Portal](https://github.com/oVirt/ovirt-web-ui/issues)
-* [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
-* Security issues follow a [special reporting procedure](/community/security.html).
+- [Bugzilla - how to report a bug](/community/report-a-bug.html)
+- [VM Portal GitHub - bugs and RFEs in VM Portal](https://github.com/oVirt/ovirt-web-ui/issues)
+- [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
+- Security issues follow a [special reporting procedure](/community/security.html).
 
 ## Monitor security reports for oVirt Node
 
@@ -103,9 +103,9 @@ oVirt has a broad community of [supporters, sponsors, and providers](/community/
 
 Follow us on:
 
-* [Twitter](https://twitter.com/ovirt)
-* [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
-* [YouTube](http://www.youtube.com/user/ovirtproject)
+- [Twitter](https://twitter.com/ovirt)
+- [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
+- [YouTube](http://www.youtube.com/user/ovirtproject)
 
 ## Community projects related to oVirt
 
@@ -113,8 +113,8 @@ oVirt community shares scripts, tools, add-ons and plugins that didn't reach eno
 to get included into the oVirt project.
 You can find some of them listed here:
 
- * [oVirt storage balancer](https://github.com/nkovacne/ovirt-storage-balancer)
- * [oVirt Simple Backup](https://github.com/zipurman/oVIRT_Simple_Backup)
- * [oVirt Desktop Client](https://github.com/nkovacne/ovirt-desktop-client)
- * [oVirt filesystem in userspace](https://github.com/yuvalturg/ovirtfs)
+- [oVirt storage balancer](https://github.com/nkovacne/ovirt-storage-balancer)
+- [oVirt Simple Backup](https://github.com/zipurman/oVIRT_Simple_Backup)
+- [oVirt Desktop Client](https://github.com/nkovacne/ovirt-desktop-client)
+- [oVirt filesystem in userspace](https://github.com/yuvalturg/ovirtfs)
 </section>

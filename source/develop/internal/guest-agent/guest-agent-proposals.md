@@ -9,7 +9,8 @@ authors:
 
 # Guest Agent Proposals
 
-Summary of discussions from the ovirt workshop, and the qemu-devel and vdsm-devel mailing lists (<http://thread.gmane.org/gmane.comp.emulators.ovirt.vdsm.devel/93/focus=93>)
+Summary of discussions from the ovirt workshop, and the qemu-devel and vdsm-devel mailing lists
+(used to be at `http://thread.gmane.org/gmane.comp.emulators.ovirt.vdsm.devel/93/focus=93` but gmane service got discontinued)
 regarding guest agents for oVirt.
 
 ## Considerations

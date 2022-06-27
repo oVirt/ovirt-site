@@ -138,6 +138,7 @@ exclude:
   - CONTRIBUTING.md
   - CODEOWNERS
   # avoid generating paginated asciidoc content
+  - documentation/assembly-Setting_up_a_gpu_on_a_vm/**
   - documentation/common/**/*
   - documentation/**/appe*
   - documentation/**/master.adoc

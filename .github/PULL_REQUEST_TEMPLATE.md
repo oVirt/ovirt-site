@@ -10,6 +10,6 @@ Changes proposed in this pull request:
 
 -
 
-I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/master/CONTRIBUTING.md): (please @mention yourself to sign)
+I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/main/CONTRIBUTING.md): (please @mention yourself to sign)
 
 This pull request needs review by: (please @mention the reviewer if relevant)

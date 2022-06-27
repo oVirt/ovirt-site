@@ -123,7 +123,7 @@ Changes proposed in this pull request:
 
 -
 
-I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/master/CONTRIBUTING.md): (please @mention yourself to sign)
+I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/main/CONTRIBUTING.md): (please @mention yourself to sign)
 
 This pull request needs review by: (please @mention the reviewer if relevant)
 
@@ -143,7 +143,7 @@ Changes proposed in this pull request:
 
 * This PR adds a module to describe the new dashboard feature.
 
-I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/master/CONTRIBUTING.md): @ploni)
+I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/main/CONTRIBUTING.md): @ploni)
 
 This pull request needs review by: @octocat
 ----

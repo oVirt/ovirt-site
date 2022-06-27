@@ -7,7 +7,7 @@
 . Configure a client's valid redirect URL:
 .. Select the client configured in earlier steps (ie. ovirt-engine)
 .. Add an additional valid Redirect URI for the Monitoring Portal(Grafana).
-    Valid Redirect URIs: https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/
+    Valid Redirect URIs: `\https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/`
 .. Select the *Mappers* tab.
 .. Click btn:[Create] to create a new Mapper, and fill in the following fields:
     * Name: `realm role`

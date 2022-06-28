@@ -29,7 +29,8 @@ if ssh $KERB@file.$GEO.redhat.com "test -e ~/public_html/$BRANCH/$DIR/"; then
   rsync -az --info=progress2 --human-readable index.html images ../common $KERB@file.$GEO.redhat.com:~/public_html/$BRANCH/$DIR/
 else
   echo -e "\nCreating directory and uploading preview."
-  rsync -az --rsync-path="mkdir -p ~/public_html/$BRANCH/$DIR/ && rsync" --info=progress2 --human-readable index.html images ../common $KERB@file.$GEO.redhat.com:~/public_html/$BRANCH/$DIR/
+  rsync -az --rsync-path="mkdir -p ~/public_html/$BRANCH/$DIR/ && rsync" --info=progress2 --human-readable index.html ../common $KERB@file.$GEO.redhat.com:~/public_html/$BRANCH/$DIR/
+  rsync -az --rsync-path="mkdir -p ~/public_html/$BRANCH/$DIR/ && rsync" --info=progress2 --human-readable images $KERB@file.$GEO.redhat.com:~/public_html/$BRANCH/$DIR/ &>/dev/null
 fi
 
 echo -e "\nPreview URL: http://file.$GEO.redhat.com/$KERB/$BRANCH/$DIR/index.html"

@@ -1,5 +1,7 @@
 [id="documents-001_introduction"]
-== Introduction
+:_content-type: ASSEMBLY
+[id="introduction"]
+= Introduction
 
 The {engine-name} provides a *Representational State Transfer (REST)
 API*. The API provides software developers and system administrators
@@ -37,7 +39,8 @@ aims to provide developers and administrators with instructions and
 examples to help harness the functionality of their {product-name}
 environment through the API, either directly or using the provided SDKs.
 
-=== Representational State Transfer
+[id="representational-state-transfer"]
+== Representational State Transfer
 
 *Representational State Transfer (REST)* is a design architecture that
 focuses on resources for a specific service and their representations. A
@@ -50,6 +53,7 @@ between the client and server where each request acts independently of any
 other request, and contains all the information necessary to complete the
 request.
 
+[id="api-prerequisites"]
 === API Prerequisites
 
 Prerequisites for using the {product-name} API:
@@ -57,42 +61,42 @@ Prerequisites for using the {product-name} API:
 * A networked installation of {engine-name}, which includes the API.
 
 * A client or programming library that initiates and receives HTTP requests
-from the API server. For example:
+from the API server, for example:
 
-** The https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk[oVirt Python SDK].
+** The link:https://github.com/oVirt/python-ovirt-engine-sdk4[oVirt Python SDK].
 
-** The https://github.com/oVirt/ovirt-engine-sdk-java/tree/master/sdk[oVirt Java SDK].
+** The link:https://github.com/oVirt/ovirt-engine-sdk-java/tree/master/sdk[oVirt Java SDK].
 
-** The https://curl.haxx.se[cURL] command line tool.
+** The link:https://curl.haxx.se[cURL] command line tool.
 
-** https://addons.mozilla.org/en-US/firefox/addon/restclient[RESTClient], a
+** link:https://addons.mozilla.org/en-US/firefox/addon/restclient[RESTClient], a
 debugger for RESTful web services.
 
 * Knowledge of Hypertext Transfer Protocol (HTTP), the protocol
-used for REST API interactions. The Internet Engineering Task Force provides
-a Request for Comments (RFC) explaining the Hypertext Transfer Protocol
-at http://www.ietf.org/rfc/rfc2616.txt.
+used for REST API interactions. See link:https://www.ietf.org/rfc/rfc2616.txt[RFC 2616: HTTP/1.1].
 
 * Knowledge of Extensible Markup Language (XML) or JavaScript Object
 Notation (JSON), which the API uses to construct resource representations.
-The W3C provides a full specification on XML at http://www.w3.org/TR/xml.
-ECMA International provide a free publication on JSON at
-http://www.ecma-international.org.
+See W3C link:https://www.w3.org/TR/xml[Extensible Markup Language (XML) 1.0] and link:https://www.ecma-international.org[ECMA-404: JSON data interchange syntax].
+
 
 [id="documents-002_authentication_and_security"]
-== Authentication and Security
+:_content-type: ASSEMBLY
+[id="authentication-and-security"]
+= Authentication and Security
 
-=== TLS/SSL Certification
+[id="tls-ssl-certification"]
+== TLS/SSL Certification
 
 The {product-name} API requires Hypertext Transfer Protocol Secure
-(HTTPS) footnote:[HTTPS is described in
-http://tools.ietf.org/html/rfc2818[RFC 2818 HTTP Over TLS.]] for secure
+(HTTPS). See link:https://tools.ietf.org/html/rfc2818[RFC 2818: HTTP Over TLS] for secure
 interaction with client software, such as the SDK and CLI components.
 This involves obtaining the
-https://en.wikipedia.org/wiki/Certificate_authority[CA] certificate used by the
-server, and importing it into the certificate store of your client.
+link:https://en.wikipedia.org/wiki/Certificate_authority[CA certificate] used by the
+server and importing it into the certificate store of your client.
 
-==== Obtaining the CA Certificate
+[id="obtaining-the-ca-certificate"]
+=== Obtaining the CA Certificate
 
 You can obtain the CA certificate from the {engine-name} and transfer it
 to the client machine using one of these methods:
@@ -100,19 +104,21 @@ to the client machine using one of these methods:
 Method 1:: The preferred method for obtaining the CA certificate is to use
 the `openssl s_client` command line tool to perform a real TLS handshake
 with the server, and then extract the certificates that it presents.
-Run a command like this:
 +
-....
+. Run the `openssl s_client` command as in the following example:
++
+[source,terminal]
+----
 $ openssl s_client \
 -connect myengine.example.com:443 \
 -showcerts \
 < /dev/null
-....
+----
 +
-This command will connect to the server and display output similar to
-the following:
+.Example output
 +
-....
+[source,terminal]
+----
 CONNECTED(00000003)
 depth=1 C = US, O = Example Inc., CN = myengine.example.com.23416
 verify error:num=19:self signed certificate in certificate chain
@@ -132,65 +138,60 @@ MIIDxjCCAq6gAwIBAgICEAAwDQYJKoZIhvcNAQEFBQAwSTELMAkGA1UEBhMCVVMx
 FTATBgNVBAoTDEV4YW1wbGUgSW5jLjEjMCEGA1UEAxMaZW5naW5lNDEuZXhhbXBs
 Pkyg1rQHR6ebGQ==
 -----END CERTIFICATE-----
-....
+----
 +
 The text between the `-----BEGIN CERTIFICATE-----` and `-----END
-CERTIFICATE-----` marks shows the certificates presented by the server.
-The first one is the certificate of the server itself, and the last one
-is the certificate of the CA. Copy the CA certificate, including the
-marks, to the `ca.crt` file. The result should look like this:
+CERTIFICATE-----` lines shows the certificates presented by the server.
 +
-....
+The first certificate is the certificate of the server itself. The second certificate is the certificate of the CA.
+
+. Copy the CA certificate, including the `-----BEGIN CERTIFICATE-----` and `-----END
+CERTIFICATE-----` lines, to the `ca.crt` file as in the following example:
++
+----
 -----BEGIN CERTIFICATE-----
 MIIDxjCCAq6gAwIBAgICEAAwDQYJKoZIhvcNAQEFBQAwSTELMAkGA1UEBhMCVVMx
 FTATBgNVBAoTDEV4YW1wbGUgSW5jLjEjMCEGA1UEAxMaZW5naW5lNDEuZXhhbXBs
 Pkyg1rQHR6ebGQ==
 -----END CERTIFICATE-----
-....
+----
 +
 IMPORTANT: This is the most reliable method to obtain the CA certificate
 used by the server. The rest of the methods described here will
 work in most cases, but they will not obtain the correct CA certificate if
-it has been manually replaced by the administrator of the server.
+the certificate has been manually replaced by the server administrator.
 
-Method 2:: If you cannot use the `openssl s_client` method described
-above, you can instead use a command line tool to download the CA
-certificate from the {engine-name}.
+Method 2:: If you cannot use `openssl s_client` to obtain the certificate, you can use a command line tool, for example `curl` or `wget`, to download the CA certificate from the {engine-name}. `curl` and `wget` are available on multiple platforms.
 +
-Examples of command line tools include `curl` and `wget`, both of which
-are available on multiple platforms.
+* If using `curl`:
 +
-If using `curl`:
-+
-....
+[source,terminal]
+----
 $ curl \
 --output ca.crt \
 'http://myengine.example.com/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA'
-....
+----
 +
-If using `wget`:
+* If using `wget`:
 +
-....
+[source,terminal]
+----
 $ wget \
 --output-document ca.crt \
 'http://myengine.example.com/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA'
-....
+----
 
 Method 3:: Use a web browser to navigate to the certificate located
-at:
+at \`https://myengine.example.com/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA`.
 +
-....
-https://myengine.example.com/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA
-....
+Depending on the chosen browser, the certificate is downloaded or
+imported into the browser's keystore:
 +
-Depending on the chosen browser, the certificate either downloads or
-imports into the browser's keystore.
-+
-. *If the browser downloads the certificate*: save the file as
+* If the browser downloads the certificate, save the file as
 `ca.crt`.
 +
-. *If the browser imports the certificate*: export it from the
-browser's certification options and save it as `ca.crt`.
+* If the browser imports the certificate, export it using the
+browser's certificate management options and save it as `ca.crt`.
 
 Method 4:: Log in to the {engine-name}, export the certificate from the
 truststore, and copy it to your client machine.
@@ -200,7 +201,8 @@ truststore, and copy it to your client machine.
 . Export the certificate from the truststore using the Java
 `keytool` management utility:
 +
-....
+[source,terminal]
+----
 # keytool \
 -keystore /etc/pki/ovirt-engine/.truststore \
 -storepass mypass \
@@ -208,54 +210,57 @@ truststore, and copy it to your client machine.
 -alias cacert \
 -rfc \
 -file ca.crt
-....
+----
 +
 This creates a certificate file called `ca.crt`.
 +
 . Copy the certificate to the client machine using the `scp`
 command:
 +
-....
+[source,terminal]
+----
 $ scp ca.crt myuser@myclient.example.com:/home/myuser/.
-....
-
+----
++
 Each of these methods results in a certificate file named `ca.crt` on
 your client machine. You must then import this file into the certificate
 store of the client.
 
-==== Importing a Certificate to a Client
+[id="importing-a-certificate-to-a-client"]
+=== Importing a Certificate to a Client
 
 Importing a certificate to a client relies on how the client
 stores and interprets certificates. See your client documentation for more
 information on importing a certificate.
 
-=== Authentication
+[id="authentication"]
+== Authentication
 
 Any user with a {engine-name} account has access to the API. All
 requests must be authenticated using either *OAuth* or basic
 authentication, as described below.
 
-==== OAuth Authentication
+[id="oauth-authentication"]
+=== OAuth Authentication
 
 Since version 4.0 of {product-name} the preferred authentication
-mechanism is https://oauth.net/2[OAuth 2.0], as described in
-https://tools.ietf.org/html/rfc6749[RFC 6749].
+mechanism is link:https://oauth.net/2[OAuth 2.0], as described in
+link:https://tools.ietf.org/html/rfc6749[RFC 6749].
 
 *OAuth* is a sophisticated protocol, with several mechanisms for obtaining
 authorization and access tokens. For use with the {product-name}
 API, the only supported one is the _Resource Owner Password Credentials
-Grant_, as described in https://tools.ietf.org/html/rfc6749#section-4.3[section 4.3]
-of RFC 6749.
+Grant_, as described in link:https://tools.ietf.org/html/rfc6749#section-4.3[RFC 6749].
 
 You must first obtain a _token_, sending the user name and password
 to the {engine-name} single sign-on service:
 
-....
+----
 POST /ovirt-engine/sso/oauth/token HTTP/1.1
 Host: myengine.example.com
 Content-Type: application/x-www-form-urlencoded
 Accept: application/json
-....
+----
 
 The request body must contain the `grant_type`, `scope`, `username`,
 and `password` parameters:
@@ -279,13 +284,13 @@ and `password` parameters:
 |===
 
 These parameters must be
-https://en.wikipedia.org/wiki/Percent-encoding[URL-encoded]. For example,
+link:https://en.wikipedia.org/wiki/Percent-encoding[URL-encoded]. For example,
 the `@` character in the user name needs to be encoded as `%40`. The
 resulting request body will be something like this:
 
-....
+----
 grant_type=password&scope=ovirt-app-api&username=admin%40internal&password=mypassword
-....
+----
 
 IMPORTANT: The `scope` parameter is described as optional in the *OAuth*
 RFC, but when using it with the {product-name} API it is mandatory, and
@@ -294,14 +299,15 @@ its value must be `ovirt-app-api`.
 If the user name and password are valid, the {engine-name} single sign-on service
 will respond with a JSON document similar to this one:
 
-....
+[source,json]
+----
 {
   "access_token": "fqbR1ftzh8wBCviLxJcYuV5oSDI=",
   "token_type": "bearer",
   "scope": "...",
   ...
 }
-....
+----
 
 For API authentication purposes, the only relevant name/value pair is the
 `access_token`. Do not manipulate this in any way; use it exactly as
@@ -312,43 +318,44 @@ the API by including it in the HTTP `Authorization` header, and using the
 `Bearer` scheme. For example, to get the list of virtual machines,
 send a request like this:
 
-....
+----
 GET /ovirt-engine/api/vms HTTP/1.1
 Host: myengine.example.com
 Accept: application/xml
 Authorization: Bearer fqbR1ftzh8wBCviLxJcYuV5oSDI=
-....
+----
 
 The token can be used multiple times, for multiple requests, but it will
 eventually expire. When it expires, the server will reject the request with
 the 401 HTTP response code:
 
-....
+----
 HTTP/1.1 401 Unauthorized
-....
+----
 
 When this happens, a new token is needed, as the {engine-name} single sign-on
 service does not currently support refreshing tokens. A new token can be
 requested using the same method described above.
 
-==== Basic Authentication
+[id="basic-authentication"]
+=== Basic Authentication
 
 IMPORTANT: Basic authentication is supported only for backwards
 compatibility; it is deprecated since version 4.0 of {product-name},
 and will be removed in the future.
 
 Each request uses HTTP Basic Authentication footnote:[Basic
-Authentication is described in http://tools.ietf.org/html/rfc2617[RFC
-2617 HTTP Authentication: Basic and Digest Access Authentication].] to
+Authentication is described in link:https://tools.ietf.org/html/rfc2617[RFC
+2617: HTTP Authentication: Basic and Digest Access Authentication].] to
 encode the credentials. If a request does not include an appropriate
 `Authorization` header, the server sends a `401 Authorization Required` response:
 
-....
+----
 HEAD /ovirt-engine/api HTTP/1.1
 Host: myengine.example.com
 
 HTTP/1.1 401 Authorization Required
-....
+----
 
 Request are issued with an `Authorization` header for the specified
 realm. Encode an appropriate {engine-name} domain and user
@@ -356,7 +363,7 @@ in the supplied credentials with the `username@domain:password`
 convention.
 
 The following table shows the process for encoding credentials in
-https://tools.ietf.org/html/rfc4648[Base64].
+link:https://tools.ietf.org/html/rfc4648[Base64].
 
 .Encoding credentials for API access
 |===
@@ -380,13 +387,13 @@ https://tools.ietf.org/html/rfc4648[Base64].
 
 Provide the Base64-encoded credentials as shown:
 
-....
+----
 HEAD /ovirt-engine/api HTTP/1.1
 Host: myengine.example.com
 Authorization: Basic YWRtaW5AaW50ZXJuYWw6bXlwYXNzd29yZA==
 
 HTTP/1.1 200 OK
-....
+----
 
 IMPORTANT: Basic authentication involves potentially sensitive
 information, such as passwords, sent as plain text. The API requires
@@ -398,18 +405,20 @@ and terminate each line with a newline character. This breaks the header
 and causes a faulty request. The `Authorization` header requires the
 encoded credentials on a single line within the header.
 
-==== Authentication Sessions
+[id="authentication-sessions"]
+=== Authentication Sessions
 
 The API also provides authentication session support. Send an initial request
 with authentication details, then send all subsequent requests using a session
 cookie to authenticate.
 
-===== Requesting an Authenticated Session
+[id="requesting-an-authenticated-session"]
+==== Requesting an Authenticated Session
 
 . Send a request with the `Authorization` and `Prefer: persistent-auth`
 headers:
 +
-....
+----
 HEAD /ovirt-engine/api HTTP/1.1
 Host: myengine.example.com
 Authorization: Basic YWRtaW5AaW50ZXJuYWw6bXlwYXNzd29yZA==
@@ -417,13 +426,13 @@ Prefer: persistent-auth
 
 HTTP/1.1 200 OK
 ...
-....
+----
 +
 This returns a response with the following header:
 +
-....
+----
 Set-Cookie: JSESSIONID=5dQja5ubr4yvI2MM2z+LZxrK; Path=/ovirt-engine/api; Secure
-....
+----
 +
 Take note of the `JSESSIONID=` value. In this example the value is
 `5dQja5ubr4yvI2MM2z+LZxrK`.
@@ -432,7 +441,7 @@ Take note of the `JSESSIONID=` value. In this example the value is
 `Cookie` headers with the `JSESSIONID=` value. The `Authorization` header
 is no longer needed when using an authenticated session.
 +
-....
+----
 HEAD /ovirt-engine/api HTTP/1.1
 Host: myengine.example.com
 Prefer: persistent-auth
@@ -440,45 +449,50 @@ Cookie: JSESSIONID=5dQja5ubr4yvI2MM2z+LZxrK
 
 HTTP/1.1 200 OK
 ...
-....
+----
 +
 . When the session is no longer required, perform a request to the
 sever without the `Prefer: persistent-auth` header.
 +
-....
+----
 HEAD /ovirt-engine/api HTTP/1.1
 Host: myengine.example.com
 Authorization: Basic YWRtaW5AaW50ZXJuYWw6bXlwYXNzd29yZA==
 
 HTTP/1.1 200 OK
 ...
-....
+----
 +
 
-[id="documents-003_common_concepts"]
-== Common concepts
 
-=== Types
+[id="documents-003_common_concepts"]
+:_content-type: ASSEMBLY
+[id="common-concepts"]
+= Common concepts
+
+[id="types-concept"]
+== Types
 
 The API uses the _type_ concept to describe the different kinds of objects
 accepted and returned.
 
 There are three relevant kinds of types:
 
-Primitive types:: Describe simple kinds of objects, like <<types-string, strings>> or
-<<types-integer, integers>>.
+Primitive types:: Describe simple kinds of objects, like xref:types/string[strings] or
+xref:types/integer[integers].
 
-Enumerated types:: Describe lists of valid values like <<types-vm_status, VmStatus>>
-or <<types-disk_format, DiskFormat>>.
+Enumerated types:: Describe lists of valid values like xref:types/vm_status[VmStatus]
+or xref:types/disk_format[DiskFormat].
 
 Structured types:: Describe structured objects, with multiple attributes and
-links, like <<types-vm, Vm>> or <<types-disk, Disk>>.
+links, like xref:types/vm[Vm] or xref:types/disk[Disk].
 
-=== Identified types
+[id="identified-types"]
+== Identified types
 
 Many of the types used by the API represent _identified_ objects, objects
 that have an unique identifier and exist independently of other objects.
-The types used to describe those objects extend the <<types-identified, Identified>>
+The types used to describe those objects extend the xref:types/identified[Identified]
 type, which contains the following set of common attributes:
 
 [cols="20,20,60"]
@@ -486,48 +500,52 @@ type, which contains the following set of common attributes:
 |Attribute |Type |Description
 
 |`id`
-|<<types-string, String>>
+|xref:types/string[String]
 |Each object in the virtualization infrastructure contains an `id`, which
 acts as an unique identifier.
 
 |`href`
-|<<types-string, String>>
+|xref:types/string[String]
 |The canonical location of the object as an absolute path.
 
 |`name`
-|<<types-string, String>>
+|xref:types/string[String]
 |A user-supplied human readable name for the object. The `name` name is
 unique across all objects of the same type.
 
 |`description`
-|<<types-string, String>>
+|xref:types/string[String]
 |A free-form user-supplied human readable description of the object.
 
 |===
 
 IMPORTANT: Currently for most types of objects the `id` attribute is actually a
-randomly generated https://en.wikipedia.org/wiki/Universally_unique_identifier[UUID],
+randomly generated link:https://en.wikipedia.org/wiki/Universally_unique_identifier[UUID],
 but this is an implementation detail, and users should not rely on that, as
 it may change in the future. Instead users should assume that these
 identifiers are just strings.
 
-=== Objects
+[id="objects"]
+== Objects
 
 Objects are the individual instances of the types supported by the API.
 For example, the virtual machine with identifier `123` is an object of
-the <<types-vm, Vm>> type.
+the xref:types/vm[Vm] type.
 
-=== Collections
+[id="collections"]
+== Collections
 
 A collection is a set of objects of the same type.
 
-=== Representations
+[id="representations"]
+== Representations
 
 The state of objects needs to be represented when it is transferred
 beetween the client and the server. The API supports XML and JSON as the
 representation of the state of objects, both for input and output.
 
-==== XML representation
+[id="xml-representation"]
+=== XML representation
 
 The XML representation of an object consists of an XML element
 corresponding to the type of the object, XML attributes for the `id` and
@@ -574,14 +592,15 @@ IMPORTANT: In the XML representation of objects the `id` and `href`
 attributes are the only ones that are represented as XML attributes, the
 rest are represented as nested XML elements.
 
-==== JSON representation
+[id="json-representation"]
+=== JSON representation
 
 The JSON representation of an object consists of a JSON document
 containing a name/value pair for each attribute (including `id` and
 `href`). For example, the JSON representation of a virtual machine
 appears as follows:
 
-....
+----
 {
   "id": "123",
   "href": "/ovirt-engine/api/vms/123",
@@ -590,7 +609,7 @@ appears as follows:
   "memory": 1073741824,
   ...
 }
-....
+----
 
 The JSON representation of a collection of objects consists of a JSON
 document containg a name/value pair (named ater the type of the objects,
@@ -598,7 +617,7 @@ in singular) which in turn contains an array with the representations of
 the objects of the collection. For example, the JSON respresentation for
 a collection of virtual machines appears as follows:
 
-....
+----
 {
   "vm": [
     {
@@ -619,9 +638,10 @@ a collection of virtual machines appears as follows:
     },
   ]
 }
-....
+----
 
-=== Services
+[id="services-concept"]
+== Services
 
 Services are the parts of the server responsible for retrieving, adding
 updating, removing and executing actions on the objects supported by the
@@ -631,12 +651,12 @@ There are two relevant kinds of services:
 
 Services that manage a collection of objects:: These services are
 reponsible for listing existing objects and adding new objects. For
-example, the <<services-vms, Vms>> service is responsible for managing
+example, the xref:services/vms[Vms] service is responsible for managing
 the collection of virtual machines available in the system.
 
 Services that manage a specific object:: These services are responsible
 for retrieving, updating, deleting and executing actions in specific
-objects. For example, the <<services-vm, Vm>> service is responsible for
+objects. For example, the xref:services/vm[Vm] service is responsible for
 managing a specific virtual machine.
 
 Each service is accessible via a particular _path_ within the server.
@@ -650,8 +670,8 @@ operations that they can perform. The services that manage collections
 of objects usually have the `list` and `add` methods. The services that
 manage specific objects usually have the `get`, `update` and `remove`
 methods. In addition, services may also have _action_ methods, that
-represent less common operations. For example, the <<services-vm, Vm>>
-service has a <<services-vm-methods-start, start>> method that is used
+represent less common operations. For example, the xref:services/vm[Vm]
+service has a xref:services/vm/methods/start[start] method that is used
 to start a virtual machine.
 
 For the more usual methods there is a direct mapping between the name of
@@ -674,18 +694,18 @@ The path used in the HTTP request is the path of the service, with the
 For example, the request to `list` the virtual machines should be like
 this, using the HTTP `GET` method and the path `/vms`:
 
-....
+----
 GET /ovirt-engine/api/vms
-....
+----
 
 For action methods the HTTP method is always `POST`, and the name of the
 method is added as a suffix to the path. For example, the request to
 start virtual machine `123` should look like this, using the HTTP `POST`
 method and the path `/vms/123/start`:
 
-....
+----
 POST /ovirt-engine/api/vms/123/start
-....
+----
 
 Each method has a set of parameters.
 
@@ -699,18 +719,18 @@ main parameter per method.
 Secondary parameters:: The rest of the parameters.
 
 For example, the operation that adds a virtual machine (see
-<<services-vms-methods-add, here>>) has three parameters: `vm`, `clone`
+xref:services/vms/methods/add[here]) has three parameters: `vm`, `clone`
 and `clone_permissions`. The main parameter is `vm`, as it describes the
 object that is added. The `clone` and `clone_permissions` parameters are
 secondary parameters.
 
 The main parameter, when used for input, must be included in the body of
 the HTTP request. For example, when adding a virtual machine, the `vm`
-parameter, of type <<types-vm, Vm>>, must be included in the request
+parameter, of type xref:types/vm[Vm] must be included in the request
 body. So the complete request to add a virtual machine, including all
 the HTTP details, must look like this:
 
-....
+----
 POST /ovirt-engine/api/vms HTTP/1.1
 Host: myengine.example.com
 Authorization: Bearer fqbR1ftzh8wBCviLxJcYuV5oSDI=
@@ -727,14 +747,14 @@ Accept: application/xml
     <name>Blank</name>
   </template>
 </vm>
-....
+----
 
 When used for output, the main parameters are included in the response
 body. For example, when adding a virtual machine, the `vm` parameter
 will be included in the response body. So the complete response body
 will look like this:
 
-....
+----
 HTTP/1.1 201 Created
 Content-Type: application/xml
 
@@ -743,14 +763,14 @@ Content-Type: application/xml
   <description>My VM</description>
   ...
 </vm>
-....
+----
 
 Secondary parameters are only allowed for input (except for action
 methods, which are described later), and they must be included as query
 parameters. For example, when adding a virtual machine with the `clone`
 parameter set to `true`, the complete request must look like this:
 
-....
+----
 POST /ovirt-engine/api/vms?clone=true HTTP/1.1
 Host: myengine.example.com
 Authorization: Bearer fqbR1ftzh8wBCviLxJcYuV5oSDI=
@@ -767,19 +787,19 @@ Accept: application/xml
     <name>Blank</name>
   </template>
 </vm>
-....
+----
 
 Action methods only have secondary parameters. They can be used for
 input and output, and they should be included in the request body,
 wrapped with an `action` element. For example, the action method used to
-start a virtual machine (see <<services-vm-methods-start, here>>) has a
+start a virtual machine (see xref:services/vm/methods/start[here]) has a
 `vm` parameter to describe how the virtual machine should be started,
 and a `use_cloud_init` parameter to specify if
-https://cloudinit.readthedocs.io[cloud-init] should be used to configure
+link:https://cloudinit.readthedocs.io[cloud-init] should be used to configure
 the guest operating system. So the complete request to start virtual
 machine `123` using _cloud-init_ will look like this when using XML:
 
-....
+----
 POST /ovirt-engine/api/vms/123/start HTTP/1.1
 Host: myengine.example.com
 Authorization: Bearer fqbR1ftzh8wBCviLxJcYuV5oSDI=
@@ -806,58 +826,62 @@ Accept: application/xml
     </initialization>
   </vm>
 </action>
-....
+----
 
-=== Searching
+[id="searching"]
+== Searching
 
 The `list` method of some services has a `search` parameter that can be
 used to specify search criteria. When used, the server will only return
 objects within the collection that satisfy those criteria. For example,
 the following request will return only the virtual machine named `myvm`:
 
-....
+----
 GET /ovirt-engine/api/vms?search=name%3Dmyvm
-....
+----
 
-==== Maximum results parameter
+[id="maximum-results-parameter"]
+=== Maximum results parameter
 
 Use the `max` parameter to limit the number of objects returned. For
 example, the following request will only return one virtual machine,
 regardless of how many are available in the system:
 
-....
+----
 GET /ovirt-engine/api/vms?max=1
-....
+----
 
 A search request without the `max` parameter will return all the
 objects. Specifying the `max` parameter is recommended to reduce the
 impact of requests in the overall performance of the system.
 
-==== Case sensitivity
+[id="case-sensitivity"]
+=== Case sensitivity
 
 By default queries are not case sensitive. For example, the following
 request will return the virtual machines named `myvm`, `MyVM` and `MYVM`:
 
-....
+----
 GET /ovirt-engine/api/vms?search=name%3Dmyvm
-....
+----
 
 The optional `case_sensitive` boolean parameter can be used to change this
 behaviour. For example, to get exactly the virtual machine named `myhost`, and
 not `MyHost` or `MYHOST`, send a request like this:
 
-....
+----
 GET /ovirt-engine/api/vms?search=name%3D=myvm&case_sensitive=true
-....
+----
 
-==== Search syntax
+[id="search-syntax"]
+=== Search syntax
 
 The `search` parameters use the same syntax as the {product-name} query
 language:
 
-....
+----
 (criteria) [sortby (element) asc|desc]
-....
+----
 
 The `sortby` clause is optional and only needed when ordering results.
 
@@ -893,26 +917,28 @@ sorted by the the value of their `time` attribute in descending order.
 |===
 
 The value of the `search` parameter must be
-https://en.wikipedia.org/wiki/Percent-encoding[URL-encoded] to translate
+link:https://en.wikipedia.org/wiki/Percent-encoding[URL-encoded] to translate
 reserved characters, such as operators and spaces. For example, the
 equal sign should be encoded as `%3D`:
 
-....
+----
 GET /ovirt-engine/api/vms?search=name%3Dmyvm
-....
+----
 
-==== Wildcards
+[id="wildcards"]
+=== Wildcards
 
 The asterisk can be used as part of a value, to indicate that any string
 matches, including the emtpy string. For example, the following request
 will return all the virtual machines with names beginning with `myvm`,
 such as `myvm`, `myvm2`, `myvma` or `myvm-webserver`:
 
-....
+----
 GET /ovirt-engine/api/vms?search=name%3Dmyvm*
-....
+----
 
-==== Pagination
+[id="pagination"]
+=== Pagination
 
 Some {product-name} environments contain large collections of objects.
 Retrieving all of them with one request isn't practical, and hurts
@@ -922,9 +948,9 @@ parameter, is the basis for paging. For example, to get the first page
 of virtual machines, with a page size of 10 virtual machines, send
 request like this:
 
-....
+----
 GET /ovirt-engine/api/vms?search=page%201&max=10
-....
+----
 
 NOTE: The search parameter is URL-encoded, the actual value of the
 `search` parameter, before encoding, is `page 1`, so this is actually
@@ -932,17 +958,17 @@ requesting the first page.
 
 Increase the `page` value to retrieve the next page:
 
-....
+----
 GET /ovirt-engine/api/vms?search=page%202&max=10
-....
+----
 
 The `page` clause can be used in conjunction with other clauses inside
 the `search` parameter. For example, the following request will return
 the second page of virtual machines, but sorting by name:
 
-....
+----
 GET /ovirt-engine/api/vms?search=sortby%20name%20page%202&max=10
-....
+----
 
 [IMPORTANT]
 ====
@@ -958,7 +984,8 @@ duplicates.
 ====
 
 [id="documents-003_common_concepts-follow"]
-=== Following links
+[id="following-links"]
+== Following links
 
 The API returns references to related objects as _links_. For example, when
 a virtual machine is retrieved it contains links to its disk attachments
@@ -977,10 +1004,10 @@ and network interface cards:
 The complete description of those _linked_ objects can be retrieved by sending
 separate requests:
 
-....
+----
 GET /ovirt-engine/api/vms/123/diskattachments
 GET /ovirt-engine/api/vms/123/nics
-....
+----
 
 However, in some situations it is more convenient for the application using the API to
 retrieve the linked information in the same request. This is useful, for example,
@@ -994,9 +1021,9 @@ Each of those strings is the _path_ of the linked object. For example, to retrie
 the disk attachments and the NICs in the example above the request should be like
 this:
 
-....
+----
 GET /ovirt-engine/api/vms/123?follow=disk_attachments,nics
-....
+----
 
 That will return an response like this:
 
@@ -1040,9 +1067,9 @@ disk attachment contains a link to the disk, which wasn't _followed_.
 In order to also follow the links to the disks, the following request
 can be used:
 
-....
+----
 GET /ovirt-engine/api/vms/123?follow=disk_attachments.disk
-....
+----
 
 That will result in the following response:
 
@@ -1078,16 +1105,16 @@ That will result in the following response:
 The path can be made as deep as needed. For example, to also get the statistics
 of the disks:
 
-....
+----
 GET /ovirt-engine/api/vms/123?follow=disk_attachments.disk.statistics
-....
+----
 
 Multiple path elements and multiple paths can be combined. For example, to get the
 disk attachments and the network interface cards, both with their statistics:
 
-....
+----
 GET /ovirt-engine/api/vms/123?follow=disk_attachments.disk.statistics,nics.statistics
-....
+----
 
 IMPORTANT: Almost all the operations that retrieve objects support the `follow`
 parameter, but make sure to explicitly check the reference documentation, as
@@ -1103,7 +1130,8 @@ especially in large scale environments. Make sure to test your application
 in a realistic environment, and use the `follow` parameter only when
 justified.
 
-=== Permissions
+[id="permissions"]
+== Permissions
 
 Many of the services that manage a single object provide a reference to
 a `permissions` service that manages the permissions assigned to that
@@ -1111,9 +1139,9 @@ object. Each permission contains links to the user or group, the role
 and the object. For example, the permissions assigned to a specific
 virtual machine can be retrieved sending a request like this:
 
-....
+----
 GET /ovirt-engine/api/vms/123/permissions
-....
+----
 
 The response body will look like this:
 
@@ -1133,7 +1161,8 @@ A permission is added to an object sending a `POST` request with a
 permission representation to this service. Each new permission requires
 a role and a user.
 
-=== Handling errors
+[id="handling-errors"]
+== Handling errors
 
 Some errors require further explanation beyond a standard HTTP status
 code. For example, the API reports an unsuccessful object state update
@@ -1142,9 +1171,9 @@ or action with a `fault` in the response body. The fault contains the
 a request to create a virtual machine without the mandatory `name`
 attribute it will respond with the following HTTP response line:
 
-....
+----
 HTTP/1.1 400 Bad Request
-....
+----
 
 And the following response body:
 
@@ -1156,8 +1185,11 @@ And the following response body:
 </fault>
 ----
 
+
 [id="documents-004_quick_start_example"]
-== Quick Start Examples
+:_content-type: ASSEMBLY
+[id="quick-start-examples"]
+= Quick Start Examples
 
 The examples in this section show you how to use the REST API to set up
 a basic {product-name} environment and to create a virtual machine.
@@ -1193,30 +1225,31 @@ environment.
 
 In many examples, some attributes of the results returned by the
 API have been omitted, for brevity. See, for example, the
-<<types-cluster, Cluster>> reference for a complete list of attributes.
+xref:types/cluster[Cluster] reference for a complete list of attributes.
 
-=== Access API entry point
+[id="access-api-entry-point"]
+== Access API entry point
 
 The following request retrieves a representation of the main entry point
 for version 4 of the API:
 
-....
+----
 GET /ovirt-engine/api HTTP/1.1
 Version: 4
 Accept: application/xml
-....
+----
 
 The same request, but using the `/v4` URL prefix instead of the `Version`
 header:
 
-....
+----
 GET /ovirt-engine/api/v4 HTTP/1.1
 Accept: application/xml
-....
+----
 
 The same request, using the `curl` command:
 
-....
+----
 curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --request GET \
@@ -1224,9 +1257,9 @@ curl \
 --header 'Accept: application/xml' \
 --user 'admin@internal:mypassword' \
 https://myengine.example.com/ovirt-engine/api
-....
+----
 
-The result is an object of type <<types-api, Api>>:
+The result is an object of type xref:types/api[Api]:
 
 [source,xml]
 ----
@@ -1278,11 +1311,11 @@ automatically select a version. The default is version `4`. You can change
 the default version using the `ENGINE_API_DEFAULT_VERSION` configuration
 parameter:
 
-....
+----
 # echo "ENGINE_API_DEFAULT_VERSION=3" > \
 /etc/ovirt-engine/engine.conf.d/99-set-default-version.conf
 # systemctl restart ovirt-engine
-....
+----
 
 Changing this parameter affects all users of the API that don't
 specify the version explicitly.
@@ -1294,12 +1327,12 @@ provides a reference point for each link. The next step in this example
 examines the data center collection, which is available through the
 `datacenters` link.
 
-The entry point also contains other data such as <<types-product_info,
-product_info>>, <<types-special_objects, special_objects>> and
-<<types-api_summary, summary>>. This data is covered in chapters
+The entry point also contains other data such as xref:types/product_info[product_info], xref:types/special_objects[special_objects] and
+xref:types/api_summary[summary]. This data is covered in chapters
 outside this example.
 
-=== List data centers
+[id="list-data-centers"]
+== List data centers
 
 {product-name} creates a `Default` data center on installation. This
 example uses the `Default` data center as the basis for the virtual
@@ -1307,14 +1340,14 @@ environment.
 
 The following request retrieves a representation of the data centers:
 
-....
+----
 GET /ovirt-engine/api/datacenters HTTP/1.1
 Accept: application/xml
-....
+----
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --request GET \
@@ -1322,10 +1355,9 @@ The same request, using the `curl` command:
 --header 'Accept: application/xml' \
 --user 'admin@internal:mypassword' \
 https://myengine.example.com/ovirt-engine/api/datacenters
-....
+----
 
-The result will be a list of objects of type <<types-data_center,
-DataCenter>>:
+The result will be a list of objects of type xref:types/data_center[DataCenter]:
 
 [source,xml]
 ----
@@ -1358,17 +1390,18 @@ Note the `id` of your `Default` data center. It identifies this data
 center in relation to other resources of your virtual environment.
 
 The data center also contains a link to the
-<<services-attached_storage_domains, service>> that manages the storage
+xref:services/attached_storage_domains[service] that manages the storage
 domains attached to the data center:
 
-....
+----
 <link href="/ovirt-engine/api/datacenters/001/storagedomains" rel="storagedomains"/>
-....
+----
 
 That service is used to attach storage domains from the main
 `storagedomains` collection, which this example covers later.
 
-=== List host clusters
+[id="list-host-clusters"]
+== List host clusters
 
 {product-name} creates a `Default` hosts cluster on installation. This
 example uses the `Default` cluster to group resources in your
@@ -1377,14 +1410,14 @@ example uses the `Default` cluster to group resources in your
 The following request retrieves a representation of the cluster
 collection:
 
-....
+----
 GET /ovirt-engine/api/clusters HTTP/1.1
 Accept: application/xml
-....
+----
 
 The same request, using the `curl` command:
 
-....
+----
 curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --request GET \
@@ -1392,9 +1425,9 @@ curl \
 --header 'Accept: application/xml' \
 --user 'admin@internal:mypassword' \
 https://myengine.example.com/ovirt-engine/api/clusters
-....
+----
 
-The result will be a list of objects of type <<types-cluster, Cluster>>:
+The result will be a list of objects of type xref:types/cluster[Cluster]:
 
 [source,xml]
 ----
@@ -1426,15 +1459,15 @@ The `Default` cluster is associated with the `Default` data center
 through a relationship using the `id` and `href` attributes of the
 `data_center` link:
 
-....
+----
 <data_center href="/ovirt-engine/api/datacenters/001" id="001"/>
-....
+----
 
-The `networks` link is a reference to the <<services-data_center_networks,
-service>> that manages the networks associated to this cluster. The next
+The `networks` link is a reference to the xref:services/data_center_networks[service] that manages the networks associated to this cluster. The next
 section examines the networks collection in more detail.
 
-=== List logical networks
+[id="list-logical-networks"]
+== List logical networks
 
 {product-name} creates a default `ovirtmgmt` network on installation.
 This network acts as the management network for {engine-name} to access
@@ -1446,14 +1479,14 @@ connect the virtual machines.
 
 The following request retrieves the list of logical networks:
 
-....
+----
 GET /ovirt-engine/api/networks HTTP/1.1
 Accept: application/xml
-....
+----
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --request GET \
@@ -1461,9 +1494,9 @@ The same request, using the `curl` command:
 --header 'Accept: application/xml' \
 --user 'admin@internal:mypassword' \
 https://myengine.example.com/ovirt-engine/api/networks
-....
+----
 
-The result will be a list of objects of type <<types-network, Network>>:
+The result will be a list of objects of type xref:types/network[Network]:
 
 [source,xml]
 ----
@@ -1491,19 +1524,21 @@ relationship using the data center's `id`.
 The `ovirtmgmt` network is also attached to the `Default` cluster through a
 relationship in the cluster's network sub-collection.
 
-=== List hosts
+[id="list-hosts"]
+== List hosts
 
 This example retrieves the list of hosts and shows a host named `myhost`
 registered with the virtualization environment:
 
-....
+----
 GET /ovirt-engine/api/hosts HTTP/1.1
 Accept: application/xml
-....
+----
+
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --request GET \
@@ -1511,9 +1546,9 @@ The same request, using the `curl` command:
 --header 'Accept: application/xml' \
 --user 'admin@internal:mypassword' \
 https://myengine.example.com/ovirt-engine/api/hosts
-....
+----
 
-The result will be a list of objects of type <<types-host, Host>>:
+The result will be a list of objects of type xref:types/host[Host]:
 
 [source,xml]
 ----
@@ -1555,7 +1590,8 @@ This host is a member of the `Default` cluster and accessing the `nics`
 sub-collection shows this host has a connection to the `ovirtmgmt`
 network.
 
-=== Create NFS data storage
+[id="create-nfs-data-storage"]
+== Create NFS data storage
 
 An NFS data storage domain is an exported NFS share attached to a data
 center and provides storage for virtualized guest images. Creation of a
@@ -1571,11 +1607,11 @@ already exist.
 
 The request should be like this:
 
-....
+----
 POST /ovirt-engine/api/storagedomains HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
-....
+----
 
 And the request body should be like this:
 
@@ -1598,7 +1634,7 @@ And the request body should be like this:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -1622,12 +1658,12 @@ The same request, using the `curl` command:
 </storage_domain>
 ' \
 https://myengine.example.com/ovirt-engine/api/storagedomains
-....
+----
 
 The server uses host `myhost` to create a NFS data storage domain called
 `mydata` with an export path of `mynfs.example.com:/exports/mydata`. The
 API also returns the following representation of the newly created
-storage domain resource (of type <<types-storage_domain, StorageDomain>>):
+storage domain resource (of type xref:types/storage_domain[StorageDomain]):
 
 [source,xml]
 ----
@@ -1649,7 +1685,8 @@ storage domain resource (of type <<types-storage_domain, StorageDomain>>):
 </storage_domain>
 ----
 
-=== Create NFS ISO storage
+[id="create-nfs-iso-storage"]
+== Create NFS ISO storage
 
 An NFS ISO storage domain is a mounted NFS share attached to a data
 center and provides storage for DVD/CD-ROM ISO and virtual floppy disk
@@ -1659,11 +1696,11 @@ URL of the storage domain collection:
 
 The request should be like this:
 
-....
+----
 POST /ovirt-engine/api/storagedomains HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
-....
+----
 
 And the request body should be like this:
 
@@ -1686,7 +1723,7 @@ And the request body should be like this:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -1710,12 +1747,12 @@ The same request, using the `curl` command:
 </storage_domain>
 ' \
 https://myengine.example.com/ovirt-engine/api/storagedomains
-....
+----
 
 The server uses host `myhost` to create a NFS ISO storage domain called
 `myisos` with an export path of `mynfs.example.com:/exports/myisos`. The
 API also returns the following representation of the newly created
-storage domain resource (of type <<types-storage_domain, StorageDomain>>):
+storage domain resource (of type xref:types/storage_domain[StorageDomain]):
 
 [source,xml]
 ----
@@ -1737,18 +1774,19 @@ storage domain resource (of type <<types-storage_domain, StorageDomain>>):
 </storage_domain>
 ----
 
-=== Attach storage domains to data center
+[id="attach-storage-domains-to-data-center"]
+== Attach storage domains to data center
 
 The following example attaches the `mydata` and `myisos` storage domains
 to the `Default` data center.
 
 To attach the `mydata` storage domain, send a request like this:
 
-....
+----
 POST /ovirt-engine/api/datacenters/001/storagedomains HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
-....
+----
 
 With a request body like this:
 
@@ -1761,7 +1799,7 @@ With a request body like this:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -1775,15 +1813,15 @@ The same request, using the `curl` command:
 </storage_domain>
 ' \
 https://myengine.example.com/ovirt-engine/api/datacenters/001/storagedomains
-....
+----
 
 To attach the `myisos` storage domain, send a request like this:
 
-....
+----
 POST /ovirt-engine/api/datacenters/001/storagedomains HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
-....
+----
 
 With a request body like this:
 
@@ -1796,7 +1834,7 @@ With a request body like this:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -1810,16 +1848,17 @@ The same request, using the `curl` command:
 </storage_domain>
 ' \
 https://myengine.example.com/ovirt-engine/api/datacenters/001/storagedomains
-....
+----
 
-=== Create virtual machine
+[id="create-virtual-machine"]
+== Create virtual machine
 
 The following example creates a virtual machine called `myvm` on the
 `Default` cluster using the virtualization environment's `Blank`
 template as a basis. The request also defines the virtual machine's
 memory as 512 MiB and sets the boot device to a virtual hard disk.
 
-The request should be contain an object of type <<types-vm, Vm>>
+The request should be contain an object of type xref:types/vm[Vm]
 describing the virtual machine to create:
 
 [source,xml]
@@ -1855,7 +1894,7 @@ And the request body should be like this:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -1884,9 +1923,9 @@ The same request, using the `curl` command:
 </vm>
 ' \
 https://myengine.example.com/ovirt-engine/api/vms
-....
+----
 
-The response body will be an object of the <<types-vm, Vm>> type:
+The response body will be an object of the xref:types/vm[Vm] type:
 
 [source,xml]
 ----
@@ -1920,20 +1959,21 @@ The response body will be an object of the <<types-vm, Vm>> type:
 </vm>
 ----
 
-=== Create a virtual machine NIC
+[id="create-a-virtual-machine-nic"]
+== Create a virtual machine NIC
 
 The following example creates a virtual network interface to connect the
 example virtual machine to the `ovirtmgmt` network.
 
 The request should be like this:
 
-....
+----
 POST /ovirt-engine/api/vms/007/nics HTTP/1.1
 Content-Type: application/xml
 Accept: application/xml
-....
+----
 
-The request body should contain an object of type <<types-nic, Nic>>
+The request body should contain an object of type xref:types/nic[Nic]
 describing the NIC to be created:
 
 [source,xml]
@@ -1946,7 +1986,7 @@ describing the NIC to be created:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -1961,23 +2001,23 @@ The same request, using the `curl` command:
 </nic>
 ' \
 https://myengine.example.com/ovirt-engine/api/vms/007/nics
-....
+----
 
-=== Create virtual machine disk
+[id="create-virtual-machine-disk"]
+== Create virtual machine disk
 
 The following example creates an 8 GiB _copy-on-write_ disk for the
 example virtual machine.
 
 The request should be like this:
 
-....
+----
 POST /ovirt-engine/api/vms/007/diskattachments HTTP/1.1
 Content-Type: application/xml
 Accept: application/xml
-....
+----
 
-The request body should be an object of type <<types-disk_attachment,
-DiskAttachment>> describing the disk and how it will be attached to the
+The request body should be an object of type xref:types/disk_attachment[DiskAttachment] describing the disk and how it will be attached to the
 virtual machine:
 
 [source,xml]
@@ -2002,7 +2042,7 @@ virtual machine:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -2029,33 +2069,34 @@ The same request, using the `curl` command:
 </disk_attachment>
 ' \
 https://myengine.example.com/ovirt-engine/api/vms/007/diskattachments
-....
+----
 
 The `storage_domains` attribute tells the API to store the disk on the
 `mydata` storage domain.
 
-=== Attach ISO image to virtual machine
+[id="attach-iso-image-to-virtual-machine"]
+== Attach ISO image to virtual machine
 
 The boot media for the following virtual machine example requires a CD-ROM or DVD
 ISO image for an operating system installation. This example uses a
 CentOS 7 image.
 
 ISO images must be available in the `myisos` ISO domain for the virtual
-machines to use. You can use <<services-image_transfers>> to create an
-image transfer and <<services-image_transfer>> to upload the ISO
+machines to use. You can use xref:services/image_transfer[ImageTransfer] to create an
+image transfer and xref:services/image_transfers[ImageTransfers] to upload the ISO
 image.
 
 Once the ISO image is uploaded, an API can be used to request the list of
 files from the ISO storage domain:
 
-....
+----
 GET /ovirt-engine/api/storagedomains/006/files HTTP/1.1
 Accept: application/xml
-....
+----
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -2063,10 +2104,9 @@ The same request, using the `curl` command:
 --header 'Version: 4' \
 --header 'Accept: application/xml' \
 https://myengine.example.com/ovirt-engine/api/storagedomains/006/files
-....
+----
 
-The server returns the following list of objects of type <<types-file,
-File>>, one for each available ISO (or floppy) image:
+The server returns the following list of objects of type xref:types/file[File], one for each available ISO (or floppy) image:
 
 [source,xml]
 ----
@@ -2084,13 +2124,13 @@ _Change CD_ button in the administration or user portal applications.
 
 The request should be like this:
 
-....
+----
 PUT /ovirt-engine/api/vms/007/cdroms/00000000-0000-0000-0000-000000000000 HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
-....
+----
 
-The request body should be an object of type <<types-cdrom, Cdrom>>
+The request body should be an object of type xref:types/cdrom[Cdrom]
 containing an inner `file` attribute to indicate the identifier of the
 ISO (or floppy) image:
 
@@ -2103,7 +2143,7 @@ ISO (or floppy) image:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -2117,24 +2157,24 @@ The same request, using the `curl` command:
 </cdrom>
 ' \
 https://myengine.example.com/ovirt-engine/api/vms/007/cdroms/00000000-0000-0000-0000-000000000000
-....
+----
 
-For more details see the documentation of the <<services-vm_cdrom,
-service>> that manages virtual machine CD-ROMS.
+For more details see the documentation of the xref:services/vm_cdrom[service] that manages virtual machine CD-ROMS.
 
-=== Start the virtual machine
+[id="start-the-virtual-machine"]
+== Start the virtual machine
 
 The virtual environment is complete and the virtual machine contains all
 necessary components to function. This example starts the virtual
-machine using the <<services-vm-methods-start, start>> method.
+machine using the xref:services/vm/methods/start[start] method.
 
 The request should be like this:
 
-....
+----
 POST /ovirt-engine/api/vms/007/start HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
-....
+----
 
 The request body should be like this:
 
@@ -2155,7 +2195,7 @@ The request body should be like this:
 
 The same request, using the `curl` command:
 
-....
+----
 # curl \
 --cacert '/etc/pki/ovirt-engine/ca.pem' \
 --user 'admin@internal:mypassword' \
@@ -2177,12 +2217,13 @@ The same request, using the `curl` command:
 </action>
 ' \
 https://myengine.example.com/ovirt-engine/api/vms/007/start
-....
+----
 
 The additional request body sets the virtual machine's boot device to
 CD-ROM for this boot only. This enables the virtual machine to install
 the operating system from the attached ISO image. The boot device
 reverts back to disk for all future boots.
+
 
 [id="requests"]
 == Requests
@@ -3082,9 +3123,11 @@ This section enumerates all the requests that are available in the API.
 * <<services-permission-methods-get,GET>> /<<services-vnic_profiles,vnicprofiles>>/<<services-vnic_profile,{profile:id}>>/<<services-assigned_permissions,permissions>>/<<services-permission,{permission:id}>>
 * <<services-permission-methods-remove,DELETE>> /<<services-vnic_profiles,vnicprofiles>>/<<services-vnic_profile,{profile:id}>>/<<services-assigned_permissions,permissions>>/<<services-permission,{permission:id}>>
 
+[id="services"]
 == Services
 
 This section enumerates all the services that are available in the API.
+
 
 [id="services-affinity_group"]
 === AffinityGroup
@@ -5246,8 +5289,8 @@ Manages a single disk available in a storage domain attached to a data center.
 
 IMPORTANT: Since version 4.2 of the engine this service is intended only to list disks available in the storage
 domain, and to register unregistered disks. All the other operations, like copying a disk, moving a disk, etc, have
-been deprecated and will be removed in the future. To perform those operations use the <<services-disks, service
-that manages all the disks of the system>>, or the <<services-disk, service that manages an specific disk>>.
+been deprecated and will be removed in the future. To perform those operations use the xref:services/disks[service that manages all the disks of the system]
+or the xref:services/disk[service that manages a specific disk].
 
 .Methods summary
 [cols="20,80"]
@@ -5286,7 +5329,7 @@ that manages all the disks of the system>>, or the <<services-disk, service that
 Copies a disk to the specified storage domain.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To copy a disk use the <<services-disk-methods-copy, copy>>
+compatibility. It will be removed in the future. To copy a disk use the xref:services/disk/methods/copy[copy]
 operation of the service that manages that disk.
 
 .Parameters summary
@@ -5312,7 +5355,7 @@ operation of the service that manages that disk.
 Exports a disk to an export storage domain.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To export a disk use the <<services-disk-methods-export, export>>
+compatibility. It will be removed in the future. To export a disk use the xref:services/disk/methods/export[export]
 operation of the service that manages that disk.
 
 .Parameters summary
@@ -5361,7 +5404,7 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 Moves a disk to another storage domain.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To move a disk use the <<services-disk-methods-move, move>>
+compatibility. It will be removed in the future. To move a disk use the xref:services/disk/methods/move[move]
 operation of the service that manages that disk.
 
 .Parameters summary
@@ -5397,7 +5440,7 @@ Registers an unregistered disk.
 Removes a disk.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To remove a disk use the <<services-disk-methods-remove, remove>>
+compatibility. It will be removed in the future. To remove a disk use the xref:services/disk/methods/remove[remove]
 operation of the service that manages that disk.
 
 [id="services-attached_storage_domain_disk-methods-sparsify"]
@@ -5406,7 +5449,7 @@ operation of the service that manages that disk.
 Sparsify the disk.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To remove a disk use the <<services-disk-methods-remove, remove>>
+compatibility. It will be removed in the future. To remove a disk use the xref:services/disk/methods/remove[remove]
 operation of the service that manages that disk.
 
 [id="services-attached_storage_domain_disk-methods-update"]
@@ -5416,7 +5459,7 @@ Updates the disk.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
 compatibility. It will be removed in the future. To update a disk use the
-<<services-disk-methods-update, update>> operation of the service that manages that disk.
+xref:services/disk/methods/update[update] operation of the service that manages that disk.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -5454,9 +5497,9 @@ Manages the collection of disks available inside an storage domain that is attac
 Adds or registers a disk.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To add a new disk use the <<services-disks-methods-add, add>>
+compatibility. It will be removed in the future. To add a new disk use the xref:services/disks/methods/add[add]
 operation of the service that manages the disks of the system. To register an unregistered disk use the
-<<services-attached_storage_domain_disk-methods-register, register>> operation of the service that manages
+xref:services/attached_storage_domain_disk/methods/register[register] operation of the service that manages
 that disk.
 
 .Parameters summary
@@ -6377,7 +6420,7 @@ For example, to find details of the enabled feature `456` for cluster `123`, sen
 GET /ovirt-engine/api/clusters/123/enabledfeatures/456
 ----
 
-That will return a <<types-cluster_feature, ClusterFeature>> object containing the name:
+That will return a xref:types/cluster_feature[ClusterFeature] object containing the name:
 
 [source,xml]
 ----
@@ -6590,7 +6633,7 @@ For example, to find details of the cluster feature `456` for cluster level 4.1,
 GET /ovirt-engine/api/clusterlevels/4.1/clusterfeatures/456
 ----
 
-That will return a <<types-cluster_feature, ClusterFeature>> object containing the name:
+That will return a xref:types/cluster_feature[ClusterFeature] object containing the name:
 
 [source,xml]
 ----
@@ -6685,7 +6728,7 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 [id="services-cluster_level"]
 === ClusterLevel
 
-Provides information about a specific cluster level. See the <<services-cluster_levels,ClusterLevels>> service for
+Provides information about a specific cluster level. See the xref:services/cluster_levels[ClusterLevels] service for
 more information.
 
 .Methods summary
@@ -6710,7 +6753,7 @@ For example, to find what CPU types are supported by level 3.6 you can send a re
 GET /ovirt-engine/api/clusterlevels/3.6
 ----
 
-That will return a <<types-cluster_level, ClusterLevel>> object containing the supported CPU types, and other
+That will return a xref:types/cluster_level[ClusterLevel] object containing the supported CPU types, and other
 information which describes the cluster level:
 
 [source,xml]
@@ -8299,7 +8342,7 @@ Refreshes a direct LUN disk with up-to-date information from the storage.
 Refreshing a direct LUN disk is useful when:
 
 - The LUN was added using the API without the host parameter, and therefore does not contain
-  any information from the storage (see <<services-disks-methods-add, DisksService::add>>).
+  any information from the storage (see xref:services/disks/methods/add[DisksService::add]).
 - New information about the LUN is available on the storage and you want to update the LUN with it.
 
 To refresh direct LUN disk `123` using host `456`, send the following request:
@@ -8544,7 +8587,7 @@ PUT /vms/{vm:id}/disksattachments/{attachment:id}
 === DiskAttachments
 
 This service manages the set of disks attached to a virtual machine. Each attached disk is represented by a
-<<types-disk_attachment,DiskAttachment>>, containing the bootable flag, the disk interface and the reference to
+xref:types/disk_attachment[DiskAttachment], containing the bootable flag, the disk interface and the reference to
 the disk.
 
 .Methods summary
@@ -8961,14 +9004,14 @@ Manages the collection of disks available in the system.
 Adds a new floating disk.
 
 There are three types of disks that can be added - disk image, direct LUN and Managed Block disk.
-https://wiki.openstack.org/wiki/Cinder[Cinder] integration has been replaced by Managed Block Storage.
+link:https://wiki.openstack.org/wiki/Cinder[Cinder] integration has been replaced by Managed Block Storage.
 
 *Adding a new image disk:*
 
-When creating a new floating image <<types-disk,Disk>>, the API requires the `storage_domain`, `provisioned_size`
+When creating a new floating image xref:types/disk[Disk], the API requires the `storage_domain`, `provisioned_size`
 and `format` attributes.
 
-Note that block storage domains (i.e., storage domains with the <<types-storage_type, storage type>> of iSCSI or
+Note that block storage domains (i.e. storage domains with the xref:types/storage_type[storage type] of iSCSI or
 FCP) don't support the combination of the raw `format` with `sparse=true`, so `sparse=false` must be stated
 explicitly.
 
@@ -8994,6 +9037,7 @@ With a request body as follows:
   <backup>incremental</backup>
 </disk>
 ----
+
 
 *Adding a new direct LUN disk:*
 
@@ -9034,6 +9078,7 @@ With a request body as follows:
 ----
 
 To create a new floating direct LUN disk without using a host, remove the `host` element.
+
 
 *Adding a new Cinder disk:*
 
@@ -10794,8 +10839,8 @@ Sets the maximum number of groups to return. If not specified all the groups are
 
 Represents an external host provider, such as Foreman or Satellite.
 
-See https://www.theforeman.org/ for more details on Foreman.
-See https://access.redhat.com/products/red-hat-satellite for more details on Red Hat Satellite.
+See link:https://www.theforeman.org/[Foreman documentation] for details.
+See link:https://access.redhat.com/products/red-hat-satellite[Satellite documentation] for details.
 
 .Methods summary
 [cols="20,80"]
@@ -11384,7 +11429,7 @@ For example import of a template OVA can be facilitated using the following requ
 POST /externaltemplateimports
 ----
 
-With request body of type <<types-external_template_import,ExternalTemplateImport>>, for example:
+With request body of type xref:types/external_template_import[ExternalTemplateImport], for example:
 
 [source,xml]
 ----
@@ -11438,7 +11483,7 @@ For example import of a virtual machine from VMware can be facilitated using the
 POST /externalvmimports
 ----
 
-With request body of type <<types-external_vm_import,ExternalVmImport>>, for example:
+With request body of type xref:types/external_vm_import[ExternalVmImport], for example:
 
 [source,xml]
 ----
@@ -11645,6 +11690,7 @@ apc_snmp, hpblade, ilo, ilo2, ilo_ssh, redfish, rsa fencing agent/s sample reque
     <port>9</port>
     <options>[name1=value1, name2=value2,...]</options>
   </agent>
+
 
 cisco_ucs, drac5, eps fencing agent/s sample request:
 
@@ -12131,7 +12177,7 @@ Removes a brick.
 
 Removes a brick from the underlying gluster volume and deletes entries from database. This can be used only when
 removing a single brick without data migration. To remove multiple bricks and with data migration, use
-<<services-gluster_bricks-methods-migrate, migrate>> instead.
+xref:services/gluster_bricks/methods/migrate[migrate] instead.
 
 For example, to delete brick `234` from gluster volume `123`, send a request like this:
 
@@ -12158,8 +12204,8 @@ DELETE /ovirt-engine/api/clusters/567/glustervolumes/123/glusterbricks/234
 Replaces this brick with a new one.
 
 IMPORTANT: This operation has been deprecated since version 3.5 of the engine and will be removed in the future.
-Use <<services-gluster_bricks-methods-add, add brick(s)>> and
-<<services-gluster_bricks-methods-migrate, migrate brick(s)>> instead.
+Use xref:services/gluster_bricks/methods/add[add brick(s)] and
+xref:services/gluster_bricks/methods/migrate[migrate brick(s)] instead.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -12378,8 +12424,8 @@ Start migration of data prior to removing bricks.
 
 Removing bricks is a two-step process, where the data on bricks to be removed, is first migrated to remaining
 bricks. Once migration is completed the removal of bricks is confirmed via the API
-<<services-gluster_bricks-methods-remove, remove>>. If at any point, the action needs to be cancelled
-<<services-gluster_bricks-methods-stop_migrate, stopmigrate>> has to be called.
+xref:services/gluster_bricks/methods/remove[remove]. If at any point, the action needs to be cancelled
+xref:services/gluster_bricks/methods/stop_migrate[stopmigrate] has to be called.
 
 For instance, to delete a brick from a gluster volume with id `123`, send a request:
 
@@ -12402,7 +12448,7 @@ With a request body like this:
 ----
 
 The migration process can be tracked from the job id returned from the API using
-<<services-job-methods-get, job>> and steps in job using <<services-step-methods-get, step>>
+xref:services/job/methods/get[job] and steps in job using xref:services/step/methods/get[step]
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -12427,7 +12473,7 @@ The migration process can be tracked from the job id returned from the API using
 Removes bricks from gluster volume.
 
 The recommended way to remove bricks without data loss is to first migrate the data using
-<<services-gluster_bricks-methods-stop_migrate, stopmigrate>> and then removing them. If migrate was not called on
+xref:services/gluster_bricks/methods/stop_migrate[stopmigrate] and then removing them. If migrate was not called on
 bricks prior to remove, the bricks are removed without data migration which may lead to data loss.
 
 For example, to delete the bricks from gluster volume `123`, send a request like this:
@@ -12518,7 +12564,7 @@ With a request body like this:
 ===== bricks
 
 List of bricks for which data migration needs to be stopped. This list should match the arguments passed to
-<<services-gluster_bricks-methods-migrate, migrate>>.
+xref:services/gluster_bricks/methods/migrate[migrate].
 
 [id="services-gluster_hook"]
 === GlusterHook
@@ -13321,7 +13367,7 @@ Sets the maximum number of volumes to return. If not specified all the volumes a
 === Group
 
 Manages a group of users. Use this service to either get groups details or remove groups. In order
-to add new groups please use <<services-groups, service>> that manages the collection of groups.
+to add new groups please use xref:services/groups[service] that manages the collection of groups.
 
 .Methods summary
 [cols="20,80"]
@@ -13731,10 +13777,10 @@ With a request body like this:
 ----
 
 IMPORTANT: Since {engine-name} 4.3, it is possible to also specify `commit_on_success` in
-the <<services-host-methods-setup_networks, setupnetworks>> request, in which case the new
+the xref:services/host/methods/setup_networks[setupnetworks] request, in which case the new
 configuration is automatically saved in the {hypervisor-name} upon completing the setup and
 re-establishing connectivity between the {hypervisor-name} and {engine-name}, and without
-waiting for a separate <<services-host-methods-commit_net_config, commitnetconfig>> request.
+waiting for a separate xref:services/host/methods/commit_net_config[commitnetconfig] request.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -14250,6 +14296,7 @@ The iSCSI targets.
 
 Login to iSCSI targets on the host, using the target details.
 
+
 IMPORTANT: When using this method to log in, you must use the iscsi details from the
 discovered targets results in the discoveriscsi method.
 
@@ -14493,13 +14540,13 @@ host_service.commit_net_config()
 ----
 
 IMPORTANT: To make sure that the network configuration has been saved in the host, and that it will be applied
-when the host is rebooted, remember to call <<services-host-methods-commit_net_config, commitnetconfig>>.
+when the host is rebooted, remember to call xref:services/host/methods/commit_net_config[commitnetconfig].
 
 IMPORTANT: Since {engine-name} 4.3, it is possible to also specify `commit_on_success` in
-the <<services-host-methods-setup_networks, setupnetworks>> request, in which case the new
+the xref:services/host/methods/setup_networks[setupnetworks] request, in which case the new
 configuration is automatically saved in the {hypervisor-name} upon completing the setup and
 re-establishing connectivity between the {hypervisor-name} and {engine-name}, and without
-waiting for a separate <<services-host-methods-commit_net_config, commitnetconfig>> request.
+waiting for a separate xref:services/host/methods/commit_net_config[commitnetconfig] request.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -14521,7 +14568,7 @@ waiting for a separate <<services-host-methods-commit_net_config, commitnetconfi
 |In
 |Specifies whether to automatically save the configuration in the {hypervisor-name} upon completing
 the setup and re-establishing connectivity between the {hypervisor-name} and {engine-name},
-and without waiting for a separate <<services-host-methods-commit_net_config, commitnetconfig>>
+and without waiting for a separate xref:services/host/methods/commit_net_config[commitnetconfig]
 request.
 
 |`connectivity_timeout`
@@ -14571,7 +14618,7 @@ request.
 
 Specifies whether to automatically save the configuration in the {hypervisor-name} upon completing
 the setup and re-establishing connectivity between the {hypervisor-name} and {engine-name},
-and without waiting for a separate <<services-host-methods-commit_net_config, commitnetconfig>>
+and without waiting for a separate xref:services/host/methods/commit_net_config[commitnetconfig]
 request.
 The default value is `false`, which means that the configuration will not be
 saved automatically.
@@ -14727,7 +14774,7 @@ Default value is specified by `ANSIBLE_PLAYBOOK_EXEC_DEFAULT_TIMEOUT` configrati
 Check if there are upgrades available for the host. If there are upgrades available an icon will be displayed
 next to host status icon in the Administration Portal. Audit log messages are also added to indicate the
 availability of upgrades. The upgrade can be started from the webadmin or by using the
-<<services-host-methods-upgrade, upgrade>> host action.
+xref:services/host/methods/upgrade[upgrade] host action.
 
 [id="services-host_cpu_units"]
 === HostCpuUnits
@@ -15903,8 +15950,8 @@ is set to `true`.
 === ImageTransfer
 
 This service provides a mechanism to control an image transfer. The client will have
-to create a transfer by using <<services-image_transfers-methods-add, add>>
-of the <<services-image_transfers>> service, stating the image to transfer
+to create a transfer by using xref:services/image_transfers/methods/add[add]
+of the xref:services/image_transfers[image transfers] service, stating the image to transfer
 data to/from.
 
 After doing that, the transfer is managed by this service.
@@ -15943,7 +15990,7 @@ transfer = transfers_service.add(
 ----
 
 If the user wishes to download a disk rather than upload, he/she should specify
-`download` as the <<types-image_transfer_direction, direction>> attribute of the transfer.
+`download` as the xref:types/image_transfer_direction[direction] attribute of the transfer.
 This will grant a read permission from the image, instead of a write permission.
 
 E.g:
@@ -15964,11 +16011,11 @@ transfer = transfers_service.add(
 Transfers have phases, which govern the flow of the upload/download.
 A client implementing such a flow should poll/check the transfer's phase and
 act accordingly. All the possible phases can be found in
-<<types-image_transfer_phase, ImageTransferPhase>>.
+xref:types/image_transfer_phase[ImageTransferPhase].
 
-After adding a new transfer, its phase will be <<types-image_transfer_phase, initializing>>.
+After adding a new transfer, its phase will be xref:types/image_transfer_phase[initializing].
 The client will have to poll on the transfer's phase until it changes.
-When the phase becomes <<types-image_transfer_phase, transferring>>,
+When the phase becomes xref:types/image_transfer_phase[transferring],
 the session is ready to start the transfer.
 
 For example:
@@ -15981,14 +16028,14 @@ while transfer.phase == types.ImageTransferPhase.INITIALIZING:
    transfer = transfer_service.get()
 ----
 
-At that stage, if the transfer's phase is <<types-image_transfer_phase, paused_system>>, then the session was
+At that stage, if the transfer's phase is xref:types/image_transfer_phase[paused_system], then the session was
 not successfully established. One possible reason for that is that the ovirt-imageio-daemon is not running
 in the host that was selected for transfer.
-The transfer can be resumed by calling <<services-image_transfer-methods-resume, resume>>
+The transfer can be resumed by calling xref:services/image_transfer/methods/resume[resume]
 of the service that manages it.
 
 If the session was successfully established - the returned transfer entity will
-contain the <<types-image_transfer, transfer_url>> and <<types-image_transfer, proxy_url>> attributes,
+contain the xref:types/image_transfer[transfer_url] and xref:types/image_transfer[proxy_url] attributes,
 which the client needs to use in order to transfer the required data. The client can choose whatever
 technique and tool for sending the HTTPS request with the image's data.
 
@@ -16015,7 +16062,7 @@ on this, see imageio API documentation:
     http://ovirt.github.io/ovirt-imageio/images.html
 
 When finishing the transfer, the user should call
-<<services-image_transfer-methods-finalize, finalize>>. This will make the
+xref:services/image_transfer/methods/finalize[finalize]. This will make the
 final adjustments and verifications for finishing the transfer process.
 
 For example:
@@ -16026,10 +16073,11 @@ transfer_service.finalize()
 ----
 
 In case of an error, the transfer's phase will be changed to
-<<types-image_transfer_phase, finished_failure>>, and
+xref:types/image_transfer_phase[finished_failure], and
 the disk's status will be changed to `Illegal`. Otherwise it will be changed to
-<<types-image_transfer_phase, finished_success>>, and the disk will be ready
+xref:types/image_transfer_phase[finished_success], and the disk will be ready
 to be used. In both cases, the transfer entity will be removed shortly after.
+
 
 *Using HTTP and cURL calls:*
 
@@ -16057,7 +16105,9 @@ With a request body as follows:
 </disk>
 ----
 
+
 - Create a new image transfer for downloading/uploading a `disk` with id `456`:
+
 
 [source]
 ----
@@ -16222,7 +16272,7 @@ while transfer.phase == types.ImageTransferPhase.RESUMING:
 === ImageTransfers
 
 This service manages image transfers, for performing Image I/O API in {product-name}.
-Please refer to <<services-image_transfer, image transfer>> for further
+Please refer to xref:services/image_transfer[image transfer] for further
 documentation.
 
 .Methods summary
@@ -16267,6 +16317,7 @@ With a request body like this:
   <direction>upload|download</direction>
 </image_transfer>
 ----
+
 
 *Creating a new image transfer for downloading or uploading a `disk_snapshot`:*
 
@@ -18254,9 +18305,9 @@ DELETE /ovirt-engine/api/datacenters/123/networks/456
 ----
 
 NOTE: To remove an external logical network, the network has to be removed directly from its provider by
-https://developer.openstack.org/api-ref/network[OpenStack Networking API].
+link:https://developer.openstack.org/api-ref/network[OpenStack Networking API].
 The entity representing the external network inside {product-name} is removed automatically,
-if <<types-open_stack_network_provider-attributes-auto_sync,`auto_sync`>> is enabled for the provider,
+if xref:types/open_stack_network_provider/attributes/auto_sync[`auto_sync`] is enabled for the provider,
 otherwise the entity has to be removed using this method.
 
 .Parameters summary
@@ -18293,6 +18344,7 @@ With a request body like this:
   <description>My updated description</description>
 </network>
 ----
+
 
 The maximum transmission unit of a network is set using a PUT request to
 specify the integer value of the `mtu` attribute.
@@ -18553,7 +18605,7 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 Represents a readonly network filters sub-collection.
 
 The network filter enables to filter packets send to/from the VM's nic according to defined rules.
-For more information please refer to <<services-network_filter,NetworkFilter>> service documentation
+For more information please refer to xref:services/network_filter[NetworkFilter] service documentation
 
 Network filters are supported in different versions, starting from version 3.0.
 
@@ -18855,6 +18907,7 @@ With a request body like this:
   <data_center id="123"/>
 </network>
 ----
+
 
 To associate the existing network `456` with the data center `123` send a request like this:
 
@@ -19609,7 +19662,7 @@ Data center is mandatory, and can be specified
 using the `id` or `name` attributes. The rest of
 the attributes will be ignored.
 
-NOTE: If <<types-open_stack_network_provider-attributes-auto_sync,`auto_sync`>> is
+NOTE: If xref:types/open_stack_network_provider/attributes/auto_sync[`auto_sync`] is
 enabled for the provider, the network might be imported automatically. To
 prevent this, automatic import can be disabled by setting the `auto_sync` to false,
 and enabling it again after importing the network.
@@ -20802,7 +20855,7 @@ Represents a permits sub-collection of the specific role.
 [id="services-permits-methods-add"]
 ==== add [small]#POST#
 
-Adds a permit to the role. The permit name can be retrieved from the <<services-cluster_levels>> service.
+Adds a permit to the role. The permit name can be retrieved from the xref:services/cluster_levels[cluster_levels] service.
 
 For example to assign a permit `create_vm` to the role with id `123` send a request like this:
 
@@ -21753,7 +21806,7 @@ DELETE /ovirt-engine/api/roles/{role_id}
 
 Updates a role. You are allowed to update `name`, `description` and `administrative` attributes after role is
 created. Within this endpoint you can't add or remove roles permits you need to use
-<<services-permits, service>> that manages permits of role.
+xref:services/permits[service] that manages permits of role.
 
 For example to update role's `name`, `description` and `administrative` attributes send a request like this:
 
@@ -22696,8 +22749,8 @@ a disk with snapshots, the relevant `image_id` should be specified for each snap
 
 [IMPORTANT]
 ====
-When a snapshot is created the default value for the <<types-snapshot-attributes-persist_memorystate,
-persist_memorystate>> attribute is `true`. That means that the content of the memory of the virtual
+When a snapshot is created, the default value for the
+xref:types/snapshot/attributes/persist_memorystate[persist_memorystate] attribute is `true`. That means that the content of the memory of the virtual
 machine will be included in the snapshot, and it also means that the virtual machine will be paused
 for a longer time. That can negatively affect applications that are very sensitive to timing (NTP
 servers, for example). In those cases make sure that you set the attribute to `false`:
@@ -22848,7 +22901,7 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 Replaces the key with a new resource.
 
 IMPORTANT: Since version 4.4.8 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. Instead please use DELETE followed by <<services-ssh_public_keys-methods-add, add operation>>.
+compatibility. It will be removed in the future. Instead please use DELETE followed by xref:services/ssh_public_keys/methods/add[add operation].
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -23608,7 +23661,7 @@ With a request body like this:
 ----
 
  Note that this operation is only applicable to block storage domains (i.e., storage domains with the
- <<types/storage_type, storage type> of iSCSI or FCP).
+ xref:types/storage_type[storage type] of iSCSI or FCP).
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -23754,7 +23807,7 @@ DELETE /ovirt-engine/api/storageDomains/123?host=myhost
 
 Updates a storage domain.
 
-Not all of the <<types-storage_domain,StorageDomain>>'s attributes are updatable after creation. Those that can be
+Not all of the xref:types/storage_domain[StorageDomain]'s attributes are updatable after creation. Those that can be
 updated are: `name`, `description`, `comment`, `warning_low_space_indicator`, `critical_space_action_blocker` and
 `wipe_after_delete.` (Note that changing the `wipe_after_delete` attribute will not change the wipe after delete
 property of disks that already exist).
@@ -23951,8 +24004,9 @@ Manages a single disk available in a storage domain.
 
 IMPORTANT: Since version 4.2 of the engine this service is intended only to list disks available in the storage
 domain, and to register unregistered disks. All the other operations, like copying a disk, moving a disk, etc, have
-been deprecated and will be removed in the future. To perform those operations use the <<services-disks, service
-that manages all the disks of the system>>, or the <<services-disk, service that manages an specific disk>>.
+been deprecated and will be removed in the future. To perform those operations
+use the xref:services/disks[service that manages all the disks of the system]
+or the xref:services/disk[service that manages a specific disk].
 
 .Methods summary
 [cols="20,80"]
@@ -23991,7 +24045,7 @@ that manages all the disks of the system>>, or the <<services-disk, service that
 Copies a disk to the specified storage domain.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To copy a disk use the <<services-disk-methods-copy, copy>>
+compatibility. It will be removed in the future. To copy a disk use the xref:services/disk/methods/copy[copy]
 operation of the service that manages that disk.
 
 .Parameters summary
@@ -24017,7 +24071,7 @@ operation of the service that manages that disk.
 Exports a disk to an export storage domain.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To export a disk use the <<services-disk-methods-export, export>>
+compatibility. It will be removed in the future. To export a disk use the xref:services/disk/methods/export[export]
 operation of the service that manages that disk.
 
 .Parameters summary
@@ -24066,7 +24120,7 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 Moves a disk to another storage domain.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To move a disk use the <<services-disk-methods-move, move>>
+compatibility. It will be removed in the future. To move a disk use the xref:services/disk/methods/move[move]
 operation of the service that manages that disk.
 
 .Parameters summary
@@ -24118,7 +24172,7 @@ There is no need to specify the size as the optimal size is calculated automatic
 Removes a disk.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To remove a disk use the <<services-disk-methods-remove, remove>>
+compatibility. It will be removed in the future. To remove a disk use the xref:services/disk/methods/remove[remove]
 operation of the service that manages that disk.
 
 [id="services-storage_domain_disk-methods-sparsify"]
@@ -24127,7 +24181,7 @@ operation of the service that manages that disk.
 Sparsify the disk.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To remove a disk use the <<services-disk-methods-remove, remove>>
+compatibility. It will be removed in the future. To remove a disk use the xref:services/disk/methods/remove[remove]
 operation of the service that manages that disk.
 
 [id="services-storage_domain_disk-methods-update"]
@@ -24137,7 +24191,7 @@ Updates the disk.
 
 IMPORTANT: Since version 4.2 of the engine this operation is deprecated, and preserved only for backwards
 compatibility. It will be removed in the future. To update a disk use the
-<<services-disk-methods-update, update>> operation of the service that manages that disk.
+xref:services/disk/methods/update[update] operation of the service that manages that disk.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -24175,9 +24229,9 @@ Manages the collection of disks available inside a specific storage domain.
 Adds or registers a disk.
 
 IMPORTANT: Since version 4.2 of the {engine-name} this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. To add a new disk use the <<services-disks-methods-add, add>>
+compatibility. It will be removed in the future. To add a new disk use the xref:services/disks/methods/add[add]
 operation of the service that manages the disks of the system. To register an unregistered disk use the
-<<services-attached_storage_domain_disk-methods-register, register>> operation of the service that manages
+xref:services/attached_storage_domain_disk/methods/register[register] operation of the service that manages
 that disk.
 
 .Parameters summary
@@ -24639,7 +24693,7 @@ Deprecated attribute describing mapping rules for virtual NIC profiles that will
 
 WARNING: Please note that this attribute has been deprecated since version 4.2.1 of the engine, and preserved only for backward
 compatibility. It will be removed in the future. To specify `vnic_profile_mappings` use the `vnic_profile_mappings`
-attribute inside the <<types-registration_configuration, RegistrationConfiguration>> type.
+attribute inside the xref:types/registration_configuration[RegistrationConfiguration] type.
 
 [id="services-storage_domain_template-methods-remove"]
 ==== remove [small]#DELETE#
@@ -25000,7 +25054,7 @@ Deprecated attribute describing mapping rules for virtual NIC profiles that will
 
 WARNING: Please note that this attribute has been deprecated since version 4.2.1 of the engine, and preserved only for backward
 compatibility. It will be removed in the future. To specify `vnic_profile_mappings` use the `vnic_profile_mappings`
-attribute inside the <<types-registration_configuration, RegistrationConfiguration>> type.
+attribute inside the xref:types/registration_configuration[RegistrationConfiguration] type.
 
 [id="services-storage_domain_vm-methods-remove"]
 ==== remove [small]#DELETE#
@@ -25144,8 +25198,8 @@ This will return the following response body:
 ----
 
 Virtual machines and templates in these collections have a similar representation to their counterparts in the
-top-level <<types-vm, Vm>> and <<types-template, Template>> collections, except they also contain a
-<<types-storage_domain, StorageDomain>> reference and an <<services-storage_domain_vm-methods-import, import>>
+top-level xref:types/vm[Vm] and xref:types/template[Template] collections, except they also contain a
+xref:types/storage_domain[StorageDomain] reference and an xref:services/storage_domain_vm/methods/import[import]
 action.
 
 .Methods summary
@@ -25243,7 +25297,7 @@ Manages the set of storage domains in the system.
 
 Adds a new storage domain.
 
-Creation of a new <<types-storage_domain,StorageDomain>> requires the `name`, `type`, `host`, and `storage`
+Creation of a new xref:types/storage_domain[StorageDomain] requires the `name`, `type`, `host`, and `storage`
 attributes. Identify the `host` attribute with the `id` or `name` attributes. In {product-name} 3.6 and
 later you can enable the wipe after delete option by default on the storage domain. To configure this, specify
 `wipe_after_delete` in the POST request. This option can be edited after the domain is created, but doing so will
@@ -26551,6 +26605,27 @@ With a request body like this:
 </action>
 ----
 
+Since version 4.2 of the engine it is also possible to export a template as a virtual appliance (OVA).
+For example, to export template `123` as an OVA file named `myvm.ova` that is placed in the directory `/home/ovirt/` on host `myhost`:
+
+[source]
+----
+POST /ovirt-engine/api/templates/123/export
+----
+
+With a request body like this:
+
+[source,xml]
+----
+<action>
+  <host>
+    <name>myhost</name>
+  </host>
+  <directory>/home/ovirt</directory>
+  <filename>myvm.ova</filename>
+</action>
+----
+
 .Parameters summary
 [cols="15,15,20,50"]
 |===
@@ -27012,7 +27087,7 @@ DELETE /ovirt-engine/api/templates/{template:id}/diskattachments/{attachment:id}
 === TemplateDiskAttachments
 
 This service manages the set of disks attached to a template. Each attached disk is represented by a
-<<types-disk_attachment,DiskAttachment>>.
+xref:types/disk_attachment[DiskAttachment].
 
 .Methods summary
 [cols="20,80"]
@@ -27814,7 +27889,7 @@ The disks of the template can be customized, making some of their characteristic
 original virtual machine. To do so use the `vm.disk_attachments` attribute, specifying the identifier of the disk
 of the original virtual machine and the characteristics that you want to change. For example, if the original
 virtual machine has a disk with the identifier `456`, and, for that disk, you want to change the name to `mydisk`
-the format to <<types-disk_format, _Copy On Write_>> and make it <<types-disk, sparse>>, send a request body like
+the format to xref:types/disk_format[_Copy On Write_] and make it xref:types/disk[sparse], send a request body like
 this:
 
 [source,xml]
@@ -28149,7 +28224,7 @@ Sets the maximum number of networks to return. If not specified all the networks
 A service to manage a user in the system.
 Use this service to either get users details or remove users.
 In order to add new users please use
-<<services-users>>.
+xref:services/users[users].
 
 .Methods summary
 [cols="20,80"]
@@ -28276,7 +28351,7 @@ With a request body like this:
 ----
 
 IMPORTANT: Since version 4.4.5 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. Please use the <<services-user_option, options>>
+compatibility. It will be removed in the future. Please use the xref:services/user_option[options]
 endpoint instead.
 
 .Parameters summary
@@ -28485,7 +28560,7 @@ With a request body like this:
 ----
 
 In case you are working with Active Directory you have to pass user principal name (UPN) as `username`, followed
-by authorization provider name. Due to https://bugzilla.redhat.com/1147900[bug 1147900] you need to provide
+by authorization provider name. Due to link:https://bugzilla.redhat.com/1147900[bug 1147900] you need to provide
 also `principal` parameter set to UPN of the user.
 
 For example, to add the user with UPN `myuser@mysubdomain.mydomain.com` from the `myextension-authz`
@@ -28819,7 +28894,7 @@ Sets the maximum number of networks to return. If not specified all the networks
 Apply an automatic CPU and NUMA configuration on the VM.
 
 IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. Instead please use PUT followed by <<services-vm-methods-update, update operation>>.
+compatibility. It will be removed in the future. Instead please use PUT followed by xref:services/vm/methods/update[update operation].
 
 An example for a request:
 [source]
@@ -28932,7 +29007,7 @@ snapshots collapsed. Default is true.
 
 Permanently restores the virtual machine to the state of the previewed snapshot.
 
-See the <<services-vm-methods-preview_snapshot, preview_snapshot>> operation for details.
+See the xref:services/vm/methods/preview_snapshot[preview_snapshot] operation for details.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -29360,8 +29435,8 @@ Temporarily restores the virtual machine to the state of a snapshot.
 
 The snapshot is indicated with the `snapshot.id` parameter. It is restored temporarily, so that the content can
 be inspected. Once that inspection is finished, the state of the virtual machine can be made permanent, using the
-<<services-vm-methods-commit_snapshot, commit_snapshot>> method, or discarded using the
-<<services-vm-methods-undo_snapshot, undo_snapshot>> method.
+xref:services/vm/methods/commit_snapshot[commit_snapshot] method, or discarded using the
+xref:services/vm/methods/undo_snapshot[undo_snapshot] method.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -29602,6 +29677,7 @@ empty `action`:
 ----
 <action/>
 
+
 ----
 
 [id="services-vm-methods-shutdown"]
@@ -29757,13 +29833,13 @@ If set to `true`, start the virtual machine in paused mode. The default is `fals
 ===== use_cloud_init
 
 If set to `true`, the initialization type is set to _cloud-init_. The default value is `false`.
-See https://cloudinit.readthedocs.io/en/latest[this] for details.
+See link:https://cloudinit.readthedocs.io/en/latest[cloud-init documentation] for details.
 
 [id="services-vm-methods-start-parameters-use_ignition"]
 ===== use_ignition
 
 If set to `true`, the initialization type is set to _Ignition_. The default value is `false`.
-See https://coreos.com/ignition/docs/latest/[this] for details.
+See link:https://coreos.com/ignition/docs/latest/[Ignition documentation] for details.
 
 [id="services-vm-methods-start-parameters-use_initialization"]
 ===== use_initialization
@@ -29778,7 +29854,7 @@ The default value is `false`.
 ===== use_sysprep
 
 If set to `true`, the initialization type is set to _Sysprep_. The default value is `false`.
-See https://en.wikipedia.org/wiki/Sysprep[this] for details.
+See link:https://en.wikipedia.org/wiki/Sysprep[Sysprep] for details.
 
 [id="services-vm-methods-start-parameters-vm"]
 ===== vm
@@ -29977,8 +30053,8 @@ VNC and SPICE, then the authentication token will only be valid for
 the SPICE protocol.
 
 In order to obtain an authentication token for a specific protocol, for
-example for VNC, use the `ticket` method of the <<services-vm_graphics_console,
-service>>, which manages the graphics consoles of the virtual machine, by sending
+example for VNC, use the `ticket` method of the
+xref:services/vm_graphics_console[service], which manages the graphics consoles of the virtual machine, by sending
 a request:
 
 [source]
@@ -30009,7 +30085,7 @@ POST /ovirt-engine/api/vms/123/graphicsconsoles/456/ticket
 
 Restores the virtual machine to the state it had before previewing the snapshot.
 
-See the <<services-vm-methods-preview_snapshot, preview_snapshot>> operation for details.
+See the xref:services/vm/methods/preview_snapshot[preview_snapshot] operation for details.
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -30759,7 +30835,7 @@ Manages the CDROM devices of a virtual machine.
 
 Currently virtual machines have exactly one CDROM device. No new devices can be added, and the existing one can't
 be removed, thus there are no `add` or `remove` methods. Changing and ejecting CDROM disks is done with the
-<<services-vm_cdrom-methods-update, update>> method of the <<services-vm_cdrom, service>> that manages the
+xref:services/vm_cdrom/methods/update[update] method of the xref:services/vm_cdrom[service] that manages the
 CDROM device.
 
 .Methods summary
@@ -31239,8 +31315,7 @@ There is no need to specify the size as the optimal size is calculated automatic
 Detach the disk from the virtual machine.
 
 NOTE: In version 3 of the API this used to also remove the disk completely from the system, but starting with
-version 4 it doesn't. If you need to remove it completely use the <<services-disk-methods-remove,remove
-method of the top level disk service>>.
+version 4 it doesn't. If you need to remove it completely use the xref:services/disk/methods/remove[remove method of the top level disk service].
 
 .Parameters summary
 [cols="15,15,20,50"]
@@ -31843,7 +31918,7 @@ Example:
 POST /ovirt-engine/api/vms/123/hostdevices
 ----
 
-With request body of type <<types-host_device,HostDevice>>, for example
+With request body of type xref:types/host_device[HostDevice], for example
 
 [source,xml]
 ----
@@ -31855,7 +31930,7 @@ to *exactly* one host. The device ID is then taken relative to this host.
 
 NOTE: Attachment of a PCI device that is part of a bigger IOMMU group will result in attachment of the remaining
 devices from that IOMMU group as "placeholders". These devices are then identified using the `placeholder`
-attribute of the <<types-host_device,HostDevice>> type set to `true`.
+attribute of the xref:types/host_device[HostDevice] type set to `true`.
 
 In case you want attach a device that already serves as an IOMMU placeholder, simply issue an explicit Add operation
 for it, and its `placeholder` flag will be cleared, and the device will be accessible to the virtual machine.
@@ -33635,7 +33710,7 @@ A bootable CDROM device can be set like this:
 ----
 
 In order to boot from CDROM, you first need to insert a disk, as described in the
-<<services-vm_cdrom, CDROM service>>. Then booting from that CDROM can be specified using the `os.boot.devices`
+xref:services/vm_cdrom[CDROM service]. Then booting from that CDROM can be specified using the `os.boot.devices`
 attribute:
 
 [source,xml]
@@ -33697,7 +33772,7 @@ In all cases the name or identifier of the cluster where the virtual machine wil
 Specifies if and how the auto CPU and NUMA configuration is applied.
 
 IMPORTANT: Since version 4.5 of the engine this operation is deprecated, and preserved only for backwards
-compatibility. It will be removed in the future. Instead please use POST followed by <<services-vms-methods-add, add operation>>.
+compatibility. It will be removed in the future. Instead please use POST followed by xref:services/vms/methods/add[add operation].
 
 An example for a request:
 
@@ -33734,7 +33809,7 @@ With a request body like this:
 Specifies if the virtual machine should be independent of the template.
 
 When a virtual machine is created from a template by default the disks of the virtual machine depend on
-the disks of the template, they are using the https://en.wikipedia.org/wiki/Copy-on-write[_copy on write_]
+the disks of the template, they are using the link:https://en.wikipedia.org/wiki/Copy-on-write[_copy on write_]
 mechanism so that only the differences from the template take up real storage space. If this parameter is
 specified and the value is `true` then the disks of the created virtual machine will be _cloned_, and
 independent of the template. For example, to create an independent virtual machine, send a request like this:
@@ -34073,7 +34148,7 @@ With the following body:
 
 Please note that there is a default network filter to each VNIC profile.
 For more details of how the default network filter is calculated please refer to
-the documentation in <<services-network_filters,NetworkFilters>>.
+the documentation in xref:services/network_filters[NetworkFilters].
 
 NOTE: The automatically created vNIC profile for the external network will be without network filter.
 
@@ -34308,6 +34383,7 @@ of the current request. See <<documents-003_common_concepts-follow, here>> for d
 
 Sets the maximum number of weights to return. If not specified all the weights are returned.
 
+[id="types"]
 == Types
 
 This section enumerates all the data types that are available in the API.
@@ -35712,8 +35788,8 @@ Represents a network interfaces bond.
 
 The `ad_partner_mac` property of the partner bond in mode 4. Bond mode 4 is the 802.3ad standard, which is
 also called dynamic link aggregation. See
-https://en.wikipedia.org/wiki/Link_aggregation[Wikipedia] and
-http://www.ieee802.org/3/hssg/public/apr07/frazier_01_0407.pdf[Presentation] for more information.
+link:https://en.wikipedia.org/wiki/Link_aggregation[Wikipedia] and
+link:http://www.ieee802.org/3/hssg/public/apr07/frazier_01_0407.pdf[Presentation] for more information.
 `ad_partner_mac` is the MAC address of the system (switch) at the other end of a bond.
 This parameter is read-only. Setting it will have no effect on the bond.
 It is retrieved from `/sys/class/net/bondX/bonding/ad_partner_mac` file on the system where the bond is located.
@@ -35746,7 +35822,7 @@ Only required when adding bonded interfaces.
 ==== active_slave
 
 The `active_slave` property of the bond in modes that support it (active-backup, balance-alb and balance-tlb).
-See https://www.kernel.org/doc/Documentation/networking/bonding.txt[Linux documentation] for further details.
+See link:https://www.kernel.org/doc/Documentation/networking/bonding.txt[Linux documentation] for further details.
 This parameter is read-only. Setting it will have no effect on the bond.
 It is retrieved from `/sys/class/net/bondX/bonding/active_slave` file on the system where the bond is located.
 
@@ -35860,7 +35936,7 @@ ata center that the virtual machine belongs to.
 ==== network
 
 Boot from the network, using PXE. It is necessary to have
-https://en.wikipedia.org/wiki/Preboot_Execution_Environment[PXE] configured on the network that the virtual
+link:https://en.wikipedia.org/wiki/Preboot_Execution_Environment[PXE] configured on the network that the virtual
 machine is connected to.
 
 [id="types-boot_menu"]
@@ -35914,7 +35990,7 @@ Defines the options of the IP address assignment method to a NIC.
 Stateless address auto-configuration.
 
 The mechanism is defined by http://tools.ietf.org/html/rfc4862[RFC 4862]. Please refer to
-https://en.wikipedia.org/wiki/IPv6_address#Stateless_address_autoconfiguration[this wikipedia article] for more
+link:https://en.wikipedia.org/wiki/IPv6_address#Stateless_address_autoconfiguration[this wikipedia article] for more
 information.
 
 NOTE: The value is valid for IPv6 addresses only.
@@ -35924,7 +36000,7 @@ NOTE: The value is valid for IPv6 addresses only.
 
 Dynamic host configuration protocol.
 
-Please refer to https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[this wikipedia article] for
+Please refer to link:https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[this wikipedia article] for
 more information.
 
 [id="types-boot_protocol-values-poly_dhcp_autoconf"]
@@ -35933,8 +36009,8 @@ more information.
 DHCP alongside Stateless address auto-configuration (SLAAC).
 
 The SLAAC mechanism is defined by http://tools.ietf.org/html/rfc4862[RFC 4862]. Please refer to the
-https://en.wikipedia.org/wiki/IPv6_address#Stateless_address_autoconfiguration[Stateless address auto-configuration] article
-and the https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[DHCP] article for
+link:https://en.wikipedia.org/wiki/IPv6_address#Stateless_address_autoconfiguration[Stateless address auto-configuration] article
+and the link:https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[DHCP] article for
 more information.
 
 NOTE: The value is valid for IPv6 addresses only.
@@ -36145,8 +36221,8 @@ The initial state of the checkpoint. It is set on entity creation.
 Deprecated type to specify _cloud-init_ configuration.
 
 This type has been deprecated and replaced by alternative attributes inside the
-<<types-initialization, Initialization>> type. See the
-<<types-initialization-attributes-cloud_init, cloud_init>> attribute documentation for details.
+xref:types/initialization[Initialization] type. See the
+xref:types/initialization/attributes/cloud_init[cloud_init] attribute documentation for details.
 
 .Attributes summary
 [cols="20,20,60"]
@@ -36582,7 +36658,7 @@ With request body like this:
 
 FIPS mode of the cluster.
 
-The https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening[FIPS] mode represents the cluster's policy towards hosts.
+The link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening[FIPS] mode represents the cluster's policy towards hosts.
 Hosts added to the cluster will be checked to fulfill the cluster's FIPS mode, making them non-operational in
 case they don't.
 Unless a value is explicity provided, new clusters are initialized by default to `UNDEFINED`.
@@ -36593,7 +36669,7 @@ This value changes automatically to the FIPS mode of the first host added to the
 
 The name of the tuned profile.
 
-https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/customizing-tuned-profiles_monitoring-and-managing-system-status-and-performance[Tuned] profile
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/customizing-tuned-profiles_monitoring-and-managing-system-status-and-performance[Tuned] profile
 to set on all the hosts in the cluster. This is not mandatory
 and relevant only for clusters with Gluster service.
 
@@ -36775,9 +36851,9 @@ If the automatic deployment of the external network provider is supported,
 the networks of the referenced network provider are available on every host
 in the cluster.
 External network providers of a cluster can only be set during
-<<services-clusters-methods-add,adding the cluster>>.
+xref:services/clusters/methods/add[adding the cluster].
 This value may be overwritten for individual hosts during
-<<services-hosts-methods-add,adding the host>>.
+xref:services/hosts/methods/add[adding the host].
 
 [id="types-cluster-links-scheduling_policy"]
 ==== scheduling_policy
@@ -37054,7 +37130,7 @@ ConfigurationType of type standard OVF.
 The provided virtual machine configuration conforms with the Open Virtualization Format (OVF) standard.
 This value should be used for an OVF configuration that is extracted from an Open Virtual Appliance (OVA) that
 was generated by oVirt or by other vendors.
-See https://www.dmtf.org/standards/ovf[here] for the OVF specification.
+See the link:https://www.dmtf.org/standards/ovf[OVF specification].
 
 [id="types-configuration_type-values-ovf"]
 ==== ovf
@@ -37178,6 +37254,9 @@ Type representing the CPU and NUMA pinning policy.
 |`dedicated`
 |The CPU pinning will be automatically calculated by the engine when a vm starts and it will be dropped when the vm stops.
 
+|`isolate_threads`
+|The CPU pinning will be automatically calculated by the engine when a vm starts, and it will be dropped when the vm stops.
+
 |`manual`
 |The CPU pinning will be manually configured.
 
@@ -37195,6 +37274,13 @@ Type representing the CPU and NUMA pinning policy.
 The CPU pinning will be automatically calculated by the engine when a vm starts and it will be dropped when the vm stops.
 
 The pinning is exclusive, that means that no other VM can use the pinned physical CPU.
+
+[id="types-cpu_pinning_policy-values-isolate_threads"]
+==== isolate_threads
+
+The CPU pinning will be automatically calculated by the engine when a vm starts, and it will be dropped when the vm stops.
+
+The pinning is exclusive, each virtual thread will get an exclusive physical core. That means that no other VM can use the pinned physical CPU.
 
 [id="types-cpu_pinning_policy-values-manual"]
 ==== manual
@@ -37757,7 +37843,7 @@ size for disks that use the `cow` format.
 Indicates if the disk is marked as bootable.
 
 IMPORTANT: This attribute only makes sense for disks that are actually connected to virtual machines, and in
-version 4 of the API it has been moved to the <<types-disk_attachment, DiskAttachment>> type. It is preserved
+version 4 of the API it has been moved to the xref:types/disk_attachment[DiskAttachment] type. It is preserved
 here only for backwards compatibility, and it will be removed in the future.
 
 [id="types-disk-attributes-external_disk"]
@@ -37792,7 +37878,7 @@ system will be allocated.
 The type of interface driver used to connect the disk device to the virtual machine.
 
 IMPORTANT: This attribute only makes sense for disks that are actually connected to virtual machines, and in
-version 4 of the API it has been moved to the <<types-disk_attachment, DiskAttachment>> type. It is preserved
+version 4 of the API it has been moved to the xref:types/disk_attachment[DiskAttachment] type. It is preserved
 here only for backwards compatibility, and it will be removed in the future.
 
 [id="types-disk-attributes-provisioned_size"]
@@ -37810,18 +37896,18 @@ The QCOW version specifies to the qemu which qemu version the volume supports.
 This field can be updated using the update API and will be reported only for QCOW volumes.
 It is determined by the version of the storage domain that the disk is created on.
 Storage domains with a version lower than V4 support QCOW2 volumes. V4 storage domains also support QCOW2v3.
-For more information about features of the different QCOW versions, see http://wiki.qemu.org/Features/Qcow3[here].
+For more information about features of the different QCOW versions, see link:https://wiki.qemu.org/Features/Qcow3[QCOW3].
 
 [id="types-disk-attributes-read_only"]
 ==== read_only
 
 Indicates if the disk is in read-only mode.
 
-Since version 4.0 this attribute is not shown in the API and was moved to <<types-disk_attachment,DiskAttachment>>.
+Since version 4.0 this attribute is not shown in the API and was moved to xref:types/disk_attachment[DiskAttachment].
 
 Since version 4.1.2 of {engine-name} this attribute is deprecated, and it will be removed in the future.
-In order to attach a disk in read only mode use the `read_only` attribute of the <<types-disk_attachment,
-DiskAttachment>> type. For example:
+In order to attach a disk in read only mode use the `read_only` attribute
+of the xref:types/disk_attachment[DiskAttachment] type. For example:
 
 ....
 POST /ovirt-engine/api/vms/123/diskattachments
@@ -37851,8 +37937,8 @@ Indicates if the disk can be attached to multiple virtual machines.
 
 IMPORTANT: When a disk is attached to multiple virtual machines it is the responsibility of the guest
 operating systems of those virtual machines to coordinate access to it, to avoid corruption of the data, for
-example using a shared file system like https://www.gluster.org[GlusterFS] or
-http://www.sourceware.org/cluster/gfs[GFS].
+example using a shared file system like link:https://www.gluster.org[GlusterFS] or
+link:https://www.sourceware.org/cluster/gfs[GFS].
 
 [id="types-disk-attributes-total_size"]
 ==== total_size
@@ -38468,7 +38554,7 @@ size for disks that use the `cow` format.
 Indicates if the disk is marked as bootable.
 
 IMPORTANT: This attribute only makes sense for disks that are actually connected to virtual machines, and in
-version 4 of the API it has been moved to the <<types-disk_attachment, DiskAttachment>> type. It is preserved
+version 4 of the API it has been moved to the xref:types/disk_attachment[DiskAttachment] type. It is preserved
 here only for backwards compatibility, and it will be removed in the future.
 
 [id="types-disk_snapshot-attributes-external_disk"]
@@ -38503,7 +38589,7 @@ system will be allocated.
 The type of interface driver used to connect the disk device to the virtual machine.
 
 IMPORTANT: This attribute only makes sense for disks that are actually connected to virtual machines, and in
-version 4 of the API it has been moved to the <<types-disk_attachment, DiskAttachment>> type. It is preserved
+version 4 of the API it has been moved to the xref:types/disk_attachment[DiskAttachment] type. It is preserved
 here only for backwards compatibility, and it will be removed in the future.
 
 [id="types-disk_snapshot-attributes-provisioned_size"]
@@ -38521,18 +38607,18 @@ The QCOW version specifies to the qemu which qemu version the volume supports.
 This field can be updated using the update API and will be reported only for QCOW volumes.
 It is determined by the version of the storage domain that the disk is created on.
 Storage domains with a version lower than V4 support QCOW2 volumes. V4 storage domains also support QCOW2v3.
-For more information about features of the different QCOW versions, see http://wiki.qemu.org/Features/Qcow3[here].
+For more information about features of the different QCOW versions, see link:https://wiki.qemu.org/Features/Qcow3[QCOW3].
 
 [id="types-disk_snapshot-attributes-read_only"]
 ==== read_only
 
 Indicates if the disk is in read-only mode.
 
-Since version 4.0 this attribute is not shown in the API and was moved to <<types-disk_attachment,DiskAttachment>>.
+Since version 4.0 this attribute is not shown in the API and was moved to xref:types/disk_attachment[DiskAttachment].
 
 Since version 4.1.2 of {engine-name} this attribute is deprecated, and it will be removed in the future.
-In order to attach a disk in read only mode use the `read_only` attribute of the <<types-disk_attachment,
-DiskAttachment>> type. For example:
+In order to attach a disk in read only mode use the `read_only` attribute
+of the xref:types/disk_attachment[DiskAttachment] type. For example:
 
 ....
 POST /ovirt-engine/api/vms/123/diskattachments
@@ -38562,8 +38648,8 @@ Indicates if the disk can be attached to multiple virtual machines.
 
 IMPORTANT: When a disk is attached to multiple virtual machines it is the responsibility of the guest
 operating systems of those virtual machines to coordinate access to it, to avoid corruption of the data, for
-example using a shared file system like https://www.gluster.org[GlusterFS] or
-http://www.sourceware.org/cluster/gfs[GFS].
+example using a shared file system like link:https://www.gluster.org[GlusterFS] or
+link:https://www.sourceware.org/cluster/gfs[GFS].
 
 [id="types-disk_snapshot-attributes-total_size"]
 ==== total_size
@@ -38955,7 +39041,7 @@ machine.
 ==== spice
 
 Display of type SPICE.
-See https://www.spice-space.org for more details.
+See link:https://www.spice-space.org[SPICE documentation] for more details.
 
 [id="types-display_type-values-vnc"]
 ==== vnc
@@ -39516,8 +39602,8 @@ Combined with the event-name, uniquely identifies the event-subscription.
 Represents a host provisioned by a host
 provider (such as Foreman/Satellite).
 
-See https://www.theforeman.org/ for more details on Foreman.
-See https://access.redhat.com/products/red-hat-satellite
+See link:https://www.theforeman.org/[Foreman documentation] for more details.
+See link:https://access.redhat.com/products/red-hat-satellite[Satellite documentation]
 for more details on Red Hat Satellite.
 
 .Attributes summary
@@ -39621,8 +39707,8 @@ that the host is managed by.
 Represents an external host provider,
 such as Foreman or Satellite.
 
-See https://www.theforeman.org/ for more details on Foreman.
-See https://access.redhat.com/products/red-hat-satellite
+See link:https://www.theforeman.org/[Foreman documentation] for more details.
+See link:https://access.redhat.com/products/red-hat-satellite[Satellite documentation]
 for more details on Red Hat Satellite.
 
 .Attributes summary
@@ -39838,8 +39924,8 @@ If authentication is required, both `username` and `password` attributes will be
 === ExternalStatus [small]#enum#
 
 Represents an external status.
-This status is currently used for <<types-host, hosts>>
-and <<types-storage_domain, storage domains>>, and allows an external
+This status is currently used for xref:types/host[hosts]
+and xref:types/storage_domain[storage domains], and allows an external
 system to update status of objects it is aware of.
 
 .Values summary
@@ -41332,7 +41418,7 @@ The graphics protocol used to connect to the graphic console.
 ==== spice
 
 Graphics protocol of type SPICE.
-See https://www.spice-space.org for more details.
+See link:https://www.spice-space.org[SPICE documentation] for more details.
 
 [id="types-graphics_type-values-vnc"]
 ==== vnc
@@ -41909,8 +41995,8 @@ The self-hosted engine status of this host.
 
 IMPORTANT: When a host or collection of hosts is retrieved, this attribute is not included unless the
 `all_content` parameter of the operation is explicitly set to `true`. See the documentation of the
-operations that retrieve <<services-host-methods-get-parameters-all_content, one>> or
-<<services-hosts-methods-list-parameters-all_content, multiple>> hosts for details.
+operations that retrieve xref:services/host/methods/get/parameters/all_content[one] or
+xref:services/hosts/methods/list/parameters/all_content[multiple] hosts for details.
 
 [id="types-host-attributes-kdump_status"]
 ==== kdump_status
@@ -41945,7 +42031,7 @@ With a request body like this:
 ==== libvirt_version
 
 The host libvirt version.
-For more information on libvirt please go to https://libvirt.org[libvirt].
+For more information on libvirt please go to link:https://libvirt.org[libvirt].
 
 [id="types-host-attributes-network_operation_in_progress"]
 ==== network_operation_in_progress
@@ -42169,7 +42255,7 @@ You will receive response in XML like this one:
 External network providers provisioned on the host.
 
 This attribute is read-only. Setting it will have no effect on the host.
-The value of this parameter reflects the <<services-cluster_external_providers,Default Network Provider>>
+The value of this parameter reflects the xref:services/cluster_external_providers[Default Network Provider]
 of the cluster.
 
 [id="types-host-links-katello_errata"]
@@ -42482,7 +42568,7 @@ For example, the XML representation of a host NIC looks like this:
 </host_nic>
 ----
 
-A bonded interface is represented as a <<types-host_nic, HostNic>> object
+A bonded interface is represented as a xref:types/host_nic[HostNic] object
 containing the `bonding` and `slaves` attributes.
 
 For example, the XML representation of a bonded host NIC looks like this:
@@ -42622,8 +42708,8 @@ For example, the XML representation of a bonded host NIC looks like this:
 
 The `ad_aggregator_id` property of a bond or bond slave, for bonds in mode 4.
 Bond mode 4 is the 802.3ad standard, also called dynamic link aggregation.
-(See https://en.wikipedia.org/wiki/Link_aggregation[Wikipedia] and
-http://www.ieee802.org/3/hssg/public/apr07/frazier_01_0407.pdf[Presentation] for more information).
+(See link:https://en.wikipedia.org/wiki/Link_aggregation[Wikipedia] and
+link:https://www.ieee802.org/3/hssg/public/apr07/frazier_01_0407.pdf[Presentation] for more information).
 This is only valid for bonds in mode 4, or NICs which are part of a bond.
 It is not present for bonds in other modes, or NICs which are not part of a bond in mode 4.
 The `ad_aggregator_id` property indicates which of the bond slaves are active. The value of the
@@ -42979,6 +43065,7 @@ using a cinder driver.
 
 The options to be passed when creating a storage domain
 using a cinder driver.
+
 
 For example (Kaminario backend):
 [source]
@@ -43428,14 +43515,14 @@ To disable the inactivity timeout specify '0'. If not specified, the value is de
 
 The current phase of the image transfer in progress. Each transfer needs a managed
 session, which must be opened for the user to input or output an image.
-Please refer to <<services-image_transfer, image transfer>> for further
+Please refer to xref:services/image_transfer[image transfer] for further
 documentation.
 
 [id="types-image_transfer-attributes-proxy_url"]
 ==== proxy_url
 
 The URL of the proxy server that the user inputs or outputs to. This attribute is
-available only if the image transfer is in the <<types-image_transfer_phase, transferring>>
+available only if the image transfer is in the xref:types/image_transfer_phase[transferring]
 phase. See `phase` for details.
 
 [id="types-image_transfer-attributes-shallow"]
@@ -43500,7 +43587,7 @@ The URL of the daemon server that the user can input or output to directly.
 
 This is as an alternative to the `proxy_url`. I.e. if the client has access to the host machine, it could bypass
 the proxy and transfer directly to the host, potentially improving the throughput performance. This attribute is
-available only if the image transfer is in the <<types-image_transfer_phase, transferring>>
+available only if the image transfer is in the xref:types/image_transfer_phase[transferring]
 phase. See `phase` for details.
 
 [id="types-image_transfer-links_summary"]
@@ -43555,12 +43642,12 @@ attributes instead.
 [id="types-image_transfer_direction"]
 === ImageTransferDirection [small]#enum#
 
-The <<types-image_transfer, image transfer>> direction for a transfer.
+The xref:types/image_transfer[image transfer] direction for a transfer.
 
 When adding a new transfer, the user can choose whether the transfer will be to an image, choosing `upload`,
 or to transfer from an image- choosing `download` as an ImageTransferDirection.
 
-Please refer to <<services-image_transfer, image transfer>> for further
+Please refer to xref:services/image_transfer[image transfer] for further
 documentation.
 
 .Values summary
@@ -43579,10 +43666,10 @@ documentation.
 [id="types-image_transfer_phase"]
 === ImageTransferPhase [small]#enum#
 
-A list of possible phases for an <<types-image_transfer, image transfer>> entity. Each of these values
+A list of possible phases for an xref:types/image_transfer[image transfer] entity. Each of these values
 defines a specific point in a transfer flow.
 
-Please refer to <<services-image_transfer, image transfer>> for more
+Please refer to xref:services/image_transfer[image transfer] for more
 information.
 
 .Values summary
@@ -43607,7 +43694,7 @@ information.
 is being finalized with a failure.
 
 |`finalizing_success`
-|This phase will be set when the user calls <<services-image_transfer-methods-finalize, finalize>>.
+|This phase will be set when the user calls xref:services/image_transfer/methods/finalize[finalize].
 
 |`finished_cleanup`
 |This phase indicates that the user cancelled the transfer, and necessary cleanup is done.
@@ -43628,11 +43715,11 @@ with this transfer; for example ovirt-imageio-daemon is not running in the selec
 
 |`paused_user`
 |This phase is a result of a pause call by the user, using
-<<services-image_transfer-methods-pause, pause>>.
+xref:services/image_transfer/methods/pause[pause].
 
 |`resuming`
 |The phase where the transfer has been resumed by the client calling
-<<services-image_transfer-methods-resume, resume>>.
+xref:services/image_transfer/methods/resume[resume].
 
 |`transferring`
 |The phase where the transfer session is open, and the client can input or output the desired image using the preferred
@@ -43652,11 +43739,11 @@ in the Administration Portal.
 [id="types-image_transfer_phase-values-finalizing_success"]
 ==== finalizing_success
 
-This phase will be set when the user calls <<services-image_transfer-methods-finalize, finalize>>. Calling
+This phase will be set when the user calls xref:services/image_transfer/methods/finalize[finalize]. Calling
 finalize is essential to finish the transfer session, and finish using the targeted image. After finalizing,
 the phase will be changed to `finished_success` or `finished_failure`.
 
-Refer to <<services-image_transfer, image transfer>> for more information.
+Refer to xref:services/image_transfer[image transfer] for more information.
 
 [id="types-image_transfer_phase-values-finished_failure"]
 ==== finished_failure
@@ -43682,14 +43769,14 @@ Once the session is established, the phase will be changed to `transferring`
 
 This phase means the session timed out, or some other error occurred
 with this transfer; for example ovirt-imageio-daemon is not running in the selected host.
-To resume the session, the client should call <<services-image_transfer-methods-resume, resume>>. After
+To resume the session, the client should call xref:services/image_transfer/methods/resume[resume]. After
 resuming, the phase will change to `resuming`.
 
 [id="types-image_transfer_phase-values-resuming"]
 ==== resuming
 
 The phase where the transfer has been resumed by the client calling
-<<services-image_transfer-methods-resume, resume>>. Resuming starts a new session, and after calling it,
+xref:services/image_transfer/methods/resume[resume]. Resuming starts a new session, and after calling it,
 the phase will be changed to `transferring`, or `paused_system` in case of a failure.
 
 [id="types-image_transfer_phase-values-unknown"]
@@ -43700,12 +43787,12 @@ An unknown phase. This will only be set in cases of unpredictable errors.
 [id="types-image_transfer_timeout_policy"]
 === ImageTransferTimeoutPolicy [small]#enum#
 
-The <<types-image_transfer, image transfer>> timeout policy.
+The xref:types/image_transfer[image transfer] timeout policy.
 
 Define how the system handles a transfer when the client is inactive
 for inactivityTimeout seconds.
 
-Please refer to <<services-image_transfer, image transfer>> for further
+Please refer to xref:services/image_transfer[image transfer] for further
 documentation.
 
 .Values summary
@@ -43869,9 +43956,9 @@ use for formatting the cloud-init network parameters.
 
 Deprecated attribute to specify _cloud-init_ configuration.
 
-This attribute, and the <<types-cloud_init, CloudInit>> type have been deprecated and will be
+This attribute and the xref:types/cloud_init[CloudInit] type have been deprecated and will be
 removed in the future.  To specify the _cloud-init_ configuration, use the attributes inside
-the <<types-initialization, Initialization>> type. The mapping between the attributes
+the xref:types/initialization[Initialization] type. The mapping between the attributes
 of these two types are as follows:
 
 |===
@@ -43890,8 +43977,8 @@ of these two types are as follows:
 |===
 
 For more details on how to use _cloud-init_ see the examples in
-https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/start_vm_with_cloud_init.py[Python] and
-https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java[Java].
+link:https://github.com/oVirt/python-ovirt-engine-sdk4/blob/main/examples/start_vm_with_cloud_init.py[Python] and
+link:https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java[Java].
 
 [id="types-initialization-attributes-cloud_init_network_protocol"]
 ==== cloud_init_network_protocol
@@ -43899,7 +43986,7 @@ https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org
 Attribute specifying the cloud-init protocol to
 use for formatting the cloud-init network parameters.
 If omitted, a default value is used, as described in
-the <<types-cloud_init_network_protocol, CloudInitNetworkProtocol>>
+the xref:types/cloud_init_network_protocol[CloudInitNetworkProtocol]
 
 [id="types-instance_type"]
 === InstanceType [small]#struct#
@@ -44271,13 +44358,13 @@ With the following request body:
 ----
 
 Memory hot plug is supported from {product-name} 3.6 onwards. You can use the example above to increase
-memory while the virtual machine is in state <<types-vm_status-values-up, up>>. The size increment must be
+memory while the virtual machine is in state xref:types/vm_status/values/up[up]. The size increment must be
 dividable by the value of the `HotPlugMemoryBlockSizeMb` configuration value (256 MiB by default). If the memory
 size increment is not dividable by this value, the memory size change is only stored to next run configuration.
 Each successful memory hot plug operation creates one or two new memory devices.
 
 Memory hot unplug is supported since {product-name} 4.2 onwards. Memory hot unplug can only be performed
-when the virtual machine is in state <<types-vm_status-values-up, up>>. Only previously hot plugged memory
+when the virtual machine is in state xref:types/vm_status/values/up[up]. Only previously hot plugged memory
 devices can be removed by the hot unplug operation. The requested memory decrement is rounded down to match sizes
 of a combination of previously hot plugged memory devices. The requested memory value is stored to next run
 configuration without rounding.
@@ -45207,8 +45294,8 @@ underlying storage in a single operation.
 A value of 0 means that the device does not support discard functionality.
 
 NOTE: This is the software limit, and not the hardware limit, as noted in the
-https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt[documentation] of
-`queue-sysfs` for `discard_max_bytes`.
+link:https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt[`queue-sysfs` documentation]
+for `discard_max_bytes`.
 
 [id="types-logical_unit-attributes-discard_zeroes_data"]
 ==== discard_zeroes_data
@@ -45216,8 +45303,8 @@ https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt[documentation] of
 True, if previously discarded blocks in the logical
 unit's underlying storage are read back as zeros.
 For more information please see the
-https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt[documentation]
-of `queue-sysfs` for `discard_zeroes_data`.
+link:https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt[`queue-sysfs` documentation]
+for `discard_zeroes_data`.
 
 IMPORTANT: Since version 4.2.1 of the system, the support for this attribute has
 been removed as the sysfs file, `discard_zeroes_data`, was deprecated in the kernel.
@@ -45247,7 +45334,7 @@ It is preserved for backwards compatibility, but the value will always be `false
 
 Mediated device is a software device that allows to divide physical device's resources.
 
-See https://libvirt.org/drvnodedev.html#MDEV[Libvirt-MDEV] for further details.
+See link:https://libvirt.org/drvnodedev.html#MDEV[Libvirt-MDEV] for further details.
 
 .Attributes summary
 [cols="20,20,60"]
@@ -45427,8 +45514,8 @@ The amount of memory, in bytes, that is guaranteed to not be drained by the ball
 The {engine-name} internally rounds this value down to whole MiB (1MiB = 2^20^ bytes).
 
 NOTE: It can be updated while the virtual machine is running since {product-name} 4.2 onwards, provided
-<<types-vm-attributes-memory, memory>> is updated in the same request as well, and the virtual machine is in
-state <<types-vm_status-values-up, up>>.
+xref:types/vm/attributes/memory[memory] is updated in the same request as well, and the virtual machine is in
+state xref:types/vm_status/values/up[up].
 
 [id="types-memory_policy-attributes-max"]
 ==== max
@@ -45568,11 +45655,27 @@ The type for migration options.
 |<<types-inheritable_boolean,InheritableBoolean>>
 |
 
+|`custom_parallel_migrations`
+|<<types-integer,Integer>>
+|Specifies how many parallel migration connections to use.
+
 |`encrypted`
 |<<types-inheritable_boolean,InheritableBoolean>>
 |Specifies whether the migration should be encrypted or not.
 
+|`parallel_migrations_policy`
+|<<types-parallel_migrations_policy,ParallelMigrationsPolicy>>
+|Specifies whether and how to use parallel migration connections.
+
 |===
+
+[id="types-migration_options-attributes-custom_parallel_migrations"]
+==== custom_parallel_migrations
+
+Specifies how many parallel migration connections to use.
+May be specified only when ParallelMigrationsPolicy is CUSTOM.
+The valid range of values is 2-255.
+The recommended range of values is 2-16.
 
 [id="types-migration_options-links_summary"]
 .Links summary
@@ -46110,11 +46213,12 @@ The following keys are valid for `bridge_opts`:
 Network filters filter packets sent to and from the virtual machine's NIC according to defined rules.
 
 There are several types of network filters supported based on libvirt.
-For more details about the different network filters see https://libvirt.org/firewall.html[here].
+For more details about the different network filters see link:https://libvirt.org/firewall.html[here].
 
 The default Network Filter is based on network type and configuration.
 VM network's default filter is `vdsm-no-mac-spoof` if `EnableMACAntiSpoofingFilterRules` is True, otherwise
 the filter is not configured, for `OVN` networks the filter is not configured.
+
 
 In addition to libvirt's network filters, there are two additional network filters:
 The first is called `vdsm-no-mac-spoofing` and is composed of `no-mac-spoofing` and `no-arp-mac-spoofing`.
@@ -46174,9 +46278,9 @@ The minimum supported version of a specific NetworkFilter. This is the version t
 [id="types-network_filter_parameter"]
 === NetworkFilterParameter [small]#struct#
 
-Parameter for the <<types-network_filter,network filter>>.
+Parameter for the xref:types/network_filter[network filter].
 
-See https://libvirt.org/formatnwfilter.html#nwfconceptsvars[Libvirt-Filters] for further details.
+See link:https://libvirt.org/formatnwfilter.html#nwfconceptsvars[Libvirt-Filters] for further details.
 This is a example of the XML representation:
 
 [source,xml]
@@ -47560,7 +47664,7 @@ Defines the tenant name for OpenStack Identity API v2.0.
 
 |`auto_sync`
 |<<types-boolean,Boolean>>
-|Indicates if the <<types-network,networks>> of this provider are automatically synchronized.
+|Indicates if the xref:types/network[networks] of this provider are automatically synchronized.
 
 |`comment`
 |<<types-string,String>>
@@ -47628,7 +47732,7 @@ Defines the tenant name for OpenStack Identity API v2.0.
 
 |`user_domain_name`
 |<<types-string,String>>
-|Defines the domain name of the `username` in <<types-external_provider, ExternalProvider>> for
+|Defines the domain name of the `username` in xref:types/external_provider[ExternalProvider] for
 OpenStack Identity API v3.
 
 |`username`
@@ -47647,22 +47751,22 @@ Ignored, because the deployment of OpenStack Neutron agent is dropped since {pro
 [id="types-open_stack_network_provider-attributes-auto_sync"]
 ==== auto_sync
 
-Indicates if the <<types-network,networks>> of this provider are automatically synchronized.
+Indicates if the xref:types/network[networks] of this provider are automatically synchronized.
 
 If `true`, the networks of this provider are automatically and cyclically synchronized to {product-name} in
 the background.
 This means that all new networks of this provider are imported, and all discarded networks are removed
-from all <<types-cluster,clusters>> that have this external provider as the default provider.
+from all xref:types/cluster[clusters] that have this external provider as the default provider.
 If the name of a network is changed on the provider, the change is synchronized to the network entity in
 {product-name}. Furthermore, if a new cluster that has the provider as the default provider is added,
 already imported networks are attached to this new cluster during synchronization.
 
 The automatically initiated import triggers the following steps:
 
-- The networks of the external provider will be imported to every <<types-data_center,data center>>
+- The networks of the external provider will be imported to every xref:types/data_center[data center]
   in the data centers of the clusters that have that external provider as the default provider.
 
-- A <<types-vnic_profile,vNIC profile>> will be created for each involved data center and network.
+- A xref:types/vnic_profile[vNIC profile] will be created for each involved data center and network.
 
 - The networks will be assigned to each cluster that has that external provider as the default provider.
 
@@ -48216,8 +48320,8 @@ NOTE: This attribute is currently only used for hosts.
 
 Operating system name in human readable form.
 
-For example `Fedora` or `RHEL`. In general one of the names returned by the <<services-operating_systems,
-operating system>> service.
+For example `Fedora` or `RHEL`. In general one of the names returned by
+the xref:services/operating_systems[operating system] service.
 
 NOTE: Read only for hosts.
 
@@ -48298,8 +48402,8 @@ Small icon of the guest operating system. Maximum dimensions: width 43px, height
 
 Type representing kind of operating system.
 
-WARNING: This type has been deprecated with the introduction of the <<types-operating_system_info, OperatingSystemInfo>> type.
-Operating systems are available as a top-level collection in the API: <<services-operating_systems, operating_systems>>
+WARNING: This type has been deprecated with the introduction of the xref:types/operating_system_info[OperatingSystemInfo] type.
+Operating systems are available as a top-level collection in the API: xref:services/operating_systems[operating_systems].
 
 The end-user declares the type of the operating system installed in the virtual machine (guest operating system) by
 selecting one of these values. This declaration enables the system to tune the virtual machine configuration for
@@ -48404,6 +48508,46 @@ This is an example of the package element:
 |The name of the package.
 
 |===
+
+[id="types-parallel_migrations_policy"]
+=== ParallelMigrationsPolicy [small]#enum#
+
+Type representing parallel migration connections policy.
+
+.Values summary
+[cols="20,80"]
+|===
+|Name |Summary
+
+|`auto`
+|Choose automatically between parallel and non-parallel connections.
+
+|`auto_parallel`
+|Use parallel connections and select their number automatically.
+
+|`custom`
+|Use manually specified number of parallel connections.
+
+|`disabled`
+|Use non-parallel connections.
+
+|`inherit`
+|Use cluster value (applicable only to VMs).
+
+|===
+
+[id="types-parallel_migrations_policy-values-auto"]
+==== auto
+
+Choose automatically between parallel and non-parallel connections.
+If parallel connections are used, select their number automatically.
+
+[id="types-parallel_migrations_policy-values-custom"]
+==== custom
+
+Use manually specified number of parallel connections.
+The number of parallel connections must be set in
+MigrationOptions.customParallelMigrations.
 
 [id="types-payload"]
 === Payload [small]#struct#
@@ -48910,16 +49054,16 @@ It means that the new format is in use.
 
 This type represents the attributes to define Quality of service (QoS).
 
-For storage the `type` is <<types-qos_type, storage>>, the attributes `max_throughput`, `max_read_throughput`,
+For storage the `type` is xref:types/qos_type[storage], the attributes `max_throughput`, `max_read_throughput`,
 `max_write_throughput`, `max_iops`, `max_read_iops` and `max_write_iops` are relevant.
 
-For resources with computing capabilities the `type` is <<types-qos_type, cpu>>, the attribute `cpu_limit` is
+For resources with computing capabilities the `type` is xref:types/qos_type[cpu], the attribute `cpu_limit` is
 relevant.
 
-For virtual machines networks the `type` is <<types-qos_type, network>>, the attributes `inbound_average`,
+For virtual machines networks the `type` is xref:types/qos_type[network], the attributes `inbound_average`,
 `inbound_peak`, `inbound_burst`, `outbound_average`, `outbound_peak` and `outbound_burst` are relevant.
 
-For host networks the `type` is <<types-qos_type, hostnetwork>>, the attributes `outbound_average_linkshare`,
+For host networks the `type` is xref:types/qos_type[hostnetwork], the attributes `outbound_average_linkshare`,
 `outbound_average_upperlimit` and `outbound_average_realtime` are relevant.
 
 .Attributes summary
@@ -49027,7 +49171,7 @@ The desired average inbound bit rate in Mbps (Megabits per sec).
 
 Used to configure virtual machines networks. If defined, `inbound_peak` and `inbound_burst` also has to be set.
 
-See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
+See link:https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
 
 [id="types-qos-attributes-inbound_burst"]
 ==== inbound_burst
@@ -49036,7 +49180,7 @@ The amount of data that can be delivered in a single burst, in MB.
 
 Used to configure virtual machine networks. If defined, `inbound_average` and `inbound_peak` must also be set.
 
-See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
+See link:https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
 
 [id="types-qos-attributes-inbound_peak"]
 ==== inbound_peak
@@ -49045,7 +49189,7 @@ The maximum inbound rate in Mbps (Megabits per sec).
 
 Used to configure virtual machines networks. If defined, `inbound_average` and `inbound_burst` also has to be set.
 
-See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
+See link:https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
 
 [id="types-qos-attributes-max_iops"]
 ==== max_iops
@@ -49096,7 +49240,7 @@ The desired average outbound bit rate in Mbps (Megabits per sec).
 
 Used to configure virtual machines networks. If defined, `outbound_peak` and `outbound_burst` also has to be set.
 
-See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
+See link:https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
 
 [id="types-qos-attributes-outbound_average_linkshare"]
 ==== outbound_average_linkshare
@@ -49124,7 +49268,7 @@ The maximum bandwidth to be used by a network in Mbps (Megabits per sec).
 Used to configure host networks. If `outboundAverageUpperlimit` and `outbound_average_realtime` are provided, the
 `outbound_averageUpperlimit` must not be lower than the `outbound_average_realtime`.
 
-See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
+See link:https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
 
 [id="types-qos-attributes-outbound_burst"]
 ==== outbound_burst
@@ -49134,7 +49278,7 @@ The amount of data that can be sent in a single burst, in MB.
 Used to configure virtual machine networks. If defined, `outbound_average` and `outbound_peak` must also be
 set.
 
-See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
+See link:https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
 
 [id="types-qos-attributes-outbound_peak"]
 ==== outbound_peak
@@ -49144,7 +49288,7 @@ The maximum outbound rate in Mbps (Megabits per sec).
 Used to configure virtual machines networks. If defined, `outbound_average` and `outbound_burst` also has to be
 set.
 
-See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
+See link:https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further details.
 
 [id="types-qos-links_summary"]
 .Links summary
@@ -49161,7 +49305,7 @@ See https://libvirt.org/formatnetwork.html#elementQoS[Libvirt-QOS] for further d
 [id="types-qos_type"]
 === QosType [small]#enum#
 
-This type represents the kind of resource the <<types-qos,Quality of service (QoS)>> can be assigned to.
+This type represents the kind of resource the xref:types/qos[Quality of service (QoS)] can be assigned to.
 
 .Values summary
 [cols="20,80"]
@@ -49169,16 +49313,16 @@ This type represents the kind of resource the <<types-qos,Quality of service (Qo
 |Name |Summary
 
 |`cpu`
-|The <<types-qos,Quality of service (QoS)>> can be assigned to resources with computing capabilities.
+|The xref:types/qos[Quality of service (QoS)] can be assigned to resources with computing capabilities.
 
 |`hostnetwork`
-|The <<types-qos,Quality of service (QoS)>> can be assigned to host networks.
+|The xref:types/qos[Quality of service (QoS)] can be assigned to host networks.
 
 |`network`
-|The <<types-qos,Quality of service (QoS)>> can be assigned to virtual machines networks.
+|The xref:types/qos[Quality of service (QoS)] can be assigned to virtual machines networks.
 
 |`storage`
-|The <<types-qos,Quality of service (QoS)>> can be assigned to storage.
+|The xref:types/qos[Quality of service (QoS)] can be assigned to storage.
 
 |===
 
@@ -49970,7 +50114,7 @@ If, for example, the desired virtual NIC profile mapping includes the following 
 
 |===
 
-Then the following snippet should be added to <<types-registration_configuration, RegistrationConfiguration>>
+Then the following snippet should be added to xref:types/registration_configuration[RegistrationConfiguration]
 
 [source,xml]
 ----
@@ -51069,13 +51213,13 @@ With the following request body:
 ----
 
 Memory hot plug is supported from {product-name} 3.6 onwards. You can use the example above to increase
-memory while the virtual machine is in state <<types-vm_status-values-up, up>>. The size increment must be
+memory while the virtual machine is in state xref:types/vm_status/values/up[up]. The size increment must be
 dividable by the value of the `HotPlugMemoryBlockSizeMb` configuration value (256 MiB by default). If the memory
 size increment is not dividable by this value, the memory size change is only stored to next run configuration.
 Each successful memory hot plug operation creates one or two new memory devices.
 
 Memory hot unplug is supported since {product-name} 4.2 onwards. Memory hot unplug can only be performed
-when the virtual machine is in state <<types-vm_status-values-up, up>>. Only previously hot plugged memory
+when the virtual machine is in state xref:types/vm_status/values/up[up]. Only previously hot plugged memory
 devices can be removed by the hot unplug operation. The requested memory decrement is rounded down to match sizes
 of a combination of previously hot plugged memory devices. The requested memory value is stored to next run
 configuration without rounding.
@@ -51547,7 +51691,8 @@ This type contains references to special objects, such as blank templates and th
 
 |`public_key`
 |<<types-string,String>>
-|SSH public key of the host using SSH public key format as defined in RFC4253.
+|SSH public key of the host using SSH public key format as defined in
+link:https://tools.
 
 |`user`
 |<<types-user,User>>
@@ -51565,8 +51710,8 @@ Please use publicKey instead.
 [id="types-ssh-attributes-public_key"]
 ==== public_key
 
-SSH public key of the host using SSH public key format as defined in RFC4253.
-https://tools.ietf.org/html/rfc4253
+SSH public key of the host using SSH public key format as defined in
+link:https://tools.ietf.org/html/rfc4253[RFC4253].
 
 [id="types-ssh_authentication_method"]
 === SshAuthenticationMethod [small]#enum#
@@ -52262,7 +52407,8 @@ domain or not.
 
 |`discard_after_delete`
 |<<types-boolean,Boolean>>
-|Indicates whether <<types-disk, disk>>s' blocks on block <<types-storage_domain, storage domain>>s will be
+|Indicates whether xref:types/disk[disk]s' blocks on block
+xref:types/storage_domain[storage domain]s will be
 discarded right before they are deleted.
 
 |`external_status`
@@ -52320,8 +52466,8 @@ discard zeroes the data.
 
 |`wipe_after_delete`
 |<<types-boolean,Boolean>>
-|Serves as the default value of `wipe_after_delete` for <<types-disk, disk>>s on this
-<<types-storage_domain, storage domain>>.
+|Serves as the default value of `wipe_after_delete` for xref:types/disk[disk]s on this
+xref:types/storage_domain[storage domain].
 
 |===
 
@@ -52346,7 +52492,8 @@ Not all storage domains support all possible sizes.
 [id="types-storage_domain-attributes-discard_after_delete"]
 ==== discard_after_delete
 
-Indicates whether <<types-disk, disk>>s' blocks on block <<types-storage_domain, storage domain>>s will be
+Indicates whether xref:types/disk[disk]s' blocks on block
+xref:types/storage_domain[storage domain]s will be
 discarded right before they are deleted.
 
 If true, and a disk on this storage domain has its `wipe_after_delete` value enabled, then when the disk is
@@ -52361,14 +52508,14 @@ Note that:
 * Discard after delete will always be `false` for non block storage types.
 
 * Discard after delete can be set to `true` only if the storage domain
-<<types-storage_domain-attributes-supports_discard, supports discard>>.
+xref:types/storage_domain/attributes/supports_discard[supports discard].
 
 [id="types-storage_domain-attributes-supports_discard"]
 ==== supports_discard
 
 Indicates whether a block storage domain supports discard operations.
-A <<types-storage_domain,storage domain>> only supports discard
-if all of the <<types-logical_unit, logical unit>>s that it is built
+A xref:types/storage_domain[storage domain] only supports discard
+if all of the xref:types/logical_unit[logical unit]s that it is built
 from support discard; that is, if each logical unit's `discard_max_size` value
 is greater than 0.
 This is one of the conditions necessary for a virtual disk in this
@@ -52379,9 +52526,9 @@ storage domain to have its `pass_discard` attribute enabled.
 
 Indicates whether a block storage domain supports the property that
 discard zeroes the data.
-A <<types-storage_domain,storage domain>> only supports the property that
+A xref:types/storage_domain[storage domain] only supports the property that
 discard zeroes the data if all of the
-<<types-logical_unit, logical unit>>s that it is built from support it;
+xref:types/logical_unit[logical unit]s that it is built from support it;
 that is, if each logical unit's `discard_zeroes_data` value is true.
 
 IMPORTANT: Since version 4.2.1 of the system, the support for this attribute has
@@ -52391,8 +52538,8 @@ It is preserved for backwards compatibility, but the value will always be `false
 [id="types-storage_domain-attributes-wipe_after_delete"]
 ==== wipe_after_delete
 
-Serves as the default value of `wipe_after_delete` for <<types-disk, disk>>s on this
-<<types-storage_domain, storage domain>>.
+Serves as the default value of `wipe_after_delete` for xref:types/disk[disk]s on this
+xref:types/storage_domain[storage domain].
 
 That is, newly created disks will get their `wipe_after_delete` value from their storage domains by default.
 Note that the configuration value `SANWipeAfterDelete` serves as the default value of block storage domains'
@@ -52524,7 +52671,7 @@ volume on the storage domain, this Sanlock resource is used to provide storage b
 [id="types-storage_domain_type"]
 === StorageDomainType [small]#enum#
 
-Indicates the kind of data managed by a <<types-storage_domain, storage domain>>.
+Indicates the kind of data managed by a xref:types/storage_domain[storage domain].
 
 .Values summary
 [cols="20,80"]
@@ -52594,7 +52741,7 @@ from an OpenStack Cincer block storage service.
 [id="types-storage_format"]
 === StorageFormat [small]#enum#
 
-Type which represents a format of <<types-storage_domain, storage domain>>.
+Type which represents a format of xref:types/storage_domain[storage domain].
 
 .Values summary
 [cols="20,80"]
@@ -52697,26 +52844,26 @@ Type representing a storage domain type.
 ==== cinder
 
 Cinder storage domain.
-For more details on Cinder please go to https://wiki.openstack.org/wiki/Cinder[Cinder].
+For more details on Cinder please go to link:https://wiki.openstack.org/wiki/Cinder[Cinder].
 
 [id="types-storage_type-values-glance"]
 ==== glance
 
 Glance storage domain.
-For more details on Glance please go to https://wiki.openstack.org/wiki/Glance[Glance].
+For more details on Glance please go to link:https://wiki.openstack.org/wiki/Glance[Glance].
 
 [id="types-storage_type-values-glusterfs"]
 ==== glusterfs
 
 Gluster-FS storage domain.
-For more details on Gluster please go to https://www.gluster.org/[Gluster].
+For more details on Gluster please go to link:https://www.gluster.org/[Gluster].
 
 [id="types-storage_type-values-managed_block_storage"]
 ==== managed_block_storage
 
 Managed block storage domain.
 A storage domain managed using cinderlib.
-For supported storage drivers, see https://docs.openstack.org/cinder/rocky/drivers.html[Available Drivers].
+For supported storage drivers, see link:https://docs.openstack.org/cinder/rocky/drivers.html[Available Drivers].
 
 [id="types-switch_type"]
 === SwitchType [small]#enum#
@@ -53192,13 +53339,13 @@ With the following request body:
 ----
 
 Memory hot plug is supported from {product-name} 3.6 onwards. You can use the example above to increase
-memory while the virtual machine is in state <<types-vm_status-values-up, up>>. The size increment must be
+memory while the virtual machine is in state xref:types/vm_status/values/up[up]. The size increment must be
 dividable by the value of the `HotPlugMemoryBlockSizeMb` configuration value (256 MiB by default). If the memory
 size increment is not dividable by this value, the memory size change is only stored to next run configuration.
 Each successful memory hot plug operation creates one or two new memory devices.
 
 Memory hot unplug is supported since {product-name} 4.2 onwards. Memory hot unplug can only be performed
-when the virtual machine is in state <<types-vm_status-values-up, up>>. Only previously hot plugged memory
+when the virtual machine is in state xref:types/vm_status/values/up[up]. Only previously hot plugged memory
 devices can be removed by the hot unplug operation. The requested memory decrement is rounded down to match sizes
 of a combination of previously hot plugged memory devices. The requested memory value is stored to next run
 configuration without rounding.
@@ -53451,7 +53598,7 @@ Time zone representation.
 
 UTC offset.
 
-Offset from https://en.wikipedia.org/wiki/Coordinated_Universal_Time[UTC].
+Offset from link:https://en.wikipedia.org/wiki/Coordinated_Universal_Time[UTC].
 
 [id="types-transparent_huge_pages"]
 === TransparentHugePages [small]#struct#
@@ -53661,9 +53808,9 @@ user.
 
 Namespace where the user resides. When using the authorization provider that stores users in the LDAP server,
 this attribute equals the naming context of the LDAP server.
-See https://github.com/oVirt/ovirt-engine-extension-aaa-ldap for more information.
+See link:https://github.com/oVirt/ovirt-engine-extension-aaa-ldap[oVirt Engine Extension AAA LDAP] for more information.
 When using the built-in authorization provider that stores users in the database this attribute is ignored.
-See https://github.com/oVirt/ovirt-engine-extension-aaa-jdbc for more information.
+See link:https://github.com/oVirt/ovirt-engine-extension-aaa-jdbc[oVirt Engine extension - AAA - JDBC] for more information.
 
 [id="types-user-attributes-principal"]
 ==== principal
@@ -53687,7 +53834,7 @@ User options allow you to save key/value properties
 which are used to customize the settings per individual
 user.
 Note that since version 4.4.5 this property is deprecated and preserved only for backwards
-compatibility. It will be removed in the future. Please use the <<services-user_option, options>>
+compatibility. It will be removed in the future. Please use the xref:services/user_option[options]
 endpoint instead.
 
 [id="types-user-links_summary"]
@@ -54508,13 +54655,13 @@ With the following request body:
 ----
 
 Memory hot plug is supported from {product-name} 3.6 onwards. You can use the example above to increase
-memory while the virtual machine is in state <<types-vm_status-values-up, up>>. The size increment must be
+memory while the virtual machine is in state xref:types/vm_status/values/up[up]. The size increment must be
 dividable by the value of the `HotPlugMemoryBlockSizeMb` configuration value (256 MiB by default). If the memory
 size increment is not dividable by this value, the memory size change is only stored to next run configuration.
 Each successful memory hot plug operation creates one or two new memory devices.
 
 Memory hot unplug is supported since {product-name} 4.2 onwards. Memory hot unplug can only be performed
-when the virtual machine is in state <<types-vm_status-values-up, up>>. Only previously hot plugged memory
+when the virtual machine is in state xref:types/vm_status/values/up[up]. Only previously hot plugged memory
 devices can be removed by the hot unplug operation. The requested memory decrement is rounded down to match sizes
 of a combination of previously hot plugged memory devices. The requested memory value is stored to next run
 configuration without rounding.
@@ -55159,13 +55306,13 @@ With the following request body:
 ----
 
 Memory hot plug is supported from {product-name} 3.6 onwards. You can use the example above to increase
-memory while the virtual machine is in state <<types-vm_status-values-up, up>>. The size increment must be
+memory while the virtual machine is in state xref:types/vm_status/values/up[up]. The size increment must be
 dividable by the value of the `HotPlugMemoryBlockSizeMb` configuration value (256 MiB by default). If the memory
 size increment is not dividable by this value, the memory size change is only stored to next run configuration.
 Each successful memory hot plug operation creates one or two new memory devices.
 
 Memory hot unplug is supported since {product-name} 4.2 onwards. Memory hot unplug can only be performed
-when the virtual machine is in state <<types-vm_status-values-up, up>>. Only previously hot plugged memory
+when the virtual machine is in state xref:types/vm_status/values/up[up]. Only previously hot plugged memory
 devices can be removed by the hot unplug operation. The requested memory decrement is rounded down to match sizes
 of a combination of previously hot plugged memory devices. The requested memory value is stored to next run
 configuration without rounding.
@@ -55873,7 +56020,7 @@ Describes whether the vNIC is to be implemented as a pass-through device or a vi
 [id="types-vnic_profile"]
 === VnicProfile [small]#struct#
 
-A vNIC profile is a collection of settings that can be applied to individual <<types-nic,NIC>>.
+A vNIC profile is a collection of settings that can be applied to individual xref:types/nic[NIC].
 
 .Attributes summary
 [cols="20,20,60"]
@@ -55906,7 +56053,7 @@ A vNIC profile is a collection of settings that can be applied to individual <<t
 
 |`pass_through`
 |<<types-vnic_pass_through,VnicPassThrough>>
-|Enables passthrough to an SR-IOV-enabled <<types-host_nic,host NIC>>.
+|Enables passthrough to an SR-IOV-enabled xref:types/host_nic[host NIC].
 
 |`port_mirroring`
 |<<types-boolean,Boolean>>
@@ -55928,10 +56075,10 @@ flagged as `migratable`.
 [id="types-vnic_profile-attributes-pass_through"]
 ==== pass_through
 
-Enables passthrough to an SR-IOV-enabled <<types-host_nic,host NIC>>.
+Enables passthrough to an SR-IOV-enabled xref:types/host_nic[host NIC].
 
 A vNIC profile enables a NIC to be directly connected to a
-<<types-host_nic_virtual_functions_configuration,virtual function (VF)>> of an SR-IOV-enabled
+xref:types/host_nic_virtual_functions_configuration[virtual function (VF)] of an SR-IOV-enabled
 host NIC, if passthrough is enabled. The NIC will then bypass the software network virtualization and
 connect directly to the VF for direct device assignment.
 
@@ -55943,8 +56090,8 @@ If a vNIC profile has passthrough enabled, `qos` and `port_mirroring` are disabl
 
 Enables port mirroring.
 
-Port mirroring copies layer 3 network traffic on a given <<types-network,logical network>> and
-<<types-host,host>> to a NIC on a <<types-vm,virtual machine>>. This virtual machine
+Port mirroring copies layer 3 network traffic on a given xref:types/network[logical network] and
+xref:types/host[host] to a NIC on a xref:types/vm[virtual machine]. This virtual machine
 can be used for network debugging and tuning, intrusion detection, and monitoring the behavior of other
 virtual machines on the same host and logical network. The only
 traffic copied is internal to one logical network on one host. There is no
@@ -55953,7 +56100,7 @@ with port mirroring enabled uses more host CPU and RAM than other virtual machin
 
 Port mirroring has the following limitations:
 
- - Hot plugging a NIC with a vNIC profile that has port mirroring enabled is not supported.
+ - Hot linking a NIC with a vNIC profile that has port mirroring enabled is not supported.
  - Port mirroring cannot be altered when the vNIC profile is attached to a virtual machine.
 
 Given the above limitations, it is recommended that you enable port mirroring on an additional,
@@ -56305,17 +56452,19 @@ machines.
 
 [id="documents-a01_primitive_types"]
 [appendix]
-== Primitive types
+:_content-type: ASSEMBLY
+[id="primitive-types"]
+= Primitive types
 
 This section describes the primitive data types supported by the API.
 
 [id="types-string"]
-=== String [small]#primitive#
+== String [small]#primitive#
 
-A finite sequence of https://home.unicode.org[Unicode] characters.
+A finite sequence of link:https://home.unicode.org[Unicode] characters.
 
 [id="types-boolean"]
-=== Boolean [small]#primitive#
+== Boolean [small]#primitive#
 
 Represents the _false_ and _true_ concepts used in mathematical logic.
 
@@ -56330,7 +56479,7 @@ than `false`, and `1` has the same meaning than `true`. Try to avoid
 using these values, as support for them may be removed in the future.
 
 [id="types-integer"]
-=== Integer [small]#primitive#
+== Integer [small]#primitive#
 
 Represents the mathematical concept of integer number.
 
@@ -56345,21 +56494,21 @@ values possible with 32 bit isn't enough. In those exceptional cases
 the engine uses 64 bit integers, in particular for the following
 attributes:
 
-- `Disk.actual_size`
-- `Disk.provisioned_size`
-- `GlusterClient.bytes_read`
-- `GlusterClient.bytes_written`
-- `Host.max_scheduling_memory`
-- `Host.memory`
-- `HostNic.speed`
-- `LogicalUnit.size`
-- `MemoryPolicy.guaranteed`
-- `NumaNode.memory`
-- `QuotaStorageLimit.limit`
-- `StorageDomain.available`
-- `StorageDomain.used`
-- `StorageDomain.committed`
-- `VmBase.memory`
+* `Disk.actual_size`
+* `Disk.provisioned_size`
+* `GlusterClient.bytes_read`
+* `GlusterClient.bytes_written`
+* `Host.max_scheduling_memory`
+* `Host.memory`
+* `HostNic.speed`
+* `LogicalUnit.size`
+* `MemoryPolicy.guaranteed`
+* `NumaNode.memory`
+* `QuotaStorageLimit.limit`
+* `StorageDomain.available`
+* `StorageDomain.used`
+* `StorageDomain.committed`
+* `VmBase.memory`
 
 For these exception cases the minimum value is -2^63^
 (-9223372036854775808) and the maximum value is 2^63^-1
@@ -56370,33 +56519,33 @@ unlimited precission integers, so the above limitations and exceptions
 will eventually disappear.
 
 [id="types-decimal"]
-=== Decimal [small]#primitive#
+== Decimal [small]#primitive#
 
 Represents the mathematical concept of real number.
 
-Currently the engine implements this type using 32 bit
-https://en.wikipedia.org/wiki/IEEE_floating_point[IEEE 754] single
+Currently the engine implements this type using 32-bit
+link:https://en.wikipedia.org/wiki/IEEE_floating_point[IEEE 754] single
 precision floating point numbers.
 
 For some attributes this isn't enough precision. In those exceptional
 cases the engine uses 64 bit double precision floating point numbers,
 in particular for the following attributes:
 
-- `QuotaStorageLimit.usage`
-- `QuotaStorageLimit.memory_limit`
-- `QuotaStorageLimit.memory_usage`
+* `QuotaStorageLimit.usage`
+* `QuotaStorageLimit.memory_limit`
+* `QuotaStorageLimit.memory_usage`
 
 NOTE: In the future the decimal type will be implemented using unlimited
 precision decimal numbers, so the above limitations and exceptions will
 eventually disappear.
 
 [id="types-date"]
-=== Date [small]#primitive#
+== Date [small]#primitive#
 
 Represents a date and time.
 
 The format returned by the engine is the one described in the
-https://www.w3.org/TR/xmlschema11-2/#dateTime[XML Schema specification]
+link:https://www.w3.org/TR/xmlschema11-2/#dateTime[XML Schema specification]
 when requesting XML. For example, if you send a request like this to
 retrieve the XML representation of a virtual machine:
 
@@ -56419,11 +56568,11 @@ The response body will contain the following XML document:
 
 When requesting the JSON representation the engine uses a different,
 format: an integer containing the number of milliseconds since Jan 1^st^ 1970,
-also known as https://en.wikipedia.org/wiki/Unix_time[_epoch time_]. For
+also known as link:https://en.wikipedia.org/wiki/Unix_time[_epoch time_]. For
 example, if you send a request like this to retrieve the JSON
 representation of a virtual machine:
 
-[source]
+[source,terminal]
 ----
 GET /ovirt-engine/api/vms/123
 Accept: application/json
@@ -56442,24 +56591,33 @@ The response body will contain the following JSON document:
 }
 ----
 
-NOTE: In both cases, the dates returned by the engine use the time zone
-configured in the server where it is running, in the above examples it
+[NOTE]
+====
+In both cases, the dates returned by the engine use the time zone
+configured in the server where it is running. In these examples, the time zone
 is UTC+2.
+====
+
 
 [id="documents-a02_changes_in_v4"]
 [appendix]
-== Changes in version 4 of the API
+:_content-type: ASSEMBLY
+[id="changes-in-version-4-of-the-api"]
+= Changes in version 4 of the API
 
 This section enumerates the backwards-compatibility breaking changes that
 have been introduced in and since version 4 of the API.
 
-=== Changes in API version 4.0 (succeeding version 3.6)
+[id="changes-in-api-version-4_0-succeeding-version-3_6"]
+== Changes in API version 4.0 (succeeding version 3.6)
 
-==== Removed YAML support
+[id="removed-yaml-support"]
+=== Removed YAML support
 
 The support for YAML has been completely removed.
 
-==== Renamed complex types
+[id="renamed-complex-types"]
+=== Renamed complex types
 
 The following XML schema complex types have been renamed:
 
@@ -56505,7 +56663,8 @@ The following XML schema complex types have been renamed:
 | `WatchDogs` | `Watchdogs`
 |====
 
-==== Replaced the `Status` type with enum types
+[id="replaced-the-status-type-with-enum-types"]
+=== Replaced the `Status` type with enum types
 
 Currently the status of different objects is reported using the `Status`
 type, which contains a `state` string describing the status and another
@@ -56540,16 +56699,17 @@ the status of the same virtual machine will now be reported as follows:
 </vm>
 ----
 
-==== Remove the NIC `network` and `port_mirroring` properties
+[id="remove-the-nic-network-and-port_mirroring-properties"]
+=== Remove the NIC `network` and `port_mirroring` properties
 
 The NIC `network` and `port_mirroring` elements have been replaced by
 the `vnic_profile` element, so when creating or updating a NIC instead
 of specifying the network and port mirroring configuration, these are
 previusly specified creating a vNIC profile:
 
-....
+----
 POST /ovirt-engine/api/vnicprofiles
-....
+----
 
 [source,xml]
 ----
@@ -56562,9 +56722,9 @@ POST /ovirt-engine/api/vnicprofiles
 
 And then the NIC is created or referencing the existing vNIC profile:
 
-....
+----
 PUT /ovirt-engine/api/vms/123/nics/456
-....
+----
 
 [source,xml]
 ----
@@ -56580,29 +56740,33 @@ Note that the `network` element hasn't been removed from the XML schema
 because it is still used by the `initialization` element, but it will be
 completely ignored if provided when creating or updating a NIC.
 
-==== Remove the NIC `active` property
+[id="remove-the-nic-active-property"]
+=== Remove the NIC `active` property
 
 The NIC `active` property was replaced by `plugged` some time ago. It
 has been completely removed now.
 
-==== Remove the disk `type` property
+[id="remove-the-disk-type-property"]
+=== Remove the disk `type` property
 
 The `type` property of disks has been removed, but kept in the XML
 schema and ignored. It has been completely removed now.
 
-==== Remove the disk `size` property
+[id="remove-the-disk-size-property"]
+=== Remove the disk `size` property
 
 The disk `size` property has been replaced by `provisioned_size` long
 ago. It has been completely removed now.
 
-==== Removed support for pinning a VM to a single host
+[id="removed-support-for-pinning-a-vm-to-a-single-host"]
+=== Removed support for pinning a VM to a single host
 
 Before version 3.6 the API had the possibility to pin a VM to a single
 host, using the `placement_policy` element of the VM entity:
 
-....
+----
 PUT /ovirt-engine/api/vms/123
-....
+----
 
 [source,xml]
 ----
@@ -56616,9 +56780,9 @@ PUT /ovirt-engine/api/vms/123
 In version 3.6 this capability was enhanced to support multiple hosts,
 and to do so a new `hosts` element was added:
 
-....
+----
 PUT /ovirt-engine/api/vms/123
-....
+----
 
 [source,xml]
 ----
@@ -56637,7 +56801,8 @@ To preserve backwards compatibility the single `host` element was
 preserved. In 4.0 this has been removed, so applications will need to
 use the `hosts` element even if when pinning to a single host.
 
-==== Removed the `capabilities.permits` element
+[id="removed-the-capabilities_permits-element"]
+=== Removed the `capabilities.permits` element
 
 The list of permits is potentiall different for each cluster level, and
 it has been added to the `version` element long ago, but it has been
@@ -56648,9 +56813,9 @@ In 4.0 it the `capabilities` service has been completely removed, and
 replaced by the new `clusterlevels` service. To find the permits
 supported by cluster level 4.0 a request like this should be used:
 
-....
+----
 GET /ovirt-engine/api/clusterlevels/4.0
-....
+----
 
 The result will be a document containing the information specific to
 that cluster level, in particular the set of supported permits:
@@ -56669,13 +56834,15 @@ that cluster level, in particular the set of supported permits:
 </cluster_level>
 ----
 
-==== Removed the `storage_manager` element
+[id="removed-the-storage_manager-element"]
+=== Removed the `storage_manager` element
 
 The `storage_manager` element was replaced by the `spm` element some
 time ago. The old one was kept for backwards compatibility, but it has
 been completely removed now.
 
-==== Removed the data center `storage_type` element
+[id="removed-the-data-center-storage_type-element"]
+=== Removed the data center `storage_type` element
 
 Data centers used to be associated to a specific storage type (NFS,
 Fiber Channel, iSCSI, etc) but they have been changed some time so that
@@ -56684,7 +56851,8 @@ new `local` element was introduced to indicate this, and the old
 `storage_type` was element was preserved for backwards compatibility.
 This old element has now been completely removed.
 
-==== Remove the `timezone` element
+[id="remove-the-timezone-element"]
+=== Remove the `timezone` element
 
 The VM resource used to contain a `timezone` element to represent the
 time zone. This element only allowed a string:
@@ -56712,16 +56880,17 @@ offset, it was replaced with a new structured `time_zone` element:
 The old `timezone` element was preserved, but it has been completely
 removed now.
 
-==== Removed the `guest_info` element
+[id="removed-the-guest_info-element"]
+=== Removed the `guest_info` element
 
 The `guest_info` element was used to hold information gathered by the
 guest agent, like the IP addresses and the fully qualified host name.
 This information is also available in other places. For example, the IP
 addresses are available within VM resource:
 
-....
+----
 GET /ovirt-engine/api/vms/123
-....
+----
 
 [source,xml]
 ----
@@ -56738,9 +56907,9 @@ GET /ovirt-engine/api/vms/123
 And also within the NIC resource, using the newer `reported_devices`
 element:
 
-....
+----
 GET /ovirt-engine/api/vms/{vm:id}/nics/{nic:id}
-....
+----
 
 [source,xml]
 ----
@@ -56767,9 +56936,9 @@ To remove this duplication the `guest_info` element has been removed.
 To support the fully qualified domain name a new `fqdn` element has been
 added to the VM resource:
 
-....
+----
 GET /ovirt-engine/api/vms/123
-....
+----
 
 [source]
 ----
@@ -56781,7 +56950,8 @@ GET /ovirt-engine/api/vms/123
 This will contain the same information that `guest_info.fqdn` used to
 contain.
 
-==== Replaced CPU `id` attribute with `type` element
+[id="replaced-cpu-id-attribute-with-type-element"]
+=== Replaced CPU `id` attribute with `type` element
 
 The `cpu` element used to have an `id` attribute that indicates the type
 of CPU:
@@ -56806,7 +56976,8 @@ attribute has been replaced with a new `type` element:
 </cpu>
 ----
 
-==== Use elements instead of attributes in CPU topology
+[id="use-elements-instead-of-attributes-in-cpu-topology"]
+=== Use elements instead of attributes in CPU topology
 
 In the past the CPU topology element used attributes for its properties:
 
@@ -56833,7 +57004,8 @@ replaced by inner elements:
 </cpu>
 ----
 
-==== Use elements instead of attributes in VCPU pin
+[id="use-elements-instead-of-attributes-in-vcpu-pin"]
+=== Use elements instead of attributes in VCPU pin
 
 In the past the VCPU pin element used attributes for its properties:
 
@@ -56857,7 +57029,8 @@ replaced by inner elements:
 </cpu_tune>
 ----
 
-==== Use elements instead of attributes in VCPU pin
+[id="use-elements-instead-of-attributes-in-vcpu-pin"]
+=== Use elements instead of attributes in VCPU pin
 
 In the past the `version` element used attributes for its properties:
 
@@ -56878,7 +57051,8 @@ replaced by inner elements:
 </version>
 ----
 
-==== Use elements instead of attributes in memory overcommit
+[id="use-elements-instead-of-attributes-in-memory-overcommit"]
+=== Use elements instead of attributes in memory overcommit
 
 In the past the `overcommit` element used attributes for its properties:
 
@@ -56903,7 +57077,8 @@ replaced by inner elements:
 </memory_policy>
 ----
 
-==== Use elements instead of attributes in `console`
+[id="use-elements-instead-of-attributes-in-console"]
+=== Use elements instead of attributes in `console`
 
 In the past the `console` element used attributes for its properties:
 
@@ -56922,7 +57097,8 @@ replaced by inner elements:
 </console>
 ----
 
-==== Use elements instead of attributes in VIRTIO SCSI
+[id="use-elements-instead-of-attributes-in-virtio-scsi"]
+=== Use elements instead of attributes in VIRTIO SCSI
 
 In the past the VIRTIO ISCSI element used attributes for its properties:
 
@@ -56941,7 +57117,8 @@ replaced by inner elements:
 </virtio_scsi>
 ----
 
-==== Use element instead of attribute for power management agent `type`
+[id="use-element-instead-of-attribute-for-power-management-agent-type"]
+=== Use element instead of attribute for power management agent `type`
 
 The power management `type` property was represented as an attribute:
 
@@ -56965,7 +57142,8 @@ replaced with an inner element:
 </agent>
 ----
 
-==== Use elements instead of attributes in power management agent options
+[id="use-elements-instead-of-attributes-in-power-management-agent-options"]
+=== Use elements instead of attributes in power management agent options
 
 In the past the power management agent options element used attributes
 for its properties:
@@ -56997,7 +57175,8 @@ replaced with inner elements:
 </options>
 ----
 
-==== Use elements instead of attributes in IP address:
+[id="use-elements-instead-of-attributes-in-ip-address:"]
+=== Use elements instead of attributes in IP address:
 
 In the past the IP address element used attributes for its properties:
 
@@ -57017,7 +57196,8 @@ replaced with inner elements:
 </ip>
 ----
 
-==== Use elements instead of attributes in MAC address:
+[id="use-elements-instead-of-attributes-in-mac-address:"]
+=== Use elements instead of attributes in MAC address:
 
 In the past the MAC address element used attributes for its properties:
 
@@ -57036,7 +57216,8 @@ replaced by inner elements:
 </mac>
 ----
 
-==== Use elements instead of attributes in boot device:
+[id="use-elements-instead-of-attributes-in-boot-device:"]
+=== Use elements instead of attributes in boot device:
 
 In the past the boot device element used attributes for its properties:
 
@@ -57055,7 +57236,8 @@ replaced by inner elements:
 </boot>
 ----
 
-==== Use element instead of attribute for operating system `type`
+[id="use-element-instead-of-attribute-for-operating-system-type"]
+=== Use element instead of attribute for operating system `type`
 
 The operating system `type` property was represented as an attribute:
 
@@ -57077,25 +57259,26 @@ replaced with an inner element:
 </os>
 ----
 
-==== Removed the `force` parameter from the request to retrieve a host
+[id="removed-the-force-parameter-from-the-request-to-retrieve-a-host"]
+=== Removed the `force` parameter from the request to retrieve a host
 
 The request to retrieve a host used to support a `force` matrix
 parameter to indicate that the data of the host should be refreshed
 (calling VDSM to reload host capabilities and devices) before retrieving
 it from the database:
 
-....
+----
 GET /ovirt-engine/api/hosts/123;force
-....
+----
 
 This `force` parameter has been superseded by the host `refresh` action,
 but kept for backwards compatibility. It has been completely removed
 now. Applications that require this functionality should perform two
 requests, first one to refresh the host:
 
-....
+----
 POST /ovirt-engine/api/hosts/123/refresh
-....
+----
 
 [source,xml]
 ----
@@ -57104,11 +57287,12 @@ POST /ovirt-engine/api/hosts/123/refresh
 
 And then one to retrieve it, without the `force` parameter:
 
-....
+----
 GET /ovirt-engine/api/hosts/123
-....
+----
 
-==== Removed deprecated host power management configuration
+[id="removed-deprecated-host-power-management-configuration"]
+=== Removed deprecated host power management configuration
 
 The host power management configuration used to be part of the host
 resource, using embedded configuration elements:
@@ -57136,7 +57320,8 @@ were preserved for backwards compatibility. All these elements have been
 completely removed, so the only way to query or modify the power management
 agents is now the `/hosts/123/fenceagents` sub-collection.
 
-==== Use multiple `boot.devices.device` instead of multiple `boot`
+[id="use-multiple-boot_devices_device-instead-of-multiple-boot"]
+=== Use multiple `boot.devices.device` instead of multiple `boot`
 
 In the past the way to specify the boot sequence when starting a virtual
 machine was to use multiple `boot` elements, each containing a `dev`
@@ -57144,9 +57329,9 @@ element. For example, to specify that the virtual machine should first
 try to boot from CDROM and then from hard disk the following request was
 used:
 
-....
+----
 POST /ovirt-engine/api/vms/123/start
-....
+----
 
 [source,xml]
 ----
@@ -57170,9 +57355,9 @@ values here is the boot device, not the boot sequence. To fix this
 inconsistence this has been replaced with a single `boot` element that
 can contain multiple devices:
 
-....
+----
 POST /ovirt-engine/api/vms/123/start
-....
+----
 
 [source,xml]
 ----
@@ -57189,7 +57374,8 @@ POST /ovirt-engine/api/vms/123/start
 </action>
 ----
 
-==== Removed the `disks.clone` and `disks.detach_only` elements
+[id="removed-the-disks_clone-and-disks_detach_only-elements"]
+=== Removed the `disks.clone` and `disks.detach_only` elements
 
 These elements aren't really part of the representation of disks, but
 parameters of the operations to add and remove virtual machines.
@@ -57197,9 +57383,9 @@ parameters of the operations to add and remove virtual machines.
 The `disks.clone` element was used to indicate that the disks of a new
 virtual machine have to be cloned:
 
-....
+----
 POST /ovirt-engine/api/vms
-....
+----
 
 [source,xml]
 ----
@@ -57213,9 +57399,9 @@ POST /ovirt-engine/api/vms
 
 This has been now removed, and replaced by a new `clone` query parameter:
 
-....
+----
 POST /ovirt-engine/api/vms?clone=true
-....
+----
 
 [source,xml]
 ----
@@ -57228,9 +57414,9 @@ The `disks.detach_only` element was used to indicate that when removing
 a virtual machine the disks don't have to be removed, but just detached
 from the virtual machine:
 
-....
+----
 DELETE /ovirt-engine/api/vms/123
-....
+----
 
 [source,xml]
 ----
@@ -57246,26 +57432,28 @@ DELETE /ovirt-engine/api/vms/123
 This has been now removed, and replaced by a new `detach_only` query
 parameter:
 
-....
+----
 DELETE /ovirt-engine/api/vms/123?detach_only=true
-....
+----
 
-==== Rename element `vmpool` to `vm_pool`
+[id="rename-element-vmpool-to-vm_pool"]
+=== Rename element `vmpool` to `vm_pool`
 
 The names of the elements that represent pools of virtual machines used
 to be `vmpool` and `vmpools`. They have been renamed to `vm_pool` and
 `vm_pools` in order to have a consistent correspondence between names of
 complex types (`VmPool` and `VmPools` in this case) and elements.
 
-==== Use `logical_units` instead of multiple `logical_unit`
+[id="use-logical_units-instead-of-multiple-logical_unit"]
+=== Use `logical_units` instead of multiple `logical_unit`
 
 The logical units that are part of a volume group used to be reported as
 an unbounded number of `logical_unit` elements. For example, when
 reporting the details of a storage domain:
 
-....
+----
 GET /ovirt-engine/api/storagedomains/123
-....
+----
 
 [source,xml]
 ----
@@ -57290,9 +57478,9 @@ This is contrary to the usual practice in the API, as list of elements
 are always wrapped with an element. This has been fixed now, so the list
 of logical units will be wrapped with the `logical_units` element:
 
-....
+----
 GET /ovirt-engine/api/storagedomains/123
-....
+----
 
 [source,xml]
 ----
@@ -57315,15 +57503,16 @@ GET /ovirt-engine/api/storagedomains/123
 </storage_domain>
 ----
 
-==== Removed the `snapshots.collapse_snapshots` element
+[id="removed-the-snapshots_collapse_snapshots-element"]
+=== Removed the `snapshots.collapse_snapshots` element
 
 This element isn't really part of the representation of snapshots, but
 a parameter of the operation that imports a virtual machine from an
 export storage domain:
 
-....
+----
 POST /ovirt-engine/api/storagedomains/123/vms/456/import
-....
+----
 
 [source,xml]
 ----
@@ -57339,24 +57528,25 @@ POST /ovirt-engine/api/storagedomains/123/vms/456/import
 This has been now removed, and replaced by a new `collapse_snapshots`
 query parameter:
 
-....
+----
 POST /ovirt-engine/api/storagedomains/123/vms/456/import?collapse_snapshots=true
-....
+----
 
 [source,xml]
 ----
 <action/>
 ----
 
-==== Renamed `storage` and `host_storage` elements
+[id="renamed-storage-and-host_storage-elements"]
+=== Renamed `storage` and `host_storage` elements
 
 The host storage collection used the `storage` and `host_storage`
 elements and the `Storage` and `HostStorage` complex types to report the
 storage associated to a host:
 
-....
+----
 GET /ovirt-engine/api/hosts/123/storage
-....
+----
 
 [source,xml]
 ----
@@ -57376,9 +57566,9 @@ outer element is a plural name and the inner element is the same name
 but in singular. This has now been changed to use `host_storages` as the
 outer element and `host_storage` as the inner element:
 
-....
+----
 GET /ovirt-engine/api/hosts/123/storage
-....
+----
 
 [source,xml]
 ----
@@ -57393,14 +57583,15 @@ GET /ovirt-engine/api/hosts/123/storage
 </host_storage>
 ----
 
-==== Removed the `permissions.clone` element
+[id="removed-the-permissions_clone-element"]
+=== Removed the `permissions.clone` element
 
 This element isn't really part of the representation of permissions, but
 a parameter of the operations to create virtual machines or templates:
 
-....
+----
 POST /ovirt-engine/api/vms
-....
+----
 
 [source,xml]
 ----
@@ -57413,9 +57604,9 @@ POST /ovirt-engine/api/vms
 </action>
 ----
 
-....
+----
 POST /ovirt-engine/api/templates
-....
+----
 
 [source,xml]
 ----
@@ -57431,9 +57622,9 @@ POST /ovirt-engine/api/templates
 This has been now removed, and replaced by a new `clone_permissions`
 query parameter:
 
-....
+----
 POST /ovirt-engine/api/vms?clone_permissions=true
-....
+----
 
 [source,xml]
 ----
@@ -57442,9 +57633,9 @@ POST /ovirt-engine/api/vms?clone_permissions=true
 </vm>
 ----
 
-....
+----
 POST /ovirt-engine/api/templates?clone_permissions=true
-....
+----
 
 [source,xml]
 ----
@@ -57453,16 +57644,17 @@ POST /ovirt-engine/api/templates?clone_permissions=true
 </template>
 ----
 
-==== Renamed the random number generator `source` elements
+[id="renamed-the-random-number-generator-source-elements"]
+=== Renamed the random number generator `source` elements
 
 The random number generator sources used to be reported using a
 collection of `source` elements wrapped by an element with a name
 reflecting its use. For example, the required random number generator
 sources of a cluster used to be reported as follows:
 
-....
+----
 GET /ovirt-engine/api/clusters/123
-....
+----
 
 [source,xml]
 ----
@@ -57478,9 +57670,9 @@ GET /ovirt-engine/api/clusters/123
 And the random number generator sources suported by a host used to be
 reported as follows:
 
-....
+----
 GET /ovirt-engine/api/hosts/123
-....
+----
 
 [source,xml]
 ----
@@ -57500,9 +57692,9 @@ wrapped by a name in plural and elements by the same name in singular.
 This has been now fixed. The required random number generator sources
 will now be reported as follows:
 
-....
+----
 GET /ovirt-engine/api/clusters/123
-....
+----
 
 [source,xml]
 ----
@@ -57514,12 +57706,13 @@ GET /ovirt-engine/api/clusters/123
 </cluster>
 ----
 
+
 And the random number generator sources supported by a host will be
 reported as follows:
 
-....
+----
 GET /ovirt-engine/api/hosts/123
-....
+----
 
 [source,xml]
 ----
@@ -57537,7 +57730,8 @@ GET /ovirt-engine/api/hosts/123
 Note the use of `required_rng_source` and `supported_rng_source` instead
 of just `source`.
 
-==== Removed the intermediate `tag.parent` element
+[id="removed-the-intermediate-tag_parent-element"]
+=== Removed the intermediate `tag.parent` element
 
 The relationship bettween a tag and it's parent tag used to be
 represented using an intermedite `parent` tag, that in turn contains
@@ -57564,7 +57758,8 @@ used now:
 </tag>
 ----
 
-==== Remove scheduling built-in names and thresholds
+[id="remove-scheduling-built-in-names-and-thresholds"]
+=== Remove scheduling built-in names and thresholds
 
 In the past the specification of scheduling policies for clusters was
 based in built-in names and thresholds. For example a cluster that used
@@ -57624,9 +57819,9 @@ when retrieving, creating or updating a cluster is to reference an
 existing one using its identifier. For example, when retrieving a
 cluster only the `id` (and `href`) will be populated:
 
-....
+----
 GET /ovirt-engine/api/clusters/123
-....
+----
 
 [source,xml]
 ----
@@ -57639,22 +57834,24 @@ GET /ovirt-engine/api/clusters/123
 
 When creating or updating a cluster only the `id` will be accepted.
 
-==== Removed the `bricks.replica_count` and `bricks.stripe_count` elements
+[id="removed-the-bricks_replica_count-and-bricks_stripe_count-elements"]
+=== Removed the `bricks.replica_count` and `bricks.stripe_count` elements
 
 These elements aren't really part of the representation of a collection of
 bricks, but parameters of the operations to add and remove bricks. They have
 now been removed, and replaced by new `replica_count` and `stripe_count`
 parameters:
 
-....
+----
 POST .../bricks?replica_count=3&stripe_count=2
-....
+----
 
-....
+----
 DELETE .../bricks?replica_count=3
-....
+----
 
-==== Renamed the statistics `type` property to `kind`
+[id="renamed-the-statistics-type-property-to-kind"]
+=== Renamed the statistics `type` property to `kind`
 
 The statistics used to be represented using a `type` element that indicates the
 kind of statistic (gauge, counter, etc) and also a `type` attribute that
@@ -57688,7 +57885,8 @@ replaced by `kind`, and both `kind` and `type` are now elements:
 </statistic>
 ----
 
-==== Use multiple `vcpu_pins.vcpu_pin` instead of multiple `vcpu_pin`
+[id="use-multiple-vcpu_pins_vcpu_pin-instead-of-multiple-vcpu_pin"]
+=== Use multiple `vcpu_pins.vcpu_pin` instead of multiple `vcpu_pin`
 
 In the past the way to specify the virtual to physical CPU pinning of a virtual
 machine was to use multiple `vcpu_pin` elements:
@@ -57724,15 +57922,16 @@ been changed to use a wrapper element, in this case `vcpu_pins`:
 </vm>
 ----
 
-==== Use `force` parameter to force remove a data center
+[id="use-force-parameter-to-force-remove-a-data-center"]
+=== Use `force` parameter to force remove a data center
 
 The operation that removes a data center supports a `force` parameter.  In
 order to use it the `DELETE` operation used to support an optional action
 parameter:
 
-....
+----
 DELETE /ovirt-engine/api/datacenters/123
-....
+----
 
 [source,xml]
 ----
@@ -57743,18 +57942,19 @@ DELETE /ovirt-engine/api/datacenters/123
 
 This optional action parameter has been replaced with an optional parameter:
 
-....
+----
 DELETE /ovirt-engine/api/datacenters/123?force=true
-....
+----
 
-==== Use `force` parameter to force remove a host
+[id="use-force-parameter-to-force-remove-a-host"]
+=== Use `force` parameter to force remove a host
 
 The operation that removes a host supports a `force` parameter. In order to use
 it the `DELETE` operation used to support an optional action parameter:
 
-....
+----
 DELETE /ovirt-engine/api/host/123
-....
+----
 
 [source,xml]
 ----
@@ -57765,19 +57965,20 @@ DELETE /ovirt-engine/api/host/123
 
 This optional action parameter has been replaced with an optional parameter:
 
-....
+----
 DELETE /ovirt-engine/api/host/123?force=true
-....
+----
 
-==== Use parameters for force remove storage domain
+[id="use-parameters-for-force-remove-storage-domain"]
+=== Use parameters for force remove storage domain
 
 The operation that removes a storage domain supports the `force`, `destroy` and
 `host` parameters. These parameters were passed to the `DELETE` method using
 the representation of the storage domain as the body:
 
-....
+----
 DELETE /ovirt-engine/api/storagedomains/123
-....
+----
 
 [source,xml]
 ----
@@ -57799,25 +58000,26 @@ parameters, and the operation doesn't now accept a body. For example, now the
 correct way to delete a storage domain with the `force` parameter is the
 following:
 
-....
+----
 DELETE /ovirt-engine/api/storagedomain/123?host=myhost&force=true
-....
+----
 
 To delete with the `destroy` parameter:
 
-....
+----
 DELETE /ovirt-engine/api/storagedomain/123?host=myhost&destroy=true
-....
+----
 
-==== Use `host` parameter to remove storage server connection
+[id="use-host-parameter-to-remove-storage-server-connection"]
+=== Use `host` parameter to remove storage server connection
 
 The operation that removes a storage server connection supports a `host`
 parameter. In order to use it the `DELETE` method used to support an optional
 action parameter:
 
-....
+----
 DELETE /ovirt-engine/api/storageconnections/123
-....
+----
 
 [source,xml]
 ----
@@ -57830,19 +58032,20 @@ DELETE /ovirt-engine/api/storageconnections/123
 
 This optional action parameter has been replaced with an optional parameter:
 
-....
+----
 DELETE /ovirt-engine/api/storageconnections/123?host=myhost
-....
+----
 
-==== Use `force` and `storage_domain` parameters to remove template disks
+[id="use-force-and-storage_domain-parameters-to-remove-template-disks"]
+=== Use `force` and `storage_domain` parameters to remove template disks
 
 The operation that removes a template disk supports the `force` and
 `storage_domain` parameters. In order to use it them the `DELETE` method used
 to support an optional action parameter:
 
-....
+----
 DELETE /ovirt-engine/api/templates/123/disks/456
-....
+----
 
 [source,xml]
 ----
@@ -57856,15 +58059,16 @@ In version 4 of the API this operation has been moved to the new
 `diskattachments` collection, and the request body has been replaced with the
 query parameters `force` and `storage_domain`:
 
-....
+----
 DELETE /ovirt-engine/api/templates/123/disksattachments/456?force=true
-....
+----
 
-....
+----
 DELETE /ovirt-engine/api/templates/123/disksattachments/456?storage_domain=123
-....
+----
 
-==== Don't remove disks via the VM disk API
+[id="don't-remove-disks-via-the-vm-disk-api"]
+=== Don't remove disks via the VM disk API
 
 Removing an entity by deleting `/vms/123/disks/456` means removing the
 relationship between the VM and the disk - i.e., this operation should just
@@ -57873,19 +58077,20 @@ completely from the system, which was prone to user errors and had
 unreverseable consequences. To remove a disk, instead use the
 `/disk/456` API:
 
-....
+----
 DELETE /ovirt-engine/api/disks/456
-....
+----
 
-==== Use `force` query parameter to force remove a virtual machine
+[id="use-force-query-parameter-to-force-remove-a-virtual-machine"]
+=== Use `force` query parameter to force remove a virtual machine
 
 The operation that removes a virtual machine supports a `force` parameter. In
 order to use it the `DELETE` method used to support an optional action
 parameter:
 
-....
+----
 DELETE /ovirt-engine/api/vms/123
-....
+----
 
 [source,xml]
 ----
@@ -57897,18 +58102,19 @@ DELETE /ovirt-engine/api/vms/123
 This optional action parameter has been replaced with an optional query
 parameter:
 
-....
+----
 DELETE /ovirt-engine/api/vms/123?force=true
-....
+----
 
-==== Use `POST` instead of `DELETE` to remove multiple bricks
+[id="use-post-instead-of-delete-to-remove-multiple-bricks"]
+=== Use `POST` instead of `DELETE` to remove multiple bricks
 
 The operation that removes multiple Gluster bricks was implemented using the
 `DELETE` method and passing the list of bricks as the body of the request:
 
-....
+----
 DELETE /ovirt-engine/api/clusters/123/glustervolumes/456/bricks
-....
+----
 
 [source,xml]
 ----
@@ -57922,9 +58128,9 @@ DELETE /ovirt-engine/api/clusters/123/glustervolumes/456/bricks
 This is problematic because the `DELETE` method shouldn't have a body, so it
 has been replaced with a new `remove` action that uses the `POST` method:
 
-....
+----
 POST /ovirt-engine/api/clusters/123/glustervolumes/456/bricks/remove
-....
+----
 
 [source,xml]
 ----
@@ -57935,14 +58141,15 @@ POST /ovirt-engine/api/clusters/123/glustervolumes/456/bricks/remove
 </bricks>
 ----
 
-==== Removed the `scheduling_policy.policy` element
+[id="removed-the-scheduling_policy_policy-element"]
+=== Removed the `scheduling_policy.policy` element
 
 The element was kept for backward compatibility. Use `scheduling_policy.name`
 instead.
 
-....
+----
 POST /ovirt-engine/api/schedulingpolicies
-....
+----
 
 [source,xml]
 ----
@@ -57953,9 +58160,9 @@ POST /ovirt-engine/api/schedulingpolicies
 </scheduling_policy>
 ----
 
-....
+----
 PUT /ovirt-engine/api/schedulingpolicies/123
-....
+----
 
 [source,xml]
 ----
@@ -57966,7 +58173,8 @@ PUT /ovirt-engine/api/schedulingpolicies/123
 </scheduling_policy>
 ----
 
-==== Added `snapshot.snapshot_type`
+[id="added-snapshot_snapshot_type"]
+=== Added `snapshot.snapshot_type`
 
 Enums are being gradually introduces to the API. Some fields which were string
 until now, are replaced with an appropriate enum. One such field is vm.type.
@@ -57983,12 +58191,14 @@ type. So a new field has been added to snapshot entity:
 </snapshot>
 ----
 
-==== Removed `move` action from `VM`
+[id="removed-move-action-from-vm"]
+=== Removed `move` action from `VM`
 
 The deprecated `move` action of the `VM` entity has been removed.  Instead, you
 can move inidividual disks.
 
-==== Moved `reported_configurations.in_sync` to `network_attachment`
+[id="moved-reported_configurations_in_sync-to-network_attachment"]
+=== Moved `reported_configurations.in_sync` to `network_attachment`
 
 In version 3 of the API the XML schema type `ReportedConfigurations` had a
 `in_sync` property:
@@ -58024,16 +58234,17 @@ enclosing `network_attachment`:
 </network_attachment>
 ----
 
-==== Replaced `capabilities` with `clusterlevels`
+[id="replaced-capabilities-with-clusterlevels"]
+=== Replaced `capabilities` with `clusterlevels`
 
 The top level `capabilities` collection has been replaced by the new
 `clusterlevels` collection. This new collection will contain the information
 that isn't available in the model, like the list of CPU types available for
 each cluster level:
 
-....
+----
 GET /ovirt-engine/api/clusterlevels
-....
+----
 
 This will return a list of `ClusterLevel` objects containing the details for
 all the cluster levels supported by the system:
@@ -58058,9 +58269,9 @@ all the cluster levels supported by the system:
 Each specific cluster level has it's own subresource, identified by the version
 itself:
 
-....
+----
 GET /ovirt-engine/api/clusterlevels/3.6
-....
+----
 
 This will return the details of that version:
 
@@ -58079,7 +58290,8 @@ This will return the details of that version:
 </cluster_level>
 ----
 
-==== Replaced `disks` with `diskattachments`
+[id="replaced-disks-with-diskattachments"]
+=== Replaced `disks` with `diskattachments`
 
 In version 3 of the API virtual machines and templates had a `disks` collection
 containing all the information of the disks attached to them.  In version 4 of
@@ -58092,9 +58304,9 @@ virtual machine or template that they are attached to: `interface` and
 To find what disks are attached to a virtual machine, for example, send a
 request like this:
 
-....
+----
 GET /ovirt-engine/api/vms/123/diskattachments
-....
+----
 
 That will return a response like this:
 
@@ -58116,9 +58328,9 @@ To find the rest of the details of the disk, follow the link provided.
 Adding disks to a virtual machine or template uses the new `disk_attachment`
 element as well: request like this:
 
-....
+----
 POST /ovirt-engine/api/vms/123/diskattachments
-....
+----
 
 With the following body if the disk doesn't exist and you want to create it:
 
@@ -58179,15 +58391,16 @@ specific storage domains will now look like this:
 </template>
 ----
 
-==== Use `iscsi_targets` element to discover unregistered storage
+[id="use-iscsi_targets-element-to-discover-unregistered-storage"]
+=== Use `iscsi_targets` element to discover unregistered storage
 
 In version 3 of the API the operation to discover unregistered storage domains
 used to receive a list of iSCSI targets, using multiple `iscsi_target`
 elements:
 
-....
+----
 POST /ovirt-engine/api/hosts/123/unregisteredstoragedomaindiscover
-....
+----
 
 [source,xml]
 ----
@@ -58204,9 +58417,9 @@ In version 4 of the API all repeating elements, like `iscsi_target`
 in this case, are wrapped with another element, `iscsi_targets` in
 case. So the same request should now look like this:
 
-....
+----
 POST /ovirt-engine/api/hosts/123/unregisteredstoragedomaindiscover
-....
+----
 
 [source,xml]
 ----
@@ -58221,8 +58434,8 @@ POST /ovirt-engine/api/hosts/123/unregisteredstoragedomaindiscover
 </action>
 ----
 
-=== Changes in Engine version 4.5
+[id="changes-in-engine-version-4_5"]
+== Changes in Engine version 4.5
 
-==== Openstack Volume (Cinder) integration replaced by Managed Block Storage.
-
-
+[id="openstack-volume-cinder-integration-replaced-by-managed-block-storage_"]
+=== Openstack Volume (Cinder) integration replaced by Managed Block Storage.

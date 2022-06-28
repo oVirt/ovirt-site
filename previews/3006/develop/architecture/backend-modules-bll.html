@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Backend modules bll | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Backend modules bll" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3006/develop/architecture/backend-modules-bll.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3006/develop/architecture/backend-modules-bll.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Backend modules bll" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Backend modules bll","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3006/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3006/develop/architecture/backend-modules-bll.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3006/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3006/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3006/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3006/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3006/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3006/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3006/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3006/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3006/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3006/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3006/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3006/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3006/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3006/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3006/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3006/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3006/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3006/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3006/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3006/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3006/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3006/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3006//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3006//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3006/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3006/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3006/develop/architecture/">
+              <span property="name">Architecture</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Assaf Muller">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Assaf Muller</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3006/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="backend-modules-bll">Backend modules bll</h1>
+
+<p><strong>Introduction:</strong> The bll (Business Logic Layer) encapsulates the different actions and queries the user can apply, and implements the actual logic required to run said commands. In the bll, every action has a value in the VdcActionType enum. The naming convention is of importance - *Command. For example: RunVMCommand, SetupNetworkCommand, and so on. Each enum value has a corresponding class, and that class is instantiated by a factory via reflection. Similarly, queries have *Query enum values in the VdcQueryType enum, and each enum value has a corresponding class. For each command or query there is the appropriate POJO that represents the commands’ parameters. Some parameter structs are shared between different commands.</p>
+
+<p><strong>Backend.RunAction:</strong> This is the main entry point for the Bll bean. RunAction uses CommandsFactory.CreateCommand receives an enum value and command parameters and instantiates the appropriate command. The command is then actually ran via command.executeAction(), which first runs the base class of all commands: CommandBase’s executeAction initial implementation. CommandBase.executeAction first checks for command-wide validations, and then runs the derived command implementation. In the validations stage, the field ‘returnValue’ is filled, including its subfields ‘canDoAction’ and ‘errorMessage’. A command acts very similarly to a function and thus its ‘returnValue’ field acts as a metaphor for an actual return value of a function. If the validation was successful, the execution stage begins, which fills ‘succeeded’ and ‘exceptions’.</p>
+
+<p><strong>Backend.runInternalMultipleActions:</strong> When the user runs many commands at once (For example, removing 5 VMs from a host at the same time), Backend uses the ‘MultipleActionsRunner’ class. Its Execute method runs the validations of all commands asynchronously and at the same time and then waits on all the validation threads. Once all validations have completed, one of two options may happen: Either the action group is configured so that all validations must pass to apply all commands, or every command that passes validation is executed on a per-command basis.</p>
+
+<p><strong>Significant command methods:</strong></p>
+
+<ol>
+  <li>canDoAction - Extra command-specific validation</li>
+  <li>executeCommand - The actual code to be executed</li>
+</ol>
+
+<p><strong>Validation:</strong> Before actually executing the command, we must validate that the user can actually run the command. Validation is handled in many different aspects:</p>
+
+<ul>
+  <li>Authorization - Each command sets its own permissions required in order to run the command. ‘isUserAuthorizedToRunAction’ checks for the required permissions.</li>
+  <li>Input validation - oVirt uses the javax.validation.constraints framework in order to check the parameters passed into the command, using annotations in the different parameter classes. For example, @Size (min, max definitions), @Pattern (regex definitions), and so on. Each annotation also defines its own error key in case the validation fails on that field.</li>
+  <li>Locking - Many commands have the potential to be ran in parallel, mostly through automated scripts using the REST API. A lock is initially obtained and then freed either when validation fails (Before the execution stage begins), or if validation succeeds after execution finishes.</li>
+  <li>Command-specific validation - Every command can implement ‘canDoAction’. For example ‘AddNetworkCommand’ checks that a storage pool exists, that the network does not already exist, and that the new network’s prefix is valid - All checks that make sense for this specific command. In case one of those checks fails, we need to know why. We use a POJO called ‘ValidationResult’. Error messages are keyed via ‘VdcBllMessages’, which is an enum contaning many error codes. Those error keys are translated via a file called AppErrors.properties.</li>
+</ul>
+
+<p><strong>Error message replacements:</strong> Replacements can be classified into two types: Static and dynamic. Most error messages start with the prefix Cannot ${ACTION} ${TYPE}. Action is the type of action the user is performing, and type is the entity we’re working on such as host, virtual NIC or network. Action and type have pre-fabricated values that can be replaced via CommandBase’s validate method. Dynamic replacements are error-specific and will usually be filled with values coming from the command’s parameters.</p>
+
+<p><strong>More on errors:</strong> Important errors the user should know about are presented to the user via a popup. Those error messages are translated from an error key to the actual string in the client side. Alternatively, another mechanism exists called the Audit Log, which lets you output to a log that is visible in the GUI. The audit log is used to output informative messages, as well as warnings and errors. AuditLogMessage is a properties file that defines the translations from error codes to strings, and those translations are done on the server side. CommandBase inherits from AuditLogableBase, and many replacements keys/values are present there, for example: VdsName and UserName. Another way to add dynamic replacements used by Audit Log messages is AuditLogMessage.’AddCustomValue’. Finally you may add custom replacement keys/values via @CustomLogFields annotations. For example when implementing a specific command, you may use @CustomLogField at the top of the class, then implement a getter method of the same name that will return the value matching that key. To actually output to the audit log, you use AuditLogDirector.log, which accepts an AuditLogableBase contaning the replacement values, and AuditLogType which is the error key itself. The log method knows to format the final string (After replacements) to the audit log in the GUI.</p>
+
+<p><strong>Audit Log Severities:</strong> Normal - Successful commands, or other informative messages (For example: When the user logs in). Warning - Something bad happened but the command continued, or warnings show as low disk space on a host. Error - As discussed above Alert - Rendered outside of the audit log, in a special more central location as orange exclamation marks followed by the message. Power management messages use alerts.</p>
+
+<p><strong>Transactionality:</strong> CommandBase.execute first calls handleTransactivity. Each command can be forced to use an existing transaction, a new transaction or none at all, using the ‘TransactionScopeOption’ enum:</p>
+
+<ul>
+  <li>Suppress - No transaction</li>
+  <li>RequiresNew - Require a new transaction</li>
+  <li>Required - Require a transaction, may use an existing one</li>
+</ul>
+
+<p>The enum value is passed with the commands’ options. However, the command may use an annotation which overrides the transaction option passed in to the command. In any case, the ‘handleTransactivity’ method fills in a class field called scope. The scope value (Suppress, RequiresNew or Required) is passed on to the static method ‘TransactionSupport.executeInScope’. The method accepts the scope value and the command to run, and runs the command’s ‘runInTransaction’ method.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3006/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3006/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3006/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3006/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/architecture/backend-modules-bll.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/architecture/backend-modules-bll.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

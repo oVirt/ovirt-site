@@ -57029,7 +57029,7 @@ replaced by inner elements:
 </cpu_tune>
 ----
 
-[id="use-elements-instead-of-attributes-in-vcpu-pin"]
+[id="use-elements-instead-of-attributes-in-vcpu-pin-changes"]
 === Use elements instead of attributes in VCPU pin
 
 In the past the `version` element used attributes for its properties:

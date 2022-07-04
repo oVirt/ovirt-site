@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Engine config examples | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Engine config examples" />
+<meta name="author" content="Assaf Muller" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3010/develop/developer-guide/engine/engine-config-examples.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3010/develop/developer-guide/engine/engine-config-examples.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Engine config examples" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Assaf Muller" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Assaf Muller"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Engine config examples","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3010/images/logo.svg"},"name":"Assaf Muller"},"url":"https://ovirt.github.io/ovirt-site/previews/3010/develop/developer-guide/engine/engine-config-examples.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3010/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3010/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3010/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3010/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3010/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3010/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3010/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3010/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3010/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3010/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3010/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3010/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3010/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3010/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3010/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3010/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3010/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3010/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3010/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3010/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3010/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3010/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3010//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3010//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3010/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3010/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3010/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3010/develop/developer-guide/engine/">
+              <span property="name">Engine</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Assaf Muller">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Assaf Muller</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Douglas Landgraf">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Douglas Landgraf</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7dc9a7cce548204762ec1b16a4b654d3?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7dc9a7cce548204762ec1b16a4b654d3?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Ondra Machacek">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ondra Machacek</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ee16b3113edf1dcba775a7007f2c1aed?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ee16b3113edf1dcba775a7007f2c1aed?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Tom Scofield">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Tom Scofield</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="engine-config-examples">Engine config examples</h1>
+
+<h2 id="actions">Actions</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # engine-config -h
+  engine-config: get/set/list configuration
+  USAGE:
+      engine-config ACTION [--cver=version] [-p | --properties=/path/to/alternate/property/file] [-c | --config=/path/to/alternate/config/file]
+  Where:
+      ACTION              action to perform, see details below
+      version             relevant configuration version to use.
+      -p, --properties=   (optional) use the given alternate properties file.
+      -c, --config=       (optional) use the given alternate configuration file.
+
+      Available actions:
+      -l, --list
+          list available configuration keys.
+      -a, --all
+          get all available configuration values.
+      -g key, --get=key [--cver=version]
+          get the value of the given key for the given version. If a version is not given, the values of all existing versions are returned.
+      -s key=val --cver=version, --set key=val --cver=version
+          set the value of the given key for the given version. The cver version is mandatory for this action.
+      -h, --help
+          display this help and exit.
+
+  ### Note: In order for your change(s) to take effect,
+  ### restart the JBoss service (using: 'service jboss-as restart').
+  #############################################################################
+</code></pre></div></div>
+
+<h2 id="changing-admin-user-password">Changing admin user password</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # ovirt-aaa-jdbc-tool user password-reset admin 
+</code></pre></div></div>
+
+<p>For oVirt 3.5, oVirt 3.4 and oVirt 3.3</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # engine-config -s AdminPassword=superNewPassword
+  # service jboss-as restart 
+</code></pre></div></div>
+
+<p>For oVirt 3.2 or later</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # engine-config -s AdminPassword=interactive
+  # service ovirt-engine restart 
+</code></pre></div></div>
+
+<h2 id="adding-vm-custom-properties-macspoof">Adding VM custom properties (macspoof)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
+  # service ovirt-engine restart 
+</code></pre></div></div>
+
+<p>In order to deactivate mac spoof filtering on a VM:</p>
+
+<ol>
+  <li>Bring down the VM</li>
+  <li>edit the VM</li>
+  <li>Click advanced</li>
+  <li>Custom properties</li>
+  <li>Add a key</li>
+  <li>Select macspoof</li>
+  <li>Type true as the value</li>
+  <li>Start the VM</li>
+</ol>
+
+<h2 id="macpoolranges">MacPoolRanges</h2>
+
+<p>MacPoolRanges provide a pool of MAC addresses to be used by all of the datacenters managed by the ovirt engine. Of course, in a LAN this doesn’t make much difference as the possibility of MAC “hijack” from a hardware vendor is extremely low. The 3 first bytes in a MAC specify the vendor ID, and the 3 last bytes the “card” address (explained in <a href="http://en.wikipedia.org/wiki/MAC_address">http://en.wikipedia.org/wiki/MAC_address</a>). If you run into the <strong>Not enough MAC addresses left in MAC Address Pool.</strong> error, you will need to expand this pool. If you are running multiple ovirt-engines or other virtualization platforms on the same network you may need to update this setting</p>
+
+<p>Also please notice you can have multiple ranges separated by comma</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # engine-config -s "MacPoolRanges=00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF"
+  # service ovirt-engine restart
+</code></pre></div></div>
+
+<h2 id="maxmacscountinpool">MaxMacsCountInPool</h2>
+
+<p>Limits the MAC pool size so if you have a pool that is too big the engine won’t start. So for example if you have pools 00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF it’s OK since there are 256 + 256 = 512 &lt; 100000 MACs But, if you have pools 00:1A:4A:00:00:00-00:1A:4A:00:FF:FF,00:1A:4A:01:00:00-00:1A:4A:01:FF:FF it will fail since there are 65536 + 65536 = 131072 &gt; 100000 MACs</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3010/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3010/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3010/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3010/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/engine/engine-config-examples.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/engine/engine-config-examples.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

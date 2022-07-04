@@ -45,22 +45,7 @@ As an exception you can upgrade from 4.3 to 4.5 without upgrading to 4.4 first.
 
 ## Upgrade to 4.5 from 4.4
 
-### On oVirt Engine side:
-
-```bash
-dnf install -y centos-release-ovirt45
-dnf update -y --nobest
-engine-setup
-```
-
-### on oVirt Node side:
-
-```bash
-dnf install -y centos-release-ovirt45 --enablerepo=extras
-```
-
-and then upgrade the host from the oVirt Engine administation portal.
-
+Please follow the [upgrade guide](/documentation/upgrade_guide/index.html#Upgrading_from_4-4)
 
 ## Upgrading from 4.3
 

@@ -29,21 +29,7 @@ See the [Release Notes for oVirt 4.5.1](/release/4.5.1/).
 
 ## Upgrade to 4.5 from 4.4
 
-### On oVirt Engine side:
-
-```bash
-dnf install -y centos-release-ovirt45
-dnf update -y --nobest
-engine-setup
-```
-
-### on oVirt Node side:
-
-```bash
-dnf install -y centos-release-ovirt45 --enablerepo=extras
-```
-
-and then upgrade the host from the oVirt Engine administation portal.
+Please follow the [upgrade guide](/documentation/upgrade_guide/index.html#Upgrading_from_4-4)
 
 
 ## Install oVirt using the command line

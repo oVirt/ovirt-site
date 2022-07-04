@@ -3,7 +3,7 @@
 
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [78](https://github.com/ovirt/ovirt-engine/issues) | 358 | 229 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [78](https://github.com/ovirt/ovirt-engine/issues) | 358 | 228 |
 | [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [66](https://github.com/ovirt/vdsm/issues) | 116 | 151 |
 | [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [34](https://github.com/ovirt/ovirt-web-ui/issues) | 89 | 69 |
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [31](https://github.com/ovirt/ovirt-ansible-collection/issues) | 52 | 73 |
@@ -17,8 +17,8 @@
 | [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | oVirt Engine API Model | [8](https://github.com/ovirt/ovirt-engine-api-model/issues) | 18 | 30 |
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 1 | 2 |
 | [ovirt-engine-keycloak](https://github.com/oVirt/ovirt-engine-keycloak) | Package that provides Keycloak overlay configuration to be run on oVirt Engine&#39;s Widlfly/EAP instance | [6](https://github.com/ovirt/ovirt-engine-keycloak/issues) | 3 | 4 |
+| [ovirt-node-ng-image](https://github.com/oVirt/ovirt-node-ng-image) | The source for oVirt Node NG installer ISO and RPM image | [6](https://github.com/ovirt/ovirt-node-ng-image/issues) | 13 | 8 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |
-| [ovirt-node-ng-image](https://github.com/oVirt/ovirt-node-ng-image) | The source for oVirt Node NG installer ISO and RPM image | [5](https://github.com/ovirt/ovirt-node-ng-image/issues) | 13 | 8 |
 | [python-ovirt-engine-sdk4](https://github.com/oVirt/python-ovirt-engine-sdk4) | Python SDK for version 4 of the oVirt Engine API | [5](https://github.com/ovirt/python-ovirt-engine-sdk4/issues) | 6 | 19 |
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | oVirt Python SDK | [5](https://github.com/ovirt/ovirt-engine-sdk/issues) | 80 | 79 |
 | [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [4](https://github.com/ovirt/java-client-kubevirt/issues) | 9 | 4 |

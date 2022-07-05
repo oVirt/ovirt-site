@@ -205,70 +205,54 @@
 </ol>
 
 <ul>
-  <li>I-1.1 Seek the host NUMA nodes information by using <code class="language-plaintext highlighter-rouge">getCapabilities</code> API in libvirt</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;capabilities&gt;
+  <li>I-1.1 Seek the host NUMA nodes information by using <code class="language-plaintext highlighter-rouge">getCapabilities</code> API in libvirt
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;capabilities&gt;</span>
     …
-    &lt;host&gt;
+    <span class="nt">&lt;host&gt;</span>
         ...
-        &lt;topology&gt;
-            &lt;cells num='1'&gt;
-                &lt;cell id='0'&gt;
-                    &lt;cpus num='2'&gt;
-                        &lt;cpu id='0'/&gt;
-                        &lt;cpu id='1'/&gt;
-                    &lt;/cpus&gt;
-                &lt;/cell&gt;
-      &lt;/cells&gt;
-        &lt;/topology&gt;
+        <span class="nt">&lt;topology&gt;</span>
+            <span class="nt">&lt;cells</span> <span class="na">num=</span><span class="s">'1'</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;cell</span> <span class="na">id=</span><span class="s">'0'</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;cpus</span> <span class="na">num=</span><span class="s">'2'</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;cpu</span> <span class="na">id=</span><span class="s">'0'</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;cpu</span> <span class="na">id=</span><span class="s">'1'</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/cpus&gt;</span>
+                <span class="nt">&lt;/cell&gt;</span>
+      <span class="nt">&lt;/cells&gt;</span>
+        <span class="nt">&lt;/topology&gt;</span>
         …
-    &lt;/host&gt;
+    <span class="nt">&lt;/host&gt;</span>
     …
-&lt;/capabilities&gt;
-</code></pre></div></div>
-
-<ul>
-  <li>I-1.2 Seek the host NUMA nodes memory information by using <code class="language-plaintext highlighter-rouge">getMemoryStats</code> API in libvirt, the below is the data format of API returned value</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ total: int, free: int }
-</code></pre></div></div>
-
-<ul>
-  <li>I-1.5 Create a new function <code class="language-plaintext highlighter-rouge">appendNumaTune</code> in VDSM vm module to write the VM numatune configuration into libvirt domain xml follow the below format</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;domain&gt;
+<span class="nt">&lt;/capabilities&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>I-1.2 Seek the host NUMA nodes memory information by using <code class="language-plaintext highlighter-rouge">getMemoryStats</code> API in libvirt, the below is the data format of API returned value
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="err">total:</span><span class="w"> </span><span class="err">int</span><span class="p">,</span><span class="w"> </span><span class="err">free:</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>I-1.5 Create a new function <code class="language-plaintext highlighter-rouge">appendNumaTune</code> in VDSM vm module to write the VM numatune configuration into libvirt domain xml follow the below format
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;domain&gt;</span>
     ...
-    &lt;numatune&gt;
-        &lt;memory mode='interleave' nodeset='0-1'/&gt;
-    &lt;/numatune&gt;
+    <span class="nt">&lt;numatune&gt;</span>
+        <span class="nt">&lt;memory</span> <span class="na">mode=</span><span class="s">'interleave'</span> <span class="na">nodeset=</span><span class="s">'0-1'</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/numatune&gt;</span>
     …
-&lt;/domain&gt;
-</code></pre></div></div>
-
-<ul>
-  <li>I-1.6 Modify function <code class="language-plaintext highlighter-rouge">appendCpu</code> in VDSM vm module to write the VM virtual NUMA topology configuration into libvirt domain xml follow the below format</li>
+<span class="nt">&lt;/domain&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>I-1.6 Modify function <code class="language-plaintext highlighter-rouge">appendCpu</code> in VDSM vm module to write the VM virtual NUMA topology configuration into libvirt domain xml follow the below format
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;cpu&gt;</span>
+    ...
+    <span class="nt">&lt;numa&gt;</span>
+      <span class="nt">&lt;cell</span> <span class="na">cpus=</span><span class="s">'0-7'</span> <span class="na">memory=</span><span class="s">'10485760'</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;cell</span> <span class="na">cpus=</span><span class="s">'8-15'</span> <span class="na">memory=</span><span class="s">'10485760'</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/numa&gt;</span>
+    ...
+<span class="nt">&lt;/cpu&gt;</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;cpu&gt;
-    ...
-    &lt;numa&gt;
-      &lt;cell cpus='0-7' memory='10485760'/&gt;
-      &lt;cell cpus='8-15' memory='10485760'/&gt;
-    &lt;/numa&gt;
-    ...
-&lt;/cpu&gt;
-</code></pre></div></div>
 
 <h3 id="interface-between-vdsm-and-host">Interface between VDSM and Host</h3>
 
@@ -280,58 +264,45 @@
 </ol>
 
 <ul>
-  <li>I-1.3 Sampling host CPU statistics data in <code class="language-plaintext highlighter-rouge">/proc/stat</code>, the whole data format is showing as below. We will use column 1 to 5 which include user, system, nice and idle CPU handlers to calculate CPU statistics data in engine side</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat /proc/stat
-cpu  268492078 16093 132943706 6545294629 19023496 898 138160 0 57789592
+  <li>I-1.3 Sampling host CPU statistics data in <code class="language-plaintext highlighter-rouge">/proc/stat</code>, the whole data format is showing as below. We will use column 1 to 5 which include user,
+system, nice and idle CPU handlers to calculate CPU statistics data in engine side
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cat</span> /proc/stat
+<span class="go">cpu  268492078 16093 132943706 6545294629 19023496 898 138160 0 57789592
 cpu0 62042038 3012 52198814 1638619972 2438624 4 12068 0 16721375
 cpu1 62779520 2733 25830756 1647361083 6001324 1 34617 0 16341547
 cpu2 77892630 5788 32963856 1610093241 8367287 889 80447 0 8205583
 cpu3 65777888 4559 21950279 1649220333 2216260 4 11027 0 16521086
-</code></pre></div></div>
-
-<ul>
+</span></code></pre></div>    </div>
+  </li>
   <li>I-1.4 Data structure that provided to MOM component</li>
 </ul>
 
-<p>MOM use the VDSM HypervisorInterface using API.py <code class="language-plaintext highlighter-rouge">Global.getCapabilities</code> function to get host NUMA topology data</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'autoNumaBalancing': int
-'numaNodeDistance': {'&lt;nodeIndex&gt;': [int], ...}
-'numaNodes': {'&lt;nodeIndex&gt;': {'cpus': [int], 'totalMemory': 'str'}, …}
+<p>MOM use the VDSM HypervisorInterface using <code class="language-plaintext highlighter-rouge">API.py</code> <code class="language-plaintext highlighter-rouge">Global.getCapabilities</code> function to get host NUMA topology data</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">'autoNumaBalancing'</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="s">'numaNodeDistance'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;nodeIndex&gt;'</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="p">...}</span>
+    <span class="s">'numaNodes'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;nodeIndex&gt;'</span><span class="p">:</span> <span class="p">{</span><span class="s">'cpus'</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="s">'totalMemory'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
 </code></pre></div></div>
 
-<p>using API.py <code class="language-plaintext highlighter-rouge">Global.getStats</code> function to get host NUMA statistics data</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'numaNodeMemFree': {'&lt;nodeIndex&gt;': {'memFree': 'str', 'memPercent': int}, …}
-'cpuStatistics': {'&lt;cpuId&gt;': {'nodeIndex': int, 'cpuSys': 'str', 'cpuIdle': 'str', 'cpuUser': 'str'}, …}
+<p>using <code class="language-plaintext highlighter-rouge">API.py</code> <code class="language-plaintext highlighter-rouge">Global.getStats</code> function to get host NUMA statistics data</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">'numaNodeMemFree'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;nodeIndex&gt;'</span><span class="p">:</span> <span class="p">{</span><span class="s">'memFree'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'memPercent'</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+    <span class="s">'cpuStatistics'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;cpuId&gt;'</span><span class="p">:</span> <span class="p">{</span><span class="s">'nodeIndex'</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s">'cpuSys'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'cpuIdle'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'cpuUser'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
-  <li>I-1.7 libivirt API do not support to get NUMA distances information, so we use command <code class="language-plaintext highlighter-rouge">numactl</code> to get the distances information</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ numactl -H
-node distances:
-node   0   1 
-  0:  10  20 
+  <li>I-1.7 libivirt API do not support to get NUMA distances information, so we use command <code class="language-plaintext highlighter-rouge">numactl</code> to get the distances information
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>numactl <span class="nt">-H</span>
+<span class="go">node distances:
+node   0   1
+  0:  10  20
   1:  20  10
-</code></pre></div></div>
-
-<ul>
-  <li>I-1.8 In kernels who having Automatic NUMA balancing feature, use command <code class="language-plaintext highlighter-rouge">sysctl -a |grep numa_balancing</code> to check the Automatic NUMA balancing value is turn on or off</li>
+</span></code></pre></div>    </div>
+  </li>
+  <li>I-1.8 In kernels who having Automatic NUMA balancing feature, use command <code class="language-plaintext highlighter-rouge">sysctl -a |grep numa_balancing</code> to check the Automatic NUMA balancing value is turn on or off
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sysctl <span class="nt">-a</span> | <span class="nb">grep </span>numa_balancing
+<span class="go">kernel.numa_balancing = 1
+</span></code></pre></div>    </div>
+  </li>
 </ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sysctl -a | grep numa_balancing
-kernel.numa_balancing = 1
-</code></pre></div></div>
 
 <h3 id="interface-between-vdsm-and-engine-core">Interface between VDSM and engine core</h3>
 
@@ -342,35 +313,23 @@ kernel.numa_balancing = 1
 </ol>
 
 <ul>
-  <li>I-2.1 Transfer data format of host NUMA nodes information</li>
+  <li>I-2.1 Transfer data format of host NUMA nodes information
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'autoNumaBalancing'</span><span class="p">:</span> <span class="nb">int</span>
+<span class="s">'numaDistances'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;nodeIndex&gt;'</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="p">...}</span>
+<span class="s">'numaNodes'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;nodeIndex&gt;'</span><span class="p">:</span> <span class="p">{</span><span class="s">'cpus'</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="s">'totalMemory'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>I-2.2 Transfer data format of host CPU statistics and NUMA nodes memory information
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'numaNodeMemFree'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;nodeIndex&gt;'</span><span class="p">:</span> <span class="p">{</span><span class="s">'memFree'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'memPercent'</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+<span class="s">'cpuStatistics'</span><span class="p">:</span> <span class="p">{</span><span class="s">'&lt;cpuId&gt;'</span><span class="p">:</span> <span class="p">{</span><span class="s">'numaNodeIndex'</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s">'cpuSys'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'cpuIdle'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'cpuUser'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>I-2.3 Transfer data format of set VM numatune and virtual NUMA topology
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'numaTune'</span><span class="p">:</span> <span class="p">{</span><span class="s">'mode'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'nodeset'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">}</span>
+<span class="s">'guestNumaNodes'</span><span class="p">:</span> <span class="p">[{</span><span class="s">'cpus'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'memory'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">},</span> <span class="err">…</span><span class="p">]</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'autoNumaBalancing': int
-'numaDistances': {'&lt;nodeIndex&gt;': [int], ...}
-'numaNodes': {'&lt;nodeIndex&gt;': {'cpus': [int], 'totalMemory': 'str'}, …}
-</code></pre></div></div>
-
-<ul>
-  <li>I-2.2 Transfer data format of host CPU statistics and NUMA nodes memory information</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'numaNodeMemFree': {'&lt;nodeIndex&gt;': {'memFree': 'str', 'memPercent': int}, …}
-'cpuStatistics': {'&lt;cpuId&gt;': {'numaNodeIndex': int, 'cpuSys': 'str', 'cpuIdle': 'str', 'cpuUser': 'str'}, …}
-</code></pre></div></div>
-
-<ul>
-  <li>I-2.3 Transfer data format of set VM numatune and virtual NUMA topology</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'numaTune': {'mode': 'str', 'nodeset': 'str'}
-'guestNumaNodes': [{'cpus': 'str', 'memory': 'str'}, …]
-</code></pre></div></div>
 
 <h3 id="interface-between-engine-core-and-database-schema">Interface between engine core and database (schema)</h3>
 
@@ -378,8 +337,10 @@ kernel.numa_balancing = 1
   <li>I-3.1 Schema modification of <code class="language-plaintext highlighter-rouge">vds_dynamic</code> table to include host’s NUMA node count and automatic NUMA balancing status.</li>
   <li>I-3.2 Add table <code class="language-plaintext highlighter-rouge">vds_cpu_statistics</code> to include host cpu statistics information (system, user, idle cpu time and used cpu percentage).</li>
   <li>I-3.3 Schema modification of <code class="language-plaintext highlighter-rouge">vm_static</code> table to include numatune mode configuration and virtual NUMA node count.</li>
-  <li>I-3.4 Add table <code class="language-plaintext highlighter-rouge">numa_node</code> to include host/vm NUMA node information (node index, total memory, cpu count of each node) and statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage).</li>
-  <li>I-3.5 Add table <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code> to include the configuration of vm virtual NUMA nodes pinning to host NUMA nodes (this is a nested relationship table, store the map relations between vm NUMA nodes and host NUMA nodes which are all in table numa_node).</li>
+  <li>I-3.4 Add table <code class="language-plaintext highlighter-rouge">numa_node</code> to include host/vm NUMA node information (node index, total memory, cpu count of each node)
+and statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage).</li>
+  <li>I-3.5 Add table <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code> to include the configuration of vm virtual NUMA nodes pinning to host NUMA nodes
+   (this is a nested relationship table, store the map relations between vm NUMA nodes and host NUMA nodes which are all in table numa_node).</li>
   <li>I-3.6 Add table <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code> to include the cpu information that each host/vm NUMA node contains.</li>
   <li>I-3.7 Add table <code class="language-plaintext highlighter-rouge">numa_node_distance</code> to include the distance information between the NUMA nodes.</li>
 </ol>
@@ -389,14 +350,17 @@ kernel.numa_balancing = 1
 <ul>
   <li>Related database scripts change:
     <ol>
-      <li>Add <code class="language-plaintext highlighter-rouge">numa_sp.sql</code> to include the store procedures which handle the operations in table <code class="language-plaintext highlighter-rouge">numa_node</code>, <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code> and <code class="language-plaintext highlighter-rouge">numa_node_distance</code>. It will provide the store procedures to insert, update and delete data and kinds of query functions.</li>
+      <li>Add <code class="language-plaintext highlighter-rouge">numa_sp.sql</code> to include the store procedures which handle the operations in
+table <code class="language-plaintext highlighter-rouge">numa_node</code>, <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code> and <code class="language-plaintext highlighter-rouge">numa_node_distance</code>. It will provide the store procedures to insert, update and delete data and kinds of query functions.</li>
       <li>Modify <code class="language-plaintext highlighter-rouge">vds_sp.sql</code> to add some store procedures which handle the operations in table <code class="language-plaintext highlighter-rouge">vds_cpu_statistics</code>, including insert, update, delete and kinds of query functions.</li>
       <li>Modify the function of <code class="language-plaintext highlighter-rouge">InsertVdsDynamic</code>, <code class="language-plaintext highlighter-rouge">UpdateVdsDynamic</code> in <code class="language-plaintext highlighter-rouge">vds_sp.sql</code> to add new columns <code class="language-plaintext highlighter-rouge">auto_numa_banlancing</code> and <code class="language-plaintext highlighter-rouge">vds_numa_node_count</code>.</li>
       <li>Modify the function of <code class="language-plaintext highlighter-rouge">InsertVmStatic</code>, <code class="language-plaintext highlighter-rouge">UpdateVmStatic</code> in <code class="language-plaintext highlighter-rouge">vms_sp.sql</code> to add two new columns <code class="language-plaintext highlighter-rouge">numatune_mode</code> and <code class="language-plaintext highlighter-rouge">vm_numa_node_count</code>.</li>
-      <li>Modify <code class="language-plaintext highlighter-rouge">create_views.sql</code> to add new columns <code class="language-plaintext highlighter-rouge">numatune_mode</code> and <code class="language-plaintext highlighter-rouge">vm_numa_node_count</code> in view <code class="language-plaintext highlighter-rouge">vms</code> and <code class="language-plaintext highlighter-rouge">vms_with_tags</code>; add new columns <code class="language-plaintext highlighter-rouge">auto_numa_banlancing</code> and <code class="language-plaintext highlighter-rouge">vds_numa_node_count</code> in view <code class="language-plaintext highlighter-rouge">vds</code> and <code class="language-plaintext highlighter-rouge">vds_with_tags</code>.</li>
+      <li>Modify <code class="language-plaintext highlighter-rouge">create_views.sql</code> to add new columns <code class="language-plaintext highlighter-rouge">numatune_mode</code> and <code class="language-plaintext highlighter-rouge">vm_numa_node_count</code> in view <code class="language-plaintext highlighter-rouge">vms</code> and <code class="language-plaintext highlighter-rouge">vms_with_tags</code>;
+add new columns <code class="language-plaintext highlighter-rouge">auto_numa_banlancing</code> and <code class="language-plaintext highlighter-rouge">vds_numa_node_count</code> in view <code class="language-plaintext highlighter-rouge">vds</code> and <code class="language-plaintext highlighter-rouge">vds_with_tags</code>.</li>
       <li>Modify <code class="language-plaintext highlighter-rouge">create_views.sql</code> to add new views, including view <code class="language-plaintext highlighter-rouge">vds_numa_node_view</code> which joins <code class="language-plaintext highlighter-rouge">vds_dynamic</code> and <code class="language-plaintext highlighter-rouge">numa_node</code>; view <code class="language-plaintext highlighter-rouge">vm_numa_node_view</code> which joins <code class="language-plaintext highlighter-rouge">vm_static</code> and <code class="language-plaintext highlighter-rouge">numa_node</code>.</li>
       <li>Modify <code class="language-plaintext highlighter-rouge">upgrade/post_upgrade/0010_add_object_column_white_list_table.sql</code> to add new columns <code class="language-plaintext highlighter-rouge">auto_numa_banlancing</code> and <code class="language-plaintext highlighter-rouge">vds_numa_node_count</code>.</li>
-      <li>Add one script under <code class="language-plaintext highlighter-rouge">upgrade/</code> to create tables - <code class="language-plaintext highlighter-rouge">numa_node</code>, <code class="language-plaintext highlighter-rouge">vds_cpu_statistics</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code>, <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">numa_node_distance</code> and add columns in table <code class="language-plaintext highlighter-rouge">vds_dynamic</code> and <code class="language-plaintext highlighter-rouge">vm_static</code>.</li>
+      <li>Add one script under <code class="language-plaintext highlighter-rouge">upgrade/</code> to create tables - <code class="language-plaintext highlighter-rouge">numa_node</code>, <code class="language-plaintext highlighter-rouge">vds_cpu_statistics</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code>, <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">numa_node_distance</code>
+and add columns in table <code class="language-plaintext highlighter-rouge">vds_dynamic</code> and <code class="language-plaintext highlighter-rouge">vm_static</code>.</li>
       <li>Create the following indexes:
         <ul>
           <li>Index on column <code class="language-plaintext highlighter-rouge">vm_or_vds_guid</code> of table <code class="language-plaintext highlighter-rouge">numa_node</code></li>
@@ -408,24 +372,17 @@ kernel.numa_balancing = 1
       </li>
     </ol>
   </li>
-</ul>
-
-<!-- -->
-
-<ul>
   <li>Related DAO change:
     <ol>
-      <li>Add <code class="language-plaintext highlighter-rouge">NumaNodeDAO</code> and related implemention to provide data save, update, delete and kinds of queries in table <code class="language-plaintext highlighter-rouge">numa_node</code>, <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code> and <code class="language-plaintext highlighter-rouge">numa_node_distance</code>. Add <code class="language-plaintext highlighter-rouge">NumaNodeDAOTest</code> for <code class="language-plaintext highlighter-rouge">NumaNodeDAO</code> meanwhile.</li>
-      <li>Add <code class="language-plaintext highlighter-rouge">VdsCpuStatisticsDao</code> and related implementation to provide data save, update, delete and kinds of queries in table <code class="language-plaintext highlighter-rouge">vds_cpu_statistics</code>. Add <code class="language-plaintext highlighter-rouge">VdsCpuStatisticsDAOTest</code> for <code class="language-plaintext highlighter-rouge">VdsCpuStatisticsDAO</code> meanwhile.</li>
-      <li>Modify <code class="language-plaintext highlighter-rouge">VdsDynamicDAODbFacadeImpl</code> and <code class="language-plaintext highlighter-rouge">VdsDAODbFacadeImpl</code> to add the map of new columns <code class="language-plaintext highlighter-rouge">auto_numa_banlancing</code> and <code class="language-plaintext highlighter-rouge">vds_numa_node_count</code>. Run <code class="language-plaintext highlighter-rouge">VdsDynamicDAOTest</code> to verify the modification.</li>
+      <li>Add <code class="language-plaintext highlighter-rouge">NumaNodeDAO</code> and related implemention to provide data save, update, delete and kinds of queries in
+table <code class="language-plaintext highlighter-rouge">numa_node</code>, <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code> and <code class="language-plaintext highlighter-rouge">numa_node_distance</code>. Add <code class="language-plaintext highlighter-rouge">NumaNodeDAOTest</code> for <code class="language-plaintext highlighter-rouge">NumaNodeDAO</code> meanwhile.</li>
+      <li>Add <code class="language-plaintext highlighter-rouge">VdsCpuStatisticsDao</code> and related implementation to provide data save, update, delete and kinds of queries
+in table <code class="language-plaintext highlighter-rouge">vds_cpu_statistics</code>. Add <code class="language-plaintext highlighter-rouge">VdsCpuStatisticsDAOTest</code> for <code class="language-plaintext highlighter-rouge">VdsCpuStatisticsDAO</code> meanwhile.</li>
+      <li>Modify <code class="language-plaintext highlighter-rouge">VdsDynamicDAODbFacadeImpl</code> and <code class="language-plaintext highlighter-rouge">VdsDAODbFacadeImpl</code> to add the map of new 
+columns <code class="language-plaintext highlighter-rouge">auto_numa_banlancing</code> and <code class="language-plaintext highlighter-rouge">vds_numa_node_count</code>. Run <code class="language-plaintext highlighter-rouge">VdsDynamicDAOTest</code> to verify the modification.</li>
       <li>Modify <code class="language-plaintext highlighter-rouge">VmStaticDAODbFacadeImpl</code> and <code class="language-plaintext highlighter-rouge">VmDAODbFacadeImpl</code> to add the map of new columns <code class="language-plaintext highlighter-rouge">numatune_mode</code> and <code class="language-plaintext highlighter-rouge">numa_node_count</code>. Run <code class="language-plaintext highlighter-rouge">VmStaticDAOTest</code> to verify the modification.</li>
     </ol>
   </li>
-</ul>
-
-<!-- -->
-
-<ul>
   <li>Related search engine change</li>
 </ul>
 
@@ -466,7 +423,8 @@ kernel.numa_balancing = 1
 <ul>
   <li>Cascade-delete
     <ol>
-      <li>When user remove a virtual NUMA node, the related rows in table <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code>, <code class="language-plaintext highlighter-rouge">numa_node_distance</code>(maybe in future, currently no distance information for virtual NUMA node) and <code class="language-plaintext highlighter-rouge">numa_node</code> should be removed meanwhile.</li>
+      <li>When user remove a virtual NUMA node, the related rows in table <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code>, <code class="language-plaintext highlighter-rouge">numa_node_distance</code>
+(maybe in future, currently no distance information for virtual NUMA node) and <code class="language-plaintext highlighter-rouge">numa_node</code> should be removed meanwhile.</li>
       <li>When user remove a vm, all the virtual NUMA nodes of this vm should be removed, follow above item to do the cascade-delete.</li>
       <li>When user remove a host, the related rows in table <code class="language-plaintext highlighter-rouge">numa_node_cpu_map</code>, <code class="language-plaintext highlighter-rouge">vm_vds_numa_node_map</code>, <code class="language-plaintext highlighter-rouge">numa_node_distance</code>, <code class="language-plaintext highlighter-rouge">numa_node</code> and <code class="language-plaintext highlighter-rouge">vds_cpu_statistics</code> should be removed meanwhile.</li>
     </ol>
@@ -494,11 +452,11 @@ kernel.numa_balancing = 1
       <li><code class="language-plaintext highlighter-rouge">GetVdsNumaNodeByVdsId, GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId, GetCpuStatsByVdsId</code> use same parameters <code class="language-plaintext highlighter-rouge">IdQueryParameters</code></li>
       <li><code class="language-plaintext highlighter-rouge">AddVmNumaNode, UpdateVmNuamNode, RemoveVmNuamNode</code> use same parameters <code class="language-plaintext highlighter-rouge">VmNumaNodeParameters</code> to manage Virtual NUMA node in VM</li>
       <li><code class="language-plaintext highlighter-rouge">SetNumaTuneMode</code> use parameters <code class="language-plaintext highlighter-rouge">NumaTuneModeParameters</code> to set the NUMA tuning mode for VM</li>
-      <li><code class="language-plaintext highlighter-rouge">GetVdsNumaNodeByVdsId</code> will return List<VdsNumaNode></VdsNumaNode></li>
-      <li><code class="language-plaintext highlighter-rouge">GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId</code> will return List<VmNumaNode></VmNumaNode></li>
+      <li><code class="language-plaintext highlighter-rouge">GetVdsNumaNodeByVdsId</code> will return <code class="language-plaintext highlighter-rouge">List&lt;VdsNumaNode&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId</code> will return <code class="language-plaintext highlighter-rouge">List&lt;VmNumaNode&gt;</code></li>
       <li><code class="language-plaintext highlighter-rouge">GetVmNumaNodeByVdsNumaNodeId</code> will query the <code class="language-plaintext highlighter-rouge">VmNumaNode</code>s under the <code class="language-plaintext highlighter-rouge">VdsNumaNode</code></li>
-      <li><code class="language-plaintext highlighter-rouge">GetCpuStatsByVdsId</code> will return List<CpuStatistics></CpuStatistics></li>
-      <li>When <code class="language-plaintext highlighter-rouge">VmNumaNodeParameters.vdsNumaNodeId</code> is set to null, the VmNumaNode is unsigned.</li>
+      <li><code class="language-plaintext highlighter-rouge">GetCpuStatsByVdsId</code> will return <code class="language-plaintext highlighter-rouge">List&lt;CpuStatistics&gt;</code></li>
+      <li>When <code class="language-plaintext highlighter-rouge">VmNumaNodeParameters.vdsNumaNodeId</code> is set to null, the <code class="language-plaintext highlighter-rouge">VmNumaNode</code> is unsigned.</li>
     </ul>
   </li>
 </ul>
@@ -552,7 +510,7 @@ kernel.numa_balancing = 1
 
 <p>host NUMA resource</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/hosts/{host:id}/numanodes/{numa:id} 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/hosts/{host:id}/numanodes/{numa:id}
 </code></pre></div></div>
 
 <ul>
@@ -578,7 +536,7 @@ kernel.numa_balancing = 1
 
 <p>vm virtual NUMA sub-collection</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/vms/{vm:id}/numanodes 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/vms/{vm:id}/numanodes
 </code></pre></div></div>
 
 <ul>
@@ -611,6 +569,6 @@ kernel.numa_balancing = 1
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/detailed-numa-and-virtual-numa.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/detailed-numa-and-virtual-numa.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/detailed-numa-and-virtual-numa.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/detailed-numa-and-virtual-numa.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

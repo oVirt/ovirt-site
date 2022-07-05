@@ -144,9 +144,7 @@
 
 <ul>
   <li>Name: Vitor de Lima (Vitordelima)</li>
-  <li>Email: <a href="mailto:vdelima@redhat.com">vdelima@redhat.com</a></li>
   <li>Name: Omer Frenkel (ofrenkel)</li>
-  <li>Email: <a href="mailto:ofrenkel@redhat.com">ofrenkel@redhat.com</a></li>
 </ul>
 
 <h2 id="description">Description</h2>
@@ -158,56 +156,50 @@ Hot plugging memory is done using Update-VM for a running VM.
 just updating the amount of the VM memory to the new (higher) value will trigger hot plug,
 unless user request to apply the changes later.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>When memory is updated, the new value is saved for next run,&lt;br&gt;
-so next time the vm is started, the new memory value is used.
-user flow example:
- * VM started with 4gb memory.
- * User update memory to 6gb, memory is hot-plugged to the vm (2gb memory device created).
- * User stop the VM, and start it again.
- * VM now starts with 6gb, as its base memory (no memory devices are created).
-</code></pre></div></div>
+<p>When memory is updated, the new value is saved for next run, so next time the vm is started, the new memory value is used.</p>
+
+<p>User flow example:</p>
+<ul>
+  <li>VM started with 4gb memory.</li>
+  <li>User update memory to 6gb, memory is hot-plugged to the vm (2gb memory device created).</li>
+  <li>User stop the VM, and start it again.</li>
+  <li>VM now starts with 6gb, as its base memory (no memory devices are created).</li>
+</ul>
 
 <h2 id="implementation-details">Implementation Details</h2>
 
 <ul>
-  <li>The new memory is added to the VM as a DIMM device:</li>
-</ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;memory model='acpi-dimm'&gt;
-      &lt;source&gt;
-        &lt;node&gt;0&lt;/node&gt; &lt;-- source memory slot, if not provided, sane default  shall be used
-        &lt;pagesize unit='KiB'&gt;4096&lt;/pagesize&gt; &lt;--- size of the memory page to be used as source (to be able to specify hugepages), sane default shall be used if ommitted
-      &lt;/source&gt; &lt;- both source node and pagesize are optional, &lt;source&gt; can be ommited, defaults from the domain config will be used
-      &lt;target&gt;
-        &lt;node&gt;0&lt;/node&gt; &lt;--- guest memory node (mandatory)
-        &lt;size unit='KiB'&gt;12345&lt;/size&gt; &lt;- new module size (mandatory)
-      &lt;/target&gt;
-    &lt;/memory&gt;
-</code></pre></div></div>
-
-<ul>
+  <li>The new memory is added to the VM as a DIMM device:
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;memory</span> <span class="na">model=</span><span class="s">'acpi-dimm'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;node&gt;</span>0<span class="nt">&lt;/node&gt;</span> <span class="c">&lt;!-- source memory slot, if not provided, sane default  shall be used --&gt;</span>
+        <span class="nt">&lt;pagesize</span> <span class="na">unit=</span><span class="s">'KiB'</span><span class="nt">&gt;</span>4096<span class="nt">&lt;/pagesize&gt;</span> <span class="c">&lt;!-- size of the memory page to be used as source (to be able to specify hugepages), sane default shall be used if ommitted --&gt;</span>
+    <span class="nt">&lt;/source&gt;</span> <span class="c">&lt;!-- both source node and pagesize are optional, &lt;source&gt; can be ommited, defaults from the domain config will be used --&gt;</span>
+    <span class="nt">&lt;target&gt;</span>
+        <span class="nt">&lt;node&gt;</span>0<span class="nt">&lt;/node&gt;</span> <span class="c">&lt;!-- guest memory node (mandatory) --&gt;</span>
+        <span class="nt">&lt;size</span> <span class="na">unit=</span><span class="s">'KiB'</span><span class="nt">&gt;</span>12345<span class="nt">&lt;/size&gt;</span> <span class="c">&lt;!-- new module size (mandatory) --&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/memory&gt;</span>
+</code></pre></div>    </div>
+  </li>
   <li>Every memory device must be a multiplication of 256mb.
     <ul>
       <li>It doesn’t matter what the base memory is, for example if vm started with 1003mb, it can be updated only to 1259mb,1515mb,…</li>
-      <li>note that this amount of memory is configurable but its not recommended to change, VM may fail to start, configuration value is ‘HotPlugMemoryMultiplicationSizeMb’.</li>
+      <li>note that this amount of memory is configurable but its not recommended to change, VM may fail to start, configuration value is ‘<code class="language-plaintext highlighter-rouge">HotPlugMemoryMultiplicationSizeMb</code>’.</li>
     </ul>
   </li>
   <li>There is a limit on the number of memory devices, which means limit the number of times user can do hotplug during run of vm.
     <ul>
-      <li>The configuration value for this limit is ‘MaxMemorySlots’ and the default is 16.</li>
+      <li>The configuration value for this limit is ‘<code class="language-plaintext highlighter-rouge">MaxMemorySlots</code>’ and the default is 16.</li>
     </ul>
   </li>
-  <li>Number of max memory devices (slots) and maximum memory are sent to libvirt.xml:
+  <li>Number of max memory devices (slots) and maximum memory are sent to <code class="language-plaintext highlighter-rouge">libvirt.xml</code>:
     <ul>
-      <li>
-        <maxMemory slots="16">4294967296</maxMemory>
-      </li>
-      <li>the maximum memory is configurable for 32 and 64 bit OS: VM32BitMaxMemorySizeInMB, VM64BitMaxMemorySizeInMB.</li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;maxMemory slots="16"&gt;4294967296&lt;/maxMemory&gt;</code></li>
+      <li>the maximum memory is configurable for 32 and 64 bit OS: <code class="language-plaintext highlighter-rouge">VM32BitMaxMemorySizeInMB</code>, <code class="language-plaintext highlighter-rouge">VM64BitMaxMemorySizeInMB</code>.</li>
     </ul>
   </li>
-  <li>The memory devices are attached to a guest numa node, so on 3.6 cluster, with ‘HotPlugMemorySupported’ configuration enabled (true by default), every VM has a default guest numa node.</li>
+  <li>The memory devices are attached to a guest numa node, so on 3.6 cluster, with ‘<code class="language-plaintext highlighter-rouge">HotPlugMemorySupported</code>’ configuration enabled (true by default), every VM has a default guest numa node.</li>
   <li>VDSM hotplugMemory verb expect memory device with size in mb and guest numa node id to plug the memory to.</li>
 </ul>
 
@@ -231,8 +223,8 @@ user flow example:
 <p>its possible to manipulate the libvirt xml in the following vdsm hooks</p>
 
 <ul>
-  <li>before_memory_hotplug</li>
-  <li>after_memory_hotplug</li>
+  <li><code class="language-plaintext highlighter-rouge">before_memory_hotplug</code></li>
+  <li><code class="language-plaintext highlighter-rouge">after_memory_hotplug</code></li>
 </ul>
 
 <h3 id="compatibility-issues">Compatibility issues</h3>
@@ -246,6 +238,6 @@ user flow example:
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/hot-plug-memory.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/hot-plug-memory.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/hot-plug-memory.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/hot-plug-memory.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

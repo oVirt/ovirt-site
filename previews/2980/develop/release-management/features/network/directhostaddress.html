@@ -188,17 +188,13 @@
 
 <h2 id="owner">Owner</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Feature owner: [ Muli Salem](User:msalem)
-
-* Backend Component owner: [ Muli Salem](User:msalem)
-
-* GUI Component owner: [ ?](User:?)
-
-* QA Owner: [ ?](User:?)
-</code></pre></div></div>
-
 <ul>
-  <li>Email: msalem@redhat.com</li>
+  <li>
+    <p>Feature owner: Muli Salem</p>
+  </li>
+  <li>
+    <p>Backend Component owner: Muli Salem</p>
+  </li>
 </ul>
 
 <h2 id="current-status">Current status</h2>
@@ -209,11 +205,14 @@
 
 <h2 id="detailed-description">Detailed Description</h2>
 
-<p>When adding a host, admin sets the host address. The engine uses this address to manage the host in two ways. The first is via SSH for host installation, and the second is via xml-rpc for any other action. Current behaviour assumes the network interface with the specified address is configured properly in the engine although this may not be the case initially.</p>
+<p>When adding a host, admin sets the host address. The engine uses this address to manage the host in two ways.
+The first is via SSH for host installation, and the second is via xml-rpc for any other action.
+Current behaviour assumes the network interface with the specified address is configured properly in the engine although this may not be the case initially.</p>
 
 <p>The direct address allows the engine to connect to the host, without knowing the exact configuration of the network interface that has the address.</p>
 
-<p>The direct IP address will be optional, and when not specified by the admin, the regular host address will be used. Also, certificate exchanging between the host and the engine will be left unchanged, namely the engine will keep a certificate for the regular host address.</p>
+<p>The direct IP address will be optional, and when not specified by the admin, the regular host address will be used.
+Also, certificate exchanging between the host and the engine will be left unchanged, namely the engine will keep a certificate for the regular host address.</p>
 
 <h2 id="motivation">Motivation</h2>
 
@@ -223,22 +222,19 @@
 
 <h4 id="engine">Engine</h4>
 
-<p>In AddVdsCommand and UpdateVdsCommand, the InstallVdsCommand is called with InstallVdsParameters. We will add the direct address as a parameter, so that this address will be used in case it is given. Otherwise, behaviour remains the same - the Vds address is the one used for host installation.The direct address is transient and won’t be stored on engine as part of the host configuration.</p>
+<p>In AddVdsCommand and UpdateVdsCommand, the <code class="language-plaintext highlighter-rouge">InstallVdsCommand</code> is called with <code class="language-plaintext highlighter-rouge">InstallVdsParameters</code>. We will add the direct address as a parameter, so that this address will be used in case it is given. Otherwise, behaviour remains the same - the Vds address is the one used for host installation.The direct address is transient and won’t be stored on engine as part of the host configuration.</p>
 
 <h4 id="api-changes">API Changes</h4>
 
-<p>The tag <direct_address> will be added to the host resource /api/hosts/{host:id}:</direct_address></p>
+<p>The tag <code class="language-plaintext highlighter-rouge">&lt;direct_address&gt;</code> will be added to the host resource <code class="language-plaintext highlighter-rouge">/api/hosts/{host:id}</code>:</p>
 
-<p>`   `<host id="56d6d62f-6af0-4c02-8500-4be041180031">
-             ...</host></p>
-
-<address>
-  <p>10.35.1.160</p>
-
-</address>
-<p>`       <code class="language-plaintext highlighter-rouge">&lt;direct_address&gt;</code>10.35.1.162<code class="language-plaintext highlighter-rouge">&lt;/direct_address&gt;
-             ...
-</code>   `&lt;/host&gt;</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;host</span> <span class="na">id=</span><span class="s">"56d6d62f-6af0-4c02-8500-4be041180031"</span><span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;address&gt;</span>10.35.1.160<span class="nt">&lt;/address&gt;</span>
+    <span class="nt">&lt;direct_address&gt;</span>10.35.1.162<span class="nt">&lt;/direct_address&gt;</span>
+    ...
+<span class="nt">&lt;/host&gt;</span>
+</code></pre></div></div>
 
 <h4 id="ui-changes">UI Changes</h4>
 
@@ -281,6 +277,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/directhostaddress.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/directhostaddress.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/directhostaddress.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/network/directhostaddress.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

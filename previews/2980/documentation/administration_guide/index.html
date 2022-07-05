@@ -267,15 +267,10 @@
 <li><a href="#sect-Configuring_an_External_LDAP_Provider">3.6.3. Configuring an External LDAP Provider</a></li>
 <li><a href="#Configuring_LDAP_and_Kerberos_for_Single_Sign-on">3.6.4. Configuring LDAP and Kerberos for Single Sign-on</a></li>
 <li><a href="#Configuring_Red_Hat_SSO">3.6.5. Installing and Configuring Red Hat Single Sign-On</a></li>
-<li><a href="#Installing_RH_SSO">3.6.6. Installing Red Hat SSO</a></li>
-<li><a href="#Configuring_RHSSO_ldap">3.6.7. Configuring the LDAP group mapper</a></li>
-<li><a href="#Configuring_RHSSO_apache">3.6.8. Configuring Apache in the Engine</a></li>
-<li><a href="#Configuring_RHSSO_OVN">3.6.9. Configuring OVN</a></li>
-<li><a href="#Configuring_RHSSO_Monitoring_Portal">3.6.10. Configuring the Monitoring Portal (Grafana)</a></li>
-<li><a href="#sect-User_Authorization">3.6.11. User Authorization</a></li>
-<li><a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">3.6.12. Administering User Tasks From the Administration Portal</a></li>
-<li><a href="#sect-Administering_User_Tasks_From_the_commandline">3.6.13. Administering User Tasks From the Command Line</a></li>
-<li><a href="#Configuring_Additional_Local_Domains">3.6.14. Configuring Additional Local Domains</a></li>
+<li><a href="#sect-User_Authorization">3.6.6. User Authorization</a></li>
+<li><a href="#sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">3.6.7. Administering User Tasks From the Administration Portal</a></li>
+<li><a href="#sect-Administering_User_Tasks_From_the_commandline">3.6.8. Administering User Tasks From the Command Line</a></li>
+<li><a href="#Configuring_Additional_Local_Domains">3.6.9. Configuring Additional Local Domains</a></li>
 </ul>
 </li>
 <li><a href="#chap-Quotas_and_Service_Level_Agreement_Policy">3.7. Quotas and Service Level Agreement Policy</a>
@@ -373,7 +368,12 @@
 </li>
 <li><a href="#appe-Red_Hat_Enterprise_Virtualization_and_SSL">Appendix D: oVirt and encrypted communication</a>
 <ul class="sectlevel2">
-<li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a></li>
+<li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a>
+<ul class="sectlevel3">
+<li><a href="#extracting-certificate-and-private-key-from-p12-bundle">Extracting the Certificate and Private Key from a P12 Bundle</a></li>
+<li><a href="#replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</a></li>
+</ul>
+</li>
 <li><a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a></li>
 </ul>
 </li>
@@ -9320,9 +9320,8 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <div class="title">Procedure</div>
 <p>You can automate the process of assigning labels to host network interfaces in the configured list of clusters with the LLDP Labeler service.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="Configuring_LLDP_Labeler_vlan">Configuring the LLDP Labeler</h5>
+<div class="sect5">
+<h6 id="Configuring_LLDP_Labeler_vlan">Configuring the LLDP Labeler</h6>
 <div class="paragraph">
 <p>By default, LLDP Labeler runs as an hourly service. This option is useful if you make hardware changes (for example, NICs, switches, or cables) or change switch configurations.</p>
 </div>
@@ -9398,6 +9397,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </div>
 <div class="paragraph">
 <p>You have added a network label to a host network interface. Newly created logical networks with the same label are automatically assigned to all host network interfaces with that label. Removing a label from a logical network automatically removes that logical network from all host network interfaces with that label.</p>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -9743,9 +9743,8 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <div class="paragraph">
 <p>NICs with <a href="#Bond_logical_networks_compatibility">incompatible logical networks</a> cannot be bonded.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="Configuring_LLDP_Labeler_labels">Configuring the LLDP Labeler</h5>
+<div class="sect5">
+<h6 id="Configuring_LLDP_Labeler_labels">Configuring the LLDP Labeler</h6>
 <div class="paragraph">
 <p>By default, LLDP Labeler runs as an hourly service. This option is useful if you make hardware changes (for example, NICs, switches, or cables) or change switch configurations.</p>
 </div>
@@ -9817,6 +9816,10 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </div>
 </div>
 </li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Attach a logical network to the new bond and configure it. See <a href="#Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts">Editing Host Network Interfaces and Assigning Logical Networks to Hosts</a> for instructions.</p>
 <div class="admonitionblock note">
@@ -9835,6 +9838,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 </div>
 </li>
 </ol>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -10429,9 +10433,6 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>To enable SR-IOV and assign dedicated virtual NICs to virtual machines, see <a href="https://access.redhat.com/articles/2335291" class="bare">https://access.redhat.com/articles/2335291</a>.</p>
-</div>
 </div>
 <div class="sect5">
 <h6 id="proc-enabling-nested-virtualization-for-all-virtual-machines">Enabling nested virtualization for all virtual machines</h6>
@@ -10867,7 +10868,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 <div class="sect6">
 <h7 id="Updating_all_hosts_in_a_cluster_admin">Updating All Hosts in a Cluster</h7>
 <div class="paragraph">
-<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
+<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md">oVirt Cluster Upgrade</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
 <div class="paragraph">
 <p>Update one cluster at a time.</p>
@@ -13908,7 +13909,8 @@ multipaths {
     multipath {
         wwid <em>boot_LUN_wwid</em>
         no_path_retry queue
-    }</code></pre>
+    }
+  }</code></pre>
 </div>
 </div>
 </td>
@@ -14434,7 +14436,7 @@ Vdsm cannot configure the filter automatically.</pre>
 <p>To use Gluster Storage with oVirt, see <a href="https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.4/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/"><em>Configuring oVirt with Gluster Storage</em></a>.</p>
 </div>
 <div class="paragraph">
-<p>For the Gluster Storage versions that are supported with oVirt, see <a href="https://access.redhat.com/articles/2356261" class="bare">https://access.redhat.com/articles/2356261</a>.</p>
+<p>For the Gluster Storage versions that are supported with oVirt, see <a href="https://access.redhat.com/articles/2356261">Red Hat Gluster Storage Version Compatibility and Support</a>.</p>
 </div>
 </div>
 </div>
@@ -18174,9 +18176,8 @@ This capability is known as <em>OpenShift Virtualization</em>.
 <div class="paragraph">
 <p>For more details, see the <a href="http://docs.openvswitch.org/en/latest/">Open vSwitch Documentation</a> and <a href="http://openvswitch.org/support/dist-docs/">Open vSwitch Manpages</a>.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="Installing_a_new_OVN_network_provider">Installing a New OVN Network Provider</h5>
+<div class="sect5">
+<h6 id="Installing_a_new_OVN_network_provider">Installing a New OVN Network Provider</h6>
 <div class="paragraph">
 <p>Installing OVN using <code>engine-setup</code> performs the following steps:</p>
 </div>
@@ -18271,7 +18272,7 @@ oVirt OVN provider password[empty]:</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>To change the authentication method later, you can edit the <code>/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf</code> file, or create a new <code>/etc/ovirt-provider-ovn/conf.d/20_engine_setup.conf</code> file. Restart the <code>ovirt-provider-ovn</code> service for the change to take effect. See <a href="https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc" class="bare">https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc</a> for more information about OVN authentication.</p>
+<p>To change the authentication method later, you can edit the <code>/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf</code> file, or create a new <code>/etc/ovirt-provider-ovn/conf.d/20_engine_setup.conf</code> file. Restart the <code>ovirt-provider-ovn</code> service for the change to take effect. See <a href="https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc">oVirt external network provider for OVN</a> for more information about OVN authentication.</p>
 </div>
 </td>
 </tr>
@@ -18323,8 +18324,8 @@ oVirt OVN provider password[empty]:</pre>
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="Configuring_Hosts_for_an_OVN_tunnel_network">Updating the OVN Tunnel Network on a Single Host</h5>
+<div class="sect5">
+<h6 id="Configuring_Hosts_for_an_OVN_tunnel_network">Updating the OVN Tunnel Network on a Single Host</h6>
 <div class="paragraph">
 <p>You can update the OVN tunnel network on a single host with <code>vdsm-tool</code>:</p>
 </div>
@@ -18358,8 +18359,8 @@ oVirt OVN provider password[empty]:</pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="Connecting_an_OVN_Network_to_a_Physical_Network">Connecting an OVN Network to a Physical Network</h5>
+<div class="sect5">
+<h6 id="Connecting_an_OVN_Network_to_a_Physical_Network">Connecting an OVN Network to a Physical Network</h6>
 <div class="paragraph">
 <p>You can create an external provider network that overlays a native oVirt network so that the virtual machines on each appear to be sharing the same subnet.</p>
 </div>
@@ -18443,6 +18444,7 @@ oVirt OVN provider password[empty]:</pre>
 </div>
 <div class="paragraph">
 <p>////Removing for BZ2006228 include::topics/Adding_an_External_Network_Provider.adoc[leveloffset=+2]</p>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -19303,10 +19305,8 @@ broker : 25, type : broker</pre>
 <div class="paragraph">
 <p>To remove a self-hosted engine node from your environment, place the node into maintenance mode, undeploy the node, and optionally remove it. The node can be managed as a regular host after the HA services have been stopped, and the self-hosted engine configuration files have been removed.</p>
 </div>
-<div class="paragraph">
-<p><strong>Removing a Host from a Self-Hosted Engine Environment</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select the self-hosted engine node.</p>
@@ -19632,7 +19632,7 @@ and disable global maintenance mode:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If a backup contains grants for extra database users, restoring the backup with the <code>--restore-permissions</code> and <code>--provision-db</code> (or <code>--provision-dwh-db</code>) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See <a href="https://access.redhat.com/articles/2686731" class="bare">https://access.redhat.com/articles/2686731</a>.</p>
+<p>If a backup contains grants for extra database users, restoring the backup with the <code>--restore-permissions</code> and <code>--provision-db</code> (or <code>--provision-dwh-db</code>) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See <a href="https://access.redhat.com/articles/2686731">How to grant access to an extra database user after restoring Red Hat Virtualization from a backup</a>.</p>
 </div>
 </td>
 </tr>
@@ -22862,7 +22862,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with id <code>123</code>, send this request:</p>
+<p>Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with ID <code>123</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/diskattachments</code></pre>
@@ -22916,7 +22916,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>List the disks that are attached to the virtual machine. For example, for a virtual machine with the id <code>123</code>, send this request:</p>
+<p>List the disks that are attached to the virtual machine. For example, for a virtual machine with the ID <code>123</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/123/diskattachments</code></pre>
@@ -22939,7 +22939,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>Use the <code>disk</code> service to see the properties of a disk from the previous step. For example, for the disk with the id <code>456</code>, send this request:</p>
+<p>Use the <code>disk</code> service to see the properties of a disk from the previous step. For example, for the disk with the ID <code>456</code>, send this request:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/disks/456</code></pre>
@@ -22975,7 +22975,7 @@ Content-type: application/xml
 <div class="sect5">
 <h6 id="start-a-full-backup_assembly_incremental-backup-and-restore">Starting a full backup</h6>
 <div class="paragraph _abstract">
-<p>After a full backup you can use the resulting checkpoint id as the start point in the next incremental backup.</p>
+<p>After a full backup you can use the resulting checkpoint ID as the start point in the next incremental backup.</p>
 </div>
 <div class="paragraph">
 <p>When taking a backup of a running virtual machine, the process creates a scratch disk on the same storage domain as the disk being backed up. The backup process creates this disk to enable new data to be written to the running virtual machine during the backup. You can see this scratch disk in the Administration Portal during the backup. It is automatically deleted when the backup finishes.</p>
@@ -22987,7 +22987,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with ID <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
@@ -22995,7 +22995,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>In the request body, specify a disk to back up. For example, to start a full backup of a disk with id <code>456</code>, send the following request body:</p>
+<p>In the request body, specify a disk to back up. For example, to start a full backup of a disk with ID <code>456</code>, send the following request body:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
@@ -23037,7 +23037,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this id and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
+<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this ID and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
 </li>
 </ol>
 </div>
@@ -23065,7 +23065,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<p>Send a request specifying a virtual machine to back up. For example, specify a virtual machine with ID <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /ovirt-engine/api/vms/123/backups</code></pre>
@@ -23073,7 +23073,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with id <code>456</code>, send the following request body:</p>
+<p>In the request body, specify a disk to back up. For example, to start an incremental backup of a disk with ID <code>456</code>, send the following request body:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">&lt;backup&gt;
@@ -23093,7 +23093,7 @@ Content-type: application/xml
 </td>
 <td class="content">
 <div class="paragraph">
-<p>In the request body, if you include a disk that is not included in the previous checkpoint, the request also runs a full backup of this disk. For example, a disk with id <code>789</code> has not been backed up yet. To add a full backup of <code>789</code> to the above request body, send a request body like this:</p>
+<p>In the request body, if you include a disk that is not included in the previous checkpoint, the request also runs a full backup of this disk. For example, a disk with ID <code>789</code> has not been backed up yet. To add a full backup of <code>789</code> to the above request body, send a request body like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23136,10 +23136,10 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The backup id.</p>
+<p>The backup ID.</p>
 </li>
 <li>
-<p>The id of any disk that was included in the backup.</p>
+<p>The ID of any disk that was included in the backup.</p>
 </li>
 <li>
 <p>The status, indicating that the backup is initializing.</p>
@@ -23148,7 +23148,7 @@ Content-type: application/xml
 </div>
 </li>
 <li>
-<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this id and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
+<p>Poll the backup until the status is <code>ready</code>. The response includes <code>to_checkpoint_id</code>. Note this ID and use it for <code>from_checkpoint_id</code> in the next incremental backup.</p>
 </li>
 </ol>
 </div>
@@ -23195,14 +23195,14 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
+<p>To get information about a backup with ID 456 of a virtual machine with ID 123, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The response includes the backup with id 456, with &lt;from_checkpoint_id&gt; 999 and &lt;to_checkpoint_id&gt; 666. The disks included in the backup are referenced in the &lt;link&gt; element.</p>
+<p>The response includes the backup with ID 456, with &lt;from_checkpoint_id&gt; 999 and &lt;to_checkpoint_id&gt; 666. The disks included in the backup are referenced in the &lt;link&gt; element.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23238,10 +23238,10 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The id and name of each disk that was backed up.</p>
+<p>The ID and name of each disk that was backed up.</p>
 </li>
 <li>
-<p>The id of the disk image of the backup, for each disk included in the backup.</p>
+<p>The ID of the disk image of the backup, for each disk included in the backup.</p>
 </li>
 <li>
 <p>The disk format.</p>
@@ -23258,14 +23258,14 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:</p>
+<p>To get information about a backup with ID 456 of a virtual machine with ID 123, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /ovirt-engine/api/vms/456/backups/123/disks</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The response includes the disk with id 789, and the id of the disk image is 555.</p>
+<p>The response includes the disk with ID 789, and the ID of the disk image is 555.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23306,7 +23306,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>To finalize a backup of a disk with id <code>456</code> on a virtual machine with id <code>123</code>, send a request like this:</p>
+<p>To finalize a backup of a disk with ID <code>456</code> on a virtual machine with ID <code>123</code>, send a request like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">POST /vms/123/backups/456/finalize</code></pre>
@@ -23348,21 +23348,21 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>disk id</p>
+<p>Disk ID.</p>
 </li>
 <li>
-<p>backup id</p>
+<p>Backup ID.</p>
 </li>
 <li>
-<p>direction of the disk set to <code>download</code></p>
+<p>Direction of the disk set to <code>download</code>.</p>
 </li>
 <li>
-<p>format of the disk set to <code>raw</code></p>
+<p>Format of the disk set to <code>raw</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, to transfer a backup of a disk where the id of the disk is <code>123</code> and the id of the backup is <code>456</code>, send the following request body:</p>
+<p>For example, to transfer a backup of a disk where the ID of the disk is <code>123</code> and the ID of the backup is <code>456</code>, send the following request body:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23413,18 +23413,18 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>disk id or snapshot id</p>
+<p>Disk ID or snapshot ID.</p>
 </li>
 <li>
-<p>direction of the disk set to <code>upload</code></p>
+<p>Direction of the disk set to <code>upload</code>.</p>
 </li>
 <li>
-<p>format of the disk set to <code>raw</code></p>
+<p>Format of the disk set to <code>raw</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, to transfer a backup of a disk where the id of the disk is <code>123</code>, send the following request body:</p>
+<p>For example, to transfer a backup of a disk where the ID of the disk is <code>123</code>, send the following request body:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23456,7 +23456,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> like this:</p>
+<p>Send a request specifying a virtual machine. For example, specify a virtual machine with ID <code>123</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/</code></pre>
@@ -23471,16 +23471,16 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The checkpoint’s disks</p>
+<p>The checkpoint’s disks.</p>
 </li>
 <li>
-<p>The id of the parent checkpoint</p>
+<p>The ID of the parent checkpoint.</p>
 </li>
 <li>
-<p>Creation date of the checkpoint</p>
+<p>Creation date of the checkpoint.</p>
 </li>
 <li>
-<p>The virtual machine to which it belongs</p>
+<p>The virtual machine to which it belongs.</p>
 </li>
 </ul>
 </div>
@@ -23518,7 +23518,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Send a request specifying a virtual machine. For example, specify a virtual machine with id <code>123</code> and checkpoint id <code>456</code> like this:</p>
+<p>Send a request specifying a virtual machine. For example, specify a virtual machine with ID <code>123</code> and checkpoint ID <code>456</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">GET /vms/123/checkpoints/456</code></pre>
@@ -23533,16 +23533,16 @@ Content-type: application/xml
 <div class="ulist">
 <ul>
 <li>
-<p>The checkpoint’s disks</p>
+<p>The checkpoint’s disks.</p>
 </li>
 <li>
-<p>The id of the parent checkpoint</p>
+<p>The ID of the parent checkpoint.</p>
 </li>
 <li>
-<p>Creation date of the checkpoint</p>
+<p>Creation date of the checkpoint.</p>
 </li>
 <li>
-<p>The virtual machine to which it belongs</p>
+<p>The virtual machine to which it belongs.</p>
 </li>
 </ul>
 </div>
@@ -23577,7 +23577,7 @@ Content-type: application/xml
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with id <code>123</code> and a checkpoint with id <code>456</code> like this:</p>
+<p>Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with ID <code>123</code> and a checkpoint with ID <code>456</code> like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">DELETE /vms/123/checkpoints/456/</code></pre>
@@ -24147,10 +24147,10 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 </ul>
 </div>
 <div class="paragraph">
-<p>For information on creation of user accounts in Active Directory, see <a href="http://technet.microsoft.com/en-us/library/cc732336.aspx" class="bare">http://technet.microsoft.com/en-us/library/cc732336.aspx</a>.</p>
+<p>For information on creation of user accounts in Active Directory, see <a href="http://technet.microsoft.com/en-us/library/cc732336.aspx">Create a New User Account</a>.</p>
 </div>
 <div class="paragraph">
-<p>For information on delegation of control in Active Directory, see <a href="http://technet.microsoft.com/en-us/library/cc732524.aspx" class="bare">http://technet.microsoft.com/en-us/library/cc732524.aspx</a>.</p>
+<p>For information on delegation of control in Active Directory, see <a href="http://technet.microsoft.com/en-us/library/cc732524.aspx">Delegate Control of an Organizational Unit</a>.</p>
 </div>
 </td>
 </tr>
@@ -25392,9 +25392,8 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}</pre>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="Installing_RH_SSO">3.6.6. Installing Red Hat SSO</h4>
+<div class="sect4">
+<h5 id="Installing_RH_SSO">Installing Red Hat SSO</h5>
 <div class="paragraph">
 <p>You can install Red Hat Single Sign-On by downloading a ZIP file and unpacking it, or by using an RPM file.</p>
 </div>
@@ -25418,8 +25417,8 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}</pre>
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="Configuring_RHSSO_ldap">3.6.7. Configuring the LDAP group mapper</h4>
+<div class="sect4">
+<h5 id="Configuring_RHSSO_ldap">Configuring the LDAP group mapper</h5>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -25509,8 +25508,8 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}</pre>
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="Configuring_RHSSO_apache">3.6.8. Configuring Apache in the Engine</h4>
+<div class="sect4">
+<h5 id="Configuring_RHSSO_apache">Configuring Apache in the Engine</h5>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -25649,8 +25648,8 @@ EXTERNAL_OIDC_SSL_VERIFY_HOST=false</pre>
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="Configuring_RHSSO_OVN">3.6.9. Configuring OVN</h4>
+<div class="sect4">
+<h5 id="Configuring_RHSSO_OVN">Configuring OVN</h5>
 <div class="paragraph">
 <p>If you configured the <strong>ovirt-ovn-provider</strong> in the Engine, you need to configure the OVN provider credentials.</p>
 </div>
@@ -25681,8 +25680,8 @@ where <strong>user1</strong> belongs to the LDAP group <strong>ovirt-administrat
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="Configuring_RHSSO_Monitoring_Portal">3.6.10. Configuring the Monitoring Portal (Grafana)</h4>
+<div class="sect4">
+<h5 id="Configuring_RHSSO_Monitoring_Portal">Configuring the Monitoring Portal (Grafana)</h5>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -25695,7 +25694,7 @@ where <strong>user1</strong> belongs to the LDAP group <strong>ovirt-administrat
 </li>
 <li>
 <p>Add an additional valid Redirect URI for the Monitoring Portal(Grafana).
-Valid Redirect URIs: <a href="https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/" class="bare">https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/</a></p>
+Valid Redirect URIs: <code>https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/</code></p>
 </li>
 <li>
 <p>Select the <strong>Mappers</strong> tab.</p>
@@ -25783,8 +25782,9 @@ send_client_credentials_via_post = false
 </ol>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="sect-User_Authorization">3.6.11. User Authorization</h4>
+<h4 id="sect-User_Authorization">3.6.6. User Authorization</h4>
 <div class="sect4">
 <h5 id="User_authorization_model">User Authorization Model</h5>
 <div class="paragraph">
@@ -25815,7 +25815,7 @@ send_client_credentials_via_post = false
 </div>
 </div>
 <div class="sect3">
-<h4 id="sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">3.6.12. Administering User Tasks From the Administration Portal</h4>
+<h4 id="sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">3.6.7. Administering User Tasks From the Administration Portal</h4>
 <div class="sect4">
 <h5 id="Adding_users">Adding Users and Assigning VM Portal Permissions</h5>
 <div class="paragraph">
@@ -25944,7 +25944,7 @@ send_client_credentials_via_post = false
 </div>
 </div>
 <div class="sect3">
-<h4 id="sect-Administering_User_Tasks_From_the_commandline">3.6.13. Administering User Tasks From the Command Line</h4>
+<h4 id="sect-Administering_User_Tasks_From_the_commandline">3.6.8. Administering User Tasks From the Command Line</h4>
 <div class="paragraph">
 <p>You can use the <code>ovirt-aaa-jdbc-tool</code> tool to manage user accounts on the internal domain. Changes made using the tool take effect immediately and do not require you to restart the <code>ovirt-engine</code> service. For a full list of user options, run <code>ovirt-aaa-jdbc-tool user --help</code>. Common examples are provided in this section.</p>
 </div>
@@ -26439,7 +26439,7 @@ user updated successfully</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Configuring_Additional_Local_Domains">3.6.14. Configuring Additional Local Domains</h4>
+<h4 id="Configuring_Additional_Local_Domains">3.6.9. Configuring Additional Local Domains</h4>
 <div class="paragraph">
 <p>Creating additional local domains other than the default <strong>internal</strong> domain is also supported. This can be done using the <strong>ovirt-engine-extension-aaa-jdbc</strong> extension and allows you to create multiple domains without attaching external directory servers, though the use case may not be common for enterprise environments.</p>
 </div>
@@ -27650,7 +27650,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>(SNMP version 3 only) The engine id used for SNMP traps.</td>
+<td>(SNMP version 3 only) The engine ID used for SNMP traps.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
@@ -27994,7 +27994,7 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Use a Secure Copy (SCP) client to import and export filter policies from the oVirt Engine. A Secure Copy tool for Windows machines is WinSCP (<a href="http://winscp.net" class="bare">http://winscp.net</a>).</p>
+<p>Use a Secure Copy (SCP) client such as <a href="http://winscp.net">WinSCP</a> to import and export filter policies from the oVirt Engine.</p>
 </div>
 </td>
 </tr>
@@ -29994,25 +29994,30 @@ input(type="imudp" port="514")</pre>
 <div class="sect2">
 <h3 id="VDSM_hooks_domain_xml">The VDSM Hook Domain XML Object</h3>
 <div class="paragraph">
-<p>When hook scripts are started, the _hook_domxml variable is appended to the environment. This variable contains the path of the libvirt domain XML representation of the relevant virtual machine. Several hooks are an exception to this rule, as outlined below.
-The _hook_domxml variable of the following hooks contains the XML representation of the NIC and not the virtual machine.</p>
+<p>VDSM uses the <a href="https://libvirt.org/formatdomain.html"><code>libvirt</code> domain XML format</a> to define virtual machines. The UUID of the virtual machine may be deduced from the domain XML, but it is also available as the environment variable <code>vmId</code>.</p>
+</div>
+<div class="paragraph">
+<p>When hook scripts are started, the <code>_hook_domxml</code> variable is appended to the environment. This variable contains the path of the <code>libvirt</code> domain XML representation of the relevant virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>Some hooks are an exception to this rule. The following hooks contain the XML representation of the NIC, not the virtual machine:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>*_nic_hotplug_*</p>
+<p><code>*_nic_hotplug_*</code></p>
 </li>
 <li>
-<p>*_nic_hotunplug_*</p>
+<p><code>*_nic_hotunplug_*</code></p>
 </li>
 <li>
-<p>*_update_device</p>
+<p><code>*_update_device</code></p>
 </li>
 <li>
-<p>*_device_create</p>
+<p><code>*_device_create</code></p>
 </li>
 <li>
-<p>*_device_migrate_*</p>
+<p><code>*_device_migrate_*</code></p>
 </li>
 </ul>
 </div>
@@ -30024,14 +30029,11 @@ The _hook_domxml variable of the following hooks contains the XML representation
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <strong>before_migration_destination</strong> and <strong>before_dehibernation</strong> hooks currently receive the XML of the domain from the source host. The XML of the domain at the destination will have various differences.</p>
+<p>The <code>before_migration_destination</code> and <code>before_dehibernation</code> hooks currently receive the domain XML from the source host. The domain XML at the destination will be different.</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>The libvirt domain XML format is used by VDSM to define virtual machines. Details on the libvirt domain XML format can be found at <a href="http://libvirt.org/formatdomain.html">http://libvirt.org/formatdomain.html</a>. The UUID of the virtual machine may be deduced from the domain XML, but it is also available as the environment variable vmId.</p>
 </div>
 </div>
 <div class="sect2">
@@ -30203,7 +30205,7 @@ else:
 <p>VDSM ships with a Python hooking module, providing helper functions for VDSM hook scripts. This module is provided as an example, and is only relevant to VDSM hooks written in Python.</p>
 </div>
 <div class="paragraph">
-<p>The hooking module supports reading of a virtual machine&#8217;s libvirt XML into a DOM object. Hook scripts can then use Python&#8217;s built in <strong>xml.dom</strong> library (<a href="http://docs.python.org/release/2.6/library/xml.dom.html" class="bare">http://docs.python.org/release/2.6/library/xml.dom.html</a>) to manipulate the object.</p>
+<p>The hooking module supports reading of a virtual machine&#8217;s libvirt XML into a DOM object. Hook scripts can then use Python&#8217;s built-in <a href="http://docs.python.org/release/2.6/library/xml.dom.html"><strong>xml.dom</strong> library</a> to manipulate the object.</p>
 </div>
 <div class="paragraph">
 <p>The modified object can then be saved back to libvirt XML using the hooking module. The hooking module provides the following functions to support hook development:</p>
@@ -30835,6 +30837,20 @@ api.ready();</code></pre>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</h3>
+<div class="paragraph">
+<p>You can configure your organization&#8217;s third-party CA certificate to authenticate users connecting to the oVirt Engine over HTTPS.</p>
+</div>
+<div class="paragraph">
+<p>Using a third-party CA certificate for HTTPS connections does not affect the certificate used for authentication between the Engine and hosts. They will continue to use the self-signed certificate generated by the Engine.</p>
+</div>
+<div class="paragraph">
+<p>If you received the private key and certificate from your CA in a P12 file, use the following procedure to extract them. For other file formats, contact your CA. After extracting the private key and certificate, proceed to <a href="#replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="extracting-certificate-and-private-key-from-p12-bundle">Extracting the Certificate and Private Key from a P12 Bundle</h4>
+<div class="paragraph">
+<p>The internal CA stores the internally generated key and certificate in a P12 file, in <code>/etc/pki/ovirt-engine/keys/apache.p12</code>. Store your new file in the same location. The following procedure assumes that the new P12 file is in <code>/tmp/apache.p12</code>.</p>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -30849,49 +30865,8 @@ api.ready();</code></pre>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>You can configure your organization&#8217;s third-party CA certificate to identify the oVirt Engine to users connecting over HTTPS.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Using a third-party CA certificate for HTTPS connections does not affect the certificate used for authentication between the Engine and hosts. They will continue to use the self-signed certificate generated by the Engine.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A third-party CA certificate. This is the certificate of the CA (Certificate Authority) that issued the certificate you want to use. It is provided as a <strong>PEM</strong> file. The certificate chain must be complete up to the root certificate. The chain&#8217;s order is critical and must be from the last intermediate certificate to the root certificate. This procedure assumes that the third-party CA certificate is provided in <code>/tmp/3rd-party-ca-cert.pem</code>.</p>
-</li>
-<li>
-<p>The private key that you want to use for Apache httpd. It must not have a password. This procedure assumes that it is located in <code>/tmp/apache.key</code>.</p>
-</li>
-<li>
-<p>The certificate issued by the CA. This procedure assumes that it is located in <code>/tmp/apache.cer</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If you received the private key and certificate from your CA in a P12 file, use the following procedure to extract them. For other file formats, contact your CA. After extracting the private key and certificate, proceed to <a href="#Replace">Replacing the oVirt Engine Apache CA Certificate</a>.</p>
-</div>
-<div id="Extracting" class="paragraph">
-<p><strong>Extracting the Certificate and Private Key from a P12 Bundle</strong></p>
-</div>
-<div class="paragraph">
-<p>The internal CA stores the internally generated key and certificate in a P12 file, in <code>/etc/pki/ovirt-engine/keys/apache.p12</code>. Store your new file in the same location. The following procedure assumes that the new P12 file is in <code>/tmp/apache.p12</code>.</p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Back up the current <code>apache.p12</code> file:</p>
@@ -30910,12 +30885,15 @@ api.ready();</code></pre>
 </div>
 </li>
 <li>
-<p>Extract the private key and certificate to the required locations. If the file is password protected, you must add <code>-passin pass:_password_</code>, replacing <em>password</em> with the required password.</p>
+<p>Extract the private key and certificate to the required locations:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes &gt; /tmp/apache.key
 # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys &gt; /tmp/apache.cer</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>If the file is password protected, add <code>-passin pass:<em>password</em></code> to the command, replacing <em>password</em> with the required password.</p>
 </div>
 </li>
 </ol>
@@ -30934,10 +30912,42 @@ api.ready();</code></pre>
 </tr>
 </table>
 </div>
-<div id="Replace" class="paragraph">
-<p><strong>Replacing the oVirt Engine Apache CA Certificate</strong></p>
+</div>
+<div class="sect3">
+<h4 id="replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</h4>
+<div class="paragraph">
+<p>You configure your organization&#8217;s third-party CA certificate to authenticate users connecting to the Administration Portal and the VM Portal over HTTPS.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not change the permissions and ownerships for the <code>/etc/pki</code> directory or any subdirectories. The permission for the <code>/etc/pki</code> and the <code>/etc/pki/ovirt-engine</code> directory must remain as the default, <code>755</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Third-party CA (Certificate Authority) certificate. It is provided as a <code>PEM</code> file. The certificate chain must be complete up to the root certificate. The chain&#8217;s order is critical and must be from the last intermediate certificate to the root certificate. This procedure assumes that the third-party CA certificate is provided in <code>/tmp/3rd-party-ca-cert.pem</code>.</p>
+</li>
+<li>
+<p>Private key that you want to use for Apache httpd. It must not have a password. This procedure assumes that it is located in <code>/tmp/apache.key</code>.</p>
+</li>
+<li>
+<p>Certificate issued by the CA. This procedure assumes that it is located in <code>/tmp/apache.cer</code>.</p>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>If you are using a self-hosted engine, put the environment into global maintenance mode.</p>
@@ -30954,7 +30964,7 @@ api.ready();</code></pre>
 <p>Add your CA certificate to the host-wide trust store:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/<em>3rd-party-ca-cert</em>.pem /etc/pki/ca-trust/source/anchors
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/3rd-party-ca-cert.pem /etc/pki/ca-trust/source/anchors
 # update-ca-trust</code></pre>
 </div>
 </div>
@@ -30971,7 +30981,7 @@ api.ready();</code></pre>
 <p>Save your CA certificate as <code>/etc/pki/ovirt-engine/apache-ca.pem</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/<em>3rd-party-ca-cert</em>.pem /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/3rd-party-ca-cert.pem /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -31056,7 +31066,15 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 <p>If you manually changed the <code>/etc/ovirt-provider-ovn/conf.d/10-setup-ovirt-provider-ovn.conf</code> file, or are using a configuration file from an older installation, make sure that the Engine is still configured to use <code>/etc/pki/ovirt-engine/apache-ca.pem</code> as the certificate source.</p>
 </li>
 <li>
-<p>Enable <code>engine-backup</code> to update the system on restore by creating a new file, <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code>, with the following content:</p>
+<p>Create the <code>/etc/ovirt-engine-backup/engine-backup-config.d</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable <code>ovirt-engine-backup</code> to update the system on restore by creating the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
@@ -31092,7 +31110,7 @@ update-ca-trust</code></pre>
 </div>
 </li>
 <li>
-<p>If you are using a self-hosted engine, turn off global maintenance mode.</p>
+<p>If you are using a self-hosted engine, turn off global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
@@ -31102,7 +31120,8 @@ update-ca-trust</code></pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>Your users can now connect to the Administration Portal and VM Portal, without seeing a warning about the authenticity of the certificate used to encrypt HTTPS traffic.</p>
+<p>Your users can now connect to the Administration Portal and VM Portal without seeing a certificate warning.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -31118,7 +31137,7 @@ update-ca-trust</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a PEM-encoded CA certificate and importing certificates, see the <code>X.509 CERTIFICATE TRUST STORE</code> section of the README file at <strong>/usr/share/doc/ovirt-engine-extension-aaa-ldap-<em>version</em></strong>.</p>
+<p>For more information on creating a PEM-encoded CA certificate and importing certificates, see the <code>X.509 CERTIFICATE TRUST STORE</code> section of the README file at <code>/usr/share/doc/ovirt-engine-extension-aaa-ldap-&lt;<em>version</em>&gt;.</code></p>
 </div>
 </td>
 </tr>
@@ -31566,6 +31585,6 @@ Following engine backup and restore, during engine restore, the custom message b
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/administration_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/administration_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/administration_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/documentation/administration_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

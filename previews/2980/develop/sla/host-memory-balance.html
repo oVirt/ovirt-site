@@ -122,7 +122,7 @@ The oVirt Scheduler Proxy project development has been discontinued.</p>
 
   <p>See also:</p>
   <ul>
-    <li>https://bugzilla.redhat.com/show_bug.cgi?id=2028192</li>
+    <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2028192">https://bugzilla.redhat.com/show_bug.cgi?id=2028192</a></li>
   </ul>
 
   <p>Keeping the following section only for reference.</p>
@@ -135,180 +135,174 @@ The oVirt Scheduler Proxy project development has been discontinued.</p>
 <p>This one is quite large, so lets break it down</p>
 
 <p>Loading of the RESTAPI sdk, so we can do rest calls</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  from ovirtsdk.xml import params
-  from ovirtsdk.api import API
-  import sys
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">ovirtsdk.xml</span> <span class="kn">import</span> <span class="n">params</span>
+<span class="kn">from</span> <span class="nn">ovirtsdk.api</span> <span class="kn">import</span> <span class="n">API</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 </code></pre></div></div>
-
 <p>Our lovely class</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class host_memory_balance(object): `   `**`migrate` `vms` `from` `over` `utilized` `hosts`**
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">host_memory_balance</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="s">"""migrate vms from over utilized hosts"""</span>
 </code></pre></div></div>
 
 <p>What are the values a user can pass to this load balancer. (they will be shown as options in the UI)</p>
 
 <p>In this instance the minimum memory threshold and should we be safe with the migration (try to move the smallest VM)</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     #What are the values this module will accept, used to present
-     #the user with options
-     properties_validation = 'minimum_host_memoryMB=[0-9]*;safe_selection=True|False'
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># What are the values this module will accept, used to present
+</span>    <span class="c1"># the user with options
+</span>    <span class="n">properties_validation</span> <span class="o">=</span> <span class="s">'minimum_host_memoryMB=[0-9]*;safe_selection=True|False'</span>
 </code></pre></div></div>
 
 <p>Class members</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     TO_BYTES = 1024 * 1024
-     MINIMUM_MEMORY_DEFAULT = 500
-     SAFE_SELECTION_DEFAULT = 'True'
-     free_memory_cache = {}
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">TO_BYTES</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
+    <span class="n">MINIMUM_MEMORY_DEFAULT</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="n">SAFE_SELECTION_DEFAULT</span> <span class="o">=</span> <span class="s">'True'</span>
+    <span class="n">free_memory_cache</span> <span class="o">=</span> <span class="p">{}</span>
 </code></pre></div></div>
 
 <p>Connect to the REST webservice</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def _get_connection(self):
-         #open a connection to the rest api
-         connection = None
-         try:
-             connection = API(url='`[`http://host:port`](http://host:port)`',
-                              username='user@domain', password='')
-         except BaseException as ex:
-             #letting the external proxy know there was an error
-             print &gt;&gt; sys.stderr, ex
-             return None
-         return connection
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">_get_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#open a connection to the rest api
+</span>        <span class="n">connection</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">connection</span> <span class="o">=</span> <span class="n">API</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">'http://host:port'</span><span class="p">,</span>
+                             <span class="n">username</span><span class="o">=</span><span class="s">'user@domain'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">except</span> <span class="nb">BaseException</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="c1">#letting the external proxy know there was an error
+</span>            <span class="k">print</span> <span class="o">&gt;&gt;</span> <span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">ex</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="n">connection</span>
 </code></pre></div></div>
 
 <p>Query the REST for these hosts</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def _get_hosts(self, host_ids, connection):
-         #get all the hosts with the given ids
-         engine_hosts = connection.hosts.list(
-             query=" or ".join(["id=%s" % u for u in host_ids]))
-         return engine_hosts
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">_get_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host_ids</span><span class="p">,</span> <span class="n">connection</span><span class="p">):</span>
+        <span class="c1">#get all the hosts with the given ids
+</span>        <span class="n">engine_hosts</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">hosts</span><span class="p">.</span><span class="nb">list</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="s">" or "</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="s">"id=%s"</span> <span class="o">%</span> <span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">host_ids</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">engine_hosts</span>
 </code></pre></div></div>
 
 <p>Get a hosts free memory, this requires a REST call, so we cache the results</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getFreeMemory(self, host):
-         #getiing free memory requires a REST call, so cache results
-         if not host.id in self.free_memory_cache:
-             try:
-                 self.free_memory_cache[host.id] = host.get_statistics().get(
-                     'memory.free').get_values().get_value()[0].get_datum()
-             except Exception:
-                 self.free_memory_cache[host.id] = -1
-         return self.free_memory_cache[host.id]
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">getFreeMemory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
+        <span class="c1">#getiing free memory requires a REST call, so cache results
+</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">host</span><span class="p">.</span><span class="nb">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">free_memory_cache</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">free_memory_cache</span><span class="p">[</span><span class="n">host</span><span class="p">.</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">host</span><span class="p">.</span><span class="n">get_statistics</span><span class="p">().</span><span class="n">get</span><span class="p">(</span>
+                    <span class="s">'memory.free'</span><span class="p">).</span><span class="n">get_values</span><span class="p">().</span><span class="n">get_value</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_datum</span><span class="p">()</span>
+            <span class="k">except</span> <span class="nb">Exception</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">free_memory_cache</span><span class="p">[</span><span class="n">host</span><span class="p">.</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">free_memory_cache</span><span class="p">[</span><span class="n">host</span><span class="p">.</span><span class="nb">id</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p>Passes over the hosts deciding which one needs a migration the most, and what hosts are valid options as the migration destination</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getOverUtilizedHostAndUnderUtilizedList(self, engine_hosts, minimum_host_memory):
-         **\1**
-         over_utilized_host = None
-         under_utilized_hosts = []
-         for host in engine_hosts:
-             if not host:
-                 continue
-             free_memory = self.getFreeMemory(host)
-             if(free_memory &lt;= 0):
-                 continue
-             if free_memory &gt; minimum_host_memory:
-                     under_utilized_hosts.append(host)
-                     continue
-                 #take the host with least amount of free memory
-             if (over_utilized_host is None or
-                     self.getFreeMemory(over_utilized_host)
-                     &gt; free_memory):
-                     over_utilized_host = host
-         return over_utilized_host, under_utilized_hosts
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">getOverUtilizedHostAndUnderUtilizedList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine_hosts</span><span class="p">,</span> <span class="n">minimum_host_memory</span><span class="p">):</span>
+        <span class="s">'''return the most over utilized host,
+        and a list of under utilized hosts'''</span>
+        <span class="n">over_utilized_host</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">under_utilized_hosts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">engine_hosts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">host</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">free_memory</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">getFreeMemory</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">free_memory</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">free_memory</span> <span class="o">&gt;</span> <span class="n">minimum_host_memory</span><span class="p">:</span>
+                    <span class="n">under_utilized_hosts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="c1">#take the host with least amount of free memory
+</span>            <span class="k">if</span> <span class="p">(</span><span class="n">over_utilized_host</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">getFreeMemory</span><span class="p">(</span><span class="n">over_utilized_host</span><span class="p">)</span>
+                    <span class="o">&gt;</span> <span class="n">free_memory</span><span class="p">):</span>
+                    <span class="n">over_utilized_host</span> <span class="o">=</span> <span class="n">host</span>
+        <span class="k">return</span> <span class="n">over_utilized_host</span><span class="p">,</span> <span class="n">under_utilized_hosts</span>
 </code></pre></div></div>
 
 <p>This passes over the hosts marked valid as migration destination, figuring how much free memory the most underused host have</p>
 
 <p>(this number is the maximum possible memory size of a VM to migrate)</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getMaximumVmMemory(self, hosts, minimum_host_memory):
-         **\1**
-         maximum_vm_memory = 0
-         for host in hosts:
-             available_memory = self.getFreeMemory(host) - minimum_host_memory
-             available_memory = min(available_memory,
-                                    host.get_max_scheduling_memory())
-             if available_memory &gt; maximum_vm_memory:
-                 maximum_vm_memory = available_memory
-         return maximum_vm_memory
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">getMaximumVmMemory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts</span><span class="p">,</span> <span class="n">minimum_host_memory</span><span class="p">):</span>
+        <span class="s">'''the maximum amount of memory that a migrated vm can have
+        without sending the other hosts over the threshold'''</span>
+        <span class="n">maximum_vm_memory</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">:</span>
+            <span class="n">available_memory</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">getFreeMemory</span><span class="p">(</span><span class="n">host</span><span class="p">)</span> <span class="o">-</span> <span class="n">minimum_host_memory</span>
+            <span class="n">available_memory</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">available_memory</span><span class="p">,</span>
+                                   <span class="n">host</span><span class="p">.</span><span class="n">get_max_scheduling_memory</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">available_memory</span> <span class="o">&gt;</span> <span class="n">maximum_vm_memory</span><span class="p">:</span>
+                <span class="n">maximum_vm_memory</span> <span class="o">=</span> <span class="n">available_memory</span>
+        <span class="k">return</span> <span class="n">maximum_vm_memory</span>
 </code></pre></div></div>
 
 <p>Now according to the option selected (safe/aggressive) , get from the overused Host a VM to migrate</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def getBestVmForMigration(self, vms, maximum_vm_memory, memory_delta, safe):
-         #safe -&gt; select the smallest vm
-         #not safe -&gt; try and select the smallest vm larger then the delta,
-         #   if no such vm exists take the largest one
-         #migrating a small vm is more likely to succeeded and puts less strain
-         #on the network
-         selected_vm = None
-         best_effort_vm = None
-         for vm in vms:
-                 if vm.memory &gt; maximum_vm_memory:
-                     #never select a vm that will send all the under
-                     #utilized hosts over the threshold
-                     continue
-                 if safe:
-                     if (selected_vm is None or
-                             vm.memory &lt; selected_vm.memory):
-                         selected_vm = vm
-                 else:
-                     if vm.memory &gt; memory_delta:
-                         if (selected_vm is None or
-                                 vm.memory &lt; selected_vm.memmory):
-                             selected_vm = vm
-                 if (best_effort_vm is None or
-                         vm.memory &gt; best_effort_vm.memory):
-                     best_effort_vm = vm
-         if not safe and selected_vm is None:
-             selected_vm = best_effort_vm
-         return selected_vm
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">getBestVmForMigration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vms</span><span class="p">,</span> <span class="n">maximum_vm_memory</span><span class="p">,</span> <span class="n">memory_delta</span><span class="p">,</span> <span class="n">safe</span><span class="p">):</span>
+        <span class="c1">#safe -&gt; select the smallest vm
+</span>        <span class="c1">#not safe -&gt; try and select the smallest vm larger then the delta,
+</span>        <span class="c1">#   if no such vm exists take the largest one
+</span>        <span class="c1">#migrating a small vm is more likely to succeeded and puts less strain
+</span>        <span class="c1">#on the network
+</span>        <span class="n">selected_vm</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">best_effort_vm</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vms</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">vm</span><span class="p">.</span><span class="n">memory</span> <span class="o">&gt;</span> <span class="n">maximum_vm_memory</span><span class="p">:</span>
+                    <span class="c1">#never select a vm that will send all the under
+</span>                    <span class="c1">#utilized hosts over the threshold
+</span>                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">safe</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">selected_vm</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span>
+                            <span class="n">vm</span><span class="p">.</span><span class="n">memory</span> <span class="o">&lt;</span> <span class="n">selected_vm</span><span class="p">.</span><span class="n">memory</span><span class="p">):</span>
+                        <span class="n">selected_vm</span> <span class="o">=</span> <span class="n">vm</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">vm</span><span class="p">.</span><span class="n">memory</span> <span class="o">&gt;</span> <span class="n">memory_delta</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">selected_vm</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span>
+                                <span class="n">vm</span><span class="p">.</span><span class="n">memory</span> <span class="o">&lt;</span> <span class="n">selected_vm</span><span class="p">.</span><span class="n">memmory</span><span class="p">):</span>
+                            <span class="n">selected_vm</span> <span class="o">=</span> <span class="n">vm</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">best_effort_vm</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span>
+                        <span class="n">vm</span><span class="p">.</span><span class="n">memory</span> <span class="o">&gt;</span> <span class="n">best_effort_vm</span><span class="p">.</span><span class="n">memory</span><span class="p">):</span>
+                    <span class="n">best_effort_vm</span> <span class="o">=</span> <span class="n">vm</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">safe</span> <span class="ow">and</span> <span class="n">selected_vm</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">selected_vm</span> <span class="o">=</span> <span class="n">best_effort_vm</span>
+        <span class="k">return</span> <span class="n">selected_vm</span>
 </code></pre></div></div>
 
 <p><strong>This function will be called by the external scheduler</strong></p>
 
 <p>It will get a list of host ids to check, and will return a VM to migrate and a list of possible host targets.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     def do_balance(self, hosts_ids, args_map): 
-         **\1**
-         conn = self._get_connection()
-         if conn is None:
-             return
-         #get our parameters from the map
-         minimum_host_memory = long(args_map.get('minimum_host_memoryMB',
-                                                 self.MINIMUM_MEMORY_DEFAULT))
-         minimum_host_memory = minimum_host_memory * self.TO_BYTES
-         safe = bool(args_map.get('safe_selection',
-                                  self.SAFE_SELECTION_DEFAULT))
-         #get all the hosts with the given ids
-         engine_hosts = self._get_hosts(hosts_ids, conn)
-         over_utilized_host, under_utilized_hosts = (
-             self.getOverUtilizedHostAndUnderUtilizedList(engine_hosts,
-                                                          minimum_host_memory))
-         if over_utilized_host is None:
-             return
-         maximum_vm_memory = self.getMaximumVmMemory(under_utilized_hosts,
-                                                     minimum_host_memory)
-         #amount of memory the host is missing
-         memory_delta = (
-             minimum_host_memory -
-             self.getFreeMemory(over_utilized_host))
-         host_vms = conn.vms.list('host=' + over_utilized_host.name)
-         if host_vms is None:
-             return
-         #get largest/smallest vm that will
-         selected_vm = self.getBestVmForMigration(host_vms, maximum_vm_memory,
-                                                  memory_delta, safe)
-         if selected_vm is None:
-             return
-         under_utilized_hosts_ids = [host.id for host in under_utilized_hosts]
-         print (selected_vm.id, under_utilized_hosts_ids)
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">do_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts_ids</span><span class="p">,</span> <span class="n">args_map</span><span class="p">):</span>
+        <span class="s">'''selects a vm from the most over utilized vm to migrate.
+        if safe_selection is true selects the smallest vm from the host
+        if safe_selection is false try and take a vm larger then the amount of memory the host is missing'''</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">_get_connection</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">conn</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1">#get our parameters from the map
+</span>        <span class="n">minimum_host_memory</span> <span class="o">=</span> <span class="nb">long</span><span class="p">(</span><span class="n">args_map</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'minimum_host_memoryMB'</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="p">.</span><span class="n">MINIMUM_MEMORY_DEFAULT</span><span class="p">))</span>
+        <span class="n">minimum_host_memory</span> <span class="o">=</span> <span class="n">minimum_host_memory</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">TO_BYTES</span>
+        <span class="n">safe</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">args_map</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'safe_selection'</span><span class="p">,</span>
+                                 <span class="bp">self</span><span class="p">.</span><span class="n">SAFE_SELECTION_DEFAULT</span><span class="p">))</span>
+        <span class="c1">#get all the hosts with the given ids
+</span>        <span class="n">engine_hosts</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">_get_hosts</span><span class="p">(</span><span class="n">hosts_ids</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+        <span class="n">over_utilized_host</span><span class="p">,</span> <span class="n">under_utilized_hosts</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">getOverUtilizedHostAndUnderUtilizedList</span><span class="p">(</span><span class="n">engine_hosts</span><span class="p">,</span>
+                                                         <span class="n">minimum_host_memory</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">over_utilized_host</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">maximum_vm_memory</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">getMaximumVmMemory</span><span class="p">(</span><span class="n">under_utilized_hosts</span><span class="p">,</span>
+                                                    <span class="n">minimum_host_memory</span><span class="p">)</span>
+        <span class="c1">#amount of memory the host is missing
+</span>        <span class="n">memory_delta</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">minimum_host_memory</span> <span class="o">-</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">getFreeMemory</span><span class="p">(</span><span class="n">over_utilized_host</span><span class="p">))</span>
+        <span class="n">host_vms</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">vms</span><span class="p">.</span><span class="nb">list</span><span class="p">(</span><span class="s">'host='</span> <span class="o">+</span> <span class="n">over_utilized_host</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">host_vms</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1">#get largest/smallest vm that will
+</span>        <span class="n">selected_vm</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">getBestVmForMigration</span><span class="p">(</span><span class="n">host_vms</span><span class="p">,</span> <span class="n">maximum_vm_memory</span><span class="p">,</span>
+                                                 <span class="n">memory_delta</span><span class="p">,</span> <span class="n">safe</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">selected_vm</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">under_utilized_hosts_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">host</span><span class="p">.</span><span class="nb">id</span> <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">under_utilized_hosts</span><span class="p">]</span>
+        <span class="k">print</span> <span class="p">(</span><span class="n">selected_vm</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="n">under_utilized_hosts_ids</span><span class="p">)</span>
 </code></pre></div></div>
 
 
@@ -317,6 +311,6 @@ The oVirt Scheduler Proxy project development has been discontinued.</p>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/sla/host-memory-balance.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/sla/host-memory-balance.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/sla/host-memory-balance.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/sla/host-memory-balance.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

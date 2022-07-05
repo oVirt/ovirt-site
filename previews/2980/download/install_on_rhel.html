@@ -186,9 +186,20 @@ enabled=1
 dnf distro-sync <span class="nt">--nobest</span>
 </code></pre></div></div>
 
-<p>Due to <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2091581">Bug 2091581</a>, while installing the host
-if you see missing <code class="language-plaintext highlighter-rouge">nmstate-plugin-ovsdb</code> or <code class="language-plaintext highlighter-rouge">python3-libnmstate</code> you can install them from
-CentOS build <a href="https://kojihub.stream.centos.org/koji/buildinfo?buildID=17369">nmstate-2.0.0-2.el9</a></p>
+<p>Due to <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2091581">Bug 2091581</a>, while installing the virtualization host
+you will be missing <code class="language-plaintext highlighter-rouge">nmstate-plugin-ovsdb</code> or <code class="language-plaintext highlighter-rouge">python3-libnmstate</code> unless you install them from
+CentOS build <a href="https://kojihub.stream.centos.org/koji/buildinfo?buildID=17369">nmstate-2.0.0-2.el9</a>.
+While installing it you need to ensure openvswitch2.15 will be installed instead of any later version.</p>
+
+<p>Here’s how to do that:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install</span> <span class="nt">-y</span> centos-release-ovirt45
+dnf <span class="nb">install</span> <span class="nt">-y</span> ovirt-openvswitch
+dnf <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\</span>
+https://kojihub.stream.centos.org/kojifiles/packages/nmstate/2.0.0/2.el9/noarch/nmstate-plugin-ovsdb-2.0.0-2.el9.noarch.rpm <span class="se">\</span>
+https://kojihub.stream.centos.org/kojifiles/packages/nmstate/2.0.0/2.el9/noarch/python3-libnmstate-2.0.0-2.el9.noarch.rpm
+
+</code></pre></div></div>
 
 
 
@@ -197,6 +208,6 @@ CentOS build <a href="https://kojihub.stream.centos.org/koji/buildinfo?buildID=1
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/download/install_on_rhel.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/download/install_on_rhel.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/download/install_on_rhel.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/download/install_on_rhel.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

@@ -136,10 +136,10 @@
 
 <h2 id="connecting-to-host">Connecting to HOST</h2>
 
-<p>Connecting to a host is secured by default, pass –insecure to connect in an insecure way (not recommended). Examples:</p>
-
-<p>`   # vdsm-client [-h] [-a ADDRESS] [-p PORT] [–insecure] [–timeout TIMEOUT]
-                   [-f FILE] namespace method [name=value [name=value] …]`</p>
+<p>Connecting to a host is secured by default, pass <code class="language-plaintext highlighter-rouge">--insecure</code> to connect in an insecure way (not recommended). Examples:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client <span class="o">[</span><span class="nt">-h</span><span class="o">]</span> <span class="o">[</span><span class="nt">-a</span> ADDRESS] <span class="o">[</span><span class="nt">-p</span> PORT] <span class="o">[</span><span class="nt">--insecure</span><span class="o">]</span> <span class="o">[</span><span class="nt">--timeout</span> TIMEOUT]
+<span class="go">                   [-f FILE] namespace method [name=value [name=value] ...]
+</span></code></pre></div></div>
 
 <p><strong>default</strong>: If no arguments are passed, vdsm-client will connect to localhost.</p>
 
@@ -147,100 +147,100 @@
 
 <h2 id="listing-virtual-machines">Listing virtual machines</h2>
 
-<p>`   # vdsm-client Host getVMList`</p>
-
-<p>`   # vdsm-client Host getVMList fullStatus=True`</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getVMList
+<span class="gp">#</span><span class="w"> </span>vdsm-client Host getVMList <span class="nv">fullStatus</span><span class="o">=</span>True
+</code></pre></div></div>
 
 <h2 id="getting-host-capabilities">Getting HOST capabilities</h2>
-
-<p>`   # vdsm-client Host getCapabilities`</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getCapabilities
+</code></pre></div></div>
 
 <h2 id="getting-host-statistics">Getting host statistics</h2>
-
-<p>`   # vdsm-client Host getStats`</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getStats
+</code></pre></div></div>
 
 <h2 id="getting-statistics-of-running-vms">Getting statistics of running VMs</h2>
-
-<p>`   # vdsm-client Host getAllVmStats`</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getAllVmStats
+</code></pre></div></div>
 
 <h2 id="getting-storage-vg-details">Getting storage VG details</h2>
-
-<p>`   # vdsm-client Host getLVMVolumeGroups`</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getLVMVolumeGroups
+</code></pre></div></div>
 
 <h2 id="stopping-a-vm">Stopping a VM</h2>
 
-<p>1) Get the vmId:</p>
-
-<p>`   # vdsm-client Host getVMList fullStatus=True`</p>
-
-<p>2) Destroy the VM</p>
-
-<p>`   # vdsm-client VM destroy vmID=<vmID>`</vmID></p>
+<ol>
+  <li>Get the vmId:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getVMList <span class="nv">fullStatus</span><span class="o">=</span>True
+</code></pre></div>    </div>
+  </li>
+  <li>Destroy the VM
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client VM destroy <span class="nv">vmID</span><span class="o">=</span>&lt;vmID&gt;
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <h2 id="resuming-a-vm">Resuming a VM</h2>
 
-<p>1) Get the vmId:</p>
-
-<p>`   # vdsm-client Host getVMList fullStatus=True`</p>
-
-<p>2) Resume the VM</p>
-
-<p>`   # vdsm-client VM cont vmID=<vmID>`</vmID></p>
+<ol>
+  <li>Get the vmId:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getVMList <span class="nv">fullStatus</span><span class="o">=</span>True
+</code></pre></div>    </div>
+  </li>
+  <li>Resume the VM
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client VM cont <span class="nv">vmID</span><span class="o">=</span>&lt;vmID&gt;
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <h2 id="setting-up-vnc-to-a-virtual-machine-in-case-ovirt-engine-is-out">Setting up vnc to a Virtual Machine in case oVirt Engine is out</h2>
 
 <ol>
-  <li>Get VM id and displayPort</li>
+  <li>Get VM id and displayPort
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host getVMList <span class="nv">fullStatus</span><span class="o">=</span>True
+</code></pre></div>    </div>
+  </li>
+  <li>Setting vnc password to VM
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client VM setTicket <span class="nv">vmID</span><span class="o">=</span>&lt;vmid&gt; <span class="nv">password</span><span class="o">=</span>&lt;password&gt; <span class="nv">ttl</span><span class="o">=</span>0 <span class="nv">existingConnAction</span><span class="o">=</span>keep <span class="nv">params</span><span class="o">={</span>val:key<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Now try to use vnc client
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vncviewer &lt;oVirt Node&gt;:&lt;displayPort&gt;
+</code></pre></div>    </div>
+  </li>
 </ol>
-
-<p>`   # vdsm-client Host getVMList fullStatus=True`</p>
-
-<ol>
-  <li>Setting vnc password to VM</li>
-</ol>
-
-<p>`   # vdsm-client VM setTicket vmID=<vmid> password=<password> ttl=0 existingConnAction=keep params={val:key}`</password></vmid></p>
-
-<ol>
-  <li>Now try to use vnc client</li>
-</ol>
-
-<p>`   # vncviewer <oVirt Node="">:<displayPort>`</displayPort></oVirt></p>
 
 <h2 id="invoking-complex-commands">Invoking complex commands</h2>
 
 <p>For invoking methods with many or complex parameters, you can read the parameters from a JSON format file:</p>
-
-<p>`   # vdsm-client -f lease.json Lease info`</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client <span class="nt">-f</span> lease.json Lease info
+</code></pre></div></div>
 
 <p>where lease.json file content is:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   {
-        "lease": {
-	    "sd_id": "75ab40e3-06b1-4a54-a825-2df7a40b93b2",
-	    "lease_id": "b3f6fa00-b315-4ad4-8108-f73da817b5c5"
-	}
-    }
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"lease"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"sd_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75ab40e3-06b1-4a54-a825-2df7a40b93b2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lease_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b3f6fa00-b315-4ad4-8108-f73da817b5c5"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>It is also possible to read parameters from standard input, creating complex parameters interactively:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   # cat &lt;&lt;EOF | vdsm-client -f - Lease info
-     {
-         "lease": {
-	     "sd_id": "75ab40e3-06b1-4a54-a825-2df7a40b93b2",
-	     "lease_id": "b3f6fa00-b315-4ad4-8108-f73da817b5c5"
-	     }
-     }
-     EOF
-
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | vdsm-client -f - Lease info
+</span><span class="go">    {
+        "lease": {
+        "sd_id": "75ab40e3-06b1-4a54-a825-2df7a40b93b2",
+        "lease_id": "b3f6fa00-b315-4ad4-8108-f73da817b5c5"
+        }
+    }
+    EOF
+</span></code></pre></div></div>
 
 <h3 id="note">Note</h3>
 
-<p>Please consult vdsm-client help and man page for further details and options.</p>
-
+<p>Please consult <code class="language-plaintext highlighter-rouge">vdsm-client</code> help and man page for further details and options.</p>
 
 
 
@@ -249,6 +249,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/vdsm-client.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/vdsm/vdsm-client.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/vdsm-client.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/vdsm/vdsm-client.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

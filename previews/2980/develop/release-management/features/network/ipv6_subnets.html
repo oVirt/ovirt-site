@@ -169,7 +169,8 @@ messages - sent by OVN logical routers - depending on the subnet configuration.<
 brings Software Defined Networking to OVS.</li>
   <li>oVirt OVN provider: a proxy that implements a subset of the Networking API
 and interacts with OVN.</li>
-  <li>Subnet: a layer 3 concept, created on top of a network. As per openstack’s documentation it is a ‘block of IP addresses and associated configuration state. Subnets are used to allocate IP addresses when new ports are created on a network.’</li>
+  <li>Subnet: a layer 3 concept, created on top of a network.
+As per openstack’s documentation it is a ‘block of IP addresses and associated configuration state. Subnets are used to allocate IP addresses when new ports are created on a network.’</li>
   <li>Network: an isolated Layer 2 networking segment.</li>
   <li>DHCP: dynamic host configuration protocol. Client server protocol that assigns an IP address - along with other configuration parameters to the client.</li>
   <li>MTU: maximum transmission unit. The maximum frame size on an L2 network.</li>
@@ -219,7 +220,8 @@ on-link information from the RA messages sent by routers.</p>
 
 <p>Ubuntu <a href="https://bugs.launchpad.net/ubuntu/+source/isc-dhcp/+bug/1609898">bug</a> tracks that very same issue, and that behavior is now found
 in EL8 systems - e.g. dhclient default to a /128 network prefix, and relies on
-RA messages to properly configure it. Red Hat bugs <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1635181">1635181</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1673951">1673951</a> track this behavior.
+RA messages to properly configure it.
+Red Hat bugs <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1635181">1635181</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1673951">1673951</a> track this behavior.
 Please note that those fixes will/could be released anytime soon.</p>
 
 <p>Thus, RA message support is required to properly configure the guest IPv6
@@ -247,13 +249,16 @@ attached to a router.</p>
 
 <ul>
   <li>
-    <p>slaac: neighbor discovery is provided through router advertisement messages - <em>RA</em>s. Both the IP address and the connection parameters (such as hop limit, MTU, etc) are configured from these router advertisement messages. Specified in <a href="https://tools.ietf.org/html/rfc4862">SLAAC rfc</a>.</p>
+    <p>slaac: neighbor discovery is provided through router advertisement messages - <em>RA</em>s.
+Both the IP address and the connection parameters (such as hop limit, MTU, etc) are configured from these router advertisement messages. Specified in <a href="https://tools.ietf.org/html/rfc4862">SLAAC rfc</a>.</p>
   </li>
   <li>
-    <p>dhcpv6-stateless: IP addresses are assigned by OVN’s IPv6 stack, based on the port’s mac address and the advertised prefix - in the RA messages. The connection parameters (MTU, max hops, DNS, etc) are configured through the subnet’s native DHCPv6 service.</p>
+    <p>dhcpv6-stateless: IP addresses are assigned by OVN’s IPv6 stack, based on the port’s mac address and the advertised prefix - in the RA messages.
+The connection parameters (MTU, max hops, DNS, etc) are configured through the subnet’s native DHCPv6 service.</p>
   </li>
   <li>
-    <p>dhcpv6-stateful: Both the IP addresses and the connection parameters are assigned from the subnet’s native DHCPv6 service. DHCPv6 protocol does not send the network prefix in the <strong>Reply</strong> messages, which means that this configuration will only work if the network’s prefix length is 64.</p>
+    <p>dhcpv6-stateful: Both the IP addresses and the connection parameters are assigned from the subnet’s native DHCPv6 service.
+DHCPv6 protocol does not send the network prefix in the <strong>Reply</strong> messages, which means that this configuration will only work if the network’s prefix length is 64.</p>
   </li>
 </ul>
 
@@ -261,19 +266,25 @@ attached to a router.</p>
 
 <ul>
   <li>
-    <p>slaac: this IPAM configuration does not rely on OVN’s subnet DHCP service, which means a DHCP_Options object is <strong>not</strong> required. The RA messages are sent by an OVN Logical_Router, thus one is required.</p>
+    <p>slaac: this IPAM configuration does not rely on OVN’s subnet DHCP service, which means a DHCP_Options object is <strong>not</strong> required.
+The RA messages are sent by an OVN Logical_Router, thus one is required.</p>
   </li>
   <li>
-    <p>dhcpv6-stateless: this IPAM configuration relies on OVN’s subnet DHCP services to get its IP address, and on the Logical_Router’s RA message’s connection parameters to properly configure the connection. Thus, a DHCP_Options entry is required, as is a Logical_Router object.</p>
+    <p>dhcpv6-stateless: this IPAM configuration relies on OVN’s subnet DHCP services to get its IP address, and on the Logical_Router’s RA message’s connection parameters to
+properly configure the connection. Thus, a DHCP_Options entry is required, as is a Logical_Router object.</p>
   </li>
   <li>
-    <p>dhcpv6-stateful: this IPAM configuration relies exclusively on OVN’s subnet DHCP services, and is very close to the IPv4 configuration counterpart - a DHCP_Options object is required, having both an IPv6 cidr, and ip_version set to IPv6. On newer versions of dhclient, a router is also required, since the dhcpv6 messages <strong>do not</strong> feature the network prefix length.</p>
+    <p>dhcpv6-stateful: this IPAM configuration relies exclusively on OVN’s subnet DHCP services, and is very close to the IPv4 configuration counterpart - a DHCP_Options object
+is required, having both an IPv6 cidr, and ip_version set to IPv6.
+On newer versions of dhclient, a router is also required, since the dhcpv6 messages <strong>do not</strong> feature the network prefix length.</p>
   </li>
 </ul>
 
 <h3 id="alignment-with-networking-api">Alignment with networking API</h3>
 
-<p>The ovirt-provider-ovn provides an opinionated subset of OpenStack’s networking API v2. In it’s <a href="https://developer.openstack.org/api-ref/network/v2/?expanded=create-subnet-detail#create-subnet">subnet definition</a>, it can be seen that the API features two parameters to influence IPv6 related configurations: <strong>ipv6_ra_mode</strong>, and <strong>ipv6_address_mode</strong>. Both of these attributes accept the following values:</p>
+<p>The ovirt-provider-ovn provides an opinionated subset of OpenStack’s networking API v2.
+In it’s <a href="https://developer.openstack.org/api-ref/network/v2/?expanded=create-subnet-detail#create-subnet">subnet definition</a>, it can be seen that the API
+features two parameters to influence IPv6 related configurations: <strong>ipv6_ra_mode</strong>, and <strong>ipv6_address_mode</strong>. Both of these attributes accept the following values:</p>
 
 <ul>
   <li>slaac</li>
@@ -337,10 +348,8 @@ its min/max defaults are well below that +-18 hour interval.</p>
 <p>The above change would be implemented in the following way:</p>
 
 <ol>
-  <li>when a subnet is created, it’s <strong>ipv6_address_mode</strong> parameter is stored in
-the subnet’s external ids</li>
-  <li>when that subnet is attached to a router, its <strong>ipv6_ra_configs:address_mode</strong>
-should be set from the subnet’s external ids address mode value.</li>
+  <li>when a subnet is created, it’s <strong>ipv6_address_mode</strong> parameter is stored in the subnet’s external ids</li>
+  <li>when that subnet is attached to a router, its <strong>ipv6_ra_configs:address_mode</strong> should be set from the subnet’s external ids address mode value.</li>
 </ol>
 
 <h2 id="guest-vm-configuration">Guest VM configuration</h2>
@@ -386,8 +395,7 @@ file</p>
 
 <p>All these files are located under the following folder:</p>
 <ul>
-  <li>“/proc/sys/net/ipv6/conf/<your_if_name>/"</your_if_name>
-</li>
+  <li><code class="language-plaintext highlighter-rouge">/proc/sys/net/ipv6/conf/&lt;YOUR_IF_NAME&gt;/</code></li>
 </ul>
 
 <h3 id="networkmanager">NetworkManager</h3>
@@ -545,65 +553,71 @@ and stateless dhcp types, when the subnet is connected to a logical router.</p>
 
 <p>To configure the native dhcpv6 service of OVNs subnet, the user should
 provision the following networking API entities, represented in yaml:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- name: create a network
-  os_network:
-    cloud: "{{ cloud_name }}"
-    state: present
-    name: netv6
-  register: ipv6_network
 
-- name: create an IPv6 subnet
-  os_subnet:
-    cloud: "{{ cloud_name }}"
-    state: present
-    network_name: "{{ ipv6_network.id }}"
-    name: subnet1
-    ip_version: 6
-    cidr: "bef0:1234:a890:5678::/64"
-    enable_dhcp: yes
-    gateway_ip: bef0:1234:a890:5678::1
-    ipv6_address_mode: dhcpv6_stateful
-  register: ipv6_subnet
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">~~~~~</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create a network</span>
+  <span class="na">os_network</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">netv6</span>
+  <span class="na">register</span><span class="pi">:</span> <span class="s">ipv6_network</span>
 
-- name: create a router to send RA messages
-  os_router:
-    cloud: "{{ cloud_name }}"
-    state: present
-    name: router0
-    interfaces:
-      - "{{ ipv6_subnet.id }}"
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create an IPv6 subnet</span>
+  <span class="na">os_subnet</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">network_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">subnet1</span>
+    <span class="na">ip_version</span><span class="pi">:</span> <span class="m">6</span>
+    <span class="na">cidr</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bef0:1234:a890:5678::/64"</span>
+    <span class="na">enable_dhcp</span><span class="pi">:</span> <span class="s">yes</span>
+    <span class="na">gateway_ip</span><span class="pi">:</span> <span class="s">bef0:1234:a890:5678::1</span>
+    <span class="na">ipv6_address_mode</span><span class="pi">:</span> <span class="s">dhcpv6_stateful</span>
+  <span class="na">register</span><span class="pi">:</span> <span class="s">ipv6_subnet</span>
+
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create a router to send RA messages</span>
+  <span class="na">os_router</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">router0</span>
+    <span class="na">interfaces</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+<span class="s">~~~~~</span>
 </code></pre></div></div>
 
 <h3 id="configuring-stateless-dhcpv6-on-the-subnet">Configuring stateless DHCPv6 on the subnet</h3>
 
 <p>To configure stateless dhcpv6 on the subnet, the user should provision
 the following yaml based ansible playbook snippet:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- name: create a network
-  os_network:
-    cloud: "{{ cloud_name }}"
-    state: present
-    name: netv6
-  register: ipv6_network
 
-- name: attach a subnet to the logical network
-  os_subnet:
-    cloud: "{{ cloud_name }}"
-    state: present
-    network_name: netv6
-    name: subnet_ipv6
-    ip_version: 6
-    cidr: bef0:1234:a890:5678::/64
-    gateway_ip: bef0:1234:a890:5678::1
-    ipv6_address_mode: dhcpv6_stateless
-  register: dhcpv6_subnet
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">~~~~~</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create a network</span>
+  <span class="na">os_network</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">netv6</span>
+  <span class="na">register</span><span class="pi">:</span> <span class="s">ipv6_network</span>
 
-- name: create a router to send RA messages
-  os_router:
-    cloud: "{{ cloud_name }}"
-    state: present
-    name: router0
-    interfaces:
-      - "{{ dhcpv6_subnet.id }}"
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">attach a subnet to the logical network</span>
+  <span class="na">os_subnet</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">network_name</span><span class="pi">:</span> <span class="s">netv6</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">subnet_ipv6</span>
+    <span class="na">ip_version</span><span class="pi">:</span> <span class="m">6</span>
+    <span class="na">cidr</span><span class="pi">:</span> <span class="s">bef0:1234:a890:5678::/64</span>
+    <span class="na">gateway_ip</span><span class="pi">:</span> <span class="s">bef0:1234:a890:5678::1</span>
+    <span class="na">ipv6_address_mode</span><span class="pi">:</span> <span class="s">dhcpv6_stateless</span>
+  <span class="na">register</span><span class="pi">:</span> <span class="s">dhcpv6_subnet</span>
+
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create a router to send RA messages</span>
+  <span class="na">os_router</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">router0</span>
+    <span class="na">interfaces</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+<span class="s">~~~~~</span>
 </code></pre></div></div>
 
 <h2 id="ui-considerations">UI considerations</h2>
@@ -764,6 +778,7 @@ They can <strong>only</strong> be applied to stateless address modes, and are a 
 of guest VM configuration.</p>
 
 <p>NetworkManager could be used to configure the privacy extensions per interface:</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmcli conn modify &lt;interface_name&gt; ipv6.ip6-privacy 2
 </code></pre></div></div>
 
@@ -807,6 +822,6 @@ different address mode to be chosen</li>
 <li><a href="/ovirt-site/previews/2980/community/about.html" target="_blank" title="About">About</a></li>
 <li><a href="/ovirt-site/previews/2980/general-disclaimer.html" target="_blank" title="Disclaimers">Disclaimers</a></li>
 </ul>© 2013–2022 oVirt<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/ipv6_subnets.html&amp;template=" target="_blank" title="Report an issue"><i class="icon fab fa-github"></i>Report an issue with this page</a></div>
-<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/ipv6_subnets.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/network/ipv6_subnets.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

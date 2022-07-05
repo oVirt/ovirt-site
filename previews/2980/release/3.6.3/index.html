@@ -196,10 +196,9 @@ check out the <a href="/ovirt-site/previews/2980/develop/release-management/rele
 Here are the steps to reload the configuration on-the-fly:</p>
 <ul>
   <li>set: engine-config -s WebSocketProxy=NEW_VALUE</li>
-  <li>
-    <p>refresh cache via REST API POST call, i.e.:</p>
-
-    <p>curl –silent –insecure –request POST –header “Accept: application/xml” –header “Content-Type: application/xml” –user “admin@internal:PWD” “http://localhost:8080/ovirt-engine/api/reloadconfigurations” –data ‘<action></action>’</p>
+  <li>refresh cache via REST API POST call, i.e.:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  curl <span class="nt">--silent</span> <span class="nt">--insecure</span> <span class="nt">--request</span> POST <span class="nt">--header</span> <span class="s2">"Accept: application/xml"</span> <span class="nt">--header</span> <span class="s2">"Content-Type: application/xml"</span> <span class="nt">--user</span> <span class="s2">"admin@internal:PWD"</span> <span class="s2">"http://localhost:8080/ovirt-engine/api/reloadconfigurations"</span> <span class="nt">--data</span> <span class="s1">'&lt;action/&gt;'</span>
+</code></pre></div>    </div>
   </li>
   <li>refresh GUI: Ctrl+R</li>
 </ul>
@@ -246,7 +245,7 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.</p>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1289967">BZ 1289967</a> - Fade “Numa Pinning” button, in case if VM pinned to host that does not have “NUMA Support”</li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1290088">BZ 1290088</a> - rename utility doesn’t change ENGINE_BASE_URL for vmconsole-proxy-helper</li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1290350">BZ 1290350</a> - [User portal] No error message while leaving ‘username:’ and ‘password:’ fields blank</li>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1290361">BZ 1290361</a> - “VDSM <host name=""> command failed: Virtual machine does not exist" error appears every time when shutting down a running VM</host></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1290361">BZ 1290361</a> - “VDSM <code class="language-plaintext highlighter-rouge">&lt;host name&gt;</code> command failed: Virtual machine does not exist” error appears every time when shutting down a running VM</li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1290528">BZ 1290528</a> - [upgrade] async_tasks_map is out of sync</li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1293152">BZ 1293152</a> - New VM dialog offers VM templates from different DCs which are not accessible/usable</li>
   <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1293269">BZ 1293269</a> - Various Frontend exceptions (e.g. switching clusters in VM dialog, edit VM, create VM from Template)</li>
@@ -363,7 +362,7 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.</p>
 
 <p>Fixed a bug in the included ovirt-guest-agent:</p>
 <ul>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1117504">BZ 1117504</a> - Constant, repeating messages “User <x> is connected to vm <y> in Events</y></x></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1117504">BZ 1117504</a> - Constant, repeating messages “User <code class="language-plaintext highlighter-rouge">&lt;x&gt;</code> is connected to vm <code class="language-plaintext highlighter-rouge">&lt;y&gt;</code> in Events</li>
 </ul>
 
 
@@ -374,6 +373,6 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.</p>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/3.6.3/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/release/3.6.3/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/3.6.3/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/release/3.6.3/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

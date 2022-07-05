@@ -120,37 +120,37 @@
 
 <p><strong>NOTE</strong>: for the latest version of this doc, see <a href="http://ovirt-infra-docs.readthedocs.org/en/latest/">http://ovirt-infra-docs.readthedocs.org/en/latest/</a></p>
 
-<p>In the <a href="/ovirt-site/previews/2980/develop/infra/phoenix-lab-overview.html">Phoenix lab</a> setup we have now a proxy VM that is also serving as repository proxy for all the slaves, mainly for mock usage but can be used as a generic proxy.</p>
+<p>In the <a href="/ovirt-site/previews/2980/develop/infra/phoenix-lab-overview.html">Phoenix lab</a> setup we have now a proxy VM that is also serving as repository proxy for all the slaves,
+mainly for mock usage but can be used as a generic proxy.</p>
 
-<p>The proxy has two services to be able to provide a reliable and fast cache, the <a href="#squid">Squid</a> proxy and the repoproxy.py. The second is only used for the yum repositories, to be able to get the failover and speed increases from the mirrorlists but being able to properly cache the results.</p>
+<p>The proxy has two services to be able to provide a reliable and fast cache, the <a href="#squid">Squid</a> proxy and the <code class="language-plaintext highlighter-rouge">repoproxy.py</code>.
+The second is only used for the yum repositories, to be able to get the failover and speed increases from the mirrorlists but being able to properly cache the results.</p>
 
 <h2 id="squid">Squid</h2>
 
 <p>The squid proxy is configured to reply only to ips from the Phoenix lab, it has a huge disk cache to allow caching as many files as possible.</p>
 
 <p>To invalidate a cache object, you must login to the squid server and run:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">[root@proxy ~]#</span><span class="w"> </span>squidclient <span class="nt">-m</span> PURGE &lt;URL_TO_PURGE&gt;
+</code></pre></div></div>
 
-<p>` [root@proxy ~]# squidclient -m PURGE `<URL_TO_PURGE></URL_TO_PURGE></p>
-
-<p>Where <URL_TO_PURGE> is the url you want to invalidate, you should get a 200 response if everything went well:</URL_TO_PURGE></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
-Server: squid
-Mime-Version: 1.0
-Date: Tue, 03 Feb 2015 11:59:27 GMT
-Content-Length: 0
-X-Cache: MISS from proxy.phx.ovirt.org
-X-Cache-Lookup: NONE from proxy.phx.ovirt.org:3128
-Via: 1.1 proxy.phx.ovirt.org (squid)
-Connection: close
+<p>Where <code class="language-plaintext highlighter-rouge">&lt;URL_TO_PURGE&gt;</code> is the url you want to invalidate, you should get a 200 response if everything went well:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    HTTP/1.1 200 OK
+    Server: squid
+    Mime-Version: 1.0
+    Date: Tue, 03 Feb 2015 11:59:27 GMT
+    Content-Length: 0
+    X-Cache: MISS from proxy.phx.ovirt.org
+    X-Cache-Lookup: NONE from proxy.phx.ovirt.org:3128
+    Via: 1.1 proxy.phx.ovirt.org (squid)
+    Connection: close
 </code></pre></div></div>
 
 <h2 id="repoproxy">Repoproxy</h2>
 
 <p>The repoproxy is a small python script that proxies yum repo requests to mirrors, it’s configured using the repos.yaml file (in the puppet module), where you define each repo it’s serving, and the mirrorlist to use. For example:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[myrepo]
-mirrorurl=http://wherever.com/mirrorlist?repo=myrepo&amp;ver={releasever}&amp;arch={arch}
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nn">[myrepo]</span>
+    <span class="py">mirrorurl</span><span class="p">=</span><span class="s">http://wherever.com/mirrorlist?repo=myrepo&amp;ver={releasever}&amp;arch={arch}</span>
 </code></pre></div></div>
 
 <p>That will allow you to transparently get a response from the first working mirror through the proxy using the url:</p>
@@ -161,9 +161,10 @@ mirrorurl=http://wherever.com/mirrorlist?repo=myrepo&amp;ver={releasever}&amp;ar
 
 <p><code class="language-plaintext highlighter-rouge">http://wherever.com/mirrorlist?repo=myrepo$ver=21&amp;arc=x86_64</code></p>
 
-<p>Then try each of the mirrors until finds one that responde to the requested path (in this case, just ‘/’) and return it. It caches the responding mirrors so the tests will only be done once per path tops.</p>
+<p>Then try each of the mirrors until finds one that responde to the requested path (in this case, just ‘<code class="language-plaintext highlighter-rouge">/</code>’) and return it.
+It caches the responding mirrors so the tests will only be done once per path tops.</p>
 
-<p>The logs are located at /var/log/repoproxy.log, and the files under /opt/repoproxy</p>
+<p>The logs are located at <code class="language-plaintext highlighter-rouge">/var/log/repoproxy.log</code>, and the files under <code class="language-plaintext highlighter-rouge">/opt/repoproxy</code></p>
 
 
 
@@ -171,6 +172,6 @@ mirrorurl=http://wherever.com/mirrorlist?repo=myrepo&amp;ver={releasever}&amp;ar
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/infra/proxy.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/infra/proxy.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/infra/proxy.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/infra/proxy.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

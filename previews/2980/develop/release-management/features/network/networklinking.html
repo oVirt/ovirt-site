@@ -224,11 +224,13 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>The network wiring feature is an enhancement for the VM Network Interface management. It supports the following actions without unplugging the Vnic, and it maintains the device address of the Vnic:</p>
+<p>The network wiring feature is an enhancement for the VM Network Interface management.
+It supports the following actions without unplugging the Vnic, and it maintains the device address of the Vnic:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Dynamically changing the network of a running VM.
-* Unwiring a network of a VM.
-</code></pre></div></div>
+<ul>
+  <li>Dynamically changing the network of a running VM.</li>
+  <li>Unwiring a network of a VM.</li>
+</ul>
 
 <h2 id="owner">Owner</h2>
 
@@ -247,53 +249,39 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Currently oVirt engine supports configuring the VM Network Interface either on creation or updating it when the VM is down.
-    * oVirt-engine already supports hot-plug and hot-unplug of vnics, however it lacks the capability of performing changes of the Vnic once the Vnic is plugged and to preserve the Vnic’s PCI address.</p>
+<p>Currently oVirt engine supports configuring the VM Network Interface either on creation or updating it when the VM is down.</p>
+
+<ul>
+  <li>oVirt-engine already supports hot-plug and hot-unplug of vnics, however it lacks the capability of performing changes of the Vnic once the Vnic is plugged and to preserve the Vnic’s PCI address.</li>
+</ul>
 
 <h3 id="high-level-feature-description">High Level Feature Description</h3>
 
 <p>A Vnic on a running VM can have 4 states (If the VM is down, its state represents how it should behave once started)</p>
 
 <ul>
-  <li>
-    <p><strong>Plugged</strong></p>
-
+  <li><strong>Plugged</strong>
     <ul>
-      <li>
-        <p><strong>Link State- up</strong> - The Vnic is defined on the VM and connected to the Network.</p>
-
+      <li><strong>Link State- up</strong> - The Vnic is defined on the VM and connected to the Network.
         <ul>
-          <li>
-            <p>Observed as the vnic is located on its slot and a network cable is connected to it.</p>
-          </li>
-          <li>
-            <p>This is the only state on which the state of the VM Network Interface is ‘Active’.</p>
-          </li>
+          <li>Observed as the vnic is located on its slot and a network cable is connected to it.</li>
+          <li>This is the only state on which the state of the VM Network Interface is ‘Active’.</li>
         </ul>
       </li>
-      <li>
-        <p><strong>Link State- down</strong> - The Vnic is defined on the VM and isn’t connected to any network.</p>
-
+      <li><strong>Link State- down</strong> - The Vnic is defined on the VM and isn’t connected to any network.
         <ul>
           <li>Observed as the vnic is located on its slot but no network cable is connected to it.</li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>
-    <p><strong>Unplugged</strong> - at this state the Vnic is defined on oVirt-engine only</p>
-
+  <li><strong>Unplugged</strong> - at this state the Vnic is defined on oVirt-engine only
     <ul>
-      <li>
-        <p><strong>Link State- up</strong> - once the Vnic is plugged it will automatically be connected to the Network and become ‘Active’.</p>
-      </li>
-      <li>
-        <p><strong>Link State- down</strong> - once the Vnic is plugged it won’t be connected to any network.</p>
-      </li>
+      <li><strong>Link State- up</strong> - once the Vnic is plugged it will automatically be connected to the Network and become ‘Active’.</li>
+      <li><strong>Link State- down</strong> - once the Vnic is plugged it won’t be connected to any network.</li>
     </ul>
   </li>
-  <li>
-    <p>The Link-State doesn’t affect the validations:</p>
+  <li>The Link-State doesn’t affect the validations:
     <ul>
       <li>The Network is considered as a required resource of the VM regardless the link state. If Link-State is down, the Network remains required by the vnic.
         <ul>
@@ -320,21 +308,13 @@
 <h4 id="virtual-machines-network-interfaces-sub-tab-view-changes">Virtual Machines Network Interfaces sub-tab View Changes</h4>
 
 <ul>
-  <li>
-    <p><strong>New Columns</strong></p>
-
+  <li><strong>New Columns</strong>
     <ul>
-      <li>
-        <p>“Plugged”- will be added after “Name” column.</p>
-      </li>
-      <li>
-        <p>“Link State”- will be added after “Network Name” column.</p>
-      </li>
+      <li>“Plugged”- will be added after “Name” column.</li>
+      <li>“Link State”- will be added after “Network Name” column.</li>
     </ul>
   </li>
-  <li>
-    <p><strong>Updated Columns</strong></p>
-
+  <li><strong>Updated Columns</strong>
     <ul>
       <li>“Status” icon - green icon if plugged and link state- up, otherwise red icon. The tooltip will display a text for both the “Plugged” and “Link state” statuses.</li>
     </ul>
@@ -344,66 +324,55 @@
 <h4 id="virtual-machines-network-interfaces-action-changes">Virtual Machines Network Interfaces Action Changes</h4>
 
 <ul>
-  <li>
-    <p><strong>Removed Actions</strong></p>
-
+  <li><strong>Removed Actions</strong>
     <ul>
-      <li>
-        <p>Activate/Deactivate</p>
-
+      <li>Activate/Deactivate
         <ul>
           <li>These actions will be removed from the sub-tab’s action menu and from the context menu (The user will be able to plug/unplug the Vnic’s via the add/edit Vnic dialogs)</li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>
-    <p><strong>Updated Actions</strong></p>
-
+  <li><strong>Updated Actions</strong>
     <ul>
-      <li>
-        <p>Add</p>
-
+      <li>Add
         <ul>
-          <li>
-            <p>Dialog</p>
-
+          <li>Dialog
             <ul>
-              <li>
-                <p>Adding empty cell to “network” combo. (For 3.2 or more cluster version)</p>
-              </li>
-              <li>
-                <p>Adding under the “network” combo- “Link state” radio button with two options “up/”down”. (For 3.2 or more cluster version)</p>
-              </li>
-              <li>
-                <p>If “empty” network is selected, link state combo should be disabled with explanation tooltip.</p>
-              </li>
-              <li>
-                <p>“Activate” checkbox will be changed to a radio button with two options “Plugged”/”Unplugged” and its name will be renamed to ‘Card Status’.</p>
-              </li>
-              <li>
-                <p>Add ‘Advanced Parameters’ section which includes the ‘Port Mirroring’ and the ‘Card Status’ properties.</p>
-              </li>
+              <li>Adding empty cell to “network” combo. (For 3.2 or more cluster version)</li>
+              <li>Adding under the “network” combo- “Link state” radio button with two options “up/”down”. (For 3.2 or more cluster version)</li>
+              <li>If “empty” network is selected, link state combo should be disabled with explanation tooltip.</li>
+              <li>“Activate” checkbox will be changed to a radio button with two options “Plugged”/”Unplugged” and its name will be renamed to ‘Card Status’.</li>
+              <li>Add ‘Advanced Parameters’ section which includes the ‘Port Mirroring’ and the ‘Card Status’ properties.</li>
             </ul>
           </li>
         </ul>
       </li>
-      <li>
-        <p>Edit</p>
-
+      <li>Edit
         <ul>
-          <li>
-            <p>Menu</p>
-
+          <li>Menu
             <ul>
               <li>Edit action will be enabled for VMs in status ‘UP’ (previously it was allowed only for VMs in ‘Down’ status).</li>
             </ul>
           </li>
-          <li>
-            <p>Dialog</p>
-
+          <li>Dialog
             <ul>
-              <li>If the VM status is ‘UP’</li>
+              <li>If the VM status is ‘UP’
+                <ul>
+                  <li>If the Vnic is plugged “mac” and “type” editor should be disables with explanation tooltip (“In order to change ‘MAC’/’type’ please Unplug and then Plug again”).</li>
+                </ul>
+              </li>
+              <li>If cluster version beneath 3.2 and the vnic is plugged, the network name editor should be disabled with explanation tooltip.
+                <ul>
+                  <li>Port Mirroring - If the Vnic is plugged and the Vnic is set for port mirroring - “network”, “type”, “mac” and “port mirroring” fields in the dialog will be disabled.</li>
+                  <li>Stretched Goal - To enable dynamic changes when port mirroring is set (without plugging and unplugging).</li>
+                </ul>
+              </li>
+              <li>Adding empty cell to “network” combo. (For 3.2 or more cluster version)</li>
+              <li>Adding under the “network” combo- “Link state” radio button with two options “up/”down”. (For 3.2 or more cluster version)</li>
+              <li>If “empty” network is selected, link state combo should be disabled with explanation tooltip.</li>
+              <li>Adding radio button named ‘Card Status’ with two options “Plugged”/”Unplugged” to the end of the dialog..</li>
+              <li>Add ‘Advanced Parameters’ section which includes the ‘Port Mirroring’ and the ‘Card Status’ properties.</li>
             </ul>
           </li>
         </ul>
@@ -411,26 +380,6 @@
     </ul>
   </li>
 </ul>
-
-<p>::::* If the Vnic is plugged “mac” and “type” editor should be disables with explanation tooltip (“In order to change ‘MAC’/’type’ please Unplug and then Plug again”).</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        * If cluster version beneath 3.2 and the vnic is plugged, the network name editor should be disabled with explanation tooltip.
-</code></pre></div></div>
-
-<p>::::* Port Mirroring - If the Vnic is plugged and the Vnic is set for port mirroring - “network”, “type”, “mac” and “port mirroring” fields in the dialog will be disabled.</p>
-
-<p>:::: Stretched Goal - To enable dynamic changes when port mirroring is set (without plugging and unplugging).</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        * Adding empty cell to "network" combo. (For 3.2 or more cluster version)
-
-        * Adding under the "network" combo- "Link state" radio button with two options "up/"down". (For 3.2 or more cluster version)
-
-        * If "empty" network is selected, link state combo should be disabled with explanation tooltip.
-
-        * Adding radio button named 'Card Status' with two options "Plugged"/"Unplugged" to the end of the dialog..
-
-        * Add 'Advanced Parameters' section which includes the 'Port Mirroring' and the 'Card Status' properties.
-</code></pre></div></div>
 
 <p><img src="/ovirt-site/previews/2980/images/wiki/VnicWiring.png" alt="" /></p>
 
@@ -441,26 +390,20 @@
 <p>Changes:</p>
 
 <ul>
-  <li>
-    <p>Adding new properties under VM NIC:</p>
-
+  <li>Adding new properties under VM NIC:
     <ul>
-      <li>
-        <p>plugged</p>
-      </li>
-      <li>
-        <p>link_state (“up”/ “down”)</p>
-      </li>
+      <li>plugged</li>
+      <li>link_state (“up”/ “down”)</li>
     </ul>
   </li>
   <li>Deprecating the active property under VM NIC</li>
   <li>Deprecating activate/deactivate actions</li>
   <li>plug/unplug and changing link_state (up/down) on a vnic, will be done via PUT action on the VM NIC
     <ul>
-      <li>/api/vms/{vm:id}/nics/{nic:id}/</li>
+      <li><code class="language-plaintext highlighter-rouge">/api/vms/{vm:id}/nics/{nic:id}/</code></li>
     </ul>
   </li>
-  <li>Add support to no network (“<network></network>”) on the NIC.</li>
+  <li>Add support to no network (“<code class="language-plaintext highlighter-rouge">&lt;network/&gt;</code>”) on the NIC.</li>
 </ul>
 
 <p>There is no reason to have dedicated actions for plug/unplug or changing link_state. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we’ll enable doing these actions.</p>
@@ -505,6 +448,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/networklinking.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/networklinking.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2980/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2980/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2980/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2980/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/networklinking.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/network/networklinking.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

@@ -27,15 +27,10 @@ https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x64.ms
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]
-* Virt Viewer download page:
-+
-[source,terminal,subs="normal"]
-----
- link:https://virt-manager.org/download/[https://virt-manager.org/download/]
-----
+
+* link:https://virt-manager.org/download/[Virt Viewer download page]
 
 endif::ovirt-doc[]
-
 
 . Open the folder where the file was saved.
 . Double-click the file.

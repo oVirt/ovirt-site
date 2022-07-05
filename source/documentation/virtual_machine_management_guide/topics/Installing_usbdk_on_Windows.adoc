@@ -26,12 +26,8 @@ https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x64.m
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]
-* `usbdk` download page:
-+
-[source,terminal,subs="normal"]
-----
- link:https://www.spice-space.org/download.html[https://www.spice-space.org/download.html]
-----
+
+* link:https://www.spice-space.org/download.html[`usbdk` download page]
 
 endif::ovirt-doc[]
 

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Adding a new project | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Adding a new project" />
+<meta name="author" content="Dave Neary" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3012/develop/projects/adding-a-new-project.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3012/develop/projects/adding-a-new-project.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Adding a new project" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dave Neary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dave Neary"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Adding a new project","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3012/images/logo.svg"},"name":"Dave Neary"},"url":"https://ovirt.github.io/ovirt-site/previews/3012/develop/projects/adding-a-new-project.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3012/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3012/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3012/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3012/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3012/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3012/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3012/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3012/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3012/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3012/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3012/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3012/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3012/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3012/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3012/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3012/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3012/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3012/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3012/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3012/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3012/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3012/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3012//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3012//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3012/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3012/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3012/develop/projects/">
+              <span property="name">Projects</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dave Neary">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dave Neary</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6300746c0155ec4eddef82e6a3669433?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6300746c0155ec4eddef82e6a3669433?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Mike Burns">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mike Burns</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="adding-a-project">Adding a Project</h1>
+
+<p>One of the key goals of oVirt is to deliver both a cohesive complete stack and discretely reusable components for open virtualization management and to do this on a well defined schedule. This means that each project, can be quite autonomous in terms of development and project release schedules, however some key coordination needs to be achieved in order to meet the goal of providing a usable release on a well defined schedule.</p>
+
+<p>Each project must agree to support the oVirt complete stack (CS) release schedule:</p>
+
+<p>A project may do so by sync’ing it’s release schedule with the oVirt CS release schedule, it may use any prior release and work fixes/patches to resolve integration issues, do a custom build, or some other scheme. The key here is that the project is aware of the oVirt CS release schedule, and has a concrete plan in order to help make that release be timely and successful.</p>
+
+<p>Each project must agree to provide or integrate with one of the published API’s:</p>
+
+<p>In order to release a cohesive stack, everything needs to work together. The core of this is the engine. If a new project is started it needs to integrate with a published API, or an additional API needs to be created into the engine project to support the new project. Finally additional API’s can come into scope to provide facilities/capabilities that the engine consumes. The board signs off on which project provide API’s to make sure there is coordination between the projects. The board is not responsible for the technical aspects of the API’s, just the facilitation when named API projects are added or removed. In order to coordinate and facilitate cross project architecture and schedule issues the arch@oVirt.org is used.</p>
+
+<p>The key is that all projects in some or other way need to be integrated with the engine, either directly, indirectly by providing services to it, exposing, or extending it. In addition the board my vote to include additional projects that are complementary to the oVirt eco-system on a case by case basis.</p>
+
+<p>If you would like to start a new project in oVirt, or contribute an existing project into oVirt please mail <a href="http://mailto:board@oVirt.org">The Board</a></p>
+
+<h1 id="ovirt-project-acceptance-policy">OVIRT PROJECT ACCEPTANCE POLICY</h1>
+
+<p>The oVirt Board has realized that for oVirt to be truly successful, the quality and health of its associated projects must be extremely high. However, oVirt also realizes the need to have a low “barrier to entry” for new projects as well as a streamlined approach to accepting in new projects.</p>
+
+<p>Re-using guidelines from the “tried and true” operation of the Apache Software Foundation (ASF), oVirt is enacting an Incubation process based on the ASF Incubator project; for more detailed information about Apache and the Incubator, please see:</p>
+
+<p><a href="http://www.apache.org/">http://www.apache.org/</a></p>
+
+<p><a href="http://incubator.apache.org/">http://incubator.apache.org/</a></p>
+
+<h2 id="process">Process:</h2>
+
+<p>All oVirt projects will need to enter oVirt through the oVirt Incubator, regardless of history, heritage, etc… of the project. This entrance is required to ensure the following conditions are met before becoming a “full-fledged” oVirt project:</p>
+
+<p>The new project agrees ..</p>
+
+<ul>
+  <li>.. to integrate with one of the oVirt published API’s</li>
+  <li>.. to support the platforms release schedule.</li>
+  <li>All IP associated with the project codebase and support files (eg: website content, logos, documentation, etc) is in good standing, tracked and provides a clear license from copyright holder to oVirt.</li>
+  <li>A “healthy” project, as determined by the oVirt Board exists</li>
+  <li>If an accepted project does not meet the above requirements, it will remain in the incubation state until such measures are corrected. It is the task of the Board to clearly detail to the project what measures are required for graduation.</li>
+</ul>
+
+<p>The Incubated project can, at any time, petition for a vote of the Board to graduate to full status. The vote of the Board must be unanimous. Any NO votes must clearly indicate why the Director did not approve graduation and must provide clear guidance on what he/she is looking for to address the deficiency.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3012/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3012/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3012/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3012/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/projects/adding-a-new-project.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/projects/adding-a-new-project.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

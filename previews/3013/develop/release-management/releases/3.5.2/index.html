@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.5.2 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.5.2 Release Notes" />
+<meta name="author" content="Piotr Kliczewski" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3013/develop/release-management/releases/3.5.2/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3013/develop/release-management/releases/3.5.2/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.5.2 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Piotr Kliczewski" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Piotr Kliczewski"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.5.2 Release Notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3013/images/logo.svg"},"name":"Piotr Kliczewski"},"url":"https://ovirt.github.io/ovirt-site/previews/3013/develop/release-management/releases/3.5.2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3013/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3013/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3013/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3013/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3013/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3013/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3013/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3013/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3013/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3013/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3013/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3013/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3013/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3013/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3013/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3013/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3013/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3013/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3013/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3013/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3013/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3013/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3013//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3013//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3013/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3013/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3013/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3013/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/194ccfad6c8556f5f2b5cfc5b2fdcfde?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/194ccfad6c8556f5f2b5cfc5b2fdcfde?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Piotr Kliczewski">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Piotr Kliczewski</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-352-release-notes">oVirt 3.5.2 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of oVirt 3.5.2 release as of April 28th, 2015.</p>
+
+<p>oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).</p>
+
+<p>To find out more about features which were added in previous oVirt releases, check out the <a href="/ovirt-site/previews/3013/develop/release-management/releases/">previous versions release notes</a>.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-352-release-notes" id="markdown-toc-ovirt-352-release-notes">oVirt 3.5.2 Release Notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+          <li><a href="#ovirt-live" id="markdown-toc-ovirt-live">oVirt Live</a></li>
+          <li><a href="#ovirt-node" id="markdown-toc-ovirt-node">oVirt Node</a></li>
+        </ol>
+      </li>
+      <li><a href="#whats-new-in-352" id="markdown-toc-whats-new-in-352">What’s New in 3.5.2?</a></li>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a></li>
+      <li><a href="#cve-fixed" id="markdown-toc-cve-fixed">CVE Fixed</a></li>
+      <li><a href="#bugs-fixed" id="markdown-toc-bugs-fixed">Bugs fixed</a>        <ol>
+          <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+          <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">ovirt-hosted-engine-setup</a></li>
+          <li><a href="#ovirt-iso-uploader" id="markdown-toc-ovirt-iso-uploader">ovirt-iso-uploader</a></li>
+          <li><a href="#ovirt-log-collector" id="markdown-toc-ovirt-log-collector">ovirt-log-collector</a></li>
+          <li><a href="#ovirt-optimizer" id="markdown-toc-ovirt-optimizer">ovirt-optimizer</a></li>
+          <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p>oVirt 3.5.2 release is available since 2015-04-28.</p>
+
+<p>In order to install it on a clean system, you need to install</p>
+
+<p><code class="language-plaintext highlighter-rouge"># yum localinstall </code><a href="http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm</code></a></p>
+
+<p>If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.</p>
+
+<p>Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.</p>
+
+<p>If you are upgrading from oVirt &lt; 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see <a href="/ovirt-site/previews/3013/develop/release-management/releases/3.4.1/">oVirt 3.4.1 release notes</a> for upgrade instructions.</p>
+
+<p>For upgrading now you just need to execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update "ovirt-engine-setup*"
+  # engine-setup
+</code></pre></div></div>
+
+<h3 id="ovirt-live">oVirt Live</h3>
+
+<p>A new oVirt Live ISO is available:</p>
+
+<p><a href="http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.2/ovirt-live-el6-3.5.2.iso"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.2/ovirt-live-el6-3.5.2.iso</code></a></p>
+
+<h3 id="ovirt-node">oVirt Node</h3>
+
+<p>New oVirt Node ISO are available:</p>
+
+<p><a href="http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el6-3.5.2/ovirt-node-iso-3.5-0.999.201504280933.el6.iso"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el6-3.5.2/ovirt-node-iso-3.5-0.999.201504280933.el6.iso</code></a>
+<a href="http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el7-3.5.2/ovirt-node-iso-3.5-0.999.201504280931.el7.centos.iso"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el7-3.5.2/ovirt-node-iso-3.5-0.999.201504280931.el7.centos.iso</code></a></p>
+
+<h2 id="whats-new-in-352">What’s New in 3.5.2?</h2>
+
+<h2 id="known-issues">Known issues</h2>
+
+<ul>
+  <li>
+    <p>NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn’t wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with</p>
+
+    <p>[ INFO  ] Restarting nfs services
+  [ ERROR ] Failed to execute stage ‘Closing up’: Command ‘/bin/systemctl’ failed to execute</p>
+  </li>
+</ul>
+
+<p>Retrying (engine-cleanup, engine-setup again) it’s enough to avoid it cause the kernel module it’s always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it’s enough to avoid it at all.</p>
+
+<ul>
+  <li>
+    <p>NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid</p>
+
+    <p>[ INFO  ] Restarting nfs services
+  [ ERROR ] Failed to execute stage ‘Closing up’: Command ‘/bin/systemctl’ failed to execute</p>
+  </li>
+  <li>
+    <p>Engine and host upgrade ordering due to bug . When upgrading your deployment to 3.5.2 please your upgrade engine first and next your hosts. When following order is not preserved you will see following error every 3 seconds (by default):</p>
+
+    <p>ERROR [org.ovirt.engine.core.vdsbroker.vdsbroker.ListVDSCommand] (DefaultQuartzScheduler_Worker-28) [] Command ‘ListVDSCommand(HostName = kenji, HostId = 9f569269-d267-4bf9-96c5-e1749b4c8dda, vds=Host[kenji,9f569269-d267-4bf9-96c5-e1749b4c8dda])’ execution failed: java.util.LinkedHashMap cannot be cast to java.lang.String</p>
+  </li>
+</ul>
+
+<p>Following exception prevents host monitoring but affected host stays in status ‘UP’ and is operational. Virtual machine status collection is gathered every 15 seconds (by default).</p>
+
+<h2 id="cve-fixed">CVE Fixed</h2>
+
+<h2 id="bugs-fixed">Bugs fixed</h2>
+
+<h3 id="ovirt-engine">oVirt Engine</h3>
+
+<p><strong>Fixed in oVirt 3.5.2.1 Async Release</strong></p>
+<ul>
+  <li>Importing storage domains into an uninitialized datacenter leads to duplicate OVF_STORE disks being created, and can cause catastrophic loss of VM configuration data</li>
+  <li>Tracker: oVirt 3.5.2.1 release</li>
+</ul>
+
+<p><strong>Fixed in oVirt 3.5.2 RC4 / Final release</strong></p>
+<ul>
+  <li>Template creation stuck after upgrade</li>
+  <li>“Authentication Required” login screen that references RESTAPI
+ <strong>Fixed in oVirt 3.5.2 RC3</strong></li>
+  <li>Typos in CDA message when importing a “dirty” SD to an uninitialized DC
+ <strong>Fixed in oVirt 3.5.2 RC2</strong></li>
+  <li>NPE when adding a VM to a VM pool when there’s not enough storage</li>
+  <li>Missing namespace and prinicipal parameters for managing users in CLI</li>
+  <li>[AAA] process initialization errors</li>
+  <li>[backend] [NPE] Adding permission to an object fails if DEBUG level is set</li>
+  <li>[performance] bad getVMList output creates unnecessary calls from Engine</li>
+  <li>Configure new user role dialog: faulty rendering due to javascript exception (missing “ActionGroup___DISK_LIVE_STORAGE_MIGRATION”)
+ <strong>Fixed in oVirt 3.5.2 RC1</strong></li>
+  <li>Data Center downgrade should not be allowed if it implies downgrading the storage format</li>
+  <li>[engine-backend] Moving a shared disk to a gluster domain is not blocked</li>
+  <li>Overlap of “Enable Virt Service” and “Enable Gluster Service” radio buttons</li>
+  <li>[RFE] Add default-options to iDrac7 Fencing agent in RHEVM</li>
+  <li>[restapi] Add support to search disk by name parameter</li>
+  <li>Null disk size on a newly created disk is interpreted 0. Leave as null and revise usage.</li>
+  <li>External Keystone Connection Fails to Juno-based OpenStack</li>
+  <li>RHEV: Faulty storage allocation checks when merging a snapshot</li>
+  <li>if next run configuration exists the edit VM may load forever</li>
+  <li>Instance type: missing VM fields while using InstanceCreator user role.</li>
+  <li>engine-setup unconditionally enables the engine if ran on dwh on separate host</li>
+  <li>[engine-backend] Null disk size on a newly created disk is interpreted 0. Leave as null and revise usage.</li>
+  <li>[external providers] invalid certificate fingerprint is printed on confirmation dialog</li>
+  <li>[engine-backend] [iSCSI multipath] Cannot edit iSCSI multipath bond while iSCSI SD is in maintenance</li>
+  <li>[extapi] add default constructos</li>
+  <li>[engine-backend] requests doesn’t reach vdsm</li>
+  <li>When an ISO domain is connected to multiple data centers in different statuses the image list is not fetched</li>
+  <li>Fencing test failed during adding single rhev-h host, but message says otherwise</li>
+  <li>Power management test with non approved host</li>
+  <li>Storage thresholds should not be inclusive</li>
+  <li>[AAA] [extmgr] escape extension name in ENGINE_EXTENSION_ENABLED_ configuration</li>
+  <li>failure of master migration on deactivation will leave domain locked</li>
+  <li>override SSL protocol to TLSv1</li>
+  <li>Bad error when adding vm to pool with low space on storage domain</li>
+  <li>Change message when importing a data domain to an unsupported version</li>
+  <li>Upgrade message in general tab is missing</li>
+  <li>Import of non data Storage Domains (specifically export domain) should not call engine query for web warning</li>
+  <li>Failure for calling internal query GetExistingStorageDomainList will cause an NPE</li>
+  <li>[RFE][engine-backend][HC] - add the possibility to import existing Gluster and POSIXFS export domains</li>
+  <li>[JSON] Force extend block domain, in JSONRPC, using a “dirty” LUN, fails</li>
+  <li>domain state is stuck on “Preparing For Maintenance” when having active gluster service cluster</li>
+  <li>[backend] [NPE] Adding permission to an object fails if DEBUG level is set</li>
+  <li>ENGINE_HEAP_MAX default value as 1G must be changed</li>
+  <li>Locked snapshot prevents VM’s basic operations, after it’s disk was removed</li>
+  <li>[Engine] Engine runs out of memory - java.lang.OutOfMemoryError: Java heap space</li>
+  <li>Using “iSCSI Bond”, host does not disconnect from iSCSI targets</li>
+  <li>RHEV-M managed firewall blocks NFS rpc.statd notifications</li>
+  <li>Sysprep problem after upgrade from oVirt Engine 3.5.0.1-1 to 3.5.1.1-1.el6</li>
+  <li>High availability Virtual Machines are not restarted on another host during fencing.</li>
+  <li>[AAA] Always set principal in Authz.FetchPrincipalRecord</li>
+  <li>Can not restore backup file to rhevm with non-default lc_messages</li>
+  <li>Document All-Content header in RSDL and add it to SDKs</li>
+  <li>[AAA] Sorting by ‘authorization provider’ in ‘users’ tab don’t sort</li>
+  <li>Unable to authenticate if user is using <a href="http://indeed-id.com/">INDEED ID</a> solution for authentication.</li>
+  <li>[host-deploy] missing -t parameter to mktemp</li>
+  <li>Engine-setup should support cleaning of zombie commands before upgrade</li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-setup">ovirt-hosted-engine-setup</h3>
+
+<p><strong>Fixed in oVirt 3.5.2 RC3 / Final release</strong></p>
+<ul>
+  <li>[hosted-engine] [iSCSI support] connectStoragePools fails with “SSLError: The read operation timed out” while adding a new host to the setup
+ <strong>Fixed in oVirt 3.5.2 RC1 / Final release</strong></li>
+  <li>[hosted-engine] Bad check of iso image permission</li>
+  <li>vdsClient/vdscli SSLError timeout error</li>
+  <li>[RFE][HC] make override of iptables configurable when using hosted-engine</li>
+</ul>
+
+<h3 id="ovirt-iso-uploader">ovirt-iso-uploader</h3>
+
+<p><strong>Fixed in oVirt 3.5.2 RC1 / Final release</strong></p>
+<ul>
+  <li>[engine-iso-uploader] engine-iso-uploader does not work with Local ISO domain</li>
+</ul>
+
+<h3 id="ovirt-log-collector">ovirt-log-collector</h3>
+
+<p><strong>Fixed in oVirt 3.5.2 RC1 / Final release</strong></p>
+<ul>
+  <li>[RHEL7] Missing some info from host’s archive</li>
+</ul>
+
+<h3 id="ovirt-optimizer">ovirt-optimizer</h3>
+
+<p><strong>Fixed in oVirt 3.5.2 RC2 / Final release</strong></p>
+<ul>
+  <li>font and tab case don’t match</li>
+  <li>[EL7] ovirt-optimizer is missing dependencies</li>
+  <li>fixed link to jquery</li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<p><strong>Fixed in oVirt 3.5.2 RC4 / Final release</strong></p>
+<ul>
+  <li>RHEV: Failed to Delete First snapshot with live merge</li>
+  <li>[RHEL7.0] oVirt fails to create glusterfs domain</li>
+  <li>[New] - Host status does not move to non-operational when glusterd is down.</li>
+  <li>Live Merge: Active layer merge is not properly synchronized with vdsm</li>
+  <li>Vdsm upgrade 3.4 » 3.5.1 doesn’t restart vdsmd service</li>
+  <li>StorageDomainAccessError: Domain is either partially accessible or entirely inacessible when creating an iSCSI storage domain with RHEV-H 6.6</li>
+  <li>[3.5-6.6/7.1] Failed to retrieve iscsi lun from hardware iscsi after register to RHEV-M
+ <strong>Fixed in oVirt 3.5.2 RC3</strong></li>
+  <li>VDSM script reset network configuration on every reboot when based on predefined bond</li>
+  <li>vdsm failing to start due to KeyError at vdsm-restore-net-config</li>
+  <li>vdsClient/vdscli SSLError timeout error</li>
+  <li>[Rhel7.1] After live storage migration on block storage vdsm extends migrated drive using all free space in the vg</li>
+  <li>[performance] bad getVMList output creates unnecessary calls from Engine</li>
+  <li>[performance] bad getVMList output creates unnecessary calls from Engine</li>
+  <li>After failure to setupNetworks: restore-nets with unified persistence does not restore pre-vdsm ifcfg</li>
+  <li>Live-deleting a snapshot of preallocated disk results in a block domain using up all available space</li>
+  <li>[SCALE] snapshot deletion -&gt; heavy swapping on SPM</li>
+  <li>Failed to auto shrink qcow block volumes on merge</li>
+  <li>[RHEL 7.0 + 7.1] Host configure with DHCP is losing connectivity after some time - dhclient is not running
+ <strong>Fixed in oVirt 3.5.2 RC1</strong></li>
+  <li>Wrong default multipath configuration for EL6</li>
+  <li>vdsm package causes logrotate to trigger selinux AVC alerts</li>
+  <li>[rhevh66] vdsm does not come up after first reboot after registration</li>
+  <li>Vdsm reports wrong NIC state, Error while sampling stats</li>
+  <li>Upgrade from RHEV-H 6.5 to RHEV-H 6.6 during upgrade from RHEV 3.4 to RHEV 3.5 Wiped Network Static IPs</li>
+  <li>rhev-m stops syncing the VM statuses after massive live VM migration which fails.</li>
+  <li>Excessive cpu usage due to wrong timeout value</li>
+  <li>[engine-backend] [external-provider] Glance integration: UploadImage (Export disk) fails with java.lang.String</li>
+  <li>[JSONRPC] Disk resize fails while vm is down</li>
+  <li>iSCSI multipath fails to work and only succeed after adding configuration values for network using sysctl</li>
+  <li>[vdsm] spmStart fails with timeout, the DC cannot be initialized</li>
+  <li>Problem parsing stomp frames where trailing \0 was cut off</li>
+  <li>[scale] Data Center crashing and contending forever due to missing pvs. All SDs are Unknown/Inactive.</li>
+  <li>Require ioprocess 0.14</li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3013/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3013/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3013/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3013/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.5.2/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/releases/3.5.2/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

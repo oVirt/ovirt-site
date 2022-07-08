@@ -16,13 +16,15 @@ authors:
 ## Developer Documentation
 
 <div class="alert alert-warning">
-  Much of this developer documentation is <strong>outdated</strong>, but provides historical context.
+  Much of this developer documentation provides historical context but may not reflect the current state of the project.
+  <br/>
+  If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".
   <br/>
   <br/>
   It is <strong>not</strong> user documentation and should not be treated as such.
   <br/>
   <br/>
-  <a href="/documentation/">Documentation is available here.</a>
+  <a href="/documentation/">User documentation is available here.</a>
 </div>
 
 #### oVirt development teams

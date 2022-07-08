@@ -40,7 +40,11 @@ Several presentations both on the technical side and on the user side are availa
 
 # Joining a team
 
-Within oVirt project several teams are taking care of different aspects of the system. The [oVirt Bugzilla](https://bugzilla.redhat.com/buglist.cgi?quicksearch=classification%3Aovirt) tickets are classified by oVirt team to identify the main impacted area.
+Within oVirt project several teams are taking care of different aspects of the system.
+
+The [oVirt Bugzilla](https://bugzilla.redhat.com/buglist.cgi?quicksearch=classification%3Aovirt) tickets are classified by oVirt team to identify the main impacted area.
+
+At the same way the [oVirt GitHub issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse) are labeled accordingly to identify the main impacted area.
 
 - [Project Infrastructure](infra/infrastructure.html): takes care of the oVirt datacenter and of all the systems and services running within the datacenter such as Jenkins, Gerrit, Apache, ...
 - [Integration and Node](integration/index.html): integrates the oVirt subprojects making them work together as a complete solution.

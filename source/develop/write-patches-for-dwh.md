@@ -8,14 +8,14 @@ authors: sradco
 
 # How to write patches for DWH
 
-## Install Talend DI and import the project
+## Install Talend and import the project
 
-*   Download and install the latest Talend DI version. Available from: <http://www.talend.com/download.php>
+*   Follow instructions within [oVirt DWH Readme](https://github.com/oVirt/ovirt-dwh#etl-project-development)
 
 *   Import the oVirt DWH project from the path: `<repository folder path>/ovirt-dwh/tos_project`
 
 *   You may now edit the project using the studio.
-*   Setup connections context in the Talend DI for the ovirt_engine_history database.
+*   Setup connections context in the Talend Open Studio for the `ovirt_engine_history` database.
 
 For details on this refer to Talend's documentation.
 
@@ -25,16 +25,16 @@ For details on this refer to Talend's documentation.
 
 Follow the following steps:
 
-*   Have a cloned ovirt-engine git repository
-*   Setup a postgreSQL "engine" DB.
+*   Have a cloned [ovirt-engine git repository](https://github.com/oVirt/ovirt-engine)
+*   Setup a postgreSQL "`engine`" DB.
 *   Make the necessary changes in: `./ovirt-engine/packaging/dbscripts/create_dwh_views.sql`
 
 ## If a change to the "ovirt_engine_history" DB is required
 
 Follow the following steps:
 
-*   Have a cloned ovirt-dwh git repository
-*   Setup a postgreSQL "ovirt_engine_history" DB.
+*   Have a cloned [ovirt-dwh git repository](https://github.com/oVirt/ovirt-dwh)
+*   Setup a postgreSQL "`ovirt_engine_history`" DB.
 *   Create an upgrade sql file in the following folder: `./ovirt-dwh/packaging/dbscripts/upgrade/`
 
 When needed, update the new column values before removing a related column.

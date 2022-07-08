@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Gluster Support | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Gluster Support" />
+<meta name="author" content="Ewoud Kohl van Wijngaarden" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3015/develop/release-management/features/gluster/gluster-support.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3015/develop/release-management/features/gluster/gluster-support.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gluster Support" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Ewoud Kohl van Wijngaarden" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Ewoud Kohl van Wijngaarden"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Gluster Support","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3015/images/logo.svg"},"name":"Ewoud Kohl van Wijngaarden"},"url":"https://ovirt.github.io/ovirt-site/previews/3015/develop/release-management/features/gluster/gluster-support.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3015/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3015/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3015/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3015/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3015/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3015/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3015/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3015/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3015/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3015/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3015/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3015/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3015/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3015/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3015/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3015/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3015/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3015/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3015/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3015/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3015/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3015/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3015//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3015//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3015/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3015/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3015/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3015/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3015/develop/release-management/features/gluster/">
+              <span property="name">Gluster</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Ewoud Kohl van Wijngaarden">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ewoud Kohl van Wijngaarden</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/e37ec99e8f2caef5e1238d05dfc36de6?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/e37ec99e8f2caef5e1238d05dfc36de6?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Robert Middleswarth">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Robert Middleswarth</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sahina Bose">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sahina Bose</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bc7a1e6e655b766ad1553b35c30cc83b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bc7a1e6e655b766ad1553b35c30cc83b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Shireesh Anjal">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Shireesh Anjal</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3015/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="gluster-support">Gluster Support</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature provides support for provisioning and managing Gluster based storage clusters in oVirt.
+Inital support was added to oVirt 3.1. glusterfs repo is available at <a href="http://download.gluster.org/pub/gluster/glusterfs/">http://download.gluster.org/pub/gluster/glusterfs/</a></p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Feature owner: Shireesh Anjal
+    <ul>
+      <li>GUI Component owner: Gilad Chaplik</li>
+      <li>REST Component owner: Shireesh Anjal</li>
+      <li>Engine Component owner: Shireesh Anjal</li>
+      <li>VDSM Component owner: Balamurugan Arumugam <a href="mailto:barumuga@redhat.com">barumuga@redhat.com</a></li>
+      <li>QA Owner: Ujjwala Thimmaiah <a href="mailto:ujjwala@redhat.com">ujjwala@redhat.com</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="current-status">Current Status</h2>
+
+<ul>
+  <li>Status: Available since oVirt 3.2</li>
+  <li>Last updated date: ,</li>
+  <li>Requires : glusterfs &gt;= 3.3</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>This feature will introduce the capability of creating a storage cluster based on GlusterFS from the oVirt UI. Administrator will be able to perform Gluster management fuctionality like:</p>
+
+<ul>
+  <li>Create a cluster with Gluster capabilities</li>
+  <li>Create Gluster volumes on any cluster that exposes Gluster capabilities</li>
+  <li>Add / remove bricks to / from Gluster volumes</li>
+  <li>Perform volume operations like
+    <ul>
+      <li>start</li>
+      <li>stop</li>
+      <li>rebalance</li>
+      <li>replace-brick</li>
+    </ul>
+  </li>
+  <li>Configure volumes by setting / changing “Volume Options”</li>
+  <li>Monitor status of Gluster volumes and bricks</li>
+</ul>
+
+<h3 id="approach">Approach</h3>
+
+<p>With this feature, oVirt will start supporting multiple services exposed by the cluster. These services may require different monitoring and bootstrapping strategies for hosts of the cluster. It will also require conditionally displaying / hiding certain UI components based on the services supported by the cluster. These will be achieved by:</p>
+
+<ul>
+  <li>Mapping the services supported by a cluster in the database</li>
+  <li>Using strategy pattern for arriving at the appropriate monitoring strategy for a host based on the services exposed by it’s cluster</li>
+  <li>Enhancing the webadmin UI to display / hide appropriate components based on services supported by the cluster in context</li>
+  <li>Enhancing the bootstrapping mechanism in VDSM to perform different steps based on the service(s) requested</li>
+</ul>
+
+<h3 id="entity-description">Entity Description</h3>
+
+<h4 id="gluster-volume">Gluster Volume</h4>
+
+<p>Gluster Volume is a new searchable entity in the system, which has following properties:</p>
+
+<ul>
+  <li>Volume ID</li>
+  <li>Cluster ID (Cluster to which the volume belongs)</li>
+  <li>Name</li>
+  <li>Type</li>
+  <li>Replica Count</li>
+  <li>Stripe Count</li>
+  <li>Transport Type</li>
+  <li>Access Protocols (list)</li>
+  <li>Bricks (list)</li>
+  <li>Options (list)</li>
+</ul>
+
+<h4 id="gluster-brick">Gluster Brick</h4>
+
+<p>Brick is the building block of a volume, and has following properties:</p>
+
+<ul>
+  <li>Server</li>
+  <li>Brick Directory</li>
+</ul>
+
+<h4 id="gluster-volume-option">Gluster Volume Option</h4>
+
+<p>An Option is a configuration on the Volume, that can fine-tune the way a Volume behaves e.g. The value of the option “auth.allow” defines the IP addresses of the client machines that should be allowed to access the Volume. It has following properties:</p>
+
+<ul>
+  <li>Option Key</li>
+  <li>Option Value</li>
+</ul>
+
+<h4 id="cluster">Cluster</h4>
+
+<p>The Cluster entity will be enhanced to capture information about the services it exposes. e.g. A cluster can expose</p>
+
+<ul>
+  <li>Virtualization Service</li>
+  <li>Gluster Service</li>
+  <li>Both</li>
+</ul>
+
+<h3 id="user-interface">User Interface</h3>
+
+<p>New tabs, nodes and screens related to Gluster will be added to the User Interface. These will be displayed only when the Cluster in context supports Gluster service. Similarly, the existing Virtualization related UI components will be displayed only if the Cluster in context supports Virtualization service. Following are the new UI components related to Gluster:</p>
+
+<ul>
+  <li>New tab “Gluster Volumes” at Cluster level.</li>
+  <li>New node “Gluster Volumes” in the system tree under the Cluster node
+    <ul>
+      <li>displayed only if the cluster supports Gluster service</li>
+      <li>Every Gluster Volume will be displayed as a child node under “Gluster Volumes”</li>
+    </ul>
+  </li>
+  <li>Main tabs when user selects a Volume in the system tree
+    <ul>
+      <li>General</li>
+      <li>Bricks</li>
+      <li>Options</li>
+      <li>Permissions</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Same tabs will also be displayed as sub-tabs when user selects a volume from the “Gluster Volumes” tab.</p>
+
+<ul>
+  <li>Actions on “Gluster Volumes” tab:
+    <ul>
+      <li>New</li>
+      <li>Start</li>
+      <li>Stop</li>
+      <li>Delete</li>
+      <li>Add Bricks</li>
+      <li>Remove Bricks</li>
+      <li>Migrate Brick</li>
+      <li>Rebalance</li>
+      <li>Add Option</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Except the “New” option, all others will also be available from the “Gluster Volume -&gt; General” sub-tab</p>
+
+<ul>
+  <li>Actions on “Bricks” tab / sub-tab:
+    <ul>
+      <li>Add Bricks</li>
+      <li>Remove Bricks</li>
+      <li>Migrate Brick</li>
+    </ul>
+  </li>
+  <li>Actions on “Options” tab / sub-tab:
+    <ul>
+      <li>Add</li>
+      <li>Edit</li>
+      <li>Reset to default (selected option)</li>
+    </ul>
+  </li>
+  <li>New dialog boxes
+    <ul>
+      <li>New Gluster Volume</li>
+      <li>Add Bricks to Volume</li>
+      <li>New Gluster Volume -&gt; Choose Bricks (re-used from Volume -&gt; Add Bricks)</li>
+      <li>Migrate Brick of a Volume</li>
+      <li>Add / Modify Volume Option</li>
+    </ul>
+  </li>
+  <li>Modified screens
+    <ul>
+      <li>Cluster creation screen will have two checkboxes for “Gluster” and “Virtualization”, with at least one selection mandatory</li>
+      <li>Gluster related events will be added to the Event Notifications subscription screen</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="audit">Audit</h3>
+
+<p>All operations that result in creation, modification or deletion of Gluster Volumes, and any errors that may occur during the same will be audited. The audit log messages will be available in the “Events” tab.</p>
+
+<h3 id="notifications">Notifications</h3>
+
+<p>All the Gluster related events that are audited will be available to be subscribed for email notifications. A new category “GlusterVolume” will be added to the notification subscription screen with following events:</p>
+
+<ul>
+  <li>Gluster Volume created</li>
+  <li>Gluster Volume creation failed</li>
+  <li>Gluster Volume deleted</li>
+  <li>Gluster Volume deletion failed</li>
+  <li>Gluster Volume started</li>
+  <li>Gluster Volume start failed</li>
+  <li>Gluster Volume stopped</li>
+  <li>Gluster Volume stop failed</li>
+  <li>Brick(s) added to Gluster Volume</li>
+  <li>Brick(s) addition to Gluster Volume failed</li>
+  <li>Brick(s) removed from Gluster Volume</li>
+  <li>Brick(s) removal from Gluster Volume failed</li>
+  <li>Gluster Volume Option set</li>
+  <li>Gluster Volume Option set failed</li>
+  <li>Gluster Volume Replace Brick started</li>
+  <li>Gluster Volume Replace Brick start failed</li>
+  <li>Gluster Volume Replace Brick aborted</li>
+  <li>Gluster Volume Replace Brick abort failed</li>
+  <li>Gluster Volume Replace Brick paused</li>
+  <li>Gluster Volume Replace Brick pause failed</li>
+  <li>Gluster Volume Replace Brick committed</li>
+  <li>Gluster Volume Replace Brick commit failed</li>
+  <li>Gluster Volume Rebalance started</li>
+  <li>Gluster Volume Rebalance start failed</li>
+  <li>Gluster Volume Rebalance stopped</li>
+  <li>Gluster Volume Rebalance stop failed</li>
+</ul>
+
+<h3 id="host-bootstrapping-vdsm">Host Bootstrapping (VDSM)</h3>
+
+<p>The host bootstrapping feature of VDSM will be enhanced to support bootstrapping based on the service(s) requested from the host.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   SELinux should be set to permissive on the node running gluster
+</code></pre></div></div>
+
+<h3 id="roles">Roles</h3>
+
+<p>A new pre-defined role “Gluster Admin” will be introduced with permissions for all Gluster Management actions.</p>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<p>When upgrading from an existing installation, all existing clusters will be mapped to only the “Virtualization” service by default.</p>
+
+<h2 id="benefits-to-ovirt">Benefits to oVirt</h2>
+
+<p>oVirt would be able to provision Gluster storage. This would also enable a tighter KVM - Gluster integration which would enable virtualization admins to leverage the scale-out storage capabilities of Gluster.</p>
+
+<h2 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h2>
+
+<p>Affected oVirt projects:</p>
+
+<ul>
+  <li>Engine-core</li>
+  <li>Webadmin</li>
+  <li>VDSM</li>
+  <li>API</li>
+  <li>CLI</li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p>GlusterFS : <a href="https://docs.gluster.org/en/latest/">https://docs.gluster.org/en/latest/</a></p>
+
+<h2 id="future-work">Future Work</h2>
+
+<ul>
+  <li>LVM Configuration - Planned in 3.6</li>
+  <li>Support for managing Gluster clusters in AWS environment</li>
+  <li>Support for Gluster Unified File and Object Storage</li>
+  <li>Support for Hardware RAID configuration</li>
+  <li>Gluster Volume monitoring with Gluster top commands</li>
+  <li>Gluster Volume Quota configuration</li>
+  <li>Gluster snapshot management - Planned in 3.6</li>
+  <li>Log management</li>
+  <li>Reporting</li>
+</ul>
+
+<p><a href="/ovirt-site/previews/3015/develop/release-management/features/">Gluster Support</a> <a href="/ovirt-site/previews/3015/develop/release-management/releases/3.2/feature.html">Gluster Support</a></p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3015/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3015/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3015/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3015/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/gluster/gluster-support.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/gluster/gluster-support.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -33,7 +33,7 @@ include::topics/User_actions.adoc[leveloffset=+2]
 
 include::topics/Adding_users.adoc[leveloffset=+2]
 
-include::topics/Viewing_user_information.adoc[leveloffset=+2]
+include::topics/Viewing_user_information_UI.adoc[leveloffset=+2]
 
 include::topics/Viewing_User_Permissions_on_Resources.adoc[leveloffset=+2]
 
@@ -61,7 +61,7 @@ include::topics/Setting_User_Timeout.adoc[leveloffset=+2]
 
 include::topics/Pre-encrypting_User_Password.adoc[leveloffset=+2]
 
-include::topics/Viewing_User_Information.adoc[leveloffset=+2]
+include::topics/Viewing_User_Information_CLI.adoc[leveloffset=+2]
 
 include::topics/Editing_User_Information.adoc[leveloffset=+2]
 

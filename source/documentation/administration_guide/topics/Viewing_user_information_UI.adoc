@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="Viewing_user_information"]
+[id="Viewing_user_information_ui"]
 = Viewing User Information
 
 .Procedure

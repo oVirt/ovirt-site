@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HelperUtilities | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="HelperUtilities" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3018/develop/developer-guide/db-issues/helperutilities.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3018/develop/developer-guide/db-issues/helperutilities.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HelperUtilities" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"HelperUtilities","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3018/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3018/develop/developer-guide/db-issues/helperutilities.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3018/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3018/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3018/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3018/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3018/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3018/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3018/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3018/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3018/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3018/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3018/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3018/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3018/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3018/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3018/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3018/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3018/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3018/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3018/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3018/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3018/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3018/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3018//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3018//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3018/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3018/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3018/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3018/develop/developer-guide/db-issues/">
+              <span property="name">Db Issues</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Eli Mesika">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="helper-utilities">Helper Utilities</h1>
+
+<p>The directory <code class="language-plaintext highlighter-rouge">/usr/share/ovirt-engine/setup/dbutils</code> or on
+developer setup <code class="language-plaintext highlighter-rouge">$PREFIX/share/ovirt-engine/setup/dbutils</code> contains
+useful scripts to help with various database issues.</p>
+
+<h2 id="fkvalidator">fkvalidator</h2>
+
+<p><strong>fkvalidaor.sh</strong> is a script that must be run on a customer database before an upgrade
+The utility checks that all data inside the database is consistent and does not break any FK constraint
+<strong>fkvalidaor.sh</strong> lists the found problems and can fix those problem is the <strong>-f</strong> switch is used</p>
+
+<h3 id="usage">Usage</h3>
+
+<p>Usage: fkvalidator.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-f] [-v]</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   -s SERVERNAME - The database servername for the database  (def. localhost)
+   -p PORT       - The database port for the database        (def. 5432)
+   -d DATABASE   - The database name                         (def. engine)
+   -u USERNAME   - The admin username for the database.
+   -l LOGFILE    - The logfile for capturing output          (def. fkvalidator.sh.log)
+   -f            - Fix the non consistent data by removing it from DB.
+   -v            - Turn on verbosity                         (WARNING: lots of output)
+   -h            - This help text.
+</code></pre></div></div>
+
+<h2 id="taskcleaner">taskcleaner</h2>
+
+<p><strong>taskcleaner.sh</strong> is a utility for clean async tasks and related Job Steps/Compensation data.
+The utility enables to:
+<strong>Display</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   All async tasks
+   Only Zombie tasks
+</code></pre></div></div>
+
+<p><strong>Delete</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   All tasks
+   All Zombie tasks
+   A task related to a given task id
+   A Zombie task related to a given task id
+   All tasks related to a given command id
+   All Zombie tasks related to a given command id
+</code></pre></div></div>
+
+<p>Flags may be added (-C, -J) to specify if Job Steps &amp; Compensation data should be cleaned as well.</p>
+
+<h3 id="usage-1">Usage</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Usage: taskcleaner.sh [-h] [-s server] [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-t taskId] [-c commandId]
+   [-z] [-R] [-C][-J] [-q] [-v]
+   -s SERVERNAME - The database servername for the database (def.localhost)
+   -p PORT - The database port for the database (def. 5432)
+   -d DATABASE - The database name (def.engine)
+   -u USERNAME - The admin username for the database.
+   -l LOGFILE - The logfile for capturing output (def.taskcleaner.sh.log)
+   -t TASK_ID - Removes a task by its Task ID.
+   -c COMMAND_ID - Removes all tasks related to the given Command Id.
+   -z - Removes/Displays a Zombie task.
+   -R - Removes all Zombie tasks.
+   -C - Clear related compensation entries.
+   -J - Clear related Job Steps.
+   -q - Quite mode, do not prompt for confirmation.
+   -v - Turn on verbosity (WARNING: lots of output)
+   -h - Help text.
+</code></pre></div></div>
+
+<h2 id="unlock_entity">unlock_entity</h2>
+
+<p><strong>unlock_entity.sh</strong> is a utility for unlocking <strong>VM</strong> , <strong>Template</strong> and/or their associated <strong>Disks</strong> or a specific <strong>Disk</strong>
+<strong>VM</strong> , <strong>Template</strong> are given by their names while a specific disk is given by its <strong>UUID</strong></p>
+
+<h3 id="usage-2">Usage</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Usage: ./unlock_entity.sh [options] [ENTITIES]
+     -h            - This help text.
+     -v            - Turn on verbosity                         (WARNING: lots of output)
+     -l LOGFILE    - The logfile for capturing output          (def. )
+     -s HOST       - The database servername for the database  (def. localhost)
+     -p PORT       - The database port for the database        (def. 5432)
+     -u USER       - The username for the database             (def. engine)
+     -d DATABASE   - The database name                         (def. engine)
+     -t TYPE       - The object type {vm | template | disk | snapshot}
+     -r            - Recursive, unlocks all disks under the selected vm/template.
+     -q            - Query db and display a list of the locked entites.
+     ENTITIES      - The list of object names in case of vm/template, UUIDs in case of a disk
+     NOTE: This utility access the database and should have the
+           corresponding credentals.
+           In case that a password is used to access the database PGPASSWORD
+           or PGPASSFILE should be set.
+     Example:
+         $ PGPASSWORD=xxxxxx ./unlock_entity.sh -t disk -q
+</code></pre></div></div>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3018/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3018/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3018/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3018/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/db-issues/helperutilities.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/db-issues/helperutilities.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

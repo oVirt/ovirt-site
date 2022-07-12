@@ -13,9 +13,10 @@ authors:
   - vszocs
 ---
 
-![](/images/wiki/Ovirt-1024x698.png "Ovirt-1024x698.png")
 
 # oVirt Architecture
+
+![](/images/diagrams/ovirt_architecture.png "oVirt architecture")
 
 A standard oVirt deployment consists of three things, primarily:
 
@@ -23,40 +24,37 @@ A standard oVirt deployment consists of three things, primarily:
 *   One or more hosts (nodes), on which we run virtual machines (VMs)
 *   One or more storage nodes, which hold the images and ISOs corresponding to those VMs
 
-Also, usually an identity service is deployed aside the engine, to authenticate users and administrators for ovirt-engine.
+The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services.
+The supported Linux distributions to date are CentOS Stream 8 and derivatives. oVirt project also providesoVirt Node, which is basically a stripped-down CentOS Stream 8 distribution
+containing just enough components to allow virtualization.
 
-The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt-node, which is basically a stripped-down distribution containing just enough components to allow virtualization.
-
-The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](/develop/developer-guide/vdsm/storage-terminology.html) page has more details.
+The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type.
+Storage nodes are grouped into storage pools, which can ensure high availability and redundancy.
+The [Vdsm Storage Terminology](/develop/developer-guide/vdsm/storage-terminology.html) page has more details.
 
 The different diagrams and descriptions below represent the architecture of the oVirt project, and its different components.
 
 ## Overall architecture
 
-The following diagram shows the different components in the oVirt project:
+The main components are:
 
-![](/images/wiki/Architecture.png "Architecture.png")
-
-These main components are:
-
-1.  Engine (ovirt-engine) - manages the oVirt hosts, and allows system administrators to create and deploy new VMs
-2.  Admin Portal - web based UI application on top of the engine, that sysadmins use to perform advanced actions.
-3.  User Portal - a simplified web based UI application for simpler management use-cases.
+1.  oVirt Engine - manages the oVirt hosts, and allows system administrators to create and deploy new VMs
+2.  oVirt Engine Admin Portal - web based UI application on top of the engine, that sysadmins use to perform advanced actions.
+3.  Web UI Portal - a simplified web based UI application for simpler management use-cases.
 4.  REST API - an API which allows applications to perform virtualization actions, which is used by the command line tools and the python SDK
-5.  CLI/SDK - The command line interface and SDK provide a way to communicate with engine via script actions.
+5.  SDK - The command line interface and SDK provide a way to communicate with engine via script actions.
 6.  Database - Postgres database is used by the engine to provide persistency for the configuration of the ovirt deployment.
 7.  Host agent (VDSM) - the oVirt engine communicates with VSDM to request VM related actions on the nodes
-8.  Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.
-9.  AD/IPA - directory services. Engine uses them to receive information on users and groups to be used with ovirt's permissions mechanism.
+8.  QEMU Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.
 10. DWH (Data Warehouse) - The data warehouse component performs ETL on data extracted from the db using Talend , and inserts it to history DB.
-11. Reports Engine - generates reports based on data in history DB, on system resource usage, using Jasper Reports
 12. SPICE client - utility which allows users to access the VMs.
 
 The sections below will give a description and architectural aspects for each such component.
 
 ## Engine
 
-oVirt engine is a JBoss-based Java application (previously C#) which runs as a web service. This service talks directly to VDSM on the hosts to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.
+oVirt engine is a Wildfly based Java application which runs as a web service.
+This service talks to VDSM on the hosts via `vdsm-jsonrpc-java` library to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.
 
 It is a large scale, centralized management for server and desktop virtualization, based on leading performance, scalability and security infrastructure technologies.
 
@@ -171,38 +169,17 @@ REST Concepts:
 3.  Cacheable
 4.  Uniform interface
 
-## CLI/SDK
+## SDK
 
-CLI and SDK are using on the REST api mentioned above.
+SDK are using on the REST api mentioned above.
 
-SDK:
-
-1.  Python based SDK to allow performing actions on the different entities
+1.  Python / Java / Go based SDK to allow performing actions on the different entities
 2.  Complete protocol abstraction
 3.  Full compliance with the oVirt API architecture
 4.  Auto-completion
 5.  Self descriptive
 6.  Intuitive and easy to use
 7.  Auto-Generated
-
-CLI:
-
-1.  Python based CLI to allow querying and performing actions on the different entities
-2.  Complete protocol abstraction
-3.  Full compliance with the oVirt API architecture
-4.  Highly descriptive help for each operation
-5.  Intuitive and easy to use
-6.  Auto-Generated
-
-## Reports Engine
-
-1.  Based on Jasper Reports
-2.  Jasper allows to import/export reports definitions
-3.  Rich reporting engine
-    -   Report scheduling
-    -   Filters
-    -   Export to various formats
-    -   Report creation studio
 
 ## DWH
 
@@ -215,17 +192,3 @@ The DWH (data warehouse) component contains:
     -   Statistics – aggregated hourly/daily
 
 4.  API is view based
-
-## Guest Agent
-
-The guest agent provides additional information to oVirt Engine, such as guest memory usage, guest ip address, installed applications and sso.
-
-Architectural details:
-
-1.  Python code, available for both linux and windows guests
-2.  Communication is done over virtio-serial
-3.  SSO for windows is based on a gina module for XP and a credential provider for windows 7
-4.  SSO for RHEL 6 is based on a PAM module with support for both KDE and Gnome
-
-![](/images/wiki/Guest-agent-arch.png "Guest-agent-arch.png")
-

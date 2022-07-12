@@ -16,7 +16,7 @@ from diagrams.onprem.database import PostgreSQL
 from diagrams.onprem.logging import Rsyslog
 from diagrams.onprem.monitoring import Grafana
 from diagrams.onprem.network import Apache, Wildfly
-from diagrams.onprem.storage import Glusterfs
+from diagrams.onprem.storage import Glusterfs, Ceph
 from diagrams.programming.language import Java, Nodejs, Python
 
 LOGO = "../logos/{product}.png"
@@ -29,9 +29,13 @@ with Diagram(
 
     with Cluster("Storage Domains"):
         gluster = Glusterfs("Gluster storage")
-        iscsi = Rack("ISCS Storage")
+        iscsi = Rack("ISCSI Storage")
         fc = Rack("Fiber Channel\nStorage")
+        nfs = Rack("NFS\nStorage")
         storage_net = Switch("Storage Network")
+        [gluster, iscsi, fc, nfs] >> Edge(color="red") << storage_net
+        ceph = Ceph("Ceph Storage")
+        ceph >> Edge(color="blue") << storage_net
 
     with Cluster("OpenShift"):
         kibana = Kibana("Kibana")
@@ -43,6 +47,7 @@ with Diagram(
     with Cluster("Node 1") as node1:
         cockpit1 = Custom("Cockpit", LOGO.format(product="cockpit"))
         storage_nic = Custom("Storage NIC", "")
+
         with Cluster("Services"):
             imageio_cli = Python("oVirt ImageIO Client")
             vmconsole = Python("oVirt VMConsole")
@@ -59,6 +64,9 @@ with Diagram(
             vdsm1 >> Edge(color="red") << [vm1_1, vm2_1]
 
         [vm1_1, vm2_1] >> Edge(color="red") << vmconsole
+        cinderlib = Python("Cinderlib")
+        cinderlib - Edge(color="green") - vdsm1
+        cinderlib >> Edge(color="blue") << storage_nic
         with Cluster("Metrics"):
             rsyslog1 = Rsyslog("RSyslog")
             collectd1 = Custom("CollectD", LOGO.format(product="collectd"))
@@ -126,7 +134,7 @@ with Diagram(
     imageio_cli >> Edge(color="red") << imageioDaemon
     storage_nic >> Edge(color="red") << [imageio_cli, vdsm1]
     storage_net >> Edge(color="red") << storage_nic
-    [gluster, iscsi, fc] >> Edge(color="red") << storage_net
+    storage_net >> Edge(color="blue") << storage_nic
     vmconsole >> Edge(color="red") << vmconsole_proxy
     terminal = Custom("SSH terminal", "")
     terminal >> Edge(color="red") << vmconsole_proxy

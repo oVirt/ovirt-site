@@ -137,77 +137,81 @@
           
         
         <section id="content" class="content container">
-          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3012/documentation/'>Documentation is available here.</a></div>
+          <div class='alert alert-warning'>Much of this developer documentation provides historical context but may not reflect the current state of the project.<br>If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3012/documentation/'>User Documentation is available here.</a></div>
 
 <h1 id="infiniband">Infiniband</h1>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Although targeted at high performance computing Infiniband networks may be a quite cheap alternative to 10 Gigabit Ethernet. Nevertheless it is not an out of the box experience. So your expectations should never be to get close to wire speed but to be happy with every MB/s that you can reach beyond Giagbit Ethernet. This page should give a first impression for the interested reader what problems one might encounter.</p>
+<p>Although targeted at high performance computing Infiniband networks may be a quite cheap alternative to 10 Gigabit Ethernet.
+Nevertheless it is not an out of the box experience. So your expectations should never be to get close to wire speed but to be happy with every MB/s that you can reach beyond Giagbit Ethernet.
+This page should give a first impression for the interested reader what problems one might encounter.</p>
 
 <h2 id="ipoib">IPoIB</h2>
 
-<p>IP over Infiniband (IPoIB) is an encapsulation of TCP packets inside Infiniband packets. That adds a lot of overhead but combined with an NFS server it is the easiest setup that is fully supported within OVirt.</p>
+<p>IP over Infiniband (IPoIB) is an encapsulation of TCP packets inside Infiniband packets.
+That adds a lot of overhead but combined with an NFS server it is the easiest setup that is fully supported within oVirt.</p>
 
 <h3 id="hypervisor-node-setup">Hypervisor node setup</h3>
 
-<p>On the hypervisor node you have to load the IPoIB required modules. These consist of the driver of your card, the transport and a managing module. For Mellanox ConnectX cards create a /etc/modules-load.d/ib.conf with the following lines</p>
+<p>On the hypervisor node you have to load the IPoIB required modules. These consist of the driver of your card, the transport and a managing module.
+For Mellanox ConnectX cards create a <code class="language-plaintext highlighter-rouge">/etc/modules-load.d/ib.conf</code> with the following lines</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  mlx4_ib
-  ib_ipoib
-  ib_umad
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mlx4_ib
+ib_ipoib
+ib_umad
 </code></pre></div></div>
 
-<p>After loading these modules you should see an Infiniband interface ib0 inside Ovirt (additionally ib1 if you have a two port card). Add a new network as usual and assign it with a static IP to the interface.</p>
+<p>After loading these modules you should see an Infiniband interface ib0 inside oVirt (additionally ib1 if you have a two port card).
+Add a new network as usual and assign it with a static IP to the interface.</p>
 
 <h3 id="issue-mellanox-tso-bug">Issue: Mellanox TSO bug</h3>
 
-<p>The kernel advertises TSO for Mellanox ConnectX cards although it is not supported. Therefore the hardware creates corrupt IP fragments on sender side during large requests and the receiving client cannot use LRO. The result of a lengthy discussion is stated <a href="http://www.spinics.net/lists/linux-rdma/msg17787.html">here</a>. So check if your Mellanox card has revision <strong>a0</strong>. Here an example of a non TSO compatible card:</p>
+<p>The kernel advertises TSO for Mellanox ConnectX cards although it is not supported.
+Therefore the hardware creates corrupt IP fragments on sender side during large requests and the receiving client cannot use LRO.
+The result of a lengthy discussion is stated <a href="http://www.spinics.net/lists/linux-rdma/msg17787.html">here</a>.
+So check if your Mellanox card has revision <strong>a0</strong>. Here an example of a non TSO compatible card:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  lspci | grep Mellanox
-  03:00.0 InfiniBand: Mellanox Technologies MT25418 [ConnectX VPI PCIe 2.0 2.5GT/s - IB DDR / 10GigE] (rev a0)
-</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>lspci | <span class="nb">grep </span>Mellanox
+<span class="go">03:00.0 InfiniBand: Mellanox Technologies MT25418 [ConnectX VPI PCIe 2.0 2.5GT/s - IB DDR / 10GigE] (rev a0)
+</span></code></pre></div></div>
 
 <p>If you have such an old card disable TSO and make that setting permanent in some startup script.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ` isOldCard=`lspci | grep Mellanox | grep a0 | wc -l` `
-  if [ $isOldCard -gt 0 ]; then
-    ethtool -K ib0 tso off
-    ethtool -K ib1 tso off
-  fi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">isOldCard</span><span class="o">=</span><span class="sb">`</span>lspci | <span class="nb">grep </span>Mellanox | <span class="nb">grep </span>a0 | <span class="nb">wc</span> <span class="nt">-l</span><span class="sb">`</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$isOldCard</span> <span class="nt">-gt</span> 0 <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span>ethtool <span class="nt">-K</span> ib0 tso off
+  ethtool <span class="nt">-K</span> ib1 tso off
+<span class="k">fi</span>
 </code></pre></div></div>
 
 <h3 id="issue-old-hardware-and-mtu-2044">Issue: Old hardware and MTU 2044</h3>
 
-<p>If you are running on old switch hardware than your maximum IPoIB MTU will be limited to 2044 bytes. That is no problem at all - at least on switch level. On your NFS server and hypervisor nodes this can result in unneccessary CPU cycles and reduced throughput. Once again a reference to a <a href="http://www.spinics.net/lists/linux-rdma/msg15133.html">discussion thread</a>.</p>
+<p>If you are running on old switch hardware than your maximum IPoIB MTU will be limited to 2044 bytes. That is no problem at all - at least on switch level
+On your NFS server and hypervisor nodes this can result in unneccessary CPU cycles and reduced throughput.
+Once again a reference to a <a href="http://www.spinics.net/lists/linux-rdma/msg15133.html">discussion thread</a>.</p>
 
-<p>If you are not afraid of compiling kernels yourself and you know what you are doing than you can benefit from a dirty hack that limits the IPoIB MTU inside the kernel to 3072 bytes. With that receive operations will be served within a single 4K page and unneccessary copy operations can be avoided. Add the following modification to ipoib_add_port() in drivers/infiniband/ulp/ipoib/ipoib_main.c:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ...
-    if (!ib_query_port(hca, port, &amp;attr))
-      /* Limit max MTU to 3KB                                 */
-      /* priv-&gt;max_ib_mtu = ib_mtu_enum_to_int(attr.max_mtu); */
-      priv-&gt;max_ib_mtu = 3072;
-    else {
-    ...
+<p>If you are not afraid of compiling kernels yourself and you know what you are doing than you can benefit from a dirty hack that limits the IPoIB MTU inside the kernel to 3072 bytes.
+With that receive operations will be served within a single 4K page and unneccessary copy operations can be avoided.
+Add the following modification to <code class="language-plaintext highlighter-rouge">ipoib_add_port()</code> in <code class="language-plaintext highlighter-rouge">drivers/infiniband/ulp/ipoib/ipoib_main.c</code>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ib_query_port</span><span class="p">(</span><span class="n">hca</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attr</span><span class="p">))</span>
+  <span class="cm">/* Limit max MTU to 3KB                                 */</span>
+  <span class="cm">/* priv-&gt;max_ib_mtu = ib_mtu_enum_to_int(attr.max_mtu); */</span>
+  <span class="n">priv</span><span class="o">-&gt;</span><span class="n">max_ib_mtu</span> <span class="o">=</span> <span class="mi">3072</span><span class="p">;</span>
+<span class="k">else</span> <span class="p">{</span>
+<span class="p">...</span>
 </code></pre></div></div>
-
 <h2 id="nfs-over-rdma">NFS over RDMA</h2>
 
-<p>In this setup NFS sunrpc layer driectly accesses the basic infiniband mechanisms to exchange data between NFS server and client. The configuration is explained <a href="https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs-rdma.txt">here</a> and might have some bugs:</p>
+<p>In this setup NFS sunrpc layer driectly accesses the basic infiniband mechanisms to exchange data between NFS server and client.
+The configuration is explained <a href="https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs-rdma.txt">here</a>.</p>
 
-<ul>
-  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1046011">Cannot read more than 812 bytes from NFS server file</a>:
-The bug can occur between kernels 3.7 and 3.13. It should be fixed with the commit used to be available at <code class="language-plaintext highlighter-rouge">http://article.gmane.org/gmane.linux.nfs/60953</code> but gmane service got discontinued.</li>
-  <li><a href="http://www.mail-archive.com/linux-rdma@vger.kernel.org/msg14145.html">NFS crashes</a>: Not yet tested/observed.</li>
-</ul>
-
-<p>At the moment OVirt does not allow to mount NFS shares over RDMA. So the only option is to modify the mount operation in /usr/share/vdsm/storage/storageServer.py yourself.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ...
-  class NFSConnection(object):
-    DEFAULT_OPTIONS = ["soft", "nosharecache", "rdma", "port=20049"]
-  ...
+<p>At the moment OVirt does not allow to mount NFS shares over RDMA. So the only option is to modify the mount operation in <code class="language-plaintext highlighter-rouge">/usr/share/vdsm/storage/storageServer.py</code> yourself.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">class</span> <span class="nc">NFSConnection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="n">DEFAULT_OPTIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s">"soft"</span><span class="p">,</span> <span class="s">"nosharecache"</span><span class="p">,</span> <span class="s">"rdma"</span><span class="p">,</span> <span class="s">"port=20049"</span><span class="p">]</span>
+<span class="p">...</span>
 </code></pre></div></div>
 
 <p>A reqeust for enhancement of OVirt has been created as Redhat Bug <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1057043">1057043</a></p>

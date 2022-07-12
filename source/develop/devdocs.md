@@ -35,7 +35,9 @@ authors:
 
 #### Design Documentation
 - [Feature Pages / Design Documentation](/develop/release-management/features/)
-- [Architecture (outdated)](./architecture/index.html)
+- [Overall architecture](./architecture/architecture.html)
+- [oVirt Engine architecture](./architecture/index.html)
+
 
 #### Developer Process
 - [Migrating a project from Gerrit to GitHub](/develop/developer-guide/migrating_to_github.html)

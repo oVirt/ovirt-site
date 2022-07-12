@@ -9,6 +9,7 @@ authors:
   - geoffoc
   - lhornyak
   - ovedo
+  - sandrobonazzola
   - sven
   - vszocs
 ---

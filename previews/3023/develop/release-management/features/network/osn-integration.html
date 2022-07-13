@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>OSN Integration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="OSN Integration" />
+<meta name="author" content="Dan Kenigsberg" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3023/develop/release-management/features/network/osn-integration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3023/develop/release-management/features/network/osn-integration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="OSN Integration" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dan Kenigsberg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dan Kenigsberg"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"OSN Integration","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3023/images/logo.svg"},"name":"Dan Kenigsberg"},"url":"https://ovirt.github.io/ovirt-site/previews/3023/develop/release-management/features/network/osn-integration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3023/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3023/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3023/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3023/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3023/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3023/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3023/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3023/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3023/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3023/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3023/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3023/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3023/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3023/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3023/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3023/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3023/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3023/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3023/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3023/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3023/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3023/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3023//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3023//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3023/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3023/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3023/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3023/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3023/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dan Kenigsberg">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Lior Vernia">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Lior Vernia</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Michael Kolesnic">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Kolesnic</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3023/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="osn-integration">OSN Integration</h1>
+
+<h2 id="integrating-openstack-neutron-as-a-network-provider-in-ovirt">Integrating OpenStack Neutron as a network provider in oVirt</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>We intend to add support for OpenStack Neutron as a network provider.</p>
+
+<p>A network provider is an external provider that can provide networking capabilities for consumption by oVirt hosts and/or virtual machines. The network provider has the knowledge about the networks that it manages, and works autonomously from oVirt. The provider should enable integration on 3 points:</p>
+
+<ul>
+  <li>Discovery of networks</li>
+  <li>Provisioning of networks</li>
+  <li>Provisioning of virtual NICs on the network</li>
+</ul>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Mike Kolesnik (Mkolesni)</li>
+  <li>Email: <a href="mailto:mkolesni@redhat.com">mkolesni@redhat.com</a></li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>Available in oVirt 3.3 as tech preview</li>
+  <li>Last updated: ,</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<h4 id="network-discovery">Network discovery</h4>
+
+<p>There should be a way for oVirt to discover what networks are available on the provider. An oVirt user could then decide to import a network, that is provided by the provider, as a new one into a data center, or attach it to an existing data center network, marking that the network is also provided by this provider (in addition to any other provider that provides it).</p>
+
+<p>Currently, the engine assumes that the networks provided by the provider are available on all hosts in the data center, but it might be possible to have this capability added so that we would be able to query the host and see if it is providing networks for a given provider.</p>
+
+<h4 id="network-provisioning">Network provisioning</h4>
+
+<p>The network can be exported from oVirt into the network provider, which means a user will be able to add the network to Neutron via oVirt, instead of using the Neutron API directly. However, from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that’s OK from oVirt’s perspective.</p>
+
+<h4 id="virtual-nic-provisioning">Virtual NIC provisioning</h4>
+
+<p>The network provider should be able to provision a virtual NIC’s data (name, MAC, etc) on a network that it provides. oVirt would send the virtual NIC details over to the provider, and it should return the NIC connection details. These connection details should be used when the VM is run, or the NIC is plugged.</p>
+
+<p>There should also be an option to “un-provision” a virtual NIC so that is being provisioned by the provider.</p>
+
+<h4 id="more-details">More details</h4>
+
+<p>Please see <a href="/ovirt-site/previews/3023/develop/release-management/features/network/detailed-osn-integration.html">Features/Detailed_OSN_Integration</a></p>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<ul>
+  <li>Ability to use various technologies that OpenStack Neutron provides for it’s networks, such as IPAM, L3 Routing, Security Groups, etc.</li>
+  <li>Ability to use technologies that aren’t supported natively in oVirt (OVS, various controllers) for VM networks.</li>
+</ul>
+
+<h3 id="dependencies--related-features">Dependencies / Related Features</h3>
+
+<p>Depends on:</p>
+
+<ul>
+  <li><a href="/ovirt-site/previews/3023/develop/release-management/features/network/device-custom-properties.html">Features/Device_Custom_Properties</a></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=893576">Add VDSM hooks for updateDevice</a> or else, we cannot “rewire” a currently-running VM to an external network.</li>
+</ul>
+
+<h3 id="testing">Testing</h3>
+
+<p>In order to test the feature follow these steps:</p>
+
+<ul>
+  <li>Make sure to run the tests in the sequence they’re written</li>
+  <li>Install Neutron server &amp; ‘Linux Bridge’ plugin per the steps at <a href="/ovirt-site/previews/3023/develop/release-management/features/network/detailed-osn-integration.html">Features/Detailed_OSN_Integration</a>
+    <ul>
+      <li>Make sure you’re using ‘noauth’ authentication to make things easier - no need to install Keystone at this point</li>
+      <li>Make sure you’re defining:
+        <ul>
+          <li>tenant_network_type = vlan</li>
+          <li>network_vlan_ranges = red:1:1000,blue:1001:2000,green</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Make sure hosts run in selinux=permissive mode (Neutron limitation)</li>
+  <li>Add a couple of test networks to the neutron service via the API</li>
+</ul>
+
+<p>| Test                               | Steps                                                                                                                             | Expected Result                                                                                        | Status | Post action                                                              |
+|————————————|———————————————————————————————————————————–|——————————————————————————————————–|——–|————————————————————————–|
+| Providers in left tree             | Open “External Providers” in the left tree                                                                                        | The Providers tab should open and be the only one                                                      |        |                                                                          |
+| Add provider dialog                | In the Providers main tab, click the “Add” button to add a new provider                                                           | -   Add provider dialog should open                                                                  <br />
+                                                                                                                                                                          -   There should be no “Agent Configuration” left tab                                                   |        |                                                                          |
+| Add provider validation            | In the Add provider dialog, clear all fields and click OK                                                                         | -   The “name” and “url” fields should be painted red                                                <br />
+                                                                                                                                                                          -   The dialog should remain open                                                                       |        | Enter the provider name                                                  |
+| Plugin Type                        | Select the “OpenStack Network” provider type                                                                                      | -   The “Plugin Type” field should appear and be empty.                                              <br />
+                                                                                                                                                                          -   When clicking on it, the options “Linux Bridge” and “Open vSwitch” should appear.                   |        |                                                                          |
+| Agent left tab                     | Pick one of the two preset “Plugin Type” values.                                                                                  | The “Agent Configuration” left tab should appear                                                       |        |                                                                          |
+| Test button functionality          | Click the “Test” button                                                                                                           | You should get a negative result                                                                       |        |                                                                          |
+| Valid URL                          | -   Enter a valid URL for the provider                                                                                          <br />
+                                      -   Click the “Test” button                                                                                                        | You should get a positive result                                                                       |        |                                                                          |
+| No communication to provider       | -   Block communication to the Neutron service (iptables, or disconnect the engine from the network, or stop the service)       <br />
+                                      -   Click the “Test” button                                                                                                        | You should get a negative result                                                                       |        | Restore communication to the Neutron service                             |
+| Bad URL                            | -   Change the URL to an invalid one by adding “1” at the end                                                                   <br />
+                                      -   Click the “Test” button                                                                                                        | You should get a negative result                                                                       |        | Change back to the valid URL and make sure you get a “green” test result |
+| Agent configuration                | -   Select a “Linux Bridge” plugin type                                                                                         <br />
+                                      -   Switch to the “Agent Configuration” left tab                                                                                   | You should see QPID parameters and interface mappings fields (total 5)                                 |        | Fill the fields with the values you want sent to the hosts               |
+| Field consistency                  | Pick different values in the “Provider Type” and/or “Plugin Type” fields, then go back to “OpenStack Network” and “Linux Bridge”. | Make sure the original values you filled in other fields haven’t changed.                              |        |                                                                          |
+| Saving the provider                | Click “OK”                                                                                                                        | -   The provider should appear in the main tab                                                       <br />
+                                                                                                                                                                          -   There should be an audit log message that the provider was added                                    |        |                                                                          |
+| Edit provider dialog               | -   Select the provider you just added                                                                                          <br />
+                                      -   Click edit button                                                                                                              | -   The edit dialog should open                                                                      <br />
+                                                                                                                                                                          -   Make sure all fields are as you saved them                                                          |        |                                                                          |
+| Test button functionality          | Check all the “new provider” tests for the test button                                                                            | You should get exactly the same results as in the “new provider” scenario                              |        | Exit the dialog in the end, making sure the URL is still valid           |
+| Import networks dialog             | -   Select the provider in the main tab                                                                                         <br />
+                                      -   Switch to the “networks” sub tab                                                                                             <br />
+                                      -   Click on “Import” button                                                                                                       | -   The import networks dialog should open                                                           <br />
+                                                                                                                                                                          -   The provider should be selected and greyed out                                                    <br />
+                                                                                                                                                                          -   There should be a list of networks from the provider                                              <br />
+                                                                                                                                                                          -   The two arrow buttons should be disabled.                                                           |        |                                                                          |
+| Choosing networks to be imported   | -   Select several networks in the top table.                                                                                   <br />
+                                      -   Click the “arrow down” button.                                                                                                 | -   Upon selection, the “arrow down” button should be enabled.                                       <br />
+                                                                                                                                                                          -   Upon clicking, the selected networks should be moved from the top table to the bottom one.        <br />
+                                                                                                                                                                          -   Selection in both tables should be cleared, and both buttons disabled.                              |        |                                                                          |
+| Cancelling network import          | -   Select several networks in the bottom table.                                                                                <br />
+                                      -   Click the “arrow up” button.                                                                                                   | -   Upon selection, the “arrow up” button should be enabled.                                         <br />
+                                                                                                                                                                          -   Upon clicking, the selected networks should be moved from the bottom table back to the top one.   <br />
+                                                                                                                                                                          -   Selection in both tables should be cleared, and both buttons disabled.                              |        |                                                                          |
+| Importing a network                | -   Select a network from the provider and click the “arrow down” button                                                        <br />
+                                      -   Select a DC                                                                                                                  <br />
+                                      -   Click OK                                                                                                                       | -   The network should be imported as a VM network to the selected DC                                <br />
+                                                                                                                                                                              -   The name should be as you entered                                                             <br />
+                                                                                                                                                                          -   The network should be automatically attached to all the clusters in the DC                        <br />
+                                                                                                                                                                              -   The attachment should be as a non-required, without any of the roles (display, migration)       |        |                                                                          |
+| Import networks from Networks tab  | -   Head to the “System” node in the system tree.                                                                               <br />
+                                      -   Click on the “Networks” main tab.                                                                                            <br />
+                                      -   Click the “Import” button.                                                                                                     | -   The same dialog should open as before, only now a provider can be freely selected in the list box. 
+                                                                                                                                                                          -   Repeat earlier import tests, and make sure the results are the same.                                |        |                                                                          |
+| Add new network on provider dialog | -   In the left tree, select the System node                                                                                    <br />
+                                      -   Switch to networks main tab                                                                                                  <br />
+                                      -   Click “Add”                                                                                                                    | -   The standard “Add network” dialog should open                                                    <br />
+                                                                                                                                                                          -   There should be a section for “external provider” with your provider in it                          |        |                                                                          |
+| Selecting the provider             | Select your provider                                                                                                              | -   Once provider is selected, the MTU &amp; VM network should be greyed out                             <br />
+                                                                                                                                                                              -   MTU should be unset                                                                           <br />
+                                                                                                                                                                              -   VM network should be set                                                                        |        |                                                                          |
+| Adding the network                 | -   Fill the network name                                                                                                       <br />
+                                      -   Fill the VLAN ID 500                                                                                                         <br />
+                                      -   Fill the label red                                                                                                           <br />
+                                      -   Click OK                                                                                                                       | -   The network should be created in oVirt                                                           <br />
+                                                                                                                                                                          -   You should be able to see the network on neutron via the REST API                                 <br />
+                                                                                                                                                                          -   You should be able to see the network in the provider’s “Import” dialog                             |        |                                                                          |
+| Adding a host with the provider    | -   Go to the Hosts main tab                                                                                                    <br />
+                                      -   Click on “add” button                                                                                                        <br />
+                                      -   Fill the host details                                                                                                        <br />
+                                      -   Go to the “Network Provider” left tab                                                                                        <br />
+                                      -   Select your provider                                                                                                         <br />
+                                      -   Edit the interface mappings field to the one matching your host                                                              <br />
+                                      -   Click OK                                                                                                                       | -   The host installation should begin                                                               <br />
+                                                                                                                                                                          -   The linux bridge agent should be installed &amp; running                                              <br />
+                                                                                                                                                                          -   The openstacknet VDSM hook should be installed                                                      |        |                                                                          |
+| Adding a vNIC                      | -   Add a VM                                                                                                                    <br />
+                                      -   Add a vNIC to the VM on the network you created                                                                                | -   The vNIC should be on the external network                                                       <br />
+                                                                                                                                                                          -   See that “port mirroring” (in advanced parameters) is disabled.                                     |        |                                                                          |
+| Running the VM                     | Run the VM                                                                                                                        | -   The VM Should start correctly on your host                                                       <br />
+                                                                                                                                                                          -   The port representing the vNIC should be visible on the Neutron REST API                          <br />
+                                                                                                                                                                          -   SSH to the host and check that:                                                                   <br />
+                                                                                                                                                                              -   A new bridge brq*** was created                                                            <br />
+                                                                                                                                                                              -   The new bridge has an interface tap***                                                     <br />
+                                                                                                                                                                              -   Optionally, check the XML in the VDSM logs to see the device that was created for the vNIC      |        |                                                                          |
+| vNIC properties on running VM      | Pick the vNIC you added in the VM/interfaces subtab, and edit it.                                                                 | -   The network list box should be disabled.                                                         <br />
+                                                                                                                                                                          -   The “hot plug” radio button should be disabled.                                                     |        |                                                                          |
+| Stopping the VM                    | Stop (forcefully) the VM                                                                                                          | -   The VM should be stopped                                                                         <br />
+                                                                                                                                                                          -   The port representing the vNIC shouldn’t be visible on the Neutron REST API anymore               <br />
+                                                                                                                                                                          -   SSH to the host and check that:                                                                   <br />
+                                                                                                                                                                              -   The brq*** bridge still exists                                                             <br />
+                                                                                                                                                                              -   The tap*** device is no longer on the bridge                                                 |        |                                                                          |
+| Migrating the VM (advanced)        | Make sure the VM migrates correctly to another host that has the agent                                                            | The VM should migrate and the bridge and tap device should be on the other host                        |        |                                                                          |</p>
+
+<h3 id="documentation--external-references">Documentation / External references</h3>
+
+<ul>
+  <li>General purpose wiki: <a href="/ovirt-site/previews/3023/develop/release-management/features/network/detailed-osn-integration.html">Network_Provider</a></li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3023/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3023/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3023/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3023/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/osn-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/network/osn-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

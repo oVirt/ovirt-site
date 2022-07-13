@@ -43,6 +43,36 @@ By default, this setting uses system-wide crypto policies. For more information,
 ====
 ** `PermitRoolLogin` is set to `without-password` or `yes`
 ** `PubkeyAuthentication` is set to `yes`
+* On a dual stack environment, IPv6 will be selected.
+and due to a limitation, hosted-engine will be deployed as IPv6 only.
+If you want to use IPv6, make sure that DNS returns only IPv6,
+or change Java and imageio address resolution,
+by adding the following ansible code to: /usr/share/ansible/collections/ansible_collections/ovirt/ovirt/roles/hosted_engine_setup/hooks/enginevm_before_engine_setup/
++
+[source,terminal]
+----
+---
+- name: Resolve IPv6 in engine
+  lineinfile:
+    path: /etc/ovirt-engine/engine.conf.d/99-ipv6-pref.conf
+    create: yes
+    mode: 0644
+    line: ENGINE_PROPERTIES="\${ENGINE_PROPERTIES} java.net.preferIPv6Addresses=true"
+- name: Resolve IPv6 in imageio
+  lineinfile:
+    path: /etc/ovirt-imageio/conf.d/01-ipv6-pref.conf
+    create: yes
+    mode: 0644
+    line: |
+      [control]
+      prefer_ipv4 = False
+----
++
+[NOTE]
+====
+Dual stack is not fully supported.
+====
+
 
 .Procedure
 

@@ -60,7 +60,8 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 ## oVirt in Education
 
-These institutions have chosen oVirt to manage their virtual workloads. See also the [Keele University](/community/user-stories/keele-university-case-study.html), [Florida State University](/community/user-stories/RCC-case-study.html), and [University of Seville](/community/user-stories/universidad-de-sevilla-case-study.html) case studies.
+These institutions have chosen oVirt to manage their virtual workloads. See also the [Florida State University](/community/user-stories/RCC-case-study.html)
+and [University of Seville](/community/user-stories/universidad-de-sevilla-case-study.html) case studies.
 
 <div class="case-studies">
 <div class="case-study">

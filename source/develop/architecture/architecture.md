@@ -21,12 +21,12 @@ authors:
 
 A standard oVirt deployment consists of three things, primarily:
 
-*   ovirt-engine which is used use to deploy, monitor, move, stop and create VM images, configure storage, network , etc.
+*   ovirt-engine which is used to deploy, monitor, move, stop and create VM images, configure storage, network , etc.
 *   One or more hosts (nodes), on which we run virtual machines (VMs)
 *   One or more storage nodes, which hold the images and ISOs corresponding to those VMs
 
 The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services.
-The supported Linux distributions to date are CentOS Stream 8 and derivatives. oVirt project also providesoVirt Node, which is basically a stripped-down CentOS Stream 8 distribution
+The supported Linux distributions to date are CentOS Stream 8 and derivatives. oVirt project also provides oVirt Node, which is basically a stripped-down CentOS Stream 8 distribution
 containing just enough components to allow virtualization.
 
 The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type.

@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Backend modules bll | oVirt</title>
+<title>Backend modules BLL | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Backend modules bll" />
+<meta property="og:title" content="Backend modules BLL" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -13,10 +13,10 @@
 <meta property="og:site_name" content="oVirt" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Backend modules bll" />
+<meta property="twitter:title" content="Backend modules BLL" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Backend modules bll","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3012/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3012/develop/architecture/backend-modules-bll.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Backend modules BLL","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3012/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3012/develop/architecture/backend-modules-bll.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -69,7 +69,7 @@
         
         <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
            <a property="item" typeof="WebPage" href="/ovirt-site/previews/3012/develop/architecture/">
-              <span property="name">Architecture</span>
+              <span property="name">oVirt Engine Architecture</span>
               <meta property="position" content="3" />
            </a>
         </li>
@@ -116,7 +116,7 @@
         <section id="content" class="content container">
           <div class='alert alert-warning'>Much of this developer documentation provides historical context but may not reflect the current state of the project.<br>If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3012/documentation/'>User Documentation is available here.</a></div>
 
-<h1 id="backend-modules-bll">Backend modules bll</h1>
+<h1 id="backend-modules-bll">Backend modules BLL</h1>
 
 <p><strong>Introduction:</strong> The bll (Business Logic Layer) encapsulates the different actions and queries the user can apply, and implements the actual logic required to run said commands. In the bll, every action has a value in the VdcActionType enum. The naming convention is of importance - *Command. For example: RunVMCommand, SetupNetworkCommand, and so on. Each enum value has a corresponding class, and that class is instantiated by a factory via reflection. Similarly, queries have *Query enum values in the VdcQueryType enum, and each enum value has a corresponding class. For each command or query there is the appropriate POJO that represents the commands’ parameters. Some parameter structs are shared between different commands.</p>
 

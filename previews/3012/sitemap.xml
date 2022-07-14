@@ -1531,6 +1531,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/3012/develop/qa/</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/3012/develop/architecture/</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3012/develop/networking/networking-overview/</loc>
 </url>
 <url>
@@ -2845,9 +2848,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/3012/develop/internal/</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/3012/develop/architecture/</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3012/develop/developer-guide/events/</loc>
 </url>
 <url>
@@ -3020,10 +3020,10 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3012/media/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-07-12T13:06:19+00:00</lastmod>
+<lastmod>2022-07-14T12:39:37+00:00</lastmod>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3012/media/Hybrid-backup-v8.pdf</loc>
-<lastmod>2022-07-12T13:06:19+00:00</lastmod>
+<lastmod>2022-07-14T12:39:37+00:00</lastmod>
 </url>
 </urlset>

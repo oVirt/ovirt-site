@@ -1,5 +1,4 @@
-=== Red Hat Virtualization 4.4 Batch Update 1 (ovirt-4.5.1)
-
+=== Red Hat Virtualization 4.4 SP 1 Batch Update 1 (ovirt-4.5.1)
 
 
 ==== Bug Fix
@@ -130,5 +129,3 @@ If you cannot access the Manager and are using a very long FQDN:
 2. Add the following line to `/etc/httpd/conf.d/z-ovirt-engine-proxy.conf`:
   ProxyIOBufferSize PPPP
 where `PPPP` is greater than `NNNN` in the error message. Restart Apache.
-
-

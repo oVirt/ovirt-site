@@ -1,4 +1,4 @@
-=== Red Hat Virtualization 4.4 SP1 Batch Update 1 (ovirt-4.5.1)
+=== Red Hat Virtualization 4.4 Batch Update 1 (ovirt-4.5.1)
 
 
 
@@ -62,6 +62,9 @@ The ovirt_vm Ansible module displays an error message if a non-existent snapshot
 
 BZ#link:https://bugzilla.redhat.com/2099650[2099650]::
 A bug that caused the upgrade process to fail if the vdc_options table contained records with a NULL default value has been fixed.
+
+BZ#link:https://bugzilla.redhat.com/2105296[2105296]::
+Virtual machines with VNC created by earlier Manager versions sometimes failed to migrate to newer hosts because the VNC password was too long. This issue has been fixed.
 
 ==== Enhancements
 
@@ -127,3 +130,5 @@ If you cannot access the Manager and are using a very long FQDN:
 2. Add the following line to `/etc/httpd/conf.d/z-ovirt-engine-proxy.conf`:
   ProxyIOBufferSize PPPP
 where `PPPP` is greater than `NNNN` in the error message. Restart Apache.
+
+

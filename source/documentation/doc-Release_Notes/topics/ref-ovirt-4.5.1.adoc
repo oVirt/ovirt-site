@@ -1,0 +1,131 @@
+=== Red Hat Virtualization 4.4 SP 1 Batch Update 1 (ovirt-4.5.1)
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1930643[1930643]::
+A wait_after_lease option has been added to the ovirt_vm Ansible module to provide a delay so that the VM lease creation is completed before the next action starts.
+
+BZ#link:https://bugzilla.redhat.com/1958032[1958032]::
+Previously, live storage migration could fail if the destination volume filled up before it was extended. In the current release, the initial size of the destination volume is larger and the extension is no longer required.
+
+BZ#link:https://bugzilla.redhat.com/1994144[1994144]::
+The email address for notifications is updated correctly on the "Manage Events" screen.
+
+BZ#link:https://bugzilla.redhat.com/2001574[2001574]::
+Previously, when closing the "Move/Copy disk" dialog in the Administration Portal, some of the acquired resources were not released, causing browser slowness and high memory usage in environments with many disks. In this release, the memory leak has been fixed.
+
+BZ#link:https://bugzilla.redhat.com/2001923[2001923]::
+Previously, when a failed VM snapshot was removed from the Manager database while the volume remained on the storage, subsequent operations failed because there was a discrepancy between the storage and the database. Now, the VM snapshot is retained if the volume is not removed from the storage.
+
+BZ#link:https://bugzilla.redhat.com/2006625[2006625]::
+Previously, memory allocated by hugepages was included in the host memory usage calculation, resulting in high memory usage in the Administration Portal, even with no running VMs, and false VDS_HIGH_MEM_USE warnings in the logs.
+In this release, hugepages are not included in the memory usage. VDS_HIGH_MEM_USE warnings are logged only when normal (not hugepages) memory usage is above a defined threshold. Memory usage in the Administration Portal is calculated from the normal and hugepages used memory, not from allocated memory.
+
+BZ#link:https://bugzilla.redhat.com/2030293[2030293]::
+A VM no longer remains in a permanent locked state if the Manager is rebooted while exporting the VM as OVA.
+
+BZ#link:https://bugzilla.redhat.com/2048545[2048545]::
+LVM command error messages have been improved so that it is easier to trace and debug errors.
+
+BZ#link:https://bugzilla.redhat.com/2055905[2055905]::
+The default migration timeout period has been increased to enable VMs with many direct LUN disks, which require more preparation time on the destination host, to be migrated.
+
+The migration_listener_prepare_disk_timeout and max_migration_listener_timeout VDSM options have been added so that the default migration timeout period can be extended if necessary.
+
+BZ#link:https://bugzilla.redhat.com/2068270[2068270]::
+Previously, when downloading snapshots, the disk_id was not set, which caused resumption of the transfer operation to fail because locking requires the disk_id to be set. In this release, the disk_id is always set so that the transfer operation recovers after restart.
+
+BZ#link:https://bugzilla.redhat.com/2070045[2070045]::
+The host no longer enters a non-responsive state if the OVF store update operation times out because of network errors.
+
+BZ#link:https://bugzilla.redhat.com/2072626[2072626]::
+The ovirt-engine-notifier correctly increments the SNMP EngineBoots value after restarts, which enables the ovirt-engine-notifier to work with the SNMPv3 authPriv security level.
+
+BZ#link:https://bugzilla.redhat.com/2077008[2077008]::
+The QEMU guest agent now reports the correct guest CPU count.
+
+BZ#link:https://bugzilla.redhat.com/2081241[2081241]::
+Previously, VMs with one or more VFIO devices, Q35 chipset, and maximum number of vCPUs >= 256 might fail to start because of a memory allocation error reported by the QEMU guest agent. This error has been fixed.
+
+BZ#link:https://bugzilla.redhat.com/2081359[2081359]::
+Infiniband interfaces are now reported by VDSM.
+
+BZ#link:https://bugzilla.redhat.com/2081493[2081493]::
+The size of preallocated volumes is unchanged after a cold merge.
+
+BZ#link:https://bugzilla.redhat.com/2090331[2090331]::
+The ovirt_vm Ansible module displays an error message if a non-existent snapshot is used to clone a VM.
+
+BZ#link:https://bugzilla.redhat.com/2099650[2099650]::
+A bug that caused the upgrade process to fail if the vdc_options table contained records with a NULL default value has been fixed.
+
+BZ#link:https://bugzilla.redhat.com/2105296[2105296]::
+Virtual machines with VNC created by earlier Manager versions sometimes failed to migrate to newer hosts because the VNC password was too long. This issue has been fixed.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1663217[1663217]::
+The hostname and/or FQDN of the VM or VDSM host can change after a virtual machine (VM) is created. Previously, this change could prevent the VM from fetching errata from Red Hat Satellite/Foreman. With this enhancement, errata can be fetched even if the VM hostname or FQDN changes.
+
+BZ#link:https://bugzilla.redhat.com/1782077[1782077]::
+An "isolated threads" CPU pinning policy has been added. This policy pins a physical core exclusively to a virtual CPU, enabling a complete physical core to be used as the virtual core of a single virtual machine.
+
+BZ#link:https://bugzilla.redhat.com/1881280[1881280]::
+The hosted-engine --deploy --restore-from-file prompts now include guidance to clarify the options and to ensure correct input.
+
+BZ#link:https://bugzilla.redhat.com/1937408[1937408]::
+The following key-value pairs have been added to the KVM dictionary in the ovirt_template module for importing a template from OVA:
+
+* URL, for example, qemu:///system
+* storage_domain for converted disks
+* host from which the template is imported
+* clone to regenerate imported template's identifiers
+
+BZ#link:https://bugzilla.redhat.com/1976607[1976607]::
+VGA has replaced QXL as the default video device for virtual machines. You can switch from QXL to VGA using the API by removing the graphic and video devices from the VM (creating a headless VM) and then adding a VNC graphic device.
+
+BZ#link:https://bugzilla.redhat.com/1996098[1996098]::
+The copy_paste_enabled and file_transfer_enabled options have been added to the ovirt_vm Ansible module.
+
+BZ#link:https://bugzilla.redhat.com/1999167[1999167]::
+Spice console remote-viewer now allows the Change CD command to work with data domains if no ISO domains exist. If there are multiple data domains, remote-viewer selects the first data domain on the list of available domains.
+
+BZ#link:https://bugzilla.redhat.com/2081559[2081559]::
+The rhv-log-collector-analyzer discrepancy tool now detects preallocated QCOW2 images that have been reduced.
+
+BZ#link:https://bugzilla.redhat.com/2092885[2092885]::
+The Welcome page of the Administration Portal now displays both the upstream and downstream version names.
+
+==== Rebase: Bug Fixes Only
+
+These items are rebases of bug fixes included in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/2093795[2093795]::
+Rebase package(s) to version: 4.4.6
+This fixes an issue which prevented the collection of PostgreSQL data and the documentation of the --log-size option.
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+BZ#link:https://bugzilla.redhat.com/1703153[1703153]::
+There is a workaround for creating a RHV Manager hostname that is longer than 95 characters.
+
+1. Create a short FQDN, up to 63 characters, for the engine-setup tool.
+2. Create a custom certificate and put the short FQDN and a long FQDN (final hostname) into the certificate's *Subject Alternate Name* field.
+3. Configure the Manager to use the custom certificate.
+4. Create an `/etc/ovirt-engine/engine.conf.d/99-alternate-engine-fqdns.conf` file with the following content:
+SSO_ALTERNATE_ENGINE_FQDNS="long FQDN"
+5. Restart the `ovirt-engine` service.
+
+If you cannot access the Manager and are using a very long FQDN:
+1. Check for the following error message in `/var/log/httpd/error_log`:
+`ajp_msg_check_header() incoming message is too big NNNN, max is MMMM`
+2. Add the following line to `/etc/httpd/conf.d/z-ovirt-engine-proxy.conf`:
+  ProxyIOBufferSize PPPP
+where `PPPP` is greater than `NNNN` in the error message. Restart Apache.

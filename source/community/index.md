@@ -51,8 +51,6 @@ Before getting started, please read our [community etiquette guidelines](/commun
 If you'd like to contribute code to oVirt, visit the [Developer section](/develop/) of the site for guidelines.
 All of our projects use git and are hosted at [https://github.com/oVirt](https://github.com/oVirt/).
 
-We also have an [overview](https://github.com/oVirt/ovirt-site/blob/dashpanel/dashpanel-ovirt.md) of all open issues and PRs for oVirt on GitHub.
-
 ## Testing
 
 We're always eager to have new contributors to the [oVirt Quality Assurance](/develop/qa/index.html) project, no matter your experience level.

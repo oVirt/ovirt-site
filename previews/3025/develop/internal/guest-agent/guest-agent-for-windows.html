@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt Guest Agent For Windows | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt Guest Agent For Windows" />
+<meta name="author" content="Karli Sjöberg" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3025/develop/internal/guest-agent/guest-agent-for-windows.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3025/develop/internal/guest-agent/guest-agent-for-windows.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt Guest Agent For Windows" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Karli Sjöberg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Karli Sjöberg"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt Guest Agent For Windows","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3025/images/logo.svg"},"name":"Karli Sjöberg"},"url":"https://ovirt.github.io/ovirt-site/previews/3025/develop/internal/guest-agent/guest-agent-for-windows.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3025/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3025/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3025/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3025/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3025/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3025/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3025/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3025/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3025/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3025/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3025/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3025/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3025/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3025/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3025/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3025/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3025/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3025/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3025/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3025/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3025/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3025/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3025//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3025//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3025/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3025/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3025/develop/internal/">
+              <span property="name">Internal</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3025/develop/internal/guest-agent/">
+              <span property="name">Guest Agent</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/39591445fa5eca60faff5eb91fd12321?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/39591445fa5eca60faff5eb91fd12321?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Karli Sjöberg">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Karli Sjöberg</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2a744af9899bb43af53646a9e98e69bb?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2a744af9899bb43af53646a9e98e69bb?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Lev Veyde">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Lev Veyde</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cbccb13b9d42aebbf895417aabf7e7da?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cbccb13b9d42aebbf895417aabf7e7da?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Nicholas Kesick">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nicholas Kesick</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Much of this developer documentation provides historical context but may not reflect the current state of the project.<br>If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3025/documentation/'>User Documentation is available here.</a></div>
+
+<!-- TODO: Content review -->
+
+<h1 id="ovirt-guest-agent-for-windows">oVirt Guest Agent For Windows</h1>
+
+<h2 id="important-note">Important Note!</h2>
+
+<p>With the release of oVirt 3.5 we have introduced the oVirt WGT (Windows Guest Tools).</p>
+
+<p>The oVirt WGT provides an ISO with all the tools and drivers one needs to install on a Windows VM, with an easy to use installer to install it all in one step.</p>
+
+<p>So manual compilation and installation of oVirt Guest Agent is no longer necessary.</p>
+
+<p>The oVirt WGT ISO is included in <a href="http://resources.ovirt.org/pub/ovirt-3.5/rpm/fc20/noarch/ovirt-guest-tools-iso-3.5-7.noarch.rpm">ovirt-guest-tools-iso-3.5-7.noarch.rpm</a> package.</p>
+
+<h2 id="how-to-install-the-ovirt-guest-agent-on-windows">How to install the ovirt-guest-agent on Windows.</h2>
+
+<p>First of all, make sure that you have installed drivers for virtio-serial and let the VM reboot, it won´t work otherwise. Then you need to get the files for windows. You use “git” to clone the tree needed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/oVirt/ovirt-guest-agent.git
+</code></pre></div></div>
+
+<p>You either install git inside the VM, or sit at another machine where you have git and then find a way to get the <code class="language-plaintext highlighter-rouge">ovirt-guest-agent</code> directory over on to the Windows VM.</p>
+
+<p>So you´ll end up with a directory called ovirt-guest-agent. Inside of it is another directory also called <code class="language-plaintext highlighter-rouge">ovirt-guest-agent</code> (to not complicate matters..), and inside of that is a file called <code class="language-plaintext highlighter-rouge">README-windows.txt</code> that very clearly explains how to install the service.</p>
+
+<ol>
+  <li><a href="http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi">Install Python 2.7 for Windows</a></li>
+  <li><a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build216/pywin32-216.win32-py2.7.exe/download">Install Python for Windows extension</a></li>
+  <li><a href="http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe/download">Install py2exe</a></li>
+  <li>
+    <p>Run command:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%EXTRACTDIR%\ovirt-guest-agent\ovirt-guest-agent&gt; C:\Python27\python.exe setup.py py2exe -b 1
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>And you´ll get two files in <code class="language-plaintext highlighter-rouge">.\dist\</code> called <code class="language-plaintext highlighter-rouge">OVirtGuestService.exe</code> and <code class="language-plaintext highlighter-rouge">w9xpopen.exe</code>. Take them, along with <code class="language-plaintext highlighter-rouge">.\ovirt-guest-agent.ini</code>, create an appropriate folder for them, e.g. <code class="language-plaintext highlighter-rouge">C:\Program Files\Guest Agents\oVirt Guest Agent</code> and copy those files there.</p>
+
+<p>Using as command prompt running as administrator, run the following commands to get it installed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Program Files\Guest Agents\oVirt Guest Agent&gt; OVirtGuestService.exe -install
+C:\Program Files\Guest Agents\oVirt Guest Agent&gt; net start OVirtGuestService
+C:\Program Files\Guest Agents\oVirt Guest Agent&gt; sc config "OVirtGuestService" start= auto
+</code></pre></div></div>
+
+<p>Everything is then installed so you can delete the <code class="language-plaintext highlighter-rouge">%EXTRACTDIR%\ovirt-guest-agent</code>. You won’t be needing it anymore.</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3025/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3025/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3025/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3025/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/internal/guest-agent/guest-agent-for-windows.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/internal/guest-agent/guest-agent-for-windows.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

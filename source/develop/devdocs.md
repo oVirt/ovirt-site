@@ -69,7 +69,7 @@ Obsolete:
 - [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment.html)
 - [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot.html)
 - [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago.html)
-- [Building VDSM](/develop/developer-guide/vdsm/developers.html)
+- [VDSM Developers documentation](https://github.com/oVirt/vdsm/blob/master/doc/development.md)
 - [FAQ](/develop/faq.html)
 - [HA VMs](/develop/ha-vms.html)
 - [Migrate PKI to SHA256 signatures](/develop/migrate-pki-to-sha256.html)

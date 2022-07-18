@@ -31,6 +31,7 @@ authors:
 
 - [Infrastructure](infra/infrastructure.html)
 - [Integration](integration/index.html)
+- [oVirt Quality Assurance](qa/index.html)
 
 
 #### Design Documentation
@@ -74,6 +75,7 @@ Obsolete:
 - [Migrate PKI to SHA256 signatures](/develop/migrate-pki-to-sha256.html)
 - [Networking](/develop/networking/)
 - [Internal](/develop/internal/)
+- [Infra](/develop/infra/)
 - [Resources](/community/get-involved/resources/)
 - [SLA](/develop/sla/)
 - [Storage](/develop/storage/)

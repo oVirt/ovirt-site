@@ -6,12 +6,12 @@
 | [ovirt-engine](https://github.com/oVirt/ovirt-engine) | The oVirt Engine virtualization manager. For issues use http://bugzilla.redhat.com | [75](https://github.com/ovirt/ovirt-engine/issues) | 360 | 228 |
 | [vdsm](https://github.com/oVirt/vdsm) | The Virtual Desktop Server Manager. For issues use http://bugzilla.redhat.com. | [64](https://github.com/ovirt/vdsm/issues) | 116 | 152 |
 | [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [33](https://github.com/ovirt/ovirt-web-ui/issues) | 89 | 69 |
-| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [30](https://github.com/ovirt/ovirt-ansible-collection/issues) | 53 | 73 |
+| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [31](https://github.com/ovirt/ovirt-ansible-collection/issues) | 53 | 73 |
 | [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [27](https://github.com/ovirt/ovirt-imageio/issues) | 14 | 17 |
-| [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [19](https://github.com/ovirt/ovirt-site/issues) | 73 | 297 |
+| [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [18](https://github.com/ovirt/ovirt-site/issues) | 73 | 297 |
 | [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [16](https://github.com/ovirt/go-ovirt-client/issues) | 10 | 14 |
 | [ovirt-system-tests](https://github.com/oVirt/ovirt-system-tests) | This repository includes automated tests executed on the whole oVirt distribution | [13](https://github.com/ovirt/ovirt-system-tests/issues) | 15 | 37 |
-| [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [13](https://github.com/ovirt/terraform-provider-ovirt/issues) | 129 | 66 |
+| [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [13](https://github.com/ovirt/terraform-provider-ovirt/issues) | 128 | 66 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [13](https://github.com/ovirt/stage-gh-stdci2/issues) | 1 | 2 |
 | [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | oVirt Engine API Model | [8](https://github.com/ovirt/ovirt-engine-api-model/issues) | 18 | 31 |
 | [ovirt-engine-keycloak](https://github.com/oVirt/ovirt-engine-keycloak) | Package that provides Keycloak overlay configuration to be run on oVirt Engine&#39;s Widlfly/EAP instance | [6](https://github.com/ovirt/ovirt-engine-keycloak/issues) | 3 | 4 |

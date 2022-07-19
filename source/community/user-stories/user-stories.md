@@ -96,18 +96,6 @@ Spanish software consultants [Nimbus Concept](/community/user-stories/nimbus-con
 Read the full [Nimbus Concept case study](/community/user-stories/nimbus-concept-case-study.html)
 
 </div>
-<div class="case-study">
-### Universidad de Sevilla
-
-![](/images/logos/Sevilla.png)
-
-When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program, [UDS Enterprise](https://www.udsenterprise.com/) helped the institution find a virtualization solution that delivered superior flexibility at a much lower cost than proprietary solutions.
-
-That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
-
-Read the full [Universidad de Sevilla case study](/community/user-stories/universidad-de-sevilla-case-study.html)
-
-</div>
 
 <div class="case-study">
 ### the Solution Company

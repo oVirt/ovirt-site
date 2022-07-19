@@ -14,7 +14,7 @@ Our community keeps growing as more individual users and organizations choose oV
 
 ## Professional Services & Integrators
 
-The following organizations use oVirt for customer-facing or internal servers. Many are active in the oVirt community. For deployment examples, read the [it-novum](/community/user-stories/it-novum-case-study.html), [Nimbus Concept](/community/user-stories/nimbus-concept-case-study.html), [Nieuwland](/community/user-stories/nieuwland-case-study.html) and [UDS Enterprise](/community/user-stories/universidad-de-sevilla-case-study.html) case studies.
+The following organizations use oVirt for customer-facing or internal servers. Many are active in the oVirt community. For deployment examples, read the [it-novum](/community/user-stories/it-novum-case-study.html), [Nimbus Concept](/community/user-stories/nimbus-concept-case-study.html) and [Nieuwland](/community/user-stories/nieuwland-case-study.html) case studies.
 
 <div class="case-studies">
 <div class="case-study">
@@ -60,8 +60,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 ## oVirt in Education
 
-These institutions have chosen oVirt to manage their virtual workloads. See also the [Florida State University](/community/user-stories/RCC-case-study.html)
-and [University of Seville](/community/user-stories/universidad-de-sevilla-case-study.html) case studies.
+These institutions have chosen oVirt to manage their virtual workloads. See also the [Florida State University](/community/user-stories/RCC-case-study.html) case study.
 
 <div class="case-studies">
 <div class="case-study">

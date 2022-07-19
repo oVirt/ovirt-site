@@ -20,7 +20,7 @@ The following table describes features available as Technology Previews in {virt
 
 [NOTE]
 ====
-All hosts in the cluster must use IPv4 or IPv6 for RHV networks, not simultaneous IPv4 and IPv6, because Dual Stack is not supported.
+All hosts in the cluster must use IPv4 or IPv6 for RHV networks, not simultaneous IPv4 and IPv6, because dual stack is not supported.
 ====
 
 For details about IPv6 support, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#IPv6-networking-support-labels[IPv6 Networking Support] in the Administration Guide.

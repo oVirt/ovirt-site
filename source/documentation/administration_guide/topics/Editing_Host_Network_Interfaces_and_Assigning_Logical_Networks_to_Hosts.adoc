@@ -63,12 +63,14 @@ If you change the host's management network IP address, you must xref:Reinstalli
 
 Each logical network can have a separate gateway defined from the management network gateway. This ensures traffic that arrives on the logical network will be forwarded using the logical network's gateway instead of the default gateway used by the management network.
 ====
+ifdef::rhv-doc[]
 +
 [IMPORTANT]
 ====
 Set *all* hosts in a cluster to use the same IP stack for their management network; either IPv4 or IPv6 only. Dual stack is not supported.
 ====
-+
+endif::[]
+
 .. Use the *QoS* tab to override the default host network quality of service. Select *Override QoS* and enter the desired values in the following fields:
 
 * *Weighted Share*: Signifies how much of the logical link's capacity a specific network should be allocated, relative to the other networks attached to the same logical link. The exact share depends on the sum of shares of all networks on that link. By default this is a number in the range 1-100.

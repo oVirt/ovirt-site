@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.6.5 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.6.5 Release Notes" />
+<meta name="author" content="Yedidyah Bar David" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3027/release/3.6.5/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3027/release/3.6.5/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.6.5 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Yedidyah Bar David" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Yedidyah Bar David"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.6.5 Release Notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3027/images/logo.svg"},"name":"Yedidyah Bar David"},"url":"https://ovirt.github.io/ovirt-site/previews/3027/release/3.6.5/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3027/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3027/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3027/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3027/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3027/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3027/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3027/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3027/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3027/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3027/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3027/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3027/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3027/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3027/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3027/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3027/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class="releases"><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3027/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3027/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3027/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3027/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3027/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3027/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3027//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3027//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3027/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3027/release/">
+              <span property="name">Release</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Yedidyah Bar David">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yedidyah Bar David</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Rafael Martins">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/rafaelmartins" title="Rafael Martins">Rafael Martins</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-365-release-notes">oVirt 3.6.5 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of oVirt 3.6.5 release as of April 21st, 2016.</p>
+
+<p>oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).</p>
+
+<p>To find out more about features which were added in previous oVirt releases,
+check out the <a href="/ovirt-site/previews/3027/develop/release-management/releases/">previous versions release notes</a>.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-365-release-notes" id="markdown-toc-ovirt-365-release-notes">oVirt 3.6.5 Release Notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+          <li><a href="#ovirt-live" id="markdown-toc-ovirt-live">oVirt Live</a></li>
+          <li><a href="#ovirt-node" id="markdown-toc-ovirt-node">oVirt Node</a></li>
+        </ol>
+      </li>
+      <li><a href="#whats-new-in-365" id="markdown-toc-whats-new-in-365">What’s New in 3.6.5?</a>        <ol>
+          <li><a href="#enhancement" id="markdown-toc-enhancement">Enhancement</a>            <ol>
+              <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug fixes</a>        <ol>
+          <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a></li>
+          <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+          <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a></li>
+          <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a></li>
+          <li><a href="#ovirt-reports" id="markdown-toc-ovirt-reports">oVirt Reports</a></li>
+          <li><a href="#ovirt-engine-sdk" id="markdown-toc-ovirt-engine-sdk">oVirt Engine SDK</a></li>
+          <li><a href="#ovirt-engine-extension-aaa-ldap" id="markdown-toc-ovirt-engine-extension-aaa-ldap">oVirt Engine Extension AAA LDAP</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p>In order to install it on a clean system, you need to install</p>
+
+<p><code class="language-plaintext highlighter-rouge"># yum install </code><a href="http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm</code></a></p>
+
+<p>If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.</p>
+
+<p>Once ovirt-release36 package is installed, you will have the ovirt-3.6-stable repository and any other repository needed for satisfying dependencies enabled by default.</p>
+
+<p>If you are upgrading from oVirt &lt; 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see <a href="/ovirt-site/previews/3027/develop/release-management/releases/3.5.6/">oVirt 3.5.6 Release Notes</a> for upgrade instructions.</p>
+
+<p>For upgrading now you just need to execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update "ovirt-engine-setup*"
+  # engine-setup
+</code></pre></div></div>
+
+<h3 id="ovirt-live">oVirt Live</h3>
+
+<p>A new oVirt Live ISO is available at:</p>
+
+<p><a href="http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/</code></a></p>
+
+<h3 id="ovirt-node">oVirt Node</h3>
+
+<p>oVirt Node is now released continously. Please refer to the <a href="/ovirt-site/previews/3027/download/node.html">Node Project</a> page for release notes, download and install instructions.</p>
+
+<h2 id="whats-new-in-365">What’s New in 3.6.5?</h2>
+
+<h3 id="enhancement">Enhancement</h3>
+
+<h4 id="ovirt-engine">oVirt Engine</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1160094">BZ 1160094</a> <b>[RFE] Edit the settings of the hosted engine VM in the GUI</b><br />Feature: Switching from per-host editing of the hosted engine vm to the regular engine flow of updating a vm via REST api or UI.<br /><br />Reason: Instead of cumbersome, error-prone, local editing the vm.conf on each and every HA host we use the engine itself to edit it. The change should be made in one place, once.<br /><br />Result: A change via ovirt-engine is kept in the engine DB and propagated into the OVF_STORE disk on the storage donmain. So it is both shared, and backed-up and highly available.</li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1269301">BZ 1269301</a> <b>RFE: Do not recycle MAC addresses immediately</b><br />Feature: <br /><br />Reason: <br />In environment, where VMs are created and removed quickly, acquiring MAC addresses in smallest MAC available order may lead to situation, where there’s MAC still used on network, but device using it is different than expected — other devices expects, that this MAC address belongs to some device which was here just moment ago.<br /><br />Result: MAC addresses are acquired in cycle. When getting MAC address from pool, pool marks position of last returned MAC, and next time will search for available MAC from this position. This will cause all other available MAC address are ‘used’ before reusing MAC address returned back to pool.</li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1316583">BZ 1316583</a> <b>[RFE][z-stream clone - 3.6.5] Add Fencing of Ilo3/4 via ssh fencing to RHEV-M</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1320092">BZ 1320092</a> <b>[RFE][3.6 clone] engine-backup should not depend on the engine</b><br /></li>
+</ul>
+
+<h2 id="bug-fixes">Bug fixes</h2>
+
+<h3 id="ovirt-engine-1">oVirt Engine</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1058384">BZ 1058384</a> <b>Changing a VM’s migration profile now requires the VM to be down</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1154391">BZ 1154391</a> <b>oVirt Change CD incorrectly rejecting isos with uppercase extensions (ISO vs iso)</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1238742">BZ 1238742</a> <b>Wrong changed items list, when changing in edit running VM dialog, the console parameter</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1260962">BZ 1260962</a> <b>[help] Run Once help icon points to useless doc</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1275778">BZ 1275778</a> <b>Unable to set VM highly available in Instance type</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1281732">BZ 1281732</a> <b>Updating a template in a vm pool causes removal of soundcard and memory ballon device</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1281871">BZ 1281871</a> <b>[admin portal] Actual timezone in the guest differs tooltip / Rename ‘Time Zone’ in VM -&gt; System -&gt; General dialog to ‘RTC time’</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1290478">BZ 1290478</a> <b>Prevent unsupported or risky provisioning actions on hosted engine VM</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1291080">BZ 1291080</a> <b>[engine-backend] Actual size of disk, that was previously imported from Glance, is reported wrongly in ‘attach’ disk view</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1291146">BZ 1291146</a> <b>[de_DE][Admin Portal] - Icon overlapping in New Network Interface form</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1293154">BZ 1293154</a> <b>New VM dialog offers each VM template twice</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1293574">BZ 1293574</a> <b>[WebAdmin] - “Error message appears in the UI “Uncaught exception occurred.” when pressing on a rhev-h server that have a new version available</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1294511">BZ 1294511</a> <b>Pool’s template version doesn’t update when set to latest and a new version is created</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1294678">BZ 1294678</a> <b>[scale] - High Memory and CPU Usage in Chrome and Firefox</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1297018">BZ 1297018</a> <b>[security] disable strict user checking does not work - users can steal already opened console by other user</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1297454">BZ 1297454</a> <b>[SR-IOV] - REST API - No validation for ‘passthrough’ profile in DCs less than 3.6</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1302372">BZ 1302372</a> <b>The Sub Version Name is present on the new pool dialog</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1302582">BZ 1302582</a> <b>The relation between memory and memory guaranteed is not consistent</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1303132">BZ 1303132</a> <b>engine-setup js-ant failed to execute with java 1.8</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1303640">BZ 1303640</a> <b>[SR-IOV] - PF is no longer considered as a PF after the VM shuts down, if it was attached/added directly to VM via Host Devices sub tab</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1304674">BZ 1304674</a> <b>RHEVM UI raise exceptions when remove any items from long list (SDa/VMs/etc)</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1304676">BZ 1304676</a> <b>Watchdog doesn’t allow starting a virtual machine from template</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1304729">BZ 1304729</a> <b>Hovering above an exclamation mark next to vm icon does not produce the expected message</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1304776">BZ 1304776</a> <b>Edit VM dialog, host side-tab: change label “specific” to “specific host(s)”</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1305837">BZ 1305837</a> <b>sign websocket proxy ticket via RESTapi when VM have VNC graphics protocol</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1305904">BZ 1305904</a> <b>Cloud-Init payload not passed into VM via python SDK</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1306178">BZ 1306178</a> <b>ovirt-engine-setup-plugin-ovirt-engine does not require ovirt-engine-setup-plugin-vmconsole-proxy-helper</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1306585">BZ 1306585</a> <b>Network Import dialogue will not close on Cancel</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1307030">BZ 1307030</a> <b>uncaught exception while searching using a tag</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1308642">BZ 1308642</a> <b>Glance image import: wrong target storage domain is mentioned in the running task</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1308778">BZ 1308778</a> <b>Windows VM name validation is limited to 15 chars, no indication that sysinit VM hostname should be used</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1308868">BZ 1308868</a> <b>NPE when importing image from glance</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1308885">BZ 1308885</a> <b>virtio-serial duplicates after engine upgrade to 3.6</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1308914">BZ 1308914</a> <b>v2v: webadmin does not indicate bootable/OS disk on an imported VM.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1309221">BZ 1309221</a> <b>UI- Add VM from template list - wrong “Optimized For” value</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1309294">BZ 1309294</a> <b>Failed to syncDbRecords after successful live merge because host is down</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1310615">BZ 1310615</a> <b>“Volume does not exist” alert is displayed when snapshot successfully deleted</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1311052">BZ 1311052</a> <b>cannot add VM from a template as a PowerUser</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1311408">BZ 1311408</a> <b>spice html5 missing from engine-config’s ClientModeSpiceDefault.validValues</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1311899">BZ 1311899</a> <b>Minimum guaranteed memory is higher than VM memory when hotplug fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1311908">BZ 1311908</a> <b>Edit VM dialog save action calls UpdateVmDiskCommand even though no disk change happened</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1312879">BZ 1312879</a> <b>cannot refresh host devices of a host when device is assigned to multiple VMs</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1312880">BZ 1312880</a> <b>Alert box regarding supported browsers has broken link</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1313744">BZ 1313744</a> <b>VM is inoperative after power off during Live storage migration</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1314430">BZ 1314430</a> <b>On rhevm webadmin login page the word “Documentation” is not clearly seen</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1314826">BZ 1314826</a> <b>No debug log entry for user executing an action or query</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1314847">BZ 1314847</a> <b>Restore fails with ovirt-engine-dwh conf, though that was not on backup</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1315744">BZ 1315744</a> <b>upgrade from 3.5.1 fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1315886">BZ 1315886</a> <b>Template Edit dialog loads SPICE as Graphics protocol even if using VNC</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1316849">BZ 1316849</a> <b>New role ‘CpuProfileOperator’ in Everyone group caused that user with ‘UserRole’ can see extended tab in Userportal</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1317248">BZ 1317248</a> <b>Add host name as header to JsonRpcUtils</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1318936">BZ 1318936</a> <b>The label Sessions was changed to ‘Guest Information’ in the left tree view</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1319635">BZ 1319635</a> <b>Add warning to engine-manage-domains is not supported</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1319769">BZ 1319769</a> <b>Allow editing of hosted engine vNICs</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1321583">BZ 1321583</a> <b>Service name in notify events is not correct</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1323450">BZ 1323450</a> <b>[z-stream clone - 3.6.5] java.lang.IllegalArgumentException: No type specified for option: ‘encrypt_options’ in /api/capabilities</b><br /></li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1292096">BZ 1292096</a> <b>v2v: Implement bypass for dcpath (cluster name) issue</b><br /></li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-ha">oVirt Hosted Engine HA</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1292652">BZ 1292652</a> <b>[upgrade] the upgrade from 3.5 to 3.6 can fail if interrupted in the middle and restarted after a reboot</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1319785">BZ 1319785</a> <b>vNICs without link from OVF must be marked as such in the vm.conf too</b><br /></li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1228141">BZ 1228141</a> <b>[hosted-engine][text] generate cloud-init image in HE setup is not clear</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1309572">BZ 1309572</a> <b>[RFE] Provide flag to run Hosted Engine VM from local conf file instead of the one in the shared storage.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1318612">BZ 1318612</a> <b>[z-stream clone - 3.6.5] hosted engine appliance deployment fails with insufficient information.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1319881">BZ 1319881</a> <b>Hosted-engine CPU type list should match the list on the engine</b><br /></li>
+</ul>
+
+<h3 id="ovirt-reports">oVirt Reports</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1296585">BZ 1296585</a> <b>Heatmap report show additional line for clusters with multiple hosts</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1303132">BZ 1303132</a> <b>engine-setup js-ant failed to execute with java 1.8</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1304656">BZ 1304656</a> <b>VM uptime is wrong on BR44 report</b><br /></li>
+</ul>
+
+<h3 id="ovirt-engine-sdk">oVirt Engine SDK</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1311495">BZ 1311495</a> <b>Add support for URL parameters in actions</b><br /></li>
+</ul>
+
+<h3 id="ovirt-engine-extension-aaa-ldap">oVirt Engine Extension AAA LDAP</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1313516">BZ 1313516</a> <b>failover serverset don’t work - getting null objects as addreses</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1313583">BZ 1313583</a> <b>aaa-ldap setup tool shouldn’t offer advanced option to specify custom DNS servers as it cannot be verified</b><br /></li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3027/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3027/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3027/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3027/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/3.6.5/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/release/3.6.5/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

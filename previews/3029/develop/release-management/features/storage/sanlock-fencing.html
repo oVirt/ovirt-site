@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sanlock Fencing | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Sanlock Fencing" />
+<meta name="author" content="Nir Soffer" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3029/develop/release-management/features/storage/sanlock-fencing.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3029/develop/release-management/features/storage/sanlock-fencing.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Sanlock Fencing" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Nir Soffer" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Nir Soffer"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Sanlock Fencing","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3029/images/logo.svg"},"name":"Nir Soffer"},"url":"https://ovirt.github.io/ovirt-site/previews/3029/develop/release-management/features/storage/sanlock-fencing.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3029/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3029/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3029/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3029/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3029/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3029/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3029/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3029/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3029/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Nir Soffer">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nir Soffer</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Vered Volansky">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vered Volansky</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Yaniv Bronheim">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Bronheim</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3029/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="sanlock-fencing">Sanlock Fencing</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>When a host becomes non-responsive, oVirt engine tries to fence the host; detaching it from the shared storage, and hopefully making it responsive again. This feature adds a new fencing mechanism, fencing via shared storage using sanlock. Using sanlock, we can provide a simple fencing solution when soft or hard fencing are not available or fail, avoiding manual fencing, and increasing VM availability.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Nir Soffer (Nsoffer)</li>
+  <li>Email: <a href="mailto:nsoffer@redhat.com">nsoffer@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<p>This feature is in design phase.</p>
+
+<ul>
+  <li>Last updated on – by</li>
+</ul>
+
+<h2 id="why-another-fencing-mechanism">Why another fencing mechanism?</h2>
+
+<p>oVirt 3.4 supports 2 types of fencing; soft fencing and hard (or real) fencing. Soft fencing is implemented by logging in to the fenced host and restarting the vdsmd service. Hard fencing is implemented by fence agents, connecting to various power management devices, stopping the host, and then starting it. This option is available if the host has a compatible power management hardware, and power management was configured.</p>
+
+<p>In a typical data center, hosts are connected to the network using one nic, and to the storage using other nics or through an HBA. It may occur that the host is inaccessible through networking, but still has access to the shared storage. Current fencing mechanisms will fail and require manual reboot of the unreachable host. Until rebooted, VMs running on the host cannot be started on another host.</p>
+
+<p>While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. Sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, the sanlock daemon reboots the machine.</p>
+
+<h2 id="fencing-goals">Fencing goals</h2>
+
+<p>Fencing has two main goals:</p>
+
+<ol>
+  <li>Make host release shared resources</li>
+  <li>Make the host responsive again</li>
+</ol>
+
+<p>A host may run a critical VM, writing to shared storage, and using shared resources such as network addresses. If the host is inaccessible, we must not start the critical vm on another host, because both VMs will write to the same shared storage, corrupting data.</p>
+
+<p>Using sanlock fencing, we can trigger a reboot of the host, thus stopping vdsm and all running vms. Rebooting the host is typically what’s needed to make it responsive again.</p>
+
+<h2 id="sanlock-fencing---theory-of-operation">sanlock fencing - theory of operation</h2>
+
+<p>Fencing using sanlock includes the following steps:</p>
+
+<ol>
+  <li>Engine picks a proxy host</li>
+  <li>Engine sends sanlock fencing request to the proxy host</li>
+  <li>Proxy host sends sanlock fencing request to the sanlock daemon</li>
+  <li>Engine polls sanlock fencing status until host is assumed dead</li>
+</ol>
+
+<h3 id="engine-picks-a-proxy-host">Engine picks a proxy host</h3>
+
+<p>sanlock fencing will be available only on cluster using 3.5 compatibility version. This version will required vdsm version with sanlock fencing capability, which will required sanlock version that support fencing.</p>
+
+<p>Unlike hard fencing proxy search, a proxy for sanlock fencing must:</p>
+
+<ul>
+  <li>Fencing host must be operational</li>
+  <li>Both fencing host and fenced host must be from cluster 3.5</li>
+  <li>Both fencing host and fenced host must have access to same storage domain</li>
+  <li>Fencing host must not be busy fencing another host; the current sanlock fencing mechanism allow a host to fence one other host. We hope that sanlock will remove this limit or support more then one host.</li>
+</ul>
+
+<p>If cluster does not support sanlock fencing, or there is no available proxy host, sanlock fencing will fail and we will fall-back to the next fencing method.</p>
+
+<h3 id="engine-sends-sanlock-fencing-request-to-the-proxy-host">Engine sends sanlock fencing request to the proxy host</h3>
+
+<p>We will use the current fencing API, using new fencing type.</p>
+
+<p>Since sanlock fencing is using different parameters than other fencing agents, we will try to fit the sanlock parameters into the standard fencing agents interface. For example, sending the sanlock host id and lockspace name in the address field.</p>
+
+<p>sanlock does not support the “stop” and “start” verbs, used by hard fencing. We need to find how to integrate sanlock with the current fencing code.</p>
+
+<h3 id="proxy-host-sends-sanlock-fence-request-sanlock-daemon">Proxy host sends sanlock fence request sanlock daemon</h3>
+
+<p>We hope to have a sanlock fence request API, to send a reset message to the fenced host, and wait until the fenced host receives the message and stops renewing its lease.</p>
+
+<p>When a proxy gets a fencing request, we will start a fencing thread, and run the sanlock fencing command in this thread.</p>
+
+<p>At this point, the proxy host will return a response to the engine, and the engine will move the next step in the fencing sequence. The egine will change the host’s state to “Rebooting” upon receiving this response.</p>
+
+<h3 id="engine-polls-sanlock-fencing-status-until-host-is-assumed-dead">Engine polls sanlock fencing status until host is assumed dead</h3>
+
+<p>While vdsm is running the fencing command, engine will poll vdsm fencing status. Until the sanlock fencing command returns, vdsm will return the same status that other fencing agents return today when a host is stopping.</p>
+
+<p>We assume that sanlock request will return when sanlock on the fencing host is sure that the fenced host received the reset message, stopped renewing its host id lease, and enough time has passed, so the watcdog on the fenced host did reset the machine. We also assume that the watchdog on the fenced host cannot fail when resetting the machine.</p>
+
+<p>When sanlock command is finished, the fencing thread will wait for the next update, and return the result of the fence command. Engine will change the host status to “Non-Responsive”.</p>
+
+<p>At this point, engine can clear the VMs that were running on the fenced host and start them on another host.</p>
+
+<p>This step should take about 1-2 minutes, depending on sanlock configuration.</p>
+
+<h2 id="integration-with-existing-mechanisms">Integration with existing mechanisms</h2>
+
+<p>Since soft and hard fencing are fast, it seems a better option than sanlock fencing when a host is reachable. sanlock fencing will be used as a fall-back when soft and hard fencing are not available, or fail.</p>
+
+<p>For the first version, we may need to make sanlock fencing disabled by default and let users enable and disable it. This will require minor user interface changes.</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<h3 id="host-fatal-failures">Host fatal failures</h3>
+
+<p>If a fenced host has a hardware failure, looses power, its kernel panics, or it cannot access storage, the host will stop renewing its lease. However, since we have no indication about the host’s status, we must assume that the host may write to storage any time. In this case we would not be able to fence the host using sanlock, and manual fencing will be required.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>This feature requires fencing support in sanlock, discussed in the sanlock-devel mailing list:</p>
+
+<ul>
+  <li>David Teigland patch - <a href="https://lists.fedorahosted.org/pipermail/sanlock-devel/2014-January/000426.html">https://lists.fedorahosted.org/pipermail/sanlock-devel/2014-January/000426.html</a></li>
+  <li>Thread discussing the patch - <a href="https://lists.fedorahosted.org/pipermail/sanlock-devel/2014-January/000427.html">https://lists.fedorahosted.org/pipermail/sanlock-devel/2014-January/000427.html</a></li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li>[RFE] Add support for iscsi/scsi fencing in RHEV - <a href="https://bugzilla.redhat.com/show_bug.cgi?id=804272">https://bugzilla.redhat.com/show_bug.cgi?id=804272</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/Fencing_%28computing%29">http://en.wikipedia.org/wiki/Fencing_%28computing%29</a></li>
+  <li>Red Hat GFS 6.0: Administrator’s Guide: Using the Fencing System - (Documentation used to be at <code class="language-plaintext highlighter-rouge">https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/GFS_6.0_Administration_Guide/ch-fence.html</code> but the page doesn’t exist anymore)</li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<p>Initial tests (incomplete)</p>
+
+<ul>
+  <li>Setup soft fencing so it fails and disable hard fencing, and verify falling back to sanlock fencing</li>
+  <li>Setup hard fencing so it fails, and verify falling back to sanlock fencing</li>
+  <li>Regression: test that soft and hard fencing still work</li>
+  <li>Test various failure modes of sanlock fencing (TBD)</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="why-not-use-iscsi-fencing">Why not use ISCSI fencing?</h3>
+
+<p>SCSI fencing requires a large amount of configuration and coordination as well as hardware support, and is relevant only for SCSI storage types. sanlock fencing can work with all shared storage types (e.g FCP, NFS, glusterfs).</p>
+
+<h3 id="why-not-use-fence_sanlockd">Why not use fence_sanlockd?</h3>
+
+<p>The fence_sanlock package provides a daemon that uses its own storage volume and sanlock to create a fencing solution. However, it requires a rather large (2G) storage volume for managing the fencing leases, that need to be initialized. This would require a new version of storage pool and upgrades from older versions, and these are hard and painful.</p>
+
+<p>In addition, most of the infrastructure required by fence_sanlock is already available and used by vdsm and sanlock. We think that it would be much easier to have a solution based on the existing infrastructure.</p>
+
+<h3 id="why-not-use-vm-based-leases">Why not use VM based leases?</h3>
+
+<p>If we add VM based leases, sanlock would kill those VMs when fencing a host, or when access to storage is lost. In this case, we can check that the host was stopped by polling vdsm and VMs leases on the shared storage, so we can decrease the downtime of a critical VM, starting the VM on another host as soon as the VM lease is free. Additionally, these leases protect from a split-brain if we have engine an error cause it to start two instances of the same VM.</p>
+
+<p>In the current architecture, VM leases must be stored on the master domain. However, we plan to drop the master domain in the next version, so VM leases do not have an obvious place. Adding VM leases will probably require a new storage domain format, as the current leases volume can only hold 256-2000 leases (depending on sector size), and this may not be enough for some setups.</p>
+
+<p>For this version, we prefer to have a simpler solution.</p>
+
+<h3 id="why-not-use-disk-based-leases">Why not use Disk based leases?</h3>
+
+<p>Using disk based leases, we can ensure that VMs are killed when sanlock looses the host id lease, even if we don’t get a reset message acknowledgement. It also allows fencing in the VM level, without rebooting the machine. We would like to have such disk leases for the live-merge feature, so using disk leases seems the correct long term solution.</p>
+
+<p>Adding disk based leases will probably require a new storage domain format, as the current leases volume can only hold 256-2000 leases (depending on sector size), and this may not be enough for some setups. Another issue, is how to pass leases from one VM to another during migration.</p>
+
+<p>For this version, we prefer to have simpler solution.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3029/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3029/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3029/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3029/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/sanlock-fencing.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/storage/sanlock-fencing.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

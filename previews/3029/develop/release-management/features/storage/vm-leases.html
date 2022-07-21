@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>VM Leases | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="VM Leases" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3029/develop/release-management/features/storage/vm-leases.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3029/develop/release-management/features/storage/vm-leases.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="VM Leases" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"VM Leases","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3029/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3029/develop/release-management/features/storage/vm-leases.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3029/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3029/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3029/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3029/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3029/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3029/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3029/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3029/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3029/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3029/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3029/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3029//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3029/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Nir Soffer">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nir Soffer</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3029/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="vm-leases">VM Leases</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>This feature adds the ability to acquire a lease per VM on shared
+storage without attaching the lease to a disk. With a VM lease, we gain
+two important capabilities; avoiding split-brain, and starting a VM on
+another host if the original host becomes non-responsive.  The latter
+capability will be used to improve availability of HA VMs.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: <a href="https://github.com/nirs">Nir Soffer</a></li>
+  <li>Email: <a href="mailto:nsoffer@redhat.com">nsoffer@redhat.com</a></li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>When creating or upgrading a storage domain to version 4, vdsm will
+create a new special volume for external leases, named “xleases”. This
+volume will be used for external leases such as VM leases. Vdsm uses
+this volume to create sanlock resources, and maintain the mapping from
+lease id to lease offset on the volume.</p>
+
+<p>When creating a new VM, a user will be able to add a lease on one of the
+storage domains. During VM creation, engine will ask the SPM to create a
+lease for the VM. Vdsm will create a new sanlock resource on the
+selected storage domain. Vdsm will also update the mapping from the
+lease id to the lease offset in the xleases volume.</p>
+
+<p>When starting a VM with a lease, engine will add a lease device to the
+VM device list with the storage domain. Vdsm will fetch the lease
+details from the xleases volume, and complete the lease device XML.</p>
+
+<p>When libvirt starts a VM with lease devices, the QEMU process is
+acquiring the sanlock resource.  If the VM is already running on another
+host, sanlock will fail to acquire the lease, and starting the VM will
+fail. If a host loses access to storage, sanlock will terminate the QEMU
+process, ensuring that the VM cannot access any disks.</p>
+
+<p>If a host becomes non-responsive, and fencing the host is not possible,
+for example, because the host lost power, the host does not have a power
+management device, or fencing the host fails, the system will be able to
+learn about the VM lease state, and if the lease is not acquired, start
+the VM on another host. This capability is based on the fact that
+sanlock will terminate processes holding a resource on storage when
+storage it not reachable.</p>
+
+<p>When a VM is deleted, engine will ask the SPM to remove the lease for
+this VM. Vdsm will remove the sanlock resource and the mapping from
+lease id to lease offset on the xleases volume.</p>
+
+<p>If modifying the mapping from lease id to lease offset is interrupted,
+vdsm can rebuild the mapping by reading the sanlock resources in the
+xleases volume. This should not be needed normally.</p>
+
+<h3 id="new-vdsm-api">New vdsm API</h3>
+
+<p>We will add these types and methods to Vdsm API:</p>
+
+<h4 id="lease">Lease</h4>
+
+<p>Identifier for a lease, used to create, remove, and query leases.</p>
+
+<p>A mapping with these keys:</p>
+<ul>
+  <li>sd_id (uuid): storage domain where lease is stored</li>
+  <li>lease_id (uuid): unique id of this lease</li>
+</ul>
+
+<h4 id="leaseinfo">LeaseInfo</h4>
+
+<p>Information about a lease.</p>
+
+<p>A mapping with these keys:</p>
+<ul>
+  <li>sd_id (uuid): storage domain id where lease is stored</li>
+  <li>lease_id (uuid): unique id of this lease</li>
+  <li>path (string): path to disk with this lease</li>
+  <li>offset (uint): offset in path</li>
+</ul>
+
+<h4 id="leasestatus">LeaseStatus</h4>
+
+<p>The status of a lease reported by sanlock.</p>
+
+<p>Enum with these values:</p>
+<ul>
+  <li>“FREE”: lease is not acquired by anyone</li>
+  <li>“EXCLUSIVE”: lease is acquired by one owner</li>
+  <li>“SHARED”: lease is acquired my multiple owners (not supported yet)</li>
+</ul>
+
+<h4 id="leasecreatelease">Lease.create(lease)</h4>
+
+<p>Starts a SPM task creating a lease on the xleases volume in the lease
+storage domain.  Can be used only on the SPM.</p>
+
+<p>Creates a sanlock resource on the domain xleases volume, and mapping
+from lease_id to the resource offset in the volume.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li>lease (Lease): the lease to create</li>
+</ul>
+
+<p>This is an asynchronous operation, the caller must check the task status
+using vdsm tasks API’s and usual SPM error handling policies.</p>
+
+<h4 id="leasedeletelease">Lease.delete(lease)</h4>
+
+<p>Starts a SPM task removing a lease on the xleases volume of lease
+storage domain. Can be used only on the SPM.</p>
+
+<p>Clear the sanlock resource allocated for lease_id, and remove the
+mapping from lease_id to resource offset in the volume.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li>lease (Lease): the lease to delete</li>
+</ul>
+
+<p>This is an asynchronous operation, the caller must check the task status
+using vdsm tasks API’s and usual SPM error handling policies.</p>
+
+<h4 id="leaseinfolease">Lease.info(lease)</h4>
+
+<p>Returns the lease information needed to acquire the lase.</p>
+
+<p>This will return errors if no lease is allocated, the mapping for lease
+needs update, storage cannot be accessed, or sanlock fail to query the
+lease.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li>lease (Lease): the lease to query</li>
+</ul>
+
+<p>Returns: LeaseInfo</p>
+
+<h4 id="leasestatuslease">Lease.status(lease)</h4>
+
+<p>Returns sanlock lease status, whether the lease is free or acquired by
+some host. The lease status can be used to determine the status of a VM
+on a non-responsive host.</p>
+
+<p>The lease status is reported using these flow:</p>
+
+<ul>
+  <li>Reading sanlock resource owners - if there is no owner, the lease is
+FREE.</li>
+  <li>If the resource has an owner, get the owner host delta lease status</li>
+  <li>If the owner generation is older then the current lease generation
+the lease is FREE.</li>
+  <li>If the owner delta lease status is FREE or DEAD, the lease is FREE.</li>
+  <li>If the owner delta lease status is LIVE, FAIL or UNKNOWN, the lease
+is EXCLUSIVE.</li>
+</ul>
+
+<p>Based on
+<a href="https://git.fedorahosted.org/cgit/sanlock.git/tree/src/client.c#n721">sanlock_test_resource_owners</a></p>
+
+<p>This will return errors if no lease is allocated, the mapping for lease
+needs update, storage cannot be accessed, or sanlock fail to query the
+lease.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li>lease (Lease): the lease to query</li>
+</ul>
+
+<p>Returns: LeaseStatus</p>
+
+<h4 id="leaserebuildsd_id">Lease.rebuild(sd_id)</h4>
+
+<p>Starts a SPM task rebuilding the mapping from lease ids to offset in the
+xleases volume in the specified storage domain.  This may be needed if
+the index becomes corrupted. Can be used only by the SPM.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li>sd_id (UUID): the storage domain id where the leases are stored</li>
+</ul>
+
+<p>This is an asynchronous operation, the caller must check the task status
+using vdsm tasks API’s and usual SPM error handling policies.</p>
+
+<h3 id="xleases-volume-operation">xleases volume operation</h3>
+
+<h4 id="volume-format">volume format</h4>
+
+<p>The xleases volume format was designed so future sanlock version
+implementing internal index can use the same format, and we can move
+lease management into sanlock.</p>
+
+<p>The volume is composed of slots, each one is 1MiB when the underlying
+storage is using 512 bytes sectors, or 8MiB for 4K sector size.
+Currently vdsm supports only 512 bytes sectors, but this part will
+support both now.</p>
+
+<p>The volume layout is:</p>
+
+<ul>
+  <li>
+    <p>Lockspace (1 slot) - used for delta leases. Vdsm will not use this
+area since we are using the special “ids” volume. A future vdsm
+version may switch to the xleases volume for the lockspace.</p>
+  </li>
+  <li>
+    <p>Index (1 slot) - used for mapping between lease id and the lease
+offset.</p>
+  </li>
+  <li>
+    <p>Sanlock internal resource (1 slot) - used for protecting the leases volume so
+it can be modified by any host. Vdsm will not use this resource now,
+but we plan to use it in a future version so lease management is not
+tied to the SPM.</p>
+  </li>
+  <li>
+    <p>User resources - VM leases are allocated in this area</p>
+  </li>
+</ul>
+
+<h4 id="leases-volume-index-format">Leases volume index format</h4>
+
+<p>The leases volume index is composed of blocks (512 or 4K bytes). The
+layout is:</p>
+
+<ol>
+  <li>Metadata block</li>
+  <li>Record blocks</li>
+</ol>
+
+<p>The metadata block holds metadata about the entire index.</p>
+
+<ol>
+  <li>Magic number (similar to lockspace and resources slots)</li>
+  <li>version</li>
+  <li>lockspace name</li>
+  <li>timestamp</li>
+  <li>updating flag</li>
+</ol>
+
+<p>The updating flag is set when the entire index is rebuilt from storage.
+If this flag is set, all lease operation will fail.</p>
+
+<p>The records blocks holds lease records, keeping the mapping from lease
+id to lease names. Each block contain 8 records (for 512 bytes sectors)
+or 64 records for 4K sectors).</p>
+
+<p>Each record contains:</p>
+
+<ol>
+  <li>lease id</li>
+  <li>Lease offset</li>
+  <li>updating flag</li>
+</ol>
+
+<p>The updating flag is set when a lease is being created or deleted. If
+the operation fails, vdsm killed or the system loose power in the middle
+of the operation, the record will remain in “updating” state.</p>
+
+<p>The lease offset is computed by the offset of the record in the index,
+ensuring that two records cannot point the same lease.</p>
+
+<p>All the fields are using strings, and records are terminated by newline
+to make it easy to inspect the index using standard tools such as less
+and grep.</p>
+
+<h4 id="xleases-volume-thin-provisioning">xleases volume thin provisioning</h4>
+
+<p>On block storage, the volume will be created during creation of a
+storage domain, when we create the special lvs. The initial size will be
+1G, holding 1023 leases.</p>
+
+<p>Upon request to create the 1024th lease, we will extend the volume,
+adding the next 1G chunk. We can support about 16G xleases volume, the
+size is limited by the size of the index (1M).</p>
+
+<p>On file storage, we will create a sparse file.</p>
+
+<h4 id="formatting-xleases-volume">Formatting xleases volume</h4>
+
+<p>Formatting the xleases volume include these operations:</p>
+
+<ul>
+  <li>mark index as “updating”</li>
+  <li>clear lease area on volume</li>
+  <li>clear all lease records</li>
+  <li>remove the “updating” flag</li>
+</ul>
+
+<p>Possible failures:</p>
+
+<ul>
+  <li>error accessing storage - operation can be retried</li>
+</ul>
+
+<h4 id="adding-a-lease">Adding a lease</h4>
+
+<p>Adding a lease include these operations:</p>
+
+<ul>
+  <li>check index state</li>
+  <li>lookup lease in index</li>
+  <li>find first free lease record</li>
+  <li>extend the xleases volume if needed</li>
+  <li>add record for lease id with “updating” flag</li>
+  <li>add sanlock resource at the associated offset</li>
+  <li>remove the record updating flag.</li>
+</ul>
+
+<p>Possible failures:</p>
+
+<ul>
+  <li>index is illegal - index needs rebuilding</li>
+  <li>lease already exists - caller can use the lease</li>
+  <li>no space for new lease - the index is full, caller should create a
+lease on another storage domain.</li>
+  <li>error extending the xleases volume - there is space in the index for
+new lease record but extending the xleases volume failed, caller should
+retry the operation</li>
+  <li>error accessing storage - an “updating” record and sanlock resource may
+exists, caller may retry the operation or remove the lease.</li>
+</ul>
+
+<h4 id="removing-a-lease">Removing a lease</h4>
+
+<p>Removing a lease include these operations:</p>
+
+<ul>
+  <li>check index state</li>
+  <li>lookup lease in index</li>
+  <li>set the “updating” flag in the record for lease id</li>
+  <li>clear sanlock resource at the associated offset</li>
+  <li>clear the lease record</li>
+</ul>
+
+<p>Possible failures:</p>
+
+<ul>
+  <li>index is illegal - index needs rebuilding</li>
+  <li>lease does not exist - caller can use the lease</li>
+  <li>error accessing storage - a complete record, “updating” record and sanlock
+resource may exists, caller may retry the operation</li>
+</ul>
+
+<h4 id="handling-updating-lease-records">Handling “updating” lease records</h4>
+
+<p>If a record is left in “updating” state, for example ,storage error in
+the middle of adding or removing a lease, we can rebuild the lease
+record by reading storage using sanlock.read_resource(). If the resource
+exists on storage we can mark the record as used. If the resource does
+not exists on storage, we can mark the record as free. This is a very
+fast operation, reading 2 blocks from storage and writing one block.</p>
+
+<p>We can rebuild single lease automatically when adding or removing a
+lease, so caller can recover from storage error by retrying the
+operation.</p>
+
+<h4 id="rebuilding-the-xleases-index">Rebuilding the xleases index</h4>
+
+<p>To rebuild the entire index by reading all the resources on storage
+using sanlock.read_resource(). This takes only couple of seconds for
+4000 leases when using local SSD.</p>
+
+<h3 id="new-engine-api">New engine API</h3>
+
+<p>In the REST API a user should be able to:</p>
+
+<ul>
+  <li>Create a lease for a VM</li>
+  <li>Delete a lease for a VM</li>
+</ul>
+
+<p>These operations will be disabled if the VM is running.</p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<ul>
+  <li>
+    <p>Avoiding split-brain situation when the same VM is started twice on
+two different hosts, corrupting VM disks.</p>
+  </li>
+  <li>
+    <p>Being able to start a VM on a another host when the original host
+becomes non-responsive. This makes oVirt usable on a stretched cluster
+setup where users had to use non-free software before.</p>
+  </li>
+  <li>
+    <p>Using VM lease instead of disk lease, hosted engine will be able to
+use all the interesting features (e.g. snapshots, live storage
+migration, hotplug/unplug disk) that are not available when using disk
+leases. This also make it possible to put the hosted engine disk on
+Ceph storage.</p>
+  </li>
+  <li>
+    <p>Using VM lease on storage, we will be able to fence a VM on an
+non-responsive host without fencing a host, or if fencing the host is
+not possible.</p>
+  </li>
+</ul>
+
+<h2 id="user-experience">User Experience</h2>
+
+<p>When a user create or edit a VM, a new “storage lease” option will be
+available. The user will be able to activate this option, and select the
+storage domain where the lease should be located from a list of available
+storage domain. This resemble the way a user creates a new disk directly
+from the create/edit VM dialog.</p>
+
+<p>The default storage domain for the lease may be the storage domain where
+the boot disk is located.</p>
+
+<p>This option is related to HA VMs, so should probably be in the HA tab.</p>
+
+<p>This option will be disabled if the VM is running, until we support live
+plugging and unplugging leases from a VM.</p>
+
+<h2 id="installationupgrade">Installation/Upgrade</h2>
+
+<p>This feature does not affect engine or vdsm installation or upgrades</p>
+
+<p>Upgrading of storage domain to version 4 will create a new empty xleases
+special volume and format it.</p>
+
+<h2 id="user-work-flows">User work-flows</h2>
+
+<p>Once a user created a lease, the lease should be transparent to user
+workflows.</p>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<p>This is a requirement for improving HA VMs failover feature.</p>
+
+<h3 id="entity-description">Entity Description</h3>
+
+<ul>
+  <li>VM lease field</li>
+  <li>the value is the storage domain where the lease is stored</li>
+  <li>null means there is no lease</li>
+</ul>
+
+<h2 id="crud">CRUD</h2>
+
+<ul>
+  <li>add VM lease</li>
+  <li>remove VM lease</li>
+</ul>
+
+<h2 id="event-reporting">Event Reporting</h2>
+
+<ul>
+  <li>errors adding/removing leases</li>
+  <li>VM cannot be started because lease is held by another instance</li>
+  <li>VM lease status changes (e.g. lease becomes FAIL/DEAD)</li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p>This feature is required for resolving
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1317429">Bug 1317429</a></p>
+
+<h2 id="testing">Testing</h2>
+
+<ul>
+  <li>create VM with a lease
+    <ul>
+      <li>Lease.info(sd_id, vm_id) -&gt; “FREE”</li>
+    </ul>
+  </li>
+  <li>start VM with a lease
+    <ul>
+      <li>Lease.info(sd_id, vm_id) -&gt; “EXCLUSIVE”</li>
+    </ul>
+  </li>
+  <li>stop VM with a lease
+    <ul>
+      <li>Lease.info(sd_id, vm_id) -&gt; “FREE”</li>
+    </ul>
+  </li>
+  <li>edit VM, remove lease
+    <ul>
+      <li>Lease.info(sd_id, vm_id) -&gt; NoSuchLease error</li>
+    </ul>
+  </li>
+  <li>
+    <p>starting same VM twice should fail with some libvirt error about
+failing to acquire the lease</p>
+  </li>
+  <li>loosing access to storage where lease is kept
+    <ul>
+      <li>after x timeout:
+        <ul>
+          <li>Lease.host_status({sd_id: host_id}) -&gt; fail</li>
+        </ul>
+      </li>
+      <li>after y timeout:
+        <ul>
+          <li>Lease.host_status({sd_id: host_id}) -&gt; dead</li>
+          <li>VM will be terminated by sanlock after sanlock timeout</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>sanlock cannot terminate a VM after access to storage was lost
+    <ul>
+      <li>host should reboot after sanlock timeout</li>
+    </ul>
+  </li>
+  <li>deactivating storage domain when VM has leases on the storage
+    <ul>
+      <li>VMs removed from system, or operation fails</li>
+    </ul>
+  </li>
+  <li>
+    <p>importing storage domain with VM leases</p>
+  </li>
+  <li>
+    <p>OVF store must include VMs with leases on this storage, even if they
+do not have any disk on the storage.</p>
+  </li>
+  <li>export VM with a lease
+    <ul>
+      <li>keep lease domain in the OVF?</li>
+    </ul>
+  </li>
+  <li>import VM with a lease
+    <ul>
+      <li>create new lease for the new VM id</li>
+    </ul>
+  </li>
+  <li>delete VM with a lease
+    <ul>
+      <li>remove the lease</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="negative-flows">negative flows</h3>
+
+<ul>
+  <li>create lease failure</li>
+  <li>remove lease failure?</li>
+  <li>VM lease does not exists when starting a VM</li>
+  <li>repair VM leases index</li>
+</ul>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<p>XXX Write me</p>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<ul>
+  <li>Support live lease updates. May be possible using current libvirt API,
+not tested yet</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3029/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3029/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3029/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3029/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/vm-leases.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/storage/vm-leases.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

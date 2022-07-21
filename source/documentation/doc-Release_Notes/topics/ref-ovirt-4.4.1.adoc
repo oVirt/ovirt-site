@@ -295,7 +295,7 @@ Previously, the RHV Manager reported network out of sync because the Linux kerne
 
 *BZ#link:https://bugzilla.redhat.com/1729511[1729511]*
 
-During installation or upgrade to Red Had Virtualization 4.3, engine-setup failed if the PKI Organization Name in the CA certificate included non-ASCII characters.
+During installation or upgrade to Red Hat Virtualization 4.3, engine-setup failed if the PKI Organization Name in the CA certificate included non-ASCII characters.
 In this release, the upgrade engine-setup process completes successfully.
 
 *BZ#link:https://bugzilla.redhat.com/1729811[1729811]*

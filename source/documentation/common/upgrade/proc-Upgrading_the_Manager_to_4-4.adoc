@@ -178,12 +178,12 @@ endif::rhv-doc[]
 +
 [source,terminal,subs="normal"]
 ----
-# yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j
+# yum install ovirt-engine-extension-aaa-misc
 ----
 +
 [NOTE]
 ====
-The configuration for these package extensions must be manually reapplied because they are not migrated as part of the backup and restore process.
+Configuration for this package extension must be manually reapplied because it is not migrated as part of the backup and restore process.
 ====
 
 . Configure the {engine-name} by running the `engine-setup` command:

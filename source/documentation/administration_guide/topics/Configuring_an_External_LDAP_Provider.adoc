@@ -2,6 +2,11 @@
 [id="Configuring_an_External_LDAP_Provider"]
 = Configuring an External LDAP Provider (Interactive Setup)
 
+[NOTE]
+====
+The `ovirt-engine-extension-aaa-ldap` is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
+====
+
 The *ovirt-engine-extension-aaa-ldap* extension allows users to customize their external directory setup easily. The *ovirt-engine-extension-aaa-ldap* extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.
 
 If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See xref:Configuring_an_External_LDAP_Provider_ManualMethod[Configuring an External LDAP Provider] for more information.

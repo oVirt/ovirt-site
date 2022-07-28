@@ -2,6 +2,10 @@
 [id="Configuring_an_External_LDAP_Provider_ManualMethod"]
 = Configuring an External LDAP Provider (Manual Method)
 
+[NOTE]
+====
+The `ovirt-engine-extension-aaa-ldap` is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
+====
 The `ovirt-engine-extension-aaa-ldap` extension uses the LDAP protocol to access directory servers and is fully customizable. Kerberos authentication is not required unless you want to enable the single sign-on to the VM Portal or the Administration Portal feature.
 
 If the interactive setup method in the previous section does not cover your use case, you can manually modify the configuration files to attach your LDAP server. The following procedure uses generic details. Specific values depend on your setup.

@@ -367,7 +367,7 @@ Please specify the size of the VM disk in GB: [50]:
 +
 When the deployment completes successfully, one data center, cluster, host, storage domain, and the {engine-name} virtual machine are already running. You can log in to the Administration Portal to add any other resources.
 
-. Optional: Add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Configuring_an_External_LDAP_Provider[Configuring an External LDAP Provider] in the _Administration Guide_.
+. Optional: Install and configure Red Hat Single Sign On so that you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
 . Optional: Deploy Grafana so you can monitor and display reports from your {virt-product-shortname} environment.
 For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#configuring_grafana[Configuring Grafana] in the _Administration Guide_.
 

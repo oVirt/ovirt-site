@@ -50,5 +50,5 @@ In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 
 |GlusterFS Storage | GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 
-|ovirt-engine extension-aaa-ldap and ovirt-engine extension-aaa-jdbc | The engine extensions ovirt-engine extension-aaa-ldap and ovirt-engine extension-aaa-jdbc have been deprecated. For new installations, use Red Hat Single Sign On for authentication. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_
+|ovirt-engine extension-aaa-ldap and ovirt-engine extension-aaa-jdbc | The engine extensions ovirt-engine extension-aaa-ldap and ovirt-engine extension-aaa-jdbc have been deprecated. For new installations, use Red Hat Single Sign On for authentication. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the Administration Guide
 |===

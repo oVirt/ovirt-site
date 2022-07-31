@@ -8,6 +8,5 @@ Additionally created local domains will not get upgraded autonmatically during s
 
 [NOTE]
 ====
-The `ovirt-engine-extension-aaa-jdbc` extension is deprecated.
+The `ovirt-engine-extension-aaa-jdbc` extension is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
 ====
-// For new installations use <place holder>. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/TBD[TBD]

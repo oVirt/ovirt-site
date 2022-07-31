@@ -178,12 +178,17 @@ endif::rhv-doc[]
 +
 [source,terminal,subs="normal"]
 ----
-# yum install ovirt-engine-extension-aaa-misc
+# yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc
 ----
 +
 [NOTE]
 ====
-Configuration for this package extension must be manually reapplied because it is not migrated as part of the backup and restore process.
+The `ovirt-engine-extension-aaa-ldap` is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
+====
++
+[NOTE]
+====
+The configuration for these package extensions must be manually reapplied because they are not migrated as part of the backup and restore process.
 ====
 
 . Configure the {engine-name} by running the `engine-setup` command:

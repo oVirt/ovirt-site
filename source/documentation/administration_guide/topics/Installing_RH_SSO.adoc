@@ -4,4 +4,4 @@
 
 You can install Red Hat Single Sign-On by downloading a ZIP file and unpacking it, or by using an RPM file.
 
-Follow the installation instructions at link:https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.4/html-single/server_installation_and_configuration_guide/index#installation[Red Hat SSO Installation]
+Follow the installation instructions at link:https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.6/html-single/server_installation_and_configuration_guide/index#installation[Red Hat SSO Installation]

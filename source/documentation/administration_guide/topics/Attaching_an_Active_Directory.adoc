@@ -2,6 +2,11 @@
 [id="Attaching_an_Active_Directory"]
 = Attaching an Active Directory
 
+[NOTE]
+====
+The `ovirt-engine-extension-aaa-ldap` is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Red_Hat_SSO[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
+====
+
 .Prerequisites
 
 * You need to know the Active Directory forest name. The forest name is also known as the root domain name.

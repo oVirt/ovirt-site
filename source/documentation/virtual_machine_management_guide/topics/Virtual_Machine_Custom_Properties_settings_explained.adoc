@@ -46,7 +46,7 @@ This will explicitly start the virtual machine without the vhost-net setting on 
 // |TBD
 
 |*viodiskcache*
-|Caching mode for the virtio disk. *writethrough* writes data to the cache and the disk in parallel, *writeback* does not copy modifications from the cache to the disk, and *none* disables caching. See link:https://access.redhat.com/solutions/2361311[Writeback or writethrough cache mode can only be set via 'viodiskcache' custom property for file-based storage] for information about the limitations of the `viodiskcache` custom property.
+|Caching mode for the virtio disk. *writethrough* writes data to the cache and the disk in parallel, *writeback* does not copy modifications from the cache to the disk, and *none* disables caching.
 |In order to ensure data integrity in the event of a fault in storage, in the network, or in a host during migration, do not migrate virtual machines with viodiskcache enabled, unless virtual machine clustering or application-level clustering is also enabled.
 | Yes
 

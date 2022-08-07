@@ -20,8 +20,8 @@ To see a list of all available configuration keys and their corresponding types,
 Where `_type_` is one of the following:
 
 [horizontal]
-`he_local`:: Sets values in the local instance of [filename]`etc/ovirt-hosted-engine/hosted-engine.conf` on the local host, so only that host uses the new values. To enable the new value, restart the ovirt-ha-agent and ovirt-ha-broker services.
-`he_shared`:: Sets values in [filename]`etc/ovirt-hosted-engine/hosted-engine.conf` on shared storage, so all hosts that are deployed after a configuration change use these values. To enable the new value on a host, redeploy that host.
+`he_local`:: Sets values in the local instance of [filename]`/etc/ovirt-hosted-engine/hosted-engine.conf` on the local host, so only that host uses the new values. To enable the new value, restart the ovirt-ha-agent and ovirt-ha-broker services.
+`he_shared`:: Sets values in [filename]`/etc/ovirt-hosted-engine/hosted-engine.conf` on shared storage, so all hosts that are deployed after a configuration change use these values. To enable the new value on a host, redeploy that host.
 `ha`:: Sets values in [filename]`/var/lib/ovirt-hosted-engine-ha/ha.conf` on local storage. New settings take effect immediately.
 `broker`:: Sets values in [filename]`/var/lib/ovirt-hosted-engine-ha/broker.conf` on local storage. Restart the ovirt-ha-broker service to enable new settings.
 

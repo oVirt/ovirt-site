@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fencing refactoring | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Fencing refactoring" />
+<meta name="author" content="Martin Perina" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3041/develop/release-management/features/infra/fencing-refactoring.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3041/develop/release-management/features/infra/fencing-refactoring.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fencing refactoring" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Martin Perina" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Martin Perina"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Fencing refactoring","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3041/images/logo.svg"},"name":"Martin Perina"},"url":"https://ovirt.github.io/ovirt-site/previews/3041/develop/release-management/features/infra/fencing-refactoring.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3041/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3041/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3041/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3041/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3041/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3041/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3041/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3041/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3041/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3041/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3041/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3041/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3041/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3041/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3041/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3041/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3041/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3041/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3041/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3041/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3041/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3041/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3041//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3041//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3041/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3041/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3041/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3041/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3041/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/3f4d6622615b20a0498a12e27c9581b6?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/3f4d6622615b20a0498a12e27c9581b6?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Martin Perina">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Perina</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3041/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="fencing-refactoring">Fencing refactoring</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>The goal of this fencing refactoring is to clean up the code and provide those features:</p>
+
+<ul>
+  <li>Make SSH Soft Fencing part of Non Responding Treatment</li>
+  <li>Refactor fencing related code to be more reliable, readable, covered by unit tests and we could provided ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host</li>
+  <li>Refactor Power Management tab in Host Detail to ease management of multiple power management agents</li>
+</ul>
+
+<p>Following bugs are associated with fencing refactoring:</p>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1182510">#1182510 - [RFE] - Fencing refactoring</a></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1198628">#1198628 - [RFE] - Refactoring of Power Management tab in Host Detail</a></li>
+</ul>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Martin Peřina</li>
+  <li>Email: mperina@redhat.com</li>
+</ul>
+
+<h2 id="status">Status</h2>
+
+<p>Following parts were finished and they will be part of oVirt 3.6 release:</p>
+
+<ul>
+  <li>Make SSH Soft Fencing part of Non Responding Treatment</li>
+  <li>Refactor fencing related code to be more reliable, readable, covered by unit tests</li>
+  <li>Refactor Power Management tab in Host Detail to ease management of multiple power management agents</li>
+</ul>
+
+<p>Following parts were not finished and they were postponed to oVirt 4 release:</p>
+
+<ul>
+  <li>Ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>Non Responding Treatment in oVirt &lt;= 3.5 is described <a href="/ovirt-site/previews/3041/images/wiki/Current-whole-process.png"> here</a>. Following changes are planned for oVirt 3.6:</p>
+
+<ul>
+  <li>Non Responding Treatment will be executed for any host when host status is changed to <strong>NonResponsive</strong> (in oVirt &lt;= 3.5 SSH Soft Fencing execution is enabled for all hosts and Non Responding Treatment execution is enabled only for hosts with <strong>Virt</strong> capabilities, in oVirt 3.6 only SSH Soft Fencing step will be executed for <strong>Gluster</strong> only hosts).</li>
+  <li>The delay between host status <strong>Up</strong> is changed to <strong>NonResponsive</strong> is defined on page <a href="/ovirt-site/previews/3041/develop/developer-guide/engine/automatic-fencing.html#automatic-fencing">Automatic Fencing</a>.</li>
+  <li>Non Responding Treatment will contain by default 3 steps (they can be enabled/disabled per host):
+    <ol>
+      <li><strong>SSH Soft Fencing</strong></li>
+      <li><strong>Kdump Detection</strong></li>
+      <li><strong>Power Management Restart</strong></li>
+    </ol>
+  </li>
+</ul>
+
+<p>So in oVirt 3.6 whole Non Responding Treatment will be <a href="/ovirt-site/previews/3041/images/wiki/New-whole-process.png"> simplified</a> using configurable <a href="/ovirt-site/previews/3041/images/wiki/Fence-sequence-definition.png"> steps</a>.</p>
+
+<h3 id="database-structure">Database structure</h3>
+
+<p>To hold information about Non Responding Treatment steps table <code class="language-plaintext highlighter-rouge">fence_sequence_steps</code> will be created:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>NULL</th>
+      <th>PK</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>step_name</td>
+      <td>VARCHAR(25)</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>One of <code class="language-plaintext highlighter-rouge">SSH</code>, <code class="language-plaintext highlighter-rouge">KDUMP</code>, <code class="language-plaintext highlighter-rouge">PM</code></td>
+    </tr>
+    <tr>
+      <td>vds_id</td>
+      <td>UUID</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>Existing host ID</td>
+    </tr>
+    <tr>
+      <td>step_order</td>
+      <td>SMALLINT</td>
+      <td>N</td>
+      <td>N</td>
+      <td>Order of the step</td>
+    </tr>
+    <tr>
+      <td>step_enabled</td>
+      <td>BOOLEAN</td>
+      <td>N</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each host will own one record in this table, which will be created during 1st host deploy or during oVirt upgrade. Also during oVirt upgrade value of existing column <code class="language-plaintext highlighter-rouge">vds_static.pm_detect_kdump</code> will converted into <code class="language-plaintext highlighter-rouge">KDUMP</code> step in <code class="language-plaintext highlighter-rouge">fence_sequence_steps</code> table.</p>
+
+<h3 id="webadmin-ui">Webadmin UI</h3>
+
+<p>New <a href="/ovirt-site/previews/3041/images/wiki/Fence-refactoring-host-availability-tab.png"> Host Availability</a> tab will be added into <strong>Host detail</strong> dialog. This tab will contain check boxes for all steps to enabled/disable each step for the specific host. And it will also contain other options related to host availability.</p>
+
+<p><a href="/ovirt-site/previews/3041/images/wiki/Fence-refactoring-power-management-tab.png"> Power Management</a> tab will be refactored to ease handling of multiple power management agents.</p>
+
+<h3 id="rest-api">REST API</h3>
+
+<ul>
+  <li>Existing Fence Sequence Steps for a host can be listed using URL <code class="language-plaintext highlighter-rouge">/api/hosts/{id}/fence-sequence-steps</code>:
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;fence-sequence-steps&gt;</span>
+      <span class="nt">&lt;fence-sequence-step&gt;</span>
+        <span class="nt">&lt;name&gt;</span>Name<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;order&gt;</span>1<span class="nt">&lt;/order&gt;</span>
+        <span class="nt">&lt;enabled&gt;</span>1<span class="nt">&lt;/enabled&gt;</span>
+      <span class="nt">&lt;fence-sequence-step&gt;</span>
+    ...
+    <span class="nt">&lt;/fence-sequence-steps&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To enable or disable Fence Sequence Step <code class="language-plaintext highlighter-rouge">PUT</code> operation using URL <code class="language-plaintext highlighter-rouge">/api/hosts/{id}/fence-sequence-steps/{name}</code> with <code class="language-plaintext highlighter-rouge">enabled</code> parameter can be executed.</li>
+  <li>Other operation like creating and removing step is not currently supported.</li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<p>Testing of the feature can be divided to fencing flow testing and new Power Management UI testing.</p>
+
+<h3 id="fencing-flow-testing">Fencing flow testing</h3>
+
+<p>Huge part of fencing related code were refactored so all fencing related flows should be tested for regressions. Here are test which was tested prior to merging the code:</p>
+
+<ul>
+  <li>Testing fence agent options (for all possible host/custer/DC combinations)</li>
+  <li>Testing manual Start/Stop/Restart PM actions for the host</li>
+  <li>Testing SSH Soft Fencing</li>
+  <li>Testing Kdump integration</li>
+  <li>Testing Non Responding Treatment</li>
+</ul>
+
+<p>Also prior to merging new code following bugs were successfully tested for regressions: 1149235 1141514 1149235 1140098 1145321 1129381 1133611 1070674 1131411 1120829 1122473 1114977 1093742 878662 1005756 1064860 1099903 1090800 961753 1054778 1044089 917039 1048356</p>
+
+<h3 id="new-power-management-tab-ui-testing">New Power Management tab UI testing</h3>
+
+<p>Following feature should be tested:</p>
+
+<ul>
+  <li>Ability to add/edit/remove fence agents options</li>
+  <li>Ability to add multiple sequential fence agents</li>
+  <li>Ability to add multiple concurrent fence agents</li>
+  <li>Ability to mix sequential/concurrent fence agents</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3041/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3041/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3041/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3041/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/fencing-refactoring.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/infra/fencing-refactoring.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

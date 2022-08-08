@@ -13,7 +13,7 @@ endif::rhv-doc[]
 
 On NAS, all virtual disks, templates, and snapshots are files.
 
-On SAN (iSCSI/FCP), each virtual disk, template or snapshot is a logical volume. Block devices are aggregated into a logical entity called a volume group, and then divided by LVM (Logical Volume Manager) into logical volumes for use as virtual hard disks. See the link:{URL_rhel_docs_legacy}html-single/configuring_and_managing_logical_volumes/index[Red Hat Enterprise Linux Configuring and managing logical volumes] guide for more information on LVM.
+On SAN (iSCSI/FCP), each virtual disk, template or snapshot is a logical volume. Block devices are aggregated into a logical entity called a volume group, and then divided by LVM (Logical Volume Manager) into logical volumes for use as virtual hard disks. See link:{URL_rhel_docs_legacy}html-single/configuring_and_managing_logical_volumes/index[Red Hat Enterprise Linux Configuring and managing logical volumes] for more information on LVM.
 
 Virtual disks can have one of two formats, either QCOW2 or raw. The type of storage can be either sparse or preallocated. Snapshots are always sparse but can be taken for disks of either format.
 

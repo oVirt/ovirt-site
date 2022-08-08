@@ -182,7 +182,8 @@
 
 <h4 id="summary">Summary</h4>
 
-<p>In order to define more natural coupling of the QoS to a VNIC we define a new concept called <strong>VNIC Profile</strong>. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC</p>
+<p>In order to define more natural coupling of the QoS to a VNIC we define a new concept called <strong>VNIC Profile</strong>.
+The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC</p>
 
 <h4 id="owner">Owner</h4>
 
@@ -202,21 +203,22 @@
 <h4 id="detailed-description">Detailed Description</h4>
 
 <p>The VNIC Profile concept embodies a predefined package of network setting which will define the network service a VNIC will get.
-VNIC Profile include:
-* Profile name</p>
-
+VNIC Profile include:</p>
 <ul>
+  <li>Profile name</li>
   <li>Network</li>
   <li>Quality of Service</li>
   <li>Port mirroring</li>
   <li>Custom properties</li>
 </ul>
 
-<p>When creating a new VNIC or editing an existing one the user will select a VNIC Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).</p>
+<p>When creating a new VNIC or editing an existing one the user will select a VNIC Profile (instead of the current implementation in which the user selects
+a network and sets port mirroring and custom properties).</p>
 
 <h5 id="adding-a-profile">Adding a Profile</h5>
 
-<p>The network administrator could create several VNIC Profiles for each network. He could then grant a users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.</p>
+<p>The network administrator could create several VNIC Profiles for each network. He could then grant a users with the permission to use (consume) each profile.
+The user will only be able to use profiles which he was granted access to.</p>
 
 <p>For example: the network admin will create two VNIC profiles for network “blue”:</p>
 
@@ -224,7 +226,9 @@ VNIC Profile include:
 
 <p>Profile “student-blue” with lower QoS and without port mirroring.</p>
 
-<p>He will then define the user-group “students” as user of profile “student-blue” and user-group “teachers” as user of profile “teacher-blue”. In this case the teachers will enjoy better quality of service (e.g. Gold) than the students (e.g Silver). When a teacher will add/edit a virtual NIC he could select profile “teacher-blue” for that NIC - the VNIC will be connected to network “blue” with high QoS and with port mirroring.</p>
+<p>He will then define the user-group “students” as user of profile “student-blue” and user-group “teachers” as user of profile “teacher-blue”.
+In this case the teachers will enjoy better quality of service (e.g. Gold) than the students (e.g Silver).
+When a teacher will add/edit a virtual NIC he could select profile “teacher-blue” for that NIC - the VNIC will be connected to network “blue” with high QoS and with port mirroring.</p>
 
 <ul>
   <li>An option to select ‘Allow all users to use this profile’ will be added to the dialog. If selected, a permission on the the vnic profile will be granted to ‘everyone’.</li>
@@ -236,7 +240,8 @@ VNIC Profile include:
   <li>A user should be able to edit the profile properties (including profile name) while VMs are attached and are using this Profile (reference should be done by id), except of the port mirroring.</li>
   <li>Changing the network of a vNic profile will be blocked.
     <ul>
-      <li>Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable and less intuitive to the user (especially since dynamic wiring is supported).</li>
+      <li>Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable
+and less intuitive to the user (especially since dynamic wiring is supported).</li>
     </ul>
   </li>
   <li>The changes will seep down to all VNICs using the profile.
@@ -268,13 +273,12 @@ VNIC Profile include:
 <p>and for each vnic profile there will be an option for ‘public use’.</p>
 
 <ul>
-  <li>The vNic profile name will be NetworkNamePolicyName, e.g. blueGold. The user will be able to rename the profile and its properties from the vnic profile sub-tab.</li>
-</ul>
-
-<!-- -->
-
-<ul>
-  <li>A default vnic profile will be created implicitly by the engine when creating a new network, unless specifically asked not create it.</li>
+  <li>
+    <p>The vNic profile name will be NetworkNamePolicyName, e.g. blueGold. The user will be able to rename the profile and its properties from the vnic profile sub-tab.</p>
+  </li>
+  <li>
+    <p>A default vnic profile will be created implicitly by the engine when creating a new network, unless specifically asked not create it.</p>
+  </li>
 </ul>
 
 <p>The option to check the network for a public use will be removed from the ‘Add network’ dialog.</p>
@@ -282,7 +286,8 @@ VNIC Profile include:
 <h5 id="updating-a-network">Updating a Network</h5>
 
 <p>When a network role is modified to be a ‘non-VM network’, all vNic profiles associated with it should be deleted and permissions associated with these profiles.
-When a non-vm network is modified to be a ‘VM network’, a default vnic profile will be created if the action is done in the webadmin. Performing the update network operation via the api will not create a default vnic profile and the user will have to create one himself so the network could be used by VMs.</p>
+When a non-vm network is modified to be a ‘VM network’, a default vnic profile will be created if the action is done in the webadmin.
+Performing the update network operation via the api will not create a default vnic profile and the user will have to create one himself so the network could be used by VMs.</p>
 
 <h5 id="removing-a-network">Removing a Network</h5>
 
@@ -306,11 +311,6 @@ When a non-vm network is modified to be a ‘VM network’, a default vnic profi
 <ul>
   <li>We should handle VMs that are pointing to a network directly for backward compatibility.</li>
   <li>We need to select first profile that is on that network that the user has permissions on.</li>
-</ul>
-
-<!-- -->
-
-<ul>
   <li>The profile name should be saved in the OVF, in OtherResourceType element (in addition to the network name which is saved today).</li>
 </ul>
 
@@ -332,11 +332,16 @@ When a non-vm network is modified to be a ‘VM network’, a default vnic profi
 
 <h5 id="backward-compatibility">Backward Compatibility</h5>
 
-<p>In 3.2 or lower clusters versions not all of the profile properties are supported. In those clusters only Profile name, Network and Port mirroring will be enabled. For time been, we’ll keep the networkName in the vmNetworkInterface, however when rest support will be added, the field will be removed.</p>
+<p>In 3.2 or lower clusters versions not all of the profile properties are supported.
+In those clusters only Profile name, Network and Port mirroring will be enabled.
+For time been, we’ll keep the networkName in the vmNetworkInterface, however when rest support will be added, the field will be removed.</p>
 
 <h4 id="benefit-to-ovirt">Benefit to oVirt</h4>
 
-<p>We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The Network QoS feature will add this ability to the engine. The VNIC profile will improve the usability of the network configuration on the VM. On the user side - VNIC profiles will allow the user to configure a VNIC in relative ease. On the network administrator side - VNIC Profiles will help the administrator to keep control of all the VNICs connected to the network in a simpler way.
+<p>We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC.
+The Network QoS feature will add this ability to the engine. The VNIC profile will improve the usability of the network configuration on the VM.
+On the user side - VNIC profiles will allow the user to configure a VNIC in relative ease.
+On the network administrator side - VNIC Profiles will help the administrator to keep control of all the VNICs connected to the network in a simpler way.
 The combination of the two will allow the network admin to define, control and dispense different service levels to different users or groups (which may have different priorities).</p>
 
 <h2 id="design-and-implementation">Design and Implementation</h2>
@@ -367,17 +372,17 @@ The combination of the two will allow the network admin to define, control and d
 <p>The following action groups will be added:</p>
 
 <ul>
-  <li>CONFIGURE_NETWORK_VNIC_PROFILE - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group</li>
-  <li>CREATE_NETWORK_VNIC_PROFILE - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group</li>
-  <li>DELETE_NETWORK_VNIC_PROFILE - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group</li>
+  <li><code class="language-plaintext highlighter-rouge">CONFIGURE_NETWORK_VNIC_PROFILE</code> - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group</li>
+  <li><code class="language-plaintext highlighter-rouge">CREATE_NETWORK_VNIC_PROFILE</code> - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group</li>
+  <li><code class="language-plaintext highlighter-rouge">DELETE_NETWORK_VNIC_PROFILE</code> - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group</li>
 </ul>
 
 <p>A VNICProfileUser role will be added, instead of the NetworkUser role. This role will contain the exact same action groups:</p>
 
 <ul>
-  <li>CONFIGURE_VM_NETWORK</li>
-  <li>CONFIGURE_TEMPLATE_NETWORK</li>
-  <li>LOGIN</li>
+  <li><code class="language-plaintext highlighter-rouge">CONFIGURE_VM_NETWORK</code></li>
+  <li><code class="language-plaintext highlighter-rouge">CONFIGURE_TEMPLATE_NETWORK</code></li>
+  <li><code class="language-plaintext highlighter-rouge">LOGIN</code></li>
 </ul>
 
 <p>When upgrading the permissions table, we will do the following:</p>
@@ -515,15 +520,9 @@ The <strong>VnicProfileView</strong> will serve the UI.</p>
 
 <h4 id="rest-api">REST API</h4>
 
-<p>The vnic profiles will be modeled as a top collection:</p>
+<p>The vnic profiles will be modeled as a top collection: <code class="language-plaintext highlighter-rouge">/api/vnicprofiles</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /api/vnicprofiles
-</code></pre></div></div>
-
-<p>The vnic profiles will be available as a sub collection of the networks top collection:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  api/networks/{network:id}/vnicprofiles/{profile:id}
-</code></pre></div></div>
+<p>The vnic profiles will be available as a sub collection of the networks top collection: <code class="language-plaintext highlighter-rouge">api/networks/{network:id}/vnicprofiles/{profile:id}</code></p>
 
 <p>The POST’ed elemet should look like:</p>
 
@@ -535,43 +534,31 @@ The <strong>VnicProfileView</strong> will serve the UI.</p>
 </code></pre></div></div>
 
 <p>However the vnic profile will not be update-able via the sub-collection.
- The user will be able to create a network without a default vnic profile by providing the following element in the network</p>
+The user will be able to create a network without a default vnic profile by providing the following element in the network</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  POSTed element for /api/networks: ```xml
-</code></pre></div></div>
-<network>
+<p>POSTed element for <code class="language-plaintext highlighter-rouge">/api/networks</code>:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;network&gt;</span>
            ...
-     <profile_required>false</profile_required>
- </network>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-For REST backward compatibility, a new parameter set will be added to a vm network interface Add and Update actions.
+     <span class="nt">&lt;profile_required&gt;</span>false<span class="nt">&lt;/profile_required&gt;</span>
+ <span class="nt">&lt;/network&gt;</span>
+</code></pre></div></div>
+
+<p>For REST backward compatibility, a new parameter set will be added to a vm network interface Add and Update actions.
 The current parameter set includes either network name and port mirroring as today.
-The new parameter set will include the vnic profile id.
-\* Add VM nic:
+The new parameter set will include the vnic profile id.</p>
+<ul>
+  <li>Add VM nic: <code class="language-plaintext highlighter-rouge">/api/vms/{vm:id}/nics|rel=add</code></li>
+  <li>Update VM nic: <code class="language-plaintext highlighter-rouge">/api/vms/{vm:id}/nics/{nic:id}|rel=update</code></li>
+  <li>Add template nic: <code class="language-plaintext highlighter-rouge">/api/template/{template:id}/nics|rel=add</code></li>
+  <li>Update template nic: <code class="language-plaintext highlighter-rouge">/api/template/{template:id}/nics/{nic:id}|rel=update</code></li>
+</ul>
 
-      /api/vms/{vm:id}/nics|rel=add
-
-*   Update VM nic:
-
-      /api/vms/{vm:id}/nics/{nic:id}|rel=update
-
-*   Add template nic:
-
-      /api/template/{template:id}/nics|rel=add
-
-*   Update template nic:
-
-      /api/template/{template:id}/nics/{nic:id}|rel=update
-
-With the following element:
-
-```xml
- &lt;nic&gt;
-           ...
-     &lt;vnic_profile id="fa5d0471-f83b-44ec-8715-7fe1a53ab7a6"/&gt;
- &lt;/nic&gt;
+<p>With the following element:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nic&gt;</span>
+      ...
+      <span class="nt">&lt;vnic_profile</span> <span class="na">id=</span><span class="s">"fa5d0471-f83b-44ec-8715-7fe1a53ab7a6"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/nic&gt;</span>
 </code></pre></div></div>
-
 <p>The returned entity will include the the vnic profile id as well.</p>
 
 <h4 id="vdsm">VDSM</h4>
@@ -624,6 +611,6 @@ With the following element:
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/vnic-profiles.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/vnic-profiles.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/vnic-profiles.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/vnic-profiles.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

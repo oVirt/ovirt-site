@@ -138,7 +138,8 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>Let the users define a proxy which will be used by SPICE client to connect to the guest. It is useful when the user (e.g. using user portal) is outside of the network where the hypervisors are.</p>
+<p>Let the users define a proxy which will be used by SPICE client to connect to the guest.
+It is useful when the user (e.g. using user portal) is outside of the network where the hypervisors are.</p>
 
 <h2 id="client-dependencies">Client Dependencies</h2>
 
@@ -161,31 +162,36 @@
   <li>Disabling any config per VM</li>
 </ul>
 
-<p>If the proxy is set in any of this places and not disabled it will be filled into the Proxy property of the SPICE client by WebAdmin/UserPortal. If the proxy is not set nothing is filled into this property.</p>
+<p>If the proxy is set in any of this places and not disabled it will be filled into the Proxy property of the SPICE client by WebAdmin/UserPortal.
+If the proxy is not set nothing is filled into this property.</p>
 
 <h3 id="global-configuration">Global Configuration</h3>
 
-<p>The engine-config tool is used to globally configure the SPICE proxy for the whole application. Example:</p>
+<p>The <code class="language-plaintext highlighter-rouge">engine-config</code> tool is used to globally configure the SPICE proxy for the whole application. Example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  engine-config -s SpiceProxyDefault=someProxy
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>engine-config <span class="nt">-s</span> <span class="nv">SpiceProxyDefault</span><span class="o">=</span>someProxy
 </code></pre></div></div>
 
 <p>To turn the proxy off, just clear it:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  engine-config -s SpiceProxyDefault=""
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>engine-config <span class="nt">-s</span> <span class="nv">SpiceProxyDefault</span><span class="o">=</span><span class="s2">""</span>
 </code></pre></div></div>
 
 <h3 id="cluster">Cluster</h3>
 
-<p>The global configuration can be overridden on cluster level. In webadmin in the newly introduced Console side tab in new/edit cluster dialog. In REST the “clusters” has been enriched by a new property “spice_proxy”. If the spice proxy is set in the cluster level, all VMs in this cluster will use this proxy (if not disabled for specific VM).</p>
+<p>The global configuration can be overridden on cluster level. In webadmin in the newly introduced Console side tab in new/edit cluster dialog.
+In REST the “clusters” has been enriched by a new property “spice_proxy”.
+If the spice proxy is set in the cluster level, all VMs in this cluster will use this proxy (if not disabled for specific VM).</p>
 
 <h3 id="vm-pool">VM Pool</h3>
 
-<p>The global or cluster configuration can be overridden in the VM Pool level. In webadmin in the new/edit pool dialog in the Console side tab (in advanced mode). In REST the “vmpools” has been enriched by a new property “spice_proxy”.</p>
+<p>The global or cluster configuration can be overridden in the VM Pool level.
+In webadmin in the new/edit pool dialog in the Console side tab (in advanced mode). In REST the “vmpools” has been enriched by a new property “spice_proxy”.</p>
 
 <h3 id="disabling-any-config-per-vm">Disabling any config per VM</h3>
 
-<p>In User Portal/Web Admin SPICE proxy can be disabled / enabled per VM using the console options popup dialog and this setting will be stored in the local storage (or cookie). The specific behavior:</p>
+<p>In User Portal/Web Admin SPICE proxy can be disabled / enabled per VM using the console options popup dialog and this setting will be stored in the local storage (or cookie).
+The specific behavior:</p>
 
 <ul>
   <li>If the SPICE proxy is configured using any way described above, than:
@@ -207,7 +213,7 @@
 
 <h2 id="spice-proxy-form">SPICE Proxy Form</h2>
 
-<p>The proxy has to follow the following form: [protocol://]<host>[:port]</host></p>
+<p>The proxy has to follow the following form: <code class="language-plaintext highlighter-rouge">[protocol://]&lt;host&gt;[:port]</code></p>
 
 <p>Only the http protocol is currently supported by SPICE clients. If https is specified, the client attempts to connect to the hypervisor and thereby ignores the proxy setting.</p>
 
@@ -218,6 +224,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/spice-proxy.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/spice-proxy.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/spice-proxy.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/spice-proxy.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

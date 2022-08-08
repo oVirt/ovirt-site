@@ -217,7 +217,9 @@
 
 <h2 id="detailed-description">Detailed Description</h2>
 
-<p>The feature will allow data center administrator to build trusted computing pools based on H/W-based security features, such as Intel Trusted Execution Technology (TXT). Combining attestation done by a separate entity (i.e. “remote attestation”), the administrator can ensure that verified measurement of software be running in hosts, thus they can establish the foundation for the secure enterprise stack. Such remote attestation services can be developed by using SDK provided by OpenAttestation project.</p>
+<p>The feature will allow data center administrator to build trusted computing pools based on H/W-based security features, such as Intel Trusted Execution Technology (TXT).
+Combining attestation done by a separate entity (i.e. “remote attestation”), the administrator can ensure that verified measurement of software be running in hosts,
+thus they can establish the foundation for the secure enterprise stack. Such remote attestation services can be developed by using SDK provided by OpenAttestation project.</p>
 
 <p>Remote Attestation server performs host verification through following steps:</p>
 
@@ -252,16 +254,15 @@
 <h4 id="backend-changes">Backend changes</h4>
 
 <ol>
-  <li>Add attestation check logic in “InitVdsOnUpCommand.java” to initialize status of each host before active, this java file can be found in this path org.ovirt.engine.core.bll.</li>
-</ol>
-
-<ul>
-  <li>The first time when this host add into a trust cluster, call attestation server to determine the real status (untrusted , trusted) of the VDS (physical host), the host will be in “up” status if get “trusted” result from attestation server, or else, set this host as non-operational status.</li>
-  <li>When host is down for a different reason and up again, attestation check logic will be triggered also.</li>
-  <li>Call SetNonOperationalVdsCommand with a new NonOperationalReason. This command will try to migrate all VMs from the host and then set it non-operational. In the case of another trusted host existed in trust cluster, all of the VMs will try to migrate to that trusted host. For the non-migrational VMs, keep these VMs running.</li>
-</ul>
-
-<ol>
+  <li>Add attestation check logic in “InitVdsOnUpCommand.java” to initialize status of each host before active, this java file can be found in this path org.ovirt.engine.core.bll.
+    <ul>
+      <li>The first time when this host add into a trust cluster, call attestation server to determine the real status (untrusted , trusted) of the VDS (physical host),
+the host will be in “up” status if get “trusted” result from attestation server, or else, set this host as non-operational status.</li>
+      <li>When host is down for a different reason and up again, attestation check logic will be triggered also.</li>
+      <li>Call <code class="language-plaintext highlighter-rouge">SetNonOperationalVdsCommand</code> with a new <code class="language-plaintext highlighter-rouge">NonOperationalReason</code>. This command will try to migrate all VMs from the host and then set it non-operational.
+In the case of another trusted host existed in trust cluster, all of the VMs will try to migrate to that trusted host. For the non-migrational VMs, keep these VMs running.</li>
+    </ul>
+  </li>
   <li>Activate a trusted host by admin {optional}</li>
 </ol>
 
@@ -283,14 +284,13 @@
 <h4 id="restful-api">Restful API</h4>
 
 <p>Create a trusted cluster via restful API, curl command may like this.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -v -u "admin@internal:abc123" \
-  -H "Content-type: application/xml" \
-  -d '&lt;cluster&gt;&lt;name&gt;my_trust_cluster&lt;/name&gt;&lt;data_center&gt;&lt;name&gt;"Default"&lt;/name&gt;&lt;/data_center&gt; &lt;version minor="2" major="3"/&gt; &lt;cpu id="Intel SandyBridge Family"/&gt;&lt;trusted_service&gt;true&lt;/trusted_service&gt;&lt;/cluster&gt;' \
-  'http://engine.***.com:80/api/clusters'
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    curl <span class="nt">-v</span> <span class="nt">-u</span> <span class="s2">"admin@internal:abc123"</span> <span class="se">\</span>
+      <span class="nt">-H</span> <span class="s2">"Content-type: application/xml"</span> <span class="se">\</span>
+      <span class="nt">-d</span> <span class="s1">'&lt;cluster&gt;&lt;name&gt;my_trust_cluster&lt;/name&gt;&lt;data_center&gt;&lt;name&gt;"Default"&lt;/name&gt;&lt;/data_center&gt; &lt;version minor="2" major="3"/&gt; &lt;cpu id="Intel SandyBridge Family"/&gt;&lt;trusted_service&gt;true&lt;/trusted_service&gt;&lt;/cluster&gt;'</span> <span class="se">\</span>
+      <span class="s1">'http://engine.***.com:80/api/clusters'</span>
 </code></pre></div></div>
 
-<p>Key relevant modification includes api.xsd and ClusterMapper.java.</p>
+<p>Key relevant modification includes <code class="language-plaintext highlighter-rouge">api.xsd</code> and <code class="language-plaintext highlighter-rouge">ClusterMapper.java</code>.</p>
 
 <h4 id="database-change">Database change</h4>
 
@@ -390,7 +390,13 @@
 <h3 id="create-a-truster-cluster-via-restful-api">Create a truster cluster via restful API</h3>
 
 <ol>
-  <li>Exec command: curl -v -u “admin@internal:abc123” -H “Content-type: application/xml” -d ‘<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2" major="3"></version> <cpu id="Intel SandyBridge Family"></cpu><trusted_service>true</trusted_service></cluster>’ ‘http://engine.***.com:80/api/clusters’</li>
+  <li>Exec command:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> curl <span class="nt">-v</span> <span class="nt">-u</span> <span class="s2">"admin@internal:abc123"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-type: application/xml"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'&lt;cluster&gt;&lt;name&gt;my_trust_cluster&lt;/name&gt;&lt;data_center&gt;&lt;name&gt;"Default"&lt;/name&gt;&lt;/data_center&gt;&lt;version minor="2" major="3"/&gt; &lt;cpu id="Intel SandyBridge Family"/&gt;&lt;trusted_service&gt;true&lt;/trusted_service&gt;&lt;/cluster&gt;'</span> <span class="se">\</span>
+    <span class="s1">'http://engine.\*\*\*.com:80/api/clusters'</span>
+</code></pre></div>    </div>
+  </li>
   <li>go to the <strong>Clusters</strong> tab</li>
   <li>choose the trusted cluster that has just been created , and here is <strong>my_trust_cluster</strong></li>
   <li>click <strong>Edit</strong> button</li>
@@ -437,6 +443,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/trusted-compute-pools.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/trusted-compute-pools.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/trusted-compute-pools.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/trusted-compute-pools.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

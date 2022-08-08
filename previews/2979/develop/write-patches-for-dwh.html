@@ -110,21 +110,17 @@
 
 <h1 id="how-to-write-patches-for-dwh">How to write patches for DWH</h1>
 
-<h2 id="install-talend-di-and-import-the-project">Install Talend DI and import the project</h2>
+<h2 id="install-talend-and-import-the-project">Install Talend and import the project</h2>
 
 <ul>
   <li>
-    <p>Download and install the latest Talend DI version.</p>
-
-    <p>Available from: <code class="language-plaintext highlighter-rouge">[</code>http://www.talend.com/download.php<code class="language-plaintext highlighter-rouge">](http://www.talend.com/download.php)</code></p>
+    <p>Follow instructions within <a href="https://github.com/oVirt/ovirt-dwh#etl-project-development">oVirt DWH Readme</a></p>
   </li>
   <li>
-    <p>Import the oVirt DWH project from the path:</p>
-
-    <p>&lt; repository folder path &gt;/ovirt-dwh/tos_project</p>
+    <p>Import the oVirt DWH project from the path: <code class="language-plaintext highlighter-rouge">&lt;repository folder path&gt;/ovirt-dwh/tos_project</code></p>
   </li>
   <li>You may now edit the project using the studio.</li>
-  <li>Setup connections context in the Talend DI for the ovirt_engine_history database.</li>
+  <li>Setup connections context in the Talend Open Studio for the <code class="language-plaintext highlighter-rouge">ovirt_engine_history</code> database.</li>
 </ul>
 
 <p>For details on this refer to Talend’s documentation.</p>
@@ -138,14 +134,9 @@
 <p>Follow the following steps:</p>
 
 <ul>
-  <li>Have a cloned ovirt-engine git repository</li>
-  <li>Setup a postgreSQL “engine” DB.</li>
-  <li>
-    <p>Make the necessary changes in:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ovirt-engine/packaging/dbscripts/create_dwh_views.sql
-</code></pre></div>    </div>
-  </li>
+  <li>Have a cloned <a href="https://github.com/oVirt/ovirt-engine">ovirt-engine git repository</a></li>
+  <li>Setup a postgreSQL “<code class="language-plaintext highlighter-rouge">engine</code>” DB.</li>
+  <li>Make the necessary changes in: <code class="language-plaintext highlighter-rouge">./ovirt-engine/packaging/dbscripts/create_dwh_views.sql</code></li>
 </ul>
 
 <h2 id="if-a-change-to-the-ovirt_engine_history-db-is-required">If a change to the “ovirt_engine_history” DB is required</h2>
@@ -153,14 +144,9 @@
 <p>Follow the following steps:</p>
 
 <ul>
-  <li>Have a cloned ovirt-dwh git repository</li>
-  <li>Setup a postgreSQL “ovirt_engine_history” DB.</li>
-  <li>
-    <p>Create an upgrade sql file in the following folder:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ./ovirt-dwh/packaging/dbscripts/upgrade/
-</code></pre></div>    </div>
-  </li>
+  <li>Have a cloned <a href="https://github.com/oVirt/ovirt-dwh">ovirt-dwh git repository</a></li>
+  <li>Setup a postgreSQL “<code class="language-plaintext highlighter-rouge">ovirt_engine_history</code>” DB.</li>
+  <li>Create an upgrade sql file in the following folder: <code class="language-plaintext highlighter-rouge">./ovirt-dwh/packaging/dbscripts/upgrade/</code></li>
 </ul>
 
 <p>When needed, update the new column values before removing a related column.</p>
@@ -186,12 +172,7 @@
 <ul>
   <li>Have a cloned ovirt-engine git repository</li>
   <li>Setup a postgreSQL “engine” DB.</li>
-  <li>
-    <p>Make the necessary changes for the latest views:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ovirt-dwh/packaging/dbscripts/create_views_X_Y.sql
-</code></pre></div>    </div>
-  </li>
+  <li>Make the necessary changes for the latest views: <code class="language-plaintext highlighter-rouge">./ovirt-dwh/packaging/dbscripts/create_views_X_Y.sql</code></li>
 </ul>
 
 <h3 id="maintain-legacy-views---make-the-necessary-changes-to-former-views">Maintain Legacy views - Make the necessary changes to former views</h3>
@@ -230,17 +211,12 @@
 <ul>
   <li>
     <ul>
-      <li>Open the zip file and copy the java files from:</li>
+      <li>Open the zip file and copy the java files from: <code class="language-plaintext highlighter-rouge">./HistoryETL/src/ovirt_engine_dwh</code></li>
     </ul>
-
-    <p>./HistoryETL/src/ovirt_engine_dwh</p>
   </li>
 </ul>
 
-<p>To the git repository :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ./ovirt-dwh/etl_export/src/ovirt_engine_dwh
-</code></pre></div></div>
+<p>To the git repository : <code class="language-plaintext highlighter-rouge">./ovirt-dwh/etl_export/src/ovirt_engine_dwh</code></p>
 
 <ul>
   <li>
@@ -250,30 +226,19 @@
   </li>
 </ul>
 
-<p>copy the context from the zip file:</p>
+<p>copy the context from the zip file: <code class="language-plaintext highlighter-rouge">./HistoryETL/ovirt_engine_dwh/</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ./HistoryETL/ovirt_engine_dwh/
-</code></pre></div></div>
-
-<p>To the git repository:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ./ovirt-dwh/etl_export/ovirt_engine_dwh
-</code></pre></div></div>
+<p>To the git repository: <code class="language-plaintext highlighter-rouge">./ovirt-dwh/etl_export/ovirt_engine_dwh</code></p>
 
 <ul>
   <li>
     <ul>
-      <li>When upgrading a Talend version, copy the routines from the zip file:</li>
+      <li>When upgrading a Talend version, copy the routines from the zip file: <code class="language-plaintext highlighter-rouge">./HistoryETL/src/routines/</code></li>
     </ul>
-
-    <p>./HistoryETL/src/routines/</p>
   </li>
 </ul>
 
-<p>To the git repository:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ./ovirt-dwh/etl_export/src/routines
-</code></pre></div></div>
+<p>To the git repository: <code class="language-plaintext highlighter-rouge">./ovirt-dwh/etl_export/src/routines</code></p>
 
 <p>Second,</p>
 
@@ -284,14 +249,10 @@
 <p><img src="/ovirt-site/previews/2979/images/wiki/ExportTalendProject.png" alt="" /></p>
 
 <ul>
-  <li>
-    <p>Copy from the zip file to the git repository :</p>
-
-    <p>./ovirt-dwh/tos_project</p>
-  </li>
+  <li>Copy from the zip file to the git repository : <code class="language-plaintext highlighter-rouge">./ovirt-dwh/tos_project</code></li>
 </ul>
 
-<p>Important ! Copy only into the folders that already exist in the tos_project folder. Do not copy : Metadata, sqlPatterns and temp.</p>
+<p><strong>Important</strong> ! Copy only into the folders that already exist in the <code class="language-plaintext highlighter-rouge">tos_project</code> folder. Do not copy : <code class="language-plaintext highlighter-rouge">Metadata</code>, <code class="language-plaintext highlighter-rouge">sqlPatterns</code> and <code class="language-plaintext highlighter-rouge">temp</code>.</p>
 
 
 
@@ -301,6 +262,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/write-patches-for-dwh.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/write-patches-for-dwh.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2979/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2979/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2979/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2979/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/write-patches-for-dwh.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/write-patches-for-dwh.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

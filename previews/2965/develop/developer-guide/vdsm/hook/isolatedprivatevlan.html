@@ -39,7 +39,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -116,15 +116,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Dan Yasny">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Dan Yasny</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                 </div>
             </header>
@@ -134,29 +135,31 @@
           
 <h1 id="isolatedprivatevlan">isolatedprivatevlan</h1>
 
-<p>The isolatedprivatevlan vdsm hook limits VM traffic to a specific gateway by its mac address. The hook prevents the VM from spoofing its mac or ip address by using <code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'/&gt; </code> libvirt filter and by adding a custom filter:</p>
+<p>The isolatedprivatevlan vdsm hook limits VM traffic to a specific gateway by its mac address.
+The hook prevents the VM from spoofing its mac or ip address by using <code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'/&gt;</code> libvirt filter and by adding a custom filter:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  isolatedprivatevlan-vdsm.xml
-</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">isolatedprivatevlan-vdsm.xml</code></p>
 
 <p>The hook is updating each interface entry in VM domain:</p>
 
-<p>&lt;interface …&gt;
-`   <code class="language-plaintext highlighter-rouge">&lt;filterref filter='isolatedprivatevlan-vdsm'&gt;
-</code>       <code class="language-plaintext highlighter-rouge">&lt;parameter name='GATEWAY_MAC' value='aa:bb:cc:dd:ee:ff'/&gt;
-</code>   <code class="language-plaintext highlighter-rouge">&lt;/filterref&gt;
-</code>   <code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'&gt;
-</code>       <code class="language-plaintext highlighter-rouge">&lt;parameter name='IP' value='10.35.16.50'/&gt;
-</code>   `&lt;/filterref&gt;
-&lt;/interface&gt;</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;interface</span> <span class="err">...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;filterref</span> <span class="na">filter=</span><span class="s">'isolatedprivatevlan-vdsm'</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'GATEWAY_MAC'</span> <span class="na">value=</span><span class="s">'aa:bb:cc:dd:ee:ff'</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/filterref&gt;</span>
+   <span class="nt">&lt;filterref</span> <span class="na">filter=</span><span class="s">'clean-traffic'</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">'IP'</span> <span class="na">value=</span><span class="s">'10.35.16.50'</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/filterref&gt;</span>
+<span class="nt">&lt;/interface&gt;</span>
+</code></pre></div></div>
 
 <p>syntax:</p>
 
-<p><code class="language-plaintext highlighter-rouge">isolatedprivatevlan=</code><GatewayMAC>`,`<GuestIP></GuestIP></GatewayMAC></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">isolatedprivatevlan</span><span class="o">=</span>&lt;GatewayMAC&gt;,&lt;GuestIP&gt;
+</code></pre></div></div>
 
 <p>Example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  isolatedprivatevlan=aa:bb:cc:dd:ee:ff,10.35.16.50
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">isolatedprivatevlan</span><span class="o">=</span>aa:bb:cc:dd:ee:ff,10.35.16.50
 </code></pre></div></div>
 
 <p>Note: if no IP is supplied, the clean-traffic filter will not be added</p>
@@ -169,6 +172,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/hook/isolatedprivatevlan.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/vdsm/hook/isolatedprivatevlan.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/hook/isolatedprivatevlan.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/vdsm/hook/isolatedprivatevlan.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

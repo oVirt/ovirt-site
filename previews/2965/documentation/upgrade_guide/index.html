@@ -39,7 +39,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -1036,8 +1036,22 @@ for more details.</p>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2502,7 +2516,7 @@ the oVirt Engine:</p>
 <div class="sect2">
 <h3 id="Updating_all_hosts_in_a_cluster_4-2_local_db">5.4. Updating All Hosts in a Cluster</h3>
 <div class="paragraph">
-<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
+<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md">oVirt Cluster Upgrade</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
 <div class="paragraph">
 <p>Update one cluster at a time.</p>
@@ -3685,8 +3699,22 @@ for more details.</p>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4747,7 +4775,7 @@ the oVirt Engine, the remote database or remote service:</p>
 <div class="sect2">
 <h3 id="Updating_all_hosts_in_a_cluster_4-2_remote_db">9.5. Updating All Hosts in a Cluster</h3>
 <div class="paragraph">
-<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
+<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md">oVirt Cluster Upgrade</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
 <div class="paragraph">
 <p>Update one cluster at a time.</p>
@@ -6124,8 +6152,22 @@ for more details.</p>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -6955,7 +6997,7 @@ and disable global maintenance mode:</p>
 <div class="sect2">
 <h3 id="Updating_all_hosts_in_a_cluster_4-2_SHE">13.6. Updating All Hosts in a Cluster</h3>
 <div class="paragraph">
-<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
+<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md">oVirt Cluster Upgrade</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
 <div class="paragraph">
 <p>Update one cluster at a time.</p>
@@ -7801,7 +7843,7 @@ and disable global maintenance mode:</p>
 <div class="sect2">
 <h3 id="Updating_all_hosts_in_a_cluster_minor_updates">15.3. Updating All Hosts in a Cluster</h3>
 <div class="paragraph">
-<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md" class="bare">https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md</a> for more information about the Ansible role used to automate the updates.</p>
+<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md">oVirt Cluster Upgrade</a> for more information about the Ansible role used to automate the updates.</p>
 </div>
 <div class="paragraph">
 <p>Update one cluster at a time.</p>
@@ -8480,6 +8522,6 @@ Release      : 1.0.el8
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/upgrade_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/upgrade_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/upgrade_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/documentation/upgrade_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

@@ -39,7 +39,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -116,15 +116,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Marcin Mirecki">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Marcin Mirecki</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                 </div>
             </header>
@@ -160,13 +161,13 @@ Networking products) allowing them to easily integrate with oVirt.</p>
 
 <p>Many organizations use centralized network management systems to handle all
 their networking, and would like them to manage the network topology of
-their oVirt environments. 
+their oVirt environments.
 Currently the only option of using external networks in oVirt is to use the
 OpenStack Neutron integration, which allows the import of OpenStack Neutron
-networks and the provisioning of VM’s connected to these networks. 
-This feature is however very specific to OpenStack Neutron and tied to its Linux bridge and OVS plugins.. 
+networks and the provisioning of VM’s connected to these networks.
+This feature is however very specific to OpenStack Neutron and tied to its Linux bridge and OVS plugins.
 We would like to extend this functionality to other external network providers,
-by making it simpler, more general and less dependant on OpenStack Neutron features. 
+by making it simpler, more general and less dependant on OpenStack Neutron features.
 The result should be an API over which oVirt can communicate with an external
 network management systems, and use the networks defined in them in provisioned VMs.</p>
 
@@ -193,7 +194,7 @@ This will require a rework of the UI and REST API layer.</p>
     <p>(optionally) read-only mode for subnets</p>
   </li>
   <li>
-    <p>VIF driver - the implementation of the VIF driver is now completely the responsibility 
+    <p>VIF driver - the implementation of the VIF driver is now completely the responsibility
 of the external network provider</p>
   </li>
   <li>
@@ -210,7 +211,7 @@ decides otherwise)</p>
 <p>The API for external network providers consists of 3 main parts:</p>
 
 <ol>
-  <li>External network provider administration. 
+  <li>External network provider administration.
   This allows to perform admistrative tasks:
     <ul>
       <li>connecting to a new network provider (External Providers -&gt; Add)</li>
@@ -222,7 +223,7 @@ decides otherwise)</p>
   </li>
   <li>
     <p>Communication with an external provider at VM provisioning time.
-This is reponsible for exchanging information with the external provider when a new VM NIC is 
+This is reponsible for exchanging information with the external provider when a new VM NIC is
 created/changed/removed and is connected/disconnected to/from and external networks.</p>
   </li>
   <li>VIF Driver
@@ -322,7 +323,7 @@ Each external network is identified by an “id” given by the external provide
 <p>External network provider interactions:</p>
 
 <ul>
-  <li>get all network from the external providers (GET networks)</li>
+  <li>get all network from the external providers (<code class="language-plaintext highlighter-rouge">GET networks</code>)</li>
 </ul>
 
 <h4 id="delete-external-network">Delete external network</h4>
@@ -334,7 +335,7 @@ Same as OpenStack Neutron Integration</p>
 When the “Remove network(s) from the external provider(s) as well.” ceckbox is checked:</p>
 
 <ul>
-  <li>delete network (DELETE networks)</li>
+  <li>delete network (<code class="language-plaintext highlighter-rouge">DELETE networks</code>)</li>
 </ul>
 
 <h4 id="subnets-management-ui">Subnets management (UI)</h4>
@@ -346,18 +347,18 @@ networks), which can be used to list/add/remove the subnets of an external netwo
 <p>External network provider interactions when adding a subnet (Networks -&gt; Subnets tab -&gt; New):</p>
 
 <ul>
-  <li>Get network (GET networks/<id>)</id></li>
-  <li>Add subnet (POST subnets)</li>
+  <li>Get network (<code class="language-plaintext highlighter-rouge">GET networks/&lt;id&gt;</code>)</li>
+  <li>Add subnet (<code class="language-plaintext highlighter-rouge">POST subnets</code>)</li>
 </ul>
 
 <p>External network provider interactions when removing a subnet (Networks -&gt; Subnets tab -&gt; Remove):</p>
 <ul>
-  <li>Add subnet (DELETE subnets/<id>)</id></li>
+  <li>Add subnet (<code class="language-plaintext highlighter-rouge">DELETE subnets/&lt;id&gt;</code>)</li>
 </ul>
 
 <p>Opening the subnets subtab causes a request for the list of subnets</p>
 <ul>
-  <li>Get subnets (GET subnets)</li>
+  <li>Get subnets (<code class="language-plaintext highlighter-rouge">GET subnets</code>)</li>
 </ul>
 
 <h4 id="setup-networks-dialog-ui---optional">Setup networks dialog (UI) - optional</h4>
@@ -377,15 +378,15 @@ VM NICs connected to a network defined outside of oVirt.</p>
 <p>Port allocation:</p>
 
 <ul>
-  <li>the engine checks if the port for the VM NIC exists (GET ports)</li>
-  <li>if no port exists, the engine will create a new port (POST ports)</li>
+  <li>the engine checks if the port for the VM NIC exists (<code class="language-plaintext highlighter-rouge">GET ports</code>)</li>
+  <li>if no port exists, the engine will create a new port (<code class="language-plaintext highlighter-rouge">POST ports</code>)</li>
   <li>if the port already exists, the engine will update it with information
-about new allocation (POST ports)</li>
-  <li>in both cases the new/updated port is identified by a <PORT ID=""> returned
-by the external network provider</PORT></li>
-  <li>the engine will send a nic plug request to VDSM, passing the <PORT ID="">
-as one of the parameters. The <PORT ID=""> is passed to the VIF driver as  a "vnic_id"
-parameter.</PORT></PORT></li>
+about new allocation (‘POST ports’)</li>
+  <li>in both cases the new/updated port is identified by a <code class="language-plaintext highlighter-rouge">&lt;PORT ID&gt;</code> returned
+by the external network provider</li>
+  <li>the engine will send a nic plug request to VDSM, passing the <code class="language-plaintext highlighter-rouge">&lt;PORT ID&gt;</code>
+as one of the parameters. The <code class="language-plaintext highlighter-rouge">&lt;PORT ID&gt;</code> is passed to the VIF driver as  a “vnic_id”
+parameter.</li>
   <li>on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug hook,
 will connect the VM NIC to the network provided by the external provider</li>
 </ul>
@@ -415,7 +416,7 @@ in case of automatic deployment of VIF drivers on new hosts.</li>
 <ul>
   <li>on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotunplug hook,
 will unplug the VM NIC from the network provided by the external provider.
-The nic is identified by the same <PORT ID=""> a during nic plug</PORT></li>
+The nic is identified by the same <code class="language-plaintext highlighter-rouge">&lt;PORT ID&gt;</code> a during nic plug</li>
 </ul>
 
 <h4 id="vm-nic-delete">VM NIC delete</h4>
@@ -423,8 +424,8 @@ The nic is identified by the same <PORT ID=""> a during nic plug</PORT></li>
 <p>When a nic is already unplugged, it can be deleted from a VM. This will trigger the following actions:</p>
 
 <ul>
-  <li>the engine will try to locate the port on the external provider (GET ports)</li>
-  <li>the engine will delete the port from the external provider (DELTE ports)</li>
+  <li>the engine will try to locate the port on the external provider (<code class="language-plaintext highlighter-rouge">GET ports</code>)</li>
+  <li>the engine will delete the port from the external provider (<code class="language-plaintext highlighter-rouge">DELETE ports</code>)</li>
 </ul>
 
 <h4 id="migrate-a-vm-to-another-host">Migrate a VM to another host</h4>
@@ -440,7 +441,7 @@ the NIC ti\o the external network on the destination VDSM</li>
 
 <h4 id="vm-nic-provisioning-synchronization-issues">VM NIC provisioning synchronization issues</h4>
 
-<p>Care must be taken for the VIF driver to leave the networking operations in a finished state before exiting. 
+<p>Care must be taken for the VIF driver to leave the networking operations in a finished state before exiting.
 For example should a VIF driver just initiate connecting a VM NIC during VM
 startup and exit, the connecting operation could still not be finished when
 the VM starts up and leave it booting without a network connection.</p>
@@ -457,12 +458,12 @@ the Neutron API is used.</p>
 <p>The REST API uses the following operations:</p>
 
 <p>Required tokens:
-headers={Content-Type=[application/json], x-openstack-request-id=[<authentication token="">]}</authentication></p>
+<code class="language-plaintext highlighter-rouge">headers={Content-Type=[application/json], x-openstack-request-id=[&lt;authentication token&gt;]}</code></p>
 
 <p>Authentication (optional):</p>
 
 <ul>
-  <li>authenticate: POST: http://host:35357/v2.0/tokens</li>
+  <li>authenticate: <code class="language-plaintext highlighter-rouge">POST: http://host:35357/v2.0/tokens</code></li>
 </ul>
 
 <p>Request:</p>
@@ -476,20 +477,20 @@ headers={Content-Type=[application/json], x-openstack-request-id=[<authenticatio
 </span></code></pre></div></div>
 
 <ul>
-  <li>tets connection: GET: http://host:9696/v2.0/</li>
+  <li>tets connection: <code class="language-plaintext highlighter-rouge">GET: http://host:9696/v2.0/</code></li>
 </ul>
 
 <p>Networks:</p>
 
 <ul>
   <li>
-    <p>network details: GET: http://host:9696/v2.0/network/<network></network></p>
+    <p>network details: <code class="language-plaintext highlighter-rouge">GET: http://host:9696/v2.0/network/&lt;network id&gt;</code></p>
   </li>
   <li>
-    <p>list networks: GET: http://host:9696/v2.0/networks</p>
+    <p>list networks: <code class="language-plaintext highlighter-rouge">GET: http://host:9696/v2.0/networks</code></p>
   </li>
   <li>
-    <p>delete a network: DELETE: http://host:9696/v2.0/networks</p>
+    <p>delete a network: <code class="language-plaintext highlighter-rouge">DELETE: http://host:9696/v2.0/networks</code></p>
   </li>
 </ul>
 
@@ -497,16 +498,16 @@ headers={Content-Type=[application/json], x-openstack-request-id=[<authenticatio
 
 <ul>
   <li>
-    <p>list ports: GET: http://host::9696/v2.0/ports   (Check if port exists)</p>
+    <p>list ports: <code class="language-plaintext highlighter-rouge">GET: http://host::9696/v2.0/ports</code>   (Check if port exists)</p>
   </li>
   <li>
-    <p>port details:  GET: http://host::9696/v2.0/ports/<port></port></p>
+    <p>port details:  <code class="language-plaintext highlighter-rouge">GET: http://host::9696/v2.0/ports/&lt;port id&gt;</code></p>
   </li>
   <li>
-    <p>add a port: POST:  http://host::9696/v2.0/ports/<port></port></p>
+    <p>add a port: <code class="language-plaintext highlighter-rouge">POST:  http://host::9696/v2.0/ports/&lt;port id&gt;</code></p>
   </li>
   <li>
-    <p>delete port: DELETE:  http://host::9696/v2.0/ports/<port></port></p>
+    <p>delete port: <code class="language-plaintext highlighter-rouge">DELETE:  http://host::9696/v2.0/ports/&lt;port id&gt;</code></p>
   </li>
 </ul>
 
@@ -514,13 +515,13 @@ headers={Content-Type=[application/json], x-openstack-request-id=[<authenticatio
 
 <ul>
   <li>
-    <p>list subnets: GET: http://host:9696/v2.0/subnets</p>
+    <p>list subnets: <code class="language-plaintext highlighter-rouge">GET: http://host:9696/v2.0/subnets</code></p>
   </li>
   <li>
-    <p>adding a subnet: POST: http://host:9696/v2.0/subnets</p>
+    <p>adding a subnet: <code class="language-plaintext highlighter-rouge">POST: http://host:9696/v2.0/subnets</code></p>
   </li>
   <li>
-    <p>deleting a subnet: DELETE: http://host:9696/v2.0/network/<network></network></p>
+    <p>deleting a subnet: <code class="language-plaintext highlighter-rouge">DELETE: http://host:9696/v2.0/network/&lt;network id&gt;</code></p>
   </li>
 </ul>
 
@@ -680,7 +681,7 @@ These properties might also be passed to the VIF driver when unplugging a nic (t
 <h3 id="automatic-vif-driver-deployment">Automatic VIF driver deployment</h3>
 
 <p>In the later stages of the external network provider feature, support for automated deployment
-of VIF drivers during host deploy will be added. This will be similar to the current OpenStack Neutron 
+of VIF drivers during host deploy will be added. This will be similar to the current OpenStack Neutron
 provider deployment.
 In future versions VIF driver deployment should be integrated into ovirt-host-deploy.</p>
 
@@ -696,7 +697,7 @@ handle the connecting action.</p>
 <h4 id="simple-use-case-for-having-more-than-one-vif-driver">Simple use case for having more than one VIF driver</h4>
 
 <p>A user might want to provision vm’s having multiple VPN connections to different sites. Each such connection
-could require a different external network provider. In such a case a host should handle multiple 
+could require a different external network provider. In such a case a host should handle multiple
 VIF drivers to establish each of these connections.</p>
 
 <h3 id="vif-driver-api">VIF driver API</h3>
@@ -734,6 +735,6 @@ The implementation is based mostly on the functionality/code of the “Openstack
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/external-network-provider.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/external-network-provider.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/external-network-provider.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/network/external-network-provider.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

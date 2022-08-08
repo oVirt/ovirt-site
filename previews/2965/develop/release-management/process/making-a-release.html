@@ -41,7 +41,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -109,15 +109,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
-                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                 </div>
             </header>
@@ -168,6 +169,24 @@ For example, if you want to ship for Fedora, you need to be a package owner on t
 </blockquote>
 
 <p>The build process on the <a href="https://wiki.centos.org/HowTos/CommunityBuildSystem">Community Build Service is documented on the CentOS website</a>.</p>
+
+<p>Once you have been approved with the corresponding permissions, you need to set up a build environment and to generate an authentication certificate. It’s described in detail in the page linked above, here is a short version:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install the necessary packages</span>
+dnf <span class="nb">install </span>epel-release
+dnf <span class="nb">install </span>centos-packager fedora-packager
+
+<span class="c"># If you haven't set up Kerberos yet, you may need to set</span>
+<span class="c"># the following line in /etc/krb5.conf if the default KEYRING</span>
+<span class="c"># setting doesn't work with the commands below:</span>
+<span class="c"># default_ccache_name = FILE:/tmp/krb5cc_%{uid}</span>
+
+<span class="c"># Log in to Kerberos</span>
+fkinit <span class="nt">-u</span> &lt;your CentOS/Fedora account username&gt;
+
+<span class="c"># Generate the authentication certificate</span>
+centos-cert <span class="nt">-u</span> &lt;your CentOS/Fedora account username&gt;
+</code></pre></div></div>
 
 <p>A typical build is done by taking a src.rpm from the COPR <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/builds/">ovirt/ovirt-master-snapshot Builds</a>
 and rebuilding with:</p>
@@ -245,6 +264,21 @@ The milestone config is the one used for generating the release notes.</p>
  ./release_notes_git.py <span class="nt">--git-basedir</span> /var/tmp/release-cache <span class="nt">--contrib-project-list</span> ovirt-4.5.0 <span class="o">&gt;</span>notes.md
 </code></pre></div></div>
 
+<h2 id="move-ovirt-verified-bugs-to-closed">Move oVirt verified bugs to closed</h2>
+
+<p>Have a look at oVirt bugs targeted to the milestone being shipped and in verified state.
+You can use a query like:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://bugzilla.redhat.com/buglist.cgi?quicksearch=classification%3Aovirt%20target_milestone%3A<span class="nt">&lt;replace_with_target_milestone&gt;</span>%20status%3Averified
+</code></pre></div></div>
+<p>using something like <code class="language-plaintext highlighter-rouge">ovirt-4.5.0</code> as replacement for <code class="language-plaintext highlighter-rouge">&lt;replace_with_target_milestone&gt;</code>.</p>
+
+<p>Move them to <code class="language-plaintext highlighter-rouge">CLOSED</code> state with resolution <code class="language-plaintext highlighter-rouge">CURRENT</code>.
+While doing it, a comment like the following would help:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This bugzilla is included in oVirt 4.5.0 release, published on April 20th 2022.
+Since the problem described in this bug report should be resolved in oVirt 4.5.0 release, it has been closed with a resolution of CURRENT RELEASE.
+If the solution does not work for you, please open a new bug report.
+</code></pre></div></div>
+
 <h2 id="announcements">Announcements</h2>
 
 <p>Once ready to announce, the release manager must ensure the announcement is sent:</p>
@@ -290,7 +324,7 @@ of the #opensource #virtualization solution for your entire enterprise: oVirt &l
 Read more about it on &lt;link to announcement blog post&gt;.
 </code></pre></div></div>
 
-<p>Typical blog post: https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/</p>
+<p>Typical blog post: <a href="https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/">https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/</a></p>
 
 <p>Try contacting our <a href="/ovirt-site/previews/2965/develop/release-management/process/press-plan.html">Press Plan Contacts</a> to get press coverage.</p>
 
@@ -301,6 +335,6 @@ Read more about it on &lt;link to announcement blog post&gt;.
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/process/making-a-release.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/process/making-a-release.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/process/making-a-release.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/process/making-a-release.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

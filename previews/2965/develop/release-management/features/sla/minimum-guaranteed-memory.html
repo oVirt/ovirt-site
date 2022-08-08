@@ -41,7 +41,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -118,15 +118,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Yedidyah Bar David">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Yedidyah Bar David</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                   
                   
@@ -138,15 +139,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Laszlo Hornyak">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Laszlo Hornyak</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                 </div>
             </header>
@@ -163,7 +165,7 @@
 
 <ul>
   <li>Name: Martin Sivak (msivak)</li>
-  <li>Email: <msivak at="" redhat="" dot="" com=""></msivak></li>
+  <li>Email: <a href="mailto:msivak@redhat.com">msivak@redhat.com</a></li>
 </ul>
 
 <h4 id="current-status">Current status</h4>
@@ -192,7 +194,8 @@
 
 <h4 id="backend">Backend</h4>
 
-<p>Only the part that talks to VDSM needs to be updated. We need to transfer one more value to the host in all VM modifying commands. As it changes the VDSM - engine API we will have to modify VdsProperties, VmInfoBuilderBase to send VmStatic.minAllocatedMem to VDSM under the name “memGuaranteedSize”. The value is in MiB.</p>
+<p>Only the part that talks to VDSM needs to be updated. We need to transfer one more value to the host in all VM modifying commands.
+As it changes the VDSM - engine API we will have to modify <code class="language-plaintext highlighter-rouge">VdsProperties</code>, <code class="language-plaintext highlighter-rouge">VmInfoBuilderBase</code> to send <code class="language-plaintext highlighter-rouge">VmStatic.minAllocatedMem</code> to VDSM under the name “<code class="language-plaintext highlighter-rouge">memGuaranteedSize</code>”. The value is in MiB.</p>
 
 <h4 id="db-change">DB Change</h4>
 
@@ -204,21 +207,28 @@
 
 <h4 id="vdsm">VDSM</h4>
 
-<p>VDSM has to support the new memGuaranteedSize provided by engine and return the additional balloon_min value from getVmBalloonInfo with that value. So first we have to store the value. VM.conf will contain memGuaranteedSize key that will be passed to VDSM from the engine (in MiB) using the standard xml-rpc methods. We also need to add support for the following snippet to the DOM xml:</p>
+<p>VDSM has to support the new <code class="language-plaintext highlighter-rouge">memGuaranteedSize</code> provided by engine and return the additional <code class="language-plaintext highlighter-rouge">balloon_min</code> value from <code class="language-plaintext highlighter-rouge">getVmBalloonInfo</code> with that value.
+So first we have to store the value. VM.conf will contain <code class="language-plaintext highlighter-rouge">memGuaranteedSize</code> key that will be passed to VDSM from the engine (in MiB) using the standard xml-rpc methods.
+We also need to add support for the following snippet to the DOM xml:</p>
 
-<p>` <code class="language-plaintext highlighter-rouge">&lt;memtune&gt;
-</code>   <code class="language-plaintext highlighter-rouge">&lt;min_guarantee&gt;</code>value in KiB<code class="language-plaintext highlighter-rouge">&lt;/min_guarantee&gt;
-</code> `&lt;/memtune&gt;</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;memtune&gt;</span>
+   <span class="nt">&lt;min_guarantee&gt;</span>value in KiB<span class="nt">&lt;/min_guarantee&gt;</span>
+ <span class="nt">&lt;/memtune&gt;</span>
+</code></pre></div></div>
 
-<p>We deal with this part of the DOM XML in VM constructor (vdsm/vm.py) and tests/libvirtvmTests.py</p>
+<p>We deal with this part of the DOM XML in VM constructor (<code class="language-plaintext highlighter-rouge">vdsm/vm.py</code>) and <code class="language-plaintext highlighter-rouge">tests/libvirtvmTests.py</code></p>
 
 <h4 id="mom">MoM</h4>
 
-<p>MoM already supports minimal required memory while shrinking, but computes it as a percentage of used and free memory. This will need to be updated to take the balloon_min into account as well in the balloon.rules file.</p>
+<p>MoM already supports minimal required memory while shrinking, but computes it as a percentage of used and free memory.
+This will need to be updated to take the <code class="language-plaintext highlighter-rouge">balloon_min</code> into account as well in the balloon.rules file.</p>
 
 <h4 id="upgrade">Upgrade</h4>
 
-<p>There should be no issue with engine upgrades. The values are already in the DB. Even if VDSM is too old, it won’t cause any issues, it will just ignore the value. MoM requires the balloon_min value after this change, so it needs a newer version of VDSM. So if we upgrade only the engine, the host is still ok. When we upgrade the host, we have to have both new vdsm and MoM.</p>
+<p>There should be no issue with engine upgrades. The values are already in the DB.
+Even if VDSM is too old, it won’t cause any issues, it will just ignore the value.
+MoM requires the balloon_min value after this change, so it needs a newer version of VDSM.
+So if we upgrade only the engine, the host is still ok. When we upgrade the host, we have to have both new vdsm and MoM.</p>
 
 <h4 id="permissions">Permissions</h4>
 
@@ -267,6 +277,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/minimum-guaranteed-memory.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/minimum-guaranteed-memory.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/minimum-guaranteed-memory.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/minimum-guaranteed-memory.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

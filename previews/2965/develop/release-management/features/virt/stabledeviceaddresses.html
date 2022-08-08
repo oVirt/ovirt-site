@@ -41,7 +41,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -118,15 +118,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Eli Mesika">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Eli Mesika</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                   
                   
@@ -138,15 +139,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Igor Lvovsky">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Igor Lvovsky</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                   
                   
@@ -158,15 +160,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Shahar Havivi">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Shahar Havivi</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                   
                   
@@ -178,15 +181,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Yaniv Kaul">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Yaniv Kaul</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                 </div>
             </header>
@@ -208,7 +212,9 @@ This is particularly important for Windows guests in order to prevent warnings o
 
 <p>This feature is supported by libvirt and should be implemented by oVirt Engine and VDSM.</p>
 
-<p>When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine. oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.</p>
+<p>When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine.
+oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run.
+If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.</p>
 
 <h2 id="owner">Owner</h2>
 
@@ -236,7 +242,7 @@ This is particularly important for Windows guests in order to prevent warnings o
 This parameter is optional and if not given VDSM should learn the device addresses from libvirt.</li>
   <li>The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.</li>
   <li>The ‘getAllVmStats’ verb should report the hash of the device addresses of the VMS.</li>
-  <li>If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
+  <li>If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM
 for the full VM configuration by using the ‘list’ verb with the ‘long’ format and the list of changed VMs.</li>
   <li>The list verb should report the device addresses as part of the VM configuration.</li>
 </ol>
@@ -246,8 +252,8 @@ for the full VM configuration by using the ‘list’ verb with the ‘long’ f
 <ol>
   <li>Export - the device addresses should be part of the exported configuration of the VM.</li>
   <li>Import - the device addresses should be part of the imported configuration of the VM.</li>
-  <li>The ‘list’ verb reports the full configuration of all the VMs on the host. 
-This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
+  <li>The ‘list’ verb reports the full configuration of all the VMs on the host.
+This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs
 configuration while only a small group is needed.</li>
 </ol>
 
@@ -339,8 +345,8 @@ configuration while only a small group is needed.</li>
 <figure class="highlight">
   <pre><code class="language-json" data-lang="json"><span class="w">     </span><span class="err">'vmId':</span><span class="w"> </span><span class="err">'</span><span class="mi">27</span><span class="err">c</span><span class="mi">61</span><span class="err">cea-f</span><span class="mi">4</span><span class="err">fd</span><span class="mi">-47e9-84e8</span><span class="err">-d</span><span class="mi">1598</span><span class="err">f</span><span class="mi">32</span><span class="err">ccc</span><span class="mi">0</span><span class="err">',</span><span class="w">
      </span><span class="err">'vmName':</span><span class="w"> </span><span class="err">'myVM',</span><span class="w">
-     </span><span class="err">'acpiEnable':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w"> 
-     </span><span class="err">'emulatedMachine':</span><span class="w"> </span><span class="err">'rhel</span><span class="mf">6.2</span><span class="err">.</span><span class="mi">0</span><span class="err">',</span><span class="w"> 
+     </span><span class="err">'acpiEnable':</span><span class="w"> </span><span class="err">'</span><span class="kc">true</span><span class="err">',</span><span class="w">
+     </span><span class="err">'emulatedMachine':</span><span class="w"> </span><span class="err">'rhel</span><span class="mf">6.2</span><span class="err">.</span><span class="mi">0</span><span class="err">',</span><span class="w">
      </span><span class="err">'vmType':</span><span class="w"> </span><span class="err">'kvm',</span><span class="w">
      </span><span class="err">'memSize':</span><span class="w"> </span><span class="mi">512</span><span class="err">,</span><span class="w">
      </span><span class="err">'smpCoresPerSocket':</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">',</span><span class="w">
@@ -356,7 +362,7 @@ configuration while only a small group is needed.</li>
      </span><span class="err">'displayNetwork':</span><span class="w"> </span><span class="err">'rhevm',</span><span class="w">
      </span><span class="err">'display':</span><span class="w"> </span><span class="err">'qxl|vnc',</span><span class="w">
      </span><span class="err">'custom':</span><span class="w"> </span><span class="p">{}</span><span class="err">,</span><span class="w">
-     </span><span class="err">'devices':</span><span class="w"> </span><span class="p">[</span><span class="w">   
+     </span><span class="err">'devices':</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="err">'type':</span><span class="w"> </span><span class="err">'disk'</span><span class="p">,</span><span class="w">
              </span><span class="err">'device':</span><span class="w"> </span><span class="err">'disk'</span><span class="p">,</span><span class="w">
              </span><span class="err">'index':</span></code></pre>
@@ -373,14 +379,14 @@ New table vm_device:
   address             -- The device address as a string
   boot_order          -- The device boot order
   spec_params         -- The device special parameters, for example ('display': 'vnc')
-  is_managed          -- Indicates if the device is managed 
+  is_managed          -- Indicates if the device is managed
   is_plugged          -- Indicates if device is plugable
   is_readonly         -- Indicates if device is read-only.
 </code></pre></div></div>
 
 <p>Adding a column to vm_dynamic:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  hash                -- holds the md5 like hash indicating a change 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  hash                -- holds the md5 like hash indicating a change
 </code></pre></div></div>
 
 <p>Generation CRUD SPs for the new vm_device table Modify all relevant views &amp; SP to have the hash field.</p>
@@ -409,17 +415,17 @@ New table vm_device:
 
 <p>refreshVdsRunTimeInfo is called</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  GetAllVMStats is called 
-     For each VM info 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  GetAllVMStats is called
+     For each VM info
        if (hash from vdsm  hash from db)
               add VM to changed-vm-list
      next
   if (changed-vm-list length &gt; 0)
      Issue a call to vdsm list command with 'long' &amp; changed-vm-list[1]
-     For each VM in list 
+     For each VM in list
         persist all changed data in db.
         update hash for VM in db
-     next 
+     next
   end
 </code></pre></div></div>
 
@@ -467,7 +473,14 @@ New table vm_device:
 
 <h3 id="managed-and-un-managed-devices">Managed and un-managed devices</h3>
 
-<p>In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true) Each device that we are learning via vdsm is considered as un-managed device. There is one exception for this rule, we will handle a SpecialManagedDevices white-list in vdc-options. This list will include a list of <type></type><device></device> that are special. It means that even if we learn this device from vdsm, still his is_managed flag will be set to true. When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string (with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map. We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.</p>
+<p>In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true)
+Each device that we are learning via vdsm is considered as un-managed device.
+There is one exception for this rule, we will handle a <code class="language-plaintext highlighter-rouge">SpecialManagedDevices</code> white-list in vdc-options.
+This list will include a list of <code class="language-plaintext highlighter-rouge">&lt;type&gt;&lt;/type&gt;&lt;device&gt;&lt;/device&gt;</code> that are special.
+It means that even if we learn this device from vdsm, still his is_managed flag will be set to true.
+When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string
+(with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map.
+We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.</p>
 
 <h3 id="action-table-map">Action Table Map</h3>
 
@@ -536,7 +549,7 @@ New table vm_device:
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. Direct LUN considerations.
  2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
- 3. Regarding boot sequence: We currently have default boot sequence in the template level. 
+ 3. Regarding boot sequence: We currently have default boot sequence in the template level.
     The question is how this is handled in moving from 3.0 to 3.1 and vice verse
     a) 3.0 to 3.1 - we will have to write the logic that tries to match the conversion from current Enum BootSequence value to the new format
     b) 3.1 to 3.0 - we have a problem here either we :
@@ -586,6 +599,6 @@ New table vm_device:
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/stabledeviceaddresses.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/stabledeviceaddresses.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/stabledeviceaddresses.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/stabledeviceaddresses.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

@@ -41,7 +41,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -100,15 +100,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Federico Simoncelli">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Federico Simoncelli</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                   
                   
@@ -120,22 +121,23 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Saggi Mizrahi">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Saggi Mizrahi</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                 </div>
             </header>
           
         
         <section id="content" class="content container">
-          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2965/documentation/'>Documentation is available here.</a></div>
+          <div class='alert alert-warning'>Much of this developer documentation provides historical context but may not reflect the current state of the project.<br>If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2965/documentation/'>User Documentation is available here.</a></div>
 
 <!-- TODO: Content review -->
 
@@ -145,7 +147,9 @@
 
 <h1 id="storage-domain-version-3">Storage Domain Version 3</h1>
 
-<p>The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit 8665716c: Use SANLock for the SPM resource [1]. The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization) and mainly to introduce the use of SANLock [2].</p>
+<p>The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit <code class="language-plaintext highlighter-rouge">8665716c</code>: Use <a href="http://gerrit.ovirt.org/726">SANLock for the SPM resource</a>.
+The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization)
+and mainly to introduce the use of <a href="https://fedorahosted.org/sanlock">SANLock</a>.</p>
 
 <ul>
   <li><strong>Supported Domain Types:</strong> Block (iSCSI, FCP) and File (NFS, local) domains</li>
@@ -157,10 +161,10 @@
 <h3 id="vdsm-and-format">VDSM and Format</h3>
 
 <ul>
-  <li>Uses SANLock to acquire the SPM resource [3]</li>
-  <li>Uses SANLock to acquire the volume resources (virtualization subsystem, libvirt) [4]</li>
+  <li>Uses <a href="http://gerrit.ovirt.org/726">SANLock to acquire the SPM resource</a></li>
+  <li>Uses <a href="http://gerrit.ovirt.org/1253">SANLock to acquire the volume resources (virtualization subsystem, libvirt)</a></li>
   <li>In block domains the permissions of the LVs in the metadata are always RW (to allow live snapshots and live merges)</li>
-  <li>Unicode[5] support in the name and description of:
+  <li><a href="http://gerrit.ovirt.org/637">Unicode</a> support in the name and description of:
     <ul>
       <li>Storage Pools</li>
       <li>Storage Domains</li>
@@ -213,24 +217,6 @@
 
 <p><img src="/ovirt-site/previews/2965/images/wiki/DomainUpgrade1.png" alt="" /></p>
 
-<h2 id="references">References</h2>
-
-<references>
-` `[6]
-
-</references>
-
-<p>[1]</p>
-
-<p>[2] <a href="https://fedorahosted.org/sanlock">https://fedorahosted.org/sanlock</a></p>
-
-<p>[3]</p>
-
-<p>[4] <a href="http://gerrit.ovirt.org/1253">http://gerrit.ovirt.org/1253</a></p>
-
-<p>[5] <a href="http://gerrit.ovirt.org/637">http://gerrit.ovirt.org/637</a></p>
-
-<p>[6] <a href="http://gerrit.ovirt.org/726"><code class="language-plaintext highlighter-rouge">http://gerrit.ovirt.org/726</code></a></p>
 
 
 
@@ -238,6 +224,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/storage/storage-domain-versions.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/storage/storage-domain-versions.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/storage/storage-domain-versions.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/storage/storage-domain-versions.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

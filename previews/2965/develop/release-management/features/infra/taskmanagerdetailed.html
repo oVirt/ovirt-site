@@ -41,7 +41,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -118,15 +118,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Livnat Peer">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Livnat Peer</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                   
                   
@@ -138,15 +139,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Moti Asayag">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
                         <p><span class="author vcard">Moti Asayag</span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                   
                   
@@ -158,15 +160,16 @@
                       class="avatar avatar-32 photo"
                       height="32"
                       width="32"
-                      loading="lazy">
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
                   </div>
-                  <span class="byline">
+                  <div class="byline">
                     <section class="entry-meta">
                       
-                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
                       
                     </section>
-                  </span>
+                  </div>
                 
                 </div>
             </header>
@@ -254,9 +257,9 @@ The actions will be presented in the WebAdmin a Tasks view, where the status and
 <h4 id="requirements">Requirements</h4>
 
 <p>The requirements for feature are as follow (V2 refers to future version):</p>
-<h1 id="provide-a-mechanism-for-jobs-monitoring-via-ui-ie---monitor-job-status-and-progress-monitor-tasks-of-given-action-jobs-of-a-given-entity">Provide a mechanism for jobs monitoring via UI (i.e - monitor job status and progress, monitor tasks of given action, jobs of a given entity).</h1>
 
 <ol>
+  <li>Provide a mechanism for jobs monitoring via UI (i.e - monitor job status and progress, monitor tasks of given action, jobs of a given entity).</li>
   <li>Define a correlation-id which used to identify an action spread cross-layers (Client–&gt; Backend –&gt; VDSM).</li>
   <li>Provide the admin the option to remove jobs from the monitoring view (Job execution continues without monitoring).</li>
   <li>Provide a mechanism for tasks management: cancel task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)</li>
@@ -293,21 +296,19 @@ The actions will be presented in the WebAdmin a Tasks view, where the status and
   <li><strong>JobDaoDbFacadeImpl</strong> an implementation of the <em>JobDao</em> interface.</li>
   <li><strong>StepDao</strong> a DAO interface which defines the CRUD operations for the <em>Step</em> entities.</li>
   <li><strong>StepDaoDbFacadeImpl</strong> an implementation of the <em>StepDao</em> interface.</li>
-  <li><strong>ExecutionContext</strong> an object which encapsulates the context in which an action should be executed. It determines level of command monitoring and a way to present a given command to the User (e.g. as a job, step). Providing <em>ExecutionContext</em> will override the default monitoring behavior of the Task Manager.</li>
-</ul>
-
-<!-- -->
-
-<ul>
+  <li>
+    <p><strong>ExecutionContext</strong> an object which encapsulates the context in which an action should be executed. It determines level of command monitoring and a way to present a given command to the User (e.g. as a job, step). Providing <em>ExecutionContext</em> will override the default monitoring behavior of the Task Manager.</p>
+  </li>
   <li><strong>GetModifiedJobsQuery</strong> a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.</li>
 </ul>
 
 <h5 id="enumerators">Enumerators</h5>
 
-<p>’’’ New Enumerators <em>’
-*StepEnum’’ specifies system’s steps
-*ExecutionStatus</em> specifies which statuses are eligible for <em>Step</em> and <em>Job</em>
- <strong>Updated Enumerators</strong>
+<p><strong>New Enumerators</strong>
+<em>StepEnum’’ specifies system’s steps
+*ExecutionStatus</em> specifies which statuses are eligible for <em>Step</em> and <em>Job</em></p>
+
+<p><strong>Updated Enumerators</strong>
 The <em>VdcActionType</em> will be used in a resource bundle to correlate between the action type to the description of a job.
 The resource bundle will contain description for both Jobs and Steps (combines <em>VdcActionType</em> and <em>StepEnum</em>):</p>
 
@@ -319,8 +320,8 @@ step.VALIDATION=Validating
 
 <p><strong>Tentative:</strong>
 <em>ActionCategory</em> specifies categories of actions, e.g. storage, network, host maintenance…
-<em>VdcActionType</em> will be extended with a new field storing a list of categories (Set<ActionCategory>) to which a specific action type belongs to.
-The *categories* field will enable filtering jobs by categories. An action type could be associated with multiple categories.</ActionCategory></p>
+<em>VdcActionType</em> will be extended with a new field storing a list of categories (Set <code class="language-plaintext highlighter-rouge">ActionCategory</code>) to which a specific action type belongs to.
+The <em>categories</em> field will enable filtering jobs by categories. An action type could be associated with multiple categories.</p>
 
 <h5 id="annotations">Annotations</h5>
 
@@ -354,20 +355,273 @@ The *categories* field will enable filtering jobs by categories. An action type 
 
 <h4 id="db-design">DB Design</h4>
 
-<p><span style="color:Teal"><strong>JOB</strong></span> represents the job entity:
-{|class=”wikitable sortable” !border=”1”| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||not null ||The job ID |- |command_id ||UUID ||not null ||The associated command ID |- |status ||String ||not null ||The status of the job |- |description ||String ||not null ||The step description |- |owner_id ||UUID ||not null ||The user which triggered the command |- |parameters ||text ||not null ||A JSON representation of the parameters associated with the command |- |action_type ||String ||not null ||The type of the command as defined by <em>VdcActionType</em> |- |visible ||bool ||default ‘true’ ||Describes if current entity should be presentable, overrides defaults visibility criteria of the job |- |start_time || Timestamp ||not null ||Job start time |- |end_time || Timestamp ||null ||Job end time |- |last_update_time || Timestamp ||not null ||Command last update time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |}</p>
+<p><span style="color:Teal"><strong>JOB</strong></span> represents the job entity:</p>
 
-<p><span style="color:Teal"><strong>STEP</strong></span> represents a step of a job:
-{|class=”wikitable sortable” !border=”1”| Column Name ||Column Type ||Null? / Default ||Definition |- |step_id ||UUID ||not null ||The step ID |- |parent_step_id ||UUID ||null ||The successor step, null if none. |- |job_id ||UUID ||not null ||The job ID which the step was created for |- |step_type ||String ||not null ||The step name, values taken from <em>StepEnum</em> |- |description ||String ||not null ||The step description |- |order ||Integer ||not null ||The step order in current job hierarchy level |- |status ||String ||not null ||The status of the step |- |start_time || Timestamp ||not null ||The step start time |- |end_time || Timestamp ||null ||The step end time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |external_id || Guid ||null ||identifier of the step in external system (e.g. VSDM task-id) |- |external_system_type || String ||null ||The type of the external system (e.g. VSDM) |- |}</p>
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Type</th>
+      <th>Null? / Default</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>job_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>The job ID</td>
+    </tr>
+    <tr>
+      <td>command_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>The associated command ID</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>The status of the job</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>The step description</td>
+    </tr>
+    <tr>
+      <td>owner_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>The user which triggered the command</td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td>text</td>
+      <td>not null</td>
+      <td>A JSON representation of the parameters associated with the command</td>
+    </tr>
+    <tr>
+      <td>action_type</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>The type of the command as defined by <em>VdcActionType</em></td>
+    </tr>
+    <tr>
+      <td>visible</td>
+      <td>bool</td>
+      <td>default ‘true’</td>
+      <td>Describes if current entity should be presentable, overrides defaults visibility criteria of the job</td>
+    </tr>
+    <tr>
+      <td>start_time</td>
+      <td>Timestamp</td>
+      <td>not null</td>
+      <td>Job start time</td>
+    </tr>
+    <tr>
+      <td>end_time</td>
+      <td>Timestamp</td>
+      <td>null</td>
+      <td>Job end time</td>
+    </tr>
+    <tr>
+      <td>last_update_time</td>
+      <td>Timestamp</td>
+      <td>not null</td>
+      <td>Command last update time</td>
+    </tr>
+    <tr>
+      <td>correlation_id</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>correlation identifier for cross system logging</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><span style="color:Teal"><strong>JOB_SUBJECT_ENTITIES_MAP</strong></span> Describes a relations between entities (VM, Host…) to a job:
-{|class=”wikitable sortable” !border=”1”| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||not null ||The job ID |- |entity_id ||UUID ||not null ||The entity id which was provided to the Job main command |- |entity_type ||String ||not null ||The type of the entity |- |}</p>
+<hr />
 
-<p><span style="color:Teal"><strong>AUDIT_LOG</strong></span> An extension to the existing table to denote the job which the event participate in:
-{|class=”wikitable sortable” !border=”1”| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||null ||The job ID |- |correlation_id ||UUID ||null ||The correlation ID provided from the client to identify the scope in which the event occurred |- |}</p>
+<p><span style="color:Teal"><strong>STEP</strong></span> represents a step of a job:</p>
 
-<p><span style="color:Teal"><strong>ASYNC_TASK</strong></span> An extension to the existing table to associate a task with its Step:
-{|class=”wikitable sortable” !border=”1”| Column Name ||Column Type ||Null? / Default ||Definition |- |step_id ||UUID ||null ||The job ID |- |}</p>
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Type</th>
+      <th>Null? / Default</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>step_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>The step ID</td>
+    </tr>
+    <tr>
+      <td>parent_step_id</td>
+      <td>UUID</td>
+      <td>null</td>
+      <td>The successor step, null if none.</td>
+    </tr>
+    <tr>
+      <td>job_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>The job ID which the step was created for</td>
+    </tr>
+    <tr>
+      <td>step_type</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>The step name, values taken from <em>StepEnum</em></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>The step description</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Integer</td>
+      <td>not null</td>
+      <td>The step order in current job hierarchy level</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>The status of the step</td>
+    </tr>
+    <tr>
+      <td>start_time</td>
+      <td>Timestamp</td>
+      <td>not null</td>
+      <td>The step start time</td>
+    </tr>
+    <tr>
+      <td>end_time</td>
+      <td>Timestamp</td>
+      <td>null</td>
+      <td>The step end time</td>
+    </tr>
+    <tr>
+      <td>correlation_id</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>correlation identifier for cross system logging</td>
+    </tr>
+    <tr>
+      <td>external_id</td>
+      <td>Guid</td>
+      <td>null</td>
+      <td>identifier of the step in external system (e.g. VSDM task-id)</td>
+    </tr>
+    <tr>
+      <td>external_system_type</td>
+      <td>String</td>
+      <td>null</td>
+      <td>The type of the external system (e.g. VSDM)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><span style="color:Teal"><strong>JOB_SUBJECT_ENTITIES_MAP</strong></span> Describes a relations between entities (VM, Host…) to a job:</p>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Type</th>
+      <th>Null? / Default</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>job_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>The job ID</td>
+    </tr>
+    <tr>
+      <td>entity_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>The entity id which was provided to the Job main command</td>
+    </tr>
+    <tr>
+      <td>entity_type</td>
+      <td>String</td>
+      <td>not null</td>
+      <td>The type of the entity</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><span style="color:Teal"><strong>AUDIT_LOG</strong></span> An extension to the existing table to denote the job which the event participate in:</p>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Type</th>
+      <th>Null? / Default</th>
+      <th>Definition</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>job_id</td>
+      <td>UUID</td>
+      <td>null</td>
+      <td>The job ID</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>correlation_id</td>
+      <td>UUID</td>
+      <td>null</td>
+      <td>The correlation ID provided from the client to identify the scope in which the event occurred</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><span style="color:Teal"><strong>ASYNC_TASK</strong></span> An extension to the existing table to associate a task with its Step:</p>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Type</th>
+      <th>Null? / Default</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>step_id</td>
+      <td>UUID</td>
+      <td>null</td>
+      <td>The job ID</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
 
 <h5 id="crud">CRUD</h5>
 
@@ -408,11 +662,8 @@ The *categories* field will enable filtering jobs by categories. An action type 
 <ol>
   <li>Synchronous commands - the command ends when the <em>executeAction</em> ends.</li>
   <li>Asynchronous commands
-    <ol>
-      <li>The command is ended when the <em>endAction</em> ends. The <em>endAction</em> is triggered by the <em>AsyncTaskManager</em> when the tasks created by the command are reported as completed.</li>
-      <li>The command ends, but the action is completed by the event listener.</li>
-    </ol>
-  </li>
+a.  The command is ended when the <em>endAction</em> ends. The <em>endAction</em> is triggered by the <em>AsyncTaskManager</em> when the tasks created by the command are reported as completed.
+b.  The command ends, but the action is completed by the event listener.</li>
 </ol>
 
 <p>The following sequence diagrams describe how the interaction of the new entities in the existing flow in order to support the monitoring:</p>
@@ -570,34 +821,34 @@ The *categories* field will enable filtering jobs by categories. An action type 
       <li><em>VdsEventListner.RunningSucceeded</em> and <em>VdsEventListner.RemoveAsyncCommand</em> provides control over the <em>MigrateVm</em> commands hence for the steps they represents.</li>
     </ul>
   </li>
-  <li>When step ends, an event is triggered for the Job, to notify upon step completion.</li>
+  <li>
+    <p>When step ends, an event is triggered for the Job, to notify upon step completion.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> // Maintenance command metadata (each level should have also the Correlation-ID)
+ Job----Start time----End time----Status----[Entity Name----Entity Type]
+      |
+      ------ VALIDATION -----Start time----End time----Status
+      |
+      ------ EXECUTION -----Start time----End time----Status
+                 |
+                 ---- PREPARE_FOR_MAINTENANCE-----Start time----End time----Status
+                 |
+                 ---- MAINTENANCE_HOST_A -----Start time----End time----Status
+                 |    |
+                 |    ---- MIGRATION_OF_VM_X -----Start time----End time----Status
+                 |    |
+                 |    ---- MIGRATION_OF_VM_Y -----Start time----End time----Status
+                 |    |
+                 |    ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
+                 |
+                 ---- MAINTENANCE_HOST_B -----Start time----End time----Status
+                 |
+                 ---- MIGRATION_OF_VM_Z -----Start time----End time----Status
+                 |
+                 ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
+</code></pre></div>    </div>
+  </li>
 </ul>
-
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     // Maintenance command metadata (each level should have also the Correlation-ID)
-     Job----Start time----End time----Status----[Entity Name----Entity Type]
-          |
-          ------ VALIDATION -----Start time----End time----Status
-          |
-          ------ EXECUTION -----Start time----End time----Status
-                     |
-                     ---- PREPARE_FOR_MAINTENANCE-----Start time----End time----Status
-                     |
-                     ---- MAINTENANCE_HOST_A -----Start time----End time----Status
-                     |    |
-                     |    ---- MIGRATION_OF_VM_X -----Start time----End time----Status
-                     |    |
-                     |    ---- MIGRATION_OF_VM_Y -----Start time----End time----Status
-                     |    |
-                     |    ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
-                     |
-                     ---- MAINTENANCE_HOST_B -----Start time----End time----Status
-                     |
-                     ---- MIGRATION_OF_VM_Z -----Start time----End time----Status
-                     |
-                     ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
-</code></pre></div></div>
 
 <h5 id="job-for-system-monitors">Job for System Monitors</h5>
 
@@ -617,12 +868,9 @@ The supported events are:</p>
 
 <ul>
   <li>If the job represents a command with tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by <em>CommandBase.endAction()</em>).</li>
-  <li>If the command has no tasks, the Job status should be set to UNKNOWN.</li>
-</ul>
-
-<!-- -->
-
-<ul>
+  <li>
+    <p>If the command has no tasks, the Job status should be set to UNKNOWN.</p>
+  </li>
   <li>A scheduler will be responsible for clearing obsolete Jobs and Steps from the database.</li>
   <li>Two configuration values will determine the frequency of clearing completed jobs:
     <ul>
@@ -694,7 +942,8 @@ The supported events are:</p>
   <li>Commands monitoring and permission model, adding Tasks view to users.</li>
 </ol>
 
-<p><a href="/ovirt-site/previews/2965/develop/release-management/features/">TaskManager</a> <a href="/ovirt-site/previews/2965/develop/release-management/releases/3.1/feature.html">TaskManager</a></p>
+<p><a href="/ovirt-site/previews/2965/develop/release-management/features/">TaskManager</a>
+<a href="/ovirt-site/previews/2965/develop/release-management/releases/3.1/feature.html">TaskManager</a></p>
 
 
 
@@ -702,6 +951,6 @@ The supported events are:</p>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/taskmanagerdetailed.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/taskmanagerdetailed.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/taskmanagerdetailed.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/infra/taskmanagerdetailed.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

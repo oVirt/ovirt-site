@@ -39,7 +39,7 @@
 <link href='/ovirt-site/previews/2965/manifest.webmanifest' rel='manifest'/>
 <meta content='/ovirt-site/previews/2965/browserconfig.xml' name='msapplication-config'/>
 </head>
-<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2965/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2965/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2965/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2965//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
 <nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
@@ -313,28 +313,28 @@ bitmap, but this info is not exposed to the management layer.</p>
 
 <p>For example, to enable incremental backup for a new disk on a virtual machine with id <code class="language-plaintext highlighter-rouge">123</code>, send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /vms/123/diskattachments
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PUT</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="nx">diskattachments</span>
 </code></pre></div></div>
 
 <p>With a request body like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disk_attachment&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk_attachment&gt;</span>
     ...
-    &lt;disk&gt;
+    <span class="nt">&lt;disk&gt;</span>
         ...
-        &lt;backup&gt;incremental|none&lt;/backup&gt;
+        <span class="nt">&lt;backup&gt;</span>incremental|none<span class="nt">&lt;/backup&gt;</span>
         ...
-    &lt;/disk&gt;
-&lt;/disk_attachment&gt;
+    <span class="nt">&lt;/disk&gt;</span>
+<span class="nt">&lt;/disk_attachment&gt;</span>
 </code></pre></div></div>
 
 <p>The response is:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disk_attachment&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk_attachment&gt;</span>
     ...
-    &lt;disk href="/ovirt-site/previews/2965/ovirt-engine/api/disks/456" id="456"/&gt;
+    <span class="nt">&lt;disk</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/456"</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">/&gt;</span>
     ...
-&lt;/disk_attachment&gt;
+<span class="nt">&lt;/disk_attachment&gt;</span>
 </code></pre></div></div>
 <p><em>Parameters Summary</em></p>
 
@@ -364,19 +364,19 @@ bitmap, but this info is not exposed to the management layer.</p>
 
 <p>For example, for a virtual machine with the id <code class="language-plaintext highlighter-rouge">123</code>, this request:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/123/diskattachments
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="nx">diskattachments</span>
 </code></pre></div></div>
 
 <p>Gets this response:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disk_attachments&gt;
-  &lt;disk_attachment&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk_attachments&gt;</span>
+  <span class="nt">&lt;disk_attachment&gt;</span>
         ...
-        &lt;disk href="/ovirt-site/previews/2965/ovirt-engine/api/disks/456" id="456"/&gt;
+        <span class="nt">&lt;disk</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/456"</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">/&gt;</span>
         ...
-  &lt;/disk_attachment&gt;
+  <span class="nt">&lt;/disk_attachment&gt;</span>
   ...
-&lt;/disk_attachments&gt;
+<span class="nt">&lt;/disk_attachments&gt;</span>
 </code></pre></div></div>
 
 <p><em>Parameters summary:</em></p>
@@ -405,68 +405,84 @@ bitmap, but this info is not exposed to the management layer.</p>
 
 <p>For example, to start a full backup of a disk with id 456 on a virtual machine with id 123, send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/123/backups
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="nx">backups</span>
 </code></pre></div></div>
 
 <p>With a request body like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup&gt;
-    &lt;disks&gt;
-        &lt;disk id="456" /&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;backup&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"456"</span> <span class="nt">/&gt;</span>
         ...
-    &lt;/disks&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
-<p>The response includes backup 789 with <to_checkpoint_id> 999:</to_checkpoint_id></p>
+<p>The response includes backup 789 with <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> 999:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup id="789"&gt;
-    &lt;disks&gt;
-        &lt;disk id="456" /&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;backup</span> <span class="na">id=</span><span class="s">"789"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"456"</span> <span class="nt">/&gt;</span>
         ...
         ...
-    &lt;/disks&gt;
-    &lt;phase&gt;initializing&lt;/phase&gt;
-    &lt;creation_date&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+    <span class="nt">&lt;phase&gt;</span>initializing<span class="nt">&lt;/phase&gt;</span>
+    <span class="nt">&lt;creation_date&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
-<p><em>Parameters summary:</em>
-| Name	| Type	| Direction |	Summary |
-:—- |  :—- |  :—- |  :—- |
-<code class="language-plaintext highlighter-rouge">disk</code>| ? | out | Required. Specify the UUID of a disk. |</p>
+<p><em>Parameters summary:</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Direction</th>
+      <th style="text-align: left">Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">disk</code></td>
+      <td style="text-align: left">?</td>
+      <td style="text-align: left">out</td>
+      <td style="text-align: left">Required. Specify the UUID of a disk.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="start-an-incremental-backup-post">Start an incremental backup POST</h3>
 <p>Start incremental backup since checkpoint id <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_uuid&gt;</code>. The response phase indicates that the backup is <code class="language-plaintext highlighter-rouge">“initializing”</code>. You need to poll the backup until the phase is <code class="language-plaintext highlighter-rouge">“ready”</code>. Once the backup is ready the response will include <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> which should be used as the <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> in the next incremental backup.</p>
 
 <p>For example, to start an incremental backup of disk <code class="language-plaintext highlighter-rouge">222</code> on virtual machine <code class="language-plaintext highlighter-rouge">111</code>, send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/111/backups
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">111</span><span class="o">/</span><span class="nx">backups</span>
 </code></pre></div></div>
 
 <p>With a request body like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup&gt;
-    &lt;from_checkpoint_id&gt;333&lt;/from_checkpoint_id&gt;
-    &lt;disks&gt;
-        &lt;disk id="222" /&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;backup&gt;</span>
+    <span class="nt">&lt;from_checkpoint_id&gt;</span>333<span class="nt">&lt;/from_checkpoint_id&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"222"</span> <span class="nt">/&gt;</span>
         ...
-    &lt;/disks&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
 <p>The response includes backup <code class="language-plaintext highlighter-rouge">789</code> with <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> <code class="language-plaintext highlighter-rouge">999</code> and  <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> <code class="language-plaintext highlighter-rouge">666</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup id="777"&gt;
-    &lt;from_checkpoint_id&gt;999&lt;/from_checkpoint_id&gt;
-    &lt;disks&gt;
-        &lt;disk id="222" /&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;backup</span> <span class="na">id=</span><span class="s">"777"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;from_checkpoint_id&gt;</span>999<span class="nt">&lt;/from_checkpoint_id&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"222"</span> <span class="nt">/&gt;</span>
         ...
         ...
-    &lt;/disks&gt;
-    &lt;phase&gt;initializing&lt;/phase&gt;
-    &lt;creation_date&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+    <span class="nt">&lt;phase&gt;</span>initializing<span class="nt">&lt;/phase&gt;</span>
+    <span class="nt">&lt;creation_date&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
 <h3 id="get-backup-info-get">Get backup info GET</h3>
@@ -487,23 +503,23 @@ bitmap, but this info is not exposed to the management layer.</p>
 
 <p>For example, to get info about a backup with id <code class="language-plaintext highlighter-rouge">456</code> of a virtual machine with id <code class="language-plaintext highlighter-rouge">123</code>, send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/456/backups/123
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">456</span><span class="o">/</span><span class="nx">backups</span><span class="o">/</span><span class="mi">123</span>
 </code></pre></div></div>
 
 <p>The response includes the backup with id <code class="language-plaintext highlighter-rouge">456</code>, with <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> <code class="language-plaintext highlighter-rouge">999</code> and  <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> <code class="language-plaintext highlighter-rouge">666</code>. The disk included in the backup has id <code class="language-plaintext highlighter-rouge">444</code>, and the id of the disk image is <code class="language-plaintext highlighter-rouge">555</code>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;vm_backup id="456"&gt;
-    &lt;from_checkpoint_id&gt;999&lt;/from_checkpoint_id&gt;
-    &lt;to_checkpoint_id&gt;666&lt;/to_checkpoint_id&gt;
-    &lt;disks&gt;
-        &lt;disk id="444"&gt;
-            &lt;image_id&gt;555&lt;/image_id&gt;
-        &lt;/disk&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;vm_backup</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;from_checkpoint_id&gt;</span>999<span class="nt">&lt;/from_checkpoint_id&gt;</span>
+    <span class="nt">&lt;to_checkpoint_id&gt;</span>666<span class="nt">&lt;/to_checkpoint_id&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"444"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;image_id&gt;</span>555<span class="nt">&lt;/image_id&gt;</span>
+        <span class="nt">&lt;/disk&gt;</span>
         ...
-    &lt;/disks&gt;
-    &lt;phase&gt;ready&lt;/phase&gt;
-    &lt;creation_date&gt;
-&lt;/vm_backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+    <span class="nt">&lt;phase&gt;</span>ready<span class="nt">&lt;/phase&gt;</span>
+    <span class="nt">&lt;creation_date&gt;</span>
+<span class="nt">&lt;/vm_backup&gt;</span>
 </code></pre></div></div>
 
 <h3 id="finalizing-backup-post">finalizing backup POST</h3>
@@ -511,10 +527,10 @@ bitmap, but this info is not exposed to the management layer.</p>
 
 <p>For example, to finalize backup with id <code class="language-plaintext highlighter-rouge">456</code> of a virtual machine with id <code class="language-plaintext highlighter-rouge">123</code>, send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/123/backups/456/finalize
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="nx">backups</span><span class="o">/</span><span class="mi">456</span><span class="o">/</span><span class="nx">finalize</span>
 
-&lt;action&gt;&lt;/action&gt;
-</code></pre></div></div>
+<span class="o">&lt;</span><span class="nx">action</span><span class="o">&gt;&lt;</span><span class="sr">/action</span><span class="err">&gt;
+</span></code></pre></div></div>
 
 <h3 id="creating-an-image-transfer-object-for-downloading-an-incremental-backup-post">Creating an image transfer object for downloading an incremental backup POST</h3>
 <p>When the backup is ready to download, an <em>imagetransfer</em> object should be created.
@@ -524,16 +540,16 @@ For information on creating an <em>imagetransfer</em> object, see the [<code cla
 
 <p>For example, to initiate transfer for an incremental backup send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">imagetransfers</span>
 </code></pre></div></div>
 <p>With a request body like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;image_transfer&gt;
-    &lt;disk id="123"/&gt;
-    &lt;backup id="456"/&gt;
-    &lt;direction&gt;download&lt;/direction&gt;
-    &lt;format&gt;raw&lt;/format&gt;
-&lt;/image_transfer&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;image_transfer&gt;</span>
+    <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"123"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;backup</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;direction&gt;</span>download<span class="nt">&lt;/direction&gt;</span>
+    <span class="nt">&lt;format&gt;</span>raw<span class="nt">&lt;/format&gt;</span>
+<span class="nt">&lt;/image_transfer&gt;</span>
 </code></pre></div></div>
 
 <h3 id="creating-an-image-transfer-object-for-incremental-restore-post">Creating an image transfer object for incremental restore POST</h3>
@@ -541,15 +557,15 @@ For information on creating an <em>imagetransfer</em> object, see the [<code cla
 
 <p>For example, to initiate restoring an incremental backup send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">imagetransfers</span>
 </code></pre></div></div>
 <p>With a request body like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;image_transfer&gt;
-    &lt;disk id="123"/&gt;
-    &lt;direction&gt;upload&lt;/direction&gt;
-    &lt;format&gt;raw&lt;/format&gt;
-&lt;/image_transfer&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;image_transfer&gt;</span>
+    <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"123"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;direction&gt;</span>upload<span class="nt">&lt;/direction&gt;</span>
+    <span class="nt">&lt;format&gt;</span>raw<span class="nt">&lt;/format&gt;</span>
+<span class="nt">&lt;/image_transfer&gt;</span>
 </code></pre></div></div>
 <p>When uploading into a snapshot, replace <code class="language-plaintext highlighter-rouge">&lt;disk id="123"/&gt;</code> with <code class="language-plaintext highlighter-rouge">&lt;snapshot id="456"/&gt;</code>.</p>
 
@@ -564,36 +580,36 @@ Uploading data from a QCOW2 disk to a RAW disk is not supported.</p>
 
 <p>For example, to get all the created checkpoints of a virtual machine with id <code class="language-plaintext highlighter-rouge">123</code> send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/123/checkpoints/
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="nx">checkpoints</span><span class="o">/</span>
 </code></pre></div></div>
 
 <p>The response includes all the virtual machine checkpoints, each checkpoint contains the checkpoint’s <code class="language-plaintext highlighter-rouge">disks</code>, <code class="language-plaintext highlighter-rouge">&lt;parent_id&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;creation_date&gt;</code> and the virtual machine it belongs to <code class="language-plaintext highlighter-rouge">&lt;vm&gt;</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;checkpoints&gt;
-   &lt;checkpoint id="456"&gt;
-      &lt;link href="/ovirt-site/previews/2965/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks" rel="disks"/&gt;
-      &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
-      &lt;creation_date&gt;xxx&lt;/creation_date&gt;
-      &lt;vm href="/ovirt-site/previews/2965/ovirt-engine/api/vms/123" id="123"/&gt;
-   &lt;/checkpoint&gt;
-&lt;/checkpoints&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;checkpoints&gt;</span>
+   <span class="nt">&lt;checkpoint</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks"</span> <span class="na">rel=</span><span class="s">"disks"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;parent_id&gt;</span>parent-checkpoint-uuid<span class="nt">&lt;/parent_id&gt;</span>
+      <span class="nt">&lt;creation_date&gt;</span>xxx<span class="nt">&lt;/creation_date&gt;</span>
+      <span class="nt">&lt;vm</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/123"</span> <span class="na">id=</span><span class="s">"123"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/checkpoint&gt;</span>
+<span class="nt">&lt;/checkpoints&gt;</span>
 </code></pre></div></div>
 
 <h4 id="get-a-specific-vm-checkpoint-get">Get a specific VM checkpoint GET</h4>
 
 <p>For example, to get a specific checkpoint with id <code class="language-plaintext highlighter-rouge">456</code> of a virtual machine with id <code class="language-plaintext highlighter-rouge">123</code> send a request like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/123/checkpoints/456/
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="nx">checkpoints</span><span class="o">/</span><span class="mi">456</span><span class="o">/</span>
 </code></pre></div></div>
 
 <p>Response:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;checkpoint id="456"&gt;
-  &lt;link href="/ovirt-site/previews/2965/ovirt-engine/api/vms/v123/checkpoints/456/disks" rel="disks"/&gt;
-  &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
-  &lt;creation_date&gt;xxx&lt;/creation_date&gt;
-  &lt;vm href="/ovirt-site/previews/2965/ovirt-engine/api/vms/123" id="123"/&gt;
-&lt;/checkpoint&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;checkpoint</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/v123/checkpoints/456/disks"</span> <span class="na">rel=</span><span class="s">"disks"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;parent_id&gt;</span>parent-checkpoint-uuid<span class="nt">&lt;/parent_id&gt;</span>
+  <span class="nt">&lt;creation_date&gt;</span>xxx<span class="nt">&lt;/creation_date&gt;</span>
+  <span class="nt">&lt;vm</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/123"</span> <span class="na">id=</span><span class="s">"123"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/checkpoint&gt;</span>
 </code></pre></div></div>
 
 <h4 id="remove-the-root-checkpoint-of-a-specific-virtual-machine-delete">Remove the root checkpoint of a specific virtual machine DELETE</h4>
@@ -602,7 +618,7 @@ Uploading data from a QCOW2 disk to a RAW disk is not supported.</p>
 
 <p>For example, to remove the root checkpoint with id <code class="language-plaintext highlighter-rouge">456</code> of a virtual machine with id <code class="language-plaintext highlighter-rouge">123</code> send a request like this::</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /vms/123/checkpoints/456/
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DELETE</span> <span class="o">/</span><span class="nx">vms</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="nx">checkpoints</span><span class="o">/</span><span class="mi">456</span><span class="o">/</span>
 </code></pre></div></div>
 
 <h2 id="imageio-backup-api">imageio backup API</h2>
@@ -626,29 +642,29 @@ Uploading data from a QCOW2 disk to a RAW disk is not supported.</p>
 <h3 id="example---getting-data-and-zero-ranges">Example - getting data and zero ranges</h3>
 
 <p>Request:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /images/ticket-uuid/map
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">images</span><span class="o">/</span><span class="nx">ticket</span><span class="o">-</span><span class="nx">uuid</span><span class="o">/</span><span class="nx">map</span>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {"data": true, "start": 0, "length": 1048576},
-    {"data": false, "start": 1048576, "length": 8192},
-    {"data": true, "start": 1056768, "length": 1048576},
-]
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">8192</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1056768</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h4 id="example---getting-only-dirty-data-and-zero-ranges">Example - getting only dirty data and zero ranges</h4>
 
 <p>Request:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /images/ticket-uuid/map?dirty=y
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">images</span><span class="o">/</span><span class="nx">ticket</span><span class="o">-</span><span class="nx">uuid</span><span class="o">/</span><span class="nx">map</span><span class="p">?</span><span class="nx">dirty</span><span class="o">=</span><span class="nx">y</span>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {"data": true, "start": 0, "length": 1048576},
-    {"data": false, "start": 1048576, "length": 8192},
-]
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">8192</span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 
 
@@ -657,6 +673,6 @@ Uploading data from a QCOW2 disk to a RAW disk is not supported.</p>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/incremental-backup-guide/incremental-backup-guide.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/incremental-backup-guide/incremental-backup-guide.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2965/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2965/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2965/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2965/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/incremental-backup-guide/incremental-backup-guide.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/incremental-backup-guide/incremental-backup-guide.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

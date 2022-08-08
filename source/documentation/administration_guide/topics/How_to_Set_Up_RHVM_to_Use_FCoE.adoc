@@ -9,7 +9,7 @@ You can configure Fibre Channel over Ethernet (FCoE) properties for host network
 # engine-config -g UserDefinedNetworkCustomProperties
 ----
 
-You also need to install the required VDSM hook package on the hosts. Depending on the FCoE card on the hosts, special configuration may also be needed; see link:{URL_rhel_docs_legacy}html/Storage_Administration_Guide/fcoe-config.html[Configuring a Fibre Channel over Ethernet Interface] in the _{enterprise-linux} Storage Administration Guide_.
+You also need to install the required VDSM hook package on the hosts. Depending on the FCoE card on the hosts, special configuration may also be needed; see link:{URL_rhel_docs_latest}html/managing_storage_devices/configuring-fibre-channel-over-ethernet_managing-storage-devices[Configuring Fibre Channel over Ethernet] in _Red Hat Enterprise Linux Managing storage devices_.
 
 .Procedure
 

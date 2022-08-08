@@ -23,7 +23,7 @@ endif::ovirt-doc[]
 
 Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.
 
-As a {virt-product-fullname} system administrator, you need to create, configure, attach and maintain storage for the virtualized enterprise. You should be familiar with the storage types and their use. Read your storage array vendor's guides, and see the link:{URL_rhel_docs_legacy}html/Storage_Administration_Guide/[{enterprise-linux} Storage Administration Guide] for more information on the concepts, protocols, requirements or general usage of storage.
+As a {virt-product-fullname} system administrator, you create, configure, attach and maintain storage for the virtualized enterprise. You must be familiar with the storage types and their use. Read your storage array vendor's guides, and see link:{URL_rhel_docs_latest}html-single/managing_storage_devices/index[Red Hat Enterprise Linux Managing storage devices] for more information on the concepts, protocols, requirements, and general usage of storage.
 
 To add storage domains you must be able to successfully access the Administration Portal, and there must be at least one host connected with a status of *Up*.
 

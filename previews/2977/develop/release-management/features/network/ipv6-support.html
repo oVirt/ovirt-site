@@ -245,54 +245,56 @@ This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won�
 <ul>
   <li>@NetworkOptions (reported in getVdsCaps)
     <ul>
-      <li>add optional fields: ‘*ipv6addr’, ‘*ipv6gateway’, ‘*ipv6autoconf’ (it has to be specified whether use stateless auto-configuration, so it can be set together with DHCPv6 <a href="http://www.prolixium.com/ipv6_autocfg/node8.html">4th paragraph</a>), ‘*dhcpv6’ (a boolean that is independent of IPv4 “bootproto”)</li>
+      <li>add optional fields:</li>
+      <li>‘ipv6addr’,</li>
+      <li>‘ipv6gateway’,</li>
+      <li>‘ipv6autoconf’ (it has to be specified whether use stateless auto-configuration, so it can be set together with DHCPv6 <a href="http://www.prolixium.com/ipv6_autocfg/node8.html">4th paragraph</a>),</li>
+      <li>‘dhcpv6’ (a boolean that is independent of IPv4 “bootproto”)</li>
     </ul>
-  </li>
-</ul>
 
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '&lt;ip&gt;[/&lt;prefixlen&gt;]')
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '&lt;ip&gt;[/&lt;prefixlen&gt;]')
 # @ipv6gateway:    #optional IPv6 address of the network gateway
 # @ipv6autoconf:   #optional Whether use stateless autoconfiguration
 # @dhcpv6:         #optional Whether use DHCPv6
-
-{'type': 'NetworkOptions',
- 'data': {'*ipaddr': 'str', '*netmask': 'str', '*gateway': 'str',
-          '*ipv6addr': 'str', '*ipv6gateway': 'str',
-          '*ipv6autoconf': 'bool', '*dhcpv6': 'bool', 
-          '*bootproto': 'str', '*delay': 'uint',
-          '*bondingOptions', 'str',
-          '*qosInbound': 'BandwidthParams',
-          '*qosOutbound': 'BandwidthParams'}}
-</code></pre></div></div>
-
-<ul>
+</span>
+<span class="p">{</span><span class="s">'type'</span><span class="p">:</span> <span class="s">'NetworkOptions'</span><span class="p">,</span>
+ <span class="s">'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">'*ipaddr'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*netmask'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*gateway'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span>
+          <span class="s">'*ipv6addr'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*ipv6gateway'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span>
+          <span class="s">'*ipv6autoconf'</span><span class="p">:</span> <span class="s">'bool'</span><span class="p">,</span> <span class="s">'*dhcpv6'</span><span class="p">:</span> <span class="s">'bool'</span><span class="p">,</span>
+          <span class="s">'*bootproto'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*delay'</span><span class="p">:</span> <span class="s">'uint'</span><span class="p">,</span>
+          <span class="s">'*bondingOptions'</span><span class="p">,</span> <span class="s">'str'</span><span class="p">,</span>
+          <span class="s">'*qosInbound'</span><span class="p">:</span> <span class="s">'BandwidthParams'</span><span class="p">,</span>
+          <span class="s">'*qosOutbound'</span><span class="p">:</span> <span class="s">'BandwidthParams'</span><span class="p">}}</span>
+</code></pre></div>    </div>
+  </li>
   <li>@SetupNetworkNetAttributes (set in setupNetworks)
     <ul>
-      <li>add optional fields: ‘*ipv6addr’, ‘*ipv6gateway’, ‘*ipv6autoconf’, ‘*dhcpv6’</li>
+      <li>add optional fields:
+        <ul>
+          <li>‘ipv6addr’,</li>
+          <li>‘ipv6gateway’,</li>
+          <li>‘ipv6autoconf’,</li>
+          <li>‘dhcpv6’</li>
+        </ul>
+      </li>
     </ul>
-  </li>
-</ul>
 
-<!-- -->
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '&lt;ip&gt;[/&lt;prefixlen&gt;]')
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '&lt;ip&gt;[/&lt;prefixlen&gt;]')
 # @ipv6gateway:    #optional IPv6 address of the network gateway
 # @ipv6autoconf:   #optional Whether use stateless autoconfiguration
 # @dhcpv6:         #optional Whether use DHCPv6
-
-{'type': 'SetupNetworkNetAttributes',
- 'data': {'*vlan': 'str', '*bonding': 'str', '*nic': ['str'], '*ipaddr': 'str',
-          '*netmask': 'str', '*gateway': 'str', '*ipv6addr': 'str',
-          '*ipv6gateway': 'str', '*ipv6autoconf': 'bool',
-          '*dhcpv6': 'bool', '*bootproto': 'str',
-          '*delay': 'uint', '*onboot': 'bool', '*remove': 'bool',
-          '*qosInbound': 'BandwidthParams',
-          '*qosOutbound': 'BandwidthParams'}}
-</code></pre></div></div>
-
-<ul>
+</span>
+<span class="p">{</span><span class="s">'type'</span><span class="p">:</span> <span class="s">'SetupNetworkNetAttributes'</span><span class="p">,</span>
+ <span class="s">'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">'*vlan'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*bonding'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*nic'</span><span class="p">:</span> <span class="p">[</span><span class="s">'str'</span><span class="p">],</span> <span class="s">'*ipaddr'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span>
+          <span class="s">'*netmask'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*gateway'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*ipv6addr'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span>
+          <span class="s">'*ipv6gateway'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span> <span class="s">'*ipv6autoconf'</span><span class="p">:</span> <span class="s">'bool'</span><span class="p">,</span>
+          <span class="s">'*dhcpv6'</span><span class="p">:</span> <span class="s">'bool'</span><span class="p">,</span> <span class="s">'*bootproto'</span><span class="p">:</span> <span class="s">'str'</span><span class="p">,</span>
+          <span class="s">'*delay'</span><span class="p">:</span> <span class="s">'uint'</span><span class="p">,</span> <span class="s">'*onboot'</span><span class="p">:</span> <span class="s">'bool'</span><span class="p">,</span> <span class="s">'*remove'</span><span class="p">:</span> <span class="s">'bool'</span><span class="p">,</span>
+          <span class="s">'*qosInbound'</span><span class="p">:</span> <span class="s">'BandwidthParams'</span><span class="p">,</span>
+          <span class="s">'*qosOutbound'</span><span class="p">:</span> <span class="s">'BandwidthParams'</span><span class="p">}}</span>
+</code></pre></div>    </div>
+  </li>
   <li>@RunningVmStats
     <ul>
       <li>@displayIp, @clientIp <strong>should</strong> be able to contain IPv4 or IPv6 addresses</li>
@@ -304,16 +306,14 @@ This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won�
 <p>Records that DO NOT need to change (already work):</p>
 
 <ul>
-  <li>
-    <p>@Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str</p>
-
-    <p># vdsClient -s 0 fenceNode ‘2620:52::1040:221:5eff:fe11:a22d’ 23 rsa fencetest fencetest status
-  on
-  # works!</p>
+  <li>@Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsClient <span class="nt">-s</span> 0 fenceNode <span class="s1">'2620:52::1040:221:5eff:fe11:a22d'</span> 23 rsa fencetest fencetest status  on
+<span class="gp">#</span><span class="w"> </span>works!
+</code></pre></div>    </div>
   </li>
   <li>@VmDefinition - same situation with fields @clientIp, @displayIp</li>
   <li>@IscsiPortal - @host <strong>should</strong> be capable of carrying an IPv6 address.</li>
-  <li>@ISCSIConnection.discoverSendTargets - @host, Returns a list of discovered targets in the form: ‘<host>:<port>,<tpgt> <iqn>' (tested, working!)</iqn></tpgt></port></host></li>
+  <li>@ISCSIConnection.discoverSendTargets - @host, Returns a list of discovered targets in the form: ‘<code class="language-plaintext highlighter-rouge">&lt;host&gt;:&lt;port&gt;,&lt;tpgt&gt; &lt;iqn&gt;</code>’ (tested, working!)</li>
   <li>@MigrateParams - @dst, @dstqemu: both destination Vdsm and destination qemu addresses <strong>should</strong> accept IPv6.</li>
   <li>@IscsiSessionInfo - @connection, which is the hostname of the iSCSI target, <strong>should</strong> accept IPv6. We should test the <em>createStorageDomain</em> and <em>extendStorageDomain</em> verbs over IPv6.</li>
   <li>@NfsConnectionParameters - NFS @export should accept IPv6 too. We <strong>must</strong> make sure that multiple colon characters in address do not confuse us.</li>
@@ -393,74 +393,20 @@ This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won�
 <p>Actions that will be affected (where IP is optional or mandatory argument) with change of records (from the file ovirt-engine/backend/manager/modules/restapi/interface/definition/src/main/resources/rsdl_metadata.yaml):</p>
 
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Setup networks - /hosts/{host:id}/[nics/]setupnetworks</td>
-          <td>rel=setupnetworks</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>Setup networks - <code class="language-plaintext highlighter-rouge">/hosts/{host:id}/[nics/]setupnetworks|rel=setupnetworks</code></li>
   <li>NetworkAttachment
     <ul>
-      <li>
-        <table>
-          <tbody>
-            <tr>
-              <td>Add - /hosts/{host:id}/[nics/{nic:id}/]networkattachments</td>
-              <td>rel=add</td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
-      <li>
-        <table>
-          <tbody>
-            <tr>
-              <td>Update - /hosts/{host:id}/[nics/{nic:id}/]networkattachments/{networkattachment:id}</td>
-              <td>rel=update</td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
+      <li>Add - <code class="language-plaintext highlighter-rouge">/hosts/{host:id}/[nics/{nic:id}/]networkattachments|rel=add</code></li>
+      <li>Update - <code class="language-plaintext highlighter-rouge">/hosts/{host:id}/[nics/{nic:id}/]networkattachments/{networkattachment:id}|rel=update</code></li>
     </ul>
   </li>
   <li>Ancient API that is to be obliterated:
     <ul>
-      <li>
-        <table>
-          <tbody>
-            <tr>
-              <td>HostNic update - /hosts/{host:id}/nics/{nic:id}</td>
-              <td>rel=update</td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
+      <li>HostNic update - <code class="language-plaintext highlighter-rouge">/hosts/{host:id}/nics/{nic:id}|rel=update</code></li>
       <li>Network
         <ul>
-          <li>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Add - [/datacenters/{datacenter:id}]/networks</td>
-                  <td>rel=add</td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Update - [/datacenters/{datacenter:id}]/networks/{network:id}</td>
-                  <td>rel=update</td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
+          <li>Add - <code class="language-plaintext highlighter-rouge">[/datacenters/{datacenter:id}]/networks|rel=add</code></li>
+          <li>Update - <code class="language-plaintext highlighter-rouge">[/datacenters/{datacenter:id}]/networks/{network:id}|rel=update</code></li>
         </ul>
       </li>
     </ul>
@@ -476,15 +422,7 @@ This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won�
   <li>NfsStorage</li>
   <li>IscsiTarget</li>
   <li>Display</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>VM start (when vNics are defined through cloud-init configuration) - /vms/{vm:id}/start</td>
-          <td>rel=start</td>
-        </tr>
-      </tbody>
-    </table>
+  <li>VM start (when vNics are defined through cloud-init configuration) - <code class="language-plaintext highlighter-rouge">/vms/{vm:id}/start|rel=start</code>
     <ul>
       <li>should oVirt support supplying both (IPv4 and IPv6) addresses?</li>
     </ul>
@@ -688,6 +626,6 @@ This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won�
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/ipv6-support.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/ipv6-support.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/ipv6-support.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/network/ipv6-support.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

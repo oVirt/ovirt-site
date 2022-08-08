@@ -368,7 +368,12 @@
 </li>
 <li><a href="#appe-Red_Hat_Enterprise_Virtualization_and_SSL">Appendix D: oVirt and encrypted communication</a>
 <ul class="sectlevel2">
-<li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a></li>
+<li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a>
+<ul class="sectlevel3">
+<li><a href="#extracting-certificate-and-private-key-from-p12-bundle">Extracting the Certificate and Private Key from a P12 Bundle</a></li>
+<li><a href="#replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</a></li>
+</ul>
+</li>
 <li><a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a></li>
 </ul>
 </li>
@@ -8678,20 +8683,6 @@ To configure the logical network, select the <strong>IPv6</strong> tab and make 
 </tr>
 </table>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Set <strong>all</strong> hosts in a cluster to use the same IP stack for their management network; either IPv4 or IPv6 only. Dual stack is not supported.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 </li>
 <li>
 <p>Use the <strong>QoS</strong> tab to override the default host network quality of service. Select <strong>Override QoS</strong> and enter the desired values in the following fields:</p>
@@ -13904,7 +13895,8 @@ multipaths {
     multipath {
         wwid <em>boot_LUN_wwid</em>
         no_path_retry queue
-    }</code></pre>
+    }
+  }</code></pre>
 </div>
 </div>
 </td>
@@ -18928,7 +18920,7 @@ oVirt OVN provider password[empty]:</pre>
 <code>he_local</code>
 </td>
 <td class="hdlist2">
-<p>Sets values in the local instance of <code class="filename">etc/ovirt-hosted-engine/hosted-engine.conf</code> on the local host, so only that host uses the new values. To enable the new value, restart the ovirt-ha-agent and ovirt-ha-broker services.</p>
+<p>Sets values in the local instance of <code class="filename">/etc/ovirt-hosted-engine/hosted-engine.conf</code> on the local host, so only that host uses the new values. To enable the new value, restart the ovirt-ha-agent and ovirt-ha-broker services.</p>
 </td>
 </tr>
 <tr>
@@ -18936,7 +18928,7 @@ oVirt OVN provider password[empty]:</pre>
 <code>he_shared</code>
 </td>
 <td class="hdlist2">
-<p>Sets values in <code class="filename">etc/ovirt-hosted-engine/hosted-engine.conf</code> on shared storage, so all hosts that are deployed after a configuration change use these values. To enable the new value on a host, redeploy that host.</p>
+<p>Sets values in <code class="filename">/etc/ovirt-hosted-engine/hosted-engine.conf</code> on shared storage, so all hosts that are deployed after a configuration change use these values. To enable the new value on a host, redeploy that host.</p>
 </td>
 </tr>
 <tr>
@@ -19170,7 +19162,7 @@ broker : 25, type : broker</pre>
 <div class="sect3">
 <h4 id="Booting_a_Self-Hosted_Engine_in_Rescue_Mode_SHE_admin">3.1.6. Booting the Engine Virtual Machine in Rescue Mode</h4>
 <div class="paragraph">
-<p>This topic describes how to boot the Engine virtual machine into rescue mode when it does not start. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-working_with_the_grub_2_boot_loader#sec-Terminal_Menu_Editing_During_Boot">Booting to Rescue Mode</a> in the <em>Enterprise Linux System Administrator&#8217;s Guide</em>.</p>
+<p>This topic describes how to boot the Engine virtual machine into rescue mode when it does not start. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-working_with_the_grub_2_boot_loader#sec-Booting_to_Rescue_Mode">Booting to Rescue Mode</a> in the <em>Enterprise Linux System Administrator&#8217;s Guide</em>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -24155,6 +24147,20 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <h4 id="sect-Configuring_an_External_LDAP_Provider">3.6.3. Configuring an External LDAP Provider</h4>
 <div class="sect4">
 <h5 id="Configuring_an_External_LDAP_Provider">Configuring an External LDAP Provider (Interactive Setup)</h5>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The <strong>ovirt-engine-extension-aaa-ldap</strong> extension allows users to customize their external directory setup easily. The <strong>ovirt-engine-extension-aaa-ldap</strong> extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.</p>
 </div>
@@ -24470,6 +24476,20 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 </div>
 <div class="sect4">
 <h5 id="Attaching_an_Active_Directory">Attaching an Active Directory</h5>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
@@ -24696,6 +24716,20 @@ Select test sequence to execute (Done, Abort, Login, Search) [Abort]: Done
 </div>
 <div class="sect4">
 <h5 id="Configuring_an_External_LDAP_Provider_ManualMethod">Configuring an External LDAP Provider (Manual Method)</h5>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The <code>ovirt-engine-extension-aaa-ldap</code> extension uses the LDAP protocol to access directory servers and is fully customizable. Kerberos authentication is not required unless you want to enable the single sign-on to the VM Portal or the Administration Portal feature.</p>
 </div>
@@ -25053,6 +25087,20 @@ kadmin&gt; quit</code></pre>
 <pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Copy the SSO configuration template file into the <strong>/etc/ovirt-engine</strong> directory. Template files are available for Active Directory (<strong>ad-sso</strong>) and other directory types (<strong>simple-sso</strong>). This example uses the simple SSO configuration template.</p>
@@ -25351,7 +25399,7 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}</pre>
 <div class="sect3">
 <h4 id="Configuring_Red_Hat_SSO">3.6.5. Installing and Configuring Red Hat Single Sign-On</h4>
 <div class="paragraph">
-<p>To use Red Had Single Sign-On as your authorization method, you need to:</p>
+<p>To use Red Hat Single Sign-On as your authorization method, you need to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -25392,7 +25440,7 @@ config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}</pre>
 <p>You can install Red Hat Single Sign-On by downloading a ZIP file and unpacking it, or by using an RPM file.</p>
 </div>
 <div class="paragraph">
-<p>Follow the installation instructions at <a href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.4/html-single/server_installation_and_configuration_guide/index#installation">Red Hat SSO Installation</a></p>
+<p>Follow the installation instructions at <a href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.6/html-single/server_installation_and_configuration_guide/index#installation">Red Hat SSO Installation</a></p>
 </div>
 <div class="paragraph">
 <p>Prepare the following information:</p>
@@ -25688,7 +25736,7 @@ where <strong>user1</strong> belongs to the LDAP group <strong>ovirt-administrat
 </li>
 <li>
 <p>Add an additional valid Redirect URI for the Monitoring Portal(Grafana).
-Valid Redirect URIs: <a href="https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/" class="bare">https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/</a></p>
+Valid Redirect URIs: <code>https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/</code></p>
 </li>
 <li>
 <p>Select the <strong>Mappers</strong> tab.</p>
@@ -25846,7 +25894,7 @@ send_client_credentials_via_post = false
 </div>
 </div>
 <div class="sect4">
-<h5 id="Viewing_user_information">Viewing User Information</h5>
+<h5 id="Viewing_user_information_ui">Viewing User Information</h5>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -26112,7 +26160,7 @@ user updated successfully</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="viewing-user-information_RHV_backup_restore">Viewing User Information</h5>
+<h5 id="viewing-user-information-cli_RHV_backup_restore">Viewing User Information</h5>
 <div class="paragraph">
 <p>You can view detailed user account information:</p>
 </div>
@@ -26439,6 +26487,20 @@ user updated successfully</pre>
 </div>
 <div class="paragraph">
 <p>Additionally created local domains will not get upgraded autonmatically during standard oVirt upgrades and need to be upgraded manually for each future release. For more information on creating additional local domains and how to upgrade the domains, see the README file at <strong>/usr/share/doc/ovirt-engine-extension-aaa-jdbc-<em>version</em>/README.admin</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-jdbc</code> extension is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -30831,6 +30893,20 @@ api.ready();</code></pre>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</h3>
+<div class="paragraph">
+<p>You can configure your organization&#8217;s third-party CA certificate to authenticate users connecting to the oVirt Engine over HTTPS.</p>
+</div>
+<div class="paragraph">
+<p>Using a third-party CA certificate for HTTPS connections does not affect the certificate used for authentication between the Engine and hosts. They will continue to use the self-signed certificate generated by the Engine.</p>
+</div>
+<div class="paragraph">
+<p>If you received the private key and certificate from your CA in a P12 file, use the following procedure to extract them. For other file formats, contact your CA. After extracting the private key and certificate, proceed to <a href="#replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="extracting-certificate-and-private-key-from-p12-bundle">Extracting the Certificate and Private Key from a P12 Bundle</h4>
+<div class="paragraph">
+<p>The internal CA stores the internally generated key and certificate in a P12 file, in <code>/etc/pki/ovirt-engine/keys/apache.p12</code>. Store your new file in the same location. The following procedure assumes that the new P12 file is in <code>/tmp/apache.p12</code>.</p>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -30845,49 +30921,8 @@ api.ready();</code></pre>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>You can configure your organization&#8217;s third-party CA certificate to identify the oVirt Engine to users connecting over HTTPS.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Using a third-party CA certificate for HTTPS connections does not affect the certificate used for authentication between the Engine and hosts. They will continue to use the self-signed certificate generated by the Engine.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A third-party CA certificate. This is the certificate of the CA (Certificate Authority) that issued the certificate you want to use. It is provided as a <strong>PEM</strong> file. The certificate chain must be complete up to the root certificate. The chain&#8217;s order is critical and must be from the last intermediate certificate to the root certificate. This procedure assumes that the third-party CA certificate is provided in <code>/tmp/3rd-party-ca-cert.pem</code>.</p>
-</li>
-<li>
-<p>The private key that you want to use for Apache httpd. It must not have a password. This procedure assumes that it is located in <code>/tmp/apache.key</code>.</p>
-</li>
-<li>
-<p>The certificate issued by the CA. This procedure assumes that it is located in <code>/tmp/apache.cer</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If you received the private key and certificate from your CA in a P12 file, use the following procedure to extract them. For other file formats, contact your CA. After extracting the private key and certificate, proceed to <a href="#Replace">Replacing the oVirt Engine Apache CA Certificate</a>.</p>
-</div>
-<div id="Extracting" class="paragraph">
-<p><strong>Extracting the Certificate and Private Key from a P12 Bundle</strong></p>
-</div>
-<div class="paragraph">
-<p>The internal CA stores the internally generated key and certificate in a P12 file, in <code>/etc/pki/ovirt-engine/keys/apache.p12</code>. Store your new file in the same location. The following procedure assumes that the new P12 file is in <code>/tmp/apache.p12</code>.</p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Back up the current <code>apache.p12</code> file:</p>
@@ -30906,12 +30941,15 @@ api.ready();</code></pre>
 </div>
 </li>
 <li>
-<p>Extract the private key and certificate to the required locations. If the file is password protected, you must add <code>-passin pass:_password_</code>, replacing <em>password</em> with the required password.</p>
+<p>Extract the private key and certificate to the required locations:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes &gt; /tmp/apache.key
 # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys &gt; /tmp/apache.cer</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>If the file is password protected, add <code>-passin pass:<em>password</em></code> to the command, replacing <em>password</em> with the required password.</p>
 </div>
 </li>
 </ol>
@@ -30930,10 +30968,42 @@ api.ready();</code></pre>
 </tr>
 </table>
 </div>
-<div id="Replace" class="paragraph">
-<p><strong>Replacing the oVirt Engine Apache CA Certificate</strong></p>
+</div>
+<div class="sect3">
+<h4 id="replacing-manager-apache-ca-certificate">Replacing the oVirt Engine Apache CA Certificate</h4>
+<div class="paragraph">
+<p>You configure your organization&#8217;s third-party CA certificate to authenticate users connecting to the Administration Portal and the VM Portal over HTTPS.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not change the permissions and ownerships for the <code>/etc/pki</code> directory or any subdirectories. The permission for the <code>/etc/pki</code> and the <code>/etc/pki/ovirt-engine</code> directory must remain as the default, <code>755</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Third-party CA (Certificate Authority) certificate. It is provided as a <code>PEM</code> file. The certificate chain must be complete up to the root certificate. The chain&#8217;s order is critical and must be from the last intermediate certificate to the root certificate. This procedure assumes that the third-party CA certificate is provided in <code>/tmp/3rd-party-ca-cert.pem</code>.</p>
+</li>
+<li>
+<p>Private key that you want to use for Apache httpd. It must not have a password. This procedure assumes that it is located in <code>/tmp/apache.key</code>.</p>
+</li>
+<li>
+<p>Certificate issued by the CA. This procedure assumes that it is located in <code>/tmp/apache.cer</code>.</p>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>If you are using a self-hosted engine, put the environment into global maintenance mode.</p>
@@ -30950,7 +31020,7 @@ api.ready();</code></pre>
 <p>Add your CA certificate to the host-wide trust store:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/<em>3rd-party-ca-cert</em>.pem /etc/pki/ca-trust/source/anchors
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/3rd-party-ca-cert.pem /etc/pki/ca-trust/source/anchors
 # update-ca-trust</code></pre>
 </div>
 </div>
@@ -30967,7 +31037,7 @@ api.ready();</code></pre>
 <p>Save your CA certificate as <code>/etc/pki/ovirt-engine/apache-ca.pem</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/<em>3rd-party-ca-cert</em>.pem /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /tmp/3rd-party-ca-cert.pem /etc/pki/ovirt-engine/apache-ca.pem</code></pre>
 </div>
 </div>
 </li>
@@ -31052,7 +31122,15 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 <p>If you manually changed the <code>/etc/ovirt-provider-ovn/conf.d/10-setup-ovirt-provider-ovn.conf</code> file, or are using a configuration file from an older installation, make sure that the Engine is still configured to use <code>/etc/pki/ovirt-engine/apache-ca.pem</code> as the certificate source.</p>
 </li>
 <li>
-<p>Enable <code>engine-backup</code> to update the system on restore by creating a new file, <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code>, with the following content:</p>
+<p>Create the <code>/etc/ovirt-engine-backup/engine-backup-config.d</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable <code>ovirt-engine-backup</code> to update the system on restore by creating the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
@@ -31088,7 +31166,7 @@ update-ca-trust</code></pre>
 </div>
 </li>
 <li>
-<p>If you are using a self-hosted engine, turn off global maintenance mode.</p>
+<p>If you are using a self-hosted engine, turn off global maintenance mode:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=none</code></pre>
@@ -31098,7 +31176,8 @@ update-ca-trust</code></pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>Your users can now connect to the Administration Portal and VM Portal, without seeing a warning about the authenticity of the certificate used to encrypt HTTPS traffic.</p>
+<p>Your users can now connect to the Administration Portal and VM Portal without seeing a certificate warning.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -31114,7 +31193,21 @@ update-ca-trust</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a PEM-encoded CA certificate and importing certificates, see the <code>X.509 CERTIFICATE TRUST STORE</code> section of the README file at <strong>/usr/share/doc/ovirt-engine-extension-aaa-ldap-<em>version</em></strong>.</p>
+<p>For more information on creating a PEM-encoded CA certificate and importing certificates, see the <code>X.509 CERTIFICATE TRUST STORE</code> section of the README file at <code>/usr/share/doc/ovirt-engine-extension-aaa-ldap-&lt;<em>version</em>&gt;.</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
 </div>
 </td>
 </tr>
@@ -31562,6 +31655,6 @@ Following engine backup and restore, during engine restore, the custom message b
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/administration_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/administration_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/administration_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/documentation/administration_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

@@ -71,7 +71,7 @@
         
         <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
            <a property="item" typeof="WebPage" href="/ovirt-site/previews/2977/develop/architecture/">
-              <span property="name">Architecture</span>
+              <span property="name">oVirt Engine Architecture</span>
               <meta property="position" content="3" />
            </a>
         </li>
@@ -242,6 +242,27 @@
                   
                   <div class="blogger_avatar">
                     <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
                       src="https://secure.gravatar.com/avatar/d1444ce9dae56ad479be1aa9e2b217bd?s=32&amp;d=mm&amp;r=g"
                       srcset="https://secure.gravatar.com/avatar/d1444ce9dae56ad479be1aa9e2b217bd?s=64&amp;d=mm&amp;r=g 2x"
                       class="avatar avatar-32 photo"
@@ -284,48 +305,44 @@
           
         
         <section id="content" class="content container">
-          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2977/documentation/'>Documentation is available here.</a></div>
-
-<p><img src="/ovirt-site/previews/2977/images/wiki/Ovirt-1024x698.png" alt="" title="Ovirt-1024x698.png" /></p>
+          <div class='alert alert-warning'>Much of this developer documentation provides historical context but may not reflect the current state of the project.<br>If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2977/documentation/'>User Documentation is available here.</a></div>
 
 <h1 id="ovirt-architecture">oVirt Architecture</h1>
+
+<p><img src="/ovirt-site/previews/2977/images/diagrams/ovirt_architecture.png" alt="" title="oVirt architecture" /></p>
 
 <p>A standard oVirt deployment consists of three things, primarily:</p>
 
 <ul>
-  <li>ovirt-engine which is used use to deploy, monitor, move, stop and create VM images, configure storage, network , etc.</li>
+  <li>ovirt-engine which is used to deploy, monitor, move, stop and create VM images, configure storage, network , etc.</li>
   <li>One or more hosts (nodes), on which we run virtual machines (VMs)</li>
   <li>One or more storage nodes, which hold the images and ISOs corresponding to those VMs</li>
 </ul>
 
-<p>Also, usually an identity service is deployed aside the engine, to authenticate users and administrators for ovirt-engine.</p>
+<p>The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services.
+The supported Linux distributions to date are CentOS Stream 8 and derivatives. oVirt project also provides oVirt Node, which is basically a stripped-down CentOS Stream 8 distribution
+containing just enough components to allow virtualization.</p>
 
-<p>The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt-node, which is basically a stripped-down distribution containing just enough components to allow virtualization.</p>
-
-<p>The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The <a href="/ovirt-site/previews/2977/develop/developer-guide/vdsm/storage-terminology.html">Vdsm Storage Terminology</a> page has more details.</p>
+<p>The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type.
+Storage nodes are grouped into storage pools, which can ensure high availability and redundancy.
+The <a href="/ovirt-site/previews/2977/develop/developer-guide/vdsm/storage-terminology.html">Vdsm Storage Terminology</a> page has more details.</p>
 
 <p>The different diagrams and descriptions below represent the architecture of the oVirt project, and its different components.</p>
 
 <h2 id="overall-architecture">Overall architecture</h2>
 
-<p>The following diagram shows the different components in the oVirt project:</p>
-
-<p><img src="/ovirt-site/previews/2977/images/wiki/Architecture.png" alt="" title="Architecture.png" /></p>
-
-<p>These main components are:</p>
+<p>The main components are:</p>
 
 <ol>
-  <li>Engine (ovirt-engine) - manages the oVirt hosts, and allows system administrators to create and deploy new VMs</li>
-  <li>Admin Portal - web based UI application on top of the engine, that sysadmins use to perform advanced actions.</li>
-  <li>User Portal - a simplified web based UI application for simpler management use-cases.</li>
+  <li>oVirt Engine - manages the oVirt hosts, and allows system administrators to create and deploy new VMs</li>
+  <li>oVirt Engine Admin Portal - web based UI application on top of the engine, that sysadmins use to perform advanced actions.</li>
+  <li>Web UI Portal - a simplified web based UI application for simpler management use-cases.</li>
   <li>REST API - an API which allows applications to perform virtualization actions, which is used by the command line tools and the python SDK</li>
-  <li>CLI/SDK - The command line interface and SDK provide a way to communicate with engine via script actions.</li>
+  <li>SDK - The command line interface and SDK provide a way to communicate with engine via script actions.</li>
   <li>Database - Postgres database is used by the engine to provide persistency for the configuration of the ovirt deployment.</li>
   <li>Host agent (VDSM) - the oVirt engine communicates with VSDM to request VM related actions on the nodes</li>
-  <li>Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.</li>
-  <li>AD/IPA - directory services. Engine uses them to receive information on users and groups to be used with ovirt’s permissions mechanism.</li>
+  <li>QEMU Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.</li>
   <li>DWH (Data Warehouse) - The data warehouse component performs ETL on data extracted from the db using Talend , and inserts it to history DB.</li>
-  <li>Reports Engine - generates reports based on data in history DB, on system resource usage, using Jasper Reports</li>
   <li>SPICE client - utility which allows users to access the VMs.</li>
 </ol>
 
@@ -333,7 +350,8 @@
 
 <h2 id="engine">Engine</h2>
 
-<p>oVirt engine is a JBoss-based Java application (previously C#) which runs as a web service. This service talks directly to VDSM on the hosts to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.</p>
+<p>oVirt engine is a Wildfly based Java application which runs as a web service.
+This service talks to VDSM on the hosts via <code class="language-plaintext highlighter-rouge">vdsm-jsonrpc-java</code> library to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.</p>
 
 <p>It is a large scale, centralized management for server and desktop virtualization, based on leading performance, scalability and security infrastructure technologies.</p>
 
@@ -466,46 +484,18 @@
   <li>Uniform interface</li>
 </ol>
 
-<h2 id="clisdk">CLI/SDK</h2>
+<h2 id="sdk">SDK</h2>
 
-<p>CLI and SDK are using on the REST api mentioned above.</p>
-
-<p>SDK:</p>
+<p>SDK are using on the REST api mentioned above.</p>
 
 <ol>
-  <li>Python based SDK to allow performing actions on the different entities</li>
+  <li>Python / Java / Go based SDK to allow performing actions on the different entities</li>
   <li>Complete protocol abstraction</li>
   <li>Full compliance with the oVirt API architecture</li>
   <li>Auto-completion</li>
   <li>Self descriptive</li>
   <li>Intuitive and easy to use</li>
   <li>Auto-Generated</li>
-</ol>
-
-<p>CLI:</p>
-
-<ol>
-  <li>Python based CLI to allow querying and performing actions on the different entities</li>
-  <li>Complete protocol abstraction</li>
-  <li>Full compliance with the oVirt API architecture</li>
-  <li>Highly descriptive help for each operation</li>
-  <li>Intuitive and easy to use</li>
-  <li>Auto-Generated</li>
-</ol>
-
-<h2 id="reports-engine">Reports Engine</h2>
-
-<ol>
-  <li>Based on Jasper Reports</li>
-  <li>Jasper allows to import/export reports definitions</li>
-  <li>Rich reporting engine
-    <ul>
-      <li>Report scheduling</li>
-      <li>Filters</li>
-      <li>Export to various formats</li>
-      <li>Report creation studio</li>
-    </ul>
-  </li>
 </ol>
 
 <h2 id="dwh">DWH</h2>
@@ -524,28 +514,12 @@
   <li>API is view based</li>
 </ol>
 
-<h2 id="guest-agent">Guest Agent</h2>
-
-<p>The guest agent provides additional information to oVirt Engine, such as guest memory usage, guest ip address, installed applications and sso.</p>
-
-<p>Architectural details:</p>
-
-<ol>
-  <li>Python code, available for both linux and windows guests</li>
-  <li>Communication is done over virtio-serial</li>
-  <li>SSO for windows is based on a gina module for XP and a credential provider for windows 7</li>
-  <li>SSO for RHEL 6 is based on a PAM module with support for both KDE and Gnome</li>
-</ol>
-
-<p><img src="/ovirt-site/previews/2977/images/wiki/Guest-agent-arch.png" alt="" title="Guest-agent-arch.png" /></p>
-
-
 
 
         </section>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/architecture/architecture.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/architecture/architecture.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/architecture/architecture.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/architecture/architecture.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

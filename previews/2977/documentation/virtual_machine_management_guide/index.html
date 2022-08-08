@@ -492,20 +492,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Virt Viewer for 32-bit Windows:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>your-manager-fqdn</em>/ovirt-engine/services/files/spice/virt-viewer-x86.msi</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Virt Viewer for 64-bit Windows:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>your-manager-fqdn</em>/ovirt-engine/services/files/spice/virt-viewer-x64.msi</code></pre>
-</div>
-</div>
+<p><a href="https://virt-manager.org/download/">Virt Viewer download page</a></p>
 </li>
 </ul>
 </div>
@@ -543,20 +530,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><code>usbdk</code> for 32-bit Windows:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>[your manager&#8217;s address]</em>/ovirt-engine/services/files/spice/usbdk-x86.msi</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p><code>usbdk</code> for 64-bit Windows:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">https://<em>[your manager&#8217;s address]</em>/ovirt-engine/services/files/spice/usbdk-x64.msi</code></pre>
-</div>
-</div>
+<p><a href="https://www.spice-space.org/download.html"><code>usbdk</code> download page</a></p>
 </li>
 </ul>
 </div>
@@ -1049,7 +1023,7 @@ GRUB_SERIAL_COMMAND=&quot;serial --speed=115200 --unit=0 --word=8 --parity=no --
 <p>On the client machine from which you are accessing the virtual machine serial console, generate an SSH key pair. The Engine supports standard SSH key types, for example, an RSA key:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># ssh-keygen -t rsa -b 2048 -C &quot;_user@domain_&quot; -f .ssh/serialconsolekey</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh-keygen -t rsa -b 2048 -f .ssh/serialconsolekey</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2200,10 +2174,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Single Sign-On (SSO) is deprecated for virtual machines running Enterprise Linux version 7 or earlier.</p>
-</div>
-<div class="paragraph">
-<p>SSO is not supported for virtual machines running Enterprise Linux 8 or later, or for Windows operating systems.</p>
+<p>Single sign-on with IPA (IdM) is deprecated for virtual machines running Enterprise Linux version 7 or earlier and unsupported for virtual machines running Enterprise Linux 8 or Windows operating systems.</p>
 </div>
 </td>
 </tr>
@@ -12186,7 +12157,7 @@ You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragg
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>viodiskcache</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Caching mode for the virtio disk. <strong>writethrough</strong> writes data to the cache and the disk in parallel, <strong>writeback</strong> does not copy modifications from the cache to the disk, and <strong>none</strong> disables caching. See <a href="https://access.redhat.com/solutions/2361311">Writeback or writethrough cache mode can only be set via 'viodiskcache' custom property for file-based storage</a> for information about the limitations of the <code>viodiskcache</code> custom property.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Caching mode for the virtio disk. <strong>writethrough</strong> writes data to the cache and the disk in parallel, <strong>writeback</strong> does not copy modifications from the cache to the disk, and <strong>none</strong> disables caching.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In order to ensure data integrity in the event of a fault in storage, in the network, or in a host during migration, do not migrate virtual machines with viodiskcache enabled, unless virtual machine clustering or application-level clustering is also enabled.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
@@ -13207,6 +13178,6 @@ yum-uuid * Remove the yum UUID</code></pre>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/virtual_machine_management_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/virtual_machine_management_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2977/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2977/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2977/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2977/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/virtual_machine_management_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/documentation/virtual_machine_management_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

@@ -34,8 +34,6 @@ During installation, {virt-product-fullname} {engine-name} creates an *admin* us
 
 * iPlanet
 
-
-
 [IMPORTANT]
 ====
 It is not possible to install {virt-product-fullname} {engine-name} (`rhevm`) and IdM (`ipa-server`) on the same system. IdM is incompatible with the `mod_ssl` package, which is required by {virt-product-fullname} {engine-name}.
@@ -49,9 +47,7 @@ If you are using Active Directory as your directory server, and you want to use 
 
 * *Modify the membership of a group*
 
+For information on creation of user accounts in Active Directory, see link:http://technet.microsoft.com/en-us/library/cc732336.aspx[Create a New User Account].
 
-
-For information on creation of user accounts in Active Directory, see link:http://technet.microsoft.com/en-us/library/cc732336.aspx[].
-
-For information on delegation of control in Active Directory, see link:http://technet.microsoft.com/en-us/library/cc732524.aspx[].
+For information on delegation of control in Active Directory, see link:http://technet.microsoft.com/en-us/library/cc732524.aspx[Delegate Control of an Organizational Unit].
 ====

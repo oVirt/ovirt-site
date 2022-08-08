@@ -1,10 +1,10 @@
 ---
-title: Backend modules bll
+title: Backend modules BLL
 category: architecture
 authors: amuller
 ---
 
-# Backend modules bll
+# Backend modules BLL
 
 **Introduction:** The bll (Business Logic Layer) encapsulates the different actions and queries the user can apply, and implements the actual logic required to run said commands. In the bll, every action has a value in the VdcActionType enum. The naming convention is of importance - \*Command. For example: RunVMCommand, SetupNetworkCommand, and so on. Each enum value has a corresponding class, and that class is instantiated by a factory via reflection. Similarly, queries have \*Query enum values in the VdcQueryType enum, and each enum value has a corresponding class. For each command or query there is the appropriate POJO that represents the commands' parameters. Some parameter structs are shared between different commands.
 

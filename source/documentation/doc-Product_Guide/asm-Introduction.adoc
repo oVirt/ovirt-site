@@ -6,7 +6,7 @@
 
 {virt-product-fullname} is an enterprise-grade virtualization platform built on {enterprise-linux}. Virtualization allows users to easily provision new virtual servers and workstations, and provides more efficient use of physical server resources. With {virt-product-fullname}, you can manage your entire virtual infrastructure - including hosts, virtual machines, networks, storage, and users - from a centralized graphical user interface or REST API.
 
-include::common/arch/con-RHV_key_components.adoc[]
+include::common/arch/con-RHV_key_components.adoc[leveloffset=+1]
 
 For detailed technical information about {virt-product-fullname}, see the link:{URL_virt_product_docs}{URL_format}technical_reference/index#[_Technical Reference_].
 

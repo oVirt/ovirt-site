@@ -37,9 +37,8 @@ You enable FIPS first on each bare metal machine, and then in the Manager.
 * xref:enabling_fips_she_appendix_fips[Enabling FIPS in a self-hosted engine]
 * xref:enabling_fips_rhel_hosts_and_rhvm_appendix_fips[Enabling FIPS in {enterprise-linux-shortname} hosts and the standalone Manager]
 
-
-
 include::topics/proc-enabling-fips_she.adoc[leveloffset=+1]
+
 include::topics/proc-enabling-fips_rhel_hosts_and_rhvm.adoc[leveloffset=+1]
 
 == Additional resources
@@ -49,6 +48,5 @@ include::topics/proc-enabling-fips_rhel_hosts_and_rhvm.adoc[leveloffset=+1]
 * link:{URL_customer-portal}downloads/content/415/ver=4.4/rhel---8/4.4/x86_64/product-software[Installers and Images for Red Hat Virtualization Manager (v. 4.4 for x86_64)]
 * link:http://www.open-scap.org/security-policies/choosing-policy/[Security policies available in the SCAP Security Guide]
 * link:{URL_rhel_docs_latest}html/security_hardening/index[Security Hardening] for Red Hat Enterprise Linux 8
-
 
 :appendix_fips!:

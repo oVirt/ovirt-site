@@ -4,7 +4,6 @@
 
 To change the default account settings, use the `ovirt-aaa-jdbc-tool` `settings` module.
 
-
 *Updating Account Settings*
 
 This procedure shows you how to update the default account settings.

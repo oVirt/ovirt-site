@@ -20,7 +20,9 @@ This is particularly important for Windows guests in order to prevent warnings o
 
 This feature is supported by libvirt and should be implemented by oVirt Engine and VDSM.
 
-When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine. oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.
+When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine.
+oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run.
+If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.
 
 ## Owner
 
@@ -43,7 +45,7 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
    This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
 2. The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.
 3. The 'getAllVmStats' verb should report the hash of the device addresses of the VMS.
-4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
+4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM
    for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
 5. The list verb should report the device addresses as part of the VM configuration.
 
@@ -51,8 +53,8 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 
 1. Export - the device addresses should be part of the exported configuration of the VM.
 2. Import - the device addresses should be part of the imported configuration of the VM.
-3. The 'list' verb reports the full configuration of all the VMs on the host. 
-   This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
+3. The 'list' verb reports the full configuration of all the VMs on the host.
+   This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs
    configuration while only a small group is needed.
 
 ## GUI
@@ -141,8 +143,8 @@ Sample :
 {% highlight json %}
      'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
      'vmName': 'myVM',
-     'acpiEnable': 'true', 
-     'emulatedMachine': 'rhel6.2.0', 
+     'acpiEnable': 'true',
+     'emulatedMachine': 'rhel6.2.0',
      'vmType': 'kvm',
      'memSize': 512,
      'smpCoresPerSocket': '1',
@@ -158,7 +160,7 @@ Sample :
      'displayNetwork': 'rhevm',
      'display': 'qxl|vnc',
      'custom': {},
-     'devices': [   
+     'devices': [
             {'type': 'disk',
              'device': 'disk',
              'index':
@@ -174,13 +176,13 @@ Sample :
       address             -- The device address as a string
       boot_order          -- The device boot order
       spec_params         -- The device special parameters, for example ('display': 'vnc')
-      is_managed          -- Indicates if the device is managed 
+      is_managed          -- Indicates if the device is managed
       is_plugged          -- Indicates if device is plugable
       is_readonly         -- Indicates if device is read-only.
 
 Adding a column to vm_dynamic:
 
-      hash                -- holds the md5 like hash indicating a change 
+      hash                -- holds the md5 like hash indicating a change
 
 Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
@@ -208,17 +210,17 @@ update
 
 refreshVdsRunTimeInfo is called
 
-      GetAllVMStats is called 
-         For each VM info 
+      GetAllVMStats is called
+         For each VM info
            if (hash from vdsm  hash from db)
                   add VM to changed-vm-list
          next
       if (changed-vm-list length > 0)
          Issue a call to vdsm list command with 'long' & changed-vm-list[1]
-         For each VM in list 
+         For each VM in list
             persist all changed data in db.
             update hash for VM in db
-         next 
+         next
       end
 
 [1] New vdsm list command syntax allows that :
@@ -265,7 +267,14 @@ Boot order is a device property (just for subgroup of all available devices), We
 
 ### Managed and un-managed devices
 
-In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true) Each device that we are learning via vdsm is considered as un-managed device. There is one exception for this rule, we will handle a SpecialManagedDevices white-list in vdc-options. This list will include a list of <type></type><device></device> that are special. It means that even if we learn this device from vdsm, still his is_managed flag will be set to true. When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string (with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map. We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.
+In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true)
+Each device that we are learning via vdsm is considered as un-managed device.
+There is one exception for this rule, we will handle a `SpecialManagedDevices` white-list in vdc-options.
+This list will include a list of `<type></type><device></device>` that are special.
+It means that even if we learn this device from vdsm, still his is_managed flag will be set to true.
+When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string
+(with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map.
+We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.
 
 ### Action Table Map
 
@@ -333,7 +342,7 @@ This section describes issues that might need special consideration when writing
 
      1. Direct LUN considerations.
      2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
-     3. Regarding boot sequence: We currently have default boot sequence in the template level. 
+     3. Regarding boot sequence: We currently have default boot sequence in the template level.
         The question is how this is handled in moving from 3.0 to 3.1 and vice verse
         a) 3.0 to 3.1 - we will have to write the logic that tries to match the conversion from current Enum BootSequence value to the new format
         b) 3.1 to 3.0 - we have a problem here either we :

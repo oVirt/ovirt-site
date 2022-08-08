@@ -8,17 +8,14 @@ Changes to USB filter policies do not take effect unless the *ovirt-engine* serv
 
 Download the *USB Filter Editor* installer from link:https://access.redhat.com/downloads/content/415/[this "Installers and Images for {virt-product-fullname} {engine-name}"] topic.
 
-
 .Procedure
 
 . On a Windows machine, extract the *.msi* intaller from the *.zip* file and run the *.msi* installer.
 . Follow the steps of the installation wizard. Unless otherwise specified, the USB Filter Editor will be installed by default in either *C:\Program Files\RedHat\USB Filter Editor* or *C:\Program Files(x86)\RedHat\USB Filter Editor* depending on your version of Windows.
 . A USB Filter Editor shortcut icon is created on your desktop.
 
-
-
 [IMPORTANT]
 ====
-Use a Secure Copy (SCP) client to import and export filter policies from the {virt-product-fullname} {engine-name}. A Secure Copy tool for Windows machines is WinSCP (link:http://winscp.net[]).
+Use a Secure Copy (SCP) client such as link:http://winscp.net[WinSCP] to import and export filter policies from the {virt-product-fullname} {engine-name}.
 ====
 The default USB device policy provides virtual machines with basic access to USB devices; update the policy to allow the use of additional USB devices.

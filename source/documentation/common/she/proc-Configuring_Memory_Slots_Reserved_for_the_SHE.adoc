@@ -6,7 +6,6 @@ If the {engine-name} virtual machine shuts down or needs to be migrated, there m
 
 To add more self-hosted engine nodes to the {virt-product-fullname} {engine-name}, see xref:Adding_self-hosted_engine_nodes_to_the_Manager_SHE_admin[Adding self-hosted engine nodes to the {engine-name}].
 
-
 *Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts*
 
 . Click menu:Compute[Clusters] and select the cluster containing the self-hosted engine nodes.

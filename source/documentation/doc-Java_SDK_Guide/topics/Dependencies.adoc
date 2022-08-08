@@ -1,4 +1,5 @@
-[[Dependencies]]
+:_content-type: CONCEPT
+[id="Dependencies"]
 = Dependencies
 
 To use the Java software development kit in Java applications, you must add the following JAR files to the class path of those applications:

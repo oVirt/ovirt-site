@@ -25,7 +25,6 @@ If you plan to use {virt-product-fullname} nodes to provide any services, rememb
 
 This applies to all services, but you should be especially aware of the hazards of running the following on {virt-product-fullname}:
 
-
 * Directory Services
 
 * DNS

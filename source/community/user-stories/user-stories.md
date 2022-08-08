@@ -73,18 +73,6 @@ Read the full [Judici case study](/community/user-stories/judici-case-study.html
 
 </div>
 <div class="case-study">
-### Keele University
-
-![](/images/logos/Keele.svg)
-
-[Keele University](/community/user-stories/keele-university-case-study.html) in Staffordshire has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013.
-
-"Choosing oVirt has saved us tens of thousands of pounds over proprietary alternatives like VMware. Open source wins the philosophical debate for us." Cost, freedom and a robust consolidated management solution for their KVM virtualization were the main reasons they adopted oVirt.
-
-Read the full [Keele University case study](/community/user-stories/keele-university-case-study.html)
-
-</div>
-<div class="case-study">
 ### Nieuwland Geo-Informatie
 
 ![](/images/logos/Nwld.png)
@@ -106,18 +94,6 @@ Spanish software consultants [Nimbus Concept](/community/user-stories/nimbus-con
 "For us, oVirt is a full solution to SME virtualization needs, and piece of open source software that integrates beautifully with the surrounding tools, without reinventing the wheel, but using existing pieces."
 
 Read the full [Nimbus Concept case study](/community/user-stories/nimbus-concept-case-study.html)
-
-</div>
-<div class="case-study">
-### Universidad de Sevilla
-
-![](/images/logos/Sevilla.png)
-
-When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program, [UDS Enterprise](https://www.udsenterprise.com/) helped the institution find a virtualization solution that delivered superior flexibility at a much lower cost than proprietary solutions.
-
-That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
-
-Read the full [Universidad de Sevilla case study](/community/user-stories/universidad-de-sevilla-case-study.html)
 
 </div>
 

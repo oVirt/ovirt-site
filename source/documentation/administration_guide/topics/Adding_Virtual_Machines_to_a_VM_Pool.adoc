@@ -4,7 +4,6 @@
 
 If you require more virtual machines than originally provisioned in a virtual machine pool, add more machines to the pool.
 
-
 .Procedure
 
 . Click menu:Compute[Pools] and select the virtual machine pool.

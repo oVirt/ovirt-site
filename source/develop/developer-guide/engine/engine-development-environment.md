@@ -31,7 +31,7 @@ authors:
 
 ## Development Environment
 
-<b>NOTE:</b> The latest certified documentation is available in the source tree at [README.adoc](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob_plain;f=README.adoc;hb=HEAD).
+**NOTE:** The latest certified documentation is available in the source tree at [README.adoc](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob_plain;f=README.adoc;hb=HEAD).
 
 The purpose of this page is primarily to align the community experience with the certified procedures.
 
@@ -44,68 +44,77 @@ The purpose of this page is primarily to align the community experience with the
     * Automatically
 
         Run the following command:
+        ```console
+        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm
+        ```
 
-                # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm
-
-        <b>NOTE:</b> This does not work for master because it is available after release.
+        **NOTE:** This does not work for master because it is available after release.
 
     * Manually
 
-        Create the file `/etc/yum.repos.d/ovirt-snapshots.repo`, and replace `@distro@` in the following code block with `fc` for Fedora or `el` for RHEL or an equivalent distribution.
+      Create the file `/etc/yum.repos.d/ovirt-snapshots.repo`, and replace `@distro@` in the following code block with `fc` for Fedora or `el` for RHEL or an equivalent distribution.
 
-          [ovirt-snapshots]
-          name=local
-          baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot/rpm/@distro@$releasever
-          enabled=1
-          gpgcheck=0
-          priority=10
+      ```ini
+      [ovirt-snapshots]
+      name=local
+      baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot/rpm/@distro@$releasever
+      enabled=1
+      gpgcheck=0
+      priority=10
 
-          [ovirt-snapshots-static]
-          name=local
-          baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot-static/rpm/@distro@$releasever
-          enabled=1
-          gpgcheck=0
-          priority=10
+      [ovirt-snapshots-static]
+      name=local
+      baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot-static/rpm/@distro@$releasever
+      enabled=1
+      gpgcheck=0
+      priority=10
+      ```
 
 3. Install the Third-Party Packages
-
-        # yum install git java-devel maven openssl postgresql-server postgresql-contrib \
-            m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-            unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
-            python-dateutil gdeploy
+   ```console
+   # yum install git java-devel maven openssl postgresql-server postgresql-contrib \
+      m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
+      unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
+      python-dateutil gdeploy
+   ```
 
 3. Application Servers
 
     Following application servers are required for engine development:
 
     * WildFly 8.2 for oVirt 3.6+ development
-
-            # yum install ovirt-engine-wildfly ovirt-engine-wildfly-overlay
+      ```console
+      # yum install ovirt-engine-wildfly ovirt-engine-wildfly-overlay
+      ```
 
     * JBoss 7.1.1 for backporting changes to oVirt 3.5
-
-            # yum install ovirt-engine-jboss-as
+      ```console
+      # yum install ovirt-engine-jboss-as
+      ```
 
 4. Install the oVirt Packages
-
-        # yum install ovirt-host-deploy ovirt-setup-lib ovirt-js-dependencies
+   ```console
+   # yum install ovirt-host-deploy ovirt-setup-lib ovirt-js-dependencies
+   ```
 
 5. Set Up Java
 
     Make sure openjdk is the java preferred:
-
-          # alternatives --config java
-          # alternatives --config javac
+    ```console
+    # alternatives --config java
+    # alternatives --config javac
+    ```
 
 Note: javassit used in some of the unit tests hits a regression introduced in java-1.7.0-openjdk-1.7.0.65. In order to avoid this issue, you can downgrade to java-1.7.0-openjdk-1.7.0.60.
 
 ### Debian-Based Systems
 
 1. Install the following third-party packages:
-
-        # apt-get install git openjdk-7-jdk maven openssl postgresql \
-            python-m2crypto python-psycopg2 python-cheetah python-daemon \
-            jboss-as unzip python-dateutil
+   ```console
+   # apt-get install git openjdk-7-jdk maven openssl postgresql \
+      python-m2crypto python-psycopg2 python-cheetah python-daemon \
+      jboss-as unzip python-dateutil
+   ```
 
 2. Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
 
@@ -114,84 +123,101 @@ Note: javassit used in some of the unit tests hits a regression introduced in ja
         TODO
 
 4. Ensure openjdk is the preferred version of Java:
-
-        # update-alternatives --config java
+   ```conseole
+   # update-alternatives --config java
+   ```
 
 ### Database
 
 1. Some distributions require you to initialize the database prior to usage.
 
-        Fedora: # postgresql-setup initdb
-        RHEL:   # /etc/init.d/postgresql initdb
-        Gentoo: # emerge --config postgresql-server
+   Fedora:
+   ```console
+   # postgresql-setup initdb
+   ```
+   RHEL:
+   ```console
+   # /etc/init.d/postgresql initdb
+   ```
+   Gentoo:
+   ```console
+   # emerge --config postgresql-server
+   ```
 
 2. Configure PostgreSQL to accept network connection by locating `pg_hba.conf` file, locations includes:
 
-        Fedora, RHEL: /var/lib/pgsql/data/pg_hba.conf
-        Debian        /etc/postgresql/\*/main/pg_hba.conf
-        Gentoo        /etc/postgresql-\*/pg_hba.conf
+   * Fedora, RHEL:  `/var/lib/pgsql/data/pg_hba.conf`
+   * Debian:        `/etc/postgresql/\*/main/pg_hba.conf`
+   * Gentoo:        `/etc/postgresql-\*/pg_hba.conf`
 
-    Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 and IPv6 connections.
-
-        # IPv4 local connections:
-        host    all             all             127.0.0.1/32            password
-        # IPv6 local connections:
-        host    all             all             ::1/128                 password
+    Locate: `127.0.0.1/32` and `::1/128` and allow "password" authentication for IPv4 and IPv6 connections.
+    ```
+    # IPv4 local connections:
+    host    all             all             127.0.0.1/32            password
+    # IPv6 local connections:
+    host    all             all             ::1/128                 password
+    ```
 
 3. Configure PostgreSQL to support at least 150 concurrent connections - find `postgresql.conf` file, usually in the same location of `pg_hba.conf`, locate 'max_connections' and set it to 150.
 
 4. Restart PostgreSQL service for definitions to take effect:
-
-        Fedora: systemctl restart postgresql.service
-        RHEL:   service postgresql restart
-        Gentoo: /etc/init.d/postgresql-* start
+   * Fedora: `systemctl restart postgresql.service`
+   * RHEL: `service postgresql restart`
+   * Gentoo: `/etc/init.d/postgresql-* start`
 
 5. You may want to set the postgresql service to start at boot.
-
-        systemctl enable postgresql.service
+   ```console
+   systemctl enable postgresql.service
+   ```
 
 6. Create database and user, using the following commands as **root**:
-
-        su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
-        su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
-        su - postgres -c "psql -d template1 -c \"CREATE EXTENSION \\\"uuid-ossp\\\";\""
+   ``` console
+   # su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
+   # su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
+   # su - postgres -c "psql -d template1 -c \"CREATE EXTENSION \\\"uuid-ossp\\\";\""
+   ```
 
 ### Source
 
 Checkout source:
-
-      mkdir -p "$HOME/git"
-      cd "$HOME/git"
-      $ git clone git://gerrit.ovirt.org/ovirt-engine
+```console
+$ mkdir -p "$HOME/git"
+$ cd "$HOME/git"
+$ git clone git://gerrit.ovirt.org/ovirt-engine
+```
 
 ### Usage
 
-<font color="red"><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
+<span style="color:red"><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</span>
 
 Once prerequisites are in place, you are ready to build and use ovirt-engine.
 
 Build product and install at `$HOME/ovirt-engine`, execute the following as unprivileged user while residing within source repository:
-
-      $ make install-dev PREFIX="$HOME/ovirt-engine"
+```console
+$ make install-dev PREFIX="$HOME/ovirt-engine"
+```
 
 Build may be customized, refer to [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) for further information.
 
 If WildFly 8.2 should be used, then it's required to manually setup ovirt-engine-wildfly-overlay using following command:
-
-    echo "ENGINE_JAVA_MODULEPATH="/usr/share/ovirt-engine-wildfly-overlay/modules:${ENGINE_JAVA_MODULEPATH}"" \
-      > $PREFIX/etc/ovirt-engine/engine.conf.d/20-setup-jboss-overlay.conf
+```console
+echo "ENGINE_JAVA_MODULEPATH="/usr/share/ovirt-engine-wildfly-overlay/modules:${ENGINE_JAVA_MODULEPATH}"" \
+> $PREFIX/etc/ovirt-engine/engine.conf.d/20-setup-jboss-overlay.conf
+```
 
 Run the following command and follow the prompts to set up oVirt. If you followed the procedure to create a database above, the database user is 'engine', the password for this user is 'engine', and the database name is also 'engine'.
-
-      $ $HOME/ovirt-engine/bin/engine-setup
+```console
+$ $HOME/ovirt-engine/bin/engine-setup
+```
 
 If JBoss is installed at an alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
 
 When oVirt has been set up, run the following command to start the ovirt-engine service:
+```console
+$ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
+```
 
-      $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
-
-The service will not exit as long as engine is up, to stop press <Ctrl>C.
+The service will not exit as long as engine is up, to stop press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
 Open a web browser and navigate to one of the following links to access the welcome page:
 
@@ -201,24 +227,28 @@ Open a web browser and navigate to one of the following links to access the welc
 Debug port is available via port `8787`, to be used by Eclipse or any other debugger.
 
 When performing code changes that do not modify the database, there is no need to re-execute the setup; run the following command:
-
-      $ make install-dev PREFIX="$HOME/ovirt-engine"
+```console
+$ make install-dev PREFIX="$HOME/ovirt-engine"
+```
 
 And start the engine service.
 
 To rebuild everything use:
-
-      make clean install-dev PREFIX="$HOME/ovirt-engine" 
+```console
+make clean install-dev PREFIX="$HOME/ovirt-engine"
+```
 
 To rebuild a single artifact, for example utils:
-
-      make clean install-dev PREFIX=$HOME/ovirt-engine \
-          EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:utils"
+```console
+make clean install-dev PREFIX=$HOME/ovirt-engine \
+      EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:utils"
+```
 
 Now make a single artifact that resides within the ear (bll,etc):
-
-      make clean install-dev PREFIX=$HOME/ovirt-engine \
-          EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:bll,org.ovirt.engine:engine-server-ear"
+```console
+make clean install-dev PREFIX=$HOME/ovirt-engine \
+      EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:bll,org.ovirt.engine:engine-server-ear"
+```
 
 Now your updated artifact is in place.
 
@@ -234,20 +264,24 @@ Starting ffrom 3.6, using the jboss-cli.sh and credentials to admin@internal you
 *   stats from exposed oVirt beans like LockManager (see what engine entities are locked for provisioning)
 
 First make sure `JBOSS_HOME` is set:
-
-      export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
+```console
+export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
+```
 
 Do an interactive session:
-
-      $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal
+```console
+$JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal
+```
 
 Get the engine data-source statistics:
-
-       ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
+```console
+ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
+```
 
 Get threading info:
-
-       ls /core-service=platform-mbean/type=threading/
+```console
+ls /core-service=platform-mbean/type=threading/
+```
 
 #### Enable DEBUG log - Runtime Change; No Restart
 
@@ -278,36 +312,42 @@ keywords: how to debug ovirt-engine
 
 There is a file share/ovirt-engine/services/ovirt-engine/ovirt-engine.xml.in in the deployed engine environment. Open it and look for `<subsystem xmlns="urn:jboss:domain:logging:1.1">` section. This section contains all output handlers (server.log, engine.log and console output) with associated level filters.
 
-    <file-handler name="ENGINE" autoflush="true">
+```xml
+<file-handler name="ENGINE" autoflush="true">
       <level name="DEBUG"/>
       <formatter>
-        <pattern-formatter pattern="%d %-5p [%c] (%t) %s%E%n"/>
+            <pattern-formatter pattern="%d %-5p [%c] (%t) %s%E%n"/>
       </formatter>
       <file path="$getstring('ENGINE_LOG')/engine.log"/>
       <append value="true"/>
-    </file-handler>
+</file-handler>
+```
 
 To actually get the DEBUG messages to those handlers add the following to the end of the subsystem section:
-
-    <logger category="org.ovirt._package_you_are_interested_in">
+```xml
+<logger category="org.ovirt._package_you_are_interested_in">
       <level name="DEBUG"/>
-    </logger>
+</logger>
+```
 
 To enable full database DEBUG logging to engine.log change the level to DEBUG in the following snippet:
-
-    <logger category="org.ovirt.engine.core.dal.dbbroker.PostgresDbEngineDialect$PostgresJdbcTemplate">
+```xml
+<logger category="org.ovirt.engine.core.dal.dbbroker.PostgresDbEngineDialect$PostgresJdbcTemplate">
       <level name="WARN"/>
-    </logger>
+</logger>
+```
 
 Restart the JBoss instance and you will see the logs.
 
 #### Enable Query by Query postgresql Log
 
-Go to /var/lib/pgsql/data/postgresql.conf and change *log_statement* to 'all'. You can then find the logs in /var/lib/pgsql/data/pg_log/.
+Go to `/var/lib/pgsql/data/postgresql.conf` and change *log_statement* to 'all'. You can then find the logs in `/var/lib/pgsql/data/pg_log/`.
 
 #### Enable Unit Tests
 
-      $ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_UT=1
+```console
+$ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_UT=1
+```
 
 #### Enable DAO Tests
 

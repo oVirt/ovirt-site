@@ -5,9 +5,15 @@
 :taskdir: ../task
 
 include::{cptdir}/cpt_OverviewActivePassive.adoc[leveloffset=+1]
+
 include::{cptdir}/cpt_NetworkConsiderationsAP.adoc[leveloffset=+1]
+
 include::{cptdir}/cpt_StorageConsiderationsAP.adoc[leveloffset=+1]
+
 include::{taskdir}/task_CreateAnsiblePlaybooks.adoc[leveloffset=+1]
+
 include::{taskdir}/task_ExecuteFailover.adoc[leveloffset=+1]
+
 include::{taskdir}/task_Clean.adoc[leveloffset=+1]
+
 include::{taskdir}/task_ExecuteFailback.adoc[leveloffset=+1]

@@ -1,10 +1,11 @@
-[[Performing_Actions_on_Resources]]
+:_content-type: PROCEDURE
+[id="Performing_Actions_on_Resources"]
 = Performing Actions on Resources
 
 The following example outlines how to perform actions on a resource. In this example, a virtual machine with the name 'test' is started.
 
 
-*Performing an Action on a Resource*
+.Procedure
 
 . Declare an instance of the resource:
 +

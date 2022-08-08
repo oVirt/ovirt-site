@@ -26,8 +26,9 @@ For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/rel
 
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
-
+```console
+# yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
+```
 
 If you're upgrading from a previous version you should have ovirt-release package already installed on your system.
 
@@ -92,7 +93,7 @@ A new oVirt Live ISO is available:
  - Batch updates might create a database deadlock
  Bugs fixed between RC and GA:
 
-* Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+* Run once vm via REST with `<pause>true</pause>` parameter, save this parameter true also in next runs
  - Tracker: oVirt 3.4.2 release
 
 ### oVirt Log Collector

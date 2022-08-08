@@ -63,11 +63,11 @@ Yes, it's fully supported since oVirt 3.5. All domains are automatically resolve
 
 Yes, you can configure it with aaa-misc extension. First you need to install it:
 
-```
-yum install -y ovirt-engine-extension-aaa-misc
+```console
+# yum install -y ovirt-engine-extension-aaa-misc
 ```
 
-Then create such *mapping* configuration, for example */etc/ovirt-engine/extensions.d/mapping.properties*
+Then create such *mapping* configuration, for example `/etc/ovirt-engine/extensions.d/mapping.properties`
 
 ```
 ovirt.engine.extension.name = mapping
@@ -81,7 +81,7 @@ config.mapUser.regex.replacement = ${user}@<default.suffix>
 config.mapUser.regex.mustMatch = false
 ```
 
-Replace *<default.suffix>* with the desired suffix, for example *${user}@subdomain.domain.com*.
+Replace `<default.suffix>` with the desired suffix, for example `${user}@subdomain.domain.com`.
 Then apply above mapping into *authn* extension:
 
 ```
@@ -96,8 +96,8 @@ Default password is *changeit*.
 
 In order to change it run following command:
 
-```
-keytool -storepasswd -keystore /etc/ovirt-engine/aaa/profile_name.jks
+```console
+# keytool -storepasswd -keystore /etc/ovirt-engine/aaa/profile_name.jks
 ```
 
 Keytool will ask you for old password, which is *changeit* and then for new password.
@@ -124,7 +124,7 @@ sequence.simple-query-principals.005.type = regex
 sequence.simple-query-principals.005.regex.value = ${seq:filter}
 sequence.simple-query-principals.005.regex.flags = a
 sequence.simple-query-principals.005.regex.pattern = \\(givenName=[^)]*\\)|\\(sn=[^)]*\\)|\\(displayName=[^)]*\\)
-sequence.simple-query-principals.005.regex.replacement.filter = 
+sequence.simple-query-principals.005.regex.replacement.filter =
 ```
 
 This example will replace occurrences of givenName, sn, and displayName and its values with an empty string.

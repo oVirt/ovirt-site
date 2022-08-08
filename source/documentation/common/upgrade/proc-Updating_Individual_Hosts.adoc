@@ -4,9 +4,7 @@
 
 :ind_host_update:
 
-
 Use the host upgrade manager to update individual hosts directly from the Administration Portal.
-
 
 [NOTE]
 ====
@@ -15,7 +13,6 @@ The upgrade manager only checks hosts with a status of *Up* or *Non-operational*
 
 //Limitations
 include::snip-Host_update_limitations.adoc[]
-
 
 .Procedure
 

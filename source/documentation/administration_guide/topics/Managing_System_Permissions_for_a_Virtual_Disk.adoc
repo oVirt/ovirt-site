@@ -12,8 +12,6 @@ The virtual disk creator role permits the following actions:
 
 * Edit user permissions for virtual disks.
 
-
-
 [NOTE]
 ====
 You can only assign roles and permissions to existing users.

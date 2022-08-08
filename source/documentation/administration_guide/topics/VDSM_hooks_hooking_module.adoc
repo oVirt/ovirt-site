@@ -4,7 +4,7 @@
 
 VDSM ships with a Python hooking module, providing helper functions for VDSM hook scripts. This module is provided as an example, and is only relevant to VDSM hooks written in Python.
 
-The hooking module supports reading of a virtual machine's libvirt XML into a DOM object. Hook scripts can then use Python's built in *xml.dom* library (link:http://docs.python.org/release/2.6/library/xml.dom.html[]) to manipulate the object.
+The hooking module supports reading of a virtual machine's libvirt XML into a DOM object. Hook scripts can then use Python's built-in link:http://docs.python.org/release/2.6/library/xml.dom.html[*xml.dom* library] to manipulate the object.
 
 The modified object can then be saved back to libvirt XML using the hooking module. The hooking module provides the following functions to support hook development:
 

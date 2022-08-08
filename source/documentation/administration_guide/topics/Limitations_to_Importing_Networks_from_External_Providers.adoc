@@ -4,7 +4,6 @@
 
 The following limitations apply to using logical networks imported from an external provider in a {virt-product-fullname} environment.
 
-
 * Logical networks offered by external providers must be used as virtual machine networks, and cannot be used as display networks.
 
 * The same logical network can be imported more than once, but only to different data centers.

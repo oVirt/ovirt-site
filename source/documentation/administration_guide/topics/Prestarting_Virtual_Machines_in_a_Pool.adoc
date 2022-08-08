@@ -6,7 +6,6 @@ The virtual machines in a virtual machine pool are powered down by default. When
 
 Prestarted virtual machines are suitable for environments in which users require immediate access to virtual machines which are not specifically assigned to them. Only automatic pools can have prestarted virtual machines.
 
-
 .Procedure
 
 . Click menu:Compute[Pools] and select the virtual machine pool.

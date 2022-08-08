@@ -6,7 +6,6 @@ Disk profiles define the maximum level of throughput and the maximum level of in
 
 This procedure assumes you have already defined one or more storage quality of service entries under the data center to which the storage domain belongs.
 
-
 .Procedure
 
 . Click menu:Storage[Domains].

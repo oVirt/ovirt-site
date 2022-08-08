@@ -8,7 +8,6 @@ Hosts can sometimes become non-responsive due to an unexpected problem, and thou
 
 Soft-fencing over SSH works as follows. Fencing must be configured and enabled on the host, and a valid proxy host (a second host, in an UP state, in the data center) must exist. When the connection between the {engine-name} and the host times out, the following happens:
 
-
 . On the first network failure, the status of the host changes to "connecting".
 . The {engine-name} then makes three attempts to ask VDSM for its status, or it waits for an interval determined by the load on the host. The formula for determining the length of the interval is configured by the configuration values TimeoutToResetVdsInSeconds (the default is 60 seconds) + [DelayResetPerVmInSeconds (the default is 0.5 seconds)]*(the count of running virtual machines on host) + [DelayResetForSpmInSeconds (the default is 20 seconds)] * 1 (if host runs as SPM) or 0 (if the host does not run as SPM). To give VDSM the maximum amount of time to respond, the {engine-name} chooses the longer of the two options mentioned above (three attempts to retrieve the status of VDSM or the interval determined by the above formula).
 . If the host does not respond when that interval has elapsed, `vdsm restart` is executed via SSH.

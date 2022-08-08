@@ -8,7 +8,6 @@ If multiple networks exist on a host and the gateways are not defined, return tr
 
 {virt-product-fullname} handles multiple gateways automatically whenever an interface goes up or down.
 
-
 .Procedure
 
 . Click menu:Compute[Hosts].
@@ -16,6 +15,5 @@ If multiple networks exist on a host and the gateways are not defined, return tr
 . Click the *Network Interfaces* tab to list the network interfaces attached to the host, and their configurations.
 . Click *Setup Host Networks*.
 . Hover your cursor over an assigned logical network and click the pencil icon. This opens the *Edit Management Network* window.
-
 
 The *Edit Management Network* window displays the network name, the boot protocol, and the IP, subnet mask, and gateway addresses. The address information can be manually edited by selecting a *Static* boot protocol.

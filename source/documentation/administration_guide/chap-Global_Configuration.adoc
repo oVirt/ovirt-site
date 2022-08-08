@@ -73,7 +73,6 @@ include::topics/Virtual_Disk_User_Roles_Explained.adoc[leveloffset=+2]
 :context: system_permissions
 include::common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
 
-
 [id="sect-Scheduling_Policies"]
 == Scheduling Policies
 

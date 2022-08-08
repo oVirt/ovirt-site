@@ -59,7 +59,6 @@ This procedure assumes that you have access and can make changes to the original
 
 * The management network (*ovirtmgmt* by default) must be configured as a *VM network*, so that it can manage the {engine-name} virtual machine.
 
-
 include::common/install/assembly-Installing_the_self-hosted_engine_deployment_host.adoc[leveloffset=+1]
 // Adding context back after this assembly, which includes its own context. There's probably a better way that assemblies within assemblies is meant to be done.
 :context: migrating_to_SHE

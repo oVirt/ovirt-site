@@ -12,7 +12,7 @@ authors:
 > The oVirt Scheduler Proxy project development has been discontinued.
 >
 > See also:
-> - https://bugzilla.redhat.com/show_bug.cgi?id=2028192
+> - <https://bugzilla.redhat.com/show_bug.cgi?id=2028192>
 >
 > Keeping the following section only for reference.
 
@@ -22,7 +22,7 @@ authors:
 ## Owner
 
 *   Name: Martin Sivak (msivak)
-*   Email: <msivak at redhat dot com>
+*   Email: <msivak@redhat.com>
 
 ## Current status
 
@@ -30,7 +30,9 @@ authors:
 
 ## Detailed Description
 
-The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. As mentioned above any plugin file `{NAME}.py` must implement at least one of the functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
+The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions.
+As mentioned above any plugin file `{NAME}.py` must implement at least one of the functions.
+The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
 
 *   Scheduler conf file (`/etc/ovirt/scheduler/scheduler.conf`), optional (defaults):
 ```

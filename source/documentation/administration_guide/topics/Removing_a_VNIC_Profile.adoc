@@ -4,7 +4,6 @@
 
 Remove a vNIC profile to delete it from your virtualized environment.
 
-
 .Procedure
 
 . Click menu:Network[Networks].

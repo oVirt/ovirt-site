@@ -50,61 +50,74 @@ There are two repositories you can use:
 
 Five packages are currently available:
 
-*   ovirt-optimizer-%{version}-%{release}.%{dist}.noarch.rpm
-*   ovirt-optimizer-ui-%{version}-%{release}.%{dist}.noarch.rpm
-*   ovirt-optimizer-jboss-%{version}-%{release}.%{dist}.noarch.rpm (or -jboss7 if you install version older than 0.9)
-*   ovirt-optimizer-jetty-%{version}-%{release}.%{dist}.noarch.rpm
-*   ovirt-optimizer-dependencies-%{version}-%{release}.%{dist}.noarch.rpm
+*   `ovirt-optimizer-%{version}-%{release}.%{dist}.noarch.rpm`
+*   `ovirt-optimizer-ui-%{version}-%{release}.%{dist}.noarch.rpm`
+*   `ovirt-optimizer-jboss-%{version}-%{release}.%{dist}.noarch.rpm` (or -jboss7 if you install version older than 0.9)
+*   `ovirt-optimizer-jetty-%{version}-%{release}.%{dist}.noarch.rpm`
+*   `ovirt-optimizer-dependencies-%{version}-%{release}.%{dist}.noarch.rpm`
 
-There are packages for CentOS 7, CentOS 6 and Fedora 21 and above. The jboss sub-package supports oVirt's distribution of Wildfly (ovirt-engine-wildfly). The older version shipping with jboss7 supports either JBoss 7 from Fedora or ovirt-engine-jboss-as shipped as part of oVirt.
+There are packages for CentOS 7, CentOS 6 and Fedora 21 and above.
+The jboss sub-package supports oVirt's distribution of Wildfly (`ovirt-engine-wildfly`).
+The older version shipping with jboss7 supports either JBoss 7 from Fedora or `ovirt-engine-jboss-as` shipped as part of oVirt.
 
 ## Installing the ovirt-optimizer machine
 
-*   Install the ovirt-optimizer-jetty or ovirt-optimizer-jboss(7) package depending on which application server you want to use.
+*   Install the `ovirt-optimizer-jetty` or `ovirt-optimizer-jboss`(7) package depending on which application server you want to use.
 *   Execute the ovirt-optimizer-setup tool to make sure the Optaplanner library is properly installed (only needed for versions 0.9 and up)
-*   Edit the /etc/ovirt-optimizer/ovirt-optimizer.properties file and set the address of your ovirt-engine instance and the credentials for the REST API.
+*   Edit the `/etc/ovirt-optimizer/ovirt-optimizer.properties` file and set the address of your ovirt-engine instance and the credentials for the REST API.
 *   Set up a reverse proxy (nginx or apache) with SSL certificates (see the README file for details)
 *   Check if the firewall allows external access to the port where your proxy serves the content (443/tcp for SSL enabled optimizer).
-*   If you performed a fresh installation of Jetty on Fedora 19, you must remove the demonstration configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
-*   Start the optimizer - service ovirt-optimizer-jboss start or systemctl start ovirt-optimizer-jboss. (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using their scripts - systemctl start jboss-as or /usr/share/java/jetty/bin/jetty.sh for example).
-*   Check the logs in /var/log/ovirt-optimizer/jboss or in the Jetty log directory and you should see that ovirt-optimizer detected some cluster(s) and tried to compute a solution.
+*   If you performed a fresh installation of Jetty on Fedora 19, you must remove the demonstration configuration file for Jetty to start - `/usr/share/jetty/start.d/900-demo.ini`
+*   Start the optimizer - `service ovirt-optimizer-jboss start` or `systemctl start ovirt-optimizer-jboss`.
+    (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using
+    their scripts - `systemctl start jboss-as` or `/usr/share/java/jetty/bin/jetty.sh` for example).
+*   Check the logs in `/var/log/ovirt-optimizer/jboss` or in the Jetty log directory and you should see that ovirt-optimizer detected some cluster(s) and tried to compute a solution.
 
 ## Installing the UI
 
 *   Switch to your ovirt-engine machine.
-*   Install the ovirt-optimizer-ui package.
-*   Configure the user interface plug-in by updating /etc/ovirt-engine/ui-plugins/ovirt-optimizer-config.json - you must put the address and port of the ovirt-optimizer service there.
+*   Install the `ovirt-optimizer-ui` package.
+*   Configure the user interface plug-in by updating `/etc/ovirt-engine/ui-plugins/ovirt-optimizer-config.json` - you must put the address and port of the ovirt-optimizer service there.
 *   Restart the ovirt-engine service and reload the Administration Portal.
 *   Log in to the Administration Portal, navigate to the main Cluster tab and select a cluster. You will now see the oVirt Optimizer subtab in the lower half of the page.
 *   When you switch to the subtab, it should load some data (might take couple of seconds).
 
 ## Present Features
 
-*   Each cluster has a new subtab - Optimizer results - that shows the proposed optimized solution (both the final state and the steps to get there) and makes it possible to start a migration by clicking the relevant buttons.
-*   Each virtual machine has two new elements in their context menu - Optimize start and Cancel start optimization. These elements are designed to be used with stopped virtual machines (status Down) and tell the optimizer to identify a solution when the selected virtual machine are started. The cancel menu item cancels this request. You can select multiple virtual machines this way. Sadly, there is no indication in the user interface of the currently optimized virtual machines. However, the result subtab provides a list of virtual machines that are supposed to be started together with the solution details.
-*   The solution should obey the cluster policy to some extent - OptimalForEvenDistribution, OptimalForEvenGuestDistribution and OptimalForPowerSaving will be computed using the memory assignments though (the engine uses CPU load)
+* Each cluster has a new subtab - Optimizer results - that shows the proposed optimized solution (both the final state and the steps to get there)
+  and makes it possible to start a migration by clicking the relevant buttons.
+* Each virtual machine has two new elements in their context menu - Optimize start and Cancel start optimization.
+  These elements are designed to be used with stopped virtual machines (status Down) and tell the optimizer to identify a solution when the selected virtual machine are started.
+  The cancel menu item cancels this request. You can select multiple virtual machines this way. Sadly, there is no indication in the user interface of the currently optimized virtual machines.
+  However, the result subtab provides a list of virtual machines that are supposed to be started together with the solution details.
+* The solution should obey the cluster policy to some extent - `OptimalForEvenDistribution`, `OptimalForEvenGuestDistribution` and `OptimalForPowerSaving` will
+  be computed using the memory assignments though (the engine uses CPU load)
 
 ## Missing Features
 
-*   Some hard constraint rules are missing so the solution might not be applicable because of the current scheduling policy.
-*   Balancing check is missing so the engine might decide to touch the cluster in the middle of your optimization steps - you can disable automatic balancing in the scheduling policy to prevent this.
-*   No CPU load based rules, the optimizer tries to use the hosts' memory in an even way (engine uses CPU load in the balanced rule).
+* Some hard constraint rules are missing so the solution might not be applicable because of the current scheduling policy.
+* Balancing check is missing so the engine might decide to touch the cluster in the middle of your optimization steps - you can disable automatic balancing in the scheduling policy to prevent this.
+* No CPU load based rules, the optimizer tries to use the hosts' memory in an even way (engine uses CPU load in the balanced rule).
 
 # Known issues
 
 ## Data refresh failed: undefined
 
-Check your Firefox (or other browser) version. There is a chance that your browser is new enough and enforces mixed content security rules. That blocks the request to get results from the optimizer. See <https://developer.mozilla.org/en-US/docs/Security/MixedContent> for details.
+Check your Firefox (or other browser) version. There is a chance that your browser is new enough and enforces mixed content security rules.
+That blocks the request to get results from the optimizer. See <https://developer.mozilla.org/en-US/docs/Security/MixedContent> for details.
 
-You can work around this in Firefox by going to <about:config> page and setting security.mixed_content.block_active_content to false.
+You can work around this in Firefox by going to [about:config](about:config) page and setting security.mixed_content.block_active_content to false.
 
-## java.lang.OutOfMemoryError
+## `java.lang.OutOfMemoryError`
 
 Please check the amount of memory available to the application server.
 
-Jboss is configured in /usr/share/jbossas/bin/standalone.conf (or the respective file in /usr/share/ovirt-engine-jboss-as) and look for the -Xmx option in JAVA_OPTS.
+Jboss is configured in `/usr/share/jbossas/bin/standalone.conf` (or the respective file in `/usr/share/ovirt-engine-jboss-as`) and look for the `-Xmx` option in `JAVA_OPTS`.
 
-         example: JAVA_OPTS="-Xms2048m -Xmx8192m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true"
+Example:
+```bash
+JAVA_OPTS="-Xms2048m -Xmx8192m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true"
+```
 
 # Detailed Description - Internals
 
@@ -141,7 +154,10 @@ The selected representation will depend on the way our Optaplanner service will 
 
 ## Reporting the result of optimization
 
-The result will be presented using an UI plugin in the engine's webadmin. That way the user will have comfortable access to the results from a UI he is used to. Also the authentication and access management to REST will be provided by the webadmin. The disadvantage is that the UI plugin will have to use some kind of new protocol (REST, plain HTTP, …) to talk to the Optaplanner service. Also the UI plugin will have to authenticate to the Optaplanner service, but we are probably not implementing that in the tech preview phase.
+The result will be presented using an UI plugin in the engine's webadmin. That way the user will have comfortable access to the results from a UI he is used to.
+Also the authentication and access management to REST will be provided by the webadmin.
+The disadvantage is that the UI plugin will have to use some kind of new protocol (REST, plain HTTP, …) to talk to the Optaplanner service.
+Also the UI plugin will have to authenticate to the Optaplanner service, but we are probably not implementing that in the tech preview phase.
 
 There is also a question of how to represent the solution:
 
@@ -152,12 +168,18 @@ There is also a question of how to represent the solution:
 
 All optimization tasks need to know how does a possible solution look like and how to select the best one. The main task we are trying to accomplish is:
 
-1.  consolidate the free resources -- It should do a defragmentation of free memory or spare cpu cycles so more or big VMs can be started. The extreme case is our Power Saving policy as its side-effect is that a lot of hosts end up totally free of VMs. But we do not want to load the hosts that much. The actual rules that will describe this are yet to be determined, but we are currently looking into using only the hard constraints (filters) of the currently selected cluster policy.
+1. consolidate the free resources -- It should do a defragmentation of free memory or spare cpu cycles so more or big VMs can be started.
+   The extreme case is our Power Saving policy as its side-effect is that a lot of hosts end up totally free of VMs. But we do not want to load the hosts that much.
+   The actual rules that will describe this are yet to be determined, but we are currently looking into using only the hard constraints (filters) of the currently selected cluster policy.
 
 There are two situations that should be avoided in the computed solution:
 
-1.  Unstable cluster -- what I mean here is that once the user performs the changes to get the cluster to the "optimal" state, the engine's internal balancing kicks in and rearranges the cluster differently. It would mean that the output of the optimization algorithm was not as smart as we wanted it to be. This might be mitigated a bit by using the result of balancer as part of the scoring mechanism.
-2.  Impossible solution -- if the user gets a solution from the optimization algorithm and then finds out that the cluster policy prevents him from reaching it, we will have an issue that the theoretical solution can be useless to the user. We will probably start by telling the user to disable load balancing while he is trying to reach "a better" state.
+1. Unstable cluster -- what I mean here is that once the user performs the changes to get the cluster to the "optimal" state,
+   the engine's internal balancing kicks in and rearranges the cluster differently.
+   It would mean that the output of the optimization algorithm was not as smart as we wanted it to be.
+   This might be mitigated a bit by using the result of balancer as part of the scoring mechanism.
+2. Impossible solution -- if the user gets a solution from the optimization algorithm and then finds out that the cluster policy prevents him from reaching it,
+   we will have an issue that the theoretical solution can be useless to the user. We will probably start by telling the user to disable load balancing while he is trying to reach "a better" state.
 
 In the case where no solution can be found (for example to the start VM case) we should inform the user that there is no solution with the current cluster policy rules, but that solution to the optimization can still be found if the rules are relaxed a bit.
 
@@ -171,7 +193,8 @@ We need to keep improving the Policy unit to DRL rules match.
 
 We implemented the rules using the Drools' DRL language.
 
-This approach required that we copy the logic from our Java code to drools rules as exactly as possible. Any difference might have caused the found solution to not be applicable to the actual cluster. The rules contain UUID checks so we can relate them to the currently allowed PolicyUnits.
+This approach required that we copy the logic from our Java code to drools rules as exactly as possible.
+Any difference might have caused the found solution to not be applicable to the actual cluster. The rules contain UUID checks so we can relate them to the currently allowed PolicyUnits.
 
 Advantages:
 
@@ -217,7 +240,8 @@ And as a second case D, C, B, A:
 
 ![](/images/wiki/Dcba_4.png)
 
-Notice that the second case is much better with regards to equal balancing, but has less free space for a new VM. It is necessary to determine the priorities without guessing to select the proper solution according to user's needs.
+Notice that the second case is much better with regards to equal balancing, but has less free space for a new VM.
+It is necessary to determine the priorities without guessing to select the proper solution according to user's needs.
 
 ## Screenshots of the UI plugin in version 0.3
 
@@ -239,13 +263,11 @@ VM started successfully. It is still visible here, but will disappear from the l
 
 ## Compute a "complicated" start VM solution
 
-This demonstration shows a situation where the starting VM does not directly fit to any host. The first picture shows that all hosts are partially occupied and there is no host with 1.5 GB of free RAM that is needed for the VM we are about to start.
+This demonstration shows a situation where the starting VM does not directly fit to any host.
+The first picture shows that all hosts are partially occupied and there is no host with 1.5 GB of free RAM that is needed for the VM we are about to start.
 
 ![](/images/wiki/Before-solution.png)
 
 When optimizer kicks in the following solution is found. One of the small VMs is migrated and the freed space is used to start the big VM.
 
 ![](/images/wiki/Start-solution.png)
-
-
-

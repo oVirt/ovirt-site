@@ -83,7 +83,6 @@ include::topics/Affinity_groups_examples.adoc[leveloffset=+2]
 
 include::topics/Affinity_groups_troubleshooting.adoc[leveloffset=+2]
 
-
 [id="sect-Affinity_Labels"]
 == Affinity Labels
 

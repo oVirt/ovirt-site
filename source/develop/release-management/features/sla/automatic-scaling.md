@@ -15,7 +15,6 @@ This feature would help users setup rules to automatically scale out their appli
 ## Owner
 
 *   Name: User:LHornyak Laszlo Hornyak (LHornyak Laszlo Hornyak)
-*   Email: <lhornyak@radhet.com>
 
 ## Current status
 

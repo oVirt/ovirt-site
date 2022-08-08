@@ -4,7 +4,6 @@
 
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
-
 .Procedure
 
 . Click  *Add*.
@@ -23,7 +22,6 @@ image::images/306.png[Adding a Device]
 ====
 +
 . Click menu:File[Save] to save the changes.
-
 
 You have added a USB policy to the USB Filter Editor. You need to export USB filter policies to the {virt-product-fullname} {engine-name} for them to take effect.
 

@@ -528,8 +528,8 @@ The response in XML for the [SampleCaptures from Wireshark's wiki][5] will look 
 
 ### Graphical User Interface
 
-LLDP information can be found in **Hosts** > **Network Interfaces** > 
-**Setup Host Networks**. The interface tooltip will show the relevant 
+LLDP information can be found in **Hosts** > **Network Interfaces** >
+**Setup Host Networks**. The interface tooltip will show the relevant
 information.
 
 ![UI LDDP tooltip](../../../../images/wiki/lldp_ui.png  "UI LLDP tooltip")
@@ -565,9 +565,9 @@ The package lldpad has to be installed and the demon lldpad has to be running.
 
 [2]: https://www.kernel.org/doc/Documentation/networking/bonding.txt
 
-[Ansible Docs » lldp - get details reported by lldp][3]
+[Ansible Docs lldp - get details reported by lldp][3]
 
-[3]: https://docs.ansible.com/ansible/latest/collections/community/general/lldp_module.html
+[3]: https://docs.ansible.com/ansible/devel/collections/community/general/lldp_module.html
 
 [OpenStack: Introspection LLDP reporting][4]
 

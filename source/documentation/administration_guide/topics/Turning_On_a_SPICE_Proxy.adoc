@@ -4,7 +4,6 @@
 
 This procedure explains how to activate (or turn on) the SPICE proxy.
 
-
 .Procedure
 
 . On the {engine-name}, use the engine-config tool to set a proxy:

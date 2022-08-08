@@ -65,7 +65,7 @@ A new oVirt Live ISO is available:
  - Templates not being listed under Create Pool dialog pop-up
  - [engine-backend] [iSCSI multipath] Required cluster network shouldn't be allowed to be added to an iSCSI multipath bond
  - Reduce blocking operations as part of hosts & VMs monitoring cycles
- - Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+ - Run once vm via REST with `<pause>true</pause>` parameter, save this parameter true also in next runs
  - console icon not activated after VM start
  - User fails to get attached to a prestarted pool in case messages parameter of canRunVm is null - NPE is throwed
  - Throw IO exception for JAXB validation errors

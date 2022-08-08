@@ -14,4 +14,4 @@ Virtual machine migration has the following limitations by default:
 
 * Concurrent outgoing migrations are limited to one per CPU core per host, or 2, whichever is smaller.
 
-See link:https://access.redhat.com/solutions/744423[] for more details about tuning migration settings.
+See link:https://access.redhat.com/solutions/744423[Understanding live migration "migration_max_bandwidth" and "max_outgoing_migrations" parameters in vdsm.conf] for details about tuning migration settings.

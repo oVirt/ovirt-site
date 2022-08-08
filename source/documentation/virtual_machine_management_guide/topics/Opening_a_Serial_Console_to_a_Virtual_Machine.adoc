@@ -11,11 +11,14 @@ To access the serial console of a virtual machine, the user must have *UserVmMan
 
 The serial console is accessed through TCP port 2222 on the {engine-name}. This port is opened during `engine-setup` on new installations. To change the port, see link:https://github.com/oVirt/ovirt-vmconsole/blob/master/README.md#customization[ovirt-vmconsole/README.md].
 
-Using a serial console requires configuring the firewall rules. For more information, see:
-* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning[Rule "M3" in the {virt-product-fullname} {engine-name} Firewall Requirements]
-* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-firewall-requirements_RHV_planning[Rule "H2" in the Host Firewall Requirements]
+You must configure the following firewall rules to allow a serial console:
 
-The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmconsole-proxy` on the {engine-name}, and the `ovirt-vmconsole` package and the `ovirt-vmconsole-host` package on the virtualization hosts. These packages are installed by default on new installations. To install the packages on existing installations, reinstall the host. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Reinstalling_Hosts[Reinstalling Hosts] in the _Administration Guide_.
+* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning[Rule "M3"] for the {engine-name} firewall
+* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-firewall-requirements_RHV_planning[Rule "H2"] for the host firewall
+
+The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmconsole-proxy` on the {engine-name} and the `ovirt-vmconsole` package and the `ovirt-vmconsole-host` package on the hosts.
+
+These packages are installed by default on new installations. To install the packages on existing installations, link:{URL_virt_product_docs}{URL_format}administration_guide/index#Reinstalling_Hosts[reinstall the hosts].
 
 *Enabling a Virtual Machine's Serial Console*
 
@@ -57,7 +60,7 @@ See link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-working_with_
 +
 [source,terminal,subs="normal"]
 ----
-# ssh-keygen -t rsa -b 2048 -C "_user@domain_" -f .ssh/serialconsolekey
+# ssh-keygen -t rsa -b 2048 -f .ssh/serialconsolekey
 ----
 This command generates a public key and a private key.
 . In the Administration Portal or the VM Portal, click the name of the signed-in user on the header bar and click *Options*. This opens the *Edit Options* window.

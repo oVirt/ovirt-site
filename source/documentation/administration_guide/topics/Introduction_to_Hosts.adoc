@@ -21,7 +21,6 @@ A host is a physical 64-bit server with the Intel VT or AMD-V extensions running
 
 A physical host on the {virt-product-fullname} platform:
 
-
 * Must belong to only one cluster in the system.
 
 * Must have CPUs that support the AMD-V or Intel VT hardware virtualization extensions.

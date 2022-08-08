@@ -6,7 +6,6 @@ Custom partitioning on {hypervisor-fullname} ({hypervisor-shortname}) is not rec
 
 If your installation requires custom partitioning, select the `I will configure partitioning` option during the installation, and note that the following restrictions apply:
 
-
 * Ensure the default *LVM Thin Provisioning* option is selected in the *Manual Partitioning* window.
 
 * The following directories are required and must be on thin provisioned logical volumes:
@@ -39,7 +38,6 @@ For information about the required storage sizes for each partition, see xref:St
 * The `/var` directory must be on a separate volume or disk.
 
 * Only XFS or Ext4 file systems are supported.
-
 
 *Configuring Manual Partitioning in a Kickstart File*
 ====

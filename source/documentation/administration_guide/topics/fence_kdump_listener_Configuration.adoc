@@ -4,7 +4,6 @@
 
 Edit the configuration of the fence_kdump listener. This is only necessary in cases where the default configuration is not sufficient.
 
-
 .Procedure
 
 . Create a new file (for example, *my-fence-kdump.conf*) in */etc/ovirt-engine/ovirt-fence-kdump-listener.conf.d/*.

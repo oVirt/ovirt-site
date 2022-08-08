@@ -169,7 +169,7 @@ If you would like to maintain the former behavior, you can apply a hackish patch
 * domain selection list in login screen should be sorted alphabetically
  - support for multiple monitors on QXL device (single device with more RAM)
  - webadmin [Tree]: when "x" main tab is displayed and "x1" (type "x") item is selected on the tree, hide "New" + "Remove" actions, and disable Name editing of the item.
- - [RHEVM] [backend] [Host Networking] [TEXT] Bridged network rhevm is attached to multiple interfaces: <UNKNOWN> on Host
+ - [RHEVM] [backend] [Host Networking] [TEXT] Bridged network rhevm is attached to multiple interfaces: `<UNKNOWN>` on Host
  - ovirt-engine-backend: No event for ticket VM command
  - engine: rerun of HA vm fails when vm's pid is killed during live storage migration
  - Disk permission don't disappear after disk is deleted(is shown as 'null(Disk)').
@@ -202,7 +202,7 @@ If you would like to maintain the former behavior, you can apply a hackish patch
  - [rhevm-dwh] - ETL Reports error when a Single Host in setup is Non-Responsive ("ETL service sampling has encountered an error")
  - Search query "sortby" return some wrongly sorted results
  - Changing vmpool's quota is ignored.
- - [RHEVM][backend] VM NewPool-1 was restarted on Host <UNKNOWN>
+ - [RHEVM][backend] VM NewPool-1 was restarted on Host `<UNKNOWN>`
  - backup.sh return code always 0 even on error
  - engine: AutoRecovery of host fails and host is set as NonOperational when export domain continues to be reported with error code 358
  - When an export of a template fails, the leftovers on the export domain are not cleaned
@@ -405,7 +405,7 @@ If you would like to maintain the former behavior, you can apply a hackish patch
  - [engine] vnic_profile_id is not copied to new vm when cloning vm from snapshot
  - [frontend] no way to set empty network profile
  - It is impossible to hotplug a disk if the previous hotplug failed
- - <product__info> is missing 'name' and 'vendor' fields in rest
+ - `<product__info>` is missing 'name' and 'vendor' fields in rest
  - Add/remove VNICs in new VM dialog
  - Creating VNIC profile with "Allow all user..." checkbox checked results in Null(Network) permissions under Users permissions
  - [rhevm] Webadmin - Events - Search box with value "Events: Templates =\*" gives error (Exception message is StatementCallback)

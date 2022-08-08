@@ -4,7 +4,6 @@
 
 Add a Satellite instance for host provisioning to the {virt-product-fullname} {engine-name}. {virt-product-fullname} 4.2 is supported with Red Hat Satellite 6.1.
 
-
 .Procedure
 
 . Click menu:Administration[Providers].

@@ -18,7 +18,7 @@ This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
 
-An updated documentation has been provided by our downstream 
+An updated documentation has been provided by our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)
 
 
@@ -177,7 +177,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1364780](https://bugzilla.redhat.com/show_bug.cgi?id=1364780) <b>Failure when updating VM that is previewing a snapshot</b><br>
  - [BZ 1359788](https://bugzilla.redhat.com/show_bug.cgi?id=1359788) <b>[engine-backend] Storage domain gets stuck in locked during storage pool initialization after a CreateStoragePool failure</b><br>
  - [BZ 1352857](https://bugzilla.redhat.com/show_bug.cgi?id=1352857) <b>image upload: informative message is required when disk's entered values are not valid</b><br>
- - [BZ 1358271](https://bugzilla.redhat.com/show_bug.cgi?id=1358271) <b>[v4 API only]: <logical_name> property (device name for disk) missing from disk attachments v4</b><br>
+ - [BZ 1358271](https://bugzilla.redhat.com/show_bug.cgi?id=1358271) <b>[v4 API only]: `<logical_name>` property (device name for disk) missing from disk attachments v4</b><br>
 
 ##### Team: UX
 

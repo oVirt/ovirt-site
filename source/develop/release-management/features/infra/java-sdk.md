@@ -5,13 +5,14 @@ authors:
   - adahms
   - michael pasternak
   - moti
+toc: true
 ---
 
 # Java-sdk
 
-The oVirt Java-SDK is an automatically generated software development kit for the oVirt engine API. This software development kit allows you to develop Java-based applications for automating a variety of complex administrative tasks in oVirt.
+The oVirt Java-SDK is an automatically generated software development kit for the oVirt engine API.
+This software development kit allows you to develop Java-based applications for automating a variety of complex administrative tasks in oVirt.
 
-__TOC__
 
 ## Concepts
 
@@ -111,11 +112,13 @@ TBD
 
 ### list entities
 
+```java
          // #1 - list resources
          List`<VM>` vms = api.getVMs().list();
+```
 
 ### update resource
-
+```java
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
 
@@ -124,19 +127,22 @@ TBD
 
          // #3 - update it
          VM newVM = vm.update();
+```
 
 ### get resource by name
-
+```java
          // #1 - fetch resource using name
          VM vm = api.getVMs().get("test");
+```
 
 ### get resource by id
-
+```java
          // #1 - fetch resource using id
          VM vm = api.getVMs().get(UUID.fromString("5a89a1d2-32be-33f7-a0d1-f8b5bc974ff6"));
+```
 
 ### add resource
-
+```java
          // #1 - create parameters
          org.ovirt.engine.sdk.entities.VM vmParams = new org.ovirt.engine.sdk.entities.VM();
          vmParams.setName("myVm");
@@ -145,9 +151,11 @@ TBD
 
          // #2 - add resource
          VM vm = api.getVMs().add(vmParams);
+```
 
-         or
+or
 
+```java
          // #1 - create parameters
          org.ovirt.engine.sdk.entities.VM vmParams = new org.ovirt.engine.sdk.entities.VM();
          vmParams.setName("myVm");
@@ -160,8 +168,10 @@ TBD
 
          // #2 - add resource
          VM vm = api.getVMs().add(vmParams);
+```
 
 ### perform an action on resource
+```java
 
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
@@ -173,8 +183,11 @@ TBD
 
          // #3 - perform an action
          Action res = vm.start(actionParam);
+```
 
-         or
+or
+
+```java
 
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
@@ -185,24 +198,30 @@ TBD
                  setVm(new org.ovirt.engine.sdk.entities.VM());
              }
          });
+```
 
 ### list sub-resources
+```java
 
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
 
          // #2 - list sub-resources
-         List`<VMDisk>` disks = vm.getDisks().list();  
+         List`<VMDisk>` disks = vm.getDisks().list();
+```
 
 ### get sub-resource
+```java
 
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
 
          // #2 - fetch sub-resource
          VMDisk disk = vm.getDisks().get("my disk");
+```
 
 ### add sub-resource to resource
+```java
 
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
@@ -215,8 +234,10 @@ TBD
 
          // #3 - add sub-resource
          Disk disk = vm.getDisks().add(diskParam);
+```
 
 ### update sub-resource
+```java
 
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
@@ -229,8 +250,10 @@ TBD
 
          // #4 - update it
          VMDisk updateDisk = disk.update();
+```
 
 ### run action on sub-resource
+```java
 
          // #1 - fetch resource
          VM vm = api.getVMs().get("test");
@@ -243,10 +266,12 @@ TBD
 
          // #4 - run an action on sub-resource
          Action result = disk.activate(actionParam);
+```
 
 ### Best Practices
 
 The api should be shutdown in a finally block so daemon resources are freed:
+```java
 
        Api api = new Api(URL, USER, PASSWORD);
        try {
@@ -255,6 +280,7 @@ The api should be shutdown in a finally block so daemon resources are freed:
        } finally {
            api.shutdown();
        }
+```
 
 ## Working with SSL (Secure Socket Layer)
 
@@ -264,93 +290,99 @@ Once you have correctly installed JSSE, secure HTTP communication over SSL shoul
 
 ### Generating the truststore
 
-1 Download oVirt host CA certificate from `https://host:port/ca.crt`
+1. Download oVirt host CA certificate from `https://host:port/ca.crt`
 
 2. Generate keystore
-
-         keytool -import -alias "server.crt truststore" -file server.crt -keystore server.truststore
+   ```console
+   $ keytool -import -alias "server.crt truststore" -file server.crt -keystore server.truststore
+   ```
 
 ### Make Java-SDK aware of the keystore
 
 this can be achieved in one of two ways:
 
 1. Via default keystore lookup path
+   ```
+   $ mkdir ~/.ovirtsdk/
+   $ cp server.truststore ~/.ovirtsdk/ovirtsdk-keystore.truststore
+   ```
 
-         mkdir ~/.ovirtsdk/
-         cp server.truststore ~/.ovirtsdk/ovirtsdk-keystore.truststore
-
-Once the ovirtsdk-keystore.truststore installed in the ~/.ovirtsdk, it will be used for host identity validation upon handshake with the destination host.
+Once the `ovirtsdk-keystore.truststore` installed in the `~/.ovirtsdk`, it will be used for host identity validation upon handshake with the destination host.
 
 2. Via a custom truststore
 
 Use this signature: Api(String url, String username, String password, String keyStorePath)
-
+```java
          Api api = new Api(url, user, password, "/path/server.truststore");
+```
 
 ### Disable host identity validation
 
 This method SHOULD NOT be used for productive systems due to security reasons, unless it is a conscious decision and you are perfectly aware of security implications of not validating host identity.
 
-use this signature: Api(String url, String username, String password, boolean noHostVerification)
-
+use this signature: `Api(String url, String username, String password, boolean noHostVerification)`
+```java
          Api api = new Api(url, user, password, true);
+```
 
 ## Deployment
 
 ### Maven deployment
 
-1. add mvn-releases repository to your ~/.m2/settings.xml under <repositories>
-
-`   `<repository>
-`       `<id>`mvn-releases`</id>
-`       `<url>[`https://oss.sonatype.org/content/repositories/releases`](https://oss.sonatype.org/content/repositories/releases)</url>
-`       `<releases>
-`       `</releases>
-`       `<snapshots>
-`           `<enabled>`false`</enabled>
-`       `</snapshots>
-`   `</repository>
-
+1. add mvn-releases repository to your `~/.m2/settings.xml` under `<repositories>`
+   ```xml
+   <repository>
+       <id>mvn-releases</id>
+       <url>https://oss.sonatype.org/content/repositories/releases</url>
+       <releases>
+       </releases>
+       <snapshots>
+           <enabled>false</enabled>
+       </snapshots>
+   </repository>
+   ```
 2. add sdk dependency to your project pom.xml
-
-`   `<dependency>
-`       `<groupId>`org.ovirt.engine.sdk`</groupId>
-`       `<artifactId>`ovirt-engine-sdk-java`</artifactId>
-`       `<version>`x.y.z.q-v`</version>
-`       `<type>`jar`</type>
-`       `<scope>`compile`</scope>
-`   `</dependency>
-
-             "x.y.z.q-v" is a latest sdk release (list of available releases can be found at `[`java-sdk-changelog`](java-sdk-changelog)`)
+   ```xml
+   <dependency>
+       <groupId>org.ovirt.engine.sdk</groupId>
+       <artifactId>ovirt-engine-sdk-java</artifactId>
+       <version>x.y.z.q-v</version>
+       <type>jar</type>
+       <scope>compile</scope>
+   </dependency>
+   ```
+   `x.y.z.q-v` is a latest sdk release (list of available releases can be found at [Java SDK tags](https://github.com/oVirt/ovirt-engine-sdk-java/tags))
 
 3. deploy sdk dependencies and javadoc
-
-           mvn dependency:resolve -Dclassifier=javadoc
+   ```console
+   $ mvn dependency:resolve -Dclassifier=javadoc
+   ```
 
 4. compile
-
-            mvn clean install
+   ```console
+   $ mvn clean install
+   ```
 
 ### Development deployment
 
 #### Code generation
 
-           1. pull + compile + deploy latest ovirt-engine sources
-           2. cd ovirt-engine-sdk-java-codegen
-           3. compile
-           4. run (this will generate sdk from the ovirt-engine)
+1. pull + compile + deploy latest ovirt-engine sources
+2. cd ovirt-engine-sdk-java-codegen
+3. compile
+4. run (this will generate sdk from the ovirt-engine)
 
 #### Development
 
-           all SDK development is done on the ovirt-engine-sdk-java-codegen project,
-           i.e if you have yet not supported funcionality in SDK, this is a place to add
-           support for it.
+All SDK development is done on the ovirt-engine-sdk-java-codegen project,
+i.e if you have yet not supported funcionality in SDK, this is a place to add
+support for it.
 
 ## TODO list
 
-1. generate entry-point (/api) methods (done)
+1. generate entry-point (`/api`) methods (done)
 
-2. generate searchable list() methods (done)
+2. generate searchable `list()` methods (done)
 
 3. generate method/s overloads using header/url params (done)
 

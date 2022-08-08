@@ -33,11 +33,13 @@ Using this tool it is possible to add new authentication domains to serve as res
 The tool is installed when engine is installed.
 
 **How to configure the tool:**
-You can edit the configuration located at /etc/ovirt-engine/engine-manage-domains/engine-manage-domains.conf
+You can edit the configuration located at `/etc/ovirt-engine/engine-manage-domains/engine-manage-domains.conf`
 
 **How to run the tool:**
 Running basic example:
-'engine-manage-domains add --domain=<MY_DOMAIN> --provider=<ad/ipa/oldap/itds/rhds> --user=<USERNAME>'
+```console
+# engine-manage-domains add --domain=<MY_DOMAIN> --provider=<ad/ipa/oldap/itds/rhds> --user=<USERNAME>
+```
 
 ### engine-config
 
@@ -47,11 +49,24 @@ Using this tool it is possible to alter engine's configuration
 The tool is installed when engine is installed.
 
 **How to configure the tool:**
-You can edit the configuration located at /etc/ovirt-engine/engine-config/engine-config.conf
+You can edit the configuration located at `/etc/ovirt-engine/engine-config/engine-config.conf`
 
 **How to run the tool:**
-Running basic example:'
-'engine-config -l' - will show you list of properties that can be alttered 'engine-config-g <property_name>' - will show you the value of a property 'engine-config-s <property_name>=<property_value>' - will alter the value of a property
+Running basic example:
+```console
+# engine-config -l
+```
+will show you list of properties that can be alttered
+
+```console
+# engine-config-g <property_name>
+```
+will show you the value of a property
+
+```console
+ engine-config-s <property_name>=<property_value>
+```
+will alter the value of a property
 
 
 ### ovirt-log-collector
@@ -64,4 +79,4 @@ documentation within [oVirt Administration Guide](/documentation/administration_
 1.  Standardize the usage of all tools and make them consistent
 2.  Create common infrastructure both for Java programs and for the wrapping scripts e.g. functions to fulfill classpath dependencies, etc.
 3.  Use comon paths for all
-4.  Use a single logger library (apache-commons-logging)
+4.  Use a single logger library (`apache-commons-logging`)

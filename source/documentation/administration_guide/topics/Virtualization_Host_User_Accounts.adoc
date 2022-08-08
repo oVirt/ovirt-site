@@ -2,7 +2,6 @@
 [id="Virtualization_Host_User_Accounts"]
 = Virtualization Host User Accounts
 
-
 A number of system user accounts are created on the virtualization host when the `vdsm` and `qemu-kvm-rhev` packages are installed. Each system user has a default user identifier (UID). The system user accounts created are:
 
 * The *vdsm* user (UID `36`).
@@ -12,7 +11,6 @@ A number of system user accounts are created on the virtualization host when the
 * The *sanlock* user (UID `179`).
 
 * The *ovirt-vmconsole* user (UID `498`).
-
 
 [IMPORTANT]
 ====

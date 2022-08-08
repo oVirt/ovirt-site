@@ -17,6 +17,7 @@ Use this tool in a variety of scenarios, such as:
 * Because data collection runs simultaneously at different places and is not atomic, stop all activity in the environment that can modify the storage domains. That is, do not create or remove snapshots, edit, move, create, or remove disks. Otherwise, false detection of inconsistencies may occur. Virtual Machines can remain running normally during the process.
 
 .Procedure
+
 . To run the tool, enter the following command on the {virt-product-shortname} {engine-name}:
 +
 ----

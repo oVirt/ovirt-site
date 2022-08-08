@@ -4,7 +4,6 @@
 
 You can disable users on the local domains including the *admin@internal* user created during `engine-setup`. Make sure you have at least one user in the envrionment with full administrative permissions before disabling the default *admin* user.
 
-
 .Procedure
 
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.

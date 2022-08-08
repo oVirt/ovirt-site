@@ -12,8 +12,6 @@ The virtual machine pool administrator role permits the following actions:
 
 * Add and detach virtual machines from the pool.
 
-
-
 [NOTE]
 ====
 You can only assign roles and permissions to existing users.

@@ -2,7 +2,6 @@
 [id="Supported_VDSM_events"]
 = Supported VDSM Events
 
-
 [id="vdsm-hook-names"]
 
 .Supported VDSM Events

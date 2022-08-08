@@ -12,7 +12,6 @@ Notice that part of this procedure requires you to install {enterprise-linux} 8.
 * You are logged in to the Data Warehouse machine.
 * A storage device outside the {virt-product-shortname} environment.
 
-
 .Procedure
 
 . Back up the Data Warehouse machine.

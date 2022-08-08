@@ -11,7 +11,6 @@ endif::4-2_remote_db[]
 
 You need to be logged into the machine that you are upgrading.
 
-
 // Included in:
 // Upgrade Guide
 

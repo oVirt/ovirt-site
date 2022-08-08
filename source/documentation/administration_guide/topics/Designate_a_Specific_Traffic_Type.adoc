@@ -4,7 +4,6 @@
 
 Specify the traffic type for the logical network to optimize the network traffic flow.
 
-
 .Procedure
 
 . Click menu:Compute[Clusters].

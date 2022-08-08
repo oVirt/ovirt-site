@@ -5,7 +5,6 @@ include::common/collateral_files/_attributes.adoc[]
 :context: SHE_cli_deploy
 :SHE_cli_deploy:
 
-
 Self-hosted engine installation is automated using Ansible. The installation script (`hosted-engine --deploy`) runs on an initial deployment host, and the {virt-product-fullname} {engine-name} (or "engine") is installed and configured on a virtual machine that is created on the deployment host. The {engine-name} and Data Warehouse databases are installed on the {engine-name} virtual machine, but can be migrated to a separate server post-installation if required.
 
 Hosts that can run the {engine-name} virtual machine are referred to as self-hosted engine nodes. At least two self-hosted engine nodes are required to support the high availability feature.
@@ -65,7 +64,6 @@ Installing a self-hosted engine environment involves the following steps:
 ====
 Keep the environment up to date. See link:https://access.redhat.com/articles/2974891[How do I update my Red Hat Virtualization system?] for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
-
 
 include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 

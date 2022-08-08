@@ -14,7 +14,6 @@ like controllers, PCI cards and more.
 ## Owner
 
 *   Name: Omer Frenkel
-*   Email: ofrenkel@redhat.com
 
 ## Current Status
 

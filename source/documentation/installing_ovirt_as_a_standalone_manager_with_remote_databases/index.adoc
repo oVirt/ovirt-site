@@ -57,7 +57,6 @@ Installing a standalone {engine-name} environment with remote databases involves
 Keep the environment up to date. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
 
-
 include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 
 [id='Installing_the_Red_Hat_Virtualization_Manager_SM_remoteDB_deploy']

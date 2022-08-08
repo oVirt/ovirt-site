@@ -56,13 +56,11 @@ If you are using NFS or Gluster storage, do not use the old self-hosted engine s
 ====
 endif::SHE_backup_restore,SHE_restore_only[]
 
-
 include::proc-Preparing_NFS_Storage.adoc[leveloffset=+1]
 
 include::ref-Preparing_iSCSI_Storage.adoc[leveloffset=+1]
 
 include::ref-Preparing_FCP_Storage.adoc[leveloffset=+1]
-
 
 ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
 //Not supported for SHE (doesn't appear as an option in the deployment)

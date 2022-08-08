@@ -22,8 +22,9 @@ Vdsm stands for Virtual Desktop and Server Manager.
 
 ## Important Vdsm pages
 
-*   Most Vdsm users have it driven by oVirt-engine. [Vdsm Getting Started](/develop/developer-guide/vdsm/getting-started.html) helps those who want to use Vdsm on its own, or by another management tool.
-*   [Vdsm Developers](/develop/developer-guide/vdsm/developers.html) is where you can learn how to improve Vdsm.
+*   Most Vdsm users have it driven by oVirt-engine. [Vdsm Getting Started](/develop/developer-guide/vdsm/getting-started.html)
+    helps those who want to use Vdsm on its own, or by another management tool.
+*   [Vdsm Developers documentation](https://github.com/oVirt/vdsm/blob/master/doc/development.md) is where you can learn how to improve Vdsm.
 
 ## More project information
 

@@ -40,7 +40,7 @@ to storage.
 
 ### Capabilities added with this feature
 
-- Perform full backup for raw or qcow2 disks or incremental backup for disks 
+- Perform full backup for raw or qcow2 disks or incremental backup for disks
   using qcow2 format without temporary snapshots.
 
 - Backup raw guest data instead copying qcow2 data for qcow2 disks.
@@ -50,7 +50,7 @@ to storage.
 ### Creating VM
 
 When adding a disk, the user should mark 'enable incremental backup' for every
-disk that should be included in an incremental backup. If incremental backup is 
+disk that should be included in an incremental backup. If incremental backup is
 enabled for a disk, a backup application can include the disk during incremental
 backups.
 
@@ -58,7 +58,7 @@ Since incremental backup requires qcow2 format, disks enabled for
 incremental backup will use qcow2 format instead of raw format. See
 [Disk Format](#disk-format) for more info.
 
-Disks not marked for incremental backup can be backed using full backup or in the 
+Disks not marked for incremental backup can be backed using full backup or in the
 same way they were backed in the past.
 
 ### Enabling existing VM for incremental backup
@@ -179,7 +179,7 @@ disk contents (full backup).
 Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full')
 
 Request:
-```
+```xml
 PUT /vms/vm-uuid/diskattachments
 
 <disk_attachment>
@@ -193,7 +193,7 @@ PUT /vms/vm-uuid/diskattachments
 ```
 
 Response:
-```
+```xml
 <disk_attachments>
   <disk_attachment>
         ...
@@ -215,7 +215,7 @@ GET /vms/vm-uuid/diskattachments
 ```
 
 Response:
-```
+```xml
 <disks>
     <disk>
         ...
@@ -229,12 +229,12 @@ Response:
 #### Starting full backup
 
 Start full backup. The response phase indicates that the backup is `"initializing"`.
-You need to poll the backup until the phase is `"ready"`. 
+You need to poll the backup until the phase is `"ready"`.
 Once the backup is ready the response will include `<to_checkpoint_id>` which
 should be used as the `<from_checkpoint_id>` in the next incremental backup.
 
 Request:
-```
+```xml
 POST /vms/vm-uuid/backups
 
 <backup>
@@ -246,7 +246,7 @@ POST /vms/vm-uuid/backups
 ```
 
 Response:
-```
+```xml
 <backup id="backup-uuid">
     <disks>
         <disk id="disk-uuid" />
@@ -262,12 +262,12 @@ Response:
 
 Start incremental backup since checkpoint id `<from_checkpoint_uuid>`.
 The response phase indicates that the backup is `"initializing"`.
-You need to poll the backup until the phase is `"ready"`. 
+You need to poll the backup until the phase is `"ready"`.
 Once the backup is ready the response will include `<to_checkpoint_id>` which
 should be used as the `<from_checkpoint_id>` in the next incremental backup.
 
 Request:
-```
+```xml
 POST /vms/vm-uuid/backups
 
 <backup>
@@ -280,7 +280,7 @@ POST /vms/vm-uuid/backups
 ```
 
 Response:
-```
+```xml
 <backup id="backup-uuid">
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
     <disks>
@@ -306,7 +306,7 @@ GET /vms/vm-uuid/backups/backup-uuid
 ```
 
 Response:
-```
+```xml
 <vm_backup id="backup-uuid">
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
     <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
@@ -323,7 +323,7 @@ Response:
 
 #### Finalizing backup
 
-```
+```xml
 POST /vms/vm-uuid/backups/backup-uuid/finalize
 
 <action></action>
@@ -336,7 +336,7 @@ The transfer `<format>` property should be `raw` (this indicates that NBD is use
 
 Request:
 
-````
+````xml
 POST /imagetransfers
 
 <image_transfer>
@@ -352,7 +352,7 @@ POST /imagetransfers
 To restore raw data backed up using the incremental backup API to qcow2
 disk, you need to specify the "format" key in the transfer:
 
-```
+```xml
 POST /imagetransfers
 
 <image_transfer>
@@ -385,7 +385,7 @@ GET /vms/vm-uuid/checkpoints/
 
 Response:
 
-```
+```xml
 <checkpoints>
    <checkpoint id="checkpoint-uuid">
       <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/>
@@ -408,7 +408,7 @@ GET /vms/vm-uuid/checkpoints/checkpoint-uuid/
 
 Response:
 
-```
+```xml
 <checkpoint id="checkpoint-uuid">
   <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/>
   <parent_id>parent-checkpoint-uuid</parent_id>
@@ -449,7 +449,7 @@ GET /images/ticket-uuid/map
 ```
 
 Response:
-```
+```json
 [
     {"data": true, "start": 0, "length": 1048576},
     {"data": false, "start": 1048576, "length": 8192},
@@ -465,7 +465,7 @@ GET /images/ticket-uuid/map?dirty=y
 ```
 
 Response:
-```
+```json
 [
     {"data": true, "start": 0, "length": 1048576},
     {"data": false, "start": 1048576, "length": 8192},
@@ -477,13 +477,13 @@ Response:
 
 - Support incremental backup.
   Currently only full backup for raw and qcow2 disks is supported,
-  to enable support for incremental backup (work in progress), 
+  to enable support for incremental backup (work in progress),
   Engine config value 'IsIncrementalBackupSupported' must be set to 'true'.
-  ```
+  ```console
   # engine-config -s "IsIncrementalBackupSupported=true"
-  # systemctl restart ovirt-engine 
+  # systemctl restart ovirt-engine
   ```
-  
+
 - API for listing and deleting checkpoints.
 
 ## Detailed design
@@ -601,7 +601,7 @@ The checkpoints API allow the deletion of the oldest (root) checkpoint.
 ### Scratch disk
 
 For now we'll use a scratch disk on the host (created by libvirt).
-A scratch disk is created using qcow2 format for every disk in the 
+A scratch disk is created using qcow2 format for every disk in the
 backup. The disk must have enough space to hold the current data in
 the top layer of an image.
 
@@ -647,7 +647,7 @@ creating an image transfer for a disk.
 - vm_backup_disk_map
   - backup_id: UUID
   - disk_id: UUID
-  - backup_url: "nbd:unix:/tmp/<id>.sock:exportname=<sdb>" | "nbd://localhost:<12345>/<sdb>"
+  - backup_url: `"nbd:unix:/tmp/<id>.sock:exportname=<sdb>" | "nbd://localhost:<12345>/<sdb>"`
 
 Add vm_checkpoints table. This table keeps the checkpoints created by
 backup tasks. This info is used before backup to update libvirt about
@@ -712,7 +712,7 @@ storage, or a bitmap is missing on storage.
 
 #### VM.list_checkpoints
 
-Get from libvirt all the VM defined checkpoints.  
+Get from libvirt all the VM defined checkpoints.
 
 #### VM.delete_checkpoints
 
@@ -734,7 +734,7 @@ Stop NBD server started using start_nbd_server API.
 ### Incremental backup ticket example
 
 For running VM, qemu will serve the disk using NBD:
-```
+```json
 {
     "url": "nbd:localhost:1234:exportname=/sda"
 }
@@ -742,7 +742,7 @@ For running VM, qemu will serve the disk using NBD:
 
 For stopped VM, we will run one qemu-nbd instance per disk, using unix
 socket:
-```
+```json
 {
     "url": "nbd:unix:/run/vdsm/nbd/xxxyyy-nbd.sock:exportname=/sda"
 }
@@ -752,7 +752,7 @@ socket:
 
 - Add 'Enable Incremental Backup' checkbox on New/Edit Disk dialogs.
 
-- Removing last snapshot will disable 'Enable Incremental Backup' 
+- Removing last snapshot will disable 'Enable Incremental Backup'
   if base image is raw. Snapshot must be created in order re-enable
   'Enable Incremental Backup'.
 

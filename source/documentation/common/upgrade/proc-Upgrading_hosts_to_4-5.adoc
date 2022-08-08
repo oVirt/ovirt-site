@@ -19,7 +19,6 @@
 If you are going to install on RHEL or derivatives please follow link:/download/install_on_rhel.html[Installing on RHEL or derivatives] first.
 ====
 
-
 .Procedure for {enterprise-linux-host-fullname}s
 
 . Enable oVirt 4.5 repositories

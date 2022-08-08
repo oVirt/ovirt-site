@@ -4,7 +4,6 @@
 
 The Page Not Found page is a page that is displayed when you open a link to a page that cannot be found in the {virt-product-fullname} {engine-name}. The elements of the Page Not Found page that can be customized are as follows:
 
-
 * The page title
 
 * The header (left, center and right)

@@ -9,7 +9,6 @@ After a virtual machine pool has been created, its properties can be edited. The
 When editing a virtual machine pool, the changes introduced affect only new virtual machines. Virtual machines that existed already at the time of the introduced changes remain unaffected.
 ====
 
-
 .Procedure
 
 . Click menu:Compute[Pools] and select a virtual machine pool.

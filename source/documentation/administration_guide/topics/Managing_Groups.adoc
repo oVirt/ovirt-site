@@ -4,7 +4,6 @@
 
 You can use the `ovirt-aaa-jdbc-tool` tool to manage group accounts on your internal domain. Managing group accounts is similar to managing user accounts. For a full list of group options, run `ovirt-aaa-jdbc-tool group --help`. Common examples are provided in this section.
 
-
 *Creating a Group*
 
 This procedure shows you how to create a group account, add users to the group, and view the details of the group.
@@ -37,7 +36,6 @@ For a full list of the group-manage options, run `ovirt-aaa-jdbc-tool group-mana
 ----
 +
 . Add the newly created group in the Administration Portal and assign the group appropriate roles and permissions. The users in the group inherit the roles and permissions of the group. See xref:Adding_users[Adding users] for more information.
-
 
 *Creating Nested Groups*
 

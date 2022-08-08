@@ -15,7 +15,10 @@ A more concise summary of the features added in {virt-product-fullname} {vername
 // include::RHEA-20191085-ovirt-engine.adoc[leveloffset=+1]
 // include::RHBA-20191077-vdsm.adoc[leveloffset=+1]
 
+include::RHSA-20225555-09.adoc[leveloffset=+1]
+
 include::RHSA-20224712-03.adoc[leveloffset=+1]
+
 include::RHSA-20224711-06.adoc[leveloffset=+1]
 
 include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

@@ -18,7 +18,7 @@ authors:
 
 This feature is deprecated in 3.6 and it will be dropped in the next release, 4.0.
 
-An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](/develop/release-management/features/sla/self-hosted-engine.html). 
+An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](/develop/release-management/features/sla/self-hosted-engine.html).
 
 ## Summary
 
@@ -35,12 +35,15 @@ An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [
 
 ## Detailed Description
 
-The plugin works by providing parameters, group and sequences and adding them into the Controller object (the main object of the setup flow), which will invoke appropriate logic during the setup operation.
+The plugin works by providing parameters, group and sequences and adding them into the Controller object (the main object of the setup flow),
+which will invoke appropriate logic during the setup operation.
 
 The following steps are performed by the plugin:
 
-1.  Detect CPU architecture of the machine. After the detection, the plugin compares it with the list of supported architectures, and will raise an exception if the CPU is not supported. (Note: the plugin uses vdsm caps.py module to detect the CPU type).
-2.  Verify that the given folder where VMs should be stored (provided during setup) is legal, is empty and writeable. If the folder doesn't exist, it will be created. Also, SELinux will be configured to allow writing in this folder.
+1.  Detect CPU architecture of the machine. After the detection, the plugin compares it with the list of supported architectures, and will raise an exception if the CPU is not supported.
+    (Note: the plugin uses vdsm caps.py module to detect the CPU type).
+2.  Verify that the given folder where VMs should be stored (provided during setup) is legal, is empty and writeable.
+    If the folder doesn't exist, it will be created. Also, SELinux will be configured to allow writing in this folder.
 3.  Plugin will wait to allow JBoss to start correctly. This is done because other steps involve using REST API (with ovirtsdk), which requires JBoss to be up.
 4.  Plugin will create local datacenter and local cluster at this point.
 5.  Plugin will create a local host and add it to host list (Note: an update to backend was introduced to allow creating a host without rebooting it).
@@ -58,14 +61,18 @@ The following steps are performed by the plugin:
 ### Installation using answer file
 
 The following parameters are added by the plugin to the answer file:
-
+```
 OVESETUP_AIO/configure
 OVESETUP_AIO/storageDomainDir
+```
 
 It is recommended to generate the answer file automatically:
-
-`engine-setup --generate-answer=`<answer file full path>
+```console
+# engine-setup --generate-answer=<answer file full path>
+```
 
 ... After that, proceed with installation using the answer file you have just created:
 
-`engine-setup --config-append=`<answer file full path>
+```console
+# engine-setup --config-append=<answer file full path>
+```

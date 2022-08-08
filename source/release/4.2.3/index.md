@@ -156,7 +156,7 @@ packages from other repos.
  - [BZ 1581144](https://bugzilla.redhat.com/show_bug.cgi?id=1581144) <b>add SSBD CPUs</b><br>
  - [BZ 1579268](https://bugzilla.redhat.com/show_bug.cgi?id=1579268) <b>Upgrade of PostgreSQL during RHV 4.1 to 4.2 upgrade fails with locale mismatch</b><br>This update enables engine-setup to upgrade PostgreSQL 9.2 to 9.5, even when the locale of the 9.2 database is different from the system locale.<br><br>Doc team: Copied above from bug 1528371. Please note that bug 1528371 was accidentally not fully fixed for 4.2 - the correct fix was added only for the next version, to be 4.3 eventually. You might want to mention this, not sure how, if at all.
  - [BZ 1571039](https://bugzilla.redhat.com/show_bug.cgi?id=1571039) <b>[DR] - Registering of a VM containing snapshots with memory from an imported domain fails with an NPE</b><br>
- - [BZ 1567858](https://bugzilla.redhat.com/show_bug.cgi?id=1567858) <b>[Regression] -  Cannot start VM with <Empty> vNIC</b><br>
+ - [BZ 1567858](https://bugzilla.redhat.com/show_bug.cgi?id=1567858) <b>[Regression] -  Cannot start VM with &lt;Empty&gt; vNIC</b><br>
  - [BZ 1530186](https://bugzilla.redhat.com/show_bug.cgi?id=1530186) <b>Create new Gluster Snapshots Web UI doesn't work</b><br>
  - [BZ 1570388](https://bugzilla.redhat.com/show_bug.cgi?id=1570388) <b>Add host failed if cluster has a required network</b><br>
  - [BZ 1565681](https://bugzilla.redhat.com/show_bug.cgi?id=1565681) <b>Engine doesn't track transfers in progress correctly</b><br>
@@ -209,7 +209,7 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1563165](https://bugzilla.redhat.com/show_bug.cgi?id=1563165) <b>[SR-IOV] - vdsm no longer persisting and restoring the number on VFs after reboot</b><br>
- - [BZ 1567858](https://bugzilla.redhat.com/show_bug.cgi?id=1567858) <b>[Regression] -  Cannot start VM with <Empty> vNIC</b><br>
+ - [BZ 1567858](https://bugzilla.redhat.com/show_bug.cgi?id=1567858) <b>[Regression] -  Cannot start VM with &lt;Empty&gt; vNIC</b><br>
  - [BZ 1568268](https://bugzilla.redhat.com/show_bug.cgi?id=1568268) <b>Executing ovs commands using ovs-vsctl causes a deadlock sporadically</b><br>
  - [BZ 1567617](https://bugzilla.redhat.com/show_bug.cgi?id=1567617) <b>Failure to resume VM,  Error:  Wake up from hibernation failed:'type'.</b><br>
  - [BZ 1561010](https://bugzilla.redhat.com/show_bug.cgi?id=1561010) <b>vdsm: perform only minimal changes to the domain XML received from Engine</b><br>

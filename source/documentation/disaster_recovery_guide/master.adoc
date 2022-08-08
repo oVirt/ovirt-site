@@ -1,5 +1,6 @@
 :rhv-doc:
 include::common/collateral_files/_attributes.adoc[]
+
 :_content-type: ASSEMBLY
 [id="disaster-recovery-guide"]
 = Disaster Recovery Guide
@@ -7,11 +8,14 @@ include::common/collateral_files/_attributes.adoc[]
 :toclevels: 4
 
 include::concept/cpt_DisasterRecoverySolutions.adoc[leveloffset=+1]
+
 include::assembly/asm_ActiveActiveDR.adoc[leveloffset=+1]
+
 include::assembly/asm_ActivePassiveDR.adoc[leveloffset=+1]
 
 [appendix]
 include::reference/rfr_MappingFileAttributes.adoc[leveloffset=+1]
+
 [appendix]
 include::reference/rfr_TestingAP.adoc[leveloffset=+1]
 

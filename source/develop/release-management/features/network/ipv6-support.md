@@ -41,9 +41,13 @@ This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won't
 Records that have been changed:
 
 *   @NetworkOptions (reported in getVdsCaps)
-    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless auto-configuration, so it can be set together with DHCPv6 [4th paragraph](http://www.prolixium.com/ipv6_autocfg/node8.html)), '\*dhcpv6' (a boolean that is independent of IPv4 "bootproto")
+    -   add optional fields:
+       * 'ipv6addr',
+       * 'ipv6gateway',
+       * 'ipv6autoconf' (it has to be specified whether use stateless auto-configuration, so it can be set together with DHCPv6 [4th paragraph](http://www.prolixium.com/ipv6_autocfg/node8.html)), 
+       * 'dhcpv6' (a boolean that is independent of IPv4 "bootproto")
 
-<!-- -->
+    ``` python
 
     # @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
     # @ipv6gateway:    #optional IPv6 address of the network gateway
@@ -53,17 +57,21 @@ Records that have been changed:
     {'type': 'NetworkOptions',
      'data': {'*ipaddr': 'str', '*netmask': 'str', '*gateway': 'str',
               '*ipv6addr': 'str', '*ipv6gateway': 'str',
-              '*ipv6autoconf': 'bool', '*dhcpv6': 'bool', 
+              '*ipv6autoconf': 'bool', '*dhcpv6': 'bool',
               '*bootproto': 'str', '*delay': 'uint',
               '*bondingOptions', 'str',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
+    ```
 
 *   @SetupNetworkNetAttributes (set in setupNetworks)
-    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf', '\*dhcpv6'
+    -   add optional fields:
+        * 'ipv6addr',
+        * 'ipv6gateway',
+        * 'ipv6autoconf',
+        * 'dhcpv6'
 
-<!-- -->
-
+    ```python
     # @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
     # @ipv6gateway:    #optional IPv6 address of the network gateway
     # @ipv6autoconf:   #optional Whether use stateless autoconfiguration
@@ -77,6 +85,7 @@ Records that have been changed:
               '*delay': 'uint', '*onboot': 'bool', '*remove': 'bool',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
+    ```
 
 *   @RunningVmStats
     -   @displayIp, @clientIp **should** be able to contain IPv4 or IPv6 addresses
@@ -85,14 +94,14 @@ Records that have been changed:
 Records that DO NOT need to change (already work):
 
 *   @Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str
-
-      # vdsClient -s 0 fenceNode '2620:52::1040:221:5eff:fe11:a22d' 23 rsa fencetest fencetest status
-      on
-      # works!
+    ```console
+    # vdsClient -s 0 fenceNode '2620:52::1040:221:5eff:fe11:a22d' 23 rsa fencetest fencetest status  on
+    # works!
+    ```
 
 *   @VmDefinition - same situation with fields @clientIp, @displayIp
 *   @IscsiPortal - @host **should** be capable of carrying an IPv6 address.
-*   @ISCSIConnection.discoverSendTargets - @host, Returns a list of discovered targets in the form: '<host>:<port>,<tpgt> <iqn>' (tested, working!)
+*   @ISCSIConnection.discoverSendTargets - @host, Returns a list of discovered targets in the form: '`<host>:<port>,<tpgt> <iqn>`' (tested, working!)
 *   @MigrateParams - @dst, @dstqemu: both destination Vdsm and destination qemu addresses **should** accept IPv6.
 *   @IscsiSessionInfo - @connection, which is the hostname of the iSCSI target, **should** accept IPv6. We should test the *createStorageDomain* and *extendStorageDomain* verbs over IPv6.
 *   @NfsConnectionParameters - NFS @export should accept IPv6 too. We **must** make sure that multiple colon characters in address do not confuse us.
@@ -150,15 +159,15 @@ REST API model contains the type called "ip", which already has the attribute "v
 
 Actions that will be affected (where IP is optional or mandatory argument) with change of records (from the file ovirt-engine/backend/manager/modules/restapi/interface/definition/src/main/resources/rsdl_metadata.yaml):
 
-*   Setup networks - /hosts/{host:id}/[nics/]setupnetworks|rel=setupnetworks
+*   Setup networks - `/hosts/{host:id}/[nics/]setupnetworks|rel=setupnetworks`
 *   NetworkAttachment
-    -   Add - /hosts/{host:id}/[nics/{nic:id}/]networkattachments|rel=add
-    -   Update - /hosts/{host:id}/[nics/{nic:id}/]networkattachments/{networkattachment:id}|rel=update
+    -   Add - `/hosts/{host:id}/[nics/{nic:id}/]networkattachments|rel=add`
+    -   Update - `/hosts/{host:id}/[nics/{nic:id}/]networkattachments/{networkattachment:id}|rel=update`
 *   Ancient API that is to be obliterated:
-    -   HostNic update - /hosts/{host:id}/nics/{nic:id}|rel=update
+    -   HostNic update - `/hosts/{host:id}/nics/{nic:id}|rel=update`
     -   Network
-        -   Add - [/datacenters/{datacenter:id}]/networks|rel=add
-        -   Update - [/datacenters/{datacenter:id}]/networks/{network:id}|rel=update
+        -   Add - `[/datacenters/{datacenter:id}]/networks|rel=add`
+        -   Update - `[/datacenters/{datacenter:id}]/networks/{network:id}|rel=update`
 
 API types that contain an IP address as string, should be tested they also work with IPv6 (TESTONLY):
 
@@ -168,7 +177,7 @@ API types that contain an IP address as string, should be tested they also work 
 *   NfsStorage
 *   IscsiTarget
 *   Display
-*   VM start (when vNics are defined through cloud-init configuration) - /vms/{vm:id}/start|rel=start
+*   VM start (when vNics are defined through cloud-init configuration) - `/vms/{vm:id}/start|rel=start`
     -   should oVirt support supplying both (IPv4 and IPv6) addresses?
 
 Records that contain "href" as string, should be tested if they work with IPv6 addresses. We should make sure that IPv6 addresses are properly quoted and hrefs do not break:

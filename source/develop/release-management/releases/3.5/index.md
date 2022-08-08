@@ -78,8 +78,9 @@ The [Optaplanner](/develop/release-management/features/sla/optaplanner.html) is 
 ### Fedora / CentOS / RHEL
 
 oVirt 3.5 is now available for use. In order to install it on a clean system, you need to install
-
-`     # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+```console
+# yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+```
 
 If you are upgrading from a previous version, you should have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
@@ -92,7 +93,7 @@ and to run:
           # yum update "ovirt-engine-setup*"
           # engine-setup
 
-## oVirt Live
+## oVirt Live ISO
 
 An oVirt Live ISO is available:
 
@@ -241,7 +242,7 @@ An oVirt Node build will be also available soon in:
  - [RHEVM] inconsistent required sign on externally provided networks
  - "Domain not found: no domain with matching uuid" error logged to audit_log after live migration fails due to timeout exceeded
  - [webadmin] confusing tooltip on Network label in New Logical Network
- - Create vm via REST with parameter <os type="windows_2008r2"/> will create vm with <os type="other"/>
+ - Create vm via REST with parameter `<os type="windows_2008r2"/>` will create vm with `<os type="other"/>`
  - Creating new vm from template with empty disk alias should be blocked
  - [RFE] 3.5 translation - cycle 3
  - Live migrating vm in paused state should warn for Live Storage Migration process
@@ -564,7 +565,7 @@ An oVirt Node build will be also available soon in:
  - [RFE] remove log collector as mandatory dependency
  - add new DataCenter mandatory/optional arguments discrepancy.
  - SetupNetwork>edit network(with pencil)>can't edit network
- - Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+ - Run once vm via REST with `<pause>true</pause>` parameter, save this parameter true also in next runs
  - foreman-integration: use provided root\\admin password for hypervisor installation
  - foreman-integration: UI: adding hardware details on discovered host
  - fails to run VM - duplicate ID
@@ -720,7 +721,7 @@ An oVirt Node build will be also available soon in:
  - do not use com.google.gwt.user.client.Cookies in ReportModel
  - iscsi storage dialog - alignment issues
  - [RFE] Support single disk snapshot on preview snapshot action in REST-API
- - Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+ - Run once vm via REST with `<pause>true</pause>` parameter, save this parameter true also in next runs
  - Cluster Compatibility Version should default to the latest version
  - In webadmin, the newly introduced Console side tab in new/edit cluster dialog to configure a SPICE proxy for individual clusters is NOT required and should be removed
  - GUI fields unaligned since Look&Feel patch
@@ -741,7 +742,7 @@ An oVirt Node build will be also available soon in:
 
 **Fixed in ovirt-engine-3.5.0_alpha1.1**
  - [rhevm-dwh] History DB - Change Fields "Network Name" to "Logical Network Name"
- - [Admin Portal] User $user@$domain attach to VM <UNKNOWN> in VM Pool test was initiated by $user.
+ - [Admin Portal] User $user@$domain attach to VM `<UNKNOWN>` in VM Pool test was initiated by $user.
  - [RHEVM-RHS] iptables rules are not set on RHSS Nodes, when importing existing gluster cluster configurations
  - novnc didn't connect because the clocks of websocket proxy and the host weren't in sync.
  - Can't create network with empty VNIC profile
@@ -788,7 +789,7 @@ An oVirt Node build will be also available soon in:
  - [Usability] mouse-cursor range for column resizing is too narrow and asymmetric
  - Misleading message is displayed when VM image is locked and user tries to create VM via CLI
  - [RFE] Add FreeBSD to the list of VM operating systems
- - [Text] Event "State was set to Up for host <hostname>." is miss leading.
+ - [Text] Event "`State was set to Up for host <hostname>.`" is miss leading.
  - Cannot obtain console.vv from a mobile device browser in User Portal
  - Start service ovirt-websocket-proxy gives warning
  - After deleting image failed ui display message: Disk gluster-test was successfully removed from domain gluster with storage failure

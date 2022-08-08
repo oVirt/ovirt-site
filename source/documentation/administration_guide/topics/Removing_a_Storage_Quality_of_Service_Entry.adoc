@@ -4,7 +4,6 @@
 
 Remove an existing storage quality of service entry.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].

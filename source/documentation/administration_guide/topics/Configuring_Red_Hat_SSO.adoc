@@ -1,14 +1,13 @@
 :_content-type: ASSEMBLY
 [id='Configuring_Red_Hat_SSO']
 = Installing and Configuring Red Hat Single Sign-On
-To use Red Had Single Sign-On as your authorization method, you need to:
+To use Red Hat Single Sign-On as your authorization method, you need to:
 
 * Install Red Hat SSO.
 * Configure the LDAP group mapper.
 * Configure Apache on the {engine-name}.
 * Configure OVN provider credentials.
 * Configure the Monitoring Portal (Grafana)
-
 
 [NOTE]
 ====

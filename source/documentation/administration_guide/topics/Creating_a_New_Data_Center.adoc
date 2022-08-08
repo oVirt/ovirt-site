@@ -11,7 +11,6 @@ After you set the *Compatibility Version*, you cannot lower the version number. 
 You can specify a MAC pool range for a cluster. Setting a MAC pool range is no longer supported.
 ====
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].
@@ -20,6 +19,5 @@ You can specify a MAC pool range for a cluster. Setting a MAC pool range is no l
 . Select the *Storage Type*, *Compatibility Version*, and *Quota Mode* of the data center from the drop-down menus.
 . Click btn:[OK] to create the data center and open the *Data Center - Guide Me* window.
 . The *Guide Me* window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the *Configure Later* button. Configuration can be resumed by selecting the data center and clicking *More Actions* (image:common/images/moreactions.png[title="More Actions menu"]), then clicking *Guide Me*.
-
 
 The new data center will remain *Uninitialized* until a cluster, host, and storage domain are configured for it; use *Guide Me* to configure these entities.

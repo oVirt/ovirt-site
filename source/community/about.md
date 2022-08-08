@@ -7,7 +7,7 @@ hide_metadata: true
 
 # Welcome to oVirt!
 
-<img class="screenshot" src="/download/download_1.png">
+<img class="screenshot" src="/download/download_1.png" alt="oVirt Engine Administration panel screenshot" />
 
 oVirt is a free open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure. oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, Gluster, PatternFly, and Ansible.
 

@@ -6,13 +6,11 @@ Search for attached USB devices to either allow or block them in the USB Filter 
 
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
-
 .Procedure
 
 . Click *Search*. The *Attached USB Devices* window displays a list of all the attached devices.
 . Select the device and click *Allow* or *Block* as appropriate. Double-click the selected device to close the window. A policy rule for the device is added to the list.
 . Use the *Up* and *Down* buttons to change the position of the new policy rule in the list.
 . Click menu:File[Save] to save the changes.
-
 
 You have searched the attached USB devices. USB filter policies need to be exported to the {virt-product-fullname} {engine-name} to take effect.

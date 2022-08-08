@@ -10,7 +10,6 @@
 
 Similarly, if you plan to access a local or remote Data Warehouse database from an external system, the database must allow connections from that system.
 
-
 [IMPORTANT]
 ====
 Accessing the {engine-name} database from external systems is not supported.

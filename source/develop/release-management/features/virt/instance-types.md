@@ -20,7 +20,6 @@ Enhancing oVirt template model to allow for more flexible options in creating vi
 ## Owner
 
 *   Name: Omer Frenkel (ofrenkel)
-*   Email: <ofrenkel@redhat.com>
 *   Name: Tomas Jelinek (TJelinek)
 *   Email: <TJelinek@redhat.com>
 *   PM Requirements : Andrew Cathrow (ACathrow)

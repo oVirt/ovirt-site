@@ -26,16 +26,17 @@ A geo-replication session can be setup between a GlusterFS managed source cluste
 
 This entity stores the details of geo-replication sessions that are set up for gluster volumes
 
-| Column name       | Type   | description                                                                                                                                             |
-|-------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| session_id        | UUID   | Primary Key                                                                                                                                             |
-| master_volume_id  | UUID   | Id of the master gluster volume                                                                                                                         |
-| session_key       | String | Session key of the form <masternode uuid>:<ssh url for slave volume> For instance, 11ae7a03-e793-4270-8fc4-b42def8b3051:<ssh://192.168.122.14>::slave2  |
-| slave_host_uuid   | UUID   | UUID of VDS in destination cluster used to create session                                                                                               |
-| slave_host_name   | String | Hostname of host in destination cluster used to create session                                                                                          |
-| slave_volume_id   | UUID   | Volume id of destination volume                                                                                                                         |
-| slave_volume_name | String | Volume name of destination volume                                                                                                                       |
-| status            | String | Status of geo-replication session. One of INITIALIZING, NOTSTARTED, ACTIVE, PASSIVE, STOPPED, PARTIAL_FAULTY, UNKNOWN, FAULTY (in GeoRepSessionStatus)  |
+| Column name       | Type   | description                                                                                                                                                 |
+|-------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| session_id        | UUID   | Primary Key                                                                                                                                                 |
+| master_volume_id  | UUID   | Id of the master gluster volume                                                                                                                             |
+| session_key       | String | Session key of the form `<masternode uuid>:<ssh url for slave volume>` For instance, `11ae7a03-e793-4270-8fc4-b42def8b3051:<ssh://192.168.122.14>::slave2`  |
+| slave_host_uuid   | UUID   | UUID of VDS in destination cluster used to create session                                                                                                   |
+| slave_host_name   | String | Hostname of host in destination cluster used to create session                                                                                              |
+| slave_volume_id   | UUID   | Volume id of destination volume                                                                                                                             |
+| slave_volume_name | String | Volume name of destination volume                                                                                                                           |
+| status            | String | Status of geo-replication session. One of INITIALIZING, NOTSTARTED, ACTIVE, PASSIVE, STOPPED, PARTIAL_FAULTY, UNKNOWN, FAULTY (in GeoRepSessionStatus)      |
+{: .bordered}
 
 #### Gluster Geo Replication Session Details
 
@@ -55,6 +56,7 @@ This entity stores the details of the individual geo-replication sessions
 | bytes_pending     | bigint |                                                                      |
 | deletes_pending   | bigint |                                                                      |
 | files_skipped     | bigint |                                                                      |
+{: .bordered}
 
 #### Gluster Geo Replication Session Configuration
 
@@ -64,6 +66,7 @@ This entity stores the configuration details of the individual geo-replication s
 |--------------|--------|---------------------|
 | config_key   | String | Configuration key   |
 | config_value | String | Configuration value |
+{: .bordered}
 
 ### REST APIs
 
@@ -71,7 +74,7 @@ The details of the REST for gluster geo-replication feature are as below -
 
 #### Listing APIs
 
-*   `api/clusters/{id}/glustervolumes/{id}/georeplication-sessions` - lists all the geo-replication sessions for a gluster volume
+* `api/clusters/{id}/glustervolumes/{id}/georeplication-sessions` - lists all the geo-replication sessions for a gluster volume
 
 Output:
 
@@ -113,7 +116,7 @@ Output:
       </georeplication-session>
 ```
 
-*   `api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/options` - lists all the configuration options for a geo-replication session
+* `api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/options` - lists all the configuration options for a geo-replication session
 
 Output:
 
@@ -131,8 +134,6 @@ Output:
 
 *   **POST** `api/clusters/{id}/glustervolumes/{id}/georeplication-sessions` - creates a new geo-replication session for the cluster
     -   Parameter `GeoRepSession` type
-
-<!-- -->
 
 *   `api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/start` - starts the given geo-replication session
 *   `api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/stop` - stops the given geo-replication session

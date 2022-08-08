@@ -12,5 +12,4 @@ Remove an existing CPU profile from your {virt-product-fullname} environment.
 . Click *Remove*.
 . Click btn:[OK].
 
-
 If the CPU profile was assigned to any virtual machines, those virtual machines are automatically assigned the `default` CPU profile.

@@ -10,15 +10,15 @@ authors: mkublin
 
 ### Summary
 
-A Task Cancellation it is feature which should allow to cancel currently running tasks. It is not clear which task should be allow to cancel - the whole command or task which is running at vdsm side, what engine should do roll forward or revert
+A Task Cancellation it is feature which should allow to cancel currently running tasks.
+It is not clear which task should be allow to cancel - the whole command or task which is running at vdsm side, what engine should do roll forward or revert
 
 ### Owner
 
-*   Name: [Michael:Michael Kublin](Michael:Michael Kublin)
-    -   Email: <mkublin@redhat.com>
-*   GUI Component owner: Michael Kublin <mkublin@redhat.com>
-*   REST Component owner: Michael Kublin <mkublin@redhat.com>
-*   QA Owner: Yaniv Kaul <ykaul@redhat.com
+*   Name: Michael Kublin
+*   GUI Component owner: Michael Kublin
+*   REST Component owner: Michael Kublin
+*   QA Owner: Yaniv Kaul <ykaul@redhat.com>
 
 ### Current status
 
@@ -67,12 +67,12 @@ This section describes the backend design for this feature.
 
 #### Entity Description
 
-A new command will be added CancelTaskCommand
+A new command will be added `CancelTaskCommand`
 
 ##### Enumerators
 
 **Updated Enumerators**
-The new value will be added to VdcActionType
+The new value will be added to `VdcActionType`
 
 ##### Annotations
 
@@ -82,7 +82,9 @@ The new value will be added to VdcActionType
 
 #### User work-flows
 
-User will send request to backend for cancel task and backend will try to cancel task. When we are running internal command which parent jobId is cancelled engine can try not to run it. If a job has tasks which is running on vdsm, engine can try to send a Stop/Revert verb to vdsm, at that case by default behaviour all command will be finished as failed.
+User will send request to backend for cancel task and backend will try to cancel task. When we are running internal command which
+parent jobId is cancelled engine can try not to run it. If a job has tasks which is running on vdsm, engine can try to send a Stop/Revert verb to vdsm,
+at that case by default behaviour all command will be finished as failed.
 
 ##### Simple Command Invocation Sequence Diagram
 
@@ -102,7 +104,9 @@ Not provided, not clear what are requirements
 
 ### Dependencies / Related Features and Projects
 
-The cancellation of the task is depend on VDSM API, on internal Async task manger, on correct handling of each command and on task monitoring. Most of these mechanism are independent and not related to each other, most of them has a lot of luck and problems in implementation, the cancellation of task which is build upon on it well not work well until those mechanism will be fixed.
+The cancellation of the task is depend on VDSM API, on internal Async task manger, on correct handling of each command and on task monitoring.
+Most of these mechanism are independent and not related to each other, most of them has a lot of luck and problems in implementation,
+the cancellation of task which is build upon on it well not work well until those mechanism will be fixed.
 
 ### Documentation / External references
 
@@ -110,7 +114,8 @@ The cancellation of the task is depend on VDSM API, on internal Async task mange
 
 I suppose that a number of races, and unexpected behaviour will be extreme high
 I suppose that part of the flows will be difficult or almost impossible to integrate with task cancellation
-=== Open Issues ===
+
+### Open Issues
 
 1.  What expected API should be called at VDSM side and what it suppose to do?
 2.  What should be allowed to cancel? Maintenance host, Migrate VM? Hibernate VM or only storage flows

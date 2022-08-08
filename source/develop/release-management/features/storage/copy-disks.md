@@ -8,7 +8,8 @@ category: feature
 
 ## Summary
 
-Until oVirt 3.5 it was possible to copy only the disks attached to a template and only to a different storage domain. This RFE is about letting to copy also the VM and floating disks to the same or different storage domain.
+Until oVirt 3.5 it was possible to copy only the disks attached to a template and only to a different storage domain.
+This RFE is about letting to copy also the VM and floating disks to the same or different storage domain.
 
 ## Owner
 
@@ -28,7 +29,7 @@ Until oVirt 3.5 it was possible to copy only the disks attached to a template an
 
 ## REST API
 
-Send a POST request to the url: /api/disks/<disk id>/copy
+Send a POST request to the url: `/api/disks/<disk id>/copy`
 
 ```xml
 <action>

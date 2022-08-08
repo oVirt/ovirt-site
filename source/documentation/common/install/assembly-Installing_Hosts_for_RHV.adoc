@@ -53,7 +53,6 @@ include::proc_installing-a-dud-driver-on-a-host-without-installer-support.adoc[l
 
 include::proc-Automating_RHVH_Deployment.adoc[leveloffset=+3]
 
-
 [id='Red_Hat_Enterprise_Linux_hosts_{context}']
 == {enterprise-linux-host-fullname}s
 

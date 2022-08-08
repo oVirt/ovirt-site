@@ -88,3 +88,19 @@ echo "9-stream" > /etc/yum/vars/stream
 
 dnf distro-sync --nobest
 ```
+
+Due to [Bug 2091581](https://bugzilla.redhat.com/show_bug.cgi?id=2091581), while installing the virtualization host
+you will be missing `nmstate-plugin-ovsdb` or `python3-libnmstate` unless you install them from
+CentOS build [nmstate-2.0.0-2.el9](https://kojihub.stream.centos.org/koji/buildinfo?buildID=17369).
+While installing it you need to ensure openvswitch2.15 will be installed instead of any later version.
+
+Here's how to do that:
+
+```bash
+dnf install -y centos-release-ovirt45
+dnf install -y ovirt-openvswitch
+dnf install -y \
+https://kojihub.stream.centos.org/kojifiles/packages/nmstate/2.0.0/2.el9/noarch/nmstate-plugin-ovsdb-2.0.0-2.el9.noarch.rpm \
+https://kojihub.stream.centos.org/kojifiles/packages/nmstate/2.0.0/2.el9/noarch/python3-libnmstate-2.0.0-2.el9.noarch.rpm
+
+```

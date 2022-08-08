@@ -41,7 +41,7 @@ Host timestamp                 : 248542
 # hosted-engine --set-maintenance --mode=global
 ----
 
-. Connect to the console. When prompted, enter the operating system's root password. For more console options, see link:https://access.redhat.com/solutions/2221461[].
+. Connect to the console. When prompted, enter the operating system's root password. For more console options, see link:https://access.redhat.com/solutions/2221461[How to access Hosted Engine VM console from RHEV-H host?].
 +
 ----
 # hosted-engine --console

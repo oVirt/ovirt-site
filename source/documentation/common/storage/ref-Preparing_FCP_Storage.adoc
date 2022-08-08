@@ -38,5 +38,6 @@ multipaths {
         wwid _boot_LUN_wwid_
         no_path_retry queue
     }
+  }
 ----
 ====

@@ -13,9 +13,6 @@ authors: vfeenstr
 ### Owner
 
 *   Name: Vinzenz 'evilissimo' Feenstra (Vfeenstr)
-
-<!-- -->
-
 *   Email: <evilissimo@redhat.com>
 
 ### Current status
@@ -54,7 +51,7 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 12 SP2
 *   IP Addresses
 *   FQDN of the guest OS
 *   Disks Usage
-*   Configured RPMs to report (see /etc/ovirt-guest-agent.conf for the packages)
+*   Configured RPMs to report (see `/etc/ovirt-guest-agent.conf` for the packages)
 *   Hostname
 
 #### The guest agent also provides the following actions
@@ -63,11 +60,12 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 12 SP2
 *   Shutdown/Reboot from within the Guest OS
 
 #### Installation
-
-`# zypper addrepo `[`http://download.opensuse.org/repositories/home:/evilissimo/SLE_12_SP2/home:evilissimo.repo`](http://download.opensuse.org/repositories/home:/evilissimo/SLE_12_SP2/home:evilissimo.repo)
-      # zypper refresh
-      # zypper install ovirt-guest-agent-common
-      # service ovirt-guest-agent start 
+```console
+# zypper addrepo http://download.opensuse.org/repositories/home:/evilissimo/SLE_12_SP2/home:evilissimo.repo
+# zypper refresh
+# zypper install ovirt-guest-agent-common
+# service ovirt-guest-agent start
+```
 
 ### Testing
 
@@ -81,7 +79,10 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 12 SP2
     -   The FQDN in the general tab
     -   Logged-in User: in the Sessions tab should be filled if a user is logged in.
     -   All IPs (IPv4 and IPv6) in the Network Interfaces tab in the Guest Agent Data section for each interface.
-*   Verification via on the VDSM side: \`vdsClient -s 0 getVmStats <VM UUID>\`
+*   Verification via on the VDSM side:
+    ```bash
+    vdsClient -s 0 getVmStats <VM UUID>
+    ```
     -   Reported fields are non-empty:
         -   guestFQDN
         -   netIfaces
@@ -93,7 +94,9 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 12 SP2
         -   username
         -   guestIPs (if there are IPv4 addresses)
 
-**Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM **Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
+**Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM
+
+**Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
 
 
 

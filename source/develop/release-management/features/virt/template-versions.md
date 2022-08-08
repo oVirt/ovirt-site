@@ -57,7 +57,7 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 
 *Create Template Version*
 
-**\1**
+**Implementation**
 
 *   A template's version is a template that is linked to its base (original) template.
 *   A new property for template - 'version_name' allowing the user to name the version
@@ -65,16 +65,10 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 *   A new property for vm - 'version' to save the version it is using, null means latest
 *   On upgrade all templates will get version 1
 
-<!-- -->
-
 *   Change queries to return only latest template object for each template
-
-<!-- -->
 
 *   Templates sub tabs (general, discs, nics) should show information of latest version
 *   Change VM and storage sub tab in Templates main tab to show information of all versions
-
-<!-- -->
 
 *   When a new template version is created:
     -   find all stateless vms created from the template that use 'latest' version
@@ -93,16 +87,22 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 
 *   GET :
 
-new section <version> will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates: base will have base id empty, base version numbering = 1
+new section `<version>` will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates:
+base will have base id empty, base version numbering = 1
 
 *   POST: (add new template version)
 
 The version section is optional because user might be creating a base template (which is a regular template as in previous versions of ovirt)
 If version section will be defined, user will have to fill the following fields:
-*base_template* - required to fill (a template object with id of the base template). Not filling it will result with error and the request will fail. Filling a non existing base template id will also fail the request.
+
+*base_template* - required to fill (a template object with id of the base template).
+Not filling it will result with error and the request will fail. Filling a non existing base template id will also fail the request.
+
 *version_name* - optional
+
 *version_number* should not be filled by the user. (it's calculated by the engine), if user fills it, it will be ignored
- **Example for adding a template version** - this section should be added as part of body inside the template element. The relevant url is: api/templates
+
+ **Example for adding a template version** - this section should be added as part of body inside the template element. The relevant url is: `api/templates`
 
 ```xml
 <version>
@@ -129,8 +129,11 @@ template field continues to be reused and will contain version details where app
 VM will have a new use_latest_template_version boolean property that is relevant for stateless VMs. It indicates whether the latest template version should be used.
 User will be able to pass it when creating or updating a VM. If user will try to create a new stateful VM with this property set to true, an error will be returned.
 When doing GET, this property will be propagated from backend, set to 'false' for stateful VMs.
+
  **REST relevant patches**
+
 <http://gerrit.ovirt.org/#/c/23453/>
+
 <http://gerrit.ovirt.org/#/c/23560/>
 
 ### DB
@@ -160,37 +163,25 @@ When doing GET, this property will be propagated from backend, set to 'false' fo
 
 *   Test case: **Create new version for template**
     -   setup:
+        * Create vm and install some OS (Fedora/RHEL/Ubuntu)
+        * Create a template from the vm.
 
-Create vm and install some OS (Fedora/RHEL/Ubuntu)
-
-Create a template from the vm.
-
-*   -   test:
-
-Create a new vm from this template.
-
-Install some new software (like vim) on this new vm.
-
-Create new version to the template from this vm.
-
-Create new vm from the template and make sure to select latest version
-
-Make sure new software actually there
+    -   test:
+        * Create a new vm from this template.
+        * Install some new software (like vim) on this new vm.
+        * Create new version to the template from this vm.
+        * Create new vm from the template and make sure to select latest version
+        * Make sure new software actually there
 
 *   Test case: **New version for VM Pool**
     -   setup:
+        * Create VM Pool from template with some OS installed, with at least 2 vms
+        * Have 1 vm taken (used by a user)
 
-Create VM Pool from template with some OS installed, with at least 2 vms
-
-Have 1 vm taken (used by a user)
-
-*   -   test:
-
-Create new version to the template as explained in previous test
-
-Take vm2, make sure its the new version
-
-return vm1 to the pool, and take it again, make sure its the new version
+    -   test:
+        * Create new version to the template as explained in previous test
+        * Take vm2, make sure its the new version
+        * return vm1 to the pool, and take it again, make sure its the new version
 
 ## Open Issues
 

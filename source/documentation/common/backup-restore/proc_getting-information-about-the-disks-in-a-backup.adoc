@@ -7,22 +7,22 @@ You can get information about the disks that are part of the backup, including t
 
 The `list` method of the VmBackupDisks service returns the following information about a backup:
 
-    * The id and name of each disk that was backed up.
-    * The id of the disk image of the backup, for each disk included in the backup.
+    * The ID and name of each disk that was backed up.
+    * The ID of the disk image of the backup, for each disk included in the backup.
     * The disk format.
     * The backup behavior supported by the disk.
     * The backup type that was taken for the disk (full/incremental).
 
 .Procedure
 
-* To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:
+* To get information about a backup with ID 456 of a virtual machine with ID 123, send a request like this:
 +
 [source,terminal,subs="normal"]
 ----
 GET /ovirt-engine/api/vms/456/backups/123/disks
 ----
 +
-The response includes the disk with id 789, and the id of the disk image is 555.
+The response includes the disk with ID 789, and the ID of the disk image is 555.
 +
 [source,terminal,subs="normal"]
 ----

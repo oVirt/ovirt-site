@@ -12,8 +12,8 @@ Hosted engine agents communicate using a shared "whiteboard". Each agent can onl
 
 All hosted engine files related to the shared metadata are located in /rhev:
 
-*   /rhev/data-center/mnt/<NFS>/<DOMAIN ID>/ha_agent/hosted-engine.lockspace
-*   /rhev/data-center/mnt/<NFS>/<DOMAIN ID>/ha_agent/hosted-engine.metadata
+* `/rhev/data-center/mnt/<NFS>/<DOMAIN ID>/ha_agent/hosted-engine.lockspace`
+* `/rhev/data-center/mnt/<NFS>/<DOMAIN ID>/ha_agent/hosted-engine.metadata`
 
 and the formats are described below.
 
@@ -21,9 +21,11 @@ and the formats are described below.
 
 This file holds the sanlock lockspace used to protect the reserved sections from concurrent writes. The default capacity is 2000 nodes (disk size is 1 MB) and the lockspace is initialized using:
 
-      #!/usr/bin/env python
-      import sanlock
-      sanlock.write_lockspace(lockspace="hosted-engine", path=lockspace_file, offset=0)
+```python
+#!/usr/bin/env python
+import sanlock
+sanlock.write_lockspace(lockspace="hosted-engine", path=lockspace_file, offset=0)
+```
 
 ### ha_agent.metadata
 
@@ -31,7 +33,9 @@ This file holds the metadata published by all hosted engine agents. It is organi
 
 The first block (index 0) is used for global cluster settings. Currently only the global maintenance flag is being saved there as:
 
-      maintenance=1
+```python
+maintenance = 1
+```
 
 The additional blocks then contain the following fields separated by '|' character (the pipe):
 
@@ -47,4 +51,4 @@ The additional blocks then contain the following fields separated by '|' charact
 | local maintenance            | 0|1                                                                                           |                                                                                                  |
 | stopped                      | 0|1                                                                                           | usually 0, but is set to 1 by the agent during proper ha_agent shutdown                          |
 | crc32                        | 8 hex characters                                                                              | CRC32 checksum of the whole 512B block (without trailing zeros) with crc field set to 00000000   |
-
+{: .bordered}

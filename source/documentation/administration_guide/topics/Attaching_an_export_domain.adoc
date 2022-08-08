@@ -18,5 +18,4 @@ An export domain that is *Unattached* can be attached to a data center. Only one
 . Click the radio button for the appropriate export domain.
 . Click btn:[OK].
 
-
 The export domain is attached to the data center and is automatically activated.

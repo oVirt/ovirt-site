@@ -2,7 +2,6 @@
 [id="Cluster_logical_network_entities"]
 = Virtual Machine Pool Administrator Roles Explained
 
-
 *Pool Permission Roles*
 
 The table below describes the administrator roles and privileges applicable to pool administration.

@@ -6,7 +6,6 @@ Users can change a disk's interface type after the disk has been created. This e
 
 To update a disk interface type, all virtual machines using the disk must first be stopped.
 
-
 .Changing a Disk Interface Type*
 
 . Click menu:Compute[Virtual Machines] and stop the appropriate virtual machine(s).

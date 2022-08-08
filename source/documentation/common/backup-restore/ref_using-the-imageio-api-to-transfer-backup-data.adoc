@@ -32,7 +32,6 @@ For complete information on using the imageio API, see the link:http://ovirt.git
 |See _PUT_
 |===
 
-
 [role="_additional-resources"]
 .Additional resources
 The {virt-product-fullname} Python SDK includes several implementation examples you can use to get started with transferring backups:

@@ -78,6 +78,11 @@ kadmin> quit
 # dnf install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session
 ----
 +
+[NOTE]
+====
+The `ovirt-engine-extension-aaa-ldap` is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Red_Hat_SSO[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
+====
++
 . Copy the SSO configuration template file into the */etc/ovirt-engine* directory. Template files are available for Active Directory (*ad-sso*) and other directory types (*simple-sso*). This example uses the simple SSO configuration template.
 +
 [source,terminal,subs="normal"]

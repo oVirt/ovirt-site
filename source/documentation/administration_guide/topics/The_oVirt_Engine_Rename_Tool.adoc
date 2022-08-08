@@ -6,7 +6,6 @@ When the `engine-setup` command is run in a clean environment, the command gener
 
 The `ovirt-engine-rename` command updates records of the fully qualified domain name of the {engine-name} in the following locations:
 
-
 * /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
 
 * /etc/ovirt-engine/isouploader.conf.d/10-engine-setup.conf
@@ -22,7 +21,6 @@ The `ovirt-engine-rename` command updates records of the fully qualified domain 
 * /etc/pki/ovirt-engine/keys/apache.key.nopass
 
 * /etc/pki/ovirt-engine/keys/apache.p12
-
 
 [WARNING]
 ====

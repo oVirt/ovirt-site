@@ -4,7 +4,6 @@
 
 ifdef::rhv-doc[]
 
-
 You need to log in and register the
 ifndef::offline_install,install_DWH_remote,remote_database_install,migrate_SHE_DB,migrate_DWH_DB[{engine-name} machine ]
 ifdef::install_DWH_remote,migrate_DWH_DB[Data Warehouse machine ]
@@ -123,8 +122,6 @@ You can check which repositories are currently enabled by running `dnf repolist`
 # dnf module -y enable javapackages-tools
 ----
 endif::ovirt-doc[]
-
-
 
 ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,migrate_manager_db[]
 . Enable the `pki-deps` module.

@@ -5,7 +5,6 @@ include::common/collateral_files/_attributes.adoc[]
 :context: SM_remoteDB_deploy
 :SM_remoteDB_deploy:
 
-
 Standalone {engine-name} installation is manual and customizable. You must install a {enterprise-linux} machine, then run the configuration script (`engine-setup`) and provide information about how you want to configure the {virt-product-fullname} {engine-name}. Add hosts and storage after the {engine-name} is running. At least two hosts are required for virtual machine high availability.
 
 To install the {engine-name} with a remote {engine-name} database, manually create the database on the remote machine before running `engine-setup`. To install the Data Warehouse database on a remote machine, run the Data Warehouse configuration script (`ovirt-engine-dwh-setup`) on the remote machine. This script installs the Data Warehouse service and can create the Data Warehouse database automatically.
@@ -51,7 +50,6 @@ Installing a standalone {engine-name} environment with remote databases involves
 ====
 Keep the environment up to date. See link:https://access.redhat.com/articles/2974891[How do I update my Red Hat Virtualization system?] for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
-
 
 include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 

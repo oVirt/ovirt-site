@@ -16,8 +16,8 @@ The DISA STIG profile is not supported for {hypervisor-fullname} ({hypervisor-sh
 
 .Procedure
 
-. On the *Installation Summary* screen, select *Security Policy*.
-. On the *Security Policy* screen that opens, select *On* in the *Apply security policy* setting.
+. In the *Installation Summary* screen, select *Security Policy*.
+. In the *Security Policy* screen, set the *Apply security policy* to *On*.
 . Select *DISA STIG for Red Hat Enterprise Linux 8*.
 . Click *Select profile*. This action adds a green checkmark next to the profile and adds packages to the list of *Changes that were done or need to be done*. Follow the onscreen instructions if they direct you to make any changes.
 . Click *Done*.

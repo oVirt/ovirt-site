@@ -94,7 +94,7 @@ Run the following commands on all the hosts, unless specified otherwise explicit
 # gluster volume start newengine
 ----
 +
-. Backup the Gluster configuration on all {hypervisor-shortname} 4.3 nodes using the backup playbook.
+. Back up the Gluster configuration on all {hypervisor-shortname} 4.3 nodes using the backup playbook.
 
 .. The backup playbook is available with the latest version of {hypervisor-shortname} 4.3. If this playbook is not available, create a playbook and inventory file:
 +

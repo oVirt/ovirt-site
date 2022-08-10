@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Vdsm datatypes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Vdsm datatypes" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3045/develop/developer-guide/vdsm/datatypes.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3045/develop/developer-guide/vdsm/datatypes.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vdsm datatypes" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Vdsm datatypes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3045/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3045/develop/developer-guide/vdsm/datatypes.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3045/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3045/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3045/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3045/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3045/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3045/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3045/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3045/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3045/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3045/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3045/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3045/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3045/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3045/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3045/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3045/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3045/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3045/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3045/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3045/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3045/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3045/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3045//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3045//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3045/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3045/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3045/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3045/develop/developer-guide/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9e57b717174453404c080ead99e2186c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9e57b717174453404c080ead99e2186c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Adam Litke">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Adam Litke</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="vdsm-datatypes">Vdsm datatypes</h1>
+
+<p>VDSM uses various complex types throughout its API.
+Currently these are expressed as free-form dictionaries and/or strings with magic values.
+This wiki page attempts to capture a comprehensive list of these types for reference and to serve as a base for discussion
+on creating a more formalized specification of the types for the next generation API.</p>
+
+<h2 id="parameters">Parameters</h2>
+<table class="bordered">
+<thead>
+<tr>
+<th>Type</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>DriveSpec_t</code>
+Uniquely identifies a storage volume for use as a drive for a virtual machine
+</td>
+<td>
+<pre>{ spUUID, sdUUID, imgUUID, volUUID }  # Standard UUID quartet</pre>
+or
+<pre>{ GUID }  # Device mapper GUID</pre>
+or
+<pre>{ UUID }  # blkid-based UUID</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>HibernationVolumeHandle_t</code>
+
+Bundles together the storage resources that are needed for hibernation operations
+</td>
+<td>
+<pre>{
+  sdUUID         # Storage domain that contains the state and param volumes
+  spUUID         # Storage pool
+  stateImageID   # Image UUID for VM state
+  stateVolumeID  # Volume UUID for VM state
+  paramImageID   # Image UUID for hibernation parameters
+  paramVolumeID  # Volume UUID for hibernation parameters
+}</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>VM_Create_t</code>
+
+Contains all parameters needed to create a new virtual machine
+</td>
+<td>
+<pre>{
+  'vmName'         # Set the name of the virtual machine. String.
+  'vmId'           # The virtual machine UUID.
+  'hiberVolHandle' # An optional HibernationVolumeHandle_t for resuming a hibernated VM
+                   # A comma-separated list: sdUUID,spUUID,stateImageID,stateVolumeID,paramImageID,paramVolumeID
+  'restoreState'   # A volume containing migration restore data. DriveSpec_t
+  'memSize'        # The desired amount of memory (in megabytes)
+  'display'        # The type of display.  String: 'qxl', 'vnc', 'qxlnc', 'local'
+  'displayNetwork' # Limit display to specific host network.  Bridge name. Default: 0 (listen on all interfaces)
+  'spiceMonitors'  # The number of monitors to add to a VM (spice only).  Default: 1
+  'keyboardLayout' # Specify the keymap to use.
+  'boot'           # The desired boot device. String: 'a', 'c', 'd', 'n'
+  'vmType'         # The type of VM to create.  String: 'kvm'
+  'floppy'         # Set the floppy disk volume. DriveSpec_t
+  'volatileFloppy' # The floppy is temporary and should be ejected and deleted on shutdown or reboot.
+  'cdrom'          # Set the cdrom volume. DriveSpec_t
+  'sysprepInf'     # Create a sysprep floppy from an inf file for automatic Windows installation. Binary data.
+  'nicModel'       # A comma-separated list of nic models to use, one per desired network device.
+                   # String: 'ne2k_pci', 'i82551', 'i82557b', 'i82559er', 'rtl8139', 'e1000', 'pcnet', 'virtio'
+  'macAddr'        # A comma-separated list of mac addresses to use, one per desired network device.
+  'bridge'         # A comma-separated list of host bridge names, one per desired network device.
+                   # Each device will be connected to the corresponding host network.
+  'smp'            # The number of desired vcpus.
+  'cpuType'        # Set cpu type and features.  Comma-separated list with the following specification:
+                   # &lt;cpuType&gt;,&lt;feature-1&gt;,&lt;feature-2&gt;,...&lt;feature-N&gt;
+                   # Default cpuType: 'qemu64'.  See libvirt documentation for full details on cpu types and features.
+  'smpCoresPerSocket' # CPU topology.  The number of cores on each vcpu
+  'smpThreadsPerCore' # CPU topology.  The number of threads on each vcpu core
+  'drives'         # An array of dicts with the following specification:
+                   # {
+                   #   'if'       - Drive interface type. String: 'ide', 'virtio'
+                   #   'serial'   - Optional drive serial number. String.
+                   #   'poolID'   - Storage pool UUID
+                   #   'domainID' - Storage domain UUID
+                   #   'imageID'  - Image UUID
+                   #   'volumeID' - Volume UUID
+                   # }
+  'tabletEnable'   # Should the USB tablet be used for input? Boolean.
+  'soundDevice'    # Add a sound card with the given model.  String: 'pcspk', 'sb16', 'ac97', 'es1370', 'hda'
+  'vmchannel'      # Create a channel device for guest agent communication? Boolean.
+  'nice'           # Set nice value of the qemu process. Integer: -20..19
+  'timeOffset'     # Clock offset from UTC (in seconds)
+  'tdf'            # Use an RTC timer with a 'catchup' tick policy? Boolean.
+  'emulatedMachine'# The machine type to emulate.  String.  Default: 'pc'.
+  'initrd'         # Enable direct-boot from host using this file for the initrd.  Local path.
+  'kernel'         # Enable direct-boot from host using this file for the kernel.  Local path.
+  'kernelArgs'     # When direct-boot is enabled, pass these arguments to the kernel. String.
+  'acpiEnable'     # Enable ACPI in the guest? Boolean.
+  # The following 'custom' fields are also recognized: vhost, sndbuf, viodiskcache
+}
+</pre>
+
+This list does not include internal state variables or fields that may be inserted to activate special modes
+such as restore, migration or hibernation.  ''These should be added later in a special section.''
+</td>
+</tr>
+<tr>
+<td>
+<code>VM_Migrate_t</code>
+
+Contains the parameters needed to migrate an existing domain to another host
+</td>
+<td>
+<pre>{
+  'vmId'           # The UUID of the VM to migrate
+  'mode'           # String: 'remote' or 'file'
+  'method'         # String: 'online'
+  'dst'            # String: &lt;host&gt;:&lt;port&gt;
+  'hiberVolHandle' # (Only for hibernate) HibernationVolumeHandle_t for saving state to file 
+  'downtime'       # The maximum amount of allowed downtime during migration
+}</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>VM_SetTicket_ExistingConnAction_t</code>
+
+Describes how to handle an existing vm display connection when establishing a new connection.
+</td>
+<td>
+String:
+<pre>
+'keep'        # Allow the current user to remain connected
+'disconnect'  # Disconnect the current user
+'fail'        # Abort the operation
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>Volume_Type_t</code>
+
+Specifies whether a volume is preallocated or sparse
+</td>
+<td>
+<pre>
+  PREALLOCATED  # All needed storage for the volume is allocated at volume creation time
+  SPARSE        # Storage is allocated dynamically as more space is required
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>Volume_Format_t</code>
+
+The file data format
+</td>
+<td>
+<pre>
+  COW_FORMAT  # The qemu COW format is specified
+  RAW_FORMAT  # The raw format is specified
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>Volume_Legality_t</code>
+
+Indicates the legality of the volume
+</td>
+<td>
+<pre>
+  ILLEGAL_VOL
+  LEGAL_VOL
+  FAKE_VOL
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>Image_MoveOperation_t</code>
+
+Specify the type of image move operation that is desired
+</td>
+<td>
+<pre>
+  COPY_OP
+  MOVE_OP
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>LVM_Create_DeviceList_t</code>
+
+A list of device names to include when creating a new LVM volume group
+</td>
+<td>
+<pre>
+[ "sda1", "sdb3" ... ]
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>ISCSI_ConnectParams_t</code>
+
+A dictionary of iSCSI connection information
+</td>
+<td>
+<pre>{
+  'connection' # iSCSI host IP address
+  'port'       # iSCSI host port
+  'user'       # Login user
+  'password'   # Login password
+}</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StorageDomain_Type_t</code>
+
+Identifies the type of backing storage that is used by the domain
+</td>
+<td>
+<pre>
+  UNKNOWN_DOMAIN = 0
+  NFS_DOMAIN = 1
+  FCP_DOMAIN = 2
+  ISCSI_DOMAIN = 3
+  LOCALFS_DOMAIN = 4
+  CIFS_DOMAIN = 5
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StorageDomain_Create_TypeParameters_t</code>
+
+Storage Domain type-specific creation parameters
+</td>
+<td>''For FCP and iSCSI domains:''
+<pre>
+  vgUUID      # The UUID of the volume group to be used
+</pre>
+''For NFS domains:''
+<pre>
+  remotePath  # The path to the remote NFS exported filesystem (&lt;host&gt;:/&lt;path&gt;)
+</pre>
+''For LOCALFS domains:''
+<pre>
+  localPath  # The local path to use (eg. /var/localstorage)
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StorageDomain_Class_t</code>
+
+Identifies the nature/class of data that will be stored in the domain
+</td>
+<td>
+<pre>
+  DATA_DOMAIN = 1
+  ISO_DOMAIN = 2
+  BACKUP_DOMAIN = 3
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StorageDomain_UploadVolume_Method_t</code>
+
+Designates the upload method to be used for StorageDomain.UploadVolume
+</td>
+<td>
+<pre>
+  'rsync'  # Use the rsync program
+  'wget'   # Use the wget program
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StorageConnectionParameters_t</code>
+
+Parameters needed for connecting to different kinds of storage
+</td>
+<td>
+''For NFS, LocalFS, and CIFS storage:''
+<pre>{
+  'id'          # Used to identify this connection in the return value
+  'connection'  # For NFS:     &lt;host&gt;:/&lt;path&gt;
+                # For LocalFS: &lt;local path&gt;
+                # For CIFS:    Not supported
+}</pre>
+''For FCP and iSCSI storage:''
+<pre>{
+  'id'             # Used to identify this connection in the return value
+  'connection'     # The IP address of the iSCSI server
+  'iqn'            # The iSCSI target
+  'portal'         # Unused
+  'user'           # iSCSI server username
+  'password'       # iSCSI server password
+  'port'           # iSCSI server host port
+  'initiatorName'  # iSCSI initiator
+}</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StoragePool_ImageMoveList_t</code>
+
+Defines a list of images to move along with per-image parameters
+</td>
+<td>
+<pre>[
+  { imgUUID: &lt;postZero&gt; } # postZero is a boolean to set whether source
+                          # images should be zeroed after data has been moved
+]
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StorageDomainStatus_t</code>
+
+The current status of a StorageDomain
+</td>
+<td>
+<pre>
+  DOM_UNKNOWN_STATUS = 'Unknown'
+  DOM_ATTACHED_STATUS = 'Attached'
+  DOM_UNATTACHED_STATUS = 'Unattached'
+  DOM_ACTIVE_STATUS = 'Active'
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StoragePool_ReconstructDomainDict_t</code>
+
+A dictionary of sdUUIDs and status used to reconstruct the master StorageDomain
+</td>
+<td>
+<pre>{ &lt;sdUUID&gt;: &lt;status&gt; } # Where status is a StorageDomainStatus_t</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>StoragePool_UpdateVMsList_t</code>
+
+A list of VM metadata to store/update
+</td>
+<td>
+<pre>[
+  {
+    'vm'       # The VM UUID
+    'ovf':     # The VM definition in OVF format
+    'imglist'  # A comma-separated list of imgUUIDs
+  }
+]</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>FenceNode_Agent_t</code>
+
+Select the agent to use from the fence-agents project
+</td>
+<td>
+''See the fence-agents documentation for details.  Possible values are:''
+<pre>
+ack_manual     alom           apc            apc_snmp       baytech        bladecenter
+brocade        bullpap        cisco_mds      cisco_ucs      cpint          drac
+drac5          eaton_snmp     egenera        eps            ibmblade       ifmib
+ilo            ilo_mp         intelmodular   ipmilan        kdump          kdump_send
+ldom           lpar           mcdata         na             nss_wrapper    rackswitch
+rhevm          rsa            rsb            sanbox2        scsi           virsh
+vixel          vmware         vmware_helper  vmware_soap    wti            xcat
+xenapi         zvm
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>FenceNode_Action_t</code>
+
+Selects the fencing action to perform
+</td>
+<td>
+<pre>
+  'status'
+  'on'
+  'off'
+  'reboot'
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<code>SetupNetworks_Params_t</code>
+
+Structure to provide complete network setup information
+</td>
+<td>
+<pre>
+networks - dict of key=network, value=attributes
+           where 'attributes' is a dict with the following optional items:
+                vlan=&lt;id&gt;
+                bonding="&lt;name&gt;" | nic="&lt;name&gt;"
+                (bonding and nics are mutually exclusive)
+                ipaddr="&lt;ip&gt;"
+                netmask="&lt;ip&gt;"
+                gateway="&lt;ip&gt;"
+                bootproto="..."
+                delay="..."
+                onboot="yes"|"no"
+                (other options will be passed to the config file AS-IS)
+           -- OR --
+                remove=True (other attributes can't be specified)
+
+bondings - dict of key=bonding, value=attributes
+           where 'attributes' is a dict with the following optional items:
+                nics=["&lt;nic1&gt;" , "&lt;nic2&gt;", ...]
+                options="&lt;bonding-options&gt;"
+            -- OR --
+                remove=True (other attributes can't be specified)
+
+options - dict of options, such as:
+                force=0|1
+                connectivityCheck=0|1
+                connectivityTimeout=&lt;int&gt;
+                explicitBonding=0|1
+
+
+Notes:
+    Bondings are removed when they change state from 'used' to 'unused'.
+
+    By default, if you edit a network that is attached to a bonding, it's not
+    necessary to re-specify the bonding (you need only to note the attachement
+    in the network's attributes). Similarly, if you edit a bonding, it's not
+    necessary to specify its networks.
+    However, if you specify the 'explicitBonding' option as true, the function
+    will expect you to specify all networks that are attached to a specified
+    bonding, and vice-versa, the bonding attached to a specified network.
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="return-data">Return Data</h2>
+
+<p>All API calls return a dictionary with this basic format:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="err">'status':</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">'code':</span><span class="w"> </span><span class="err">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="err">'message':</span><span class="w"> </span><span class="err">&lt;string&gt;</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w"> </span><span class="err">Function-specific</span><span class="w"> </span><span class="err">fields</span><span class="w"> </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This table describes the function-specific fields that appear in certain API calls.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Specification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3045/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3045/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3045/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3045/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/datatypes.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/vdsm/datatypes.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

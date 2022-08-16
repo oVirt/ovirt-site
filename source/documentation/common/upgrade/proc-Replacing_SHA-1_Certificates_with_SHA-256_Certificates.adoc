@@ -64,17 +64,17 @@ endif::SHE_upgrade[]
         --keep-key
 done
 ----
-
-. Restart the *httpd* service:
-+
-----
-# systemctl restart httpd
-----
 +
 [NOTE]
 ====
 The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
 ====
+. Restart the *httpd* service:
++
+----
+# systemctl restart httpd
+----
+
 ifdef::SHE_upgrade[]
 . Log in to one of the self-hosted engine nodes and disable global maintenance:
 +

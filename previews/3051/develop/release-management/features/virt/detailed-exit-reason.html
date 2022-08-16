@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Detailed Exit Reason | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Detailed Exit Reason" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3051/develop/release-management/features/virt/detailed-exit-reason.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3051/develop/release-management/features/virt/detailed-exit-reason.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Detailed Exit Reason" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Detailed Exit Reason","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3051/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3051/develop/release-management/features/virt/detailed-exit-reason.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3051/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3051/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3051/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3051/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3051/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3051/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3051/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3051/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3051/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3051/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3051/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3051/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3051/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3051/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3051/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3051/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3051/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3051/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3051/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3051/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3051/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3051/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3051//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3051//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3051/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3051/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3051/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3051/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3051/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7054bd65a0f097bbc1e54f4652d59f8b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7054bd65a0f097bbc1e54f4652d59f8b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Francesco Romani">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Francesco Romani</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3051/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="detailed-exit-reason">Detailed Exit Reason</h1>
+
+<p>WARNING: work in progress</p>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+  <li>Add a detailed exit code on VDSM ExitedVmStats to represent the reason why a VM was shut down, either normally or because of an error.</li>
+  <li>The new field will be called exitReason and will be an enumeration with errno-like semantics.</li>
+  <li>Update engine to fetch and use this new value internally.</li>
+  <li>The benefit for the engine is better reporting and better view of the status of the VM.</li>
+</ul>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Francesco Romani (Fromani)</li>
+  <li>Email: <a href="mailto:fromani@redhat.com">fromani@redhat.com</a></li>
+  <li>PM Requirements : N/A</li>
+  <li>Email: N/A</li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release: oVirt 3.5</li>
+  <li>Status: Implementation vor VDSM and Engine in progress, patches posted on gerrit. See below for links.</li>
+  <li>Last updated: 14 Feb 2014</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>This change is transparent to the user because will only affect the VDSM &lt;=&gt; engine communication. User will notice only indirectly through more precise reporting and better behaviour in general.</p>
+
+<p>Backward and forward compatibility must be ensured:</p>
+
+<ul>
+  <li>updated engines must to deal properly with not-updated VDSMs and</li>
+  <li>updated VDSMs must deal properly with not-updated engines.</li>
+</ul>
+
+<p>since the communication between VDSM and engine happens through XML-RPC, not-updated engines will just discard the extra field. In the case of an updated engine dealing with an old, not updated, VDSM, the missing field will be filled with a placeholder value with ‘Value Unknown’ semantics. In this case the engine must not rely internally on the value of the new field and must behave as before.</p>
+
+<h3 id="design-discussion">Design Discussion</h3>
+
+<ul>
+  <li>Why an extra field?</li>
+</ul>
+
+<p>ExitReason can be made a superset of ExitCode, meaning that when the values overlap, they carry the same meaning. ExitReason carries specific values for every possible VM termination outcome, either succesful or unsuccesful. So, for example, there is a specific ExitReason if a VM migrates succesfully, and not only a generic success value for all the possible correct terminations.</p>
+
+<p>We can make ExitReason backward compatible with ExitCode if we drop the specific success codes and we coalesce them in a single catch-all value.</p>
+
+<h3 id="webadminpower-user-portal">Webadmin/Power User Portal</h3>
+
+<p>No user-visible change.</p>
+
+<h3 id="rest-api">REST API</h3>
+
+<p>Not affected.</p>
+
+<h3 id="vdsm">VDSM</h3>
+
+<p>change: <a href="http://gerrit.ovirt.org/#/c/22631/">http://gerrit.ovirt.org/#/c/22631/</a> relevant bugzillas: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=557125">https://bugzilla.redhat.com/show_bug.cgi?id=557125</a></p>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p>Engine changeset: <a href="http://gerrit.ovirt.org/#/c/23946/">http://gerrit.ovirt.org/#/c/23946/</a> relevant bugzilla (trivially solved leveraging this feature): <a href="https://bugzilla.redhat.com/show_bug.cgi?id=697277">https://bugzilla.redhat.com/show_bug.cgi?id=697277</a></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3051/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3051/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3051/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3051/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/detailed-exit-reason.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/detailed-exit-reason.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

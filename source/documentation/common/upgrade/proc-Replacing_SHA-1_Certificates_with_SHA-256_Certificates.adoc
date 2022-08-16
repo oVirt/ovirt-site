@@ -64,7 +64,11 @@ endif::SHE_upgrade[]
         --keep-key
 done
 ----
-
++
+[NOTE]
+====
+The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
+====
 . Restart the *httpd* service:
 +
 ----
@@ -166,7 +170,11 @@ endif::SHE_upgrade[]
         --keep-key
 done
 ----
-
++
+[NOTE]
+====
+The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
+====
 . Restart the following services:
 +
 ----

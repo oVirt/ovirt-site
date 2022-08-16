@@ -70,7 +70,11 @@ done
 ----
 # systemctl restart httpd
 ----
-
++
+[NOTE]
+====
+The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
+====
 ifdef::SHE_upgrade[]
 . Log in to one of the self-hosted engine nodes and disable global maintenance:
 +
@@ -166,7 +170,11 @@ endif::SHE_upgrade[]
         --keep-key
 done
 ----
-
++
+[NOTE]
+====
+The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
+====
 . Restart the following services:
 +
 ----

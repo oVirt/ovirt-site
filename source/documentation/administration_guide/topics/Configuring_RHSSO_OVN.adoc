@@ -11,7 +11,7 @@ where *user1* belongs to the LDAP group *ovirt-administrator*, and *openidchttp*
 +
 ----
 [OVIRT]
-# ovirt-admin-user-name=user1@openidchttp
+ovirt-admin-user-name=user1@openidchttp
 ----
 . Restart the `ovirt-provider-ovn`:
 +

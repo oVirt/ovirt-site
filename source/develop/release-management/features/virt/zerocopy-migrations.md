@@ -29,7 +29,7 @@ Nothing special, just up-to-date libvirt and QEMU.
 
 Current implementation of zero-copy migration in QEMU has some restrictions:
 
-- It can be used only with [parallel migrations](parallel-migrations.html) and thus the same limitations as for parallel migrations apply.
+- It can be used only with [parallel migrations](parallel-migration-connections.html) and thus the same limitations as for parallel migrations apply.
 
 - It cannot be used with migration encryption.
 

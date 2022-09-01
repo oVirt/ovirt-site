@@ -11,6 +11,7 @@ authors:
   - sgordon
   - suppentopf
   - wdennis
+  - Phurion
 ---
 
 # Troubleshooting NFS Storage Issues
@@ -105,6 +106,16 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
      /storage    *(rw)
 
      #>/etc/init.d/nfs-kernel-server restart
+```
+#### Ubuntu 22.04 (Jammy)
+In addition to what is above you will need to edit the file /etc/nfs.conf and comment out manage-gids=y
+```console
+      [mountd]
+      # manage-gids=y
+ ```
+Restart the service
+ ```console
+      /etc/init.d/nfs-kernel-server restart
 ```
 
 #### Fedora 26 or higher

@@ -113,9 +113,14 @@ In addition to what is above you will need to edit the file /etc/nfs.conf and co
       [mountd]
       # manage-gids=y
  ```
-Restart the service
+ Edit /etc/default/nfs-kernel-server and remove --manage-gids from RPCMOUNTDOPTS="--manage-gids"
  ```console
-      /etc/init.d/nfs-kernel-server restart
+      RPCMOUNTDOPTS=""
+ ```
+Restart the services
+ ```console
+      systemctl restart nfs-kernel-server
+      systemctl restart rpcbind
 ```
 
 #### Fedora 26 or higher

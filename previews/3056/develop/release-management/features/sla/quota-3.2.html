@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Quota-3.2 | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Quota-3.2" />
+<meta name="author" content="Doron Fediuck" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3056/develop/release-management/features/sla/quota-3.2.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3056/develop/release-management/features/sla/quota-3.2.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Quota-3.2" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Doron Fediuck" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Doron Fediuck"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Quota-3.2","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3056/images/logo.svg"},"name":"Doron Fediuck"},"url":"https://ovirt.github.io/ovirt-site/previews/3056/develop/release-management/features/sla/quota-3.2.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3056/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3056/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3056/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3056/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3056/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3056/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3056/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3056/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3056/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3056/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3056/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3056/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3056/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3056/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3056/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3056/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3056/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3056/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3056/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3056/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3056/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3056/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3056//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3056//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3056/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3056/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3056/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3056/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3056/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Doron Fediuck">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/819d7e00c07db9447fa5705dadfe8c02?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/819d7e00c07db9447fa5705dadfe8c02?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Ofri Masad">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ofri Masad</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Yaniv Kaul">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Kaul</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3056/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="quota">Quota</h1>
+
+<p>This document describes the design for the Quota updates in oVirt 3.2.</p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>Current quota (as available on oVirt 3.1) handles most of the planned capabilities and UI.
+Planned updates will include minor UI changes and more significant backend redesign.
+Main issues which to be addressed in this version:</p>
+
+<ul>
+  <li>Current implementation does not integrate into the adding new command process. Thus, one can add a new command without taking Quota into concern. In the command is a resources consumer - this could potentially lead to holes in the quota mechanism.</li>
+  <li>In current design, a command quota dependency is inherited by its descendants. This situation leads to wrong quota calculation (when inheriting implemented methods) and unnecessary quota calculations (when the descendant should not be quota dependent). The redundant quota references often results with corrupted data passed to the QuotaManager.</li>
+  <li>Current design calls for a relatively complex implementation in each new command, When large portions of the code are duplicated .</li>
+</ul>
+
+<h2 id="gui">GUI</h2>
+
+<p>Current UI both in the Administrator Portal and the User Portal is lacking status and monitoring.</p>
+
+<ul>
+  <li>Administrator Portal
+    <ul>
+      <li>Quota Monitoring would be added to the Quota-View Main-Tab. The main grid will be changed, adding the columns: Memory Consumption, Free Memory, vCPU Consumption, Free vCPU, Storage Consumption, Free storage. Consumption columns will show a percentage bar and free resource columns will show actual quantity of free resource.</li>
+      <li>Unlimited resources will show “Unlimited” instead of the percentage and free quantity.</li>
+      <li>Exceeded quota will show “Exceeded” instead of the percentage.</li>
+      <li>Bars color will be set according to other system behavior (currently green&lt;70, 70&lt;=orange &lt;95, red&gt;=95) and not according to threshold and grace settings.</li>
+    </ul>
+  </li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![</td>
+      <td>Quota Monitors in Administrator Portal](/images/wiki/MainTabQuotaViewNew.png “</td>
+      <td>Quota Monitors in Administrator Portal”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Power User Portal
+    <ul>
+      <li>Quota monitoring would be added to the Resources Side-Tab. The current usage bar available in the vCPU box and the Memory box will be changed. instead of the current behavior showing the used/defined resources the bar will get a new behavior, showing the used/available (where available is the amount of resources allocated for the user in the quota). i.e. if the user is defined as a consumer of Quota_a which limits 30Gb of storage and the user currently have two disks of 10Gb each - the user will see 66% usage (20/30).</li>
+      <li>The upper bar will show an aggregation of all of the quotas available for the consumption of the user.</li>
+      <li>Under the upper bar an expansion panel will be added, showing the quota distribution.</li>
+      <li>In case part of the quota is consumed by other users, this part will be shown in a different color and will get a separated percentage label</li>
+      <li>Consumption bars will be added to the Storage box as well (at the top)</li>
+    </ul>
+  </li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![</td>
+      <td>Quota Monitors in User Portal](/images/wiki/End_user_memory.png “</td>
+      <td>Quota Monitors in User Portal”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="design">Design</h3>
+
+<h2 id="backend">Backend</h2>
+
+<p>This section describes the backend design for this feature.</p>
+
+<h3 id="logic-design">Logic Design</h3>
+
+<p>Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
+The process of quota validation is located in 3.1 in a method called validateAndSetQuota in the command execute process. This will be moved into CommandBase.
+As in 3.1 the quota validation should be executed as synchronize method during the internalCanDoAction and before the command execute method.
+Each command which consumes quota resources will implement StorageQuotaDependent and/or VdsQuotaDependent interface and will return a list of the quota consume/release parameters.
+Commands will also be marked as storage or Vds consumers in the VdcActionType class. The default value for this setting will be BOTH (consumes both storage and vds), so when adding new command, one will have to consider quota issues. Commands which does not consume any quota resources will be marked NONE. CommandBase will use this markings in order to decide whether quota validation is needed.
+The VdcActionType marking will prevent unintentional inheritance of the interfaces and the implemented methods.
+Additionally, a unit-test will be added to make sure all commands marked as quota consumers have a relevant implementation of the interface.</p>
+
+<h3 id="client-support">Client support</h3>
+
+<p>In order to support the planned UI changes, QuotaManager will expose a new API. Using this API and reusing available queries the UI could pull quota consumption information from the QuotaManager cache (or DB). For 3.2, RESTful API is out of scope.</p>
+
+<p>To support the new Quota monitoring both in User portal and Administrator portal, QuotaManager will expose a new API allowing to query the QuotaManager internal cache for quota consumption information.</p>
+
+<p>Since the current caching mechanism in QuotaManager was designed to cache individual quota entries (and thus would be very inefficient for large number of quota cached at the same time), a second caching mechanism will be added to support fast caching (caching all the quota in the DB together). This caching will be called using a Quartz job once on system init and then every xx minutes (conditioned by cache size to db quota table size ratio).</p>
+
+<h4 id="db-change">DB Change</h4>
+
+<p>New store-procedures and functions will be added in order to support the new caching mechanism. No new views will be defined.</p>
+
+<h4 id="classes">Classes</h4>
+
+<p><em><strong>org.ovirt.engine.core.bll.quota.QuotaManager:</strong>’’ A class which manages the quota views and memory delta tables. This class will be revisited and redesigned.
+**consume(QuotaConsumptionParametrs params):</em>’ This will be the main API of the QuotaManager. Any quota Consumption will call this method. Parameters are taken from CommandBase and the consuming command. The return value is a boolean - telling if the consumption was possible. Both storage resources and vds resources will be asked in the same QuotaConsumptionParametrs Object. That way the QuotaManager could validate and set all the resources required for the command (will make the external rollback redundant).
+**rolback(QuotaConsumptionParametrs params):’’’ The same as consume(), only reverting all of the consume/release done by the same parameters.</p>
+
+<p><strong><em>org.ovirt.engine.core.bll.quota.QuotaConsumptionParameters:**’’ The object passed to the QuotaManager on each consume/release call.
+**storage_pool id:</em>’ Every cunsume/release call can handle only one storage_pool (DC).
+**canDoActionMesseges:<em>’ Used for returning canDoAction messeges back to the command.
+**auditLoggableBase:** Used in order to allow logging to the auditLog using the command itself.
+**List of QuotaStorageConsumptionParameter:** Holds a single entry. the basic consumption unit.
+**List of QuotaVdsConsumptionParameter:** Holds a single entry. the basic consumption unit.
+ **</em>org.ovirt.engine.core.bll.quota.QuotaStorageConsumptionParameter:</strong>’’ A single entry. The basic consumption unit for storage.
+<strong>quotaId:<em>’ The ID of the quota.
+**action type:</em>’ Consume or release (This allows to consume some resources while releasing others, all in the same call to consume()).
+**storageDomainId:</strong> ID of the storage domain (the asked resource).
+<strong>requestedStorageGB:</strong> The requested storage in GB.
+ <strong><em>org.ovirt.engine.core.bll.quota.QuotaVdsConsumptionParameter:**’’ A single entry. the basic consumption unit for cluster.
+**quotaId:</em>’ The ID of the quota.
+**action type:’’’ Consume or release (This allows to consume some resources while releasing others, all in the same call to consume()).
+**vdsGroupId:</strong> ID of the vds group (cluster) (the asked resource).
+<strong>requestedCpu:</strong> The requested number of vCPUs.
+<strong>requestedMem:</strong> The requested Memory.</p>
+
+<h4 id="typical-flow">Typical flow</h4>
+
+<p>Before executing command</p>
+
+<ol>
+  <li>Call canDoAction (on CommandBase)
+    <ol>
+      <li>Call validateAndSetQuota (on CommandBase)
+        <ol>
+          <li>If the command is not a storage/vds consumer - return true.</li>
+          <li>else - Call getQuotaStorageConsumptionParameters()/getQuotaVdsConsumptionParameters() (on the about to be executed command)</li>
+          <li>add storage pool id, auditLogable (this) and canDoActionMessages to complete the QuotaConsumptionParameters object</li>
+          <li>if QuotaManager.consume() return true - proceed to execution
+            <ol>
+              <li>If quota_enforcement != DISABLED return true</li>
+              <li>else - check the requested consumption for each parameter
+                <ol>
+                  <li>If one or more parameters request can not be carried
+                    <ol>
+                      <li>roll-back and return false</li>
+                    </ol>
+                  </li>
+                  <li>else - return true</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>execute command or return error</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="tests">Tests</h2>
+
+<p>Unit-tests for testing all of the QuotaManager API will be added.</p>
+
+<h3 id="expected-unit-tests">Expected unit-tests</h3>
+
+<ol>
+  <li>QuotaManager - consume quota</li>
+  <li>QuotaManager - release quota</li>
+  <li>QuotaManager - rollback quota</li>
+  <li>QuotaManager - clear quota cache</li>
+  <li>Check quota interface is implemented where VdcActionType suggests it should</li>
+</ol>
+
+<h3 id="special-considerations">Special considerations</h3>
+
+<p>No special considerations.</p>
+
+<h3 id="pre-integration-needs">Pre-integration needs</h3>
+
+<p>No needs.</p>
+
+<h2 id="responded-to-next-version">responded to next version</h2>
+
+<h3 id="db-change-1">DB Change</h3>
+
+<p>In order to support quota on duplicate image stored on different storage domains, the quota_id column will move from “images” table to “image_storage_domain_map” table.</p>
+
+<p><strong>image_storage_domain_map</strong> - Represents the properties of the Quota configured on the DC.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Type</th>
+      <th>Null? / Default</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>image_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>Image Id</td>
+    </tr>
+    <tr>
+      <td>storage_domain_id</td>
+      <td>UUID</td>
+      <td>not null</td>
+      <td>Storage domain id</td>
+    </tr>
+    <tr>
+      <td>quota_id</td>
+      <td>UUID</td>
+      <td> </td>
+      <td>Quota id</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3056/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3056/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3056/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3056/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/quota-3.2.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/quota-3.2.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

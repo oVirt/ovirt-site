@@ -62,13 +62,13 @@ Now, all new and existing self-hosted engine nodes use the new FQDN.
 The oVirt Engine Rename Tool is designed to work only on local machines. Changing the engine name does not automatically update the name on remote Data Warehouse machines. Changing the names on remote DWH machines must be performed manually.
 ====
 
-*For remote Data Warehouse deployments, follow these steps on the remote machine:*
+*For remote Data Warehouse deployments, follow these steps on the remote machine (not on the {engine-name} machine):*
 
 . Remove the following PKI files:
 +
 `/etc/pki/ovirt-engine/apache-ca.pem`
 `/etc/pki/ovirt-engine/apache-grafana-ca.pem`
-`/etc/pki/ovirt-engine/certs/*`
+`/etc/pki/ovirt-engine/certs/\*`
 `/etc/pki/ovirt-engine/keys/*`
 . In the following files, update the engine fqdn to the new name (for example, `vm-new-name.local_lab_server.redhat.com`):
 +

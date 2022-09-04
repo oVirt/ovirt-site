@@ -7,6 +7,6 @@ include::common/collateral_files/_attributes.adoc[]
 :engine-name: Red Hat Virtualization Manager
 :product-name: Red Hat Virtualization
 
-include::model.adoc[]
+include::model.adoc[leveloffset=+1]
 
-include::common/collateral_files/legal-notice.adoc[]
+include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

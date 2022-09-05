@@ -2026,6 +2026,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/3058/develop/release-management/features/storage/ovfonanydomain.html</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/3058/community/ovirt-counter.html</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3058/develop/projects/proposals/ovirt-engine-disaster-recovery.html</loc>
 </url>
 <url>
@@ -3020,10 +3023,10 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3058/media/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-09-04T18:23:59+00:00</lastmod>
+<lastmod>2022-09-05T15:06:37+00:00</lastmod>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3058/media/Hybrid-backup-v8.pdf</loc>
-<lastmod>2022-09-04T18:23:59+00:00</lastmod>
+<lastmod>2022-09-05T15:06:37+00:00</lastmod>
 </url>
 </urlset>

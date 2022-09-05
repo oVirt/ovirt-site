@@ -59,7 +59,7 @@ Now, all new and existing self-hosted engine nodes use the new FQDN.
 
 [NOTE]
 ====
-The oVirt Engine Rename Tool is designed to work only on local machines. Changing the engine name does not automatically update the name on remote Data Warehouse machines. Changing the names on remote DWH machines must be performed manually.
+The oVirt Engine Rename Tool is designed to work only on local machines. Changing the {engine-name} name does not automatically update the name on remote Data Warehouse machines. Changing the names on remote DWH machines must be performed manually.
 ====
 
 *For remote Data Warehouse deployments, follow these steps on the remote machine (not on the {engine-name} machine):*

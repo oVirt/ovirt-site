@@ -75,8 +75,8 @@ The oVirt Engine Rename Tool is designed to work only on local machines. Changin
 `/etc/grafana/grafana.ini`
 `/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf`
 `/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf`
-. Run engine-setup:
+. Run engine-setup with the --offline switch to prevent updates at this time:
 +
 ----
-# engine-setup
+# engine-setup --offline
 ----

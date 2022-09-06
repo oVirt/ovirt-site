@@ -27,9 +27,9 @@ The `ovirt-engine-rename` command updates records of the fully qualified domain 
 ====
 Are you sure you need to do this?
 
-Since version 4.0.4, it is possible to add more names to access the engine web interface.
+Since version 4.0.4, it is possible to add more names to access the {engine-name} web interface.
 
-. Make sure the names you choose can resolve to an IP address of the engine machine by adding relevant records to the DNS names or to `/etc/hosts`.
+. Make sure the names you choose can resolve to an IP address of the {engine-name} machine by adding relevant records to the DNS names or to `/etc/hosts`.
 . Run the following:
 
   ----

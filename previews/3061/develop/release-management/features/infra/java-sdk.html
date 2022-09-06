@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Java-sdk | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Java-sdk" />
+<meta name="author" content="Andrew Dahms" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3061/develop/release-management/features/infra/java-sdk.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3061/develop/release-management/features/infra/java-sdk.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Java-sdk" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Andrew Dahms" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Andrew Dahms"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Java-sdk","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3061/images/logo.svg"},"name":"Andrew Dahms"},"url":"https://ovirt.github.io/ovirt-site/previews/3061/develop/release-management/features/infra/java-sdk.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3061/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3061/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3061/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3061/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3061/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3061/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3061/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3061/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3061/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3061/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3061/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3061/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3061/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3061/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3061/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3061/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3061/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3061/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3061/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3061/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3061/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3061/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3061//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3061//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3061/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3061/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3061/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3061/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3061/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d17fe401696c1bc6269a18d0a9c3132c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d17fe401696c1bc6269a18d0a9c3132c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Andrew Dahms">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Andrew Dahms</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bd5405d06a99910f92f6c9f96048a332?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bd5405d06a99910f92f6c9f96048a332?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Michael Pasternak">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Pasternak</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Moti Asayag">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3061/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="java-sdk">Java-sdk</h1>
+
+<p>The oVirt Java-SDK is an automatically generated software development kit for the oVirt engine API.
+This software development kit allows you to develop Java-based applications for automating a variety of complex administrative tasks in oVirt.</p>
+
+<h2 id="concepts">Concepts</h2>
+
+<ul>
+  <li>Auto-Generated</li>
+  <li>Complete protocol abstraction.</li>
+  <li>Full compliance with the oVirt api architecture.</li>
+  <li>Self descriptive.</li>
+  <li>Intuitive and easy to use.</li>
+</ul>
+
+<h2 id="ide-examples">IDE Examples</h2>
+
+<h3 id="creating-the-proxy">Creating the proxy:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/0-1jdk.png" alt="" /></p>
+
+<h4 id="authenticating-using-user-name-and-password">Authenticating using user name and password:</h4>
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/0-1-1jdk.png" alt="" /></p>
+
+<h4 id="authenticating-using-sessionid">Authenticating using sessionid:</h4>
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/0-1-2jdk.png" alt="" /></p>
+
+<h3 id="listing-all-collections">Listing all collections:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/1jsdk.png" alt="" /></p>
+
+<h3 id="listing-the-methods-of-a-collection">Listing the methods of a collection:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/2jdk.png" alt="" /></p>
+
+<h3 id="querying-a-collection-using-a-ovirt-search-engine-query-and-custom-constraints">Querying a collection using a oVirt search engine query and custom constraints:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/3jdk.png" alt="" /></p>
+
+<h3 id="accessing-resource-methods-and-properties">Accessing resource methods and properties:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/4jdk.png" alt="" /></p>
+
+<h3 id="creating-a-resource">Creating a resource:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/5jdk.png" alt="" /></p>
+
+<h3 id="accessing-resource-properties-and-sub-collections">Accessing resource properties and sub-collections:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/6jdk.png" alt="" /></p>
+
+<h3 id="accessing-sub-collection-methods">Accessing sub-collection methods:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/7jdk.png" alt="" /></p>
+
+<h3 id="querying-a-sub-collection-using-custom-constraints">Querying a sub-collection using custom constraints:</h3>
+
+<hr />
+
+<p>TBD</p>
+
+<h3 id="retrieving-a-sub-collection-resource">Retrieving a sub-collection resource:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/8jdk.png" alt="" /></p>
+
+<h3 id="accessing-sub-collection-resource-properties-and-methods">Accessing sub-collection resource properties and methods:</h3>
+
+<hr />
+
+<p><img src="/ovirt-site/previews/3061/images/wiki/9jdk.png" alt="" /></p>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="create-proxy">create proxy</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// #1 - import</span>
+         <span class="kn">import</span> <span class="nn">org.ovirt.engine.sdk.Api</span><span class="o">;</span>
+
+         <span class="c1">// #2 - create proxy</span>
+         <span class="nc">Api</span> <span class="n">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Api</span><span class="o">(</span><span class="s">"http://localhost:8080/api"</span><span class="o">,</span> <span class="s">"user@domain"</span><span class="o">,</span> <span class="s">"password"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="list-entities">list entities</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// #1 - list resources</span>
+         <span class="nc">List</span><span class="err">`</span><span class="o">&lt;</span><span class="no">VM</span><span class="o">&gt;</span><span class="err">`</span> <span class="n">vms</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">list</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="update-resource">update resource</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - modify it</span>
+         <span class="n">vm</span><span class="o">.</span><span class="na">setDescription</span><span class="o">(</span><span class="s">"java_sdk"</span><span class="o">);</span>
+
+         <span class="c1">// #3 - update it</span>
+         <span class="no">VM</span> <span class="n">newVM</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="get-resource-by-name">get resource by name</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// #1 - fetch resource using name</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="get-resource-by-id">get resource by id</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// #1 - fetch resource using id</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"5a89a1d2-32be-33f7-a0d1-f8b5bc974ff6"</span><span class="o">));</span>
+</code></pre></div></div>
+
+<h3 id="add-resource">add resource</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// #1 - create parameters</span>
+         <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">VM</span> <span class="n">vmParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">VM</span><span class="o">();</span>
+         <span class="n">vmParams</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"myVm"</span><span class="o">);</span>
+         <span class="n">vmParams</span><span class="o">.</span><span class="na">setCluster</span><span class="o">(</span><span class="n">api</span><span class="o">.</span><span class="na">getClusters</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"myCluster"</span><span class="o">));</span>
+         <span class="n">vmParams</span><span class="o">.</span><span class="na">setTemplate</span><span class="o">(</span><span class="n">api</span><span class="o">.</span><span class="na">getTemplates</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"myTemplate"</span><span class="o">));</span>
+
+         <span class="c1">// #2 - add resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">vmParams</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// #1 - create parameters</span>
+         <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">VM</span> <span class="n">vmParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">VM</span><span class="o">();</span>
+         <span class="n">vmParams</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"myVm"</span><span class="o">);</span>
+         <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">Cluster</span> <span class="n">clusterParam</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Cluster</span><span class="o">();</span>
+         <span class="n">clusterParam</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"myCluster"</span><span class="o">);</span>
+         <span class="n">vmParams</span><span class="o">.</span><span class="na">setCluster</span><span class="o">(</span><span class="n">clusterParam</span><span class="o">);</span>
+         <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">Template</span> <span class="n">templateParam</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Template</span><span class="o">();</span>
+         <span class="n">templateParam</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"myTemplate"</span><span class="o">);</span>
+         <span class="n">vmParams</span><span class="o">.</span><span class="na">setTemplate</span><span class="o">(</span><span class="n">templateParam</span><span class="o">);</span>
+
+         <span class="c1">// #2 - add resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">vmParams</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="perform-an-action-on-resource">perform an action on resource</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - create params</span>
+         <span class="nc">Action</span> <span class="n">actionParam</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Action</span><span class="o">();</span>
+         <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">VM</span> <span class="n">vmParam</span> <span class="o">=</span> <span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">VM</span><span class="o">();</span>
+         <span class="n">actionParam</span><span class="o">.</span><span class="na">setVm</span><span class="o">(</span><span class="n">vmParam</span><span class="o">);</span>
+
+         <span class="c1">// #3 - perform an action</span>
+         <span class="nc">Action</span> <span class="n">res</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">start</span><span class="o">(</span><span class="n">actionParam</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - create params + perform an action</span>
+         <span class="nc">Action</span> <span class="n">res</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">start</span><span class="o">(</span><span class="k">new</span> <span class="nc">Action</span><span class="o">()</span> <span class="o">{</span>
+             <span class="o">{</span>
+                 <span class="n">setVm</span><span class="o">(</span><span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">ovirt</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">VM</span><span class="o">());</span>
+             <span class="o">}</span>
+         <span class="o">});</span>
+</code></pre></div></div>
+
+<h3 id="list-sub-resources">list sub-resources</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - list sub-resources</span>
+         <span class="nc">List</span><span class="err">`</span><span class="o">&lt;</span><span class="nc">VMDisk</span><span class="o">&gt;</span><span class="err">`</span> <span class="n">disks</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">getDisks</span><span class="o">().</span><span class="na">list</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="get-sub-resource">get sub-resource</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - fetch sub-resource</span>
+         <span class="nc">VMDisk</span> <span class="n">disk</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">getDisks</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"my disk"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="add-sub-resource-to-resource">add sub-resource to resource</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - create parameters</span>
+         <span class="nc">Disk</span> <span class="n">diskParam</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Disk</span><span class="o">();</span>
+         <span class="n">diskParam</span><span class="o">.</span><span class="na">setProvisionedSize</span><span class="o">(</span><span class="mi">1073741824L</span><span class="o">);</span>
+         <span class="n">diskParam</span><span class="o">.</span><span class="na">setInterface</span><span class="o">(</span><span class="s">"virtio"</span><span class="o">);</span>
+         <span class="n">diskParam</span><span class="o">.</span><span class="na">setFormat</span><span class="o">(</span><span class="s">"cow"</span><span class="o">);</span>
+
+         <span class="c1">// #3 - add sub-resource</span>
+         <span class="nc">Disk</span> <span class="n">disk</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">getDisks</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">diskParam</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="update-sub-resource">update sub-resource</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - fetch sub-resource</span>
+         <span class="nc">VMDisk</span> <span class="n">disk</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">getDisks</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test_Disk1"</span><span class="o">);</span>
+
+         <span class="c1">// #3 - modify sub-resource</span>
+         <span class="n">disk</span><span class="o">.</span><span class="na">setAlias</span><span class="o">(</span><span class="s">"test_Disk1_updated"</span><span class="o">);</span>
+
+         <span class="c1">// #4 - update it</span>
+         <span class="nc">VMDisk</span> <span class="n">updateDisk</span> <span class="o">=</span> <span class="n">disk</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="run-action-on-sub-resource">run action on sub-resource</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+         <span class="c1">// #1 - fetch resource</span>
+         <span class="no">VM</span> <span class="n">vm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="na">getVMs</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+         <span class="c1">// #2 - fetch sub-resource</span>
+         <span class="nc">VMDisk</span> <span class="n">disk</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="na">getDisks</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"test_Disk1"</span><span class="o">);</span>
+
+         <span class="c1">// #3 - create parameters</span>
+         <span class="nc">Action</span> <span class="n">actionParam</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Action</span><span class="o">();</span>
+
+         <span class="c1">// #4 - run an action on sub-resource</span>
+         <span class="nc">Action</span> <span class="n">result</span> <span class="o">=</span> <span class="n">disk</span><span class="o">.</span><span class="na">activate</span><span class="o">(</span><span class="n">actionParam</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="best-practices">Best Practices</h3>
+
+<p>The api should be shutdown in a finally block so daemon resources are freed:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+       <span class="nc">Api</span> <span class="n">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Api</span><span class="o">(</span><span class="no">URL</span><span class="o">,</span> <span class="no">USER</span><span class="o">,</span> <span class="no">PASSWORD</span><span class="o">);</span>
+       <span class="k">try</span> <span class="o">{</span>
+           <span class="n">api</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">getDataCenters</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">DataCenter</span><span class="o">());</span>
+           <span class="o">...</span>
+       <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+           <span class="n">api</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+       <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="working-with-ssl-secure-socket-layer">Working with SSL (Secure Socket Layer)</h2>
+
+<p>The oVirt Java software development kit provides full support for HTTP over Secure Sockets Layer (SSL) or IETF Transport Layer Security (TLS) protocols by leveraging the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with Java-SDK out of the box. On older Java 2 versions, JSSE must be manually installed and configured. Installation instructions can be found at <a href="http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation">here</a>.</p>
+
+<p>Once you have correctly installed JSSE, secure HTTP communication over SSL should be as simple as plain HTTP communication. However, you must supply the Java software development kit with a KeyStore containing the host CA certificate to validate the destination host identity:</p>
+
+<h3 id="generating-the-truststore">Generating the truststore</h3>
+
+<ol>
+  <li>
+    <p>Download oVirt host CA certificate from <code class="language-plaintext highlighter-rouge">https://host:port/ca.crt</code></p>
+  </li>
+  <li>
+    <p>Generate keystore</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>keytool <span class="nt">-import</span> <span class="nt">-alias</span> <span class="s2">"server.crt truststore"</span> <span class="nt">-file</span> server.crt <span class="nt">-keystore</span> server.truststore
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="make-java-sdk-aware-of-the-keystore">Make Java-SDK aware of the keystore</h3>
+
+<p>this can be achieved in one of two ways:</p>
+
+<ol>
+  <li>Via default keystore lookup path
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir ~/.ovirtsdk/
+$ cp server.truststore ~/.ovirtsdk/ovirtsdk-keystore.truststore
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Once the <code class="language-plaintext highlighter-rouge">ovirtsdk-keystore.truststore</code> installed in the <code class="language-plaintext highlighter-rouge">~/.ovirtsdk</code>, it will be used for host identity validation upon handshake with the destination host.</p>
+
+<ol>
+  <li>Via a custom truststore</li>
+</ol>
+
+<p>Use this signature: Api(String url, String username, String password, String keyStorePath)</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="nc">Api</span> <span class="n">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Api</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">user</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="s">"/path/server.truststore"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="disable-host-identity-validation">Disable host identity validation</h3>
+
+<p>This method SHOULD NOT be used for productive systems due to security reasons, unless it is a conscious decision and you are perfectly aware of security implications of not validating host identity.</p>
+
+<p>use this signature: <code class="language-plaintext highlighter-rouge">Api(String url, String username, String password, boolean noHostVerification)</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="nc">Api</span> <span class="n">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Api</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">user</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="deployment">Deployment</h2>
+
+<h3 id="maven-deployment">Maven deployment</h3>
+
+<ol>
+  <li>add mvn-releases repository to your <code class="language-plaintext highlighter-rouge">~/.m2/settings.xml</code> under <code class="language-plaintext highlighter-rouge">&lt;repositories&gt;</code>
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;repository&gt;</span>
+    <span class="nt">&lt;id&gt;</span>mvn-releases<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/releases<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;releases&gt;</span>
+    <span class="nt">&lt;/releases&gt;</span>
+    <span class="nt">&lt;snapshots&gt;</span>
+        <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+    <span class="nt">&lt;/snapshots&gt;</span>
+<span class="nt">&lt;/repository&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>add sdk dependency to your project pom.xml
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.ovirt.engine.sdk<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>ovirt-engine-sdk-java<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>x.y.z.q-v<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;type&gt;</span>jar<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>    </div>
+    <p><code class="language-plaintext highlighter-rouge">x.y.z.q-v</code> is a latest sdk release (list of available releases can be found at <a href="https://github.com/oVirt/ovirt-engine-sdk-java/tags">Java SDK tags</a>)</p>
+  </li>
+  <li>deploy sdk dependencies and javadoc
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mvn dependency:resolve <span class="nt">-Dclassifier</span><span class="o">=</span>javadoc
+</code></pre></div>    </div>
+  </li>
+  <li>compile
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mvn clean <span class="nb">install</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="development-deployment">Development deployment</h3>
+
+<h4 id="code-generation">Code generation</h4>
+
+<ol>
+  <li>pull + compile + deploy latest ovirt-engine sources</li>
+  <li>cd ovirt-engine-sdk-java-codegen</li>
+  <li>compile</li>
+  <li>run (this will generate sdk from the ovirt-engine)</li>
+</ol>
+
+<h4 id="development">Development</h4>
+
+<p>All SDK development is done on the ovirt-engine-sdk-java-codegen project,
+i.e if you have yet not supported funcionality in SDK, this is a place to add
+support for it.</p>
+
+<h2 id="todo-list">TODO list</h2>
+
+<ol>
+  <li>
+    <p>generate entry-point (<code class="language-plaintext highlighter-rouge">/api</code>) methods (done)</p>
+  </li>
+  <li>
+    <p>generate searchable <code class="language-plaintext highlighter-rouge">list()</code> methods (done)</p>
+  </li>
+  <li>
+    <p>generate method/s overloads using header/url params (done)</p>
+  </li>
+  <li>
+    <p>generate delete method/s overloads with body (done)</p>
+  </li>
+  <li>
+    <p>support persistent authentication (done)</p>
+  </li>
+  <li>
+    <p>implement SSL support (done)</p>
+  </li>
+  <li>
+    <p>implement SSL CA certificate validation (done)</p>
+  </li>
+  <li>
+    <p>implement client validation</p>
+  </li>
+  <li>
+    <p>allow setters generation for collection based fields in org.ovirt.engine.sdk.entities</p>
+  </li>
+  <li>
+    <p>implement in collection.get(name) search using engine.search</p>
+  </li>
+  <li>
+    <p>implement timeout in SDK constructor</p>
+  </li>
+  <li>
+    <p>implement sdk debug mode (done)</p>
+  </li>
+  <li>
+    <p>remove @SuppressWarnings(“unused”) from decorators</p>
+  </li>
+  <li>
+    <p>move get/list methods from the decorators to the parent classes</p>
+  </li>
+  <li>
+    <p>implement unique treatment for COLLECTION2ENTITY pattern exceptions (in-progress)</p>
+  </li>
+  <li>
+    <p>implement logger in codegen</p>
+  </li>
+  <li>
+    <p>add deployment capabilities (done)</p>
+  </li>
+  <li>
+    <p>upload artifacts to mvn repo (done)</p>
+  </li>
+  <li>
+    <p>Implement querying collections using custom constraint.</p>
+  </li>
+  <li>
+    <p>in doc change parameters format to javaDoc style (done)</p>
+  </li>
+  <li>
+    <p>make API.java thread safe (done)</p>
+  </li>
+</ol>
+
+<h2 id="maintainers">Maintainers</h2>
+
+<p>Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3061/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3061/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3061/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3061/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/java-sdk.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/infra/java-sdk.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

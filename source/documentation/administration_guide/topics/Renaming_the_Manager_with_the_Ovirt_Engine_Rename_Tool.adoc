@@ -70,12 +70,12 @@ The oVirt Engine Rename Tool is designed to work only on local machines. Changin
 `/etc/pki/ovirt-engine/apache-grafana-ca.pem`
 `/etc/pki/ovirt-engine/certs/\*`
 `/etc/pki/ovirt-engine/keys/*`
-. In the following files, update the engine fqdn to the new name (for example, `vm-new-name.local_lab_server.redhat.com`):
+. In the following files, update the {engine-name} fqdn to the new name (for example, `vm-new-name.local_lab_server.redhat.com`):
 +
 `/etc/grafana/grafana.ini`
 `/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf`
 `/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf`
-. Run engine-setup with the --offline switch to prevent updates at this time:
+. Run engine-setup with the `--offline` switch to prevent updates at this time:
 +
 ----
 # engine-setup --offline

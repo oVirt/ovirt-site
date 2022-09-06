@@ -23,7 +23,8 @@ For more information about supported GPUs and validated platforms, see link:http
 //== Before You Begin
 .Procedure
 
-. Download and install the NVIDIA driver for the host. For information on getting the driver, see link:https://www.nvidia.com/Download/index.aspx?lang=en-us[the Drivers page on the NVIDIA website].
+. Download and install the NVIDIA-vGPU driver. For information on getting the driver, see link:https://www.nvidia.com/object/vGPU-software-driver.html[vGPU drivers page on the NVIDIA website]. An Nvidia enterprise account is required to download the drivers. Contact the hardware vendor if this is not already available.
+. Unzip the downloaded file from the Nvidia website and copy it to the host to install the driver.
 [discrete]
 //== Configuring the Host
 

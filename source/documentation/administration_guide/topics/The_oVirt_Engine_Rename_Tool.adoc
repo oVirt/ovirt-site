@@ -22,6 +22,7 @@ The `ovirt-engine-rename` command updates records of the fully qualified domain 
 
 * /etc/pki/ovirt-engine/keys/apache.p12
 
+
 [NOTE]
 ====
 Are you sure you need to do this?
@@ -38,7 +39,7 @@ Since version 4.0.4, it is possible to add more names to access the engine web i
   ----
 . List the alternate names separated by spaces.
 
-It is also possible to add IP addresses of engine host. However, using IP addresses instead of DNS names is not good practice.
+It is also possible to add IP addresses of the {engine-name} machine. However, using IP addresses instead of DNS names is not good practice.
 ====
 
 

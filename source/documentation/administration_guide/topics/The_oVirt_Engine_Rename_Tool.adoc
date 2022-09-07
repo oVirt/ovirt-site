@@ -29,7 +29,7 @@ Are you sure you need to do this?
 
 Since version 4.0.4, it is possible to add more names to access the {engine-name} web interface.
 
-. Make sure the names you choose can resolve to an IP address of the {engine-name} machine by adding relevant records to the DNS names or to `/etc/hosts`.
+. Make sure the names you choose can resolve to an IP address of the {engine-name} machine by adding relevant records to the DNS server or to `/etc/hosts` (use `ping enginename` or `getent hosts enginename` to check).
 . Run the following:
 
   ----

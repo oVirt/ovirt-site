@@ -1,4 +1,4 @@
-=== Red Hat Virtualization 4.4 Batch Update 2 (ovirt-4.5.2)
+=== Red Hat Virtualization 4.4 SP 1 Batch Update 2 (ovirt-4.5.2)
 
 
 
@@ -35,6 +35,8 @@ With this release, importing templates from the  Administration Portal is now po
 This release of Red Hat Virtualization features the following enhancements:
 
 BZ#link:https://bugzilla.redhat.com/1793207[1793207]::
+A new warning has been added to the vdsm-tool to protect users from using the unsupported user_friendly_names multipath configuration. The following is an example of the output:
+
 $ vdsm-tool is-configured --module multipath
 WARNING: Invalid configuration: 'user_friendly_names' is
 enabled in multipath configuration:

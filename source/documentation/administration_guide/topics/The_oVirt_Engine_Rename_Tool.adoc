@@ -22,6 +22,27 @@ The `ovirt-engine-rename` command updates records of the fully qualified domain 
 
 * /etc/pki/ovirt-engine/keys/apache.p12
 
+
+[NOTE]
+====
+Are you sure you need to do this?
+
+Since version 4.0.4, it is possible to add more names to access the {engine-name} web interface.
+
+. Make sure the names you choose can resolve to an IP address of the {engine-name} machine by adding relevant records to the DNS server or to `/etc/hosts` (use `ping enginename` or `getent hosts enginename` to check).
+. Run the following:
+
+  ----
+  # echo 'SSO_ALTERNATE_ENGINE_FQDNS="alias1.example.com alias2.example.com"' \
+  > /etc/ovirt-engine/engine.conf.d/99-custom-sso-setup.conf
+  # systemctl restart ovirt-engine.service
+  ----
+. List the alternate names separated by spaces.
+
+It is also possible to add IP addresses of the {engine-name} machine. However, using IP addresses instead of DNS names is not good practice.
+====
+
+
 [WARNING]
 ====
 While the `ovirt-engine-rename` command creates a new certificate for the web server on which the {engine-name} runs, it does not affect the certificate for the {engine-name} or the certificate authority. Due to this, there is some risk involved in using the `ovirt-engine-rename` command, particularly in environments that have been upgraded from Red Hat Enterprise Virtualization 3.2 and earlier. Therefore, changing the fully qualified domain name of the {engine-name} by running `engine-cleanup` and `engine-setup` is recommended where possible.

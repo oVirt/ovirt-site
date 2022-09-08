@@ -14,6 +14,10 @@ example:
     when adding your own authors. All fields are optional, so only
     include the ones that apply.
 
+natman:
+  name: Nathanaël Blanchet
+  email: blanchet@abes.fr
+
 cctrieloff:
   name: Carl Trieloff
   email: cctrieloff@redhat.com

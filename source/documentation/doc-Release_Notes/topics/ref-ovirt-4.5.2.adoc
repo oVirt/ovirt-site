@@ -1,0 +1,114 @@
+=== Red Hat Virtualization 4.4 SP 1 Batch Update 2 (ovirt-4.5.2)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1853924[1853924]::
+Previously, when attempting to add a disk using ovirt-engine SDK script when the disk already exists, the operation fails, and an exception is thrown.
+With this release, the Add Disk Functionality checks for duplicate disks, and fails gracefully with a readable error message when the disk to be inserted already exists.
+
+BZ#link:https://bugzilla.redhat.com/1955388[1955388]::
+Previously, the Manager was able to start a virtual machine with a Resize and Pin NUMA policy on a host whose physical sockets did not correspond to the number of NUMA nodes. As a result, the wrong pinning was assigned to the policy. With this release, the Manager does not allow the virtual machine to be scheduled on such a host, making the pinning correct based on the algorithm.
+
+BZ#link:https://bugzilla.redhat.com/2081676[2081676]::
+Previously, when two mutually exclusive sos report options were used in the ovirt-log-collector, the log size limit was ignored.
+In this release, the limit on the size of the log per plugin works as expected.
+
+
+BZ#link:https://bugzilla.redhat.com/2097558[2097558]::
+Previously, running engine-setup did not always renew OVN certificates when they were close to expiration or expired. With this release, OVN certificates are always renewed by engine-setup when needed.
+
+BZ#link:https://bugzilla.redhat.com/2097725[2097725]::
+Previously, the Manager issued warnings about approaching certificate expiration before engine-setup could update the certificates. In this release the expiration warning and certificate update periods are aligned, and certificates are updated as soon as the warnings about their upcoming expiration occur.
+
+BZ#link:https://bugzilla.redhat.com/2101481[2101481]::
+The handling of core dumps during upgrade from previous Red Hat Virtualization versions to RHV 4.4 SP1 batch 1 has been fixed.
+
+BZ#link:https://bugzilla.redhat.com/2104115[2104115]::
+Previously, when importing a virtual machine with manual CPU pinning (pinned to a dedicated host), the manual pinning string was cleared, but the CPU pinning policy was not set to NONE. As a result, importing failed.
+In this release, the CPU pinning policy is set to NONE if the CPU pinning string is cleared, and importing succeeds.
+
+BZ#link:https://bugzilla.redhat.com/2105781[2105781]::
+The hosted-engine-ha binaries have been moved from /usr/share to /usr/libexec. As a result, the hosted-engine --clean-metadata command fails. With this release, 
+you must use the new path for the command to succeed: 
+/usr/libexec/ovirt-hosted-engine-ha/ovirt-ha-agent
+
+BZ#link:https://bugzilla.redhat.com/2109923[2109923]::
+Previously, it was not possible to import templates from the Administration Portal.
+With this release, importing templates from the  Administration Portal is now possible.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1793207[1793207]::
+A new warning has been added to the vdsm-tool to protect users from using the unsupported user_friendly_names multipath configuration. The following is an example of the output:
++
+----
+$ vdsm-tool is-configured --module multipath
+WARNING: Invalid configuration: 'user_friendly_names' is
+enabled in multipath configuration:
+  section1 {
+    key1 value1
+    user_friendly_names yes
+    key2 value2
+  }
+  section2 {
+    user_friendly_names yes
+  }
+This configuration is not supported and may lead to storage domain corruption.
+----
+
+BZ#link:https://bugzilla.redhat.com/2097536[2097536]::
+In this release, the rhv-log-collector-analyzer now provides a detailed output for each problematic image, including disk names, associated virtual machine, the host running the virtual machine, snapshots, and the current Storage Pool Manager. This makes it easier to identify problematic virtual machines and collect SOS reports for related systems.
+The detailed view is now the default, and the compact option can be set by using the --compact switch in the command line.
+
+BZ#link:https://bugzilla.redhat.com/2097560[2097560]::
+Expiration of ovirt-provider-ovn certificate is now checked regularly along with other RHV certificates (engine CA, engine, or hypervisors) and if ovirt-provider-ovn is going to expire or has expired, the warning or alert is raised to the audit log. To renew the ovirt-provider-ovn certificate, run engine-setup.
+If your ovirt-provider-ovn certificate expires on a previous RHV version, you must upgrade to RHV 4.4 SP1 batch 2 or newer, and the ovirt-provider-ovn certificate will be renewed automatically as part of engine-setup.
+
+BZ#link:https://bugzilla.redhat.com/2104939[2104939]::
+With this release, OVA export or import works on hosts with a non-standard SSH port.
+
+BZ#link:https://bugzilla.redhat.com/2107250[2107250]::
+With this release, the process to check certificate validity is now compatible with both RHEL 8 and RHEL 7 based hypervisors.
+
+==== Rebase: Bug Fixes and Enhancements
+
+These items are rebases of bug fixes and enhancements included in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/2092478[2092478]::
+UnboundID LDAP SDK has been rebased on upstream version 6.0.4. See https://github.com/pingidentity/ldapsdk/releases for changes since version 4.0.14
+
+==== Rebase: Bug Fixes Only
+
+These items are rebases of bug fixes included in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/2104831[2104831]::
+Rebase package(s) to version: 4.4.7.
+Highlights, important fixes, or notable enhancements: fixed BZ#2081676
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/2049286[2049286]::
+With this release, only virtual machines pinned to hosts selected for upgrade are stopped during cluster upgrade. VMs pinned to hosts that are not selected for upgrade are not stopped.
+
+BZ#link:https://bugzilla.redhat.com/2108985[2108985]::
+RHV 4.4 SP1 and later is only supported on RHEL 8.6, so you cannot use RHEL 8.7 or later, and must stay with RHEL 8.6 EUS.
+
+BZ#link:https://bugzilla.redhat.com/2113068[2113068]::
+With this release, permissions for the /var/log/ovn directory are updated correctly during the upgrade of OVS/OVN 2.11 to OVS 2.15/OVN 2021.
+
+==== Deprecated Functionality
+
+The items in this section are either no longer supported, or will no longer be supported in a future release.
+
+BZ#link:https://bugzilla.redhat.com/2111600[2111600]::
+ovirt-engine-extension-aaa-jdbc and ovirt-engine-extension-aaa-ldap are deprecated in RHV 4.4 SP1. They remain in the RHV product, but for any new request, you should use integration with Red Hat Single Sign-On as described in https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Configuring_Red_Hat_SSO
+
+

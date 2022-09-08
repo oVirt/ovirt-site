@@ -1,6 +1,5 @@
 ---
 title: oVirt Counter
-authors: sandrobonazzola
 page_classes: community
 ---
 
@@ -14,9 +13,11 @@ If you want your oVirt deployment listed here you can edit this page following t
 
 | Company                                                            | oVirt version | Data Centers | Clusters | Hosts   | VMs    |
 |--------------------------------------------------------------------|---------------|--------------|----------|---------|--------|
-| air.abes.fr                                                        | 4.4.9         | 3            | 3        | 11      |145     |
-| air-test.abes.fr                                                   | 4.4.9         | 1            | 1        | 3       |60      |
-| air-dev.abes.fr                                                    | 4.4.9         | 1            | 1        | 3       |49      |
-| infra.abes.fr                                                      | 4.4.9         | 2            | 2        | 4       |14      |
+| air.abes.fr                                                        | 4.4.9         | 3            | 3        | 11      | 145    |
+| air-test.abes.fr                                                   | 4.4.9         | 1            | 1        |  3      |  60    |
+| air-dev.abes.fr                                                    | 4.4.9         | 1            | 1        |  3      |  49    |
+| infra.abes.fr                                                      | 4.4.9         | 2            | 2        |  4      |  14    |
+|--------------------------------------------------------------------|---------------|--------------|----------|---------|--------|
+| **Totals**                                                         | -             | 7            | 7        | 21      | 268    |
 {: .bordered}
 

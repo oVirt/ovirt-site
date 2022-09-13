@@ -1036,8 +1036,22 @@ for more details.</p>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1504,7 +1518,7 @@ Try to keep workloads on all virtual machines using Gluster storage as light as 
 </div>
 </li>
 <li>
-<p>Backup the Gluster configuration on all oVirt Node 4.3 nodes using the backup playbook.</p>
+<p>Back up the Gluster configuration on all oVirt Node 4.3 nodes using the backup playbook.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2810,6 +2824,20 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 done</pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Restart the <strong>httpd</strong> service:</p>
@@ -2909,6 +2937,20 @@ done</pre>
         --keep-key
 done</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
@@ -3685,8 +3727,22 @@ for more details.</p>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5055,6 +5111,20 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 done</pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Restart the <strong>httpd</strong> service:</p>
@@ -5154,6 +5224,20 @@ done</pre>
         --keep-key
 done</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
@@ -6124,8 +6208,22 @@ for more details.</p>
 <p>Install optional extension packages if they were installed on the oVirt Engine 4.3 machine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ovirt-engine-extension-aaa-ldap</code> is deprecated. For new installations, use Red Hat Single Sign On. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Configuring_Red_Hat_SSO">Installing and Configuring Red Hat Single Sign-On</a> in the <em>Administration Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -7274,6 +7372,20 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 done</pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Restart the <strong>httpd</strong> service:</p>
@@ -7389,6 +7501,20 @@ done</pre>
         --keep-key
 done</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>

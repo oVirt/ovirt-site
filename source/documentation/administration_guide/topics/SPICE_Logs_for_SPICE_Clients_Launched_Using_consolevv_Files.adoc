@@ -2,7 +2,6 @@
 [id="SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files"]
 = SPICE Logs for SPICE Clients Launched Using console.vv Files
 
-
 *For Linux client machines:*
 
 . Enable SPICE debugging by running the `remote-viewer` command with the `--spice-debug` option. When prompted, enter the connection URL, for example, spice://_virtual_machine_IP_:__port__.
@@ -18,7 +17,6 @@
 ----
 # remote-viewer --spice-debug __/path/to/__console.vv
 ----
-
 
 *For Windows client machines:*
 

@@ -340,6 +340,10 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} /documentation/quickstart.*
 RewriteRule ^(.*)$ /documentation/ [R=301,L]
 
+# introduction_to_the_vm_portal / doc-Introduction_to_the_VM_Portal
+RewriteCond %{REQUEST_URI} /documentation/introduction_to_the_vm_portal.*
+RewriteRule ^(.*)$ /documentation/doc-Introduction_to_the_VM_Portal/ [R=301,L]
+
 # hosted engine how-to -> documentation
 RewriteCond %{REQUEST_URI} /documentation/how-to/hosted-engine.*
 RewriteRule ^(.*)$ /documentation/ [R=301,L]

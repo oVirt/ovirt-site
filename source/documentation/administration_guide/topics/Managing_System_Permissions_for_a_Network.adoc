@@ -14,6 +14,4 @@ The network administrator role permits the following actions:
 
 * Attach and detach networks from resources including clusters and virtual machines.
 
-
-
 The user who creates a network is automatically assigned *NetworkAdmin* permissions on the created network. You can also change the administrator of a network by removing the existing administrator and adding the new administrator.

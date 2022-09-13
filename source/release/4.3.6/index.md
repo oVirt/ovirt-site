@@ -73,7 +73,7 @@ Release has been updated on [October 8th providing additional fixes](https://lis
 #### VDSM
 
  - [BZ 1748395](https://bugzilla.redhat.com/show_bug.cgi?id=1748395) <b>[downstream clone - 4.3.6] Can't import guest from export domain to data domain on rhv4.3 due to error "Invalid parameter: 'DiskType=1'"</b><br>
- - [BZ 1744572](https://bugzilla.redhat.com/show_bug.cgi?id=1744572) <b>[downstream clone - 4.3.6] VDSM command Get Host Statistics failed: Internal JSON-RPC error: {'reason': '[Errno 19] vnet<x> is not present in the system'}</b><br>
+ - [BZ 1744572](https://bugzilla.redhat.com/show_bug.cgi?id=1744572) <b>[downstream clone - 4.3.6] VDSM command Get Host Statistics failed: Internal JSON-RPC error: {'reason': '[Errno 19] vnet&lt;x&gt; is not present in the system'}</b><br>
  - [BZ 1746718](https://bugzilla.redhat.com/show_bug.cgi?id=1746718) <b>[downstream clone - 4.3.6] Typo and exception due to non-iterable object on gluster fencing testing</b><br>
  - [BZ 1660451](https://bugzilla.redhat.com/show_bug.cgi?id=1660451) <b>Executor queue can get full if vm.destroy takes some time to complete</b><br>
  - [BZ 1740498](https://bugzilla.redhat.com/show_bug.cgi?id=1740498) <b>[downstream clone - 4.3.6] Remove nwfilter configuration from the vdsmd service start</b><br>
@@ -129,7 +129,7 @@ Release has been updated on [October 8th providing additional fixes](https://lis
  - [BZ 1741155](https://bugzilla.redhat.com/show_bug.cgi?id=1741155) <b>[downstream clone - 4.3.6] a new size of the direct LUN not updated in Admin Portal</b><br>
  - [BZ 1739134](https://bugzilla.redhat.com/show_bug.cgi?id=1739134) <b>Error creating local storage domain: Internal Engine Error.</b><br>
  - [BZ 1744571](https://bugzilla.redhat.com/show_bug.cgi?id=1744571) <b>[downstream clone - 4.3.6] VMs will fail to start if the vnic profile attached is having port mirroring enabled and have name greater than 15 characters</b><br>
- - [BZ 1639577](https://bugzilla.redhat.com/show_bug.cgi?id=1639577) <b>[UI] - Tasks - Synchronizing networks on cluster <UNKNOWN></b><br>
+ - [BZ 1639577](https://bugzilla.redhat.com/show_bug.cgi?id=1639577) <b>[UI] - Tasks - Synchronizing networks on cluster &lt;UNKNOWN&gt;</b><br>
  - [BZ 1720994](https://bugzilla.redhat.com/show_bug.cgi?id=1720994) <b>sync all cluster networks - all sync host events are numbered '1/1' in events tab\engine.log</b><br>
  - [BZ 1619011](https://bugzilla.redhat.com/show_bug.cgi?id=1619011) <b>"sync all cluster networks" - do not attempt to sync hosts which are already in sync</b><br>
  - [BZ 1734429](https://bugzilla.redhat.com/show_bug.cgi?id=1734429) <b>Support device block size of 4096 bytes for file based storage domains</b><br>

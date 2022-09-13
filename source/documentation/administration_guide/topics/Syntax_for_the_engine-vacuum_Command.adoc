@@ -22,18 +22,13 @@ There are several parameters to further refine the `engine-vacuum` command.
 
 *`-h` `--help`*:: Displays information on how to use the `engine-vacuum` command.
 
-
 *`-a`*:: Runs a standard vacuum, analyzes the database, and updates the optimizer statistics.
-
 
 *`-A`*:: Analyzes the database and updates the optimizer statistics, without vacuuming.
 
-
 *`-f`*:: Runs a full vacuum.
 
-
 *`-v`*:: Runs in verbose mode, providing more console output.
-
 
 *`-t _table_name_`*:: Vacuums a specific table or tables.
 +

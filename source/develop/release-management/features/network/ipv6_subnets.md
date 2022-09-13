@@ -28,7 +28,8 @@ Related patches can be found on [gerrit topic:provider_ipv6_subnets](https://ger
 brings Software Defined Networking to OVS.
 * oVirt OVN provider: a proxy that implements a subset of the Networking API
 and interacts with OVN.
-* Subnet: a layer 3 concept, created on top of a network. As per openstack's documentation it is a 'block of IP addresses and associated configuration state. Subnets are used to allocate IP addresses when new ports are created on a network.'
+* Subnet: a layer 3 concept, created on top of a network.
+  As per openstack's documentation it is a 'block of IP addresses and associated configuration state. Subnets are used to allocate IP addresses when new ports are created on a network.'
 * Network: an isolated Layer 2 networking segment.
 * DHCP: dynamic host configuration protocol. Client server protocol that assigns an IP address - along with other configuration parameters to the client.
 * MTU: maximum transmission unit. The maximum frame size on an L2 network.
@@ -75,7 +76,8 @@ on-link information from the RA messages sent by routers.
 
 Ubuntu [bug](https://bugs.launchpad.net/ubuntu/+source/isc-dhcp/+bug/1609898) tracks that very same issue, and that behavior is now found
 in EL8 systems - e.g. dhclient default to a /128 network prefix, and relies on
-RA messages to properly configure it. Red Hat bugs [1635181](https://bugzilla.redhat.com/show_bug.cgi?id=1635181) and [1673951](https://bugzilla.redhat.com/show_bug.cgi?id=1673951) track this behavior.
+RA messages to properly configure it.
+Red Hat bugs [1635181](https://bugzilla.redhat.com/show_bug.cgi?id=1635181) and [1673951](https://bugzilla.redhat.com/show_bug.cgi?id=1673951) track this behavior.
 Please note that those fixes will/could be released anytime soon.
 
 Thus, RA message support is required to properly configure the guest IPv6
@@ -101,23 +103,32 @@ attached to a router.
 
 IPv6 provides the following IPAM options:
 
-* slaac: neighbor discovery is provided through router advertisement messages - *RA*s. Both the IP address and the connection parameters (such as hop limit, MTU, etc) are configured from these router advertisement messages. Specified in [SLAAC rfc](https://tools.ietf.org/html/rfc4862).
+* slaac: neighbor discovery is provided through router advertisement messages - *RA*s.
+  Both the IP address and the connection parameters (such as hop limit, MTU, etc) are configured from these router advertisement messages. Specified in [SLAAC rfc](https://tools.ietf.org/html/rfc4862).
 
-* dhcpv6-stateless: IP addresses are assigned by OVN's IPv6 stack, based on the port's mac address and the advertised prefix - in the RA messages. The connection parameters (MTU, max hops, DNS, etc) are configured through the subnet's native DHCPv6 service.
+* dhcpv6-stateless: IP addresses are assigned by OVN's IPv6 stack, based on the port's mac address and the advertised prefix - in the RA messages.
+  The connection parameters (MTU, max hops, DNS, etc) are configured through the subnet's native DHCPv6 service.
 
-* dhcpv6-stateful: Both the IP addresses and the connection parameters are assigned from the subnet's native DHCPv6 service. DHCPv6 protocol does not send the network prefix in the **Reply** messages, which means that this configuration will only work if the network's prefix length is 64.
+* dhcpv6-stateful: Both the IP addresses and the connection parameters are assigned from the subnet's native DHCPv6 service.
+  DHCPv6 protocol does not send the network prefix in the **Reply** messages, which means that this configuration will only work if the network's prefix length is 64.
 
 ### IPAM configuration requirements
 
-* slaac: this IPAM configuration does not rely on OVN's subnet DHCP service, which means a DHCP_Options object is **not** required. The RA messages are sent by an OVN Logical_Router, thus one is required.
+* slaac: this IPAM configuration does not rely on OVN's subnet DHCP service, which means a DHCP_Options object is **not** required.
+  The RA messages are sent by an OVN Logical_Router, thus one is required.
 
-* dhcpv6-stateless: this IPAM configuration relies on OVN's subnet DHCP services to get its IP address, and on the Logical_Router's RA message's connection parameters to properly configure the connection. Thus, a DHCP_Options entry is required, as is a Logical_Router object.
+* dhcpv6-stateless: this IPAM configuration relies on OVN's subnet DHCP services to get its IP address, and on the Logical_Router's RA message's connection parameters to
+  properly configure the connection. Thus, a DHCP_Options entry is required, as is a Logical_Router object.
 
-* dhcpv6-stateful: this IPAM configuration relies exclusively on OVN's subnet DHCP services, and is very close to the IPv4 configuration counterpart - a DHCP_Options object is required, having both an IPv6 cidr, and ip_version set to IPv6. On newer versions of dhclient, a router is also required, since the dhcpv6 messages **do not** feature the network prefix length.
+* dhcpv6-stateful: this IPAM configuration relies exclusively on OVN's subnet DHCP services, and is very close to the IPv4 configuration counterpart - a DHCP_Options object
+  is required, having both an IPv6 cidr, and ip_version set to IPv6.
+  On newer versions of dhclient, a router is also required, since the dhcpv6 messages **do not** feature the network prefix length.
 
 ### Alignment with networking API
 
-The ovirt-provider-ovn provides an opinionated subset of OpenStack's networking API v2. In it's [subnet definition](https://developer.openstack.org/api-ref/network/v2/?expanded=create-subnet-detail#create-subnet), it can be seen that the API features two parameters to influence IPv6 related configurations: **ipv6_ra_mode**, and **ipv6_address_mode**. Both of these attributes accept the following values:
+The ovirt-provider-ovn provides an opinionated subset of OpenStack's networking API v2.
+In it's [subnet definition](https://developer.openstack.org/api-ref/network/v2/?expanded=create-subnet-detail#create-subnet), it can be seen that the API
+features two parameters to influence IPv6 related configurations: **ipv6_ra_mode**, and **ipv6_address_mode**. Both of these attributes accept the following values:
 
 * slaac
 * dhcpv6-stateful
@@ -178,10 +189,8 @@ its min/max defaults are well below that +-18 hour interval.
 
 The above change would be implemented in the following way:
 
-1. when a subnet is created, it's **ipv6_address_mode** parameter is stored in
-the subnet's external ids
-2. when that subnet is attached to a router, its **ipv6_ra_configs:address_mode**
-should be set from the subnet's external ids address mode value.
+1. when a subnet is created, it's **ipv6_address_mode** parameter is stored in the subnet's external ids
+2. when that subnet is attached to a router, its **ipv6_ra_configs:address_mode** should be set from the subnet's external ids address mode value.
 
 ## Guest VM configuration
 
@@ -223,7 +232,7 @@ And have the **forwarding** flag is disabled - write a '0' into the *forwarding*
 file
 
 All these files are located under the following folder:
-  - "/proc/sys/net/ipv6/conf/<YOUR_IF_NAME>/"
+  - `/proc/sys/net/ipv6/conf/<YOUR_IF_NAME>/`
 
 ### NetworkManager
 
@@ -365,7 +374,7 @@ curl -X PUT \
 To configure the native dhcpv6 service of OVNs subnet, the user should
 provision the following networking API entities, represented in yaml:
 
-{%- raw %}
+```yaml
 ~~~~~
 - name: create a network
   os_network:
@@ -395,14 +404,14 @@ provision the following networking API entities, represented in yaml:
     interfaces:
       - "{{ ipv6_subnet.id }}"
 ~~~~~
-{% endraw -%}
+```
 
 ### Configuring stateless DHCPv6 on the subnet
 
 To configure stateless dhcpv6 on the subnet, the user should provision
 the following yaml based ansible playbook snippet:
 
-{%- raw %}
+```yaml
 ~~~~~
 - name: create a network
   os_network:
@@ -431,7 +440,7 @@ the following yaml based ansible playbook snippet:
     interfaces:
       - "{{ dhcpv6_subnet.id }}"
 ~~~~~
-{% endraw -%}
+```
 
 ## UI considerations
 
@@ -523,6 +532,7 @@ They can **only** be applied to stateless address modes, and are a matter
 of guest VM configuration.
 
 NetworkManager could be used to configure the privacy extensions per interface:
+
 ```bash
 nmcli conn modify <interface_name> ipv6.ip6-privacy 2
 ```

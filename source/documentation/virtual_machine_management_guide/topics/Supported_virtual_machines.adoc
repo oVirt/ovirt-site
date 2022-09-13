@@ -2,6 +2,6 @@
 [id="Supported_virtual_machines"]
 = Supported Virtual Machine Operating Systems
 
-For information on the operating systems that can be virtualized as guest operating systems in {virt-product-fullname}, see link:https://access.redhat.com/articles/973163[].
+See link:https://access.redhat.com/articles/973163[Certified Guest Operating Systems in Red Hat OpenStack Platform, Red Hat Virtualization and OpenShift Virtualization] for a current list of supported operating systems.
 
 For information on customizing the operating systems, see link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Configuring_operating_systems_with_osinfo[Configuring operating systems with osinfo].

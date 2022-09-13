@@ -156,7 +156,6 @@ FILTER="exclude:*"
 # systemctl enable ovirt-engine-notifier.service
 ----
 
-
 Check your SNMP manager to ensure that traps are being received.
 
 [NOTE]

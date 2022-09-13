@@ -4,7 +4,6 @@
 
 Pop-up windows are all windows in the {engine-name} that allow you to create, edit or update an entity such as a host or virtual machine. The elements of pop-up windows that can be customized are as follows:
 
-
 * The border
 
 * The header image on the left

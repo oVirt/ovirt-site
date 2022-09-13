@@ -6,7 +6,6 @@ You can use the `ovirt-engine-rename` command to update records of the fully qua
 
 The tool checks whether the {engine-name} provides a local ISO or Data storage domain. If it does, the tool prompts the user to eject, shut down, or place into maintenance mode any virtual machine or storage domain connected to the storage before continuing with the operation. This ensures that virtual machines do not lose connectivity with their virtual disks, and prevents ISO storage domains from losing connectivity during the renaming process.
 
-
 .Procedure
 
 . Prepare all DNS and other relevant records for the new FQDN.
@@ -46,7 +45,6 @@ The `ovirt-engine-rename` command updates records of the FQDN of the {engine-nam
 +
 This command modifies the FQDN in each self-hosted engine node's local copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf`
 
-
 . Run the following command on one of the self-hosted engine nodes:
 +
 [source,terminal,subs="normal"]
@@ -57,3 +55,28 @@ This command modifies the FQDN in each self-hosted engine node's local copy of [
 This command modifies the FQDN in the main copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf` on the shared storage domain.
 
 Now, all new and existing self-hosted engine nodes use the new FQDN.
+
+
+[NOTE]
+====
+The oVirt Engine Rename Tool is designed to work only on local machines. Changing the {engine-name} name does not automatically update the name on remote Data Warehouse machines. Changing the names on remote DWH machines must be performed manually.
+====
+
+*For remote Data Warehouse deployments, follow these steps on the remote machine (not on the {engine-name} machine):*
+
+. Remove the following PKI files:
++
+`/etc/pki/ovirt-engine/apache-ca.pem`
+`/etc/pki/ovirt-engine/apache-grafana-ca.pem`
+`/etc/pki/ovirt-engine/certs/\*`
+`/etc/pki/ovirt-engine/keys/*`
+. In the following files, update the {engine-name} fqdn to the new name (for example, `vm-new-name.local_lab_server.redhat.com`):
++
+`/etc/grafana/grafana.ini`
+`/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf`
+`/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf`
+. Run engine-setup with the `--offline` switch to prevent updates at this time:
++
+----
+# engine-setup --offline
+----

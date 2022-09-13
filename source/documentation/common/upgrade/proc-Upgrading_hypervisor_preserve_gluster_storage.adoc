@@ -18,7 +18,6 @@ GlusterFS Storage is deprecated, and will no longer be supported in future relea
 ====
 endif::rhv-doc[]
 
-
 .Prerequisites
 
 * If there are geo-replication schedules on the storage domains, remove those schedules to avoid upgrade conflicts.
@@ -95,7 +94,7 @@ Run the following commands on all the hosts, unless specified otherwise explicit
 # gluster volume start newengine
 ----
 +
-. Backup the Gluster configuration on all {hypervisor-shortname} 4.3 nodes using the backup playbook.
+. Back up the Gluster configuration on all {hypervisor-shortname} 4.3 nodes using the backup playbook.
 
 .. The backup playbook is available with the latest version of {hypervisor-shortname} 4.3. If this playbook is not available, create a playbook and inventory file:
 +
@@ -419,7 +418,6 @@ There will be a warning for changing compatibility version, which requires VMs o
 ----
 
 . Remove the archives and extracted the contents of the backup configuration files on all nodes.
-
 
 .Creating an additional Gluster volume using the Web Console
 

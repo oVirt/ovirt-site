@@ -3,7 +3,7 @@
 = Starting a full backup
 
 [role="_abstract"]
-After a full backup you can use the resulting checkpoint id as the start point in the next incremental backup.
+After a full backup you can use the resulting checkpoint ID as the start point in the next incremental backup.
 
 include::snip_scratch-disk.adoc[]
 
@@ -11,14 +11,14 @@ Starting a full backup requires a request call with a body, and includes a respo
 
 .Procedure
 
-. Send a request specifying a virtual machine to back up. For example, specify a virtual machine with id `123` like this:
+. Send a request specifying a virtual machine to back up. For example, specify a virtual machine with ID `123` like this:
 +
 [source,terminal,subs="normal"]
 ----
 POST /ovirt-engine/api/vms/123/backups
 ----
 
-. In the request body, specify a disk to back up. For example, to start a full backup of a disk with id `456`, send the following request body:
+. In the request body, specify a disk to back up. For example, to start a full backup of a disk with ID `456`, send the following request body:
 +
 [source,terminal,subs="normal"]
 ----
@@ -50,7 +50,7 @@ The response includes the following:
 ** The backup id
 ** The status of the backup, indicating that the backup is initializing.
 
-. Poll the backup until the status is `ready`. The response includes `to_checkpoint_id`. Note this id and use it for `from_checkpoint_id` in the next incremental backup.
+. Poll the backup until the status is `ready`. The response includes `to_checkpoint_id`. Note this ID and use it for `from_checkpoint_id` in the next incremental backup.
 
 [role="_additional-resources"]
 .Additional resources

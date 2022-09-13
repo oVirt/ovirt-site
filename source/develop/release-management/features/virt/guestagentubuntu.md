@@ -23,9 +23,6 @@ Packaging the ovirt-guest-agent for Ubuntu 12.04+
 ### Owner
 
 *   Name: Vinzenz 'evilissimo' Feenstra (Vfeenstr)
-
-<!-- -->
-
 *   Email: <evilissimo@redhat.com>
 
 ### Current status
@@ -76,7 +73,7 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 *   IP Addresses
 *   FQDN of the guest OS
 *   Disks Usage
-*   Configured RPMs to report (see /etc/ovirt-guest-agent.conf for the packages)
+*   Configured RPMs to report (see `/etc/ovirt-guest-agent.conf` for the packages)
 *   Hostname
 
 #### The guest agent also provides the following actions
@@ -86,14 +83,16 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 #### Installation
 
-$REPOURL is any of the URLs listed in the [Repository](#repository) section
+`$REPOURL` is any of the URLs listed in the [Repository](#repository) section
 
+```console
       # echo 'deb  $REPOURL /' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
       # wget $REPOURL/Release.key
-      # apt-key add - < Release.key  
+      # apt-key add - < Release.key
       # apt-get update
       # apt-get install ovirt-guest-agent
       # service ovirt-guest-agent start
+```
 
 ### Testing
 
@@ -109,7 +108,10 @@ Testing has to be executed on a Ubuntu 12.04+ system. Lower versions do not fulf
     -   The FQDN in the general tab
     -   Logged-in User: in the Sessions tab should be filled if a user is logged in.
     -   All IPs (IPv4 and IPv6) in the Network Interfaces tab in the Guest Agent Data section for each interface.
-*   Verification via on the VDSM side: \`vdsClient -s 0 getVmStats <VM UUID>\`
+*   Verification via on the VDSM side:
+    ```bash
+    vdsClient -s 0 getVmStats <VM UUID>
+    ```
     -   Reported fields are non-empty:
         -   guestFQDN
         -   netIfaces
@@ -121,4 +123,6 @@ Testing has to be executed on a Ubuntu 12.04+ system. Lower versions do not fulf
         -   username
         -   guestIPs (if there are IPv4 addresses)
 
-**Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM **Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
+**Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM
+
+**Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain

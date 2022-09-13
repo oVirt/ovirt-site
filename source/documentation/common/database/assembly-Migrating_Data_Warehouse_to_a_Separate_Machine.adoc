@@ -4,7 +4,6 @@
 
 ifdef::context[:parent-context: {context}]
 
-
 This section describes how to migrate the Data Warehouse database and service from the {virt-product-fullname} {engine-name} machine to a separate machine. Hosting the Data Warehouse service on a separate machine reduces the load on each individual machine, and avoids potential conflicts caused by sharing CPU and memory resources with other processes.
 
 [NOTE]
@@ -22,7 +21,6 @@ include::proc-Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine.adoc[l
 :context: migrate_DWH
 
 include::proc-Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.adoc[leveloffset=+1]
-
 
 ifndef::parent-context[:!context:]
 ifdef::parent-context[]

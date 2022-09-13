@@ -40,7 +40,6 @@ These steps are detailed below.
 
 For more information about supported hardware and software, see link:https://docs.nvidia.com/grid/latest/grid-vgpu-release-notes-red-hat-el-kvm/index.html#validated-platforms[Validated Platforms] in the __NVIDIA GPU Software Release Notes__.
 
-
 [id='Enabling_IOMMU_support_in_the_host_machine_kernel_{context}']
 == Enabling host IOMMU support and blacklisting nouveau
 
@@ -144,7 +143,6 @@ Kernel modules: nouveau, nvidia_drm, nvidia
 
 include::proc_install-nvidia-vgpu-guest-driver.adoc[leveloffset=+1]
 
-
 [id='Updating_and_Enabling_xorg_{context}']
 == Updating and Enabling xorg (Linux Virtual Machines)
 
@@ -197,7 +195,6 @@ EndSection
 ----
 
 The GPU is now assigned to the virtual machine.
-
 
 [id='related-information_{context}']
 == Removing a host GPU from a virtual machine

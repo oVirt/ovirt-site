@@ -33,9 +33,9 @@ no interfaces should be marked with the "Storage network" role.
 
 ## Owner
 
-*   Feature Owner: Sahina Bose <sabose (at) redhat (dot) com>
-*   GUI Component Owner: Karnan Chidambarakani <kchidamb (at) redhat (dot) com>
-*   Engine Component Owner: Sahina Bose <sabose (at) redhat (dot) com>
+*   Feature Owner: Sahina Bose <sabose@redhat.com>
+*   GUI Component Owner: Karnan Chidambarakani <kchidamb@redhat.com>
+*   Engine Component Owner: Sahina Bose <sabose@redhat.com>
 
 ## Proposed User Flow
 
@@ -80,11 +80,13 @@ Addition of a new Network role - Storage network
 
 *   `brickInterface`
 
-Table gluster_volume_bricks will have an additional column. This will be populated only if brick is using storage network instead of vds.host_address to add the brick.
+Table `gluster_volume_bricks` will have an additional column. This will be populated only if brick is using storage network instead of vds.host_address to add the brick.
 
 | Column name  | Type | Description                                                            |
 |--------------|------|------------------------------------------------------------------------|
 | interface_id | UUID | Nullable. Id of the host's interface. FK to id of vds_interface table  |
+{: .bordered}
+
 
 `GlusterBrick.getQualifiedName()` - changes to use the `brickIPAddress` property if not empty otherwise uses `VdsStatic.hostName`
 
@@ -94,9 +96,13 @@ Update the correct IP address returned from gluster CLI output rather than mappi
 
 ### Change to VDSM API
 
-No change to the `GlusterVolume.addBrick` API Existing Parameters: 'data': {'volumeName': 'str', 'brickList': ['str'], '\*replicaCount': 'int', '\*stripeCount': 'int', '\*force': 'bool'}
+No change to the `GlusterVolume.addBrick` API Existing Parameters:
 
-brickList will continue to be array of strings of the form <ip adress or hostname>:<brick directory>
+```json
+ 'data': {'volumeName': 'str', 'brickList': ['str'], '*replicaCount': 'int', '*stripeCount': 'int', '*force': 'bool'}
+```
+
+`brickList` will continue to be array of strings of the form `<ip adress or hostname>:<brick directory>`
 
 ### Change to REST API
 
@@ -108,4 +114,4 @@ New API:
 
 **PUT** `/clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks/{brick:id}|rel=update`
 
-The network to be updated for brick, is passed as a parameter in the GlusterBrickEntity
+The network to be updated for brick, is passed as a parameter in the `GlusterBrickEntity`

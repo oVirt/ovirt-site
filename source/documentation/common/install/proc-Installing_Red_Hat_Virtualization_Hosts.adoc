@@ -2,7 +2,7 @@
 [id='Installing_Red_Hat_Virtualization_Hosts_{context}']
 = Installing {hypervisor-fullname}s
 
-{hypervisor-fullname} ({hypervisor-shortname}) is a minimal operating system based on {enterprise-linux} that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a {virt-product-fullname} environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit web interface for monitoring the host and performing administrative tasks. See link:http://cockpit-project.org/running.html[] for the minimum browser requirements.
+{hypervisor-fullname} ({hypervisor-shortname}) is a minimal operating system based on {enterprise-linux} that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a {virt-product-fullname} environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit web interface for monitoring the host and performing administrative tasks. See link:http://cockpit-project.org/running.html[Running Cockpit] for the minimum browser requirements.
 
 {hypervisor-shortname} supports NIST 800-53 partitioning requirements to improve security. {hypervisor-shortname} uses a NIST 800-53 partition layout by default.
 

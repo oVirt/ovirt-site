@@ -27,6 +27,7 @@ This information is specific to {virt-product-fullname}. It does not cover funda
 * Consult the {enterprise-linux} link:{URL_rhel_docs_latest}html-single/security_hardening/index[Security hardening] before deploying {enterprise-linux-host-shortname}s.
 
 include::proc-Applying_the_DISA_STIG_Security_Profile_RHV.adoc[leveloffset=+1]
+
 include::proc-Applying_the_PCI_DSS_Security_Profile_RHV.adoc[leveloffset=+1]
 
 // Restore the context to what it was before this assembly.

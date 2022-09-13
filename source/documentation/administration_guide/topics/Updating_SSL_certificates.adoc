@@ -38,3 +38,8 @@ Run the following commands after the `ovirt-engine-rename` command to update the
         --san=DNS:"${ENGINE_FQDN}"
   done
 ----
+
+[NOTE]
+====
+The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
+====

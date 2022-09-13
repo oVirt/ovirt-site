@@ -9,7 +9,6 @@ You can run the engine configuration tool from the machine on which the {virt-pr
 # engine-config --help
 ----
 
-
 *Common tasks:*
 
 * List available configuration keys 

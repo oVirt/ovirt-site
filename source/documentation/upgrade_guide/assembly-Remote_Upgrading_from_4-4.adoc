@@ -32,13 +32,11 @@ You can now upgrade the {engine-name} to 4.5.
 
 include::common/upgrade/proc-Upgrading_the_Manager_to_4-5.adoc[leveloffset=+1]
 
-
 // Add new {engine-name} upgrade versions here
 
 You can now update the hosts.
 
 include::common/upgrade/proc-Upgrading_hosts_to_4-5.adoc[leveloffset=+1]
-
 
 // include::common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
 

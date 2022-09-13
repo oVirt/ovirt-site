@@ -11,7 +11,6 @@ You can configure the {virt-product-fullname} {engine-name} and hosts to send me
 
 To do this, run the Ansible role that configures `collectd` and `rsyslog` on the {engine-name} and all hosts to collect `engine.log`, `vdsm.log`, and `collectd` metrics, and send them to your Elasticsearch instance.
 
-
 //ifdef::rhv-doc[]
 For more information, including a full list with explanations of available Metrics Schema, see link:https://access.redhat.com/articles/4921101[Sending RHV monitoring data to a remote Elasticsearch instance].
 

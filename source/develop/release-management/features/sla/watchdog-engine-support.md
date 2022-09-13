@@ -11,12 +11,12 @@ authors:
 
 ## Summary
 
-This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) support to engine. The feature will be available in server VM's and especially useful when used with high availability.
+This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) support to engine.
+The feature will be available in server VM's and especially useful when used with high availability.
 
 ## Owner
 
 *   Name: Laszlo Hornyak (Lhornyak)
-*   Email: <lhornyak at redhat dot com>
 
 ## Current status
 
@@ -224,12 +224,12 @@ Depends: [Create vm with watchdog from template (UI)](#create-vm-with-watchdog-f
 
 ### Create vm with watchdog (REST-API)
 
-1.  use the rest api to create a vm with a <watchdog> tag ([see above](#rest-api-changes))
+1.  use the rest api to create a vm with a `<watchdog>` tag ([see above](#rest-api-changes))
 2.  check on the rest api if the watchdog card is persisted
 
 ### Add watchdog to existing VM (REST-API)
 
-1.  use the rest api to create a vm with a <watchdog> tag ([see above](#rest-api-changes))
+1.  use the rest api to create a vm with a `<watchdog>` tag ([see above](#rest-api-changes))
 2.  check on the rest api if the watchdog card is persisted
 
 ### Remove watchdog from VM (REST-API)

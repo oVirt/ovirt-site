@@ -4,7 +4,6 @@
 
 The *Power Management* settings table contains the information required on the *Power Management* tab of the *New Host* or *Edit Host* windows. You can configure power management if the host has a supported power management card.
 
-
 .*Power Management* Settings
 [options="header"]
 |===
@@ -25,9 +24,7 @@ To make two fence agents concurrent, select one fence agent from the *Concurrent
 |*Power Management Proxy Preference* |By default, specifies that the {engine-name} will search for a fencing proxy within the same *cluster* as the host, and if no fencing proxy is found, the {engine-name} will search in the same *dc* (data center). Use the up and down buttons to change the sequence in which these resources are used. This field is available under *Advanced Parameters*.
 |===
 
-
 The following table contains the information required in the *Edit fence agent* window.
-
 
 .*Edit fence agent* Settings
 [options="header"]

@@ -4,7 +4,6 @@
 
 The table below describes the settings for the *vNIC Profiles* tab of the *New Logical Network* window.
 
-
 .*New Logical Network* Settings
 [options="header"]
 |===

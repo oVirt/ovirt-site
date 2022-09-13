@@ -5,7 +5,6 @@ include::common/collateral_files/_attributes.adoc[]
 :context: SM_localDB_deploy
 :SM_localDB_deploy:
 
-
 Standalone {engine-name} installation is manual and customizable. You must install a {enterprise-linux} machine, then run the configuration script (`engine-setup`) and provide information about how you want to configure the {virt-product-fullname} {engine-name}. Add hosts and storage after the {engine-name} is running. At least two hosts are required for virtual machine high availability.
 
 In a local database environment, the {engine-name} database and Data Warehouse database can be created automatically by the {engine-name} configuration script. Alternatively, you can create these databases manually on the {engine-name} machine before running `engine-setup`.
@@ -50,7 +49,6 @@ Installing a standalone {engine-name} environment with local databases involves 
 Keep the environment up to date. See link:https://access.redhat.com/articles/2974891[How do I update my Red Hat Virtualization system?] for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
 
-
 include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 
 [id='Installing_the_Red_Hat_Virtualization_Manager_SM_localDB_deploy']
@@ -63,7 +61,6 @@ Installing the {virt-product-fullname} {engine-name} involves the following step
 . xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories]
 . xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Installing and Configuring the {virt-product-fullname} {engine-name}]
 . xref:Connecting_to_the_Administration_Portal_install_RHVM[Connecting to the Administration Portal]
-
 
 [id='Installing_RHEL_for_RHVM_SM_localDB_deploy']
 === Preparing the {virt-product-fullname} {engine-name} Machine

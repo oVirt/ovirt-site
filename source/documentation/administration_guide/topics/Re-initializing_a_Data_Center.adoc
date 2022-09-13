@@ -6,7 +6,6 @@ This recovery procedure replaces the `master` data domain of your data center wi
 
 You can import any backup or exported virtual machines or templates into your new `master` data domain.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers] and select the data center.

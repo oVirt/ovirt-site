@@ -26,10 +26,15 @@ Services that manage collections of objects usually support the `list` and `add`
 Both kinds of services, especially services that manage a single object, can support additional action methods.
 
 include::topics/Using_get_methods.adoc[leveloffset=+2]
+
 include::topics/Using_list_methods.adoc[leveloffset=+2]
+
 include::topics/Using_add_methods.adoc[leveloffset=+2]
+
 include::topics/Using_update_methods.adoc[leveloffset=+2]
+
 include::topics/Using_remove_methods.adoc[leveloffset=+2]
+
 include::topics/Using_other_action_methods.adoc[leveloffset=+2]
 
 [id="Additional_resources"]

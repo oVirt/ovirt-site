@@ -25,7 +25,6 @@ To query a statistics view, run `SELECT * FROM _view_name__[hourly|daily|samples
 # SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;
 ----
 
-
 To list all available views, run:
 [source,terminal,subs="normal"]
 ----
@@ -55,13 +54,11 @@ To query a configuration view, run `SELECT * FROM _view_name_;`. For example:
 # SELECT * FROM v4_4_configuration_history_datacenters;
 ----
 
-
 To list all available views, run:
 [source,terminal,subs="normal"]
 ----
 # \dv
 ----
-
 
 [NOTE]
 ====

@@ -1,0 +1,267 @@
+= RHSA-2022:5555-09 Moderate: RHV Manager (ovirt-engine) [ovirt-4.5.1] security, bug fix and update
+
+The bugs in this chapter are addressed by advisory RHSA-2022:5555-09. Further information about this advisory is available at https://errata.devel.redhat.com/advisory/96099
+
+== ovirt-engine
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2099650[2099650]
+
+A bug that caused the upgrade process to fail if the vdc_options table
+contained records with a NULL default value has been fixed.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2006625[2006625]
+
+Previously, memory allocated by hugepages was included in the host
+memory usage calculation, resulting in high memory usage in the
+Administration Portal, even with no running VMs, and false
+VDS_HIGH_MEM_USE warnings in the logs. In this release, hugepages are
+not included in the memory usage. VDS_HIGH_MEM_USE warnings are logged
+only when normal (not hugepages) memory usage is above a defined
+threshold. Memory usage in the Administration Portal is calculated from
+the normal and hugepages used memory, not from allocated memory.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2072626[2072626]
+
+The ovirt-engine-notifier correctly increments the SNMP EngineBoots
+value after restarts, which enables the ovirt-engine-notifier to work
+with the SNMPv3 authPriv security level.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1663217[1663217]
+
+The hostname and/or FQDN of the VM or VDSM host can change after a
+virtual machine (VM) is created. Previously, this change could prevent
+the VM from fetching errata from Red Hat Satellite/Foreman. With this
+enhancement, errata can be fetched even if the VM hostname or FQDN
+changes.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1994144[1994144]
+
+The email address for notifications is updated correctly on the ``Manage
+Events'' screen.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2001923[2001923]
+
+Previously, when a failed VM snapshot was removed from the Manager
+database while the volume remained on the storage, subsequent operations
+failed because there was a discrepancy between the storage and the
+database. Now, the VM snapshot is retained if the volume is not removed
+from the storage.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1782077[1782077]
+
+An ``isolated threads'' CPU pinning policy has been added. This policy
+pins a physical core exclusively to a virtual CPU, enabling a complete
+physical core to be used as the virtual core of a single virtual
+machine.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1958032[1958032]
+
+Previously, live storage migration could fail if the destination volume
+filled up before it was extended. In the current release, the initial
+size of the destination volume is larger and the extension is no longer
+required.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1976607[1976607]
+
+VGA has replaced QXL as the default video device for virtual machines.
+You can switch from QXL to VGA using the API by removing the graphic and
+video devices from the VM (creating a headless VM) and then adding a VNC
+graphic device.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2001574[2001574]
+
+Previously, when closing the ``Move/Copy disk'' dialog in the
+Administration Portal, some of the acquired resources were not released,
+causing browser slowness and high memory usage in environments with many
+disks. In this release, the memory leak has been fixed.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2030293[2030293]
+
+A VM no longer remains in a permanent locked state if the Manager is
+rebooted while exporting the VM as OVA.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2068270[2068270]
+
+Previously, when downloading snapshots, the disk_id was not set, which
+caused resumption of the transfer operation to fail because locking
+requires the disk_id to be set. In this release, the disk_id is always
+set so that the transfer operation recovers after restart.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2081241[2081241]
+
+Previously, VMs with one or more VFIO devices, Q35 chipset, and maximum
+number of vCPUs >= 256 might fail to start because of a memory
+allocation error reported by the QEMU guest agent. This error has been
+fixed.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2105296[2105296]
+
+Virtual machines with VNC created by earlier Manager versions sometimes
+failed to migrate to newer hosts because the VNC password was too long.
+This issue has been fixed.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1703153[1703153]
+
+There is a workaround for creating a RHV Manager hostname that is longer
+than 95 characters.
+
+. Create a short FQDN, up to 63 characters, for the engine-setup tool.
+. Create a custom certificate and put the short FQDN and a long FQDN
+(final hostname) into the certificate’s _Subject Alternate Name_ field.
+. Configure the Manager to use the custom certificate.
+. Create an
+`/etc/ovirt-engine/engine.conf.d/99-alternate-engine-fqdns.conf` file
+with the following content: SSO_ALTERNATE_ENGINE_FQDNS=``long FQDN''
+. Restart the `ovirt-engine` service.
+
+If you cannot access the Manager and are using a very long FQDN: 1.
+Check for the following error message in `/var/log/httpd/error_log`:
+`ajp_msg_check_header() incoming message is too big NNNN, max is MMMM`
+2. Add the following line to
+`/etc/httpd/conf.d/z-ovirt-engine-proxy.conf`: ProxyIOBufferSize PPPP
+where `PPPP` is greater than `NNNN` in the error message. Restart
+Apache.
+
+
+
+== ovirt-log-collector
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2093795[2093795]
+
+Rebase package(s) to version: 4.4.6 This fixes an issue which prevented
+the collection of PostgreSQL data and the documentation of the –log-size
+option.
+
+
+
+== rhv-log-collector-analyzer
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2081559[2081559]
+
+The rhv-log-collector-analyzer discrepancy tool now detects preallocated
+QCOW2 images that have been reduced.
+
+
+
+== rhvm-branding-rhv
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2092885[2092885]
+
+The Welcome page of the Administration Portal now displays both the
+upstream and downstream version names.
+
+
+
+== vdsm
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2070045[2070045]
+
+The host no longer enters a non-responsive state if the OVF store update
+operation times out because of network errors.
+
+
+
+== vulnerability
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1966615[1966615]
+
+A flaw was found in nodejs-trim-newlines. Node.js has an issue related
+to regular expression denial-of-service (ReDoS) for the .end() method.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1981895[1981895]
+
+A flaw was found in apache-commons-compress. When reading a specially
+crafted 7Z archive, the construction of the list of codecs that
+decompress an entry can result in an infinite loop. This flaw allows the
+mounting of a denial of service attack against services that use
+Compress’ SevenZ package. The highest threat from this vulnerability is
+to system availability.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1981900[1981900]
+
+A flaw was found in apache-commons-compress. When reading a specially
+crafted 7Z archive, Compress can allocate large amounts of memory that
+leads to an out-of-memory error for very small inputs. This flaw allows
+the mounting of a denial of service attack against services that use
+Compress’ SevenZ package. The highest threat from this vulnerability is
+to system availability.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1981903[1981903]
+
+A flaw was found in apache-commons-compress. When reading a specially
+crafted TAR archive, Compress can allocate large amounts of memory that
+leads to an out-of-memory error for small inputs. This flaw allows the
+mounting of a denial of service attack against services that use
+Compress’ TAR package. The highest threat from this vulnerability is to
+system availability.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1981909[1981909]
+
+A flaw was found in apache-commons-compress. When reading a specially
+crafted ZIP archive, Compress can allocate large amounts of memory that
+leads to an out-of-memory error for small inputs. This flaw allows the
+mounting of a denial of service attack against services that use
+Compress’ zip package. The highest threat from this vulnerability is to
+system availability.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2007557[2007557]
+
+A regular expression denial of service (ReDoS) vulnerability was found
+in nodejs-ansi-regex. This could possibly cause an application using
+ansi-regex to use an excessive amount of CPU time when matching crafted
+ANSI escape codes.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2069414[2069414]
+
+A flaw was found in the Spring Framework. This flaw allows an attacker
+to craft a special Spring Expression, causing a denial of service.
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2097414[2097414]
+
+A vulnerability was found in semantic-release. Secrets that are normally
+masked are accidentally disclosed if they contain characters excluded
+from uri encoding by `encodeURI()`. The vulnerability is further limited
+to execution contexts where push access to the related repository is
+unavailable without modifying the repository URL to inject credentials.

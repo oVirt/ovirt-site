@@ -11,7 +11,6 @@ This guide explains how to upgrade the following environments to {virt-product-f
 
 * *Self-hosted engine, local database*: Both the Data Warehouse database and the {engine-name} database are installed on the {engine-name}.
 
-
 ifdef::rhv-doc[]
 [NOTE]
 ====

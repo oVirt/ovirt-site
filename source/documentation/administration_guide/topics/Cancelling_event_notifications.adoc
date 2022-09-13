@@ -4,7 +4,6 @@
 
 A user has configured some unnecessary email notifications and wants them canceled.
 
-
 .Procedure
 
 . Click menu:Administration[Users].

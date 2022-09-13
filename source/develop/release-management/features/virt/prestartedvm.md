@@ -27,7 +27,6 @@ The Prestarted Vm feature allows holding a predefined number of unassigned ready
 
     * QA Owner: Tomas Dosek (Tdosek)
 
-*   Email: msalem@redhat.com
 
 ## Current status
 

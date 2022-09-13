@@ -1,5 +1,6 @@
 :ovirt-doc:
 include::common/collateral_files/_attributes.adoc[]
+
 = Disaster Recovery Guide
 :imagesdir: images
 :toclevels: 4
@@ -12,11 +13,14 @@ include::common/collateral_files/_attributes.adoc[]
 = Disaster Recovery Guide
 
 include::concept/cpt_DisasterRecoverySolutions.adoc[leveloffset=+1]
+
 include::assembly/asm_ActiveActiveDR.adoc[leveloffset=+1]
+
 include::assembly/asm_ActivePassiveDR.adoc[leveloffset=+1]
 
 [appendix]
 include::reference/rfr_MappingFileAttributes.adoc[leveloffset=+1]
+
 [appendix]
 include::reference/rfr_TestingAP.adoc[leveloffset=+1]
 

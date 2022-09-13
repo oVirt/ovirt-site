@@ -1,4 +1,4 @@
-:_content-type: REFERENCE
+:_content-type: ASSEMBLY
 [id="testing_active_passive"]
 = Testing the Active-Passive Configuration
 :refdir: ../reference

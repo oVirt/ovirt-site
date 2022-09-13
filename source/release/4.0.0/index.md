@@ -256,7 +256,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Storage
 
- - [BZ 1320515](https://bugzilla.redhat.com/show_bug.cgi?id=1320515) <b>Remove deprecated api/vms/<id>/move</b><br>The "/vms/<vmid>/move" API has been removed after being deprecated in Red Hat Enterprise Virtualization 3.1.
+ - [BZ 1320515](https://bugzilla.redhat.com/show_bug.cgi?id=1320515) <b>Remove deprecated `api/vms/<id>/move`</b><br>The "`/vms/<vmid>/move`" API has been removed after being deprecated in Red Hat Enterprise Virtualization 3.1.
 
 ##### Team: UX
 
@@ -513,7 +513,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1290427](https://bugzilla.redhat.com/show_bug.cgi?id=1290427) <b>snapshot without disks gets deleted automatically once a snapshot gets commited</b><br>
  - [BZ 1314082](https://bugzilla.redhat.com/show_bug.cgi?id=1314082) <b>Live Merge times out on the engine but actually succeeds on the host</b><br>
  - [BZ 1334105](https://bugzilla.redhat.com/show_bug.cgi?id=1334105) <b>VMs from auto-start pool randomly stop getting started</b><br>
- - [BZ 1324780](https://bugzilla.redhat.com/show_bug.cgi?id=1324780) <b>[engine-webadmin] When importing an image as a template from Glance, if the template's name is not specified, then it is logged as <UNKNOWN></b><br>
+ - [BZ 1324780](https://bugzilla.redhat.com/show_bug.cgi?id=1324780) <b>[engine-webadmin] When importing an image as a template from Glance, if the template's name is not specified, then it is logged as `<UNKNOWN>`</b><br>
  - [BZ 1333342](https://bugzilla.redhat.com/show_bug.cgi?id=1333342) <b>snapshot disk actual size is not refreshing after merge</b><br>
  - [BZ 1328071](https://bugzilla.redhat.com/show_bug.cgi?id=1328071) <b>Template deletion should not fail even if its disk's deletion fails</b><br>
  - [BZ 1335502](https://bugzilla.redhat.com/show_bug.cgi?id=1335502) <b>Exception while importing template</b><br>
@@ -564,7 +564,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1303694](https://bugzilla.redhat.com/show_bug.cgi?id=1303694) <b>bad string in error message when testing external provider without permissions</b><br>
  - [BZ 1330209](https://bugzilla.redhat.com/show_bug.cgi?id=1330209) <b>/api/hosts/{host:id}/install fails</b><br>
  - [BZ 1330168](https://bugzilla.redhat.com/show_bug.cgi?id=1330168) <b>[Admin Portal] not able to get admin portal login screen after ovirt-engine-rename</b><br>
- - [BZ 1332986](https://bugzilla.redhat.com/show_bug.cgi?id=1332986) <b>Snapshot operation names changed from <op_name>_snapshot to <op_name>snapshot</b><br>
+ - [BZ 1332986](https://bugzilla.redhat.com/show_bug.cgi?id=1332986) <b>Snapshot operation names changed from `<op_name>_snapshot` to `<op_name>snapshot`</b><br>
  - [BZ 1148514](https://bugzilla.redhat.com/show_bug.cgi?id=1148514) <b>Engine may kill session that is still in use</b><br>
  - [BZ 1328404](https://bugzilla.redhat.com/show_bug.cgi?id=1328404) <b>[REST-API] refresh host capabilities not working</b><br>
  - [BZ 1326578](https://bugzilla.redhat.com/show_bug.cgi?id=1326578) <b>Email notification can't be configured in engine. "Operation Canceled Error while executing action: A Request to the Server failed with the following Status Code: 500"</b><br>
@@ -613,7 +613,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1167698](https://bugzilla.redhat.com/show_bug.cgi?id=1167698) <b>[SetupNetworks]> Unmanaged network on host NIC should prevent attaching new networks to this NIC, until unmanaged network is removed</b><br>
  - [BZ 1293881](https://bugzilla.redhat.com/show_bug.cgi?id=1293881) <b>Host installation fails with "java.lang.Integer cannot be cast to java.lang.String"</b><br>
  - [BZ 1261795](https://bugzilla.redhat.com/show_bug.cgi?id=1261795) <b>A minor typo found during translation "Cannot ${action} ${type}. At most one VLAN-untagged Logical Network is allowed on a NIC (optionally in conjunction with several VLAN Logical Networks). The following Network Interfaces violate that : ${NETWORK_INTERF</b><br>
- - [BZ 1264405](https://bugzilla.redhat.com/show_bug.cgi?id=1264405) <b>Remove List<VdsNetworkInterface> nics from and pass only relevant information</b><br>
+ - [BZ 1264405](https://bugzilla.redhat.com/show_bug.cgi?id=1264405) <b>Remove `List<VdsNetworkInterface>` nics from and pass only relevant information</b><br>
  - [BZ 1271220](https://bugzilla.redhat.com/show_bug.cgi?id=1271220) <b>[REST] [Host network QoS] It's possible to configure weighted share and rate limit on the network to be bigger than the max value configured on engine</b><br>
  - [BZ 1219383](https://bugzilla.redhat.com/show_bug.cgi?id=1219383) <b>[MAC pool] limit range to 2^31 addresses</b><br>
  - [BZ 1340862](https://bugzilla.redhat.com/show_bug.cgi?id=1340862) <b>Can not create Openstack network provider in rest v3</b><br>

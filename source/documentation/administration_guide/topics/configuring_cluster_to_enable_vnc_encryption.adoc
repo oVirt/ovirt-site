@@ -1,0 +1,17 @@
+:_content-type: PROCEDURE
+[id="configuring_cluster_to_enable_vnc_encryption"]
+= Configuring the cluster to enable VNC Encryption
+
+.Prerequisites
+
+* FIPS must be enabled on the cluster.
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Clusters].
+
+. Select the cluster where you plan to enable VNC encryption and click btn:[Edit]. The *Edit Cluster* window opens.
+
+. Select the *Console* tab.
+
+. Select the *Enable VNC Encryption* checkbox and click btn:[OK].

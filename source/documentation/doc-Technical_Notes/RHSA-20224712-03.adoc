@@ -6,21 +6,17 @@ The bugs in this chapter are addressed by advisory RHSA-2022:4712-04. Further in
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2064795[2064795]
 
-
 python-passlib/python38-passlib are runtime dependencies for several RHV components. With this release, they are provided in the RHEL-8-RHEV-4, RHEL-8-RHEV-S-4.4 and RHEL-8-RHV-4-TOOLS channels.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2064798[2064798]
-
 
 python-pycurl/python38-pycurl are runtime dependencies for several RHV components. With this release, they are provided in the RHEL-8-RHEV-4, RHEL-8-RHEV-S-4.4 and RHEL-8-RHV-4-TOOLS channels.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2064799[2064799]
 
-
 python-jmespath/python38-jmespath are runtime dependencies for several RHV components. With this release, they are provided in the RHEL-8-RHEV-4, RHEL-8-RHEV-S-4.4 and RHEL-8-RHV-4-TOOLS channels.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2064801[2064801]
-
 
 python-netaddr/python38-netaddr are runtime dependencies for several RHV components. With this release, they are provided in the RHEL-8-RHEV-4, RHEL-8-RHEV-S-4.4 and RHEL-8-RHV-4-TOOLS channels.
 
@@ -31,21 +27,17 @@ python-netaddr/python38-netaddr are runtime dependencies for several RHV compone
 Rebase package(s) to version: 1.10.0
 Highlights, important fixes, or notable enhancements:
 
-
 == ovirt-ansible-collection
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2006721[2006721]
-
 
 The ovirt_disk module released as a part of ovirt-ansible-collection 2.0.0 uses the imageio python client to upload images into Red Hat Virtualization Manager.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2017070[2017070]
 
-
 The manageiq role has been removed from oVirt Ansible Collection 2.0.0.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2071365[2071365]
-
 
 Red Hat Virtualization 4.4 SP1 now requires ansible-core [= 2.12.0 to execute Ansible playbooks/roles internally from RHV components.
 
@@ -53,19 +45,14 @@ Red Hat Virtualization 4.4 SP1 now requires ansible-core [= 2.12.0 to execute An
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2020620[2020620]
 
-
 In this release, support has been added for self-hosted engine deployment on a host with a DISA STIG profile.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2066811[2066811]
 
-
 Previously, DISA STIG profile used fapolicyd that blocked ansible command execution as non-root, and self-hosted engine deployment failed.
 In this release, calls to psql as postgres are replaced with engine_psql.sh, and deployment succeeds.
 
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1883949[1883949]
-
 
 In this release,the following enhancements were made:
 1. Adding 2 new backup phases:
@@ -77,28 +64,22 @@ In this release,the following enhancements were made:
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1932149[1932149]
 
-
 Previously, 'hosted-engine --deploy' always created the hosted storage domain in the default format, which is the latest, and deployment failed.
 With this release, the process now checks the compatibility version of the cluster/DC we deploy/restore to, and creates the storage domain with a proper format for their version. As a result, deploy/restore does not fail while creating the storage.
 
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2004018[2004018]
-
 
 With this release, an error message has been added to the ovirt_disk module, warning that the parameters 'interface', 'activate', 'bootable', 'uses_scsi_reservation' and 'pass_discard' cannot be used without specifying a VM.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2004852[2004852]
 
-
 The following parameters have been added to the ovirt_vm module:
 virtio_scsi_enabled - If true, it enables Virtio SCSI support.
 multi_queues_enabled - If true, each virtual interface will get the optimal number of queues, depending on the available virtual CPUs.
 
-
 == ovirt-provider-ovn
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1940824[1940824]
-
 
 Upgrade from OvS/OVN 2.11 to OVN 2021 and OvS 2.15.
 The upgrade is transparent to the user as long as these conditions are met:
@@ -110,21 +91,17 @@ The upgrade is transparent to the user as long as these conditions are met:
 
 If the host's OVN is not configured after refresh and you are using engine 4.5 or later, reinstalling the host will fix this issue.
 
-
 == ovirt-setup-lib
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2044362[2044362]
-
 
 Rebase ovirt-setup-lib package to version: 1.3.3
 Highlights, important fixes, or notable enhancements:
 BZ#1971863 - Queries of type 'ANY' are deprecated - RFC8482
 
-
 == python-ovirt-engine-sdk4
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1933555[1933555]
-
 
 The Python SDK package for Red Hat Virtualization is now supported in RHEL 9.
 
@@ -132,14 +109,12 @@ The Python SDK package for Red Hat Virtualization is now supported in RHEL 9.
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2065665[2065665]
 
-
 A race condition was found in Paramiko. This flaw allows unauthorized information disclosure from an attacker with access to the write_private_key_file.
 
 ////
 == python-paramiko
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2067968[2067968]
-
 
 CVE-2022-24302: Creating new private key files using `~paramiko.pkey.PKey` subclasses caused a race condition between file creation and mode modification, which can be exploited by an attacker with knowledge of where the Paramiko-using code writes out such files. This problem has been patched with `os.open` and `os.fdopen` to ensure new files are opened with the correct mode. The subsequent explicit `chmod` remains in place to minimize any possible disruption.
 ////

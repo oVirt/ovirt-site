@@ -9,7 +9,6 @@
 This procedure uses the [command]`pg_dump` and [command]`pg_restore` commands. For a complete list of options for these commands, enter `pg_dump --help` or `pg_restore --help` on a machine with PostgreSQL installed.
 ====
 
-
 . Back up all remote databases. Use the following command on each remote database machine:
 +
 [source,terminal,subs="normal"]

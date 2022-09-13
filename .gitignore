@@ -37,3 +37,6 @@ source/.jekyll-metadata
 # Ignore files generated for local previews of documentation
 source/documentation/*/index.html
 source/documentation/*/build/
+
+# Ignore VS Code/codium config file
+.vscode

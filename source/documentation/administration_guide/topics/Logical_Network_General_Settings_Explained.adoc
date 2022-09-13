@@ -4,7 +4,6 @@
 
 The table below describes the settings for the *General* tab of the *New Logical Network* and *Edit Logical Network* window.
 
-
 .*New Logical Network* and *Edit Logical Network* Settings
 [options="header"]
 |===

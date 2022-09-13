@@ -29,7 +29,7 @@ files.each do |file|
 end
 ----
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FFilesService:list[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4%2FFilesService:list[FilesService:list].
 
 If you do not know the name of the ISO storage domain, this Ruby example retrieves all the ISO storage domains.
 
@@ -39,4 +39,4 @@ If you do not know the name of the ISO storage domain, this Ruby example retriev
 iso_sds = sds_service.list.select { |sd| sd.type == OvirtSDK4::StorageDomainType::ISO }
 ----
 
-For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:list[].
+For more information, see link:http://www.rubydoc.info/gems/ovirt-engine-sdk/OvirtSDK4/StorageDomainsService:list[StorageDomainsService:list].

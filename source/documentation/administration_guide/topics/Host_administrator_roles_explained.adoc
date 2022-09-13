@@ -2,7 +2,6 @@
 [id="To_view_virtual_machines_in_a_cluster"]
 = Host Administrator Roles Explained
 
-
 *Host Permission Roles*
 
 The table below describes the administrator roles and privileges applicable to host administration.

@@ -152,7 +152,7 @@ packages from other repos.
  - [BZ 1497512](https://bugzilla.redhat.com/show_bug.cgi?id=1497512) <b>Memory snapshots images of a VM imported as active=false instead of active=true</b><br>
  - [BZ 1487291](https://bugzilla.redhat.com/show_bug.cgi?id=1487291) <b>Snapshots not displayed in date order in vm-snapshots window</b><br>
  - [BZ 1484825](https://bugzilla.redhat.com/show_bug.cgi?id=1484825) <b>Auto generated snapshot remains LOCKED after concurrent LSM</b><br>
- - [BZ 1478296](https://bugzilla.redhat.com/show_bug.cgi?id=1478296) <b>Health check on Host <UNKNOWN> indicates that future attempts to Stop this host using Power-Management are expected to fail.</b><br>
+ - [BZ 1478296](https://bugzilla.redhat.com/show_bug.cgi?id=1478296) <b>Health check on Host &lt;UNKNOWN&gt; indicates that future attempts to Stop this host using Power-Management are expected to fail.</b><br>
  - [BZ 1489795](https://bugzilla.redhat.com/show_bug.cgi?id=1489795) <b>Importing a VM from 3.6 fails due to NPE @ org.ovirt.engine.core.bll.network.VmInterfaceManager.removeAll</b><br>
 
 #### imgbased

@@ -82,7 +82,7 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 
 *   **nfs-check.py** is a python script to validate nfs targets to use with oVirt project. Some operations include: mount the nfs target, create a file as vdsm:kvm and then remove it.
 *   **nfs-check.py** is available in the **vdsm/contrib/** directory of the vdsm source
-*   Run it on a node via **\1**
+*   Run it on a node via `python nfs-check.py 'server:/target'`
     ```console
     $ git clone "https://gerrit.ovirt.org/vdsm"
     $ cd vdsm/contrib

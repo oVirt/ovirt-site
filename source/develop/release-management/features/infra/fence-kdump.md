@@ -184,7 +184,7 @@ Following config values are used:
 
 ## Open questions/issues
 
-1.  **Does kdump support all network configuration we need (bridge, VLAN, ...)?**
+1. **Does kdump support all network configuration we need (bridge, VLAN, ...)?**
     -   Bridges are supported, I successfully tested fence_kdump with *ovirtmgmt* bridge
     -   According to [BZ752458](https://bugzilla.redhat.com/show_bug.cgi?id=752458) VLANs are supported
 
@@ -194,7 +194,7 @@ Following config values are used:
     -   Can be achieved by restarting kdump service, but this call should be added to VDSM module which is responsible for network configuration.
 
 5.  **We plan to update only fence_kdump options in kdump configuration, host admin will be responsible to configure other options and restart kdump service manually when done. In order to successfully report kdump status to engine this operation should be done only when host is in Maintenance.**
-6.  **\1**
+6.  **Host from which fence_kdump message came is identified by IP address, so to find out which hosts sent the message we will use IP addresses stored in engine database in table `vds_interfaces`. ***
 7.  **We are able only to allow access to fence_kdump port, but we cannot easily identify which IPs can access this port. This is task for administrator to modify firewall rules for enhanced security**
 
 ## Implementation status

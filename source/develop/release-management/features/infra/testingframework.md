@@ -15,7 +15,7 @@ When integrating oVirt components for new build we need to run full set of syste
 
 ## Owners
 
-*   Yaniv Bronheim <ybronhei@redhat.com>
+*   Yaniv Bronheim
 *   Dima Kuznetsov <dkuznets@redhat.com>
 *   Saggi Mizrahi <smizrahi@redhat.com>
 

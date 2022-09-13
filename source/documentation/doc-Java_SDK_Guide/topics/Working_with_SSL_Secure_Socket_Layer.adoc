@@ -1,13 +1,12 @@
-[[Working_with_SSL_Secure_Socket_Layer]]
+:_content-type: PROCEDURE
+[id="Working_with_SSL_Secure_Socket_Layer"]
 = Configuring SSL
 
 The {virt-product-fullname} {engine-name} Java SDK provides full support for HTTP over Secure Socket Layer (SSL) and the IETF Transport Layer Security (TLS) protocol using the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with the Java SDK out of the box. On earlier Java 2 versions, JSSE must be manually installed and configured.
 
-== Configuring SSL
-
 The following procedure outlines how to configure SSL using the Java SDK.
 
-*Configuring SSL*
+.Procedure
 
 . Download the certificate used by the {virt-product-fullname} {engine-name}.
 +

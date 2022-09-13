@@ -81,7 +81,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1343332](https://bugzilla.redhat.com/show_bug.cgi?id=1343332) <b>[Network] When all mac range is allocated after engine restart got 404 - Not Found</b><br>
  - [BZ 1340644](https://bugzilla.redhat.com/show_bug.cgi?id=1340644) <b>[REST-API] - Creating bond with network attached via rest leaving the setup networks dialog in unrecoverable state</b><br>
- - [BZ 1347931](https://bugzilla.redhat.com/show_bug.cgi?id=1347931) <b>REST-API V4 | Missing network_filter <name> when creating vnic profile with default filter</b><br>
+ - [BZ 1347931](https://bugzilla.redhat.com/show_bug.cgi?id=1347931) <b>REST-API V4 | Missing network_filter `<name>` when creating vnic profile with default filter</b><br>
 
 ##### Team: Virt
 
@@ -130,7 +130,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1348916](https://bugzilla.redhat.com/show_bug.cgi?id=1348916) <b>When using provisioned/discovered hosts some fields are not filled in properly</b><br>
  - [BZ 1346299](https://bugzilla.redhat.com/show_bug.cgi?id=1346299) <b>choosing satellite provider doesn't fill address field</b><br>
  - [BZ 1347007](https://bugzilla.redhat.com/show_bug.cgi?id=1347007) <b>[Dashboard] Search mechanism does not know all storage statuses</b><br>
- - [BZ 1344284](https://bugzilla.redhat.com/show_bug.cgi?id=1344284) <b>REST (V3 and V4)| <mac_pool href= is missing under /api/datacenters/<id></b><br>
+ - [BZ 1344284](https://bugzilla.redhat.com/show_bug.cgi?id=1344284) <b>REST (V3 and V4)| `<mac_pool href= is missing under /api/datacenters/<id>`</b><br>
  - [BZ 1346263](https://bugzilla.redhat.com/show_bug.cgi?id=1346263) <b>satellite 6.2 changed katello API, incompatible with RHEV 3.6.7</b><br>
  - [BZ 1348138](https://bugzilla.redhat.com/show_bug.cgi?id=1348138) <b>snapshot type not reported at all if Version: 3</b><br>
  - [BZ 1347155](https://bugzilla.redhat.com/show_bug.cgi?id=1347155) <b>Can not get graphic console by id from VM under REST API V3</b><br>

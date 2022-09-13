@@ -11,7 +11,6 @@ You cannot move a storage domain into maintenance mode if a virtual machine has 
 
 Expanding iSCSI domains by adding more LUNs can only be done when the domain is active.
 
-
 .Procedure
 
 . Shut down all the virtual machines running on the storage domain.

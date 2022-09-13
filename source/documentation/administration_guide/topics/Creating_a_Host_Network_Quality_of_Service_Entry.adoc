@@ -4,7 +4,6 @@
 
 Create a host network quality of service entry.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].

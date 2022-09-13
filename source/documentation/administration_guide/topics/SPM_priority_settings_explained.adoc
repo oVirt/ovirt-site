@@ -4,7 +4,6 @@
 
 The *SPM* settings table details the information required on the *SPM* tab of the *New Host* or *Edit Host* window.
 
-
 .*SPM* settings
 [options="header"]
 |===

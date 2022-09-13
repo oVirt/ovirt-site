@@ -5,7 +5,7 @@ authors: maiqueb
 ---
 
 
-# Ovirt-provider-ovn security groups
+# The `ovirt-provider-ovn` security groups
 
 
 ## Summary
@@ -86,8 +86,8 @@ is better specified in the [requirements](#requirements) section.
 ### Security groups description
 
 Security groups, in the general sense, are meant to group together a list of
-[security group rules](https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules). 
-They are applied to logical ports, and thus are used to associate a set of 
+[security group rules](https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules).
+They are applied to logical ports, and thus are used to associate a set of
 rules to a port.
 
 They are indeed a white list - meaning that everything is *denied* when the
@@ -123,7 +123,7 @@ Check the [default security group](#default-security-group) ACL description for 
 The user is meant to provision security group(s) and rule(s) through ansible,
 or using a REST client, targeting the ovirt-provider-ovn.
 
-This greatly reduces the oVirt-engine impact, since there's no need to 
+This greatly reduces the oVirt-engine impact, since there's no need to
 implement the REST client side of the API, nor implement these changes in the
 GUI.
 
@@ -253,7 +253,7 @@ The ansible representation of this group is:
 
 ### Initial rule creation
 
-Since the Openstack Networking API is a white list, the **deny-all** related 
+Since the Openstack Networking API is a white list, the **deny-all** related
 rules cannot be triggered from the API itself.
 
 To avoid the need to create the rules beforehand, these ACLs will be
@@ -505,12 +505,12 @@ It will feature two ACLs, with the following data:
   * priority: DROP_PRIORITY
   * action: drop
   * direction: to-lport
-  * match: inport == @<port_group> && ip
+  * match: `inport == @<port_group> && ip`
 + egress rule
   * priority: DROP_PRIORITY
   * action: drop
   * direction: from-lport
-  * match: outport == @<port_group> && ip
+  * match: `outport == @<port_group> && ip`
 
 **NOTE:** these rules will be filtered out by the API, because they are simply
 not featured in the Networking API. This means that a user listing all security

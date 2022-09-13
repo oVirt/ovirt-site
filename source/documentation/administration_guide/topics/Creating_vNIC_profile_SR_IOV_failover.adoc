@@ -22,7 +22,6 @@ Technology Preview features are not supported with Red Hat production service-le
 . In the Administration Portal, go to menu:Network[VNIC profiles], select the vNIC profile, click btn:[Edit] and select a `Failover vNIC profile` from the drop down list.
 . Click btn:[OK] to save the profile settings.
 
-
 [NOTE]
 ====
 Attaching two vNIC profiles that reference the same failover vNIC profile to the same virtual machine will fail in libvirt.

@@ -28,10 +28,13 @@ Currently, when there is a need to retrieve multiple related objects from the AP
 
 And then additional requests to get the disk attachments, the disks, and the NICs:
 
-  <code>GET /ovirt-engine/api/vms/123/diskattachments</code>
-  <code>GET /ovirt-engine/api/disks/456</code>
-  <code>GET /ovirt-engine/api/disks/789</code>
-  <code>GET /ovirt-engine/api/vms/123/nics</code>
+<code>GET /ovirt-engine/api/vms/123/diskattachments</code>
+
+<code>GET /ovirt-engine/api/disks/456</code>
+
+<code>GET /ovirt-engine/api/disks/789</code>
+
+<code>GET /ovirt-engine/api/vms/123/nics</code>
 
 In an environment with high latency this multiplies the time required to retrieve the data. In addition, it means that multiple queries have to be sent to the database to retrieve the data.
 
@@ -47,7 +50,7 @@ The first step is analyzing the value of follow and using it to fetch the desire
 
 This requires the value <code>cluster</code> from <code>follow=cluster,...</code> to be translated to: <code>vm.getCluster()</code>. This is done by string manipulation. Ideally, an explicit annotation on the getter method would be used: <code>@Link(name="cluster", method="getter")</code>. However it's impossible to add such an annotation because the generation of business-entities is done by a third-party (the xjc compiler).
 
-The href attribute of the returned entity/entities is used to fetch it/them. This is done by crawling along the API tree to the context where the information can be retrieved. 
+The href attribute of the returned entity/entities is used to fetch it/them. This is done by crawling along the API tree to the context where the information can be retrieved.
 
 Crawling along the API tree is done using <code>ServiceTree</code> class, which was enhanced to provide this kind of service (https://gerrit.ovirt.org/#/c/76077/).
 
@@ -77,7 +80,7 @@ For cases like <code>GET ...api/vms?follow="a,b,c"</code>, when developer adds s
 Example: get VMs with Nics.
 • Class: <code>BackendVmsResource</code>
 • Override <code>follow( ActionableResource entity, LinksTreenode linksTree )</code>
-Decide whether to intervene: <coce>Boolean exists = linksTree.pathExists(“nics”)</code>
+Decide whether to intervene: <code>Boolean exists = linksTree.pathExists(“nics”)</code>
 Run engine query: <code>getBackendCollection(VdcQueryType.GetVmsWithNics). </code>
 Map and set data
 Mark followed=true: <code>linksTree.markAsFollowed(“nics”)</code>

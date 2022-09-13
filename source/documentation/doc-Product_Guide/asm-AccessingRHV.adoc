@@ -22,7 +22,6 @@ See: link:{URL_virt_product_docs}{URL_format}introduction_to_the_vm_portal/index
 
 *Cockpit*:: In {virt-product-fullname}, the Cockpit web interface can be used to perform administrative tasks on a host. It is available by default on {hypervisor-fullname}s, and can be installed on {enterprise-linux-host-fullname}s.
 
-
 *REST API*:: The {virt-product-fullname} REST API provides a software interface for querying and modifying the {virt-product-fullname} environment. The REST API can be used by any programming language that supports HTTP actions.
 +
 See: link:{URL_downstream_virt_product_docs}rest_api_guide/index[_REST API Guide_]
@@ -57,7 +56,6 @@ Use of these interfaces for write access is not supported unless explicitly requ
 endif::[]
 
 *{virt-product-fullname} {engine-name} History Database*:: Read access to the {virt-product-fullname} {engine-name} history (`ovirt_engine_history`) database using the database views specified in the _Data Warehouse Guide_ is supported. Write access is *not* supported.
-
 
 *Libvirt on Hosts*:: Read access to *libvirt* using the `virsh -r` command is a supported method of interacting with virtualization hosts. Write access is *not* supported.
 

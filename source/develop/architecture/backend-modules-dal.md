@@ -1,10 +1,10 @@
 ---
-title: Backend modules dal
+title: Backend modules DAL
 category: architecture
 authors: amuller
 ---
 
-# Backend modules dal
+# Backend modules DAL
 
 **Introduction:** The dal module, or Data Access Layer, provides access to the PostgreSQL database used by the engine. This module uses several concepts:
 

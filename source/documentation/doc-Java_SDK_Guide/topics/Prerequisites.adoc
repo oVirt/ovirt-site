@@ -1,4 +1,5 @@
-[[Prerequisites]]
+:_content-type: CONCEPT
+[id="Prerequisites"]
 = Prerequisites
 
 To install the Java software development kit, you must have:

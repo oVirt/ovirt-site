@@ -19,7 +19,6 @@ The `wipe_after_delete` flag default can be changed to `true` during the setup p
 Changing the `wipe_after_delete` flag's default setting will not affect the *Wipe After Delete* property of disks that already exist.
 ====
 
-
 *Setting SANWipeAfterDelete to Default to True Using the Engine Configuration Tool*
 
 . Run the `engine-config` tool with the `--set` action:
@@ -39,7 +38,6 @@ Changing the `wipe_after_delete` flag's default setting will not affect the *Wip
 # systemctl restart ovirt-engine.service
 
 ----
-
 
 The */var/log/vdsm/vdsm.log* file located on the host can be checked to confirm that a virtual disk was successfully wiped and deleted.
 

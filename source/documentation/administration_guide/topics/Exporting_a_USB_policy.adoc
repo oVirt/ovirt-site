@@ -2,11 +2,9 @@
 [id="Exporting_a_USB_policy"]
 = Exporting a USB Policy
 
-
 USB device policy changes need to be exported and uploaded to the {virt-product-fullname} {engine-name} for the updated policy to take effect. Upload the policy and restart the *ovirt-engine* service.
 
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
-
 
 .Procedure
 

@@ -174,13 +174,17 @@ endif::SHE_upgrade[]
 Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
 endif::rhv-doc[]
 
-
 . Install optional extension packages if they were installed on the {virt-product-fullname} {engine-name} 4.3 machine.
 +
 [source,terminal,subs="normal"]
 ----
-# yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j
+# yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc
 ----
++
+[NOTE]
+====
+The `ovirt-engine-extension-aaa-ldap` is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Red_Hat_SSO[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
+====
 +
 [NOTE]
 ====
@@ -236,7 +240,6 @@ ifdef::SHE_upgrade[]
 endif::SHE_upgrade[]
 ifdef::local_database_upgrade,remote_database_upgrade[]
 * link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing {virt-product-fullname} as a standalone Manager with local databases]
-
 
 * link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/[Installing {virt-product-fullname} as a standalone Manager with remote databases]
 endif::local_database_upgrade,remote_database_upgrade[]

@@ -11,7 +11,7 @@ Except where otherwise indicated, all submissions to this site (including wiki p
 
 ## Trademarks
 
-Red Hat, oVirt and the oVirt logos are trademarks of Red Hat, Inc., registered in the United States and other countries. All other trademarks are the property of their respective owners.
+Red Hat, oVirt and the [oVirt logos](logo.html) are trademarks of Red Hat, Inc., registered in the United States and other countries. All other trademarks are the property of their respective owners.
 
 ## Terms of Use
 

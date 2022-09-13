@@ -2,6 +2,7 @@
 // [id='Migrating_from_a_Standalone_Manager_to_a_Self-hosted_Engine']
 :rhv-doc:
 include::common/collateral_files/_attributes.adoc[]
+
 :_content-type: ASSEMBLY
 [id="setting-up-an-nvidia-gpu-for-a-virtual-machine"]
 = Setting up an NVIDIA GPU for a virtual machine in {virt-product-fullname}
@@ -24,8 +25,8 @@ A host has four GPUs. Each GPU can support up to 16 vGPUs, for a total of 64 vGP
 ** 32 virtual machines, each with one vGPU; eight virtual machines, each with two vGPUs; 4 virtual machines, each with four vGPUs
 
 include::assembly_nvidia_gpu_passthrough.adoc[leveloffset=+1]
-include::assembly_managing-nvidia-vgpu-devices.adoc[leveloffset=+1]
 
+include::assembly_managing-nvidia-vgpu-devices.adoc[leveloffset=+1]
 
 [id='related-information-general_{context}']
 == Related information

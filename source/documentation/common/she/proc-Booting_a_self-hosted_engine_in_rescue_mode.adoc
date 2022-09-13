@@ -2,7 +2,7 @@
 [id='Booting_a_Self-Hosted_Engine_in_Rescue_Mode_{context}']
 = Booting the {engine-name} Virtual Machine in Rescue Mode
 
-This topic describes how to boot the {engine-name} virtual machine into rescue mode when it does not start. For more information, see link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-working_with_the_grub_2_boot_loader#sec-Terminal_Menu_Editing_During_Boot[Booting to Rescue Mode] in the __{enterprise-linux} System Administrator's Guide__.
+This topic describes how to boot the {engine-name} virtual machine into rescue mode when it does not start. For more information, see link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-working_with_the_grub_2_boot_loader#sec-Booting_to_Rescue_Mode[Booting to Rescue Mode] in the __{enterprise-linux} System Administrator's Guide__.
 
 . Connect to one of the hosted-engine nodes:
 +

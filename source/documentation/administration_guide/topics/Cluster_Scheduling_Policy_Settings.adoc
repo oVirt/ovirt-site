@@ -87,9 +87,7 @@ For `DefaultCustomSerialNumber`:
 
 * *Custom serial number*: Set each new virtual machine's serial number to the value you specify in the following *Custom Serial Number* parameter.
 
-
 |*Custom Serial Number* |Specify the custom serial number to apply to new virtual machines in the cluster.
-
 
 |===
 

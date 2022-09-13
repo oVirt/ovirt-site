@@ -6,7 +6,6 @@ The {virt-product-fullname} {engine-name} does not communicate directly with fen
 
 You can select between:
 
-
 * Any host in the same cluster as the host requiring fencing.
 
 * Any host in the same data center as the host requiring fencing.

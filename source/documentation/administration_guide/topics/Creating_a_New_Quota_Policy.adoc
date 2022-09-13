@@ -4,7 +4,6 @@
 
 You have enabled quota mode, either in Audit or Enforcing mode. You want to define a quota policy to manage resource usage in your data center.
 
-
 .Procedure
 
 . Click menu:Administration[Quota].

@@ -21,17 +21,17 @@ This example assumes the following:
 
 This procedure involves the following components:
 
-*On the KDC server*
+* *On the KDC server*
 
-* Create a service principal and a *keytab* file for the Apache service on the {virt-product-fullname} {engine-name}.
+** Create a service principal and a *keytab* file for the Apache service on the {virt-product-fullname} {engine-name}.
 
-*On the {virt-product-fullname} {engine-name}*
+* *On the {virt-product-fullname} {engine-name}*
 
-* Install the authentication and authorization extension packages and the Apache Kerberos authentication module.
+** Install the authentication and authorization extension packages and the Apache Kerberos authentication module.
+** Configure the extension files.
 
-* Configure the extension files.
-
-*Configuring Kerberos for the Apache Service*
+[id="Configuring_Kerberos_for_the_Apache_Service"]
+== Configuring Kerberos for the Apache Service
 
 . On the KDC server, use the `kadmin` utility to create a service principal for the Apache service on the {virt-product-fullname} {engine-name}. The service principal is a reference ID to the KDC for the Apache service.
 +
@@ -60,8 +60,8 @@ kadmin> quit
 ----
 # scp /tmp/http.keytab root@_rhevm.example.com_:/etc/httpd
 ----
-
-*Configuring Single Sign-on to the VM Portal or Administration Portal*
+[id="Configuring_SSO_to_VM_Portal_or_Administration_Portal"]
+== Configuring Single Sign-on to the VM Portal or Administration Portal
 
 . On the {virt-product-fullname} {engine-name}, ensure that the ownership and permissions for the keytab are appropriate:
 +
@@ -77,6 +77,11 @@ kadmin> quit
 ----
 # dnf install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session
 ----
++
+[NOTE]
+====
+The `ovirt-engine-extension-aaa-ldap` is deprecated. For new installations, use Red Hat Single Sign On. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Red_Hat_SSO[Installing and Configuring Red Hat Single Sign-On] in the _Administration Guide_.
+====
 +
 . Copy the SSO configuration template file into the */etc/ovirt-engine* directory. Template files are available for Active Directory (*ad-sso*) and other directory types (*simple-sso*). This example uses the simple SSO configuration template.
 +

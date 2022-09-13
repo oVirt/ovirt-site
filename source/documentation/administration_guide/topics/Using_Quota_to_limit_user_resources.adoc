@@ -4,7 +4,6 @@
 
 This procedure describes how to use quotas to limit the resources a user has access to.
 
-
 .Procedure
 
 . Click menu:Administration[Quota].

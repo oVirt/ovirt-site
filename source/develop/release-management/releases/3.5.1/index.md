@@ -16,7 +16,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.5.1 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). 
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/).
 
 ## Install / Upgrade from previous versions
 
@@ -118,7 +118,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - Fields under "Start Running On" in the "Edit Virtual Machine" window should be greyed out when the VM is up
  - Resized columns in main tabs do not save their user configured size
  - [oVirt][Foreman] return a proper error message on root password policy violation
- - [engine-setup] explain - Substitute <country>, <organization> to suite your environment
+ - [engine-setup] explain - Substitute `<country>`, `<organization>` to suite your environment
  - "There is no over-utilized host in cluster " repeated every minute
  - Live deletion of a snapshot (live merge) is blocked(CDA) when attempting the removal from snapshot overview
  - [ImportDomain][LOG]Confusing ERROR logs "Could not get populated disk" when importing a domain
@@ -156,12 +156,12 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - medium Instance Type mismatch feature page
  - Faulty storage allocation checks when adding a VM Pool with VMs.
  - [engine-webadmin] DC 'Type' field name should be replaced with 'Storage Type'
- - Rest-api's add disk logged with NONE variable,Adding Disk <UNKNOWN>
+ - Rest-api's add disk logged with NONE variable,Adding Disk `<UNKNOWN>`
  - Display custom error page if reports is not installed
  - NPE when VM initialization doens't contain boot protocol
  - [UI] Import Virtual Machine's menu box is not aligned
  - AddVmFromScratchCommand can Fail to create a new Vm when executed from rest-api,py-sdk
- - Force select SPM operation event is showing <UNKNOWN> instead of the data center name
+ - Force select SPM operation event is showing `<UNKNOWN>` instead of the data center name
  - REST API fails to return the host ID of VM which is in unknown state due to node crash
  - Upgrading a DC to 3.5 does not create default storage profiles
  - [engine-backend] [blkio-support] size units are not corralated between webadmin and backend for storage QOS
@@ -181,7 +181,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - [ImportDomain] Attempting to register an non exsistant VM via rest-api fails with NPE
  - Detach of local Storage Domain which is not master fails with the reason Storage Domain does not exists
  - The default VM - snapshot view has the columns spaced too widely appart
- - [TEXT] Failed delete of snapshot disks - message indicates (User: <UNKNOWN>)
+ - [TEXT] Failed delete of snapshot disks - message indicates (User: `<UNKNOWN>`)
  - Top search panel buttons and VM Status column are missing static HTML IDs (needed for Selenium testing)
  - Host SSH Fingerprint - "Fetched fingerprint successfully" shouldn't be in red text
  - Windows 7 guests reports incorrect time after a cold restart.
@@ -267,7 +267,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - snapshot support not re-checked once detected as not supported
  - [RFE] Add EL7 support to ovirt-engine
  - Set endAction try again to false on failure
- - [UX] Wrong message displayed during Live storage migration (contains <UNKNOWN>)
+ - [UX] Wrong message displayed during Live storage migration (contains `<UNKNOWN>`)
  - [JSONRPC] Extend size operation of an attached iSCSi domain, fail with CDA
  - Remove disk returns HTTP 404 in SDK
  - Enter Engine Database Password on DWH setup is not intuitive when setup is on a separate host
@@ -407,7 +407,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - Vdsm images use less secure selinux label after a lv is refreshed
  - vdsm-reg: vdsm-reg.log is created but there is no logs there.
  - Unable to restart vdsm on host with running vms
- - [ppc] Host is installed with VDSM version (<UNKNOWN>) and cannot join cluster ppc64...
+ - [ppc] Host is installed with VDSM version (`<UNKNOWN>`) and cannot join cluster ppc64...
  - Bogus warnings in jsonrpc infrastructure: "Fixing up type", "fieldClone: type -> deviceType"
  - vdsm-4.14.13-2 sends FC LIP events on storage actions
  - External luns may loose the libvirt selinux label if a udev change event is triggered

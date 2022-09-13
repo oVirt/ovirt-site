@@ -14,6 +14,7 @@ authors:
 OVN - Open Virtual Network - is an OVS (Open vSwitch) extension, adding support
 for virtual networks abstraction. It adds native OVS support for virtual L2 and
 L3 overlays.
+
 The goal of this feature is to allow using OVN provided networks from within
 oVirt, using the external network provider mechanism. oVirt users will be able
 to use/define logical overlays from within oVirt, and provision virtual machines
@@ -24,9 +25,6 @@ The progress of the feature is tracked on [Trello](https://trello.com/b/lqNXh8uI
 ### Owner
 
 *   Feature Owner: Marcin Mirecki: mmirecki (mmirecki)
-
-<!-- -->
-
 *   Email: <mmirecki@redhat.com>
 
 ### Benefit to oVirt
@@ -64,7 +62,7 @@ OVN central server consists of:
   data in SouthDB. Changes made to NorthDB are processed by northd and the
   SouthDB is updated accordingly.
 
-The OVN databases can be accessed using a python API, which is part of OVS (python/ovs/db/idl.py).
+The OVN databases can be accessed using a python API, which is part of OVS (`python/ovs/db/idl.py`).
 
 The OVN central server is accessed by the oVirt engine using the oVirt OVN provider
 as a proxy. The oVirt OVN provider translates oVirt HTTP requests to OVN database queries.
@@ -117,19 +115,25 @@ The oVirt OVN provider must be located on the same host as the OVN central serve
 
 ### oVirt OVN VIF Driver
 
-The oVirt OVN VIF driver connects the oVirt vNIC to the proper OVS bridge
-and OVN logical network. When an OVN port (added by the provider) is plugged
-into an OVS bridge, OVN Controller will retrieve information about the port
+The oVirt OVN VIF driver connects the oVirt vNIC to the proper OVS bridge and OVN logical network.
+
+When an OVN port (added by the provider) is plugged into an OVS bridge, OVN Controller will retrieve information about the port
 and the logical network it belongs to from OVN south DB, and create the required
-open flows on the local OVS switch. The OVN controller will also update the
+open flows on the local OVS switch.
+
+The OVN controller will also update the
 binding tables on the OVN south DB, causing all other OVN controllers on other
 hosts to update their open flow tables, to allow connections to the newly added
 port (if ports belonging to this logical network are present on this OVS switch).
+
 The oVirt OVN VIF driver will also take care of providing the data about the
 OVN ports needed by the GetCapabilites VDSM command.
-The GetStatistics VDSM command needs to be checked.
+
+The `GetStatistics` VDSM command needs to be checked.
+
 The driver must also protect the OVN switches, OVN ports and host NICs used for
 OVN tunneling during the SetupNetworks command.
+
 The oVirt OVN VIF driver must be located on each oVirt host which supports
 OVN. The VIF driver is invoked by VDSM hooks, contacting the OVN databases to
 fetch the required data and updating the hook XML passed libvirt or the
@@ -150,7 +154,9 @@ The following vdsm hooks will need to be implemented:
 
 The provider provides a list of existing entities.
 A list of all entities can be obtained using the command:
-`ovn-nbctl show`
+```console
+# ovn-nbctl show
+```
 The provider will list the networks and ports in separate REST queries.
 
 ### Adding Network
@@ -178,8 +184,11 @@ The is added by adding a row to the Logical_Switch_Port table in the OVN north d
 associate it with the mac address of the oVirt NIC by setting the appropriate value in
 the record.
 Equivalent of commands:
-`ovn-nbctl lsp-add <lswtich name> <lport name (vif id)>`
-`ovn-nbctl lsp-set-addresses <lport name (vif id)> <mac of port>`
+
+```console
+# ovn-nbctl lsp-add <lswtich name> <lport name (vif id)>
+# ovn-nbctl lsp-set-addresses <lport name (vif id)> <mac of port>
+```
 
 As a result OVN will make the corresponding updates to the OVN Southbound
 database,  by adding rows to the OVN Southbound database
@@ -197,7 +206,9 @@ does not exist yet, so there is no need to act yet).
 To remove an oVirt vNIC, the equivalent logical switch port record must be removed from the
 OVN north db Logical_Switch_Port table.
 This is the equivalent of:
-	`ovn-nbctl lsp-del <lport-name (vif-id)>`
+```console
+# ovn-nbctl lsp-del <lport-name (vif-id)>
+```
 
 OVN will remove all southbound entries appropriately.
 
@@ -209,10 +220,12 @@ This is task is performed automatically by libvirt, if the vNIC xml
 is appropriately modified.
 This is done by adding the following section to the xml:
 
+```xml
          <source bridge='ovsbr0'/>
          <virtualport type='openvswitch'>
            <parameters interfaceid='<OVN logical switch port name>'/>
          </virtualport>
+```
 
 The value of the "bridge" attribute of the "source" element is the OVS switch to which
 the vNIC should be added.
@@ -233,8 +246,11 @@ The complete xml would look as follows:
 ```
 
 This is the equivalent of executing the following OVS commands:
-	`ovs-vsctl add-port br-int <nic name>`
-        `ovs-vsctl set Interface <nic name> external_ids:iface-id=<OVN logical switch port name>`
+
+```console
+# ovs-vsctl add-port br-int <nic name>
+# ovs-vsctl set Interface <nic name> external_ids:iface-id=<OVN logical switch port name>
+```
 
 The "external-ids:iface-id" parameter allows OVN controller to associate
 this nic with the logical port defined in the southbound db.
@@ -250,12 +266,12 @@ and knowing the physical location of the port update local OVS flows.
 *   The engine checks if the port for the VM NIC exists, issuing a GET port request to the provider. The provider
     in turn queries the Logical_Switch_Port table of the OVN north DB
 *   if no port exists, the engine will create a new port by issuing a POST port request to the provider. The provider
-    in turn adds a row to the Logical_Switch_Port table of the OVN north DB	
+    in turn adds a row to the Logical_Switch_Port table of the OVN north DB
 *   if a port already exists, the engine will update the port by issuing a POST port request to the provider. The provider
     in turn updates the port row in the Logical_Switch_Port table of the OVN north DB
-*   in both cases the new/updated port is identified by a <PORT ID>, which is the uuid of the port row in the Logical_Switch_Port table of the OVN north DB
-*   the engine will send a nic plug request to VDSM, passing the <PORT ID>
-    as one of the parameters. The <PORT ID> is passed to the VIF driver (VDSM hook) as  a "vnic_id" parameter.
+*   in both cases the new/updated port is identified by a `<PORT ID>`, which is the uuid of the port row in the Logical_Switch_Port table of the OVN north DB
+*   the engine will send a nic plug request to VDSM, passing the `<PORT ID>`
+    as one of the parameters. The `<PORT ID>` is passed to the VIF driver (VDSM hook) as  a "vnic_id" parameter.
 *   on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug/before_device_create hook,
     will connect the VM NIC to the network provided by the external provider by modifying the device xml
 
@@ -266,7 +282,9 @@ and knowing the physical location of the port update local OVS flows.
 When a vNIC is unplugged, libvirt will automatically unplug the port from
 the OVS bridge.
 This is the equivalent of executing the following OVS command:
-	`ovs-vsctl del-port <nic name>`
+```console
+ovs-vsctl del-port <nic name>
+```
 
 This deletes the port from the OVN integration bridge. OVN controller
 modifies the local OpenFlows on the host and deletes the chassis id from the

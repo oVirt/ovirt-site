@@ -8,16 +8,15 @@ authors:
  - michael pasternak
  - tsaban
  - val0x00ff
+toc: true
 ---
 
-> **`ovirt-shell` is Deprecated**: It uses the v3 REST API, and lacks all features available since oVirt 4.0. 
+> **`ovirt-shell` is Deprecated**: It uses the v3 REST API, and lacks all features available since oVirt 4.0.
 Consider using Ansible as a replacement for automation purposes.
 
 # CLI
 
 oVirt CLI is a dynamic, runtime interface discovering command line interface for the oVirt engine
-
-__TOC__
 
 ## Concepts
 
@@ -35,27 +34,28 @@ __TOC__
 #### syntax
 
 *   note help is dynamically created for each command respectively
-
-       help
-       
-       or
-       
-       help `<command>` [arguments] [options]
+    ```bash
+    help
+    ```
+    or
+    ```bash
+    help <command> [arguments] [options]
+    ```
 
 ### Auto-Completion
 
 #### available commands
 
-```
+```console
 [oVirt shell (connected)]# <TAB><TAB>
-EOF         clear       console     remove      echo        help        ping        
+EOF         clear       console     remove      echo        help        ping
 show        update      action      connect     add         disconnect
 exit        list        shell       status
 ```
 
 #### available options for specific command
 
-```
+```console
 [oVirt shell (connected)]# add <TAB><TAB>
 cdrom          datacenter     group          network        permission     role           storagedomain  template       vm
 cluster        disk           host           nic            permit         snapshot       tag            user           vmpool
@@ -63,25 +63,25 @@ cluster        disk           host           nic            permit         snaps
 
 #### available options for command on specific resource
 
-```
+```console
 [oVirt shell (connected)]# add vm <TAB><TAB>
 cluster-id                               display-type                             os-boot-dev                              template-id
 cluster-name                             domain-name                              os-cmdline                               template-name
 cpu-topology-cores                       high_availability-enabled                os-initRd                                timezone
 cpu-topology-sockets                     high_availability-priority               os-kernel                                type
 custom_properties-custom_property        memory                                   os-type                                  usb-enabled
-description                              name                                     placement_policy-affinity                
+description                              name                                     placement_policy-affinity
 display-monitors                         origin                                   stateless
 ```
 
 #### available options for command on specific sub-resource
 
-```
-[oVirt shell (connected)]# add nic --vm-identifier xxx `<TAB><TAB>` 
+```console
+[oVirt shell (connected)]# add nic --vm-identifier xxx `<TAB><TAB>`
 interface     mac-address   name          network-id    network-name
 ```
 
-*   note typing beginning of the option name and then hitting <TAB>, will convert
+*   note typing beginning of the option name and then hitting <kbd>&lt;TAB&gt;</kbd>, will convert
 
 option to appropriate option format adding prefix or suffix.
 
@@ -89,7 +89,7 @@ option to appropriate option format adding prefix or suffix.
 
 #### get help for connect
 
-```
+```console
 [mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help
 
 Usage: ovirt-shell [options]
@@ -118,7 +118,7 @@ Options:
 
 #### connect from ovirt-shell
 
-```
+```console
 [mpastern@ovirt-engine-cli (master)]$ ovirt-shell
 
  ++++++++++++++++++++++++++++++++++++++++++
@@ -127,13 +127,13 @@ Options:
 
  ++++++++++++++++++++++++++++++++++++++++++
 
-[oVirt shell (disconnected)]# connect --url "`[`http://server:8080/api`](http://server:8080/api)`" --user "user@domain" --password 'password'
+[oVirt shell (disconnected)]# connect --url "http://server:8080/api" --user "user@domain" --password 'password'
 
 ==========================================
 >>> connected to oVirt manager 3.2.0.0 <<<
 ==========================================
 
-[oVirt shell (connected)]# 
+[oVirt shell (connected)]#
 ```
 
 #### connect from linux shell
@@ -144,7 +144,7 @@ Options:
 
 2. set args:
 
-```
+```console
 [ovirt-shell]
 username = user@domain
 url = http[s]://server[:port]/api
@@ -159,7 +159,7 @@ password = ******
 
 3. run `ovirt-shell`
 
-```
+```console
 [mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c
 
 ==========================================
@@ -170,13 +170,13 @@ password = ******
        Welcome to oVirt shell
 
 ++++++++++++++++++++++++++++++++++++++++++
-[oVirt shell (connected)]# 
+[oVirt shell (connected)]#
 ```
 
 ##### cli options based login
 
-```
-[mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain"
+```console
+[mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c -l "http://server:8080/api" -u "user@domain"
 Password: ****
 ==========================================
 >>> connected to oVirt manager 3.1.0.0 <<<
@@ -189,7 +189,7 @@ Password: ****
 ++++++++++++++++++++++++++++++++++++++++++
 
 
-[oVirt shell (connected)]# 
+[oVirt shell (connected)]#
 ```
 
 ### Querying
@@ -198,7 +198,7 @@ Password: ****
 
 ##### list resources
 
-```
+```console
 [oVirt shell (connected)]# list vms
 
 id         : aa849efc-4194-4b00-b274-ab32d4c222c9
@@ -260,7 +260,7 @@ type                      : desktop
 
 ##### list resources using oVirt query engine filtering
 
-```
+```console
 [oVirt shell (connected)]# list vms --query "name=demo"
 
 id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
@@ -269,7 +269,7 @@ name       : demo
 
 ##### list resources using client side filtering
 
-```
+```console
 [oVirt shell (connected)]# list vms --kwargs "memory=1073741824"
 
 id         : aa849efc-4194-4b00-b274-ab32d4c222c9
@@ -288,7 +288,7 @@ name       : pythond_sdk_poc2
 
 ##### list sub-resources
 
-```
+```console
 [oVirt shell (connected)]# list disks --vm-identifier nfs_desktop
 
 id         : 889bad90-6efa-42c5-a545-d0ce2033218d
@@ -319,7 +319,7 @@ name       : nic2
 
 ##### list sub-resources using client side filtering
 
-```
+```console
 [oVirt shell (connected)]# list disks --vm-identifier nfs_desktop --kwargs "name=Disk 3"
 
 id         : b007747c-ad99-4c03-a318-42ad502afb23
@@ -340,7 +340,7 @@ name       : demo
 
 ##### show resource
 
-```
+```console
 [oVirt shell (connected)]# show vm demo
 
 id                        : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
@@ -397,7 +397,7 @@ usb-enabled               : True
 
 ##### show resource using client side filtering
 
-```
+```console
 [oVirt shell (connected)]# show vm --id f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
 
 id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
@@ -427,7 +427,7 @@ usb-enabled               : True
 
 ##### show sub-resource
 
-```
+```console
 [oVirt shell (connected)]# show nic nic1 --vm-identifier demo
 
 id         : 1f295a64-0a4a-4fba-928d-162b458503a5
@@ -442,7 +442,7 @@ vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 
 #### add resource
 
-```
+```console
 [oVirt shell (connected)]# add vm --name demo2 --template-name iscsi_desktop_tmpl --cluster-name Default_iscsi
 
 id                        : dd981334-afb7-4142-a880-536bb8aef53f
@@ -483,7 +483,7 @@ version-minor                   : 1
 
 #### add sub-resource
 
-```
+```console
 [oVirt shell (connected)]# add nic --vm-identifier demo2 --network-name engine --name mynic
 
 id         : a211d8bb-8abb-429b-8d36-fc4eb44b6ea8
@@ -498,13 +498,13 @@ vm-id      : dd981334-afb7-4142-a880-536bb8aef53f
 
 #### remove resource
 
-```
+```console
 [oVirt shell (connected)]# remove vm aa
 ```
 
 #### remove sub-resource
 
-```
+```console
 [oVirt shell (connected)]# remove disk "Disk 1" --vm-identifier demo2
 ```
 
@@ -516,7 +516,7 @@ vm-id      : dd981334-afb7-4142-a880-536bb8aef53f
 
 #### update resource
 
-```
+```console
 [oVirt shell (connected)]# update vm iscsi_desktop --description iscsi_desktop_desc
 
 id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
@@ -572,7 +572,7 @@ usb-enabled               : True
 
 #### update sub-resource
 
-```
+```console
 [oVirt shell (connected)]# update nic nic1 --vm-identifier demo --interface virtio
 
 id         : 1f295a64-0a4a-4fba-928d-162b458503a5
@@ -587,9 +587,9 @@ vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 
 #### action on resource
 
-```
+```console
 [oVirt shell (connected)]# action vm demo start --vm-display-type vnc --async true
-error: 
+error:
 status: 400
 reason: Bad Request
 detail: [Cannot run VM. Low disk space on relevant Storage Domain.]
@@ -597,9 +597,9 @@ detail: [Cannot run VM. Low disk space on relevant Storage Domain.]
 
 #### action on sub-resource
 
-```
+```console
 [oVirt shell (connected)]# action nic bond0 attach --host-identifier grey-vdsa
-error: 
+error:
 status: 400
 reason: Bad Request
 detail: Action [network.id|name] required for attach
@@ -609,13 +609,13 @@ detail: Action [network.id|name] required for attach
 
 #### connect to vm using vm name
 
-```
+```console
 console 'my_vm'
 ```
 
 #### connect to vm using vm id
 
-```
+```console
 console '7dff8517-7007-42cd-9cf7-b7a13a9d96b7'
 ```
 
@@ -627,7 +627,7 @@ console '7dff8517-7007-42cd-9cf7-b7a13a9d96b7'
 
 no special format, just commands in plain text
 
-```
+```console
 less /home/mpastern/script
 --------------------------
 
@@ -643,13 +643,13 @@ list datacenters
 
 ##### From linux shell
 
-```
+```console
 [mpastern@lp /]#  ovirt-shell -f /home/mpastern/script
 ```
 
 ##### From ovirt shell
 
-```
+```console
 [oVirt shell (connected)]# file /home/mpastern/script
 ```
 
@@ -661,14 +661,14 @@ list datacenters
 
 1. the script (less run_all_vms.txt) will look like:
 
-```
+```console
 list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run
        file /home/mpastern/new_script_to_run
 ```
 
 2. run the script
 
-```
+```console
 [RHEVM shell (connected)]# file /home/mpastern/run_all_vms
 ```
 
@@ -676,13 +676,13 @@ list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' 
 
 1. run rhevm command and process the output saving it in to temp script new_script_to_run
 
-```
+```console
 list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run
 ```
 
 2. invoke temp script internally at runtime
 
-```
+```console
 file /home/mpastern/new_script_to_run
 ```
 
@@ -698,20 +698,20 @@ at `/home/user/.ovirtshellrc` change `autopage` to `False`
 
 <http://pypi.python.org/pypi/ovirt-shell>
 
-```
-easy_install ovirt-shell
+```console
+# easy_install ovirt-shell
 ```
 
 ### rpm
 
 To build rpm and install it, from ovirt-engine-cli repo:
 
-```
-yum install -y rpm-build python-devel python-setuptools python-kitchen
+```console
+# yum install -y rpm-build python-devel python-setuptools python-kitchen
 
-make rpm
+# make rpm
 
-yum localinstall rpmtop/RPMS/noarch/ovirt-engine-cli-x.y-z.noarch.rpm
+# yum localinstall rpmtop/RPMS/noarch/ovirt-engine-cli-x.y-z.noarch.rpm
 ```
 
 Because lxml is not yet packaged, please follow the instructions below to get lxml installed.
@@ -720,9 +720,9 @@ Because lxml is not yet packaged, please follow the instructions below to get lx
 
 For local install in site-packages, from ovirt-engine-cli repo:
 
-```
-yum install python-ply libxml2-devel libxslt-devel pexpect python-kitchen
-python setup.py develop
+```console
+# yum install python-ply libxml2-devel libxslt-devel pexpect python-kitchen
+# python setup.py develop
 ```
 
 That will install lxml, because EPEL's python-lxml is not yet up to the version required by CLI.

@@ -1,0 +1,49 @@
+:_content-type: PROCEDURE
+[id="configuring_remote_viewer_trust_rhvm_ca_certificate"]
+= Configuring the Remote Viewer to trust the Manager's CA certificate
+
+Configure the Remote Viewer console on your client machine, `virt-viewer` or `remote-viewer`, to trust the RHV Manager's certificate authority (CA)
+
+.Procedure
+
+. Navigate to `\https://<__engine_address__>/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`.
+
+. Enable all the trust settings.
+
+. On the client machine where you plan to run the VNC console, create a directory for the certificate file:
++
+[source,terminal,subs="normal"]
+----
+$ mkdir ~/.pki/CA
+----
++
+[WARNING]
+====
+If this step generates an error such as `mkdir: cannot create directory ‘/home/example_user/.pki/CA’: File exists`, take precautions to avoid overwriting `~/.pki/CA/cacert.pem` in the next step. For example, include the current date in the filename.
+====
+
+. Download the certificate:
++
+[source,terminal,subs="normal"]
+----
+$ curl -k -o ~/.pki/CA/cacert-<today's date>.pem '\https://<engine_address>/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA'
+----
+
+. Install the certificate authority in your browser:
++
+* link:{URL_customer-portal}solutions/95103[Firefox]
+* link:{URL_customer-portal}solutions/17864[Internet Explorer]
+* link:{URL_customer-portal}solutions/1168383[Google Chrome].
+
+. Install the SASL SCRAM libraries on the client machine:
++
+[source,terminal,subs="normal"]
+----
+$ sudo dnf install cyrus-sasl-scram
+----
+
+.Verification steps
+
+. Run a virtual machine on one of the FIPS-enabled hosts you created.
+
+. Connect to the virtual machine using a VNC console.

@@ -21,5 +21,4 @@ Adding a host to your {virt-product-fullname} environment can take some time, as
 . Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
 . Click btn:[OK].
 
-
 The new host displays in the list of hosts with a status of `Installing`, and you can view the progress of the installation in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[title="Events"]). After a brief delay the host status changes to `Up`.

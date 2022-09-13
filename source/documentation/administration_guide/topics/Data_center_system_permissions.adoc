@@ -14,8 +14,6 @@ The data center administrator role permits the following actions:
 
 * Edit user permissions for virtual machines associated with the data center.
 
-
-
 [NOTE]
 ====
 You can only assign roles and permissions to existing users.

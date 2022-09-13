@@ -50,5 +50,4 @@ normal a|
 
 * Double quotes should be used around a string or date containing spaces
 
-
 |===

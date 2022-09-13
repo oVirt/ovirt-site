@@ -11,6 +11,5 @@ Logs and engine metrics are obtained using the following services:
 * link:https://www.elastic.co/[Elasticsearch] (virtual machine) stores and indexes the data.
 * link:https://www.elastic.co/products/kibana[Kibana] (virtual machine) analyzes and presents the data as dashboards and charts.
 
-
 //.Architecture
 //image:../images/24_0519_rsyslog.png[Architecture]

@@ -308,7 +308,7 @@ packages from other repos.
  - [BZ 1528853](https://bugzilla.redhat.com/show_bug.cgi?id=1528853) <b>[TEXT] Host becomes non-operational if it has an un-synced network with vm<>non-VM difference</b><br>
  - [BZ 1539778](https://bugzilla.redhat.com/show_bug.cgi?id=1539778) <b>Under Instance Images: Selected LUN is unmarked while editing an added direct LUN in new VM prompt</b><br>
  - [BZ 1517818](https://bugzilla.redhat.com/show_bug.cgi?id=1517818) <b>Missing kdump finished message in events</b><br>
- - [BZ 1539814](https://bugzilla.redhat.com/show_bug.cgi?id=1539814) <b>Display properly if permissions are assigned to a user or a group when accessing /ovirt-engine/api/<RESOURCE>/<ID>/permissions</b><br>
+ - [BZ 1539814](https://bugzilla.redhat.com/show_bug.cgi?id=1539814) <b>Display properly if permissions are assigned to a user or a group when accessing /ovirt-engine/api/&lt;RESOURCE&gt;/&lt;ID&gt;/permissions</b><br>
  - [BZ 1550165](https://bugzilla.redhat.com/show_bug.cgi?id=1550165) <b>[RFE] /user/{myUserId}/permissions for all users</b><br>Previously users using 'Filter: true' HTTP header when querying API resource /ovirt-engine/api/{userid}/permissions, wasn't able to see a list of his/her permissions. This feature allows the users using filtered API see their permissions.
  - [BZ 1490763](https://bugzilla.redhat.com/show_bug.cgi?id=1490763) <b>Incorrect link for correct usage on request failure</b><br>
  - [BZ 1547991](https://bugzilla.redhat.com/show_bug.cgi?id=1547991) <b>[DR] [BLOCKED on bug 1524455 ] VM lease ignored when registering a VM from a data domain</b><br>

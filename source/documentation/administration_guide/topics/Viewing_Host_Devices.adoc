@@ -10,7 +10,6 @@ For more information on configuring the host for direct device assignment, see x
 
 For more information on attaching host devices to virtual machines, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-host_devices[Host Devices] in the _Virtual Machine Management Guide_.
 
-
 .Procedure
 
 . Click menu:Compute[Hosts].

@@ -27,7 +27,6 @@ CPU-passthrough virtual machines might not migrate properly from {virt-product-s
 * The compatibility level of the data center and cluster to which the hosts belong is set to 4.2 or 4.3.
 All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.
 
-
 .Procedure
 
 . Pick a host to upgrade and migrate that host's virtual machines to another host in the same cluster. You can use Live Migration to minimize virtual machine downtime. For more information, see
@@ -48,6 +47,5 @@ Repeat these steps to migrate virtual machines and upgrade hosts for the rest of
 * link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/[Installing {virt-product-fullname} as a self-hosted engine using the command line]
 
 * link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing {virt-product-fullname} as a standalone Manager with local databases]
-
 
 * link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/[Installing {virt-product-fullname} as a standalone Manager with remote databases]

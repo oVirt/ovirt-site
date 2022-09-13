@@ -4,7 +4,6 @@
 
 Data domains that are *Unattached* can be attached to a data center. Shared storage domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].
@@ -13,6 +12,5 @@ Data domains that are *Unattached* can be attached to a data center. Shared stor
 . Click *Attach Data*.
 . Select the check box for the data domain to attach to the data center. You can select multiple check boxes to attach multiple data domains.
 . Click btn:[OK].
-
 
 The data domain is attached to the data center and is automatically activated.

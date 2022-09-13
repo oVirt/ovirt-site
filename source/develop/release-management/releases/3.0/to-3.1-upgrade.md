@@ -17,7 +17,7 @@ oVirt 3.0 was released as Fedora 16 package, and 3.1 is targeted to Fedora 17. D
 
 <!-- -->
 
-     yum remove ovirt\* 
+     yum remove ovirt\*
 
 **DO NOT run the engine-cleanup utility**
 
@@ -30,7 +30,7 @@ oVirt 3.0 was released as Fedora 16 package, and 3.1 is targeted to Fedora 17. D
 
 <!-- -->
 
-     yum install ovirt-engine 
+     yum install ovirt-engine
 
 *   Restore previous keystore and preserve .sh scripts
 
@@ -48,7 +48,7 @@ oVirt 3.0 was released as Fedora 16 package, and 3.1 is targeted to Fedora 17. D
 
 <!-- -->
 
-     engine-setup 
+     engine-setup
 
 ## Updating oVirt Node
 
@@ -59,7 +59,7 @@ oVirt 3.0 was released as Fedora 16 package, and 3.1 is targeted to Fedora 17. D
 <!-- -->
 
 *   Select "Start Ovirt Node" in the boot menu
-*   In the TUI you should be prompted to "Upgrade <current version> to <new version>"
+*   In the TUI you should be prompted to "`Upgrade <current version> to <new version>`"
     -   Press ENTER to continue
 *   Select the keyboard layout
 *   Enter - at least - the current admin password. This is a security check to ensure that not someone else overrides your installation.

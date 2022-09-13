@@ -73,4 +73,4 @@ If you want to enable novnc/spice html5:
       # yum -y install ovirt-engine-websocket-proxy
       # engine-setup
 
-and access https: //<fqdn>:6100 for accepting the certificate
+and access `https: //<fqdn>:6100` for accepting the certificate

@@ -10,7 +10,7 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png" alt="oVirt Engine Administration panel screenshot">
 
-oVirt 4.5.0 is intended for production use and is available for the following platforms:
+oVirt 4.5.2 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.6 (or similar)
@@ -23,7 +23,7 @@ Hosts:
 - Red Hat Enterprise Linux 9.0 (or similar, non UEFI hosts, Tech Preview)
 - CentOS Stream 9 (non UEFI hosts, Tech Preview)
 
-See the [Release Notes for oVirt 4.5.0](/release/4.5.0/).
+See the [Release Notes for oVirt 4.5.2](/release/4.5.2/).
 
 <div class="row"></div>
 
@@ -45,22 +45,7 @@ As an exception you can upgrade from 4.3 to 4.5 without upgrading to 4.4 first.
 
 ## Upgrade to 4.5 from 4.4
 
-### On oVirt Engine side:
-
-```bash
-dnf install -y centos-release-ovirt45
-dnf update -y --nobest
-engine-setup
-```
-
-### on oVirt Node side:
-
-```bash
-dnf install -y centos-release-ovirt45 --enablerepo=extras
-```
-
-and then upgrade the host from the oVirt Engine administation portal.
-
+Please follow the [upgrade guide](/documentation/upgrade_guide/index.html#Upgrading_from_4-4)
 
 ## Upgrading from 4.3
 

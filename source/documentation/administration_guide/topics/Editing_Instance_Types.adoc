@@ -4,7 +4,6 @@
 
 Administrators can edit existing instance types from the *Configure* window.
 
-
 .Procedure
 
 . Click menu:Administration[Configure].

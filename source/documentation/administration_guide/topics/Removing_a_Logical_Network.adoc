@@ -4,7 +4,6 @@
 
 You can remove a logical network from menu:Network[Networks] or menu:Compute[Data Centers]. The following procedure shows you how to remove logical networks associated to a data center. For a working {virt-product-fullname} environment, you must have at least one logical network used as the *ovirtmgmt* management network.
 
-
 .Procedure
 
 . Click menu:Compute[Data Centers].

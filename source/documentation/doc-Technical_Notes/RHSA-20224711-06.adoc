@@ -2,74 +2,39 @@
 
 The bugs in this chapter are addressed by advisory RHSA-2022:4711-06. Further information about this advisory is available at https://errata.devel.redhat.com/advisory/84555
 
-
 == distribution
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2065052[2065052]
 
-
 Red Hat Virtualization 4.4 SP1 now requires ansible-core >= 2.12.0 to execute Ansible playbooks/roles internally from RHV components.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2072637[2072637]
 
 python3-daemon/python38-daemon are runtime dependencies for several Red Hat Virtualization Manager components. They need to be provided in the RHEL-8-RHEV-S-4.4 channel
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2072639[2072639]
 
 ansible-runner-2.1.3-1.el8ev is a runtime dependency for the Red Hat Virtualization Manager. It needs to be provided in the RHEL-8-RHEV-S-4.4 channel
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2072641[2072641]
 
 python3-docutils/python38-docutils are runtime dependencies for several Red Hat Virtualization Manager components. They need to be provided in the RHEL-8-RHEV-S-4.4 channel
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2072642[2072642]
 
 python3-lockfile/python38-lockfile are runtime dependencies for several Red Hat Virtualization Manager components. They need to be provided in the RHEL-8-RHEV-S-4.4 channel
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2072645[2072645]
 
 python3-pexpect/python38-pexpect are runtime dependencies for several Red Hat Virtualization Manager components. They need to be provided in the RHEL-8-RHEV-S-4.4 channel
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2072646[2072646]
 
 ansible-core-2.12 requires all libraries used in Ansible modules/roles/playbooks to be built with Python 3.8. The python38-ptyprocess needs to be built and distributed in Red Hat Virtualization channels.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1608675[1608675]
 
 Red Hat Virtualization is compliant with USGv6 Revision 1 standards since version 4.4.6 of RHV. For more information, see https://www.iol.unh.edu/registry/usgv6?name=red+hat.
-
-
-
-
-
 
 == ovirt-engine
 
@@ -77,73 +42,37 @@ Red Hat Virtualization is compliant with USGv6 Revision 1 standards since versio
 
 With this release, it is now possible to edit and manage iSCSI storage domain connections using the Administration Portal. Users can now edit the logical domain to point to a different physical storage, which is useful if the underlying LUNs are replicated for backup purposes, or if the physical storage address has changed.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=977778[977778]
 
 In this release, support has been added for the conversion of a disk's format and allocation policy. This can help reduce space usage and improve performance, as well as enabling incremental backup on existing raw disks.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2015796[2015796]
 
 Red Hat Virtualization Manager 4.4 SP1 is now capable of running on a host with the RHEL 8.6 DISA STIG OpenSCAP profile applied.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2023250[2023250]
 
 The Advanced Virtualization module (virt:av) has been merged into the standard RHEL virtualization module (virt:rhel) as part of the RHEL 8.6 release. Due to this change, the host deploy and host upgrade flows have been updated to properly enable the virt:rhel module during new installation of the RHEL 8.6 host and during upgrade of an existing RHEL 8.5 or earlier host to a RHEL 8.6 host.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2030596[2030596]
 
 The Red Hat Virtualization Manager is now capable of running on machine with the PCI-DSS security profile.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2035051[2035051]
 
 Red Hat Virtualization 4.4 SP1 uses the updated DISA STIG OpenSCAP profile from RHEL 8.6, which does not remove the gssproxy package.As a result, the Red Hat Virtualization host works correctly after applying the DISA STIG profile.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2052690[2052690]
 
 Red Hat Virtualization 4.4 SP1 now requires ansible-core >= 2.12.0 to execute Ansible playbooks/roles internally from RHV components.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2055136[2055136]
 
 With this release, the virt DNF module version is correctly set according to the RHEL version of the host during the host upgrade flow.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2056021[2056021]
 
 Previously, renewing of the libvirt-vnc certificate was omitted during the Enroll Certificate flow. With the release of RHV 4.4 SP1 and libvirt-vnc certificates are renewed during the Enroll Certificate flow.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2056126[2056126]
 
@@ -153,23 +82,14 @@ With this release, the Red Hat Virtualization Manager 4.4 SP1 certificate expira
 
 This checks for internal RHV certificates (for example certificate for RHVM <-> hypervisor communication), but it doesn't check for custom certificates configured for HTTPS access to RHVM as configured according to link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Replacing_the_Manager_CA_Certificate[Replacing the Manager CA Certificate].
 
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2071468[2071468]
 
 If SSH soft fencing needs to be executed on a problematic host, The Red Hat Virtualization Manager now waits the expected time interval before it continues with fencing. As a result,the VDSM has enough time to start and respond to the Red Hat Virtualization Manager.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=655153[655153]
 
 Previously, no confirmation dialog was shown for the suspend VM operation. A virtual machine was suspended right after clicking the suspend-VM button.
 With this release, a confirmation dialog is presented by default when pressing the suspend-VM button. The user can choose not to show this confirmation dialog again. The setting can be reverted in the user preferences dialog.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1878930[1878930]
 
@@ -179,18 +99,10 @@ Reason: Make it easier for the admin user to plan ahead.
 
 Result: Admin will not be faced with an empty pool when creating VNICs on VMs.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1926625[1926625]
 
 With this release, you can now enable HTTP Strict Transport Security following Red Hat Virtualization Manager installation by following the instructions in this KCS article:
 https://access.redhat.com/solutions/1220063
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1998255[1998255]
 
@@ -200,10 +112,6 @@ Reason: Requested by customer
 
 Result: It is now possible to search and filter the VNIC profiles by values of their attributes in the main VNIC profiles page.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1999698[1999698]
 
 In previous versions, engine-setup configured apache httpd's SSLProtocol configuration option to be `-all +TLSv1.2`.
@@ -212,18 +120,10 @@ In RHEL 8, this isn't needed, because this option is managed by crypto-policies.
 
 With this version, engine-setup does not set this option, and removes it if it's already set, letting it be managed by crypto-policies.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2000031[2000031]
 
 Previously, host non-reponding treatment coould be called multiple times simultaneously.
 In this release, multiple calls to non-reponding treatment are prevented, and the host comes up much faster.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2006745[2006745]
 
@@ -231,18 +131,10 @@ Previously, when trying to copy a template disk from/to a Managed Block Storage
 domain, the operation failed due to an incorrect storage domain ID, saving the same image repeatedly in the images (and base disks) DB tables, and casting the disk to DiskImage when it is of type ManagedBlockStorageDisk.
 In this release, all of the above issues were fixed, and copying a template disk from/to a Managed Block Storage domain works as expected.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2007384[2007384]
 
 Previously high values of disk writeRate/readRate were not processed properly by the ovirt-engine.
 In this release, the type of writeRate/readRate in ovirt-engine has changed from integer to long to support values that are higher than integers.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2040361[2040361]
 
@@ -250,17 +142,9 @@ Previously, when hot plugging multiple disks with VIRTIO SCSI interface to virtu
 
 Now, each disk is assigned with a unique PCI address in this process, which enabled to plug multiple disks with VIRTIO SCSI to virtual machines also when they are set with more than one IO thread.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2043146[2043146]
 
 Previously, renewing of the libvirt-vnc certificate was omitted during the Enroll Certificate flow. With the release of RHV 4.4 SP1 and libvirt-vnc certificates are renewed during the Enroll Certificate flow.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1624015[1624015]
 
@@ -270,11 +154,9 @@ Setting the default console type (for both new and existing VMs) can be done eng
 and
 `engine-config -s ClientModeConsoleDefault=vnc` to prefer VNC over SPICE in case the VM has both available.
 
-
 If the actual console type for existed VMs was chosen manually via 'console options' dialog, cleaning the browser local storage is needed.
 So in caseit's required to set console type globally for
 all existing VMs, please clear the browser local storage after running the engine.
-
 
 Reason:
 An option for setting default console type for all provisioned VMs globally at once was not supported up till now. Needed to go one VM by one and set the console type via the 'console options' dialog.
@@ -282,43 +164,23 @@ An option for setting default console type for all provisioned VMs globally at o
 Result:
 Support setting console type globally for all VMs, existed and new ones, by using the engine-config parameters.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1648985[1648985]
 
 A user with SuperUser role can connect to a virtual machine in a VM-pool without having the VM assigned. Previously, this did not prevent other users from taking that VM, which resulted in closing the connected console and assigning the VM to a user with UserRole instead.
 In this release, users cannot take VMs that other users are connected to via a console. This prevents users with UserRole permissions from hijacking a VM that a user with SuperUser role is connected to.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1687845[1687845]
 
 Previously, displaying notifications for hosts activated from maintenance mode was done when the actual job activation "end time" was after the last displayed notification. But if there was a time difference between server and the browser, the job "end time" could be in the future.
 In this release, notifications rely only on the server time, and the job's "end time" is no longer compared to local browser time.As a result, only one "Finish activating host" notification appears.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1745141[1745141]
 
 With this release, SnowRidge Accelerator Interface Architecture (AIA) can be enabled by modifying the extra_cpu_flags custom property of a virtual machine (movdiri, movdir64b).
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1782056[1782056]
 
 With this release, IPSec for the OVN feature is available on hosts with configured ovirt-provider-ovn, OVN version 2021 or later and OvS version 2.15 or later.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1849169[1849169]
 
@@ -331,106 +193,58 @@ When the ratio is set to 0, the evenly distributed policy works as before. If th
 a. when scheduling a VM, hosts with lower CPU utilization are preferred. However, if adding of the VM would cause the vCPU to physical ratio to be exceeded, the hosts vCPU to physical ratio AND cpu utilization are considered.
 b. in a running environment, if the host's vCPU to physical ratio is above the limit, some of the VMs might be load balanced to the hosts with lower vCPU to physical CPU ratio.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1922977[1922977]
 
 With this release, shared disks are now a part of the 'OVF_STORE' configuration.
 This allows virtual machines to share disks, move a Storage Domain to another environment, and after importing VMs, the VMs correctly share the same disks without any additional manual configuration.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1927985[1927985]
 
 With this release, Padding between files has been added for exporting a virtual machine to an Open Virtual Appliance (OVA). The goal is to align disks in the OVA to the edge of a block of the underlying filesystem. As a result,disks are written faster during export, especially with an NFS partition.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1944290[1944290]
 
 Previously, when trying to log in to Red Hat Virtualization VM Portal or Administration Portal with an expired password, the URL to change the password was not shown properly.
 In this release, when there is an expired password error, the following clickable link appears beneath the error message: "Click here to change the password". This link will redirect the user to the change password page: ".../ovirt-engine/sso/credentials-change.html".
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1944834[1944834]
 
 This release adds a user specified delay to the 'Shutdown' Console Disconnect Action of a Virtual Machine. The shutdown will occur after the user specified delay interval, or will be cancelled if the user reconnects to the VM console.
 This prevents a user's session loss after an accidental disconnect.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1959186[1959186]
 
 Previously, there was no way to set a quota different from that of the template from the VM portal. Thus, if the user had no access to the quota on the template, the user could not provision VMs from the template using the VM portal.
 In this release, the Red Hat Virtualization Manager selects a quota that the user has access to, and not necessarily from the template, when provisioning VMs from templates using the VM portal.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1964208[1964208]
 
 With this release, a screenshot API has been added that captures the current screen of a VM, and then returns a PPM file screenshot. The user can download the screenshot and view its content.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1971622[1971622]
 
 Previously, when displaying the Host's Virtual Machines sub-tab, all virtual machines were marked with a warning sign.
 In this release, the warning sign is displayed correctly in the same way as on the Virtual Machines list page.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1974741[1974741]
 
 Previously, a bug in the finalization mechanism left the disk locked in the database.
 In this release, the finalization mechanism works correctly, and the disk remains unlocked in all scenarios.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1979441[1979441]
 
 Previously there was a warning that indicates the VM CPU is different than the cluster CPU for high performance virtual machines.
 With this release, the warning is not shown when CPU passthrough is configured, and as a result, not presented for high performance virtual machines.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1979797[1979797]
 
 In this release, a new warning message displays in the removing storage domain window if the selected domain has leases for entities that were raised on a different storage domain.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1986726[1986726]
 
 When importing VM from OVA and setting the allocation policy to Preallocated, the disks were imported as Thin
 provisioned.
 In this release, the selected allocation policy is followed.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1987121[1987121]
 
@@ -440,86 +254,45 @@ The vGPU editing dialog was moved from the host devices tab to the VM devices ta
 
 vGPU properties are no longer specified using mdev_type VM custom property. They are specified as VM devices now. This change is transparent when using the vGPU editing dialog. In the REST API, the vGPU properties can be manipulated using a newly introduced `.../vms/.../mediateddevices` endpoint. The new API permits setting "nodisplay" and driver parameters for each of the vGPUs individually, but note that this is not supported in the vGPU editing dialog where they can be set only to a single value common for all the vGPUs of a given VM.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1988496[1988496]
 
 Previously, the vmconsole-proxy-helper certificate was not renewed when needed. With this release, the certificate is renewed each time following the CA certificate update.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2002283[2002283]
 
 With this release, it is now possible to set the number of PCI Express ports for virtual machines by setting the NumOfPciExpressPorts configuration using engine-config.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2003996[2003996]
 
 Previously, snapshots that represent VM next-run configuration were reported by ovirt-ansible but their typewas missing and they could not be removed.
 In this release, snapshots that represent VM next-run configuration are not reported to clients, including ovirt-ansible.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2021217[2021217]
 
 Add Windows 2022 as a guest operating system
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2023786[2023786]
 
 When a VM is set with the custom property sap_agent=true, it requires vhostmd hooks to be installed on the host to work correctly. Previously, if the hooks were missing, there was no warning to the user.
 In this release, when the required hooks are not installed and reported by the host, the host is filtered out by the scheduler when starting the VM.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2040474[2040474]
 
 The Administration Portal cluster upgrade interface has been improved to provide better error messaging and status and progress indications.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2041544[2041544]
 
 Previously,when selecting a host to upload in the Administration Portal (Storage > Domain > select domain > Disks > Upload), trying to select a host different from the first one on the list resulted in jumping back to the first host on the list.
 In this release, the storage domain and data center are only initialized once, and the list of hosts doesn't need to be reloaded. As a result, a different host can be selected without being set back to the first one on the list.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2052557[2052557]
 
 Previously, vGPU devices were not released when stateless VMs or VMs that were started in run-once mode were shut down. This sometimes caused the system to forbid running the VMs again, although the vGPU devices were available.
 IN this release, vGPU devices are properly released when stateless VMs or VMs that were started in run-once mode are shut down.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2066084[2066084]
 
 Previously, the vmconsole-proxy-user and vmconsole-proxy-host certificates were not renewed when needed. With this release, the certificates are now renewed when executing engine-setup.
-
-
-
-
-
 
 == ovirt-engine-dwh
 
@@ -527,18 +300,9 @@ Previously, the vmconsole-proxy-user and vmconsole-proxy-host certificates were 
 
 Dashboard field descriptions have been updated to match the real meanings of I/O operations data fields.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2010903[2010903]
 
 Database columns and dashboard field descriptions have been updated to match the real meanings in I/O operations data fields.
-
-
-
-
-
 
 == ovirt-engine-metrics
 
@@ -547,18 +311,9 @@ Database columns and dashboard field descriptions have been updated to match the
 In this release, Elasticsearch username and password have been added for authentication from rsyslog.
 AS a result, rsyslog can now authenticate to Elasticsearch using a username and password.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2059521[2059521]
 
 Red Hat Virtualization 4.4 SP1 now requires ansible-core >= 2.12.0 to execute Ansible playbooks/roles internally from RHV components.
-
-
-
-
-
 
 == ovirt-engine-ui-extensions
 
@@ -568,11 +323,6 @@ Previously, the formatting of parameters passed to translated messages on ui-ext
 That caused invalid formatting for a number of language.
 In this release, the formatting of translated messages parameters on ui-extensions is done only on one layer, the translation layer (formatting done on code layer is removed). As a result, translation strings on ui-extensions dialogs are now displayed properly for all languages.
 
-
-
-
-
-
 == ovirt-log-collector
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2040402[2040402]
@@ -580,29 +330,16 @@ In this release, the formatting of translated messages parameters on ui-extensio
 The log_days option of the sos logs plugin has been removed. As a result, the command that used this option began to fail.
 In this release, the use of the option has been removed, and the program now functions as expected.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2048546[2048546]
 
 Previously, using the sosreport command in the log collector utility produced a warning.
 In this release, the utility was modified to use the sos report command instead of the sosreport command. As a result, the warning is no longer displayed. and the utility will continue to work even when the sosreport is deprecated in the future.
-
-
-
-
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2050566[2050566]
 
 Rebase package(s) to version: 4.4.5
 
 Highlights, important fixes, or notable enhancements:
-
-
-
-
-
 
 == ovirt-web-ui
 
@@ -623,10 +360,6 @@ Limitations for these settings:
 2. There is no sync between Administration Portal console options and VM Portal console options - The console options configuration done by Create/Edit VM/Pool dialog (supported console types and smartcard enabled) are synced, but the 'console options' run time settings done for running VMs via Console -> Console options are not synced with Administration Portal.
 3. Console settings are part of Account settings and therefore are set per user. Each user logged in to the VM Portal can have their own console settings, defaults are taken from the vdc_options config parameters.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1781241[1781241]
 
 With this release, support for automatically connecting to a Virtual Machine has been restored as a configurable option. This is enabled in the Account Settings > Console tab.
@@ -636,19 +369,10 @@ This feature enables the user to connect automatically to a running Virtual Mach
 - The Console type for connecting will be chosen based on Account Settings > Console options.
 - This auto connect VM setting is persisted per user on the engine.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1991240[1991240]
 
 Previously, there was no way to set a quota different from that of the template from the VM portal. Thus, if the user had no access to the quota on the template, the user could not provision VMs from the template using the VM portal.
 In this release, the Red Hat Virtualization Manager selects a quota that the user has access to, and not necessarily from the template, when provisioning VMs from templates using the VM portal.
-
-
-
-
-
 
 == rhv-log-collector-analyzer
 
@@ -657,10 +381,6 @@ In this release, the Red Hat Virtualization Manager selects a quota that the use
 Previously, newlines included as part of the data were not handled properly, and as a result, the formatting of the table was wrong.
 In this release, the table format now is correct, even if the data contains newlines.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2013928[2013928]
 
 Previously if the data from the DB included special characters in the fields related to the vdc_options, i.e. the same ones that have special meaning in the ADOC format, they were used as is.
@@ -668,39 +388,21 @@ This resulted in an incorrectly formatted HTML document.
 In this release, The code was modified to escape replacing some of the characters, and modified the code in a way that no longer translates some of the characters.
 AS a result, the information now properly presented, even if the DB fields contain special characters.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2051857[2051857]
 
 Rebase package(s) to version: 1.0.13
 
 Highlights, important fixes, or notable enhancements:
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2037121[2037121]
 
 rhv-image-discrepancies tools now shows Data Center and Storage Domain names in the output.
-
-
-
-
-
 
 rhvm-branding-rhv
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2054756[2054756]
 
 With this release, a link to the Migration Toolkit for Virtualization documentation has been added to the welcome page of the Red Hat Virtualization Manager.
-
-
-
-
-
 
 == rhvm-setup-plugins
 
@@ -709,11 +411,6 @@ With this release, a link to the Migration Toolkit for Virtualization documentat
 Rebase package(s) to version: 4.5.0
 
 Highlights, important fixes, or notable enhancements:
-
-
-
-
-
 
 == vdsm
 
@@ -730,30 +427,16 @@ CertExpirationAlertPeriodInDays (defaulting to 30) is now also configurable by e
 
 Note that engine certificates and CA are checked/renewed only during engine-setup. Certificates on hosts are renewed/checked during host upgrade or a manual Enroll certificates action.
 
-
-
-
-
-
 == vulnerability
 
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1964461[1964461]
 
 A flaw was found in normalize-url. Node.js has a ReDoS (regular expression denial of service) issue because it has exponential performance for data.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1995793[1995793]
 
 A flaw was found in nodejs-trim-off-newlines. All versions of package trim-off-newlines are vulnerable to Regular Expression Denial of Service (ReDoS) via string processing. The highest threat from this vulnerability is to system availability.
 
-
-
-
-
 .BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=2007557[2007557]
-
 
 A regular expression denial of service (ReDoS) vulnerability was found in nodejs-ansi-regex. This could possibly cause an application using ansi-regex to use an excessive amount of CPU time when matching crafted ANSI escape codes.

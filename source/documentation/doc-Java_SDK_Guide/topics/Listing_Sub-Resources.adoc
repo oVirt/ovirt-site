@@ -1,9 +1,10 @@
-[[Listing_Sub-Resources]]
+:_content-type: PROCEDURE
+[id="Listing_Sub-Resources"]
 = Listing Sub-Resources
 
 The following example outlines how to list the sub-resources of a resource. In this example, the sub-resources of a virtual machine with the name 'test' are listed.
 
-*Listing Sub-Resources*
+.Procedure
 
 . Declare an instance of the resource whose sub-resources are to be listed:
 +

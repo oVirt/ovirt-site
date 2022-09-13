@@ -9,7 +9,6 @@ Import floating virtual disks from a storage domain. Floating disks created outs
 Only QEMU-compatible disks can be imported into the {engine-name}.
 ====
 
-
 .Procedure
 
 . Click menu:Storage[Domains].

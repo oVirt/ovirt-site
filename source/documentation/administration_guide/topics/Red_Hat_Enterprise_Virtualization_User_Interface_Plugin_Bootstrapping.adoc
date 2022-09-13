@@ -4,14 +4,12 @@
 
 A typical plug-in bootstrap sequence consists of following steps:
 
-
 *Plug-in Bootstrap Sequence*
 
 . Obtain pluginApi instance for the given plug-in
 . Obtain runtime plug-in configuration object (optional)
 . Register relevant event handler functions
 . Notify UI plug-in infrastructure to proceed with plug-in initialization
-
 
 The following code snippet illustrates the above mentioned steps in practice:
 	

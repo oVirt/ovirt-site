@@ -2,7 +2,6 @@
 [id="Assigning_Security_Groups_to_VNIC_Profiles"]
 = Assigning Security Groups to vNIC Profiles
 
-
 [NOTE]
 ====
 This feature is only available when `ovirt-provider-ovn` is added as an external network provider. Security groups cannot be created through the {virt-product-fullname} {engine-name}. You must create security groups through OpenStack Networking on the `ovirt-provider-ovn`. For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/users_and_identity_management_guide/index#project-security[Project Security Management] in the _Red Hat OpenStack Platform Users and Identity Management Guide_.
@@ -16,7 +15,6 @@ A security group is identified using the ID of that security group as registered
 
 ====
 
-
 .Procedure
 
 . Click menu:Network[Networks].
@@ -26,6 +24,5 @@ A security group is identified using the ID of that security group as registered
 . From the custom properties drop-down list, select *SecurityGroups*. Leaving the custom property drop-down blank applies the default security settings, which permit all outbound traffic and intercommunication but deny all inbound traffic from outside of the default security group. Note that removing the *SecurityGroups* property later will not affect the applied security group.
 . In the text field, enter the ID of the security group to attach to the vNIC profile.
 . Click btn:[OK].
-
 
 You have attached a security group to the vNIC profile. All traffic through the logical network to which that profile is attached will be filtered in accordance with the rules defined for that security group.

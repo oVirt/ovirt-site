@@ -1,4 +1,4 @@
-:_content-type: PROCEDURE
+:_content-type: ASSEMBLY
 [id="Updating_a_host_between_minor_releases"]
 = Updating Hosts Between Minor Releases
 

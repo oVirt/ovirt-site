@@ -20,7 +20,6 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 <!-- -->
 
 *   Email: <lvroyce@linux.vnet.ibm.com>
-*   Email: <ybronhei@redhat.com>
 
 ## Background - History until 3.3
 

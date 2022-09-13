@@ -52,7 +52,7 @@ You can use the default values or specify the oVirt OVN provider user and passwo
 
 [NOTE]
 ====
-To change the authentication method later, you can edit the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file, or create a new `/etc/ovirt-provider-ovn/conf.d/20_engine_setup.conf` file. Restart the `ovirt-provider-ovn` service for the change to take effect. See link:https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc[] for more information about OVN authentication.
+To change the authentication method later, you can edit the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file, or create a new `/etc/ovirt-provider-ovn/conf.d/20_engine_setup.conf` file. Restart the `ovirt-provider-ovn` service for the change to take effect. See link:https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc[oVirt external network provider for OVN] for more information about OVN authentication.
 ====
 
 [#Installing-OVN-next-steps]

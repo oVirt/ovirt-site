@@ -143,7 +143,7 @@ packages from other repos.
  - [BZ 1589665](https://bugzilla.redhat.com/show_bug.cgi?id=1589665) <b>WebAdmin: Upload image dialog - not informative enough when image is too small</b><br>
  - [BZ 1656752](https://bugzilla.redhat.com/show_bug.cgi?id=1656752) <b>we do not run pyflakes on fedora</b><br>
  - [BZ 1368457](https://bugzilla.redhat.com/show_bug.cgi?id=1368457) <b>Adding a new host to the gluster cluster, should not show up virt node related tabs</b><br>
- - [BZ 1403161](https://bugzilla.redhat.com/show_bug.cgi?id=1403161) <b>Missing <certificate> node in ovirt-engine/api/vms/$vmid</b><br>
+ - [BZ 1403161](https://bugzilla.redhat.com/show_bug.cgi?id=1403161) <b>Missing &lt;certificate&gt; node in ovirt-engine/api/vms/$vmid</b><br>
  - [BZ 1657977](https://bugzilla.redhat.com/show_bug.cgi?id=1657977) <b>[UI] Gray out multiQueues check box in Instance Types 'New/Edit' option - make it clear that enabled by default</b><br>
  - [BZ 1677426](https://bugzilla.redhat.com/show_bug.cgi?id=1677426) <b>[vNIC Profiles main tab] -  Port mirroring, passthrough and migratable properties are grayed out if the first network in the DC(alphabetic) is an external network</b><br>
  - [BZ 1684586](https://bugzilla.redhat.com/show_bug.cgi?id=1684586) <b>[work around] engine-setup fails upgrading due constraint violations</b><br>

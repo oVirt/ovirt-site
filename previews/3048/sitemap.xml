@@ -2026,6 +2026,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/3048/develop/release-management/features/storage/ovfonanydomain.html</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/3048/community/ovirt-counter.html</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3048/develop/projects/proposals/ovirt-engine-disaster-recovery.html</loc>
 </url>
 <url>
@@ -2779,6 +2782,9 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/3048/develop/release-management/features/virt/xbzrle-and-auto-convergence.html</loc>
 </url>
 <url>
+<loc>https://ovirt.github.io/ovirt-site/previews/3048/develop/release-management/features/virt/zerocopy-migrations.html</loc>
+</url>
+<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3048/documentation/doc-Java_SDK_Guide/topics/</loc>
 </url>
 <url>
@@ -3017,10 +3023,10 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3048/media/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-08-16T07:23:25+00:00</lastmod>
+<lastmod>2022-09-13T08:44:52+00:00</lastmod>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/3048/media/Hybrid-backup-v8.pdf</loc>
-<lastmod>2022-08-16T07:23:25+00:00</lastmod>
+<lastmod>2022-09-13T08:44:52+00:00</lastmod>
 </url>
 </urlset>

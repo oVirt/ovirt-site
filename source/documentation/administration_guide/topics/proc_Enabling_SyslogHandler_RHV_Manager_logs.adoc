@@ -12,7 +12,7 @@ This implementation uses the *JBoss EAP SyslogHandler* log manager and enables p
 * Manually remove the `ovirt-engine-extension-logger-log4j` configuration files (remove the `/etc/ovirt-engine/extensions.d/Log4jLogger.properties` configuration file).
 ====
 
-// Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization Manager delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.
+// Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Hat Virtualization Manager delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.
 
 Use this procedure on the central syslog server. You can use a separate logging server, or use this procedure to pass the engine.log and server.log files from the {engine-name} to the syslog server. See also the configuration procedure link:{URL_virt_product_docs}{URL_format}administration_guide/index#Setting_up_a_Host_Logging_Server[Setting up a Host Logging Server].
 

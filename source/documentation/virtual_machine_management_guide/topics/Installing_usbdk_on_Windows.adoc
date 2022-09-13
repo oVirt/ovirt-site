@@ -9,7 +9,7 @@
 
 . Open a web browser and download one of the following installers according to the architecture of your system.
 
-
+ifdef::rhv-doc[]
 * `usbdk` for 32-bit Windows:
 +
 [source,terminal,subs="normal"]
@@ -23,6 +23,13 @@ https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x86.m
 ----
 https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x64.msi
 ----
+endif::rhv-doc[]
+
+ifdef::ovirt-doc[]
+
+* link:https://www.spice-space.org/download.html[`usbdk` download page]
+
+endif::ovirt-doc[]
 
 . Open the folder where the file was saved.
 . Double-click the file.

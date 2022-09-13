@@ -13,7 +13,7 @@ KVM can concurrently host multiple virtual machines running either Windows or Li
 You can identify the host type of an individual host in the {virt-product-fullname} {engine-name} by selecting the host's name. This opens the details view. Then look at the *OS Description* under *Software*.
 ====
 
-Hosts use `tuned` profiles, which provide virtualization optimizations. For more information on `tuned`, see the link:{URL_rhel_docs_legacy}html/Performance_Tuning_Guide/sect-Red_Hat_Enterprise_Linux-Performance_Tuning_Guide-Performance_Monitoring_Tools-tuned_and_tuned_adm.html[_{enterprise-linux} 7 Performance Tuning Guide_].
+Hosts use `tuned` profiles, which provide virtualization optimizations. For more information on `tuned`, see the link:{URL_rhel_docs_latest}html-single/monitoring_and_managing_system_status_and_performance/index#tuned-profiles_getting-started-with-tuned[TuneD Profiles] in _Red Hat Enterprise Linux Monitoring and managing system status and performance_.
 
 The {hypervisor-fullname} has security features enabled. Security Enhanced Linux (SELinux) and the firewall are fully configured and on by default. The status of SELinux on a selected host is reported under *SELinux mode* in the *General* tab of the details view. The {engine-name} can open required ports on {enterprise-linux-host-fullname}s when it adds them to the environment.
 

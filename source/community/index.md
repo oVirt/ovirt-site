@@ -46,12 +46,12 @@ There are a few ways to engage with the oVirt Community:
 
 Before getting started, please read our [community etiquette guidelines](/community/about/community-guidelines.html).
 
+Do you want to let other to know you're using oVirt? You can add your deployment to the [oVirt counter](ovirt-counter.html)!
+
 ## Developers
 
 If you'd like to contribute code to oVirt, visit the [Developer section](/develop/) of the site for guidelines.
 All of our projects use git and are hosted at [https://github.com/oVirt](https://github.com/oVirt/).
-
-We also have an [overview](https://github.com/oVirt/ovirt-site/blob/dashpanel/dashpanel-ovirt.md) of all open issues and PRs for oVirt on GitHub.
 
 ## Testing
 

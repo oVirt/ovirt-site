@@ -1,5 +1,5 @@
 :_content-type: PROCEDURE
-[id="viewing-user-information_{context}"]
+[id="viewing-user-information-cli_{context}"]
 = Viewing User Information
 
 You can view detailed user account information:

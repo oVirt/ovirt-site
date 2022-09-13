@@ -16,24 +16,29 @@ authors:
 ## Developer Documentation
 
 <div class="alert alert-warning">
-  Much of this developer documentation is <strong>outdated</strong>, but provides historical context.
+  Much of this developer documentation provides historical context but may not reflect the current state of the project.
+  <br/>
+  If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".
   <br/>
   <br/>
   It is <strong>not</strong> user documentation and should not be treated as such.
   <br/>
   <br/>
-  <a href="/documentation/">Documentation is available here.</a>
+  <a href="/documentation/">User documentation is available here.</a>
 </div>
 
 #### oVirt development teams
 
 - [Infrastructure](infra/infrastructure.html)
 - [Integration](integration/index.html)
+- [oVirt Quality Assurance](qa/index.html)
 
 
 #### Design Documentation
 - [Feature Pages / Design Documentation](/develop/release-management/features/)
-- [Architecture (outdated)](./architecture/index.html)
+- [Overall architecture](./architecture/architecture.html)
+- [oVirt Engine architecture](./architecture/index.html)
+
 
 #### Developer Process
 - [Migrating a project from Gerrit to GitHub](/develop/developer-guide/migrating_to_github.html)
@@ -64,12 +69,13 @@ Obsolete:
 - [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment.html)
 - [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot.html)
 - [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago.html)
-- [Building VDSM](/develop/developer-guide/vdsm/developers.html)
+- [VDSM Developers documentation](https://github.com/oVirt/vdsm/blob/master/doc/development.md)
 - [FAQ](/develop/faq.html)
 - [HA VMs](/develop/ha-vms.html)
 - [Migrate PKI to SHA256 signatures](/develop/migrate-pki-to-sha256.html)
 - [Networking](/develop/networking/)
 - [Internal](/develop/internal/)
+- [Infra](/develop/infra/)
 - [Resources](/community/get-involved/resources/)
 - [SLA](/develop/sla/)
 - [Storage](/develop/storage/)

@@ -60,7 +60,7 @@ See link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-working_with_
 +
 [source,terminal,subs="normal"]
 ----
-# ssh-keygen -t rsa -b 2048 -C "_user@domain_" -f .ssh/serialconsolekey
+# ssh-keygen -t rsa -b 2048 -f .ssh/serialconsolekey
 ----
 This command generates a public key and a private key.
 . In the Administration Portal or the VM Portal, click the name of the signed-in user on the header bar and click *Options*. This opens the *Edit Options* window.

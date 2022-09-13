@@ -32,7 +32,7 @@ In {virt-product-fullname} 4.4, some tasks may still require the export domain.
 | ISO domains |Use a data domain. link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Upload images to data domains].
 In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 
-| ovirt-guest-agent |The ovirt-guest-agent project is no longer supported. Use link:https://www.qemu.org[`qemu-guest-agent` version 2.12.0] or later.
+| ovirt-guest-agent |The ovirt-guest-agent project is no longer supported. Use link:https://www.qemu.org[qemu-guest-agent version 2.12.0] or later.
 
 | moVirt |Mobile Android app for {virt-product-fullname}.
 
@@ -50,4 +50,5 @@ In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
 
 |GlusterFS Storage | GlusterFS Storage is deprecated, and will no longer be supported in future releases.
 
+|ovirt-engine extension-aaa-ldap and ovirt-engine extension-aaa-jdbc | The engine extensions ovirt-engine extension-aaa-ldap and ovirt-engine extension-aaa-jdbc have been deprecated. For new installations, use Red Hat Single Sign On for authentication. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/configuring_red_hat_sso[Installing and Configuring Red Hat Single Sign-On] in the Administration Guide.
 |===

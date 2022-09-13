@@ -16,11 +16,11 @@ dnf install -y ovirt-release-master
 
 ## CentOS Stream 9
 
-Please note that this is still work-in-progress. Most development is done on CentOS Stream 8, for now.
+Please note that this is still tech preview. Most development is done on CentOS Stream 8, for now.
 
 For CentOS Stream 9 you need to run:
 
 ```
-dnf copr enable -y ovirt/ovirt-master-snapshot
+dnf copr enable -y ovirt/ovirt-master-snapshot centos-stream-9
 dnf install -y ovirt-release-master
 ```

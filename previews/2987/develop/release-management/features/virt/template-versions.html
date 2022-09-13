@@ -239,32 +239,23 @@ Nested versioning could be confusing, and currently there is no good use case to
 
 <p><em>Create Template Version</em></p>
 
-<p><strong>\1</strong></p>
+<p><strong>Implementation</strong></p>
 
 <ul>
   <li>A template’s version is a template that is linked to its base (original) template.</li>
   <li>A new property for template - ‘version_name’ allowing the user to name the version</li>
   <li>A new property for template - ‘version’ to save its version</li>
   <li>A new property for vm - ‘version’ to save the version it is using, null means latest</li>
-  <li>On upgrade all templates will get version 1</li>
-</ul>
-
-<!-- -->
-
-<ul>
-  <li>Change queries to return only latest template object for each template</li>
-</ul>
-
-<!-- -->
-
-<ul>
+  <li>
+    <p>On upgrade all templates will get version 1</p>
+  </li>
+  <li>
+    <p>Change queries to return only latest template object for each template</p>
+  </li>
   <li>Templates sub tabs (general, discs, nics) should show information of latest version</li>
-  <li>Change VM and storage sub tab in Templates main tab to show information of all versions</li>
-</ul>
-
-<!-- -->
-
-<ul>
+  <li>
+    <p>Change VM and storage sub tab in Templates main tab to show information of all versions</p>
+  </li>
   <li>When a new template version is created:
     <ul>
       <li>find all stateless vms created from the template that use ‘latest’ version</li>
@@ -290,18 +281,24 @@ Nested versioning could be confusing, and currently there is no good use case to
   <li>GET :</li>
 </ul>
 
-<p>new section <version> will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates: base will have base id empty, base version numbering = 1</version></p>
+<p>new section <code class="language-plaintext highlighter-rouge">&lt;version&gt;</code> will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates:
+base will have base id empty, base version numbering = 1</p>
 
 <ul>
   <li>POST: (add new template version)</li>
 </ul>
 
 <p>The version section is optional because user might be creating a base template (which is a regular template as in previous versions of ovirt)
-If version section will be defined, user will have to fill the following fields:
-<em>base_template</em> - required to fill (a template object with id of the base template). Not filling it will result with error and the request will fail. Filling a non existing base template id will also fail the request.
-<em>version_name</em> - optional
-<em>version_number</em> should not be filled by the user. (it’s calculated by the engine), if user fills it, it will be ignored
- <strong>Example for adding a template version</strong> - this section should be added as part of body inside the template element. The relevant url is: api/templates</p>
+If version section will be defined, user will have to fill the following fields:</p>
+
+<p><em>base_template</em> - required to fill (a template object with id of the base template).
+Not filling it will result with error and the request will fail. Filling a non existing base template id will also fail the request.</p>
+
+<p><em>version_name</em> - optional</p>
+
+<p><em>version_number</em> should not be filled by the user. (it’s calculated by the engine), if user fills it, it will be ignored</p>
+
+<p><strong>Example for adding a template version</strong> - this section should be added as part of body inside the template element. The relevant url is: <code class="language-plaintext highlighter-rouge">api/templates</code></p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;version&gt;</span>
  <span class="nt">&lt;base_template</span> <span class="na">id=</span><span class="s">"1c4f1c18-030f-4a78-9b61-e17ca1d45cb0"</span><span class="nt">/&gt;</span>
@@ -327,10 +324,13 @@ If version section will be defined, user will have to fill the following fields:
 <p>template field continues to be reused and will contain version details where applicable.
 VM will have a new use_latest_template_version boolean property that is relevant for stateless VMs. It indicates whether the latest template version should be used.
 User will be able to pass it when creating or updating a VM. If user will try to create a new stateful VM with this property set to true, an error will be returned.
-When doing GET, this property will be propagated from backend, set to ‘false’ for stateful VMs.
- <strong>REST relevant patches</strong>
-<a href="http://gerrit.ovirt.org/#/c/23453/">http://gerrit.ovirt.org/#/c/23453/</a>
-<a href="http://gerrit.ovirt.org/#/c/23560/">http://gerrit.ovirt.org/#/c/23560/</a></p>
+When doing GET, this property will be propagated from backend, set to ‘false’ for stateful VMs.</p>
+
+<p><strong>REST relevant patches</strong></p>
+
+<p><a href="http://gerrit.ovirt.org/#/c/23453/">http://gerrit.ovirt.org/#/c/23453/</a></p>
+
+<p><a href="http://gerrit.ovirt.org/#/c/23560/">http://gerrit.ovirt.org/#/c/23560/</a></p>
 
 <h3 id="db">DB</h3>
 
@@ -374,58 +374,41 @@ When doing GET, this property will be propagated from backend, set to ‘false�
 <ul>
   <li>Test case: <strong>Create new version for template</strong>
     <ul>
-      <li>setup:</li>
+      <li>setup:
+        <ul>
+          <li>Create vm and install some OS (Fedora/RHEL/Ubuntu)</li>
+          <li>Create a template from the vm.</li>
+        </ul>
+      </li>
+      <li>test:
+        <ul>
+          <li>Create a new vm from this template.</li>
+          <li>Install some new software (like vim) on this new vm.</li>
+          <li>Create new version to the template from this vm.</li>
+          <li>Create new vm from the template and make sure to select latest version</li>
+          <li>Make sure new software actually there</li>
+        </ul>
+      </li>
     </ul>
   </li>
-</ul>
-
-<p>Create vm and install some OS (Fedora/RHEL/Ubuntu)</p>
-
-<p>Create a template from the vm.</p>
-
-<ul>
-  <li>
-    <ul>
-      <li>test:</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Create a new vm from this template.</p>
-
-<p>Install some new software (like vim) on this new vm.</p>
-
-<p>Create new version to the template from this vm.</p>
-
-<p>Create new vm from the template and make sure to select latest version</p>
-
-<p>Make sure new software actually there</p>
-
-<ul>
   <li>Test case: <strong>New version for VM Pool</strong>
     <ul>
-      <li>setup:</li>
+      <li>setup:
+        <ul>
+          <li>Create VM Pool from template with some OS installed, with at least 2 vms</li>
+          <li>Have 1 vm taken (used by a user)</li>
+        </ul>
+      </li>
+      <li>test:
+        <ul>
+          <li>Create new version to the template as explained in previous test</li>
+          <li>Take vm2, make sure its the new version</li>
+          <li>return vm1 to the pool, and take it again, make sure its the new version</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
-
-<p>Create VM Pool from template with some OS installed, with at least 2 vms</p>
-
-<p>Have 1 vm taken (used by a user)</p>
-
-<ul>
-  <li>
-    <ul>
-      <li>test:</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Create new version to the template as explained in previous test</p>
-
-<p>Take vm2, make sure its the new version</p>
-
-<p>return vm1 to the pool, and take it again, make sure its the new version</p>
 
 <h2 id="open-issues">Open Issues</h2>
 
@@ -448,6 +431,6 @@ do we want to let user choose if to auto update stateless vms (check box)?</p>
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2987/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2987/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2987/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2987/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/template-versions.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/template-versions.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2987/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2987/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2987/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2987/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/template-versions.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/template-versions.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

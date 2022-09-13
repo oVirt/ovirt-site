@@ -205,7 +205,7 @@ to storage.</p>
 
 <ul>
   <li>
-    <p>Perform full backup for raw or qcow2 disks or incremental backup for disks 
+    <p>Perform full backup for raw or qcow2 disks or incremental backup for disks
 using qcow2 format without temporary snapshots.</p>
   </li>
   <li>
@@ -219,7 +219,7 @@ using qcow2 format without temporary snapshots.</p>
 <h3 id="creating-vm">Creating VM</h3>
 
 <p>When adding a disk, the user should mark ‘enable incremental backup’ for every
-disk that should be included in an incremental backup. If incremental backup is 
+disk that should be included in an incremental backup. If incremental backup is
 enabled for a disk, a backup application can include the disk during incremental
 backups.</p>
 
@@ -227,7 +227,7 @@ backups.</p>
 incremental backup will use qcow2 format instead of raw format. See
 <a href="#disk-format">Disk Format</a> for more info.</p>
 
-<p>Disks not marked for incremental backup can be backed using full backup or in the 
+<p>Disks not marked for incremental backup can be backed using full backup or in the
 same way they were backed in the past.</p>
 
 <h3 id="enabling-existing-vm-for-incremental-backup">Enabling existing VM for incremental backup</h3>
@@ -372,27 +372,27 @@ disk contents (full backup).</p>
 <p>Specify ‘backup’ property on <code class="language-plaintext highlighter-rouge">disk</code> entity: ‘incremental’/’none’ (TBD: ‘full’)</p>
 
 <p>Request:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /vms/vm-uuid/diskattachments
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /vms/vm-uuid/diskattachments
 
-&lt;disk_attachment&gt;
+<span class="nt">&lt;disk_attachment&gt;</span>
     ...
-    &lt;disk&gt;
+    <span class="nt">&lt;disk&gt;</span>
         ...
-        &lt;backup&gt;incremental|none&lt;/backup&gt;
+        <span class="nt">&lt;backup&gt;</span>incremental|none<span class="nt">&lt;/backup&gt;</span>
         ...
-    &lt;/disk&gt;
-&lt;/disk_attachment&gt;
+    <span class="nt">&lt;/disk&gt;</span>
+<span class="nt">&lt;/disk_attachment&gt;</span>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disk_attachments&gt;
-  &lt;disk_attachment&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk_attachments&gt;</span>
+  <span class="nt">&lt;disk_attachment&gt;</span>
         ...
-        &lt;disk href="/ovirt-site/previews/2987/ovirt-engine/api/disks/456" id="456"/&gt;
+        <span class="nt">&lt;disk</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/456"</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">/&gt;</span>
         ...
-  &lt;/disk_attachment&gt;
+  <span class="nt">&lt;/disk_attachment&gt;</span>
   ...
-&lt;/disk_attachments&gt;
+<span class="nt">&lt;/disk_attachments&gt;</span>
 </code></pre></div></div>
 
 <h4 id="finding-disks-enabled-for-incremental-backup">Finding disks enabled for incremental backup</h4>
@@ -405,77 +405,77 @@ disk contents (full backup).</p>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disks&gt;
-    &lt;disk&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disks&gt;</span>
+    <span class="nt">&lt;disk&gt;</span>
         ...
-        &lt;backup&gt;incremental|none&lt;/backup&gt;
+        <span class="nt">&lt;backup&gt;</span>incremental|none<span class="nt">&lt;/backup&gt;</span>
         ...
-    &lt;/disk&gt;
+    <span class="nt">&lt;/disk&gt;</span>
     ...
-&lt;/disks&gt;
+<span class="nt">&lt;/disks&gt;</span>
 </code></pre></div></div>
 
 <h4 id="starting-full-backup">Starting full backup</h4>
 
 <p>Start full backup. The response phase indicates that the backup is <code class="language-plaintext highlighter-rouge">"initializing"</code>.
-You need to poll the backup until the phase is <code class="language-plaintext highlighter-rouge">"ready"</code>. 
+You need to poll the backup until the phase is <code class="language-plaintext highlighter-rouge">"ready"</code>.
 Once the backup is ready the response will include <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> which
 should be used as the <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> in the next incremental backup.</p>
 
 <p>Request:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups
 
-&lt;backup&gt;
-    &lt;disks&gt;
-        &lt;disk id="disk-uuid" /&gt;
+<span class="nt">&lt;backup&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"disk-uuid"</span> <span class="nt">/&gt;</span>
         ...
-    &lt;/disks&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup id="backup-uuid"&gt;
-    &lt;disks&gt;
-        &lt;disk id="disk-uuid" /&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;backup</span> <span class="na">id=</span><span class="s">"backup-uuid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"disk-uuid"</span> <span class="nt">/&gt;</span>
         ...
         ...
-    &lt;/disks&gt;
-    &lt;phase&gt;initiailizing&lt;/phase&gt;
-    &lt;creation_date&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+    <span class="nt">&lt;phase&gt;</span>initiailizing<span class="nt">&lt;/phase&gt;</span>
+    <span class="nt">&lt;creation_date&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
 <h4 id="starting-incremental-backup">Starting incremental backup</h4>
 
 <p>Start incremental backup since checkpoint id <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_uuid&gt;</code>.
 The response phase indicates that the backup is <code class="language-plaintext highlighter-rouge">"initializing"</code>.
-You need to poll the backup until the phase is <code class="language-plaintext highlighter-rouge">"ready"</code>. 
+You need to poll the backup until the phase is <code class="language-plaintext highlighter-rouge">"ready"</code>.
 Once the backup is ready the response will include <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> which
 should be used as the <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> in the next incremental backup.</p>
 
 <p>Request:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups
 
-&lt;backup&gt;
-    &lt;from_checkpoint_id&gt;previous-checkpoint-uuid&lt;/from_checkpoint_id&gt;
-    &lt;disks&gt;
-        &lt;disk id="disk-uuid" /&gt;
+<span class="nt">&lt;backup&gt;</span>
+    <span class="nt">&lt;from_checkpoint_id&gt;</span>previous-checkpoint-uuid<span class="nt">&lt;/from_checkpoint_id&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"disk-uuid"</span> <span class="nt">/&gt;</span>
         ...
-    &lt;/disks&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup id="backup-uuid"&gt;
-    &lt;from_checkpoint_id&gt;previous-checkpoint-uuid&lt;/from_checkpoint_id&gt;
-    &lt;disks&gt;
-        &lt;disk id="disk-uuid" /&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;backup</span> <span class="na">id=</span><span class="s">"backup-uuid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;from_checkpoint_id&gt;</span>previous-checkpoint-uuid<span class="nt">&lt;/from_checkpoint_id&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"disk-uuid"</span> <span class="nt">/&gt;</span>
         ...
         ...
-    &lt;/disks&gt;
-    &lt;phase&gt;initiailizing&lt;/phase&gt;
-    &lt;creation_date&gt;
-&lt;/backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+    <span class="nt">&lt;phase&gt;</span>initiailizing<span class="nt">&lt;/phase&gt;</span>
+    <span class="nt">&lt;creation_date&gt;</span>
+<span class="nt">&lt;/backup&gt;</span>
 </code></pre></div></div>
 
 <h4 id="getting-backup-info">Getting backup info</h4>
@@ -490,25 +490,25 @@ Now you can start downloading the disks.</p>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;vm_backup id="backup-uuid"&gt;
-    &lt;from_checkpoint_id&gt;previous-checkpoint-uuid&lt;/from_checkpoint_id&gt;
-    &lt;to_checkpoint_id&gt;new-checkpoind-uuid&lt;/to_checkpoint_id&gt;
-    &lt;disks&gt;
-        &lt;disk id="disk-uuid"&gt;
-            &lt;image_id&gt;image-uuid&lt;/image_id&gt;
-        &lt;/disk&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;vm_backup</span> <span class="na">id=</span><span class="s">"backup-uuid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;from_checkpoint_id&gt;</span>previous-checkpoint-uuid<span class="nt">&lt;/from_checkpoint_id&gt;</span>
+    <span class="nt">&lt;to_checkpoint_id&gt;</span>new-checkpoind-uuid<span class="nt">&lt;/to_checkpoint_id&gt;</span>
+    <span class="nt">&lt;disks&gt;</span>
+        <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"disk-uuid"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;image_id&gt;</span>image-uuid<span class="nt">&lt;/image_id&gt;</span>
+        <span class="nt">&lt;/disk&gt;</span>
         ...
-    &lt;/disks&gt;
-    &lt;phase&gt;ready&lt;/phase&gt;
-    &lt;creation_date&gt;
-&lt;/vm_backup&gt;
+    <span class="nt">&lt;/disks&gt;</span>
+    <span class="nt">&lt;phase&gt;</span>ready<span class="nt">&lt;/phase&gt;</span>
+    <span class="nt">&lt;creation_date&gt;</span>
+<span class="nt">&lt;/vm_backup&gt;</span>
 </code></pre></div></div>
 
 <h4 id="finalizing-backup">Finalizing backup</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups/backup-uuid/finalize
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups/backup-uuid/finalize
 
-&lt;action&gt;&lt;/action&gt;
+<span class="nt">&lt;action&gt;&lt;/action&gt;</span>
 </code></pre></div></div>
 
 <h3 id="creating-an-image-transfer-for-downloading-an-incremental-backup-disk">Creating an image transfer for downloading an incremental backup disk</h3>
@@ -518,14 +518,14 @@ The transfer <code class="language-plaintext highlighter-rouge">&lt;format&gt;</
 
 <p>Request:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
 
-&lt;image_transfer&gt;
-    &lt;disk id="123"/&gt;
-    &lt;backup id="456"/&gt;
-    &lt;direction&gt;download&lt;/direction&gt;
-    &lt;format&gt;raw&lt;/format&gt;
-&lt;/image_transfer&gt;
+<span class="nt">&lt;image_transfer&gt;</span>
+    <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"123"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;backup</span> <span class="na">id=</span><span class="s">"456"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;direction&gt;</span>download<span class="nt">&lt;/direction&gt;</span>
+    <span class="nt">&lt;format&gt;</span>raw<span class="nt">&lt;/format&gt;</span>
+<span class="nt">&lt;/image_transfer&gt;</span>
 </code></pre></div></div>
 
 <h4 id="creating-image-transfer-for-incremental-restore">Creating image transfer for incremental restore</h4>
@@ -533,13 +533,13 @@ The transfer <code class="language-plaintext highlighter-rouge">&lt;format&gt;</
 <p>To restore raw data backed up using the incremental backup API to qcow2
 disk, you need to specify the “format” key in the transfer:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
 
-&lt;image_transfer&gt;
-    &lt;disk id="123"/&gt;
-    &lt;direction&gt;upload&lt;/direction&gt;
-    &lt;format&gt;raw&lt;/format&gt;
-&lt;/image_transfer&gt;
+<span class="nt">&lt;image_transfer&gt;</span>
+    <span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"123"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;direction&gt;</span>upload<span class="nt">&lt;/direction&gt;</span>
+    <span class="nt">&lt;format&gt;</span>raw<span class="nt">&lt;/format&gt;</span>
+<span class="nt">&lt;/image_transfer&gt;</span>
 </code></pre></div></div>
 
 <p>When uploading into a snapshot, replace <code class="language-plaintext highlighter-rouge">&lt;disk id="123"/&gt;</code> with
@@ -564,14 +564,14 @@ to storage.</p>
 
 <p>Response:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;checkpoints&gt;
-   &lt;checkpoint id="checkpoint-uuid"&gt;
-      &lt;link href="/ovirt-site/previews/2987/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/&gt;
-      &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
-      &lt;creation_date&gt;xxx&lt;/creation_date&gt;
-      &lt;vm href="/ovirt-site/previews/2987/ovirt-engine/api/vms/vm-uuid" id="vm-uuid"/&gt;
-   &lt;/checkpoint&gt;
-&lt;/checkpoints&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;checkpoints&gt;</span>
+   <span class="nt">&lt;checkpoint</span> <span class="na">id=</span><span class="s">"checkpoint-uuid"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks"</span> <span class="na">rel=</span><span class="s">"disks"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;parent_id&gt;</span>parent-checkpoint-uuid<span class="nt">&lt;/parent_id&gt;</span>
+      <span class="nt">&lt;creation_date&gt;</span>xxx<span class="nt">&lt;/creation_date&gt;</span>
+      <span class="nt">&lt;vm</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/vm-uuid"</span> <span class="na">id=</span><span class="s">"vm-uuid"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/checkpoint&gt;</span>
+<span class="nt">&lt;/checkpoints&gt;</span>
 </code></pre></div></div>
 
 <h4 id="get-a-specific-vm-checkpoint">Get a specific VM checkpoint</h4>
@@ -585,12 +585,12 @@ to storage.</p>
 
 <p>Response:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;checkpoint id="checkpoint-uuid"&gt;
-  &lt;link href="/ovirt-site/previews/2987/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/&gt;
-  &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
-  &lt;creation_date&gt;xxx&lt;/creation_date&gt;
-  &lt;vm href="/ovirt-site/previews/2987/ovirt-engine/api/vms/vm-uuid" id="vm-uuid"/&gt;
-&lt;/checkpoint&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;checkpoint</span> <span class="na">id=</span><span class="s">"checkpoint-uuid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks"</span> <span class="na">rel=</span><span class="s">"disks"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;parent_id&gt;</span>parent-checkpoint-uuid<span class="nt">&lt;/parent_id&gt;</span>
+  <span class="nt">&lt;creation_date&gt;</span>xxx<span class="nt">&lt;/creation_date&gt;</span>
+  <span class="nt">&lt;vm</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/vms/vm-uuid"</span> <span class="na">id=</span><span class="s">"vm-uuid"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/checkpoint&gt;</span>
 </code></pre></div></div>
 
 <h4 id="remove-the-root-checkpoint-of-a-specific-vm">Remove the root checkpoint of a specific VM</h4>
@@ -627,12 +627,12 @@ to storage.</p>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {"data": true, "start": 0, "length": 1048576},
-    {"data": false, "start": 1048576, "length": 8192},
-    {"data": true, "start": 1056768, "length": 1048576},
-]
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">8192</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1056768</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h5 id="example---getting-only-dirty-data-and-zero-ranges">Example - getting only dirty data and zero ranges</h5>
 
@@ -641,22 +641,22 @@ to storage.</p>
 </code></pre></div></div>
 
 <p>Response:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {"data": true, "start": 0, "length": 1048576},
-    {"data": false, "start": 1048576, "length": 8192},
-]
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="p">,</span><span class="w"> </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">8192</span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="future-work">Future Work</h2>
 
 <ul>
   <li>Support incremental backup.
 Currently only full backup for raw and qcow2 disks is supported,
-to enable support for incremental backup (work in progress), 
+to enable support for incremental backup (work in progress),
 Engine config value ‘IsIncrementalBackupSupported’ must be set to ‘true’.
-    <div class="language-plaintext highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code># engine-config -s "IsIncrementalBackupSupported=true"
-# systemctl restart ovirt-engine 
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>engine-config <span class="nt">-s</span> <span class="s2">"IsIncrementalBackupSupported=true"</span>
+<span class="gp">#</span><span class="w"> </span>systemctl restart ovirt-engine
 </code></pre></div>    </div>
   </li>
   <li>API for listing and deleting checkpoints.</li>
@@ -799,7 +799,7 @@ after backup.</p>
 <h3 id="scratch-disk">Scratch disk</h3>
 
 <p>For now we’ll use a scratch disk on the host (created by libvirt).
-A scratch disk is created using qcow2 format for every disk in the 
+A scratch disk is created using qcow2 format for every disk in the
 backup. The disk must have enough space to hold the current data in
 the top layer of an image.</p>
 
@@ -863,7 +863,7 @@ creating an image transfer for a disk.</p>
     <ul>
       <li>backup_id: UUID</li>
       <li>disk_id: UUID</li>
-      <li>backup_url: “nbd:unix:/tmp/<id>.sock:exportname=<sdb>" | "nbd://localhost:&lt;12345&gt;/<sdb>"</sdb></sdb></id>
+      <li>backup_url: <code class="language-plaintext highlighter-rouge">"nbd:unix:/tmp/&lt;id&gt;.sock:exportname=&lt;sdb&gt;" | "nbd://localhost:&lt;12345&gt;/&lt;sdb&gt;"</code>
 </li>
     </ul>
   </li>
@@ -961,17 +961,17 @@ storage, or a bitmap is missing on storage.</p>
 <h3 id="incremental-backup-ticket-example">Incremental backup ticket example</h3>
 
 <p>For running VM, qemu will serve the disk using NBD:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "url": "nbd:localhost:1234:exportname=/sda"
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nbd:localhost:1234:exportname=/sda"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>For stopped VM, we will run one qemu-nbd instance per disk, using unix
 socket:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "url": "nbd:unix:/run/vdsm/nbd/xxxyyy-nbd.sock:exportname=/sda"
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nbd:unix:/run/vdsm/nbd/xxxyyy-nbd.sock:exportname=/sda"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="ui">UI</h3>
 
@@ -980,7 +980,7 @@ socket:</p>
     <p>Add ‘Enable Incremental Backup’ checkbox on New/Edit Disk dialogs.</p>
   </li>
   <li>
-    <p>Removing last snapshot will disable ‘Enable Incremental Backup’ 
+    <p>Removing last snapshot will disable ‘Enable Incremental Backup’
 if base image is raw. Snapshot must be created in order re-enable
 ‘Enable Incremental Backup’.</p>
   </li>
@@ -1121,6 +1121,6 @@ https://kb.vmware.com/s/article/1020128</li>
 <li><a href="/ovirt-site/previews/2987/community/about.html" target="_blank" title="About">About</a></li>
 <li><a href="/ovirt-site/previews/2987/general-disclaimer.html" target="_blank" title="Disclaimers">Disclaimers</a></li>
 </ul>© 2013–2022 oVirt<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/incremental-backup.html&amp;template=" target="_blank" title="Report an issue"><i class="icon fab fa-github"></i>Report an issue with this page</a></div>
-<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/incremental-backup.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/storage/incremental-backup.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

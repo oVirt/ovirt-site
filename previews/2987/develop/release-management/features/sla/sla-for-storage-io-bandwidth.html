@@ -144,7 +144,7 @@
 
 <ul>
   <li>Name: Mei Liu</li>
-  <li>Email: <liumbj at="" linux="" dot="" vnet="" ibm="" com=""></liumbj></li>
+  <li>Email: <a href="mailto:liumbj@linux.vnet.ibm.com">liumbj@linux.vnet.ibm.com</a></li>
 </ul>
 
 <h2 id="current-status">Current Status</h2>
@@ -156,7 +156,9 @@
 
 <h2 id="detailed-description">Detailed Description</h2>
 
-<p>In VDSM, each storage domain backend only provides limited IO bandwidth capability. If bandwidth become scarce resource, the efficiency of vm IO operations will be affected by other vms. This is not the situation we want, and therefore we need to limit the bandwidth usage to allocate the bandwidth in a better way.</p>
+<p>In VDSM, each storage domain backend only provides limited IO bandwidth capability.
+If bandwidth become scarce resource, the efficiency of vm IO operations will be affected by other vms.
+This is not the situation we want, and therefore we need to limit the bandwidth usage to allocate the bandwidth in a better way.</p>
 
 <p>In libvirt, existing iotune properties are applied on a vDisk of VM, and provides the ability to provide additional per-device I/O tuning. They include the following elements:</p>
 
@@ -205,7 +207,8 @@
 
 <h3 id="vdisk-profile-in-engine">vDisk Profile in engine</h3>
 
-<p>In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as disk Profile. This will wrap few of the properties currently defined directly on the vDisk.</p>
+<p>In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as disk Profile.
+This will wrap few of the properties currently defined directly on the vDisk.</p>
 
 <p>vDisk profile includes:</p>
 
@@ -218,7 +221,8 @@
 
 <p>We suggest to use total_bytes_sec only as IO bandwidth limit, since it includes reading an writing operations and takes the IO size into account.</p>
 
-<p>When creating a new vDisk or editing an existing one the user will select a vDisk Profile. The administrator could create several vDisk Profiles for each storage domain. He could then grant a users with the permission to use some of the profiles.</p>
+<p>When creating a new vDisk or editing an existing one the user will select a vDisk Profile.
+The administrator could create several vDisk Profiles for each storage domain. He could then grant a users with the permission to use some of the profiles.</p>
 
 <p>For example: the admin will create two vDisk profiles for storage domain SD-1:</p>
 
@@ -230,11 +234,6 @@
       <li>priority:0</li>
     </ul>
   </li>
-</ul>
-
-<!-- -->
-
-<ul>
   <li>Profile “Silver”
     <ul>
       <li>initial IO bandwidth limit value: 100MB/s</li>
@@ -246,13 +245,19 @@
 
 <p>Higher priority user group can use profile “Gold”, while lower priority user group can use profile “Silver”.</p>
 
-<p>The vDisk Profile could be edited by the administrator at any time. The changes will seep down to all vDisks using the profile. In case vDisk using the edited profile are connected to running VMs the change will apply only on the VM next started. Devices which will be hotpluged or updated will use the updated profile connected to the vDisk.</p>
+<p>The vDisk Profile could be edited by the administrator at any time. The changes will seep down to all vDisks using the profile.
+In case vDisk using the edited profile are connected to running VMs the change will apply only on the VM next started.
+Devices which will be hotpluged or updated will use the updated profile connected to the vDisk.</p>
 
-<p>When a Template is created from a VM the vDisk Profile will be kept along with the vDisk. When a VM is created from template the vDisk Profiles will be taken from the template’s vdisks. vDisk Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles. When a vDisk is exported and imported, a new profile should be selected which is related to an granted access to the user when the vm is powered on.</p>
+<p>When a Template is created from a VM the vDisk Profile will be kept along with the vDisk. When a VM is created from template the vDisk Profiles will be taken from the template’s vdisks.
+vDisk Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.
+When a vDisk is exported and imported, a new profile should be selected which is related to an granted access to the user when the vm is powered on.</p>
 
 <h3 id="automatic-per-device-tuning-for-io-bandwidth-limitbasic-feature">Automatic per-device tuning for IO bandwidth limit(basic feature)</h3>
 
-<p>In the following chapters, we will explain how to tune this IO bandwidth limit dynamically . The adjustment is performed by MOM. This section gives the way to set initial value. This value is used as start point when IO limit is adjusted. The IO limit is then tuned according to IO bandwidth usage.</p>
+<p>In the following chapters, we will explain how to tune this IO bandwidth limit dynamically.
+The adjustment is performed by MOM. This section gives the way to set initial value.
+This value is used as start point when IO limit is adjusted. The IO limit is then tuned according to IO bandwidth usage.</p>
 
 <h4 id="initial-io-bandwidth-limit-value">Initial IO bandwidth limit value</h4>
 
@@ -260,37 +265,39 @@
 
 <h4 id="io-bandwidth-limit-tuning">IO bandwidth limit tuning</h4>
 
-<p>IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit should be in range (min bandwidth limit, max bandwidth limit) which is set in engine. We use the following policy to automatic tuning the IO limit.</p>
+<p>IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit should be in range (min bandwidth limit, max bandwidth limit) which is set in engine.
+We use the following policy to automatic tuning the IO limit.</p>
 
-<p>The basic idea is that when congestion happens, MOM find the highest priority disk which is congested. MOM then decreases the IO limit of those disk whose priority lower than this congested vDisk, and increase the IO limit of those whose priority are higher or equal to the congested vDisk and throughput is almost current IO limit. When no vDisk is congested, the IO limit of vDisks who use almost current IO limit will be increased.</p>
+<p>The basic idea is that when congestion happens, MOM find the highest priority disk which is congested.
+MOM then decreases the IO limit of those disk whose priority lower than this congested vDisk, and increase the IO limit of those whose priority are higher or equal
+to the congested vDisk and throughput is almost current IO limit. When no vDisk is congested, the IO limit of vDisks who use almost current IO limit will be increased.</p>
 
 <p>If a host find a vDisk is congested it will report related info to engine by get stats. Then engine will tell other hosts’ MOM . They will adjusted used the policy above.</p>
 
 <p>The algorithm is as follows</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       <span class="n">initialization</span><span class="p">:</span>
+       <span class="n">vDisk</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">climit</span> <span class="o">=</span>  <span class="n">very</span> <span class="n">big</span> <span class="n">number</span> <span class="p">(</span><span class="n">similar</span> <span class="n">to</span> <span class="n">unlimited</span><span class="p">)</span>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   initialization:
-   vDisk[i].climit =  very big number (similar to unlimited)
-
-   Each run:
-   vDiskTuneUp = []
-   vDiskCongested = `[](/)` * priorityCount  
-   for disk in vDisk:
-     if disk.throughput &gt;= disk.climit * 90%:
-         vDiskTuneUp.append(vm)
-     if vm.throughput &lt; vm.climit * 90% &amp;&amp; vm.util &gt; 90%:
-         vDiskCongested[vm.priority].append(vm) 
-   for diskPriority = 0 to priorityCount - 1:
-     if len(vDiskCongested[diskPriority]) == 0:
-         continue  # no disk is congested for this diskPriority
-     break  
-     else:
-         diskPriority = priorityCount
-   for disk in vDisk:
-     if disk.priority &gt; diskPriority:
-         # decrease those whose priorities are lower
-         disk.climit = disk.throughput - (vm.disk - vm.blimit) * 10%
-     else if  disk in vDiskTuneUp:
-         disk.climit = disk.climit * 110%
+       <span class="n">Each</span> <span class="n">run</span><span class="p">:</span>
+       <span class="n">vDiskTuneUp</span> <span class="o">=</span> <span class="p">[]</span>
+       <span class="n">vDiskCongested</span> <span class="o">=</span> <span class="sb">`[](/)`</span> <span class="o">*</span> <span class="n">priorityCount</span>
+       <span class="k">for</span> <span class="n">disk</span> <span class="ow">in</span> <span class="n">vDisk</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">disk</span><span class="p">.</span><span class="n">throughput</span> <span class="o">&gt;=</span> <span class="n">disk</span><span class="p">.</span><span class="n">climit</span> <span class="o">*</span> <span class="mi">90</span><span class="o">%</span><span class="p">:</span>
+             <span class="n">vDiskTuneUp</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+         <span class="k">if</span> <span class="n">vm</span><span class="p">.</span><span class="n">throughput</span> <span class="o">&lt;</span> <span class="n">vm</span><span class="p">.</span><span class="n">climit</span> <span class="o">*</span> <span class="mi">90</span><span class="o">%</span> <span class="o">&amp;&amp;</span> <span class="n">vm</span><span class="p">.</span><span class="n">util</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="o">%</span><span class="p">:</span>
+             <span class="n">vDiskCongested</span><span class="p">[</span><span class="n">vm</span><span class="p">.</span><span class="n">priority</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+       <span class="k">for</span> <span class="n">diskPriority</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">priorityCount</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vDiskCongested</span><span class="p">[</span><span class="n">diskPriority</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+             <span class="k">continue</span>  <span class="c1"># no disk is congested for this diskPriority
+</span>         <span class="k">break</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">diskPriority</span> <span class="o">=</span> <span class="n">priorityCount</span>
+       <span class="k">for</span> <span class="n">disk</span> <span class="ow">in</span> <span class="n">vDisk</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">disk</span><span class="p">.</span><span class="n">priority</span> <span class="o">&gt;</span> <span class="n">diskPriority</span><span class="p">:</span>
+             <span class="c1"># decrease those whose priorities are lower
+</span>             <span class="n">disk</span><span class="p">.</span><span class="n">climit</span> <span class="o">=</span> <span class="n">disk</span><span class="p">.</span><span class="n">throughput</span> <span class="o">-</span> <span class="p">(</span><span class="n">vm</span><span class="p">.</span><span class="n">disk</span> <span class="o">-</span> <span class="n">vm</span><span class="p">.</span><span class="n">blimit</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">%</span>
+         <span class="k">else</span> <span class="k">if</span>  <span class="n">disk</span> <span class="ow">in</span> <span class="n">vDiskTuneUp</span><span class="p">:</span>
+             <span class="n">disk</span><span class="p">.</span><span class="n">climit</span> <span class="o">=</span> <span class="n">disk</span><span class="p">.</span><span class="n">climit</span> <span class="o">*</span> <span class="mi">110</span><span class="o">%</span>
 </code></pre></div></div>
 
 <h4 id="discussion">Discussion</h4>
@@ -321,6 +328,6 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2987/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2987/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2987/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2987/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/sla-for-storage-io-bandwidth.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/sla-for-storage-io-bandwidth.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2987/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2987/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2987/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2987/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/sla-for-storage-io-bandwidth.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/sla-for-storage-io-bandwidth.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

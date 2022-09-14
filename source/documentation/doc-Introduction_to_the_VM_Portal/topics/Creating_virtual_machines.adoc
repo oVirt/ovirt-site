@@ -4,7 +4,7 @@
 
 You can create virtual machines from the *VM Portel* or from the *Administration Portal*. For information of creating virtual machines from the *Administration Portal*, see link:https:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Creating_a_virtual_machine_linux_vm[Creating a virtual machine] in the _Virtual Machine Management Guide_.
 
-.procedure
+.Procedure
 
 . Click btn:[Create Virtual Machine] in the toolbar.
 . Fill in the required information in the `Create Virtual Machine` wizard.

@@ -6,8 +6,10 @@
 
 . Click btn:[Create Virtual Machine] in the toolbar.
 . Fill in the required information in the Create Virtual Machine wizard.
+
 There are four screens to complete:
-* *Basic Settings*
+
+.Basic Settings screen
 ** *Name* of the virtual machine. The virtual machine name may contain only upper- or lower-case letters, numbers, underscores (`_`), hyphens (`-`), or periods (`.`). Special characters and spaces are not permitted.
 ** *Description* (optional)
 ** *Cluster*
@@ -16,23 +18,35 @@ There are four screens to complete:
 ** *Operating System*
 ** *Memory (MiB)*
 ** *Total Virtual CPUs*
-** Advanced CPU Topology Options
+** *Optimized For*
+*** Start virtual machine on creation
+*** Enable Cloud-init/Sysprep
+
+_Advanced CPU Topology Options_
+
 *** *Virtual Sockets*
 *** *Cores per Virtual Socket*
 *** *Threads per Core*
 
-* *Networking* - btn:[Create NIC],
+.Networking screen
+
+btn:[Create NIC]
+
 ** *NIC Name*
 ** *vNIC Profile*
 ** *Device Type*
-* *Storage* - btn:[Create Disk]
+
+.Storage screen
+
+btn:[Create Disk]
+
 ** *Disk Name*
 ** *Bootable*
 ** *Storage Domain*
 ** *Disk Type*
 
-* *Review*
-+
+.Review screen
+
 See  link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained[Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows] in the _Virtual Machine Management Guide_ for details.
 
-. If everything in the *Review* screen is correct, click btn:[Create Virtual MachineM].
+If everything in the *Review* screen is correct, click btn:[Create Virtual Machine].

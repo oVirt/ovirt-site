@@ -17,7 +17,6 @@ BZ#link:https://bugzilla.redhat.com/2081676[2081676]::
 Previously, when two mutually exclusive sos report options were used in the ovirt-log-collector, the log size limit was ignored.
 In this release, the limit on the size of the log per plugin works as expected.
 
-
 BZ#link:https://bugzilla.redhat.com/2097558[2097558]::
 Previously, running engine-setup did not always renew OVN certificates when they were close to expiration or expired. With this release, OVN certificates are always renewed by engine-setup when needed.
 
@@ -81,7 +80,7 @@ With this release, the process to check certificate validity is now compatible w
 These items are rebases of bug fixes and enhancements included in this release of Red Hat Virtualization:
 
 BZ#link:https://bugzilla.redhat.com/2092478[2092478]::
-UnboundID LDAP SDK has been rebased on upstream version 6.0.4. See https://github.com/pingidentity/ldapsdk/releases for changes since version 4.0.14
+UnboundID LDAP SDK has been rebased on upstream version 6.0.4. See the link:https://github.com/pingidentity/ldapsdk/releases[LDAP SDK release notes] for changes since version 4.0.14.
 
 ==== Rebase: Bug Fixes Only
 
@@ -109,6 +108,6 @@ With this release, permissions for the /var/log/ovn directory are updated correc
 The items in this section are either no longer supported, or will no longer be supported in a future release.
 
 BZ#link:https://bugzilla.redhat.com/2111600[2111600]::
-ovirt-engine-extension-aaa-jdbc and ovirt-engine-extension-aaa-ldap are deprecated in RHV 4.4 SP1. They remain in the RHV product, but for any new request, you should use integration with Red Hat Single Sign-On as described in https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Configuring_Red_Hat_SSO
+ovirt-engine-extension-aaa-jdbc and ovirt-engine-extension-aaa-ldap are deprecated in RHV 4.4 SP1. They remain in the RHV product, but for any new request, you should use integration with Red Hat Single Sign-On as described in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Configuring_Red_Hat_SSO[documentation].
 
 

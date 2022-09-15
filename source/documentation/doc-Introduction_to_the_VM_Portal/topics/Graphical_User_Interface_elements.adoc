@@ -54,7 +54,7 @@ The virtual machines pane displays virtual machine cards with the icon, operatin
 
 * Virtual machine pool cards -  include a colored label of the pool name, an icon, operating system label, name, Allocated VMs number, the number of Available VMs from this Pool, and a button that allows the user to *Take a virtual Machine*.
 +
-Virtual machine pools are always displayed for Administrator level users, and for non-admin users that have pooled virtual machines assigned to them.
+Virtual machine pools are always displayed for Administrator level users, and for non-admin users that have permissions to view those pools and take pooled virtual machines out of those pools.
 +
 Virtual machine entities that belong to a pool are similar to a regular virtual machine card, with an added colored label with the pool name to which this virtual machine belongs.
 

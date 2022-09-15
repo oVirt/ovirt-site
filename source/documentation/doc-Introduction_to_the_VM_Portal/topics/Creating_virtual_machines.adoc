@@ -24,7 +24,7 @@ There are four screens to complete:
 *** Start virtual machine on creation
 *** Enable Cloud-init/Sysprep
 +
-_Advanced CPU Topology Options_
+** Advanced CPU Topology Options
 
 *** *Virtual Sockets*
 *** *Cores per Virtual Socket*

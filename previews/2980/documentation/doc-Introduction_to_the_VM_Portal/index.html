@@ -95,7 +95,7 @@
 <ul class="sectlevel2">
 <li><a href="#Viewing_virtual_machine_details">2.1. Viewing virtual machine details</a></li>
 <li><a href="#Editing_virtual_machines">2.2. Editing virtual machines</a></li>
-<li><a href="#creating-virtual-machines">2.3. Creating virtual machines</a></li>
+<li><a href="#creating-virtual-machines">2.3. Creating virtual machines from the VM Portal</a></li>
 <li><a href="#connecting-to-virtual-machines">2.4. Connecting to virtual machines</a></li>
 </ul>
 </li>
@@ -772,17 +772,28 @@ Click the <strong>Edit</strong> icon (<span class="image"><img src="images/Edit_
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-virtual-machines">2.3. Creating virtual machines</h3>
+<h3 id="creating-virtual-machines">2.3. Creating virtual machines from the VM Portal</h3>
 <div class="paragraph">
-<p><strong>Creating a virtual machine</strong></p>
+<p>You can create virtual machines from the <strong>VM Portel</strong> or from the <strong>Administration Portal</strong>. For information of creating virtual machines from the <strong>Administration Portal</strong>, see <a href="https:https://ovirt.org/documentation/virtual_machine_management_guide/index#Creating_a_virtual_machine_linux_vm">Creating a virtual machine</a> in the <em>Virtual Machine Management Guide</em>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Click <b class="button">Create Virtual Machine</b> in the toolbar.</p>
+</li>
+<li>
+<p>Fill in the required information in the <code>Create Virtual Machine</code> wizard.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There are four screens to complete:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Click the <b class="button">Create Virtual Machine</b> button in the toolbar.</p>
-</li>
-<li>
-<p>Set the following fields:</p>
+<p>Basic Settings screen</p>
 <div class="ulist">
 <ul>
 <li>
@@ -795,47 +806,95 @@ Click the <strong>Edit</strong> icon (<span class="image"><img src="images/Edit_
 <p><strong>Cluster</strong></p>
 </li>
 <li>
+<p><strong>Provision Source</strong></p>
+</li>
+<li>
 <p><strong>Template</strong></p>
 </li>
 <li>
 <p><strong>Operating System</strong></p>
 </li>
 <li>
-<p><strong>Defined Memory</strong></p>
+<p><strong>Memory (MiB)</strong></p>
 </li>
 <li>
 <p><strong>Total Virtual CPUs</strong></p>
 </li>
 <li>
-<p><strong>Boot Menu</strong></p>
-</li>
-<li>
-<p><strong>Boot Sequence</strong></p>
+<p><strong>Optimized For</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>First Device</strong></p>
+<p>Start virtual machine on creation</p>
 </li>
 <li>
-<p><strong>Second Device</strong></p>
+<p>Enable Cloud-init/Sysprep</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Cloud-Init</strong></p>
+<p>Advanced CPU Topology Options</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Virtual Sockets</strong></p>
 </li>
 <li>
-<p><strong>Icon</strong></p>
+<p><strong>Cores per Virtual Socket</strong></p>
+</li>
+<li>
+<p><strong>Threads per Core</strong></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Networking screen</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>NIC Name</strong></p>
+</li>
+<li>
+<p><strong>vNIC Profile</strong></p>
+</li>
+<li>
+<p><strong>Device Type</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Storage screen</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Disk Name</strong></p>
+</li>
+<li>
+<p><strong>Bootable</strong></p>
+</li>
+<li>
+<p><strong>Storage Domain</strong></p>
+</li>
+<li>
+<p><strong>Disk Type</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review screen</p>
 <div class="paragraph">
 <p>See  <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained">Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows</a> in the <em>Virtual Machine Management Guide</em> for details.</p>
 </div>
-</li>
-</ul>
+<div class="paragraph">
+<p>If everything in the <strong>Review</strong> screen is correct, click <b class="button">Create Virtual Machine</b> to complete the operation.</p>
 </div>
-</li>
-<li>
-<p>Click <b class="button">Create VM</b>.</p>
 </li>
 </ol>
 </div>

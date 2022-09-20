@@ -6,13 +6,13 @@
 // Upgrade Guide
 
 ifndef::SHE_upgrade[]
-{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 or later and {virt-product-fullname} {engine-name} 4.4, even if you are using the same physical machine that you use to run {virt-product-shortname} {engine-name} 4.3.
+{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} versions 8.2 to 8.6. You need to do a clean installation of {enterprise-linux} versions 8.2 to 8.6 and {virt-product-fullname} {engine-name} 4.4, even if you are using the same physical machine that you use to run {virt-product-shortname} {engine-name} 4.3.
 
 The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 machine.
 endif::SHE_upgrade[]
 
 ifdef::SHE_upgrade[]
-The {virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 or later, or {hypervisor-fullname} on the self-hosted engine host, even if you are using the same physical machine that you use to run the {virt-product-shortname} 4.3 self-hosted engine.
+The {virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} versions 8.2 to 8.6. You need to do a clean installation of {enterprise-linux} versions 8.2 to 8.6, or {hypervisor-fullname} on the self-hosted engine host, even if you are using the same physical machine that you use to run the {virt-product-shortname} 4.3 self-hosted engine.
 
 The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 virtual machine.
 endif::SHE_upgrade[]
@@ -92,7 +92,7 @@ If you want to reuse the self-hosted engine virtual machine to deploy the {virt-
 ====
 If any of the hosts report the `detail` field as `Up`, log in to that specific host and shut it down with the `hosted-engine --vm-shutdown` command.
 ====
-. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the existing node currently running the {engine-name} virtual machine to use it as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
+. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.6 on the existing node currently running the {engine-name} virtual machine to use it as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
 +
 [NOTE]
 ====
@@ -143,7 +143,7 @@ endif::SHE_upgrade[]
 
 ifdef::local_database_upgrade,remote_database_upgrade[]
 
-. Install {enterprise-linux} 8.2 or later. See link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index[_Performing a standard RHEL installation_] for more information.
+. Install {enterprise-linux} 8.6. See link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index[_Performing a standard RHEL installation_] for more information.
 
 . Complete the steps to install {virt-product-fullname} {engine-name} 4.4, including running the command `yum install rhvm`, but do not run `engine-setup`. See one of the _Installing {virt-product-fullname}_ guides for more information.
 

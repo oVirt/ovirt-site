@@ -6,13 +6,13 @@
 // Upgrade Guide
 
 ifndef::SHE_upgrade[]
-{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} versions 8.2 to 8.6. You need to do a clean installation of {enterprise-linux} versions 8.2 to 8.6 and {virt-product-fullname} {engine-name} 4.4, even if you are using the same physical machine that you use to run {virt-product-shortname} {engine-name} 4.3.
+{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} versions 8.2 to 8.6. You need to do a clean installation of {enterprise-linux} 8.6 and {virt-product-fullname} {engine-name} 4.4, even if you are using the same physical machine that you use to run {virt-product-shortname} {engine-name} 4.3.
 
 The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 machine.
 endif::SHE_upgrade[]
 
 ifdef::SHE_upgrade[]
-The {virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} versions 8.2 to 8.6. You need to do a clean installation of {enterprise-linux} versions 8.2 to 8.6, or {hypervisor-fullname} on the self-hosted engine host, even if you are using the same physical machine that you use to run the {virt-product-shortname} 4.3 self-hosted engine.
+The {virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} versions 8.2 to 8.6. You need to do a clean installation of {enterprise-linux} 8.6, or {hypervisor-fullname} on the self-hosted engine host, even if you are using the same physical machine that you use to run the {virt-product-shortname} 4.3 self-hosted engine.
 
 The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 virtual machine.
 endif::SHE_upgrade[]

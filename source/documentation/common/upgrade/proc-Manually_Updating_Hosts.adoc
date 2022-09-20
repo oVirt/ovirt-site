@@ -115,8 +115,15 @@ You can see the value of the stream by entering:
 ====
 +
 .. Enable the `virt` module in the Advanced Virtualization stream with the following command:
-
++
 include::../install/snip-Enable_virt_module.adoc[]
++
+. Enable version 14 of the `nodejs` module:
+[source,terminal,subs="normal"]
++
+----
+# dnf module -y enable nodejs:14
+----
 +
 // END FOR RHEL HOSTS ONLY
 . Update the host:

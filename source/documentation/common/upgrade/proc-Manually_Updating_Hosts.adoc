@@ -115,7 +115,7 @@ You can see the value of the stream by entering:
 ====
 +
 .. Enable the `virt` module in the Advanced Virtualization stream with the following command:
-+
+
 include::../install/snip-Enable_virt_module.adoc[]
 +
 // END FOR RHEL HOSTS ONLY

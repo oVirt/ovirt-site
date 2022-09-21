@@ -6,6 +6,11 @@
 [id="proc-setting_up_debug_level_logging"]
 = Setting debug-level logging for {virt-product-fullname} services
 
+[NOTE]
+====
+Setting logging to debug-level may expose sensitive information such as passwords or internal VM data. Make sure that non-trusted or unauthorized users do not have access to debug logs.
+====
+
 You can set the logs of the following {virt-product-fullname} ({virt-product-shortname}) services to debug-level by modifying the `sysconfig` file of each service.
 
 .{virt-product-shortname} services and `sysconfig` file paths

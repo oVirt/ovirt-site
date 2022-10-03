@@ -8003,6 +8003,10 @@ With the following request body:
  </action>
 ----
 
+Note: In order to sparsify a disk, two conversions might be needed if the disk is on a Block Storage Domain.
+For example: If a disk is RAW, converting it QCOW will result in a larger disk. In order to reduce the size,
+it is possible to convert the disk again to QCOW and keep the same allocation policy.
+
 .Parameters summary
 [cols="15,15,20,50"]
 |===

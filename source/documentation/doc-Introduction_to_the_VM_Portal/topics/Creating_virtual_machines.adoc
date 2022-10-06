@@ -1,27 +1,49 @@
 :_content-type: PROCEDURE
 [id="creating-virtual-machines"]
-= Creating virtual machines
+= Creating virtual machines from the VM Portal
 
-*Creating a virtual machine*
+You can create virtual machines from the *VM Portel* or from the *Administration Portal*. For information of creating virtual machines from the *Administration Portal*, see link:https:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Creating_a_virtual_machine_linux_vm[Creating a virtual machine] in the _Virtual Machine Management Guide_.
 
-. Click the btn:[Create Virtual Machine] button in the toolbar.
+.Procedure
 
-. Set the following fields:
+. Click btn:[Create Virtual Machine] in the toolbar.
+. Fill in the required information in the `Create Virtual Machine` wizard.
 
-* *Name* of the virtual machine. The virtual machine name may contain only upper- or lower-case letters, numbers, underscores (`_`), hyphens (`-`), or periods (`.`). Special characters and spaces are not permitted.
-* *Description* (optional)
-* *Cluster*
-* *Template*
-* *Operating System*
-* *Defined Memory*
-* *Total Virtual CPUs*
-* *Boot Menu*
-* *Boot Sequence*
-** *First Device*
-** *Second Device*
-* *Cloud-Init*
-* *Icon*
+There are four screens to complete:
+
+. Basic Settings screen
+** *Name* of the virtual machine. The virtual machine name may contain only upper- or lower-case letters, numbers, underscores (`_`), hyphens (`-`), or periods (`.`). Special characters and spaces are not permitted.
+** *Description* (optional)
+** *Cluster*
+** *Provision Source*
+** *Template*
+** *Operating System*
+** *Memory (MiB)*
+** *Total Virtual CPUs*
+** *Optimized For*
+*** Start virtual machine on creation
+*** Enable Cloud-init/Sysprep
++
+** Advanced CPU Topology Options
+
+*** *Virtual Sockets*
+*** *Cores per Virtual Socket*
+*** *Threads per Core*
++
+. Networking screen
++
+** *NIC Name*
+** *vNIC Profile*
+** *Device Type*
+
+. Storage screen
+** *Disk Name*
+** *Bootable*
+** *Storage Domain*
+** *Disk Type*
+
+. Review screen
 +
 See  link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained[Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows] in the _Virtual Machine Management Guide_ for details.
-
-. Click btn:[Create VM].
++
+If everything in the *Review* screen is correct, click btn:[Create Virtual Machine] to complete the operation.

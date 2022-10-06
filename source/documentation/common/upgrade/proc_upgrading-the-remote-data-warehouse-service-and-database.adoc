@@ -6,7 +6,7 @@
 
 Run this procedure on the remote machine with the Data Warehouse service and database.
 
-Notice that part of this procedure requires you to install {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4.
+Notice that part of this procedure requires you to install {enterprise-linux} 8.6, or {hypervisor-fullname} 4.4.
 
 .Prerequisites
 * You are logged in to the Data Warehouse machine.
@@ -36,7 +36,7 @@ Grafana is not supported on {virt-product-shortname} 4.3, but on {virt-product-s
 # systemctl disable ovirt-engine-dwhd
 ----
 
-. Reinstall the Data Warehouse machine with {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4.
+. Reinstall the Data Warehouse machine with {enterprise-linux} 8.6, or {hypervisor-fullname} 4.4.
 
 . Prepare a PostgreSQL database. For information, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database] in _Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_.
 

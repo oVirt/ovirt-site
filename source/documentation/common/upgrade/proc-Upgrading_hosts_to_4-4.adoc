@@ -22,7 +22,7 @@ CPU-passthrough virtual machines might not migrate properly from {virt-product-s
 
 .Prerequisites
 
-* Hosts for {virt-product-shortname} 4.4 require {enterprise-linux} 8.2 or later. A clean installation of {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4 is required, even if you are using the same physical machine that you use to run hosts for {virt-product-shortname} 4.3.
+* Hosts for {virt-product-shortname} 4.4 require {enterprise-linux} versions 8.2 to 8.6. A clean installation of {enterprise-linux} 8.6, or {hypervisor-fullname} 4.4 is required, even if you are using the same physical machine that you use to run hosts for {virt-product-shortname} 4.3.
 * {virt-product-fullname} {engine-name} 4.4 is installed and running.
 * The compatibility level of the data center and cluster to which the hosts belong is set to 4.2 or 4.3.
 All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.
@@ -34,7 +34,7 @@ link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#s
 
 . Put the host into maintenance mode and remove the host from the {engine-name}. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Removing_a_host[Removing a Host] in the _Administration Guide_.
 
-. Install {enterprise-linux} 8.2 or later, or {hypervisor-shortname} 4.4. For more information, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides.
+. Install {enterprise-linux} 8.6, or {hypervisor-shortname} 4.4. For more information, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides.
 
 . Install the appropriate packages to enable the host for {virt-product-shortname} 4.4. For more information, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides.
 

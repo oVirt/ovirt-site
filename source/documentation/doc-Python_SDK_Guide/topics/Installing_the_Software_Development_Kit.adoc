@@ -12,6 +12,12 @@ To install the Python software development kit:
     --enable=rhel-8-for-x86_64-baseos-rpms \
     --enable=rhel-8-for-x86_64-appstream-rpms \
     --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms
+
+# subscription-manager repos \
+        --enable=rhel-8-for-x86_64-baseos-eus-rpms \
+        --enable=rhel-8-for-x86_64-appstream-eus-rpms
+
+# subscription-manager release --set=8.6
 ----
 
 . Install the required packages:

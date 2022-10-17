@@ -11248,12 +11248,6 @@ Release      : 1.0.el8
 </li>
 <li>
 <p>Enable the <code>virt</code> module in the Advanced Virtualization stream with the following command:</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -11301,8 +11295,21 @@ Release      : 1.0.el8
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
 <li>
 <p>Update the host:</p>
 <div class="listingblock">
@@ -11329,9 +11336,6 @@ Release      : 1.0.el8
 </div>
 </li>
 </ol>
-</div>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>Repeat this process for each host in the oVirt environment.</p>
@@ -29563,6 +29567,20 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 </div>
 <div class="sect3">
 <h4 id="proc-setting_up_debug_level_logging">4.2.5. Setting debug-level logging for oVirt services</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Setting logging to debug-level may expose sensitive information such as passwords or internal VM data. Make sure that non-trusted or unauthorized users do not have access to debug logs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>You can set the logs of the following oVirt (oVirt) services to debug-level by modifying the <code>sysconfig</code> file of each service.</p>
 </div>

@@ -954,7 +954,7 @@ for more details.</p>
 <div class="sect2">
 <h3 id="Upgrading_the_Manager_to_4-4_4-3_local_db">4.3. Upgrading the oVirt Engine from 4.3 to 4.4</h3>
 <div class="paragraph">
-<p>oVirt Engine 4.4 is only supported on Enterprise Linux 8.2 or later. You need to do a clean installation of Enterprise Linux 8.2 or later and oVirt Engine 4.4, even if you are using the same physical machine that you use to run oVirt Engine 4.3.</p>
+<p>oVirt Engine 4.4 is only supported on Enterprise Linux versions 8.2 to 8.6. You need to do a clean installation of Enterprise Linux 8.6 and oVirt Engine 4.4, even if you are using the same physical machine that you use to run oVirt Engine 4.3.</p>
 </div>
 <div class="paragraph">
 <p>The upgrade process requires restoring oVirt Engine 4.3 backup files onto the oVirt Engine 4.4 machine.</p>
@@ -1005,7 +1005,7 @@ for more details.</p>
 <p>Copy the backup file to a storage device outside of the oVirt environment.</p>
 </li>
 <li>
-<p>Install Enterprise Linux 8.2 or later. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index"><em>Performing a standard RHEL installation</em></a> for more information.</p>
+<p>Install Enterprise Linux 8.6. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index"><em>Performing a standard RHEL installation</em></a> for more information.</p>
 </li>
 <li>
 <p>Complete the steps to install oVirt Engine 4.4, including running the command <code>yum install rhvm</code>, but do not run <code>engine-setup</code>. See one of the <em>Installing oVirt</em> guides for more information.</p>
@@ -1151,7 +1151,7 @@ Now you need to upgrade the hosts in your environment to oVirt 4.4, after which 
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>Hosts for oVirt 4.4 require Enterprise Linux 8.2 or later. A clean installation of Enterprise Linux 8.2 or later, or oVirt Node 4.4 is required, even if you are using the same physical machine that you use to run hosts for oVirt 4.3.</p>
+<p>Hosts for oVirt 4.4 require Enterprise Linux versions 8.2 to 8.6. A clean installation of Enterprise Linux 8.6, or oVirt Node 4.4 is required, even if you are using the same physical machine that you use to run hosts for oVirt 4.3.</p>
 </li>
 <li>
 <p>oVirt Engine 4.4 is installed and running.</p>
@@ -1173,7 +1173,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Put the host into maintenance mode and remove the host from the Engine. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Removing_a_host">Removing a Host</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
-<p>Install Enterprise Linux 8.2 or later, or oVirt Node 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
+<p>Install Enterprise Linux 8.6, or oVirt Node 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
 </li>
 <li>
 <p>Install the appropriate packages to enable the host for oVirt 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
@@ -3645,7 +3645,7 @@ for more details.</p>
 <div class="sect2">
 <h3 id="Upgrading_the_Manager_to_4-4_4-3_remote_db">8.3. Upgrading the oVirt Engine from 4.3 to 4.4</h3>
 <div class="paragraph">
-<p>oVirt Engine 4.4 is only supported on Enterprise Linux 8.2 or later. You need to do a clean installation of Enterprise Linux 8.2 or later and oVirt Engine 4.4, even if you are using the same physical machine that you use to run oVirt Engine 4.3.</p>
+<p>oVirt Engine 4.4 is only supported on Enterprise Linux versions 8.2 to 8.6. You need to do a clean installation of Enterprise Linux 8.6 and oVirt Engine 4.4, even if you are using the same physical machine that you use to run oVirt Engine 4.3.</p>
 </div>
 <div class="paragraph">
 <p>The upgrade process requires restoring oVirt Engine 4.3 backup files onto the oVirt Engine 4.4 machine.</p>
@@ -3696,7 +3696,7 @@ for more details.</p>
 <p>Copy the backup file to a storage device outside of the oVirt environment.</p>
 </li>
 <li>
-<p>Install Enterprise Linux 8.2 or later. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index"><em>Performing a standard RHEL installation</em></a> for more information.</p>
+<p>Install Enterprise Linux 8.6. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index"><em>Performing a standard RHEL installation</em></a> for more information.</p>
 </li>
 <li>
 <p>Complete the steps to install oVirt Engine 4.4, including running the command <code>yum install rhvm</code>, but do not run <code>engine-setup</code>. See one of the <em>Installing oVirt</em> guides for more information.</p>
@@ -3818,7 +3818,7 @@ for more details.</p>
 <p>Run this procedure on the remote machine with the Data Warehouse service and database.</p>
 </div>
 <div class="paragraph">
-<p>Notice that part of this procedure requires you to install Enterprise Linux 8.2 or later, or oVirt Node 4.4.</p>
+<p>Notice that part of this procedure requires you to install Enterprise Linux 8.6, or oVirt Node 4.4.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -3869,7 +3869,7 @@ for more details.</p>
 </div>
 </li>
 <li>
-<p>Reinstall the Data Warehouse machine with Enterprise Linux 8.2 or later, or oVirt Node 4.4.</p>
+<p>Reinstall the Data Warehouse machine with Enterprise Linux 8.6, or oVirt Node 4.4.</p>
 </li>
 <li>
 <p>Prepare a PostgreSQL database. For information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">Preparing a Remote PostgreSQL Database</a> in <em>Installing oVirt as a standalone Engine with remote databases</em>.</p>
@@ -3964,7 +3964,7 @@ for more details.</p>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>Hosts for oVirt 4.4 require Enterprise Linux 8.2 or later. A clean installation of Enterprise Linux 8.2 or later, or oVirt Node 4.4 is required, even if you are using the same physical machine that you use to run hosts for oVirt 4.3.</p>
+<p>Hosts for oVirt 4.4 require Enterprise Linux versions 8.2 to 8.6. A clean installation of Enterprise Linux 8.6, or oVirt Node 4.4 is required, even if you are using the same physical machine that you use to run hosts for oVirt 4.3.</p>
 </li>
 <li>
 <p>oVirt Engine 4.4 is installed and running.</p>
@@ -3986,7 +3986,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Put the host into maintenance mode and remove the host from the Engine. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Removing_a_host">Removing a Host</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
-<p>Install Enterprise Linux 8.2 or later, or oVirt Node 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
+<p>Install Enterprise Linux 8.6, or oVirt Node 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
 </li>
 <li>
 <p>Install the appropriate packages to enable the host for oVirt 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
@@ -6009,7 +6009,7 @@ for more details.</p>
 <div class="sect2">
 <h3 id="Upgrading_the_Manager_to_4-4_4-3_SHE">12.5. Upgrading the oVirt Engine from 4.3 to 4.4</h3>
 <div class="paragraph">
-<p>The oVirt Engine 4.4 is only supported on Enterprise Linux 8.2 or later. You need to do a clean installation of Enterprise Linux 8.2 or later, or oVirt Node on the self-hosted engine host, even if you are using the same physical machine that you use to run the oVirt 4.3 self-hosted engine.</p>
+<p>The oVirt Engine 4.4 is only supported on Enterprise Linux versions 8.2 to 8.6. You need to do a clean installation of Enterprise Linux 8.6, or oVirt Node on the self-hosted engine host, even if you are using the same physical machine that you use to run the oVirt 4.3 self-hosted engine.</p>
 </div>
 <div class="paragraph">
 <p>The upgrade process requires restoring oVirt Engine 4.3 backup files onto the oVirt Engine 4.4 virtual machine.</p>
@@ -6132,7 +6132,7 @@ for more details.</p>
 </div>
 </li>
 <li>
-<p>Install oVirt Node 4.4 or Enterprise Linux 8.2 or later on the existing node currently running the Engine virtual machine to use it as the self-hosted engine deployment host. See <a href="https://ovirt.org/documentation//installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy">Installing the Self-hosted Engine Deployment Host</a> for more information.</p>
+<p>Install oVirt Node 4.4 or Enterprise Linux 8.6 on the existing node currently running the Engine virtual machine to use it as the self-hosted engine deployment host. See <a href="https://ovirt.org/documentation//installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy">Installing the Self-hosted Engine Deployment Host</a> for more information.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6308,7 +6308,7 @@ for more details.</p>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>Hosts for oVirt 4.4 require Enterprise Linux 8.2 or later. A clean installation of Enterprise Linux 8.2 or later, or oVirt Node 4.4 is required, even if you are using the same physical machine that you use to run hosts for oVirt 4.3.</p>
+<p>Hosts for oVirt 4.4 require Enterprise Linux versions 8.2 to 8.6. A clean installation of Enterprise Linux 8.6, or oVirt Node 4.4 is required, even if you are using the same physical machine that you use to run hosts for oVirt 4.3.</p>
 </li>
 <li>
 <p>oVirt Engine 4.4 is installed and running.</p>
@@ -6330,7 +6330,7 @@ All data centers and clusters in the environment must have the cluster compatibi
 <p>Put the host into maintenance mode and remove the host from the Engine. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Removing_a_host">Removing a Host</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
-<p>Install Enterprise Linux 8.2 or later, or oVirt Node 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
+<p>Install Enterprise Linux 8.6, or oVirt Node 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
 </li>
 <li>
 <p>Install the appropriate packages to enable the host for oVirt 4.4. For more information, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy">Installing Hosts for oVirt</a> in one of the <em>Installing oVirt</em> guides.</p>
@@ -8474,12 +8474,6 @@ Release      : 1.0.el8
 </li>
 <li>
 <p>Enable the <code>virt</code> module in the Advanced Virtualization stream with the following command:</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -8527,8 +8521,21 @@ Release      : 1.0.el8
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
 <li>
 <p>Update the host:</p>
 <div class="listingblock">
@@ -8555,9 +8562,6 @@ Release      : 1.0.el8
 </div>
 </li>
 </ol>
-</div>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>Repeat this process for each host in the oVirt environment.</p>

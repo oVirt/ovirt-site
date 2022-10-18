@@ -47,9 +47,9 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 
 ## Next releases
 
-* 4.5.2:
-  - Bugzilla Tracker: [oVirt 4.5.2 bugs](https://bugzilla.redhat.com/buglist.cgi?quicksearch=target_milestone%3Aovirt-4.5.2)
-  - GitHub Tracker: [oVirt 4.5.2 issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse+milestone%3Aovirt-4.5.2)
+* 4.5.3:
+  - Bugzilla Tracker: [oVirt 4.5.3 bugs](https://bugzilla.redhat.com/buglist.cgi?quicksearch=target_milestone%3Aovirt-4.5.3)
+  - GitHub Tracker: [oVirt 4.5.3 issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse+milestone%3Aovirt-4.5.3)
 
 ## Notes:
 

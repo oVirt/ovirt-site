@@ -84,7 +84,7 @@ endif::SM_localDB_deploy,SM_remoteDB_deploy[]
 +
 [NOTE]
 ====
-RHEL 8.6 EUS channels may not be available till RHEL 8.7 is released.
+RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
 ====
 +
 . Fix RHEL version to 8.6

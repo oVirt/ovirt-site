@@ -43,6 +43,11 @@ ifdef::rhv-doc[]
 
 # subscription-manager release --set=8.6
 ----
++
+[NOTE]
+====
+RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
+====
 endif::[]
 ifdef::ovirt-doc[]
 

@@ -45,7 +45,7 @@ ifdef::rhv-doc[]
 +
 [NOTE]
 ====
-RHEL 8.6 EUS channels may not be available till RHEL 8.7 is released.
+RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
 ====
 endif::[]
 ifdef::ovirt-doc[]

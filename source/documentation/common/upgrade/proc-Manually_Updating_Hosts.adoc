@@ -35,7 +35,18 @@ ifdef::rhv-doc[]
     --enable=rhv-4-mgmt-agent-for-rhel-8-x86_64-rpms \
     --enable=advanced-virt-for-rhel-8-x86_64-rpms \
     --enable=fast-datapath-for-rhel-8-x86_64-rpms
+
+# subscription-manager repos \
+        --enable=rhel-8-for-x86_64-baseos-eus-rpms \
+        --enable=rhel-8-for-x86_64-appstream-eus-rpms
+
+# subscription-manager release --set=8.6
 ----
++
+[NOTE]
+====
+RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
+====
 endif::[]
 ifdef::ovirt-doc[]
 Upgrading from an older 4.5 to latest 4.5:

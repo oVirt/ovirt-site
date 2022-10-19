@@ -90,6 +90,27 @@ ifdef::migrate_SHE_DB,migrate_manager_db[]
 ----
 endif::migrate_SHE_DB,migrate_manager_db[]
 
+. Subscribe to RHEL EUS channels
++
+[source,terminal,subs="normal"]
+----
+# subscription-manager repos \
+        --enable=rhel-8-for-x86_64-baseos-eus-rpms \
+        --enable=rhel-8-for-x86_64-appstream-eus-rpms
+----
++
+[NOTE]
+====
+RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
+====
++
+. Fix RHEL version to 8.6
++
+[source,terminal,subs="normal"]
+----
+# subscription-manager release --set=8.6
+----
+
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Spice Proxy | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Spice Proxy" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3074/develop/release-management/features/virt/spice-proxy.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3074/develop/release-management/features/virt/spice-proxy.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Spice Proxy" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Spice Proxy","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3074/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3074/develop/release-management/features/virt/spice-proxy.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3074/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3074/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3074/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3074/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3074/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3074/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3074/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3074/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3074/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3074/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3074/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3074/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3074/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3074/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3074/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3074/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3074/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3074/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3074/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3074/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3074/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3074/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3074//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3074//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3074/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3074/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3074/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3074/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3074/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c77d53c2ffc02fceea3ab4cc705360e5?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c77d53c2ffc02fceea3ab4cc705360e5?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Tomas Jelinek">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Tomas Jelinek</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3074/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="spice-proxy">SPICE Proxy</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Let the users define a proxy which will be used by SPICE client to connect to the guest.
+It is useful when the user (e.g. using user portal) is outside of the network where the hypervisors are.</p>
+
+<h2 id="client-dependencies">Client Dependencies</h2>
+
+<p>The proxy support for SPICE client has been added in the following versions of the following components:</p>
+
+<ul>
+  <li>spice-gtk v0.15</li>
+  <li>virt-viewer v0.5.5</li>
+  <li>spice-xpi v2.8.90</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>There are three places where to set the SPICE proxy up:</p>
+
+<ul>
+  <li>Global Configuration</li>
+  <li>Cluster (overrides the global configuration)</li>
+  <li>VM Pool (overrides global configuration and cluster configuration)</li>
+  <li>Disabling any config per VM</li>
+</ul>
+
+<p>If the proxy is set in any of this places and not disabled it will be filled into the Proxy property of the SPICE client by WebAdmin/UserPortal.
+If the proxy is not set nothing is filled into this property.</p>
+
+<h3 id="global-configuration">Global Configuration</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">engine-config</code> tool is used to globally configure the SPICE proxy for the whole application. Example:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>engine-config <span class="nt">-s</span> <span class="nv">SpiceProxyDefault</span><span class="o">=</span>someProxy
+</code></pre></div></div>
+
+<p>To turn the proxy off, just clear it:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>engine-config <span class="nt">-s</span> <span class="nv">SpiceProxyDefault</span><span class="o">=</span><span class="s2">""</span>
+</code></pre></div></div>
+
+<h3 id="cluster">Cluster</h3>
+
+<p>The global configuration can be overridden on cluster level. In webadmin in the newly introduced Console side tab in new/edit cluster dialog.
+In REST the “clusters” has been enriched by a new property “spice_proxy”.
+If the spice proxy is set in the cluster level, all VMs in this cluster will use this proxy (if not disabled for specific VM).</p>
+
+<h3 id="vm-pool">VM Pool</h3>
+
+<p>The global or cluster configuration can be overridden in the VM Pool level.
+In webadmin in the new/edit pool dialog in the Console side tab (in advanced mode). In REST the “vmpools” has been enriched by a new property “spice_proxy”.</p>
+
+<h3 id="disabling-any-config-per-vm">Disabling any config per VM</h3>
+
+<p>In User Portal/Web Admin SPICE proxy can be disabled / enabled per VM using the console options popup dialog and this setting will be stored in the local storage (or cookie).
+The specific behavior:</p>
+
+<ul>
+  <li>If the SPICE proxy is configured using any way described above, than:
+    <ul>
+      <li>an enabled checkbox with label “Enable SPICE Proxy” will be present</li>
+      <li>it is by default checked</li>
+      <li>if checked, the SPICE proxy will be used</li>
+      <li>if unchecked, the global SPICE proxy configuration will be ignored and the VM will connect directly to the guest</li>
+    </ul>
+  </li>
+  <li>If SPICE proxy is not set configured, than:
+    <ul>
+      <li>a disabled and unchecked checkbox will be present with label “Enable SPICE Proxy”</li>
+      <li>it will have a title: “no SPICE proxy defined”</li>
+      <li>the SPICE will connect directly to the guest</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="spice-proxy-form">SPICE Proxy Form</h2>
+
+<p>The proxy has to follow the following form: <code class="language-plaintext highlighter-rouge">[protocol://]&lt;host&gt;[:port]</code></p>
+
+<p>Only the http protocol is currently supported by SPICE clients. If https is specified, the client attempts to connect to the hypervisor and thereby ignores the proxy setting.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3074/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3074/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3074/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3074/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/spice-proxy.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/spice-proxy.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

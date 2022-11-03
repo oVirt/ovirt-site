@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt Engine Debug Obfuscated UI | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt Engine Debug Obfuscated UI" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3075/develop/developer-guide/engine/engine-debug-obfuscated-ui.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3075/develop/developer-guide/engine/engine-debug-obfuscated-ui.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt Engine Debug Obfuscated UI" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt Engine Debug Obfuscated UI","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3075/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3075/develop/developer-guide/engine/engine-debug-obfuscated-ui.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3075/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3075/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3075/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3075/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3075/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3075/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3075/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3075/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3075/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3075/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3075/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3075/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3075/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3075/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3075/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3075/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3075/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3075/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3075/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3075/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3075/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3075/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3075//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3075//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3075/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3075/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3075/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3075/develop/developer-guide/engine/">
+              <span property="name">Engine</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/4eb7448b353de66d48bfc38960a65d6f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/4eb7448b353de66d48bfc38960a65d6f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Alexander Wels">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alexander Wels</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-engine-debug-obfuscated-ui">oVirt Engine Debug Obfuscated UI</h1>
+
+<h2 id="debug-obfuscated-ui">Debug Obfuscated UI</h2>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Alexander Wels (awels)</li>
+  <li>Email: <a href="mailto:awels@redhat.com">awels@redhat.com</a></li>
+</ul>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>Sometimes during the usage of the Web admin or User portal you will get a popup about an uncaught exception like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Uncaught exception occurred. Please try reloading the page. Details:  [some information]
+</code></pre></div></div>
+
+<p>In general this message lets us know something went wrong, but is less than helpful in determining what exactly went wrong. The information provided usually includes some obfuscated code like ‘c is null’ or ‘cannot get field O5d’. None of which is very helpful.</p>
+
+<p>Why is this happening now? Recently we introduced some code that captures all exceptions that are not handled anywhere else, and displays it to the user.
+Before the un-handled exceptions would be written to the browser console and mostly ignored unless someone looked at the browser console.
+They are still written to the console, but they are also reported to the user, this has some benefits and some negatives.
+The benefits include the fact that the user can now report something is going wrong since they are being told.
+The negatives include the fact that the user sees the fact that something goes wrong and they conclude the product is bad.
+The developers cannot fix issues they are not aware of, so in the short term we will have more bug reports but in the long term
+we will have a better product due the more transparent exception reporting.</p>
+
+<h2 id="debugging-steps">Debugging steps</h2>
+
+<h4 id="getting-the-full-stack-trace-from-the-console">Getting the full stack trace from the console</h4>
+
+<p>As before the full stack trace is being written to the console, but the user is now aware of it via the pop-up message. To get the full stack trace you can open up the browser console. On most browsers you can start the development tools by pressing <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>i</kbd>.</p>
+
+<p>Once the development tools are open, you can switch to the console tab. Scroll down to where you see the exception as shown in the following diagram:</p>
+
+<p><img src="/ovirt-site/previews/3075/images/wiki/exception_console.png" alt="" /></p>
+
+<p>Your exception will be different but the top line as highlighted will be the important one.</p>
+
+<h4 id="making-sure-we-have-the-right-symbol-maps">Making sure we have the right symbol maps</h4>
+
+<p>Now that we have the stack trace and the most likely culprit of the exception, we don’t know what it is. When the UI is built, goes through a process of optimizing and obfuscating the original code. This is done to reduce the download size and optimize the performance of the application. The down side of this is that one can’t easily tell what is going on. During this process another file is generated called a symbol map. This file maps the obfuscated code to the original source code. Due to the size of the file this is not installed by default. To install the symbol maps run the following command as root:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install ovirt-engine-webadmin-portal-debuginfo ovirt-engine-userportal-debuginfo
+# If you are running rhv
+yum install rhevm-webadmin-portal-debuginfo rhevm-userportal-debuginfo
+</code></pre></div></div>
+
+<p>After installing these packages, the engine should be restarted (regardless of whether this is oVirt or RHV)</p>
+
+<p>This will install the symbol maps in <code class="language-plaintext highlighter-rouge">/usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps</code> and <code class="language-plaintext highlighter-rouge">/usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps</code>. Each directory will contain a bunch of files called <code class="language-plaintext highlighter-rouge">&lt;permutation hash&gt;.symbolMap</code>.</p>
+
+<h4 id="determine-the-permutation-you-are-using">determine the permutation you are using</h4>
+
+<p>Some browsers will include the permutation file name at the bottom of the exception. If you are lucky enough to have a browser that does that, you can skip this step and use the value from the bottom of the exception.</p>
+
+<p>The way the UI is optimized it will generate one permutation for each combination of supported browser and supported locale. When you log into the web admin or user portal a script runs that determines which locale and which browser you are using, and loads the appropriate permutation for that combination. To determine which permutation you have loaded open up the developer tools in your browser again like above with <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>i</kbd>. Then switch to the network tab as shown in the following diagram and look for the <code class="language-plaintext highlighter-rouge">&lt;permutation&gt;.cache.html</code> line.</p>
+
+<p><img src="/ovirt-site/previews/3075/images/wiki/exception_network.png" alt="" /></p>
+
+<h4 id="putting-it-all-together">Putting it all together</h4>
+
+<p>Now that you know which permutation you are using, open up the associated <code class="language-plaintext highlighter-rouge">&lt;permutation&gt;.symbolMap</code> with your favorite editor. Search for the symbol you found in step 1. This will look something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Tjb,com.google.gwt.lang.ClassLiteralHolder::Lcom_google_gwt_event_dom_client_KeyEvent_2_classLit,com.google.gwt.lang.ClassLiteralHolder,Lcom_google_gwt_event_dom_client_KeyEvent_2_classLit,com/google/gwt/dev/jjs/intrinsic/com/google/gwt/lang/ClassLiteralHolder.java,23,-1
+</code></pre></div></div>
+
+<p>The part in this instance, that the developers are interested in is <code class="language-plaintext highlighter-rouge">ClassLiteralHolder.java,23</code>. This means that the symbol is defined in line 23 of the <code class="language-plaintext highlighter-rouge">ClassLiteralHolder.java</code> file. This will help them determine the source of the actual exception.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3075/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3075/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3075/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3075/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/engine/engine-debug-obfuscated-ui.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/engine/engine-debug-obfuscated-ui.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

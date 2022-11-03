@@ -56,7 +56,7 @@ VM Portal clients |{virt-product-fullname} {engine-name} |Provides websocket pro
 |No
 |M7 |54323 |TCP |Administration Portal clients |{virt-product-fullname} {engine-name} (`ovirt-imageio` service) |Required for communication with the `ovirt-imageo` service.
 |Yes
-|M8 |6442 |TCP |{hypervisor-fullname}s
+|M8 |6642 |TCP |{hypervisor-fullname}s
 
 {enterprise-linux-host-fullname}s |Open Virtual Network (OVN) southbound database |Connect to Open Virtual Network (OVN) database
 |Yes

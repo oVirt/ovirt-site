@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DetailedCloneVmFromSnapshot | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="DetailedCloneVmFromSnapshot" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3077/develop/release-management/features/infra/detailedclonevmfromsnapshot.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3077/develop/release-management/features/infra/detailedclonevmfromsnapshot.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DetailedCloneVmFromSnapshot" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"DetailedCloneVmFromSnapshot","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3077/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3077/develop/release-management/features/infra/detailedclonevmfromsnapshot.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3077/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3077/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3077/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3077/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3077/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3077/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3077/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3077/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3077/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3077/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3077/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3077/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3077/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3077/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3077/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3077/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3077/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3077/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3077/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3077/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3077/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3077/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3077//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3077//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3077/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3077/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3077/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3077/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3077/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Yair Zaslavsky">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yair Zaslavsky</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3077/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="detailed-clone-vm-from-snapshot">Detailed Clone Vm From Snapshot</h1>
+
+<h2 id="clone-vm-from-snapshot">Clone VM from Snapshot</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>The feature will allow oVirt users to clone VM from a snapshot of another VM.
+A clone from snapshot will create disks at destination VM that are a collapsed copy of the images at snapshot chain
+(the start of the chain is the first snapshot, the end of the chain is a the selected snapshot)
+ Main feature page can be found at: <a href="/ovirt-site/previews/3077/develop/release-management/features/virt/clonevmfromsnapshot.html">CloneVmFromSnapshot</a></p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Yair Zaslavsky (Yair Zaslavsky)</li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>Target Release: …</li>
+  <li>Status: In progress</li>
+  <li>Last updated date: Jan 18th, 2012</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>Clone from Snapshot will give the ability to perform a clone of a VM or a VM template , based on a snapshot of a given VM.
+oVirt-engine core will copy and collapse the images in the snapshot chain (the chain begins with the 1st snapshot, and ends with the selected snapshot).
+In order to provide information on the VM or VM template to be created for the UI, UI will execute a query that will retrieve the VM and its disks configuration given a snapshot ID.
+The UI will use the retrieved configuration as default values for the user to be modified.</p>
+
+<h4 id="user-experience">User Experience</h4>
+
+<p>The UI will run a query called GetVmConfigurationBySnapshotID in order to get a VM configuration for a given snapshot.
+The UI will provide two options for creating the clone:
+.1. Presenting resent a window holding the configuration data. The configuration data will be used as defaults for the user, and the user may alter the data.
+The UI will also present the disk list in order to allow disk format and type, and to select different storage domains to hold the destination disks.</p>
+<ol>
+  <li>The UI will allow the user to enter the target VM (or template) name, and the clone operation will use the VM configuration for the given snapshot as the values to create the VM (or template).</li>
+</ol>
+
+<h4 id="installationupgrade">Installation/Upgrade</h4>
+
+<p>Describe how the feature will effect new installation or existing one.</p>
+
+<h4 id="user-work-flows">User work-flows</h4>
+
+<p>Example of flow (assuming a VM was created with two disks):
+<img src="/ovirt-site/previews/3077/images/wiki/Clone_flow_1.png" alt="" />
+The next figure shows a snapshot was made, having now two images serving as the active images:
+<img src="/ovirt-site/previews/3077/images/wiki/Clone_flow_2.png" alt="" />
+In a similar way, more snapshots are created (Snaphost2 will be the one used for performing the clone):
+<img src="/ovirt-site/previews/3077/images/wiki/Clone_flow_3.png" alt="" /></p>
+
+<p>The Clone from snapshot will be performed the following way:
+ .1. A user selects snapshot2 and selects a “clone from snapshot” operation from UI.
+.2. oVirt-engine core queries for VM configuration, providing the VM configuration as default values for the user to use in order to provide the new VM information.
+.3. The user will override the default data values (the user will have to provide a new name. UI will suggest a new name in a format of “copy_of_OLD_NAME”)
+.4. The user will initiate the beginning of the clone operation.
+.5. New VM entity based on the passed data will be created. Some VM related data will be cloned from the original VM (i.e NICs)
+.6. Copy &amp; collapse all images at snaphsot2 and their ancestors will be carried out by oVirt-engine
+.7. Association the copies of the disks with the VM clone will be created
+ This can be seen in the next figure:
+<img src="/ovirt-site/previews/3077/images/wiki/Clone_flow_4.png" alt="" /></p>
+
+<h4 id="events">Events</h4>
+
+<ol>
+  <li>In case a snapshot is performed , and one of the disks is erased from the original VM, cloning from the snapshot should report that the disk is missing using the audit log.</li>
+</ol>
+
+<h3 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h3>
+
+<p>The feature depends on the following projects:</p>
+<ol>
+  <li>oVirt web-admin - to supply the UI parts for this feature</li>
+  <li>oVirt API - to supply REST modeling
+The feature depends on the following features:</li>
+  <li>Stable device addresses - on introduction of VM devices, which will have to be a part of the clone. See also <a href="/ovirt-site/previews/3077/develop/release-management/features/virt/stabledeviceaddresses.html">StableDeviceAddresses</a></li>
+  <li>Multiple storage domains - on introduction of multiple storage domains. When performing the clone the user should be able to select the storage domains containing the disks of the cloned VM. See also <a href="/ovirt-site/previews/3077/develop/release-management/features/storage/multiplestoragedomains.html">Multiple storage domains</a></li>
+  <li>Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot).</li>
+  <li>Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).</li>
+  <li>Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section. See also <a href="/ovirt-site/previews/3077/develop/release-management/features/storage/hotplugdisk.html">Features/HotPlug</a></li>
+  <li>Quota - this feature needs the Quota feature in order to check the destination storage domains have suitable quota for the user to perform the clone operation. See Also <a href="/ovirt-site/previews/3077/develop/release-management/features/sla/quota.html">Features/Quota</a> &lt;BR<br /></li>
+</ol>
+
+<h3 id="clone-vm-from-snapshot-commands-class-diagram-and-detailed-description">Clone VM from snapshot commands Class diagram and detailed description</h3>
+
+<p>In order to implement clone VM form snapshot two new commands are going to be introduced -</p>
+<ol>
+  <li>AddVmFromSnapshotCommand which will be responsible for performing business entities cloning and persistance (VmStatic, VmDevice objects, Interface objects (for NICs)).
+At canDoAction the command will perform the following checks:
+a. Check the snapshot exists
+b. Retrieve a list of all images participating in the desired snapshot chain, and check if they are available for copying
+c. Check there is no VM with the given name at the vmStatic parameter.
+d. Check if the source and target storage domains exist and available.
+e. Check for destination storage domains that the quota for the user is sufficient for performing the operation.
+ At execution phase the command will perform the following for cloning a VM from snapshot:
+a. Try to lock the snapshot (use getSnapshot method to retrieve it). If locking fails - the command fails (this is to avoid having concurrent operations on the same snapshot, such as merge, during the copy).
+b. Try to lock the images participating in the desired snapshot chain (even if canDoAction passed -another command may have already locked some of them) . If locking fails - the command fails.
+c Obtain a VM static object in one of the following ways (determined by a boolean flag passed in the command parameters):
+c.1. The VM static object should be used - it will be stored in DB.
+c.2. The given name should be used - based on the VM source ID, the VM static will be obtained by the given snapshot ID. The name field will be overridden by the value from the parameters.
+d. Retrieve a list of the images to be cloned from the configuration provided by the parameters.
+e. The command will check if the status of the snapshot is partial (as a result of disk deletion), and if this is the case, a sutiable audit log message indicating that a clone from partial snapshot is starting will be issued to the audit log. f. For each image of the retrieved images, run the CopyImage BLL command.</li>
+  <li>CopyImageCommand will be responsible for running the CopyImageVDSCommand in order to perform the image copying.
+The command will clone the image entity , and the required parameters (such as the source and target storage domain for the given image) to CopyImageVDSCommand.
+A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created, using the new VM as the entity for which all the tasks will be created.
+ The diagram below presents the class diagram for the commands + changes in the existing design (prior to introduction of this feature)
+<img src="/ovirt-site/previews/3077/images/wiki/Clone_flow_vm_from_snapshot_new_2.png" alt="" />
+ a. BaseImagesCommand
+This existing class will undergo the following changes:
+* Introducing the performImageVdsmOperation.
+This method will replace the “CreateSnapshotInIRSServer” as in some cases, the overridden versions of this method invoke the CopyImage and not the CreateSnapshot VDSM verb.
+* Introducing the method handleImagesAfterVdsmOperation.
+This method will be overridden by sub classes to provide logic for handling the images, after successful invocation of image releated VDSM operation.
+In case of CreateSnapshotCommand the overridden method will replace the existing methods of ProcessImageFromDB and AddDiskImageToDB.
+In case of CopyImageCommand the overridden method will add the new image to DB.
+b. DiskImageUtils
+This new class will include helper methods for image related commands.
+An example for such a helper method is the method DiskImageUtils.cloneDiskImage that is responsible for performing image business entity cloning.
+c. CopyImageCommand
+This new class will concentrate BLL logic for performing image copying.
+The command will be run internally only.
+The command will receive as parameters information on source and target disk images and storage domains.
+The command will invoke the CopyImageVDS command in order to perform the image copying via the SPM.
+d. AddVmFromSnapshotCommand The new class will concrentrate BLL logic for creating a VM clone from a snapshot.
+The command will invoke the CopyImage BLL command for each Disk Image that should be cloned.</li>
+</ol>
+
+<h3 id="clone-vm-from-snapshot-command-parameters-class-diagram">Clone VM from snapshot command parameters Class diagram</h3>
+
+<p>The diagram provided below is a class diagram of the command parameters that relate with the above command class diagram.
+<img src="/ovirt-site/previews/3077/images/wiki/Clone_flow_vm_from_snapshot_params.png" alt="" />
+The design introduces new parameter class and usages:</p>
+
+<ul>
+  <li>Introduction of AddVmFromSnapshotParameters</li>
+</ul>
+
+<p>This class is the parameters class for the AddVmFromSnapshotCommand
+This class uses the following fields:</p>
+
+<ul>
+  <li>VmStatic vmStatic - holds the static representation of the Vm.</li>
+</ul>
+
+<p>In case the VmStatic object is filled only with name for the clone, the command should query the DB and get the vm static by the sourceVmId, and set the new name (the object will be used for the new cloned VM.)
+In case the VmStatic object is filled with fields - the object will be used as the VmStatic object for the new cloned VM.
+* GUID vmSourceID - holds the unique identifier of the source VM
+* Guid snapshotID - holds the unique identifier of the snapshot ID</p>
+
+<h3 id="getvmconfigurationbysnapshotid">GetVMConfigurationBySnapshotId</h3>
+
+<p>The diagram provided below is a class diagram for the GetVmConfiguraitonBySnapshotId.
+This query will be used in order to obtain the Vm configuration (VmStatic + disk info list) by the snapshot the user has selected , to be used as a source for the clone.
+<img src="/ovirt-site/previews/3077/images/wiki/Get_vm_configuration_by_snapshot_id.png" alt="" /></p>
+
+<p>=== Documentation / External references === Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.</p>
+
+<h3 id="open-issues">Open Issues</h3>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3077/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3077/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3077/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3077/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/detailedclonevmfromsnapshot.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/infra/detailedclonevmfromsnapshot.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

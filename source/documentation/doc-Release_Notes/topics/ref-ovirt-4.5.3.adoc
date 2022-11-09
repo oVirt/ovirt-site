@@ -59,4 +59,4 @@ BZ#link:https://bugzilla.redhat.com/2130700[2130700]::
 Incremental backup or Changed Block Tracking (CBT) is now generally available.
 
 BZ#link:https://bugzilla.redhat.com/2132386[2132386]::
-RHV 4.4 SP1 is only supported on RHEL 8.6 EUS. When performing RHV Manager or hypervisor installation, the RHEL version must be updated to RHEL 8.6 and the subscription channel must be updated to RHEL 8.6 EUS (when they are available).
+RHV 4.4 SP1 is only supported on RHEL 8.6 EUS. When performing RHV Manager or hypervisor installation, the RHEL version must be updated to RHEL 8.6 and the subscription channels must be updated to RHEL 8.6 EUS (when they are available).

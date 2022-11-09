@@ -1,0 +1,3042 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data Warehouse Guide | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Data Warehouse Guide" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3076/documentation/data_warehouse_guide/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3076/documentation/data_warehouse_guide/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data Warehouse Guide" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Data Warehouse Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3076/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3076/documentation/data_warehouse_guide/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3076/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3076/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3076/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3076/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3076/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3076/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3076/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3076/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3076/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3076/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3076/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3076/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3076/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3076/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3076/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3076/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3076/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3076/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3076/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3076/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3076/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3076/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3076//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3076//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3076/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3076/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#chap-Installing_and_Configuring_Data_Warehouse">1. Installing and Configuring Data Warehouse</a>
+<ul class="sectlevel2">
+<li><a href="#Overview_of_Configuring_Data_Warehouse">1.1. Overview of Configuring Data Warehouse</a></li>
+<li><a href="#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_DWH_admin">1.2. Installing and Configuring Data Warehouse on a Separate Machine</a></li>
+</ul>
+</li>
+<li><a href="#chap-About_History_Database">2. About the History Database</a>
+<ul class="sectlevel2">
+<li><a href="#History_Database_Overview">2.1. History Database Overview</a></li>
+<li><a href="#Tracking_configuration_history">2.2. Tracking Configuration History</a></li>
+<li><a href="#Recording_statistical_history">2.3. Recording Statistical History</a></li>
+<li><a href="#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">2.4. Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</a></li>
+<li><a href="#Tracking_tag_history">2.5. Tracking Tag History</a></li>
+<li><a href="#Allowing_Read_Only_Access_to_the_History_Database">2.6. Allowing Read-Only Access to the History Database</a></li>
+<li><a href="#sect-Statistics_History_Views">2.7. Statistics History Views</a>
+<ul class="sectlevel3">
+<li><a href="#enabling-debug-mode">2.7.1. Enabling Debug Mode</a></li>
+<li><a href="#Storage_domain_daily_history_view">2.7.2. Storage Domain Statistics Views</a></li>
+<li><a href="#Host_hourly_and_daily_history_views">2.7.3. Host Statistics Views</a></li>
+<li><a href="#Host_interface_hourly_and_daily_history_views">2.7.4. Host Interface Statistics Views</a></li>
+<li><a href="#Virtual_machine_hourly_and_daily_history_views">2.7.5. Virtual Machine Statistics Views</a></li>
+<li><a href="#Virtual_machine_interface_hourly_and_daily_history_views">2.7.6. Virtual Machine Interface Statistics Views</a></li>
+<li><a href="#Virtual_machine_disk_hourly_and_samples_history_views">2.7.7. Virtual Disk Statistics Views</a></li>
+</ul>
+</li>
+<li><a href="#sect-Configuration_History_Views">2.8. Configuration History Views</a>
+<ul class="sectlevel3">
+<li><a href="#Latest_datacenter_configuration_view1">2.8.1. Data Center Configuration</a></li>
+<li><a href="#Latest_datacenter_configuration_view2">2.8.2. Data Center Storage Domain Map</a></li>
+<li><a href="#Latest_storage_domain_configuration_view">2.8.3. Storage Domain Configuration</a></li>
+<li><a href="#Latest_cluster_configuration_view">2.8.4. Cluster Configuration</a></li>
+<li><a href="#Latest_host_configuration_view">2.8.5. Host Configuration</a></li>
+<li><a href="#Latest_host_interface_configuration_view">2.8.6. Host Interface Configuration</a></li>
+<li><a href="#Latest_virtual_machine_configuration_view">2.8.7. Virtual Machine Configuration</a></li>
+<li><a href="#Latest_virtual_machine_interface_configuration_view">2.8.8. Virtual Machine Interface Configuration</a></li>
+<li><a href="#Virtual_Machine_Device_Configuration">2.8.9. Virtual Machine Device Configuration</a></li>
+<li><a href="#Latest_virtual_machine_disk_configuration_view">2.8.10. Virtual Disk Configuration</a></li>
+<li><a href="#User_Details_History">2.8.11. User Details History</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ovirt-legal-notice">Appendix A: Legal notice</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<h1 id="data-warehouse-guide" class="discrete">Data Warehouse Guide</h1>
+<div class="paragraph">
+<p>The oVirt Engine includes a data warehouse that collects monitoring data about hosts, virtual machines, and storage. Data Warehouse, which includes a database and a service, must be installed and configured along with the Engine setup, either on the same machine or on a separate server.</p>
+</div>
+<div class="paragraph">
+<p>The oVirt installation creates two databases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Engine database (<code>engine</code>) is the primary data store used by the oVirt Engine. Information about the virtualization environment like its state, configuration, and performance are stored in this database.</p>
+</li>
+<li>
+<p>The Data Warehouse database (<code>ovirt_engine_history</code>) contains configuration information and statistical data which is collated over time from the Engine database. The configuration data in the Engine database is examined every minute, and changes are replicated to the Data Warehouse database. Tracking the changes to the database provides information on the objects in the database. This enables you to analyze and enhance the performance of your oVirt environment and resolve difficulties.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To calculate an estimate of the space and resources the <code>ovirt_engine_history</code> database will use, use the <a href="https://access.redhat.com/labs/rhevmhdsc/">RHV Engine History Database Size Calculator</a> tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap-Installing_and_Configuring_Data_Warehouse">1. Installing and Configuring Data Warehouse</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Overview_of_Configuring_Data_Warehouse">1.1. Overview of Configuring Data Warehouse</h3>
+<div class="paragraph">
+<p>You can install and configure Data Warehouse on the same machine as the Engine, or on a separate machine with access to the Engine:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Install and configure Data Warehouse on the Engine machine</dt>
+<dd>
+<p>This configuration requires only a single registered machine, and is the simplest to configure, but it increases the demand on the Engine machine. Users who require access to the Data Warehouse service require access to the Engine machine itself. See <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM">Configuring the oVirt Engine</a> in <em>Installing oVirt as a standalone Engine with local databases</em>.</p>
+</dd>
+<dt class="hdlist1">Install and configure Data Warehouse on a separate machine</dt>
+<dd>
+<p>This configuration requires two registered machines. It reduces the load on the Engine machine and avoids potential CPU and memory-sharing conflicts on that machine. Administrators can also allow user access to the Data Warehouse machine, without the need to grant access to the Engine machine. See <a href="#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_DWH_admin">Installing and Configuring Data Warehouse on a Separate Machine</a> for more information on this configuration.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is recommended that you set the system time zone for all machines in your Data Warehouse deployment to UTC. This ensures that data collection is not interrupted by variations in your local time zone: for example, a change from summer time to winter time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To calculate an estimate of the space and resources the <code>ovirt_engine_history</code> database will use, use the <a href="https://access.redhat.com/labs/rhevmhdsc/">RHV Engine History Database Size Calculator</a> tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The following behavior is expected in <code>engine-setup</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install the Data Warehouse package, run <code>engine-setup</code>, and answer <code>No</code> to configuring Data Warehouse:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Data Warehouse on this host (Yes, No) [Yes]: No</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run <code>engine-setup</code> again; setup no longer presents the option to configure Data Warehouse.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To force <code>engine-setup</code> to present the option again, run <code>engine-setup --reconfigure-optional-components</code>.</p>
+</div>
+<div class="paragraph">
+<p>To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the <code>--offline</code> option .</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_DWH_admin">1.2. Installing and Configuring Data Warehouse on a Separate Machine</h3>
+<div class="paragraph">
+<p>This section describes installing and configuring the Data Warehouse service on a separate machine from the oVirt Engine. Installing Data Warehouse on a separate machine helps to reduce the load on the Engine machine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>oVirt only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>The oVirt Engine is installed on a separate machine.</p>
+</li>
+<li>
+<p>A physical server or virtual machine running Enterprise Linux 8.</p>
+</li>
+<li>
+<p>The Engine database password.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Access from the Data Warehouse machine to the Engine database machine&#8217;s TCP port 5432.</p>
+</li>
+<li>
+<p>If you choose to install the Data Warehouse database separately from the Data Warehouse service, you must set up the database first. To install a remote Data Warehouse database manually, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM">Preparing a Remote PostgreSQL Database</a>. You must have the following information about the database machine:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The FQDN</p>
+</li>
+<li>
+<p>The port through which the database can be reached (5432 by default)</p>
+</li>
+<li>
+<p>The database name</p>
+</li>
+<li>
+<p>The database user</p>
+</li>
+<li>
+<p>The database password</p>
+</li>
+<li>
+<p>You must manually grant access by editing the <code>postgresql.conf</code> file. Edit the <code>/var/lib/pgsql/data/postgresql.conf</code> file and modify the <code>listen_addresses</code> line so that it matches the following:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">listen_addresses = '*'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the line does not exist or has been commented out, add it manually.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_DWH_remote" class="discrete">Enabling the oVirt Engine Repositories</h4>
+<div class="paragraph">
+<p>Ensure the correct repositories are enabled.</p>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.5:
+If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/3076/download/install_on_rhel.html">Installing on RHEL or derivatives</a> first.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For oVirt 4.4:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Common procedure valid for both 4.4 and 4.5:</p>
+</div>
+<div class="paragraph">
+<p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enable the <code>javapackages-tools</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable javapackages-tools</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable the <code>pki-deps</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable pki-deps</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 12 of the <code>postgresql</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable postgresql:12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 2.3 of the <code>mod_auth_openidc</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable mod_auth_openidc:2.3</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 14 of the <code>nodejs</code> module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf module -y enable nodejs:14</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Synchronize installed packages to update them to the latest available versions.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Additional resources</div>
+<p>For information on modules and module streams, see the following sections in <em>Installing, managing, and removing user-space components</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#module-streams_introduction-to-modules">Module streams</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#selecting-a-stream-before-installation-of-packages_installing-rhel-8-content">Selecting a stream before installation of packages</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#resetting-module-streams_removing-rhel-8-content">Resetting module streams</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content">Switching to a later stream</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<h4 id="installing-data-warehouse-on-a-separate-machine" class="discrete">Installing Data Warehouse on a Separate Machine</h4>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the machine where you want to install the database.</p>
+</li>
+<li>
+<p>Ensure that all packages are up to date:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf upgrade --nobest</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the <code>ovirt-engine-dwh-setup</code> package:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-engine-dwh-setup</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the <code>engine-setup</code> command to begin the installation:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-setup</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Answer <code>Yes</code> to install Data Warehouse on this machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Data Warehouse on this host (Yes, No) [Yes]:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Answer <code>Yes</code> to install Grafana on this machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Configure Grafana on this host (Yes, No) [Yes]:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Press <code>Enter</code> to accept the automatically-detected host name, or enter an alternative host name and press <code>Enter</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of this server [<em>autodetected hostname</em>]:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Press <code>Enter</code> to automatically configure the firewall, or type <code>No</code> and press <code>Enter</code> to maintain existing settings:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can automatically configure the firewall on this system.
+Note: automatic configuration of the firewall may overwrite current settings.
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you choose to automatically configure the firewall, and no firewall managers are active, you are prompted to select your chosen firewall manager from a list of supported options. Type the name of the firewall manager and press <code>Enter</code>. This applies even in cases where only one option is listed.</p>
+</div>
+</li>
+<li>
+<p>Enter the fully qualified domain name of the Engine machine, and then press <code>Enter</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Host fully qualified DNS name of the engine server []:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Press <code>Enter</code> to allow setup to sign the certificate on the Engine via SSH:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
+Please choose one of the following:
+1 - Access remote engine server using ssh as root
+2 - Perform each action manually, use files to copy content around
+(1, 2) [1]:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Press <code>Enter</code> to accept the default SSH port, or enter an alternative port number and then press <code>Enter</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">ssh port on remote engine server [22]:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the root password for the Engine machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">root password on remote engine server <em>manager.example.com</em>:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Specify whether to host the Data Warehouse database on this machine (Local), or on another machine (Remote).:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>oVirt only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Where is the DWH database located? (Local, Remote) [Local]:</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you select <code>Local</code>, the <code>engine-setup</code> script can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
+Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you select <code>Automatic</code> by pressing <code>Enter</code>, no further action is required here.</p>
+</li>
+<li>
+<p>If you select <code>Manual</code>, input the following values for the manually-configured local database:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">DWH database secured connection (Yes, No) [No]:
+DWH database name [ovirt_engine_history]:
+DWH database user [ovirt_engine_history]:
+DWH database password:</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the fully qualified domain name and password for the Engine database machine. If you are installing the Data Warehouse database on the same machine where the Engine database is installed, use the same FQDN. Press <code>Enter</code> to accept the default values in each other field:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Engine database host []: <em>engine-db-fqdn</em>
+Engine database port [5432]:
+Engine database secured connection (Yes, No) [No]:
+Engine database name [engine]:
+Engine database user [engine]:
+Engine database password: <em>password</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Choose how long Data Warehouse will retain collected data:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Please choose Data Warehouse sampling scale:
+(1) Basic
+(2) Full
+(1, 2)[1]:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Full</code> uses the default values for the data storage settings listed in <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</a> (recommended when Data Warehouse is installed on a remote host).</p>
+</div>
+<div class="paragraph">
+<p><code>Basic</code> reduces the values of <code>DWH_TABLES_KEEP_HOURLY</code> to <code>720</code> and <code>DWH_TABLES_KEEP_DAILY</code> to <code>0</code>, easing the load on the Engine machine. Use <code>Basic</code> when the Engine and Data Warehouse are installed on the same machine.</p>
+</div>
+</li>
+<li>
+<p>Confirm your installation settings:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">Please confirm installation settings (OK, Cancel) [OK]:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>After the Data Warehouse configuration is complete, on the oVirt Engine, restart the <code>ovirt-engine</code> service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Optionally, set up <a href="https://www.postgresql.org/docs/12/ssl-tcp.html#SSL-FILE-USAGE">SSL</a> to secure database connections.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap-About_History_Database">2. About the History Database</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="History_Database_Overview">2.1. History Database Overview</h3>
+<div class="paragraph">
+<p>oVirt includes a comprehensive management history database, which can be used by reporting applications to generate reports at data center, cluster and host levels. This chapter provides information to enable you to set up queries against the history database.</p>
+</div>
+<div class="paragraph">
+<p>oVirt Engine uses <code>PostgreSQL 12.x</code> as a database platform to store information about the state of the virtualization environment, its configuration and performance. At install time, oVirt Engine creates a PostgreSQL database called <code>engine</code>.</p>
+</div>
+<div class="paragraph">
+<p>Installing the <code>ovirt-engine-dwh</code> package creates a second database called <code>ovirt_engine_history</code>, which contains historical configuration information and statistical metrics collected every minute over time from the <code>engine</code> operational database. Tracking the changes to the database provides information on the objects in the database, enabling the user to analyze activity, enhance performance, and resolve difficulties.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The replication of data in the <code>ovirt_engine_history</code> database is performed by the oVirt Engine Extract Transform Load Service, <code>ovirt-engine-dwhd</code>. The service is based on Talend Open Studio, a data integration tool. This service is configured to start automatically during the data warehouse package setup. It is a Java program responsible for extracting data from the <code>engine</code> database, transforming the data to the history database standard and loading it to the <code>ovirt_engine_history</code> database.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ovirt-engine-dwhd</code> service must not be stopped.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>ovirt_engine_history</code> database schema changes over time. The database includes a set of database views to provide a supported, versioned API with a consistent structure. A view is a virtual table composed of the result set of a database query. The database stores the definition of a view as a <code>SELECT</code> statement. The result of the <code>SELECT</code> statement populates the virtual table that the view returns. A user references the view name in <code>PL/PGSQL</code> statements the same way a table is referenced.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Tracking_configuration_history">2.2. Tracking Configuration History</h3>
+<div class="paragraph">
+<p>Data from the oVirt History Database (called <code>ovirt_engine_history</code>) can be used to track the <code>engine</code> database.</p>
+</div>
+<div class="paragraph">
+<p>The ETL service, <code>ovirt-engine-dwhd</code>, tracks three types of changes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A new entity is added to the <code>engine</code> database - the ETL Service replicates the change to the <code>ovirt_engine_history</code> database as a new entry.</p>
+</li>
+<li>
+<p>An existing entity is updated - the ETL Service replicates the change to the <code>ovirt_engine_history</code> database as a new entry.</p>
+</li>
+<li>
+<p>An entity is removed from the <code>engine</code> database - A new entry in the <code>ovirt_engine_history</code> database flags the corresponding entity as removed. Removed entities are only flagged as removed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The configuration tables in the <code>ovirt_engine_history</code> database differ from the corresponding tables in the <code>engine</code> database in several ways. The most apparent difference is they contain fewer <strong>configuration</strong> columns. This is because certain configuration items are less interesting to report than others and are not kept due to database size considerations. Also, columns from a few tables in the <code>engine</code> database appear in a single table in <code>ovirt_engine_history</code> and have different column names to make viewing data more convenient and comprehensible. All configuration tables contain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <code>history_id</code> to indicate the configuration version of the entity;</p>
+</li>
+<li>
+<p>a <code>create_date</code> field to indicate when the entity was added to the system;</p>
+</li>
+<li>
+<p>an <code>update_date</code> field to indicate when the entity was changed; and</p>
+</li>
+<li>
+<p>a <code>delete_date</code> field to indicate the date the entity was removed from the system.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Recording_statistical_history">2.3. Recording Statistical History</h3>
+<div class="paragraph">
+<p>The ETL service collects data into the statistical tables every minute. Data is stored for every minute of the past 24 hours, at a minimum, but can be stored for as long as 48 hours depending on the last time a deletion job was run. Minute-by-minute data more than two hours old is aggregated into hourly data and stored for two months. Hourly data more than two days old is aggregated into daily data and stored for five years.</p>
+</div>
+<div class="paragraph">
+<p>Hourly data and daily data can be found in the hourly and daily tables.</p>
+</div>
+<div class="paragraph">
+<p>Each statistical datum is kept in its respective aggregation level table: samples, hourly, and daily history. All history tables also contain a <code>history_id</code> column to uniquely identify rows. Tables reference the configuration version of a host in order to enable reports on statistics of an entity in relation to its past configuration.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file">2.4. Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</h3>
+<div class="paragraph">
+<p>The following is a list of options for configuring application settings for the Data Warehouse service. These options are available in the <strong>/usr/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.conf</strong> file. Configure any changes to the default values in an override file under <strong>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/</strong>. Restart the Data Warehouse service after saving the changes.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. ovirt-engine-dwhd.conf application settings variables</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Variable name</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DWH_DELETE_JOB_HOUR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The time at which a deletion job is run. Specify a value between <code>0</code> and <code>23</code>, where <code>0</code> is midnight.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DWH_SAMPLING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>60</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The interval, in seconds, at which data is collected into statistical tables.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DWH_TABLES_KEEP_SAMPLES</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>24</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of hours that data from <code>DWH_SAMPLING</code> is stored. Data more than two hours old is aggregated into hourly data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DWH_TABLES_KEEP_HOURLY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1440</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of hours that hourly data is stored. The default is 60 days. Hourly data more than two days old is aggregated into daily data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DWH_TABLES_KEEP_DAILY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>43800</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of hours that daily data is stored. The default is five years.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DWH_ERROR_EVENT_INTERVAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>300000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum interval, in milliseconds, at which errors are pushed to the Engine&#8217;s <strong>audit.log</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="Tracking_tag_history">2.5. Tracking Tag History</h3>
+<div class="paragraph">
+<p>The ETL Service collects tag information as displayed in the Administration Portal every minute and stores this data in the tags historical tables. The ETL Service tracks five types of changes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A tag is created in the Administration Portal - the ETL Service copies the tag details, position in the tag tree and relation to other objects in the tag tree.</p>
+</li>
+<li>
+<p>A entity is attached to the tag tree in the Administration Portal - the ETL Service replicates the addition to the <code>ovirt_engine_history</code> database as a new entry.</p>
+</li>
+<li>
+<p>A tag is updated - the ETL Service replicates the change of tag details to the <code>ovirt_engine_history</code> database as a new entry.</p>
+</li>
+<li>
+<p>An entity or tag branch is removed from the Administration Portal - the <code>ovirt_engine_history</code> database flags the corresponding tag and relations as removed in new entries. Removed tags and relations are only flagged as removed or detached.</p>
+</li>
+<li>
+<p>A tag branch is moved - the corresponding tag and relations are updated as new entries. Moved tags and relations are only flagged as updated.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Allowing_Read_Only_Access_to_the_History_Database">2.6. Allowing Read-Only Access to the History Database</h3>
+<div class="paragraph">
+<p>To allow access to the history database without allowing edits, you must create a read-only PostgreSQL user that can log in to and read from the <code>ovirt_engine_history</code> database. This procedure must be executed on the system on which the history database is installed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Allowing Read-Only Access to the History Database</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in as root to the postgres user shell:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># su - postgres</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the user to be granted read-only access to the history database:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;CREATE ROLE <em>username</em> WITH LOGIN ENCRYPTED PASSWORD '<em>password</em>';&quot; -d ovirt_engine_history</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Grant the newly created user permission to connect to the history database:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;GRANT CONNECT ON DATABASE ovirt_engine_history TO <em>username</em>;&quot;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Grant the newly created user usage of the <code>public</code> schema:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;GRANT USAGE ON SCHEMA public TO <em>username</em>;&quot; ovirt_engine_history</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Generate the rest of the permissions that will be granted to the newly created user and save them to a file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -c &quot;SELECT 'GRANT SELECT ON ' || relname || ' TO <em>username</em>;' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');&quot; --pset=tuples_only=on  ovirt_engine_history &gt; grant.sql</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the file you created in the previous step to grant permissions to the newly created user:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># psql -U postgres -f grant.sql ovirt_engine_history</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Remove the file you used to grant permissions to the newly created user:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># rm grant.sql</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Exit the postgres user shell by pressing <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>d</kbd></span>.</p>
+</li>
+<li>
+<p>Add the following lines for the newly created user to <code>/var/lib/pgsql/data/pg_hba.conf</code> preceding the line beginning <code>local all all</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># TYPE  DATABASE                USER           ADDRESS                 METHOD
+host    ovirt_engine_history    <em>username</em>    0.0.0.0/0               md5
+host    ovirt_engine_history    <em>username</em>    ::0/0                   md5
+local   all             all                                     peer</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Reload the PostgreSQL service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl reload postgresql</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To test the read-only user&#8217;s access permissions:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># su - postgres -c 'psql -U username ovirt_engine_history -h localhost'
+Password for user username:
+psql (9.2.23)
+Type "help" for help.
+
+ovirt_engine_history=&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>To exit the <code>ovirt_engine_history</code> database, enter <code>\q</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The read-only user&#8217;s <code>SELECT</code> statements against tables and views in the <code>ovirt_engine_history</code> database succeed, while modifications fail.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sect-Statistics_History_Views">2.7. Statistics History Views</h3>
+<div class="paragraph">
+<p>Statistics data is available in <code>hourly</code>, <code>daily</code>, and <code>samples</code> views.</p>
+</div>
+<div class="paragraph">
+<p>To query a statistics view, run <code>SELECT * FROM <em>view_name_</em>[hourly|daily|samples];</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To list all available views, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># \dv</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="enabling-debug-mode">2.7.1. Enabling Debug Mode</h4>
+<div class="paragraph">
+<p>You can enable debug mode to record log sampling, hourly, and daily job times in the <strong>/var/log/ovirt-engine-dwh/ovirt-engine-dwhd.log</strong> file. This is useful for checking the ETL process. Debug mode is disabled by default.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the Engine machine and create a configuration file (for example, <strong>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/logging.conf</strong>).</p>
+</li>
+<li>
+<p>Add the following line to the configuration file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">DWH_AGGREGATION_DEBUG=true</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the <strong>ovirt-engine-dwhd</strong> service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine-dwhd.service</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> To disable debug mode, delete the configuration file and restart the service.
+// removed note</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Storage_domain_daily_history_view">2.7.2. Storage Domain Statistics Views</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Historical Statistics for Each Storage Domain in the System</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this row in the table.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_datetime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_domain_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique ID of the storage domain in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_domain_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The storage domain status.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">seconds_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of seconds that the storage domain was in the status shown state as shown in the status column for the aggregation period. For example, if a storage domain was "Active" for 55 seconds and "Inactive" for 5 seconds within a minute, two rows will be reported in the table for the same minute. One row will have a status of Active with seconds_in_status of 55, the other will have a status of Inactive and seconds_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minutes_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(7,2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of minutes that the storage domain was in the status shown state as shown in the status column for the aggregation period. For example, if a storage domain was "Active" for 55 minutes and "Inactive" for 5 minutes within an hour, two rows will be reported in the table for the same hour. One row will have a status of Active with minutes_in_status of 55, the other will have a status of Inactive and minutes_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">available_disk_size_gb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total available (unused) capacity on the disk, expressed in gigabytes (GB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">used_disk_size_gb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total used capacity on the disk, expressed in gigabytes (GB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The storage domain configuration version at the time of sample. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_storage_domains</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Host_hourly_and_daily_history_views">2.7.3. Host Statistics Views</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Historical Statistics for Each Host in the System</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this row in the table.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_datetime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique ID of the host in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>-1 - <code>Unknown Status</code> (used only to indicate a problem with the ETL.
+)</p>
+</li>
+<li>
+<p>1 - <code>Up</code></p>
+</li>
+<li>
+<p>2 - <code>Maintenance</code></p>
+</li>
+<li>
+<p>3 - <code>Problematic</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">seconds_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of seconds that the host was in the status shown in the status column for the aggregation period. For example, if a host was up for 55 seconds and down for 5 seconds during a minute, two rows will show for this minute. One will have a status of <code>Up</code> and seconds_in_status of 55, the other will have a status of <code>Down</code> and a seconds_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minutes_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(7,2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of minutes that the host was in the status shown in the status column for the aggregation period. For example, if a host was up for 55 minutes and down for 5 minutes during an hour, two rows will show for this hour. One will have a status of <code>Up</code> and minutes_in_status of 55, the other will have a status of <code>Down</code> and a minutes_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">memory_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Percentage of used memory on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_memory_usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum memory usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ksm_shared_memory_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Kernel Shared Memory size, in megabytes (MB), that the host is using.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_ksm_shared_memory_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum KSM memory usage for the aggregation period expressed in megabytes (MB). For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used CPU percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_cpu_usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ksm_cpu_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CPU percentage ksm on the host is using.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_ksm_cpu_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum KSM usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">active_vms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The average number of active virtual machines for this aggregation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_active_vms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum active number of virtual machines for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total_vms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The average number of all virtual machines on the host for this aggregation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_total_vms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum total number of virtual machines for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total_vms_vcpus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of vCPUs allocated to the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_total_vms_vcpus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum total virtual machine vCPU number for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpu_load</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The CPU load of the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_cpu_load</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum CPU load for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">system_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used CPU percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_system_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum system CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used user CPU percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_user_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum user CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">swap_used_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used swap size usage of the host in megabytes (MB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_swap_used_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum user swap size usage of the host for the aggregation period in megabytes (MB), expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host configuration version at the time of sample. The host configuration version at the time of sample. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_hosts</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Host_interface_hourly_and_daily_history_views">2.7.4. Host Interface Statistics Views</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Historical Statistics for Each Host Network Interface in the System</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this row in the table.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_datetime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of this history view (rounded to minute, hour, day as per the aggregation level).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_interface_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique identifier of the interface in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used receive rate percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_receive_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum receive rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transmit_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used transmit rate percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_transmit_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">received_total_byte</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of bytes received by the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transmitted_total_byte</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of bytes transmitted from the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_interface_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host interface configuration version at the time of sample. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_hosts_interfaces</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Virtual_machine_hourly_and_daily_history_views">2.7.5. Virtual Machine Statistics Views</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Historical Statistics for Each Virtual Machine in the System</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this row in the table.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_datetime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique ID of the virtual machine in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>-1 - Unknown Status (used only to indicate problems with the ETL.
+)</p>
+</li>
+<li>
+<p>0 - Down</p>
+</li>
+<li>
+<p>1 - Up</p>
+</li>
+<li>
+<p>2 - Paused</p>
+</li>
+<li>
+<p>3 - Problematic</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">seconds_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of seconds that the virtual machine was in the status shown in the status column for the aggregation period. For example, if a virtual machine was up for 55 seconds and down for 5 seconds during a minute, two rows will show for this minute. One will have a status of Up and seconds_in_status, the other will have a status of Down and a seconds_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minutes_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(7,2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of minutes that the virtual machine was in the status shown in the status column for the aggregation period. For example, if a virtual machine was up for 55 minutes and down for 5 minutes during an hour, two rows will show for this hour. One will have a status of Up and minutes_in_status, the other will have a status of Down and a minutes_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The percentage of the CPU in use by the virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_cpu_usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">memory_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Percentage of used memory in the virtual machine. The guest tools must be installed on the virtual machine for memory usage to be recorded.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_memory_usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum memory usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. The guest tools must be installed on the virtual machine for memory usage to be recorded.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used user CPU percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_user_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum user CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregation, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">system_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used system CPU percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_system_cpu_usage_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum system CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The IP address of the first NIC. Only shown if the guest agent is installed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">currently_running_on_host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the host the virtual machine is running on.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current_user_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the user logged into the virtual machine console, if the guest agent is installed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disks_usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The disk description. File systems type, mount point, total size, and used size.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual machine configuration version at the time of sample. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_vms</code> view.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current_host_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host configuration version at the time of sample. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_hosts</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">memory_buffered_kb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of buffered memory on the virtual machine, in kilobytes (KB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">memory_cached_kb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of cached memory on the virtual machine, in kilobytes (KB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_memory_buffered_kb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum buffered memory for the aggregation period, in kilobytes (KB). For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_memory_cached_kb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum cached memory for the aggregation period, in kilobytes (KB). For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Virtual_machine_interface_hourly_and_daily_history_views">2.7.6. Virtual Machine Interface Statistics Views</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. Historical Statistics for the Virtual Machine Network Interfaces in the System</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this row in the table.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_datetime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_interface_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique ID of the interface in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used receive rate percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_receive_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum receive rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transmit_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used transmit rate percentage on the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_transmit_rate_percent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average rate.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">received_total_byte</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of bytes received by the virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transmitted_total_byte</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of bytes transmitted from the virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_interface_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual machine interface configuration version at the time of sample. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_vms_interfaces</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Virtual_machine_disk_hourly_and_samples_history_views">2.7.7. Virtual Disk Statistics Views</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. Historical Statistics for the Virtual Disks in the System</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bigint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this row in the table.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_datetime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique ID of the disk in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>0 - Unassigned</p>
+</li>
+<li>
+<p>1 - OK</p>
+</li>
+<li>
+<p>2 - Locked</p>
+</li>
+<li>
+<p>3 - Invalid</p>
+</li>
+<li>
+<p>4 - Illegal</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">seconds_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of seconds that the virtual disk was in the status shown in the status column for the aggregation period. For example, if a virtual disk was locked for 55 seconds and OK for 5 seconds during a minute, two rows will show for this minute. One will have a status of <code>Locked</code> and seconds_in_status of 55, the other will have a status of OK and a seconds_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minutes_in_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(7,2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of minutes that the virtual disk was in the status shown in the status column for the aggregation period. For example, if a virtual disk was locked for 55 minutes and OK for 5 minutes during an hour, two rows will show for this hour. One will have a status of <code>Locked</code> and minutes_in_status of 55, the other will have a status of OK and a minutes_in_status of 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_actual_size_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The actual size allocated to the disk.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read_rate_bytes_per_second</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read rate to disk in bytes per second.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_read_rate_bytes_per_second</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum read rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read_ops_total_count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(20,0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read I/O operations to disk since vm start.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read_latency_seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(18,9)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual disk read latency measured in seconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">write_rate_bytes_per_second</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Write rate to disk in bytes per second.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_read_latency_seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(18,9)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum read latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_write_rate_bytes_per_second</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum write rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">write_ops_total_count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(20,0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Write I/O operations to disk since vm start.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">write_latency_seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(18,9)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual disk write latency measured in seconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_write_latency_seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(18,9)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum write latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flush_latency_seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(18,9)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual disk flush latency measured in seconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max_flush_latency_seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(18,9)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum flush latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual disk configuration version at the time of sample. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_vms_disks</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sect-Configuration_History_Views">2.8. Configuration History Views</h3>
+<div class="paragraph">
+<p>To query a configuration view, run <code>SELECT * FROM <em>view_name</em>;</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># SELECT * FROM v4_4_configuration_history_datacenters;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To list all available views, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># \dv</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>delete_date</code> does not appear in latest views because these views provide the latest configuration of living entities, which, by definition, have not been deleted.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_datacenter_configuration_view1">2.8.1. Data Center Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the data centers in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-70" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. v4_4_configuration_history_datacenters</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>datacenter_configuration_version</code> in the <code>v4_4_configuration_history_clusters</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datacenter_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the data center in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datacenter_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(40)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the data center, as displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datacenter_description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(4000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the data center, as displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is_local_storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A flag to indicate whether the data center uses local storage.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_datacenter_configuration_view2">2.8.2. Data Center Storage Domain Map</h4>
+<div class="paragraph">
+<p>The following table shows the relationships between storage domains and data centers in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_datacenter_storage_domain_map_view" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. v4_4_map_history_datacenters_storage_domains</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>datacenter_configuration_version</code> in the <code>v4_4_configuration_history_clusters</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_domain_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this storage domain in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datacenter_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the data center in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attach_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date the storage domain was attached to the data center.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detach_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date the storage domain was detached from the data center.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_storage_domain_configuration_view">2.8.3. Storage Domain Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the storage domains in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_storage_domain_configuration_view" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. v4_4_configuration_history_storage_domains</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>storage_configuration_version</code> in the storage domain statistics views and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_domain_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this storage domain in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_domain_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(250)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage domain name.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_domain_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* 0 - Data (Master)</p>
+<p class="tableblock">* 1 - Data</p>
+<p class="tableblock">* 2 - ISO</p>
+<p class="tableblock">* 3 - Export</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* 0 - Unknown</p>
+<p class="tableblock">* 1 - NFS</p>
+<p class="tableblock">* 2 - FCP</p>
+<p class="tableblock">* 3 - iSCSI</p>
+<p class="tableblock">* 4 - Local</p>
+<p class="tableblock">* 6 - All</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_cluster_configuration_view">2.8.4. Cluster Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the clusters in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_cluster_configuration_view" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 11. v4_4_configuration_history_clusters</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>cluster_configuration_version</code> in the <code>v4_4_configuration_history_hosts</code> and <code>v4_4_configuration_history_vms</code> views and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cluster_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique identifier of the datacenter this cluster resides in.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cluster_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(40)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the cluster, as displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cluster_description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(4000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As defined in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datacenter_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique identifier of the datacenter this cluster resides in.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpu_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">count_threads_as_cores</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>Count Threads As Cores</code> column shows <code>true</code> if hosts can run virtual machines with a total number of processor cores greater than the number of cores in the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compatibility_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(40)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datacenter_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The data center configuration version at the time of creation or update. The data center configuration version at the time of creation or update. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_datacenters</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_host_configuration_view">2.8.5. Host Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the hosts in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_host_configuration_view" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 12. v4_4_configuration_history_hosts</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>host_configuration_version</code> in the host statistics views and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the host in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_unique_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(128)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This field is a combination of the host&#8217;s physical UUID and one of its MAC addresses, and is used to detect hosts already registered in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the host (same as in the edit dialog).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cluster_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the cluster that this host belongs to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* 0 - RHEL Host</p>
+<p class="tableblock">* 2 - RHEV Hypervisor Node</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fqdn_or_ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s DNS name or its IP address for oVirt Engine to communicate with (as displayed in the edit dialog).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">memory_size_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s physical memory capacity, expressed in megabytes (MB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">swap_size_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host swap partition size.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpu_model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s CPU model.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number_of_cores</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of CPU cores in the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number_of_sockets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of CPU sockets.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpu_speed_mh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numeric(18,0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s CPU speed, expressed in megahertz (MHz).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_os</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s operating system version.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kernel_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s kernel version.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kvm_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s KVM version.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vdsm_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s VDSM version.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vdsm_port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">threads_per_core</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of threads per core.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hardware_manufacturer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host&#8217;s hardware manufacturer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hardware_product_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The product name of the host&#8217;s hardware.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hardware_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version of the host&#8217;s hardware.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hardware_serial_number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The serial number of the host&#8217;s hardware.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cluster_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The cluster configuration version at the time of creation or update. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_clusters</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_host_interface_configuration_view">2.8.6. Host Interface Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the host interfaces in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-host_interface_configuration_view" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 13. v4_4_configuration_history_hosts_interfaces</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>host_interface_configuration_version</code> in the host interface statistics views and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_interface_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this interface in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_interface_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(50)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The interface name as reported by the host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique ID of the host this interface belongs to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_interface_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* 0 - rt18139_pv</p>
+<p class="tableblock">* 1 - rt18139</p>
+<p class="tableblock">* 2 - e1000</p>
+<p class="tableblock">* 3 - pv</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_interface_speed_bps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The interface speed in bits per second.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mac_address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(59)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The interface MAC address.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">logical_network_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(50)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The logical network associated with the interface.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip_address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(20)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(20)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bond</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A flag to indicate if this interface is a bonded interface.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bond_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(50)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the bond this interface is part of (if it is part of a bond).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vlan_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host configuration version at the time of creation or update. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_hosts</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_virtual_machine_configuration_view">2.8.7. Virtual Machine Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the virtual machines in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_configuration_view" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 14. v4_4_configuration_history_vms</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>vm_configuration_version</code> in the virtual machine statistics views and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this virtual machine in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(4000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* 0 - Desktop</p>
+<p class="tableblock">* 1 - Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cluster_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the cluster this virtual machine belongs to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">template_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the template this virtual machine is derived from. Templates are not synchronized to the history database in this version of oVirt.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">template_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(40)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the template from which this virtual machine is derived.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpu_per_socket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual CPUs per socket.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number_of_sockets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of virtual CPU sockets.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">memory_size_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total memory allocated to the virtual machine, expressed in megabytes (MB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">operating_system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* 0 - Other OS</p>
+<p class="tableblock">* 1 - Windows XP</p>
+<p class="tableblock">* 3 - Windows 2003</p>
+<p class="tableblock">* 4 - Windows 2008</p>
+<p class="tableblock">* 5 - Linux</p>
+<p class="tableblock">* 7 - Enterprise Linux 5.x</p>
+<p class="tableblock">* 8 - Enterprise Linux 4.x</p>
+<p class="tableblock">* 9 - Enterprise Linux 3.x</p>
+<p class="tableblock">* 10 - Windows 2003 x64</p>
+<p class="tableblock">* 11 - Windows 7</p>
+<p class="tableblock">* 12 - Windows 7 x64</p>
+<p class="tableblock">* 13 - Enterprise Linux 5.x x64</p>
+<p class="tableblock">* 14 - Enterprise Linux 4.x x64</p>
+<p class="tableblock">* 15 - Enterprise Linux 3.x x64</p>
+<p class="tableblock">* 16 - Windows 2008 x64</p>
+<p class="tableblock">* 17 - Windows 2008 R2 x64</p>
+<p class="tableblock">* 18 - Enterprise Linux 6.x</p>
+<p class="tableblock">* 19 - Enterprise Linux 6.x x64</p>
+<p class="tableblock">* 20 - Windows 8</p>
+<p class="tableblock">* 21 - Windows 8 x64</p>
+<p class="tableblock">* 23 - Windows 2012 x64</p>
+<p class="tableblock">* 1001 - Other</p>
+<p class="tableblock">* 1002 - Linux</p>
+<p class="tableblock">* 1003 - Enterprise Linux 6.x</p>
+<p class="tableblock">* 1004 - SUSE Linux Enterprise Server 11</p>
+<p class="tableblock">* 1193 - SUSE Linux Enterprise Server 11</p>
+<p class="tableblock">* 1252 - Ubuntu Precise Pangolin LTS</p>
+<p class="tableblock">* 1253 - Ubuntu Quantal Quetzal</p>
+<p class="tableblock">* 1254 - Ubuntu Raring Ringtails</p>
+<p class="tableblock">* 1255 - Ubuntu Saucy Salamander</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default_host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog, the ID of the default host in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">high_availability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initialized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A flag to indicate if this virtual machine was started at least once for Sysprep initialization purposes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stateless</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fail_back</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usb_policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">time_zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(40)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_pool_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the pool to which this virtual machine belongs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_pool_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the virtual machine&#8217;s pool.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">created_by_user_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the user that created this virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cluster_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The cluster configuration version at the time of creation or update. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_clusters</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default_host_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host configuration version at the time of creation or update. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_hosts</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_virtual_machine_interface_configuration_view">2.8.8. Virtual Machine Interface Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the virtual interfaces in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-VIEWNAME" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 15. v4_4_configuration_history_vms_interfaces</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>vm_interface_configuration_version</code> in the virtual machine interface statistics view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique ID of the virtual machine in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_interface_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this interface in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_interface_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(50)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_interface_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of the virtual interface.</p>
+<p class="tableblock">* 0 - rt18139_pv</p>
+<p class="tableblock">* 1 - rt18139</p>
+<p class="tableblock">* 2 - e1000</p>
+<p class="tableblock">* 3 - pv</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_interface_speed_bps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The average speed of the interface during the aggregation in bits per second.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mac_address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(20)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">logical_network_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(50)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual machine configuration version at the time of creation or update. This is identical to the value of <code>history_id</code> in the <code>v4_4_configuration_history_vms</code> view and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Virtual_Machine_Device_Configuration">2.8.9. Virtual Machine Device Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the relationships between virtual machines and their associated devices, including disks and virtual interfaces.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_5_vm_config_hist_devices" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 16. v4_4_configuration_history_vms_devices</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the virtual machine in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">device_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the device in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(30)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of virtual machine device. This can be "disk" or "interface".</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The device&#8217;s physical address.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is_managed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag that indicates if the device is managed by the Engine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is_plugged</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag that indicates if the device is plugged into the virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is_readonly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag that indicates if the device is read only.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The virtual machine configuration version at the time the sample was taken.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">device_configuration_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The device configuration version at the time the sample was taken.<br>
+- If the value of the <code>type</code> field is set to <code>interface</code>, this field is joined with the <code>history_id</code> field in the <code>v4_4_configuration_history_vms_interfaces</code> view.<br>
+- If the value of the <code>type</code> field is set to disk, this field is joined with the <code>history_id</code> field in the <code>v4_4_configuration_history_vms_disks</code> view.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="Latest_virtual_machine_disk_configuration_view">2.8.10. Virtual Disk Configuration</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the virtual disks in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_disk_configuration_view" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 17. v4_4_configuration_history_vms_disks</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Indexed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the configuration version in the history database. This is identical to the value of <code>vm_disk_configuration_version</code> in the virtual disks statistics views and it can be used to join them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of this disk in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the virtual disk, as displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(500)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">image_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the image in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage_domain_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the storage domain this disk image belongs to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_size_mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The defined size of the disk in megabytes (MB).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog. Only System and Data are currently used.</p>
+<p class="tableblock">* 0 - Unassigned</p>
+<p class="tableblock">* 1 - System</p>
+<p class="tableblock">* 2 - Data</p>
+<p class="tableblock">* 3 - Shared</p>
+<p class="tableblock">* 4 - Swap</p>
+<p class="tableblock">* 5 - Temp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vm_disk_format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smallint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As displayed in the edit dialog.</p>
+<p class="tableblock">* 3 - Unassigned</p>
+<p class="tableblock">* 4 - COW</p>
+<p class="tableblock">* 5 - Raw</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag that indicates if the virtual machine&#8217;s disk is shared.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="User_Details_History">2.8.11. User Details History</h4>
+<div class="paragraph">
+<p>The following table shows the configuration history parameters of the users in the system.</p>
+</div>
+<table id="References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-81" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 18. v4_4_users_details_history</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique ID of the user in the system, as generated by  the Engine.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s first name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">last_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s last name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">domain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the authorization extension.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The account name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">department</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The organizational department the user belongs to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user_role_title</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The title or role of the user within the organization.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character varying(255)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The email of the user in the organization.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">external_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique identifier of the user from the external system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">active</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A flag to indicate if the user is active or not. This is checked hourly. If the user can be found in the authorization extension then it will remain active. A user becomes active on successful login.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was added to the system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was changed in the system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp with time zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this entity was deleted from the system.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ovirt-legal-notice">Appendix A: Legal notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index">Red Hat Virtualization 4.4 Data Warehouse Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3076/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3076/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3076/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3076/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/data_warehouse_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/documentation/data_warehouse_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

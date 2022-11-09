@@ -178,14 +178,13 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass
 # mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d
 ----
 
-. Enable `ovirt-engine-backup` to update the system on restore by creating the `/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh` file with the following content:
+. Create the `/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh` file with the following content. This enables `ovirt-engine-backup` to automatically update the system on restore.
 +
 [source,terminal,subs="normal"]
 ----
-BACKUP_PATHS="${BACKUP_PATHS}
-/etc/ovirt-engine-backup"
+BACKUP_PATHS="${BACKUP_PATHS} /etc/ovirt-engine-backup"
 cp -f /etc/pki/ovirt-engine/apache-ca.pem \
-/etc/pki/ca-trust/source/anchors/_3rd-party-ca-cert_.pem
+  /etc/pki/ca-trust/source/anchors/_3rd-party-ca-cert_.pem
 update-ca-trust
 ----
 
@@ -218,3 +217,4 @@ update-ca-trust
 ----
 
 Your users can now connect to the Administration Portal and VM Portal without seeing a certificate warning.
+//sync trigger

@@ -32,6 +32,7 @@ If it still includes `default_md = sha1`, back up the existing configuration and
 
 . Define the certificate that should be re-signed:
 +
+[source,terminal,subs="normal"]
 ----
 # names="apache"
 ----
@@ -39,38 +40,40 @@ If it still includes `default_md = sha1`, back up the existing configuration and
 ifdef::SHE_upgrade[]
 . Log in to one of the self-hosted engine nodes and enable global maintenance:
 +
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
 endif::SHE_upgrade[]
 . On the {engine-name}, save a backup of the `/etc/ovirt-engine/engine.conf.d` and `/etc/pki/ovirt-engine` directories, and re-sign the certificates:
 +
+[source,terminal,subs="normal"]
 ----
 # . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
 # for name in $names; do
     subject="$(
-       openssl x509 \
-           -in /etc/pki/ovirt-engine/certs/apache.cer \
-           -text | \
-               sed \
-                   -n \
-                       's; *DirName:\(.*\)/CN=.*;\1;p'
-   )"
+        openssl \
+            x509 \
+            -in /etc/pki/ovirt-engine/certs/"${name}".cer \
+            -noout \
+            -subject \
+            -nameopt compat \
+        | sed \
+            's;subject=\(.*\);\1;' \
+    )"
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
         --name="${name}" \
-        --password=mypass \
+        --password=mypass \ <1>
         --subject="${subject}" \
         --san=DNS:"${ENGINE_FQDN}" \
         --keep-key
 done
 ----
-+
-[NOTE]
-====
-The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
-====
+<1> Do not change this the password value.
+
 . Restart the *httpd* service:
 +
+[source,terminal,subs="normal"]
 ----
 # systemctl restart httpd
 ----
@@ -78,6 +81,7 @@ The specified `--password=mypass` parameter in this command is literally the pas
 ifdef::SHE_upgrade[]
 . Log in to one of the self-hosted engine nodes and disable global maintenance:
 +
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=none
 ----
@@ -142,6 +146,7 @@ For more details see link:{URL_virt_product_docs}{URL_format}administration_guid
 ifdef::SHE_upgrade[]
 .	Log in to one of the self-hosted engine nodes and enable global maintenance:
 +
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=global
 ----
@@ -159,24 +164,23 @@ endif::SHE_upgrade[]
             -in /etc/pki/ovirt-engine/certs/"${name}".cer \
             -noout \
             -subject \
+            -nameopt compat \
         | sed \
-            's;subject= \(.*\);\1;' \
+            's;subject=\(.*\);\1;' \
     )"
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
         --name="${name}" \
-        --password=mypass \
+        --password=mypass \ <1>
         --subject="${subject}" \
         --san=DNS:"${ENGINE_FQDN}" \
         --keep-key
 done
 ----
-+
-[NOTE]
-====
-The specified `--password=mypass` parameter in this command is literally the password that needs to be used. Do not change it.
-====
+<1> Do not change this the password value.
+
 . Restart the following services:
 +
+[source,terminal,subs="normal"]
 ----
 # systemctl restart httpd
 # systemctl restart ovirt-engine
@@ -187,6 +191,7 @@ The specified `--password=mypass` parameter in this command is literally the pas
 ifdef::SHE_upgrade[]
 . Log in to one of the self-hosted engine nodes and disable global maintenance:
 +
+[source,terminal,subs="normal"]
 ----
 # hosted-engine --set-maintenance --mode=none
 ----

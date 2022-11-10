@@ -7,6 +7,9 @@ These release notes highlight technology preview items, recommended practices, k
 Notes for updates released during the support lifecycle of this {virt-product-fullname} release will appear in the advisory text associated with each update or in the _{virt-product-fullname} Technical Notes_. This document is available on the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization[Red Hat documentation page].
 
 // RN should be in descending order of release.
+
+include::topics/ref-ovirt-4.5.3.adoc[leveloffset=+1]
+
 include::topics/ref-ovirt-4.5.2.adoc[leveloffset=+1]
 
 include::topics/ref-ovirt-4.5.1.adoc[leveloffset=+1]
@@ -33,4 +36,5 @@ include::topics/ref-ovirt-4.4.2.adoc[leveloffset=+1]
 
 include::topics/ref-ovirt-4.4.1.adoc[leveloffset=+1]
 
+include::topics/ref-ovirt-4.5.3.adoc[leveloffset=+1]
 

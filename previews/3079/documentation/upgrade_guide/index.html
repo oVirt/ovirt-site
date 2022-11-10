@@ -2797,7 +2797,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Define the certificate that should be re-signed:</p>
 <div class="listingblock">
 <div class="content">
-<pre># names="apache"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;apache&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -2819,24 +2819,18 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
     )&quot;
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
         --name=&quot;${name}&quot; \
-        --password=mypass \
+        --password=mypass \ &lt;1&gt;
         --subject=&quot;${subject}&quot; \
         --san=DNS:&quot;${ENGINE_FQDN}&quot; \
         --keep-key
 done</code></pre>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
-</div>
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Do not change this the password value.</td>
 </tr>
 </table>
 </div>
@@ -2945,7 +2939,7 @@ done</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Do not change <code>mypass</code>.</td>
+<td>Do not change this the password value.</td>
 </tr>
 </table>
 </div>
@@ -5081,7 +5075,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Define the certificate that should be re-signed:</p>
 <div class="listingblock">
 <div class="content">
-<pre># names="apache"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;apache&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -5103,24 +5097,18 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
     )&quot;
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
         --name=&quot;${name}&quot; \
-        --password=mypass \
+        --password=mypass \ &lt;1&gt;
         --subject=&quot;${subject}&quot; \
         --san=DNS:&quot;${ENGINE_FQDN}&quot; \
         --keep-key
 done</code></pre>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
-</div>
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Do not change this the password value.</td>
 </tr>
 </table>
 </div>
@@ -5229,7 +5217,7 @@ done</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Do not change <code>mypass</code>.</td>
+<td>Do not change this the password value.</td>
 </tr>
 </table>
 </div>
@@ -7331,7 +7319,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Define the certificate that should be re-signed:</p>
 <div class="listingblock">
 <div class="content">
-<pre># names="apache"</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># names=&quot;apache&quot;</code></pre>
 </div>
 </div>
 </li>
@@ -7361,24 +7349,18 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
     )&quot;
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
         --name=&quot;${name}&quot; \
-        --password=mypass \
+        --password=mypass \ &lt;1&gt;
         --subject=&quot;${subject}&quot; \
         --san=DNS:&quot;${ENGINE_FQDN}&quot; \
         --keep-key
 done</code></pre>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The specified <code>--password=mypass</code> parameter in this command is literally the password that needs to be used. Do not change it.</p>
-</div>
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Do not change this the password value.</td>
 </tr>
 </table>
 </div>
@@ -7470,7 +7452,7 @@ done</code></pre>
 <p>Log in to one of the self-hosted engine nodes and enable global maintenance:</p>
 <div class="listingblock">
 <div class="content">
-<pre># hosted-engine --set-maintenance --mode=global</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --set-maintenance --mode=global</code></pre>
 </div>
 </div>
 </li>
@@ -7503,7 +7485,7 @@ done</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Do not change <code>mypass</code>.</td>
+<td>Do not change this the password value.</td>
 </tr>
 </table>
 </div>

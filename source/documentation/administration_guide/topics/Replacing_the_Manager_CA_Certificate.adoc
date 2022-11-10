@@ -217,4 +217,4 @@ update-ca-trust
 ----
 
 Your users can now connect to the Administration Portal and VM Portal without seeing a certificate warning.
-//sync trigger
+//sync 2

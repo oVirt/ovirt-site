@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Direct Lun | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Direct Lun" />
+<meta name="author" content="Daniel Erez" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3080/develop/release-management/features/storage/direct-lun.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3080/develop/release-management/features/storage/direct-lun.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Direct Lun" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Daniel Erez" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Daniel Erez"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Direct Lun","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3080/images/logo.svg"},"name":"Daniel Erez"},"url":"https://ovirt.github.io/ovirt-site/previews/3080/develop/release-management/features/storage/direct-lun.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3080/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3080/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3080/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3080/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3080/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3080/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3080/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3080/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3080/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3080/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3080/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3080/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3080/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3080/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3080/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3080/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3080/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3080/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3080/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3080/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3080/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3080/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3080//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3080//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3080/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3080/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3080/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3080/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3080/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Daniel Erez">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Daniel Erez</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6efa856c2dc3457982e05b60b1ebdb96?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6efa856c2dc3457982e05b60b1ebdb96?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Eduardo Warszawski">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eduardo Warszawski</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Ewoud Kohl van Wijngaarden">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ewoud Kohl van Wijngaarden</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/efe5247fc80210a9f71740ed570764bf?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/efe5247fc80210a9f71740ed570764bf?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Igor Lvovsky">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Igor Lvovsky</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92d19be4e66f497e670d018d02158d5a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Livnat Peer">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Livnat Peer</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9942503c8cf556c85339e8454f375905?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9942503c8cf556c85339e8454f375905?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Michael Kublin">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Kublin</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3080/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="direct-lun">Direct LUN</h1>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Any block device can be used as local disk in the VM specifying it’s GUID.</p>
+
+<h1 id="ovirt-flows">OVIRT flows</h1>
+
+<p>These flows should be supported from the GUI.</p>
+
+<ul>
+  <li>Add disk
+    <ol>
+      <li>Discovery targets</li>
+      <li>Connect to the target</li>
+      <li>Get device list</li>
+    </ol>
+    <ul>
+      <li>Return GUID and connection parameters
+    4.  Choose a block device:</li>
+      <li>default: Unattached devices</li>
+      <li>option: From a VM (+ plug)</li>
+    </ul>
+  </li>
+  <li>Attach to VM (+ plug)
+    <ol>
+      <li>Select VM</li>
+      <li>Select or import disk</li>
+      <li>Plug it</li>
+    </ol>
+    <ul>
+      <li>If the VM is not running, the disk target connection should be added to the required connections for the VM.</li>
+      <li>If the VM is running:
+        <ol>
+          <li>Engine should assert that the backing storage target is reachable or connect it to the host running the VM.</li>
+          <li>Do hot plug.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Run VM
+    <ol>
+      <li>Async manage disk target connection on <a href="#notes">all</a> hosts for all the required disks/domains.</li>
+      <li>Wait on connection on the preferred host.</li>
+    </ol>
+    <ul>
+      <li>If succeded, RunVM</li>
+      <li>If not immediately try next hosts until success.</li>
+    </ul>
+  </li>
+  <li>Hot plug
+    <ol>
+      <li>Engine should assert that the backing storage target is reachable or connect it to the host running the VM.</li>
+      <li>Do hot plug.</li>
+    </ol>
+  </li>
+  <li>Hot unplug
+    <ol>
+      <li>Do unplug.</li>
+      <li>Unmanage the target disk connection.</li>
+    </ol>
+  </li>
+  <li>Migration
+    <ol>
+      <li>Engine should assert that the backing storage target is reachable or connect it to the VM <a href="#notes"><strong>destination host</strong></a>.</li>
+      <li>Do migration.</li>
+    </ol>
+  </li>
+  <li>Stop VM
+    <ol>
+      <li>Stop the VM.</li>
+      <li>Unmanage the target disk connection.</li>
+    </ol>
+  </li>
+  <li>HA
+    <ol>
+      <li>Engine should assert that the backing storage target is reachable or connect it to the VM <a href="#notes"><strong>destination host</strong></a>.</li>
+      <li>Restart the VM</li>
+    </ol>
+  </li>
+</ul>
+
+<p>The following UI mockups contain guidelines for the different screens and wizards:</p>
+
+<p><strong>Add description to the object in the UI.</strong></p>
+
+<p><strong>Change the import term in the UI (mockup).</strong></p>
+
+<p><strong>User auth click should be removed.</strong></p>
+
+<p><img src="/ovirt-site/previews/3080/images/wiki/Import_direct_lun.png" alt="" /></p>
+
+<p><strong>Attach and detach should be part of the VM interface.</strong></p>
+
+<p><strong>Internal and External shuld change to different names.</strong></p>
+
+<p><strong>Shared should be changed to Sharable.</strong></p>
+
+<p>** No filter on the LUNs, used disks may be grayed out.**</p>
+
+<p><img src="/ovirt-site/previews/3080/images/wiki/Attach_direct_lun.png" alt="" /></p>
+
+<h1 id="rest-api">Rest API</h1>
+
+<p>Will be added an option to pass a direct lun object via API, all other APIs will be the same</p>
+
+<h1 id="engine---vdsm-api">Engine - VDSM API</h1>
+
+<p>A new API is added for this feature.</p>
+
+<p>The API specifies a block device by GUID or UUID, instead of the PDIV quartet of a regular VDSM volume.</p>
+
+<p>Other disk device parameters are the same as in VDSM volumes.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">'devices'</span><span class="p">:</span> <span class="p">[</span>
+           <span class="p">{</span><span class="s">'type'</span><span class="p">:</span> <span class="s">'disk'</span><span class="p">,</span>
+            <span class="s">'device'</span><span class="p">:</span> <span class="s">'disk'</span><span class="p">,</span>
+            <span class="s">'iface'</span><span class="p">:</span> <span class="s">'virtio|ide'</span><span class="p">,</span>
+            <span class="s">'index'</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span><span class="p">,</span>                            <span class="o">&lt;---</span> <span class="n">disk</span> <span class="n">index</span> <span class="n">unique</span> <span class="n">per</span> <span class="s">'iface'</span> <span class="n">virtio</span><span class="o">|</span><span class="n">ide</span>
+            <span class="s">'GUID'</span><span class="p">:</span> <span class="s">'shared disk GUID'</span><span class="p">,</span>                <span class="o">&lt;---</span> <span class="n">Should</span> <span class="n">be</span> <span class="n">passed</span> <span class="n">instead</span> <span class="n">the</span> <span class="n">PDIV</span>
+            <span class="s">'address'</span><span class="p">:</span> <span class="s">'PCI|IDE address dictionary'</span><span class="p">,</span>   <span class="o">&lt;---</span> <span class="n">PCI</span> <span class="o">=</span> <span class="p">{</span><span class="s">'type'</span><span class="p">:</span><span class="s">'pci'</span><span class="p">,</span> <span class="s">'domain'</span><span class="p">:</span><span class="s">'0x0000'</span><span class="p">,</span> <span class="s">'bus'</span><span class="p">:</span><span class="s">'0x00'</span><span class="p">,</span> <span class="s">'slot'</span><span class="p">:</span><span class="s">'0x0c'</span><span class="p">,</span> <span class="s">'function'</span><span class="p">:</span><span class="s">'0x0'</span><span class="p">}</span> <span class="p">,</span>
+                                                            <span class="n">IDE</span> <span class="o">=</span> <span class="p">{</span><span class="s">'type'</span><span class="p">:</span><span class="s">'drive'</span><span class="p">,</span> <span class="s">'controller'</span><span class="p">:</span><span class="s">'0'</span><span class="p">,</span> <span class="s">'bus'</span><span class="p">:</span><span class="s">'0'</span><span class="p">,</span> <span class="s">'unit'</span><span class="p">:</span><span class="s">'0'</span><span class="p">}</span>
+                                                            <span class="n">Only</span> <span class="k">if</span> <span class="n">known</span><span class="p">.</span>
+            <span class="s">'format'</span><span class="p">:</span> <span class="s">'raw'</span><span class="p">,</span>                           <span class="o">&lt;---</span> <span class="n">Only</span> <span class="n">raw</span> <span class="n">disks</span> <span class="n">are</span> <span class="n">supported</span><span class="p">.</span>
+            <span class="s">'bootOrder'</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span><span class="p">,</span>                        <span class="o">&lt;---</span> <span class="k">global</span> <span class="n">boot</span> <span class="n">order</span> <span class="n">across</span> <span class="nb">all</span> <span class="n">bootable</span> <span class="n">devices</span>
+            <span class="s">'propagateErrors'</span><span class="p">:</span> <span class="s">'off'</span><span class="p">,</span>
+            <span class="s">'shared'</span><span class="p">:</span> <span class="s">'True|False'</span><span class="p">,</span>                    <span class="o">&lt;---</span> <span class="n">whether</span> <span class="n">disk</span> <span class="ow">is</span> <span class="n">shared</span>
+            <span class="s">'optional'</span><span class="p">:</span> <span class="s">'True|False'</span><span class="p">,</span>                  <span class="o">&lt;---</span> <span class="n">whether</span> <span class="n">disk</span> <span class="ow">is</span> <span class="n">optional</span> <span class="p">(</span><span class="n">VM</span> <span class="n">can</span> <span class="n">be</span> <span class="n">run</span> <span class="n">without</span> <span class="n">optional</span> <span class="n">disk</span> <span class="k">if</span> <span class="n">inaccessible</span><span class="p">)</span>
+                                                            <span class="n">THIS</span> <span class="n">FEATURE</span> <span class="n">IS</span> <span class="n">UNSUPPORTED</span> <span class="n">YET</span><span class="err">!</span>
+            <span class="s">'readonly'</span><span class="p">:</span> <span class="s">'True|False'</span><span class="p">}</span>
+</code></pre></div></div>
+<p>The <em>GUID</em> is returned in the getDeviceList response.</p>
+
+<p>Will be a query relating the “name” of the disk and all of the connection details providing the WWID.</p>
+
+<p>VM disks specified this way should support all the modes and features, i.e Sharable, Hot-Plug, etc.</p>
+
+<p>See <a href="/ovirt-site/previews/3080/develop/release-management/features/virt/stabledeviceaddresses.html">Stable Device Addresses</a> for the complete device interface.</p>
+
+<h1 id="engine-considerations">Engine considerations</h1>
+
+<h2 id="the-vdisk-entity">The vDisk entity</h2>
+
+<ul>
+  <li>Engine should have an abstraction that contains:
+    <ul>
+      <li>Backing storage (returned by getDeviceList or equivalent).</li>
+      <li>Connection to the backing storage.</li>
+      <li>The image stack (history).</li>
+      <li>Other Engine required info.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>This object will be called a <strong>vDisk</strong>.</p>
+
+<p>A vDisk represents the time evolution of a VM or floating disk and extra Engine data.</p>
+
+<p>It’s started from a <em>single</em> block device returned by getDeviceList (or equivalent function).</p>
+
+<p>Creating a new entity from the same block device should result in the <a href="#notes">same</a> vDisk entity.</p>
+
+<p>Successive snapshots creates new (time stamp, image UID) entries.</p>
+
+<p>The image UID can be transferred to runVM, hot-plug, migrate, etc.</p>
+
+<p>Before starting of any operations Engine should assert that the <a href="#notes"><strong>destination host</strong></a> is connected to the target.</p>
+
+<p>The LunID is the GUID (WWID) and should be used for identify the disk.</p>
+
+<p>May be the name (= alias) be the filled automatically as the WWID. The description will be used if not.</p>
+
+<p>In case RHEV-M not provides the GUID should used for the description when creating the external disk</p>
+
+<p>LUNs from a SD can be used as direct LUN.</p>
+
+<p>Multiple uses of a LUN for different SD is prevented.</p>
+
+<h2 id="the-engine-design">The Engine design</h2>
+
+<ul>
+  <li>Adding of new lun to vm:
+    <ul>
+      <li>Choose some host</li>
+      <li>Connect a lun in asynchronous way to every host in pool</li>
+      <li>Wait for success connection with first host, at case it failed check a result for a next host in list</li>
+      <li>When connection with host successes, engine will consider that all other hosts successes to connect with lun, engine will not wait for results for all</li>
+    </ul>
+  </li>
+  <li>Changes at scenarious
+    <ul>
+      <li>During RunVm and MigrationVm engine will check if appropriate host is connected to lun of vm, if yes the vm will be run or migrate,
+if host is not connected a choosen host will not be calculated as missed try</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="notes">Notes</h1>
+
+<ol>
+  <li>If two vDisks can be based on the same backing storage is still on discussion.</li>
+  <li>A short set in the future.</li>
+  <li>Destination host: the host running or that will run the VM.</li>
+</ol>
+
+<p><a href="/ovirt-site/previews/3080/develop/release-management/features/">Direct_Lun</a> <a href="/ovirt-site/previews/3080/develop/release-management/releases/3.1/featurelist.html">Direct_Lun</a></p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3080/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3080/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3080/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3080/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/direct-lun.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/storage/direct-lun.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

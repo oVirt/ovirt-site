@@ -31234,12 +31234,13 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 </div>
 </li>
 <li>
-<p>Create the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content. This enables <code>ovirt-engine-backup</code> to automatically update the system on restore.</p>
+<p>Enable <code>ovirt-engine-backup</code> to update the system on restore by creating the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS} /etc/ovirt-engine-backup&quot;
+<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
+/etc/ovirt-engine-backup&quot;
 cp -f /etc/pki/ovirt-engine/apache-ca.pem \
-  /etc/pki/ca-trust/source/anchors/<em>3rd-party-ca-cert</em>.pem
+/etc/pki/ca-trust/source/anchors/<em>3rd-party-ca-cert</em>.pem
 update-ca-trust</code></pre>
 </div>
 </div>

@@ -1,4 +1,5 @@
-=== Red Hat Virtualization 4.4 SP 1 Batch Update 3 (ovirt-4.5.3)
+=== Red Hat Virtualization 4.4 Batch Update 3 (ovirt-4.5.3)
+
 
 
 ==== Bug Fix
@@ -59,3 +60,11 @@ Incremental backup or Changed Block Tracking (CBT) is now generally available.
 
 BZ#link:https://bugzilla.redhat.com/2132386[2132386]::
 RHV 4.4 SP1 is only supported on RHEL 8.6 EUS. When performing RHV Manager or hypervisor installation, the RHEL version must be updated to RHEL 8.6 and the subscription channels must be updated to RHEL 8.6 EUS (when they are available).
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+BZ#link:https://bugzilla.redhat.com/1952078[1952078]::
+When migrating virtual machines from hosts that have not been upgraded to hosts that have been upgraded, and migration encryption is enabled, the migration might fail due to a missing migration client certificate.
+Workaround: Place the migration origin host (that has not been upgraded) in Maintenance mode before proceeding with migration.

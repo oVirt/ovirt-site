@@ -1,7 +1,5 @@
 === Red Hat Virtualization 4.4 SP 1 Batch Update 3 (ovirt-4.5.3)
 
-
-
 ==== Bug Fix
 
 These bugs were fixed in this release of Red Hat Virtualization:

@@ -68,3 +68,5 @@ These known issues exist in Red Hat Virtualization at this time:
 BZ#link:https://bugzilla.redhat.com/1952078[1952078]::
 When migrating virtual machines from hosts that have not been upgraded to hosts that have been upgraded, and migration encryption is enabled, the migration might fail due to a missing migration client certificate.
 Workaround: Place the migration origin host (that has not been upgraded) in Maintenance mode before proceeding with migration.
+
+// sync again

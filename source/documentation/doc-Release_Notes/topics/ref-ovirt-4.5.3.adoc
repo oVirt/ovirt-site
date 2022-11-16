@@ -1,0 +1,70 @@
+=== Red Hat Virtualization 4.4 SP 1 Batch Update 3 (ovirt-4.5.3)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1705338[1705338]::
+Previously, stale data sometimes appeared in the DB "unregistered_ovf_of_entities" DB table. As a result, when importing a floating Storage Domain with a VM and disks from a source RHV to destination RHV. After importing the floating Storage Domain back into the source RHV, the VM is listed under the "VM Import" tab, but can't be imported because all its disks are now located on another Storage Domain (the destination RHV). In addition, after the first OVF update, the OVF of the VM reappears on the floating Storage Domain as a "ghost" OVF.
+
+In this release, after the floating Storage Domain is re-attached in the source RHV, the VM does not appear under the "VM Import" tab and no "ghost" OVF is re-created after the OVF update, and the DB table is filled correctly during Storage Domain attachment.
+This ensures that the "unregistered_ovf_of_entities" DB table contains the most up-to-date data, and no irrelevant entries are present.
+
+BZ#link:https://bugzilla.redhat.com/1968433[1968433]::
+Previously, attempts to start highly available virtual machines during failover or failback flows sometimes failed with an error "Cannot run VM. VM X is being imported", resulting in the virtual machines staying down.
+In this release, virtual machines are no longer started by the disaster-recovery scripts while being imported.
+
+BZ#link:https://bugzilla.redhat.com/1974535[1974535]::
+Previously, highly available VMs with a VM lease running on a primary site may not have started on a secondary site during active-passive failover because none of the hosts were set as ready to support VM leases.
+In this release, when a highly available VM with a VM lease fails to start because hosts were filtered out due to not being ready to support VM leases, it keeps trying to start periodically. If it takes time for the engine to discover that the storage domain that contains the VM lease is ready, the attempts to start the VM will continue until the status of the storage domain changes.
+
+BZ#link:https://bugzilla.redhat.com/1983567[1983567]::
+There may be stale data in some DB tables, resulting in missing disks after importing a VM (after Storage Domain was imported from a source RHV to destination RHV, and the VM was imported too).
+Bug fixes BZ#1910858 and BZ#1705338 solved similar issues, and since this bug is hard to reproduce, it may have been fixed by these 2 fixes.
+In this release, everything works, the VM is imported with all the attached disks.
+
+BZ#link:https://bugzilla.redhat.com/2094576[2094576]::
+Previously, small qcow2 volumes in block storage were allocated 2.5 GiB (chunk size), without considering the requested capacity. As a result, there was wasted space with volumes allocated beyond their capacity.
+In this release, volumes with capacity smaller than one chunk use their capacity for the initial size (rounded to the next extent). For example, for capacities smaller than one extent (128 Mib), this results in 128 MiB allocated as their initial size.
+
+BZ#link:https://bugzilla.redhat.com/2123141[2123141]::
+In this release, image transfers cannot move from the  final state (finished successfully or finished with failure) back to the non-final state which could lead to hanging image transfers that block moving hosts to maintenance.
+
+BZ#link:https://bugzilla.redhat.com/2125290[2125290]::
+Previously, an LVM device file was not created if no LVM devices were found during VDSM configuration. As a result, all LVM commands worked on VGs belonging to RHV storage domains.
+In this release, the vdsm-tool creates a devices file even when no LVM devices are found, and Storage Domain VGs are not seen by LVM commands.
+
+BZ#link:https://bugzilla.redhat.com/2125658[2125658]::
+Previously, static IPv6 interface configuration in the ifcfg file during Self-Hosted Engine setup did not include the IPV6_AUTOCONF=no setting. As a result, in NetworkManager the configuration of the property ipv6.method remained 'auto' instead of 'manual' on the interface and the interface connection was intermittent causing a loss of connectivity with the Manager.
+In this release, during Self-Hosted Engine deployment, the interfaces are also configured with IPV6_AUTOCONF=no, and the connection is truly static and unaffected by dynamic changes in the network.
+
+BZ#link:https://bugzilla.redhat.com/2137532[2137532]::
+Previously, the Memory Overcommitment Manager (MoM) sometimes experienced an error on startup, resulting in the MoM not working and reporting error messages with tracebacks in the logs.
+In this release, the MoM works properly.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1886211[1886211]::
+In this release, during a restore operation, the snapshot is locked. In addition, a notification is now displayed following a successful snapshot restore.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/2130700[2130700]::
+Incremental backup or Changed Block Tracking (CBT) is now generally available.
+
+BZ#link:https://bugzilla.redhat.com/2132386[2132386]::
+RHV 4.4 SP1 is only supported on RHEL 8.6 EUS. When performing RHV Manager or hypervisor installation, the RHEL version must be updated to RHEL 8.6 and the subscription channels must be updated to RHEL 8.6 EUS (when they are available).
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+BZ#link:https://bugzilla.redhat.com/1952078[1952078]::
+When migrating virtual machines from hosts that have not been upgraded to hosts that have been upgraded, and migration encryption is enabled, the migration might fail due to a missing migration client certificate.
+Workaround: Place the migration origin host (that has not been upgraded) in Maintenance mode before proceeding with migration.

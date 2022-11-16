@@ -1,4 +1,4 @@
-=== Red Hat Virtualization 4.4 Batch Update 3 (ovirt-4.5.3)
+=== Red Hat Virtualization 4.4 SP 1 Batch Update 3 (ovirt-4.5.3)
 
 
 

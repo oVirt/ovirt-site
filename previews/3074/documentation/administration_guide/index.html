@@ -6840,7 +6840,7 @@ The next time you start the virtual machine, it will run with the new BIOS type 
 </table>
 </div>
 <div class="paragraph">
-<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>). You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.</p>
+<p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, or from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>). You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.</p>
 </div>
 <div class="paragraph">
 <p>In a self-hosted engine environment, the Engine virtual machine does not need to be restarted.</p>
@@ -31234,13 +31234,12 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 </div>
 </li>
 <li>
-<p>Enable <code>ovirt-engine-backup</code> to update the system on restore by creating the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content:</p>
+<p>Create the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content. This enables <code>ovirt-engine-backup</code> to automatically update the system on restore.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
-/etc/ovirt-engine-backup&quot;
+<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS} /etc/ovirt-engine-backup&quot;
 cp -f /etc/pki/ovirt-engine/apache-ca.pem \
-/etc/pki/ca-trust/source/anchors/<em>3rd-party-ca-cert</em>.pem
+  /etc/pki/ca-trust/source/anchors/<em>3rd-party-ca-cert</em>.pem
 update-ca-trust</code></pre>
 </div>
 </div>

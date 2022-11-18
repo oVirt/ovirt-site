@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DetailedExternalTasks | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="DetailedExternalTasks" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3088/develop/release-management/features/infra/detailedexternaltasks.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3088/develop/release-management/features/infra/detailedexternaltasks.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DetailedExternalTasks" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"DetailedExternalTasks","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3088/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3088/develop/release-management/features/infra/detailedexternaltasks.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3088/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3088/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3088/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3088/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3088/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3088/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3088/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3088/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3088/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3088/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3088/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3088/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3088/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3088/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3088/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3088/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3088/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3088/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3088/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3088/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3088/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3088/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3088//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3088//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3088/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3088/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3088/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3088/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3088/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Eli Mesika">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3088/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="detailed-external-tasks">Detailed External Tasks</h1>
+
+<h2 id="adding-external-jobssteps-support">Adding External Jobs/Steps Support</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>Enable plug-in to inject tasks (Jobs) to the engine application using the REST API, change their statuses and track them from the UI. A task (Job) may have other nesting sub-tasks (Steps) under it.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>
+    <p>Feature owner: Eli Mesika (emesika)</p>
+
+    <ul>
+      <li>
+        <p>GUI Component owner: Eli Mesika (emesika)</p>
+      </li>
+      <li>
+        <p>REST Component owner: Eli Mesika (emesika)</p>
+      </li>
+      <li>
+        <p>Engine Component owner: Eli Mesika (emesika)</p>
+      </li>
+      <li>
+        <p>QA Owner: Yaniv Kaul (ykaul)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Email: <a href="mailto:emesika@redhat.com">emesika@redhat.com</a></p>
+  </li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>Target Release: 3.3</li>
+  <li>Status: Design</li>
+  <li>Last updated date: APR 15 2013</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>Enable plug-in to inject tasks (Jobs) to the engine application using the REST API, change their statuses and track them from the UI.
+A task (Job) may have other nesting sub-tasks (Steps) under it. A Job is actually a container of nexted steps.
+Each Step may have sub-steps under it. A steps represents one of the following:</p>
+<ul>
+  <li>An external command that is invoked and monitored by the plug-in</li>
+  <li>A supported internal command that is invoked by the plug-in and monitored internally by the oVirt engine.</li>
+</ul>
+
+<p>Each Job may have unlimited list of external/internal steps.</p>
+
+<p>The following should be supported:</p>
+<ul>
+  <li>Adding a job</li>
+  <li>Adding a  step to a job or to a step (as sub-step)</li>
+  <li>Ending a step</li>
+  <li>Eding a job</li>
+  <li>Displaying all Jobs</li>
+  <li>Displaying a specific Job</li>
+  <li>Displaying all Steps under a specific Job</li>
+  <li>Dislaying a specific Step under a Job</li>
+</ul>
+
+<p>Job can be in one of the following statuses:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">STARTED</code> - Job was started</li>
+  <li><code class="language-plaintext highlighter-rouge">FINISHED</code> - Job has been finished successfully</li>
+  <li><code class="language-plaintext highlighter-rouge">FAILED</code> - Job had failed</li>
+  <li><code class="language-plaintext highlighter-rouge">ABORTED</code> - Job was aborted</li>
+  <li><code class="language-plaintext highlighter-rouge">UNKNOWN</code> - Job is in unnknown state</li>
+</ul>
+
+<p>Step can be in one of theabove statuses as in Job. In addition Step supports the following Step Types :</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">VALIDATING</code>  - Step is validating the requested operation</li>
+  <li><code class="language-plaintext highlighter-rouge">EXECUTING</code>   - Step is executing the requested operation</li>
+  <li><code class="language-plaintext highlighter-rouge">FINALIZING</code>  - Steps is finalysing the requested operation</li>
+</ul>
+
+<h3 id="crud">CRUD</h3>
+
+<p>Adding a flag named <strong>is_external</strong> to both <strong>Job</strong> and <strong>Step</strong> tables
+This flag indicates that the Job/Step was invoked as part of a plug-in operation and may be used in future to filter such jobs/steps</p>
+
+<h4 id="dao">DAO</h4>
+
+<p>Adding <strong>isExternal</strong> flag to both <strong>JobDAODBFacadeImpl</strong> and <strong>StepDAODBFacadeImpl</strong> and wrap it with getter/setter</p>
+
+<h4 id="metadata">Metadata</h4>
+
+<p>Adding <strong>is_external</strong> to <strong>Job</strong> and <strong>Step</strong> metadata in <strong>fixtures.xml</strong></p>
+
+<h3 id="business-logic">Business Logic</h3>
+
+<p>Adding the following to <strong>VdcActionParametersBase</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">jobId</code>   - The Job UUID</li>
+  <li><code class="language-plaintext highlighter-rouge">stepId</code>  - The parent step UUID</li>
+</ul>
+
+<p>This will be used by plug-ins in order to invoke internal oVirt commands and still let them appaer under the given Job/Step in the <strong>task Monitor</strong>
+In case that such a command is invoked not in the context of an external Job, its <strong>jobId</strong> and <strong>stepId</strong> will be null
+ The ExecutionHandler::getJob is modified to test if the <strong>jobId</strong> and <strong>stepId</strong> are null and according to the result generate a new job or use the given one.</p>
+
+<h4 id="new-supported-commands">New Supported Commands</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">AddExternalJob</code> - Adds an external Job and returns its UUID</li>
+  <li><code class="language-plaintext highlighter-rouge">EndExternalJob</code> - Ends the given Job</li>
+  <li><code class="language-plaintext highlighter-rouge">AddExternalStep</code> - Adds an external step to a Job directly or under an existing Step. If command is an oVirt internal command, it cpould be added only if it is flagged as <strong>Monitored</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">EndExternalStep</code> - Ends the given Step (For steps that represents plug-in operations only)</li>
+</ul>
+
+<h3 id="flow">Flow</h3>
+
+<ul>
+  <li>
+    <p><em>Add Job/Step</em> Flow:
+use api/jobs to add a new job using <code class="language-plaintext highlighter-rouge">POST</code> and giving a job <strong>description</strong> as a parameter</p>
+
+    <p>use <code class="language-plaintext highlighter-rouge">api/jobs/&lt;jobId&gt;/steps</code> to add a new step using <code class="language-plaintext highlighter-rouge">POST</code> and giving a step <strong>parentId</strong> , <strong>parentType</strong>, <strong>description</strong> and <strong>status</strong>
+as parameters (The parentId is the UUID of the parent of the new created step, the parentType may be <strong>Job</strong> or <strong>Step</strong>)</p>
+  </li>
+  <li><em>List Job(s)/Step(s)</em>:
+    <ul>
+      <li>use <code class="language-plaintext highlighter-rouge">api/jobs</code> to list all jobs</li>
+      <li>use <code class="language-plaintext highlighter-rouge">api/jobs/&lt;jobId&gt;</code> to list the job identified by <code class="language-plaintext highlighter-rouge">&lt;jobId&gt;</code></li>
+      <li>use <code class="language-plaintext highlighter-rouge">api/jobs/&lt;jobId&gt;/steps</code> to list all steps of the job identified by <code class="language-plaintext highlighter-rouge">&lt;jobId&gt;</code></li>
+      <li>use <code class="language-plaintext highlighter-rouge">api/jobs/&lt;jobId&gt;/steps/&lt;stepId&gt;</code> to list a specific step identified by <code class="language-plaintext highlighter-rouge">&lt;stepId&gt;</code> under the job identified by <code class="language-plaintext highlighter-rouge">&lt;jobId&gt;</code></li>
+    </ul>
+  </li>
+  <li><em>End Job/Step</em> Flow:
+    <ul>
+      <li>use <code class="language-plaintext highlighter-rouge">api/jobs/&lt;jobId&gt;/end</code> to end a job using POST and giving a <strong>jobId</strong> <strong>status</strong> and an optional <strong>force</strong> flag</li>
+      <li>use <code class="language-plaintext highlighter-rouge">api/jobs/&lt;jobId&gt;/steps/&lt;stepId&gt;/end</code>  to end a step using POST and giving a <strong>stepId</strong> <strong>stepType</strong> <strong>status</strong> and an optional <strong>force</strong> flag</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="permissions">Permissions</h3>
+
+<h4 id="command-permissions">Command Permissions</h4>
+
+<p>A new permission to access those commands will be added by default only to superuser role.
+A new role that can inject External Tasks will be added and may be attached/added to any user in the system</p>
+
+<h4 id="permissions-on-entity-instances">Permissions on Entity Instances</h4>
+
+<p>Since each Job may have steps that invoke internal oVirt command or external plug-in comamnds, on internal oVirt command we have already
+permissions on entities and on external commands it is in teh plug-in scope. So, nothing have to be specifically written in oVirt to support that.</p>
+
+<h3 id="api">API</h3>
+
+<ul>
+  <li>Add the list of <strong>monitored</strong> commands to api/capabilities</li>
+  <li>Add support for job_id and step_id parameters in QueryHelper such that commands can pass job_id and step_id in the URI</li>
+  <li>Add <strong>Job</strong> business entity</li>
+  <li>Add <strong>Step</strong> business entity</li>
+  <li>Adding JobMapper to map backend to REST entities and vice versa</li>
+  <li>Adding StepMapper to map backend to REST entities and vice versa</li>
+  <li>Add JobsResource/BackendJobsResource implementation to handle add() &amp; get operations</li>
+  <li>Add StepsResource/BackendStepsResource implementation to handle add() &amp; get operations</li>
+  <li>Add JobResource/BackendJobResource implementation to handle actions on a specific resource</li>
+  <li>Add StepResource/BackendStepResource implementation to handle actions on a specific resource</li>
+  <li>Add signatures to meta-data file (<code class="language-plaintext highlighter-rouge">rsdl_metadata_v-3.1.yaml</code>)</li>
+  <li>Add tests</li>
+</ul>
+
+<p><strong>Note that no update is required.</strong></p>
+
+<h4 id="get">Get</h4>
+
+<p>Add support for the following:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/api/jobs</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/api/jobs/&lt;job_id&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/api/jobs/&lt;job_id&gt;/steps</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/api/jobs/&lt;job_id&gt;/steps/&lt;step_id&gt;</code></li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;jobs&gt;</span>
+   <span class="nt">&lt;job</span> <span class="na">id =</span> <span class="s">"xxx"</span> <span class="na">href=</span><span class="s">"api/jobs/xxx"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;description&gt;</span>a description<span class="nt">&lt;/description&gt;</span>
+      <span class="nt">&lt;action_type&gt;</span> the action type<span class="nt">&lt;/action_type&gt;</span>
+      <span class="nt">&lt;status&gt;</span>[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]<span class="nt">&lt;/status&gt;</span>
+      <span class="nt">&lt;owner&gt;</span>the owner<span class="nt">&lt;/owner&gt;</span>
+             <span class="nt">&lt;start_time&gt;</span>...<span class="nt">&lt;/start_time&gt;</span>
+      <span class="nt">&lt;end_time&gt;</span>...<span class="nt">&lt;/end_time&gt;</span>
+      <span class="nt">&lt;last_updated&gt;</span>...<span class="nt">&lt;/last_updated&gt;</span>
+      <span class="nt">&lt;external&gt;</span>[true|false]<span class="nt">&lt;/external&gt;</span>
+      <span class="nt">&lt;auto_cleared&gt;</span>[true|false]<span class="nt">&lt;/auto_cleared&gt;</span>
+   <span class="nt">&lt;job&gt;</span>
+   ...
+<span class="nt">&lt;/jobs&gt;</span>
+
+<span class="nt">&lt;steps&gt;</span>
+    <span class="nt">&lt;step</span> <span class="na">id=</span><span class="s">"yyy"</span> <span class="na">href=</span><span class="s">"api/jobs/xxx/steps/yyy"</span><span class="nt">&gt;</span>
+              [<span class="nt">&lt;parent_job</span> <span class="na">id=</span><span class="s">"xxx"</span> <span class="na">href=</span><span class="s">"api/jobs/xxx"</span><span class="nt">/&gt;</span> | <span class="nt">&lt;parent_step</span> <span class="na">id=</span><span class="s">"yyy"</span> <span class="na">href=</span><span class="s">"api/jobs/xxx/steps/yyy"</span><span class="nt">/&gt;</span>]
+        <span class="nt">&lt;description&gt;</span>a description<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;type&gt;</span>[VALIDATING|EXECUTING|FINALIZING]<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;number&gt;</span>...<span class="nt">&lt;/number&gt;</span>
+        <span class="nt">&lt;status&gt;</span>[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]<span class="nt">&lt;/status&gt;</span>
+              <span class="nt">&lt;start_time&gt;</span>...<span class="nt">&lt;/start_time&gt;</span>
+        <span class="nt">&lt;end_time&gt;</span>...<span class="nt">&lt;/end_time&gt;</span>
+        <span class="nt">&lt;external&gt;</span>[true|false]<span class="nt">&lt;/external&gt;</span>
+   <span class="nt">&lt;/step&gt;</span>
+         ....
+<span class="nt">&lt;/steps&gt;</span>
+</code></pre></div></div>
+
+<h4 id="post">Post</h4>
+
+<p>Adding a new Job/Step will be implemented by the POST operation</p>
+
+<p>Job:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;job&gt;</span>
+    <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
+    <span class="nt">&lt;auto_cleared&gt;</span>[true|false]<span class="nt">&lt;/auto_cleared&gt;</span>
+<span class="nt">&lt;/job&gt;</span>
+</code></pre></div></div>
+
+<p>Step:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;step&gt;</span>
+    <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
+    <span class="nt">&lt;type&gt;&lt;/type&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;state&gt;&lt;/state&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/step&gt;</span>
+</code></pre></div></div>
+
+<p>Sub-step:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;step&gt;</span>
+    <span class="nt">&lt;parent_step</span>  <span class="na">id=</span><span class="s">"yyy"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
+    <span class="nt">&lt;type&gt;&lt;/type&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;state&gt;&lt;/state&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/step&gt;</span>
+</code></pre></div></div>
+
+<p>Ending an existing Job/Step will be done via a supported <strong>action</strong> on the Job/Step business entity</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/api/Jobs/&lt;job_id&gt;/end</code> - will end the given job</li>
+  <li><code class="language-plaintext highlighter-rouge">/api/Jobs/&lt;job_id&gt;/steps/&lt;step_id&gt;/end</code> - will end the given step</li>
+</ul>
+
+<p>End a job</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;action&gt;</span>
+  <span class="nt">&lt;status&gt;</span>
+     <span class="nt">&lt;state&gt;</span>FAILED<span class="nt">&lt;/state&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>&gt;
+  <span class="nt">&lt;force&gt;</span>false<span class="nt">&lt;/force&gt;</span>
+<span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<p>End a Step</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;action&gt;</span>
+  <span class="nt">&lt;succeeded&gt;</span>true<span class="nt">&lt;/succeeded&gt;</span>
+<span class="nt">&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>External Jobs and their Steps will be displayen in the oVirt Task Monitor</p>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<p>Add additional fields to job and step tables upon upgrade Add the permission(ActionGroup) to manipulate External tasks to other admin roles already defined upon upgrade.</p>
+
+<h4 id="user-work-flows">User work-flows</h4>
+
+<h3 id="enforcement">Enforcement</h3>
+
+<h3 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h3>
+
+<h4 id="affected-ovirt-projects">Affected oVirt projects</h4>
+
+<h3 id="documentation--external-references">Documentation / External references</h3>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=872719">RFE</a></p>
+
+<p><a href="/ovirt-site/previews/3088/develop/release-management/features/infra/externaltasks.html">Features/ExternalTasks</a></p>
+
+<h3 id="future-directions">Future directions</h3>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3088/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3088/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3088/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3088/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/detailedexternaltasks.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/infra/detailedexternaltasks.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

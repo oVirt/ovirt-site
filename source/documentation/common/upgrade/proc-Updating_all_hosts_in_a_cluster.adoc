@@ -23,12 +23,13 @@ include::snip-Host_update_limitations.adoc[]
 * *Reboot After Upgrade* reboots each host after it is updated, and is selected by default. You can clear this check box to speed up the process if you are sure that there are no pending updates that require a host reboot.
 * *Use Maintenance Policy* sets the cluster's scheduling policy to link:{URL_virt_product_docs}{URL_format}administration_guide/index#Cluster_Scheduling_Policy_Settings[`cluster_maintenance`] during the update. It is selected by default, so activity is limited and virtual machines cannot start unless they are highly available. You can clear this check box if you have a custom scheduling policy that you want to keep using during the update, but this could have unknown consequences. Ensure your custom policy is compatible with cluster upgrade activity before disabling this option.
 . Click *Next*.
-. Review the summary of the hosts and virtual machines that will be affected.
+. Review the summary of the hosts and virtual machines that are affected.
 . Click *Upgrade*.
+. A cluster upgrade status screen displays with a progress bar showing the precentage of completion, and a list of steps in the upgrade process that have completed. You can click *Go to Event Log* to open the log entries for the upgrade. Closing this screen does not interrupt the upgrade process.
 
 You can track the progress of host updates:
 
-* in the menu:Compute[Clusters] view, the *Upgrade Status* column shows *Upgrade in progress*.
+* in the menu:Compute[Clusters] view, the *Upgrade Status* column displays a progress bar that displays the percentage of completion.
 * in the menu:Compute[Hosts] view
 * in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[title="Events icon"]).
 

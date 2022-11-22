@@ -3289,6 +3289,22 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <li>
 <p>Select <strong>Strict</strong>, <strong>Preferred</strong>, or <strong>Interleave</strong> from the <strong>Tune Mode</strong> drop-down list in each NUMA node. If the selected mode is <strong>Preferred</strong>, the <strong>NUMA Node Count</strong> must be set to <code>1</code>.</p>
 </li>
+<li>
+<p>You can also set the NUMA pinning policy automatically by selecting <strong>Resize and Pin NUMA</strong> from the CPU Pinning Polcy drop-down list under the <strong>CPU Allocation</strong> settings in the <strong>Resource Allocation</strong> tab:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>None</code> - runs without any CPU pinning.</p>
+</li>
+<li>
+<p><code>Resize and Pin NUMA</code> - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
 </ol>
 </div>
 <div class="admonitionblock note">
@@ -3992,6 +4008,17 @@ Support for instance types is now deprecated, and will be removed in a future re
 </li>
 <li>
 <p>Select <strong>Strict</strong>, <strong>Preferred</strong>, or <strong>Interleave</strong> from the <strong>Tune Mode</strong> drop-down list in each NUMA node. If the selected mode is <strong>Preferred</strong>, the <strong>NUMA Node Count</strong> must be set to <code>1</code>.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">To set the NUMA pinning policy automatically:</div>
+<ol class="arabic">
+<li>
+<p>In the <strong>Resource Allocation</strong> tab, under <strong>CPU Allocation</strong>, select <code>Resize and Pin NUMA</code> from the <strong>CPU Pinning Policy</strong> drop-down list.</p>
 </li>
 <li>
 <p>Click <b class="button">OK</b>.</p>
@@ -11765,6 +11792,21 @@ You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragg
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU Pinning Policy</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>None</code> - runs without any CPU pinning.</p>
+</li>
+<li>
+<p><code>Resize and Pin NUMA</code> - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU Pinning topology</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Enables the virtual machine&#8217;s virtual CPU (vCPU) to run on a specific physical CPU (pCPU) in a specific host. The syntax of CPU pinning is <code>v#p[_v#p]</code>, for example:</p>
@@ -11783,7 +11825,7 @@ You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragg
 </ul>
 </div>
 <div class="paragraph">
-<p>The <strong>CPU Pinning Topology</strong> is populated automatically when automatic NUMA pinning is activated.</p>
+<p>The <strong>CPU Pinning Topology</strong> is populated automatically when <code>Resize and Pin NUMA</code> pinning is selected in <strong>CPU Pinning Policy</strong>.</p>
 </div>
 <div class="paragraph">
 <p>In order to pin a virtual machine to a host, you must also select the following on the <strong>Host</strong> tab:</p>

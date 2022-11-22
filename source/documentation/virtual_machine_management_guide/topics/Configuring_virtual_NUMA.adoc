@@ -22,6 +22,12 @@ If you define *NUMA Pinning*, the default migration mode is *Allow manual migrat
 . Click *NUMA Pinning*.
 . In the *NUMA Topology* window, click and drag virtual NUMA nodes from the box on the right to host NUMA nodes on the left as required, and click btn:[OK].
 . Select *Strict*, *Preferred*, or *Interleave* from the *Tune Mode* drop-down list in each NUMA node. If the selected mode is *Preferred*, the *NUMA Node Count* must be set to `1`.
+.  You can also set the NUMA pinning policy automatically by selecting *Resize and Pin NUMA* from the CPU Pinning Polcy drop-down list under the *CPU Allocation* settings in the *Resource Allocation* tab:
++
+* `None` - runs without any CPU pinning.
+* `Resize and Pin NUMA` - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.
+. Click btn:[OK].
+
 
 [NOTE]
 ====

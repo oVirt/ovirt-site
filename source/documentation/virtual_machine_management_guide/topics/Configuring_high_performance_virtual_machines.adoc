@@ -207,6 +207,11 @@ To set the NUMA Pinning Policy, you need a NUMA-enabled pinned host with at leas
 . Select *Strict*, *Preferred*, or *Interleave* from the *Tune Mode* drop-down list in each NUMA node. If the selected mode is *Preferred*, the *NUMA Node Count* must be set to `1`.
 . Click btn:[OK].
 
+.To set the NUMA pinning policy automatically:
+. In the *Resource Allocation* tab, under *CPU Allocation*, select `Resize and Pin NUMA` from the *CPU Pinning Policy* drop-down list.
+. Click btn:[OK]. 
+
+
 [IMPORTANT]
 ====
 The number of declared virtual NUMA nodes and the NUMA pinning policy must take into account:

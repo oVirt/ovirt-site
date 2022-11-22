@@ -32,9 +32,14 @@ a|Allows users to set the level of CPU resources a virtual machine can demand re
 
 * *Custom* - A custom level of CPU shares defined by the user.
 | No.
+| |*CPU Pinning Policy*
+a|
 
+* `None` - runs without any CPU pinning.
 
-|
+* `Resize and Pin NUMA` - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.
+
+|No. |
 |*CPU Pinning topology*
 a|Enables the virtual machine's virtual CPU (vCPU) to run on a specific physical CPU (pCPU) in a specific host. The syntax of CPU pinning is `v#p[_v#p]`, for example:
 
@@ -44,7 +49,7 @@ a|Enables the virtual machine's virtual CPU (vCPU) to run on a specific physical
 
 * `1#1-4,^2` - Pins vCPU 1 to one of the pCPUs in the range of 1 to 4, excluding pCPU 2.
 
-The *CPU Pinning Topology* is populated automatically when automatic NUMA pinning is activated. 
+The *CPU Pinning Topology* is populated automatically when `Resize and Pin NUMA` pinning is selected in *CPU Pinning Policy*.
 
 In order to pin a virtual machine to a host, you must also select the following on the *Host* tab:
 

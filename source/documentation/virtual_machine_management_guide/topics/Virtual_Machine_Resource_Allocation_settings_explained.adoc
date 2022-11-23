@@ -38,8 +38,8 @@ a|
 * `None` - runs without any CPU pinning.
 * `Manual` - available only when the virtual machine is pinned to a Host.
 * `Resize and Pin NUMA` - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.
-* `Dedicated` - the selected CPU policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
-* `Isolate Threads` - the selected CPU Policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
+* `Dedicated` - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
+* `Isolate Threads` - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
 
 |No. |
 |*CPU Pinning topology*

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.3.5 release notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.3.5 release notes" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3091/develop/release-management/releases/3.3.5/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3091/develop/release-management/releases/3.3.5/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.3.5 release notes" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.3.5 release notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3091/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3091/develop/release-management/releases/3.3.5/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3091/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3091/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3091/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3091/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3091/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3091/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3091/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3091/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3091/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-335-release-notes">oVirt 3.3.5 release notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of oVirt 3.3.5 release</p>
+
+<p>oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.</p>
+
+<p>To find out more about features which were added in previous oVirt releases, check out the <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.3.4/">oVirt 3.3.4 release notes</a>, <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.3.3/">oVirt 3.3.3 release notes</a>, <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.3.2/">oVirt 3.3.2 release notes</a> , <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.3.1/">oVirt 3.3.1 release notes</a>, <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.3/">oVirt 3.3 release notes</a>, <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.2/">oVirt 3.2 release notes</a> and <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.1/">oVirt 3.1 release notes</a>. For a general overview of oVirt, read <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.0/feature-guide.html">the oVirt 3.0 feature guide</a> and the <a href="/ovirt-site/previews/3091/community/about.html">about oVirt</a> page.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-335-release-notes" id="markdown-toc-ovirt-335-release-notes">oVirt 3.3.5 release notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+        </ol>
+      </li>
+      <li><a href="#whats-new-in-335" id="markdown-toc-whats-new-in-335">What’s New in 3.3.5?</a></li>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a></li>
+      <li><a href="#bugs-fixed" id="markdown-toc-bugs-fixed">Bugs fixed</a>        <ol>
+          <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+          <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+          <li><a href="#ovirt-node-plugin-vdsm" id="markdown-toc-ovirt-node-plugin-vdsm">ovirt-node-plugin-vdsm</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<p>oVirt 3.3.5 release is available. In order to install it you’ve to enable oVirt 3.3 stable repository.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum  `# yum localinstall `[`http://resources.ovirt.org/releases/3.3.5/package-pool/ovirt-release-11.2.0-1.noarch.rpm`](http://resources.ovirt.org/releases/3.3.5/package-pool/ovirt-release-11.2.0-1.noarch.rpm)
+  # yum-config-manager --enable ovirt-3.3-stable
+</code></pre></div></div>
+
+<p>Since oVirt 3.4.0 has been released, in order to install 3.3.5 instead of 3.4.0 you need to disable latest stable and latest 3.4 repositories:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum-config-manager --disable ovirt-stable
+  # yum-config-manager --disable ovirt-3.4-stable
+</code></pre></div></div>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p>If you’re upgrading from oVirt 3.3 you should just execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update ovirt-engine-setup
+  # engine-setup
+</code></pre></div></div>
+
+<p>If you’re upgrading from oVirt 3.2 you should read <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.2/to-3.3-upgrade.html">oVirt 3.2 to 3.3 upgrade</a></p>
+
+<p>If you’re upgrading from oVirt 3.1 you should upgrade to 3.2 before upgrading to 3.3.5. Please read <a href="/ovirt-site/previews/3091/develop/release-management/releases/3.1/to-3.2-upgrade.html">oVirt 3.1 to 3.2 upgrade</a> before starting the upgrade.
+On CentOS and RHEL: For upgrading to 3.2 you’ll need 3.2 stable repository.
+So, first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [ovirt-32]
+  name=Stable builds of the oVirt 3.2 project
+  baseurl=https://resources.ovirt.org/releases/3.2/rpm/EL/$releasever/
+  enabled=1
+  skip_if_unavailable=1
+  gpgcheck=0
+</code></pre></div></div>
+
+<p>Then</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update ovirt-engine-setup
+</code></pre></div></div>
+
+<p>should install ovirt-engine-setup-3.2.3-1.el6.noarch.rpm
+if you have already updated to 3.3.x please use distro-sync or downgrade instead of update.
+Then:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # engine-upgrade
+</code></pre></div></div>
+
+<p>this will upgrade your system to latest 3.2.
+Once you’ve all working on 3.2, enable 3.3/stable repository, then just</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update ovirt-engine-setup
+  # engine-setup
+</code></pre></div></div>
+
+<p>will upgrade to latest 3.3.</p>
+
+<h2 id="whats-new-in-335">What’s New in 3.3.5?</h2>
+
+<h2 id="known-issues">Known issues</h2>
+
+<ul>
+  <li>Host deployment may fail on EL6 system due to a recent tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package solving this issue.</li>
+</ul>
+
+<h2 id="bugs-fixed">Bugs fixed</h2>
+
+<h3 id="ovirt-engine">oVirt Engine</h3>
+
+<ul>
+  <li>[race] Host stays in “Preparing for maintenance” forever if requested while incoming live migrations</li>
+  <li>Force removal of DataCenter fails to remove vm_pool from DB</li>
+  <li>engine: DeactivateStorageDomainCommand fails with vdsm error: ‘Operation not allowed while SPM is active’ because we do not actually send SpmStop while there are unknown tasks</li>
+  <li>Listing templates takes noticeable amount of time, while listing many more VMs is prompt</li>
+  <li>Pool VMs are being pulled from template view in a very inefficient way</li>
+  <li>Allow manual fence in connecting state</li>
+  <li>‘engine-backup –mode=restore’ fails after engine-cleanup on postgres 8</li>
+  <li>Typo in Cluster Policy Tool Tip</li>
+  <li>Cloud-init DNS settings should go inside the “iface” section</li>
+  <li>engine: host stuck on Unassigned when moving from status Maintenance when storage is not availble from the host</li>
+  <li>‘engine-backup –mode=restore’ fails after engine-cleanup on postgres 8</li>
+  <li>Force removal of DataCenter fails to remove vm_pool from DB</li>
+  <li>[restore.sh] restore.sh is doing restore.sh.log in /usr directory</li>
+  <li>GuideMe AddHost does not pass OverrideFirewall</li>
+  <li>VMs do not appear in virtual machine tab if host is selected in side pane (data-center &gt; cluster &gt; host &gt; )</li>
+  <li>Listing templates takes noticeable amount of time, while listing many more VMs is prompt</li>
+  <li>RHEV-M fails to detect ‘AMD Opteron G5’ as CPU_Type for hypervisors.</li>
+  <li>VM is not locked on run once</li>
+  <li>VM split brain caused by network outage</li>
+  <li>Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the domain</li>
+  <li>CpuOverCommitDurationMinutes limited to a single digit value by regular expression in database scripts</li>
+  <li>After a power outage two VMs marked as HA failed to start automatically, they were required to be started manually.</li>
+  <li>Missing option create engine-setup answer-file template</li>
+  <li>On DB upgrade, readonly user and client custom users losses permissions to db views</li>
+  <li>Tasks are cleared while they are still running</li>
+  <li>The RSDL documentation of the cloud-init hostname property should be host.address</li>
+  <li>[legacy upgrade 3.2-&gt;3.3] misleading information</li>
+  <li>Tracker: oVirt 3.3.5 release</li>
+  <li>[legacy upgrade 3.2-&gt;3.3] misleading information</li>
+  <li>RHEV 3.3 - Live Migration fails with ERROR: insert or update on table “step” violates foreign key constraint “fk_step_job”</li>
+  <li>Editing VM clears the VNIC profiles</li>
+  <li>setupNetworks: nic with dhcp cannot be bonded</li>
+  <li>Typo in encryptionvalidator.sh in RHEV &gt; 3.2 prevents script from running</li>
+  <li>SSH injection via cloud-init UI goes to root instead of creating cloud-user</li>
+  <li>[TEXT] taskcleaner.sh has dangerously misleading help text</li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<h3 id="ovirt-node-plugin-vdsm">ovirt-node-plugin-vdsm</h3>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3091/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3091/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3091/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3091/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.3.5/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/releases/3.3.5/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

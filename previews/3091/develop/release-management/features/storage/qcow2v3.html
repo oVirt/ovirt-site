@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>QCOW2 compat levels | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="QCOW2 compat levels" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3091/develop/release-management/features/storage/qcow2v3.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3091/develop/release-management/features/storage/qcow2v3.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="QCOW2 compat levels" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"QCOW2 compat levels","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3091/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3091/develop/release-management/features/storage/qcow2v3.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3091/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3091/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3091/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3091/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3091/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3091/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3091/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3091/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3091/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3091/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3091/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3091//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3091/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Maor Lipchuk">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Maor Lipchuk</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3091/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="qcow2-compat-levels">QCOW2 compat levels</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>The QCOW image format includes a version number to allow introducing new features that change the image format in an incompatible way.
+Newer QEMU versions (1.7 and above) support a new format of QCOW2 version 3, which is not backwards compatible and introduce
+many improvements like zero clusters, and performance improvement.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: <a href="https://github.com/maorlipchuk">Maor Lipchuk</a></li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The Storage Domain’s version dictated the maximum supported compat level of QCOW volumes.
+V3 Storage Domains (or older) support only 0.10 QCOW compat level, while V4 Storage Domains also support 1.1 QCOW compat level.
+For more information about features of the different QCOW versions, see <a href="http://wiki.qemu.org/Features/Qcow3">QCOW3</a></p>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<p>As previously described, only 4.1 DC supports V4 Storage Domains.
+Once the Data Center is upgraded to 4.1 all the Storage Domains’ version in this Data Center should be updated to V4,
+and every new Storage Domain will be created with V4 version.</p>
+
+<p>After the upgrade, all the newly created QCOW volumes will be created with 1.1 compatibility level,
+while all the existing QCOW volumes that were created before the upgrade, will stay unchanged.</p>
+
+<p>The following are REST API examples of 4.1 upgrade and adding new 4.1 Storage Domains:</p>
+
+<h4 id="upgrading-an-exiting-40-data-center-to-41">Upgrading an exiting 4.0 Data Center to 4.1</h4>
+
+<p>First, all the clusters’ version in the Data Center should be upgraded to 4.1:</p>
+
+<h5 id="upgrading-existing-40-clusters">Upgrading existing 4.0 clusters</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT http://localhost:8080/ovirt-engine/api/clusters/123 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<span class="nt">&lt;cluster&gt;</span>
+  <span class="nt">&lt;version&gt;</span>
+     <span class="nt">&lt;major&gt;</span>4<span class="nt">&lt;/major&gt;</span>
+     <span class="nt">&lt;minor&gt;</span>1<span class="nt">&lt;/minor&gt;</span>
+  <span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/cluster&gt;</span>
+</code></pre></div></div>
+
+<p>Then, the Data Center’s version should be updated to 4.1:</p>
+
+<h5 id="upgrading-existing-40-data-center">Upgrading existing 4.0 Data Center</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT http://localhost:8080/ovirt-engine/api/datacenters/111111 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<span class="nt">&lt;data_center&gt;</span>
+  <span class="nt">&lt;version&gt;</span>
+     <span class="nt">&lt;major&gt;</span>4<span class="nt">&lt;/major&gt;</span>
+     <span class="nt">&lt;minor&gt;</span>1<span class="nt">&lt;/minor&gt;</span>
+  <span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/data_center&gt;</span>
+</code></pre></div></div>
+
+<h4 id="creating-a-new-41-data-center-with-new-storage-domains">Creating a new 4.1 Data Center with new Storage Domains.</h4>
+
+<p>Only 4.1 Data Centers support V4 storage domains.
+A new Data Center can be added with explicit version although the default should be the latest (4.1)</p>
+
+<h5 id="add-a-new-41-data-center">Add a new 4.1 Data Center</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST http://localhost:8080/ovirt-engine/api/datacenters HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<span class="nt">&lt;data_center&gt;</span>
+  <span class="nt">&lt;name&gt;</span>mydc<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;local&gt;</span>true<span class="nt">&lt;/local&gt;</span>
+  <span class="nt">&lt;version&gt;</span>
+     <span class="nt">&lt;major&gt;</span>4<span class="nt">&lt;/major&gt;</span>
+     <span class="nt">&lt;minor&gt;</span>1<span class="nt">&lt;/minor&gt;</span>
+  <span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/data_center&gt;</span>
+</code></pre></div></div>
+
+<h5 id="add-a-storage-domain-with-storage-format-v4">Add a storage domain with storage format V4</h5>
+
+<p>You can use explicit <code class="language-plaintext highlighter-rouge">storageFormat</code> V4 in the request for adding a new Storage Domain or not mention it and the default will be V4.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST http://localhost:8080/ovirt-engine/api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<span class="nt">&lt;storage_domain&gt;</span>
+  <span class="nt">&lt;name&gt;</span>storage_name<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;type&gt;</span>data<span class="nt">&lt;/type&gt;</span>
+  <span class="nt">&lt;description&gt;</span>description<span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;storage&gt;</span>
+    <span class="nt">&lt;type&gt;</span>nfs<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;storageFormat&gt;</span>V4<span class="nt">&lt;/storageFormat&gt;</span>
+    <span class="nt">&lt;address&gt;</span>storage.host.address<span class="nt">&lt;/address&gt;</span>
+    <span class="nt">&lt;path&gt;</span>/path/nfs<span class="nt">&lt;/path&gt;</span>
+  <span class="nt">&lt;/storage&gt;</span>
+  <span class="nt">&lt;host&gt;</span>
+    <span class="nt">&lt;name&gt;</span>host_name<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;/host&gt;</span>
+<span class="nt">&lt;/storage_domain&gt;</span>
+</code></pre></div></div>
+
+<p>The following is an example of the response once adding a storage domain (The storage_format can be noticed):</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
+<span class="nt">&lt;storage_domain</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234"</span> <span class="na">id=</span><span class="s">"1234"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;actions&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/updateovfstore"</span> <span class="na">rel=</span><span class="s">"updateovfstore"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/refreshluns"</span> <span class="na">rel=</span><span class="s">"refreshluns"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/reduceluns"</span> <span class="na">rel=</span><span class="s">"reduceluns"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/isattached"</span> <span class="na">rel=</span><span class="s">"isattached"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/actions&gt;</span>
+    <span class="nt">&lt;name&gt;</span>storage_name<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>description<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/diskprofiles"</span> <span class="na">rel=</span><span class="s">"diskprofiles"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/disks"</span> <span class="na">rel=</span><span class="s">"disks"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/storageconnections"</span> <span class="na">rel=</span><span class="s">"storageconnections"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/permissions"</span> <span class="na">rel=</span><span class="s">"permissions"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/templates"</span> <span class="na">rel=</span><span class="s">"templates"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/vms"</span> <span class="na">rel=</span><span class="s">"vms"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/1234/disksnapshots"</span> <span class="na">rel=</span><span class="s">"disksnapshots"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;available&gt;</span>16106127360<span class="nt">&lt;/available&gt;</span>
+    <span class="nt">&lt;committed&gt;</span>0<span class="nt">&lt;/committed&gt;</span>
+    <span class="nt">&lt;critical_space_action_blocker&gt;</span>5<span class="nt">&lt;/critical_space_action_blocker&gt;</span>
+    <span class="nt">&lt;external_status&gt;</span>ok<span class="nt">&lt;/external_status&gt;</span>
+    <span class="nt">&lt;master&gt;</span>false<span class="nt">&lt;/master&gt;</span>
+    <span class="nt">&lt;status&gt;</span>unknown<span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;storage&gt;</span>
+        <span class="nt">&lt;address&gt;</span>storage.host.address<span class="nt">&lt;/address&gt;</span>
+        <span class="nt">&lt;path&gt;</span>/export/data3<span class="nt">&lt;/path&gt;</span>
+        <span class="nt">&lt;type&gt;</span>nfs<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;/storage&gt;</span>
+    <span class="nt">&lt;storage_format&gt;</span>v4<span class="nt">&lt;/storage_format&gt;</span>
+    <span class="nt">&lt;supports_discard&gt;</span>false<span class="nt">&lt;/supports_discard&gt;</span>
+    <span class="nt">&lt;supports_discard_zeroes_data&gt;</span>false<span class="nt">&lt;/supports_discard_zeroes_data&gt;</span>
+    <span class="nt">&lt;type&gt;</span>data<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;used&gt;</span>4294967296<span class="nt">&lt;/used&gt;</span>
+    <span class="nt">&lt;warning_low_space_indicator&gt;</span>10<span class="nt">&lt;/warning_low_space_indicator&gt;</span>
+    <span class="nt">&lt;wipe_after_delete&gt;</span>false<span class="nt">&lt;/wipe_after_delete&gt;</span>
+<span class="nt">&lt;/storage_domain&gt;</span>
+</code></pre></div></div>
+
+<h3 id="functionality">Functionality</h3>
+
+<p>New QCOW volumes that will be created on a V4 Storage Domains will be created with 1.1 compatibility level.
+That also includes snapshots, so theoratically we could have an old disk with a chain of volumes that some of the volumes will be with
+compatibility level of 0.10, and others (like new snapshots) that will be with 1.1 compatibility level based on those 0.10 volumes.
+Those types of chains are supported by QEMU, and oVirt will also introduce the user the ability to upgrade any disk, so all its volumes
+will be with the same QCOW compatibility version through a REST update command which will be described later in this document.</p>
+
+<h3 id="fetch-qcow-compat-for-a-disk-through-rest-api">Fetch QCOW compat for a disk through REST API</h3>
+
+<p>Important: The disk’s attribute <code class="language-plaintext highlighter-rouge">QcowCompat</code> will only be presented for QCOW volumes only as opposed to RAW disks.
+The QCOW compat can be fetched using the following REST APIs:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+</code></pre></div></div>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET http://localhost:8080/ovirt-engine/api/disks/111 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+</code></pre></div></div>
+
+<p>Only the active volume of the disk is being presented, therefore the query will only return the relevant QCOW version of the active volume.
+Here is an example of the reponse output:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/2edfbc96-8c1b-4689-a582-bb7d7782e87b"</span> <span class="na">id=</span><span class="s">"2edfbc96-8c1b-4689-a582-bb7d7782e87b"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;actions&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/2edfbc96-8c1b-4689-a582-bb7d7782e87b/sparsify"</span> <span class="na">rel=</span><span class="s">"sparsify"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/2edfbc96-8c1b-4689-a582-bb7d7782e87b/export"</span> <span class="na">rel=</span><span class="s">"export"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/2edfbc96-8c1b-4689-a582-bb7d7782e87b/move"</span> <span class="na">rel=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/2edfbc96-8c1b-4689-a582-bb7d7782e87b/copy"</span> <span class="na">rel=</span><span class="s">"copy"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/actions&gt;</span>
+<span class="nt">&lt;name&gt;</span>VM_Disk1<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/2edfbc96-8c1b-4689-a582-bb7d7782e87b/permissions"</span> <span class="na">rel=</span><span class="s">"permissions"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/disks/2edfbc96-8c1b-4689-a582-bb7d7782e87b/statistics"</span> <span class="na">rel=</span><span class="s">"statistics"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;vms&gt;</span>
+<span class="nt">&lt;vm</span> <span class="na">id=</span><span class="s">"7999ec9f-1c5b-4db7-b3d7-71528375f7b4"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/vms&gt;</span>
+<span class="nt">&lt;actual_size&gt;</span>200704<span class="nt">&lt;/actual_size&gt;</span>
+<span class="nt">&lt;alias&gt;</span>VM_Disk1<span class="nt">&lt;/alias&gt;</span>
+<span class="nt">&lt;format&gt;</span>cow<span class="nt">&lt;/format&gt;</span>
+<span class="nt">&lt;image_id&gt;</span>2baf2249-14ac-411b-9392-f97fd80a1c2d<span class="nt">&lt;/image_id&gt;</span>
+<span class="nt">&lt;propagate_errors&gt;</span>false<span class="nt">&lt;/propagate_errors&gt;</span>
+<span class="nt">&lt;provisioned_size&gt;</span>1073741824<span class="nt">&lt;/provisioned_size&gt;</span>
+<span class="nt">&lt;qcow_version&gt;</span>qcow2_v3<span class="nt">&lt;/qcow_version&gt;</span>
+<span class="nt">&lt;shareable&gt;</span>false<span class="nt">&lt;/shareable&gt;</span>
+<span class="nt">&lt;sparse&gt;</span>true<span class="nt">&lt;/sparse&gt;</span>
+<span class="nt">&lt;status&gt;</span>ok<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;storage_type&gt;</span>image<span class="nt">&lt;/storage_type&gt;</span>
+<span class="nt">&lt;wipe_after_delete&gt;</span>false<span class="nt">&lt;/wipe_after_delete&gt;</span>
+<span class="nt">&lt;disk_profile</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/diskprofiles/5df1d6a4-4ac8-4dd3-88e0-9bb3d7774f10"</span> <span class="na">id=</span><span class="s">"5df1d6a4-4ac8-4dd3-88e0-9bb3d7774f10"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;quota</span> <span class="na">id=</span><span class="s">"7f5514f2-5085-412e-a137-45e5493668a4"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;storage_domain</span> <span class="na">href=</span><span class="s">"/ovirt-engine/api/storagedomains/c0c1ee3e-1447-42f9-9a71-e0c7d9df8475"</span> <span class="na">id=</span><span class="s">"c0c1ee3e-1447-42f9-9a71-e0c7d9df8475"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;storage_domains&gt;</span>
+<span class="nt">&lt;storage_domain</span> <span class="na">id=</span><span class="s">"c0c1ee3e-1447-42f9-9a71-e0c7d9df8475"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/storage_domains&gt;</span>
+<span class="nt">&lt;/disk&gt;</span>
+</code></pre></div></div>
+
+<p>These operations will be disabled if the VM is running or if those disks are locked (for example copy, move, delete).</p>
+
+<h4 id="troubleshooting">Troubleshooting</h4>
+
+<p>If an exception will occur or a volume will not seem to be updated here are few operations that might help diagnose the operation more intensly:</p>
+
+<ol>
+  <li>
+    <p>Check the DB for the volume format and QCOW version with the following command:
+  <code class="language-plaintext highlighter-rouge">SELECT image_guid,volume_type,volume_format,qcow_compat FROM images;</code>
+volume_format=4 means the volume is QCOW
+volume_format=5 means the volume is RAW
+RAW volumes (volume_format=5) should have qcow_compat field equals to 0 (Undefined),
+while QCOW volumes (volume_format=4) should have qcow_compat field equals to 1 (QCOW2_V2) or 2 (QCOW2_V3)</p>
+  </li>
+  <li>
+    <p>Once the volume is created you can check the QemuImageInfo call in the vdsm.log on the Host.
+the call should indicate the format of the volume and its compat, it should look like this:
+2016-12-14 23:18:53,818 INFO  (jsonrpc/4) [dispatcher] Run and protect: getQemuImageInfo, Return response: {‘info’: {‘compat’: u’1.1’, ‘clustersize’: 65536, ‘backingfile’: u’bc7a3e50-a965-45
+df-8699-ac47a0e20aa5’, ‘virtualsize’: 1073741824, ‘format’: u’qcow2’}} (logUtils:52)</p>
+  </li>
+</ol>
+
+<p>In this example the volume that is returned is with compat 1.1 and the format is QCOW2.</p>
+
+<h3 id="upgradeamend-api">Upgrade(amend) API</h3>
+
+<p>Here is how the amend operation should be performed through the REST API:</p>
+
+<p>After a Data Center upgrade, old disks will keep their old QCOW compat (0.10),
+if the user will desire to upgrade an old disk with old compat one can do so by using the upgrade API option.
+There are two types of QCOW_versions:
+ qcow2_v2 (QCOW compat 0.10)
+ qcow2_v3 (QCOW compat 1.1)</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<span class="nt">&lt;disk&gt;</span>
+    <span class="nt">&lt;qcow_version&gt;</span>qcow2_v3<span class="nt">&lt;/qcow_version&gt;</span>
+<span class="nt">&lt;/disk&gt;</span>
+</code></pre></div></div>
+
+<p>The upgrade volume operation amends all the QCOW volumes in the image,
+that also include old snapshots even if new active volume created upon them with compat level 1.1.</p>
+
+<p>The amend should not be performed on Template’s disks, the operation should fail in case of a Template disk.
+Once the amend operation starts the disk will be locked and could not be used to avoid data corruption.
+After the amend operation will be finished an audit log should be presented to the user indicating whether the operation succeed or failed:
+“${DiskAlias} has been amended successfully.” or “Failed to amend ${DiskAlias}.”</p>
+
+<h3 id="new-vdsm-api">New VDSM API</h3>
+
+<p>There are two new APIs that will be introduced in oVirt 4.1:
+<code class="language-plaintext highlighter-rouge">amend_volume</code> - Support amending an old QCOW compat to a new compat level.
+<code class="language-plaintext highlighter-rouge">getQcowVolumeInfo</code> - Returns the output with the compatibliity level of the volume by qemu-img info.</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3091/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3091/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3091/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3091/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/qcow2v3.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/storage/qcow2v3.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

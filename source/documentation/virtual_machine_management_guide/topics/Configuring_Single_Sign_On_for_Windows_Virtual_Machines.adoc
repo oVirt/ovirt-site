@@ -8,10 +8,12 @@ To configure single sign-on for Windows virtual machines, the Windows guest agen
 .Procedure
 
 . Select the Windows virtual machine. Ensure the machine is powered up.
-. Click *Change CD*.
-. Select `virtio-win___version__.iso` from the list of images.
+. On the virtual machine, locate the CD drive and open the CD.
+. Launch `virtio-win-guest-tools`.
+. Click btn:[Options]
+. Select *Install oVirt Guest Agent*.
 . Click btn:[OK].
-. Click btn:[Console] and log in to the virtual machine.
-. On the virtual machine, locate the CD drive to access the contents of the guest tools ISO file and launch `virtio-win___version__.iso`. After the tools have been installed, you will be prompted to restart the machine to apply the changes.
+. Click btn:[Install].
+. When the installation completes, you are prompted to restart the machine to apply the changes.
 
 Log in to the VM Portal using the user name and password of a user configured to use single sign-on and connect to the console of the virtual machine. You will be logged in automatically.

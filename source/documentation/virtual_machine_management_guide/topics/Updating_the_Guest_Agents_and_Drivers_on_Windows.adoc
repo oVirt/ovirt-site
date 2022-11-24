@@ -40,7 +40,11 @@ C:\WINDOWS\system32>msiexec.exe /i D:\guest-agent\qemu-ga-x86_64.msi /passive /n
 ----
 C:\WINDOWS\system32>msiexec.exe /i D:\virtio-win-gt-x64.msi /passive /norestart
 ----
-
+** To reinstall the guest agents, use `virtio-win-guest-tools.exe`:
++
+----
+D:\installer\virtio-win-guest-tools.exe /passive /norestart
+----
 . If you are updating the drivers, restore the settings you saved using `netsh`:
 +
 ----

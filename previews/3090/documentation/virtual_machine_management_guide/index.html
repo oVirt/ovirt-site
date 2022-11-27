@@ -5757,7 +5757,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <div class="sect3">
 <h4 id="Updating_the_Guest_Agents_and_Drivers_on_Windows">6.6.3. Updating Windows guest agents and drivers using the command prompt</h4>
 <div class="paragraph">
-<p>When you do not have access to Windows Update to update Windows drivers, or when you need to update the Windows guest agents, you can do so from the <code>virtio-win</code> package by using the virtual machine&#8217;s command prompt. During this procedure, you must remove and reinstall the drivers, which can lead to network disruption. This procedure restores your settings after reinstalling the drivers.</p>
+<p>When you do not have access to Windows Update to update Windows drivers, or when you need to update the oVirt guest agents, you can do so from the <code>virtio-win</code> package by using the virtual machine&#8217;s command prompt. During this procedure, you must remove and reinstall the drivers, which can lead to network disruption. This procedure restores your settings after reinstalling the drivers.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -5806,7 +5806,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </div>
 </li>
 <li>
-<p>To install the guest agents and drivers, or just the drivers, use <code>virtio-win-gt-x64.msi</code>:</p>
+<p>To reinstall the drivers, use <code>virtio-win-gt-x64.msi</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre>C:\WINDOWS\system32&gt;msiexec.exe /i D:\virtio-win-gt-x64.msi /passive /norestart</pre>

@@ -29,6 +29,15 @@ This section applies to both self-hosted engine and standalone {engine-name} env
 :local_database_upgrade_ff!:
 ////
 
+[id="upgrading-self-hosted-engine-environment"]
+== Upgrading a self-hosted engine environment
+:SHE_upgrade:
+
+include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+2]
+
+include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+2]
+:SHE_upgrade!:
+
 [id="upgrading-standalone-engine-local-database-environment"]
 == Upgrading a standalone {engine-name} local database environment
 :local_database_upgrade:
@@ -46,15 +55,6 @@ include::assembly-Remote_Upgrading_from_4-3.adoc[leveloffset=+2]
 
 include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+2]
 :remote_database_upgrade!:
-
-[id="upgrading-self-hosted-engine-environment"]
-== Upgrading a self-hosted engine environment
-:SHE_upgrade:
-
-include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+2]
-
-include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+2]
-:SHE_upgrade!:
 
 [id="updates-between-minor-releases"]
 == Updates between minor releases

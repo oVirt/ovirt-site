@@ -3294,19 +3294,19 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <div class="ulist">
 <ul>
 <li>
-<p><code>None</code> - runs without any CPU pinning.</p>
+<p><code>None</code> - Runs without any CPU pinning.</p>
 </li>
 <li>
-<p><code>Manual</code> - available only when the virtual machine is pinned to a Host.</p>
+<p><code>Manual</code> - Runs a manually specified virtual CPU on a specific physical CPU and a specific host. Available only when the virtual machine is pinned to a Host.</p>
 </li>
 <li>
-<p><code>Resize and Pin NUMA</code> - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.</p>
+<p><code>Resize and Pin NUMA</code> - Resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.</p>
 </li>
 <li>
-<p><code>Dedicated</code> - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
+<p><code>Dedicated</code> - Exclusively pins virtual CPUs to host physical CPUs. Available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
 </li>
 <li>
-<p><code>Isolate Threads</code> - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
+<p><code>Isolate Threads</code> - Exclusively pins virtual CPUs to host physical CPUs. Each virtual CPU gets a physical core. Available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
 </li>
 </ul>
 </div>
@@ -11805,19 +11805,19 @@ You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragg
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p><code>None</code> - runs without any CPU pinning.</p>
+<p><code>None</code> - Runs without any CPU pinning.</p>
 </li>
 <li>
-<p><code>Manual</code> - available only when the virtual machine is pinned to a Host.</p>
+<p><code>Manual</code> - Runs a manually specified virtual CPU on a specific physical CPU and a specific host. Available only when the virtual machine is pinned to a Host.</p>
 </li>
 <li>
-<p><code>Resize and Pin NUMA</code> - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.</p>
+<p><code>Resize and Pin NUMA</code> - Resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.</p>
 </li>
 <li>
-<p><code>Dedicated</code> - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
+<p><code>Dedicated</code> - Exclusively pins virtual CPUs to host physical CPUs. Available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
 </li>
 <li>
-<p><code>Isolate Threads</code> - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
+<p><code>Isolate Threads</code> - Exclusively pins virtual CPUs to host physical CPUs. Each virtual CPU gets a physical core. Available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.</p>
 </li>
 </ul>
 </div></div></td>

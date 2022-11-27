@@ -1855,7 +1855,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Double-click <code>virtio-win-gt-x64.msi</code> or <code>virtio-win-gt-x86.msi</code>.</p>
+<p>Double-click <code>virtio-win-guest-tools.exe</code>.</p>
 </li>
 <li>
 <p>Click <b class="button">Next</b> at the welcome screen.</p>
@@ -1865,9 +1865,6 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 </li>
 <li>
 <p>When installation is complete, select <strong>Yes, I want to restart my computer now</strong> and click <strong>Finish</strong> to apply the changes.</p>
-</li>
-<li>
-<p>After the virtual machine reboots, open the CD-ROM and go to the <code class="filename">guest-agent</code> directory and double-click <code class="filename">qemu-ga-x86_64.msi</code> or <code class="filename">qemu-ga-i386.msi</code>, to install qemu-ga, the Qemu guest agent.</p>
 </li>
 </ol>
 </div>
@@ -5800,18 +5797,10 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </div>
 </li>
 <li>
-<p>To install the guest agents and drivers, or just the drivers, use <code>virtio-win-gt-x64.msi</code>:</p>
+<p>To reinstall the drivers, use <code>virtio-win-gt-x64.msi</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre>C:\WINDOWS\system32&gt;msiexec.exe /i D:\virtio-win-gt-x64.msi /passive /norestart</pre>
-</div>
-</div>
-</li>
-<li>
-<p>To reinstall the guest agents, use <code>virtio-win-guest-tools.exe</code>:</p>
-<div class="listingblock">
-<div class="content">
-<pre>D:\installer\virtio-win-guest-tools.exe /passive /norestart</pre>
 </div>
 </div>
 </li>

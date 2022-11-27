@@ -26,11 +26,10 @@ After you install the package, the ISO file is located in [filename]`/usr/share/
 . Run the installer.
 +
   To install with the GUI, complete the following steps:::
-  .. Double-click `virtio-win-gt-x64.msi` or `virtio-win-gt-x86.msi`.
+  .. Double-click `virtio-win-guest-tools.exe`.
   .. Click btn:[Next] at the welcome screen.
   .. Follow the prompts in the installation wizard.
   .. When installation is complete, select *Yes, I want to restart my computer now* and click *Finish* to apply the changes.
-  .. After the virtual machine reboots, open the CD-ROM and go to the [filename]`guest-agent` directory and double-click [filename]`qemu-ga-x86_64.msi` or [filename]`qemu-ga-i386.msi`, to install qemu-ga, the Qemu guest agent.
 
   To install silently with the command line, complete the following steps:::
   .. Open a command prompt with Administrator privileges.

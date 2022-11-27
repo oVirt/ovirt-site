@@ -24,11 +24,11 @@ If you define *NUMA Pinning*, the default migration mode is *Allow manual migrat
 . Select *Strict*, *Preferred*, or *Interleave* from the *Tune Mode* drop-down list in each NUMA node. If the selected mode is *Preferred*, the *NUMA Node Count* must be set to `1`.
 . You can also set the NUMA pinning policy automatically by selecting *Resize and Pin NUMA* from the CPU Pinning Polcy drop-down list under the *CPU Allocation* settings in the *Resource Allocation* tab:
 +
-* `None` - runs without any CPU pinning.
-* `Manual` - available only when the virtual machine is pinned to a Host.
-* `Resize and Pin NUMA` - resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.
-* `Dedicated` - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
-* `Isolate Threads` - the selected CPU pinning policy is available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
+* `None` - Runs without any CPU pinning.
+* `Manual` - Runs a manually specified virtual CPU on a specific physical CPU and a specific host. Available only when the virtual machine is pinned to a Host.
+* `Resize and Pin NUMA` - Resizes the virtual CPU and NUMA topology of the virtual machine according to the Host, and pins them to the Host resources.
+* `Dedicated` - Exclusively pins virtual CPUs to host physical CPUs. Available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
+* `Isolate Threads` - Exclusively pins virtual CPUs to host physical CPUs. Each virtual CPU gets a physical core. Available for cluster compatibility level 4.7 or later. If the virtual machine has NUMA enabled, all nodes must be unpinned.
 . Click btn:[OK].
 
 

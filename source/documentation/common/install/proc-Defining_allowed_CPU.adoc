@@ -1,0 +1,21 @@
+:_content-type: PROCEDURE
+[id="proc-proc-Defining_allowed_CPU_{context}"]
+= Defining allowed CPU types in Self-hosted Engine deployment
+
+[role="_abstract"]
+
+
+
+.Procedure
+
+. Create a file named deploy.json that looks like the following, and provide it to the `hosted-engine --deploy` process.
++
+----
+[root@host ~]# cat deploy.json
+{
+	"he_cluster_cpu_type": "Intel Broadwell Family"
+}
+
+[root@host ~]# hosted-engine --deploy --ansible-extra-vars=@/root/deploy.json
+----
+. A list of allowed CPU types can be found in link:https://github.com/oVirt/ovirt-engine/blob/master/packaging/dbscripts/upgrade/pre_upgrade/0000_config.sql#L427[list of allowed CPU types for RHV 4.4 SP1]

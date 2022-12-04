@@ -155,4 +155,5 @@ ifndef::parent-context[:!context:]
 
 [appendix]
 include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]
+include::common/install/proc-Defining_allowed_CPU.adoc[leveloffset=+1]
 include::common/collateral_files/legal-notice.adoc[leveloffset=+1]

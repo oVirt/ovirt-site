@@ -10,20 +10,23 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png" alt="oVirt Engine Administration panel screenshot">
 
-oVirt 4.5.3 is intended for production use and is available for the following platforms:
+oVirt 4.5.4 is intended for production use and is available for the following platforms:
 
 Engine:
-- Red Hat Enterprise Linux 8.6 (or similar)
+- Red Hat Enterprise Linux 9.1 (or similar)
+- Red Hat Enterprise Linux 8.7 (or similar)
 - CentOS Stream 8
+- CentOS Stream 9
 
 Hosts:
-- Red Hat Enterprise Linux 8.6 (or similar)
-- oVirt Node (based on CentOS Stream)
+- Red Hat Enterprise Linux 8.7 (or similar)
 - CentOS Stream 8
-- Red Hat Enterprise Linux 9.0 (or similar, non UEFI hosts, Tech Preview)
-- CentOS Stream 9 (non UEFI hosts, Tech Preview)
+- oVirt Node based on CentOS Stream 8
+- Red Hat Enterprise Linux 9.1 (or similar, non UEFI hosts)
+- CentOS Stream 9 (non UEFI hosts)
+- oVirt Node based on CentOS Stream 9 (non UEFI hosts)
 
-See the [Release Notes for oVirt 4.5.3](/release/4.5.3/).
+See the [Release Notes for oVirt 4.5.4](/release/4.5.4/).
 
 <div class="row"></div>
 
@@ -62,7 +65,7 @@ For a standalone engine this means basically:
 #### Red Hat Enterprise Linux, CentOS Linux
 
 {:.instructions}
-1.  If you are going to install on Red Hat Enterprise Linux 8.6 or derivatives,
+1.  If you are going to install on Red Hat Enterprise Linux 8.7 or derivatives,
     please read [Installing on RHEL or derivatives](/download/install_on_rhel.html) first.
 
 2.  Add the official oVirt repository.

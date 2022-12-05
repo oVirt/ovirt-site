@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SPICERelatedFeatures | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="SPICERelatedFeatures" />
+<meta name="author" content="Andrew Cathrow" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3092/develop/release-management/features/virt/spicerelatedfeatures.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3092/develop/release-management/features/virt/spicerelatedfeatures.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SPICERelatedFeatures" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Andrew Cathrow" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Andrew Cathrow"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"SPICERelatedFeatures","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3092/images/logo.svg"},"name":"Andrew Cathrow"},"url":"https://ovirt.github.io/ovirt-site/previews/3092/develop/release-management/features/virt/spicerelatedfeatures.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3092/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3092/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3092/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3092/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3092/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3092/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3092/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3092/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3092/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/228553f5b6a2308e918dc1a2593dd8ec?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/228553f5b6a2308e918dc1a2593dd8ec?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Andrew Cathrow">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Andrew Cathrow</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dan Kenigsberg">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Einav Cohen">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Einav Cohen</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/92517631861d6438bbc8b312cf9ef0a7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Oved Ourfali">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Oved Ourfali</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3092/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="spice-related-features">SPICE related features</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This pages describes the changes needed on oVirt to support new SPICE features in 3.1.</p>
+
+<h2 id="background">Background</h2>
+
+<p>Currently oVirt use the spicec client for remote Spice connections and RHEV adds the proprietary Incentives Pro USB redirector solution to add support for remote USB. Since Fedora 16, the QEMU and Spice projects have added native support for USB remoting and are moving to a new client, virt-viewer, based on spice-gtk that includes more features and is based on a more portable code-base that will extend from Linux and Windows to more platforms in the future such as Mac OS. The virt-viewer client also includes support for the new native USB support in Spice.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Oved Ourfali (Ovedo)</li>
+  <li>Email: <a href="mailto:ovedo@redhat.com">ovedo@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>In design phase</li>
+  <li>Last updated date: March 26th, 2012.</li>
+</ul>
+
+<h2 id="high-level-features">High Level Features</h2>
+
+<p>In the upcoming version, SPICE is about to perform the following changes/additions:</p>
+
+<ol>
+  <li>New Spice Client</li>
+  <li>Native USB Support</li>
+  <li>Multimonitor Support (basic)</li>
+  <li>WAN Support</li>
+</ol>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<h3 id="new-spice-client">New Spice Client</h3>
+
+<p>The Linux and Windows <em>spicec</em> based client will be replaced by the <em>remote-viewer</em> which is based on spice-gtk. The ActiveX and spice-xpi packages will be updated to include the new client which is backwards compatible with spicec - allowing remote-viewer to be used for RHEV 3 based deployments as well as RHEV 3.1.</p>
+
+<h3 id="usb-support">USB Support</h3>
+
+<p>For cluster level 3.1 (based on RHEL 6.3 support) native KVM/Spice USB redirection can be used in addition to the legacy Incentives Pro.</p>
+
+<p>The current Incentives Pro solution needs to be supported for both 3.0 and 3.1 cluster levels. <em>Note :</em>The native USB support in Spice and KVM currently does not support live migration.</p>
+
+<ul>
+  <li>New/Edit VM dialog / “Console” section behavior changes:
+    <ul>
+      <li>“USB Policy” drop down label will change to “USB Support”</li>
+      <li>“USB Support” selected value by default will always be “Disabled”</li>
+      <li><strong>For 3.0 Cluster level</strong>
+        <ul>
+          <li>For non-Windows VMs: “USB Support” field will be grayed out with the “Disabled” value selected.</li>
+          <li>For Windows VMs: “USB Support” field will contain only the “Legacy” value (in addition to “Disabled”).</li>
+        </ul>
+      </li>
+      <li><strong>For 3.1 Cluster level</strong>
+        <ul>
+          <li>For Linux VMs: “USB Support” field will contain only the “Native” value (in addition to “Disabled”).</li>
+          <li>For non-Windows VMs: “USB Support” field will contain both “Native” and “Legacy” values (in addition to “Disabled”).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>For both cluster 3.0 and 3.1 level “USB Support” should only be enabled if Spice is selected as remote protocol.</p>
+
+<p>Documentation and online help should indicate that “Legacy USB support“ is deprecated and will not be supported in future releases of RHEV. When a user selects SPICE USB support we should present a warning that migration is NOT supported using SPICE USB redirection. Note: We need to disable live migration when using SPICE migration it will fail regardless of whether a device is being redirected. Targeting RHEL 6.4 to address this <a href="https://bugzilla.redhat.com/show_bug.cgi?id=805172">https://bugzilla.redhat.com/show_bug.cgi?id=805172</a></p>
+
+<p>A new user editable configuration value should be added to vdc_options to specify the number of USB slots to be exposed to the virtual machine. The default should be 4</p>
+
+<p><strong>Note:</strong> It is suggested that we make this a system wide value, since we should be able to dynamically change this in a later implementation.</p>
+
+<p>The following libvirt XML example shows adding 4 USB devices to a domain xml. The slot number would need to be adjusted based on the next available pci slot in the system. The maximum number is 6 unless we configure multiple controllers. If a usb tablet device is configured then it will take one device, however this should not be required to be configured in a spice environment with the vdagent present.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;controller type='usb' index='0' model='ich9-ehci1'/&gt;
+    &lt;controller type='usb' index='0' model='ich9-uhci1'/&gt;
+    &lt;controller type='usb' index='0' model='ich9-uhci2'/&gt;
+    &lt;controller type='usb' index='0' model='ich9-uhci3'/&gt;
+
+    &lt;redirdev bus='usb' type='spicevmc'/&gt;  
+    &lt;redirdev bus='usb' type='spicevmc'/&gt;  
+    &lt;redirdev bus='usb' type='spicevmc'/&gt;  
+    &lt;redirdev bus='usb' type='spicevmc'/&gt;  
+</code></pre></div></div>
+
+<ul>
+  <li>Each of the <code class="language-plaintext highlighter-rouge">redirdev</code> devices should be added to the <code class="language-plaintext highlighter-rouge">devices</code> list passed by Engine to Vdsm. Vdsm should be taught to recognise them.</li>
+</ul>
+
+<p>The native qemu/Spice USB support presents an emulated echi and uchi controller to the guest. Virtual machines do not require any in-guest agents or drivers for native USB.</p>
+
+<p>For native qemu/spice USB support all client to guest communication happens through the existing Spice channel so no other ports need to be opened on the guest or host.</p>
+
+<p>The new Spice-XPI and Spice-ActiveX packages will wrap both the new remote-viewer client that provides support for native USB and the legacy Incentives Pro USB client. If legacy USB solution is to be used then the existing parameters can be passed as usual eg. URL &amp; filter string. For native USB the client will read the existing filter string parameter. There is no need to explicitly enable the native USB support in the ActiveX/XPI. If legacy support parameters are not passed then the remote-viewer client will try to connect to a Spice USB channel, if no USB channel is found then USB support will be disabled automatically.</p>
+
+<h3 id="multi-monitor-support-for-linux-guests-basic">Multi Monitor support for Linux guests (Basic)</h3>
+
+<p>Currently validations in the user interface prevent configuring multiple monitors for Linux guests. The backend logic permits multiple monitors. The front end logic needs to be updated to allow configuration of multiple monitors for Linux guests. This setting can be enabled for 3.0 and 3.1 cluster levels.</p>
+
+<p><strong>Note :</strong> Multiple monitors in Linux requires specific in-guest configuration using Xinerama and has a number of limitations (eg. X server needs to be restarted). These limitations need to be documented and included in the product documentation.</p>
+
+<p>We are currently targeting RHEL 6.4 to support multihead QXL devices that would allow xrandr support in the guest for a more complete multihead solution. Multihead QXL device would require a (minot) change in Engine-Vdsm API.</p>
+
+<h3 id="wan-support">WAN Support</h3>
+
+<p>Spice includes a number of features to improve performance on network connections with reduced bandwidth or increased latency. Some of these features are automatic, for example increasing the image compression others have to be explicitly enabled. The spice client supports two options that should may be configured to improve user experience in WAN environments.</p>
+
+<ul>
+  <li><em>Color depth which can be set to 16 or 32bits</em></li>
+  <li><em>Disable effects – which can be set to all, font-smooth, wallpaper or animation</em></li>
+</ul>
+
+<p>In the user portal the console options dialog should be extended to include a check box for <em>“Enable WAN options”</em>. These options should only be enabled for Windows virtual machines. Two site-wide configuration options should be added to allow the administrator to define the WAN settings within the ovirt/rhev configuration tool. The suggested names are:</p>
+
+<ul>
+  <li><em>WAN-DisableEffects</em> - default to animation. Options: font-smooth, wallpaper, animation or all</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><em>WAN-ColorDepth</em> – default to 16. Options: 16</td>
+          <td>32</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>If selected by the user then the two WAN options should be passed to the XPI / ActiveX components.</p>
+
+<h2 id="design">Design</h2>
+
+<h3 id="usb-support-1">USB Support</h3>
+
+<h4 id="engine">Engine</h4>
+
+<ol>
+  <li>Currently, there is a USB Policy Enum with two values:
+    <ul>
+      <li>Enabled</li>
+      <li>Disabled</li>
+    </ul>
+  </li>
+  <li>We will change this Enum to contain the following values:
+    <ul>
+      <li>EnabledLegacy</li>
+      <li>Disabled</li>
+      <li>EnabledNative</li>
+    </ul>
+  </li>
+  <li>Validations: no legacy support on Linux VMs, no native support in 3.0 clusters.</li>
+  <li>Config entries: NumberOfUSBSlots - specify the number of USB slots to be exposed to the virtual machine.</li>
+  <li>The Enum will support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new option). So, OVF import/export will work as today.</li>
+  <li>No DB changes are needed in order to support this kind of change.</li>
+</ol>
+
+<h4 id="gui">GUI</h4>
+
+<p>Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:</p>
+
+<p><img src="/ovirt-site/previews/3092/images/wiki/Neweditvmdialogusb.png" alt="" /> <img src="/ovirt-site/previews/3092/images/wiki/Neweditvmdialogusbnative.png" alt="" /></p>
+
+<h4 id="rest-api">REST API</h4>
+
+<ul>
+  <li>
+    <p>Today, the API contains USB definitions as follows (both in VMs and Templates):</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;xs:complexType name="Usb"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>In order to support two kinds of USB support, we add a new string element named “type”, which should contain either “Legacy” or “Native”:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;xs:complexType name="Usb"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/&gt;
+    &lt;xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Some notes on the new element:</p>
+    <ul>
+      <li>It is a temporary one, as in the future only the native option will be supported.</li>
+      <li>It is relevant only in case the “enabled” element is “true”</li>
+      <li>It is relevant only in VMs/Templates of cluster level 3.1 and above. For cluster level 3.0, if USB is enabled, “Legacy” will be used automatically.</li>
+      <li>API-Engine mapping: If “enabled” is “true” then “Legacy” will be mapped to EnabledLegacy, and “Native” will be mapped to EnabledNative. If “enabled” is “false” then it will be mapped to Disabled (regardless of the value in the “type” element).</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="comments-and-discussion">Comments and Discussion</h2>
+
+<p>Issues/Questions:</p>
+
+<ol>
+  <li>USB support - today it is only on desktops. Should it be supported on servers as well?
+    <ul>
+      <li>Answer - Yes</li>
+    </ul>
+  </li>
+  <li>USB filtering - how will the filter be configured? Today it is done via some windows application.
+    <ul>
+      <li>Same application as we are using for 3.0. Filter params are passed in the same was as 3.0/2.2</li>
+    </ul>
+  </li>
+  <li>Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+    <ul>
+      <li>Answer - No</li>
+      <li>Today this logic is done in the VDSM level. It would be best if we could leave the logic there, changing it accordingly.</li>
+    </ul>
+  </li>
+  <li>Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
+    <ul>
+      <li>Answer - Remote viewer is the replacement for SPICEC it will be packaged as an RPM for Linux user and pulled in via dependencies by spice-xpi</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Future Work:</p>
+
+<ol>
+  <li>Support server-side USB filtering.</li>
+  <li>Persisting the protocol options per VM.</li>
+</ol>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3092/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3092/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3092/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3092/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/spicerelatedfeatures.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/spicerelatedfeatures.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

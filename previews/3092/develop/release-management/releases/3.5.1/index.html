@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.5.1 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.5.1 Release Notes" />
+<meta name="author" content="Alon Bar-Lev" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3092/develop/release-management/releases/3.5.1/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3092/develop/release-management/releases/3.5.1/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.5.1 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alon Bar-Lev" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Alon Bar-Lev"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.5.1 Release Notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3092/images/logo.svg"},"name":"Alon Bar-Lev"},"url":"https://ovirt.github.io/ovirt-site/previews/3092/develop/release-management/releases/3.5.1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3092/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3092/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3092/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3092/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3092/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3092/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3092/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3092/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3092/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3092/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3092/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3092//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3092/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/73dbd7b0a4e813ae529563511ec671b4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Alon Bar-Lev">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alon Bar-Lev</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bdc8ca08102747efb50537d34ab6d73c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bdc8ca08102747efb50537d34ab6d73c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Brian Proffitt">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Brian Proffitt</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/a29d28811a6b9fc71f135fc57cbb3ee4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Yedidyah Bar David">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yedidyah Bar David</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/aa67dddf03cc269feeaf822b83e8c1d6?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/aa67dddf03cc269feeaf822b83e8c1d6?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Simone Tiraboschi">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Simone Tiraboschi</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-351-release-notes">oVirt 3.5.1 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of oVirt 3.5.1 release as of January 21, 2015.</p>
+
+<p>oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).</p>
+
+<p>To find out more about features which were added in previous oVirt releases, check out the <a href="/ovirt-site/previews/3092/develop/release-management/releases/">previous versions release notes</a>.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-351-release-notes" id="markdown-toc-ovirt-351-release-notes">oVirt 3.5.1 Release Notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+        </ol>
+      </li>
+      <li><a href="#whats-new-in-351" id="markdown-toc-whats-new-in-351">What’s New in 3.5.1?</a>        <ol>
+          <li><a href="#red-hat-enterprise-linux-7-and-centos-7-support" id="markdown-toc-red-hat-enterprise-linux-7-and-centos-7-support">Red Hat Enterprise Linux 7 and CentOS 7 Support</a></li>
+          <li><a href="#ovirt-engine-extensions" id="markdown-toc-ovirt-engine-extensions">oVirt Engine Extensions</a>            <ol>
+              <li><a href="#log4j-logger-bridge" id="markdown-toc-log4j-logger-bridge">Log4J logger bridge</a></li>
+              <li><a href="#ldap-authentication-and-authorization" id="markdown-toc-ldap-authentication-and-authorization">LDAP Authentication and Authorization</a></li>
+              <li><a href="#misc-authentication-and-authorization-utility" id="markdown-toc-misc-authentication-and-authorization-utility">Misc Authentication and Authorization utility</a></li>
+            </ol>
+          </li>
+          <li><a href="#hosted-engine" id="markdown-toc-hosted-engine">Hosted Engine</a></li>
+        </ol>
+      </li>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a></li>
+      <li><a href="#cve-fixed" id="markdown-toc-cve-fixed">CVE Fixed</a></li>
+      <li><a href="#bugs-fixed" id="markdown-toc-bugs-fixed">Bugs fixed</a>        <ol>
+          <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+          <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+          <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">ovirt-hosted-engine-ha</a></li>
+          <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">ovirt-hosted-engine-setup</a></li>
+          <li><a href="#ovirt-image-uploader" id="markdown-toc-ovirt-image-uploader">ovirt-image-uploader</a></li>
+          <li><a href="#ovirt-iso-uploader" id="markdown-toc-ovirt-iso-uploader">ovirt-iso-uploader</a></li>
+          <li><a href="#ovirt-log-collector" id="markdown-toc-ovirt-log-collector">ovirt-log-collector</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p>In order to install it on a clean system, you need to install</p>
+
+<p><code class="language-plaintext highlighter-rouge"># yum localinstall </code><a href="http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm</code></a></p>
+
+<p>If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.</p>
+
+<p>Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.</p>
+
+<p>If you are upgrading from oVirt &lt; 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see <a href="/ovirt-site/previews/3092/develop/release-management/releases/3.4.1/">oVirt 3.4.1 release notes</a> for upgrade instructions.</p>
+
+<p>For upgrading now you just need to execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update "ovirt-engine-setup*"
+  # engine-setup
+</code></pre></div></div>
+
+<h2 id="whats-new-in-351">What’s New in 3.5.1?</h2>
+
+<h3 id="red-hat-enterprise-linux-7-and-centos-7-support">Red Hat Enterprise Linux 7 and CentOS 7 Support</h3>
+
+<p>Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or similar) has been added providing custom packaging of JBoss Application Server 7.</p>
+
+<h3 id="ovirt-engine-extensions">oVirt Engine Extensions</h3>
+
+<p>More information available at <a href="/ovirt-site/previews/3092/develop/release-management/features/infra/aaa.html">Features/AAA</a>.</p>
+
+<h4 id="log4j-logger-bridge">Log4J logger bridge</h4>
+
+<p>Log4j bridge for engine log, can be used to redirect log records to any appender log4j supports. Package name is ovirt-engine-extension-logger-log4j, documentation is available at <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-logger-log4j.git;a=blob;f=README;hb=HEAD">1</a>.</p>
+
+<h4 id="ldap-authentication-and-authorization">LDAP Authentication and Authorization</h4>
+
+<p>A new LDAP implementation for ovirt-engine, replaces the legacy Kerberos/LDAP implementation. The new implementation is customizable, has greater support matrix for LDAP features and enable adding new LDAP schemes. Package name is ovirt-engine-extension-aaa-ldap, documentation is available at <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD">2</a>.</p>
+
+<h4 id="misc-authentication-and-authorization-utility">Misc Authentication and Authorization utility</h4>
+
+<p>Extensions required mainly for enabling single signon of ovirt-engine with environments such as Kerberos. Package name is ovirt-engine-extension-aaa-misc, LDAP specific integration is documented within the ovirt-engine-extension-aaa-ldap package <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD#l158">3</a>, and in package specific documents <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.http;hb=HEAD">4</a><a href="http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.mapping;hb=HEAD">5</a>.</p>
+
+<h3 id="hosted-engine">Hosted Engine</h3>
+
+<p><em>hosted-engine –deploy</em> now uses the host’s hostname as the address to use when adding it to the engine, rather than the IP address of the selected interface. This means that the hostname must be resolvable and accessible for HA migration to work, and will also show e.g. in <em>hosted-engine –vm-status</em>.</p>
+
+<h2 id="known-issues">Known issues</h2>
+
+<ul>
+  <li>
+    <p>NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn’t wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with</p>
+
+    <p>[ INFO  ] Restarting nfs services
+  [ ERROR ] Failed to execute stage ‘Closing up’: Command ‘/bin/systemctl’ failed to execute</p>
+  </li>
+</ul>
+
+<p>Retrying (engine-cleanup, engine-setup again) it’s enough to avoid it cause the kernel module it’s always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it’s enough to avoid it at all.</p>
+
+<h2 id="cve-fixed">CVE Fixed</h2>
+
+<p><a href="https://access.redhat.com/security/cve/CVE-2014-3561">CVE-2014-3561</a> ovirt-engine-log-collector: database password disclosed in process listing</p>
+
+<h2 id="bugs-fixed">Bugs fixed</h2>
+
+<h3 id="ovirt-engine">oVirt Engine</h3>
+
+<p><strong>Fixed in oVirt 3.5.1.1 async release</strong></p>
+<ul>
+  <li>NPE in AddDiskCommand during ovf volume creation.
+ <strong>Fixed in oVirt 3.5.1 RC1</strong></li>
+  <li>engine [TEXT]: unclear error message when extend storage domain fails</li>
+  <li>engine does not log osinfo file having already used id.value</li>
+  <li>[engine-webadmin] uninformative error on UI when remove ISO domain with format fails due to VDSNetworkException</li>
+  <li>[RFE] [dwh] add trigger to stop etl connection via engine db value.</li>
+  <li>[RFE] Virtual disk .meta file should have Alias field</li>
+  <li>Do not allow migration when ‘Use Host CPU’ flag checked</li>
+  <li>Faulty storage allocation checks when merging a snapshot</li>
+  <li>Faulty storage check when adding a template from a VM with disks</li>
+  <li>Faulty storage allocation checks when importing a disk from glance</li>
+  <li>OSInfo file lacks validation for legal values</li>
+  <li>engine-upgrade-check has no man page</li>
+  <li>sPAPR VLAN interfaces are accounted as PCI devices</li>
+  <li>[engine-backend] snapshot creation task (createVolume) is not polled by engine, which causes live storage migration flow to keep running in case of a failure of vdsm to complete the createVolume task</li>
+  <li>[AAA] Proper audit log handling for expired account</li>
+  <li>Change CD list is still available even when ISO domain is inactive</li>
+  <li>Single Disk Snapshot does not behave intuitively</li>
+  <li>Hot plug CPU - allow over-commit</li>
+  <li>[AAA] REST API request - add user different from admin to internal domain passed</li>
+  <li>HotUnplugCpuSupported raw in in vdc_option table is empty.</li>
+  <li>Block Live Storage Migration in case qemu-kvm doesn’t support live snapshoting</li>
+  <li>[AAA] builtin kerbldap provider does not show error if search fails</li>
+  <li>3.4 upgrade does not set correct iptables rules when serving ISO domain from RHEV-M host</li>
+  <li>Create template from vm with empty disk alias should block with canDoAction</li>
+  <li>[Scale] - updatevdsdynamic running too slow on scale setup</li>
+  <li>foreman-integration: double Power Management setup</li>
+  <li>Add a list of changed fields for Edit running VM</li>
+  <li>The Balloon driver on VM … on host … is requested but unavailable.</li>
+  <li>oVirt does not support creation of vm with block disks from a thin-provision file snapshot</li>
+  <li>[AAA] Unable to assign permissions to user</li>
+  <li>Admin Portal: Unresponsive script leading to Virtual Machines not being displayed any more</li>
+  <li>[fr_FR][en_US][Admin Portal] Misalignment in ‘Copy Quota’ dialog.</li>
+  <li>Fields under “Start Running On” in the “Edit Virtual Machine” window should be greyed out when the VM is up</li>
+  <li>Resized columns in main tabs do not save their user configured size</li>
+  <li>[oVirt][Foreman] return a proper error message on root password policy violation</li>
+  <li>[engine-setup] explain - Substitute <code class="language-plaintext highlighter-rouge">&lt;country&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;organization&gt;</code> to suite your environment</li>
+  <li>“There is no over-utilized host in cluster “ repeated every minute</li>
+  <li>Live deletion of a snapshot (live merge) is blocked(CDA) when attempting the removal from snapshot overview</li>
+  <li>[ImportDomain][LOG]Confusing ERROR logs “Could not get populated disk” when importing a domain</li>
+  <li>[Notification][SNMP] modify the oid schema for SNMP notification - to be usable</li>
+  <li>[engine-backend] [importDomain] VM creation out of an imported template is blocked in CDA</li>
+  <li>Import storage domain doesn’t clear ,”storage_server_connections”, sql tab entry upon unsuccessful completion</li>
+  <li>[ImportDomain] Add a warnning when detaching a Storage Domain</li>
+  <li>[Import Domain] When a Storage Domain is moved to maintenance the OVF store disk should be updated synchronously</li>
+  <li>“VdcBLLException: NO_UP_SERVER_FOUND” in seen in engine logs</li>
+  <li>[ImportDomain] Add warning if VM contains shareable or Direct Lun disk before detach the Storage Domain</li>
+  <li>[ImportDomain] VM with no disks should be part of the OVF_STORE disk</li>
+  <li>[ImportDomain] Register of a Template with copied disk should be supported</li>
+  <li>Fail to start vm with payload.</li>
+  <li>[scale] - “Unable to evaluate payload” when loading cluster policy</li>
+  <li>[RHEV-M] System is not power on after a fencing operation in power management (agent: ipmilan)</li>
+  <li>Failure to Attach ISO domain causes SPM failover</li>
+  <li>[engine-setup] setup fails if the user decide to configure websocket proxy without having installed websocketproxy rpm</li>
+  <li>Optimize start button should be available only when VM is down</li>
+  <li>ConsoleToggleFullScreenKeys and ConsoleReleaseCursorKeys are not setable</li>
+  <li>[engine-setup] an upgrade via engine-setup on a system with iptables closes postgres port preventing remote components to work</li>
+  <li>Can set dual NFS mount options when creating new NFS data domain</li>
+  <li>logon command via REST, try logon to RHEV-M Authentication and not to original user</li>
+  <li>[scale] - getdisksvmguid hit the performance due to all_disks_including_snapshots view</li>
+  <li>[TEXT] Inconsistent terminology used for Data Centers in Add Virtual Disk</li>
+  <li>No error thrown in common_sp functions in case column or table does not exists</li>
+  <li>Description of affinity group not loaded to edit affinity group tab</li>
+  <li>[Edit VM] &gt; Irrelevant and wrong pop-up Operation canceled while moving VM from cluster to cluster</li>
+  <li>[ppc64] Cannot create Cluster. This resilience policy is not supported in this CPU architecture.</li>
+  <li>rhev-m stops syncing the VM statuses after massive live VM migration which fails.</li>
+  <li>New CPU QoS Dialog UI issues</li>
+  <li>In Data Center QOS subtab ‘edit’ button is available for multiple selection of QOS</li>
+  <li>Unclear warning when removing multiple QoS</li>
+  <li>out of frame load balancer boxes</li>
+  <li>Impossible to get schedulerpolicyunit by id via REST</li>
+  <li>medium Instance Type mismatch feature page</li>
+  <li>Faulty storage allocation checks when adding a VM Pool with VMs.</li>
+  <li>[engine-webadmin] DC ‘Type’ field name should be replaced with ‘Storage Type’</li>
+  <li>Rest-api’s add disk logged with NONE variable,Adding Disk <code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code></li>
+  <li>Display custom error page if reports is not installed</li>
+  <li>NPE when VM initialization doens’t contain boot protocol</li>
+  <li>[UI] Import Virtual Machine’s menu box is not aligned</li>
+  <li>AddVmFromScratchCommand can Fail to create a new Vm when executed from rest-api,py-sdk</li>
+  <li>Force select SPM operation event is showing <code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code> instead of the data center name</li>
+  <li>REST API fails to return the host ID of VM which is in unknown state due to node crash</li>
+  <li>Upgrading a DC to 3.5 does not create default storage profiles</li>
+  <li>[engine-backend] [blkio-support] size units are not corralated between webadmin and backend for storage QOS</li>
+  <li>migrate VM fail on start vm on destination host.</li>
+  <li>[engine-backend] [blkio-support] Hotplug disk doesn’t include ioTune attribute</li>
+  <li>Console buttons are still active after VM is launched (plugins only)</li>
+  <li>[events] Host memory usage exceeded defined threshold chaos - VDS_HIGH_MEM_USE vs USER_SUSPEND_VM_FINISH_FAILURE_WILL_TRY_AGAIN</li>
+  <li>ERROR [org.ovirt.engine.core.bll.AddVmPoolWithVmsCommand] (org.ovirt.thread.pool-7-thread-35) [679d023] Command org.ovirt.engine.core.bll.AddVmPoolWithVmsCommand throw exception: java.lang.NullPointerException</li>
+  <li>[cli]storage_manager element is not validated correctly</li>
+  <li>Run vm in preferred mode drop libvirt error</li>
+  <li>[TEXT ONLY] During engine-setup, the Application Mode string ordering should be tweaked</li>
+  <li>Double vnuma nodes on pinning, when vm run</li>
+  <li>Numa pinning not work via REST</li>
+  <li>Webadmin UI in RHEVM 3.5 is slower by ~25% than in 3.4 (Firefox 31 on RHEL 6)</li>
+  <li>Assigning a Data Center for a cluster containing a Host, without Data Center assigned to the cluster (Since the previous DC was removed) causes an internal error</li>
+  <li>In case of using new template version (sealed with sysprep) for a pool, VMs get stuck in minisetup</li>
+  <li>[ImportDomain] Attempting to register an non exsistant VM via rest-api fails with NPE</li>
+  <li>Detach of local Storage Domain which is not master fails with the reason Storage Domain does not exists</li>
+  <li>The default VM - snapshot view has the columns spaced too widely appart</li>
+  <li>[TEXT] Failed delete of snapshot disks - message indicates (User: <code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code>)</li>
+  <li>Top search panel buttons and VM Status column are missing static HTML IDs (needed for Selenium testing)</li>
+  <li>Host SSH Fingerprint - “Fetched fingerprint successfully” shouldn’t be in red text</li>
+  <li>Windows 7 guests reports incorrect time after a cold restart.</li>
+  <li>[PPC] VMPool size update not working via REST</li>
+  <li>RemoveSnapshot is reported as failed due to an exception</li>
+  <li>Unable to get unregistered vms in SDK</li>
+  <li>NPE when adding QoS object without type_ to datacenter</li>
+  <li>Import File or Block Storage Domain should be locked in the memory</li>
+  <li>New Host dialog has a misaligned checkbox on Power Management tab</li>
+  <li>Prestarted VMs dissapear from UI after failure to restore snapshot once VM turns from Unknown status to Down</li>
+  <li>[rhevm-shell] memory_policy - ballooning unable to set</li>
+  <li>[Admin Portal][ppc64][Power mgmt] ipmi doesn’t work - Authentication type NONE not supported/Unable to obtain correct plug status or plug is not available</li>
+  <li>NPE in create disk flow</li>
+  <li>[Text] Detach Storage dialog has several text related issues</li>
+  <li>[Text] Attempting to remove a VM that is part of a VM pool notes “VM-Pool” instead of expected “VM Pool”</li>
+  <li>Inconsistent terminology used for Data Center (Data-Center) under the Data Center sub-tab of the Storage tab</li>
+  <li>Storage Domain maintenance dialog (Maintenance Storage Domain(s) has text and readability issues</li>
+  <li>The Import Conflict dialog has a Don’t Import option (no operation) and somewhat confusing text</li>
+  <li>The Message column width under the Events tab for the Basic View is extremely narrow (re-using the same width as on the Advanced View)</li>
+  <li>[engine-backend] Unclear error message for OVF_STORE disk creation</li>
+  <li>Cannot register rhev-h 3.4.z host to rhevm 3.5 due to protocol incompatibility</li>
+  <li>Reduce the list of “marked” fields on instance types</li>
+  <li>Faulty storage allocation checks when running VM with unplugged disks as stateless</li>
+  <li>[engine-webadmin] Cannot close pop-up windows with X button</li>
+  <li>API rsdl is missing the “snapshot id” flag in single snapshot preview - inconsistent with Rest API</li>
+  <li>[engine-backend] ActivateStorageDomainCommand fails on CDA for adding a new domain</li>
+  <li>Inhibit migrations RHEL7.0 -&gt; RHEL 6.5 (or equivalent: CentOS)</li>
+  <li>installing reports on separate server fails when providing ssh password to sign certificate</li>
+  <li>When ISO domain is attached to two DCs it appears twice in the storage tab</li>
+  <li>Misalignment in ‘New Cluster’ dialog -&gt; Cluster Policy [French language]</li>
+  <li>Cannot create pool of ppc64 VMs</li>
+  <li>null pointer exception when trying accessing /cdrom for non-existing VM</li>
+  <li>[osinfo] [ppc64] SLES 11 for Power doesn’t support virtio-scsi storage</li>
+  <li>[osinfo] [ppc64] SLES 11 for Power doesn’t support rtl-8139 network card</li>
+  <li>[RFE][osinfo] add rhel7/ppc64 into osinfo</li>
+  <li>GetAllFromVms stored function is inefficient</li>
+  <li>[PM] PM-Restart, host still down - ERROR [org.ovirt.engine.core.vdsbroker.ResourceManager] … CreateCommand failed: java.lang.NullPointerException</li>
+  <li>Failed to delete snapshot disk</li>
+  <li>[engine-webadmin] No warning that direct LUNs are not going to be part of a cloned VM</li>
+  <li>Adding 3.2 hosts to 3.5 cluster in RHEV-M 3.5 (vt5.1/el6) results in hung hosts</li>
+  <li>[Text] User messages concerning detaching a storage domain should say detach and not Detach.</li>
+  <li>[PPC][UX] balloon is sent for PPC VMs upon ImportVm from export domain command</li>
+  <li>CPU Shares custom uneditable in webadmin</li>
+  <li>User Portal is not fully rendered in Internet Explorer 8</li>
+  <li>IE8: Layout is broken on RHEVM welcome page and User Portal login page</li>
+  <li>[PPC][UX] balloon is sent for PPC VMs when creating VM from snapshot</li>
+  <li>[REST][CLI] Balloon on VM re-enabled on every API CALL for VM</li>
+  <li>[mla] query execution failed due to insufficient permissions for add disk as user in user level api</li>
+  <li>reboot from webadmin doesn’t work without guest agent</li>
+  <li>RHEV should not use SSLv3 encryption. Use TLS instead</li>
+  <li>SSL Stomp Reactor fails to connect with host during add host operation</li>
+  <li>[performance] - getVmDeviceByVmId hit the performance due to VdsUpdateRunTimeInfo</li>
+  <li>[PPC]-Can’t Hotplug/unplug VM nic while vm is running and has OS installed</li>
+  <li>Fail to de-serialize task with user entity</li>
+  <li>[scale] - ‘updateAllDiskImageDynamicWithDiskIdByVmId’ hit the performance</li>
+  <li>Navigating to the Images subtab of an inactive ISO storage domain results in an exception of type VdcBLLException with the error GetIsoListError</li>
+  <li>[PPC] Virtio images do not support hotplug</li>
+  <li>Incorrect message after failure of host deployment</li>
+  <li>Can’t add NIC to running/not running VM, after several VM migrations</li>
+  <li>Blank Template have an empty VM-Init</li>
+  <li>ui not responding sporadically</li>
+  <li>Removing a ISCSI Domain fails with Internal Server Error - java.lang.ArrayIndexOutOfBoundsException</li>
+  <li>User name isn’t added to the cloud-init file</li>
+  <li>Migration, suspend and memory snapshots are disabled in ppc64</li>
+  <li>GetAllRolesByUserIdAndGroupIds should not return duplicate rows</li>
+  <li>Engine does not free pending_vmem_size and pending_vcpus_count on migrate host, in case of VM migration failure.</li>
+  <li>inconsistent columns order in multiple views tables</li>
+  <li>Deleting all snapshot disks during a vdsm restart causes some of the snapshot disks to stay in locked status</li>
+  <li>Storage Type of an imported Storage Domain should be determined by the user instead from the meta data</li>
+  <li>[engine-backend] [importDomain] [iSCSI support] hosted-engine: import the hosted-engine’s storage domain is allowed</li>
+  <li>[engine-backend] hosted-engine: moving the hosted-engine host to maintenance is allowed although migrating the hosted-engine VM is blocked on CDA</li>
+  <li>the informations in General sub-tab of Clusters are empty when using other languages</li>
+  <li>Add new vm from template with cdrom payload via create fail on JsonMappingException</li>
+  <li>GWT debugger throws exceptions about incomplete HTML expression</li>
+  <li>[engine-backend] Image remains in LOCKED state after a failure to live migrate it due to CDA block</li>
+  <li>webadmin search bar vertical alignment is off</li>
+  <li>[AAA] Search for users in incorrectly configured external ldap domain fails with NPE</li>
+  <li>[RHEVM][FOREMAN-INTEGRATION] host stays on installingOS state after provision is done in satellite</li>
+  <li>allow all levels within engine.log appenders</li>
+  <li>[extapi] expose configuration file name to extension</li>
+  <li>Incorrect information on time zone in message during delete snapshot</li>
+  <li>Project does not build on fedora 21</li>
+  <li>snapshot support not re-checked once detected as not supported</li>
+  <li>[RFE] Add EL7 support to ovirt-engine</li>
+  <li>Set endAction try again to false on failure</li>
+  <li>[UX] Wrong message displayed during Live storage migration (contains <code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code>)</li>
+  <li>[JSONRPC] Extend size operation of an attached iSCSi domain, fail with CDA</li>
+  <li>Remove disk returns HTTP 404 in SDK</li>
+  <li>Enter Engine Database Password on DWH setup is not intuitive when setup is on a separate host</li>
+  <li>Introduction of new logging framework</li>
+  <li>[mla] User which don’t have permissions to view other users, can see those users when specify exact ID in REST API</li>
+  <li>Missing command ctor (Guid parameter) for CreateSnapshotFromTemplateCommand</li>
+  <li>IE9 - VM dialog: options in combo boxes ‘Cluster’ and ‘Based on Template’ are not aligned correctly</li>
+  <li>rhel 7 / rhev 3.4 host can not connect to iscsi storage with: ValueError: invalid literal for int() with base 10: ‘’</li>
+  <li>Can’t add disk to VM without specifying disk profile when the storage domain has more than one disk profile</li>
+  <li>CommandBase should not set end status for commands with callback</li>
+  <li>[engine-backend] Suspend VM fails with a NullPointerException</li>
+  <li>[JSONRPC]Live merge - failed to delete snapshot on 2nd attempt - first attempt was interrupted with shutdown of vm</li>
+  <li>Copying a template’s disk to a new storage domain succeeds but API/WebUI shows that disk instance multiple times</li>
+  <li>Logout must logout all sessions</li>
+  <li>Double backend login during frontend login</li>
+  <li>[engine-backend] Previewing a partial snapshot for a VM with a shared disk causes a NullPointerException failure</li>
+  <li>[engine-backend] Cloning a VM from a VM in preview snapshot mode fails with “disk profile is empty”</li>
+  <li>Images sub-tab is empty for Glance storage domains</li>
+  <li>[engine-backend] resizing a disk attached to a paused VM leaves the image LOCKED</li>
+  <li>MacPoolRanges</li>
+  <li>[LOG] Query GetVmTemplateQuery failed with NullPointerException when applied to a non-existent template.</li>
+  <li>[engine-backend] Live migrating a disk while its snapshot is being cloned leaves the disk in LOCKED</li>
+  <li>Allow ICMP in IPTablesConfig default configuration (documentation also allows ICMP)</li>
+  <li>Hosts Remote procedure paramter shouldn’t disappear when it’s active</li>
+  <li>Enter DWH database password on reports setup is not intuitive when setup is on a separate host</li>
+  <li>Unable to remove a failed node from a hosted-engine setup</li>
+  <li>[aaa] AuthRecord, PrincipalRecord are not available at SessionDataContainer</li>
+  <li>[engine-setup] exportfs before nfs restart fails</li>
+  <li>[qemu-kvm] unable to run 64bit versions of Windows 8, 8.1, 2012, 2012 R2 - Error Code: 0x0000001E</li>
+  <li>Refresh button on main tab is hidden when buttons on menu bar don’t fit the panel/screen width</li>
+  <li>Login to multiple iscsi targets fails</li>
+  <li>SSO to reports is broken in certain conditions</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>MacPoolRange</td>
+          <td>error validation should be on engine-config</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Invalid locale found in configuration ‘’</li>
+  <li>clicking on external providers in tree view doesn’t update main-tab content properly</li>
+  <li>Foreman integration - adding host should set address according to the hostgroup domain</li>
+  <li>add host from foreman - search button is not working</li>
+  <li>add host from foreman - name and address aren’t cleared when disabling foreman</li>
+  <li>[AAA] [KerbLDAP] propogate exceptions to engine</li>
+  <li>Cannot create disk profile</li>
+  <li>Templates do not incorporate user defined properties</li>
+  <li>vm from pool isn’t updated on new version if run by admin</li>
+  <li>foreman-integration: ovirt-node should get engine-address without any suffix</li>
+  <li>[AAA] [KerbLDAP] ignore mixed cases domains in vdc_options</li>
+  <li>After exporting VM based on a template, the VM gets blocked with a status showing image is locked</li>
+  <li>[hosted-engine] [iSCSI support] The device that is being used by the engine’s VM for the VM disk, and is listed as a direct LUN in the engine, is allowed to be removed from the setup</li>
+  <li>Failed to execute stage ‘Setup validation’: Failed to clear zombie tasks.</li>
+  <li>Missing event log in case mix RHEL 6x and 7x hosts in one cluster trial.</li>
+  <li>The password text box of new host dialog is not empty initially in Chinese/Korean/German</li>
+  <li>Fail to attach ovf store disk when attaching a Storage Domain will result a low level sql error</li>
+  <li>engine-setup does not reset DisconnectDwh on failure</li>
+  <li>Multiple disks with same Alias (name)</li>
+  <li>ERROR shown for trying to stop a vm not running versus DEBUG or INFO message</li>
+  <li>Error 500 from JBOSS engine API</li>
+  <li>Set disk_profile or storagedomain parameter required for add disk operation</li>
+  <li>Import template to another cluster is blocked.</li>
+  <li>Requests from RHEV-M to SPM and Hypervisor hosts use too few concurrent http connections</li>
+  <li>[engine-webadmin] Inserting wrong input in QOS prompt doesn’t trigger a warning indication</li>
+  <li>[AAA] handle group loops</li>
+  <li>UpdateVM sometimes fails using JsonRPC (request doesn’t reach vdsm).</li>
+  <li>“move” disk operation badly documented, incomplete options support</li>
+  <li>Changing rpc to ‘json-rpc’ fails with, “Operation Failed: [Internal Engine Error]”, due to errors on character encoding</li>
+  <li>Issues with rename</li>
+  <li>[jre8] testFilter(org.ovirt.engine.core.notifier.filter.FirstMatchSimpleFilterTest fails</li>
+  <li>[aaa][kerbldap] freeIPA 4.x base dn should be obtained using defaultNamingContext</li>
+  <li>[Rhev-Upgrade] NPE when refreshing a host (VdsUpdateRunTimeInfo) after upgrade</li>
+  <li>[PPC] Mismatch in CPU pinning support</li>
+  <li>Disks may remain in status LOCKED instead of ILLEGAL</li>
+  <li>[aaa] two ldap external providers have same id assigned, when one is incorrectly configured</li>
+  <li>allow setting SSL protocol for external communication</li>
+  <li>engine shouldn’t migrate hosted-engine VM when moving the host to maintenance</li>
+  <li>Webadmin access not cleared on session expiration</li>
+  <li>Some arbitrary operations fails with VDS_NETWORK_ERROR code 5022</li>
+  <li>Unable to add external event using API</li>
+  <li>[hosted-engine] [iSCSI support] Hosted-engine VM pasues on EIO when deactivating an iSCSI domain in the setup</li>
+  <li>Storage Tab -&gt; import Domain -&gt; help button is missing</li>
+  <li>Templates tab -&gt; export template -&gt; help leads to exporting VM</li>
+  <li>Storage tab-&gt; ISO Domain -&gt; Data Center -&gt; Attach -&gt; help button is missing</li>
+  <li>[AAA] display profile name instead of java object within basic authentication failure</li>
+  <li>[engine-backend] SQLException while starting a VM which was stateless before and had a disk attached to it while it was in stateless</li>
+  <li>[RFE] Generate sysprep answers file with name matching the version of Windows</li>
+  <li>Can’t run VM with error: CanDoAction of action RunVm failed. Reasons:VAR__ACTION__RUN,VAR__TYPE__VM,ACTION_TYPE_FAILED_O BJECT_LOCKED</li>
+  <li>Host pending resources are not cleared after migration canceling.</li>
+  <li>Pending resources are not cleared when network exception occurs.</li>
+  <li>[AAA] User admin::internal is always synchronized</li>
+  <li>[JSON RPC] shutdown/reboot a host on state ‘up’ result in fault behaviour which is resolved only by engine restart</li>
+  <li>[AAA] remove the user sync</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>JSON-RPC</td>
+          <td>engine gets stuck randomly</td>
+          <td>ERROR (SSL Stomp Reactor) Unable to process messages</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>[ImportDomain] Import data domain should alert if was invoked on unsupported data centers</li>
+  <li>NPE When attempting to create a new VM from scratch</li>
+  <li>[ImportDomain] The attach operation should issue a warning, if the Storage Domain is already attached to another Data Center in another setup</li>
+  <li>old connection is used although of having a different password than a newly added connection</li>
+  <li>[engine-backend] NullPointerException happened during AddDiskCommand</li>
+  <li>Instance type: delta icon (new configuration for next run) does not appear on running pool VMs.</li>
+  <li>[RHEVM][FOREMAN-INTEGRATION] after installing a discovered host via foreman provider, fails to find a nic to attach rhevm bridge to</li>
+  <li>[fencing-policy] engine might select a proxy host that doesn’t know how to handle fencing policy</li>
+  <li>Instance type: cluster with compatibility version 3.4 should reject re-run of VM with RNG enabled.</li>
+  <li>[engine-backend] [importDomain] [hosted-engine] import to the hostged engine storage domain (NFS) is allowed</li>
+  <li>[REST-API] Fail to Clone VM from Template to another SD, on disk profile mismatch.</li>
+  <li>3.5 engine should have 4.16 VDSM version in supportedVdsmVersions field</li>
+  <li>[RHEVM][FOREMAN-INTEGRATION] picking “Use Foreman Hosts Providers” removes the “Use JSON protocol”</li>
+  <li>RHEV: Faulty storage allocation checks when adding a VM Pool with VMs.</li>
+  <li>Network and profile name are missing from cloned vm from snapshot</li>
+  <li>faulty storage allocation checks when adding a vm from template</li>
+  <li>faulty storage allocation checks when adding a vm to a pool</li>
+  <li>[RFE] Bundle GWT symbol maps in GWT application’s rpm package</li>
+  <li>[AAA] fix audit/acct/log messages without profile/authn names</li>
+  <li>testJson*Disk* failures on F21 build</li>
+  <li>[AAA] no warning when same profile name is specified in multiple extension</li>
+  <li>Issues with rename</li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<p><strong>Fixed in oVirt 3.5.1 RC1</strong></p>
+<ul>
+  <li>[hosted engine] - vdsm needs HA agent configuration before deployment</li>
+  <li>[vdsm][openstacknet] Migration fails for vNIC using OVS + security groups</li>
+  <li>Failed to remove a snapshot after restarting vdsm while creating this snapshot</li>
+  <li>[vdsm] Reconstruct master fails with ResourceTimeout on an EMC-VNX machine</li>
+  <li>ERROR message was shown in vdsm.log on host when VM suspend by RHEVM</li>
+  <li>getUserCpuTuneInfo flooding vdsm log</li>
+  <li>[RFE] Support IO QoS features</li>
+  <li>CentOS 6.5 VMs crash after VM Migration (after upgrading oVirt from 3.4.2 to 3.43)</li>
+  <li>Wrong default multipath configuration for EL6</li>
+  <li>Vm failed to migrate when local maintenance activated in hosted-engine environment</li>
+  <li>vdsClient is not showing the correct information of the VM</li>
+  <li>vdsm-tool sebool-config call fails with AttributeError during vdsmd start</li>
+  <li>[RHEL7] Host reboot after blocking connection to master domain because selinux prevents sanlock from terminating or killing vdsm</li>
+  <li>supervdsm leaks memory when using glusterfs</li>
+  <li>NetworkManager ifups VDSM’s reference bond</li>
+  <li>Wrong error message when failing to create a volume on block storage</li>
+  <li>[scale] jsonrpc: restapi: timeout while starting a large number of VMs</li>
+  <li>QOS CPU profile not working when guest agent is not functioning</li>
+  <li>[vdsm] missing ‘Author list’ value in man vdsm-tool</li>
+  <li>TypeError: argument of type ‘NoneType’ is not iterable after disk hotunplug</li>
+  <li>[engine-backend] Create command is reported as failed although the VM was started successfully</li>
+  <li>[vdsm] [ppc64] getVdsHardwareInfo incomplete for IBM Power 8</li>
+  <li>Vdsm images use less secure selinux label after a lv is refreshed</li>
+  <li>vdsm-reg: vdsm-reg.log is created but there is no logs there.</li>
+  <li>Unable to restart vdsm on host with running vms</li>
+  <li>[ppc] Host is installed with VDSM version (<code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code>) and cannot join cluster ppc64…</li>
+  <li>Bogus warnings in jsonrpc infrastructure: “Fixing up type”, “fieldClone: type -&gt; deviceType”</li>
+  <li>vdsm-4.14.13-2 sends FC LIP events on storage actions</li>
+  <li>External luns may loose the libvirt selinux label if a udev change event is triggered</li>
+  <li>[Block storage] Basic Live Merge after Delete Snapshot fails</li>
+  <li>cannot put link down on vNIC</li>
+  <li>vdsm does not set selinux booleans during installation when selinux disabled</li>
+  <li>vdsm sometime reports an invalid nic speed of 2**32-1</li>
+  <li>[vdsm] hosted-engine: [iSCSI support] HostedEngine VM is not resumed automatically after EIO</li>
+  <li>[JSONRPC] Extend size operation of an attached iSCSi domain, fail with CDA</li>
+  <li>New FC LUNs are not detected on hypervisor without a reboot</li>
+  <li>createVolume (iscsi) fails on qemu-img create</li>
+  <li>selinux prevents hosted engine to be deployed on RHEL 6.6 with iscsi support</li>
+  <li>[JSONRPC][engine-backend] Live resize is reported as failed while volume extenstion had succeeded</li>
+  <li>supervdsm segfault in libgfapi while querying volume status detail</li>
+  <li>remove vdsm pki private key leak from rhev log collection</li>
+  <li>Starting of VM is slow - error = java.lang.ClassCastException: java.lang.Boolean cannot be cast to java.util.Map</li>
+  <li>Migration via vdsClient not work</li>
+  <li>vdsm sos plugin doesn’t work</li>
+  <li>vdsmd service does not start if one of the interfaces is configured in peer mode</li>
+  <li>super VDSM should raise core dump if it crashes</li>
+  <li>vdsm plugin broken for sos &gt;= 3.1</li>
+  <li>Error getting hardware information from an upgraded host</li>
+  <li>Upgrading from 3.4.4 to 3.5.1 snapshot the vdsm rpm throw an exception</li>
+  <li>Failed to restart vdsm after upgrade from 3.4.4 to 3.5.1 snapshot</li>
+  <li>Hosted Engine VM is listed as paused after upgrading from 3.4.4 to 3.5.1 snapshot</li>
+  <li>ioprocess excessive logging in vdsm.log</li>
+  <li>Vdsm reports wrong NIC state, Error while sampling stats</li>
+  <li>Upgrade from RHEV-H 6.5 to RHEV-H 6.6 during upgrade from RHEV 3.4 to RHEV 3.5 Wiped Network Static IPs</li>
+  <li>Excessive cpu usage due to wrong timeout value</li>
+  <li>[engine-backend] [external-provider] Glance integration: UploadImage (Export disk) fails with java.lang.String</li>
+  <li>[JSONRPC] Disk resize fails while vm is down</li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-ha">ovirt-hosted-engine-ha</h3>
+
+<p><strong>Fixed in oVirt 3.5.1 RC1</strong></p>
+<ul>
+  <li>Can not launch rhevm as a monitored service as it says after shutdown engine vm</li>
+  <li>agent crashes on wrong metadata</li>
+  <li>Wrong calculation of host score in case of gateway or bridge problem</li>
+  <li>Host that added to HE environment after upgrade from 3.4-&gt;3.5 failed to connect to storage</li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-setup">ovirt-hosted-engine-setup</h3>
+
+<p><strong>Fixed in oVirt 3.5.1 RC1</strong></p>
+<ul>
+  <li>If another network has the “required” flag a new host will fail and timeout</li>
+  <li>First interaction with hosted-engine –deploy process happening before, that answer file loading</li>
+  <li>Engine vm is not killed after that deployment process aborted</li>
+  <li>answers.conf is replaced if configuration is not complete</li>
+  <li>[TEXT] hosted-engine –deploy should provide better error message when iSCSI luns list is empty</li>
+  <li>Volume creation failed while deploying Hosted Engine on iSCSI</li>
+  <li>Lost all the configuration for hosted engine after reboot rhevh</li>
+  <li>[hosted-engine] [iSCSI support] The LUN used for engine VM disk is allowed to be picked for storage domain creation/extension</li>
+  <li>[hosted-engine] [iSCSI support] Putting an iSCSI domain in maintenance while the hosted-engine is installed on a LUN from the same storage server causes the setup to become non operational</li>
+  <li>[engine-backend] [importDomain] [iSCSI support] hosted-engine: import the hosted-engine’s storage domain is allowed</li>
+  <li>Installation of second host failed, when try to fetch answer file IOError: [Errno 2] No such file</li>
+  <li>Error trying to add new hosted-engine host to upgraded Hosted Engine cluster</li>
+  <li>[hosted-engine] Uncoherent ‘Cannot add the host to cluster None’ error message on SDK failure</li>
+  <li>hosted engine deploy on vlan Cannot acquire bridge address</li>
+  <li>hosted engine deploy on vlan Cannot acquire bridge address</li>
+  <li>migration to additional host fails before restarting HA agent</li>
+</ul>
+
+<h3 id="ovirt-image-uploader">ovirt-image-uploader</h3>
+
+<p><strong>Fixed in oVirt 3.5.1 RC1</strong></p>
+<ul>
+  <li>ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?</li>
+  <li>40% perf regression in image uploader</li>
+  <li>non-ovf file is not reported properly</li>
+</ul>
+
+<h3 id="ovirt-iso-uploader">ovirt-iso-uploader</h3>
+
+<p><strong>Fixed in oVirt 3.5.1</strong></p>
+<ul>
+  <li>Uploading to nfs domain fails with UnboundLocalError
+<strong>Fixed in oVirt 3.5.1 RC1</strong></li>
+  <li>ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?</li>
+</ul>
+
+<h3 id="ovirt-log-collector">ovirt-log-collector</h3>
+
+<p><strong>Fixed in oVirt 3.5.1 RC1</strong></p>
+<ul>
+  <li>[RHEV] rhevm-log-collector does not gather /etc/ovirt-engine-reports or /etc/ovirt-engine-dwh</li>
+  <li>postgres data is not collected</li>
+  <li>remove password leak from ovirt-engine setup answer file</li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3092/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3092/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3092/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3092/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.5.1/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/releases/3.5.1/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

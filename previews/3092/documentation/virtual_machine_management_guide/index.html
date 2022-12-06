@@ -6580,15 +6580,15 @@ Error while executing action:
 <div class="sect3">
 <h4 id="affinity-groups">6.11.1. Affinity Groups</h4>
 <div class="paragraph">
-<p>Affinity groups help you determine where selected virtual machines run in relation to each other and specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
+<p>You can create <strong>Affinity Groups</strong> help determine where selected virtual machines run in relation to each other and to specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
 </div>
 <div class="paragraph">
 <div class="title">The VM Affinity Rule</div>
-<p>When you create an affinity group, you select the virtual machines that belong to the group. To define <em>where these virtual machines can run in relation to each other</em>, you enable a <strong>VM Affinity Rule</strong>: A positive rule tries to run the virtual machines together on a single host; a negative affinity rule tries to run the virtual machines apart on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
+<p>When you create an <strong>Affinity Group</strong>, you select the virtual machines that belong to the group. To define <em>where these virtual machines can run in relation to each other</em>, you enable a <strong>VM Affinity Rule</strong>: A <strong>Positive</strong> affinity rule tries to run the virtual machines together on a single host; a <strong>Negative</strong> affinity rule tries to run the virtual machines on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
 </div>
 <div class="paragraph">
 <div class="title">The Host Affinity Rule</div>
-<p>Optionally, you can add hosts to the affinity group. To define <em>where virtual machines in the group can run in relation to hosts in the group</em>, you enable a <strong>Host Affinity Rule</strong>: A positive rule tries to run the virtual machines on hosts in the affinity group; a negative affinity rule tries to run the virtual machines on hosts that are not in the affinity group. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
+<p>Optionally, you can add hosts to the <strong>Affinity Group</strong>. To define <em>where virtual machines in the group can run in relation to hosts in the group</em>, you enable a <strong>Host Affinity Rule</strong>: A <strong>Positive</strong> affinity rule tries to run the virtual machines on hosts in the affinity group; a <strong>Negative</strong> affinity rule tries to run the virtual machines on hosts that are not in the affinity group. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
 </div>
 <div class="paragraph">
 <div class="title">The Default Weight Module</div>
@@ -6605,7 +6605,7 @@ Error while executing action:
 <p>Both rules have an <strong>Enforcing</strong> option which applies the <em>filter module</em> in the cluster&#8217;s scheduling policy. The filter module overrides the weight module. With the filter module enabled, the scheduler <em>requires</em> that a rule be fulfilled. If a rule cannot be fulfilled, the filter module prevents the virtual machines in the affinity group from running.</p>
 </div>
 <div class="paragraph">
-<p>For example, with a positive <strong>Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled (the filter module enabled), the scheduler <em>requires</em> the affinity group&#8217;s virtual machines to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.</p>
+<p>For example, with a <strong>Positive Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled (the filter module enabled), the scheduler <em>requires</em> the affinity group&#8217;s virtual machines to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.</p>
 </div>
 <div class="paragraph">
 <p>For this module to work, the <strong>filter module</strong> section of the scheduling policies must contain the <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code> keywords.</p>
@@ -6624,7 +6624,7 @@ Error while executing action:
 <div class="ulist">
 <ul>
 <li>
-<p>An <em>affinity label</em> is functionally the same as an affinity group with a positive <strong>Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled.</p>
+<p>An <em>affinity label</em> is functionally the same as an affinity group with a <strong>Positive Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled.</p>
 </li>
 <li>
 <p>For affinity labels to work, the <strong>filter module</strong> section of the scheduling policies must contain <code>Label</code>.</p>
@@ -6904,9 +6904,6 @@ Error while executing action:
 <div class="title">For possible conflicts between affinity labels and affinity groups</div>
 <ul>
 <li>
-<p>Understand that an <em>affinity label</em> is the equivalent of an affinity group with a <strong>Host affinity rule</strong> that is <strong>Positive</strong> and has <strong>Enforcing</strong> enabled.</p>
-</li>
-<li>
 <p>Understand that if an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.</p>
 </li>
 <li>
@@ -6956,13 +6953,10 @@ Error while executing action:
 <div class="sect3">
 <h4 id="About_Affinity_Labels">6.12.1. About Affinity Labels</h4>
 <div class="paragraph">
-<p>You can create and modify affinity labels in the Administration Portal.</p>
+<p>You can create and modify <strong>Affinity Labels</strong> in the Administration Portal.</p>
 </div>
 <div class="paragraph">
-<p>Affinity labels are used to set hard (Enforced) positive affinity between virtual machines and hosts. See the <a href="#sect-Affinity_Groups">Affinity Groups</a> section for more information about affinity hardness and polarity.</p>
-</div>
-<div class="paragraph">
-<p>Labels function identically to a hard positive affinity group, but simplify configuration in certain use cases. For example, if you have virtual machines that require specific host hardware, you can use affinity labels to ensure that those virtual machines run on the required hosts. If you use software that is license-limited to a certain number of physical machines, you can use affinity labels to ensure that virtual machines running that software are limited to the required physical hosts.</p>
+<p><strong>Affinity Labels</strong> are used together with <strong>Affinity Groups</strong> to set hard (Enforced) positive affinity between virtual machines and hosts. See the <a href="#sect-Affinity_Groups">Affinity Groups</a> section for more information about affinity hardness and polarity.</p>
 </div>
 <div class="admonitionblock warning">
 <table>

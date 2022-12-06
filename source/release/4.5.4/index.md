@@ -53,7 +53,8 @@ To learn about features introduced before 4.5.4, see the
 * [oVirt Ansible Collection](https://github.com/oVirt/ovirt-ansible-collection/releases/tag/3.0.0-1)
 * [ovirt-imageio 2.4.7](https://github.com/oVirt/ovirt-imageio/releases/tag/v2.4.7)
 * [oVirt Engine 4.5.4](https://github.com/oVirt/ovirt-engine/releases/tag/ovirt-engine-4.5.4)
-* [imgbased](https://github.com/oVirt/imgbased/releases/tag/imgbased-1.2.25)
+* [imgbased 1.2.25](https://github.com/oVirt/imgbased/releases/tag/imgbased-1.2.25)
+* [oVirt Hosted Engine Setup](https://github.com/oVirt/ovirt-hosted-engine-setup/releases/tag/ovirt-hosted-engine-setup-2.7.0)
 
 ### Contributors
 
@@ -68,12 +69,12 @@ To learn about features introduced before 4.5.4, see the
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Eli Marcus (Contributed to: ovirt-site)
 	Jean-Louis Dupond (Contributed to: imgbased)
-	Lev Veyde (Contributed to: imgbased, ovirt-release)
+	Lev Veyde (Contributed to: imgbased, ovirt-hosted-engine-setup, ovirt-release)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: ovirt-imageio)
 	Mark Kemel (Contributed to: ovirt-engine)
 	Martin Nečas (Contributed to: ovirt-ansible-collection, python-ovirt-engine-sdk4)
-	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-build-dependencies, ovirt-imageio, ovirt-site, python-ovirt-engine-sdk4)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-build-dependencies, ovirt-hosted-engine-setup, ovirt-imageio, ovirt-site, python-ovirt-engine-sdk4)
 	Michal Skrivanek (Contributed to: imgbased, ovirt-engine, ovirt-site)
 	Milan Zamazal (Contributed to: ovirt-engine)
 	Nir Soffer (Contributed to: ovirt-imageio, ovirt-site)
@@ -82,5 +83,5 @@ To learn about features introduced before 4.5.4, see the
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Sandro Bonazzola (Contributed to: imgbased)
 	Shmuel Melamud (Contributed to: ovirt-engine)
-	Yedidyah Bar David (Contributed to: imgbased, ovirt-ansible-collection)
+	Yedidyah Bar David (Contributed to: imgbased, ovirt-ansible-collection, ovirt-hosted-engine-setup)
 	rob (Contributed to: python-ovirt-engine-sdk4)

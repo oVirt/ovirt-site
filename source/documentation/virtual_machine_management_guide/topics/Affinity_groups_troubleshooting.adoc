@@ -16,7 +16,7 @@
 
 .For possible conflicts between affinity labels and affinity groups
 
-* Understand that an _affinity label_ is the equivalent of an affinity group with a *Host affinity rule* that is *Positive* and has *Enforcing* enabled.
+//* Understand that an _affinity label_ is the equivalent of an affinity group with a *Host affinity rule* that is *Positive* and has *Enforcing* enabled.
 * Understand that if an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.
 * Determine whether a conflict is possible:
 ** Inspect the *filter module* section of the cluster's scheduling policies. These must contain both a `Label` keyword and a `VmAffinityGroups` OR `VmToHostsAffinityGroups` keyword. Otherwise, a conflict is _not possible_. (The presence of `VmAffinityGroups` and `VmToHostsAffinityGroups` in the *weight module* section does not matter because `Label` in a *filter module* section would override them.)

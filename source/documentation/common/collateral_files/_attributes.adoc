@@ -90,6 +90,7 @@ ifdef::rhv-doc[]
 :org-fullname: Red Hat
 :container-platform: OpenShift Container Platform
 :container-platform-virt: OpenShift Virtualization
+:supported-rhel-version: 8.6
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]
@@ -108,4 +109,5 @@ ifdef::ovirt-doc[]
 :org-fullname: oVirt
 :container-platform: OKD
 :container-platform-virt: KubeVirt
+:supported-rhel-version: 8.7 or later
 endif::ovirt-doc[]

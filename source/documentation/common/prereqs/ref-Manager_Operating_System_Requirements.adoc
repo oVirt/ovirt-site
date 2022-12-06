@@ -6,7 +6,8 @@
 // PPG
 // Install
 
-The {virt-product-fullname} {engine-name} must be installed on a base installation of {enterprise-linux} 8.6.
+
+The {virt-product-fullname} {engine-name} must be installed on a base installation of {enterprise-linux} {supported-rhel-version}.
 
 Do not install any additional packages after the base installation, as they may cause dependency issues when attempting to install the packages required by the {engine-name}.
 

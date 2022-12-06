@@ -58,3 +58,4 @@
 |IBM zBC12, zEC12 |sie,model_zEC12-base:zEC12-base:s390x
 |IBM z13s, z13 |sie,model_z13-base:z13-base:s390x
 |IBM z14 |sie,model_z14-base:z14-base:s390x
+|===

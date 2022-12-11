@@ -4,7 +4,7 @@
 
 You can create and modify *Affinity Labels* in the Administration Portal.
 
-*Affinity Labels* are used together with *Affinity Groups* to set hard (Enforced) positive affinity between virtual machines and hosts. See the xref:sect-Affinity_Groups[Affinity Groups] section for more information about affinity hardness and polarity.
+*Affinity Labels* are used together with *Affinity Groups* to set any kind of affinity between virtual machines and hosts (hard, soft, positive, negative). See the xref:sect-Affinity_Groups[Affinity Groups] section for more information about affinity hardness and polarity.
 
 // Labels function identically to a hard positive affinity group, but simplify configuration in certain use cases. For example, if you have virtual machines that require specific host hardware, you can use affinity labels to ensure that those virtual machines run on the required hosts. If you use software that is license-limited to a certain number of physical machines, you can use affinity labels to ensure that virtual machines running that software are limited to the required physical hosts.
 

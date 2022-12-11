@@ -4,7 +4,7 @@
 [id="Removing_an_Affinity_Label"]
 = Deleting an Affinity Label
 
-You can remove affinity labels only from the details view of a cluster.
+You can remove affinity labels only from the details view of a cluster after it is deleted from each entity.
 
 *Deleting an Affinity Label*
 

@@ -8,7 +8,7 @@
 
 .Procedure
 
-. Create a file named deploy.json, and provide a CPU type name for the value `cpu_type_name` from the table shown below. For example, if the CPU type you want is *Secure Intel Nehalem Family*, then the `deploy.json` should look like the following:
+. Create a file named `deploy.json`, and from the table shown below, select a CPU type for the `he_cluster_cpu_type`. For example, if the CPU type you want is *Secure Intel Nehalem Family*, then the `deploy.json` should look like the following:
 +
 ----
 [root@host ~]# cat deploy.json

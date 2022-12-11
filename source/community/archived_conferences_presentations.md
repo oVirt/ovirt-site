@@ -11,8 +11,15 @@ oVirt community presented at several conferences in the past years. In this page
 Please note that presentation may refer to obsoleted or deprecated features and shouldn't be considered valid for latest oVirt release.
 Templates and resources for creating new presentations can be found in [oVirt Slide Decks](/community/get-involved/resources/slide-decks.html) page
 
+## 2022-08 RHV Demo
+
+* Albert Esteve, Nir Soffer - ovirt-img - Flying with NBD
+  [[Slides - PDF]](/media/ovirt-img-v8.pdf)
+
 ## 2022-03 RHV Demo
 
+* Nir Soffer - Mailbox Events - improving thin provisioning in oVirt 4.5.1
+  [[Slides - PDF]](/media/mailbox-events.pdf)
 * Nir Soffer, Benny Zlotnik - Hybrid backup - the snapshot is dead, long live the snapshot!
   [[Slides - PDF]](/media/Hybrid-backup-v8.pdf)
 

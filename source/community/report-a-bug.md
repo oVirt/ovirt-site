@@ -15,9 +15,9 @@ For reporting security issues please follow the [security reporting procedure](/
 Here is how to report a bug found in oVirt:
 
 1. Open the [GitHub oVirt organization](https://github.com/oVirt) page
-2. Choose a repository on which to enter a bug. e.g., for issues with the management application, select ‘ovirt-engine’.
+2. Choose a repository on which to enter a bug, e.g., for issues with the management application, select ‘ovirt-engine’.
 3. On the next page, select `Issues` tab and then click on the `New Issue` button.
-4. In the `Title` field, enter a short description of the problem. e.g., "Cannot connect to virtual machines using Console."
+4. In the `Title` field, enter a short description of the problem, e.g., "Cannot connect to virtual machines using Console."
 5. In the `Leave a comment` field please provide details on the bug and its reproducibility.
 6. Finally, click the **Submit New Issue** button, and you’re done!
 

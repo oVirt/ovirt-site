@@ -11,20 +11,19 @@
 
 .If you observe problems with virtual machines not running
 
-* Verify that the cluster has a scheduling policy whose *weight module* and *filter module* sections contain `VmAffinityGroups` and `VmToHostsAffinityGroups`. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window[Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window] in the _Administration Guide_.
+* Verify that the cluster has a scheduling policy with weight module and filter module sections that contain `VmAffinityGroups` and `VmToHostsAffinityGroups`. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window[Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window] in the _Administration Guide_.
 * Check for conflicts between affinity labels and affinity groups.
 
 .For possible conflicts between affinity labels and affinity groups
 
-//* Understand that an _affinity label_ is the equivalent of an affinity group with a *Host affinity rule* that is *Positive* and has *Enforcing* enabled.
-* Understand that if an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.
-* Determine whether a conflict is possible:
-** Inspect the *filter module* section of the cluster's scheduling policies. These must contain both a `Label` keyword and a `VmAffinityGroups` OR `VmToHostsAffinityGroups` keyword. Otherwise, a conflict is _not possible_. (The presence of `VmAffinityGroups` and `VmToHostsAffinityGroups` in the *weight module* section does not matter because `Label` in a *filter module* section would override them.)
+* If an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.
+* To determine whether a conflict is possible:
+** Inspect the filter module section of the cluster's scheduling policies. These must contain both a `Label` keyword and a `VmAffinityGroups` OR `VmToHostsAffinityGroups` keyword. Otherwise, a conflict is _not possible_. (The presence of `VmAffinityGroups` and `VmToHostsAffinityGroups` in the weight module section does not matter because `Label` in a filter module section would override them.)
 ** Inspect the affinity groups. They must contain a rule that has *Enforcing* enabled. Otherwise, a conflict is _not possible_.
 * If a conflict is possible, identify the set of virtual machines that might be involved:
-** Inspect the affinity labels and groups. Make a list of virtual machines that are members of both an affinity label *and* an affinity group with an *Enforcing* option enabled.
+** Inspect the affinity labels and groups. Make a list of virtual machines that are members of both an affinity label _and_ an affinity group with an *Enforcing* option enabled.
 ** For each host and virtual machine in this intersecting set, analyze the conditions under which a potential conflict occurs.
 * Determine whether the actual non-running virtual machines match the ones in the analysis.
-* Finally, restructure the affinity groups and affinity labels to help avoid unintended conflicts.
+* Restructure the affinity groups and affinity labels to help avoid unintended conflicts.
 * Verify that any changes produce the expected results under a range of conditions.
 * If you have overlapping affinity groups and affinity labels, it can be easier to view them in one place as affinity groups. Consider converting an affinity label into an equivalent affinity group, which has a *Host affinity rule* with *Positive* selected and *Enforcing* enabled.

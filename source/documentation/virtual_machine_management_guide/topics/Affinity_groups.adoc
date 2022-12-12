@@ -2,7 +2,7 @@
 [id="affinity-groups"]
 = Affinity Groups
 
-You can create *Affinity Groups* help determine where selected virtual machines run in relation to each other and to specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.
+You can create *Affinity Groups* to help determine where selected virtual machines run in relation to each other and to specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.
 
 .The VM Affinity Rule
 When you create an *Affinity Group*, you select the virtual machines that belong to the group. To define _where these virtual machines can run in relation to each other_, you enable a *VM Affinity Rule*: A *Positive* affinity rule tries to run the virtual machines together on a single host; a *Negative* affinity rule tries to run the virtual machines on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.
@@ -21,7 +21,7 @@ For this module to work, the *weight module* section of the scheduling policies 
 .The Enforcing Option and Filter Module
 Both rules have an *Enforcing* option which applies the _filter module_ in the cluster's scheduling policy. The filter module overrides the weight module. With the filter module enabled, the scheduler _requires_ that a rule be fulfilled. If a rule cannot be fulfilled, the filter module prevents the virtual machines in the affinity group from running.
 
-For example, with a *Positive Host Affinity Rule* and *Enforcing* enabled (the filter module enabled), the scheduler _requires_ the affinity group's virtual machines to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.
+For example, with a *Positive Host Affinity Rule* and *Enforcing* enabled (the filter module enabled), the scheduler _requires_ the virtual machines in the affinity group to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.
 
 For this module to work, the *filter module* section of the scheduling policies must contain the `VmAffinityGroups` and `VmToHostsAffinityGroups` keywords.
 

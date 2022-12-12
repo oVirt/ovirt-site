@@ -102,6 +102,11 @@ docker build -t ovirt-site .
 docker run -v $(pwd):/srv/site -p 4000:4000 -p 35729:35729 -ti ovirt-site
 ```
 
+Please note that on SELinux enforcing systems the last command should be:
+```bash
+docker run -v $(pwd):/srv/site:Z -p 4000:4000 -p 35729:35729 -ti ovirt-site
+```
+
 If the site builds successfully, you will see this message:
 The Jekyll web server is standing watch at http://0.0.0.0:4000
 

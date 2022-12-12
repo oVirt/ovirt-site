@@ -43,7 +43,7 @@ Each rule is affected by the weight and filter modules in the cluster's scheduli
 * For the *VM Affinity Rule* rule to work, the scheduling policy must have the `VmAffinityGroups` keyword in its *Weight module* and *Filter module* sections.
 * For the *Host Affinity Rule* to work, the scheduling policy must have the `VmToHostsAffinityGroups` keyword in its *Weight module* and *Filter module* sections.
 
-For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-scheduling_policies[Scheduling Policies] in the _Administration Guide_.
+For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_.
 
 ====
 

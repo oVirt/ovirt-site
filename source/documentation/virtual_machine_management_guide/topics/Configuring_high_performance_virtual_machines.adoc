@@ -165,7 +165,6 @@ The following table summarizes the recommended manual settings. The *Enabled (Y/
 |*NUMA Node Count* (Host tab) |Y |VM
 |*Tune Mode* (NUMA Pinning screen) |Y |VM
 |*NUMA Pinning* (Host tab) |Y |VM
-|*Auto Pinning Policy* (Host tab)|Y |VM
 |*CPU Pinning topology* (Resource Allocation tab) |Y | VM, P
 |*hugepages* (Custom Properties tab) |Y |VM, T, P
 |*KSM* (Optimization tab) |N |C
@@ -199,7 +198,7 @@ CPU pinning has the following requirements:
 === Setting the NUMA Pinning Policy
 
 To set the NUMA Pinning Policy, you need a NUMA-enabled pinned host with at least two NUMA nodes.
-You can configure the NUMA topology manually, or use the *Auto Pinning Policy* option to configure the topology automatically.
+
 
 .To set the NUMA pinning policy manually:
 
@@ -209,16 +208,9 @@ You can configure the NUMA topology manually, or use the *Auto Pinning Policy* o
 . Click btn:[OK].
 
 .To set the NUMA pinning policy automatically:
+. In the *Resource Allocation* tab, under *CPU Allocation*, select `Resize and Pin NUMA` from the *CPU Pinning Policy* drop-down list.
+. Click btn:[OK]. 
 
-. In the *Host* tab, select the *Specific Host(s)* radio button and select the host(s) from the list. The selected host(s) must have at least two NUMA nodes.
-. Under *Configure NUMA:* select an *Auto Pinning Policy* from the drop-down list:
-+
-* *None* - makes no changes to the virtual machine.
-//* *Pin* - uses the existing CPU topology that has been set, in order to configure CPU pinning and NUMA pinning.
-* *Resize and Pin* - maximizes the CPU topology and generates the CPU pinning and NUMA pinning configurations.
-. Click btn:[OK].
-
-The {engine-name} calculates the CPU Pinning Topology, updates the CPU topology fields (Total Virtual CPUs, Cores per Virtual Socket, Threads per Core), and enters the topology configuration string in the *CPU Pinning Topology* field of the virtual machine.
 
 [IMPORTANT]
 ====

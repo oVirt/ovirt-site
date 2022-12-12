@@ -66,7 +66,7 @@ include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 [id='Installing_RHEL_for_RHVM_SM_remoteDB_deploy']
 === Installing the {virt-product-fullname} {engine-name} Machine and the Remote Server
 
-. The {virt-product-fullname} {engine-name} must run on {enterprise-linux} 8. For detailed installation instructions, see link:{URL_rhel_docs_latest}html-single/performing_a_standard_rhel_installation/index[_Performing a standard {enterprise-linux-shortname} installation_].
+. The {virt-product-fullname} {engine-name} must run on {enterprise-linux} {supported-rhel-version}. For detailed installation instructions, see link:{URL_rhel_docs_latest}html-single/performing_a_standard_rhel_installation/index[_Performing a standard {enterprise-linux-shortname} installation_].
 +
 This machine must meet the minimum xref:hardware-requirements_SM_remoteDB_deploy[{engine-name} hardware requirements].
 

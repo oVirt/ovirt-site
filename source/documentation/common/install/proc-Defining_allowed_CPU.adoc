@@ -1,0 +1,61 @@
+:_content-type: PROCEDURE
+[id="proc-proc-Defining_allowed_CPU_{context}"]
+= Defining allowed CPU types in Self-hosted Engine deployment
+
+[role="_abstract"]
+
+
+
+.Procedure
+
+. Create a file named `deploy.json`, and from the table shown below, select a CPU type for the `he_cluster_cpu_type`. For example, if the CPU type you want is *Secure Intel Nehalem Family*, then the `deploy.json` should look like the following:
++
+----
+[root@host ~]# cat deploy.json
+{
+	"he_cluster_cpu_type": "Secure Intel Nehalem Family"
+}
+
+----
+. Provide the deploy.json file to the `hosted-engine --deploy` process.
++
+----
+[root@host ~]# hosted-engine --deploy --ansible-extra-vars=@/root/deploy.json
+----
+
+[id="Allowed_CPU_types"]
+.Allowed CPU Types
+[options="header"]
+|===
+|CPU type name |CPU properties
+|Intel Nehalem Family |vmx,nx,model_Nehalem:Nehalem:x86_64
+|Secure Intel Nehalem Family |vmx,spec_ctrl,ssbd,model_Nehalem:Nehalem,+spec-ctrl,+ssbd:x86_64
+|Intel Westmere Family |aes,vmx,nx,model_Westmere:Westmere:x86_64
+|Secure Intel Westmere  Family |aes,vmx,spec_ctrl,ssbd,model_Westmere:Westmere,+pcid,+spec-ctrl,+ssbd:x8_64
+|Intel SandyBridge Family |vmx,nx,model_SandyBridge:SandyBridge:x86_64
+|Secure Intel SandyBridge Family | vmx,spec_ctrl,ssbd,md_clear,model_SandyBridge:SandyBridge,+pcid,+spec-ctrl,+ssbd,+md-clear:x86_64
+|Intel IvyBridge Family |vmx,nx,model_IvyBridge:IvyBridge:x86_64
+|Secure Intel IvyBridge Family |vmx,spec_ctrl,ssbd,md_clear,model_IvyBridge:IvyBridge,+pcid,+spec-ctrl,+ssbd,+md-clear:x86_64
+|Intel Haswell Family |vmx,nx,model_Haswell-noTSX:Haswell-noTSX:x86_64
+|Secure Intel Haswell Family |vmx,spec_ctrl,ssbd,md_clear,model_Haswell-noTSX:Haswell-noTSX,+spec-ctrl,+ssbd,+md-clear:x86_64
+|Intel Broadwell Family |vmx,nx,model_Broadwell-noTSX:Broadwell-noTSX:x86_64
+|Secure Intel Broadwell Family |vmx,spec_ctrl,ssbd,md_clear,model_Broadwell-noTSX:Broadwell-noTSX,+spec-ctrl,+ssbd,+md-clear:x86_64
+|Intel Skylake Client Family |vmx,nx,model_Skylake-Client:Skylake-Client,-hle,-rtm,-mpx:x86_64
+|Secure Intel Skylake Client Family  |vmx,ssbd,md_clear,model_Skylake-Client-noTSX-IBRS:Skylake-Client-noTSX-IBRS,+ssbd,+md-clear,-mpx:x86_64
+|Intel Skylake Server Family |vmx,nx,model_Skylake-Server:Skylake-Server,-hle,-rtm,-mpx:x86_64
+|Secure Intel Skylake Server Family |vmx,ssbd,md_clear,model_Skylake-Server-noTSX-IBRS:Skylake-Server-noTSX-IBRS,+ssbd,+md-clear,-mpx:x86_64
+|Intel Cascadelake Server Family |vmx,model_Cascadelake-Server:Cascadelake-Server,-hle,-rtm,-mpx:x86_64
+|Secure Intel Cascadelake Server Family |vmx,model_Cascadelake-Server-noTSX:Cascadelake-Server-noTSX,-mpx:x86_64
+|Intel Icelake Server Family |vmx,model_Icelake-Server-noTSX:Icelake-Server-noTSX,-mpx:x86_64
+|Secure Intel Icelake Server Family |vmx,arch-capabilities,rdctl-no,ibrs-all,skip-l1dfl-vmentry,mds-no,pschange-mc-no,taa-no,model_Icelake-Server-noTSX:Icelake-Server-noTSX,+arch-capabilities,+rdctl-no,+ibrs-all,+skip-l1dfl-vmentry,+mds-no,+pschange-mc-no,+taa-no,-mpx:x86_64
+|AMD Opteron G4 |svm,nx,model_Opteron_G4:Opteron_G4:x86_64
+|AMD Opteron G5 |svm,nx,model_Opteron_G5:Opteron_G5:x86_64
+|AMD EPYC |svm,nx,model_EPYC:EPYC:x86_64
+|Secure AMD EPYC |svm,nx,ibpb,ssbd,model_EPYC:EPYC,+ibpb,+virt-ssbd:x86_64
+|IBM POWER8 |powernv,model_POWER8:POWER8:ppc64
+|IBM POWER9 |powernv,model_POWER9:POWER9:ppc64
+|IBM z114, z196 |sie,model_z196-base:z196-base:s390x
+|IBM zBC12, zEC12 |sie,model_zEC12-base:zEC12-base:s390x
+|IBM z13s, z13 |sie,model_z13-base:z13-base:s390x
+|IBM z14 |sie,model_z14-base:z14-base:s390x
+|===

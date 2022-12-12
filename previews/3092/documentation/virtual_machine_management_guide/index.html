@@ -6580,7 +6580,7 @@ Error while executing action:
 <div class="sect3">
 <h4 id="affinity-groups">6.11.1. Affinity Groups</h4>
 <div class="paragraph">
-<p>You can create <strong>Affinity Groups</strong> help determine where selected virtual machines run in relation to each other and to specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
+<p>You can create <strong>Affinity Groups</strong> to help determine where selected virtual machines run in relation to each other and to specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
 </div>
 <div class="paragraph">
 <div class="title">The VM Affinity Rule</div>
@@ -6605,7 +6605,7 @@ Error while executing action:
 <p>Both rules have an <strong>Enforcing</strong> option which applies the <em>filter module</em> in the cluster&#8217;s scheduling policy. The filter module overrides the weight module. With the filter module enabled, the scheduler <em>requires</em> that a rule be fulfilled. If a rule cannot be fulfilled, the filter module prevents the virtual machines in the affinity group from running.</p>
 </div>
 <div class="paragraph">
-<p>For example, with a <strong>Positive Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled (the filter module enabled), the scheduler <em>requires</em> the affinity group&#8217;s virtual machines to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.</p>
+<p>For example, with a <strong>Positive Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled (the filter module enabled), the scheduler <em>requires</em> the virtual machines in the affinity group to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.</p>
 </div>
 <div class="paragraph">
 <p>For this module to work, the <strong>filter module</strong> section of the scheduling policies must contain the <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code> keywords.</p>
@@ -6890,7 +6890,7 @@ Error while executing action:
 <div class="title">If you observe problems with virtual machines not running</div>
 <ul>
 <li>
-<p>Verify that the cluster has a scheduling policy whose <strong>weight module</strong> and <strong>filter module</strong> sections contain <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code>. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window">Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window</a> in the <em>Administration Guide</em>.</p>
+<p>Verify that the cluster has a scheduling policy with weight module and filter module sections that contain <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code>. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window">Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
 <p>Check for conflicts between affinity labels and affinity groups.</p>
@@ -6901,14 +6901,14 @@ Error while executing action:
 <div class="title">For possible conflicts between affinity labels and affinity groups</div>
 <ul>
 <li>
-<p>Understand that if an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.</p>
+<p>If an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.</p>
 </li>
 <li>
-<p>Determine whether a conflict is possible:</p>
+<p>To determine whether a conflict is possible:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Inspect the <strong>filter module</strong> section of the cluster&#8217;s scheduling policies. These must contain both a <code>Label</code> keyword and a <code>VmAffinityGroups</code> OR <code>VmToHostsAffinityGroups</code> keyword. Otherwise, a conflict is <em>not possible</em>. (The presence of <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code> in the <strong>weight module</strong> section does not matter because <code>Label</code> in a <strong>filter module</strong> section would override them.)</p>
+<p>Inspect the filter module section of the cluster&#8217;s scheduling policies. These must contain both a <code>Label</code> keyword and a <code>VmAffinityGroups</code> OR <code>VmToHostsAffinityGroups</code> keyword. Otherwise, a conflict is <em>not possible</em>. (The presence of <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code> in the weight module section does not matter because <code>Label</code> in a filter module section would override them.)</p>
 </li>
 <li>
 <p>Inspect the affinity groups. They must contain a rule that has <strong>Enforcing</strong> enabled. Otherwise, a conflict is <em>not possible</em>.</p>
@@ -6921,7 +6921,7 @@ Error while executing action:
 <div class="ulist">
 <ul>
 <li>
-<p>Inspect the affinity labels and groups. Make a list of virtual machines that are members of both an affinity label <strong>and</strong> an affinity group with an <strong>Enforcing</strong> option enabled.</p>
+<p>Inspect the affinity labels and groups. Make a list of virtual machines that are members of both an affinity label <em>and</em> an affinity group with an <strong>Enforcing</strong> option enabled.</p>
 </li>
 <li>
 <p>For each host and virtual machine in this intersecting set, analyze the conditions under which a potential conflict occurs.</p>
@@ -6933,7 +6933,7 @@ Error while executing action:
 <p>Determine whether the actual non-running virtual machines match the ones in the analysis.</p>
 </li>
 <li>
-<p>Finally, restructure the affinity groups and affinity labels to help avoid unintended conflicts.</p>
+<p>Restructure the affinity groups and affinity labels to help avoid unintended conflicts.</p>
 </li>
 <li>
 <p>Verify that any changes produce the expected results under a range of conditions.</p>
@@ -7041,7 +7041,7 @@ Error while executing action:
 <div class="sect3">
 <h4 id="Removing_an_Affinity_Label">6.12.4. Deleting an Affinity Label</h4>
 <div class="paragraph">
-<p>You can remove affinity labels only from the details view of a cluster after it is deleted from each entity.</p>
+<p>You can only remove an <strong>Affinity Label</strong> from the details view of a cluster after it is deleted from each entity.</p>
 </div>
 <div class="paragraph">
 <p><strong>Deleting an Affinity Label</strong></p>

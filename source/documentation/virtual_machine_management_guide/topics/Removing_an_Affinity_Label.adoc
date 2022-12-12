@@ -2,11 +2,11 @@
 :_content-type: PROCEDURE
 :_content-type: PROCEDURE
 [id="Removing_an_Affinity_Label"]
-= Removing an Affinity Label
+= Deleting an Affinity Label
 
-You can remove affinity labels only from the details view of a cluster.
+You can only remove an *Affinity Label* from the details view of a cluster after it is deleted from each entity.
 
-*Removing an Affinity Label*
+*Deleting an Affinity Label*
 
 . Click menu:Compute[Clusters] and select the appropriate cluster.
 . Click the cluster's name to go to the details view.

@@ -2,13 +2,13 @@
 [id="affinity-groups"]
 = Affinity Groups
 
-Affinity groups help you determine where selected virtual machines run in relation to each other and specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.
+You can create *Affinity Groups* to help determine where selected virtual machines run in relation to each other and to specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.
 
 .The VM Affinity Rule
-When you create an affinity group, you select the virtual machines that belong to the group. To define _where these virtual machines can run in relation to each other_, you enable a *VM Affinity Rule*: A positive rule tries to run the virtual machines together on a single host; a negative affinity rule tries to run the virtual machines apart on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.
+When you create an *Affinity Group*, you select the virtual machines that belong to the group. To define _where these virtual machines can run in relation to each other_, you enable a *VM Affinity Rule*: A *Positive* affinity rule tries to run the virtual machines together on a single host; a *Negative* affinity rule tries to run the virtual machines on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.
 
 .The Host Affinity Rule
-Optionally, you can add hosts to the affinity group. To define _where virtual machines in the group can run in relation to hosts in the group_, you enable a *Host Affinity Rule*: A positive rule tries to run the virtual machines on hosts in the affinity group; a negative affinity rule tries to run the virtual machines on hosts that are not in the affinity group. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.
+Optionally, you can add hosts to the *Affinity Group*. To define _where virtual machines in the group can run in relation to hosts in the group_, you enable a *Host Affinity Rule*: A *Positive* affinity rule tries to run the virtual machines on hosts in the affinity group; a *Negative* affinity rule tries to run the virtual machines on hosts that are not in the affinity group. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.
 
 .The Default Weight Module
 By default, both rules apply the _weight module_ in the cluster's scheduling policy. With the weight module, the scheduler attempts to fulfill a rule, but allows the virtual machines in the affinity group to run anyway if the rule cannot be fulfilled.
@@ -21,7 +21,7 @@ For this module to work, the *weight module* section of the scheduling policies 
 .The Enforcing Option and Filter Module
 Both rules have an *Enforcing* option which applies the _filter module_ in the cluster's scheduling policy. The filter module overrides the weight module. With the filter module enabled, the scheduler _requires_ that a rule be fulfilled. If a rule cannot be fulfilled, the filter module prevents the virtual machines in the affinity group from running.
 
-For example, with a positive *Host Affinity Rule* and *Enforcing* enabled (the filter module enabled), the scheduler _requires_ the affinity group's virtual machines to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.
+For example, with a *Positive Host Affinity Rule* and *Enforcing* enabled (the filter module enabled), the scheduler _requires_ the virtual machines in the affinity group to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.
 
 For this module to work, the *filter module* section of the scheduling policies must contain the `VmAffinityGroups` and `VmToHostsAffinityGroups` keywords.
 
@@ -30,7 +30,8 @@ To see how these rules and options can be used with one another, see xref:Affini
 
 [WARNING]
 ====
-* An _affinity label_ is functionally the same as an affinity group with a positive *Host Affinity Rule* and *Enforcing* enabled.
+// * An _affinity label_ is functionally the same as an affinity group with a *Positive Host Affinity Rule* and *Enforcing* enabled.
+
 * For affinity labels to work, the *filter module* section of the scheduling policies must contain `Label`.
 * If an affinity group and affinity label conflict with each other, the affected virtual machines do not run. To help prevent, troubleshoot, and resolve conflicts, see xref:Affinity_groups_troubleshooting[Affinity group troubleshooting].
 

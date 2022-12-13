@@ -100,6 +100,8 @@ jobs:
     - name: "Change config"
       run: |
         set -exuo pipefail
+        sed -i -e "s#@PREVIEW_LINK_PATH@#${{steps.details.outputs.PREVIEW_LINK_PATH}}#" htmlproofer_test.rb
+        cat htmlproofer_test.rb
         sed -i -e "s#^baseurl: .*#baseurl: ${{steps.details.outputs.PREVIEW_LINK_PATH}}#" _config.yml
         sed -i -e "s#^url: .*#url: ${{steps.details.outputs.PREVIEW_LINK_BASE}}#" _config.yml
         sed -i -e "s#site-baseurl: /#site-baseurl: ${{steps.details.outputs.PREVIEW_LINK_PATH}}#" _config.yml
@@ -114,7 +116,7 @@ jobs:
         path: |
           _site
     - name: "Run htmlproofer"
-      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c bundle exec ruby htmlproofer_test.rb
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c "bundle exec ruby htmlproofer_test.rb"
   publish:
     name: "Publish preview"
     runs-on: ubuntu-20.04

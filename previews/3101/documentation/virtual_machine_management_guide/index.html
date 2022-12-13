@@ -1603,7 +1603,7 @@ Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
 <p>oVirt recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em>.</p>
 </div>
 <div class="paragraph">
-<p>If necessary, you can upload the <code>virtio-win</code> ISO file to an ISO storage domain that is hosted on the Engine. The ISO storage domain type is deprecated. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Copy_ISO_to_ISO_domain-storage_tasks">Uploading images to an ISO domain</a> in the <em>Administration Guide</em>.</p>
+<p>If necessary, you can upload the <code>virtio-win</code> ISO file to an ISO storage domain that is hosted on the Engine. The ISO storage domain type is deprecated. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Copy_ISO_to_ISO_domain">Uploading images to an ISO domain</a> in the <em>Administration Guide</em>.</p>
 </div>
 </td>
 </tr>
@@ -5248,7 +5248,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 <div class="sect2">
 <h3 id="Changing_the_CD_for_a_Virtual_Machine">5.8. Changing the CD for a Virtual Machine</h3>
 <div class="paragraph">
-<p>You can change the CD accessible to a virtual machine while that virtual machine is running, using ISO images that have been uploaded to the data domain of the virtual machine&#8217;s cluster. See <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em> for details.</p>
+<p>You can change the CD accessible to a virtual machine while that virtual machine is running, using ISO images that have been uploaded to the data domain of the virtual machine&#8217;s cluster. See <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em> for details.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -6656,7 +6656,7 @@ Error while executing action:
 </ul>
 </div>
 <div class="paragraph">
-<p>For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#sect-scheduling_policies">Scheduling Policies</a> in the <em>Administration Guide</em>.</p>
+<p>For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#sect-Scheduling_Policies">Scheduling Policies</a> in the <em>Administration Guide</em>.</p>
 </div>
 </td>
 </tr>
@@ -8321,7 +8321,7 @@ Error while executing action:
 <p>Download the most recent KVM virtual machine image from the <a href="https://access.redhat.com/downloads/content/69/ver=/rhel---7/7.5/x86_64/product-software">Download Enterprise Linux</a> list, in the Product Software tab.</p>
 </li>
 <li>
-<p>Upload the virtual machine image using the Engine or the REST API. See <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_a_Disk_Image_to_a_Storage_Domain">Uploading a Disk Image to a Storage Domain</a> in the <em>Administration Guide</em>.</p>
+<p>Upload the virtual machine image using the Engine or the REST API. See <a href="https://ovirt.org/documentation/administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
 <p>Create a new virtual machine and attach the uploaded disk image to it. See <a href="#Creating_a_virtual_machine_linux_vm">Creating a Linux virtual machine</a>.</p>
@@ -11062,7 +11062,7 @@ os.windows_7.isTimezoneTypeInteger.value = false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Custom Compatibility Version</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The compatibility version determines which features are supported by the cluster, as well as, the values of some properties and the emulated machine type. By default, the virtual machine is configured to run in the same compatibility mode as the cluster as the default is inherited from the cluster. In some situations the default compatibility mode needs to be changed. An example of this is if the cluster has been updated to a later compatibility version but the virtual machines have not been restarted. These virtual machines can be set to use a custom compatibility mode that is older than that of the cluster. See  <a href="https://ovirt.org/documentation/administration_guide/index#Changing_the_Cluster_Compatibility_Version">Changing the Cluster Compatibility Version</a> in the <em>Administration Guide</em> for more information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The compatibility version determines which features are supported by the cluster, as well as, the values of some properties and the emulated machine type. By default, the virtual machine is configured to run in the same compatibility mode as the cluster as the default is inherited from the cluster. In some situations the default compatibility mode needs to be changed. An example of this is if the cluster has been updated to a later compatibility version but the virtual machines have not been restarted. These virtual machines can be set to use a custom compatibility mode that is older than that of the cluster. See  <a href="https://ovirt.org/documentation/administration_guide/index#Changing_the_Cluster_Compatibility_Version_admin">Changing the Cluster Compatibility Version</a> in the <em>Administration Guide</em> for more information.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes.</p></td>
 </tr>
 <tr>

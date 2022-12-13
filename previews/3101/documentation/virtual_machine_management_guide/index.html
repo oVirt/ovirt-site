@@ -274,7 +274,7 @@
 <li><a href="#About_Affinity_Labels">6.12.1. About Affinity Labels</a></li>
 <li><a href="#Creating_an_Affinity_Label">6.12.2. Creating an Affinity Label</a></li>
 <li><a href="#Editing_an_Affinity_Label">6.12.3. Editing an Affinity Label</a></li>
-<li><a href="#Removing_an_Affinity_Label">6.12.4. Removing an Affinity Label</a></li>
+<li><a href="#Removing_an_Affinity_Label">6.12.4. Deleting an Affinity Label</a></li>
 </ul>
 </li>
 <li><a href="#sect-Exporting_and_Importing_Virtual_Machines_and_Templates">6.13. Exporting and Importing Virtual Machines and Templates</a>
@@ -6580,15 +6580,15 @@ Error while executing action:
 <div class="sect3">
 <h4 id="affinity-groups">6.11.1. Affinity Groups</h4>
 <div class="paragraph">
-<p>Affinity groups help you determine where selected virtual machines run in relation to each other and specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
+<p>You can create <strong>Affinity Groups</strong> to help determine where selected virtual machines run in relation to each other and to specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.</p>
 </div>
 <div class="paragraph">
 <div class="title">The VM Affinity Rule</div>
-<p>When you create an affinity group, you select the virtual machines that belong to the group. To define <em>where these virtual machines can run in relation to each other</em>, you enable a <strong>VM Affinity Rule</strong>: A positive rule tries to run the virtual machines together on a single host; a negative affinity rule tries to run the virtual machines apart on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
+<p>When you create an <strong>Affinity Group</strong>, you select the virtual machines that belong to the group. To define <em>where these virtual machines can run in relation to each other</em>, you enable a <strong>VM Affinity Rule</strong>: A <strong>Positive</strong> affinity rule tries to run the virtual machines together on a single host; a <strong>Negative</strong> affinity rule tries to run the virtual machines on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
 </div>
 <div class="paragraph">
 <div class="title">The Host Affinity Rule</div>
-<p>Optionally, you can add hosts to the affinity group. To define <em>where virtual machines in the group can run in relation to hosts in the group</em>, you enable a <strong>Host Affinity Rule</strong>: A positive rule tries to run the virtual machines on hosts in the affinity group; a negative affinity rule tries to run the virtual machines on hosts that are not in the affinity group. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
+<p>Optionally, you can add hosts to the <strong>Affinity Group</strong>. To define <em>where virtual machines in the group can run in relation to hosts in the group</em>, you enable a <strong>Host Affinity Rule</strong>: A <strong>Positive</strong> affinity rule tries to run the virtual machines on hosts in the affinity group; a <strong>Negative</strong> affinity rule tries to run the virtual machines on hosts that are not in the affinity group. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.</p>
 </div>
 <div class="paragraph">
 <div class="title">The Default Weight Module</div>
@@ -6605,7 +6605,7 @@ Error while executing action:
 <p>Both rules have an <strong>Enforcing</strong> option which applies the <em>filter module</em> in the cluster&#8217;s scheduling policy. The filter module overrides the weight module. With the filter module enabled, the scheduler <em>requires</em> that a rule be fulfilled. If a rule cannot be fulfilled, the filter module prevents the virtual machines in the affinity group from running.</p>
 </div>
 <div class="paragraph">
-<p>For example, with a positive <strong>Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled (the filter module enabled), the scheduler <em>requires</em> the affinity group&#8217;s virtual machines to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.</p>
+<p>For example, with a <strong>Positive Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled (the filter module enabled), the scheduler <em>requires</em> the virtual machines in the affinity group to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.</p>
 </div>
 <div class="paragraph">
 <p>For this module to work, the <strong>filter module</strong> section of the scheduling policies must contain the <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code> keywords.</p>
@@ -6623,9 +6623,6 @@ Error while executing action:
 <td class="content">
 <div class="ulist">
 <ul>
-<li>
-<p>An <em>affinity label</em> is functionally the same as an affinity group with a positive <strong>Host Affinity Rule</strong> and <strong>Enforcing</strong> enabled.</p>
-</li>
 <li>
 <p>For affinity labels to work, the <strong>filter module</strong> section of the scheduling policies must contain <code>Label</code>.</p>
 </li>
@@ -6893,7 +6890,7 @@ Error while executing action:
 <div class="title">If you observe problems with virtual machines not running</div>
 <ul>
 <li>
-<p>Verify that the cluster has a scheduling policy whose <strong>weight module</strong> and <strong>filter module</strong> sections contain <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code>. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window">Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window</a> in the <em>Administration Guide</em>.</p>
+<p>Verify that the cluster has a scheduling policy with weight module and filter module sections that contain <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code>. For more information, see <a href="https://ovirt.org/documentation/administration_guide/index#Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window">Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
 <p>Check for conflicts between affinity labels and affinity groups.</p>
@@ -6904,17 +6901,14 @@ Error while executing action:
 <div class="title">For possible conflicts between affinity labels and affinity groups</div>
 <ul>
 <li>
-<p>Understand that an <em>affinity label</em> is the equivalent of an affinity group with a <strong>Host affinity rule</strong> that is <strong>Positive</strong> and has <strong>Enforcing</strong> enabled.</p>
+<p>If an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.</p>
 </li>
 <li>
-<p>Understand that if an affinity label and affinity group conflict with each other, the intersecting set of virtual machines do not run.</p>
-</li>
-<li>
-<p>Determine whether a conflict is possible:</p>
+<p>To determine whether a conflict is possible:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Inspect the <strong>filter module</strong> section of the cluster&#8217;s scheduling policies. These must contain both a <code>Label</code> keyword and a <code>VmAffinityGroups</code> OR <code>VmToHostsAffinityGroups</code> keyword. Otherwise, a conflict is <em>not possible</em>. (The presence of <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code> in the <strong>weight module</strong> section does not matter because <code>Label</code> in a <strong>filter module</strong> section would override them.)</p>
+<p>Inspect the filter module section of the cluster&#8217;s scheduling policies. These must contain both a <code>Label</code> keyword and a <code>VmAffinityGroups</code> OR <code>VmToHostsAffinityGroups</code> keyword. Otherwise, a conflict is <em>not possible</em>. (The presence of <code>VmAffinityGroups</code> and <code>VmToHostsAffinityGroups</code> in the weight module section does not matter because <code>Label</code> in a filter module section would override them.)</p>
 </li>
 <li>
 <p>Inspect the affinity groups. They must contain a rule that has <strong>Enforcing</strong> enabled. Otherwise, a conflict is <em>not possible</em>.</p>
@@ -6927,7 +6921,7 @@ Error while executing action:
 <div class="ulist">
 <ul>
 <li>
-<p>Inspect the affinity labels and groups. Make a list of virtual machines that are members of both an affinity label <strong>and</strong> an affinity group with an <strong>Enforcing</strong> option enabled.</p>
+<p>Inspect the affinity labels and groups. Make a list of virtual machines that are members of both an affinity label <em>and</em> an affinity group with an <strong>Enforcing</strong> option enabled.</p>
 </li>
 <li>
 <p>For each host and virtual machine in this intersecting set, analyze the conditions under which a potential conflict occurs.</p>
@@ -6939,7 +6933,7 @@ Error while executing action:
 <p>Determine whether the actual non-running virtual machines match the ones in the analysis.</p>
 </li>
 <li>
-<p>Finally, restructure the affinity groups and affinity labels to help avoid unintended conflicts.</p>
+<p>Restructure the affinity groups and affinity labels to help avoid unintended conflicts.</p>
 </li>
 <li>
 <p>Verify that any changes produce the expected results under a range of conditions.</p>
@@ -6956,13 +6950,10 @@ Error while executing action:
 <div class="sect3">
 <h4 id="About_Affinity_Labels">6.12.1. About Affinity Labels</h4>
 <div class="paragraph">
-<p>You can create and modify affinity labels in the Administration Portal.</p>
+<p>You can create and modify <strong>Affinity Labels</strong> in the Administration Portal.</p>
 </div>
 <div class="paragraph">
-<p>Affinity labels are used to set hard (Enforced) positive affinity between virtual machines and hosts. See the <a href="#sect-Affinity_Groups">Affinity Groups</a> section for more information about affinity hardness and polarity.</p>
-</div>
-<div class="paragraph">
-<p>Labels function identically to a hard positive affinity group, but simplify configuration in certain use cases. For example, if you have virtual machines that require specific host hardware, you can use affinity labels to ensure that those virtual machines run on the required hosts. If you use software that is license-limited to a certain number of physical machines, you can use affinity labels to ensure that virtual machines running that software are limited to the required physical hosts.</p>
+<p><strong>Affinity Labels</strong> are used together with <strong>Affinity Groups</strong> to set any kind of affinity between virtual machines and hosts (hard, soft, positive, negative). See the <a href="#sect-Affinity_Groups">Affinity Groups</a> section for more information about affinity hardness and polarity.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -7048,12 +7039,12 @@ Error while executing action:
 </div>
 </div>
 <div class="sect3">
-<h4 id="Removing_an_Affinity_Label">6.12.4. Removing an Affinity Label</h4>
+<h4 id="Removing_an_Affinity_Label">6.12.4. Deleting an Affinity Label</h4>
 <div class="paragraph">
-<p>You can remove affinity labels only from the details view of a cluster.</p>
+<p>You can only remove an <strong>Affinity Label</strong> from the details view of a cluster after it is deleted from each entity.</p>
 </div>
 <div class="paragraph">
-<p><strong>Removing an Affinity Label</strong></p>
+<p><strong>Deleting an Affinity Label</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">

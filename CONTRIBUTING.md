@@ -102,7 +102,7 @@ docker build -t ovirt-site .
 docker run -v $(pwd):/srv/site -p 4000:4000 -p 35729:35729 -ti ovirt-site
 ```
 
-Please note that on SELinux enforcing systems the last command should be:
+Please note that on SELinux enforcing systems the last command above should change to:
 ```bash
 docker run -v $(pwd):/srv/site:Z -p 4000:4000 -p 35729:35729 -ti ovirt-site
 ```

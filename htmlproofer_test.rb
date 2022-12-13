@@ -1,6 +1,10 @@
 require 'html-proofer'
 
 options = {
+  url_swap: {
+     %r{^@PREVIEW_LINK_PATH@//} => "https://",
+     %r{^@PREVIEW_LINK_PATH@/} => "/",
+  },
   assume_extension: true,
   check_img_http: true,
   check_html: true,

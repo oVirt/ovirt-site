@@ -16,7 +16,7 @@ jobs:
       cancel-in-progress: false
     steps:
     - name: Checkout gh-actions branch
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: gh-pages
     - name: Extract PR details
@@ -27,11 +27,11 @@ jobs:
         PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
         PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
         PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"
-        echo "::set-output name=PR_ID::${PR_ID}"
-        echo "::set-output name=PREVIEW_PATH::${PREVIEW_PATH}"
-        echo "::set-output name=PREVIEW_LINK::${PREVIEW_LINK}"
-        echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
-        echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
+        echo "PR_ID=${PR_ID}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_PATH=${PREVIEW_PATH}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_LINK=${PREVIEW_LINK}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_LINK_PATH=${PREVIEW_LINK_PATH}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_LINK_BASE=${PREVIEW_LINK_BASE}" >> $GITHUB_OUTPUT
     - name: Comment on PR
       continue-on-error: true
       run: |

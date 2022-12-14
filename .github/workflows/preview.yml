@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout repo"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: recursive
 
@@ -57,7 +57,7 @@ jobs:
       PREVIEW_LINK_BASE: ${{steps.details.outputs.PREVIEW_LINK_BASE}}
     steps:
     - name: "Checkout repo"
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         submodules: recursive
     - name: Extract PR details
@@ -68,11 +68,11 @@ jobs:
         PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
         PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
         PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"
-        echo "::set-output name=PR_ID::${PR_ID}"
-        echo "::set-output name=PREVIEW_PATH::${PREVIEW_PATH}"
-        echo "::set-output name=PREVIEW_LINK::${PREVIEW_LINK}"
-        echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
-        echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
+        echo "PR_ID=${PR_ID}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_PATH=${PREVIEW_PATH}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_LINK=${PREVIEW_LINK}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_LINK_PATH=${PREVIEW_LINK_PATH}" >> $GITHUB_OUTPUT
+        echo "PREVIEW_LINK_BASE=${PREVIEW_LINK_BASE}" >> $GITHUB_OUTPUT
     - name: Comment on PR
       continue-on-error: true
       run: |
@@ -82,9 +82,9 @@ jobs:
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+      uses: docker/setup-buildx-action@v2
     - name: Build container image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v3
       with:
         context: .
         push: false
@@ -93,7 +93,7 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
     - name: Set up Jekyll cache
-      uses: actions/cache@v1
+      uses: actions/cache@v3
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -109,7 +109,7 @@ jobs:
     - name: "Build website"
       run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site ovirt-site build
     - name: "Upload generated content"
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ovirt-site
         if-no-files-found: error
@@ -128,7 +128,7 @@ jobs:
       cancel-in-progress: false
     steps:
       - name: "Checkout repo"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
           token: "${{ secrets.GITHUB_TOKEN }}"

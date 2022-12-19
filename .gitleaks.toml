@@ -1,0 +1,9 @@
+[allowlist]
+description = "Global Allowlist"
+
+regexes = [
+  # dummy password generating alerts on
+  # https://github.com/oVirt/ovirt-site/blob/25a57f98e916ef47863d68d06ba573916703fde2/previews/3103/develop/release-management/features/network/openstack_identity_api_v3.html#L188
+  # https://github.com/oVirt/ovirt-site/blob/25a57f98e916ef47863d68d06ba573916703fde2/previews/3103/develop/release-management/features/network/openstack_identity_api_v3.html#L229
+  '''"password": "c314d360aab94a5f"''',
+]

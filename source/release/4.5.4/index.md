@@ -54,11 +54,17 @@ To learn about features introduced before 4.5.4, see the
 * [ovirt-imageio 2.4.7](https://github.com/oVirt/ovirt-imageio/releases/tag/v2.4.7)
 * [oVirt Engine 4.5.4](https://github.com/oVirt/ovirt-engine/releases/tag/ovirt-engine-4.5.4)
 * [imgbased 1.2.25](https://github.com/oVirt/imgbased/releases/tag/imgbased-1.2.25)
-* [oVirt Hosted Engine Setup](https://github.com/oVirt/ovirt-hosted-engine-setup/releases/tag/ovirt-hosted-engine-setup-2.7.0)
+* [oVirt Hosted Engine Setup 2.7.0](https://github.com/oVirt/ovirt-hosted-engine-setup/releases/tag/ovirt-hosted-engine-setup-2.7.0)
+
+On December 21st 2022, the following packages have been released as an async update:
+
+* [oVirt Web UI 1.9.3](https://github.com/oVirt/ovirt-web-ui/releases/tag/1.9.3)
+* [oVirt Engine NodeJS Modules 2.3.20](https://github.com/oVirt/ovirt-engine-nodejs-modules/releases/tag/2.3.20)
+* [oVirt Engine UI Extensions 1.3.7](https://github.com/oVirt/ovirt-engine-ui-extensions/releases/tag/ovirt-engine-ui-extensions-1.3.7-1)
 
 ### Contributors
 
-25 people contributed to this release:
+27 people contributed to this release:
 
 	Albert Esteve (Contributed to: ovirt-imageio)
 	Anton Fadeev (Contributed to: ovirt-engine)
@@ -80,8 +86,10 @@ To learn about features introduced before 4.5.4, see the
 	Nir Soffer (Contributed to: ovirt-imageio, ovirt-site)
 	Ori Liel (Contributed to: python-ovirt-engine-sdk4)
 	Pavel Bar (Contributed to: ovirt-ansible-collection)
-	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-web-ui)
 	Sandro Bonazzola (Contributed to: imgbased)
+	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
+	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Yedidyah Bar David (Contributed to: imgbased, ovirt-ansible-collection, ovirt-hosted-engine-setup)
 	rob (Contributed to: python-ovirt-engine-sdk4)

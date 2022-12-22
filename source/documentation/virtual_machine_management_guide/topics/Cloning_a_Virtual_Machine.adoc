@@ -4,12 +4,6 @@
 
 You can clone virtual machines without having to create a template or a snapshot first.
 
-[IMPORTANT]
-====
-The *Clone VM* button is disabled while virtual machines are running; you must shut down a virtual machine before you can clone it.
-====
-
-
 .Procedure
 
 . Click menu:Compute[Virtual Machines] and select the virtual machine to clone.

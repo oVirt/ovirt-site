@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.4.1 release notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.4.1 release notes" />
+<meta name="author" content="Douglas Landgraf" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3108/develop/release-management/releases/3.4.1/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3108/develop/release-management/releases/3.4.1/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.4.1 release notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Douglas Landgraf" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Douglas Landgraf"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.4.1 release notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3108/images/logo.svg"},"name":"Douglas Landgraf"},"url":"https://ovirt.github.io/ovirt-site/previews/3108/develop/release-management/releases/3.4.1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3108/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3108/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3108/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3108/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3108/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3108/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3108/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3108/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3108/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3108/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3108/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3108/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3108/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3108/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3108/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3108/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3108/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3108/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3108/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3108/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3108/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3108/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3108//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3108//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3108/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3108/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3108/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3108/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Douglas Landgraf">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Douglas Landgraf</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d1444ce9dae56ad479be1aa9e2b217bd?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d1444ce9dae56ad479be1aa9e2b217bd?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sven Kieske">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sven Kieske</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-341-release-notes">oVirt 3.4.1 release notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of oVirt 3.4.1 release.</p>
+
+<p>oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.</p>
+
+<p>To find out more about features which were added in previous oVirt releases, check out the <a href="/ovirt-site/previews/3108/develop/release-management/releases/3.4/">oVirt 3.4 Release Notes</a>, <a href="/ovirt-site/previews/3108/develop/release-management/releases/3.3.5/">oVirt 3.3.5 release notes</a>, <a href="/ovirt-site/previews/3108/develop/release-management/releases/3.2/">oVirt 3.2 release notes</a> and <a href="/ovirt-site/previews/3108/develop/release-management/releases/3.1/">oVirt 3.1 release notes</a>. For a general overview of oVirt, read <a href="/ovirt-site/previews/3108/develop/release-management/releases/3.0/feature-guide.html">the oVirt 3.0 feature guide</a> and the <a href="/ovirt-site/previews/3108/community/about.html">about oVirt</a> page.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-341-release-notes" id="markdown-toc-ovirt-341-release-notes">oVirt 3.4.1 release notes</a>    <ol>
+      <li><a href="#install--upgrade-from-previous-versions" id="markdown-toc-install--upgrade-from-previous-versions">Install / Upgrade from previous versions</a>        <ol>
+          <li><a href="#fedora--centos--rhel" id="markdown-toc-fedora--centos--rhel">Fedora / CentOS / RHEL</a></li>
+          <li><a href="#ovirt-node" id="markdown-toc-ovirt-node">oVirt Node</a></li>
+          <li><a href="#ovirt-live" id="markdown-toc-ovirt-live">oVirt Live</a></li>
+        </ol>
+      </li>
+      <li><a href="#whats-new-in-341" id="markdown-toc-whats-new-in-341">What’s New in 3.4.1?</a></li>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known issues</a></li>
+      <li><a href="#bugs-fixed" id="markdown-toc-bugs-fixed">Bugs fixed</a>        <ol>
+          <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+          <li><a href="#ovirt-iso-uploader" id="markdown-toc-ovirt-iso-uploader">oVirt Iso Uploader</a></li>
+          <li><a href="#ovirt-image-uploader" id="markdown-toc-ovirt-image-uploader">oVirt Image Uploader</a></li>
+          <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a></li>
+          <li><a href="#ovirt-hosted-engine-ha" id="markdown-toc-ovirt-hosted-engine-ha">oVirt Hosted Engine HA</a></li>
+          <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+          <li><a href="#ovirt-node-plugin-vdsm" id="markdown-toc-ovirt-node-plugin-vdsm">ovirt-node-plugin-vdsm</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="install--upgrade-from-previous-versions">Install / Upgrade from previous versions</h2>
+
+<h3 id="fedora--centos--rhel">Fedora / CentOS / RHEL</h3>
+
+<p>In order to install it on a clean system, you need to install</p>
+
+<p><code class="language-plaintext highlighter-rouge"># yum localinstall </code><a href="http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm</code></a></p>
+
+<p>If you’re upgrading from a previous version you should have ovirt-release package already installed on your system.</p>
+
+<p>You can then install ovirt-release34.rpm as in a clean install side-by-side.</p>
+
+<p>If you’re upgrading from oVirt 3.4.0 you can now remove ovirt-release package:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum remove ovirt-release
+  # yum update "ovirt-engine-setup*"
+  # engine-setup
+</code></pre></div></div>
+
+<p>If you’re upgrading from 3.3.2 or later, keep ovirt-release rpm in place until the upgrade is completed.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # yum update "ovirt-engine-setup*"
+  # engine-setup
+</code></pre></div></div>
+
+<p>If you’re upgrading from oVirt &lt;= 3.3.1 you must first upgrade to oVirt 3.3.5. Please see <a href="/ovirt-site/previews/3108/develop/release-management/releases/3.3.5/">oVirt 3.3.5 release notes</a> for upgrading instructions.</p>
+
+<h3 id="ovirt-node">oVirt Node</h3>
+
+<p>A new oVirt Node ISO is available:</p>
+
+<p><a href="http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140508.2.el6.iso"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140508.2.el6.iso</code></a></p>
+
+<h3 id="ovirt-live">oVirt Live</h3>
+
+<p>A new oVirt Live ISO is available:</p>
+
+<p><a href="http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-3.4.1.el6ev.iso"><code class="language-plaintext highlighter-rouge">http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-3.4.1.el6ev.iso</code></a></p>
+
+<h2 id="whats-new-in-341">What’s New in 3.4.1?</h2>
+
+<h2 id="known-issues">Known issues</h2>
+
+<ul>
+  <li>Host deployment may fail on EL6 system due to a recent tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package solving this issue.</li>
+  <li>
+    <p>ovirt-log-collector installation fails on Fedora 19 due to a conflict with sos 3.0 recently introduced also on release 19 () as workaround please downgrade sos before installing ovirt-engine:</p>
+
+    <p># yum downgrade sos</p>
+  </li>
+  <li>
+    <p>after installing ovirt-engine yum update will fail on Fedora 19 due to sos 3.0 conflict with ovirt-log-collector () as workaround please exclude sos from yum updates adding the following line in <strong>/etc/yum.conf</strong>:</p>
+
+    <p>exclude=sos</p>
+  </li>
+</ul>
+
+<h2 id="bugs-fixed">Bugs fixed</h2>
+
+<h3 id="ovirt-engine">oVirt Engine</h3>
+
+<ul>
+  <li>engine: cannot remove template due to failure in commands performed on vm’s which are based on template (template is marked as shared)</li>
+  <li>[Backend][domain_scan] NPE when scanning for unregistered images on non-existent domain</li>
+  <li>displayNetwork must have an IP address on host</li>
+  <li>After power outage, storage reported as up while none of the hosts are up</li>
+  <li>[engine][neutron] Port leftover if hot-plug new vNIC fails</li>
+  <li>[oVirt] [glance] API version not specified in provider dialog</li>
+  <li>[ALL_LANG][Admin Portal] Host tab -&gt; Network Interfaces subtab -&gt;Setup Host Networks -&gt; remove ‘menu for’ header</li>
+  <li>[RHEVM][webadmin] remove VM network checkbox from manage network dialog</li>
+  <li>[ALL_LANG][Admin_Portal][User_Portal] Header -&gt; Guide -&gt; Missing Language message unlocalized</li>
+  <li>Port mirroring checkbox should be greyed out for update if that VNIC profile is located on VM</li>
+  <li>The engine-manage-domains tool ignores the Kerberos servers from DNS when using -ldapServers</li>
+  <li>Exception for corrupted ovf in export domain, is not sent to engine log.</li>
+  <li>[engine-backend] Guaranteed RAM memory of a VM can be set to a higher value than the actual memory size</li>
+  <li>Setup Host Networks dialog: Unnecessary “Add NIC to Bond” Item</li>
+  <li>Setup Host Networks dialog: A certain scenario leads to a Bond with only one NIC</li>
+  <li>Time Zone of Sri Lanka in “Initial Run” Section of “New Virtual Machine” and “Edit Virtual Machine” Configuration is WRONG</li>
+  <li>cloud-init: gateway shouldn’t be mandatory on run once window</li>
+  <li>components do not have severity initialized on engine start</li>
+  <li>[Admin Portal] Cluster: initialized = false does not change view</li>
+  <li>VM update REST API call returns success instead of error on a wrongly formed xml</li>
+  <li>[engine-backend] [RO disks] cannot change unplugged disk r/o status while VM is running</li>
+  <li>setupNetworks: nic with dhcp cannot be bonded</li>
+  <li>After a power outage two VMs marked as HA failed to start automatically, they were required to be started manually.</li>
+  <li>Bookmarks do not work when the selected tree-node in the System tree is not “System”</li>
+  <li>SQL exception after discovery when configuring the first ISCSI data domain</li>
+  <li>[engine-backend] Attaching a disk as active to a running VM (hotplug), is not blocked for an IDE disk interface</li>
+  <li>[engine-backend] engine asks for vdsManager of a host that was removed from the system</li>
+  <li>[legacy upgrade 3.2-&gt;3.3] misleading information</li>
+  <li>High availability parameters are not fully restored on import vm/template</li>
+  <li>UI: Add new role permission drop below the end of the screen</li>
+  <li>Allow to change the version name of a sub template</li>
+  <li>Snapshotpane empty after autologout</li>
+  <li>Autologout does not work in VM view (snapshot pane open)</li>
+  <li>On create new network window the “Enter” key is not press “OK”</li>
+  <li>[RHEVM] [webadmin] improve tooltip on subnet mask in setup networks</li>
+  <li>Create engine-setup answer-file even if setup is aborted</li>
+  <li>Import domain dialog empty selectboxes</li>
+  <li>SSH injection via cloud-init UI doesn’t work for root user</li>
+  <li>[RHEVM] [webadmin] [network labels] cannot assign more than 5 labels to host network interface because there in no scrollbar</li>
+  <li>[engine-setup] ascii check for ISO Domain name should be done immediately when defining domain name</li>
+  <li>When creating new VM in advanced view “Start running on” is blank for the second cluster</li>
+  <li>[RHEVM] [webadmin] weird dots in Setup Host Networks dialog</li>
+  <li>[webadmin] UI is confusing for defining a network connection to a vm</li>
+  <li>[RHEVM] [webadmin] [network labels] incorrect tool-tip display for logical networks assigned to host interface by labeling</li>
+  <li>Remove ovirt-scheduler-proxy external module failed</li>
+  <li>RHEVM user and admin portal logging attempt display</li>
+  <li>[RHEVM] [webadmin] incorrect behavior on creating new VM when rhevm runs out of MAC addresses</li>
+  <li>[oVirt] [Frontend] Blank template is available in New Pool dialog</li>
+  <li>‘engine-backup –mode=restore’ fails after engine-cleanup on postgres 8</li>
+  <li>Every thirty minutes OnVdsDuringFailureTimer is shown in engine log</li>
+  <li>[webadmin] incorrect behavior of manual refresh in Host Main Tab</li>
+  <li>Please modify /sysprep file in /etc/ovirt-engine/sysprep folder.</li>
+  <li>[Neutron integration] The Neutron network UUID should be the ID of the network on RHEV</li>
+  <li>Run Once allows starting a ppc64 or Windows 8 VM with SPICE</li>
+  <li>[webadmin] use all available space for network display in Setup Host Networks dialog</li>
+  <li>Ambiguous hint for setting up SSH trusts [TEXT]</li>
+  <li>sysprep timezone is not working when create pool from template.</li>
+  <li>Under Even VM Count Distribution cluster policy minimal values for properties is 5</li>
+  <li>‘engine-backup –mode=restore’ fails after engine-cleanup on postgres 8</li>
+  <li>When assigning permissions to user that belongs to a group indirectly, it does not inherit the group permissions</li>
+  <li>No host interface configuration history data for unbounded host interfaces</li>
+  <li>It’s possible to set nonsense value of RAM size of vm/template.</li>
+  <li>[oVirt] [Fix] Add sPAPR VLAN in the REST API</li>
+  <li>rhevm-config is over writing the previous ‘UserDefinedVMProperties’ when used without a semicolon(;)</li>
+  <li>Host stays in non-operation state after unreachable required network becomes accessible</li>
+  <li>engine should report the interface name for which “Used Network resources of host xxxxxxxx [100%] exceeded defined threshold [95%]” message is applicable.</li>
+  <li>CpuOverCommitDurationMinutes limited to a single digit value by regular expression in database scripts</li>
+  <li>RHEVM Admin GUI [Text] - Configure - Roles - “DataCenterAdmin” Description is not fully show</li>
+  <li>Editing VM clears the VNIC profiles</li>
+  <li>[engine-backend] [single-disk-snapshot] snapshot restore to only part of VM’s disks will delete all other disks attached to the VM</li>
+  <li>Not able to push more than one external event in 30 second using REST API</li>
+  <li>Tooltip descriptions for Console Invocation are vague</li>
+  <li>VM is not locked on run once</li>
+  <li>Importing image from glance as a template should be blocked on DC level lower than 3.4</li>
+  <li>Upgrade of Spice ActiveX plugin on IE11.</li>
+  <li>[engine-backend] [single-disk-snapshot] [RO-disk] snapshot of RO are not included in the VM snapshots disks table</li>
+  <li>[engine-backend] [RO-disk] [Single-disk-snapshot] NullPointerException for TryBackToAllSnapshotsOfVm when custom previewing a single RO disk snapshot</li>
+  <li>Role UserInstanceManager has import_export_vm action group, but there is no such action in UserPortal.</li>
+  <li>Incorrect error message when coming back from rollback</li>
+  <li>[webadmin] Group ‘user name’ should be empty value In column ‘user name’ in user tab.</li>
+  <li>[engine] imported template into domain with its original template causes the imported template to become subversion of the original tempalte</li>
+  <li>[engine] Attempting to import a template that is a subversion of another template when the base does not exist fails with unclear error message</li>
+  <li>[NetworkLabels] Networks with roles should be configured on hosts with ‘DHCP’ boot protocol</li>
+  <li>Upgrading a hypervisor automatically puts it into an Up state</li>
+  <li>When cache of users is refreshed wrong group id is stored for user group membership</li>
+  <li>[engine-webadmin] [shared-DC] Target domains should be filtered by the source domain type (file/block) for live moving disks from ‘Disks’ main tab</li>
+  <li>The Memory Size of a VM is editable when the VM is powered up.</li>
+  <li>Disks tab crashes with SQL Exception</li>
+  <li>[RHEVM] error displayed when fencing test fails is not meaningful</li>
+  <li>Changing the label of error network doesn’t reattach the network to the nic</li>
+  <li>engine-config man page clarifications</li>
+  <li>engine-backup has no man page</li>
+  <li>Show only setup packages during upgrade check</li>
+  <li>engine should report the interface name for which “Used Network resources of host xxxxxxxx [100%] exceeded defined threshold [95%]” message is applicable.</li>
+  <li>There is no separation between creating a template and subversion template</li>
+  <li>[pki] create lock file accessible only to whom can actually enroll</li>
+  <li>[oVirt] [Fix] SPICE proxy wrong in Pool</li>
+  <li>With VNC and single pci enabled combination, rhevm3.4 failed to create guest-image vm from template</li>
+  <li>VdsNotRespondingTreatment Job is not marked as finished.</li>
+  <li>PRD34 - [RFE] REST API for importing glance image as a template</li>
+  <li>[WEBADMIN][TEXT] Fix popup text, when dashboard is accessed 1st time to more friendly one</li>
+  <li>[RHEVM] [webadmin] inconsistent behavior of gateway field for VLAN with static IP configuration</li>
+  <li>KeystoneAuthUrl description’s example is missing the version</li>
+  <li>engine-setup fails on upgrade, tries to install ovirt-engine-setup instread of rhevm-setup</li>
+  <li>RHEVM Webadmin portal displays the vm migration completed time incorrectly</li>
+  <li>RHEV 3.3 - Live Migration fails with ERROR: insert or update on table “step” violates foreign key constraint “fk_step_job”</li>
+  <li>HA vms not starts on host with PM that restarted via engine</li>
+  <li>Template search bar is not working</li>
+  <li>[vdsm] cannot activate storage domain when iscsi multipath is configured on host</li>
+  <li>After host power outage HA vms, failed to run first time because ACTION_TYPE_FAILED_VDS_VM_MEMORY</li>
+  <li>Cannot create pool with pattern-based naming scheme for VMs</li>
+  <li>[RHEVM] engine-upgrade-check =&gt; Error: Package ovirt-engine-setup cannot be found</li>
+  <li>The ‘Password’ field is not visible after selecting a Foreman host in the New Host window</li>
+  <li>Missing “Family” string in Intel Haswell listing name</li>
+  <li>[TEXT] taskcleaner.sh has dangerously misleading help text</li>
+  <li>Not Responding Treatment is broken</li>
+  <li>Cannot add a floating disk from webadmin</li>
+  <li>Failed approved RHEVH for rhev3.2 host in rhevm av4 with Data Centers 3.2 + 3.2 Cluster</li>
+  <li>[Admin Portal] Hot adding ‘Dual mode rtl8139, VirtIO’ network iface failure - VDSErrorException: Failed to HotPlugNicVDS</li>
+  <li>The RSDL documentation of the cloud-init hostname property should be host.address</li>
+  <li>External_id should be removed from user and group</li>
+  <li>[host-deploy][node-upgarde] Pipe closed at the end of vdsm-upgrade</li>
+  <li>HA VM not start on host with PM after manual fence</li>
+  <li>[AAA] External user UI access unstable</li>
+  <li>Missing fields in snmp notifications</li>
+  <li>UI: Cluster dialog - filter architecture based on the supported CPUs</li>
+  <li>Cant Assign Quotas to external groups</li>
+  <li>ClassCastException when trying to add a permission to admin@internal</li>
+  <li>[engine-webadmin] Default cluster compatibility version isn’t correlated to the DC compatibility version when using ‘New DC Guide Me’</li>
+  <li>[RFE] 3.4 product translation: translation update 2</li>
+  <li>manage-domains traceback on empty password</li>
+  <li>[RFE] RHEL 7 Guest Support</li>
+  <li>[RHEVM] [welcome-screen]: Non English docs can not be opened from the welcome screen</li>
+  <li>Disallow domains of mixed subtypes (block/file) on data centers with version &lt; 3.4</li>
+  <li>[Admin Portal] Hot adding ‘Dual mode rtl8139, VirtIO’ network iface failure - VDSErrorException: Failed to HotPlugNicVDS</li>
+  <li>Pre-seeded Apache redirect directive ignored by engine-setup</li>
+  <li>webadmin: wrong data in Alignment column of Disks sub-tab under Storage main-tab</li>
+  <li>RHEV-M server appears to send the bad authentication to the AD server repeatedly, locking the account.</li>
+  <li>[engine-backend] [external-provider] NullPointerException for AddVmTemplate during importing an image from glance as a template</li>
+  <li>Cannot create template - not possible to submit the New Template dialog</li>
+  <li>
+    <p>VM remains locked after failing to migrate
+ Bugs fixed between RC and GA:</p>
+  </li>
+  <li>[Admin Portal] New VM ignores osinfo properties for network card, it is always VirtIO</li>
+  <li>[ja_JP][Admin Portal] String ‘Network Provider’ broken into two lines in ‘New Host’ dailog.</li>
+  <li>can’t set a static network via Cloud-Init GUI in 3.3.1-2 beta</li>
+  <li>[engine-backend] Engine copyImage request to vdsm is transmitted with sdUUID value of an inactive SD</li>
+  <li>Balancing cluster doesn’t add VM’s Predicted CPU load into acceptable hosts load</li>
+  <li>Failed to create data center with default version</li>
+  <li>“too many” permissions needed for creating a VM pool</li>
+  <li>[DWH-OTOPI-SETUP] - Backup handling was removed and restore is done automatically</li>
+  <li>engine-config errors when used by non-root</li>
+  <li>Move sparse raw disk from NFS to iSCSI domain is not supported</li>
+  <li>“OK” button still has focus when editing user-data</li>
+  <li>custom properties sheet: no ‘-‘ (remove) button in last row of sheet</li>
+  <li>[backup] extend backup to dwh/reports</li>
+  <li>External users unable to live migrate disks to new storage domain</li>
+  <li>No domain is listed in New VM window: Domain drop down for Windows OS.</li>
+  <li>[webadmin] DC subtabs - refreshes are visible</li>
+  <li>REST API for hosted engine maintenance operations</li>
+  <li>[host-deploy] ovirt-node upgrade results in null point exception if initial installation of node failed in past</li>
+  <li>Labels should be filtered by product (RHEV/Neutron)</li>
+  <li>VM’s can’t be started after fresh install</li>
+  <li>[ovirt][webadmin] SessionID for REST API stores in browser Local Storage</li>
+  <li>Can’t configure vNIC QoS to “unlimited” once it had been set</li>
+  <li>[ja_JP][de_DE][User Portal] String broken into two lines in ‘Console Options’ dialog.</li>
+  <li>Tracker: oVirt 3.4.1 release</li>
+  <li>[REST API] NullPointerException thrown when importing a template without specifying storage domain</li>
+  <li>installation of rhev-h in webadmin failed due to wrong filename for version.txt</li>
+  <li>manage domains FileNotFoundException exception</li>
+  <li>Distinguish between manual fence resulted from user action and manual fence called internally by auto fence</li>
+  <li>[RFE][notifier] Event Notifications List Text File</li>
+  <li>Label reference missing under Network and HostNics in API XSD</li>
+  <li>[engine-backend] Engine reports that disk resize had succeeded although it failed on vdsm</li>
+  <li></li>
+  <li>rhevm creates glusterfs SD on unsupported datacenter versions (3.2..)</li>
+  <li>Label reference missing under Network and HostNics in API XSD</li>
+  <li>[ALL_LANG][Admin_Portal] Default Storage Domain drop down box is not aligned to the text</li>
+  <li>[de_DE, pt_BR, es_ES, fr_FR][RHEVM-3.4.0.5] [Admin Portal] Help button overlap issue on clusters-&gt;New-&gt;Console tab.</li>
+  <li>[RFE] 3.4 product translation: translation update 3</li>
+  <li>[host-deploy] missing ssh fingerprint in registration protocol v1</li>
+  <li>[dbscripts] engine-setup fails: ERROR: insert or update on table “tags_user_map” violates foreign key constraint “tags_user_map_user”</li>
+  <li>HTTP 500 on expired session request</li>
+  <li>Uprgrade from is35.1 to av7 fails on dbscript</li>
+  <li>Guide me dialog got stuck(NPE) in DataCenter tab if exists pending approval host</li>
+  <li>engine-config’s manual should be updated regarding new command –merge</li>
+  <li>db upgrade fails if there’s a subscription to VDS_HIGH_NETWORK_USE event</li>
+  <li>[BUG] can’t boot vm with cloud-init data submitted as json via REST api</li>
+</ul>
+
+<h3 id="ovirt-iso-uploader">oVirt Iso Uploader</h3>
+
+<ul>
+  <li>[engine-iso-uploader] INFO: Use the -h option to see usage - when put incorrect iso domain</li>
+  <li>The ISO uploader assumes that the storage domain uses NFS</li>
+</ul>
+
+<h3 id="ovirt-image-uploader">oVirt Image Uploader</h3>
+
+<ul>
+  <li>Man page for rhevm-image-uploader is missing options</li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</h3>
+
+<ul>
+  <li>hosted-engine fails when cdrom is chosen as the source for the installation.</li>
+  <li>hosted-engine-setup fails at “Waiting for cluster to become operational”</li>
+  <li>hosted-engine script fails with Traceback when cluster doesn’t return a CPU type</li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-ha">oVirt Hosted Engine HA</h3>
+
+<ul>
+  <li>agent dies while monitoring the engine</li>
+</ul>
+
+<h3 id="vdsm">VDSM</h3>
+
+<h3 id="ovirt-node-plugin-vdsm">ovirt-node-plugin-vdsm</h3>
+
+<ul>
+  <li>engine_page: use vdsm to detect mgmt interface</li>
+  <li>engine_page: display url/port only on available</li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3108/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3108/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3108/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3108/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.4.1/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/releases/3.4.1/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

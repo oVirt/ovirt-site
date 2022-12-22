@@ -132,7 +132,7 @@ For oVirt 4.4:
 # dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
 
-Common procedure valid for both 4.4 and 4.5:
+Common procedure valid for both 4.4 and 4.5 on {enterprise-linux} 8 only:
 
 You can check which repositories are currently enabled by running `dnf repolist`.
 

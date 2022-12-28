@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hosted Engine Improve Management in Host Dialogs | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Hosted Engine Improve Management in Host Dialogs" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3110/develop/release-management/features/sla/hosted-engine-improve-management-in-host-dialogs.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3110/develop/release-management/features/sla/hosted-engine-improve-management-in-host-dialogs.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hosted Engine Improve Management in Host Dialogs" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Hosted Engine Improve Management in Host Dialogs","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3110/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3110/develop/release-management/features/sla/hosted-engine-improve-management-in-host-dialogs.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3110/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3110/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3110/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3110/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3110/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3110/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3110/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3110/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3110/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3110/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3110/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3110/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3110/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3110/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3110/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3110/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3110/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3110/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3110/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3110/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3110/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3110/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3110//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3110//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3110/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3110/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3110/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3110/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3110/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Phillip Bailey">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Phillip Bailey</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3110/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="hosted-engine-improve-management-in-host-dialogs">Hosted Engine: Improve Management in Host Dialogs</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>The current user interface for managing deployment of hosted engine support on hosts provides a less than optimal user experience and limited options. For instance, the ‘Hosted Engine’ side tab appears in ‘New Host’ popups regardless of whether or not hosted engine is setup for ovirt-engine, and doesn’t appear at all in ‘Edit Host’ popups. Additionally, both the DEPLOY and UNDEPLOY options are displayed whether they are appropriate in the given context or not.</p>
+
+<p>This goal of this feature is to improve hosted engine support in host dialogs by providing a more intuitive user experience and increasing the available range of options for hosted engine deployment.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: <a href="https://github.com/pcbailey">Phillip Bailey</a></li>
+  <li>Email: <a href="mailto:phbailey@redhat.com">phbailey@redhat.com</a></li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The specific goals associated with this feature are as follows:</p>
+
+<ul>
+  <li>
+    <p>Display the ‘Hosted Engine’ side tab only if the system is configured for hosted engine</p>
+  </li>
+  <li>
+    <p>Change the interface element to a drop-down box</p>
+  </li>
+  <li>
+    <p>Display the ‘Hosted Engine’ side tab in the ‘Edit Host’ popup</p>
+  </li>
+  <li>
+    <p>Only display the appropriate deployment options for the given context. Note that the NONE option is displayed in all contexts.</p>
+
+    <ul>
+      <li>
+        <p>Only display the DEPLOY option in ‘New Host’ popups</p>
+
+        <p><img src="/ovirt-site/previews/3110/images/wiki/HE_Deployment_new_host.png" alt="" /></p>
+      </li>
+      <li>
+        <p>For ‘Edit Host’ popups:</p>
+
+        <ul>
+          <li>
+            <p>If the host is <strong>not</strong> a hosted engine node, display the DEPLOY option</p>
+
+            <p><img src="/ovirt-site/previews/3110/images/wiki/HE_Deployment_edit_on_non_he_node.png" alt="" /></p>
+          </li>
+          <li>
+            <p>If the host <strong>is</strong> a hosted engine node and it is <strong>not</strong> the last hosted engine node in the system, display the UNDEPLOY option</p>
+
+            <p><img src="/ovirt-site/previews/3110/images/wiki/HE_Deployment_edit_on_he_node.png" alt="" /></p>
+          </li>
+          <li>
+            <p>If the host <strong>is</strong> a hosted engine node and it <strong>is</strong> the last hosted engine node in the system, disable the drop-down box and provide an informative tooltip to explain why the element has been disabled</p>
+
+            <p><img src="/ovirt-site/previews/3110/images/wiki/HE_Deployment_edit_on_last_he_node.png" alt="" /></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<ul>
+  <li>Provides a greatly improved user experience for managing the deployment of hosted engine to hosts.</li>
+  <li>Provides additional capabilities by allowing users to manage hosted engine deployment for existing hosts.</li>
+</ul>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<ul>
+  <li>In order to implement this feature, ovirt-engine must be able to determine whether hosted engine is deployed and running on a given host. Hosted engine is defined as being deployed if the ovirt-hosted-engine-ha package is installed and the hosted engine configuration file is present and isn’t empty. Hosted engine is considered running if the the <code class="language-plaintext highlighter-rouge">ovirt-ha-agent</code> and <code class="language-plaintext highlighter-rouge">ovirt-ha-broker</code> services are running. To enable ovirt-engine to make this determination, the following changes have been made to ovirt-hosted-engine-ha and VDSM:
+    <ul>
+      <li>ovirt-hosted-engine-ha will report whether the hosted engine configuration file is present and non-empty.</li>
+      <li>VDSM will report the following:
+        <ul>
+          <li>Whether the ovirt-hosted-engine-ha package is installed</li>
+          <li>Whether hosted engine is deployed using the information reported by ovirt-hosted-engine-ha.</li>
+          <li>Whether the <code class="language-plaintext highlighter-rouge">ovirt-ha-agent</code> and <code class="language-plaintext highlighter-rouge">ovirt-ha-broker</code> services are running</li>
+          <li>Bugzilla ticket for the VDSM changes: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1392957">https://bugzilla.redhat.com/show_bug.cgi?id=1392957</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<ul>
+  <li>Bugzilla ticket: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1369827">https://bugzilla.redhat.com/show_bug.cgi?id=1369827</a></li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<ul>
+  <li>
+    <p>Check whether the ‘Hosted Engine’ tab is displayed in the ‘New Host’ and ‘Edit Host’ popups in both a hosted engine system and a regular system. Setting the ‘origin’ database field for a VM running on one of the hosts to ‘5’ or ‘6’ to simulate a hosted engine environment is sufficient if a real hosted engine setup isn’t available. The ‘Hosted Engine’ side tab should only be displayed in the popups on the hosted engine system. All remaining steps assume you are on a hosted engine system or have simulated one as described above.</p>
+  </li>
+  <li>
+    <p>Check that the only options displayed in the side tab of the ‘New Host’ popup are ‘NONE’ and “DEPLOY’.</p>
+  </li>
+  <li>
+    <p>Check the available deployment options in the ‘Edit Host’ popup for (1) non-hosted engine nodes, (2) hosted engine nodes, and (3) the last hosted engine node in the system. For this step, you must have at least one host that does not have the hosted engine components installed and two hosts with them installed and running.</p>
+
+    <ol>
+      <li>
+        <p>Check the side tab in the ‘Edit Host’ popup for the non-hosted engine node and ensure that the only options displayed are ‘NONE’ and ‘DEPLOY’.</p>
+      </li>
+      <li>
+        <p>Check the side tab in the ‘Edit Host’ popup for one of the hosted engine nodes and ensure that the only values displayed are ‘NONE’ and ‘UNDEPLOY’.</p>
+      </li>
+      <li>
+        <p>Remove all but one of the hosted engine nodes from the system, then check the side tab in the ‘Edit Host’ popup and ensure that the drop-down box can no longer be selected. Hover over the drop-down box and ensure that a tooltip is displayed explaining that the last hosted engine node in the system can’t be undeployed.</p>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="contingency-plan">Contingency Plan</h2>
+
+<ul>
+  <li>The current user interface will remain in use.</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3110/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3110/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3110/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3110/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/hosted-engine-improve-management-in-host-dialogs.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/hosted-engine-improve-management-in-host-dialogs.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

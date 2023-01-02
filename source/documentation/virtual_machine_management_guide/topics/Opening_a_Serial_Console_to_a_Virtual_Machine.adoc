@@ -63,8 +63,12 @@ See link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-working_with_
 # ssh-keygen -t rsa -b 2048 -f .ssh/serialconsolekey
 ----
 This command generates a public key and a private key.
-. In the Administration Portal or the VM Portal, click the name of the signed-in user on the header bar and click *Options*. This opens the *Edit Options* window.
-. In the *User's Public Key* text field, paste the public key of the client machine that will be used to access the serial console.
+. In the Administration Portal, click menu:Administration[Account Settings] or click the user icon on the header bar and click *Account Settings* to open the *Account Settings* screen.
++
+OR
++
+In the VM Portal, click the Settings icon in the header bar to open the *Account Settings* screen.
+. In the *User's Public Key* text field (Administration Portal) or *SSH Key* field (VM Portal), paste the public key of the client machine that will be used to access the serial console.
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click btn:[Edit].
 . In the *Console* tab of the *Edit Virtual Machine* window, select the *Enable VirtIO serial console* check box.

@@ -67,7 +67,7 @@ This command generates a public key and a private key.
 +
 OR
 +
-In the VM Portal, click the Settings icon in the header bar to open the *Account Settings* screen.
+In the VM Portal, click the Settings icon on the header bar to open the *Account Settings* screen.
 . In the *User's Public Key* text field (Administration Portal) or *SSH Key* field (VM Portal), paste the public key of the client machine that will be used to access the serial console.
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click btn:[Edit].

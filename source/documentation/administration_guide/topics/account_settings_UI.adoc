@@ -1,0 +1,5 @@
+:_content-type: PROCEDURE
+[id="account_settings_UI"]
+= Explanation of Settings in the Account Settings window
+
+The menu:Administration[Account Settings] window allows you to

@@ -22,4 +22,4 @@ The menu:Administration[Account Settings] window allows you to view or edit the 
 
 * *Confirmations* tab:
 +
-Show confirmation dialog on Suspend VM - enable a confirmation dialog when the VM is suspended.
+*Show confirmation dialog on Suspend VM* - enables a confirmation dialog when the VM is suspended.

@@ -25866,6 +25866,56 @@ send_client_credentials_via_post = false
 <div class="sect3">
 <h4 id="sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">3.6.7. Administering User Tasks From the Administration Portal</h4>
 <div class="sect4">
+<h5 id="account_settings_UI">The Account Settings window</h5>
+<div class="paragraph">
+<p>The <span class="menuseq"><b class="menu">Administration</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Account Settings</b></span> window allows you to view or edit the following Administration Portal user settings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>General</strong> tab:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>User Name</strong> - read only.</p>
+</li>
+<li>
+<p><strong>E-mail</strong> - read only.</p>
+</li>
+<li>
+<p><strong>Home Page</strong>:</p>
+<div class="paragraph">
+<p><strong>Default</strong> - <code>#dashboard-main</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Custom home page</strong> - enter only the last part of the URL, including hash mark (<code>#</code>). For example: <code>vms-snapshots;name-testVM</code>.</p>
+</div>
+</li>
+<li>
+<p><strong>Serial Console</strong></p>
+<div class="paragraph">
+<p><strong>User&#8217;s Public Key</strong> - enter the SSH public key that is used to access the Manager using a serial console.</p>
+</div>
+</li>
+<li>
+<p><strong>Tables</strong></p>
+<div class="paragraph">
+<p><strong>Persist grid settings</strong> - saves the grid column settings on the server.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Confirmations</strong> tab:</p>
+<div class="paragraph">
+<p>Show confirmation dialog on Suspend VM - enable a confirmation dialog when the VM is suspended.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
 <h5 id="Adding_users">Adding Users and Assigning VM Portal Permissions</h5>
 <div class="paragraph">
 <p>Users must be created already before they can be added and assigned roles and permissions. The roles and permissions assigned in this procedure give the user the permission to log in to the VM Portal and to start creating virtual machines. The procedure also applies to group accounts.</p>

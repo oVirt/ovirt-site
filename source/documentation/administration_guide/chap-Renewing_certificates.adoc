@@ -3,7 +3,16 @@
 = Renewing certificates before they expire
 
 [role="_abstract"]
-{virt-product-fullname} certificates now follow a standard 398 day lifetime and *must* be renewed once per year.
+ifdef::rhv-doc[]
+In {virt-product-fullname} earlier than version 4.4 SP1, all certificates followed a 398 day lifetime.
+Starting in {virt-product-fullname} version 4.4 SP1, the self-signed internal certificates between hypervisors and RHVM follow a five year lifetime. Certificates visible to web browsers still follow the standard 398 day lifetime and must be renewed once per year.
+endif::rhv-doc[]
+
+ifdef::ovirt-doc[]
+In {virt-product-fullname} earlier than version 4.5, all certificates followed a 398 day lifetime.
+Starting in {virt-product-fullname} version 4.5, the self-signed internal certificates between hypervisors and RHVM follow a five year lifetime. Certificates visible to web browsers still follow the standard 398 day lifetime and must be renewed once per year.
+endif::ovirt-doc[]
+
 
 [WARNING]
 ====

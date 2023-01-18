@@ -25,6 +25,11 @@ When the `he_pause_host` or `he_pause_before_engine_setup` variables are set to 
 ** `after_add_host`
 ** `after_setup`
 
+[IMPORTANT]
+====
+You must make sure that appliance content is upgraded to latest product version before proceeding with engine-setup. You can do that manually by pausing the deployment using `he_pause_before_engine_setup` and performing `dnf update`, or automatically by using a `enginevm_before_engine_setup` hook.
+====
+
 .Prerequisites
 
 * FQDNs prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS.

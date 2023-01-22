@@ -2400,23 +2400,22 @@ Do not override this setting.
 </li>
 </ul>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You must make sure that appliance content is upgraded to latest product version before proceeding with engine-setup. You can do that manually by pausing the deployment using <code>he_pause_before_engine_setup</code> and performing <code>dnf update</code>, or automatically by using a <code>enginevm_before_engine_setup</code> hook.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
+<li>
+<p>Upgrade the appliance content to the latest product version before performing <code>engine-setup</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To do this manually, pause the deployment using <code>he_pause_before_engine_setup</code> and perform a <code>dnf update</code>.</p>
+</li>
+<li>
+<p>To do this automatically, apply the <code>enginevm_before_engine_setup</code> hook.</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>FQDNs prepared for your Engine and the host. Forward and reverse lookup records must both be set in the DNS.</p>
 </li>

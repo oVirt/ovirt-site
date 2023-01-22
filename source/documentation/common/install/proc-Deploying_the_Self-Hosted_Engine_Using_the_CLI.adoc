@@ -25,13 +25,12 @@ When the `he_pause_host` or `he_pause_before_engine_setup` variables are set to 
 ** `after_add_host`
 ** `after_setup`
 
-[IMPORTANT]
-====
-You must make sure that appliance content is upgraded to latest product version before proceeding with engine-setup. You can do that manually by pausing the deployment using `he_pause_before_engine_setup` and performing `dnf update`, or automatically by using a `enginevm_before_engine_setup` hook.
-====
 
 .Prerequisites
 
+* Upgrade the appliance content to the latest product version before performing `engine-setup`.
+** To do this manually, pause the deployment using `he_pause_before_engine_setup` and perform a `dnf update`. 
+** To do this automatically, apply the `enginevm_before_engine_setup` hook.
 * FQDNs prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS.
 * When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
 * Optional: If you want to customize the {engine-name} virtual machine during deployment using automation, an Ansible playbook must be added. See xref:customizing_engine_vm_during_deployment_auto_SHE_cli_deploy[Customizing the Engine virtual machine using automation during deployment].

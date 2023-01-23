@@ -1,0 +1,25 @@
+:_content-type: PROCEDURE
+[id="account_settings_UI"]
+= The Account Settings window
+
+The menu:Administration[Account Settings] window allows you to view or edit the following Administration Portal user settings:
+
+* *General* tab:
+** *User Name* - read only.
+** *E-mail* - read only.
+** *Home Page*:
++
+*Default* - `#dashboard-main`.
++
+*Custom home page* - enter only the last part of the URL, including hash mark (`#`). For example: `#vms-snapshots;name-testVM`.
+** *Serial Console*
++
+*User's Public Key* - enter the SSH public key that is used to access the Manager using a serial console.
+
+** *Tables*
++
+*Persist grid settings* - saves the grid column settings on the server.
+
+* *Confirmations* tab:
++
+*Show confirmation dialog on Suspend VM* - enables a confirmation dialog when the VM is suspended.

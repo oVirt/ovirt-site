@@ -31,6 +31,8 @@ include::topics/User_actions.adoc[leveloffset=+2]
 [id="sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks"]
 == Administering User Tasks From the Administration Portal
 
+include::topics/account_settings_UI.adoc[leveloffset=+2]
+
 include::topics/Adding_users.adoc[leveloffset=+2]
 
 include::topics/Viewing_user_information_UI.adoc[leveloffset=+2]

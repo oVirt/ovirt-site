@@ -45,7 +45,7 @@ By default, this setting uses system-wide crypto policies. For more information,
 
 {hypervisor-shortname} hosts registered for 4.4.5.5 and later use the strongest algorithm that is supported by both the {engine-name} and {hypervisor-shortname}. The `PubkeyAcceptedKeyTypes` setting helps determine which algorithm is used.
 ====
-** `PermitRoolLogin` is set to `without-password` or `yes`
+** `PermitRootLogin` is set to `without-password` or `yes`
 ** `PubkeyAuthentication` is set to `yes`
 
 .Procedure

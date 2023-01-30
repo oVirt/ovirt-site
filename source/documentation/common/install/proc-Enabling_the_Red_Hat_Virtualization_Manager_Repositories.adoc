@@ -176,7 +176,7 @@ endif::ovirt-doc[]
 # dnf module -y enable nodejs:14
 ----
 ifdef::SHE_cli_deploy[]
-. Update the Self-Hosted Engine using the procedure  link:{URL_virt_product_docs}{URL_format}/upgrade_guide/index#Updating_a_self-hosted_engine_minor_updates[Updating a Self-Hosted Engine]
+. Update the Self-Hosted Engine using the procedure  link:{URL_virt_product_docs}{URL_format}/upgrade_guide/index#Updating_a_self-hosted_engine_minor_updates[Updating a Self-Hosted Engine] in the _Upgrade Guide_.
 endif::SHE_cli_deploy[]
 
 ifndef::SHE_cli_deploy[]

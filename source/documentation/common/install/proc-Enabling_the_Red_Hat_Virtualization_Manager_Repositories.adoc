@@ -175,12 +175,19 @@ endif::ovirt-doc[]
 ----
 # dnf module -y enable nodejs:14
 ----
+ifdef::SHE_cli_deploy[]
+. Update the Self-Hosted Engine using the procedure  link:{URL_virt_product_docs}{URL_format}/upgrade_guide/index#Updating_a_self-hosted_engine_minor_updates[Updating a Self-Hosted Engine]
+endif::SHE_cli_deploy[]
+
+ifndef::SHE_cli_deploy[]
 . Synchronize installed packages to update them to the latest available versions.
 +
 [source,terminal,subs="normal"]
 ----
 # dnf distro-sync --nobest
 ----
+endif::SHE_cli_deploy[]
+
 //ansible lock addition
 .Additional resources
 For information on modules and module streams, see the following sections in _Installing, managing, and removing user-space components_

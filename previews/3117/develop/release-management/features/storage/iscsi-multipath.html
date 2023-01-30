@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>iSCSI-Multipath | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="iSCSI-Multipath" />
+<meta name="author" content="Maor Lipchuk" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3117/develop/release-management/features/storage/iscsi-multipath.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3117/develop/release-management/features/storage/iscsi-multipath.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="iSCSI-Multipath" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Maor Lipchuk" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Maor Lipchuk"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"iSCSI-Multipath","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3117/images/logo.svg"},"name":"Maor Lipchuk"},"url":"https://ovirt.github.io/ovirt-site/previews/3117/develop/release-management/features/storage/iscsi-multipath.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3117/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3117/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3117/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3117/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3117/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3117/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3117/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3117/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3117/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Maor Lipchuk">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Maor Lipchuk</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/e563929a31cef762537008247dce66fd?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/e563929a31cef762537008247dce66fd?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sergey Gotliv">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sergey Gotliv</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3117/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="iscsi-multipath">iSCSI Multipath</h1>
+
+<h2 id="configure-iscsi-multipathing">Configure iSCSI Multipathing</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>Multipathing is a technique whereby there is more than one physical path between the server and the storage. This is a fault tolerant because in the case of a single path failure the operating system can route I/O through the remaining paths transparently to the application. In addition to path failover, multipathing provides load balancing by distributing I/O loads across multiple physical paths. This approach can reduce or remove potential bottlenecks.</p>
+
+<p>Up until now the iSCSI connection between the Host and the iSCSI Storage Domain is being done using only one “default” physical path. In case of a failure of any element in that path, such as an adapter, switch or cable the storage can’t be reached from the Host which immediately becomes a non operational. Another problem is that VDSM can’t actually control which path to use in order to establish connection to the storage so there is a possibility that storage traffic is routed through the busy management network.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Maor Lipchuk</li>
+  <li>Sergey Gotliv sgotliv@redhat.com</li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>Merged to 3.4 branch</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>This feature introduces a new managed entity, iSCSI Bond which groups networks and storage targets reachable via these networks.
+User can configure an iSCSI Bond under the Data Center that contains at least one iSCSI Storage Domain.
+The User selects logical networks and iSCSI targets.
+The iSCSI bond must contain at least one logical network related to the Data Center.
+Once the iSCSI multipathing is configured, all hosts in the Data Center will be connected to the selected iSCSI targets through the selected iSCSI networks.</p>
+
+<h3 id="permissions">Permissions</h3>
+
+<p>Every user with permissions on the Data Center, can add/edit or remove the iSCSI Bond.</p>
+
+<h3 id="iscsi-bond-behaviour">iSCSI Bond behaviour</h3>
+
+<ul>
+  <li>Each Data Center with iSCSI storage can have one or more iSCSI Bonds. The iSCSI bond is not obligated in the Data Center.</li>
+  <li>Each iSCSI bond can be configured with any of the networks configured in the Data Center.</li>
+  <li>iSCSI Bond name should be a unique name in the Data Center.</li>
+  <li>Once a network is being removed from a Data Center it should be automatically removed from the iSCSI Bond as well.</li>
+  <li>Once a Data Center is being removed all the iSCSI Bonds related to it should be removed as well.</li>
+  <li>Once a network is being added to the iSCSI Bond, all hosts are reconnected to the iSCSI targets related to the same Bond through all related networks including the newly added.</li>
+  <li>Once a host gets activated in the iSCSI Data Center it should connect to all available iSCSI targets with all the networks available in the iSCSI Bond</li>
+  <li>If the Host does not contain any of the networks configured in the iSCSI bond it should connect to the storage iSCSI with its default network</li>
+  <li>If the Host does contain the networks configured in the iSCSI bond and it does not succeed to connect to the iSCSI storage with them then the Host should become non operational.</li>
+</ul>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>For the user to start using the iSCSI bond, it will need to do the following:</p>
+
+<ol>
+  <li>Add an iSCSI Storage to the Data Center</li>
+  <li>Make sure the Data Center contains networks.</li>
+  <li>Go to the Data Center main tab and choose the specific Data Center</li>
+  <li>At the sub tab choose “iSCSI Multipathing”</li>
+  <li>Press the “new” button to add a new iSCSI Bond</li>
+  <li>Configure the networks you want to add to the new iSCSI Bond.</li>
+</ol>
+
+<p>Once a new iSCSI bond is configured, The Hosts in the Data Center connects to the iSCSI storage using the networks configured in the bond.</p>
+
+<h3 id="rest">REST</h3>
+
+<p><strong>Creating a new iSCSI Bond:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: POST
+URL: /api/datacenters/{datacenter_id}/iscsibonds
+HTTP/1.1
+Content-type: application/xml
+Body:
+
+<span class="nt">&lt;iscsi_bond&gt;</span>
+ <span class="nt">&lt;name&gt;</span>fromRest<span class="nt">&lt;/name&gt;</span>
+ <span class="nt">&lt;storage_connections&gt;</span>
+  <span class="nt">&lt;storage_connection</span> <span class="na">id=</span><span class="s">{storageconnection_id}</span> <span class="nt">/&gt;</span>
+      ....
+ <span class="nt">&lt;/storage_connections&gt;</span>
+ <span class="nt">&lt;networks&gt;</span>
+  <span class="nt">&lt;network</span> <span class="na">id=</span><span class="s">{network_id}</span> <span class="nt">/&gt;</span>
+      ....
+ <span class="nt">&lt;/networks&gt;</span>
+<span class="nt">&lt;/iscsi_bond&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Updating an iSCSI Bond, only name and description can be editing that way:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: PUT
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}
+HTTP/1.1
+Content-type: application/xml
+Body:
+
+<span class="nt">&lt;iscsi_bond&gt;</span>
+ <span class="nt">&lt;name&gt;</span>fromRest<span class="nt">&lt;/name&gt;</span>
+ <span class="nt">&lt;description&gt;</span>myDescription<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/iscsi_bond&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Removing an iSCSI Bond:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: DELETE
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}
+HTTP/1.1
+</code></pre></div></div>
+
+<p><strong>Getting all iSCSI Bonds for the specified data center:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: GET
+URL: /api/datacenters/{datacenter_id}/iscsibonds HTTP/1.1
+Content-type: application/xml
+</code></pre></div></div>
+
+<p><strong>Get a list of Storage Connections contained in the iSCSI bond:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: Get
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/
+</code></pre></div></div>
+
+<p><strong>Get a specific Storage Connection in the iSCSI bond:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: Get
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
+</code></pre></div></div>
+
+<p><strong>Adding a new Storage Connection to an existing iSCSI Bond:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: POST
+URL: /api/datacenters/{datacenter_id}/iscsibonds
+HTTP/1.1
+Accept: application/xml
+Body:
+
+<span class="nt">&lt;storage_connection</span> <span class="na">id=</span><span class="s">"{connection_id}"</span><span class="nt">&gt;&lt;/storage_connection&gt;</span>
+
+</code></pre></div></div>
+
+<p><strong>Remove a Storage Connection from the existing iSCSi Bond:</strong></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Method: DELETE
+/api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
+HTTP/1.1
+</code></pre></div></div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3117/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3117/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3117/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3117/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2023 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/iscsi-multipath.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/storage/iscsi-multipath.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

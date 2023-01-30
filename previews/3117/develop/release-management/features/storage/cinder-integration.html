@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cinder Integration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Cinder Integration" />
+<meta name="author" content="Daniel Erez" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3117/develop/release-management/features/storage/cinder-integration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3117/develop/release-management/features/storage/cinder-integration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cinder Integration" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Daniel Erez" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Daniel Erez"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Cinder Integration","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3117/images/logo.svg"},"name":"Daniel Erez"},"url":"https://ovirt.github.io/ovirt-site/previews/3117/develop/release-management/features/storage/cinder-integration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3117/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3117/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3117/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3117/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3117/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3117/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3117/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3117/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3117/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3117/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3117/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3117//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3117/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Daniel Erez">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Daniel Erez</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3117/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="cinder-integration">Cinder Integration</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>OpenStack Cinder(/ceph) Integration</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Daniel Erez (DanielErez) (<a href="mailto:derez@redhat.com">derez@redhat.com</a>)</li>
+  <li>Maor Lipchuk (MaorLipchuk)</li>
+  <li>Nir Soffer (NirSoffer) (<a href="mailto:nsoffer@redhat.com">nsoffer@redhat.com</a>)</li>
+  <li>Federico Simoncelli (FedericoSimoncelli) (<a href="mailto:fsimonce@redhat.com">fsimonce@redhat.com</a>)</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engine. For initial phase, the integration should ensure support for creating/deleting volumes from a Cinder storage domain, while monitoring relevant statuses using <a href="/ovirt-site/previews/3117/develop/release-management/features/infra/commandcoordinator.html">CoCo</a> mechanism. The engine/vdsm should allow running VMs with attached ceph volumes via librbd library using libvirt support (<a href="https://docs.ceph.com/en/latest/rbd/libvirt/">using libvirt with ceph rbd</a>). As for security, when required, running VMs can authenticate using <a href="https://web.archive.org/web/20150112075731/http://docs.ceph.com/docs/v0.69/rados/operations/auth-intro/">CEPHX</a> protocol (secret management will be handled in engine/vdsm).
+There is a known issue with OpenStack when deleting a snapshot which has dependent volumes based on it. to avoid this bug the OpenStack Cinder should configure the ceph backend with this attribute rbd_flatten_volume_from_snapshot as True.</p>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<ul>
+  <li><a href="https://github.com/woorea/openstack-java-sdk">Woorea - OpenStack Java SDK</a> should be updated and expanded to include cinder-model/cinder-client modules (needed for having an interface to interact with cinder rest-api commands.</li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<ul>
+  <li>Ceph documentation: <a href="https://docs.ceph.com/en/latest/">https://docs.ceph.com/en/latest/</a></li>
+  <li>Libvirt with Ceph: <a href="https://docs.ceph.com/en/latest/rbd/libvirt/">https://docs.ceph.com/en/latest/rbd/libvirt/</a></li>
+  <li>Cinder REST API: <a href="http://developer.openstack.org/api-ref-blockstorage-v2.html">http://developer.openstack.org/api-ref-blockstorage-v2.html</a></li>
+  <li>OpenStack Java SDK: <a href="https://github.com/woorea/openstack-java-sdk">https://github.com/woorea/openstack-java-sdk</a></li>
+  <li>Introducing Ceph to OpenStack: <a href="http://www.sebastien-han.fr/blog/2012/06/10/introducing-ceph-to-openstack/">http://www.sebastien-han.fr/blog/2012/06/10/introducing-ceph-to-openstack/</a></li>
+  <li>Configure OpenStack Ceph Client: <a href="https://docs.ceph.com/en/latest/rbd/rbd-openstack/#configure-openstack-ceph-clients">https://docs.ceph.com/en/latest/rbd/rbd-openstack/#configure-openstack-ceph-clients</a></li>
+</ul>
+
+<h2 id="phases">Phases</h2>
+
+<ul>
+  <li>CRUD for OpenStack Volume (Cinder) provider.</li>
+  <li>CRUD for adding/deleting Cinder disks (including monitoring).</li>
+  <li>CRUD for snapshots with Cinder disks.</li>
+  <li>Fetching Volume Types - ceph/lvm/etc.</li>
+  <li>Running VMs with Cinder disks attached.</li>
+  <li>CEPHX integration for using volumes securely.</li>
+  <li>Import (from Cinder to engine DB).</li>
+  <li>Permissions (MLA).</li>
+  <li>Templates
+    <ul>
+      <li>Add template - clone volume/create volume from snapshot - use <a href="http://blueprints.launchpad.net/cinder/+spec/add-cloning-support-to-cinder">clone volume</a> and <a href="https://blueprints.launchpad.net/cinder/+spec/add-flat-volume-api">flat volume</a> (if available).</li>
+      <li>Add VM from template - create volume from source volume (thin).</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="future-work">Future Work?</h2>
+
+<ul>
+  <li>Move VM disk/Copy Template disk (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).</li>
+  <li>Retype volume <a href="https://blueprints.launchpad.net/cinder/+spec/volume-retype">volume-retype</a> (not supported for rbd yet).</li>
+  <li>Upload to Image (glance).</li>
+  <li>CRUD for volume types.</li>
+  <li>Quota (Cinder/Engine).</li>
+  <li>Import/Export (VMs/Templates).</li>
+  <li>Disk profiles.</li>
+  <li>Live snapshots.</li>
+  <li>Live storage migration.</li>
+  <li>Sync Cinder data with engine DB.</li>
+  <li>Cinder storage domain monitoring.</li>
+  <li>Support multiple backends (lvm/etc).</li>
+  <li>OVF disk / disaster recovery support</li>
+</ul>
+
+<h2 id="relevant-flows">Relevant Flows</h2>
+
+<ul>
+  <li>Add/Remove/Edit OpenStack volume provider</li>
+  <li>Add/Remove/Update/Extend Cinder Disk</li>
+  <li>Attach/Detach Storage Domain</li>
+  <li>Activate/Deactivate Storage Domain</li>
+  <li>Remove VM</li>
+  <li>Add Template</li>
+  <li>Remove Template</li>
+  <li>Add VM from Template</li>
+  <li>Add VM Pool</li>
+  <li>Attach Cinder Disks</li>
+  <li>Plug/Unplug (Cold/Hot)</li>
+  <li>List Cinder Disks</li>
+  <li>Register Cinder Disks</li>
+  <li>Run VM - [multiple ceph monitors support / Cephx auth (secrets)]</li>
+  <li>Add/Remove Snapshot</li>
+  <li>Preview/Undo/Commit Snapshot</li>
+  <li>Custom Preview Snapshot</li>
+  <li>Clone VM from Snapshot</li>
+  <li>Clone VM</li>
+  <li>Remove Disk Snapshots</li>
+</ul>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<ul>
+  <li>Verify limits/quota against Cinder on Disk creation.</li>
+  <li>VM removal - deleted disks remain in ‘locked’ status (as opposed to images which are deleted immediately). I.e. failure would caused to disks in status ‘illegal’.</li>
+  <li>There is a known issue with OpenStack when deleting a snapshot which has dependent volumes based on it. to avoid this bug the OpenStack Cinder should configure the ceph backend with this attribute rbd_flatten_volume_from_snapshot as True.</li>
+</ul>
+
+<h2 id="patches">Patches</h2>
+
+<p><a href="http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:cinder,n,z">Topic Branch: Cinder</a></p>
+
+<h2 id="implementation">Implementation</h2>
+
+<h3 id="flow-illustration">Flow Illustration</h3>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_flow_illustration.png" alt="" /></p>
+
+<h3 id="engine">Engine</h3>
+
+<h3 id="rest-api">REST-API</h3>
+
+<h4 id="add-provider-post-apiopenstackvolumeproviders">Add Provider: <code class="language-plaintext highlighter-rouge">POST /api/openstackvolumeproviders</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;openstack_volume_provider&gt;</span>
+    <span class="nt">&lt;name&gt;&lt;/name&gt;</span>
+    <span class="nt">&lt;url&gt;</span>[fqdn]:8776<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;data_center&gt;</span>
+        <span class="nt">&lt;name&gt;&lt;/name&gt;</span>
+    <span class="nt">&lt;/data_center&gt;</span>
+    <span class="nt">&lt;requires_authentication&gt;</span>true|false<span class="nt">&lt;/requires_authentication&gt;</span>
+    <span class="nt">&lt;username&gt;&lt;/username&gt;</span>
+    <span class="nt">&lt;password&gt;&lt;/password&gt;</span>
+    <span class="nt">&lt;tenant_name&gt;&lt;/tenant_name&gt;</span>
+<span class="nt">&lt;/openstack_volume_provider&gt;</span>
+</code></pre></div></div>
+
+<h4 id="get-volume-provider-get-apiopenstackvolumeprovidersprovider_id-all-content-true">Get Volume Provider: <code class="language-plaintext highlighter-rouge">GET /api/openstackvolumeproviders/{provider_id} (All-Content: true)</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;openstack_volume_providers&gt;</span>
+    <span class="nt">&lt;openstack_volume_provider</span> <span class="na">href=</span><span class="s">"/api/openstackvolumeproviders/{id}"</span> <span class="na">id=</span><span class="s">"{id}"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;name&gt;</span>cinder2<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;requires_authentication&gt;</span>true<span class="nt">&lt;/requires_authentication&gt;</span>
+        <span class="nt">&lt;username&gt;</span>cinder<span class="nt">&lt;/username&gt;</span>
+        <span class="nt">&lt;data_center</span> <span class="na">href=</span><span class="s">"/api/datacenters/{id}"</span> <span class="na">id=</span><span class="s">"{id}"</span><span class="nt">&gt;</span>
+            ...
+        <span class="nt">&lt;/data_center&gt;</span>
+    <span class="nt">&lt;/openstack_volume_provider&gt;</span>
+<span class="nt">&lt;/openstack_volume_providers&gt;</span>
+</code></pre></div></div>
+
+<h4 id="get-volume-type-get-apiopenstackvolumeprovidersprovider_idvolumetypes">Get Volume Type: <code class="language-plaintext highlighter-rouge">GET /api/openstackvolumeproviders/{provider_id}/volumetypes</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;openstack_volume_types&gt;</span>
+    <span class="nt">&lt;openstack_volume_type</span> <span class="na">href=</span><span class="s">"/api/openstackvolumeproviders/{id}/volumetypes/{volume_type_id}"</span> <span class="na">id=</span><span class="s">"{id}"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;name&gt;</span>ceph<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;properties&gt;</span>
+            <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>volume_backend_name<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>ceph<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;/properties&gt;</span>
+        <span class="nt">&lt;openstack_volume_provider</span> <span class="na">href=</span><span class="s">"/api/openstackvolumeproviders/{provider_id}"</span> <span class="na">id=</span><span class="s">"{id}"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/openstack_volume_type&gt;</span>
+<span class="nt">&lt;/openstack_volume_types&gt;</span>
+</code></pre></div></div>
+
+<h4 id="get-authentication-keys-get-apiopenstackvolumeprovidersprovider_idauthenticationkeys">Get Authentication Keys: <code class="language-plaintext highlighter-rouge">GET /api/openstackvolumeproviders/{provider_id}/authenticationkeys</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;openstack_volume_authentication_keys&gt;</span>
+    <span class="nt">&lt;openstack_volume_authentication_key&gt;</span>
+    <span class="nt">&lt;description&gt;</span>my ceph secret<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;uuid&gt;</span>c50352a3-0700-48e9-9189-ed359c09bcf8<span class="nt">&lt;/uuid&gt;</span>
+    <span class="nt">&lt;usage_type&gt;</span>ceph<span class="nt">&lt;/usage_type&gt;</span>
+    <span class="nt">&lt;creation_date&gt;</span>2015-05-31T15:28:25.525+03:00<span class="nt">&lt;/creation_date&gt;</span>
+   <span class="nt">&lt;/openstack_volume_authentication_key&gt;</span>
+<span class="nt">&lt;/openstack_volume_authentication_keys&gt;</span>
+</code></pre></div></div>
+
+<h4 id="create-an-authentication-key-post-apiopenstackvolumeprovidersprovider_idauthenticationkeys">Create an Authentication Key: <code class="language-plaintext highlighter-rouge">POST /api/openstackvolumeproviders/{provider_id}/authenticationkeys</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;openstack_volume_authentication_key&gt;</span>
+    <span class="nt">&lt;uuid&gt;</span>0e6fff8d-8af9-49e2-b04f-1a5dbbe883a2<span class="nt">&lt;/uuid&gt;</span>
+    <span class="nt">&lt;description&gt;</span>my ceph secret<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;usage_type&gt;</span>ceph<span class="nt">&lt;/usage_type&gt;</span>
+    <span class="nt">&lt;value&gt;</span>YQo=<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/openstack_volume_authentication_key&gt;</span>
+</code></pre></div></div>
+
+<h4 id="create-a-cinder-disk-on-a-specific-volume-type-post-apivmsvm_iddisks">Create a Cinder disk on a specific Volume Type: <code class="language-plaintext highlighter-rouge">POST /api/vms/{vm_id}/disks</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk&gt;</span>
+    <span class="nt">&lt;openstack_volume_type&gt;</span>
+        <span class="nt">&lt;name&gt;</span>my_ceph<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;/openstack_volume_type&gt;</span>
+    <span class="nt">&lt;storage_domains&gt;</span>
+        <span class="nt">&lt;storage_domain&gt;</span>
+            <span class="nt">&lt;name&gt;</span>cinder<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/storage_domain&gt;</span>
+    <span class="nt">&lt;/storage_domains&gt;</span> 
+    <span class="nt">&lt;provisioned_size&gt;</span>1073741824<span class="nt">&lt;/provisioned_size&gt;</span>
+    <span class="nt">&lt;interface&gt;</span>virtio<span class="nt">&lt;/interface&gt;</span>
+    <span class="nt">&lt;format&gt;</span>raw<span class="nt">&lt;/format&gt;</span>
+<span class="nt">&lt;/disk&gt;</span>
+</code></pre></div></div>
+
+<h4 id="get-unregistered-disks-get-apistoragedomainsstorage_domain_iddisksunregistered">Get Unregistered Disks: <code class="language-plaintext highlighter-rouge">GET /api/storagedomains/{storage_domain_id}/disks;unregistered</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disks&gt;</span>
+      ...
+<span class="nt">&lt;/disks&gt;</span>
+</code></pre></div></div>
+
+<h4 id="register-disk-post-apistoragedomainsstorage_domain_iddisksunregistered">Register Disk: <code class="language-plaintext highlighter-rouge">POST /api/storagedomains/{storage_domain_id}/disks;unregistered</code></h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk</span> <span class="na">id=</span><span class="s">"{disk_id}"</span><span class="nt">&gt;&lt;/disk&gt;</span>
+</code></pre></div></div>
+
+<h4 id="delete-entity-diskvmtemplate">Delete Entity (DIsk/VM/Template)</h4>
+
+<p>Cinder disks are deleted asynchronously, hence ‘;async’ flag could be passed as part of the URL for getting 202-Accepted return status.</p>
+
+<p>E.g. 
+    <code class="language-plaintext highlighter-rouge">DELETE /api/disks/{disk_id};async</code></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;action&gt;&lt;/action&gt;</span>
+</code></pre></div></div>
+
+<h3 id="vdsm">VDSM</h3>
+
+<ul>
+  <li>Add <a href="https://packages.fedoraproject.org/pkgs/ceph/librbd1/">librbd1 package</a> as dependency to vdsm.spec file.</li>
+  <li>Refactor <code class="language-plaintext highlighter-rouge">Drive -&gt; getXML()</code> to support multiple hosts (represents Ceph monitors) in disk’s source element:</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">"network"</span> <span class="na">device=</span><span class="s">"disk"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;host</span> <span class="na">name=</span><span class="s">"{monitor-host}"</span> <span class="na">port=</span><span class="s">"6789"</span><span class="nt">/&gt;</span>
+                     ...
+
+    <span class="nt">&lt;/source&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">"vda"</span> <span class="na">bus=</span><span class="s">"virtio"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/disk&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>[TBD] <a href="https://web.archive.org/web/20150112075731/http://docs.ceph.com/docs/v0.69/rados/operations/auth-intro/">CEPHX</a> secret handling - <a href="https://docs.ceph.com/en/latest/rbd/libvirt/#configuring-the-vm">Libvirt with CEPH (Configuring the VM section)</a>.</li>
+</ul>
+
+<h3 id="ui">UI</h3>
+
+<h4 id="openstack-volume-providers">OpenStack Volume Providers</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_providers.png" alt="" /></p>
+
+<h4 id="openstack-volume-provider-dialog">OpenStack Volume Provider Dialog</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_new_provider.png" alt="" /></p>
+
+<h4 id="cinder-storage-domains">Cinder Storage Domains</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_domains.png" alt="" /></p>
+
+<h4 id="cinder-disk-dialog">Cinder Disk Dialog</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_new_disk.png" alt="" /></p>
+
+<h4 id="cinder-disks-attached-to-a-vm">Cinder Disks attached to a VM</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_vms_disks.png" alt="" /></p>
+
+<h4 id="cinder-disks-list-under-storage">Cinder Disks List (under Storage)</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_storage_disks.png" alt="" /></p>
+
+<h4 id="register-cinder-disks-under-storage">Register Cinder Disks (under Storage)</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_storage_register_disks.png" alt="" /></p>
+
+<h4 id="cinder-disks-list">Cinder Disks List</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_disks_storage.png" alt="" /></p>
+
+<h4 id="cinder-authentication-keys">Cinder Authentication Keys</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_auth_keys.png" alt="" /></p>
+
+<h4 id="authentication-key-dialog">Authentication Key Dialog</h4>
+
+<p><img src="/ovirt-site/previews/3117/images/wiki/Cinder_new_auth_key.png" alt="" /></p>
+
+<h2 id="authentication-keys">Authentication Keys</h2>
+
+<p>When client Ceph authentication (Cephx) is enabled, authentication keys should be configured as follows:</p>
+
+<ul>
+  <li>(1) Create a new secret key on ceph using ‘ceph auth get-or-create’ - see example in <a href="http://docs.ceph.com/docs/master/rbd/libvirt/#configuring-the-vm">Configuring client for Nova/Cinder</a>
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>E.g.1. ceph auth get-or-create client.cinder</td>
+              <td>ssh {your-nova-compute-server} sudo tee /etc/ceph/ceph.client.cinder.keyring</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>E.g.2. ceph auth get-or-create client.vdsm</td>
+              <td>tee ‘my_pass’</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>(2) Navigate to ‘Authentication Keys’ sub-tab (under ‘Providers’ main-tab): <img src="/ovirt-site/previews/3117/images/wiki/Cinder_Authentication_Keys.png" alt="Authentication Keys" /></li>
+  <li>(3) Click ‘New’ to open the create dialog: <img src="/ovirt-site/previews/3117/images/wiki/Authentication_Key_Dialog.png" alt="Screenshot" /></li>
+  <li>(4) In ‘Value’ text-box, enter the value of the secret key created on step (1).
+    <ul>
+      <li>Can be retrieved by ‘ceph auth get client.cinder’</li>
+    </ul>
+  </li>
+  <li>
+    <p>(5) From ‘UUID’ text-box, copy the automatically generated UUID (or create a new one), and add to cinder.conf.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> E.g. '/etc/cinder/cinder.conf':
+ rbd_secret_uuid = 148eb4bc-c47c-4ffe-b14e-3a0fb6c76833
+ rbd_user = cinder
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Note: client authentication keys are only used upon running a VM; i.e. authentication for ceph volume manipulation should be configured solely on Cinder side.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3117/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3117/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3117/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3117/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2023 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/cinder-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/storage/cinder-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

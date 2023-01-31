@@ -52,6 +52,12 @@ To list all enabled repositories:
 # dnf repolist
 ----
 ====
+. Set the RHEL version to 8.6
++
+[source,terminal,subs="normal"]
+----
+# subscription-manager release --set=8.6
+----
 
 . Configure the repositories:
 +
@@ -60,8 +66,8 @@ ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_D
 ----
 # subscription-manager repos \
     --disable='*' \
-    --enable=rhel-8-for-x86_64-baseos-rpms \
-    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhel-8-for-x86_64-baseos-eus-rpms \
+    --enable=rhel-8-for-x86_64-appstream-eus-rpms
     --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms \
     --enable=fast-datapath-for-rhel-8-x86_64-rpms \
     --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms \
@@ -75,8 +81,8 @@ ifdef::remote_database_install,manual_database_install,migrate_DWH_DB,install_DW
 ----
 # subscription-manager repos \
     --disable='*' \
-    --enable=rhel-8-for-x86_64-baseos-rpms \
-    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhel-8-for-x86_64-baseos-eus-rpms \
+    --enable=rhel-8-for-x86_64-appstream-eus-rpms
     --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms
 ----
 endif::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
@@ -85,32 +91,10 @@ ifdef::migrate_SHE_DB,migrate_manager_db[]
 ----
 # subscription-manager repos \
     --disable='*' \
-    --enable=rhel-8-for-x86_64-baseos-rpms \
-    --enable=rhel-8-for-x86_64-appstream-rpms
+    --enable=rhel-8-for-x86_64-baseos-eus-rpms \
+    --enable=rhel-8-for-x86_64-appstream-eus-rpms
 ----
 endif::migrate_SHE_DB,migrate_manager_db[]
-
-. Subscribe to RHEL EUS channels
-+
-[source,terminal,subs="normal"]
-----
-# subscription-manager repos \
-        --enable=rhel-8-for-x86_64-baseos-eus-rpms \
-        --enable=rhel-8-for-x86_64-appstream-eus-rpms
-----
-+
-[NOTE]
-====
-RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
-====
-+
-. Fix RHEL version to 8.6
-+
-[source,terminal,subs="normal"]
-----
-# subscription-manager release --set=8.6
-----
-
 endif::rhv-doc[]
 
 ifdef::ovirt-doc[]

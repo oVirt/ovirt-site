@@ -80,15 +80,6 @@ ifdef::migrate_SHE_DB,migrate_manager_db[]
     --enable=rhel-8-for-x86_64-appstream-eus-rpms
 ----
 endif::migrate_SHE_DB,migrate_manager_db[]
-
-. Subscribe to RHEL EUS channels
-+
-[source,terminal,subs="normal"]
-----
-# subscription-manager repos \
-        --enable=rhel-8-for-x86_64-baseos-eus-rpms \
-        --enable=rhel-8-for-x86_64-appstream-eus-rpms
-----
 +
 . Set the RHEL version to 8.6
 +

@@ -55,7 +55,7 @@ To list all enabled repositories:
 
 . Configure the repositories:
 +
-ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
+ifndef::migrate_SHE_DB,migrate_manager_db[]
 [source,terminal,subs="normal"]
 ----
 # subscription-manager repos \
@@ -69,17 +69,8 @@ ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_D
     --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
 
 ----
-endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
-ifdef::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
-[source,terminal,subs="normal"]
-----
-# subscription-manager repos \
-    --disable='*' \
-    --enable=rhel-8-for-x86_64-baseos-eus-rpms \
-    --enable=rhel-8-for-x86_64-appstream-eus-rpms
-    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms
-----
-endif::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
+endif::migrate_SHE_DB,migrate_manager_db[]
+
 ifdef::migrate_SHE_DB,migrate_manager_db[]
 [source,terminal,subs="normal"]
 ----

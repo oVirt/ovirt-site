@@ -82,7 +82,6 @@ endif::SM_localDB_deploy,SM_remoteDB_deploy[]
         --enable=rhel-8-for-x86_64-appstream-eus-rpms
 ----
 ////
-+
 . Set the RHEL version to 8.6
 +
 [source,terminal,subs="normal"]

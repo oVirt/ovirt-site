@@ -72,16 +72,6 @@ For {enterprise-linux} 8 hosts, little endian, on IBM POWER8 or IBM POWER9 hardw
     --enable=fast-datapath-for-rhel-8-ppc64le-rpms \
 ----
 endif::SM_localDB_deploy,SM_remoteDB_deploy[]
-////
-. Subscribe to RHEL EUS channels
-+
-[source,terminal,subs="normal"]
-----
-# subscription-manager repos \
-        --enable=rhel-8-for-x86_64-baseos-eus-rpms \
-        --enable=rhel-8-for-x86_64-appstream-eus-rpms
-----
-////
 . Set the RHEL version to 8.6
 +
 [source,terminal,subs="normal"]

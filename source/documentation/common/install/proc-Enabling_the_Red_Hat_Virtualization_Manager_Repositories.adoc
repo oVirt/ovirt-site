@@ -81,7 +81,7 @@ ifdef::migrate_SHE_DB,migrate_manager_db[]
 ----
 endif::migrate_SHE_DB,migrate_manager_db[]
 +
-. Set the RHEL version to 8.6
+. Set the RHEL version to 8.6:
 +
 [source,terminal,subs="normal"]
 ----

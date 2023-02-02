@@ -72,7 +72,7 @@ For {enterprise-linux} 8 hosts, little endian, on IBM POWER8 or IBM POWER9 hardw
     --enable=fast-datapath-for-rhel-8-ppc64le-rpms \
 ----
 endif::SM_localDB_deploy,SM_remoteDB_deploy[]
-. Set the RHEL version to 8.6
+. Set the RHEL version to 8.6:
 +
 [source,terminal,subs="normal"]
 ----

@@ -48,7 +48,7 @@ To list all enabled repositories:
 # subscription-manager repos \
     --disable='*' \
     --enable=rhel-8-for-x86_64-baseos-eus-rpms \
-    --enable=rhel-8-for-x86_64-appstream-eus-rpms
+    --enable=rhel-8-for-x86_64-appstream-eus-rpms \
     --enable=rhv-4-mgmt-agent-for-rhel-8-x86_64-rpms \
     --enable=fast-datapath-for-rhel-8-x86_64-rpms \
     --enable=advanced-virt-for-rhel-8-x86_64-rpms \

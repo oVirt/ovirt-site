@@ -2453,7 +2453,7 @@ Do not override this setting.
 </div>
 </li>
 <li>
-<p><code>PermitRoolLogin</code> is set to <code>without-password</code> or <code>yes</code></p>
+<p><code>PermitRootLogin</code> is set to <code>without-password</code> or <code>yes</code></p>
 </li>
 <li>
 <p><code>PubkeyAuthentication</code> is set to <code>yes</code></p>
@@ -3011,11 +3011,9 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 </div>
 </li>
 <li>
-<p>Synchronize installed packages to update them to the latest available versions.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf distro-sync --nobest</code></pre>
-</div>
+<p>Update the Self-Hosted Engine using the procedure  <a href="https://ovirt.org/documentation//upgrade_guide/index#Updating_a_self-hosted_engine_minor_updates">Updating a Self-Hosted Engine</a> in the <em>Upgrade Guide</em>.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <div class="title">Additional resources</div>
@@ -3036,9 +3034,6 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content">Switching to a later stream</a></p>
 </li>
 </ul>
-</div>
-</li>
-</ol>
 </div>
 <div class="paragraph">
 <p>Log in to the Administration Portal, where you can add hosts and storage to the environment:</p>

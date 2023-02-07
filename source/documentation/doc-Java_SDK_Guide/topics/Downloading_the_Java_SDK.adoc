@@ -22,12 +22,6 @@ Install the Java software development kit and accompanying documentation.
 
 # subscription-manager release --set=8.6
 ----
-+
-[NOTE]
-====
-RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
-====
-+
 . Enable the `pki-deps` module.
 +
 [options="nowrap" subs="normal"]

@@ -19,12 +19,6 @@ To install the Python software development kit:
 
 # subscription-manager release --set=8.6
 ----
-+
-[NOTE]
-====
-RHEL 8.6 EUS channels may not be available until RHEL 8.7 is released.
-====
-
 . Install the required packages:
 +
 [source,terminal,subs="normal"]

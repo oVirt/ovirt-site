@@ -11,10 +11,6 @@ ifdef::ind_host_update,man_host_update[Update a host when its usage is relativel
 
 * The cluster must have sufficient memory reserved for its hosts to perform maintenance. Otherwise, virtual machine migrations will hang and fail. You can reduce the memory usage of host updates by shutting down some or all virtual machines before updating hosts.
 
-ifdef::ind_host_update,man_host_update[]
-* Do not update all hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.
-endif::ind_host_update,man_host_update[]
-
 * You cannot migrate a pinned virtual machine (such as a virtual machine using a vGPU) to another host.
 ifdef::ind_host_update,man_host_update[Pinned virtual machines must be shut down before updating the host.]
 ifdef::cluster_host_update[Pinned virtual machines are shut down during the update, unless you choose to skip that host instead.]

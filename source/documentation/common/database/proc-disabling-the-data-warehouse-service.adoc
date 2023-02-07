@@ -2,6 +2,14 @@
 [id="proc-disabling-the-data-warehouse-service"]
 = Disabling the Data Warehouse Service on the {engine-name} Machine
 
+.Prerequisites
+* The Grafana service on the {engine-name} machine is disabled:
++
+[source,terminal,subs="normal"]
+----
+# systemctl disable --now grafana-server.service
+----
+
 .Procedure
 
 . On the {engine-name} machine, restart the {engine-name}:

@@ -142,6 +142,11 @@ consistent review and collaboration practices.
 After your pull request is merged, the website auto-deploys and you can see the published changes
 within 10-15 minutes.
 
+Pull request creation/update triggers creation of a preview of the website, allowing to see how it
+would look like if it's merged. This currently requires creating the PR from a temporary feature
+branch inside this repo (ovirt-site), not a fork. If you create a PR from a fork branch, the
+"Publish preview" check will fail.
+
 ## Report problems or make suggestions
 
 If you find a problem with the content, with the website, or have suggestions for new content but

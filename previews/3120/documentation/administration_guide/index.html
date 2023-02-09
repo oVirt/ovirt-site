@@ -10984,9 +10984,6 @@ Update a host when its usage is relatively low.</p>
 <p>The cluster must have sufficient memory reserved for its hosts to perform maintenance. Otherwise, virtual machine migrations will hang and fail. You can reduce the memory usage of host updates by shutting down some or all virtual machines before updating hosts.</p>
 </li>
 <li>
-<p>Do not update all hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.</p>
-</li>
-<li>
 <p>You cannot migrate a pinned virtual machine (such as a virtual machine using a vGPU) to another host.
 Pinned virtual machines must be shut down before updating the host.</p>
 </li>
@@ -11105,9 +11102,6 @@ Update a host when its usage is relatively low.</p>
 </li>
 <li>
 <p>The cluster must have sufficient memory reserved for its hosts to perform maintenance. Otherwise, virtual machine migrations will hang and fail. You can reduce the memory usage of host updates by shutting down some or all virtual machines before updating hosts.</p>
-</li>
-<li>
-<p>Do not update all hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.</p>
 </li>
 <li>
 <p>You cannot migrate a pinned virtual machine (such as a virtual machine using a vGPU) to another host.
@@ -21643,7 +21637,7 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <p>Create a backup of the Data Warehouse database and configuration files on the Engine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --scope=dwhdb --scope=files --file=<em>file_name</em> --log=<em>log_file_name</em></code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --scope=grafanadb --scope=dwhdb --scope=files --file=<em>file_name</em> --log=<em>log_file_name</em></code></pre>
 </div>
 </div>
 </li>
@@ -21685,7 +21679,7 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <p>Restore the Data Warehouse database on the new machine. <em>file_name</em> is the backup file copied from the Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files&#8201;&#8212;&#8201;scope=grafanadb --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</code></pre>
 </div>
 </div>
 </li>
@@ -31318,7 +31312,8 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass</pre>
 <p>Create the <code>/etc/ovirt-engine-backup/engine-backup-config.d/update-system-wide-pki.sh</code> file with the following content. This enables <code>ovirt-engine-backup</code> to automatically update the system on restore.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS} /etc/ovirt-engine-backup&quot;
+<pre class="CodeRay highlight"><code data-lang="terminal">BACKUP_PATHS=&quot;${BACKUP_PATHS}
+/etc/ovirt-engine-backup&quot;
 cp -f /etc/pki/ovirt-engine/apache-ca.pem \
   /etc/pki/ca-trust/source/anchors/<em>3rd-party-ca-cert</em>.pem
 update-ca-trust</code></pre>

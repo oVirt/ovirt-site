@@ -8192,9 +8192,6 @@ Update a host when its usage is relatively low.</p>
 <p>The cluster must have sufficient memory reserved for its hosts to perform maintenance. Otherwise, virtual machine migrations will hang and fail. You can reduce the memory usage of host updates by shutting down some or all virtual machines before updating hosts.</p>
 </li>
 <li>
-<p>Do not update all hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.</p>
-</li>
-<li>
 <p>You cannot migrate a pinned virtual machine (such as a virtual machine using a vGPU) to another host.
 Pinned virtual machines must be shut down before updating the host.</p>
 </li>
@@ -8313,9 +8310,6 @@ Update a host when its usage is relatively low.</p>
 </li>
 <li>
 <p>The cluster must have sufficient memory reserved for its hosts to perform maintenance. Otherwise, virtual machine migrations will hang and fail. You can reduce the memory usage of host updates by shutting down some or all virtual machines before updating hosts.</p>
-</li>
-<li>
-<p>Do not update all hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.</p>
 </li>
 <li>
 <p>You cannot migrate a pinned virtual machine (such as a virtual machine using a vGPU) to another host.

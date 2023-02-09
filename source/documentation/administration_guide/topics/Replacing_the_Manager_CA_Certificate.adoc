@@ -182,7 +182,8 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass
 +
 [source,terminal,subs="normal"]
 ----
-BACKUP_PATHS="${BACKUP_PATHS} /etc/ovirt-engine-backup"
+BACKUP_PATHS="${BACKUP_PATHS}
+/etc/ovirt-engine-backup"
 cp -f /etc/pki/ovirt-engine/apache-ca.pem \
   /etc/pki/ca-trust/source/anchors/_3rd-party-ca-cert_.pem
 update-ca-trust

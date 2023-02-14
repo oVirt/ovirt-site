@@ -8,7 +8,7 @@
 +
 [source,terminal,subs="normal"]
 ----
-# engine-backup --mode=backup --scope=dwhdb --scope=files --file=_file_name_ --log=_log_file_name_
+# engine-backup --mode=backup --scope=grafanadb --scope=dwhdb --scope=files --file=_file_name_ --log=_log_file_name_
 ----
 
 . Copy the backup file from the {engine-name} to the new machine:
@@ -45,7 +45,7 @@
 +
 [source,terminal,subs="normal"]
 ----
-# engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions
+# engine-backup --mode=restore --scope=files --scope=grafanadb --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions
 ----
 
 The Data Warehouse database is now hosted on a separate machine from that on which the {engine-name} is hosted. After successfully restoring the Data Warehouse database, a prompt instructs you to run the `engine-setup` command. Before running this command, migrate the Data Warehouse service.

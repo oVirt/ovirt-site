@@ -10,7 +10,7 @@ If your {virt-product-fullname} {engine-name} is hosted on a machine that receiv
 ifdef::rhv-doc[]
 [source,terminal,subs="normal"]
 ----
-# reposync --newest-only /var/ftp/pub/rhevrepo
+# reposync --newest-only -p /var/ftp/pub/rhevrepo
 
 ----
 endif::[]

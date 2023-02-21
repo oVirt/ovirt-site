@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Vdsm Log Files | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Vdsm Log Files" />
+<meta name="author" content="Ayal Baron" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3129/develop/developer-guide/vdsm/log-files.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3129/develop/developer-guide/vdsm/log-files.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vdsm Log Files" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Ayal Baron" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Ayal Baron"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Vdsm Log Files","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3129/images/logo.svg"},"name":"Ayal Baron"},"url":"https://ovirt.github.io/ovirt-site/previews/3129/develop/developer-guide/vdsm/log-files.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3129/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3129/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3129/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3129/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3129/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3129/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3129/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3129/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3129/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3129/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3129/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3129/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3129/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3129/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3129/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3129/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class="masthead hidden-print" id="branding" role="banner"><section class="hgroup"></section><div id="access"><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3129/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3129/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3129/download/">Download</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3129/documentation/">Documentation</a>
+</li>
+<li class="active" role="menuitem">  <a href="/ovirt-site/previews/3129/develop/">Developers</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3129/community/">Community</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3129//lists.ovirt.org/archives/">Forum</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3129//blogs.ovirt.org/">Blog</a>
+</li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3129/">
+              <span property="name"></span>
+              <meta property="position" content="1">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3129/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3129/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3129/develop/developer-guide/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="4">
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/a283ddeeff169a8d3dbc71a3d6d3a2e5?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a283ddeeff169a8d3dbc71a3d6d3a2e5?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy" alt="avatar of Ayal Baron">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ayal Baron</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy" alt="avatar of Dan Kenigsberg">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/7054bd65a0f097bbc1e54f4652d59f8b?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/7054bd65a0f097bbc1e54f4652d59f8b?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy" alt="avatar of Francesco Romani">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Francesco Romani</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy" alt="avatar of Karsten 'quaid' Wade">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Karsten 'quaid' Wade</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="vdsm-log-files">Vdsm Log Files</h1>
+
+<h2 id="general">General</h2>
+
+<ul>
+  <li>
+    <p>The purpose of this wiki is to describe how to read the vdsm.log file and make sense of it</p>
+  </li>
+  <li>
+    <p>Vdsm’s log files reside under <code class="language-plaintext highlighter-rouge">/var/log/vdsm/</code></p>
+  </li>
+  <li>
+    <p>The log files are named <code class="language-plaintext highlighter-rouge">vdsm.log(.\d+.xz)?</code>.</p>
+  </li>
+  <li>
+    <p><strong>Note that the logs are in lzma2 format, which is not-quite-standard but very efficient for log files.</strong> (use less/xzless and xzgrep to access the log)</p>
+  </li>
+</ul>
+
+<h2 id="libvirt-logs">Libvirt logs</h2>
+
+<p>To better understand the behaviour of VDSM, it may be useful to look also at libvirt logs.
+This is especially true when troubleshooting VDSM.
+Libvirt logs are sent to systemd’s journal if available.
+Otherwise, are logged to <code class="language-plaintext highlighter-rouge">/var/lib/libvirt/libvirtd.log</code>
+(some linux distributions default to <code class="language-plaintext highlighter-rouge">/var/lib/libvirt.log</code>)</p>
+
+<h3 id="libvirt-debug-logs">Libvirt debug logs</h3>
+
+<p>Since oVirt 3.5.0 (VDSM 4.16.0), VDSM does not enable the overly verbose libvirt debug logs automatically.
+To manually enable libvirt debug logs, please refer to the <a href="http://wiki.libvirt.org/page/DebugLogs">official libvirt documentation</a>
+Please note that when reporting libvirt bugs, it is often required to attach the relevant libvirt debug logs.</p>
+
+<h2 id="reading-the-log">Reading the log</h2>
+
+<h3 id="verbosity-and-debug-information">Verbosity and debug information</h3>
+
+<p>VDSM produces a huge amount of logging, and to improve the readability and to ease the troubleshooting, effort are ongoing to make the output tunable,
+so the logs regard one or few interesting few, while informations about other activities is silenced. As part as this effort, VDSM gained the ability
+to change the log levels at runtime, without requiring a restart of the daemon. For example, to enable all the debug logs for the <code class="language-plaintext highlighter-rouge">virt</code> subsystem:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>vdsm-client Host setLogLevel <span class="nv">level</span><span class="o">=</span>DEBUG <span class="nv">name</span><span class="o">=</span>virt
+</code></pre></div></div>
+
+<p>For further details about how to configure the logging at runtime, refer to the <code class="language-plaintext highlighter-rouge">README.logging</code> file.</p>
+
+<h3 id="line-structure">Line structure</h3>
+
+<ul>
+  <li>Log lines have the following format:
+    <pre><code class="language-log">ThreadID/TaskID::LOG_LEVEL::DATE TIME::MODULE::#LINE::LOGGER_NAME::(FUNC_NAME) MESSAGE
+</code></pre>
+  </li>
+  <li>When vdsm starts up it writes the following line to the log:
+    <pre><code class="language-log">MainThread::INFO::2011-12-05 07:04:56,101::vdsm::71::vds::(run) I am the actual vdsm 4.9-0
+</code></pre>
+  </li>
+  <li>
+    <p>First a breakdown of this line:</p>
+
+    <dl>
+      <dt><code class="language-plaintext highlighter-rouge">MainThread</code></dt>
+      <dd>name of the thread (can be either MainThread, Thread-XXX with
+a sequential number, task uuid when async task or Dummy-XXX
+for storage mailbox)</dd>
+      <dt><code class="language-plaintext highlighter-rouge">INFO</code></dt>
+      <dd>log message level (<code class="language-plaintext highlighter-rouge">TRACE</code>, <code class="language-plaintext highlighter-rouge">DEBUG</code>, <code class="language-plaintext highlighter-rouge">INFO</code>, <code class="language-plaintext highlighter-rouge">WARNING</code>, <code class="language-plaintext highlighter-rouge">ERROR</code>)</dd>
+      <dt><code class="language-plaintext highlighter-rouge">2011-12-05 07:04:56,101</code></dt>
+      <dd>Time of message</dd>
+      <dt><code class="language-plaintext highlighter-rouge">vdsm</code></dt>
+      <dd>python module name which wrote to log (in this case <code class="language-plaintext highlighter-rouge">vdsm.py</code>)</dd>
+      <dt><code class="language-plaintext highlighter-rouge">71</code></dt>
+      <dd>line number in the pythonn module</dd>
+      <dt><code class="language-plaintext highlighter-rouge">vds</code></dt>
+      <dd>logger name</dd>
+      <dt><code class="language-plaintext highlighter-rouge">'(run) I am the actual vdsm 4.9-112.1'</code></dt>
+      <dd>message body. Specifically, this startup message contains ‘4.9-112.1’ which denotes the vdsm version.</dd>
+    </dl>
+  </li>
+</ul>
+
+<h3 id="tracebacks">Tracebacks</h3>
+
+<ul>
+  <li>Normally when there is an unhandled error then vdsm will print a traceback which looks something like this:
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>    <span class="n">MainThread</span><span class="p">::</span><span class="n">ERROR</span><span class="p">::</span><span class="mi">2011</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">05</span> <span class="mi">07</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="mi">300</span><span class="p">::</span><span class="n">vdsm</span><span class="p">::</span><span class="mi">74</span><span class="p">::</span><span class="n">vds</span><span class="p">::(</span><span class="n">run</span><span class="p">)</span> <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+       <span class="n">File</span> <span class="s">"/usr/share/vdsm/vdsm"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">72</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run</span>
+           <span class="n">serve_clients</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+       <span class="n">File</span> <span class="s">"/usr/share/vdsm/vdsm"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">40</span><span class="p">,</span> <span class="ow">in</span> <span class="n">serve_clients</span>
+           <span class="n">cif</span> <span class="o">=</span> <span class="n">clientIF</span><span class="p">.</span><span class="n">clientIF</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+       <span class="n">File</span> <span class="s">"/usr/share/vdsm/clientIF.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">111</span><span class="p">,</span> <span class="ow">in</span> <span class="n">init</span>
+           <span class="bp">self</span><span class="p">.</span><span class="n">_libvirt</span> <span class="o">=</span> <span class="n">libvirtconnection</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+       <span class="n">File</span> <span class="s">"/usr/share/vdsm/libvirtconnection.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">111</span><span class="p">,</span> <span class="ow">in</span> <span class="n">get</span>
+           <span class="n">conn</span> <span class="o">=</span> <span class="n">libvirt</span><span class="p">.</span><span class="n">openAuth</span><span class="p">(</span><span class="s">'qemu:///system'</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+       <span class="n">File</span> <span class="s">"/usr/lib64/python2.6/site-packages/libvirt.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">102</span><span class="p">,</span> <span class="ow">in</span> <span class="n">openAuth</span>
+           <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span><span class="k">raise</span> <span class="n">libvirtError</span><span class="p">(</span><span class="s">'virConnectOpenAuth() failed'</span><span class="p">)</span>
+       <span class="n">libvirtError</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">socket</span> <span class="n">to</span> <span class="s">'/var/run/libvirt/libvirt-sock'</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="nb">file</span> <span class="ow">or</span> <span class="n">directory</span>
+</code></pre></div>    </div>
+  </li>
+  <li>In the above example you can see that module <code class="language-plaintext highlighter-rouge">/usr/share/vdsm/libvirtconnection.py</code> tried to open authentication against libvirt and failed</li>
+</ul>
+
+<h3 id="caller-ip">Caller IP</h3>
+
+<ul>
+  <li>Every invocation of a vdsm verb starts with a line logging the identity of the caller</li>
+  <li>Non storage verbs start with a log line which contains both the caller IP and invoked verb and its params:
+    <pre><code class="language-log">Thread-15::DEBUG::2011-12-07 11:44:17,737::clientIF::54::vds::(wrapper)
+[10.35.17.240]::call getVdsCapabilities with () {}
+</code></pre>
+  </li>
+  <li>
+    <p>Storage verbs log the caller and the verb in separate lines:</p>
+
+    <pre><code class="language-log">Thread-16::DEBUG::2011-06-23 19:03:11,607::clientIF::225::
+Storage.Dispatcher.Protect::(wrapper) [10.35.16.71]
+
+Thread-1950::INFO::2011-12-07 12:14:15,018::dispatcher::94::
+Storage.Dispatcher.Protect::(run) Run and protect: getDeviceList, args: ( storageType=2)
+</code></pre>
+  </li>
+  <li>Note that running vdsClient would log with the IP of the host from which the command was invoked even if it is on the same node on which vdsm is running.
+To distinguish vdsClient from the engine you need to identify the caller IP.</li>
+</ul>
+
+<h3 id="storage-flows">Storage flows</h3>
+
+<ul>
+  <li>All storage commands run as tasks inside vdsm. Some run as synchronous tasks while others run as asynchronous tasks.</li>
+  <li>All storage commands start and end with a log message that has “Run and protect: VERB NAME”</li>
+  <li>
+    <p>Entry line looks like:</p>
+
+    <pre><code class="language-log">Thread-1952463::INFO::2011-09-18 05:01:01,867::dispatcher::109::Storage.Dispatcher.Protect::
+(run) Run and protect: getSpmStatus, args: ( spUUID=ffb469ec-d98b-4614-b3fc-c88f206d4 cfd)
+</code></pre>
+  </li>
+  <li>The above means that thread number 1952463 started running the ‘getSpmStatus’ command for storage pool ‘ffb469ec-d98b-4614-b3fc-c88f206d4cfd’</li>
+  <li>The entire synchronous part of the task will always log with the same thread number at the beginning of the line, so to follow the operation flow all you need to do is <code class="language-plaintext highlighter-rouge">grep 'Thread-1952463::'</code>
+and you’ll get all log lines that pertain to the synchronous part of the call.</li>
+  <li>Task example:
+    <pre><code class="language-log">Thread-1952463::DEBUG::2011-09-18 05:01:01,868::task::611::TaskManager.Task::(_updateState)
+Task=8a107a91-ecb4-4e10-9fb3-a7b400ed2c44::moving from state init -&gt; state preparing
+
+Thread-1952463::DEBUG::2011-09-18 05:01:01,868::spm::695::Storage.SPM::
+(public_getSpmStatus) spUUID=ffb469ec-d98b-4614-b3fc-c88f206d4cfd: spmStatus=SPM spmLver=0 spmId=1
+
+Thread-1952463::DEBUG::2011-09-18 05:01:01,868::task::1205::TaskManager.Task::(prepare)
+Task=8a107a91-ecb4-4e10-9fb3-a7b400ed2c44::finished:
+{'spm_st': {'spmId': 1, 'spmStatus ': 'SPM', 'spmLver': 0}}
+
+Thread-1952463::DEBUG::2011-09-18 05:01:01,869::task::611::TaskManager.Task::(_updateState)
+Task=8a107a91-ecb4-4e10-9fb3-a7b400ed2c44::moving from state preparing -&gt; state finished
+
+Thread-1952463::DEBUG::2011-09-18 05:01:01,869::resourceManager::806::
+ResourceManager.Owner::(releaseAll) Owner.releaseAll requests {} resources {}
+
+Thread-1952463::DEBUG::2011-09-18 05:01:01,870::resourceManager::841::
+ResourceManager.Owner::(cancelAll) Owner.cancelAll requests {}
+
+Thread-1952463::DEBUG::2011-09-18 05:01:01,870::task::1003::TaskManager.Task::(_decref)
+Task=8a107a91-ecb4-4e10-9fb3-a7b400ed2c44::ref 0 aborting False
+
+Thread-1952463::INFO::2011-09-18 05:01:01,870::dispatcher::115::
+Storage.Dispatcher.Protect::(run) Run and protect: getSpmStatus, Return response:
+{'status': {'message': 'OK', 'code': 0},
+'spm_st': {'spmId': 1, 'spmStatus': 'SPM', 'spmLver': 0}}
+</code></pre>
+  </li>
+  <li>Note the last ‘Run and protect’ line which is only logged if the task finished without an exception.</li>
+  <li>The second ‘Run and protect’ line logs the return info sent back to caller (normally engine).</li>
+  <li>Return messages always have the status dictionary which states whether the command finished successfully or not and additional info if needed, in this case spm status.</li>
+  <li>
+    <p>A successful command will return with: <code class="language-plaintext highlighter-rouge">'status': {'message': 'OK', 'code': 0}</code></p>
+  </li>
+  <li>In order to understand which (storage) commands were called you can just look for ‘Run and protect’ calls and go through them to understand the flow (again, all params passed and return values are logged).</li>
+</ul>
+
+<h3 id="async-tasks">Async tasks</h3>
+
+<h4 id="async-tasks-explained">Async Tasks explained</h4>
+
+<ul>
+  <li>
+    <p>Async tasks start out like any other verb as follows:</p>
+
+    <pre><code class="language-log">Thread-50::INFO::2011-06-23 13:04:29,774::dispatcher::94::Storage.Dispatcher.Protect::
+(run) Run and protect: spmStart, args:
+( spUUID=a2cc366a-a7a3-4684-8f8a-e53bce1da025 prevID =-1 prevLVER=-1
+recoveryMode=-1 scsiFencing=False)
+</code></pre>
+  </li>
+  <li>
+    <p>The return response of an async verb contains the task id (‘uuid’ variable):</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Thread-50::INFO::2011-06-23 13:04:29,782::dispatcher::100::Storage.Dispatcher.Protect::
+(run) Run and protect: spmStart, Return response:
+{'status': {'message': 'OK', 'code': 0}, 'uuid': 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'}
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>In order to follow the progress of the async task all you need to do is look for the log lines which start with the task id:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>bad26fcc-6e8b-4046-aab0-b4cbfb735aeb::DEBUG::2011-06-23 13:04:29,783::task::904::
+TaskManager.Task::(_runJobs) Task.run: running job 0: spmStart:
+&lt;bound method SPM.start of &lt;storage.spm.SPM instance at 0x1c8eb00&gt;&gt;
+(args: ('a2cc366a-a7a3-4684-8f8a-e53bce1da025', -1, -1, -1,
+False, 250, None) kwargs: {})
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>A successfully finished task log will look like this:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>bad26fcc-6e8b-4046-aab0-b4cbfb735aeb::DEBUG::2011-06-23 13:04:32,855::task::912::
+TaskManager.Task::(_runJobs) Task.run: exit - success: result
+bad26fcc-6e8b-4046-aab0-b4cbfb735aeb::DEBUG::2011-06-23 13:04:32,856::task::492::
+TaskManager.Task::(_debug) Task bad26fcc-6e8b-4046-aab0-b4cbfb735aeb: ref 0 aborting False
+bad26fcc-6e8b-4046-aab0-b4cbfb735aeb::DEBUG::2011-06-23 13:04:32,857::threadPool::
+47::Misc.ThreadPool::(setRunningTask) Number of running tasks: 0
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Engine also periodically calls getTaskStatus which looks like:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Thread-66::INFO::2011-06-23 13:04:33,848::dispatcher::94::Storage.Dispatcher.Protect::
+(run) Run and protect: getTaskStatus, args: ( taskID=bad26fcc-6e8b-4046-aab0-b4cbfb735aeb)
+Thread-66::DEBUG::2011-06-23 13:04:33,848::task::492::TaskManager.Task::(_debug) Task fc97d685-b677-4942-8df6-c0b6fcd33873: moving from state init -&gt; state preparing
+Thread-66::DEBUG::2011-06-23 13:04:33,849::taskManager::82::TaskManager::(getTaskStatus) Entry. taskID: bad26fcc-6e8b-4046-aab0-b4cbfb735aeb
+Thread-66::DEBUG::2011-06-23 13:04:33,849::taskManager::85::TaskManager::(getTaskStatus) Return. Response: {'code': 0, 'message': '1 jobs completed successfuly', 'taskState': 'finished', 'taskResult': 'success', 'taskID': 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'}
+...
+Thread-66::INFO::2011-06-23 13:04:33,851::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: getTaskStatus, Return response: {'status': {'message': 'OK', 'code': 0}, 'taskStatus': {'code': 0, 'message': '1 jobs completed successfuly', 'taskState': 'finished', 'taskResult': 'success', 'taskID': 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'}}
+</code></pre></div>    </div>
+  </li>
+  <li>As you can see in the first ‘Run and protect’ line the query was about task ‘bad26fcc-6e8b-4046-aab0-b4cbfb735aeb’</li>
+  <li>The last line of the thread shows that the task is finished and that it completed successfully (‘taskState’: ‘finished’, ‘taskResult’: ‘success’)</li>
+  <li>When trying to follow a flow of an async task, the task id will appear in the rhevm logs and we can take it from there and search for the task in the vdsm log (grep all lines with it for example)</li>
+</ul>
+
+<h3 id="external-commands">External commands</h3>
+
+<ul>
+  <li>
+    <p>Whenever vdsm executes an external command it does so via the execCmd method and logs the command and the return code and output:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,125::blockSD::732::Storage.Misc.excCmd::(mountMaster) '/usr/bin/sudo -n /sbin/e2fsck -p /dev/52493f96-d716-409f- b696-8cb8d5b43527/master' (cwd None) 21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,195::blockSD::732::Storage.Misc.excCmd::(mountMaster) SUCCESS: &lt;err&gt; = ; &lt;rc&gt; = 0
+</code></pre></div>    </div>
+  </li>
+  <li>As you can see above, the command completed successfully (SUCCESS) and then following is the stderr (<code class="language-plaintext highlighter-rouge">&lt;err&gt; = </code>) and return code (<code class="language-plaintext highlighter-rouge">&lt;rc&gt; = 0</code>)</li>
+  <li>When a command fails it looks like this:
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,196::blockSD::757::Storage.Misc.excCmd::(mountMaster) '/usr/bin/sudo -n /sbin/tune2fs -j /dev/52493f96-d716-409f -b696-8cb8d5b43527/master' (cwd None) 21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,213::blockSD::757::Storage.Misc.excCmd::(mountMaster) FAILED: &lt;err&gt; = 'The filesystem already has a journal.\n';&lt;rc&gt; = 1
+</code></pre></div>    </div>
+  </li>
+  <li>Note that the above line is VERY important when trying to debug issues many times <strong>before</strong> the traceback we can find a command that failed and explains why the flow failed. When posting an excerpt into bugzilla it is very important to check whether this happened and copy everything from this point down to the traceback.</li>
+</ul>
+
+<h3 id="correlating-user-flows">Correlating user flows</h3>
+
+<ul>
+  <li>The next important step is to actually understand how user flows correlate to the vdsm log.</li>
+</ul>
+
+<h4 id="create-template">Create template</h4>
+
+<ul>
+  <li>
+    <p>Create template is a <code class="language-plaintext highlighter-rouge">copyImage</code> command which is an async task so it will look like:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Thread-1713::INFO::2011-07-03 11:31:29,891::dispatcher::94::Storage.Dispatcher.Protect::(run) Run and protect: copyImage, args: ( sdUUID=eea4a640-a90a-4c7e-aa23-ae7420a5f9cb spUUID=e235e2c8-05cf-4868-b749-e0447fd0196e vmUUID=6580ecb9-5f3d-4f32-a420-ed6a1cd3a295 srcImgUUID=dbed3bfd-f247-4884-95e5-31a09bc561ca srcVolUUID=94bfb3b4-5060-462b-b85a-f8d2f1c77cd1 dstImgUUID=43299473-9a01-4905-bed4-489f1ba2c94b dstVolUUID=10645650-2231-46ee-bceb-618181d9ae7a description=DasdAS dstSdUUID=eea4a640-a90a-4c7e-aa23-ae7420a5f9cb volType=6 volFormat=4 preallocate=2 postZero=False force=False)
+...
+Thread-1713::INFO::2011-07-03 11:31:30,544::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: copyImage, Return response: {'status': {'message': 'OK', 'code': 0}, 'uuid': 'e62a8238-30bf-4f38-99e5-2da35769783b'}
+...
+e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:30,545::task::492::TaskManager.Task::(_debug) Task e62a8238-30bf-4f38-99e5-2da35769783b: _save: orig /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b temp /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b.temp
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Following is the command that actually converts the VM disk into the new template disk (this will normally take a long time):</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,110::volume::929::Storage.Misc.excCmd::(qemuConvert) '/bin/nice -n 19 /usr/bin/ionice -c 2 -n 7 /usr/bin/qemu-img convert -f qcow2 /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/eea4a640-a90a-4c7e-aa23-ae7420a5f9cb/images/dbed3bfd-f247-4884-95e5-31a09bc561ca/94bfb3b4-5060-462b-b85a-f8d2f1c77cd1 -O qcow2 /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/eea4a640-a90a-4c7e-aa23-ae7420a5f9cb/images/43299473-9a01-4905-bed4-489f1ba2c94b/10645650-2231-46ee-bceb-618181d9ae7a' (cwd None)
+e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,124::task::492::TaskManager.Task::(_debug) Task e62a8238-30bf-4f38-99e5-2da35769783b: _save: orig /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b temp /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b.temp
+e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,196::volume::929::Storage.Misc.excCmd::(qemuConvert) SUCCESS: &lt;err&gt; = []; &lt;rc&gt;= 0
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="import--export">Import / Export</h4>
+
+<ul>
+  <li>
+    <p>Import / Export of a VM or template is actually a <code class="language-plaintext highlighter-rouge">moveImage</code> command which is also an async task so again:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Thread-785::INFO::2011-06-12 11:32:40,202::dispatcher::94::Storage.Dispatcher.Protect::(run) Run and protect: moveImage, args: ( spUUID=5ccf59cb-4924-4e13-85d4-fe2b882a857d srcDomUUID=a0c2b674-456a-4eff-9717-915a4151a25c dstDomUUID=8cea8d77-f2ff-4ae6-8567-36e00afcd5ba imgUUID=197305c8-6e35-4e73-b316-f61bfc6c7800 vmUUID=d00a23e1-076e-4351-b4a0-d1c15e59dbd2 op=1 postZero=False force=False)
+...
+Thread-785::INFO::2011-06-12 11:32:41,091::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: moveImage, Return response: {'status': {'message': 'OK', 'code': 0}, 'uuid': 'ed948e15-7ff0-4598-a5af-0b96a8df547c'}
+...
+ed948e15-7ff0-4598-a5af-0b96a8df547c::DEBUG::2011-06-12 11:32:41,092::task::492::TaskManager.Task::(_debug) Task ed948e15-7ff0-4598-a5af-0b96a8df547c: moving from state queued -&gt; state running
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>The command that copies the disk is dd and if the disk has multiple volumes then there will be multiple consecutive dd commands</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>ed948e15-7ff0-4598-a5af-0b96a8df547c::DEBUG::2011-06-12 11:32:44,220::image::538::Storage.Misc.excCmd::(move) '/usr/bin/ionice -c2 -n7 /bin/dd if=/rhev/data-center/5ccf59cb-4924 -4e13-85d4-fe2b882a857d/a0c2b674-456a-4eff-9717-915a4151a25c/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 of=/rhev/data-center/5ccf59cb-4924- 4e13-85d4-fe2b882a857d/8cea8d77-f2ff-4ae6-8567-36e00afcd5ba/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 bs=1048576 seek=0 skip=0 conv=notrun c count=1024 oflag=direct' (cwd None)
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3129/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class="text-center" id="footer"><hr class="visible-print">
+<ul class="footer-nav-list">
+<li><a href="/ovirt-site/previews/3129/privacy-policy.html" target="_blank" title="Privacy policy">Privacy policy</a></li>
+<li><a href="/ovirt-site/previews/3129/community/about.html" target="_blank" title="About">About</a></li>
+<li><a href="/ovirt-site/previews/3129/general-disclaimer.html" target="_blank" title="Disclaimers">Disclaimers</a></li>
+</ul>© 2013–2023 oVirt<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/log-files.html&amp;template=" target="_blank" title="Report an issue"><i class="icon fab fa-github"></i>Report an issue with this page</a></div>
+<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/vdsm/log-files.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

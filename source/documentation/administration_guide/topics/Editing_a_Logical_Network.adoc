@@ -7,6 +7,13 @@
 A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Editing Host Network Interfaces and Assigning Logical Networks to Hosts] on how to synchronize your networks.
 ====
 
+[IMPORTANT]
+====
+When changing the `VM Network` property of an existing logical network used as a display network,
+no new virtual machines can be started on a host already running virtual machines.
+Only hosts that have no running virtual machines after the change of the `VM Network` property can start new virtual machines.
+====
+
 .Procedure
 
 . Click menu:Compute[Data Centers].

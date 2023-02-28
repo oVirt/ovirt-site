@@ -11,6 +11,7 @@ Third-party CA certificates are not used for authentication between the {engine-
 [IMPORTANT]
 ====
 When you switch to a custom HTTPS certificate, you must use your own CA certificate distribution to make that certificate available on clients.
+
 If you are integrating with Red Hat Satellite, you need to manually import the correct certificate into Satellite.
 ====
 

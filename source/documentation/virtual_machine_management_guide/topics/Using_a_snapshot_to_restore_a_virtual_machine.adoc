@@ -9,13 +9,13 @@ A snapshot can be used to restore a virtual machine to its previous state.
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click the virtual machine's name to go to the details view.
+. Shut down the virtual machine.
 . Click the *Snapshots* tab to list the available snapshots.
 . Select a snapshot to restore in the upper pane. The snapshot details display in the lower pane.
 . Click the btn:[Preview drop-down menu] button and select *Custom*.
 . Use the check boxes to select the *VM Configuration*, *Memory*, and disk(s) you want to restore, then click btn:[OK]. This allows you to create and restore from a customized snapshot using the configuration and disk(s) from multiple snapshots.
 +
 The status of the snapshot changes to `Preview Mode`. The status of the virtual machine briefly changes to `Image Locked` before returning to `Down`.
-. Shut down the virtual machine.
 . Start the virtual machine; it runs using the disk image of the snapshot.
 . Click *Commit* to permanently restore the virtual machine to the condition of the snapshot. Any subsequent snapshots are erased.
 +

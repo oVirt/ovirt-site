@@ -10,7 +10,7 @@ In the following procedure, the host-specific tasks must be performed on each ho
 
 .Procedure
 
-. On the host that you want to configure additional IPv4 addresses for, install the VDSM hook package. The package is available by default on {hypervisor-fullname}s but needs to be installed on {enterprise-linux-host-fullname}s.
+. On the host that you want to configure additional IPv4 addresses for, install the VDSM hook package. The package  needs to be installed manually on {enterprise-linux-host-fullname}s and {hypervisor-fullname}s.
 +
 [source,terminal,subs="normal"]
 ----

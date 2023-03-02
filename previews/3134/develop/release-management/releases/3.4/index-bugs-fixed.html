@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.4 release notes bugs fixed | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.4 release notes bugs fixed" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3134/develop/release-management/releases/3.4/index-bugs-fixed.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3134/develop/release-management/releases/3.4/index-bugs-fixed.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.4 release notes bugs fixed" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.4 release notes bugs fixed","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3134/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3134/develop/release-management/releases/3.4/index-bugs-fixed.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3134/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3134/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3134/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3134/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3134/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3134/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3134/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3134/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3134/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3134/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3134/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3134/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3134/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3134/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3134/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3134/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3134/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3134/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3134/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3134/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3134/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3134/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3134//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3134//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3134/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3134/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3134/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3134/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3134/develop/release-management/releases/3.4/">
+              <span property="name">oVirt 3.4 Release Notes</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/906bf180bffb1193ebc82defe8af0430?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/906bf180bffb1193ebc82defe8af0430?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Jodi Biddle">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jodi Biddle</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-34-release-notes-bugs-fixed">oVirt 3.4 release notes bugs fixed</h1>
+
+<h2 id="ovirt-engine">oVirt Engine</h2>
+
+<ul>
+  <li>[RFE] Webadmin’s layout is broken when not enough display real-estate [main-tab clutter, sub-tab clutter, buttons-panel clutter]</li>
+  <li>[RFE] Please allow to search in a case-insensitive manner from the search bar</li>
+  <li>[engine-core] Activating an already active domain through REST fails with “domain inaccessible”</li>
+  <li>createVG failures are not logged in vdsm logs</li>
+  <li>[RFE] Adding Disk to a VM which is not down adds a Disk that is not activated</li>
+  <li>webadmin - centralized refreshing logic</li>
+  <li>ovirt-engine-webadmin-portal: New VM Pool button should be grayed out when there are no templates (except Blank template)</li>
+  <li>[UserPortal] User is not able to see newly added permissions on object if he inherited this permission on that object.</li>
+  <li>[RHS-C] SHD service status details are not displayed in “Services” tab in Cluster</li>
+  <li>VMs are not migrated properly when NFS storage is blocked on host</li>
+  <li>[RHS-C] Creating a Distributed Stripe volume using the default Stripe Count (4) actually creates only a Stripe volume</li>
+  <li>[RFE] collect the “created_by” field of a VM into it’s configuration history</li>
+  <li>[oVirt-webadmin] [setupNetworks] “No valid Operation for <code class="language-plaintext highlighter-rouge">&lt;network_name&gt;</code> and Unassigned Logical Networks panel”</li>
+  <li>REST-API: Allow copy/move disk from disks collection</li>
+  <li>engine: DeactivateStorageDomainCommand fails with vdsm error: ‘Operation not allowed while SPM is active’ because we do not actually send SpmStop while there are unknown tasks</li>
+  <li>[event tab] better phrasing for actions done by unauthenticated users, currently appears as <code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code></li>
+  <li>Change “Guide” link to Power User Portal Guide</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Admin Portal] sort roles in alphabetical order in Configure</td>
+          <td>Roles window</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>[vdsm] remove mapping fails after extend storage domain with force=True</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Define meaningful Expires for static css</td>
+          <td>ico files</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>[RHS-C] No event messages are generated in UI when a brick goes from UP –&gt; DOWN / DOWN –&gt; UP</li>
+  <li>[RFE] ovirt-engine URI rework</li>
+  <li>webadmin: when unchecking the “collapse snapshot” tag in import dialogue it will change the disks allocation policy in the dialogue view to thinprovision no matter what the original disk is</li>
+  <li>Migrating VM vm_name to Host <code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code></li>
+  <li>[RHEVM][webadmin] weird scroll-bar flickering on Host -&gt; Network Interfaces sub-tab when refresh button is pressed</li>
+  <li>[User Portal] Displaying incorrect events after renaming VM</li>
+  <li>engine: LiveMigrateDisk: java.lang.reflect.InvocationTargetException when vm is removed before the deleteImage step is cleared on wipe=true disk</li>
+  <li>[RHS-C] Detected server host3 removed from Cluster <code class="language-plaintext highlighter-rouge">&lt;UNKNOWN&gt;</code>, and removed it from engine DB.</li>
+  <li>[RHS-C] Binary hook contents are being displayed during Resolve Conflicts</li>
+  <li>[RHS-C] Remove all the RHEVM related events from “Manage Events”</li>
+  <li>[RFE] spice proxy support at cluster/vm-pool granularity</li>
+  <li>event names partially overlap in “manage events” dialog</li>
+  <li>[RHSC] Cluster Compatibility Version version should default to the latest version</li>
+  <li>engine: no alert for user that specific disks cannot be moved when we move multiple disks at once</li>
+  <li>[User Portal] Disable strict user checking - warning, confirmation and then error</li>
+  <li>Export and Import of a VM do not save the plugged/unplugged status of its disks</li>
+  <li>[restapi] Missing permissions link at /vmpools url</li>
+  <li>‘Remove’ button on quota consumer should be enabled immediately, after click on user.</li>
+  <li>[RHSC] When a host is moved to Maintenance after being Non-operational, it is removed from the cluster, if another host in the cluster is UP.</li>
+  <li>osinfo file - deriving properties from NON-existing section causes ‘General command validation failure.’ in UI</li>
+  <li>engine [logger]: same exception is logged multiple times in engine log</li>
+  <li>[RHSC] Import cluster when one of the peers is unresolvable or unreachable from the engine, fails.</li>
+  <li>[RHSC] Remove hooks from a cluster, when all servers in the cluster are removed from engine.</li>
+  <li>[oVirt] [provider] Dialog doesn’t update unless focus lost</li>
+  <li>RHS-C: No error message seen while starting “ovirt-engine-notifier” when “MAIL_SERVER” is NOT defined</li>
+  <li>[Admin Portal] Setting config value DefaultWindowsTimeZone has no effect</li>
+  <li>[RHEVM][UI][TEXT] Comment tooltip is not well adjusted to its text</li>
+  <li>[RHSC] Console allows addition of a host to a cluster, that has the same UUID as that of a host that is already present in the cluster</li>
+  <li>Change column header for clusters on which a policy is applied for usability</li>
+  <li>[Admin Portal] Deleted config of UI plugin is not reflected, data are kept until engine is restarted</li>
+  <li>[RHS-C] AddVdsCommand should use LockManagerProperly</li>
+  <li>scheduling policy: please rename the predefined Functions / Weights Modules / Factors</li>
+  <li>[RHEVM-ENGINE] Authentication method doesn’t change when using arrow keys</li>
+  <li>It is possible to change an iscsi storage connection and set an empty target</li>
+  <li>[rhevm] Webadmin - Vms - Vms:Hosts autocomplete is incorrect</li>
+  <li>[rhevm] Webadmin - Users - SearchBox doesnt display Templates in search for Users (Users: Templates.name =R*)</li>
+  <li>[rhevm] Webadmin - Hosts - SearchBox “Host:user.usrname =*” doesn’t filter correctly</li>
+  <li>REST-API: –parent-tag-id option doesn’t exists in ‘update tag’ options</li>
+  <li>[ovirt-engine-notifier] - Mail - Incorrect mail headline on Error (Issue Solved Notification, Failed to query for notifications)</li>
+  <li>[scale] The thread pool is out of limit</li>
+  <li>Cannot add hypervisor host when use chinese support</li>
+  <li>[RHSC] Error message seen on starting rebalance on a volume with one brick needs improvement</li>
+  <li>[RHSC] Show error pop-up when user tries to stop a volume which has rebalance in progress</li>
+  <li>RHS-C: Introduce a Force option in the UI to allow creation of bricks in the root partition</li>
+  <li>[es_ES] [Admin Portal] Virtual Machines tab- Chart heading “Time executing” does not fit in the available space</li>
+  <li>[Admin Portal] Relogin with username/password via login screen after being automatically logged off causes HTTP auth dialog</li>
+  <li>Tabbing navigation in Add host tab should go from password field to OK buton</li>
+  <li>RHS-C: Rebalance Status refresh was not occuring properly</li>
+  <li>[RHSC] Not able to close rebalance status dialog .</li>
+  <li>[RHSC] Bricks tab for a volume not displaying the bricks and remains in the loading state for very long - more than 15 minutes.</li>
+  <li>Glance download is not interrupted when the InputStream is closed</li>
+  <li>[spice-html5] Unable to send ctrl-alt-del to a Windows guest while using spice-html5 console</li>
+  <li>[RHSC] - Rebalance status title should be changed.</li>
+  <li>[RHSC] - Brick advanced details gives error.</li>
+  <li>[RHSC] - An event message should be displayed when rebalance completes on a volume.</li>
+  <li>[RHSC] ‘Add Network’ dialog for a cluster contains fields not relevant to RHS</li>
+  <li>[ovirt-engine-backend] there are dos end of lines in engine.log</li>
+  <li>[RFE] Addition of os disk indicator on VM import screen</li>
+  <li>[RHSC] - No event message generated when rebalance is started from CLI.</li>
+  <li>[RHSC] A user with permissions to manipulate volumes cannot delete a volume</li>
+  <li>[vdsm] engine fails to add host with vdsm version 4.13.0</li>
+  <li>Description for the creation of cluster is incorrect</li>
+  <li>[RFE] Diplay client IP in the VM Sessions tab</li>
+  <li>REST-API: role should not be added to user without having a resource in context</li>
+  <li>REST-API: Inconsistent schema implementation in PayloadFile</li>
+  <li>call to ClusterGlusterVolumeBricks::add() successfully adds brick to volume but throws exception</li>
+  <li>[RHS-C] The menu option “Rebalance” should appear after “Stop” in Volume tab</li>
+  <li>[RHS-C] Drop down menu in Activities column for volumes should have a box on mouse hover</li>
+  <li>[RHS-C] Remove bricks status dialog should show host names instead of IP address</li>
+  <li>[RHS-C] In the Hosts tab, the sub-tab “Gluster Bricks” should be renames as “Bricks”</li>
+  <li>[RHS-C] Hide all the virt related fields and menus from RHSC</li>
+  <li>[RHS-C] Status of the volume in activities column after Stop rebalance should be in sync with gluster CLI output</li>
+  <li>[RHS-C] Show units of time (sec/ min) in runtime column in remove brick status dialog</li>
+  <li>RHS-C: Hide NFS setup, Application mode and Datacenter storage type from CONFIGURATION PREVIEW during rhsc-setup</li>
+  <li>[RHSC] - Stop Rebalance button does not get disabled once rebalance is complete.</li>
+  <li>[RHSC] - Completed text in the status dialog needs to be highlighted or made bold.</li>
+  <li>[RHSC] Error message on failure to start remove-brick is incorrect</li>
+  <li>[notifier] sent notification should be visible in INFO log level</li>
+  <li>[RHSC] - Skipped file count is getting displayed as failed file count in rebalance status dialog.</li>
+  <li>[notifier] If Alert and Issue Solved Notifications are both discovered during next iteration, the order is messed</li>
+  <li>[RHSC] - Node column should be sorted in the rebalance status dialog.</li>
+  <li>[RHSC] In the task tab, show the size of rebalanced files in MB or GB</li>
+  <li>[notifier][RFE] Use STARTTLS</li>
+  <li>[RHSC] - Cancel button is not working in the stop rebalance dialog box.</li>
+  <li>[RHSC] - Stop rebalance confirmation dialog does not display the volumes on which rebalance is going to be stopped.</li>
+  <li>[text] spelling mistakes in engine event log</li>
+  <li>[RHSC] ‘CPU Name’ field for a host is empty and ‘CPU Type’ is scrollable</li>
+  <li>[RHSC] Status of bricks that reside on a server which is down, should be shown as down.</li>
+  <li>message in the ‘remove’ confirmation dialog cannot be overridden in some cases</li>
+  <li>[RHSC] Import host dialog hangs</li>
+  <li>[RHSC] After starting rebalance on a volume, the rebalance button is active for some time.</li>
+  <li>[RHSC] - Remove brick warning for distributed replicate volume has an extra parameter which is not relevant .</li>
+  <li>RHS-C: Commit and Retain buttons are disabled in Remove brick status pop-up even though it’s ready for Commit/Retain</li>
+  <li>RHS-C: Typo in Events during Remove brick</li>
+  <li>[RHSC] Menu items in the remove-brick menu are all disabled</li>
+  <li>[RHSC] - Stopped At field is not getting dispalyed in the rebalance status dialog once rebalance is stopped.</li>
+  <li>[RHSC] Rebalance status dialog appears on the Console on clicking on the Status button and immediately disappears</li>
+  <li>[RHSC] - Monitoring stop rebalance from CLI does not work.</li>
+  <li>Upgrade from ovirt-engine-3.3 to master fails</li>
+  <li>Storage and dc are up although there is no host</li>
+  <li>[oVirt-webadmin][network] Network roles in cluster management should be radio buttons</li>
+  <li>[RFE] add trigger to stop etl connection via engine db value.</li>
+  <li>[RHSC] - Table in the rebalance status dialog should be same as that of CLI.</li>
+  <li>[RHS-C] In Add Bricks” pop-up, reference of “Servers” is NOT changed to “Hosts”</li>
+  <li>[RHS-C] Host detach fails but does not show an error in UI</li>
+  <li>[RHS-C] Stop remove brick does not show the remove brick status</li>
+  <li>Users with GlusterAdmin role should be able to Add/Remove Cluster and Hosts</li>
+  <li>[RHSC] Brick advance details dialogue should have the heading “Brick Advanced Detail”. In the General tab of Brick Advance details, swap the last two items “Mount options” and “File System” position.</li>
+  <li>[RHS-C] Remove brick status dialogue : Rename the column from “File Rebalanced” to “Files Migrated”</li>
+  <li>Rename Gluster Host to Host in detach Host dialog</li>
+  <li>[RHSC] In the bricks sub-tab for a server, show the bricks in sorted order</li>
+  <li>Put – (dash) before every item name for the purpose of consistency in confirmation dialogues. Particularly in Maintenance Confirmation dialogue…</li>
+  <li>[RHS-C] Error pop up has empty title</li>
+  <li>[RHSC] Retain button in the remove-brick status dialog does not work.</li>
+  <li>[RHSC] - Close button in commit remove bricks dialog should be changed to ‘Cancel’</li>
+  <li>Remove Multiple hosts throws error</li>
+  <li>[RHS-C] Remove-brick icon in the Volumes tab and Bricks tab should appear simultaneously</li>
+  <li>[RHSC] General Tab under Host : All the rows has to be properly aligned</li>
+  <li>[RHEVM] [webadmin] fix Edit Role dialog layout</li>
+  <li>Webadmin - Events - Search box: filtering events by time shows bogus results</li>
+  <li>Starting rebalance should reflect in UI immediately that task has started</li>
+  <li>backend search returns only first page when given max=-1</li>
+  <li>Create DB Scripts - incompatible code breaking dwh cross compatibility</li>
+  <li>[oVirt] [webadmin] In VM Guide Me, button Configure Virtual Disks doesn’t change</li>
+  <li>Duplicated login events</li>
+  <li>Webadmin UI is now requesting two slashes in front of URLs</li>
+  <li>Default DC &amp; Cluster has fixed UUIDs</li>
+  <li>[RFE] Allow users to cluster level enable/disable KSM</li>
+  <li>Volumes tab and sub-tabs not taking equal space</li>
+  <li>[RHSC] Remove-brick status dialog hangs when glusterd goes down on the storage node</li>
+  <li>Reinstall host by rest api fails on root_password field requirement</li>
+  <li>[RHS-C] About dialog does not have a title.</li>
+  <li>[RHSC] After committing remove-brick or retaining the brick, buttons ‘Commit’ and ‘Retain’ are not disabled in the remove-brick status dialog</li>
+  <li>[RHSC] Edit Role Dialog Should Read “Volumes” instead of “Gluster”</li>
+  <li>restore.sh - wrong example commands in –help</li>
+  <li>[restore.sh] restore.sh is doing restore.sh.log in /usr directory</li>
+  <li>[RFE] RunOnce dialog can not set a vnc keymap itself</li>
+  <li>[engine-webadmin] inappropriate message when trying to perform an operation on a locked disk</li>
+  <li>[RHSC] Unable to remove more than one pair of bricks from a distributed-replicate ( 3x2 ) volume</li>
+  <li>REST-API: Session based authentication in 3.4 is broken</li>
+  <li>[RHSC] Events log message seen on adding and removing a role needs improvement.</li>
+  <li>REST: unable to resolve hook content conflict by copying from another host</li>
+  <li>[RFE] engine.log is missing the iso file name, for run once \ boot from CD.</li>
+  <li>REST: can not remove brick from distributed-replicate volume</li>
+  <li>An event message for commit remove brick should mention the number of bricks removed.</li>
+  <li>[RHSC] ‘Could not fetch remove brick status of volume’ message lists all the bricks of the volume</li>
+  <li>[RFE] Support for moving hosts to sleep when using Power Saving policy</li>
+  <li>[RFE] [oVirt][webadmin] Change comment column title to icon, and move to right of name</li>
+  <li>[RHSC] Remove-brick icon disappears from the UI, when glusterd is killed on the node which was running remove-brick</li>
+  <li>Paused VM can be resumed on host that is not UP</li>
+  <li>Make default VNC console mode configurable</li>
+  <li>[RHS-C] Replace “GLuster” with “Gluster” in “Add Event Notification” under Users tab</li>
+  <li>[RHSC] Bricks status is not getting synched when gluster CLI output shows the port as N/A</li>
+  <li>Engine does not verify that proxy supports PM agent</li>
+  <li>[RHS-C] ‘Add Event Notification’ should show an error message if MAIL_SERVER is NOT configured and if “ovirt-engine-notifier” service is NOT started</li>
+  <li>[RFE] VM-VM Affinity</li>
+  <li>[RFE] High Availability flag should be included when exporting/importing from Export Domain</li>
+  <li>[RFE] Even Distribution Policy by number of VMs</li>
+  <li>[RFE] Make reservations for HA VMs to make sure there’s enough capacity to start them if N hosts fail</li>
+  <li>CreateVDSCommand Logging message does not report NIC devices</li>
+  <li>[RHSC] After retaining a brick using the Retain button in the status dialog, the ‘Stopped At’ field does not appear</li>
+  <li>when rebalance or remove-brick happens volume name gets updated as UNKNOWN in the tasks pane</li>
+  <li>[REPORTS] - dashboard results an error, after reports were installed</li>
+  <li>REST: migrating step’s type is unknown</li>
+  <li>REST: rsdl definition for brick migrate is incorrectly defined</li>
+  <li>add events for remote console connection</li>
+  <li>[RFE] Predictable vNIC order</li>
+  <li>rest api: incorrect error message commiting part of the migrated brick set</li>
+  <li>Rebalance start from gluster CLI does not update icon in the volume activities column.</li>
+  <li>No event message gets generated when remove-brick is stopped from CLI</li>
+  <li>Virt related links are returned in RSDL when engine is in Gluster only mode</li>
+  <li>Save user’s console setting per pool</li>
+  <li>Show name of the template in General tab for a vm if the vm is deployed from template via clone allocation.</li>
+  <li>[RFE] Track downtime for inactive VMs</li>
+  <li>[RHSC] Server removed from DB after being in Up state</li>
+  <li>In the event of a full host power outage (including fence devices) a user must wait 19 mins (3 x 3 minute timeouts + 10 minutes for the transaction reaper) until they can manually fence a host to relocate guests.</li>
+  <li>[engine-setup] Encoding issue in /var/lib/ovirt-engine/setup-history.txt</li>
+  <li>[RFE] Virtual pxe boots out of order - NICs ordered according to the MAC addresses</li>
+  <li>In the event of a full host power outage (including fence devices) VDS_ALERT_FENCE_STATUS_VERIFICATION_FAILED alert remains in audit log</li>
+  <li>tree view unsorted</li>
+  <li>[oVirt][infra] Device custom properties syntax check is wrong</li>
+  <li>[RFE] Add drac7 fence agent with ipmilan as implemintation</li>
+  <li>RHEVM-CLI: action <code class="language-plaintext highlighter-rouge">&lt;type&gt;</code> <code class="language-plaintext highlighter-rouge">&lt;id&gt;</code> <code class="language-plaintext highlighter-rouge">&lt;action&gt;</code> command accepts async and grace_period-expiry parameters but they are missing in auto-completion</li>
+  <li>[RHSC] - Values of Physical Memory and swap size in hosts general sub tab are incorrect.</li>
+  <li>[RHSC] Unable to remove U1 Server after Server failed to add</li>
+  <li>cleandb.sh does not obey ‘-l logfile’</li>
+  <li>[RFE] Add Reboot option for VM</li>
+  <li>Fail to delete network using API</li>
+  <li>Fix SPICE ActiveX issues with MS Internet Explorer 11</li>
+  <li>Newly-created QoS isn’t saved for network</li>
+  <li>Edit Host Network dialog can’t be approved in clusters &lt; 3.4</li>
+  <li>[RFE] Enable configuration of maximum allowed downtime during live migration per guest</li>
+  <li>[RFE] Cross arch support for ovirt</li>
+  <li>[RFE] PPC arch support</li>
+  <li>Memory snapshot on PPC64</li>
+  <li>Migration on the ppc64 platform</li>
+  <li>Allow to disable SSO per VM</li>
+  <li>
+    <p>Fix Control-Alt-Delete functionality in console options
+ Fixed in oVirt 3.4.0 beta 2:</p>
+  </li>
+  <li>Management network VLAN tagging behaves badly</li>
+  <li>[RFE] Hypervisor RHEV-H only connects to the Dell Equallogic using one connection. it is expected to do multipathing and have 4 connection to it.</li>
+  <li>oVirt Node Upgrade: Support N configuration</li>
+  <li>Storage connection is left in db table in case adding storage domain fails</li>
+  <li>PRD34 - [RFE] Need to reclaim horizontal real estate by collapsing the tree panel</li>
+  <li>Cannot read name of ‘current’ CD image through the REST API</li>
+  <li>deleteImage task, which was started as part of snapshot creation (with save memory) roll-back remains running forever</li>
+  <li>Change label for Network profiles to be more specific to VMs</li>
+  <li>Add VM network icon in the Logical network dialog</li>
+  <li>[engine-setup] engine-setup should detect if postgresql’s shared_buffers are below active kernel.shmmax</li>
+  <li>[OVIRT][ENGINE] Hot Plug CPU - Support dynamic virtual CPU allocation and deallocation</li>
+  <li>[engine-backend] bad handling with code 205 response from vdsm to CopyImageVDS request in engine.log</li>
+  <li>[RFE] Have ability to modify VM template - template versions</li>
+  <li>[RFE] Allow domain of multiple types in a single Data Center</li>
+  <li>XP VMs get virtio-scsi controller when created as a brand-new VM or from template</li>
+  <li>Gluster brick sync does not work when host has multiple interfaces</li>
+  <li>Setting shmmax on F19 is not enough for starting postgres</li>
+  <li>[RHEVM-SETUP] - remote db configuration. rhevm-setup asks for different configuartion than the dwh &amp; reports setups</li>
+  <li>RHEVM SETUP REMOTE_DB: postgresProvisioning remains none in answer file</li>
+  <li>Allow configuring Network QoS on host interfaces</li>
+  <li>Not possible to power off VM that failed migration.</li>
+  <li>sub-tab events in different main-tabs are being duplicated</li>
+  <li>cloud-init options persistence / unification with sysprep options</li>
+  <li>[notifier] MAIL_PORT=blabla does not make the app fail but it continues to send to port 25</li>
+  <li>[notifier] MAIL_PORT=0 is nonsense as we are not binding but connecting to remote host</li>
+  <li>[es-ES] sync option in network edit is not displayed</li>
+  <li>[RFE] allow to provide a password change url on login failure when password expires</li>
+  <li>[NetworkLabels] Attaching two labeled networks to a cluster result in failure of the latter</li>
+  <li>QoS doesn’t take effect when synchronizing network in cluster &lt; 3.4</li>
+  <li>Host with network QoS can be moved to cluster &lt; 3.4</li>
+  <li>[NetworkLabels] Detaching two labeled networks from a cluster result in failure of the latter</li>
+  <li>[NetworkLabels] Host nics labels are being deleted when setup networks api is called</li>
+  <li>[NetworkLabels] Missing ‘Edit network’ button on labeled networks which are attached to a nic in ‘setup networks’ dialog</li>
+  <li>Events are being pulled from audit_log in a very inefficient way</li>
+  <li>VDSM &lt; 3.4 reporting QoS in 3.4 cluster produces ClassCastException</li>
+  <li>RHEV 3.2 RHEV-M “Enforcing” typo in host reboot log message</li>
+  <li>Updating a network on nic via 3.0 api fails</li>
+  <li>Cannot update comment for VM in user portal</li>
+  <li>Cannot create VM snapshot, dialog does not load</li>
+  <li>duplicate commit button for snapshots</li>
+  <li>[REST] Single disk snapshot fails without specifying storage domain</li>
+  <li>Assigning a role to a user fails with an SQL error</li>
+  <li>Some properties not persisted during Clone of VM Snapshot</li>
+  <li>multiple storage domains - edit dialog always resets type to Shared</li>
+  <li>engine-managed-domains - typos in usage report</li>
+  <li>[engine] Files created on stateless vm are retained after powering off and back on</li>
+  <li>Misaligned Host Network QoS columns on Chrome</li>
+  <li>Templates are being pulled from template view in a very inefficient way</li>
+  <li>Extend important limits to their hard limit</li>
+  <li>Host network QOS get a null value if you cancel the creation of new Network QOS</li>
+  <li>Unneeded line in Profiles subtab when creating the new network</li>
+  <li>Do not override httpd ssl.conf and root on upgrade</li>
+  <li>Port mirroring should be greyed out of VNIC profiles of networks imported/created in Neutron</li>
+  <li>Neutron labels should be invisible for the Host NICs</li>
+  <li>vdc_options - set version correctly</li>
+  <li>[oVirt] NPE in update vm/template</li>
+  <li>One display seen on a multi-monitor guest after rhev 3.0 to 3.2 migration</li>
+  <li>Change NIC type from sPAPR VLAN to any other type causes error when starting the VM (PPC)</li>
+  <li>
+    <p>[AIO] support RFC2317 reverse DNS lookup
+ Fixed in oVirt 3.4.0 beta 3:</p>
+  </li>
+  <li>user-portal/web-admin: refresh rate across tabs/sections should be identical (currently each tab has its own refresh rate)</li>
+  <li>[engine-manage-domains] should use POSIX parameter form and aliases as values</li>
+  <li>[Storage] [Direct LUN] Wrong event message when removing direct LUN disk.</li>
+  <li>PRD34 - [RFE] When changing the cluster and data centre compatibility versions, it should be clearly stated that changing from version 3.0 makes the data domains incompatible with RHEV 3,0 and roll back will not be possible.</li>
+  <li>[REST-API] add descriptions to import vm/template SD source/destination params in RSDL</li>
+  <li>engine: host stuck on Unassigned when moving from status Maintenance when storage is not availble from the host</li>
+  <li>[RFE] Able to detach the ISO domain from the DataCenter though iso is attached and mounted in the VM</li>
+  <li>engine: can’t live migrate a disk if the vm also has an inactive disk attached on a domain which is in maintenance</li>
+  <li>engine: no CanDoAction for creating vm from snapshot when snapshot has a disk on a maintenance domain</li>
+  <li>manage domains should try to resolve FQDNs provided by -ldapServers</li>
+  <li>Can not do scan alignment to several disks simultaneously. Scan alignment option is greyed out.</li>
+  <li>No email notification sent when host recovers from previously reported condition</li>
+  <li>[RFE] improve context-sensitive help csv mapping files</li>
+  <li>PRD34 - [RFE] Export storage domain maintenance mode confirmation</li>
+  <li>[Admin Portal] Local DC - The Cluster is fully configured and ready for use.</li>
+  <li>When trying to create a vNicProfile without a network, an invalid error is returned</li>
+  <li>Force removal of DataCenter fails to remove vm_pool from DB</li>
+  <li>PRD34 - [RFE] Add ‘warnings’ to Relocate VM disk “Move” and “Deactivate” actions</li>
+  <li>Allow manual fence in connecting state</li>
+  <li>Update vnic_profile fails for VM vnic.</li>
+  <li>OVF descriptor file data via the REST API for the Active VM</li>
+  <li>Source cluster and dc does not show up in Power Management tab while editing a previous added host [pm_proxy_preferences]</li>
+  <li>no square-loading-animation when changing left-pane-tree selection</li>
+  <li>[RFE] allow importing glance image as a template</li>
+  <li>Missing storage allocation checks when extending a disk</li>
+  <li>gracefully warn about unsupported upgrade from legacy releases</li>
+  <li>[engine][network] Missing audit log for mass operations</li>
+  <li>[engine-backend] [RO-disks] snapshot creation includes RO disks</li>
+  <li>Creating a new VM fails with MAC_POOL_NOT_INITIALIZED</li>
+  <li>Storage Live Migration should only snapshot the migrated disk</li>
+  <li>[TEXT] engine-managed-domains - inconsistent cases in usage and error messages</li>
+  <li>Change default display type for x86-64 VMs</li>
+  <li>some administrators (admin@internal, admins added via engine-manage-domains?) are displayed with a ‘user’ icon by mistake.</li>
+  <li>Guide me window - new is hidden by the icon</li>
+  <li>Fail to add Event-Notification</li>
+  <li>engine-managed-domains - insufficient validation of the “-report” parameter</li>
+  <li>[RFE] engine-managed-domains - sort domains alphabetically when reporting</li>
+  <li>Unable to add group via RESTAPI</li>
+  <li>vdsm: cannot start a vm in read only with IDE disk type</li>
+  <li>Action buttons in the Hosts/Network interfaces subtab show 3.0 and 3.1 action simultaneously</li>
+  <li>rhevm-config output when failing to change password is easy to miss and doesn’t give any context</li>
+  <li>[events] Incorrect mapping: DWH_STOPPED - History Service Started</li>
+  <li>Vm update not work via REST api</li>
+  <li>SD becomes inaccessible while adding a new lun to it</li>
+  <li>[RFE] OVF descriptor file data via the REST API for the Active VM</li>
+  <li>Bookmarks panel is not refreshing upon adding/editing/removing a Bookmark</li>
+  <li>[RHSC] - Rebalance icon in the activities column chnages to unknown (?)</li>
+  <li>[engine] Redundant Commit Network Changes command is sent to host when cluster is changed</li>
+  <li>[engine] Audit log event for failure to commit network changes appears as INFO messages</li>
+  <li>useDnsLookup flag is ignored at rhevm-manage-domains - krb5.conf file will always contain realms and “domain_realm” section</li>
+  <li>Guest NIC initialization uses tag “nics” instead of “nic”</li>
+  <li>RHEV 3.3 rhevm-shell ‘show vm’ not returning all guest attributes</li>
+  <li>[notifier] MAIL_SMTP_ENCRYPTION=tls falls back to plain-text SMTP if server does not advertise STARTTLS</li>
+  <li>Unable to interact with user portal login dialog</li>
+  <li>[REST API] duplicate “Nic” name from GuestNicsConfiguration</li>
+  <li>Cannot login as admin@internal</li>
+  <li>Type converters in XML schema confuse Java SDK generator</li>
+  <li>allinone fails on upgrade - no admin password</li>
+  <li>Cannot run VM for windows VM if sysprep is enabled</li>
+  <li>task list in Webadmin - jobs disappear while still running</li>
+  <li>restapi JAXBMarshallingException are not propogated</li>
+  <li>engine-backup –mode=restore should point to documentation on failure</li>
+  <li>When adding a user that belongs to a group, it does not inherit the group permissions</li>
+  <li>[NetworkLabels] LABELED_NETWORK_ATTACHED_TO_WRONG_INTERFACE entry in AppErrors is split to two lines</li>
+  <li>Disk name doesn’t get assigned automatically after a CREATE command.</li>
+  <li>Queries generated for data centers don’t take into account the replacement of “type” with “local”</li>
+  <li>Cloud-init options persistence and unification with Windows Sysprep options</li>
+  <li>Have ability to modify VM template - Template Versions</li>
+  <li>
+    <p>[RHEVM-RHS] - Brick advanced details gives error
+ Fixed in oVirt 3.4.0 RC</p>
+  </li>
+  <li>Cannot import VM. The following disks already exist: . Please import as a clone.</li>
+  <li>engine [TEXT]: unclear error when trying to remove a disk from a template when the template disk has only one copy on that specific domain</li>
+  <li>[RHEVM][webadmin] New Data Center “Guide Me” does not reflect hosts presence</li>
+  <li>Direct LUN is not being updated after resizing</li>
+  <li>Add SNMP trap as notification method to to ovirt-engine-notification</li>
+  <li>[oVirt][infra] Add host/Reinstall radio button text not actionable</li>
+  <li>[Hosted Engine] Unify maintenance flows</li>
+  <li>rhev 3.3 mtu field shows the wrong ip-mtu</li>
+  <li>[NetworkLabels] Block labeling a bond without slaves</li>
+  <li>FullListVdsCommand log message appears wrong with java class ref</li>
+  <li>REST API: Search for an user in active directory by upn doesn’t return any results (search by user name returns result)</li>
+  <li>Edit Approve Host popup -&gt; Cluster not updated</li>
+  <li>UI: Bad vertical alignment in add user screen</li>
+  <li>From GuideMe link, adding Host using SSH PublicKey Authentication fails with “Error while executing action: Cannot install Host with empty password.”</li>
+  <li>HA Vm reservation check ignores host status</li>
+  <li>HA Vm reservation check failure event log is not well resolved</li>
+  <li>webadmin: preallocated disk is reported as thinprovision in “Edit” dialogue</li>
+  <li>general ldap provider should be removed from manage-domains</li>
+  <li>upgrade from 3.3 overwrites exports with acl None</li>
+  <li>Incorrect error message when trying to edit network attached to Template from VM to non-VM</li>
+  <li>Move out downstream specific vdc_options changes into rhevm-setup-plugins</li>
+  <li>REST API: Create user user@domain actually creates user only</li>
+  <li>It’s impossible to update the MTU/VLAN of the network that resides on unplugged NIC of the VM</li>
+  <li>Error response to DELETE request of ‘Everyone’ group doesn’t contains ‘detail’ field</li>
+  <li>[engine] Extending a storage domain that is not attached to a datacenter fails with NullPointerException</li>
+  <li>utc_diff not updated according to a change in VM settings</li>
+  <li>[RHEVM] [Network Labels] moving host with labeled interface to Cluster 3.0 is not blocked</li>
+  <li>VMs do not appear in virtual machine tab if host is selected in side pane (data-center &gt; cluster &gt; host &gt; )</li>
+  <li>webadmin: customer preview allows you to select “Active vm before the preview” which causes the disk to become illegal and vm cannot be run with “CANNOT_RUN_FROM_DISK_WITHOUT_DISK”</li>
+  <li>search paging on event log does not use paging correctly</li>
+  <li>rest api Empty int fields in POST data causes JAXB parser to fail</li>
+  <li>Adding permissions to any thing doesn’t work</li>
+  <li>RHEV-M fails to detect ‘AMD Opteron G5’ as CPU_Type for hypervisors.</li>
+  <li>Listing templates takes noticeable amount of time, while listing many more VMs is prompt</li>
+  <li>[RHEVM] [network labels] Failed to configure vm networks on host while changing its cluster.</li>
+  <li>Adding a direct LUN disk doesn’t work</li>
+  <li>[engine-backend] cannot set domain to maintenance in case there are only unplugged disks located on it</li>
+  <li>Missing data storage types on “Add More Storage”</li>
+  <li>Enable sync of LUNs after storage domain activation for FC</li>
+  <li>[database] plpgsql language is not created although it should</li>
+  <li>Event list not updating when events happen.</li>
+  <li>[engine-backend] Can add multiple boot disks to a vm</li>
+  <li>[engine-webadmin] inappropriate error message when cloning a VM from snapshot which one of its disks is located on an inactive SD</li>
+  <li>Cannot edit network is “setup networks” dialog</li>
+  <li>Cannot create a bond in ‘Setup networks’ dialog</li>
+  <li>[database] old psycopg2 does not accept unicode string as port name</li>
+  <li>[engine-webadmin] unclear error message when starting a VM with disk that located on a domain in maintenance</li>
+  <li>Cloud-init DNS settings should go inside the “iface” section</li>
+  <li>wrong memory usage report</li>
+  <li>tree based sub-tabs - missing action panel buttons</li>
+  <li>Default route is not set properly for management network if downstream/upstream engine and VDSM are mixed</li>
+  <li>RHEV 3.2 API changing IP on hypervisor bond sub-int reqs re-passing bond opts</li>
+  <li>Override previous export of same template fail</li>
+  <li>[REST] Missing domain field on VM\Template object.</li>
+  <li>[REST-API] XSD schema validation error: response for create vm returned with ‘type’ and ‘data’ fields instead of with one of these fields</li>
+  <li>webadmin: Missing add new ISO option in data center “guide me” dialog</li>
+  <li>Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the domain</li>
+  <li>[database] do not enable provisioning for remote database</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3134/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3134/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3134/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3134/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2023 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.4/index-bugs-fixed.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/releases/3.4/index-bugs-fixed.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

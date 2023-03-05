@@ -8,10 +8,10 @@ Use the *Run Once* option to attach the `virtio-win___version__.iso` file in a o
 
 .Prerequisites
 
-The following items have been added to the virtual machine:
+The following items were added to the virtual machine:
 
-* A *Red Hat VirtIO* network interface.
-* A disk that uses the *VirtIO* interface.
+* A *Red Hat VirtIO* network interface
+* A disk that uses the *VirtIO* interface
 
 You can upload `virtio-win___version__.iso` to a data storage domain.
 

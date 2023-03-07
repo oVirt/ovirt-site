@@ -3,7 +3,7 @@
 
 *CPU Considerations*
 
-* *For non-CPU-intensive workloads*, you can run virtual machines with a total number of processor cores greater than the number of cores in the host. Doing so enables the following:
+* *For non-CPU-intensive workloads*, you can run virtual machines with a total number of processor cores greater than the number of cores in the host (the number of processor cores for a single virtual machine must not exceed the number of cores in the host). The following benefits can be achieved:
 
 ** You can run a greater number of virtual machines, which reduces hardware requirements.
 ** You can configure virtual machines with CPU topologies that are otherwise not possible, such as when the number of virtual cores is between the number of host cores and the number of host threads.

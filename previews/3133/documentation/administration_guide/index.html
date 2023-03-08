@@ -5434,7 +5434,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <div class="ulist">
 <ul>
 <li>
-<p><strong>For non-CPU-intensive workloads</strong>, you can run virtual machines with a total number of processor cores greater than the number of cores in the host. Doing so enables the following:</p>
+<p><strong>For non-CPU-intensive workloads</strong>, you can run virtual machines with a total number of processor cores greater than the number of cores in the host (the number of processor cores for a single virtual machine must not exceed the number of cores in the host). The following benefits can be achieved:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -5485,7 +5485,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU Threads</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Selecting the <strong>Count Threads As Cores</strong> check box enables hosts to run virtual machines with a total number of processor cores greater than the number of cores in the host.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selecting the <strong>Count Threads As Cores</strong> check box enables hosts to run virtual machines with a total number of processor cores greater than the number of cores in the host (the number of processor cores for a single virtual machine must not exceed the number of cores in the host).</p>
 <p class="tableblock">When this check box is selected, the exposed host threads are treated as cores that virtual machines can use. For example, a 24-core system with 2 threads per core (48 threads total) can run virtual machines with up to 48 cores each, and the algorithms to calculate host CPU load would compare load against twice as many potential utilized cores.</p></td>
 </tr>
 <tr>
@@ -12860,6 +12860,14 @@ If a host runs virtual machines that are highly available, power management must
 <p>Click <b class="button">OK</b>.</p>
 </li>
 </ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-fencing-configuring-and-managing-high-availability-clusters#proc_configuring-acpi-for-fence-devices-configuring-fencing">Configuring ACPI for use with integrated fence devices</a></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect4">

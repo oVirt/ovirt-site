@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Vdsm TODO | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Vdsm TODO" />
+<meta name="author" content="Adam Litke" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3138/develop/developer-guide/vdsm/todo.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3138/develop/developer-guide/vdsm/todo.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vdsm TODO" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Adam Litke" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Adam Litke"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Vdsm TODO","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3138/images/logo.svg"},"name":"Adam Litke"},"url":"https://ovirt.github.io/ovirt-site/previews/3138/develop/developer-guide/vdsm/todo.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3138/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3138/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3138/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3138/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3138/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3138/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3138/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3138/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3138/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3138/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3138/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3138/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3138/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3138/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3138/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3138/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3138/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3138/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3138/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3138/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3138/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3138/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3138//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3138//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3138/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3138/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3138/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3138/develop/developer-guide/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9e57b717174453404c080ead99e2186c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9e57b717174453404c080ead99e2186c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Adam Litke">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Adam Litke</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Assaf Muller">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Assaf Muller</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Antoni Puimedon">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Antoni Puimedon</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dan Kenigsberg">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Ewoud Kohl van Wijngaarden">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ewoud Kohl van Wijngaarden</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/379934cbb8b253782d94cc204604fd98?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/379934cbb8b253782d94cc204604fd98?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Giuseppe Vallarelli">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Giuseppe Vallarelli</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5abd0915b8197c570aca51aefe3d5cb6?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5abd0915b8197c570aca51aefe3d5cb6?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Ido Barkan">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ido Barkan</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/262851154d9e06625593cbf205f180cf?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/262851154d9e06625593cbf205f180cf?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Petr Horáček">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Petr Horáček</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="vdsm-todo">Vdsm TODO</h1>
+
+<h2 id="what-can-you-do-for-vdsm">What Can You Do for Vdsm</h2>
+
+<p>We intend to move this TODO into this <a href="https://trello.com/b/U3lsbVRU/maintenance">Trello board</a>, please check for tasks in it.</p>
+
+<h3 id="cleanup">Cleanup</h3>
+
+<h4 id="infra">infra</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pylint -E `git ls-files | grep '.py$'`</code> makes me cry. A lot of it is “only” about bad style, but we should clear it up and add it to our <code class="language-plaintext highlighter-rouge">make check-local</code>. We should grow up and pass <code class="language-plaintext highlighter-rouge">pychecker</code> too.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Add git submodules for pyflakes and pep8 to vdsm. Control the specific version of each tool to use from within the vdsm build itself. This way we can make sure everyone is using the same version of the tools regardless of where vdsm is being built.
+    <ul>
+      <li>See <a href="https://github.com/jcrocholl/pep8">https://github.com/jcrocholl/pep8</a> and <a href="https://github.com/pyflakes/pyflakes/">https://github.com/pyflakes/pyflakes/</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>BindingXML’s wrapApiMethod is incredibly fragile when deciding what not to log. Logging should be done as a decorator per called function, after password entries are converted to ProtectedPassword.</li>
+</ul>
+
+<h3 id="testing">Testing</h3>
+
+<ul>
+  <li>Add <code class="language-plaintext highlighter-rouge">`make distcheck`</code> to Jenkins’s jobs.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Wrap all tests and fail a test that leaves an open file descriptor behind.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>add a unit test for qemuimg.rebase.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>make @permutations nestable</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>test fileSD.scanDomains()</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>add migration tests</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>test cannonizeHostPort</li>
+</ul>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>Support striping for disk images.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>let Vdsm install and run on hosts with no iscsid (report that iscsi is missing to Engine?)</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>start Vdsm only when it receives a request (integrate with systemd)</li>
+</ul>
+
+<h4 id="networking">Networking</h4>
+
+<ul>
+  <li>Modify vdsm-tool restore-nets so that the management network (or the network with the default IPv4 route) is the last to be taken down and the first to be taken up to minimize the connectivity loss (very useful when accessing the machine remotely). Minimize vdsm-restore-net-config downtime for the default route network.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li><del>Split off the network restoration from vdsm startup so that it is performed in a different init service. This vdsm-network-restoration service should be oneshot and happen before network.service. <a href="http://gerrit.ovirt.org/#/c/29441/">http://gerrit.ovirt.org/#/c/29441/</a></del></li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Fine-grained control on network-specific routes.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Allow multiple setting IPv4 and IPv6 addresses per network device. (API change is needed; we report multiple ipv6 addresses).</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>
+    <ul>
+      <li>models: support multiple IPv4 and/or IPv6 addresses</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>get a single dump of all libvirt networks (no libvirt API for it yet…)</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>IPv4 routing table Id hash mechanism
+    <ul>
+      <li>change the ‘network’ argument in routes to ‘link scope route’</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>move source routing info to route.py (which uses netlink instead of using the default configurator). this will also simplify StaticSourceRoute</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Move vdsm-store-net-config logic to netconfbackpersistence.py</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Add configureIp to the configurators API so that Layer 3 can be configured in parallel after Layer 2 (and it gives much better modelling). Obviously, this isn’t really possible in ifcfg without doing a two step write which is an ugly hack.</li>
+</ul>
+
+<h3 id="refactoring">refactoring</h3>
+
+<ul>
+  <li>In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>lvm.PV.guid is devicemapper-owned piece of information; lvm has nothing to do with it, and jumps through <a href="http://gerrit.ovirt.org/2940">hoops</a> to produce it. Instead, it should be produced by devicemapper and consumed directly by blockSD.</li>
+</ul>
+
+<h3 id="bugzilla">Bugzilla</h3>
+
+<ul>
+  <li>pick one of the [<a href="https://bugzilla.redhat.com/buglist.cgi?action=wrap&amp;bug_file_loc">https://bugzilla.redhat.com/buglist.cgi?action=wrap&amp;bug_file_loc</a>=&amp;bug_file_loc_type=allwordssubstr&amp;bug_id=&amp;bug_id_type=anyexact&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;product=vdsm&amp;deadlinefrom=&amp;deadlineto=&amp;email1=&amp;email2=&amp;emailtype1=substring&amp;emailtype2=substring&amp;field0-0-0=flagtypes.name&amp;keywords=&amp;keywords_type=allwords&amp;longdesc=&amp;longdesc_type=allwordssubstr&amp;short_desc=&amp;short_desc_type=allwordssubstr&amp;status_whiteboard=&amp;status_whiteboard_type=allwordssubstr&amp;type0-0-0=notsubstring&amp;value0-0-0=rhel-6.2.0&amp;votes=&amp;=&amp;bug_status=NEW NEW bugs], post a patch to <a href="http://gerrit.ovirt.org">gerrit</a>, and make the bug yours.</li>
+</ul>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3138/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3138/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3138/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3138/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2023 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/todo.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/developer-guide/vdsm/todo.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

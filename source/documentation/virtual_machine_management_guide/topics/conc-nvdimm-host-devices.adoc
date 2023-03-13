@@ -35,7 +35,7 @@ To add emulated NVDIMM to a virtual machine, see xref:Adding_Host_Devices_to_a_V
 
 * Virtual machines with NVDIMM devices cannot migrate because they are pinned to a host.
 
-* SELinux currently prevents access to NVDIMM devices in `devdax` mode, see link:https://bugzilla.redhat.com/1855336[BZ1855336].
+* SELinux currently prevents access to NVDIMM devices in `devdax` mode. As a result, data persistence cannot be guaranteed if the host fails. See link:https://bugzilla.redhat.com/1855336[BZ1855336].
 
 [IMPORTANT]
 ====

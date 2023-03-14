@@ -6536,7 +6536,7 @@ Error while executing action:
 <p>Virtual machines with NVDIMM devices cannot migrate because they are pinned to a host.</p>
 </li>
 <li>
-<p>SELinux currently prevents access to NVDIMM devices in <code>devdax</code> mode, see <a href="https://bugzilla.redhat.com/1855336">BZ1855336</a>.</p>
+<p>SELinux currently prevents access to NVDIMM devices in <code>devdax</code> mode. As a result, data persistence cannot be guaranteed if the host fails. See <a href="https://bugzilla.redhat.com/1855336">BZ1855336</a>.</p>
 </li>
 </ul>
 </div>

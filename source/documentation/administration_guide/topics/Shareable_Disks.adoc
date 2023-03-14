@@ -9,3 +9,8 @@ Shared disks are not to be used in every situation. For applications like cluste
 You cannot take a snapshot of a shared disk. Virtual disks that have snapshots taken of them cannot later be marked shareable.
 
 You can mark a disk shareable either when you create it, or by editing the disk later.
+
+[IMPORTANT]
+====
+Only RAW disks can be made shareable.
+====

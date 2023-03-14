@@ -8,7 +8,7 @@ A snapshot can be used to restore a virtual machine to its previous state.
 *Using Snapshots to Restore Virtual Machines*
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
-. Click the virtual machine's name to go to the details view.
+. Click the name of the virtual machine to go to the details view.
 . Shut down the virtual machine.
 . Click the *Snapshots* tab to list the available snapshots.
 . Select a snapshot to restore in the upper pane. The snapshot details display in the lower pane.

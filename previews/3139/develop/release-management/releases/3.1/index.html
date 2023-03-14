@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 3.1 release notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 3.1 release notes" />
+<meta name="author" content="Alissa Bonas" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3139/develop/release-management/releases/3.1/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3139/develop/release-management/releases/3.1/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 3.1 release notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alissa Bonas" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Alissa Bonas"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 3.1 release notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3139/images/logo.svg"},"name":"Alissa Bonas"},"url":"https://ovirt.github.io/ovirt-site/previews/3139/develop/release-management/releases/3.1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3139/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3139/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3139/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3139/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3139/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3139/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3139/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3139/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3139/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3139/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3139/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3139/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3139/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3139/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3139/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3139/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3139/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3139/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3139/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3139/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3139/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3139/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3139//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3139//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3139/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3139/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3139/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3139/develop/release-management/releases/">
+              <span property="name">Releases</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Alissa Bonas">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alissa Bonas</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Allon Mureinik">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Allon Mureinik</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dan Kenigsberg">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Dave Neary">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dave Neary</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7f1cc17ac58177d19921783d200a0604?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7f1cc17ac58177d19921783d200a0604?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Jason Brooks">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jason Brooks</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cbccb13b9d42aebbf895417aabf7e7da?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cbccb13b9d42aebbf895417aabf7e7da?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Nicholas Kesick">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nicholas Kesick</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Roy Golan">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c489669ce6f88f4b35f0d0b4464250f2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c489669ce6f88f4b35f0d0b4464250f2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Steve Gordon">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Steve Gordon</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f62b230f81f9b5f46d050343b6ae68a3?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f62b230f81f9b5f46d050343b6ae68a3?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Valentin Bajrami">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Valentin Bajrami</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-31-release-notes">oVirt 3.1 release notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of its second formal release, oVirt 3.1.</p>
+
+<h2 id="whats-new">What’s New?</h2>
+
+<p>The oVirt 3.1 release includes these notable changes.</p>
+
+<h3 id="installer">Installer</h3>
+
+<ul>
+  <li>The installation script now supports the configuration of a HTTP/HTTPS proxy, allowing the oVirt Engine to be accessed via port 80 for HTTP, and port 443 for HTTPS.</li>
+  <li>The oVirt Engine now supports the use of a remote PostgreSQL database server, specified during installation (<a href="/ovirt-site/previews/3139/develop/release-management/features/integration/remotedb.html">Features/RemoteDB</a>).</li>
+  <li>An ‘all-in-one’ proof of concept mode is now available. This allows a single machine to both run the management engine and act as a virtualization host (<a href="/ovirt-site/previews/3139/develop/release-management/features/integration/allinone.html">Feature/AllInOne</a>).</li>
+</ul>
+
+<h3 id="tools">Tools</h3>
+
+<ul>
+  <li>The Log Collector (engine-log-collector), ISO Uploader (engine-iso-uploader), and Image Uploader (engine-image-uploader) have been rebased to access the oVirt Engine using the new Python SDK. Previously these tools, written in Python, accessed the REST API directly.</li>
+</ul>
+
+<h3 id="infrastructure">Infrastructure</h3>
+
+<ul>
+  <li>The oVirt Engine is now supports the use of Red Hat Directory Server and/or IBM Tivoli Directory Server for user authentication. This is addition to existing support for IPA and Active Directory.</li>
+  <li>An additional tab has been added to the oVirt Engine’s management interface to support monitoring the status of tasks in the oVirt Environment.</li>
+  <li>A correlation identifier to support debugging is now used to track events across the user interfaces, engine backend, and VDSM.</li>
+  <li>The oVirt Engine now automatically attempts to auto-activate hosts detected as non-operational.</li>
+</ul>
+
+<h3 id="user-interface">User Interface</h3>
+
+<ul>
+  <li>Infrastructure supporting localization has been added, with translations to follow in a later release.</li>
+  <li>Infrastructure supporting integration of reports functionality has been added to the oVirt Engine management interface.</li>
+</ul>
+
+<h3 id="storage">Storage</h3>
+
+<ul>
+  <li>Support has been added for presenting any block device as a local disk attached to a virtual machine simply by specifying the device’s GUID. This provides <strong>directlun</strong> support, which previously had to be implemented using a VDSM hook (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/direct-lun.html">Features/Direct_Lun</a>).</li>
+  <li>Support has been added to VDSM, and by extension oVirt Engine, for the attachment and use of NFSv4 storage (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/nfsv4.html">Features/NFSv4)</a>).</li>
+  <li>It is now possible to override some of VDSM’s default NFS settings from the oVirt Engine when attaching storage (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/advancednfsoptions.html">Features/AdvancedNfsOptions</a>).</li>
+  <li>Support has been added for the attachment and use of POSIX filesystem compliant storage, allowing users to attach any type of storage supported by <strong>mount</strong> (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/posixfsconnection.html">Features/PosixFSConnection</a>).</li>
+  <li>Support for defining the priority of hosts in the storage pool manager (SPM) selection process has been added. Hosts can also be assigned a priority of <strong>-1</strong>m which means that they must not be selected as the SPM (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/spmpriority.html">Features/SPMPriority</a>).</li>
+  <li>Support has been added for sharing of disks between virtual machines. Previously each disk could only be attached to a single virtual machine, it is now possible to share a disk between multiple virtual machines concurrently (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/sharedrawdisk.html">Features/SharedRawDisk</a>).</li>
+  <li>Support has been added for hot plugging and unplugging of <strong>virtio-blk</strong> disks to and from virtual machines If the “Add” menu command in the virtual disks pane of a running VM is disabled, a disk may be added from the VM “Guide Me” dialog) (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/hotplugdisk.html">Features/HotPlug</a>).</li>
+  <li>Support has been added for floating disks, disks which are not necessarily attached to a virtual machine at any one point in time but can be attached to virtual machines as and when needed. Floating disks can be found in the web administration portal under the <strong>Disks</strong> tab (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/floatingdisk.html">Features/FloatingDisk</a>).</li>
+  <li>It is now possible for virtual machines to have their disks spread across multiple storage domains within the same data center. Previously all disks attached to a virtual machine had to reside on the same storage domain (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/multiplestoragedomains.html">Features/MultipleStorageDomains</a>).</li>
+  <li>Initial support has been added for provisioning and managing Gluster based storage clusters in oVirt. See <a href="/ovirt-site/previews/3139/develop/release-management/features/gluster/gluster-support.html">Features/Gluster_Support</a> for implementation details and known issues.</li>
+</ul>
+
+<h3 id="virtualization">Virtualization</h3>
+
+<ul>
+  <li>Previously it was not possible to import a Virtual Machine or Template that had already been imported, even if it was to a different data center. This is no longer the case (<a href="/ovirt-site/previews/3139/develop/release-management/features/storage/importmorethanonce.html">Features/ImportMoreThanOnce</a>).</li>
+  <li>Devices attached to guest virtual machines now retain the same address allocations as other devices are added and/or removed from the guest’s configuration (<a href="/ovirt-site/previews/3139/develop/release-management/features/ux/detailedstabledeviceaddresses.html">Features/Design/DetailedStableDeviceAddresses</a>).</li>
+  <li>Support for “pre-started” virtual machine pools has been added. Instead of having to wait for a virtual machine allocated from the pool to boot user’s will instead, where possible, be allocated a virtual machine which has already been started (<a href="/ovirt-site/previews/3139/develop/release-management/features/virt/prestartedvm.html">Features/PrestartedVm</a>).</li>
+  <li>Support for virtual machine payloads has been added, in the form of a Floppy or CD/DVD image that will be passed to the virtual machine. Virtual machine payloads may be either temporary or permanent.(<a href="/ovirt-site/previews/3139/develop/release-management/features/virt/vmpayload.html">Features/VMPayload</a>).</li>
+  <li>Added support for cloning a Virtual Machine from a specific Snapshot (<a href="/ovirt-site/previews/3139/develop/release-management/features/virt/clonevmfromsnapshot.html">Features/CloneVmFromSnapshot</a>).</li>
+  <li>Support has been added for virtualization hosts with Intel Sandybridge and Opteron G4 based CPUs.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>
+    <p>“windows” and “linux” OS Types are removed from the OS repository as they have no real use. This will break import of those OSs. To fix the import its enough to add to <em>$PREFIX/etc/ovirt-engine/osinfo.conf.d/20-import-export-linux-windows-fix.properties</em></p>
+
+    <p>20-import-export-linux-windows-fix.properties:
+   backwardCompatibility.linux = 5
+   backwardCompatibility.windows = 1</p>
+  </li>
+</ul>
+
+<h3 id="sla">SLA</h3>
+
+<ul>
+  <li>Added support for the definition quotas restricting user resource usage (<a href="/ovirt-site/previews/3139/develop/release-management/features/sla/quota.html">Features/Quota</a>).</li>
+  <li>Added support for pinning Virtual Machines to specific physical CPUs (<a href="/ovirt-site/previews/3139/develop/sla/cpu-pinning.html">Features/Design/cpu-pinning</a>).</li>
+</ul>
+
+<h3 id="network">Network</h3>
+
+<ul>
+  <li>A new network setup API to support complex network provisioning tasks has been added to the backend, as a result the user interface for host network setup has also been redesigned (<a href="/ovirt-site/previews/3139/develop/release-management/features/network/setupnetworks.html">Features/Design/Network/SetupNetworks</a>).</li>
+  <li>It is now possible to adjust the MTU of a logical network, when it is not attached to a cluster (<a href="/ovirt-site/previews/3139/develop/release-management/features/network/jumbo-frames.html">Features/Network/Jumbo_frames</a>).</li>
+  <li>It is now possible to create bridgeless logical networks, previously all logical network were represented using a bridge (<a href="/ovirt-site/previews/3139/develop/release-management/features/network/bridgeless-networks.html">Features/Design/Network/Bridgeless_Networks</a>).</li>
+  <li>Hot plugging and unplugging of virtual Network Interface Cards from virtual machines is now supported (<a href="/ovirt-site/previews/3139/develop/release-management/features/network/hotplugnic.html">Features/HotplugNic</a>).</li>
+  <li><del>Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added (<a href="/ovirt-site/previews/3139/develop/release-management/features/network/portmirroring.html">Features/PortMirroring</a>).</del> (postponed to Ovirt-3.2)</li>
+  <li>Previously, all logical networks were considered mandatory for all hosts in a cluster. Hosts that were not attached to all logcal networks in the cluster were marked non-responsive. Administrators now have the option to mark specific logical networks as non-mandatory, bypassing this behavior (<a href="/ovirt-site/previews/3139/develop/release-management/features/network/required-networks.html">Features/Design/Network/Required_Networks</a>).</li>
+</ul>
+
+<h3 id="interfaces">Interfaces</h3>
+
+<ul>
+  <li>New Python SDK, packaged as <em>ovirt-engine-sdk</em> (<a href="/ovirt-site/previews/3139/develop/release-management/features/infra/python-sdk.html">SDK</a>).</li>
+  <li>New Python CLI, packaged as <em>ovirt-engine-cli</em> (<a href="/ovirt-site/previews/3139/develop/release-management/features/infra/cli.html">CLI</a>).</li>
+  <li>Added JSON support for REST API.</li>
+  <li>Added session support to the REST API, allowing one login to process multiple requests.</li>
+</ul>
+
+<h2 id="installation-instructions">Installation Instructions</h2>
+
+<h3 id="ovirt-engine">oVirt Engine</h3>
+
+<p>The oVirt Engine provides the browser based management interface for managing your oVirt environment. It also provides command line tools for managing configuration options not exposed via the user interface as well as a series of APIs supporting automation of both common and advanced tasks.</p>
+
+<h4 id="fedora">Fedora</h4>
+
+<p>To install the oVirt Engine on a Fedora 17 system:</p>
+
+<ul>
+  <li>Log in to the system on which you wish to host oVirt Engine as the <strong>root</strong> user.</li>
+  <li>Add the yum repository to your system: https://resources.ovirt.org/releases/3.1/rpm/Fedora/17/</li>
+  <li>
+    <p>Install the <em>ovirt-engine</em> package, and all of the packages it depends on, using <strong>yum</strong>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # yum install ovirt-engine
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run the <strong>engine-setup</strong> script and follow the prompts to complete installation of oVirt Engine. Once the Engine has been installed successfully the script will provide instructions for accessing the web Administration Portal:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # engine-setup
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Suggested quick start path for new users:</p>
+
+<ul>
+  <li>Add a host to the <em>Default</em> cluster.</li>
+  <li>Add storage, refer to <a href="/ovirt-site/previews/3139/develop/troubleshooting-nfs-storage-issues.html">Troubleshooting NFS Storage Issues</a> for information on configuring NFS storage for use with oVirt. Support is also available for iSCSI, FCP, and POSIX compliant filesystem storage.
+    <ul>
+      <li>Add a data storage domain to the <em>Default</em> data center.</li>
+      <li>Add an ISO storage domain to the <em>Default</em> data center.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Upload operating system installation media, in ISO format, to the ISO storage domain using the <strong>engine-iso-uploader</strong> command line tool.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # engine-iso-uploader -i MyISODomainName upload /root/Downloads/Fedora-17-x86_64-DVD.iso
+</code></pre></div>    </div>
+  </li>
+  <li>Create a virtual machine!</li>
+</ul>
+
+<h3 id="ovirt-node">oVirt Node</h3>
+
+<p>oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal installation of Fedora and includes the packages necessary to support use of the system as a virtualization host in an environment controlled by oVirt Engine.</p>
+
+<p>To install oVirt Node:</p>
+
+<ul>
+  <li>Download the latest oVirt Node ISO from &lt;/releases/3.1/tools/&gt;
+    <ul>
+      <li>Burn the ISO to a CD-ROM or DVD-ROM (<strong>\1</strong>); or</li>
+      <li>Copy the ISO to a USB drive (<strong># dd if=./ovirt-node-iso-2.5.1-1.0.fc17.iso of=/dev/sdb</strong>).</li>
+    </ul>
+  </li>
+  <li>Boot the target virtualization host from the CD-ROM/DVD-ROM/USB device.</li>
+  <li>Follow the prompts to complete the installation, once the installation is complete and the system is rebooted the configuration screen will be displayed.</li>
+  <li>Use the terminal user interface to configure the Node, in particular ensure networking is configured and set the address to the oVirt Engine.</li>
+  <li>After applying your changes log in to your oVirt Engine installation, select the newly installed Node from the <strong>Hosts</strong> tab, and click <strong>Approve</strong>.</li>
+</ul>
+
+<p>Your oVirt Node has been added to the environment, after adding your first oVirt Node you should:</p>
+
+<ul>
+  <li>Add Data and ISO storage domains.</li>
+  <li>Upload an ISO image for an operating system.</li>
+  <li>Create a virtual machine!</li>
+</ul>
+
+<h3 id="fedora-host">Fedora Host</h3>
+
+<p>In addition to oVirt Node hosts, you can also reconfigure servers which are running Fedora 17 to be used as virtual machine hosts.</p>
+
+<p>To install a Fedora 17 host:</p>
+
+<ul>
+  <li>On the machine designated as your Fedora host, install Fedora 17. A minimal installation is sufficient.</li>
+  <li>Log in to your Fedora host as the <strong>root</strong> user.</li>
+  <li>
+    <p>Add the yum repository to your system: https://resources.ovirt.org/releases/3.1/rpm/Fedora/17/</p>
+  </li>
+  <li>After installing this package, log in to your oVirt Engine installation, select “Add” from the <strong>Hosts</strong> tab, enter a name for the Fedora host, and provide the hostname or IP address and root password for the Fedora host, and click <strong>OK</strong>.</li>
+</ul>
+
+<p>Your Fedora host has been added to the environment, after adding your first host (whether Fedora or oVirt Node-based) you should:</p>
+
+<ul>
+  <li>Add Data and ISO storage domains.</li>
+  <li>Upload an ISO image for an operating system.</li>
+  <li>Create a virtual machine!</li>
+</ul>
+
+<h2 id="upgrade-instructions">Upgrade Instructions</h2>
+
+<p>Upgrading from oVirt 3.0 to oVirt 3.1 is <strong>not</strong> recommended. Users are instead advised to use the migration process as documented on this page. Upgrade instructions are however available, refer to <a href="/ovirt-site/previews/3139/develop/release-management/releases/3.0/to-3.1-upgrade.html">OVirt 3.0 to 3.1 upgrade</a> for more information.</p>
+
+<h2 id="migration-instructions">Migration Instructions</h2>
+
+<p>Users of oVirt 3.0 who wish to migrate to oVirt 3.1 should:</p>
+
+<ul>
+  <li>Create an export storage domain.</li>
+  <li>Export all virtual machines to the export storage domain.</li>
+  <li>Detach the export storage domain.</li>
+  <li>
+    <p>Cleanup the engine installation:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # engine-cleanup
+ # yum remove ovirt\* 
+</code></pre></div>    </div>
+  </li>
+  <li>Upgrade to Fedora 17: <a href="https://fedoraproject.org/wiki/How_to_use_PreUpgrade">https://fedoraproject.org/wiki/How_to_use_PreUpgrade</a></li>
+  <li>Install oVirt Engine 3.1.</li>
+  <li>Attach the export storage domain.</li>
+  <li>Import all virtual machines.</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3139/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3139/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3139/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3139/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2023 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/releases/3.1/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/releases/3.1/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

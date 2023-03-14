@@ -26,3 +26,6 @@ When two fencing agents are defined on a host, they can be used concurrently or 
 ====
 +
 . Click btn:[OK].
+
+.Additional resources
+* link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}{URL_vernum_rhel_latest}html/configuring_and_managing_high_availability_clusters/assembly_configuring-fencing-configuring-and-managing-high-availability-clusters#proc_configuring-acpi-for-fence-devices-configuring-fencing[Configuring ACPI for use with integrated fence devices]

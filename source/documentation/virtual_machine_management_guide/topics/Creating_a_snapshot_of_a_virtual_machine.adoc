@@ -6,6 +6,7 @@ A snapshot is a view of a virtual machine's operating system and applications on
 
 
 *Creating a Snapshot of a Virtual Machine*
+
 .In the VM Portal:
 . Open a virtual machine.
 . In the *Snapshots* panel, click btn:[+Create Snapshot].

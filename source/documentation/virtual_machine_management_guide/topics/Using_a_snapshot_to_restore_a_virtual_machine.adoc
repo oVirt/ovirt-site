@@ -10,7 +10,8 @@ A snapshot can be used to restore a virtual machine to its previous state.
 .In the VM Portal:
 . Shutdown the virtual machine.
 . In the *Snapshots* panel, click the `Restore Snapshot` icon for the snapshot you want to restore.
-. The snapshot is loaded.
++
+The snapshot is loaded.
 
 .In the Administration Portal:
 . Click menu:Compute[Virtual Machines] and select a virtual machine.

@@ -10,7 +10,8 @@ A snapshot is a view of a virtual machine's operating system and applications on
 .In the VM Portal:
 . Open a virtual machine.
 . In the *Snapshots* panel, click btn:[+Create Snapshot].
-. A snapshot is added to the panel, including all attached disks.
++
+A snapshot is added to the panel, including all attached disks.
 
 .In the Administration Portal:
 . Click menu:Compute[Virtual Machines].

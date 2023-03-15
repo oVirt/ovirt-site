@@ -18,7 +18,7 @@ By default, VDSM hooks are not installed. If you need a specific hook, you must 
 ----
 # dnf list vdsm\\*hook\*
 ----
-
+. Put the host in maintenance mode.
 . Install the desired VDSM hook package on the host:
 +
 ----
@@ -30,3 +30,4 @@ For example, to install the `vdsm-hook-vhostmd` package on the host, enter the f
 ----
 # dnf install vdsm-hook-vhostmd
 ----
+. Restart the host.

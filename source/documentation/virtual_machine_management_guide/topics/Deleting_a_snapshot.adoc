@@ -19,6 +19,11 @@ When you delete a snapshot from an image chain, there must be enough free space 
 
 *Deleting a Snapshot*
 
+.In the VM Portal:
+. Open a virtual machine.
+. In the *Snapshots* panel, click the `Delete Snapshot` icon of the snapshot you want to delete.
+
+.In the Administration Portal:
 . Click menu:Compute[Virtual Machines].
 . Click the virtual machine's name to go to the details view.
 . Click the *Snapshots* tab to list the snapshots for that virtual machine.

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3145/develop/sla/affinity-labels.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3145/develop/sla/affinity-labels.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3145/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3145/develop/sla/affinity-labels.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3145/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3145/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3145/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3145/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3145/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3145/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3145/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3145/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3145/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3145/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3145/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3145/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3145/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3145/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3145/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3145/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class="masthead hidden-print" id="branding" role="banner"><section class="hgroup"></section><div id="access"><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3145/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3145/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3145/download/">Download</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3145/documentation/">Documentation</a>
+</li>
+<li class="active" role="menuitem">  <a href="/ovirt-site/previews/3145/develop/">Developers</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3145/community/">Community</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3145//lists.ovirt.org/archives/">Forum</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/3145//blogs.ovirt.org/">Blog</a>
+</li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3145/">
+              <span property="name"></span>
+              <meta property="position" content="1">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3145/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3145/develop/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="3">
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/d3e5014dcc318e6606b18a8f5fd90dae?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/d3e5014dcc318e6606b18a8f5fd90dae?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy" alt="avatar of Martin Sivak">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Sivak</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class="alert alert-warning">Much of this developer documentation provides historical context but may not reflect the current state of the project.<br>If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href="/ovirt-site/previews/3145/documentation/">User Documentation is available here.</a>
+</div>
+
+<h1 id="affinity-labels">Affinity labels</h1>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: <a href="User:msivak">Martin Sivak</a>
+</li>
+  <li>Email: <a href="mailto:msivak@redhat.com">msivak@redhat.com</a>
+</li>
+</ul>
+
+<h2 id="feature-requests">Feature requests</h2>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1254818">https://bugzilla.redhat.com/show_bug.cgi?id=1254818</a></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1266041">https://bugzilla.redhat.com/show_bug.cgi?id=1266041</a></li>
+</ul>
+
+<h2 id="user-stories">User stories</h2>
+
+<ol>
+  <li>Some hosts have specific hardware that is needed for certain VMs and the VMs must be placed on those hosts</li>
+  <li>A company uses software that is license limited to a certain number of physical machines, but does not care about the number of VMs. All VMs with that software must be limited to the same physical hosts to obey that condition.</li>
+</ol>
+
+<h2 id="current-situation">Current situation</h2>
+
+<ol>
+  <li>Each VM can be pinned to multiple specific hosts with the given HW. It will start on one of the listed hosts and no migration is enabled.</li>
+  <li>VM to VM affinity is supported and can be used, but it only tries to put all those VMs on the same host. Subcluster is not supported.</li>
+  <li>Released in oVirt 4.0 RC</li>
+</ol>
+
+<h2 id="feature-goals">Feature goals</h2>
+
+<p><em>There already is an existing Tag functionality in the engine, but we can’t reuse the backend code since the user facing functionality won’t be removed on time. We want to deprecate the old behaviour gradually and without disturbing current users. This forces us to create our own parallel implementation that will be almost the same, but will allow us to do changes to behaviour.</em></p>
+
+<p>There will be no hierarchy support for labels. Users can simulate hierarchy using naming conventions (eg.: storage::iscsi::fast)</p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>Users will be able to create a logical sub-cluster of VMs and Hosts that should help them to accomplish the two described user stories.</p>
+
+<h2 id="feature-design">Feature design</h2>
+
+<h3 id="entity-description">Entity Description</h3>
+
+<p>A new entity Label will be added to the database with the basic CRUD storage procedures and a view to allow bulk retrieval of labels by id, name or attached object(s).</p>
+
+<h3 id="rest-api">REST API</h3>
+
+<p>Basic manipulation of affinity labels:</p>
+
+<ul>
+  <li>/affinitylabels (GET, POST)</li>
+  <li>/affinitylabels/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20"> (GET, PUT, DELETE)</li>
+</ul>
+
+<p>Assignment operations on labels:</p>
+
+<ul>
+  <li>/affinitylabels/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20">/vms (GET, POST)</li>
+  <li>
+    <p>/affinitylabels/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20">/vms/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20"> (GET, DELETE)</p>
+  </li>
+  <li>/affinitylabels/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20">/hosts (GET, POST)</li>
+  <li>/affinitylabels/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20">/hosts/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20"> (GET, DELETE)</li>
+</ul>
+
+<p>Assignment operations on entities:</p>
+
+<ul>
+  <li>/vms/:vmid:/affinitylabels (GET, POST)</li>
+  <li>
+    <p>/vms/:vmid:/affinitylabels/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20"> (GET, DELETE)</p>
+  </li>
+  <li>/hosts/:hostid:/affinitylabels (GET, POST)</li>
+  <li>/hosts/:vmid:/affinitylabels/<img class="emoji" title=":id:" alt=":id:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f194.png" height="20" width="20"> (GET, DELETE)</li>
+</ul>
+
+<h3 id="gui">GUI</h3>
+
+<p>A <a href="/ovirt-site/previews/3145/develop/release-management/features/sla/affinity-labels-management-via-admin-portal.html">GUI</a> for affinity labels management was made available as of version 4.1.</p>
+
+<h3 id="permissions">Permissions</h3>
+
+<p>Currently only the system admin and users with Tag management permissions (the same the old tagging feature uses) can create or manipulate labels.</p>
+
+<h3 id="vm-scheduling">VM scheduling</h3>
+
+<p>A new scheduling policy unit LabelFilterPolicyUnit takes care of the label affinity relationship during scheduling and must be enabled for this feature to have any effect.</p>
+
+<p>Default cluster policies will have the unit enabled by default.</p>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<p>The feature has no impact on installation or upgrade. It will become immediately available after the proper engine version is installed.</p>
+
+<p>Custom cluster policies might need to have the new policy unit added by the user to enable the label based filtering.</p>
+
+<h3 id="user-work-flows">User work-flows</h3>
+
+<p>The user will generaly use REST API to create a new label and then attach entities (VMs and Hosts) to it by POSTing to the relevant subcollections.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p><a href="https://bugzilla.redhat.com/attachment.cgi?id=1164031">Basic sanity test of labels for one VM and one Host</a></p>
+
+<p>This script can be used to do basic sanity testing of the affinity label functionality. It requires a running ovirt-engine (preconfigured values - ip 127.0.0.1:8080, admin@internal:letmein) with one VM (does not have to be running) and one Host.</p>
+
+<h2 id="contingency-plan">Contingency Plan</h2>
+
+<p>The feature is ready.</p>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  == Affinity labels ==
+  Affinity label support was added to REST API for hosts and VMs.
+  A VM can only be scheduled on a host that is labelled with all
+  the affinity labels the VM has. Any extra labels on the host
+  make no difference.
+</code></pre></div></div>
+
+<h2 id="open-issues">Open Issues</h2>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3145/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class="text-center" id="footer"><hr class="visible-print">
+<ul class="footer-nav-list">
+<li><a href="/ovirt-site/previews/3145/privacy-policy.html" target="_blank" title="Privacy policy">Privacy policy</a></li>
+<li><a href="/ovirt-site/previews/3145/community/about.html" target="_blank" title="About">About</a></li>
+<li><a href="/ovirt-site/previews/3145/general-disclaimer.html" target="_blank" title="Disclaimers">Disclaimers</a></li>
+</ul>© 2013–2023 oVirt<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/sla/affinity-labels.html&amp;template=" target="_blank" title="Report an issue"><i class="icon fab fa-github"></i>Report an issue with this page</a></div>
+<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/main/source/develop/sla/affinity-labels.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

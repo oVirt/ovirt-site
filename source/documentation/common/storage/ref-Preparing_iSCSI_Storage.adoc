@@ -4,7 +4,7 @@
 
 {virt-product-fullname} supports iSCSI storage, which is a storage domain created from a volume group made up of LUNs. Volume groups and LUNs cannot be attached to more than one storage domain at a time.
 
-For information on setting up and configuring iSCSI storage, see link:{URL_rhel_docs_latest}html-single/managing_storage_devices/index#getting-started-with-iscsi_managing-storage-devices[Getting started with iSCSI] in _Managing storage devices_ for Red Hat Enterprise Linux 8.
+For information on setting up and configuring iSCSI storage, see link:{URL_rhel_docs_latest}html-single/managing_storage_devices/index#configuring-an-iscsi-target_managing-storage-devices[Configuring an iSCSI target] in _Managing storage devices_ for Red Hat Enterprise Linux 8.
 
 [IMPORTANT]
 ====

@@ -19602,7 +19602,7 @@ and disable global maintenance mode:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>These two modes are further extended by a set of parameters that allow you to specify the scope of the backup and different credentials for the engine database. Run <code>engine-backup --help</code> for a full list of parameters and their function.</p>
+<p>These two modes are further extended by a set of options that allow you to specify the scope of the backup and different credentials for the engine database. Run <code>engine-backup --help</code> for a full list of options and their function.</p>
 </div>
 <div class="paragraph">
 <p><strong>Basic Options</strong></p>
@@ -19611,21 +19611,21 @@ and disable global maintenance mode:</p>
 <dl>
 <dt class="hdlist1"><strong><code>--mode</code></strong></dt>
 <dd>
-<p>Specifies whether the command will perform a backup operation or a restore operation. Two options are available - <code>backup</code>, and <code>restore</code>. This is a required parameter.</p>
+<p>Specifies whether the command will perform a backup operation or a restore operation. Two options are available - <code>backup</code> (set by default), and <code>restore</code>. This is a required option in restore mode.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--file</code></strong></dt>
 <dd>
-<p>Specifies the path and name of a file into which backups are to be taken in backup mode, and the path and name of a file from which to read backup data in restore mode. This is a required parameter in both backup mode and restore mode.</p>
+<p>Specifies the path and name of a file into which backups are to be taken in backup mode, and the path and name of a file from which to read backup data in restore mode. Defined by default as <code>/var/lib/ovirt-engine-backup/</code>.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--log</code></strong></dt>
 <dd>
-<p>Specifies the path and name of a file into which logs of the backup or restore operation are to be written. This parameter is required in both backup mode and restore mode.</p>
+<p>Specifies the path and name of a file into which logs of the backup or restore operation are to be written. Defined by default as <code>/var/log/ovirt-engine-backup/</code> .</p>
 </dd>
 <dt class="hdlist1"><strong><code>--scope</code></strong></dt>
 <dd>
 <p>Specifies the scope of the backup or restore operation. There are four options: <code>all</code>, which backs up or restores all databases and configuration data; <code>files</code>, which backs up or restores only files on the system; <code>db</code>, which backs up or restores only the Engine database; and <code>dwhdb</code>, which backs up or restores only the Data Warehouse database. The default scope is <code>all</code>.</p>
 <div class="paragraph">
-<p>The <code>--scope</code> parameter can be specified multiple times in the same <code>engine-backup</code> command.</p>
+<p>The <code>--scope</code> option can be specified multiple times in the same <code>engine-backup</code> command.</p>
 </div>
 </dd>
 </dl>
@@ -19640,15 +19640,15 @@ and disable global maintenance mode:</p>
 <dl>
 <dt class="hdlist1"><strong><code>--provision-db</code></strong></dt>
 <dd>
-<p>Creates a PostgreSQL database for the Engine database backup to be restored to. This is a required parameter when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured.</p>
+<p>Creates a PostgreSQL database for the Engine database backup to be restored to. This is a required option when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured. When this option is used in restore mode, the <code>--restore-permissions</code> option is added by default.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--change-db-credentials</code></strong></dt>
 <dd>
-<p>Allows you to specify alternate credentials for restoring the Engine database using credentials other than those stored in the backup itself. See <code>engine-backup --help</code> for the additional parameters required by this parameter.</p>
+<p>Allows you to specify alternate credentials for restoring the Engine database using credentials other than those stored in the backup itself. See <code>engine-backup --help</code> for the additional parameters required by this option.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--restore-permissions</code> or <code>--no-restore-permissions</code></strong></dt>
 <dd>
-<p>Restores (or does not restore) the permissions of database users. One of these parameters is required when restoring a backup.</p>
+<p>Restores (or does not restore) the permissions of database users. One of these options is required when restoring a backup. If the <code>--provision-*</code> option is used in restore mode, then <code>--restore-permissions</code> is used by default.</p>
 <div class="admonitionblock note">
 <table>
 <tr>

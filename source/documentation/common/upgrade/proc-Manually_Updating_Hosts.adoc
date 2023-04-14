@@ -51,6 +51,14 @@ Upgrading from an older 4.5 to latest 4.5:
 # dnf update -y centos-release-ovirt45
 ----
 
+[NOTE]
+====
+As link:https://lists.ovirt.org/archives/list/users@ovirt.org/thread/DMCC5QCHL6ECXN674JOLABH36U2LVJLJ/[discussed in oVirt Users mailing list]
+we suggest the user community to use link:/develop/dev-process/install-nightly-snapshot.html[oVirt master snapshot repositories]
+ensuring that the latest fixes for the platform regressions will be promptly available.
+====
+
+
 Upgrading from an older 4.4 to latest 4.4:
 
 * For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed.

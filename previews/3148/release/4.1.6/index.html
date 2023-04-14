@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 4.1.6 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 4.1.6 Release Notes" />
+<meta name="author" content="Lev Veyde" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3148/release/4.1.6/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3148/release/4.1.6/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 4.1.6 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Lev Veyde" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Lev Veyde"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 4.1.6 Release Notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3148/images/logo.svg"},"name":"Lev Veyde"},"url":"https://ovirt.github.io/ovirt-site/previews/3148/release/4.1.6/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3148/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3148/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3148/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3148/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3148/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3148/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3148/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3148/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3148/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3148/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3148/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3148/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3148/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3148/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3148/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3148/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class="releases"><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3148/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3148/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3148/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3148/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3148/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3148/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3148//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3148//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3148/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3148/release/">
+              <span property="name">Release</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2a744af9899bb43af53646a9e98e69bb?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2a744af9899bb43af53646a9e98e69bb?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Lev Veyde">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Lev Veyde</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Sandro Bonazzola">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-416-release-notes">oVirt 4.1.6 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of the 4.1.6
+release as of September 18, 2017.</p>
+
+<p>oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.</p>
+
+<p>This release is available now for Red Hat Enterprise Linux 7.4,
+CentOS Linux 7.4 (or similar).</p>
+
+<p>If you’d like to try oVirt as quickly as possible, follow the instructions on
+the <a href="/ovirt-site/previews/3148/download/">Download</a> page.</p>
+
+<p>For complete installation, administration, and usage instructions, see
+the <a href="/ovirt-site/previews/3148/documentation/">oVirt Documentation</a>.</p>
+
+<p>For a general overview of oVirt, read the <a href="/ovirt-site/previews/3148/community/about.html">About oVirt</a>
+page.</p>
+
+<p>To learn about features introduced before 4.1.6, see the <a href="/ovirt-site/previews/3148/documentation/#previous-release-notes">release notes for previous versions</a>.</p>
+
+<h3 id="epel">EPEL</h3>
+
+<p>Don’t enable all of EPEL on oVirt machines.</p>
+
+<p>The ovirt-release package enables the EPEL repositories and includes several
+specific packages that are required from there. It also enables and uses
+the CentOS SIG repos, for other packages.</p>
+
+<p>If you want to use other packages from EPEL, you should make sure to
+use <code class="language-plaintext highlighter-rouge">includepkgs</code> and add only those you need avoiding to override
+packages from other repos.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-416-release-notes" id="markdown-toc-ovirt-416-release-notes">oVirt 4.1.6 Release Notes</a>    <ol>
+      <li><a href="#epel" id="markdown-toc-epel">EPEL</a></li>
+      <li><a href="#whats-new-in-416" id="markdown-toc-whats-new-in-416">What’s New in 4.1.6?</a>        <ol>
+          <li><a href="#enhancements" id="markdown-toc-enhancements">Enhancements</a>            <ol>
+              <li><a href="#ovirt-engine" id="markdown-toc-ovirt-engine">oVirt Engine</a></li>
+              <li><a href="#vdsm" id="markdown-toc-vdsm">VDSM</a></li>
+              <li><a href="#ovirt-hosted-engine-setup" id="markdown-toc-ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</a></li>
+              <li><a href="#ovirt-ansible-roles" id="markdown-toc-ovirt-ansible-roles">oVirt Ansible Roles</a></li>
+              <li><a href="#ovirt-engine-extension-aaa-ldap" id="markdown-toc-ovirt-engine-extension-aaa-ldap">ovirt-engine-extension-aaa-ldap</a></li>
+            </ol>
+          </li>
+          <li><a href="#release-note" id="markdown-toc-release-note">Release Note</a>            <ol>
+              <li><a href="#ovirt-web-ui" id="markdown-toc-ovirt-web-ui">oVirt Web UI</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug fixes</a>        <ol>
+          <li><a href="#ovirt-engine-1" id="markdown-toc-ovirt-engine-1">oVirt Engine</a></li>
+          <li><a href="#vdsm-1" id="markdown-toc-vdsm-1">VDSM</a></li>
+          <li><a href="#ovirt-hosted-engine-setup-1" id="markdown-toc-ovirt-hosted-engine-setup-1">oVirt Hosted Engine Setup</a></li>
+          <li><a href="#unclassified" id="markdown-toc-unclassified">Unclassified</a>            <ol>
+              <li><a href="#ovirt-release-package" id="markdown-toc-ovirt-release-package">oVirt Release Package</a></li>
+              <li><a href="#ovirt-engine-2" id="markdown-toc-ovirt-engine-2">oVirt Engine</a></li>
+              <li><a href="#vdsm-2" id="markdown-toc-vdsm-2">VDSM</a></li>
+              <li><a href="#ovirt-engine-extension-aaa-ldap-1" id="markdown-toc-ovirt-engine-extension-aaa-ldap-1">ovirt-engine-extension-aaa-ldap</a></li>
+              <li><a href="#ovirt-engine-dwh" id="markdown-toc-ovirt-engine-dwh">ovirt-engine-dwh</a></li>
+              <li><a href="#ovirt-cockpit-plugin" id="markdown-toc-ovirt-cockpit-plugin">oVirt Cockpit Plugin</a></li>
+            </ol>
+          </li>
+          <li><a href="#no-doc-update" id="markdown-toc-no-doc-update">No Doc Update</a>            <ol>
+              <li><a href="#ovirt-engine-3" id="markdown-toc-ovirt-engine-3">oVirt Engine</a></li>
+              <li><a href="#vdsm-3" id="markdown-toc-vdsm-3">VDSM</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="whats-new-in-416">What’s New in 4.1.6?</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<h4 id="ovirt-engine">oVirt Engine</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1477053">BZ 1477053</a> <b>API to set additional feature at cluster</b><br />Feature: Lists the additional features available for a cluster level and allow enabling/disabling additional feature for a cluster via API</li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1479677">BZ 1479677</a> <b>[RFE] - LLDP protocol REST API support</b><br />Feature<br />    Link Layer Discovery Protocol (LLDP) Support<br /><br />Reason<br />    To support the integration of oVirt with other software, the information<br />    gathered by LLDP on each host will be provided by oVirt Engine’s REST-API.<br />    Some of the information, like the number of the switch port a network<br />    interface of the host is connected to, might be helpful for the user and<br />    will be shown in the graphical user interface.<br /><br />Result<br />    oVirt Engine provides access via REST-API to values gathered on the hosts by LLDP.<br /><br />Known Issue BZ#1487930<br />    Cisco switches might send LLDP frames 802.1Q VLAN tagged. This LLDP frames<br />    are ignored, if the NIC of the oVirt host is not attached to the<br />    corresponding oVirt logical network.</li>
+</ul>
+
+<h4 id="vdsm">VDSM</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1479677">BZ 1479677</a> <b>[RFE] - LLDP protocol REST API support</b><br />Feature<br />    Link Layer Discovery Protocol (LLDP) Support<br /><br />Reason<br />    To support the integration of oVirt with other software, the information<br />    gathered by LLDP on each host will be provided by oVirt Engine’s REST-API.<br />    Some of the information, like the number of the switch port a network<br />    interface of the host is connected to, might be helpful for the user and<br />    will be shown in the graphical user interface.<br /><br />Result<br />    oVirt Engine provides access via REST-API to values gathered on the hosts by LLDP.<br /><br />Known Issue BZ#1487930<br />    Cisco switches might send LLDP frames 802.1Q VLAN tagged. This LLDP frames<br />    are ignored, if the NIC of the oVirt host is not attached to the<br />    corresponding oVirt logical network.</li>
+</ul>
+
+<h4 id="ovirt-hosted-engine-setup">oVirt Hosted Engine Setup</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1481095">BZ 1481095</a> <b>[downstream clone - 4.1.6] [bug] hosted-engine yum repo required, but rpm-based install optional</b><br />The user now has the option of specifying a path to the appliance OVF, as an alternative to installing the appliance RPM.</li>
+</ul>
+
+<h4 id="ovirt-ansible-roles">oVirt Ansible Roles</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1482104">BZ 1482104</a> <b>[downstream clone - 4.1.6] [RFE] Introduce ovirt-ansible-roles package</b><br />The ovirt-ansible-roles package contains Ansible roles, which can help administrators with common Red Hat Virtualization administration tasks. All roles can be executed from the command line using Ansible, but some of those roles can also be executed directly from the Red Hat Virtualization Manager. More details about the roles can be found in README.md included in the package (/usr/share/doc/ovirt-ansible-roles/README.md), or directly in the source code repository (https://github.com/ovirt/ovirt-ansible).<br /><br />Please note that currently Ansible has the following bug: https://bugzilla.redhat.com/show_bug.cgi?id=1487113<br />Because of this bug you should avoid calling multiple oVirt Ansible roles in a single playbook, or calling oVirt Ansible modules prior to calling oVirt Ansible roles in a single playbook (the working solution is to call the modules from the pre_tasks).</li>
+</ul>
+
+<h4 id="ovirt-engine-extension-aaa-ldap">ovirt-engine-extension-aaa-ldap</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1472254">BZ 1472254</a> <b>[downstream clone - 4.1.6] [RFE] - AD domain configuration is not supported in ovirt-engine-extension-aaa-ldap-setup, provide examples how to configure AD domain</b><br />When configuring Active Directory (AD) with the ovirt-engine-extension-aaa-ldap-setup tool, regardless of whether you are defining a multiple or single domain forest, you can only configure the name of the forest - you cannot define the name of a specific domain or a specific server.<br /><br />This release provides examples for common advanced AD configuration which users can copy to their local environment and adapt as required. These examples are bundled within the ovirt-engine-extension-aaa-ldap package and after installing the package, a description of these examples can be found in /usr/share/ovirt-engine-extension-aaa-ldap/examples/README.md<br /><br />In addition, the following improvements have been made to the ovirt-engine-extension-aaa-ldap-setup tool:<br /><br />1. A more detailed error reporting for various AD forest configuration steps.<br />2. A mandatory login test that checks the configuration (previously this test was optional).</li>
+</ul>
+
+<h3 id="release-note">Release Note</h3>
+
+<h4 id="ovirt-web-ui">oVirt Web UI</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1485814">BZ 1485814</a> <b>Release notes for ovirt-web-ui 1.2.1</b><br />Changes since VM Portal 1.1.0:<br /><br />- ability to change virtual machine’s CD-ROM ISO<br />- infinite scroller for VMS list added to decrease response time<br />- “Runs on Host” - hyperlink to the host running particular virtual machine<br />- Added “Loading …” indicator of background activity<br />- “Pending Changes” tag rendered when NEXT_RUN configuration exists<br />- “VM Type” field added<br />- error messages improved<br />- “usb-filter” in .vv file for remote-viewer<br />- setting of VM icon fixed<br />- multiple additional functional &amp; UI fixes<br />- app supports branding<br />- basics for internationalization, but translation not yet provided<br />- built as a “noarch” rpm</li>
+</ul>
+
+<h2 id="bug-fixes">Bug fixes</h2>
+
+<h3 id="ovirt-engine-1">oVirt Engine</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1476265">BZ 1476265</a> <b>The engine VM could not be registered to foreman/satellite from the engine</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1486565">BZ 1486565</a> <b>[downstream clone - 4.1.6] Unable to drag and drop vNuma to the Numa nodes when using Internet Explorer version 11</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1478283">BZ 1478283</a> <b>[JNPE] Cannot import VM from previously used SD / ImportVmFromConfigurationCommand’ failed: null</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1478687">BZ 1478687</a> <b>[UI] - Events in the engine appear in reverse order</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1485804">BZ 1485804</a> <b>[downstream clone - 4.1.6] Unable to Import a VM linked with its template to RHV 4.1 from export domain imported of RHEV 3.5</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1481115">BZ 1481115</a> <b>Downloading an image with backing files from the sdk is triggering disk deletion</b><br /></li>
+</ul>
+
+<h3 id="vdsm-1">VDSM</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1487913">BZ 1487913</a> <b>Migration leads to VM running on 2 Hosts</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1485807">BZ 1485807</a> <b>virt-v2v: trying to import a VM with unreachable cdrom device caused the import to fail with “disk storage error”</b><br /></li>
+</ul>
+
+<h3 id="ovirt-hosted-engine-setup-1">oVirt Hosted Engine Setup</h3>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1486579">BZ 1486579</a> <b>[downstream clone - 4.1.6] hosted-engine –upgrade-appliance fails with KeyError: ‘stopped’ if the metadata area contains references to 3.5 decommissioned hosts</b><br /></li>
+</ul>
+
+<h3 id="unclassified">Unclassified</h3>
+
+<h4 id="ovirt-release-package">oVirt Release Package</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1484610">BZ 1484610</a> <b>ovirt-vmconsole-host-sshd service is not started automatically after upgrade</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine-2">oVirt Engine</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1478315">BZ 1478315</a> <b>Empty quotaID for HE VM causes VM_CANNOT_UPDATE_HOSTED_ENGINE_FIELD</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1348467">BZ 1348467</a> <b>[ja_JP] Text getting truncated on virtual machine-&gt;affinity group-&gt;new page</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1418156">BZ 1418156</a> <b>[de_DE] [Admin Portal]The text/UI alignment needs to adjusted on quota-&gt;add screen.</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1445235">BZ 1445235</a> <b>Storage subtab is unsorted and keeps sorting its items</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1486293">BZ 1486293</a> <b>[downstream clone - 4.1.6] Frequent traceback on MetadataDiskDescriptionHandler</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1483889">BZ 1483889</a> <b>Custom Id is not persisted to the database</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1484762">BZ 1484762</a> <b>Allow changing type details in fn_db_change_column_type without changing the actual type</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1479693">BZ 1479693</a> <b>AuditLogDirector does not log messages if transactional command fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1482569">BZ 1482569</a> <b>Force remove of a storage domain should release MAC addresses only for VMs which are removed from the setup</b><br /></li>
+</ul>
+
+<h4 id="vdsm-2">VDSM</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1487150">BZ 1487150</a> <b>vdsm should ignore dummy interfaces and not try to enable Lldp on the dummy ports</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1432386">BZ 1432386</a> <b>static ip remain on the interface when removing non-vm network from it in case it has another vlan network attached</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1482014">BZ 1482014</a> <b>vdsmd fails to start if system time moves backwards during boot</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1486347">BZ 1486347</a> <b>Live merge fails with KeyError: ‘name’ in __refreshDriveVolume</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine-extension-aaa-ldap-1">ovirt-engine-extension-aaa-ldap</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1482940">BZ 1482940</a> <b>[aaa-ldap-setup] Login sequence fails on setup</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1476980">BZ 1476980</a> <b>AAA LDAP setup does not add baseDN to *-authn.properties</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1462815">BZ 1462815</a> <b>Assume the user is going to use ‘Single Sing-On for Virtual Machines’</b><br /></li>
+</ul>
+
+<h4 id="ovirt-engine-dwh">ovirt-engine-dwh</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1490272">BZ 1490272</a> <b>Failed to start dwh service on NumberFormatException: For input string: “6.1”</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1478859">BZ 1478859</a> <b>[downstream clone] DWH sampling is too high - switch back to 60s</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1482043">BZ 1482043</a> <b>DWH error - value too long for type character varying(40)|1</b><br /></li>
+</ul>
+
+<h4 id="ovirt-cockpit-plugin">oVirt Cockpit Plugin</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1480902">BZ 1480902</a> <b>image_handler:186:root:(make_imaged_request) Failed communicating with vdsm-imaged: A Connection error occurred. ovirt-imageio-proxy</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1487596">BZ 1487596</a> <b>Update the generated gdeploy config script to halt the installation if blacklisting all the disks fails</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1483521">BZ 1483521</a> <b>Trim whitespaces in all the user provided text in the cockpit UI</b><br /></li>
+</ul>
+
+<h3 id="no-doc-update">No Doc Update</h3>
+
+<h4 id="ovirt-engine-3">oVirt Engine</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1478823">BZ 1478823</a> <b>openstacknet driver should not run on external network nics (conflicts with OVN)</b><br /></li>
+</ul>
+
+<h4 id="vdsm-3">VDSM</h4>
+
+<ul>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1487078">BZ 1487078</a> <b>EnableLldpError: (255, ‘’, ‘connect: Connection refused\nFailed to connect to lldpad - clif_open: Invalid argument\n’, ‘enp12s0f1’)</b><br /></li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1488358">BZ 1488358</a> <b>Slow Initialization of LLDP on failure</b><br /></li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3148/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3148/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3148/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3148/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2023 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/4.1.6/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/release/4.1.6/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

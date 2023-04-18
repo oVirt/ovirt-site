@@ -28,6 +28,13 @@ See the [Release Notes for oVirt 4.5.4](/release/4.5.4/).
 
 <div class="row"></div>
 
+## Suggestion to use nightly
+
+As [discussed in oVirt Users mailing list](https://lists.ovirt.org/archives/list/users@ovirt.org/thread/DMCC5QCHL6ECXN674JOLABH36U2LVJLJ/)
+we suggest the user community to use [oVirt master snapshot repositories](/develop/dev-process/install-nightly-snapshot.html)
+ensuring that the latest fixes for the platform regressions will be promptly available.
+
+
 ## Upgrade to 4.5 from 4.4
 
 Please follow the [upgrade guide](/documentation/upgrade_guide/index.html#Upgrading_from_4-4)

@@ -35,6 +35,14 @@ If you are going to install on RHEL or derivatives please follow link:/download/
 # dnf install centos-release-ovirt45 --enablerepo=extras
 ----
 
+[NOTE]
+====
+As link:https://lists.ovirt.org/archives/list/users@ovirt.org/thread/DMCC5QCHL6ECXN674JOLABH36U2LVJLJ/[discussed in oVirt Users mailing list]
+we suggest the user community to use link:/develop/dev-process/install-nightly-snapshot.html[oVirt master snapshot repositories]
+ensuring that the latest fixes for the platform regressions will be promptly available.
+====
+
+
 .Common procedure
 
 . Follow the procedure for updates between minor releases.

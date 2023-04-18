@@ -43,7 +43,7 @@ The following settings are applied by default:
 
 `--mode=backup`
 
-The command generates the backup in `/var/lib/ovirt-engine-backup/_file_name_.tar`, and a log file in `/var/log/ovirt-engine-backup/_log_file_name_`.
+The command generates the backup in `/var/lib/ovirt-engine-backup/_file_name_.backup`, and a log file in `/var/log/ovirt-engine-backup/_log_file_name_`.
 
 Use `_file_name_.tar` to restore the environment.
 

@@ -16,6 +16,11 @@ You can create an iSCSI bond with multiple targets and logical networks for redu
 ** xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Assigned to a host interface]
 ** xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Assigned a static IP address] in the same VLAN and subnet as the other logical networks in the iSCSI bond
 
+[NOTE]
+====
+Multipath is not supported for Self-Hosted Engine deployments.
+====
+
 .Procedure
 
 . Click menu:Compute[Data Centers].

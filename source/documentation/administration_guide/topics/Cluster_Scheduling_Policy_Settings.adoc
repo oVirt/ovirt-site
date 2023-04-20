@@ -13,7 +13,7 @@ Scheduling policies allow you to specify the usage and distribution of virtual m
 
 * *none*: Disables load-balancing or power-sharing between hosts for already-running virtual machines. This is the default mode. When a virtual machine is started, the memory and CPU processing load is spread evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, or *MaxFreeMemoryForOverUtilized*.
 
-* *evenly_distributed*: Distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, or *MaxFreeMemoryForOverUtilized*.
+* *evenly_distributed*: Distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, *VCputophysicalCpuRatio*, or *MaxFreeMemoryForOverUtilized*.
 
 * *cluster_maintenance*: Limits activity in a cluster during maintenance tasks. No new virtual machines may be started, except highly available virtual machines. If host failure occurs, highly available virtual machines will restart properly and any virtual machine can migrate.
 

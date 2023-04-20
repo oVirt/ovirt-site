@@ -1486,7 +1486,7 @@ roles:
 <div class="title">Figure 4. Evenly Distributed Scheduling Policy</div>
 </div>
 <div class="paragraph">
-<p>The <strong>Evenly_Distributed</strong> scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
+<p>The <strong>Evenly_Distributed</strong> scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, <strong>VCputophysicalCpuRatio</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
 </div>
 <div class="paragraph">
 <p>The <strong>VM_Evenly_Distributed</strong> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the <strong>HighVmCount</strong> and there is at least one host with a virtual machine count that falls outside of the <strong>MigrationThreshold</strong>.</p>
@@ -5713,7 +5713,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p><strong>none</strong>: Disables load-balancing or power-sharing between hosts for already-running virtual machines. This is the default mode. When a virtual machine is started, the memory and CPU processing load is spread evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
 </li>
 <li>
-<p><strong>evenly_distributed</strong>: Distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
+<p><strong>evenly_distributed</strong>: Distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, <strong>VCputophysicalCpuRatio</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
 </li>
 <li>
 <p><strong>cluster_maintenance</strong>: Limits activity in a cluster during maintenance tasks. No new virtual machines may be started, except highly available virtual machines. If host failure occurs, highly available virtual machines will restart properly and any virtual machine can migrate.</p>
@@ -5932,6 +5932,16 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <li>
 <p>If <strong>MinFreeMemoryForUnderUtilized</strong> is not defined, only overutilized hosts are source hosts, and hosts that are not overutilized are destination hosts.</p>
 </li>
+<li>
+<p>To prevent the host from over utilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - <strong>VCputophysicalCpuRatio</strong> with a value between 0.1 and 2.5. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.</p>
+<div class="paragraph">
+<p>If adding an additional virtual machine causes the ratio to exceed 2.5, both
+the <strong>VCputophysicalCpuRatio</strong> and the CPU utilization are considered.</p>
+</div>
+<div class="paragraph">
+<p>In a running environment, if the host <strong>VCputophysicalCpuRatio</strong> exceeds 2.5, some virtual machines may be load balanced and moved to hosts with a lower <strong>VCputophysicalCpuRatio</strong>.</p>
+</div>
+</li>
 </ul>
 </div>
 <div class="ulist">
@@ -6077,13 +6087,13 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 <li>
-<p>Optionally, to prevent the host from over utilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - <code>VCputophysicalCpuRatio</code> with a value between 0.1 and 2.5. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.</p>
+<p>Optionally, to prevent the host from over utilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - <strong>VCputophysicalCpuRatio</strong> with a value between 0.1 and 2.5. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.</p>
 <div class="paragraph">
 <p>If adding an additional virtual machine causes the ratio to exceed 2.5, both
-the <code>VCputophysicalCpuRatio</code> and the CPU utilization are considered.</p>
+the <strong>VCputophysicalCpuRatio</strong> and the CPU utilization are considered.</p>
 </div>
 <div class="paragraph">
-<p>In a running environment, if the host <code>VCputophysicalCpuRatio</code> exceeds 2.5, some virtual machines may be load balanced and moved to hosts with a lower <code>VCputophysicalCpuRatio</code>.</p>
+<p>In a running environment, if the host <strong>VCputophysicalCpuRatio</strong> exceeds 2.5, some virtual machines may be load balanced and moved to hosts with a lower <strong>VCputophysicalCpuRatio</strong>.</p>
 </div>
 </li>
 </ol>

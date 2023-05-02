@@ -20,7 +20,7 @@ The *evenly_distributed* and *power_saving* scheduling policies allow you to spe
 .. Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the *CpuOverCommitDurationMinutes* field.
 .. Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the *HighUtilization* field.
 .. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[Configuring Memory Slots Reserved for the self-hosted engine] for more information.
-.. Optionally, to prevent the host from over utilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - *VCpuToPhysicalCpuRatio* with a value between 0.1 and 2.9. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.
+.. Optionally, to prevent the host from overutilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - *VCpuToPhysicalCpuRatio* with a value between 0.1 and 2.9. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.
 +
 If adding a virtual machine causes the ratio to exceed the limit, both
 the *VCpuToPhysicalCpuRatio* and the CPU utilization are considered.

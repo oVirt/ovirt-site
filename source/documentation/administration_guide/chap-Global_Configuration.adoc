@@ -87,7 +87,7 @@ endif::rhv-doc[]
 .Evenly Distributed Scheduling Policy
 image::images/RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png[Evenly Distributed Scheduling Policy]
 
-The *Evenly_Distributed* scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, *VCputophysicalCpuRatio*, or *MaxFreeMemoryForOverUtilized*.
+The *Evenly_Distributed* scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, *VCpuToPhysicalCpuRatio*, or *MaxFreeMemoryForOverUtilized*.
 
 The *VM_Evenly_Distributed* scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the *HighVmCount* and there is at least one host with a virtual machine count that falls outside of the *MigrationThreshold*.
 

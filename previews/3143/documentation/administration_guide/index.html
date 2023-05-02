@@ -6087,7 +6087,7 @@ the <strong>VCpuToPhysicalCpuRatio</strong> and the CPU utilization are consider
 <p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
 </li>
 <li>
-<p>Optionally, to prevent the host from over utilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - <strong>VCpuToPhysicalCpuRatio</strong> with a value between 0.1 and 2.9. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.</p>
+<p>Optionally, to prevent the host from overutilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - <strong>VCpuToPhysicalCpuRatio</strong> with a value between 0.1 and 2.9. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.</p>
 <div class="paragraph">
 <p>If adding a virtual machine causes the ratio to exceed the limit, both
 the <strong>VCpuToPhysicalCpuRatio</strong> and the CPU utilization are considered.</p>

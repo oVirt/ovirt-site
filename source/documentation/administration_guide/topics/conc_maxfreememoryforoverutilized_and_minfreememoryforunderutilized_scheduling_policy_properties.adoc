@@ -36,6 +36,13 @@ If you define the *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtili
 
 * If *MinFreeMemoryForUnderUtilized* is not defined, only overutilized hosts are source hosts, and hosts that are not overutilized are destination hosts.
 
+* To prevent the host from overutilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - *VCpuToPhysicalCpuRatio* with a value between 0.1 and 2.9. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.
++
+If adding a virtual machine causes the ratio to exceed the limit, both
+the *VCpuToPhysicalCpuRatio* and the CPU utilization are considered.
++
+In a running environment, if the host *VCpuToPhysicalCpuRatio* exceeds 2.5, some virtual machines might be load balanced and moved to hosts with a lower *VCpuToPhysicalCpuRatio*.
+
 .Additional resources
 
 * xref:Cluster_Scheduling_Policy_Settings[Cluster Scheduling Policy Settings]

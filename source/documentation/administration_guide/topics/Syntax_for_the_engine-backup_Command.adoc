@@ -17,11 +17,11 @@ These two modes are further extended by a set of options that allow you to speci
 
 *Basic Options*
 
-*`--mode`*:: Specifies whether the command will perform a backup operation or a restore operation. The available options are:  `backup` (set by default), `restore`, and `verify`. You must define the `mode` option for `verify` or `restore` operations.
+*`--mode`*:: Specifies whether the command performs a backup operation or a restore operation. The available options are:  `backup` (set by default), `restore`, and `verify`. You must define the `mode` option for `verify` or `restore` operations.
 
 *`--file`*:: Specifies the path and name of a file (for example, _file_name_.backup) into which backups are saved in backup mode, and to be read as backup data in restore mode. The path is defined by default as `/var/lib/ovirt-engine-backup/`.
 
-*`--log`*:: Specifies the path and name of a file ( for example _log_file_name_) into which logs of the backup or restore operation are written. The path is defined by default as `/var/log/ovirt-engine-backup/` .
+*`--log`*:: Specifies the path and name of a file (for example, _log_file_name_) into which logs of the backup or restore operation are written. The path is defined by default as `/var/log/ovirt-engine-backup/` .
 
 *`--scope`*:: Specifies the scope of the backup or restore operation. There are four options: `all`, to back up or restore all databases and configuration data (set by default); `files`, to back up or restore only files on the system; `db`, to back up or restore only the {engine-name} database; and `dwhdb`, to back up or restore only the Data Warehouse database.
 +
@@ -33,14 +33,14 @@ The following options are only available when using the `engine-backup` command 
 
 *`--provision-db`*:: Creates a PostgreSQL database for the {engine-name} database backup to be restored to. This is a required option when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured. When this option is used in restore mode, the `--restore-permissions` option is added by default.
 
-*`--provision-all-databases`*:: Creates databases for all data dumps included in the archive. When enabled, this is the default.
+*`--provision-all-databases`*:: Creates databases for all memory dumps included in the archive. When enabled, this is the default.
 //This means, that the minimum for restoring on a new system, if the backed up system used only defaults, is: engine-backup --mode=restore --file=FILE
 
 *`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this option.
 
-*`--restore-permissions` or `--no-restore-permissions`*:: Restores (or does not restore) the permissions of database users. One of these options is required when restoring a backup. When the `--provision-*` option is used in restore mode, `--restore-permissions` is applied by default.
+*`--restore-permissions` or `--no-restore-permissions`*:: Restores or does not restore the permissions of database users. One of these options is required when restoring a backup. When the `--provision-*` option is used in restore mode, `--restore-permissions` is applied by default.
 +
 [NOTE]
 ====
-If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See link:https://access.redhat.com/articles/2686731[How to grant access to an extra database user after restoring Red Hat Virtualization from a backup].
+If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options creates the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See link:https://access.redhat.com/articles/2686731[How to grant access to an extra database user after restoring Red Hat Virtualization from a backup].
 ====

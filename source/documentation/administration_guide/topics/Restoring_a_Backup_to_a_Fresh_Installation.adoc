@@ -13,28 +13,30 @@ The `engine-backup` command can be used to restore a backup to a fresh installat
 +
 [source,terminal,subs="normal"]
 ----
-# engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions
+# engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db
 ----
++
+When the `--provision-*` option is used in restore mode, `--restore-permissions` is applied by default.
 +
 If Data Warehouse is also being restored as part of the complete backup, provision the additional database:
 +
 [source,terminal,subs="normal"]
 ----
-engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --provision-dwh-db --restore-permissions
+engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --provision-dwh-db
 ----
 
 * Restore a database-only backup by restoring the configuration files and database backup:
 +
 [source,terminal,subs="normal"]
 ----
-# engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions
+# engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --provision-db
 ----
 +
 The example above restores a backup of the {engine-name} database.
 +
 [source,terminal,subs="normal"]
 ----
-# engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions
+# engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db
 ----
 The example above restores a backup of the Data Warehouse database.
 +

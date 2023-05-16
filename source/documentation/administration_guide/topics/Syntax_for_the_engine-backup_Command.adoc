@@ -23,7 +23,7 @@ These two modes are further extended by a set of options that allow you to speci
 
 *`--log`*:: Specifies the path and name of a file ( for example _log_file_name_) into which logs of the backup or restore operation are written. The path is defined by default as `/var/log/ovirt-engine-backup/` .
 
-*`--scope`*:: Specifies the scope of the backup or restore operation. There are four options: `all`, to back up or restore all databases and configuration data; `files`, to back up or restore only files on the system; `db`, to back up or restore only the {engine-name} database; and `dwhdb`, to back up or restore only the Data Warehouse database. `scope` is defined by default as `all`.
+*`--scope`*:: Specifies the scope of the backup or restore operation. There are four options: `all`, to back up or restore all databases and configuration data (set by default); `files`, to back up or restore only files on the system; `db`, to back up or restore only the {engine-name} database; and `dwhdb`, to back up or restore only the Data Warehouse database.
 +
 The `--scope` option can be specified multiple times in the same `engine-backup` command.
 
@@ -38,7 +38,7 @@ The following options are only available when using the `engine-backup` command 
 
 *`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this option.
 
-*`--restore-permissions` or `--no-restore-permissions`*:: Restores (or does not restore) the permissions of database users. One of these options is required when restoring a backup. If the `--provision-*` option is used in restore mode, then `--restore-permissions` is used by default.
+*`--restore-permissions` or `--no-restore-permissions`*:: Restores (or does not restore) the permissions of database users. One of these options is required when restoring a backup. When the `--provision-*` option is used in restore mode, `--restore-permissions` is applied by default.
 +
 [NOTE]
 ====

@@ -19681,7 +19681,7 @@ and disable global maintenance mode:</p>
 <dl>
 <dt class="hdlist1"><strong><code>--mode</code></strong></dt>
 <dd>
-<p>Specifies whether the command will perform a backup operation or a restore operation. The available options are:  <code>backup</code> (set by default), <code>restore</code>, and <code>verify</code>. You must define the <code>mode</code> option for <code>verify</code> or <code>restore</code> operations.</p>
+<p>Specifies whether the command performs a backup operation or a restore operation. The available options are:  <code>backup</code> (set by default), <code>restore</code>, and <code>verify</code>. You must define the <code>mode</code> option for <code>verify</code> or <code>restore</code> operations.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--file</code></strong></dt>
 <dd>
@@ -19689,7 +19689,7 @@ and disable global maintenance mode:</p>
 </dd>
 <dt class="hdlist1"><strong><code>--log</code></strong></dt>
 <dd>
-<p>Specifies the path and name of a file ( for example <em>log_file_name</em>) into which logs of the backup or restore operation are written. The path is defined by default as <code>/var/log/ovirt-engine-backup/</code> .</p>
+<p>Specifies the path and name of a file (for example, <em>log_file_name</em>) into which logs of the backup or restore operation are written. The path is defined by default as <code>/var/log/ovirt-engine-backup/</code> .</p>
 </dd>
 <dt class="hdlist1"><strong><code>--scope</code></strong></dt>
 <dd>
@@ -19714,7 +19714,7 @@ and disable global maintenance mode:</p>
 </dd>
 <dt class="hdlist1"><strong><code>--provision-all-databases</code></strong></dt>
 <dd>
-<p>Creates databases for all data dumps included in the archive. When enabled, this is the default.</p>
+<p>Creates databases for all memory dumps included in the archive. When enabled, this is the default.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--change-db-credentials</code></strong></dt>
 <dd>
@@ -19722,7 +19722,7 @@ and disable global maintenance mode:</p>
 </dd>
 <dt class="hdlist1"><strong><code>--restore-permissions</code> or <code>--no-restore-permissions</code></strong></dt>
 <dd>
-<p>Restores (or does not restore) the permissions of database users. One of these options is required when restoring a backup. When the <code>--provision-*</code> option is used in restore mode, <code>--restore-permissions</code> is applied by default.</p>
+<p>Restores or does not restore the permissions of database users. One of these options is required when restoring a backup. When the <code>--provision-*</code> option is used in restore mode, <code>--restore-permissions</code> is applied by default.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -19731,7 +19731,7 @@ and disable global maintenance mode:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If a backup contains grants for extra database users, restoring the backup with the <code>--restore-permissions</code> and <code>--provision-db</code> (or <code>--provision-dwh-db</code>) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See <a href="https://access.redhat.com/articles/2686731">How to grant access to an extra database user after restoring Red Hat Virtualization from a backup</a>.</p>
+<p>If a backup contains grants for extra database users, restoring the backup with the <code>--restore-permissions</code> and <code>--provision-db</code> (or <code>--provision-dwh-db</code>) options creates the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See <a href="https://access.redhat.com/articles/2686731">How to grant access to an extra database user after restoring Red Hat Virtualization from a backup</a>.</p>
 </div>
 </td>
 </tr>

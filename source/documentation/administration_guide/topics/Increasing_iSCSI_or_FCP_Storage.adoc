@@ -8,7 +8,7 @@ There are several ways to increase iSCSI or FCP storage size:
 * Create a new storage domain with new LUNs and add it to an existing data center. See xref:Adding_iSCSI_Storage_storage_admin[Adding iSCSI Storage].
 * Expand the storage domain by resizing the underlying LUNs.
 
-For information about creating, configuring, or resizing iSCSI storage on {enterprise-linux} 7 systems, see the  link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index.html#osm-target-setup[_{enterprise-linux} 7 Storage Administration Guide_].
+For information about configuring or resizing FCP storage, see link:{URL_rhel_docs_latest}html-single/managing_storage_devices/index#using-fibre-channel-devices_managing-storage-devices[Using Fibre Channel Devices] in _Managing storage devices_ for Red Hat Enterprise Linux 8.
 
 The following procedure explains how to expand storage area network (SAN) storage by adding a new LUN to an existing storage domain.
 

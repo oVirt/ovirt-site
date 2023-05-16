@@ -21,6 +21,14 @@ ifdef::ovirt-doc[]
 
 ifdef::minor_updates[]
 * The centos-release-ovirt45 RPM package is installed and updated to the latest version. This package includes the necessary repositories.
+
+[NOTE]
+====
+As link:https://lists.ovirt.org/archives/list/users@ovirt.org/thread/DMCC5QCHL6ECXN674JOLABH36U2LVJLJ/[discussed in oVirt Users mailing list]
+we suggest the user community to use link:/develop/dev-process/install-nightly-snapshot.html[oVirt master snapshot repositories]
+ensuring that the latest fixes for the platform regressions will be promptly available.
+====
+
 endif::minor_updates[]
 
 endif::ovirt-doc[]

@@ -34,7 +34,6 @@ The following options are only available when using the `engine-backup` command 
 *`--provision-db`*:: Creates a PostgreSQL database for the {engine-name} database backup to be restored to. This is a required option when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured. When this option is used in restore mode, the `--restore-permissions` option is added by default.
 
 *`--provision-all-databases`*:: Creates databases for all memory dumps included in the archive. When enabled, this is the default.
-//This means, that the minimum for restoring on a new system, if the backed up system used only defaults, is: engine-backup --mode=restore --file=FILE
 
 *`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this option.
 

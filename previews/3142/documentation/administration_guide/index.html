@@ -1486,7 +1486,7 @@ roles:
 <div class="title">Figure 4. Evenly Distributed Scheduling Policy</div>
 </div>
 <div class="paragraph">
-<p>The <strong>Evenly_Distributed</strong> scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
+<p>The <strong>Evenly_Distributed</strong> scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, <strong>VCpuToPhysicalCpuRatio</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
 </div>
 <div class="paragraph">
 <p>The <strong>VM_Evenly_Distributed</strong> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the <strong>HighVmCount</strong> and there is at least one host with a virtual machine count that falls outside of the <strong>MigrationThreshold</strong>.</p>
@@ -5713,7 +5713,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p><strong>none</strong>: Disables load-balancing or power-sharing between hosts for already-running virtual machines. This is the default mode. When a virtual machine is started, the memory and CPU processing load is spread evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
 </li>
 <li>
-<p><strong>evenly_distributed</strong>: Distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
+<p><strong>evenly_distributed</strong>: Distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined <strong>CpuOverCommitDurationMinutes</strong>, <strong>HighUtilization</strong>, <strong>VCpuToPhysicalCpuRatio</strong>, or <strong>MaxFreeMemoryForOverUtilized</strong>.</p>
 </li>
 <li>
 <p><strong>cluster_maintenance</strong>: Limits activity in a cluster during maintenance tasks. No new virtual machines may be started, except highly available virtual machines. If host failure occurs, highly available virtual machines will restart properly and any virtual machine can migrate.</p>
@@ -5932,6 +5932,16 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <li>
 <p>If <strong>MinFreeMemoryForUnderUtilized</strong> is not defined, only overutilized hosts are source hosts, and hosts that are not overutilized are destination hosts.</p>
 </li>
+<li>
+<p>To prevent the host from overutilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - <strong>VCpuToPhysicalCpuRatio</strong> with a value between 0.1 and 2.9. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.</p>
+<div class="paragraph">
+<p>If adding a virtual machine causes the ratio to exceed the limit, both
+the <strong>VCpuToPhysicalCpuRatio</strong> and the CPU utilization are considered.</p>
+</div>
+<div class="paragraph">
+<p>In a running environment, if the host <strong>VCpuToPhysicalCpuRatio</strong> exceeds 2.5, some virtual machines might be load balanced and moved to hosts with a lower <strong>VCpuToPhysicalCpuRatio</strong>.</p>
+</div>
+</li>
 </ul>
 </div>
 <div class="ulist">
@@ -6075,6 +6085,16 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </li>
 <li>
 <p>Optionally, in the <strong>HeSparesCount</strong> field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the Engine virtual machine if it migrates or shuts down. See <a href="#Configuring_Memory_Slots_Reserved_for_the_SHE">Configuring Memory Slots Reserved for the self-hosted engine</a> for more information.</p>
+</li>
+<li>
+<p>Optionally, to prevent the host from overutilization of all the physical CPUs, define the virtual CPU to physical CPU ratio - <strong>VCpuToPhysicalCpuRatio</strong> with a value between 0.1 and 2.9. When this parameter is set, hosts with a lower CPU utilization are preferred when scheduling a virtual machine.</p>
+<div class="paragraph">
+<p>If adding a virtual machine causes the ratio to exceed the limit, both
+the <strong>VCpuToPhysicalCpuRatio</strong> and the CPU utilization are considered.</p>
+</div>
+<div class="paragraph">
+<p>In a running environment, if the host <strong>VCpuToPhysicalCpuRatio</strong> exceeds 2.5, some virtual machines might be load balanced and moved to hosts with a lower <strong>VCpuToPhysicalCpuRatio</strong>.</p>
+</div>
 </li>
 </ol>
 </div>
@@ -13497,7 +13517,7 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 <p>oVirt supports iSCSI storage, which is a storage domain created from a volume group made up of LUNs. Volume groups and LUNs cannot be attached to more than one storage domain at a time.</p>
 </div>
 <div class="paragraph">
-<p>For information on setting up and configuring iSCSI storage, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_storage_devices/index#getting-started-with-iscsi_managing-storage-devices">Getting started with iSCSI</a> in <em>Managing storage devices</em> for Red Hat Enterprise Linux 8.</p>
+<p>For information on setting up and configuring iSCSI storage, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_storage_devices/index#configuring-an-iscsi-target_managing-storage-devices">Configuring an iSCSI target</a> in <em>Managing storage devices</em> for Red Hat Enterprise Linux 8.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -13767,6 +13787,20 @@ multipaths {
 </div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Multipath is not supported for Self-Hosted Engine deployments.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -14061,7 +14095,7 @@ multipaths {
 </ul>
 </div>
 <div class="paragraph">
-<p>For information about creating, configuring, or resizing iSCSI storage on Enterprise Linux 7 systems, see the  <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/Storage_Administration_Guide/index.html#osm-target-setup"><em>Enterprise Linux 7 Storage Administration Guide</em></a>.</p>
+<p>For information about configuring or resizing FCP storage, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_storage_devices/index#using-fibre-channel-devices_managing-storage-devices">Using Fibre Channel Devices</a> in <em>Managing storage devices</em> for Red Hat Enterprise Linux 8.</p>
 </div>
 <div class="paragraph">
 <p>The following procedure explains how to expand storage area network (SAN) storage by adding a new LUN to an existing storage domain.</p>
@@ -19659,7 +19693,7 @@ and disable global maintenance mode:</p>
 </dd>
 <dt class="hdlist1"><strong><code>--scope</code></strong></dt>
 <dd>
-<p>Specifies the scope of the backup or restore operation. There are four options: <code>all</code>, to back up or restore all databases and configuration data; <code>files</code>, to back up or restore only files on the system; <code>db</code>, to back up or restore only the Engine database; and <code>dwhdb</code>, to back up or restore only the Data Warehouse database. <code>scope</code> is defined by default as <code>all</code>.</p>
+<p>Specifies the scope of the backup or restore operation. There are four options: <code>all</code>, to back up or restore all databases and configuration data (set by default); <code>files</code>, to back up or restore only files on the system; <code>db</code>, to back up or restore only the Engine database; and <code>dwhdb</code>, to back up or restore only the Data Warehouse database.</p>
 <div class="paragraph">
 <p>The <code>--scope</code> option can be specified multiple times in the same <code>engine-backup</code> command.</p>
 </div>
@@ -19688,7 +19722,7 @@ and disable global maintenance mode:</p>
 </dd>
 <dt class="hdlist1"><strong><code>--restore-permissions</code> or <code>--no-restore-permissions</code></strong></dt>
 <dd>
-<p>Restores (or does not restore) the permissions of database users. One of these options is required when restoring a backup. If the <code>--provision-*</code> option is used in restore mode, then <code>--restore-permissions</code> is used by default.</p>
+<p>Restores (or does not restore) the permissions of database users. One of these options is required when restoring a backup. When the <code>--provision-*</code> option is used in restore mode, <code>--restore-permissions</code> is applied by default.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -19900,15 +19934,18 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 <p>Restore a complete backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-db --restore-permissions</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-db</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>When the <code>--provision-*</code> option is used in restore mode, <code>--restore-permissions</code> is applied by default.</p>
 </div>
 <div class="paragraph">
 <p>If Data Warehouse is also being restored as part of the complete backup, provision the additional database:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal">engine-backup --mode=restore --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-db --provision-dwh-db --restore-permissions</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal">engine-backup --mode=restore --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-db --provision-dwh-db</code></pre>
 </div>
 </div>
 </li>
@@ -19916,7 +19953,7 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 <p>Restore a database-only backup by restoring the configuration files and database backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=db --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-db --restore-permissions</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=db --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-db</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -19924,7 +19961,7 @@ To view the version of oVirt contained in a backup file, unpack the backup file 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21814,8 +21851,11 @@ ensuring that the latest fixes for the platform regressions will be promptly ava
 <p>Restore the Data Warehouse database on the new machine. <em>file_name</em> is the backup file copied from the Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=grafanadb --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db --restore-permissions</code></pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=restore --scope=files --scope=grafanadb --scope=dwhdb --file=<em>file_name</em> --log=<em>log_file_name</em> --provision-dwh-db</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>When the <code>--provision-*</code> option is used in restore mode, <code>--restore-permissions</code> is applied by default.</p>
 </div>
 </li>
 </ol>
@@ -26237,7 +26277,15 @@ user added successfully</pre>
 <div class="sect4">
 <h5 id="setting-a-user-password_RHV_backup_restore">Setting a User Password</h5>
 <div class="paragraph">
-<p>You can create a password. You must set a value for <code>--password-valid-to</code>, otherwise the password expiry time defaults to the current time. The date format is <code>yyyy-MM-dd HH:mm:ssX</code>. In this example, <code>-0800</code> stands for GMT minus 8 hours. For more options, run <code>ovirt-aaa-jdbc-tool user password-reset --help</code>.</p>
+<p>You can create a password. You must set a value for <code>--password-valid-to</code>, otherwise the password expiry time defaults to the current time.</p>
+</div>
+<div class="paragraph">
+<p>+
+The date format is <code>yyyy-MM-dd HH:mm:ssX</code>. Where <code>X</code> is the time zone offset from UTC. In this example, <code>-0800</code> stands for GMT minus 8 hours. For zero offset, use the value <code>Z</code>.</p>
+</div>
+<div class="paragraph">
+<p>+
+For more options, run <code>ovirt-aaa-jdbc-tool user password-reset --help</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">

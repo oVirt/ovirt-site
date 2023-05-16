@@ -13,31 +13,33 @@ The `engine-backup` command works in one of two basic modes:
 ----
 # engine-backup --mode=restore
 ----
-These two modes are further extended by a set of parameters that allow you to specify the scope of the backup and different credentials for the engine database. Run `engine-backup --help` for a full list of parameters and their function.
+These two modes are further extended by a set of options that allow you to specify the scope of the backup and different credentials for the engine database. Run `engine-backup --help` for a full list of options and their function.
 
 *Basic Options*
 
-*`--mode`*:: Specifies whether the command will perform a backup operation or a restore operation. Two options are available - `backup`, and `restore`. This is a required parameter.
+*`--mode`*:: Specifies whether the command performs a backup operation or a restore operation. The available options are:  `backup` (set by default), `restore`, and `verify`. You must define the `mode` option for `verify` or `restore` operations.
 
-*`--file`*:: Specifies the path and name of a file into which backups are to be taken in backup mode, and the path and name of a file from which to read backup data in restore mode. This is a required parameter in both backup mode and restore mode.
+*`--file`*:: Specifies the path and name of a file (for example, _file_name_.backup) into which backups are saved in backup mode, and to be read as backup data in restore mode. The path is defined by default as `/var/lib/ovirt-engine-backup/`.
 
-*`--log`*:: Specifies the path and name of a file into which logs of the backup or restore operation are to be written. This parameter is required in both backup mode and restore mode.
+*`--log`*:: Specifies the path and name of a file (for example, _log_file_name_) into which logs of the backup or restore operation are written. The path is defined by default as `/var/log/ovirt-engine-backup/` .
 
-*`--scope`*:: Specifies the scope of the backup or restore operation. There are four options: `all`, which backs up or restores all databases and configuration data; `files`, which backs up or restores only files on the system; `db`, which backs up or restores only the {engine-name} database; and `dwhdb`, which backs up or restores only the Data Warehouse database. The default scope is `all`.
+*`--scope`*:: Specifies the scope of the backup or restore operation. There are four options: `all`, to back up or restore all databases and configuration data (set by default); `files`, to back up or restore only files on the system; `db`, to back up or restore only the {engine-name} database; and `dwhdb`, to back up or restore only the Data Warehouse database.
 +
-The `--scope` parameter can be specified multiple times in the same `engine-backup` command.
+The `--scope` option can be specified multiple times in the same `engine-backup` command.
 
 *{engine-name} Database Options*
 
 The following options are only available when using the `engine-backup` command in `restore` mode. The option syntax below applies to restoring the {engine-name} database. The same options exist for restoring the Data Warehouse database. See `engine-backup --help` for the Data Warehouse option syntax.
 
-*`--provision-db`*:: Creates a PostgreSQL database for the {engine-name} database backup to be restored to. This is a required parameter when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured.
+*`--provision-db`*:: Creates a PostgreSQL database for the {engine-name} database backup to be restored to. This is a required option when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured. When this option is used in restore mode, the `--restore-permissions` option is added by default.
 
-*`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this parameter.
+*`--provision-all-databases`*:: Creates databases for all memory dumps included in the archive. When enabled, this is the default.
 
-*`--restore-permissions` or `--no-restore-permissions`*:: Restores (or does not restore) the permissions of database users. One of these parameters is required when restoring a backup.
+*`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this option.
+
+*`--restore-permissions` or `--no-restore-permissions`*:: Restores or does not restore the permissions of database users. One of these options is required when restoring a backup. When the `--provision-*` option is used in restore mode, `--restore-permissions` is applied by default.
 +
 [NOTE]
 ====
-If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See link:https://access.redhat.com/articles/2686731[How to grant access to an extra database user after restoring Red Hat Virtualization from a backup].
+If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options creates the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See link:https://access.redhat.com/articles/2686731[How to grant access to an extra database user after restoring Red Hat Virtualization from a backup].
 ====

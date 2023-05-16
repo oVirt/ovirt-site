@@ -4,7 +4,7 @@
 
 You can back up the {virt-product-fullname} {engine-name} with the [command]`engine-backup` command while the {engine-name} is active. Append one of the following values to the `--scope` option to specify what you want to back up:
 
-`all`:: A full backup of all databases and configuration files on the {engine-name}
+`all`:: A full backup of all databases and configuration files on the {engine-name}. This is the default setting for the `--scope` option.
 
 `files`:: A backup of only the files on the system
 
@@ -34,10 +34,16 @@ For a complete explanation of the [command]`engine-backup` command, enter `engin
 +
 [source,terminal,subs="normal"]
 ----
-# engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_
+# engine-backup
 ----
 
-The command generates the backup in `_file_name_.tar`, and a log file in `_log_file_name_`.
+The following settings are applied by default:
+
+`--scope=all`
+
+`--mode=backup`
+
+The command generates the backup in `/var/lib/ovirt-engine-backup/_file_name_.backup`, and a log file in `/var/log/ovirt-engine-backup/_log_file_name_`.
 
 Use `_file_name_.tar` to restore the environment.
 
@@ -48,7 +54,7 @@ The following examples demonstrate several different backup scenarios.
 
 [source,terminal,subs="normal"]
 ----
-# engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_
+# engine-backup
 ----
 
 ====
@@ -58,7 +64,7 @@ The following examples demonstrate several different backup scenarios.
 
 [source,terminal,subs="normal"]
 ----
-# engine-backup --scope=files --scope=db --mode=backup --file=_file_name_ --log=_log_file_name_
+# engine-backup --scope=files --scope=db
 ----
 
 ====
@@ -68,7 +74,7 @@ The following examples demonstrate several different backup scenarios.
 
 [source,terminal,subs="normal"]
 ----
-# engine-backup --scope=files --scope=dwhdb --mode=backup --file=_file_name_ --log=_log_file_name_
+# engine-backup --scope=files --scope=dwhdb
 ----
 
 ====

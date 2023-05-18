@@ -20,3 +20,6 @@ Do not change values that come directly from the operating system or the {engine
 To change the operating system configurations, create an override file in */etc/ovirt-engine/osinfo.conf.d/*. The file name must begin with a value greater than `00`, so that the file appears after */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties*, and ends with the extension, *.properties*.
 
 For example, *10-productkeys.properties* overrides the default file, *00-defaults.properties*. The last file in the file list has precedence over earlier files.
+
+For virtual machines with *Windows Server 2016*,
+on each {virt-product-shortname} host, modify the `/etc/modprobe.d/kvm.conf` configuration file by adding the line: `options kvm ignore_msrs=1`

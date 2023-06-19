@@ -7,6 +7,11 @@
 
 To update a self-hosted engine from your current version to the latest version, you must place the environment in global maintenance mode and then follow the standard procedure for updating between minor versions.
 
+[NOTE]
+====
+Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see the section Updating the {virt-product-fullname} {engine-name}. 
+====
+
 [discrete]
 include::../she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
 

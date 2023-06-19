@@ -34,7 +34,7 @@ endif::minor_updates[]
 endif::ovirt-doc[]
 
 ifdef::rhv-doc[]
-* Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see
+* *Ensure the {engine-name} has the correct repositories enabled*. For the list of required repositories, see
 ifdef::4-2_local_db,4-2_remote_db,4-2_SHE[]
 link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.2/html-single/installation_guide/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_standalone_install[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.2.
 endif::4-2_local_db,4-2_remote_db,4-2_SHE[]

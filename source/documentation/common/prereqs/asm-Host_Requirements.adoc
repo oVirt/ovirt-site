@@ -12,11 +12,6 @@ Hardware certification for {virt-product-fullname} is covered by the hardware ce
 For more information on the requirements and limitations that apply to guests see link:https://access.redhat.com/articles/rhel-limits[Red Hat Enterprise Linux Technology Capabilities and Limits] and link:https://access.redhat.com/articles/906543[Supported Limits for Red Hat Virtualization].
 endif::[]
 
-ifdef::ovirt-doc[]
-To use {enterprise-linux} 9 on virtualization hosts, the UEFI Secure Boot option must be disabled due
-to link:https://bugzilla.redhat.com/show_bug.cgi?id=2081648[Bug 2081648 - dmidecode module fails to decode DMI data].
-endif::[]
-
 include::ref-Host_CPU_Requirements.adoc[leveloffset=+1]
 
 include::ref-Host_Memory_Requirements.adoc[leveloffset=+1]

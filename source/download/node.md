@@ -24,14 +24,6 @@ guide for installation instructions.
 
 > **Note:** CentOS Stream 9 based ISO images are provided as tech preview!
 
-> **Known issues:**
->
-> On oVirt Node based on CentOS Stream 9 with UEFI secure boot, vdsm fails to decode DMI data due to
->
-> **[Bug 2081648](https://bugzilla.redhat.com/show_bug.cgi?id=2081648) – python-dmidecode module fails to decode DMI data**
-
-
-
 ### oVirt Node 4.5 - Stable Release
 
 This is the site hosting oVirt Node 4.5 images including the latest oVirt 4.5 released packages.

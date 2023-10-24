@@ -11,7 +11,7 @@ authors:
 # Communication
 
 There are a number of ways to communicate with the oVirt Community.
-[Mailing lists](/community/about/mailing-lists.html), [IRC](#irc), our [bug tracker](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) and [oVirt GitHub](https://github.com/oVirt).
+[Mailing lists](/community/about/mailing-lists.html), [IRC](#irc) and [oVirt GitHub](https://github.com/oVirt).
 
 ## IRC
 
@@ -19,7 +19,7 @@ We are on **irc.oftc.net** server on **#ovirt** channel.
 
 ## Bug tracker and code review
 
-You can report bugs, or discuss possible solutions to issues, on [Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) and [oVirt GitHub](https://github.com/oVirt).
+You can report bugs, or discuss possible solutions to issues, on [oVirt GitHub](https://github.com/oVirt).
 
 We use GitHub to review patches.
 If you are not familiar with the process, you can read about

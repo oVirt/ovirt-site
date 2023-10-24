@@ -1,0 +1,13 @@
+{
+  "MD033": {
+    "allowed_elements": [
+      "section"
+    ]
+  },
+  "MD013": {
+    "line_length": 200
+  },
+  "MD025": {
+    "front_matter_title": ""
+  }
+}

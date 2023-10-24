@@ -4,7 +4,6 @@ In order to welcome contributors be sure to direct them to the right places.
 
 Here you can find a template (be sure to replace links and names accordingly).
 
-
 ```markdown
 # oVirt PROJECTNAME
 
@@ -16,13 +15,15 @@ All contributions are welcome - patches, bug reports, and documentation issues.
 
 ### Submitting patches
 
-Please submit patches to [GitHub:PROJECTNAME](https://github.com/oVirt/PROJECTNAME). If you are not familiar with the process, you can read about [collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests) on the GitHub website.
+Please submit patches to [GitHub:PROJECTNAME](https://github.com/oVirt/PROJECTNAME). If you are not familiar with the process, you can read about
+[collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests)
+on the GitHub website.
 
-### Found a bug or documentation issue?
+### Found a project or documentation issue?
 
-To submit a bug or suggest an enhancement for oVirt PROJECTNAME please use [oVirt Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=PROJECTNAME).
+To submit a bug or suggest an enhancement for oVirt PROJECTNAME please use [oVirt PROJECTNAME issue tracker](https://github.com/oVirt/PROJECTNAME/issues).
 
-If you don't have a Bugzilla account, you can still report [issues](https://github.com/oVirt/PROJECTNAME/issues). If you find a documentation issue on the oVirt website, please navigate to the page footer and click "Report an issue on GitHub".
+If you find a documentation issue on the oVirt website, please navigate to the page footer and click "Report an issue on GitHub".
 
 ## Still need help?
 

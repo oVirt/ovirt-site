@@ -10,23 +10,23 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png" alt="oVirt Engine Administration panel screenshot">
 
-oVirt 4.5.4 is intended for production use and is available for the following platforms:
+oVirt 4.5.5 is intended for production use and is available for the following platforms:
 
 Engine:
-- Red Hat Enterprise Linux 9.1 (or similar)
-- Red Hat Enterprise Linux 8.7 (or similar)
+- Red Hat Enterprise Linux 9 (or similar)
+- Red Hat Enterprise Linux 8 (or similar)
 - CentOS Stream 8
 - CentOS Stream 9
 
 Hosts:
-- Red Hat Enterprise Linux 8.7 (or similar)
+- Red Hat Enterprise Linux 8 (or similar)
 - CentOS Stream 8
 - oVirt Node based on CentOS Stream 8
-- Red Hat Enterprise Linux 9.1 (or similar, non UEFI hosts)
-- CentOS Stream 9 (non UEFI hosts)
-- oVirt Node based on CentOS Stream 9 (non UEFI hosts)
+- Red Hat Enterprise Linux 9 (or similar)
+- CentOS Stream 9
+- oVirt Node based on CentOS Stream 9
 
-See the [Release Notes for oVirt 4.5.4](/release/4.5.4/).
+See the [Release Notes for oVirt 4.5.5](/release/4.5.5/).
 
 <div class="row"></div>
 
@@ -50,7 +50,6 @@ As an exception you can upgrade from 4.3 to 4.5 without upgrading to 4.4 first.
 As [discussed in oVirt Users mailing list](https://lists.ovirt.org/archives/list/users@ovirt.org/thread/DMCC5QCHL6ECXN674JOLABH36U2LVJLJ/)
 we suggest the user community to use [oVirt master snapshot repositories](/develop/dev-process/install-nightly-snapshot.html)
 ensuring that the latest fixes for the platform regressions will be promptly available.
-
 
 ## Upgrade to 4.5 from 4.4
 

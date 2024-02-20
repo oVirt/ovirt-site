@@ -53,8 +53,8 @@ To list all enabled repositories:
     --enable=fast-datapath-for-rhel-8-x86_64-rpms \
     --enable=advanced-virt-for-rhel-8-x86_64-rpms \
     --enable=openstack-16.2-cinderlib-for-rhel-8-x86_64-rpms \
-    --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
-    --enable=rhel-8-for-x86_64-appstream-tus-rpms
+    --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms \
+    --enable=rhel-8-for-x86_64-appstream-tus-rpms \
     --enable=rhel-8-for-x86_64-baseos-tus-rpm
 ----
 +

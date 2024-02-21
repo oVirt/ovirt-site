@@ -68,7 +68,7 @@ ifndef::migrate_SHE_DB,migrate_manager_db[]
     --enable=openstack-16.2-cinderlib-for-rhel-8-x86_64-rpms \
     --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms \
     --enable=rhel-8-for-x86_64-appstream-tus-rpms \
-    --enable=rhel-8-for-x86_64-baseos-tus-rpm
+    --enable=rhel-8-for-x86_64-baseos-tus-rpms
 
 ----
 endif::migrate_SHE_DB,migrate_manager_db[]

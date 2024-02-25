@@ -42,8 +42,6 @@ Several presentations both on the technical side and on the user side are availa
 
 Within oVirt project several teams are taking care of different aspects of the system.
 
-The [oVirt GitHub issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse) are labeled accordingly to identify the main impacted area.
-
 - [Project Infrastructure](infra/infrastructure.html): takes care of the oVirt datacenter and of all the systems and services running within the datacenter such as Jenkins, Gerrit, Apache, ...
 - [Integration and Node](integration/index.html): integrates the oVirt subprojects making them work together as a complete solution.
 - Infra and Metrics: responsible for Engine/VDSM infra code, shared entities, shared features, API/SDK/CLI and reporting.
@@ -60,6 +58,8 @@ you should start getting involved in these conversations.
 oVirt is an open-source project composed by several sub projects. Most of them are licensed under the [Apache license version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)
 but please check the license of the subproject you're going to contribute before submitting code.
 Contributions of all types are gladly accepted!
+
+There are many repositories (sub-projects) within oVirt, details about the public repositories can be found over at the [oVirt GitHub Project](https://github.com/orgs/oVirt/repositories?type=public). 
 
 If you are looking for some task to pick up, you can ask for it on [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
 As an alternative you can look at open tickets on [oVirt GitHub issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse) and once you choose what to work on

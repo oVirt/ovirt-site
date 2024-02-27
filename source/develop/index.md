@@ -42,6 +42,7 @@ Several presentations both on the technical side and on the user side are availa
 
 Within oVirt project several teams are taking care of different aspects of the system.
 
+- The [oVirt GitHub issues](https://github.com/search?q=org%3AoVirt+type%3Aissue+state%3Aopen+&type=issues) are labeled accordingly to identify the main impacted area.
 - [Project Infrastructure](infra/infrastructure.html): takes care of the oVirt datacenter and of all the systems and services running within the datacenter such as Jenkins, Gerrit, Apache, ...
 - [Integration and Node](integration/index.html): integrates the oVirt subprojects making them work together as a complete solution.
 - Infra and Metrics: responsible for Engine/VDSM infra code, shared entities, shared features, API/SDK/CLI and reporting.

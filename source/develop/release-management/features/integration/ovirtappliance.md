@@ -54,9 +54,20 @@ Prerequisites:
 
 To use the appliance proceed as follows:
 
-1.  Download [the ova image above](#current-status)
-2.  Either use the ova in combination with hosted-engine or extract the ova image
-3.  When the image is booted
+1.  Download [the ovirt appliance rpmfile above](#current-status)
+2.  On a RPM based Linux system you can simply install the RPM and you'll find the OVA under /usr/share/ovirt-engine-appliance/  **OR**
+3.  Use rpm2cpio to extract the file. Such as:
+```
+        [gocallag@rrr-meep-1 ~]$ rpm2cpio ovirt-engine-appliance-4.5-20240131072037.1.el9.x86_64.rpm | cpio -imdv
+        ./etc/ovirt-hosted-engine/10-appliance.conf
+        ./usr/share/doc/ovirt-engine-appliance
+        ./usr/share/doc/ovirt-engine-appliance/ovirt-engine-appliance-manifest-rpm
+        ./usr/share/ovirt-engine-appliance
+        ./usr/share/ovirt-engine-appliance/ovirt-engine-appliance-4.5-20240131072037.1.el9.ova
+        3116974 blocks
+```
+4.  Deploy the OVA as normal
+5.  When the OVA is booted
     1.  When the assistant comes up, set a root password
     2.  Login as root
     3.  Start the Engine configuration using: `engine-setup --offline --config-append=ovirt-engine-answers`

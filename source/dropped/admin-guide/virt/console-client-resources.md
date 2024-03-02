@@ -14,7 +14,7 @@ oVirt provides several ways to connect to remote virtual machines. This page des
 *   Native Client
 
 This way make use of locally installed remote-viewer application.
-You can install the application using your package manager (yum/dnf install virt-viewer) or download it from <http://virt-manager.org/download/> for various platforms.
+You can install the application using your package manager (yum/dnf install virt-viewer) or download it from <http://virt-manager.org/download> for various platforms.
 
 *   spice-html5
 

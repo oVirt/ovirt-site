@@ -58,7 +58,7 @@ To use the appliance proceed as follows:
 2.  On a RPM based Linux system you can simply install the RPM and you'll find the OVA under /usr/share/ovirt-engine-appliance/  **OR**
 3.  Use rpm2cpio to extract the file. Such as:
 ```
-        [gocallag@rrr-meep-1 ~]$ rpm2cpio ovirt-engine-appliance-4.5-20240131072037.1.el9.x86_64.rpm | cpio -imdv
+        rpm2cpio ovirt-engine-appliance-4.5-20240131072037.1.el9.x86_64.rpm | cpio -imdv
         ./etc/ovirt-hosted-engine/10-appliance.conf
         ./usr/share/doc/ovirt-engine-appliance
         ./usr/share/doc/ovirt-engine-appliance/ovirt-engine-appliance-manifest-rpm

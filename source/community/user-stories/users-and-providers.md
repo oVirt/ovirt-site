@@ -52,6 +52,10 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 [Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community, responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
 </div>
 
+<div class="case-study">
+[![SEAQ](/wp-content/uploads/2022/07/LOGO-SEAQ-cropped-transparent.png)](https://seaq.us/)
+[SEAQ](https://seaq.us/) specializes in seamless transitions to oVirt for LATAM and USA businesses, offering deep virtualization expertise to navigate away from other vendors and embrace the technology. Let us streamline your move to a robust oVirt infrastructure. [SEAQ](https://www.seaq.co/).
+</div>
 
 <div class="case-study">
 ![UDS](/images/logos/UDSvirtualcable.png)

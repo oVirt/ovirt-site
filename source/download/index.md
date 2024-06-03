@@ -14,12 +14,11 @@ oVirt 4.5.5 is intended for production use and is available for the following pl
 
 Engine:
 - Red Hat Enterprise Linux 8 (or similar)
-- CentOS Stream 8
+- Red Hat Enterprise Linux 9 (or similar)
+- CentOS Stream 9
 
 Hosts:
 - Red Hat Enterprise Linux 8 (or similar)
-- oVirt Node based on CentOS Stream 8
-- CentOS Stream 8
 - Red Hat Enterprise Linux 9 (or similar)
 - oVirt Node based on CentOS Stream 9
 - CentOS Stream 9

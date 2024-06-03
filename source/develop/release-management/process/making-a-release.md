@@ -71,31 +71,15 @@ and rebuilding with:
 # This builds a scratch (just a test) build for CentOS Stream 9 for oVirt 4.5
 cbs build --scratch virt9s-ovirt-45-el9s <your package .src.rpm>
 
-# This is for CentOS Stream 8:
-cbs build --scratch virt8s-ovirt-45-el8s <your package .src.rpm>
 
 # If the build goes through fine, you can do a real build
 # CentOS Stream 9:
 cbs build virt9s-ovirt-45-el9s <your package .src.rpm>
-
-# CentOS Stream 8:
-cbs build virt8s-ovirt-45-el8s <your package .src.rpm>
 ```
 
-Once the builds complete it will be tagged as a candidate to be released as `virt8s-ovirt-45-candidate` (for CentOS Stream 8) or `virt9s-ovirt-45-candidate` (for CentOS Stream 9).
+Once the builds complete it will be tagged as a candidate to be released as `virt9s-ovirt-45-candidate` (for CentOS Stream 9).
 
 In order to publish the build you need to tag it for testing:
-
-```bash
-# CentOS Stream 8
-cbs tag virt8s-ovirt-45-testing <your build without the trailing '.src.rpm'>
-
-# Example:
-cbs tag virt8s-ovirt-45-testing ovirt-hosted-engine-ha-2.4.10-1.el8
-```
-
-This will publish the build under the https://buildlogs.centos.org/centos/8-stream/virt/ repository.
-
 
 ```bash
 # CentOS Stream 9
@@ -111,17 +95,6 @@ This will publish the build on https://buildlogs.centos.org/centos/9-stream/virt
 ## Release phase
 
 Once the content in testing has been properly verified and considered good to be released for general availability, the release manager needs to tag the builds for release:
-
-```bash
-# CentOS Stream 8
-cbs tag virt8s-ovirt-45-release <build without the trailing '.src.rpm'>
-
-#example:
-cbs tag virt8s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el8
-```
-
-This will publish the build on the http://mirror.centos.org/centos/8-stream/virt/ repository and to CentOS mirrors.
-
 
 ```bash
 # CentOS Stream 9

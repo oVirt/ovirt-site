@@ -54,8 +54,8 @@ with Diagram(
         with Cluster("Virtualization"):
             with Cluster("Windows11 VM"):
                 vm1_1 = Windows("Windows 11\nQEMU GA")
-            with Cluster("CentOS Stream 8 VM"):
-                vm2_1 = Centos("CentOS Stream 8\nQEMU GA")
+            with Cluster("CentOS Stream 9 VM"):
+                vm2_1 = Centos("CentOS Stream 9\nQEMU GA")
             vdsm1 = Python("VDSM")
             mom1 = Python("MoM")
             libvirt1 = Custom("libvirt", LOGO.format(product="libvirt"))

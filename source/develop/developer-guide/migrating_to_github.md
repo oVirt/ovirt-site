@@ -99,7 +99,7 @@ As last step we need to turn on automation.
 
 - Go to `https://github.com/oVirt/<your_project/actions/new`
 - Click on `set up a workflow yourself`
-- Write your `check-patch` CI flow, here is an example which builds rpms on both CentOS Stream 8 and CentOS Stream 9:
+- Write your `check-patch` CI flow, here is an example which builds rpms on CentOS Stream 9:
 
 ```yaml
 name: Check patch
@@ -111,58 +111,6 @@ on:
     branches: [master]
 
 jobs:
-  build-el8:
-
-    runs-on: ubuntu-latest
-    container:
-      image: quay.io/centos/centos:stream8
-
-    steps:
-    - name: prepare env
-      run: |
-           mkdir -p ${PWD}/tmp.repos/BUILD
-           yum install -y --setopt=tsflags=nodocs autoconf automake createrepo_c gettext-devel git systemd make git rpm-build
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
-    - name: autoreconf
-      run: autoreconf -ivf
-
-    - name: configure
-      run: ./configure
-
-    - name: run distcheck
-      run: make -j distcheck
-
-    - name: Build RPM
-      run: rpmbuild -D "_topdir ${PWD}/tmp.repos" -D "release_suffix .$(date -u +%Y%m%d%H%M%S).git$(git rev-parse --short HEAD)" -ta ovirt-release*.tar.gz
-
-    - name: Collect artifacts
-      run: |
-          mkdir -p exported-artifacts
-          find tmp.repos -iname \*rpm -exec mv "{}" exported-artifacts/ \;
-          mv ./*tar.gz exported-artifacts/
-
-    - name: Create DNF repository
-      run: createrepo_c exported-artifacts/
-
-    - name: test install
-      run: |
-          yum install -y exported-artifacts/ovirt-release-master-4*noarch.rpm
-          yum module enable -y javapackages-tools:201801
-          yum module enable -y maven:3.5
-          yum module enable -y pki-deps:10.6
-          yum module enable -y postgresql:12
-          yum module enable -y mod_auth_openidc:2.3
-          yum --downloadonly install -y exported-artifacts/*noarch.rpm
-          yum --downloadonly install -y ovirt-engine ovirt-engine-setup-plugin-websocket-proxy
-    - name: Upload artifacts
-      uses: ovirt/upload-rpms-action@v2
-      with:
-        directory: test-artifacts
-
-
   build-el9:
 
     runs-on: ubuntu-latest

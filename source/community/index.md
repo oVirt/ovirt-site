@@ -92,7 +92,7 @@ and open [oVirt Node issue trackers](https://github.com/oVirt/ovirt-node-ng-imag
 
 Once the tracker is open you can help monitoring progress of the security fix.
 Look at [existing security reports in oVirt Node](https://github.com/oVirt/ovirt-node-ng-image/issues?q=is%3Aissue+is%3Aopen+label%3Asecurity)
-and check corresponding package on [CentOS Stream 8 Koji](https://koji.mbox.centos.org/koji/packages) and [CentOS Stream 9 Koji](https://kojihub.stream.centos.org/koji/packages).
+and check corresponding package on [CentOS Stream 9 Koji](https://kojihub.stream.centos.org/koji/packages).
 If a fix for the CVE is available, update the traker issue accordingly.
 
 ## Participate in the oVirt infrastructure

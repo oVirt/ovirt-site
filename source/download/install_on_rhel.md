@@ -64,8 +64,11 @@ subscription-manager repos --enable rhel-9-for-x86_64-appstream-rpms
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 subscription-manager repos --enable rhel-9-for-x86_64-resilientstorage-rpms
 
-rpm -i --justdb --nodeps --force "http://mirror.stream.centos.org/9-stream/BaseOS/$(rpm --eval '%_arch')/os/Packages/centos-stream-release-9.0-12.el9.noarch.rpm"
+rpm -i --justdb --nodeps --force "http://mirror.stream.centos.org/9-stream/BaseOS/$(rpm --eval '%_arch')/os/Packages/centos-stream-release-9.0-26.el9.noarch.rpm"
 ```
+
+> **NOTE**
+> If installation fails on `centos-stream-release-9.0-26.el9.noarch.rpm` please check the content of the repository for a newer version of that package.
 
 Common to RHEL 9.0 and derivatives:
 

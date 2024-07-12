@@ -28,8 +28,6 @@ Author information is stored in `data/authors.yml`. If you write some content fo
 
 ## Add new content
 
-This section applies to website content other than product documentation. If you are contributing to product documentation, see [Contribute to oVirt documentation](source/documentation/contributing_to_docs/contributing.adoc).
-
 Website content is written in Markdown, except for product documentation, which is written in Asciidoc. For information on formatting Markdown, see [Markdown Basics](https://help.github.com/articles/markdown-basics/).
 
 You can create a new topic file in one of the following ways:
@@ -43,7 +41,7 @@ You can create a new topic file in one of the following ways:
 If you want to use an existing file as a template, click the Edit icon for this README and review
 the headings, lists, and inline formatting used in this file.
 
-Please note `{{ }}` curly braces are reserved for [templating](#Dynamic_pages), but you can escape in between `{% raw %}` and `{% endraw %}`.
+Please note `{{ }}` curly braces are reserved for [templating](#dynamic-pages), but you can escape in between `{% raw %}` and `{% endraw %}`.
 
 ### Page metadata
 
@@ -67,21 +65,33 @@ authors: gshereme,sandrobonazzola
 
 ### Page layout
 
-The content you write is wrapped with a header and footer to display the logo, navbar and so on. This is what you get with the default `application` layout but we have some variant for specific cases and it is posible to define more in `source/_layouts`.
+The content you write is wrapped with a header and footer to display the logo, navbar and so on.
+This is what you get with the default `application` layout but we have some variant for specific cases and it is posible to define more in `source/_layouts`.
 
-Pages are associated with a layout depending on their path in the Jekyll configuration file (`_config.yml`) but it is possible to override for a specific page using a `layout` entry in the frontmatter. Some special pages might not need any layout and in this case specifying `layout: null` will render the content of the page only without any wrapping.
+Pages are associated with a layout depending on their path in the Jekyll configuration file (`_config.yml`) but it is possible
+to override for a specific page using a `layout` entry in the frontmatter.
+Some special pages might not need any layout and in this case specifying `layout: null` will render the content of the page only without any wrapping.
 
 ### Dynamic pages
 
-Pages are transformed depending on their format (markdown…), then a templating langage, [Liquid](https://shopify.github.io/liquid/), is used to allow some programming (variables, conditionals, loop…). Special variables like `site` and `page` are available to access frontmatter and site data.
+Pages are transformed depending on their format (markdown…), then a templating langage,
+[Liquid](https://shopify.github.io/liquid/), is used to allow some programming (variables, conditionals, loop…).
+Special variables like `site` and `page` are available to access frontmatter and site data.
 
-If this is not sufficient then you can use HAML Ruby blocks. The Liquid special variables are available in HAML includes but _not_ pages. You can use these variables just as you would in Liquid. To make an include you need to create your HAML content in `source/_includes/<include>.haml` and reference it in your page using: `{% haml <include>.haml %}` (with <include> a name of your choice).
+If this is not sufficient then you can use HAML Ruby blocks. The Liquid special variables are available in HAML includes but _not_ pages.
+You can use these variables just as you would in Liquid.
+To make an include you need to create your HAML content in `source/_includes/<include>.haml` and reference
+it in your page using: `{% haml <include>.haml %}` (with `<include>` a name of your choice).
 
 Please note ERB is not supported, use HAML with Ruby block instead
 
-If access to Jekyll internals are needed (please avoid if possible), then the Jekyll `site` object can be found using `Jekyll.sites.first`; this is the raw Ruby object, not a Liquid wrapper, so you have access to all methods to control (or break if not careful) the whole site. Beware some methods like `html_pages` are Liquid extensions and are not accessible directly with this method.
+If access to Jekyll internals are needed (please avoid if possible), then the Jekyll `site` object can be found using `Jekyll.sites.first`;
+this is the raw Ruby object, not a Liquid wrapper, so you have access to all methods to control (or break if not careful) the whole site.
+Beware some methods like `html_pages` are Liquid extensions and are not accessible directly with this method.
 
-In any case you can access the list of all pages using `site.pages`, filter them, loop over them, access their properties and content, so you should never need to access the filesystem directly; the filesystem path is anyway not always a good representation of the final URL. This is also better for security and build performance.
+In any case you can access the list of all pages using `site.pages`, filter them, loop over them, access their properties and content
+so you should never need to access the filesystem directly; the filesystem path is anyway not always a good representation of the final URL.
+This is also better for security and build performance.
 
 ## Test your changes locally
 
@@ -103,13 +113,13 @@ docker run -v $(pwd):/srv/site -p 4000:4000 -p 35729:35729 -ti ovirt-site
 ```
 
 Please note that on SELinux enforcing systems the last command above should change to:
+
 ```bash
 docker run -v $(pwd):/srv/site:Z -p 4000:4000 -p 35729:35729 -ti ovirt-site
 ```
 
 If the site builds successfully, you will see this message:
-The Jekyll web server is standing watch at http://0.0.0.0:4000
-
+The Jekyll web server is standing watch at `http://0.0.0.0:4000`
 
 For complex changes, test with a local apache. Make sure apache is configured to allow `.htaccess` files by replacing
 `AllowOverride None` with `AllowOverride None` in `httpd.conf`.

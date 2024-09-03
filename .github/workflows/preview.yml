@@ -137,7 +137,7 @@ jobs:
       - name: "Create preview build directory"
         run: mkdir -p "${{needs.build.outputs.PREVIEW_PATH}}"
       - name: "Download generated content"
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: ovirt-site
           path: "${{needs.build.outputs.PREVIEW_PATH}}"

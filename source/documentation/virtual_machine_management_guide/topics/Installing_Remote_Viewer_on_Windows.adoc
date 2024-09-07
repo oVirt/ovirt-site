@@ -28,7 +28,7 @@ endif::rhv-doc[]
 
 ifdef::ovirt-doc[]
 
-* link:https://virt-manager.org/download/[Virt Viewer download page]
+* link:https://virt-manager.org/download[Virt Viewer download page]
 
 endif::ovirt-doc[]
 

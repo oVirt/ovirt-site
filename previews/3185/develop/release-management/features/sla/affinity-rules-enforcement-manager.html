@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Affinity Rules Enforcement Manager | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Affinity Rules Enforcement Manager" />
+<meta name="author" content="Doron Fediuck" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3185/develop/release-management/features/sla/affinity-rules-enforcement-manager.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3185/develop/release-management/features/sla/affinity-rules-enforcement-manager.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Affinity Rules Enforcement Manager" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Doron Fediuck" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Doron Fediuck"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Affinity Rules Enforcement Manager","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3185/images/logo.svg"},"name":"Doron Fediuck"},"url":"https://ovirt.github.io/ovirt-site/previews/3185/develop/release-management/features/sla/affinity-rules-enforcement-manager.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3185/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3185/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3185/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3185/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3185/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3185/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3185/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3185/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3185/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3185/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3185/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link href='/ovirt-site/previews/3185/favicon.ico' rel='shortcut icon' sizes='36x36 24x24 16x16' type='image/x-icon'/>
+<link href='/ovirt-site/previews/3185/favicon.png' rel='icon' sizes='196x196' type='image/png'/>
+<meta content='/ovirt-site/previews/3185/mstile-icon-128x128.png' name='msapplication-TileImage'/>
+<meta content='transparent' name='msapplication-TileColor'/>
+<link href='/ovirt-site/previews/3185/manifest.webmanifest' rel='manifest'/>
+<meta content='/ovirt-site/previews/3185/browserconfig.xml' name='msapplication-config'/>
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3185/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3185/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3185/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3185/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/3185/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3185/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3185//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3185//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3185/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3185/develop/">
+              <span property="name">Joining the developers community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3185/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3185/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3185/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Doron Fediuck">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ef418953a8847ddb3e21e909e53dc0fc?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ef418953a8847ddb3e21e909e53dc0fc?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of David Maroshi">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">David Maroshi</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Roman Mohr">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roman Mohr</span></p>
+                      
+                    </section>
+                  </div>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/4aa824529359f2759a944517f5511f88?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/4aa824529359f2759a944517f5511f88?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Tomer Saban">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Tomer Saban</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3185/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="affinity-rules-enforcement-manager">Affinity Rules Enforcement Manager</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>A new manager that will enforce affinity rules for running VMs. The manager will periodically check each cluster for affinity rule conflicts and will try to resolve those conflicts by migrating problematic VMs. Each interval only one VM will be migrated by the manager for each cluster(As long as there are conflicts).</p>
+
+<p>The following picture, explains AR (Affinity Rules), before enforcement and after enforcement
+(The green boxes represent VMs belonging to positive affinity groups and the red ones are VMs belonging to negative affinity groups.
+See VM-Affinity page for more details <a href="/ovirt-site/previews/3185/develop/release-management/features/sla/vm-affinity.html">Features/VM-Affinity</a>). <img src="/ovirt-site/previews/3185/images/wiki/Affinity_Rule_Enforcement.png" alt="" /></p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Tsaban (Tsaban)</li>
+</ul>
+
+<h2 id="procedure">Procedure</h2>
+
+<p><img src="/ovirt-site/previews/3185/images/wiki/ARES_Life_Cycle.png" alt="" />
+[1][2]
+[The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
+<strong>\1</strong></p>
+
+<ol>
+  <li>Find migration free clusters</li>
+  <li>for each migration free cluster:
+    <ol>
+      <li><strong>choose next VM to migrate</strong> and add to VM candidates.</li>
+    </ol>
+  </li>
+  <li>for each vm candidate for migrations:
+    <ol>
+      <li>migrate VM.</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="related-methods">Related methods</h2>
+
+<p><strong>\1</strong></p>
+
+<ol>
+  <li>Get all hard affinity groups.</li>
+  <li>Get unified affinity groups().</li>
+</ol>
+
+<p>The following picture explains UAG (Unified Affinity Group) algorithm</p>
+
+<p><img src="/ovirt-site/previews/3185/images/wiki/UAG_Algorithm.png" alt="" /></p>
+
+<ol>
+  <li>Loop over all unified affinity groups(order by size and than by lowest VM id[4]):
+    <ol>
+      <li>if affinity group positive:
+        <ol>
+          <li>find VM violating positive affinity group</li>
+        </ol>
+      </li>
+      <li>Else:
+        <ol>
+          <li>find VM violating negative affinity group</li>
+        </ol>
+      </li>
+      <li>if found candidate VM check if can migrate VM:
+        <ol>
+          <li>If can migrate VM then return VM.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<p><strong>\1</strong></p>
+
+<ol>
+  <li>UAG = {{vm} for each vm}</li>
+  <li>For each (+) affinity group(Sorted by group id):
+    <ol>
+      <li>unify VMs from the group in UAG(Sorted by vm id).</li>
+      <li>For each (-) affinity group(Sorted by group id):
+        <ol>
+          <li>For each group in UAG(Sorted by first vm uuid):
+            <ol>
+              <li>if size of the intersection of group from UAG and the negative group is &gt; 1:
+                <ol>
+                  <li>throw exception “Affinity group contradiction detected” (With associated groups).</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p>[1]Methods are written in the section “related methods”.
+[2] If no class is written(As for most methods/fields) assume it’s in the manager itself.
+[3] The migration command will be done automatically to let the scheduler decide where to migrate the VM based on other policies as well.
+[4] It’s important to keep getting the same groups in the same order each time. The order is kept because affinity group are assumed not to change very often during enforcement.</p>
+
+<h2 id="testing">Testing</h2>
+
+<ol>
+  <li>Manager creation when cluster is created:
+    <ol>
+      <li>Manager creation on startup.
+        <ol>
+          <li>Start engine</li>
+          <li>Check log to see that ARES has created PerCluster object for the default cluster.</li>
+        </ol>
+      </li>
+      <li>Manager creation on new cluster.
+        <ol>
+          <li>Create new cluster</li>
+          <li>Check log to see that ARES has created PerCluster object for the new cluster.</li>
+        </ol>
+      </li>
+      <li>Manager deletion of deleted cluster(pre-condition = test 1b):
+        <ol>
+          <li>Delete cluster</li>
+          <li>Check log to see that ARES has deleted PerCluster object for the deleted cluster.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Manager interval check:
+    <ol>
+      <li>Check regular interval:
+        <ol>
+          <li>Create new cluster.</li>
+          <li>Check log to see that ARES has created PerCluster object for cluster. (Make sure cluster has affinity rules).</li>
+          <li>Add 2 VMs on the same host</li>
+          <li>Add negative affinity rule for the 2 VMs.</li>
+          <li>wait for “regular interval”</li>
+          <li>check that ARES interval reached.</li>
+        </ol>
+      </li>
+      <li>Check long interval: (Preconditions = one datacenter is up, affinity rules enforced).
+        <ol>
+          <li>Create new cluster.</li>
+          <li>Check log to see that ARES has created PerCluster object for cluster. (Make sure cluster has no affinity rules).</li>
+          <li>Wait for long interval</li>
+          <li>Check logs to see that long interval reached.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Manager Affinity Rules enforcement:
+    <ol>
+      <li>Enforcement for positive affinity rule: (Precondition load balancer if off, All vms can run together on the same hypervisor)
+        <ol>
+          <li>Start engine</li>
+          <li>Add 2 hosts.</li>
+          <li>For host A add 3 Vms</li>
+          <li>For host B add 1 Vm</li>
+          <li>Add positive affinity rule for all VMs.</li>
+          <li>Wait for regular interval.</li>
+          <li>See that the Vm from Host B migrated to host A.</li>
+        </ol>
+      </li>
+      <li>Enforcement for negative affinity rule: (Preconditions: load balancer if off, All vms can run together on the each hypervisor)
+        <ol>
+          <li>Start engine</li>
+          <li>Add 2 hosts.</li>
+          <li>For host A add 2 Vms</li>
+          <li>For host B no Vms should be running on it.</li>
+          <li>Add negative affinity rule for the two VMs.</li>
+          <li>Wait for regular interval.</li>
+          <li>See that one Vm migrated from host A to host B.</li>
+        </ol>
+      </li>
+      <li>Enforcement for balanced hypervisors:(Precondition: All Vms should be able to run on the same hypervisor at once)
+        <ol>
+          <li>Start engine</li>
+          <li>Add 2 hosts</li>
+          <li>For host A add 3 Vms</li>
+          <li>For host B add 3 Vms</li>
+          <li>Add positive affinity rule for all Vms.</li>
+          <li>Wait for 6 regular intervals(6 * regular interval)</li>
+          <li>See that all Vms migrated from one of the hosts to the other one.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Affinity Rule contradictions check:
+    <ol>
+      <li>Check two opposite conditions:
+        <ol>
+          <li>Start engine</li>
+          <li>Add 2 hosts</li>
+          <li>Add 2 Vms</li>
+          <li>Add positive affinity rule for both VMs.</li>
+          <li>Add negative affinity rule for both VMs.</li>
+          <li>Wait for regular interval.</li>
+          <li>Check logs to see a new exception was thrown saying: “Affinity group contradiction detected” (With associated groups).</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Balancer competing managers:
+    <ol>
+      <li>Check power saving and colliding affinity:
+        <ol>
+          <li>Start engine</li>
+          <li>Add 2 hosts</li>
+          <li>Add 6 Vms(Each host should have 3 VMs).</li>
+          <li>Add positive affinity rule for 3 VMs</li>
+          <li>Put balancer on power saving.</li>
+          <li>Wait for a 4 regular intervals(4 * regular interval).</li>
+          <li>Check in the logs that the manager has been shutdown because of contradicting migrations.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>Affinity groups will be enforced also for VMs which are already running.</p>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<ol>
+  <li>SchedulerUtilQuartzImpl - scheduleAFixedDelayJob, scheduleAOneTimeJob.</li>
+  <li>VmAffinityFilterPolicyUnit - getAcceptableHosts, filter.</li>
+  <li>MigrateVmCommand.</li>
+  <li>AddAffinityGroupCommand.</li>
+</ol>
+
+<h2 id="intervals-and-values-used-in-the-system">Intervals and values used in the system</h2>
+
+<ol>
+  <li>Regular interval - 1 minute.</li>
+</ol>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<p>This feature is a manager that checks if hard affinity rules are broken and migrates VMs in order to enforce them.
+This manager includes:</p>
+
+<ol>
+  <li>Manager only starts migrations when no other migrations are active in the cluster.</li>
+  <li>Manager uses scheduler’s automatic migration command to comply with filter and weight policies.</li>
+  <li>Manager has a new and improved algorithm for finding affinity rule contradictions called “Unified Affinity Group Algorithm”.</li>
+  <li>Manager will enforce affinity rules one by one, starting with the violated affinity rule which consists of most VMs.</li>
+  <li>Manager’s strategy to enforce affinity rules in case of positive groups is to migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it’s better).</li>
+  <li>Affinity rules only work for clusters with version &gt;= 3.5.</li>
+</ol>
+
+<h2 id="phase-2-not-included-in-360">Phase 2 (not included in 3.6.0)</h2>
+
+<ol>
+  <li>Using UAG algorithm to tell the user where there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.</li>
+  <li>Taking into consideration the host’s RAM, CPU type, Network interfaces etc in order choose only hosts that can run the entire affinity group(In case of enforcing positive affinity group).</li>
+</ol>
+
+<p>For more information see the following BugZilla link:
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1112332">https://bugzilla.redhat.com/show_bug.cgi?id=1112332</a></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3185/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3185/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3185/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3185/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2024 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/affinity-rules-enforcement-manager.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/sla/affinity-rules-enforcement-manager.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

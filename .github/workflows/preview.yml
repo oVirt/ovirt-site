@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout repo"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -58,7 +58,7 @@ jobs:
       PREVIEW_LINK_BASE: ${{steps.details.outputs.PREVIEW_LINK_BASE}}
     steps:
     - name: "Checkout repo"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: recursive
     - name: Extract PR details
@@ -83,9 +83,9 @@ jobs:
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
+      uses: docker/setup-buildx-action@v3
     - name: Build container image
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v6
       with:
         context: .
         push: false
@@ -94,7 +94,7 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
     - name: Set up Jekyll cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -129,7 +129,7 @@ jobs:
       cancel-in-progress: false
     steps:
       - name: "Checkout repo"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           token: "${{ secrets.GITHUB_TOKEN }}"

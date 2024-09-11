@@ -16,7 +16,7 @@ jobs:
       cancel-in-progress: false
     steps:
     - name: Checkout gh-actions branch
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: gh-pages
     - name: Extract PR details

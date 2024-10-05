@@ -11,6 +11,7 @@ authors:
   - sgordon
   - suppentopf
   - wdennis
+  - andresmmujica
 ---
 
 # Troubleshooting NFS Storage Issues
@@ -90,6 +91,58 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
     ```
 
 ### Setting NFS Server
+
+#### Ubuntu 22.04/24.04
+
+Edit /etc/default/nfs-kernel-server and remove the --manage-gids option from rpc.mountd
+
+```console
+    #RPCMOUNTDOPTS="--manage-gids"
+    RPCMOUNTDOPTS=""
+```
+Edit /etc/export and configure your exported resource as follows:
+
+```console
+    /storage *(rw,insecure,all_squash,anonuid=36,anongid=36)
+```
+
+The insecure flag is required when the connection from your hosts come from a port >1024, which is the case in virtualized environments.
+The all_squash is to force all connections to use the defined anonuid and anongid ids.
+
+Restart the NFS server.
+
+```console
+    systemctl restart nfs-kernel-server
+```
+
+From your hosts mount the nfs storage and test with root, vdsm and sanlock users that you have full access to the shared resource.
+
+```console
+
+    mount nfs_ip_address:/storage /mnt
+    cd /mnt
+    touch test_root
+    ls -l test_root  # Must look like this:  -rw-r--r--. 1 vdsm kvm 0 Oct  5 17:22 test_root
+    rm test_root
+    sudo su - vdsm -s /bin/bash
+    cd /mnt
+    touch test_vdsm
+    ls -l test_vdsm  # Must look like this:  -rw-r--r--. 1 vdsm kvm 0 Oct  5 17:22 test_vdsm
+    rm test_vdsm
+    sudo su - ceph -s /bin/bash
+    cd /mnt
+    touch test_ceph
+    ls -l test_ceph  # Must look like this:  -rw-r--r--. 1 vdsm kvm 0 Oct  5 17:22 test_ceph
+    rm test_ceph
+    sudo su - sanlock -s /bin/bash
+    cd /mnt
+    touch test_sanlock
+    ls -l test_sanlock  # Must look like this:  -rw-r--r--. 1 vdsm kvm 0 Oct  5 17:22 test_sanlock
+    rm test_sanlock
+```
+
+This assumes there is full connectivity between your hosts and the NFS server and all the firewalls involved are properly setup.
+
 
 #### Debian Squeeze
 ##### TODO: Update to current Debian

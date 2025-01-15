@@ -54,6 +54,19 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 
 <div class="case-study">
+[![team.blue](/images/logos/TeamBlue.svg)](//team.blue/)
+[team.blue](https://team.blue/) is a leading digital enabler for businesses and entrepreneurs across Europe
+(Austria, Belgium, Bulgaria, Cyprus, Czechia, Denmark, Finland, France, Germany, Greece, Hungary, Ireland, Italy, The Netherlands,
+Portugal, Serbia, Slovakia, Spain, Sweden, Switzerland, Türkiye and United Kingdom). The company is made up of 60+ successful
+brands who serve 3,3m SMB customers. team.blue is a one-stop partner for web hosting, domains, e-commerce, online compliance, lead
+generation and application solutions, supported by more than 3000 experts. team.blue's vision is to make online business simpler by
+shaping technology and providing customers with innovative online products and services.
+
+Next to providing some infrastructure for the oVirt ecosystem, team.blue is also actively developing
+the oVirt codebase and is represented within the oVirt Board.
+</div>
+
+<div class="case-study">
 ![UDS](/images/logos/UDSvirtualcable.png)
 [UDS Enterprise](https://www.udsenterprise.com/en/) is a connection broker that deploys VDIs and Vapps, enabling hypervisors, authenticators and connection protocols to run simultaneously. With oVirt, it makes a 100% open source solution.
 </div>
@@ -116,5 +129,6 @@ The following organizations are very helpful to the oVirt community by providing
 The following companies and institutes are represented on [the oVirt Board](/community/about/board.html).
 
 {:.ovirt-board-logos}
+[![Team.Blue](/images/logos/TeamBlue.svg)](//team.blue/)
 [![Red Hat](/images/logos/Red_Hat.svg)](//redhat.com/)
 [![Caltech](/images/logos/Caltech.svg)](//www.caltech.edu/)

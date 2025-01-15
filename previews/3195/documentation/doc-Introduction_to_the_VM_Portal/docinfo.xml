@@ -1,0 +1,22 @@
+<title>Introduction to the VM Portal</title>
+<productname>Red Hat Virtualization</productname>
+<productnumber>{vernum_rhv}</productnumber>
+<subtitle>Accessing and using the VM Portal</subtitle>
+<abstract><para>This document shows you how to use the Red Hat Virtualization VM Portal.</para>
+<!--<para>{beta-disclaimer}</para>--></abstract>
+<authorgroup id="Author_Group"> 
+	<author> 
+		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
+		<affiliation>
+			<orgname>
+				Red Hat
+			</orgname>
+			<orgdiv>
+				Customer Content Services
+			</orgdiv>
+		</affiliation><email>rhev-docs@redhat.com</email>
+	</author>
+</authorgroup>
+
+
+

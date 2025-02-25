@@ -2,6 +2,7 @@
 title: Joining the developers community
 authors:
   - sandrobonazzola
+  - jasperb
 page_classes: community
 no_container: true
 hide_metadata: true
@@ -28,7 +29,7 @@ Please follow the [user documentation](/documentation/index.html) for deploying 
 Sign up for the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list and send us an email saying how you would like to contribute.
 Visit our [mailing lists](https://lists.ovirt.org/archives/) page for other oVirt mailing lists to sign up for.
 
-For fluent, real time communication, you can [join us on IRC](/community/about/contact.html#irc)
+For fluent, real time communication, you can [join us on IRC](/community/about/contact.html#irc) or [join us on Matrix](/community/about/contact.html#matrix).
 
 Please read our [community etiquette guidelines](/community/about/community-guidelines.html). (Quick summary: Be nice!)
 
@@ -69,11 +70,11 @@ please comment on the ticket you are looking into it. If the ticket has already 
 Before writing any code, please check the subproject coding standards in the README file. If there is no mention about coding standards, try to follow
 the coding style used within the subproject existing sources.
 
-You can find us on both our mailing list and IRC if you run into trouble when selecting issues or setting up your development environment or if you have questions.
+You can find us on both our [Mailing lists](/community/about/mailing-lists.html) and [IRC](/community/about/contact.html#irc) or [Matrix](/community/about/contact.html#matrix) if you run into trouble when selecting issues or setting up your development environment or if you have questions.
 
 ## Setting up a development environment
 
 Each subproject should have instructions on how to setup your development environment to be able to develop and test your changes.
-If you don't find adequate documentation and you need help, please contact us on IRC or on the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
+If you don't find adequate documentation and you need help, please contact us on [IRC](/community/about/contact.html#irc), on [Matrix](/community/about/contact.html#matrix) or on the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
 
 </section>

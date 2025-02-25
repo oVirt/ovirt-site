@@ -4,6 +4,7 @@ category: integration
 authors:
   - bproffitt
   - sandrobonazzola
+  - jasperb
 ---
 
 # oVirt Quality Assurance
@@ -36,7 +37,7 @@ If you'd like to get involved with helping to make oVirt better, join oVirt [Com
 
 Everyone is welcome to join the `#ovirt` IRC channel, especially if you're thinking of getting involved with QA and would like to ask some questions first.
 
-You can also join oVirt users mailing list, where quality assurance-related topics are marked using `[QE]` in subject.
+You can also join oVirt users mailing list, where quality assurance-related topics are marked using `[QE]` in subject. Alternatively you could also join the [Matrix space](/community/about/contact.html#matrix).
 
 ## Next releases
 

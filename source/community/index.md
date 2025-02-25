@@ -8,6 +8,7 @@ authors:
   - sandrobonazzola
   - theron
   - gshereme
+  - jasperb
 page_classes: community
 no_container: true
 hide_metadata: true
@@ -32,7 +33,7 @@ Before getting started, we recommend that you:
 
 - Sign up for the [users@ovirt.org mailing list](/community/users-list.html) and send us an email saying how you would like to contribute.
   Visit our [mailing lists](/community/about/mailing-lists.html) page for other oVirt mailing lists to sign up for.
-- For fluent, real time communication, [join us on IRC](/community/about/contact.html#irc)
+- For fluent, real time communication, [join us on IRC](/community/about/contact.html#irc) or [join us on Matrix](/community/about/contact.html#matrix)
 - Please read our [community etiquette guidelines](/community/about/community-guidelines.html). (Quick summary: Be nice!)
 
 # Community
@@ -47,6 +48,7 @@ There are a few ways to engage with the oVirt Community:
 - [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)
 - [Twitter](https://twitter.com/ovirt)
 - IRC -- `#ovirt` on `irc.oftc.net`
+- [Matrix](https://matrix.to/#/#ovirt:ovirt.tech)
 
 Before getting started, please read our [community etiquette guidelines](/community/about/community-guidelines.html).
 

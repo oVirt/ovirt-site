@@ -5,6 +5,7 @@ toc: true
 authors:
   - dneary
   - quaid
+  - jasperb
 ---
 
 # Community Code of Conduct
@@ -13,7 +14,7 @@ We want to keep the oVirt Community a great place to participate, but we need yo
 
 The oVirt community is made up of a diverse mix of individuals using and contributing to all aspects of the project from all over the world, and we want to make sure that the community is a safe and friendly place for everyone.
 
-This code of conduct applies equally to founders, mentors and those seeking help and guidance. It applies to all spaces managed by the oVirt project, including IRC, mailing lists, GitHub, Gerrit, oVirt events, and any other forums created by the project team which the community uses for communication.
+This code of conduct applies equally to founders, mentors and those seeking help and guidance. It applies to all spaces managed by the oVirt project, including IRC, Matrix, mailing lists, GitHub, Gerrit, oVirt events, and any other forums created by the project team which the community uses for communication.
 
 While we have contribution guidelines for specific tools, we expect all members of our community to follow these general guidelines and be accountable to the community. This isn’t an exhaustive list of things that you can’t do. Rather, take it in the spirit in which it’s intended - a guide to make it easier to enrich all of us and the technical communities in which we participate.
 

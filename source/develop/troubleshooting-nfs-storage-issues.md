@@ -72,17 +72,17 @@ b. Ensure that `showmount -e <nfs_server_ip>` shows the expected export(s).
 
 The easiest way to definitively test that an NFS export is ready for use by oVirt is to:
 
-*   On the engine host (as the root user)
+*   On the engine host (as the root user):
     ```console
     # mkdir -p /tmpmnt
     # /bin/mount -t nfs -o soft,nosharecache,timeo=600,retrans=6,nfsvers=3 *your-nfs-servername:/path/of/export* /tmpmnt
     ```
 
-Create the **vdsm** user with uid **36** on the ovirt-engine host if it does not already exist.
+*   Create the **vdsm** user with uid **36** on the ovirt-engine host if it does not already exist.
 *   Change to the **vdsm** user using `su - vdsm -s /bin/bash`
 *   Try to create a file in it via the `touch` command, i.e. `touch /tmpmnt/tempfile`
 *   Cleanup the file `rm -f /tmpmnt/tempfile`
-*   Exit from the vdsm user and cleanup the temporary mountmount
+*   Exit from the vdsm user and cleanup the temporary mountpoint:
     ```console
     # exit  
     # umount /tmpmnt

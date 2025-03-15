@@ -25,7 +25,6 @@ The storage types described in the following sections are supported for use as d
 See:
 
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
-* link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index#[_{enterprise-linux} Storage Administration Guide_]
 
 [id="nfs"]
 == NFS
@@ -35,8 +34,6 @@ NFS versions 3 and 4 are supported by {virt-product-fullname} 4. Production work
 As NFS exports are grown to accommodate more storage needs, {virt-product-fullname} recognizes the larger data store immediately. No additional configuration is necessary on the hosts or from within {virt-product-fullname}. This provides NFS a slight edge over block storage from a scale and operational perspective.
 
 See:
-
-* link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index.html#ch-nfs[Network File System (NFS)] in the _{enterprise-linux} Storage Administration Guide_.
 
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-preparing_and_adding_nfs_storage[Preparing and Adding NFS Storage] in the _Administration Guide_.
 
@@ -49,8 +46,6 @@ Production workloads require an enterprise-grade iSCSI server. When enterprise i
 
 See:
 
-* link:{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management[Online Storage Management] in the _{enterprise-linux} Storage Administration Guide_.
-
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_iSCSI_Storage_storage_admin[Adding iSCSI Storage] in the _Administration Guide_.
 
 [id="fibre-channel"]
@@ -61,8 +56,6 @@ Fibre Channel is both fast and secure, and should be taken advantage of if it is
 {virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.
 
 See:
-
-* link:{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management[Online Storage Management] in the _{enterprise-linux} Storage Administration Guide_.
 
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_FCP_Storage_storage_admin[Adding FCP Storage] in the _Administration Guide_.
 
@@ -75,22 +68,20 @@ To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must e
 
 See:
 
-* link:{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management[Online Storage Management] in the _{enterprise-linux} Storage Administration Guide_.
-
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#how_to_set_up_rhvm_to_use_fcoe[How to Set Up {virt-product-fullname} {engine-name} to Use FCoE] in the _Administration Guide_.
 
 [id="rhhi"]
-== Red Hat Hyperconverged Infrastructure
+== oVirt Hyperconverged Infrastructure
 
-Red Hat Hyperconverged Infrastructure (RHHI) combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.
+oVirt Hyperconverged Infrastructure combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.
 
 See:
 
-* link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization/[_Deploying Red Hat Hyperconverged Infrastructure for Virtualization_]
+* Deploying oVirt Hyperconverged Infrastructure for Virtualization
 
-* link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization_on_a_single_node/[_Deploying Red Hat Hyperconverged Infrastructure for Virtualization On A Single Node_]
+* Deploying oVirt Hyperconverged Infrastructure for Virtualization On A Single Node
 
-* link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/automating_rhhi_for_virtualization_deployment/[_Automating RHHI for Virtualization Deployment_]
+* Automating Virtualization Deployment
 
 // Not currently supported with 4.2
 //[id="ceph"]
@@ -107,7 +98,7 @@ Other POSIX-compliant file systems can be used as storage domains in {virt-produ
 
 See:
 
-* link:{URL_rhel_docs_legacy}html/Global_File_System_2/index.html[_{enterprise-linux} Global File System 2_]
+* Global File System 2
 
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage[Adding POSIX Compliant File System Storage] in the _Administration Guide_.
 

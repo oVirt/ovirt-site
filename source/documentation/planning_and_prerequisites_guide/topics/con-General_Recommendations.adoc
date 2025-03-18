@@ -6,11 +6,11 @@
 
 * Avoid running any service that {virt-product-fullname} depends on as a virtual machine in the same environment. If this is done, it must be planned carefully to minimize downtime, if the virtual machine containing that service incurs downtime.
 
-* Ensure the bare-metal host or virtual machine that the {virt-product-fullname} {engine-name} will be installed on has enough entropy. Values below 200 can cause the {engine-name} setup to fail. To check the entropy value, run `cat /proc/sys/kernel/random/entropy_avail`. To increase entropy, install the `rng-tools` package and follow the steps in link:https://access.redhat.com/solutions/1395493[How can I customize rngd service startup?].
+* Ensure the bare-metal host or virtual machine that the {virt-product-fullname} {engine-name} will be installed on has enough entropy. Values below 200 can cause the {engine-name} setup to fail. To check the entropy value, run `cat /proc/sys/kernel/random/entropy_avail`. 
 
 * You can automate the deployment of hosts and virtual machines using PXE, Kickstart, Satellite, CloudForms, Ansible, or a combination thereof. However, installing a self-hosted engine using PXE is not supported. See:
 
-** link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Automating_RHVH_Deployment[Automating {hypervisor-fullname} Deployment] for the additional requirements for automated {hypervisor-shortname} deployment using PXE and Kickstart.
+** link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Automating_RHVH_Deployment_SM_localDB_deploy[Automating {hypervisor-fullname} Deployment] for the additional requirements for automated {hypervisor-shortname} deployment using PXE and Kickstart.
 ** Performing a Standard Installation.
 ** Performing an Advanced Installation.
 

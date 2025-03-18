@@ -8,7 +8,7 @@
 // Introduction_to_the_Administration_Portal
 // Introduction_to_the_VM_Portal
 
-Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on {enterprise-linux} and Windows. To install `virt-viewer`, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-installing_supporting_components[Installing Supporting Components on Client Machines] in the _Virtual Machine Management Guide_. Installing `virt-viewer` requires Administrator privileges.
+Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on {enterprise-linux} and Windows. To install `virt-viewer`, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Installing_Supporting_Components[Installing Supporting Components on Client Machines] in the _Virtual Machine Management Guide_. Installing `virt-viewer` requires Administrator privileges.
 
 You can access virtual machine consoles using the SPICE, VNC, or RDP (Windows only) protocols. You can install the QXLDOD graphical driver in the guest operating system to improve the functionality of SPICE. SPICE currently supports a maximum resolution of 2560x1600 pixels.
 

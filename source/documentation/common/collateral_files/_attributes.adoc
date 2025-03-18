@@ -109,5 +109,5 @@ ifdef::ovirt-doc[]
 :org-fullname: oVirt
 :container-platform: OKD
 :container-platform-virt: KubeVirt
-:supported-rhel-version: 8.7 or later
+:supported-rhel-version: 9 or later
 endif::ovirt-doc[]

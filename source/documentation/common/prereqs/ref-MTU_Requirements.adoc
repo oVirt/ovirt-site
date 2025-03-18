@@ -6,4 +6,45 @@
 // PPG
 // Install
 
-The recommended Maximum Transmission Units (MTU) setting for Hosts during deployment is 1500. It is possible to update this setting after the environment is set up to a different MTU. For more information on changing the MTU setting, see link:https://access.redhat.com/solutions/4129641[How to change the Hosted Engine VM network MTU].
+The recommended Maximum Transmission Units (MTU) setting for Hosts during deployment is 1500. It is possible to update this setting after the environment is set up to a different MTU. 
+Starting with {virt-product-fullname} 4.2, these changes can be made from the Admin Portal, however will require a reboot of the Hosted Engine VM and any other VM's using the management network should be powered down first.
+
+* Shutdown or unplug the vNIcs of all VM's that use the management network except for {engine-name}.
+* Change the MTU via Admin Portal - Network -> Networks -> Select the management network -> Edit -> MTU
+* Enable Global Maintenance:
+
+[source,terminal,subs="normal"]
+----
+# hosted-engine --set-maintenance --mode=global
+----
+
+* Then shutdown the HE VM:
+
+[source,terminal,subs="normal"]
+----
+# hosted-engine --vm-shutdown
+----
+
+* Check the status to confirm it is down:
+
+[source,terminal,subs="normal"]
+----
+# hosted-engine --vm-status
+----
+
+* Start the VM again:
+
+[source,terminal,subs="normal"]
+----
+  # hosted-engine --vm-start
+----
+
+* Check the status again to ensure it is back up and try to migrate the HE VM, the MTU value should persist through migrations.
+* If everything looks OK, disable Global Maintenance:
+
+[source,terminal,subs="normal"]
+----
+# hosted-engine --set-maintenance --mode=none
+----
+
+Note: Only the {engine-name} VM can be using the management network while making these changes (all other VM's using the management network should be down), otherwise the config does not come into effect immediately, and causes the VM to boot yet again with wrong MTU even after the change.

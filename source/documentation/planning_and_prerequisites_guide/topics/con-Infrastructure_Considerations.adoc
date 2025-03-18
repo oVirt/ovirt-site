@@ -17,8 +17,7 @@ You can also host the Data Warehouse service and the Data Warehouse database sep
 *{engine-name} database*:: To host the {engine-name} database on the {engine-name}, select `Local` when prompted by `engine-setup`.
 +
 To host the {engine-name} database on a remote machine, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database] in _Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_ before running `engine-setup` on the {engine-name}.
-+
-To migrate the {engine-name} database post-installation, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Migrating_the_Engine_Database_to_a_Remote_Server_Database[Migrating the Engine Database to a Remote Server Database] in the _Administration Guide_.
+
 
 *Websocket proxy*:: To host the websocket proxy on the {engine-name}, select `Yes` when prompted by `engine-setup`.
 

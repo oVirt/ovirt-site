@@ -15,13 +15,6 @@ Similarly, if you plan to access a local or remote Data Warehouse database from 
 Accessing the {engine-name} database from external systems is not supported.
 ====
 
-ifdef::rhv-doc[]
-[NOTE]
-====
-A diagram of these firewall requirements is available at https://access.redhat.com/articles/3932211.
-You can use the IDs in the table to look up connections in the diagram.
-====
-endif::[]
 
 .Database Server Firewall Requirements
 [options="header", cols="2,2,2,5,5,5,3", frame=all, grid=all]
@@ -33,7 +26,7 @@ endif::[]
 Data Warehouse service |{engine-name} (`engine`) database server
 
 Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
-|link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[No, but can be enabled].
+|link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_Data_Warehouse_to_a_Separate_Machine_SHE_cli_deploy[No, but can be enabled].
 |D2 |5432 |TCP, UDP |External systems |Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
-| Disabled by default. link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[No, but can be enabled].
+| Disabled by default. link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_Data_Warehouse_to_a_Separate_Machine_SHE_cli_deploy[No, but can be enabled].
 |===

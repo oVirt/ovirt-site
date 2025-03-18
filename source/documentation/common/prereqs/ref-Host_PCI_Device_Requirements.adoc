@@ -8,4 +8,4 @@
 
 Hosts must have at least one network interface with a minimum bandwidth of 1 Gbps. Each host should have two network interfaces, with one dedicated to supporting network-intensive activities, such as virtual machine migration. The performance of such operations is limited by the bandwidth available.
 
-For information about how to use PCI Express and conventional PCI devices with Intel Q35-based virtual machines, see link:https://access.redhat.com/articles/3201152[_Using PCI Express and Conventional PCI Devices with the Q35 Virtual Machine_].
+For information about how to use PCI Express and conventional PCI devices with Intel Q35-based virtual machines, see link:https://wiki.qemu.org/images/4/4e/Q35.pdf[_Q35_] and link:https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf[_PCI vs PCI Express in Q35_].

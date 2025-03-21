@@ -18,7 +18,7 @@ endif::upgrade[]
 // This link must always be the latest version.
 * Ensure your environment meets the requirements for {virt-product-fullname} {vername_rhv}.
 ifdef::rhv-doc[]
-For a complete list of prerequisites, see the link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#RHV_requirements[__Planning and Prerequisites Guide__].
+For a complete list of prerequisites, see the link:{URL_virt_product_docs}{URL_format}planning_and_prerequisites_guide/index#RHV_requirements[__Planning and Prerequisites Guide__].
 endif::rhv-doc[]
 
 * When upgrading {virt-product-fullname} {engine-name}, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.

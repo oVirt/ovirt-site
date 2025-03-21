@@ -6,7 +6,7 @@ The Graphics Processing Unit (GPU) device from a host can be directly assigned t
 
 This procedure is relevant for hosts with either x86_64 or ppc64le architecture.
 
-For more information on the hardware requirements for direct device assignment, see link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] in the _Planning and Prerequisites Guide_.
+For more information on the hardware requirements for direct device assignment, see link:{URL_virt_product_docs}{URL_format}planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] in the _Planning and Prerequisites Guide_.
 
 [IMPORTANT]
 ====

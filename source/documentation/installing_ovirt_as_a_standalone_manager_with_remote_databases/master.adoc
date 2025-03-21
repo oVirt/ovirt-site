@@ -9,7 +9,7 @@ Standalone {engine-name} installation is manual and customizable. You must insta
 
 To install the {engine-name} with a remote {engine-name} database, manually create the database on the remote machine before running `engine-setup`. To install the Data Warehouse database on a remote machine, run the Data Warehouse configuration script (`ovirt-engine-dwh-setup`) on the remote machine. This script installs the Data Warehouse service and can create the Data Warehouse database automatically.
 
-See the link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
+See the link:{URL_virt_product_docs}{URL_format}planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
 
 [discrete]
 include::common/arch/con-RHV_key_components.adoc[leveloffset=+1]

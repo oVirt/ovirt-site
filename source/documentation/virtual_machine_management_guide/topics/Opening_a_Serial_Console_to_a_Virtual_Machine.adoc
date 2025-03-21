@@ -13,8 +13,8 @@ The serial console is accessed through TCP port 2222 on the {engine-name}. This 
 
 You must configure the following firewall rules to allow a serial console:
 
-* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning[Rule "M3"] for the {engine-name} firewall
-* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-firewall-requirements_RHV_planning[Rule "H2"] for the host firewall
+* link:{URL_virt_product_docs}{URL_format}planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning[Rule "M3"] for the {engine-name} firewall
+* link:{URL_virt_product_docs}{URL_format}planning_and_prerequisites_guide/index#host-firewall-requirements_RHV_planning[Rule "H2"] for the host firewall
 
 The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmconsole-proxy` on the {engine-name} and the `ovirt-vmconsole` package and the `ovirt-vmconsole-host` package on the hosts.
 

@@ -9,7 +9,7 @@ Standalone {engine-name} installation is manual and customizable. You must insta
 
 In a local database environment, the {engine-name} database and Data Warehouse database can be created automatically by the {engine-name} configuration script. Alternatively, you can create these databases manually on the {engine-name} machine before running `engine-setup`.
 
-See the link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
+See the link:{URL_virt_product_docs}{URL_format}planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
 
 [discrete]
 include::common/arch/con-RHV_key_components.adoc[leveloffset=+1]

@@ -5,13 +5,14 @@ authors:
   - derez
   - msalem
   - ovedo
+  - gocallag
 ---
 
-# SPM Priority
+# Storage Pool Manager (SPM) Priority
 
 ## Summary
 
-The SPM Priority feature allows the admin to define priorities between hosts regarding the SPM selection process. A host can be given priority `-1` which means this host can not be selected to be the SPM.
+The Storage Pool Manager (SPM) Priority feature allows the admin to define priorities between hosts regarding the SPM selection process. A host can be given priority `-1` which means this host can not be selected to be the SPM.
 
 ## Owner
 

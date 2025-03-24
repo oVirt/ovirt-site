@@ -23,7 +23,7 @@ On existing clusters, the management network can only be changed using the *Mana
 
 * *ppc64*: For IBM POWER CPU types.
 
-|*CPU Type* |The oldest CPU family in the cluster. For a list of CPU types, see link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning[CPU Requirements] in the _Planning and Prerequisites Guide_. You cannot change this after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
+|*CPU Type* |The oldest CPU family in the cluster. For a list of CPU types, see link:{URL_virt_product_docs}{URL_format}planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning[CPU Requirements] in the _Planning and Prerequisites Guide_. You cannot change this after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
 |*Chipset/Firmware Type* a|This setting is only available if the *CPU Architecture* of the cluster is set to *x86_64*. This setting specifies the chipset and firmware type. Options are:
 
 * *Auto Detect*: This setting automatically detects the chipset and firmware type. When *Auto Detect* is selected, the chipset and firmware are determined by the first host up in the cluster.

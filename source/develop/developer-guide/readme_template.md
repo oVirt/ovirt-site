@@ -27,5 +27,5 @@ If you find a documentation issue on the oVirt website, please navigate to the p
 
 ## Still need help?
 
-If you have any other questions or suggestions, you can join and contact us on the [oVirt Users forum / mailing list](https://lists.ovirt.org/admin/lists/users.ovirt.org/).
+If you have any other questions or suggestions, you can join and contact us on the [oVirt Users forum / mailing list](https://lists.ovirt.org/hyperkitty/list/users@ovirt.org/).
 ```

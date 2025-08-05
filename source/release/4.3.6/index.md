@@ -37,7 +37,7 @@ To learn about features introduced before 4.3.6, see the
 
 ## What's New in 4.3.6?
 
-Release has been updated on [October 8th providing additional fixes](https://lists.ovirt.org/archives/list/announce@ovirt.org/thread/L7HQ3OU3PUEOJZKKZPLDOCUNMZD6UW5C/).
+Release has been updated on [October 8th providing additional fixes](https://lists.ovirt.org/hyperkitty/list/announce@ovirt.org/thread/L7HQ3OU3PUEOJZKKZPLDOCUNMZD6UW5C/).
 
 ### Release Note
 

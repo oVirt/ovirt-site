@@ -8,7 +8,7 @@ authors:
 
 # Engine High Availability
 
-This page was created as a result of a [discussion](https://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html) that started at @engine_devel.
+This page was created as a result of a discussion that started at @engine_devel.
 As we are considering an active/active architecture for Engine, we'll use this page to document required features and code changes that will be required.
 
 ## Architecture

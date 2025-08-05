@@ -44,7 +44,7 @@ As an exception you can upgrade from 4.3 to 4.5 without upgrading to 4.4 first.
 
 ## Suggestion to use nightly
 
-As [discussed in oVirt Users mailing list](https://lists.ovirt.org/archives/list/users@ovirt.org/thread/DMCC5QCHL6ECXN674JOLABH36U2LVJLJ/)
+As [discussed in oVirt Users mailing list](https://lists.ovirt.org/hyperkitty/list/users@ovirt.org/thread/DMCC5QCHL6ECXN674JOLABH36U2LVJLJ/)
 we suggest the user community to use [oVirt master snapshot repositories](/develop/dev-process/install-nightly-snapshot.html)
 ensuring that the latest fixes for the platform regressions will be promptly available.
 

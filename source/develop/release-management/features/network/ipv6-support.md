@@ -248,7 +248,6 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 ## Documentation / External references
 
 *   Presentation for Ovirt networking team [ODP](https://resources.ovirt.org/old-site-files/wiki/Ipv6-session.odp)
-*   <https://lists.ovirt.org/pipermail/users/2014-December/030135.html>
 
 ## Testing
 

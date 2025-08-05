@@ -62,4 +62,4 @@ Once your project is ready, the last step is activating the COPR web hook. The p
 Once everything is set, you can add a badge to your sub-project README file. Get the code to do that from
 `https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/package/<change this with your new package name>/`.
 
-If you need help, feel free to reach out to the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
+If you need help, feel free to reach out to the [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list.

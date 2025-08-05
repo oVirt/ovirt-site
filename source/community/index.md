@@ -44,7 +44,7 @@ There are a few ways to engage with the oVirt Community:
 
 - [Events](/events/)
 - [Archived Conferences Presentations](archived_conferences_presentations.html)
-- [Forums / Mailing lists](https://lists.ovirt.org/archives/)
+- [Forums / Mailing lists](https://lists.ovirt.org)
 - [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)
 - [Twitter](https://twitter.com/ovirt)
 - IRC -- `#ovirt` on `irc.oftc.net`

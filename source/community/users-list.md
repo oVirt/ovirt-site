@@ -7,7 +7,7 @@ no_container: true
 
 # Users list
 
-The [users mailing list](https://lists.ovirt.org/archives/list/users@ovirt.org/) is the main place for getting help, asking questions, consulting about setup design/hardware/configuration/performance etc., and of course sharing your experience.
+The [users mailing list](https://lists.ovirt.org/hyperkitty/list/users@ovirt.org/) is the main place for getting help, asking questions, consulting about setup design/hardware/configuration/performance etc., and of course sharing your experience.
 
 ## Getting help
 

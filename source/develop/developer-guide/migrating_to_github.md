@@ -26,7 +26,7 @@ The procedure for activating the mirroring is described within the [oVirt Infra 
 In order to deactivate the mirroring, the procedure must be reverted. As a pre-requisite you need to have gerrit administrator rights. If you are missing these rights, either:
 
 * Open a ticket on [the infra ticketing system](https://issues.redhat.com/projects/CPDEVOPS/summary)
-* Or ask on the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list
+* Or ask on the [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list
 * Or ask for [joining the oVirt infrastructure team](/develop/infra/infrastructure.html)
 
 If you have a user with admin permission on Gerrit:
@@ -225,7 +225,7 @@ If you choose to add the `config.yml` within the `ISSUE_TEMPLATE` folder, you ca
 blank_issues_enabled: true
 contact_links:
   - name: oVirt Mailing Lists
-    url: https://lists.ovirt.org/archives/
+    url: https://lists.ovirt.org/
     about: Join us on the mailing list for more conversations and community support
   - name: oVirt User Documentation
     url: https://ovirt.org/documentation/

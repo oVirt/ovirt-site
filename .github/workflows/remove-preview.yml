@@ -10,7 +10,7 @@ on:
 jobs:
   remove:
     name: "Remove preview build"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ovirt-site-preview-build
       cancel-in-progress: false

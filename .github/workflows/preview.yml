@@ -9,7 +9,7 @@ on:
 jobs:
   check:
     name: "Content check"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: "Checkout repo"
         uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
           fi
   build:
     name: "Build preview"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     outputs:
       PR_ID: ${{steps.details.outputs.PR_ID}}
       PREVIEW_PATH: ${{steps.details.outputs.PREVIEW_PATH}}
@@ -119,8 +119,10 @@ jobs:
     - name: "Run htmlproofer"
       run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c "bundle exec ruby htmlproofer_test.rb"
   publish:
+    permissions:
+      contents: write
     name: "Publish preview"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     needs:
       - check
       - build
@@ -128,6 +130,10 @@ jobs:
       group: ovirt-site-preview-build
       cancel-in-progress: false
     steps:
+      - name: set git defaults
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: "Checkout repo"
         uses: actions/checkout@v4
         with:
@@ -144,22 +150,19 @@ jobs:
           path: "${{needs.build.outputs.PREVIEW_PATH}}"
       - name: "Commit changes"
         run: |
-          set -euo pipefail
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .
-          if ! git diff-index --quiet HEAD --; then
-            git commit -m "Adding or updating preview build for PR ${{needs.build.outputs.PR_ID}}"
-            git push --set-upstream origin gh-pages
-          else
-            echo -e "No changes found."
+          commit=$(git log --format="%H" -n 1)
+          description=$(git describe --always)
+          if git status --porcelain 2>/dev/null| grep -E "^??|^M"
+          then
+            git add .
+            git commit -m "gh-pages ${description} ${commit}"
+            git push
           fi
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: "Send comment to PR"
         continue-on-error: true
         run: |
-          set -euo pipefail
           echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${{needs.build.outputs.PREVIEW_LINK}} ." >/tmp/comment
           gh pr comment ${{needs.build.outputs.PR_ID}} -F /tmp/comment
         env:

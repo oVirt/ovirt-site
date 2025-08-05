@@ -26,8 +26,8 @@ If you have no spare resources for providing a shared storage, you can configure
 
 Please follow the [user documentation](/documentation/index.html) for deploying your system.
 
-Sign up for the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list and send us an email saying how you would like to contribute.
-Visit our [mailing lists](https://lists.ovirt.org/archives/) page for other oVirt mailing lists to sign up for.
+Sign up for the [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list and send us an email saying how you would like to contribute.
+Visit our [mailing lists](https://lists.ovirt.org/) page for other oVirt mailing lists to sign up for.
 
 For fluent, real time communication, you can [join us on IRC](/community/about/contact.html#irc) or [join us on Matrix](/community/about/contact.html#matrix).
 
@@ -52,7 +52,7 @@ Within oVirt project several teams are taking care of different aspects of the s
 - Virtualization: responsible for VM lifecycle, System and host level scheduling / SLA
 - User Experience: responsible for UI Infra and overall UX consistency.
 
-The teams are discussing their work on [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list so to join a team
+The teams are discussing their work on [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list so to join a team
 you should start getting involved in these conversations.
 
 ## Contributing Code
@@ -63,7 +63,7 @@ Contributions of all types are gladly accepted!
 
 There are many repositories (sub-projects) within oVirt, details about the public repositories can be found over at the [oVirt GitHub Project](https://github.com/orgs/oVirt/repositories?type=public). 
 
-If you are looking for some task to pick up, you can ask for it on [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
+If you are looking for some task to pick up, you can ask for it on [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list.
 As an alternative you can look at open tickets on [oVirt GitHub issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse) and once you choose what to work on
 please comment on the ticket you are looking into it. If the ticket has already an assignee, please get in touch with the assignee before starting to work on the ticket.
 
@@ -75,6 +75,6 @@ You can find us on both our [Mailing lists](/community/about/mailing-lists.html)
 ## Setting up a development environment
 
 Each subproject should have instructions on how to setup your development environment to be able to develop and test your changes.
-If you don't find adequate documentation and you need help, please contact us on [IRC](/community/about/contact.html#irc), on [Matrix](/community/about/contact.html#matrix) or on the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list.
+If you don't find adequate documentation and you need help, please contact us on [IRC](/community/about/contact.html#irc), on [Matrix](/community/about/contact.html#matrix) or on the [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list.
 
 </section>

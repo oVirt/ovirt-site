@@ -90,7 +90,7 @@ to the new [infra ticketing system](https://issues.redhat.com/projects/CPDEVOPS/
 
 The main thing is to communicate with us if you have any questions, are interested in learning more, or want to participate in supporting oVirt infrastructure.
 
-*   [Mailing list infra@ovirt.org](https://lists.ovirt.org/archives/list/infra@ovirt.org/)
+*   [Mailing list infra@ovirt.org](https://lists.ovirt.org/hyperkitty/list/infra@ovirt.org/)
 *   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
 
 ### Meetings
@@ -99,7 +99,7 @@ The main thing is to communicate with us if you have any questions, are interest
 
 ### Decision process
 
-* The Infra team generally follows the principle that if it wasn't discussed on the [mailing list](https://lists.ovirt.org/archives/list/infra@ovirt.org/) it didn't really happen.
+* The Infra team generally follows the principle that if it wasn't discussed on the [mailing list](https://lists.ovirt.org/hyperkitty/list/infra@ovirt.org/) it didn't really happen.
 * This means all important or broad-reaching decisions are discussed and decided on the mailing list.
 * The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes
   * +1 is a vote in favor of a proposition

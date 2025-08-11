@@ -122,6 +122,7 @@ oVirt community shares scripts, tools, add-ons and plugins that didn't reach eno
 to get included into the oVirt project.
 You can find some of them listed here:
 
+- [Foreman plugin for oVirt](https://github.com/markt-de/foreman_ovirt)
 - [oVirt storage balancer](https://github.com/nkovacne/ovirt-storage-balancer)
 - [oVirt Simple Backup](https://github.com/zipurman/oVIRT_Simple_Backup)
 - [oVirt Desktop Client](https://github.com/nkovacne/ovirt-desktop-client)

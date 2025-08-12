@@ -188,8 +188,3 @@ breadcrumbs:
   root:
     hide: true
     image: false
-
-jekyll_analytics:
-  Piwik:
-    url: stats.ovirt.org
-    siteId: '1'

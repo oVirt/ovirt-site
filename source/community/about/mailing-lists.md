@@ -6,7 +6,7 @@ authors:
   - dneary
   - quaid
   - theron
-  - Jasper Berton
+  - jasperb
 ---
 
 # Mailing lists

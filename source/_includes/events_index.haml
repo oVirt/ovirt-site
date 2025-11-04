@@ -72,7 +72,7 @@
             .conference-info
               - if conf.location
                 %h3.location
-                  %a{:href => "https://maps.google.com/maps?q=" + conf.location, :target => "_blank"}
+                  %a{:href => "https://maps.google.com/maps?q=" + URI.encode_www_form_component(conf.location), :target => "_blank"}
                     = conf.location
 
               - if conf.start
@@ -105,10 +105,10 @@
 
                 - if talk.location
                   %h4.location
-                    %a{:href => "https://maps.google.com/maps?q=" + talk.location, :target => "_blank"}
+                    %a{:href => "https://maps.google.com/maps?q=" + URI.encode_www_form_component(talk.location), :target => "_blank"}
                 - elsif conf.location
                   %h4.location.hidden
-                    %a{:href => "https://maps.google.com/maps?q=" + conf.location, :target => "_blank"}
+                    %a{:href => "https://maps.google.com/maps?q=" + URI.encode_www_form_component(conf.location), :target => "_blank"}
 
                 %h4.speaker= talk.speaker
 

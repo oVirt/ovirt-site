@@ -18,7 +18,7 @@ The storage types described in the following sections are supported for use as d
 
 See:
 
-* link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
+* link:/documentation/administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
 
 [id="nfs"]
 == NFS
@@ -29,7 +29,7 @@ As NFS exports are grown to accommodate more storage needs, {virt-product-fullna
 
 See:
 
-* link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_NFS_Storage[Preparing and Adding NFS Storage] in the _Administration Guide_.
+* link:/documentation/administration_guide/index#sect-Preparing_and_Adding_NFS_Storage[Preparing and Adding NFS Storage] in the _Administration Guide_.
 
 [id="iscsi"]
 == iSCSI
@@ -40,7 +40,7 @@ Production workloads require an enterprise-grade iSCSI server. When enterprise i
 
 See:
 
-* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_iSCSI_Storage_storage_admin[Adding iSCSI Storage] in the _Administration Guide_.
+* link:/documentation/administration_guide/index#Adding_iSCSI_Storage_storage_admin[Adding iSCSI Storage] in the _Administration Guide_.
 
 [id="fibre-channel"]
 == Fibre Channel
@@ -51,7 +51,7 @@ Fibre Channel is both fast and secure, and should be taken advantage of if it is
 
 See:
 
-* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_FCP_Storage_storage_admin[Adding FCP Storage] in the _Administration Guide_.
+* link:/documentation/administration_guide/index#Adding_FCP_Storage_storage_admin[Adding FCP Storage] in the _Administration Guide_.
 
 [id="fcoe"]
 == Fibre Channel over Ethernet
@@ -62,7 +62,7 @@ To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must e
 
 See:
 
-* link:{URL_virt_product_docs}{URL_format}administration_guide/index#How_to_Set_Up_RHVM_to_Use_FCoE[How to Set Up {virt-product-fullname} {engine-name} to Use FCoE] in the _Administration Guide_.
+* link:/documentation/administration_guide/index#How_to_Set_Up_RHVM_to_Use_FCoE[How to Set Up {virt-product-fullname} {engine-name} to Use FCoE] in the _Administration Guide_.
 
 [id="rhhi"]
 == oVirt Hyperconverged Infrastructure
@@ -94,7 +94,7 @@ See:
 
 * Global File System 2
 
-* link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage[Adding POSIX Compliant File System Storage] in the _Administration Guide_.
+* link:/documentation/administration_guide/index#sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage[Adding POSIX Compliant File System Storage] in the _Administration Guide_.
 
 [id="local-storage"]
 == Local Storage
@@ -103,4 +103,4 @@ Local storage is set up on an individual host, using the host's own resources. W
 
 For {hypervisor-fullname}s, local storage should always be defined on a file system that is separate from / (root). Use a separate logical volume or disk.
 
-See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_Local_Storage[Preparing and Adding Local Storage] in the _Administration Guide_.
+See: link:/documentation/administration_guide/index#sect-Preparing_and_Adding_Local_Storage[Preparing and Adding Local Storage] in the _Administration Guide_.

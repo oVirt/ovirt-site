@@ -71,7 +71,7 @@ The following example shows you how to get diagnostic information about the VFs 
 
 // include::conc-What-are-SR-IOV-and-ARI.adoc[leveloffset=+1]
 
-== Additional Resources
+.Additional Resources
 
 * link:https://access.redhat.com/solutions/3867761[How to configure SR-IOV passthrough for RHV VM?]
 * link:https://access.redhat.com/articles/3215851[How to configure bonding with SR-IOV VF(Virtual Function) in RHV]

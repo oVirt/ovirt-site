@@ -39,7 +39,7 @@ echo: write error: Device or resource busy
 
 ////
 [discrete]
-== Additional resources
+.Additional resources
 
 * A bulleted list of links to other material closely related to the contents of the procedure module.
 * For more details on writing procedure modules, see the link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].

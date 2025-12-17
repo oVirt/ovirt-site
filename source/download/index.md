@@ -3,6 +3,7 @@ title: Download
 authors:
   - gshereme
   - sandrobonazzola
+  - jasperb
 page_classes: download
 ---
 
@@ -10,7 +11,7 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png" alt="oVirt Engine Administration panel screenshot">
 
-oVirt 4.5.5 is intended for production use and is available for the following platforms:
+oVirt 4.5.6 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8 (or similar)
@@ -23,7 +24,7 @@ Hosts:
 - oVirt Node based on CentOS Stream 9
 - CentOS Stream 9
 
-See the [Release Notes for oVirt 4.5.5](/release/4.5.5/).
+See the [Release Notes for oVirt 4.5.6](/release/4.5.6/).
 
 <div class="row"></div>
 

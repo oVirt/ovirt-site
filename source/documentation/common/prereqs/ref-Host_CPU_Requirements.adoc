@@ -8,12 +8,15 @@
 
 All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the AMD-V™ or Intel VT® hardware virtualization extensions enabled. Support for the No eXecute flag (NX) is also required.
 
-The following CPU models are supported:
+The following CPU models are supported on the latest cluster version(4.8):
 
 * AMD
 ** Opteron G4
 ** Opteron G5
 ** EPYC
+** EPYC-Rome
+** EPYC-Milan
+** EPYC-Genoa
 * Intel
 ** Nehalem
 ** Westmere
@@ -24,11 +27,14 @@ The following CPU models are supported:
 ** Skylake Client
 ** Skylake Server
 ** Cascadelake Server
+** IceLake Server
+** Sapphire Rapids Server
 
 ifndef::SHE_cli_deploy[]
 * IBM
 ** POWER8
 ** POWER9
+** POWER10
 endif::SHE_cli_deploy[]
 
 ifdef::ovirt-doc[]

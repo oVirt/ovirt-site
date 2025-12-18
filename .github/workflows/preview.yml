@@ -121,6 +121,7 @@ jobs:
   publish:
     permissions:
       contents: write
+      pages: write
     name: "Publish preview"
     runs-on: ubuntu-latest
     needs:
@@ -137,7 +138,8 @@ jobs:
       - name: "Checkout repo"
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
+          name: ovirt-site
+          ref: 'gh-pages'
           token: "${{ secrets.GITHUB_TOKEN }}"
       - name: "Remove preview build directory"
         run: rm -rf "${{needs.build.outputs.PREVIEW_PATH}}"
@@ -150,13 +152,16 @@ jobs:
           path: "${{needs.build.outputs.PREVIEW_PATH}}"
       - name: "Commit changes"
         run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           commit=$(git log --format="%H" -n 1)
           description=$(git describe --always)
-          if git status --porcelain 2>/dev/null| grep -E "^??|^M"
-          then
-            git add .
+          git add -A
+          if ! git diff --cached --quiet; then
             git commit -m "gh-pages ${description} ${commit}"
             git push
+          else
+            echo "No changes to commit"
           fi
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

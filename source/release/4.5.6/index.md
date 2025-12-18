@@ -43,7 +43,7 @@ If you are already using oVirt master snapshot you should already have received 
 
 # What's new in 4.5.6?
 
-* [oVirt Engine 4.5.6] (https://github.com/oVirt/ovirt-engine/releases/tag/ovirt-engine-4.5.6)
+* [oVirt Engine 4.5.6](https://github.com/oVirt/ovirt-engine/releases/tag/ovirt-engine-4.5.6)
 
 ### Contributors
 
